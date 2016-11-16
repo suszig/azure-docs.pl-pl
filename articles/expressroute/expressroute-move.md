@@ -1,12 +1,12 @@
 ---
-title: Przenoszenie obwodów usługi ExpressRoute z modelu klasycznego do usługi Resource Manager | Microsoft Docs
-description: Ta strona zawiera niezbędne informacje dotyczące łączenia modeli wdrażania klasycznego i usługi Resource Manager.
+title: "Przenoszenie obwodów usługi ExpressRoute z modelu klasycznego do usługi Resource Manager | Microsoft Docs"
+description: "Ta strona zawiera niezbędne informacje dotyczące łączenia modeli wdrażania klasycznego i usługi Resource Manager."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+
 
 ---
-# Przenoszenie obwodów usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager | Microsoft Azure
+# <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Przenoszenie obwodów usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager | Microsoft Azure
 W tym artykule wyjaśniono przenoszenie obwodu usługi Azure ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Azure Resource Manager.
 
 [!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -25,7 +29,7 @@ Można użyć jednego obwodu usługi ExpressRoute do łączenia się z sieciami 
 
 ![Obwód usługi ExpressRoute, który łączy się z sieciami wirtualnymi w obu modelach wdrażania](./media/expressroute-move/expressroute-move-1.png)
 
-## Obwody usługi ExpressRoute tworzone w klasycznym modelu wdrażania
+## <a name="expressroute-circuits-that-are-created-in-the-classic-deployment-model"></a>Obwody usługi ExpressRoute tworzone w klasycznym modelu wdrażania
 Obwody usługi ExpressRoute tworzone w klasycznym modelu wdrażania trzeba najpierw przenieść do modelu wdrażania usługi Resource Manager, aby włączyć łączność zarówno z klasycznym modelem wdrażania, jak i modelem wdrażania usługi Resource Manager. W przypadku przenoszenia połączenia łączność nie zostaje utracona ani zakłócona. Wszystkie linki sieciowe typu obwód-sieć wirtualna w klasycznym modelu wdrażania (w ramach tej samej subskrypcji lub wielu subskrypcji) są zachowywane.
 
 Po pomyślnym ukończeniu przeniesienia obwód usługi ExpressRoute wygląda i działa tak samo jak obwód usługi ExpressRoute utworzony w modelu wdrażania usługi Resource Manager. Możesz teraz tworzyć połączenia z sieciami wirtualnymi w modelu wdrażania usługi Resource Manager.
@@ -34,7 +38,7 @@ Po przeniesieniu obwodu usługi ExpressRoute do modelu wdrażania usługi Resour
 
 Przenoszenie nie wymaga udziału dostawcy połączenia.
 
-## Obwody usługi ExpressRoute tworzone w modelu wdrażania usługi Resource Manager
+## <a name="expressroute-circuits-that-are-created-in-the-resource-manager-deployment-model"></a>Obwody usługi ExpressRoute tworzone w modelu wdrażania usługi Resource Manager
 Można włączyć ustawienie obwodów usługi ExpressRoute tworzonych w modelu wdrażania usługi Resource Manager, które spowoduje, że będą one dostępne w obu modelach wdrażania. W dowolnym obwodzie usługi ExpressRoute w ramach subskrypcji można włączyć dostęp z obu modeli wdrażania.
 
 * Obwody usługi ExpressRoute utworzone w modelu wdrażania usługi Resource Manager domyślnie nie mają dostępu do klasycznego modelu wdrażania.
@@ -47,14 +51,14 @@ Można włączyć ustawienie obwodów usługi ExpressRoute tworzonych w modelu w
 > 
 > 
 
-## Kontrolowanie dostępu do klasycznego modelu wdrażania
+## <a name="controlling-access-to-the-classic-deployment-model"></a>Kontrolowanie dostępu do klasycznego modelu wdrażania
 Można włączyć łączenie pojedynczego obwodu usługi ExpressRoute z sieciami wirtualnymi w obu modelach wdrażania przez ustawienie parametru **allowClassicOperations** obwodu.
 
 Ustawienie parametru **allowClassicOperations** na wartość PRAWDA umożliwia połączenie sieci wirtualnych z obu modeli wdrażania z obwodem usługi ExpressRoute. Można połączyć się z sieciami wirtualnymi w klasycznym modelu wdrażania, wykonując instrukcje dotyczące [sposobu łączenia sieci wirtualnych w klasycznym modelu wdrażania](expressroute-howto-linkvnet-classic.md). Można połączyć się z sieciami wirtualnymi w klasycznym modelu wdrażania usługi Resource Manager, wykonując instrukcje dotyczące [sposobu łączenia sieci wirtualnych w modelu wdrażania usługi Resource Manager](expressroute-howto-linkvnet-arm.md).
 
 Ustawienie parametru **allowClassicOperations** na wartość FAŁSZ blokuje dostęp do obwodu z klasycznego modelu wdrażania. Jednak wszystkie linki sieci wirtualnej w klasycznym modelu wdrażania zostają zachowane. W takim przypadku obwód usługi ExpressRoute nie jest widoczny w klasycznym modelu wdrażania.
 
-## Operacje obsługiwane w klasycznym modelu wdrażania
+## <a name="supported-operations-in-the-classic-deployment-model"></a>Operacje obsługiwane w klasycznym modelu wdrażania
 Poniższe operacje klasyczne są obsługiwane w obwodzie usługi ExpressRoute, gdy parametr **allowClassicOperations** jest ustawiony na wartość PRAWDA:
 
 * Uzyskanie informacji na temat obwodu usługi ExpressRoute
@@ -66,15 +70,15 @@ Nie można wykonać poniższych operacji klasycznych, jeśli parametr **allowCla
 * Tworzenie/aktualizowanie/pobieranie/usuwanie komunikacji równorzędnej protokołu BGP dla komunikacji równorzędnej prywatnej i publicznej Azure oraz Microsoft
 * Usuwanie obwodów usługi ExpressRoute
 
-## Komunikacja między klasycznym modelem wdrażania i modelem wdrażania usługi Resource Manager
+## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>Komunikacja między klasycznym modelem wdrażania i modelem wdrażania usługi Resource Manager
 Obwód usługi ExpressRoute zachowuje się jak most między klasycznym modelem wdrażania a modelem wdrażania usługi Resource Manager. Ruch między maszynami wirtualnymi w sieciach wirtualnych w klasycznym modelu wdrażania oraz tymi w sieciach wirtualnych w modelu wdrażania usługi Resource Manager odbywa się za pośrednictwem usługi ExpressRoute, jeśli obie sieci wirtualne są połączone z tym samym obwodem usługi ExpressRoute.
 
 Zagregowana przepływność jest ograniczona przez przepływność bramy sieci wirtualnej. W takich przypadkach ruch nie wchodzi do sieci dostawcy połączenia ani sieci użytkownika. Przepływ ruchu między sieciami wirtualnymi jest całkowicie ograniczony do sieci firmy Microsoft.
 
-## Dostęp do publicznych zasobów Azure i firmy Microsoft komunikacji równorzędnej
+## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Dostęp do publicznych zasobów Azure i firmy Microsoft komunikacji równorzędnej
 Możesz dalej bez żadnych zakłóceń uzyskiwać dostęp do zasobów, które są zwykle dostępne za pośrednictwem publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft.  
 
-## Jakie operacje są obsługiwane
+## <a name="whats-supported"></a>Jakie operacje są obsługiwane
 W tej sekcji opisano, jakie operacje są obsługiwane dla obwodów usługi ExpressRoute:
 
 * Można używać jednego obwodu usługi ExpressRoute do uzyskiwania dostępu do sieci wirtualnych wdrożonych zarówno w klasycznym modelu wdrażania, jak i w modelu wdrażania usługi Resource Manager.
@@ -84,17 +88,17 @@ W tej sekcji opisano, jakie operacje są obsługiwane dla obwodów usługi Expre
 * Obwód usługi ExpressRoute zachowuje się jak most między klasycznym modelem wdrażania a modelem wdrażania usługi Resource Manager. Ruch między maszynami wirtualnymi w sieciach wirtualnych w klasycznym modelu wdrażania oraz tymi w sieciach wirtualnych w modelu wdrażania usługi Resource Manager odbywa się za pośrednictwem usługi ExpressRoute, jeśli obie sieci wirtualne są połączone z tym samym obwodem usługi ExpressRoute.
 * Łączność obejmująca wiele subskrypcji jest obsługiwana zarówno w klasycznym modelu wdrażania, jak i w modelu wdrażania usługi Resource Manager.
 
-## Jakie operacje nie są obsługiwane
+## <a name="whats-not-supported"></a>Jakie operacje nie są obsługiwane
 W tej sekcji opisano, jakie operacje nie są obsługiwane dla obwodów usługi ExpressRoute:
 
 * Przenoszenie linków obwodu, bram i sieci wirtualnych z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager.
 * Zarządzanie cyklem życia obwodu usługi ExpressRoute z klasycznego modelu wdrażania.
 * Obsługa kontroli dostępu opartej na rolach (RBAC) dla klasycznego modelu wdrażania. W klasycznym modelu wdrażania nie można wykonywać kontrolek RBAC do obwodu. Dowolny administrator/współadministrator subskrypcji może połączyć sieci wirtualne z obwodem lub je od niego odłączyć.
 
-## Konfigurowanie
+## <a name="configuration"></a>Konfigurowanie
 Wykonaj instrukcje opisane w artykule [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md) (Przenoszenie obwodu usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Informacje o przepływach pracy można znaleźć w artykule [ExpressRoute circuit provisioning workflows and circuit states](expressroute-workflows.md) (Przepływy pracy inicjowania obsługi obwodu i stany obwodu usługi ExpressRoute).
 * Konfigurowanie połączenia usługi ExpressRoute:
   
@@ -102,6 +106,9 @@ Wykonaj instrukcje opisane w artykule [Move an ExpressRoute circuit from the cla
   * [Configure routing (Konfigurowanie routingu)](expressroute-howto-routing-arm.md)
   * [Link a virtual network to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

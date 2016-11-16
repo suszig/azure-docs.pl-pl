@@ -1,13 +1,13 @@
 ---
-title: Wprowadzenie do wstępnie skonfigurowanych rozwiązań | Microsoft Docs
-description: Wykonaj czynności opisane w tym samouczku, aby dowiedzieć się, jak wdrożyć wstępnie skonfigurowane rozwiązanie Pakiet IoT Azure.
-services: ''
+title: "Wprowadzenie do wstępnie skonfigurowanych rozwiązań | Microsoft Docs"
+description: "Wykonaj czynności opisane w tym samouczku, aby dowiedzieć się, jak wdrożyć wstępnie skonfigurowane rozwiązanie Pakiet IoT Azure."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+
 
 ---
-# Samouczek: wprowadzenie do wstępnie skonfigurowanych rozwiązań
-## Wprowadzenie
+# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Samouczek: wprowadzenie do wstępnie skonfigurowanych rozwiązań
+## <a name="introduction"></a>Wprowadzenie
 [Wstępnie skonfigurowane rozwiązania][lnk-preconfigured-solutions] Pakietu IoT Azure obejmują wiele usług Azure IoT, co pozwala dostarczać kompleksowe rozwiązania, które umożliwiają implementowanie typowych scenariuszy biznesowych IoT. Wstępnie skonfigurowane rozwiązanie do *monitorowania zdalnego* łączy i monitoruje urządzenia. Rozwiązanie to umożliwia analizowanie strumienia danych z urządzeń oraz poprawianie wyników biznesowych dzięki zautomatyzowaniu odpowiedzi procesów na ten strumień danych.
 
 W tym samouczku przedstawiono sposób aprowizowania wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego. Dostępny jest również opis podstawowych funkcji rozwiązania do monitorowania zdalnego. Dostęp do wielu z tych funkcji można uzyskać za pośrednictwem pulpitu nawigacyjnego rozwiązania, który jest wdrażany razem ze wstępnie skonfigurowanym rozwiązaniem:
@@ -34,7 +38,7 @@ Do wykonania kroków tego samouczka jest potrzebna aktywna subskrypcja platformy
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Wyświetlanie pulpitu nawigacyjnego
+## <a name="view-the-solution-dashboard"></a>Wyświetlanie pulpitu nawigacyjnego
 Pulpit nawigacyjny pozwala zarządzać wdrożonym rozwiązaniem. Można na przykład wyświetlać dane telemetryczne, dodawać urządzenia i konfigurować reguły.
 
 1. Jeśli aprowizacja została ukończona, a na kafelku wstępnie skonfigurowanego rozwiązania jest wyświetlany stan **Gotowe**, kliknij pozycję **Uruchom**, aby otworzyć portal rozwiązania do monitorowania zdalnego na nowej karcie.
@@ -50,7 +54,7 @@ Pulpit nawigacyjny udostępnia następujące informacje:
 * W panelu **Historia telemetrii** są wyświetlane niemal w czasie rzeczywistym dane telemetryczne dotyczące wilgotności i temperatury pochodzące z wybranego urządzenia oraz dane zagregowane, takie jak wilgotność maksymalna, minimalna i średnia.
 * W panelu **Historia alarmów** są wyświetlane ostatnie zdarzenia alarmów, generowane w przypadku przekroczenia progu przez wartość telemetryczną. Wstępnie skonfigurowane rozwiązanie zawiera przykładowe alarmy, ale można też definiować własne.
 
-## Wyświetlanie listy urządzeń
+## <a name="view-the-device-list"></a>Wyświetlanie listy urządzeń
 Lista urządzeń zawiera wszystkie zarejestrowane urządzenia należące do rozwiązania. Urządzenia można dodawać i usuwać oraz wysyłać do nich polecenia, a także wyświetlać i edytować ich metadane.
 
 1. Kliknij pozycję **Urządzenia** w menu po lewej stronie, aby wyświetlić *listę urządzeń* dla tego rozwiązania.
@@ -67,7 +71,7 @@ W panelu **Szczegóły urządzenia** są widoczne trzy sekcje:
 * W sekcji **Właściwości urządzenia** są wyświetlane metadane urządzenia. Niektóre metadane pochodzą z urządzenia (na przykład informacje o producencie), a inne są generowane przez rozwiązanie (na przykład godzina utworzenia). Metadane urządzeń można edytować.
 * Sekcja **Klucze uwierzytelniania** zawiera listę kluczy używanych przez urządzenie do uwierzytelniania w rozwiązaniu.
 
-## Wysyłanie polecenia do urządzenia
+## <a name="send-a-command-to-a-device"></a>Wysyłanie polecenia do urządzenia
 Okienko szczegółów urządzenia zawiera wszystkie polecenia obsługiwane przez to urządzenie oraz umożliwia wysyłanie poleceń do urządzenia. Gdy urządzenie jest uruchamiane po raz pierwszy, wysyła do rozwiązania informacje o obsługiwanych poleceniach.
 
 1. Kliknij pozycję **Polecenia** w okienku szczegółów wybranego urządzenia.
@@ -81,7 +85,7 @@ Okienko szczegółów urządzenia zawiera wszystkie polecenia obsługiwane przez
 
 Rozwiązanie umożliwia śledzenie stanu wszystkich wysyłanych poleceń. Na początku wynik ma wartość **Oczekiwanie**. Gdy urządzenie zgłosi wykonanie polecenia, wynik jest ustawiany na **Powodzenie**.
 
-## Dodawanie nowego symulowanego urządzenia
+## <a name="add-a-new-simulated-device"></a>Dodawanie nowego symulowanego urządzenia
 Podczas wdrażania wstępnie skonfigurowanego rozwiązania automatycznie aprowizujesz cztery przykładowe urządzenia widoczne na liście urządzeń. Są to *symulowane urządzenia* uruchamiane w zadaniu WebJob Azure. Symulowane urządzenia ułatwiają eksperymentowanie ze wstępnie skonfigurowanym rozwiązaniem bez konieczności wdrażania prawdziwych urządzeń fizycznych. Jeśli chcesz połączyć prawdziwe urządzenie z rozwiązaniem, zobacz samouczek [Łączenie urządzenia ze wstępnie skonfigurowanym rozwiązaniem do monitorowania zdalnego][lnk-connect-rm].
 
 Poniższe kroki pokazują, jak dodać symulowane urządzenie do rozwiązania:
@@ -107,7 +111,7 @@ Poniższe kroki pokazują, jak dodać symulowane urządzenie do rozwiązania:
    
     ![Wyświetlanie telemetrii z nowego urządzenia][img-runningnew-2]
 
-## Edytowanie metadanych urządzenia
+## <a name="edit-the-device-metadata"></a>Edytowanie metadanych urządzenia
 Kiedy urządzenie po raz pierwszy łączy się z rozwiązaniem, wysyła do rozwiązania swoje metadane. Gdy metadane urządzenia zostaną zmienione za pośrednictwem pulpitu nawigacyjnego rozwiązania, pulpit wysyła nowe wartości metadanych do urządzenia i zapisuje je w bazie danych DocumentDB rozwiązania. Aby uzyskać więcej informacji, zobacz [Rejestr tożsamości urządzeń i baza danych DocumentDB][lnk-devicemetadata].
 
 1. Wróć do listy urządzeń.
@@ -121,7 +125,7 @@ Kiedy urządzenie po raz pierwszy łączy się z rozwiązaniem, wysyła do rozwi
    
     ![Edytowanie metadanych urządzenia][img-editdevice3]
 
-## Dodawanie reguły dla nowego urządzenia
+## <a name="add-a-rule-for-the-new-device"></a>Dodawanie reguły dla nowego urządzenia
 Dla nowo dodanego urządzenia nie zostały określone żadne reguły. W tej sekcji dodasz regułę, która powoduje uruchomienie alarmu, gdy temperatura zgłoszona przez nowe urządzenie przekroczy 47 stopni. Przed wykonaniem poniższych instrukcji zwróć uwagę na to, że zgodnie z historią telemetrii dla nowego urządzenia dostępną na pulpicie nawigacyjnym temperatura urządzenie nigdy nie przekracza 45 stopni.
 
 1. Wróć do listy urządzeń.
@@ -151,7 +155,7 @@ Dla nowo dodanego urządzenia nie zostały określone żadne reguły. W tej sekc
 > 
 > 
 
-## Pozostałe funkcje
+## <a name="other-features"></a>Pozostałe funkcje
 Portal rozwiązania pozwala wyszukiwać urządzenia o konkretnych cechach, takich jak numer modelu:
 
 ![Wyszukiwanie urządzenia][img-search]
@@ -160,7 +164,7 @@ Można wyłączyć urządzenie, a następnie je usunąć:
 
 ![Wyłączanie i usuwanie urządzenia][img-disable]
 
-## Za kulisami
+## <a name="behind-the-scenes"></a>Za kulisami
 Podczas wdrażania wstępnie skonfigurowanego rozwiązania jest tworzonych wiele zasobów w ramach wybranej subskrypcji platformy Azure. Można je wyświetlić w [portalu][lnk-portal] Azure. W procesie wdrażania jest tworzona **grupa zasobów** o nazwie odpowiadającej nazwie wstępnie skonfigurowanego rozwiązania:
 
 ![Wstępnie skonfigurowane rozwiązanie w portalu Azure][img-portal]
@@ -180,7 +184,7 @@ Gdy wszystko będzie gotowe, możesz usunąć wstępnie skonfigurowane rozwiąza
 > 
 > 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Teraz, kiedy zostało wdrożone wstępnie skonfigurowane rozwiązanie, które działa, możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
 
 * [Przewodnik po wstępnie skonfigurowanym rozwiązaniu do monitorowania zdalnego][lnk-rm-walkthrough]
@@ -225,6 +229,6 @@ Teraz, kiedy zostało wdrożone wstępnie skonfigurowane rozwiązanie, które dz
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

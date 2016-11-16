@@ -5,7 +5,7 @@
 > 
 > 
 
-## Wprowadzenie
+## <a name="introduction"></a>Wprowadzenie
 Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną komunikację dwukierunkową między milionami urządzeń Internetu rzeczy (IoT) i zapleczem rozwiązania. Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niezawodny i bezpieczny połączyć urządzenia z zapleczem rozwiązania. Problem ten można rozwiązać, ponieważ usługa IoT Hub:
 
 * Zapewnia niezawodne przesyłanie komunikatów z urządzeń do chmury i z chmury do urządzeń w hiperskali;
@@ -18,6 +18,8 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 * Utworzenie tożsamości urządzenia w centrum IoT.
 * Utworzenie symulowanego urządzenia, które wysyła telemetrię do zaplecza chmury i odbiera z niego polecenia.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

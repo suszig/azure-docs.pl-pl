@@ -1,12 +1,12 @@
 ---
-title: Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication
-description: Ta strona jest poświęcona usłudze Azure Multi-Factor Authentication i zawiera informacje pomocne podczas wdrażania uwierzytelniania systemu Windows i korzystania z serwera usługi Azure Multi-Factor Authentication.
+title: "Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication"
+description: "Ta strona jest poświęcona usłudze Azure Multi-Factor Authentication i zawiera informacje pomocne podczas wdrażania uwierzytelniania systemu Windows i korzystania z serwera usługi Azure Multi-Factor Authentication."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+
 
 ---
-# Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication
+# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Uwierzytelnianie systemu Windows i serwer usługi Azure Multi-Factor Authentication
 W sekcji Uwierzytelnianie systemu Windows administrator może włączyć i skonfigurować uwierzytelnianie systemu Windows dla jednej lub większej liczby aplikacji.  Poniżej znajduje się lista kwestii, o których należy pamiętać przed skonfigurowaniem uwierzytelniania systemu Windows.
 
 * Zanim usługa Azure Multi-Factor Authentication dla usług terminalowych zacznie działać, wymagane jest ponowne uruchomienie.
@@ -28,7 +32,7 @@ W sekcji Uwierzytelnianie systemu Windows administrator może włączyć i skonf
 > 
 > 
 
-## Do zabezpieczenia aplikacji z użyciem uwierzytelniania systemu Windows należy zastosować następującą procedurę.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Do zabezpieczenia aplikacji z użyciem uwierzytelniania systemu Windows należy zastosować następującą procedurę.
 1. Kliknij ikonę uwierzytelniania systemu Windows na serwerze usługi Azure Multi-Factor Authentication.
    ![Uwierzytelnianie systemu Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Zaznacz pole wyboru Włącz uwierzytelnianie systemu Windows. Domyślnie to pole nie jest zaznaczone.
@@ -42,6 +46,9 @@ W sekcji Uwierzytelnianie systemu Windows administrator może włączyć i skonf
 10. Wybierz opcję Podsieć, aby określić zakres adresów IP, korzystając z notacji podsieci. Wprowadź początkowy adres IP podsieci i wybierz odpowiednią maskę sieci z listy rozwijanej.
 11. Kliknij przycisk OK.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: Przewodnik dewelopera usługi Azure Active Directory | Microsoft Docs
-description: Ten artykuł zawiera kompletny przewodnik dotyczący zasobów dla deweloperów usługi Azure Active Directory.
+title: "Przewodnik dewelopera usługi Azure Active Directory | Microsoft Docs"
+description: "Ten artykuł zawiera kompletny przewodnik dotyczący zasobów dla deweloperów usługi Azure Active Directory."
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+
 
 ---
-# <a name="azure-active-directory-developer's-guide"></a>Przewodnik dewelopera usługi Azure Active Directory
+# <a name="azure-active-directory-developers-guide"></a>Przewodnik dewelopera usługi Azure Active Directory
 ## <a name="overview"></a>Omówienie
 Jako platforma typu zarządzanie tożsamością jako usługa (IDMaaS), usługa Azure Active Directory (AD) zapewnia deweloperom efektywny sposób integrowania zarządzania tożsamością w swoich aplikacjach. Poniższe artykuły zawierają omówienie implementacji i kluczowych funkcji usługi Azure AD. Zalecamy zapoznanie się z materiałami w odpowiedniej kolejności lub przejście do sekcji [Wprowadzenie](#getting-started), jeśli chcesz już rozpocząć pracę.
 
-1. [Korzyści wynikające z integracji usługi Azure AD](active-directory-how-to-integrate.md): odkryj, dlaczego integracja z usługą Azure AD oferuje najlepsze rozwiązanie w zakresie bezpiecznego logowania i autoryzacji.
+1. [Korzyści wynikające z integracji usługi Azure AD](develop/active-directory-how-to-integrate.md): odkryj, dlaczego integracja z usługą Azure AD oferuje najlepsze rozwiązanie w zakresie bezpiecznego logowania i autoryzacji.
 2. [Scenariusze uwierzytelniania usługi Azure AD](active-directory-authentication-scenarios.md): wykorzystaj uproszczone uwierzytelnianie w usłudze Azure AD, aby zapewnić logowanie do aplikacji.
 3. [Integrowanie aplikacji w usłudze Azure AD](active-directory-integrating-applications.md): dowiedz się, jak dodawać, aktualizować i usuwać aplikacje z usługi Azure AD i poznaj wytyczne związane ze znakowaniem zintegrowanych aplikacji.
 4. [Interfejs API programu Graph w usłudze Azure AD](active-directory-graph-api.md): używaj interfejsu API programu Graph w usłudze Azure AD, aby uzyskać programowy dostęp do usługi Azure AD za pośrednictwem punktów końcowych interfejsu API REST. Interfejs API programu Graph w usłudze Azure AD jest również dostępny za pośrednictwem programu [Microsoft Graph](https://graph.microsoft.io/). Program Microsoft Graph udostępnia standaryzowany interfejs API, który umożliwia uzyskiwanie dostępu do wielu interfejsów API usług w chmurze firmy Microsoft poprzez jeden punkt końcowy interfejsu API REST i przy użyciu jednego tokenu dostępu.
@@ -29,17 +33,17 @@ Jako platforma typu zarządzanie tożsamością jako usługa (IDMaaS), usługa A
 ## <a name="getting-started"></a>Wprowadzenie
 Te samouczki są dostosowane do wielu platform i mogą pomóc w szybkim rozpoczęciu tworzenia przy użyciu usługi Azure Active Directory. Warunkiem wstępnym jest [uzyskanie dzierżawy usługi Azure Active Directory](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quick-start-guides"></a>Poradniki Szybki start dotyczące aplikacji mobilnych i komputerowych
+### <a name="mobile-and-pc-application-quickstart-guides"></a>Poradniki Szybki start dotyczące aplikacji mobilnych i komputerowych
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Aplikacje uniwersalne systemu Windows](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Aplikacje uniwersalne systemu Windows](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Integracja bezpośrednia z uwierzytelnianiem OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quick-start-guides"></a>Poradniki Szybki start dotyczące aplikacji sieci Web
+### <a name="web-application-quickstart-guides"></a>Poradniki Szybki start dotyczące aplikacji sieci Web
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Integracja bezpośrednia z protokołem OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quick-start-guides"></a>Przewodniki Szybki start dotyczące interfejsu API sieci Web
+### <a name="web-api-quickstart-guides"></a>Przewodniki Szybki start dotyczące interfejsu API sieci Web
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -49,11 +53,11 @@ Te samouczki są dostosowane do wielu platform i mogą pomóc w szybkim rozpocz�
 |:---:|
 | [Interfejs API programu Graph](active-directory-graph-api-quickstart.md) |
 
-## <a name="how-tos"></a>Poradniki
+## <a name="howtos"></a>Poradniki
 Te artykuły zawierają opis wykonywania określonych zadań przy użyciu usługi Azure Active Directory:
 
 * [Uzyskiwanie dzierżawy usługi Azure AD](active-directory-howto-tenant.md)
-* [Logowanie się dowolnego użytkownika usługi Azure AD za pomocą wzorca aplikacji wielodostępnych](active-directory-devhowto-multi-tenant-overview.md) 
+* [Logowanie się dowolnego użytkownika usługi Azure AD za pomocą wzorca aplikacji wielodostępnych](active-directory-devhowto-multi-tenant-overview.md)
 * Włączanie logowania jednokrotnego dla wielu aplikacji za pomocą biblioteki ADAL na urządzeniach z systemem [Android](active-directory-sso-android.md) i [iOS](active-directory-sso-ios.md)
 * [Przyznawanie aplikacji certyfikatu AppSource dla usługi Azure AD](active-directory-devhowto-appsource-certified.md)
 * [Wyświetlanie listy aplikacji w galerii aplikacji usługi Azure AD](active-directory-app-gallery-listing.md)
@@ -100,7 +104,7 @@ Te prezentacje przedstawiające tworzenie aplikacji przy użyciu usługi Azure A
 * [Develop modern native applications with Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/) (Opracowywanie nowoczesnych aplikacji natywnych przy użyciu usługi Azure Active Directory)
 
 ### <a name="azure-friday"></a>Piątek z Azure
-[Piątek z Azure](https://azure.microsoft.com/documentation/videos/azure-friday/) to cykliczna seria nagrań wideo z wywiadami 1:1 odbywająca się w piątki. Seria skupia się na krótkich (10–15 minut) wywiadach z ekspertami omawiającymi różne tematy związane z platformą Azure.  Użyj funkcji filtrowania usług na stronie, aby zobaczyć wszystkie filmy wideo dotyczące usługi Azure Active Directory.
+[Piątek z Azure](https://azure.microsoft.com/documentation/videos/azure-friday/) to cykliczna seria nagrań wideo z wywiadami 1:1 odbywająca się w piątki. Seria skupia się na krótkich (10–15 minut) wywiadach z ekspertami omawiającymi różne tematy związane z platformą Azure.  Użyj funkcji filtrowania usług na stronie, aby zobaczyć wszystkie filmy wideo dotyczące usługi Azure Active Directory.
 
 * [Azure Identity 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/) (Podstawy zarządzania tożsamościami na platformie Azure — 101)
 * [Azure Identity 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/) (Podstawy zarządzania tożsamościami na platformie Azure — 102)
@@ -112,6 +116,15 @@ Te prezentacje przedstawiające tworzenie aplikacji przy użyciu usługi Azure A
 * [Tożsamość w chmurze](http://www.cloudidentity.net): przemyślenia dotyczące rozwiązania „zarządzanie tożsamością jako usługa” pochodzące od głównego menedżera projektów usługi Azure Active Directory.  
 * [Usługa Azure Active Directory w serwisie Twitter](https://twitter.com/azuread): ogłoszenia dotyczące usługi Azure Active Directory o długości maksymalnie 140 znaków.
 
-<!--HONumber=Oct16_HO3-->
+## <a name="windows-server-onpremises-development"></a>Lokalne programowanie systemu Windows Server
+Aby uzyskać wskazówki dotyczące używania funkcji programowania systemu Windows Server i usług Active Directory Federation Services (AD FS), zobacz:
+
+* [Scenariusze usług AD FS dla deweloperów](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): zawiera omówienie składników usług AD FS i sposobu ich działania, ze szczegółami dotyczącymi obsługiwanych scenariuszy uwierzytelniania/autoryzacji.
+* [Przewodniki dotyczące usług AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): lista przewodników, które zawierają instrukcje krok po kroku dotyczące implementowania powiązanych przepływów uwierzytelniania/autoryzacji.
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

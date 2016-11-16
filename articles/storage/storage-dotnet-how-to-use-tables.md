@@ -1,12 +1,12 @@
 ---
-title: Rozpoczynanie pracy z Magazynem tabel Azure przy użyciu platformy .NET | Microsoft Docs
-description: Przechowywanie danych strukturalnych w chmurze za pomocą Magazynu tabel Azure, magazyn danych NoSQL.
+title: "Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu programu .NET | Microsoft Docs"
+description: "Przechowywanie danych strukturalnych w chmurze za pomocą Magazynu tabel Azure, magazyn danych NoSQL."
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+
 
 ---
-# <a name="get-started-with-azure-table-storage-using-.net"></a>Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET
+# <a name="get-started-with-azure-table-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -36,7 +40,7 @@ Ten samouczek pokazuje, jak napisać kod .NET dla niektórych typowych scenarius
 * [Program Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 * [Biblioteka klienta usługi Azure Storage dla programu .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Menedżer konfiguracji Azure dla programu .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
+* [konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -51,25 +55,25 @@ Dodatkowe przykłady użycia usługi Table Storage znajdziesz w temacie [Getting
 
 ### <a name="add-namespace-declarations"></a>Dodawanie deklaracji przestrzeni nazw
 Dodaj następujące instrukcje `using` na początku pliku `program.cs`:
-
+```csharp
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
-
+```
 ### <a name="parse-the-connection-string"></a>Analizowanie parametrów połączenia
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-table-service-client"></a>Tworzenie klienta usługi tabel
 Klasa **CloudTableClient** umożliwia pobieranie tabel i jednostek przechowywanych w usłudze Table Storage. Oto jeden ze sposobów tworzenia klienta usługi:
-
+```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
+```
 Teraz możesz przystąpić do pisania kodu, który będzie odczytywać dane z Magazynu tabel i zapisywać je w nim.
 
 ## <a name="create-a-table"></a>Tworzenie tabeli
 W tym przykładzie pokazano, jak utworzyć tabelę, jeśli jeszcze nie istnieje:
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -82,11 +86,11 @@ W tym przykładzie pokazano, jak utworzyć tabelę, jeśli jeszcze nie istnieje:
 
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
-
+```
 ## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
 Jednostki są mapowane do obiektów C\# za pomocą niestandardowej klasy pochodzącej od klasy **TableEntity**. Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki. Poniższy kod definiuje klasę jednostki, która używa imienia klienta jako klucza wiersza i nazwiska jako klucza partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, niemniej użycie różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych.  Dla dowolnej właściwości, która powinna być przechowana w usłudze Table service, właściwość musi być właściwością publiczną obsługiwanego typu, która ujawnia zarówno metodę `get`, jak i `set`.
 Ponadto typ jednostki *musi* ujawniać konstruktor bez parametrów.
-
+```csharp
     public class CustomerEntity : TableEntity
     {
         public CustomerEntity(string lastName, string firstName)
@@ -101,9 +105,9 @@ Ponadto typ jednostki *musi* ujawniać konstruktor bez parametrów.
 
         public string PhoneNumber { get; set; }
     }
-
+```
 Operacje tabeli obejmujące jednostki są wykonywane za pośrednictwem obiektu **CloudTable** utworzonego wcześniej w sekcji „Tworzenie tabeli”. Operacja do wykonania jest reprezentowana przez obiekt **TableOperation**.  W poniższym przykładzie kodu pokazano tworzenie obiektu **CloudTable**, a następnie obiektu **CustomerEntity**.  Aby przygotować operację, tworzy się obiekt **TableOperation** i umieszcza się go w jednostce klienta w tabeli.  W końcu operacja jest wykonywana przez wywołanie obiektu **CloudTable.Execute**.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -124,7 +128,7 @@ Operacje tabeli obejmujące jednostki są wykonywane za pośrednictwem obiektu *
 
     // Execute the insert operation.
     table.Execute(insertOperation);
-
+```
 ## <a name="insert-a-batch-of-entities"></a>Zbiorcze wstawianie jednostek
 Możesz wstawić partię jednostek do tabeli w jednej operacji zapisu. Inne wybrane uwagi dotyczące operacji zbiorczych:
 
@@ -135,7 +139,7 @@ Możesz wstawić partię jednostek do tabeli w jednej operacji zapisu. Inne wybr
 
 <!-- -->
 Poniższy przykład kodu tworzy dwa obiekty jednostki i dodaje je do obiektu **TableBatchOperation** za pomocą metody **Insert**. Następnie obiekt **CloudTable.Execute** jest wywoływany, aby wykonać operację.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -165,11 +169,11 @@ Poniższy przykład kodu tworzy dwa obiekty jednostki i dodaje je do obiektu **T
 
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
-
+```
 ## <a name="retrieve-all-entities-in-a-partition"></a>Pobieranie wszystkich jednostek w partycji
 Aby wysłać zapytanie do tabeli dla wszystkich obiektów w partycji, użyj obiektu **TableQuery**.
 Poniższy przykład kodu określa filtr jednostek, gdzie „Smith” jest kluczem partycji. W tym przykładzie drukowane są pola każdej jednostki w wynikach zapytania w konsoli.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -189,10 +193,10 @@ Poniższy przykład kodu określa filtr jednostek, gdzie „Smith” jest klucze
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
+```
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Pobieranie zakresu jednostek w partycji
 Jeśli nie chcesz wykonywać zapytania dla wszystkich jednostek w partycji, możesz określić zakres, łącząc filtr klucza partycji z filtrem klucza wiersza. Poniższy przykład kodu wykorzystuje dwa filtry do pobrania wszystkich jednostek w partycji „Smith”, w których klucz wiersza (imię) rozpoczyna się od litery alfabetu wcześniejszej niż „E”, a następnie drukuje wyniki zapytania.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -216,12 +220,12 @@ Jeśli nie chcesz wykonywać zapytania dla wszystkich jednostek w partycji, moż
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
+```
 ## <a name="retrieve-a-single-entity"></a>Pobieranie pojedynczej jednostki
 Można napisać zapytanie do pobrania jednej, określonej jednostki. Poniższy kod używa obiektu **TableOperation** do określenia klienta „Ben Smith”.
 Metoda ta zwraca tylko jedną jednostkę zamiast ich zbioru, a zwrócona wartość w pozycji **TableResult.Result** jest obiektem **CustomerEntity**.
 Określenie kluczy partycji i wiersza w pojedynczym zapytaniu jest najszybszym sposobem na pobranie jednej jednostki z usługi tabel.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -243,10 +247,10 @@ Określenie kluczy partycji i wiersza w pojedynczym zapytaniu jest najszybszym s
        Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
     else
        Console.WriteLine("The phone number could not be retrieved.");
-
+```
 ## <a name="replace-an-entity"></a>Zastępowanie jednostki
 Aby zaktualizować jednostkę, pobierz ją z usługi tabel, zmodyfikuj obiekt jednostki, a następnie zapisz zmiany w usłudze tabel. Poniższy kod zmienia istniejący numer telefonu klienta. Zamiast wywoływać metodę **Insert**, ten kod używa metody **Replace**. Dzięki temu jednostka będzie całkowicie zastąpiona na serwerze, chyba że jednostka na serwerze zmieniła się od czasu jej pobrania. W takim przypadku operacja nie powiedzie się.  Ten błąd uniemożliwia aplikacji nieodwracalne nadpisanie zmiany dokonanej pomiędzy pobraniem i zaktualizowaniem przez inny składnik aplikacji.  W przypadku tego błędu prawidłowa procedura obejmuje ponowne pobranie jednostki, wprowadzenie zmian (jeśli nadal mają zastosowanie), a następnie ponowne przeprowadzenie operacji **Replace**.  W następnej sekcji opisano sposób zastąpienia tego zachowania.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -282,11 +286,11 @@ Aby zaktualizować jednostkę, pobierz ją z usługi tabel, zmodyfikuj obiekt je
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
-## <a name="insert-or-replace-an-entity"></a>Wstawianie lub zastępowanie jednostki
+```
+## <a name="insertorreplace-an-entity"></a>Wstawianie lub zastępowanie jednostki
 Operacje **Replace** zakończą się niepowodzeniem, jeśli jednostka została zmieniona od czasu jej pobrania z serwera.  Ponadto aby operacja **Replace** zakończyła się powodzeniem, jednostka musi zostać wcześniej pobrana z serwera.
 Czasami jednak nie wiadomo, czy jednostka istnieje na serwerze oraz czy obecne wartości przechowywane w jednostce są istotne. Aktualizacja powinna nadpisać je wszystkie.  Aby to zrobić, użyj operacji **InsertOrReplace**.  Ta operacja wstawi jednostkę, jeśli jednostka nie istnieje, lub zastąpi ją, jeśli już istnieje — niezależnie od czasu ostatniej aktualizacji.  W poniższym przykładzie kodu jednostka klienta dla klienta Ben Smith nadal jest pobierana, ale następnie jest zapisywana na serwerze za pomocą operacji **InsertOrReplace**.  Wszelkie aktualizacje wprowadzone w jednostce między operacjami pobrania i aktualizacji zostaną nadpisane.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -322,10 +326,10 @@ Czasami jednak nie wiadomo, czy jednostka istnieje na serwerze oraz czy obecne w
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
+```
 ## <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
-Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich właściwości jednostki. Ta technika, zwana projekcją, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Zapytanie w poniższym kodzie zwraca wyłącznie adresy e-mail jednostek w tabeli. Operację tę przeprowadza się za pomocą zapytania **DynamicTableEntity** lub **EntityResolver**. Użytkownik może dowiedzieć się więcej o projekcji we [Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)][] Należy zauważyć, że funkcja projekcji nie jest obsługiwana w lokalnym emulatorze magazynu, dlatego ten kod zadziała tylko w przypadku użycia konta w usłudze tabel.
-
+Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich właściwości jednostki. Ta technika, zwana projekcją, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Zapytanie w poniższym kodzie zwraca wyłącznie adresy e-mail jednostek w tabeli. Operację tę przeprowadza się za pomocą zapytania **DynamicTableEntity** lub **EntityResolver**. Więcej o projekcji można dowiedzieć się z [Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)][Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)]. Należy zauważyć, że funkcja projekcji nie jest obsługiwana w lokalnym emulatorze magazynu, dlatego ten kod zadziała tylko w przypadku użycia konta w usłudze tabel.
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -346,10 +350,10 @@ Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich
     {
         Console.WriteLine(projectedEmail);
     }
-
+```
 ## <a name="delete-an-entity"></a>Usuwanie jednostki
 Można z łatwością usunąć jednostkę po jej pobraniu, korzystając z tego samego wzorca co w przypadku aktualizowania jednostki.  Poniższy kod umożliwia pobranie i usunięcie jednostki klienta.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -382,10 +386,10 @@ Można z łatwością usunąć jednostkę po jej pobraniu, korzystając z tego s
 
     else
        Console.WriteLine("Could not retrieve the entity.");
-
+```
 ## <a name="delete-a-table"></a>Usuwanie tabeli
 Poniższy przykład kodu usuwa tabelę z konta magazynu. Tabeli, która została usunięta, nie będzie można ponownie utworzyć przez dany okres czasu po jej usunięciu.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -398,10 +402,10 @@ Poniższy przykład kodu usuwa tabelę z konta magazynu. Tabeli, która została
 
     // Delete the table it if exists.
     table.DeleteIfExists();
-
+```
 ## <a name="retrieve-entities-in-pages-asynchronously"></a>Pobieranie asynchroniczne jednostek na stronach
 Jeśli odczytujesz dużą liczbę jednostek i chcesz przetworzyć/wyświetlić jednostki po ich pobraniu, zamiast czekać na zwrócenie ich wszystkich, możesz pobierać jednostki za pomocą zapytania segmentowanego. W tym przykładzie przedstawiono sposób zwracania wyników na stronach za pomocą wzorca Async-Await, dzięki czemu wykonanie nie jest blokowane podczas oczekiwania na zwrócenie dużych zestawów wyników. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Asynchronous Programming with Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Programowanie asynchroniczne z Async i Await [C# i Visual Basic]).
-
+```csharp
     // Initialize a default TableQuery to retrieve all the entities in the table.
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
 
@@ -423,7 +427,7 @@ Jeśli odczytujesz dużą liczbę jednostek i chcesz przetworzyć/wyświetlić j
 
     // Loop until a null continuation token is received, indicating the end of the table.
     } while(continuationToken != null);
-
+```
 ## <a name="next-steps"></a>Następne kroki
 Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu:
 
@@ -445,7 +449,7 @@ Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych
 [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
 [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-[Wpis na blogu Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx (Wprowadzenie operacji upsert i projekcji zapytań)
+[Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [Dokumentacja biblioteki klienta platformy .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [Blog zespołu odpowiedzialnego za usługę Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Konfiguracja parametrów połączenia usługi Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx
@@ -456,6 +460,6 @@ Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

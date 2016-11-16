@@ -1,25 +1,29 @@
 ---
 title: Instalacja agenta programu Azure AD Connect Health | Microsoft Docs
-description: Jest to strona programu Azure AD Connect Health opisująca instalację agenta usług AD FS i synchronizacji.
+description: "Jest to strona programu Azure AD Connect Health opisująca instalację agenta usług AD FS i synchronizacji."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: karavar
-manager: femila
-editor: karavar
-
+manager: samueld
+editor: curtand
+ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/05/2016
+ms.date: 10/18/2016
 ms.author: vakarand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0e30b59e618b7c01290002511367fa1e6dfc6eb9
+
 
 ---
-# Instalowanie agenta programu Azure AD Connect Health
+# <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 W tym dokumencie opisano instalowanie i konfigurowanie agentów programu Azure AD Connect Health. Agentów możesz pobrać [tutaj](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
 
-## Wymagania
+## <a name="requirements"></a>Wymagania
 Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure AD Connect Health.
 
 | Wymaganie | Opis |
@@ -31,7 +35,7 @@ Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure A
 | Porty zapory na serwerze, na którym jest uruchomiony agent |Agent wymaga, aby poniższe porty zapory były otwarte w celu komunikacji z punktami końcowymi usług programu Azure AD Connect Health.</br></br><li>Port TCP/UDP 443</li><li>Port TCP/UDP 5671</li> |
 | Zezwalaj na następujące witryny sieci web, jeśli są włączone zwiększone zabezpieczenia programu Internet Explorer |Jeśli zwiększone zabezpieczenia programu Internet Explorer są włączone na serwerze, na którym ma zostać zainstalowany agent, musisz zezwolić na otwieranie poniższych witryn sieci Web.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Serwer federacyjny Twojej organizacji zaufany przez usługę Azure Active Directory. Na przykład: https://sts.contoso.com</li> |
 
-## Instalowanie agenta programu Azure AD Connect Health Agent dla usług AD FS
+## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalowanie agenta programu Azure AD Connect Health Agent dla usług AD FS
 Aby rozpocząć instalowanie agenta, kliknij dwukrotnie pobrany plik exe. Na pierwszym ekranie kliknij przycisk Instaluj.
 
 ![Weryfikowanie programu Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install1.png)
@@ -58,7 +62,7 @@ Aby sprawdzić, czy agent został zainstalowany, znajdź następujące usługi n
 
 ![Weryfikowanie programu Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-### Instalowanie agenta na serwerach z systemem Windows Server 2008 R2
+### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Instalowanie agenta na serwerach z systemem Windows Server 2008 R2
 Kroki dotyczące serwerów z systemem Windows Server 2008 R2:
 
 1. Upewnij się, że na serwerze jest uruchomiony system z dodatkiem Service Pack 1 lub nowszym.
@@ -70,7 +74,7 @@ Kroki dotyczące serwerów z systemem Windows Server 2008 R2:
    * Zainstaluj na serwerze program Internet Explorer w wersji 10 lub nowszej. (Wymagane przez usługę kondycji do uwierzytelnienia przy użyciu poświadczeń administratora platformy Azure.)
 4. Aby uzyskać więcej informacji na temat instalowania programu Windows PowerShell 4.0 w systemie Windows Server 2008 R2, zobacz artykuł w witrynie wiki [tutaj](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
-### Włączanie inspekcji dla usług AD FS
+### <a name="enable-auditing-for-ad-fs"></a>Włączanie inspekcji dla usług AD FS
 > [!NOTE]
 > Informacje w tej sekcji dotyczą tylko serwerów federacyjnych usług AD FS.
 > 
@@ -78,28 +82,28 @@ Kroki dotyczące serwerów z systemem Windows Server 2008 R2:
 
 Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu Azure AD Connect Health potrzebuje informacji zawartych w dziennikach inspekcji usług AD FS. Dzienniki te nie są domyślnie włączone. Do włączania inspekcji usług AD FS i lokalizowania dzienników inspekcji usług AD FS na własnych serwerach usług AD FS służą poniższe procedury.
 
-#### Aby włączyć inspekcję usług AD FS 2.0
+#### <a name="to-enable-auditing-for-ad-fs-20"></a>Aby włączyć inspekcję usług AD FS 2.0
 1. Kliknij przycisk **Start**, wskaż pozycję **Programy**, wskaż pozycję **Narzędzia administracyjne**, a następnie kliknij pozycję **Zasady zabezpieczeń lokalnych**.
 2. Przejdź do folderu **Ustawienia zabezpieczeń\Zasady lokalne\Zarządzanie prawami użytkownika**, a następnie kliknij dwukrotnie pozycję Generuj inspekcje zabezpieczeń.
 3. Na karcie **Ustawianie zabezpieczeń lokalnych** sprawdź, czy jest wymienione konto usługi AD FS 2.0. Jeśli go nie ma, kliknij pozycję **Dodaj użytkownika lub grupę** i dodaj je do listy, a następnie kliknij przycisk **OK**.
-4. Aby włączyć inspekcję, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom poniższe polecenie. <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. Aby włączyć inspekcję, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. Zamknij okno Zasady zabezpieczeń lokalnych, a następnie otwórz przystawkę Zarządzanie. Aby otworzyć przystawkę Zarządzanie, kliknij przycisk **Start**, wskaż pozycję **Programy**, wskaż pozycję **Narzędzia administracyjne**, a następnie kliknij pozycję Zarządzanie usługą AD FS 2.0.
 6. W okienku Akcje kliknij pozycję Edytuj właściwości usługi federacyjnej.
 7. W oknie dialogowym **Właściwości usługi federacyjnej** kliknij kartę **Zdarzenia**.
 8. Zaznacz pola wyboru **Inspekcje zakończone sukcesem** i **Inspekcje zakończone niepowodzeniem**.
 9. Kliknij przycisk **OK**.
 
-#### Aby włączyć inspekcję usług AD FS w systemie Windows Server 2012 R2
+#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Aby włączyć inspekcję usług AD FS w systemie Windows Server 2012 R2
 1. Otwórz okno **Zasady zabezpieczeń lokalnych**, klikając pozycję **Menedżer serwera** na ekranie startowym lub pasku zadań na pulpicie, a następnie kliknij pozycję **Narzędzia/Zasady zabezpieczeń lokalnych**.
 2. Przejdź do folderu **Ustawienia zabezpieczeń\Zasady lokalne\Przypisywanie praw użytkownika**, a następnie kliknij dwukrotnie pozycję **Generuj inspekcje zabezpieczeń**.
 3. Na karcie **Ustawianie zabezpieczeń lokalnych** sprawdź, czy jest wymienione konto usługi AD FS. Jeśli go nie ma, kliknij pozycję **Dodaj użytkownika lub grupę** i dodaj je do listy, a następnie kliknij przycisk **OK**.
-4. Aby włączyć inspekcję, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom poniższe polecenie. <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. Aby włączyć inspekcję, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
 5. Zamknij okno **Zasady zabezpieczeń lokalnych**, a następnie otwórz przystawkę **Zarządzanie usługami AD FS** (w Menedżerze serwera kliknij pozycję Narzędzia, a następnie wybierz pozycję Zarządzanie usługami AD FS).
 6. W okienku Akcje kliknij pozycję **Edytuj właściwości usługi federacyjnej**.
 7. W oknie dialogowym Właściwości usługi federacyjnej kliknij kartę **Zdarzenia**.
 8. Zaznacz pola wyboru **Inspekcje zakończone sukcesem i Inspekcje zakończone niepowodzeniem**, a następnie kliknij przycisk **OK**.
 
-#### Aby zlokalizować dzienniki inspekcji usług AD FS
+#### <a name="to-locate-the-ad-fs-audit-logs"></a>Aby zlokalizować dzienniki inspekcji usług AD FS
 1. Otwórz **Podgląd zdarzeń**.
 2. Przejdź do dzienników systemu Windows i wybierz pozycję **Zabezpieczenia**.
 3. Po prawej stronie kliknij pozycję **Filtruj bieżące dzienniki**.
@@ -114,7 +118,7 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 
 [//]: # (Start of Agent Proxy Configuration Section)
 
-## Instalowanie agenta programu Azure AD Connect Health do celów synchronizacji
+## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>Instalowanie agenta programu Azure AD Connect Health do celów synchronizacji
 W najnowszej kompilacji programu Azure AD Connect agent programu Azure AD Connect Health do celów synchronizacji jest instalowany automatycznie. Aby używać programu Azure AD Connect do celów synchronizacji, musisz pobrać i zainstalować najnowszą wersję programu Azure AD Connect. Najnowszą wersję możesz pobrać [tutaj](http://www.microsoft.com/download/details.aspx?id=47594).
 
 Aby sprawdzić, czy agent został zainstalowany, znajdź następujące usługi na serwerze: Jeśli konfiguracja została zakończona, te usługi powinny być uruchomione. W przeciwnym razie pozostaną one zatrzymane do czasu zakończenia konfiguracji.
@@ -129,7 +133,7 @@ Aby sprawdzić, czy agent został zainstalowany, znajdź następujące usługi n
 > 
 > 
 
-## Ręczne rejestrowanie programu Azure AD Connect Health do celów synchronizacji
+## <a name="manual-azure-ad-connect-health-for-sync-registration"></a>Ręczne rejestrowanie programu Azure AD Connect Health do celów synchronizacji
 Jeśli rejestracja agenta programu Azure AD Connect Health do celów synchronizacji nie powiedzie się po pomyślnym zainstalowaniu programu Azure AD Connect, możesz użyć poniższego polecenia programu PowerShell, aby ręcznie zarejestrować agenta.
 
 > [!IMPORTANT]
@@ -148,9 +152,9 @@ Polecenie przyjmuje następujące parametry:
 * AttributeFiltering: $true (domyślnie) — jeśli program Azure AD Connect nie synchronizuje domyślnego zestawu atrybutów i został dostosowany do korzystania z filtrowanego zestawu atrybutów. W przeciwnym razie $false.
 * StagingMode: $false (domyślnie) — jeśli serwer programu Azure AD Connect NIE JEST w trybie przejściowym, wartość $true, jeśli serwer jest skonfigurowany na tryb przejściowy.
 
-Po wyświetleniu monitu o uwierzytelnienie musisz użyć tego samego konta administratora globalnego (na przykład admin@domain.onmicrosoft.com), które było używane podczas konfigurowania programu Azure AD Connect.
+Po wyświetleniu monitu o uwierzytelnienie musisz użyć tego samego konta administratora globalnego (na przykład admin@domain.onmicrosoft.com)), które było używane podczas konfigurowania programu Azure AD Connect.
 
-## Instalowanie agenta programu Azure AD Connect Health dla usług AD DS
+## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds"></a>Instalowanie agenta programu Azure AD Connect Health dla usług AD DS
 Aby rozpocząć instalowanie agenta, kliknij dwukrotnie pobrany plik exe. Na pierwszym ekranie kliknij przycisk Instaluj.
 
 ![Weryfikowanie programu Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)
@@ -169,7 +173,7 @@ W tym momencie usługi powinny uruchomić się automatycznie, umożliwiając age
 
 ![Weryfikowanie programu Azure AD Connect Health dla usług AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
-Aby sprawdzić, czy agent został zainstalowany, znajdź następujące usługi na kontrolerze domeny: 
+Aby sprawdzić, czy agent został zainstalowany, znajdź następujące usługi na kontrolerze domeny:
 
 * Usługa szczegółowych informacji usług AD DS programu Azure AD Connect Health
 * Usługa monitorowania usług AD DS programu Azure AD Connect Health
@@ -178,12 +182,12 @@ Jeśli konfiguracja została zakończona, te usługi powinny być uruchomione. W
 
 ![Weryfikowanie programu Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
-## Instalowanie agenta programu Azure AD Connect Health dla usług AD DS w ramach instalacji Server Core.
+## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds-on-server-core"></a>Instalowanie agenta programu Azure AD Connect Health dla usług AD DS w ramach instalacji Server Core.
 Po zainstalowaniu pliku exe możesz przeprowadzić proces rejestracji przy użyciu następującego polecenia programu PowerShell:
 
 `Register-AzureADConnectHealthADDSAgent -Credential $cred`
 
-## Konfigurowanie agentów programu Azure AD Connect Health na potrzeby korzystania z serwera proxy HTTP
+## <a name="configure-azure-ad-connect-health-agents-to-use-http-proxy"></a>Konfigurowanie agentów programu Azure AD Connect Health na potrzeby korzystania z serwera proxy HTTP
 Agentów programu Azure AD Connect Health możesz skonfigurować tak, aby współpracowali z serwerem proxy HTTP.
 
 > [!NOTE]
@@ -193,7 +197,7 @@ Agentów programu Azure AD Connect Health możesz skonfigurować tak, aby wspó�
 > 
 > 
 
-### Zmienianie konfiguracji serwera proxy agenta kondycji
+### <a name="change-health-agent-proxy-configuration"></a>Zmienianie konfiguracji serwera proxy agenta kondycji
 Agenta programu Azure AD Connect Health możesz skonfigurować na potrzeby korzystania z serwera proxy HTTP za pomocą poniższych opcji.
 
 > [!NOTE]
@@ -202,18 +206,18 @@ Agenta programu Azure AD Connect Health możesz skonfigurować na potrzeby korzy
 > 
 > 
 
-#### Importowanie istniejących ustawień serwera proxy
-##### Importowanie z programu Internet Explorer
+#### <a name="import-existing-proxy-settings"></a>Importowanie istniejących ustawień serwera proxy
+##### <a name="import-from-internet-explorer"></a>Importowanie z programu Internet Explorer
 Ustawienia serwera HTTP programu Internet Explorer można zaimportować do użycia przez agentów programu Azure AD Connect Health. Na wszystkich serwerach z uruchomionym agentem programu Health wykonaj następujące polecenie programu PowerShell:
 
     Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
 
-##### Importowanie z usług WinHTTP
+##### <a name="import-from-winhttp"></a>Importowanie z usług WinHTTP
 Ustawienia serwera proxy WinHTTP można zaimportować do użycia przez agentów programu Azure AD Connect Health. Na wszystkich serwerach z uruchomionym agentem programu Health wykonaj następujące polecenie programu PowerShell:
 
     Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
 
-#### Ręczne określanie adresów serwerów proxy
+#### <a name="specify-proxy-addresses-manually"></a>Ręczne określanie adresów serwerów proxy
 Serwer proxy możesz określić ręcznie na każdym serwerze, na którym jest uruchomiony agent kondycji, wykonując następujące polecenie programu PowerShell:
 
     Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
@@ -223,19 +227,19 @@ Przykład: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress mojserwerpr
 * Parametr „address” może być rozpoznawalną nazwą serwera w systemie DNS lub adresem IPv4.
 * Parametr „port” można pominąć. W przypadku pominięcia jako domyślny zostanie wybrany port 443.
 
-#### Czyszczenie istniejącej konfiguracji serwera proxy
+#### <a name="clear-existing-proxy-configuration"></a>Czyszczenie istniejącej konfiguracji serwera proxy
 Istniejącą konfigurację serwera proxy możesz wyczyścić, uruchamiając następujące polecenie:
 
     Set-AzureAdConnectHealthProxySettings -NoProxy
 
 
-### Odczytywanie bieżących ustawień serwera proxy
+### <a name="read-current-proxy-settings"></a>Odczytywanie bieżących ustawień serwera proxy
 Możesz odczytać aktualnie skonfigurowane ustawienia serwera proxy, wykonując następujące polecenie:
 
     Get-AzureAdConnectHealthProxySettings
 
 
-## Testowanie łączności z usługą Azure AD Connect Health
+## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Testowanie łączności z usługą Azure AD Connect Health
 Mogą wystąpić problemy powodujące utratę łączności agenta programu Azure AD Connect Health z usługą Azure AD Connect Health. Ich przyczyną mogą być problemy z siecią, problemy z uprawnieniami lub różne inne czynniki.
 
 Jeśli agent nie może wysyłać danych do programu Azure AD Connect Health przez ponad 2 godziny, w portalu zostanie wyświetlony alert o treści „Dane usługi kondycji są nieaktualne”. Możesz sprawdzić, czy agent programu Azure AD Connect Health, którego dotyczy alert, jest w stanie przekazywać dane do usługi Azure AD Connect Health, wykonując następujące polecenie programu PowerShell:
@@ -257,7 +261,7 @@ Aby wyświetlić szczegółowe dzienniki, możesz użyć w poleceniu flagi -Show
 > 
 > 
 
-## Powiązane linki
+## <a name="related-links"></a>Powiązane linki
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Operacje w programie Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md)
@@ -266,6 +270,9 @@ Aby wyświetlić szczegółowe dzienniki, możesz użyć w poleceniu flagi -Show
 * [Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 * [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do Eksploratora usługi Storage (wersja zapoznawcza) | Microsoft Docs
-description: Zarządzanie zasobami magazynu platformy Azure za pomocą Eksploratora usługi Storage (wersja zapoznawcza)
+title: "Wprowadzenie do Eksploratora usługi Storage (wersja zapoznawcza) | Microsoft Docs"
+description: "Zarządzanie zasobami magazynu platformy Azure za pomocą Eksploratora usługi Storage (wersja zapoznawcza)"
 services: storage
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d5c003c9240d8625d2921666e1361ce0512138bb
+
 
 ---
-# Wprowadzenie do Eksploratora usługi Storage (wersja zapoznawcza)
-## Omówienie
+# <a name="getting-started-with-storage-explorer-preview"></a>Wprowadzenie do Eksploratora usługi Storage (wersja zapoznawcza)
+## <a name="overview"></a>Omówienie
 Microsoft Azure Storage Explorer (wersja zapoznawcza) jest aplikacją autonomiczną, która umożliwia łatwą obsługę danych w usłudze Azure Storage w systemach Windows, OS X i Linux. Ten artykuł zawiera informacje dotyczące różnych sposobów łączenia się z kontami magazynu Azure i zarządzania nimi.
 
 ![Microsoft Azure Storage Explorer (wersja zapoznawcza)][15]
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * [Pobieranie i instalowanie Eksploratora usługi Storage (wersja zapoznawcza)](http://www.storageexplorer.com)
 
-## Łączenie się z usługą lub kontem magazynu
+## <a name="connect-to-a-storage-account-or-service"></a>Łączenie się z usługą lub kontem magazynu
 Eksplorator usługi Storage (wersja zapoznawcza) oferuje wiele sposobów łączenia się z kontem magazynu. Obejmuje to łączenie się z kontami magazynu skojarzonymi z subskrypcjami platformy Azure, łączenie się z usługami i kontami magazynu usługami udostępnianymi z innych subskrypcji platformy Azure, a nawet łączenie się z magazynem lokalnym i zarządzanie nim przy użyciu emulatora usługi Azure Storage:
 
 * [Łączenie się z subskrypcją platformy Azure](#connect-to-an-azure-subscription) — zarządzanie zasobami należącymi do subskrypcji platformy Azure.
@@ -34,7 +38,7 @@ Eksplorator usługi Storage (wersja zapoznawcza) oferuje wiele sposobów łącze
 * [Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego](#attach-storage-account-using-sas) — zarządzanie zasobami magazynu należącymi do innej subskrypcji platformy Azure przy użyciu sygnatury dostępu współdzielonego.
 * [Dołączanie usługi przy użyciu sygnatury dostępu współdzielonego](#attach-service-using-sas) — zarządzanie określoną usługą Storage (kontenerem, kolejką lub tabelą obiektów blob) należącą do innej subskrypcji platformy Azure przy użyciu sygnatury dostępu współdzielonego.
 
-## Łączenie się z subskrypcją platformy Azure
+## <a name="connect-to-an-azure-subscription"></a>Łączenie się z subskrypcją platformy Azure
 > [!NOTE]
 > Jeśli nie masz konta platformy Azure, możesz [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 > 
@@ -53,7 +57,7 @@ Eksplorator usługi Storage (wersja zapoznawcza) oferuje wiele sposobów łącze
    
     ![Wybrane subskrypcje platformy Azure][4]
 
-## Praca z lokalnym magazynem projektowym
+## <a name="work-with-local-development-storage"></a>Praca z lokalnym magazynem projektowym
 Eksplorator usługi Storage (wersja zapoznawcza) umożliwia obsługę magazynu lokalnego przy użyciu emulatora usługi Azure Storage. Dzięki temu można pisać kod dla magazynu i testować go bez konieczności posiadania konta magazynu wdrożonego na platformie Azure, ponieważ konto magazynu jest emulowane przez emulator usługi Azure Storage.
 
 > [!NOTE]
@@ -74,10 +78,10 @@ Eksplorator usługi Storage (wersja zapoznawcza) umożliwia obsługę magazynu l
    * Zarządzanie zasobami usługi Azure Queue Storage — *wkrótce*
    * Zarządzanie zasobami usługi Azure Table Storage — *wkrótce*
 
-## Dołączanie lub odłączanie konta magazynu zewnętrznego
+## <a name="attach-or-detach-an-external-storage-account"></a>Dołączanie lub odłączanie konta magazynu zewnętrznego
 Eksplorator usługi Storage (wersja zapoznawcza) umożliwia dołączanie kont magazynu zewnętrznego, dzięki czemu można łatwo udostępniać konta magazynu. W tej sekcji opisano sposób dołączania (i odłączania) kont magazynu zewnętrznego.
 
-### Uzyskiwanie poświadczeń konta magazynu
+### <a name="get-the-storage-account-credentials"></a>Uzyskiwanie poświadczeń konta magazynu
 W celu udostępnienia konta magazynu zewnętrznego właściciel tego konta musi najpierw uzyskać poświadczenia — nazwę konta i klucz — dla konta, a następnie udostępnić te informacje osobie, która chce dołączyć do tego (zewnętrznego) konta. Poświadczenia konta magazynu można uzyskać za pośrednictwem Portalu Azure, wykonując następujące czynności: 
 
 1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
@@ -91,7 +95,7 @@ W celu udostępnienia konta magazynu zewnętrznego właściciel tego konta musi 
    
    ![Klawisze dostępu][6]
 
-### Dołączanie konta magazynu zewnętrznego
+### <a name="attach-to-an-external-storage-account"></a>Dołączanie konta magazynu zewnętrznego
 Aby dołączyć konto magazynu zewnętrznego, potrzebna będzie nazwa konta i klucz. W sekcji *Uzyskiwanie poświadczeń konta magazynu* wyjaśniono sposób uzyskiwania tych wartości z witryny Azure Portal. Pamiętaj jednak, że w portalu klucz konta ma nazwę „klucz 1”, zatem gdy program Storage Explorer (wersja zapoznawcza) poprosi o podanie klucza konta, wprowadź (lub wklej) wartość „klucz 1”. 
 
 1. W programie Storage Explorer (wersja zapoznawcza) wybierz pozycję **Połącz z usługą Azure Storage**.
@@ -108,13 +112,13 @@ Aby dołączyć konto magazynu zewnętrznego, potrzebna będzie nazwa konta i kl
    
    ![Wynik połączenia z kontem magazynu zewnętrznego][9]
 
-### Odłączanie konta magazynu zewnętrznego
+### <a name="detach-from-an-external-storage-account"></a>Odłączanie konta magazynu zewnętrznego
 1. Kliknij prawym przyciskiem myszy konto magazynu zewnętrznego, które chcesz odłączyć, a następnie z menu kontekstowego wybierz polecenie **Odłącz**.
    
    ![Opcja odłączenia magazynu][10]
 2. Po wyświetleniu okna komunikatu z potwierdzeniem wybierz przycisk **Tak**, aby potwierdzić odłączenie konta magazynu zewnętrznego.
 
-## Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego
+## <a name="attach-storage-account-using-sas"></a>Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego
 [Sygnatura dostępu współdzielonego (SAS, Shared Access Signature)](storage/storage-dotnet-shared-access-signature-part-1.md) zapewnia administratorowi subskrypcji platformy Azure możliwość tymczasowego przyznania dostępu do konta magazynu bez konieczności podawania poświadczeń subskrypcji platformy Azure. 
 
 Na przykład załóżmy, że Użytkownik_A jest administratorem subskrypcji platformy Azure i Użytkownik_A chce zezwolić Użytkownikowi_B na dostęp do konta magazynu przez ograniczony czas z określonymi uprawnieniami:
@@ -123,7 +127,7 @@ Na przykład załóżmy, że Użytkownik_A jest administratorem subskrypcji plat
 2. Użytkownik_A udostępnia sygnaturę dostępu współdzielonego osobie, która chce uzyskać dostęp do konta magazynu — w naszym przykładzie jest to Użytkownik_B.  
 3. Użytkownik_B korzysta z Eksploratora usługi Storage (wersja zapoznawcza), aby dołączyć do konta należącego do Użytkownika_A przy użyciu dostarczonej sygnatury dostępu współdzielonego. 
 
-### Uzyskiwanie sygnatury dostępu współdzielonego dla konta, które chcesz udostępnić
+### <a name="get-a-sas-for-the-account-you-want-to-share"></a>Uzyskiwanie sygnatury dostępu współdzielonego dla konta, które chcesz udostępnić
 1. W programie Storage Explorer (wersja zapoznawcza) kliknij prawym przyciskiem myszy konto magazynu, które chcesz udostępnić, i z menu kontekstowego wybierz polecenie **Uzyskaj sygnaturę dostępu współdzielonego**.
    
    ![Opcja menu kontekstowego Uzyskaj sygnaturę dostępu współdzielonego][13]
@@ -132,7 +136,7 @@ Na przykład załóżmy, że Użytkownik_A jest administratorem subskrypcji plat
     ![Okno dialogowe uzyskiwania sygnatury dostępu współdzielonego][14]
 3. Zostanie wyświetlone drugie okno dialogowe **Sygnatura dostępu współdzielonego**, w którym będzie wyświetlona sygnatura dostępu współdzielonego. Wybierz przycisk **Kopiuj** obok pola **Parametry połączenia**, aby skopiować go do schowka. Wybierz przycisk **Zamknij**, aby zamknąć okno dialogowe.
 
-### Dołączanie do udostępnionego konta przy użyciu sygnatury dostępu współdzielonego
+### <a name="attach-to-the-shared-account-using-the-sas"></a>Dołączanie do udostępnionego konta przy użyciu sygnatury dostępu współdzielonego
 1. W programie Storage Explorer (wersja zapoznawcza) wybierz pozycję **Połącz z usługą Azure Storage**.
    
    ![Opcja Połącz z usługą Azure Storage][23]
@@ -144,10 +148,10 @@ Na przykład załóżmy, że Użytkownik_A jest administratorem subskrypcji plat
    
    ![Wynik dołączania konta przy użyciu sygnatury dostępu współdzielonego][17]
 
-## Dołączanie usługi przy użyciu sygnatury dostępu współdzielonego
+## <a name="attach-service-using-sas"></a>Dołączanie usługi przy użyciu sygnatury dostępu współdzielonego
 W sekcji [Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego](#attach-storage-account-using-sas) omówiono sposób udzielania tymczasowego dostępu do konta magazynu przez administratora subskrypcji platformy Azure przez wygenerowanie (i udostępnienie) sygnatury dostępu współdzielonego dla konta magazynu. Podobnie można wygenerować sygnatury dostępu współdzielonego dla określonej usługi (kontenera, kolejki lub tabeli obiektów blob) w ramach konta magazynu.  
 
-### Generowanie sygnatury dostępu współdzielonego dla usługi, którą chcesz udostępnić
+### <a name="generate-a-sas-for-the-service-you-want-to-share"></a>Generowanie sygnatury dostępu współdzielonego dla usługi, którą chcesz udostępnić
 W tym kontekście usługa może być kontenerem, kolejką lub tabelą obiektów blob. W poniższych sekcjach wyjaśniono sposób generowania sygnatury dostępu współdzielonego dla wymienionych usług:
 
 * [Uzyskiwanie sygnatury dostępu współdzielonego dla kontenera obiektów blob](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
@@ -155,7 +159,7 @@ W tym kontekście usługa może być kontenerem, kolejką lub tabelą obiektów 
 * Uzyskiwanie sygnatury dostępu współdzielonego dla kolejki — *wkrótce*
 * Uzyskiwanie sygnatury dostępu współdzielonego dla tabeli — *wkrótce*
 
-### Dołączanie do usługi udostępnionego konta przy użyciu sygnatury dostępu współdzielonego
+### <a name="attach-to-the-shared-account-service-using-the-sas"></a>Dołączanie do usługi udostępnionego konta przy użyciu sygnatury dostępu współdzielonego
 1. W programie Storage Explorer (wersja zapoznawcza) wybierz pozycję **Połącz z usługą Azure Storage**.
    
    ![Opcja Połącz z usługą Azure Storage][23]
@@ -167,7 +171,7 @@ W tym kontekście usługa może być kontenerem, kolejką lub tabelą obiektów 
    
    ![Wynik dołączenia do usługi udostępnionej przy użyciu sygnatury dostępu współdzielonego][20]
 
-## Wyszukiwanie kont magazynu
+## <a name="search-for-storage-accounts"></a>Wyszukiwanie kont magazynu
 Jeśli masz długą listę kont magazynu, możesz szybko odnaleźć określone konto magazynu przy użyciu pola wyszukiwania w górnej części okienka po lewej stronie. 
 
 Podczas wpisywania w polu wyszukiwania w okienku po lewej stronie będą wyświetlane tylko konta magazynu pasujące do podanej wartości wyszukiwania. Na poniższym ekranie przedstawiono przykład, gdzie wyszukano wszystkie konta magazynu, których nazwa zawiera tekst „tarcher”.
@@ -176,7 +180,7 @@ Podczas wpisywania w polu wyszukiwania w okienku po lewej stronie będą wyświe
 
 Aby wyczyścić wyszukiwanie, wybierz przycisk **x** w polu wyszukiwania.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Storage (wersja zapoznawcza)](vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
@@ -202,6 +206,6 @@ Aby wyczyścić wyszukiwanie, wybierz przycisk **x** w polu wyszukiwania.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

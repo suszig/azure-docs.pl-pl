@@ -23,6 +23,8 @@ Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wy
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

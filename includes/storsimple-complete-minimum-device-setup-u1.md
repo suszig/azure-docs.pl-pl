@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Wykonywanie minimalnej konfiguracji urządzenia StorSimple
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Wykonywanie minimalnej konfiguracji urządzenia StorSimple
 1. Wybierz urządzenie i kliknij pozycję **Szybki Start**. Kliknij pozycję **Complete device setup** (Wykonaj konfigurację urządzenia), aby uruchomić Kreatora konfiguracji urządzenia.
 2. W oknie dialogowym **Ustawienia podstawowe** w Kreatorze konfiguracji urządzenia wykonaj następujące czynności:
    
@@ -31,6 +31,6 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

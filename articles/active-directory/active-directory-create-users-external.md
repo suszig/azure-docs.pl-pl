@@ -1,12 +1,12 @@
 ---
-title: Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory | Microsoft Docs
-description: Wyjaśnia, jak dodać użytkowników lub zmienić informacje o użytkowniku w usłudze Azure Active Directory, w tym gości i użytkowników zewnętrznych.
+title: "Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory | Microsoft Docs"
+description: "Wyjaśnia, jak dodać użytkowników lub zmienić informacje o użytkowniku w usłudze Azure Active Directory, w tym gości i użytkowników zewnętrznych."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 564a04ec-53c1-470b-9ab9-f3db57da0a89
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3f2578288bcf15c6f64bba453f82751bb2d3d772
+
 
 ---
-# Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
+# <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-users-create-external-azure-portal.md)
-> * [klasyczny portal Azure](active-directory-create-users-external.md)
+> * [Witryna Azure Portal](active-directory-users-create-external-azure-portal.md)
+> * [Klasyczna witryna Azure Portal](active-directory-create-users-external.md)
 > 
 > 
 
 W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
 
-## Dodawanie użytkownika
+## <a name="add-a-user"></a>Dodawanie użytkownika
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
 2. Wybierz usługę **Active Directory**, a następnie otwórz swój katalog.
 3. Wybierz kartę **Użytkownicy**, a następnie na pasku poleceń wybierz polecenie **Dodaj użytkownika**.
@@ -39,19 +43,19 @@ W tym artykule opisano sposób dodawania użytkowników z innych katalogów w us
 > [!IMPORTANT]
 > Jeśli Twoja organizacja korzysta z więcej niż jednej domeny, podczas dodawania konta użytkownika musisz wiedzieć o następujących kwestiach:
 > 
-> * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com, **a następnie** adres geoffgrisso@contoso.com.
-> * **Nie dodawaj** adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com. Ta kolejność jest ważna, a jej cofnięcie może być kłopotliwe.
+> * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com,, **a następnie** geoffgrisso@contoso.com.
+> * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com.. Ta kolejność jest ważna, a jej cofnięcie może być kłopotliwe.
 > 
 > 
 
 Jeśli wprowadzasz zmiany w informacjach dla użytkownika, którego tożsamość jest zsynchronizowana z lokalną usługą Active Directory, nie możesz wprowadzać zmian w informacjach o użytkowniku w klasycznym portalu Azure. Aby zmienić informacje o użytkowniku, użyj narzędzi zarządzania lokalnej usługi Active Directory.
 
-## Dodawanie użytkowników zewnętrznych
+## <a name="add-external-users"></a>Dodawanie użytkowników zewnętrznych
 Przekazując plik CSV, możesz również dodać użytkowników z innego katalogu usługi Azure AD, do którego należysz, lub z firm partnerskich. Aby dodać użytkownika zewnętrznego, dla opcji **Typ użytkownika** określ, czy jest to **Użytkownik w innym katalogu usługi Microsoft Azure AD**, czy **Użytkownicy w firmach partnerskich**.
 
 Użytkownicy obu typów pochodzą z innego katalogu i są dodawani jako **użytkownicy zewnętrzni**. Użytkownicy zewnętrzni mogą współpracować z innymi użytkownikami w katalogu bez konieczności dodawania nowych kont i poświadczeń. Użytkownicy zewnętrzni są uwierzytelniani za pomocą własnego katalogu macierzystego podczas rejestracji, a uwierzytelnianie działa w przypadku innych katalogów, do których zostali dodani.
 
-## Zarządzanie użytkownikami zewnętrznymi i ograniczenia
+## <a name="external-user-management-and-limitations"></a>Zarządzanie użytkownikami zewnętrznymi i ograniczenia
 Gdy dodajesz do swojego katalogu użytkownika z innego katalogu, użytkownik ten jest użytkownikiem zewnętrznym w Twoim katalogu. Nazwa wyświetlana i nazwa użytkownika są kopiowane z katalogu macierzystego tego użytkownika i są używane dla użytkownika zewnętrznego w Twoim katalogu. Od tego momentu właściwości konta użytkownika zewnętrznego są całkowicie niezależne. Zmiany wprowadzone we właściwościach użytkownika w jego katalogu macierzystym nie są przenoszone do konta użytkownika zewnętrznego w Twoim katalogu.
 
 Jedyne połączenie dwóch kont polega na tym, że użytkownik zawsze jest uwierzytelniany względem swojego katalogu macierzystego lub przy użyciu konta Microsoft. Dlatego nie jest widoczna opcja resetowania hasła lub włączania uwierzytelniania wieloskładnikowego dla użytkownika zewnętrznego. Obecnie zasada uwierzytelniania katalogu macierzystego lub konta Microsoft polega na tym, że tylko jedno z nich jest oceniane w czasie logowania użytkownika.
@@ -63,25 +67,28 @@ Jedyne połączenie dwóch kont polega na tym, że użytkownik zawsze jest uwier
 
 Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje konto Microsoft, użytkownik zewnętrzny będzie nadal istnieć w Twoim katalogu. Jednak użytkownik w Twoim katalogu nie będzie mieć dostępu do zasobów, ponieważ nie będzie mógł uwierzytelnić się przy użyciu katalogu macierzystego ani konta Microsoft.
 
-### Usługi obsługujące obecnie dostęp dla użytkowników zewnętrznych usługi Azure AD
+### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>Usługi obsługujące obecnie dostęp dla użytkowników zewnętrznych usługi Azure AD
 * **Klasyczny portal Azure**: umożliwia użytkownikowi zewnętrznemu, który jest administratorem wielu katalogów, zarządzanie każdym z nich.
 * **SharePoint Online**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów usługi SharePoint Online, jeśli udostępnianie zewnętrzne jest włączone.
 * **Dynamics CRM**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics CRM, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell.
 * **Dynamics AX**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics AX, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell. Ograniczenia dotyczące [użytkowników zewnętrznych usługi Azure AD](#known-limitations-of-azure-ad-external-users) mają również zastosowanie w przypadku użytkowników zewnętrznych programu Dynamics AX.
 
-### Znane ograniczenia dotyczące użytkowników zewnętrznych usługi Azure AD
+### <a name="known-limitations-of-azure-ad-external-users"></a>Znane ograniczenia dotyczące użytkowników zewnętrznych usługi Azure AD
 * Użytkownicy zewnętrzni, którzy są administratorami, nie mogą dodawać użytkowników z firm partnerskich do katalogów (współpraca B2B) poza katalogiem macierzystym
 * Użytkownicy zewnętrzni nie mogą wyrazić zgody na aplikacje wielodostępne w katalogach poza katalogiem macierzystym
 * Usługa Power BI nie obsługuje obecnie dostępu użytkowników zewnętrznych
 * Portal pakietu Office nie obsługuje licencji użytkowników zewnętrznych
 * W odniesieniu do programu PowerShell usługi Azure AD użytkownicy zewnętrzni logują się do katalogu macierzystego i nie mogą zarządzać katalogami, w których występują jako użytkownicy zewnętrzni
 
-## Co dalej
+## <a name="whats-next"></a>Co dalej
 * [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md)
 * [Administrowanie usługą Azure AD](active-directory-administer.md)
 * [Zarządzanie hasłami w usłudze Azure AD](active-directory-manage-passwords.md)
 * [Zarządzanie grupami w usłudze Azure AD](active-directory-manage-groups.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

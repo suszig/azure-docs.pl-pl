@@ -1,4 +1,4 @@
-## Wdrażanie szablonu ARM przy użyciu metody „kliknij, aby wdrożyć”
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>Wdrażanie szablonu ARM przy użyciu metody „kliknij, aby wdrożyć”
 Można ponownie użyć wstępnie zdefiniowanych szablonów ARM przesłanych do obsługiwanego przez firmę Microsoft repozytorium github dostępnego dla społeczności. Szablony te można wdrożyć bezpośrednio z poziomu repozytorium github lub pobrać i zmodyfikować odpowiednio do potrzeb. Aby wdrożyć szablon, który pozwala utworzyć sieć wirtualną z dwiema podsieciami, wykonaj poniższe kroki.
 
 1. W przeglądarce przejdź do strony [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
@@ -22,6 +22,8 @@ Można ponownie użyć wstępnie zdefiniowanych szablonów ARM przesłanych do o
     
      ![Tworzenie sieci wirtualnej w portalu w wersji zapoznawczej](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

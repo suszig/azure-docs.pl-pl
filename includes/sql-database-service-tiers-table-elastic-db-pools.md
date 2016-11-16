@@ -1,5 +1,5 @@
 
-### Limity podstawowych pul elastycznych
+### <a name="basic-elastic-pool-limits"></a>Limity podstawowych pul elastycznych
 |  |  |
 | --- |:---:|
 | Maksymalna liczba jednostek eDTU na pulę |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -20,7 +20,7 @@
 
 ** Elastyczna baza danych współużytkuje magazyn w puli, dzięki czemu magazyn bazy danych jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych
 
-### Limity standardowych pul elastycznych
+### <a name="standard-elastic-pool-limits"></a>Limity standardowych pul elastycznych
 |  |  |
 | --- |:---:|
 | Maksymalna liczba jednostek eDTU na pulę |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -41,7 +41,7 @@
 
 ** Elastyczna baza danych współużytkuje magazyn w puli, dzięki czemu magazyn bazy danych jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych
 
-### Limity pul elastycznych Premium
+### <a name="premium-elastic-pool-limits"></a>Limity pul elastycznych Premium
 |  |  |
 | --- |:---:|
 | Maksymalna liczba jednostek eDTU na pulę |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -62,6 +62,8 @@
 
 ** Elastyczna baza danych współużytkuje magazyn w puli, dzięki czemu magazyn bazy danych jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

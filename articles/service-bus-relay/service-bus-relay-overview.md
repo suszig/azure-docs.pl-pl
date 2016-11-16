@@ -1,12 +1,12 @@
 ---
-title: Omówienie usługi Service Bus Relay| Microsoft Docs
-description: Omówienie przekaźnika usługi Service Bus
+title: "Omówienie usługi Service Bus Relay| Microsoft Docs"
+description: "Omówienie przekaźnika usługi Service Bus"
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1038a2d8-5def-4f48-8703-cb0070fc5f10
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0482096cbec6a5e4b7b13ea662a180cd9b96e85f
+
 
 ---
 # <a name="overview-of-service-bus-relay"></a>Omówienie usługi Service Bus Relay
 Głównym składnikiem usługi Service Bus jest scentralizowana (ale o wysokim stopniu równoważenia obciążenia) usługa *przekaźnika* umożliwiająca tworzenie hybrydowych aplikacji działających w centrum danych Azure oraz w lokalnym środowisku korporacyjnym.  Usługa Service Bus Relay obsługuje wiele różnych protokołów transportowych i standardów usług sieci Web. Obejmuje to usługi SOAP, WS-*, a nawet REST. Usługa przekaźnika ułatwia tworzenie hybrydowych aplikacji, ponieważ umożliwia bezpieczne uwidacznianie usług Windows Communication Foundation (WCF) znajdujących się w korporacyjnym środowisku sieciowym w chmurze publicznej bez konieczności otwierania połączenia przez zaporę i bez wprowadzania niepożądanych zmian do infrastruktury sieci korporacyjnej. 
 
-![Pojęcia dotyczące przekaźnika](./media/service-bus-relay-overview/sb-relay-01.png)
+![Pojęcia dotyczące przekaźnika WCF](./media/service-bus-relay-overview/sb-relay-01.png)
 
 Usługa przekaźnika obsługuje tradycyjne, jednokierunkowe komunikaty, komunikaty żądań/odpowiedzi oraz komunikaty równorzędne. Obsługuje ona również dystrybucję zdarzeń w zakresie Internetu w celu umożliwienia scenariuszy publikacji/subskrypcji i komunikacji poprzez gniazdo dwukierunkowe dla zwiększonej wydajności point-to-point. 
 
@@ -30,9 +34,12 @@ Należy zainicjować połączenie między usługą lokalną i usługą przekaźn
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać szczegółowe informacje na temat przekaźnika usługi Service Bus, zobacz następujące tematy.
 
-* [Omówienie architektury usługi Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Jak używać usługi Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
+* [Omówienie architektury usługi Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Jak używać usługi Service Bus WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

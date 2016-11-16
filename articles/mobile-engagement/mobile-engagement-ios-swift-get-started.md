@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do usługi Azure Mobile Engagement dla systemu iOS w języku Swift | Microsoft Docs
-description: Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji systemu iOS.
+title: "Wprowadzenie do usługi Azure Mobile Engagement dla systemu iOS w języku Swift | Microsoft Docs"
+description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji systemu iOS."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 196c282d-6f2f-4cbc-aeee-6517c5ad866d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,9 +14,13 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
+
 
 ---
-# Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu iOS w języku Swift
+# <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu iOS w języku Swift
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 W tym temacie pokazano, jak za pomocą usługi Azure Mobile Engagement określać użycie aplikacji i wysyłać powiadomienia wypychane do danego segmentu użytkowników aplikacji systemu iOS.
@@ -36,22 +40,22 @@ Dla tego samouczka wymagane są następujące elementy:
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Mobile Engagement dla aplikacji systemu iOS.
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. Kompletna dokumentacja integracji znajduje się w sekcji [Mobile Engagement iOS SDK integration](mobile-engagement-ios-sdk-overview.md) (Integracja zestawu Mobile Engagement iOS SDK).
 
 Aby zademonstrować integrację, zostanie utworzona podstawowa aplikacja za pomocą edytora XCode:
 
-### Tworzenie nowego projektu systemu iOS
+### <a name="create-a-new-ios-project"></a>Tworzenie nowego projektu systemu iOS
 [!INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-### Łączenie aplikacji z zapleczem usługi Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement 
 1. Pobierz zestaw [Mobile Engagement iOS SDK].
 2. Wypakuj plik tar.gz do folderu na swoim komputerze.
 3. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję „Add files to” (Dodaj pliki do).
@@ -87,29 +91,29 @@ Aby zademonstrować integrację, zostanie utworzona podstawowa aplikacja za pomo
     
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
-            [...]
+              [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
-            [...]
+              [...]
         }
 
-## <a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
 Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni, konieczne jest wysłanie co najmniej jednego ekranu (Działanie) do zaplecza usługi Mobile Engagement.
 
 1. Otwórz plik **ViewController.swift** i zmień klasę podstawową klasy **ViewController** na **EngagementViewController**:
    
     `class ViewController : EngagementViewController {`
 
-## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 Usługa Mobile Engagement umożliwia interakcję z użytkownikami przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
 Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
 
-### Umożliwianie aplikacji otrzymywania cichych powiadomień wypychanych
+### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Umożliwianie aplikacji otrzymywania cichych powiadomień wypychanych
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
-### Dodawanie biblioteki Reach do projektu
+### <a name="add-the-reach-library-to-your-project"></a>Dodawanie biblioteki Reach do projektu
 1. Kliknij prawym przyciskiem projekt.
 2. Wybierz pozycję `Add file to ...`
 3. Przejdź do folderu, w którym został wypakowany zestaw SDK.
@@ -140,7 +144,7 @@ Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
         #import "AEViewControllerUtil.h"
         #import "AEWebAnnouncementJsBridge.h"
 
-### Modyfikowanie delegata aplikacji
+### <a name="modify-your-application-delegate"></a>Modyfikowanie delegata aplikacji
 1. Wewnątrz elementu `didFinishLaunchingWithOptions` utwórz moduł Reach i przekaż go do istniejącego wiersza inicjowania usługi Engagement:
    
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
@@ -151,7 +155,7 @@ Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
             return true
         }
 
-### Umożliwianie aplikacji otrzymywania powiadomień wypychanych usługi APNS
+### <a name="enable-your-app-to-receive-apns-push-notifications"></a>Umożliwianie aplikacji otrzymywania powiadomień wypychanych usługi APNS
 1. Dodaj następujący wiersz do metody `didFinishLaunchingWithOptions`:
    
         if #available(iOS 8.0, *)
@@ -196,6 +200,6 @@ Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Omówienie usługi Azure Event Hubs | Microsoft Docs
-description: Wprowadzenie do usługi Azure Event Hubs i jej omówienie.
+title: "Omówienie usługi Azure Event Hubs | Microsoft Docs"
+description: "Wprowadzenie do usługi Azure Event Hubs i jej omówienie."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f0e0dd20-f745-49c7-bfca-30ea1c46e873
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+
 
 ---
 # <a name="azure-event-hubs-overview"></a>Omówienie usługi Azure Event Hubs
@@ -25,7 +29,7 @@ Usługa Azure Event Hubs to usługa służąca do przetwarzania zdarzeń, która
 
 Centrum zdarzeń jest tworzone na poziomie przestrzeni nazw usługi Event Hubs, podobnie jak w przypadku kolejek i tematów usługi Service Bus. Usługa Event Hubs używa protokołów AMQP i HTTP jako podstawowych interfejsów API. Na poniższym diagramie przedstawiono relację między usługami Event Hubs i Service Bus.
 
-![Usługa Event Hubs](./media/event-hubs-overview/IC741188.png)
+![Usługa Event Hubs](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>Omówienie pojęć
 Usługa Event Hubs zapewnia strumieniowe przesyłanie komunikatów za pomocą partycjonowanego wzorca odbiorcy. Kolejki i zasoby używają modelu [odbiorców konkurencyjnych](https://msdn.microsoft.com/library/dn568101.aspx), w ramach którego każdy odbiorca podejmuje próbę odczytu z tej samej kolejki lub zasobu. To konkurowanie o zasoby powoduje w rezultacie złożoność i konieczność użycia limitów skalowania dla aplikacji przetwarzających strumień. Usługa Event Hubs używa partycjonowanego wzorca odbiorców, w ramach którego każdy odbiorca odczytuje tylko konkretny podzbiór, lub partycję, strumienia komunikatów. Ten wzorzec umożliwia skalowanie w poziomie przetwarzania zdarzeń oraz udostępnia inne funkcje dotyczące strumienia, które są niedostępne w przypadku kolejek i tematów.
@@ -48,13 +52,13 @@ W kontekście usługi Event Hubs komunikaty są określane jako *dane zdarzenia*
 ## <a name="event-publisher"></a>Wydawca zdarzeń
 Każda jednostka, która wysyła zdarzenia lub dane do centrum zdarzeń jest *wydawcą zdarzeń*. Wydawcy zdarzeń mogą publikować zdarzenia przy użyciu protokołu HTTPS lub AMQP 1.0. Wydawcy zdarzeń używają tokenu sygnatury dostępu współdzielonego w celu identyfikowania siebie w centrum zdarzeń i mogą mieć unikatową tożsamość lub używają typowego tokenu sygnatury dostępu współdzielonego, w zależności od wymagań scenariusza.
 
-Aby uzyskać więcej informacji na temat pracy z sygnaturą dostępu współdzielonego, zobacz [Shared Access Signature Authentication with Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md) (Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego przy użyciu usługi Service Bus).
+Aby uzyskać więcej informacji na temat pracy z sygnaturą dostępu współdzielonego, zobacz [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) (Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego przy użyciu usługi Service Bus).
 
 ### <a name="common-publisher-tasks"></a>Typowe zadania wydawcy
 W tej sekcji opisano typowe zadania dla wydawców zdarzeń.
 
 #### <a name="acquire-a-sas-token"></a>Uzyskanie tokenu sygnatury dostępu współdzielonego
-Sygnatura dostępu współdzielonego to mechanizm uwierzytelniania usługi Event Hubs. Usługa Service Bus udostępnia zasady sygnatury dostępu współdzielonego na poziomie przestrzeni nazw i centrum zdarzeń. Token sygnatury dostępu współdzielonego jest generowany na podstawie klucza sygnatury dostępu współdzielonego i jest skrótem SHA adresu URL zakodowanym w określonym formacie. Przy użyciu nazwy klucza (zasady) i tokenu usługa Service Bus może ponownie wygenerować skrót i w ten sposób uwierzytelnić nadawcę. Zwykle tokeny sygnatury dostępu współdzielonego dla wydawców zdarzeń są tworzone jedynie z uprawnieniami do **wysyłania** w określonym centrum zdarzeń. Ten mechanizm adresu URL tokenu sygnatury dostępu współdzielonego stanowi podstawę do identyfikacji wydawcy wprowadzoną w ramach zasad wydawcy. Aby uzyskać więcej informacji na temat pracy z sygnaturą dostępu współdzielonego, zobacz [Shared Access Signature Authentication with Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md) (Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego przy użyciu usługi Service Bus).
+Sygnatura dostępu współdzielonego to mechanizm uwierzytelniania usługi Event Hubs. Usługa Service Bus udostępnia zasady sygnatury dostępu współdzielonego na poziomie przestrzeni nazw i centrum zdarzeń. Token sygnatury dostępu współdzielonego jest generowany na podstawie klucza sygnatury dostępu współdzielonego i jest skrótem SHA adresu URL zakodowanym w określonym formacie. Przy użyciu nazwy klucza (zasady) i tokenu usługa Service Bus może ponownie wygenerować skrót i w ten sposób uwierzytelnić nadawcę. Zwykle tokeny sygnatury dostępu współdzielonego dla wydawców zdarzeń są tworzone jedynie z uprawnieniami do **wysyłania** w określonym centrum zdarzeń. Ten mechanizm adresu URL tokenu sygnatury dostępu współdzielonego stanowi podstawę do identyfikacji wydawcy wprowadzoną w ramach zasad wydawcy. Aby uzyskać więcej informacji na temat pracy z sygnaturą dostępu współdzielonego, zobacz [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) (Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego przy użyciu usługi Service Bus).
 
 #### <a name="publishing-an-event"></a>Publikowanie zdarzenia
 Zdarzenie można opublikować za pośrednictwem protokołu AMQP 1.0 lub HTTPS. Usługa Service Bus udostępnia klasę [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx) służącą do publikowania zdarzeń w centrum zdarzeń od klientów platformy .NET. W przypadku innych środowisk uruchomieniowych i platform można używać dowolnego klienta protokołu AMQP 1.0, na przykład [Apache Qpid](http://qpid.apache.org/). Zdarzenia można publikować indywidualnie lub w partiach. Jedna publikacja (wystąpienie danych zdarzeń) ma limit wynoszący 256 KB, niezależnie od tego, czy jest to pojedyncze zdarzenie, czy partia. Publikowanie większych zdarzeń spowoduje wystąpienie błędu. Najlepszym rozwiązaniem dla wydawców jest niebranie pod uwagę partycji w ramach centrum zdarzeń i określenie jedynie *klucza partycji* (zostanie wprowadzony w następnej sekcji) lub tożsamości za pomocą ich tokenu sygnatury dostępu współdzielonego.
@@ -115,7 +119,7 @@ Pojemność przepływności usługi Event Hubs jest kontrolowana przez jednostki
 * Transfer danych przychodzących: maksymalnie 1 MB na sekundę lub 1000 zdarzeń na sekundę.
 * Transfer danych wychodzących: maksymalnie 2 MB na sekundę.
 
-Transfer danych przychodzących jest ograniczany do pojemności zapewnianej przez liczbę zakupionych jednostek przepływności. Wysyłanie danych przekraczających te wartości spowoduje wystąpienie wyjątku „przekroczono limit przydziału”. Ta wartość to 1 MB na sekundę lub 1000 zdarzeń na sekundę, w zależności od tego, co będzie miało miejsce wcześniej. Transfer danych wychodzących nie powoduje generowania wyjątków ograniczania przepływności, ale jest ograniczony do wielkości transferu danych zgodnie z zakupionymi jednostkami przepływności: 2 MB na sekundę na jednostkę przepływności. Jeśli wystąpią wyjątki szybkości publikowania lub oczekiwany będzie większy transfer danych wychodzących, należy sprawdzić liczbę jednostek przepływności zakupionych dla przestrzeni nazw, w której utworzono centrum zdarzeń. Aby uzyskać więcej jednostek przepływności, możesz dostosować ustawienie na stronie **Przestrzenie nazw** na stronie na karcie **Skala** w [klasycznej witrynie Azure Portal][]. Możesz również zmienić to ustawienie za pomocą interfejsów API platformy Azure.
+Transfer danych przychodzących jest ograniczany do pojemności zapewnianej przez liczbę zakupionych jednostek przepływności. Wysyłanie danych przekraczających te wartości spowoduje wystąpienie wyjątku „przekroczono limit przydziału”. Ta wartość to 1 MB na sekundę lub 1000 zdarzeń na sekundę, w zależności od tego, co będzie miało miejsce wcześniej. Transfer danych wychodzących nie powoduje generowania wyjątków ograniczania przepływności, ale jest ograniczony do wielkości transferu danych zgodnie z zakupionymi jednostkami przepływności: 2 MB na sekundę na jednostkę przepływności. Jeśli wystąpią wyjątki szybkości publikowania lub oczekiwany będzie większy transfer danych wychodzących, należy sprawdzić liczbę jednostek przepływności zakupionych dla przestrzeni nazw, w której utworzono centrum zdarzeń. Aby uzyskać więcej jednostek przepływności, możesz dostosować ustawienie na stronie **Przestrzenie nazw** na stronie na karcie **Skala** w [klasycznej witrynie Azure Portal][Klasyczna witryna Azure Portal]. Możesz również zmienić to ustawienie za pomocą interfejsów API platformy Azure.
 
 Podczas gdy partycje to pojęcie związane z organizowaniem danych, to jednostki przepływności dotyczą wyłącznie pojemności. Jednostki przepływności są rozliczane co godzinę i są kupowane wcześniej. Po zakupieniu jednostki przepływności są rozliczane za co najmniej jedną godzinę. Dla przestrzeni nazw usługi Event Hubs można kupić maksymalnie 20 jednostek przepływności, a dla konta platformy Azure istnieje limit 20 jednostek przepływności. Te jednostki przepływności są współużytkowane przez wszystkie usługi Event Hubs w danej przestrzeni nazw.
 
@@ -130,7 +134,7 @@ Usługa Event Hubs umożliwia szczegółową kontrolę nad wydawcami zdarzeń za
 
     //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-Nie jest konieczne wcześniejsze tworzenie nazw wydawców, ale muszą one być zgodne z tokenem sygnatury dostępu współdzielonego użytym podczas publikowania zdarzenia w celu zapewnienia niezależnych tożsamości wydawcy. Aby uzyskać więcej informacji na temat sygnatury dostępu współdzielonego, zobacz [Shared Access Signature Authentication with Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md) (Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego przy użyciu usługi Service Bus). Podczas używania zasad wydawcy wartość **PartitionKey** jest ustawiana na nazwę wydawcy. Aby zapewnić prawidłowe działanie, te wartości muszą być zgodne.
+Nie jest konieczne wcześniejsze tworzenie nazw wydawców, ale muszą one być zgodne z tokenem sygnatury dostępu współdzielonego użytym podczas publikowania zdarzenia w celu zapewnienia niezależnych tożsamości wydawcy. Aby uzyskać więcej informacji na temat sygnatury dostępu współdzielonego, zobacz [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) (Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego przy użyciu usługi Service Bus). Podczas używania zasad wydawcy wartość **PartitionKey** jest ustawiana na nazwę wydawcy. Aby zapewnić prawidłowe działanie, te wartości muszą być zgodne.
 
 ## <a name="summary"></a>Podsumowanie
 Usługa Azure Event Hubs udostępnia usługę przetwarzania zdarzeń i telemetrii w hiperskali, której można użyć do wspólnego monitorowania przepływu aplikacji i użytkownika na dowolnym poziomie. Dzięki udostępnieniu możliwości publikowania/subskrypcji z niskim opóźnieniem i na bardzo dużą skalę usługa Event Hubs służy jako „wjazd” dla danych big data. Za pomocą tożsamości opartej na wydawcy i list odwołania te funkcje zostały rozszerzone do postaci typowych scenariuszy Internetu rzeczy (IoT). Aby uzyskać więcej informacji na temat tworzenia aplikacji usługi Event Hubs, zobacz [Event Hubs programming guide](event-hubs-programming-guide.md) (Przewodnik dotyczący programowania w usłudze Event Hubs).
@@ -142,11 +146,11 @@ Teraz, kiedy znasz już pojęcia związane z usługą Event Hubs, możesz przej�
 * Kompletna [przykładowa aplikacja korzystająca z usługi Event Hubs].
 
 [Klasyczna witryna Azure Portal]: http://manage.windowsazure.com
-[Samouczek dotyczący usługi Event Hubs]: event-hubs-csharp-ephcs-getstarted.md
+[usługi Event Hubs — samouczek]: event-hubs-csharp-ephcs-getstarted.md
 [przykładowa aplikacja korzystająca z usługi Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Tworzenie usługi Azure BizTalk Services w portalu Azure | Microsoft Docs
-description: Informacje o inicjowaniu obsługi lub tworzeniu usługi Azure BizTalk Services w portalu Azure; MABS, WABS
+title: "Tworzenie usługi Azure BizTalk Services w witrynie Azure Portal | Microsoft Docs"
+description: "Informacje o inicjowaniu obsługi lub tworzeniu usługi Azure BizTalk Services w portalu Azure; MABS, WABS"
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
-
+manager: anneta
+editor: 
+ms.assetid: 3ad18876-a649-40d6-9aa0-1509c1d62c43
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+
 
 ---
-# Tworzenie usługi BizTalk Services przy użyciu portalu Azure
+# <a name="create-biztalk-services-using-the-azure-portal"></a>Tworzenie usługi BizTalk Services przy użyciu portalu Azure
 Tworzenie usługi Azure BizTalk Services w portalu Azure
 
 > [!TIP]
@@ -24,14 +28,14 @@ Tworzenie usługi Azure BizTalk Services w portalu Azure
 > 
 > 
 
-## Tworzenie usługi BizTalk
+## <a name="create-a-biztalk-service"></a>Tworzenie usługi BizTalk
 W zależności od wybranej wersji nie wszystkie ustawienia usługi BizTalk mogą być dostępne.
 
 1. Zaloguj się do [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. W dolnym okienku nawigacji wybierz przycisk **NOWE**:  
-   ![Wybierz przycisk Nowe][NEWButton]
+   ![Wybieranie przycisku Nowe][NEWButton]
 3. Wybierz kolejno opcje **USŁUGI APLIKACJI** > **USŁUGA BIZTALK** > **TWORZENIE NIESTANDARDOWE**:  
-   ![Wybierz kolejno opcje Usługa BizTalk i Tworzenie niestandardowe][NewBizTalkService]
+   ![Wybieranie kolejno opcji Usługa BizTalk i Tworzenie niestandardowe][NewBizTalkService]
 4. Wprowadź ustawienia usługi BizTalk:
    
     <table border="1">
@@ -54,7 +58,7 @@ W zależności od wybranej wersji nie wszystkie ustawienia usługi BizTalk mogą
     </tr>
     <tr>
     <td><strong>Adres URL domeny</strong></td>
-    <td><strong>Opcjonalny</strong>. Domyślnie adresem URL domeny jest <em>NazwaUsługiBizTalk</em>.biztalk.windows.net. Można również wprowadzić niestandardową nazwę domeny.  Na przykład jeśli domeną jest <em>contoso</em>, możesz wprowadzić: <br/><br/>
+    <td><strong>Opcjonalnie</strong>. Domyślnie adresem URL domeny jest <em>NazwaUsługiBizTalk</em>.biztalk.windows.net. Można również wprowadzić niestandardową nazwę domeny.  Na przykład jeśli domeną jest <em>contoso</em>, możesz wprowadzić: <br/><br/>
     <em>MojaFirma</em>.contoso.com<br/>
     <em>MojaFirmaMojaAplikacja</em>.contoso.com<br/>
     <em>MojaAplikacja</em>.contoso.com<br/>
@@ -89,7 +93,7 @@ W zależności od wybranej wersji nie wszystkie ustawienia usługi BizTalk mogą
     <td><strong>Serwer</strong></td>
     <td>Ustawienie dostępne, jeśli na poprzednim ekranie wybrano opcję <strong>Utwórz nowe wystąpienie bazy danych SQL</strong>.
     <br/><br/>
-    Wybierz istniejący serwer bazy danych SQL lub utwórz nowy.</td>
+    Wybierz istniejący serwer programu SQL Server lub utwórz nowy.</td>
     </tr>
     <tr>
     <td><strong>Nazwa logowania do serwera</strong></td>
@@ -112,12 +116,12 @@ Po ukończeniu kreatora usługa Azure BizTalk Services jest utworzona i gotowa d
 
 W zależności od stanu usługi BizTalk niektórych operacji nie można ukończyć. Aby uzyskać listę tych operacji, przejdź do artykułu [BizTalk Services State Chart](biztalk-service-state-chart.md) (Wykres stanu usługi BizTalk Services).
 
-## Kroki po zainicjowaniu obsługi
+## <a name="postprovisioning-steps"></a>Kroki po zainicjowaniu obsługi
 * [Instalacja certyfikatu na komputerze lokalnym](#InstallCert)
 * [Dodanie certyfikatu gotowego do produkcji](#AddCert)
 * [Uzyskanie przestrzeni nazw kontroli dostępu](#ACS)
 
-#### <a name="InstallCert"></a>Instalacja certyfikatu na komputerze lokalnym
+#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Instalacja certyfikatu na komputerze lokalnym
 W ramach inicjowania obsługi usługi BizTalk zostaje utworzony certyfikat z podpisem własnym, skojarzony z subskrypcją usługi BizTalk. Należy go pobrać i zainstalować na komputerach, z których będą wdrażane aplikacje usługi BizTalk lub wysyłane wiadomości do punktu końcowego usługi BizTalk.
 
 1. Zaloguj się do [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -127,14 +131,14 @@ W ramach inicjowania obsługi usługi BizTalk zostaje utworzony certyfikat z pod
    ![Modyfikowanie certyfikatu SSL][QuickGlance]
 5. Kliknij dwukrotnie certyfikat, a następnie uruchom kreatora, aby go zainstalować. Pamiętaj, aby zainstalować certyfikat w obszarze magazynu **Zaufane główne urzędy certyfikacji**.
 
-#### <a name="AddCert"></a>Dodanie certyfikatu gotowego do produkcji
+#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Dodanie certyfikatu gotowego do produkcji
 Certyfikat z podpisem własnym, tworzony automatycznie podczas tworzenia usługi BizTalk Services, jest przeznaczony do użytku tylko w środowiskach programowania. Na potrzeby scenariuszy produkcyjnych zastąp go certyfikatem gotowym do produkcji.
 
 1. Na karcie **Pulpit nawigacyjny** wybierz opcję **Aktualizuj certyfikat SSL**.
 2. Przejdź do prywatnego certyfikatu SSL (*NazwaCertyfikatu*.pfx) zawierającego nazwę usługi BizTalk, wprowadź hasło, a następnie kliknij znacznik wyboru.
 
-#### <a name="ACS"></a>Uzyskanie przestrzeni nazw kontroli dostępu
-1. Zaloguj się do [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>Uzyskanie przestrzeni nazw usługi Access Control
+1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Wybierz opcję **BIZTALK SERVICES** w lewym okienku nawigacyjnym, a następnie wybierz swoją usługę BizTalk.
 3. Na pasku zadań wybierz opcję **Informacje o połączeniu**:  
    ![Wybieranie opcji Informacje o połączeniu][ACSConnectInfo]
@@ -145,18 +149,18 @@ Podczas wdrażania projektu usługi BizTalk w programie Visual Studio należy wp
 Wartości kontroli dostępu można używać z dowolną aplikacją. Podczas tworzenia usługi Azure BizTalk Services ta przestrzeń nazw kontroli dostępu kontroluje uwierzytelnianie za pomocą wdrożenia usługi BizTalk. Jeśli chcesz zmienić subskrypcję lub zarządzać przestrzenią nazw, wybierz opcję **ACTIVE DIRECTORY** w lewym okienku nawigacji, a następnie wybierz przestrzeń nazw. Pasek zadań zawiera opcje.
 
 Kliknięcie przycisku **Zarządzaj** powoduje otwarcie portalu zarządzania kontroli dostępu. W portalu zarządzania kontroli dostępu usługa BizTalk korzysta z **tożsamości usługi**:  
-![Tożsamości usługi ACS w portalu zarządzania kontroli dostępu][ACSServiceIdentities]
+![Tożsamości usługi ACS w portalu zarządzania usługi Access Control][ACSServiceIdentities]
 
 Tożsamość usługi kontroli dostępu jest zestawem poświadczeń, który pozwala aplikacjom lub klientom uwierzytelniać się bezpośrednio za pomocą kontroli dostępu i odebrać token.
 
 > [!IMPORTANT]
-> Usługa BizTalk używa opcji **Właściciel** dla domyślnej tożsamości usługi oraz wartości **Hasło**. Jeśli używasz wartości Klucz symetryczny zamiast wartości Hasło, może wystąpić następujący błąd.<br/><br/>*Nie można nawiązać połączenia z kontem usługi zarządzania kontroli dostępu za pomocą podanych poświadczeń*
+> Usługa BizTalk używa opcji **Właściciel** dla domyślnej tożsamości usługi oraz wartości **Hasło**. Jeśli używasz wartości Klucz symetryczny zamiast wartości Hasło, może wystąpić następujący błąd.<br/><br/>*Nie można nawiązać połączenia z kontem usługi zarządzania Access Control za pomocą podanych poświadczeń*
 > 
 > 
 
 Niektóre wskazówki i zalecenia znajdują się w artykule [Managing Your ACS Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx) (Zarządzanie obszarem nazw ACS).
 
-## Wyjaśniono wymagania
+## <a name="requirements-explained"></a>Wyjaśniono wymagania
 Wymagania te nie dotyczą wersji bezpłatnej.
 
 <table border="1">
@@ -168,19 +172,19 @@ Wymagania te nie dotyczą wersji bezpłatnej.
 <td>Subskrypcja platformy Azure</td>
 <td>Subskrypcja określa, kto może zalogować się do portalu Azure. Właściciel konta tworzy subskrypcję w witrynie <a HREF="https://account.windowsazure.com/Subscriptions">Subskrypcje Azure</a>.
 <br/><br/>
-Konto platformy Azure może mieć wiele subskrypcji i może być zarządzane przez dowolną osobę, która ma odpowiednie uprawnienia. Na przykład właściciel konta Azure tworzy subskrypcję o nazwie <em>BizTalkServiceSubscription</em> i nadaje administratorom usługi BizTalk w firmie (np. ContosoBTSAdmins@live.com) prawo dostępu do niej. W tym scenariuszu administratorzy usługi BizTalk logują się do portalu Azure i mają pełne prawa administratora do wszystkich hostowanych usług w ramach subskrypcji, łącznie z usługą Azure BizTalk Services. Administratorzy usługi BizTalk nie są właścicielami konta Azure i dlatego nie mają dostępu do żadnych informacji dotyczących rozliczeń.
-<br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Więcej informacji znajduje się w artykule Manage Subscriptions and Storage Accounts in the Azure portal</a> (Zarządzanie subskrypcjami i kontami usługi Storage w portalu Azure).
+Konto platformy Azure może mieć wiele subskrypcji i może być zarządzane przez dowolną osobę, która ma odpowiednie uprawnienia. Na przykład właściciel konta Azure tworzy subskrypcję o nazwie <em>BizTalkServiceSubscription</em> i nadaje administratorom usługi BizTalk w firmie (np. ContosoBTSAdmins@live.com)) prawo dostępu do niej. W tym scenariuszu administratorzy usługi BizTalk logują się do portalu Azure i mają pełne prawa administratora do wszystkich hostowanych usług w ramach subskrypcji, łącznie z usługą Azure BizTalk Services. Administratorzy usługi BizTalk nie są właścicielami konta Azure i dlatego nie mają dostępu do żadnych informacji dotyczących rozliczeń.
+<br/><br/>Więcej informacji znajduje się w artykule 
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Manage Subscriptions and Storage Accounts in the Azure portal</a> (Zarządzanie subskrypcjami i kontami usługi Storage w witrynie Azure Portal).
 </td>
 </tr>
 <tr>
-<td>Baza danych SQL Azure</td>
+<td>Usługa Azure SQL Database</td>
 <td>Przechowuje tabele, widoki i procedury składowane używane przez usługę BizTalk, w tym dane śledzenia.
 <br/><br/>
 Podczas tworzenia usługi BizTalk można użyć istniejącego serwera Azure SQL Server, bazy danych SQL Azure lub automatycznie utworzyć nowy serwer bądź nową bazę danych.
 <br/><br/>
-Skala bazy danych SQL zostaje automatycznie skonfigurowana. Zwykle dla usługi BizTalk domyślna skala jest wystarczająca. Zmiana skali ma wpływ na cenę. Zobacz artykuł <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Accounts and Billing in Azure SQL Database (Konta i rozliczenia w bazie danych SQL Azure)</a>
-<br/><br/>
+Skala bazy danych SQL zostaje automatycznie skonfigurowana. Zwykle dla usługi BizTalk domyślna skala jest wystarczająca. Zmiana skali ma wpływ na cenę. Zobacz artykuł <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Accounts and Billing in Azure SQL Database</a>
+ (Konta i rozliczenia w bazie danych SQL Azure)<br/><br/>
 <strong>Uwagi</strong>
 <br/>
 <ul>
@@ -240,7 +244,7 @@ Po utworzeniu usługi BizTalk można dodać nowy lub inny certyfikat.
 
 
 
-## Połączenia hybrydowe
+## <a name="hybrid-connections"></a>Połączenia hybrydowe
 Podczas tworzenia usługi Azure BizTalk Services dostępna jest karta **Połączenia hybrydowe**:
 
 ![Karta Połączenia hybrydowe][HybridConnectionTab]
@@ -249,12 +253,12 @@ Połączenia hybrydowe są używane do łączenia witryny sieci Web Azure lub us
 
  Więcej informacji, m.in. na temat tworzenia połączeń hybrydowych i zarządzania nimi, znajduje się w artykule [Hybrid Connections](integration-hybrid-connection-overview.md) (Połączenia hybrydowe).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po utworzeniu usługi BizTalk zapoznaj się z różnymi [usługami BizTalk Services: kartami Pulpit nawigacyjny, Monitor i Skala](biztalk-dashboard-monitor-scale-tabs.md). Usługa BizTalk jest gotowa dla aplikacji. Aby rozpocząć tworzenie aplikacji, przejdź do artykułu [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) (Usługa Azure BizTalk Services).
 
-## Zobacz też
-* [BizTalk Services: Editions Chart (Usługa BizTalk Services: wykres wersji)](biztalk-editions-feature-chart.md)<br/>
-* [BizTalk Services: State Chart (Usługa BizTalk Services: wykres stanu)](biztalk-service-state-chart.md)<br/>
+## <a name="see-also"></a>Zobacz też
+* [BizTalk Services: Editions Chart (Usługa BizTalk Services: zestawienie wersji)](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: State Chart (Usługa BizTalk Services: tabela stanów)](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Backup and Restore (Usługa BizTalk Services: tworzenie kopii zapasowej i przywracanie)](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Throttling (Usługa BizTalk Services: ograniczanie przepływności)](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Issuer Name and Issuer Key (Usługa BizTalk Services: nazwa i klucz wydawcy)](biztalk-issuer-name-issuer-key.md)<br/>
@@ -271,6 +275,6 @@ Po utworzeniu usługi BizTalk zapoznaj się z różnymi [usługami BizTalk Servi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

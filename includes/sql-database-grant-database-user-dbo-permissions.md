@@ -1,6 +1,6 @@
 
 
-## Przyznawanie uprawnień db_owner nowemu użytkownikowi bazy danych
+## <a name="grant-new-database-user-dbowner-permissions"></a>Przyznawanie uprawnień db_owner nowemu użytkownikowi bazy danych
 Wykonaj poniższe kroki, aby przyznać istniejącemu użytkownikowi bazy danych uprawnienia db_owner.
 
 W tych krokach przyjęto założenie, że ustanowiono połączenie z bazą danych SQL w Eksploratorze obiektów w programie SSMS oraz połączenie z serwerem logicznym bazy danych SQL z uprawnieniami głównego administratora na poziomie serwera lub z użyciem konta użytkownika z uprawnieniami umożliwiającymi przyznawanie uprawnień użytkownikom. 
@@ -18,6 +18,8 @@ W tych krokach przyjęto założenie, że ustanowiono połączenie z bazą danyc
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

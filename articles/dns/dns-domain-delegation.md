@@ -1,12 +1,12 @@
 ---
-title: Delegowanie domeny do usługi Azure DNS | Microsoft Docs
-description: Dowiedz się, jak zmienić delegowanie domeny i korzystać z serwerów nazw usługi Azure DNS do zapewniania hostingu domeny.
+title: "Delegowanie domeny do usługi Azure DNS | Microsoft Docs"
+description: "Dowiedz się, jak zmienić delegowanie domeny i korzystać z serwerów nazw usługi Azure DNS do zapewniania hostingu domeny."
 services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/30/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3a68b42eecede99206b2d6c6d3a1777ff75de4a
+
 
 ---
-# Delegowanie domeny do usługi Azure DNS
+# <a name="delegate-a-domain-to-azure-dns"></a>Delegowanie domeny do usługi Azure DNS
 Usługa Azure DNS umożliwia hostowanie strefy DNS i zarządzanie rekordami DNS dla domeny na platformie Azure. Aby zapytania DNS dla domeny miały dostęp do usługi Azure DNS, należy delegować domenę do usługi Azure DNS z domeny nadrzędnej. Należy pamiętać, że usługa Azure DNS nie jest rejestratorem domen. W tym artykule wyjaśniono, jak działa delegowanie domeny i jak delegować domeny do usługi Azure DNS.
 
-## Jak działa delegowanie DNS
-### Domeny i strefy
+## <a name="how-dns-delegation-works"></a>Jak działa delegowanie DNS
+### <a name="domains-and-zones"></a>Domeny i strefy
 System nazw domen (DNS, Domain Name System) jest hierarchią domen. Hierarchia rozpoczyna się od domeny głównej, której nazwa to po prostu „** **”.  Poniżej są domeny najwyższego poziomu, takie jak „com”, „net”, „org”, „uk” lub „jp”.  Pod nimi są domeny drugiego poziomu, takie jak „org.uk” lub „co.jp”.  I tak dalej. Domeny w hierarchii DNS są hostowane przy użyciu osobnych stref DNS. Te strefy są globalnie rozproszone, hostowane przez serwery DNS na całym świecie.
 
 **Strefa DNS**
@@ -36,7 +40,7 @@ Rejestrator domen to firma, która może udostępniać nazwy domen internetowych
 > 
 > 
 
-### Rozpoznawanie i delegowanie
+### <a name="resolution-and-delegation"></a>Rozpoznawanie i delegowanie
 Istnieją dwa typy serwerów DNS:
 
 * *Autorytatywny* serwer DNS hostuje strefy DNS. Odpowiada na zapytania DNS dotyczące rekordów tylko w tych strefach.
@@ -61,7 +65,7 @@ W jaki sposób strefa nadrzędna wskazuje serwery nazw dla strefy podrzędnej? R
 
 Każde delegowanie faktycznie zawiera dwie kopie rekordów NS — jedną w strefie nadrzędnej wskazującej strefę podrzędną i drugą w samej strefie podrzędnej. Strefa „contoso.com" zawiera rekordy NS dla strefy „contoso.com” (oprócz rekordów NS w strefie „com”). Są to tak zwane autorytatywne rekordy NS i znajdują się na wierzchołku strefy podrzędnej.
 
-## Delegowanie domeny do usługi Azure DNS
+## <a name="delegating-a-domain-to-azure-dns"></a>Delegowanie domeny do usługi Azure DNS
 Po utworzeniu strefy DNS w usłudze Azure DNS należy skonfigurować rekordy NS w strefie nadrzędnej, aby ustawić usługę Azure DNS jako autorytatywne źródło na potrzeby rozpoznawania nazw dla tej strefy. W przypadku domen zakupionych u rejestratora domen rejestrator zaoferuje opcję skonfigurowania tych rekordów NS.
 
 > [!NOTE]
@@ -71,7 +75,7 @@ Po utworzeniu strefy DNS w usłudze Azure DNS należy skonfigurować rekordy NS 
 
 Załóżmy na przykład, że masz zakupioną domenę „contoso.com” i tworzysz strefę o nazwie „contoso.com” w usłudze Azure DNS. Jako właścicielowi domeny rejestrator zaoferuje Ci opcję skonfigurowania adresów serwerów nazw (czyli rekordów NS) dla domeny. Rejestrator będzie przechowywać te rekordy NS w domenie nadrzędnej, w tym przypadku „.com”. Klienci na całym świecie będą wówczas kierowani do Twojej domeny w strefie usługi Azure DNS podczas próby rozpoznania rekordów DNS w strefie „contoso.com”.
 
-### Znajdowanie nazw serwerów nazw
+### <a name="finding-the-name-server-names"></a>Znajdowanie nazw serwerów nazw
 Aby móc delegować swoją strefę DNS do usługi Azure DNS, musisz najpierw znać nazwy serwerów nazw dla swojej strefy. Usługa Azure DNS przydziela serwery nazw z puli za każdym razem, gdy tworzona jest strefa.
 
 Najprostszym sposobem wyświetlenia serwerów nazw przypisanych do strefy jest skorzystanie z portalu Azure.  W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
@@ -80,7 +84,7 @@ Najprostszym sposobem wyświetlenia serwerów nazw przypisanych do strefy jest s
 
 Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw.  Aby wyświetlić nazwy serwerów nazw za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz po prostu pobrać te rekordy.
 
-Przy użyciu programu Azure PowerShell autorytatywne rekordy NS można pobrać w sposób opisany poniżej. Należy pamiętać, że nazwa rekordu „@” służy do odwoływania się do rekordów na wierzchołku strefy.
+Przy użyciu programu Azure PowerShell autorytatywne rekordy NS można pobrać w sposób opisany poniżej. Należy pamiętać, że nazwa rekordu “@” służy do odwoływania się do rekordów na wierzchołku strefy.
 
     PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
     PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -113,14 +117,14 @@ Można także użyć międzyplatformowego interfejsu wiersza polecenia platformy
     data:
     info:    network dns record-set show command OK
 
-### Aby skonfigurować delegowanie
+### <a name="to-set-up-delegation"></a>Aby skonfigurować delegowanie
 Każdy rejestrator ma swoje własne narzędzia do zarządzania systemem DNS służące do zmiany rekordów serwerów nazw dla domeny. Na stronie zarządzania systemem DNS rejestratora edytuj rekordy NS i zastąp je rekordami utworzonymi przez usługę Azure DNS.
 
 Podczas delegowania domeny do usługi Azure DNS należy użyć nazw serwerów nazw udostępnionych przez usługę Azure DNS.  Należy zawsze używać wszystkich 4 nazw serwerów nazw, niezależnie od nazwy domeny.  Delegowanie domeny nie wymaga, aby nazwa serwera nazw korzystała z tej samej domeny najwyższego poziomu, co domena użytkownika.
 
 Nie należy używać rekordów sklejki do wskazywania adresów IP serwerów nazw usługi Azure DNS, ponieważ te adresy IP mogą ulec zmianie w przyszłości. Delegowanie z wykorzystaniem nazw serwerów nazw we własnej strefie, niekiedy nazywanych „serwerami nazw znaczących”, nie jest obecnie obsługiwane w usłudze Azure DNS.
 
-### Aby sprawdzić, czy rozpoznawanie nazw działa
+### <a name="to-verify-name-resolution-is-working"></a>Aby sprawdzić, czy rozpoznawanie nazw działa
 Po zakończeniu delegowania możesz sprawdzić, czy rozpoznawanie nazw działa, uruchamiając zapytanie o rekord SOA dla swojej strefy (który również jest tworzony automatycznie podczas tworzenia strefy) za pomocą narzędzia takiego jak „nslookup”.
 
 Pamiętaj, że nie musisz określać serwerów nazw usługi Azure DNS, ponieważ normalny proces rozpoznawania DNS znajdzie serwery nazw automatycznie, jeśli delegowanie zostało skonfigurowane prawidłowo.
@@ -139,7 +143,7 @@ Pamiętaj, że nie musisz określać serwerów nazw usługi Azure DNS, ponieważ
     expire = 604800 (7 days)
     default TTL = 300 (5 mins)
 
-## Delegowanie domen podrzędnych w usłudze Azure DNS
+## <a name="delegating-subdomains-in-azure-dns"></a>Delegowanie domen podrzędnych w usłudze Azure DNS
 Jeśli chcesz skonfigurować oddzielną strefę podrzędną, możesz delegować domenę podrzędną w usłudze Azure DNS. Na przykład załóżmy, że po skonfigurowaniu i delegowaniu domeny „contoso.com” w usłudze Azure DNS chcesz skonfigurować oddzielną strefę podrzędną „partners.contoso.com”.
 
 Konfigurowanie domeny podrzędnej jest przeprowadzane za pomocą podobnej procedury jak normalne delegowanie. Jedyną różnicą jest to, że w kroku 3 rekordy NS muszą zostać utworzone w strefie nadrzędnej „contoso.com” w usłudze Azure DNS, a nie skonfigurowane za pomocą rejestratora domen.
@@ -148,28 +152,28 @@ Konfigurowanie domeny podrzędnej jest przeprowadzane za pomocą podobnej proced
 2. Wyszukaj autorytatywne rekordy NS w strefie podrzędnej, aby uzyskać serwery nazw hostujące strefę podrzędną w usłudze Azure DNS.
 3. Deleguj strefę podrzędną przez skonfigurowanie rekordów NS w strefie nadrzędnej wskazującej strefę podrzędną.
 
-### Aby delegować domenę podrzędną
+### <a name="to-delegate-a-subdomain"></a>Aby delegować domenę podrzędną
 W poniższym przykładzie programu PowerShell pokazano, jak to działa. Te same kroki można wykonać za pomocą portalu Azure lub międzyplatformowego interfejsu wiersza polecenia platformy Azure.
 
-#### Krok 1. Tworzenie stref nadrzędnych i podrzędnych
+#### <a name="step-1-create-the-parent-and-child-zones"></a>Krok 1. Tworzenie stref nadrzędnych i podrzędnych
 Najpierw utworzymy strefy nadrzędne i podrzędne. Mogą one znajdować się w tej samej grupie zasobów lub różnych grupach zasobów.
 
     $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
     $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
-#### Krok 2. Pobieranie rekordów NS
+#### <a name="step-2-retrieve-ns-records"></a>Krok 2. Pobieranie rekordów NS
 Następnie pobieramy autorytatywne rekordy NS ze strefy podrzędnej, jak pokazano w następnym przykładzie.  Zawierają one serwery nazw przypisane do strefy podrzędnej.
 
     $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-#### Krok 3. Delegowanie strefy podrzędnej
+#### <a name="step-3-delegate-the-child-zone"></a>Krok 3. Delegowanie strefy podrzędnej
 Utwórz odpowiedni zestaw rekordów NS w strefie nadrzędnej, aby ukończyć delegowanie. Należy zauważyć, że nazwa zestawu rekordów w strefie nadrzędnej odpowiada nazwie strefy podrzędnej, w tym przypadku „partners”.
 
     $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
     $parent_ns_recordset.Records = $child_ns_recordset.Records
     Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
-### Aby sprawdzić, czy rozpoznawanie nazw działa
+### <a name="to-verify-name-resolution-is-working"></a>Aby sprawdzić, czy rozpoznawanie nazw działa
 Aby sprawdzić, czy wszystko jest poprawnie skonfigurowane, wyszukaj rekord SOA strefy podrzędnej.
 
     nslookup –type=SOA partners.contoso.com
@@ -186,11 +190,14 @@ Aby sprawdzić, czy wszystko jest poprawnie skonfigurowane, wyszukaj rekord SOA 
         expire = 604800 (7 days)
         default TTL = 300 (5 mins)
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 [Zarządzanie strefami DNS](dns-operations-dnszones.md)
 
 [Zarządzanie rekordami DNS](dns-operations-recordsets.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

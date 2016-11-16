@@ -1,4 +1,4 @@
-### Warstwa Podstawowa usług
+### <a name="basic-service-tier"></a>Warstwa Podstawowa usług
 |  |  |
 | --- | --- |
 | Maksymalna liczba jednostek DTU |5 |
@@ -10,7 +10,7 @@
 | Przywracanie do punktu w czasie |Dowolny punkt z ostatnich 7 dni |
 | Odzyskiwanie po awarii |Aktywna replikacja geograficzna |
 
-### Warstwa Standardowa usług
+### <a name="standard-service-tier"></a>Warstwa Standardowa usług
 |  |  |
 | --- |:---:|
 | **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
@@ -23,7 +23,7 @@
 | Przywracanie do punktu w czasie |Dowolny punkt z ostatnich 35 dni |
 | Odzyskiwanie po awarii |Aktywna replikacja geograficzna |
 
-### Warstwa Premium usług
+### <a name="premium-service-tier"></a>Warstwa Premium usług
 |  |  |
 | --- |:---:|
 | **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
@@ -36,6 +36,8 @@
 | Przywracanie do punktu w czasie |Dowolny punkt z ostatnich 35 dni |
 | Odzyskiwanie po awarii |Aktywna replikacja geograficzna |
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

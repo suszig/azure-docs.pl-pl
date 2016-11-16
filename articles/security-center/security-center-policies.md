@@ -1,12 +1,12 @@
 ---
-title: Ustawianie zasad zabezpieczeń w usłudze Azure Security Center | Microsoft Docs
-description: Ten dokument zawiera informacje pomocne podczas konfigurowania zasad zabezpieczeń w Centrum zabezpieczeń Azure.
+title: "Ustawianie zasad zabezpieczeń w usłudze Azure Security Center | Microsoft Docs"
+description: "Ten dokument zawiera informacje pomocne podczas konfigurowania zasad zabezpieczeń w Centrum zabezpieczeń Azure."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7fba0338f6a61998b1c103210cd60c1d37eeffd5
+
 
 ---
-# Ustawianie zasad zabezpieczeń w usłudze Azure Security Center
+# <a name="set-security-policies-in-azure-security-center"></a>Ustawianie zasad zabezpieczeń w usłudze Azure Security Center
 Ten dokument zawiera informacje i niezbędne instrukcje pomocne podczas konfigurowania zasad zabezpieczeń w usłudze Security Center.
 
-## Czym są zasady zabezpieczeń?
+## <a name="what-are-security-policies"></a>Czym są zasady zabezpieczeń?
 Zasady zabezpieczeń określają zestaw mechanizmów kontrolnych, które są zalecane dla zasobów w określonej subskrypcji lub grupie zasobów. W usłudze Security Center można zdefiniować zasady dla grupy zasobów lub subskrypcji Azure zgodnie z potrzebami zabezpieczeń firmy i typem aplikacji oraz poufnością danych w poszczególnych subskrypcjach.
 
 Na przykład zasoby używane do celów projektowania lub testowania mogą mieć inne wymagania dotyczące zabezpieczeń niż te, które są używane przez aplikacje produkcyjne. Aplikacje z danymi podlegającymi ochronie (takimi jak dane osobowe) mogą wymagać wyższego poziomu zabezpieczeń. Zasady zabezpieczeń włączone w usłudze Azure Security Center regulują zalecenia dotyczące zabezpieczeń i monitorowania, które ułatwiają znalezienie potencjalnych luk i uniknięcie zagrożeń. Przeczytaj artykuł [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md), aby uzyskać więcej informacji na temat sposobu określenia, która opcja jest bardziej odpowiednia dla Ciebie.
 
-## Ustawianie zasad zabezpieczeń dla subskrypcji
+## <a name="set-security-policies-for-subscriptions"></a>Ustawianie zasad zabezpieczeń dla subskrypcji
 Zasady zabezpieczeń można skonfigurować dla każdej subskrypcji lub grupy zasobów. Aby zmodyfikować zasady zabezpieczeń, musisz być właścicielem lub współautorem subskrypcji. Zaloguj się w witrynie Azure Portal i postępuj zgodnie z poniższymi krokami, aby skonfigurować zasady zabezpieczeń w usłudze Security Center:
 
 1. Kliknij kafelek **Zasady** na pulpicie nawigacyjnym usługi Security Center.
@@ -80,7 +84,7 @@ Użyj poniższej tabeli jako źródła informacji, aby zrozumieć do czego słu�
 
 Po skonfigurowaniu wszystkich opcji kliknij przycisk **OK** w bloku **Zasady zabezpieczeń**, który zawiera zalecenia, a następnie kliknij pozycję **Zapisz** w bloku **Zasady zabezpieczeń**, który zawiera ustawienia początkowe.
 
-## Ustawianie zasad zabezpieczeń dla grup zasobów
+## <a name="set-security-policies-for-resource-groups"></a>Ustawianie zasad zabezpieczeń dla grup zasobów
 Jeśli wolisz skonfigurować zasady zabezpieczeń dla każdej grupy zasobów, procedura wygląda podobnie jak w przypadku konfigurowania zasad zabezpieczeń dla subskrypcji. Główna różnica polega na tym, że trzeba rozwinąć nazwę subskrypcji i wybrać grupę zasobów, dla której chcesz skonfigurować unikatowe zasady zabezpieczeń:
 
 ![Wybór grupy zasobów](./media/security-center-policies/security-center-policies-fig5-ga.png)
@@ -94,7 +98,7 @@ Po wybraniu grupy zasobów zostanie otwarty blok **Zasady zabezpieczeń**. Domy�
 > 
 > 
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabezpieczeń Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 
 * [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md). Informacje na temat planowania i zagadnień projektowych podczas wdrażania usługi Azure Security Center.
@@ -104,6 +108,9 @@ W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabe
 * [Azure Security Center — często zadawane pytania](security-center-faq.md). Odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/). Wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

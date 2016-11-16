@@ -1,23 +1,27 @@
 ---
-title: Usługi Active Directory Federation Services na platformie Azure | Microsoft Docs
-description: W tym dokumencie omówiono procedurę wdrożenia usług AD FS na platformie Azure w celu zapewnienia wysokiej dostępności.
-keywords: wdrażanie usług AD FS na platformie Azure, wdrażanie azure adfs, azure adfs, azure ad fs, wdrażanie adfs, wdrażanie ad fs, adfs w azure, wdrażanie adfs w azure, wdrażanie usług AD FS na platformie azure, adfs azure, wprowadzenie do usług AD FS, Azure, wprowadzenie do usług AD FS na platformie Azure, iaas, ADFS, przenoszenie adfs do azure
+title: "Usługi Active Directory Federation Services na platformie Azure | Microsoft Docs"
+description: "W tym dokumencie omówiono procedurę wdrożenia usług AD FS na platformie Azure w celu zapewnienia wysokiej dostępności."
+keywords: "wdrażanie usług AD FS na platformie Azure, wdrażanie azure adfs, azure adfs, azure ad fs, wdrażanie adfs, wdrażanie ad fs, adfs w azure, wdrażanie adfs w azure, wdrażanie usług AD FS na platformie azure, adfs azure, wprowadzenie do usług AD FS, Azure, wprowadzenie do usług AD FS na platformie Azure, iaas, ADFS, przenoszenie adfs do azure"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: anandyadavmsft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2016
+ms.date: 10/03/2016
 ms.author: anandy;billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+
 
 ---
-# Wdrożenie usług AD FS na platformie Azure
+# <a name="ad-fs-deployment-in-azure"></a>Wdrożenie usług AD FS na platformie Azure
 Usługi AD FS udostępniają uproszczone, zabezpieczone funkcje federacji tożsamości i logowania jednokrotnego (SSO) w sieci Web. Federacja z usługą Azure AD lub O365 umożliwia użytkownikom uwierzytelnianie się przy użyciu poświadczeń lokalnych i uzyskiwanie dostępu do wszystkich zasobów w chmurze. Tym samym ważne staje się zapewnienie infrastruktury usług AD FS o wysokiej dostępności, która gwarantuje dostęp zarówno do zasobów lokalnych, jak i przechowywanych w chmurze. Wdrożenie usług AD FS na platformie Azure może pomóc w osiągnięciu wymaganej wysokiej dostępności w prosty sposób.
 Wdrożenie usług AD FS na platformie Azure niesie ze sobą szereg korzyści, takich jak na przykład:
 
@@ -26,7 +30,7 @@ Wdrożenie usług AD FS na platformie Azure niesie ze sobą szereg korzyści, ta
 * **Nadmiarowość geograficzna między lokalizacjami** — nadmiarowość geograficzna platformy Azure zapewnia wysoką dostępność infrastruktury na całym świecie.
 * **Łatwe zarządzanie** — opcje zarządzania w witrynie Azure Portal są bardzo uproszczone, co sprawia, że zarządzanie infrastrukturą jest bardzo łatwe i bezproblemowe. 
 
-## Zasady projektowania
+## <a name="design-principles"></a>Zasady projektowania
 ![Projekt wdrożenia](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
 Na powyższym diagramie przedstawiono zalecaną podstawową topologię umożliwiającą rozpoczęcie wdrażania infrastruktury usług AD FS na platformie Azure. Poniżej przedstawiono zasady dotyczące różnych składników tej topologii:
@@ -39,10 +43,10 @@ Na powyższym diagramie przedstawiono zalecaną podstawową topologię umożliwi
 * **Konta magazynu**: zaleca się korzystanie z dwóch kont magazynu. Korzystanie z jednego konta magazynu może prowadzić do utworzenia pojedynczego punktu awarii. Jeśli konto magazynu przestanie funkcjonować (w mało prawdopodobnym scenariuszu), wdrożenie stanie się niedostępne. Użycie dwóch kont magazynu pozwala powiązać każde konto z linią awarii.
 * **Separacja sieci**: serwery proxy aplikacji sieci Web powinny zostać wdrożone w oddzielnej sieci DMZ. Sieć wirtualną można podzielić na dwie odizolowane podsieci, a następnie wdrożyć w nich serwery proxy aplikacji sieci Web. Dla każdej podsieci można po prostu skonfigurować ustawienia sieciowej grupy zabezpieczeń, zezwalając tylko na wymaganą komunikację między tymi podsieciami. Więcej szczegółów podano w poniższych scenariuszach wdrażania.
 
-## Kroki umożliwiające wdrożenie usług AD FS na platformie Azure
+## <a name="steps-to-deploy-ad-fs-in-azure"></a>Kroki umożliwiające wdrożenie usług AD FS na platformie Azure
 Kroki zawarte w tej sekcji służą jako przewodnik umożliwiający wdrożenie opisanej poniżej infrastruktury usług AD FS na platformie Azure.
 
-### 1. Wdrażanie sieci
+### <a name="1-deploying-the-network"></a>1. Wdrażanie sieci
 Zgodnie z powyższymi informacjami można utworzyć dwie podsieci w jednej sieci wirtualnej lub skonfigurować dwie całkowicie odrębne sieci wirtualne. W tym artykule omówiono wariant obejmujący wdrożenie jednej sieci wirtualnej, która zostanie podzielona na dwie podsieci. Takie podejście jest prostsze, ponieważ użycie dwóch sieci wirtualnych wymagałoby zastosowania bramy umożliwiającej komunikację.
 
 **1.1 Tworzenie sieci wirtualnej**
@@ -94,12 +98,12 @@ Aby wdrożyć kontroler domeny (DC) na platformie Azure, musisz utworzyć połą
 Zaleca się używanie usługi ExpressRoute. Usługa ExpressRoute umożliwia tworzenie prywatnych połączeń między centrami danych Azure i infrastrukturą lokalną lub wspólnym środowiskiem. Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Zapewniają one większą niezawodność i szybkość oraz mniejsze opóźnienia i lepsze zabezpieczenia niż typowe połączenia przez Internet.
 Mimo że zaleca się korzystać z usługi ExpressRoute, można wybrać dowolny typ połączenia, dopasowany do potrzeb danej organizacji. Aby dowiedzieć się więcej na temat usługi ExpressRoute i różnych opcji łączności udostępnianych przez tę usługę, przeczytaj artykuł [ExpressRoute — opis techniczny](https://aka.ms/Azure/ExpressRoute).
 
-### 2. Tworzenie kont magazynu
-Aby utrzymać wysoką dostępność i uniknąć zależności od jednego konta magazynu, można utworzyć dwa konta magazynu. Maszyny znajdujące się w poszczególnych zestawach dostępności podziel na dwie grupy, a następnie przypisz do każdej grupy oddzielne konto magazynu. Pamiętaj, że opłata jest naliczana tylko za rzeczywiste użycie magazynu.
+### <a name="2-create-storage-accounts"></a>2. Tworzenie kont magazynu
+Aby utrzymać wysoką dostępność i uniknąć zależności od jednego konta magazynu, można utworzyć dwa konta magazynu. Maszyny znajdujące się w poszczególnych zestawach dostępności podziel na dwie grupy, a następnie przypisz do każdej grupy oddzielne konto magazynu.
 
 ![Tworzenie kont magazynu](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
-### 3. Tworzenie zestawów dostępności
+### <a name="3-create-availability-sets"></a>3. Tworzenie zestawów dostępności
 Dla każdej roli (kontrolera domeny/serwera usług AD FS i serwera proxy aplikacji sieci Web) musisz utworzyć zestawy dostępności zawierające co najmniej po dwie maszyny. Pozwoli to osiągnąć większą dostępność poszczególnych ról. Tworząc zestawy dostępności, musisz uwzględnić parę zasadniczych kwestii:
 
 * **Domeny błędów**: maszyny wirtualne w tej samej domenie błędów współużytkują źródło zasilania i fizyczny przełącznik sieciowy. Zaleca się korzystanie co najmniej z 2 domen błędów. Na potrzeby tego wdrożenia możesz pozostawić wartość domyślną równą 3.
@@ -114,7 +118,7 @@ Utwórz następujące zestawy dostępności.
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### 4.  Wdrażanie maszyn wirtualnych
+### <a name="4-deploy-virtual-machines"></a>4.    Wdrażanie maszyn wirtualnych
 Następnym krokiem jest wdrożenie maszyn wirtualnych, które będą hostować różne role w używanej infrastrukturze. Zaleca się wdrożenie co najmniej dwóch maszyn w każdym zestawie dostępności. Na potrzeby podstawowego wdrożenia zostanie utworzone sześć maszyn wirtualnych.
 
 | Maszyna | Rola | Podsieć | Zestaw dostępności | Konto magazynu | Adres IP |
@@ -130,7 +134,7 @@ Po ukończeniu wdrażania okienko maszyn wirtualnych powinno wyglądać tak jak 
 
 ![Wdrożone maszyny wirtualne](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-### 5. Konfigurowanie kontrolera domeny / serwerów usług AD FS
+### <a name="5-configuring-the-domain-controller-ad-fs-servers"></a>5. Konfigurowanie kontrolera domeny / serwerów usług AD FS
  W celu uwierzytelnienia dowolnego żądania przychodzącego wymagana jest komunikacja między usługami AD FS a kontrolerem domeny. Aby uniknąć kosztów związanych z przesyłaniem danych w ramach uwierzytelniania między platformą Azure a lokalnym kontrolerem domeny, zaleca się wdrożenie repliki kontrolera domeny na platformie Azure. W celu osiągnięcia wysokiej dostępności zalecane jest utworzenie zestawu dostępności obejmującego co najmniej dwa kontrolery domeny.
 
 | Kontroler domeny | Rola | Konto magazynu |
@@ -141,8 +145,8 @@ Po ukończeniu wdrażania okienko maszyn wirtualnych powinno wyglądać tak jak 
 * Podnieś poziom tych dwóch serwerów jako replika kontrolerów domeny w systemie DNS
 * Skonfiguruj serwery usług AD FS, instalując rolę usług AD FS za pomocą Menedżera serwera.
 
-### 6.   Wdrażanie wewnętrznego modułu równoważenia obciążenia (ILB)
-**6.1.  Tworzenie wewnętrznego modułu równoważenia obciążenia**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6.    Wdrażanie wewnętrznego modułu równoważenia obciążenia (ILB)
+**6.1.    Tworzenie wewnętrznego modułu równoważenia obciążenia**
 
 Aby wdrożyć wewnętrzny moduł równoważenia obciążenia, wybierz pozycję Moduły równoważenia obciążenia w witrynie Azure Portal i kliknij pozycję (+).
 
@@ -167,7 +171,7 @@ Po kliknięciu pozycji Utwórz i wdrożeniu wewnętrznego modułu równoważenia
 
 Następnym krokiem jest skonfigurowanie puli zaplecza i sondy zaplecza.
 
-**6.2.  Konfigurowanie puli zaplecza wewnętrznego modułu równoważenia obciążenia**
+**6.2.    Konfigurowanie puli zaplecza wewnętrznego modułu równoważenia obciążenia**
 
 Wybierz nowo utworzony wewnętrzny moduł równoważenia obciążenia na panelu Moduły równoważenia obciążenia. Zostanie otwarty panel ustawień. 
 
@@ -178,7 +182,7 @@ Wybierz nowo utworzony wewnętrzny moduł równoważenia obciążenia na panelu 
 
 ![Konfigurowanie puli zaplecza wewnętrznego modułu równoważenia obciążenia](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.  Konfigurowanie sondy**
+**6.3.    Konfigurowanie sondy**
 
 W panelu ustawień wewnętrznego modułu równoważenia obciążenia wybierz pozycję Sondy.
 
@@ -187,7 +191,7 @@ W panelu ustawień wewnętrznego modułu równoważenia obciążenia wybierz poz
 
 ![Konfigurowanie sondy wewnętrznego modułu równoważenia obciążenia](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.  Tworzenie reguł równoważenia obciążenia**
+**6.4.    Tworzenie reguł równoważenia obciążenia**
 
 Reguły równoważenia obciążenia pozwalają modułowi skutecznie równoważyć ruch sieciowy. W celu utworzenia reguły równoważenia obciążenia wykonaj następujące czynności: 
 
@@ -197,23 +201,23 @@ Reguły równoważenia obciążenia pozwalają modułowi skutecznie równoważy�
 
 ![Konfigurowanie reguł wewnętrznego modułu równoważenia obciążenia](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.  Aktualizowanie systemu DNS o dane wewnętrznego modułu równoważenia obciążenia**
+**6.5.    Aktualizowanie systemu DNS o dane wewnętrznego modułu równoważenia obciążenia**
 
 Przejdź do serwera DNS i utwórz rekord CNAME dla wewnętrznego modułu równoważenia obciążenia. Rekord CNAME jest przeznaczony dla usługi federacyjnej. Adres IP powinien wskazywać adres IP wewnętrznego modułu równoważenia obciążenia. Na przykład jeśli docelowy adres IP modułu to 10.3.0.8, a zainstalowana usługa federacyjna jest dostępna pod adresem fs.contoso.com, należy utworzyć rekord CNAME dla adresu fs.contoso.com wskazujący na adres 10.3.0.8.
 Dzięki temu cała komunikacja dla adresu fs.contoso.com będzie odpowiednio kierowana i przekazywana do wewnętrznego modułu równoważenia obciążenia.
 
-### 7.   Konfigurowanie serwera proxy aplikacji sieci Web
-**7.1.  Konfigurowanie połączenia między serwerami proxy aplikacji sieci Web i serwerami usług AD FS**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7.    Konfigurowanie serwera proxy aplikacji sieci Web
+**7.1.    Konfigurowanie połączenia między serwerami proxy aplikacji sieci Web i serwerami usług AD FS**
 
 Aby zapewnić komunikację między serwerami proxy aplikacji sieci Web a serwerami usług AD FS znajdującymi się za wewnętrznym modułem równoważenia obciążenia, w katalogu %systemroot%\system32\drivers\etc\hosts utwórz rekord dla wewnętrznego modułu równoważenia obciążenia. Pamiętaj o tym, że nazwa wyróżniająca (DN) powinna być nazwą usługi federacyjnej, na przykład fs.contoso.com. Ponadto wpis adresu IP powinien odpowiadać adresowi IP wewnętrznego modułu równoważenia obciążenia (w tym przykładzie: 10.3.0.8).
 
-**7.2.  Instalowanie roli serwera proxy aplikacji sieci Web**
+**7.2.    Instalowanie roli serwera proxy aplikacji sieci Web**
 
 Gdy serwery proxy aplikacji sieci Web mają zapewniony dostęp do serwerów usług AD FS znajdujących się za wewnętrznym modułem równoważenia obciążenia, można zainstalować serwery proxy aplikacji sieci Web. Serwery proxy aplikacji sieci Web nie są przyłączane do domeny. Zainstaluj role serwera proxy aplikacji sieci Web na dwóch serwerach proxy aplikacji sieci Web, wybierając rolę dostępu zdalnego. Menedżer serwera poprowadzi Cię przez proces instalacji serwera proxy aplikacji sieci Web.
 Aby uzyskać więcej informacji na temat wdrażania serwera proxy aplikacji sieci Web, zapoznaj się z artykułem [Instalowanie i konfigurowanie usługi Serwer proxy aplikacji sieci Web](https://technet.microsoft.com/library/dn383662.aspx).
 
-### 8.   Wdrażanie modułu równoważenia obciążenia połączonego z Internetem (publicznego)
-**8.1.  Tworzenie modułu równoważenia obciążenia połączonego z Internetem (publicznego)**
+### <a name="8-deploying-the-internet-facing-public-load-balancer"></a>8.    Wdrażanie modułu równoważenia obciążenia połączonego z Internetem (publicznego)
+**8.1.    Tworzenie modułu równoważenia obciążenia połączonego z Internetem (publicznego)**
 
 W witrynie Azure Portal wybierz pozycję Moduły równoważenia obciążenia, a następnie kliknij pozycję Dodaj. Na panelu Tworzenie modułu równoważenia obciążenia wprowadź następujące informacje.
 
@@ -227,7 +231,7 @@ Wdrożony moduł pojawi się na liście modułów równoważenia obciążenia.
 
 ![Lista modułów równoważenia obciążenia](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.  Przypisywanie etykiety DNS do publicznego adresu IP**
+**8.2.    Przypisywanie etykiety DNS do publicznego adresu IP**
 
 Kliknij nowo utworzony moduł w panelu modułów równoważenia obciążenia, aby wyświetlić panel konfiguracji. Wykonaj poniższe kroki, aby skonfigurować etykietę DNS dla publicznego adresu IP:
 
@@ -239,45 +243,46 @@ Kliknij nowo utworzony moduł w panelu modułów równoważenia obciążenia, ab
 
 ![Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.  Konfigurowanie puli zaplecza dla modułu równoważenia obciążenia połączonego z Internetem (publicznego)** 
+**8.3.    Konfigurowanie puli zaplecza dla modułu równoważenia obciążenia połączonego z** Internetem (publicznego) 
 
 Konfigurowanie puli zaplecza dla modułu równoważenia obciążenia połączonego z Internetem (publicznego) jako zestawu dostępności (np. contosowapset) dla serwerów proxy aplikacji sieci Web obejmuje te same czynności co tworzenie wewnętrznego modułu równoważenia obciążenia .
 
 ![Konfigurowanie puli zaplecza modułu równoważenia obciążenia połączonego z Internetem](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.  Konfigurowanie sondy**
+**8.4.    Konfigurowanie sondy**
 
 Konfigurowanie sondy dla puli zaplecza serwerów proxy aplikacji sieci Web obejmuje te same czynności co konfigurowanie wewnętrznego modułu równoważenia obciążenia.
 
 ![Konfigurowanie sondy modułu równoważenia obciążenia połączonego z Internetem](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.  Tworzenie reguł równoważenia obciążenia**
+**8.5.    Tworzenie reguł równoważenia obciążenia**
 
 Aby skonfigurować regułę równoważenia obciążenia dla portu TCP 443, wykonaj te same czynności co w przypadku konfigurowania reguły dla wewnętrznego modułu równoważenia obciążenia.
 
 ![Konfigurowanie reguł modułu równoważenia obciążenia połączonego z Internetem](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### 9.   Zabezpieczanie sieci
-**9.1.  Zabezpieczanie wewnętrznej podsieci**
+### <a name="9-securing-the-network"></a>9.    Zabezpieczanie sieci
+**9.1.    Zabezpieczanie wewnętrznej podsieci**
 
 Wdrożenie poniższych reguł (w przedstawionej kolejności) stanowi podstawę skutecznego zabezpieczenia wewnętrznej podsieci.
 
 | Reguła | Opis | Ruch |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |Zezwala na połączenia HTTPS nawiązywane z podsieci DMZ |Przychodzący |
-| DenyAllFromDMZ |Blokuje cały ruch z podsieci DMZ do podsieci wewnętrznej. Włączona wcześniej reguła AllowHTTPSFromDMZ zezwala na połączenia HTTPS i blokuje wszystkie inne połączenia. |Przychodzący |
 | DenyInternetOutbound |Zablokowany dostęp do Internetu |Wychodzący |
+
+![Reguły dostępu WEWN. (ruch przychodzący)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
 [komentarz]: <> (![reguły dostępu WEWN. (ruch przychodzący)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [komentarz]: <> (![reguły dostępu WEWN. (ruch wychodzący)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.  Zabezpieczanie podsieci DMZ**
+**9.2.    Zabezpieczanie podsieci DMZ**
 
 | Reguła | Opis | Ruch |
 |:--- |:--- |:---:|
-| AllowHttpsFromVirtualNetwork |Zezwala na połączenia HTTPS nawiązywane z sieci wirtualnej |Przychodzący |
-| AllowHTTPSInternet |Zezwala na połączenia HTTPS z podsiecią DMZ nawiązywane z Internetu |Przychodzący |
-| DenyingressexceptHTTPS |Blokuje wszystkie połączenia oprócz połączeń przychodzących HTTPS z Internetem |Przychodzący |
-| DenyOutToInternet |Blokuje wszystkie połączenia oprócz połączeń wychodzących HTTPS z Internetem |Wychodzący |
+| AllowHTTPSFromInternet |Zezwala na połączenia HTTPS z podsiecią DMZ nawiązywane z Internetu |Przychodzący |
+| DenyInternetOutbound |Blokuje wszystkie połączenia oprócz połączeń wychodzących HTTPS z Internetem |Wychodzący |
+
+![Reguły dostępu ZEWN. (ruch przychodzący)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
 [komentarz]: <> (![reguły dostępu ZEWN. (ruch przychodzący)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [komentarz]: <> (![reguły dostępu ZEWN. (ruch wychodzący)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
@@ -286,7 +291,7 @@ Wdrożenie poniższych reguł (w przedstawionej kolejności) stanowi podstawę s
 > 
 > 
 
-### 10.  Testowanie logowania za pomocą usług AD FS
+### <a name="10-test-the-ad-fs-signin"></a>10.    Testowanie logowania za pomocą usług AD FS
 Najprostszym sposobem przetestowania działania usług AD FS jest użycie strony IdpInitiatedSignon.aspx. Przede wszystkim trzeba ją włączyć we właściwościach usług AD FS. Wykonaj poniższe kroki, aby zweryfikować konfigurację usług AD FS.
 
 1. Aby włączyć tę stronę, uruchom poniższe polecenie cmdlet na serwerze usług AD FS przy użyciu programu PowerShell.
@@ -300,20 +305,58 @@ Po pomyślnym zalogowaniu zostanie wyświetlony poniższy komunikat:
 
 ![Test zakończony powodzeniem](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-## Dodatkowe zasoby
+## <a name="template-for-deploying-ad-fs-in-azure"></a>Szablon na potrzeby wdrażania usług AD FS na platformie Azure
+Szablon wdraża konfigurację 6 maszyn, po 2 dla kontrolerów domeny, usług AD FS i serwerów proxy aplikacji sieci Web.
+
+[Usługi AD FS w szablonie wdrażania platformy Azure](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
+
+Podczas wdrażania tego szablonu możesz użyć istniejącej sieci wirtualnej lub utworzyć nową. Poniżej wymieniono różnorodne parametry umożliwiające dostosowanie wdrożenia wraz z opisem użycia danego parametru w procesie wdrażania. 
+
+| Parametr | Opis |
+|:--- |:--- |
+| Lokalizacja |Region, w którym można wdrożyć zasoby, na przykład Wschodnie stany USA. |
+| StorageAccountType |Typ tworzonego konta magazynu. |
+| VirtualNetworkUsage |Wskazuje, czy zostanie utworzona nowa sieć wirtualna, czy użyta istniejąca. |
+| VirtualNetworkName |Nazwa sieci wirtualnej do utworzenia. Parametr obowiązkowy w przypadku użycia zarówno nowej, jak i istniejącej sieci wirtualnej. |
+| VirtualNetworkResourceGroupName |Określa nazwę grupy zasobów, w której znajduje się istniejąca sieć wirtualna. Jeśli jest używana istniejąca sieć wirtualna, ten parametr jest obowiązkowy, aby wdrożenie mogło znaleźć identyfikator odpowiedniej istniejącej sieci wirtualnej. |
+| VirtualNetworkAddressRange |Zakres adresów nowej sieci wirtualnej. Parametr obowiązkowy w przypadku tworzenia nowej sieci wirtualnej. |
+| InternalSubnetName |Nazwa podsieci wewnętrznej. Parametr obowiązkowy dla obydwu opcji użycia sieci wirtualnej (nowa lub istniejąca). |
+| InternalSubnetAddressRange |Zakres adresów podsieci wewnętrznej, która zawiera kontrolery domeny i serwery usługi AD FS. Parametr obowiązkowy w przypadku tworzenia nowej sieci wirtualnej. |
+| DMZSubnetAddressRange |Zakres adresów podsieci DMZ, która zawiera serwery proxy aplikacji systemu Windows. Parametr obowiązkowy w przypadku tworzenia nowej sieci wirtualnej. |
+| DMZSubnetName |Nazwa wewnętrznej podsieci. Parametr obowiązkowy dla obydwu opcji użycia sieci wirtualnej (nowa lub istniejąca). |
+| ADDC01NICIPAddress |Wewnętrzny adres IP pierwszego kontrolera domeny. Ten adres IP zostanie statycznie przypisany do kontrolera domeny i musi być prawidłowym adresem IP w obrębie podsieci wewnętrznej. |
+| ADDC02NICIPAddress |Wewnętrzny adres IP drugiego kontrolera domeny. Ten adres IP zostanie statycznie przypisany do kontrolera domeny i musi być prawidłowym adresem IP w obrębie podsieci wewnętrznej. |
+| ADFS01NICIPAddress |Wewnętrzny adres IP pierwszego serwera usług ADFS. Ten adres IP zostanie statycznie przypisany do serwera usług ADFS i musi być prawidłowym adresem IP w obrębie podsieci wewnętrznej. |
+| ADFS02NICIPAddress |Wewnętrzny adres IP drugiego serwera usług ADFS. Ten adres IP zostanie statycznie przypisany do serwera usług ADFS i musi być prawidłowym adresem IP w obrębie podsieci wewnętrznej. |
+| WAP01NICIPAddress |Wewnętrzny adres IP pierwszego serwera proxy aplikacji sieci Web. Ten adres IP zostanie statycznie przypisany do serwera proxy aplikacji sieci Web i musi być prawidłowym adresem IP w obrębie podsieci DMZ. |
+| WAP02NICIPAddress |Wewnętrzny adres IP drugiego serwera proxy aplikacji sieci Web. Ten adres IP zostanie statycznie przypisany do serwera proxy aplikacji sieci Web i musi być prawidłowym adresem IP w obrębie podsieci DMZ. |
+| ADFSLoadBalancerPrivateIPAddress |Wewnętrzny adres IP modułu równoważenia obciążenia usług ADFS. Ten adres IP zostanie statycznie przypisany do modułu równoważenia obciążenia i musi być prawidłowym adresem IP w obrębie podsieci wewnętrznej. |
+| ADDCVMNamePrefix |Prefiks nazwy maszyny wirtualnej dla kontrolerów domeny. |
+| ADFSVMNamePrefix |Prefiks nazwy maszyny wirtualnej dla serwerów usług ADFS. |
+| WAPVMNamePrefix |Prefiks nazwy maszyny wirtualnej dla serwerów proxy aplikacji sieci Web. |
+| ADDCVMSize |Rozmiar maszyny wirtualnej kontrolerów domeny. |
+| ADFSVMSize |Rozmiar maszyny wirtualnej serwerów usług ADFS. |
+| WAPVMSize |Rozmiar maszyny wirtualnej serwerów proxy aplikacji sieci Web. |
+| AdminUserName |Nazwa administratora lokalnego maszyn wirtualnych. |
+| AdminPassword |Hasło do konta administratora lokalnego maszyn wirtualnych. |
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Zestawy dostępności](https://aka.ms/Azure/Availability) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
-* [Wewnętrzny moduł równoważenia obciążenia](https://aka.ms/Azure/ILB/Internal)
+* [Wewnętrzne równoważenie obciążenia](https://aka.ms/Azure/ILB/Internal).
 * [Moduł równoważenia obciążenia połączony z Internetem](https://aka.ms/Azure/ILB/Internet)
 * [Konta magazynu](https://aka.ms/Azure/Storage)
 * [Sieci wirtualne platformy Azure](https://aka.ms/Azure/VNet)
 * [Linki prowadzące do informacji dotyczących usług AD FS i serwera proxy aplikacji sieci Web](http://aka.ms/ADFSLinks) 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurowanie usług AD FS i zarządzanie nimi za pomocą programu Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Wdrażanie geograficznie rozproszonych usług AD FS o wysokiej dostępności na platformie Azure przy użyciu usługi Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

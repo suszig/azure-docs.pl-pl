@@ -1,13 +1,13 @@
 ---
-title: Prosty eksperyment w usłudze Machine Learning Studio | Microsoft Docs
-description: Ten samouczek uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący przetwarzania danych. Będziemy prognozować cenę samochodu, używając algorytmu regresji.
+title: "Prosty eksperyment w usłudze Machine Learning Studio | Microsoft Docs"
+description: "Ten samouczek uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący przetwarzania danych. Będziemy prognozować cenę samochodu, używając algorytmu regresji."
 keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,29 +15,33 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 210e19cbc581ce5fc17898abe184b96c48370e7f
+
 
 ---
-# Samouczek dotyczący uczenia maszynowego: tworzenie pierwszego eksperymentu związanego z przetwarzaniem danych w usłudze Azure Machine Learning Studio
+# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Samouczek dotyczący uczenia maszynowego: tworzenie pierwszego eksperymentu związanego z przetwarzaniem danych w usłudze Azure Machine Learning Studio
 Ten samouczek uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący przetwarzania danych. Utworzymy model regresji liniowej, który prognozuje cenę samochodów na podstawie różnych zmiennych, takich jak marka i specyfikacja techniczna. W tym celu użyjemy usługi Azure Machine Learning Studio, aby opracować prosty eksperyment korzystający z analizy predykcyjnej oraz wykonać jego iterację.
 
 *Analiza predykcyjna* to metoda przetwarzania danych używająca bieżących danych do prognozowania przyszłych wyników. Aby uzyskać bardzo prosty przykład analizy predykcyjnej, obejrzyj klip wideo nr 4 z serii Przetwarzanie danych dla początkujących: [Prognozowanie odpowiedzi za pomocą prostego modelu](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (czas trwania: 7:42).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## W czym pomaga usługa Machine Learning Studio?
+## <a name="how-does-machine-learning-studio-help"></a>W czym pomaga usługa Machine Learning Studio?
 Usługa Machine Learning Studio ułatwia skonfigurowanie eksperymentu za pomocą modułów typu „przeciągnij i upuść” zaprogramowanych wstępnie metodami modelowania predykcyjnego. Aby uruchomić eksperyment i przewidzieć odpowiedź, za pomocą usługi Machine Learning Studio *utworzysz model*, *nauczysz model* oraz *ocenisz i przetestujesz model*.
 
 Otwórz usługę Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Jeśli logujesz się w usłudze Machine Learning Studio nie po raz pierwszy, kliknij pozycję **Sign in here** (Zaloguj się tutaj). W przeciwnym razie kliknij pozycję **Sign Up** (Zarejestruj się) i wybierz między opcją darmową a płatną.
 
 Aby uzyskać ogólne informacje o usłudze Machine Learning Studio, zobacz [Czym jest Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
-## Tworzenie eksperymentu w pięciu krokach
+## <a name="five-steps-to-create-an-experiment"></a>Tworzenie eksperymentu w pięciu krokach
 W tym samouczku dotyczącym uczenia maszynowego wykonamy pięć podstawowych kroków, aby uruchomić eksperyment w usłudze Machine Learning Studio obejmujący tworzenie i uczenie modelu oraz generowanie wyników:
 
 * Tworzenie modelu
   * [Krok 1. Pobieranie danych]
   * [Krok 2. Przetwarzanie wstępne danych]
-  * [Krok 3. Definiowanie cech]
+  * [Krok 3. Definiowanie funkcji]
 * Uczenie modelu
   * [Krok 4. Wybieranie i stosowanie algorytmu uczenia]
 * Generowanie wyników i testowanie modelu
@@ -45,12 +49,12 @@ W tym samouczku dotyczącym uczenia maszynowego wykonamy pięć podstawowych kro
 
 [Krok 1. Pobieranie danych]: #step-1-get-data
 [Krok 2. Przetwarzanie wstępne danych]: #step-2-preprocess-data
-[Krok 3. Definiowanie cech]: #step-3-define-features
+[Krok 3. Definiowanie funkcji]: #step-3-define-features
 [Krok 4. Wybieranie i stosowanie algorytmu uczenia]: #step-4-choose-and-apply-a-learning-algorithm
 [Krok 5. Przewidywanie nowych cen samochodów]: #step-5-predict-new-automobile-prices
 
 
-## Krok 1. Pobieranie danych
+## <a name="step-1-get-data"></a>Krok 1. Pobieranie danych
 Usługa Machine Learning Studio udostępnia wiele przykładowych zestawów danych do wyboru, a dane można importować z wielu źródeł. W tym scenariuszu będziemy używać dołączonego przykładowego zestawu danych **Automobile price data (Raw)** (Nieprzetworzone dane z cenami samochodów).
 Ten zestaw zawiera dane szeregu modeli samochodów, na przykład informacje dotyczące marki, ceny czy specyfikacji technicznej.
 
@@ -72,7 +76,7 @@ Zmienne w zestawie danych są wyświetlane jako kolumny, a poszczególne wystąp
 
 Aby zamknąć okno wizualizacji, kliknij znak „**x**” w prawym górnym rogu.
 
-## Krok 2. Przetwarzanie wstępne danych
+## <a name="step-2-preprocess-data"></a>Krok 2. Przetwarzanie wstępne danych
 Zestawy danych zwykle wymagają przetworzenia wstępnego przed rozpoczęciem analizy. Zwróć uwagę na to, że w przypadku niektórych wierszy w kolumnach brakuje wartości. Te brakujące wartości muszą zostać wyczyszczone, aby umożliwić modelowi wykonanie poprawnej analizy danych. W naszym przykładzie usuniemy wszystkie wiersze z brakującymi wartościami. Ponadto w kolumnie **normalized-losses** (znormalizowane straty) występuje wiele przypadków brakujących wartości, dlatego całkowicie wykluczymy tę kolumnę z modelu.
 
 > [!TIP]
@@ -113,7 +117,7 @@ Na tym etapie nasz eksperyment obejmuje tylko czyszczenie danych. Jeśli chcesz 
 
 Po oczyszczeniu danych można określić, jakie cechy zostaną użyte w modelu predykcyjnym.
 
-## Krok 3. Definiowanie cech
+## <a name="step-3-define-features"></a>Krok 3. Definiowanie cech
 W uczeniu maszynowym *cechy* to poszczególne mierzalne właściwości określonych informacji. W naszym zestawie danych poszczególne wiersze odpowiadają różnym samochodom, a kolumny — cechom tych samochodów.
 
 Znalezienie odpowiedniego zestawu cech, który ma służyć do utworzenia modelu predykcyjnego, wymaga eksperymentowania oraz dysponowania wiedzą na temat bieżącego problemu. Pewne cechy lepiej nadają się do prognozowania danych docelowych. Ponadto niektóre cechy są ściśle powiązane z innymi (na przykład zużycie paliwa w mieście i w trasie), co sprawia, że nie wnoszą one do modelu wielu nowych informacji i dlatego można je usunąć.
@@ -138,7 +142,7 @@ Utworzymy model, który korzysta z podzbioru cech zawartych w naszym zestawie da
 
 Wykonanie tych czynności spowoduje utworzenie zestawu danych, który będzie używany w algorytmie uczenia w następnych krokach. Możesz później wrócić do tego kroku i wybrać inny zbiór cech.
 
-## Krok 4. Wybieranie i stosowanie algorytmu uczenia
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Krok 4. Wybieranie i stosowanie algorytmu uczenia
 Po przygotowaniu danych można przystąpić do konstruowania modelu predykcyjnego, co obejmuje uczenie i testowanie. Użyjemy danych do nauczenia modelu, a następnie przetestujemy go, aby sprawdzić dokładność przewidywanych cen. Na razie nie zastanawiaj się, dlaczego musimy nauczyć, a następnie przetestować model.
 
 Techniki *klasyfikacji* i *regresji* to dwa typy nadzorowanego uczenia maszynowego. Klasyfikacja przewiduje odpowiedź na podstawie zdefiniowanego zestawu kategorii, takich jak kolory (czerwony, niebieski lub zielony). Regresja służy do prognozowania liczby.
@@ -165,7 +169,7 @@ W efekcie powstał nauczony model regresji, który może służyć do generowani
 
 ![Stosowanie algorytmu uczenia maszynowego][screen8]
 
-## Krok 5. Przewidywanie nowych cen samochodów
+## <a name="step-5-predict-new-automobile-prices"></a>Krok 5. Przewidywanie nowych cen samochodów
 Gdy udało się nauczyć model przy użyciu 75% danych, można wygenerować wyniki dla pozostałych 25% danych, aby sprawdzić poprawność funkcjonowania modelu.
 
 1. Znajdź moduł [Score Model][score-model] (Generowanie wyników przez model) i przeciągnij go do obszaru roboczego eksperymentu, a następnie połącz lewy port wejściowy z danymi wyjściowymi modułu [Train Model][train-model] (Uczenie modelu). Połącz prawy port wejściowy z danymi wyjściowymi testów (prawy port) modułu [Split Data][split] (Podział danych).  
@@ -191,7 +195,7 @@ Końcowy eksperyment powinien wyglądać następująco:
 
 ![Samouczek dotyczący uczenia maszynowego: ukończenie eksperymentu opartego na regresji liniowej z użyciem technik modelowania predykcyjnego.][screen10]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po ukończeniu pierwszego samouczka dotyczącego uczenia maszynowego można wykonać iterację skonfigurowanego eksperymentu w celu ulepszenia modelu. Na przykład można zmienić cechy używane do prognozowania. Można też zmodyfikować właściwości algorytmu [regresji liniowej][linear-regression] lub użyć całkowicie innego algorytmu. Można również dodać do eksperymentu wiele algorytmów uczenia maszynowego i porównać dwa z nich przy użyciu modułu [Evaluate Model][evaluate-model] (Ocena modelu).
 
 > [!TIP]
@@ -238,6 +242,6 @@ Aby zapoznać się z bardziej rozbudowanym i szczegółowym przewodnikiem po tec
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

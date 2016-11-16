@@ -1,4 +1,4 @@
-## Co to są tematy i subskrypcje usługi Service Bus?
+## <a name="what-are-service-bus-topics-and-subscriptions"></a>Co to są tematy i subskrypcje usługi Service Bus?
 Tematy i subskrypcje usługi Service Bus obsługują model komunikacji z użyciem *publikowania/subskrypcji* komunikatów. Podczas korzystania z tematów i subskrypcji składniki aplikacji rozproszonej nie komunikują się bezpośrednio ze sobą, lecz wymieniają komunikaty za pośrednictwem tematu, która działa jako pośrednik.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
@@ -9,7 +9,7 @@ Subskrypcja tematu przypomina wirtualną kolejkę, która odbiera kopie komunika
 
 Tematy i subskrypcje usługi Service Bus umożliwiają skalowanie i przetwarzanie bardzo dużej liczby komunikatów przez wielu użytkowników i wiele aplikacji.
 
-## Tworzenie przestrzeni nazw
+## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
 Aby rozpocząć korzystanie z tematów i subskrypcji usługi Service Bus na platformie Azure, należy najpierw utworzyć *przestrzeń nazw usługi*. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
 
 Aby utworzyć przestrzeń nazw:
@@ -22,27 +22,27 @@ Aby utworzyć przestrzeń nazw:
 6. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
 7. W polu **Lokalizacja** wybierz kraj lub region, w którym powinna być hostowana przestrzeń nazw.
    
-    ![Tworzenie przestrzeni nazw][create-namespace]
+    ![Create namespace][create-namespace]
 8. Kliknij przycisk **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
 
-### Uzyskiwanie poświadczeń
+### <a name="obtain-the-credentials"></a>Uzyskiwanie poświadczeń
 1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
 2. W bloku **Przestrzeń nazw usługi Service Bus** kliknij polecenie **Zasady dostępu współdzielonego**.
 3. W bloku **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.
    
-    ![połączenia — informacje][connection-info]
+    ![connection-info][connection-info]
 4. W bloku **Zasady: RootManageSharedAccessKey** kliknij przycisk kopiowania obok pozycji **Parametry połączenia — klucz podstawowy**, aby skopiować parametry połączenia do schowka w celu późniejszego użycia.
    
-    ![połączenie — parametry][connection-string]
+    ![connection-string][connection-string]
 
 [Azure Portal]: https://portal.azure.com
-[tworzenie — przestrzeń nazw]: ./media/howto-service-bus-topics/create-namespace.png
-[połączenia — informacje]: ./media/howto-service-bus-topics/connection-info.png
-[połączenie — parametry]: ./media/howto-service-bus-topics/connection-string.png
+[create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
+[connection-info]: ./media/howto-service-bus-topics/connection-info.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

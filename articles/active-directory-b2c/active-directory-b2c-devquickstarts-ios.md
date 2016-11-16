@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory B2C: wywoływanie interfejsu API sieci Web z aplikacji dla systemu iOS przy użyciu bibliotek innej firmy | Microsoft Docs'
-description: W tym artykule opisano, jak utworzyć aplikację z listą zadań do wykonania dla systemu iOS, która wywołuje interfejs API sieci Web w środowisku Node.js za pomocą tokenów elementu nośnego OAuth 2.0 przy użyciu biblioteki innej firmy.
+title: "Azure Active Directory B2C: wywoływanie interfejsu API sieci Web z aplikacji dla systemu iOS przy użyciu bibliotek innej firmy | Microsoft Docs"
+description: "W tym artykule opisano, jak utworzyć aplikację z listą zadań do wykonania dla systemu iOS, która wywołuje interfejs API sieci Web w środowisku Node.js za pomocą tokenów elementu nośnego OAuth 2.0 przy użyciu biblioteki innej firmy."
 services: active-directory-b2c
 documentationcenter: ios
 author: brandwe
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: objectivec
 ms.topic: hero-article
 ms.date: 07/26/2016
 ms.author: brandwe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+
 
 ---
-# Azure AD B2C: wywoływanie interfejsu API sieci Web z aplikacji dla systemu iOS przy użyciu biblioteki innej firmy
+# <a name="azure-ad-b2c-call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C: wywoływanie interfejsu API sieci Web z aplikacji dla systemu iOS przy użyciu biblioteki innej firmy
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Platforma Microsoft Identity korzysta z otwartych standardów, takich jak OAuth2 i OpenID Connect. Umożliwia to deweloperom korzystanie z każdej biblioteki, którą chcą zintegrować z naszymi usługami. Aby pomóc deweloperom w używaniu naszej platformy z innymi bibliotekami, utworzyliśmy kilka przewodników podobnych do tego. Przedstawiają one sposób konfigurowania bibliotek innych firm pod kątem nawiązywania połączenia z platformą Microsoft Identity. Z platformą Microsoft Identity może łączyć się większość bibliotek implementujących [specyfikację RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749).
@@ -30,10 +34,10 @@ Jeśli dopiero rozpoczynasz korzystanie ze standardu OAuth2 lub OpenID Connect, 
 
 Nie wszystkie scenariusze i funkcje usługi Azure Active Directory są obsługiwane przez platformę B2C.  Aby ustalić, czy należy użyć platformy B2C, zapoznaj się z [jej ograniczeniami](active-directory-b2c-limitations.md).
 
-## Tworzenie katalogu usługi Azure AD B2C
+## <a name="get-an-azure-ad-b2c-directory"></a>Tworzenie katalogu usługi Azure AD B2C
 Przed rozpoczęciem korzystania z usługi Azure AD B2C należy utworzyć katalog lub dzierżawę. Katalog jest kontenerem dla wszystkich użytkowników, aplikacji, grup i innych elementów. Jeśli jeszcze go nie masz, [utwórz katalog usługi B2C](active-directory-b2c-get-started.md), zanim przejdziesz dalej.
 
-## Tworzenie aplikacji
+## <a name="create-an-application"></a>Tworzenie aplikacji
 Następnie musisz utworzyć aplikację w katalogu usługi B2C. Dzięki temu do usługi Azure AD będą przekazywane informacje wymagane do bezpiecznego komunikowania się z aplikacją. W takim przypadku zarówno aplikacja, jak i interfejs API sieci Web będą reprezentowane przez jeden **Identyfikator aplikacji**, ponieważ wchodzą w skład jednej aplikacji logicznej. Aby utworzyć aplikację, postępuj zgodnie z [tymi instrukcjami](active-directory-b2c-app-registration.md). Należy pamiętać o wykonaniu następujących czynności:
 
 * Uwzględnij **urządzenie przenośne** w aplikacji.
@@ -41,7 +45,7 @@ Następnie musisz utworzyć aplikację w katalogu usługi B2C. Dzięki temu do u
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Tworzenie zasad
+## <a name="create-your-policies"></a>Tworzenie zasad
 W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Ta aplikacja zawiera jedno rozwiązanie tożsamości: rejestracja połączona z logowaniem. Te zasady musisz utworzyć dla każdego typu zgodnie z opisem w [artykule dotyczącym struktury zasad](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Podczas tworzenia zasad należy:
 
 * Wybrać **Nazwę wyświetlaną** i atrybuty rejestracji w zasadach.
@@ -52,7 +56,7 @@ W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy uż
 
 Po utworzeniu zasad będzie można rozpocząć tworzenie aplikacji.
 
-## Pobieranie kodu
+## <a name="download-the-code"></a>Pobieranie kodu
 Kod używany w tym samouczku jest przechowywany [ w serwisie GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c).  Aby wykonać czynności z tego samouczka, możesz [pobrać aplikację jako plik zip](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)/archive/master.zip) lub sklonować ten plik:
 
 ```
@@ -65,10 +69,10 @@ Możesz też pobrać cały kod i rozpocząć od razu:
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-## Pobieranie biblioteki innej firmy nxoauth2 i uruchamianie obszaru roboczego
+## <a name="download-the-third-party-library-nxoauth2-and-launch-a-workspace"></a>Pobieranie biblioteki innej firmy nxoauth2 i uruchamianie obszaru roboczego
 W tym przewodniku użyjemy pliku OAuth2Client z serwisu GitHub, biblioteki OAuth2 dla systemu Mac OS X i iOS (Cocoa i Cocoa touch). Ta biblioteka jest oparta na wersji 10 specyfikacji OAuth2. Implementuje ona natywny profil aplikacji i obsługuje punkt końcowy autoryzacji użytkownika końcowego. Jest to potrzebne do integracji z platformą Microsoft Identity.
 
-### Dodawanie biblioteki do projektu przy użyciu menedżera CocoaPods
+### <a name="adding-the-library-to-your-project-using-cocoapods"></a>Dodawanie biblioteki do projektu przy użyciu menedżera CocoaPods
 CocoaPods to menedżer zależności dla projektów Xcode. Automatycznie zarządza on powyższymi krokami instalacji.
 
 ```
@@ -95,7 +99,7 @@ $ open SampleforB2C.xcworkspace
 
 ```
 
-## Struktura projektu
+## <a name="the-structure-of-the-project"></a>Struktura projektu
 Struktura szkieletu naszego projektu wygląda następująco:
 
 * **Widok główny** z okienkiem zadań
@@ -104,7 +108,7 @@ Struktura szkieletu naszego projektu wygląda następująco:
 
 Będziemy korzystać z różnych plików w projekcie w celu dodania uwierzytelniania. Inne części kodu, na przykład kod wizualny, nie mają istotnego znaczenia dla tożsamości i są dostarczone dla Twojej wygody.
 
-## Tworzenie pliku `settings.plist` dla aplikacji
+## <a name="create-the-settingsplist-file-for-your-application"></a>Tworzenie pliku `settings.plist` dla aplikacji
 Aplikację można łatwiej skonfigurować, gdy istnieje scentralizowana lokalizacja do przechowywania wartości konfiguracji. Lokalizacja ta pomaga też zrozumieć działanie poszczególnych ustawień w aplikacji. Będziemy korzystać z *listy właściwości* jako sposobu na podanie tych wartości do aplikacji.
 
 * Utwórz/otwórz plik `settings.plist` w obszarze roboczym aplikacji `Supporting Files`
@@ -155,7 +159,7 @@ Pozostałe wartości są wymagane do używania biblioteki i po prostu tworzą mi
 
 Po utworzeniu pliku `settings.plist` potrzebny będzie kod do jego odczytania.
 
-## Konfigurowanie klasy AppData do odczytu ustawień
+## <a name="set-up-a-appdata-class-to-read-our-settings"></a>Konfigurowanie klasy AppData do odczytu ustawień
 Utwórzmy prosty plik, który analizuje utworzony wcześniej plik `settngs.plist`, i udostępnijmy te ustawienia tak, aby były w przyszłości dostępne dla każdej klasy. Ponieważ nie chcemy tworzyć nowej kopii danych przy każdym pytaniu klasy o nie, użyjemy wzorca Singleton, aby było zwracane to samo wystąpienie tworzone w przypadku każdego żądania dotyczącego ustawień
 
 * Utwórz plik `AppData.h`:
@@ -219,7 +223,7 @@ Utwórzmy prosty plik, który analizuje utworzony wcześniej plik `settngs.plist
 
 Po wykonaniu powyższych czynności będzie można w łatwy sposób pobrać dane, wywołując element `  AppData *data = [AppData getInstance];` w klasie zgodnie z poniższym opisem.
 
-## Konfigurowanie biblioteki NXOAuth2Client w elemencie AppDelegate
+## <a name="set-up-the-nxoauth2client-library-in-your-appdelegate"></a>Konfigurowanie biblioteki NXOAuth2Client w elemencie AppDelegate
 Biblioteka NXOAuthClient wymaga ustawienia niektórych wartości. Następnie można użyć uzyskanego tokenu do wywołania interfejsu API REST. Ponieważ element `AppDelegate` będzie wywoływany przy każdym ładowaniu aplikacji, dobrym pomysłem jest umieszczenie wartości konfiguracji w takim pliku.
 
 * Otwórz plik `AppDelegate.m`
@@ -277,7 +281,7 @@ Następnie upewnij się, że ten zakres jest wywoływany w elemencie AppDelegate
 ```
 
 
-## Tworzenie klasy `LoginViewController`, która będzie używana do obsługi żądań uwierzytelniania
+## <a name="create-a-loginviewcontroller-class-that-we-will-use-to-handle-authentication-requests"></a>Tworzenie klasy `LoginViewController`, która będzie używana do obsługi żądań uwierzytelniania
 Do logowania na koncie używany jest element webview. Dzięki temu można wyświetlić prośbę o użycie przez użytkownika dodatkowych składników, na przykład wiadomości SMS (jeśli skonfigurowano), lub wyświetlać komunikaty o błędzie dla użytkownika. Teraz musisz skonfigurować element webview, a następnie napisać kod obsługujący wywołania zwrotne z usługi Microsoft Identity, które będą występować w elemencie WebView.
 
 * Utwórz klasę `LoginViewController.h`
@@ -482,7 +486,7 @@ Utwórzmy metodę, która będzie wywoływana w przypadku każdego żądania uwi
 
 Po wykonaniu powyższych czynności zostanie utworzony główny sposób interakcji z aplikacją podczas logowania. Po zalogowaniu musimy użyć otrzymanych tokenów. W tym celu utworzymy kod pomocniczy, który będzie dla nas wywoływać interfejsy API REST przy użyciu tej biblioteki.
 
-## Tworzenie klasy `GraphAPICaller` do obsługi żądań do interfejsu API REST
+## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>Tworzenie klasy `GraphAPICaller` do obsługi żądań do interfejsu API REST
 Konfiguracja jest ładowana zawsze podczas ładowania aplikacji. Ładowanie aplikacji wraz z konfiguracją oraz uzyskanie tokenu umożliwia wykonanie kolejnych kroków. 
 
 * Utwórz plik `GraphAPICaller.h`
@@ -502,7 +506,7 @@ Jak widać, zostaną utworzone dwie metody: jedna, która pobiera zadania z inte
 
 Po skonfigurowaniu interfejsu należy dodać rzeczywistą implementację:
 
-* Utwórz plik `GraphAPICaller.m file`
+* Utwórz `GraphAPICaller.m file`
 
 ```objc
 @implementation GraphAPICaller
@@ -613,18 +617,21 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock {
 @end
 ```
 
-## Uruchamianie przykładowej aplikacji
+## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 Na koniec skompiluj i uruchom aplikację w środowisku Xcode. Zarejestruj się lub zaloguj w aplikacji i utwórz zadania dla zalogowanego użytkownika. Wyloguj się i zaloguj się ponownie jako inny użytkownik i utwórz zadania dla tego użytkownika.
 
 Zwróć uwagę, że zadania są przechowywane dla poszczególnych użytkowników w interfejsie API, ponieważ wyodrębnia on tożsamość użytkownika z tokenu dostępu, który odbiera.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Możesz teraz przejść do bardziej zaawansowanych tematów dotyczących usługi B2C. Zobacz te tematy:
 
 [Wywoływanie interfejsu API sieci Web w środowisku Node.js z aplikacji sieci Web dla środowiska Node.js]()
 
 [Dostosowywanie środowiska użytkownika w aplikacji B2C]()
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

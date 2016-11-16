@@ -1,13 +1,13 @@
 ---
-title: 'Samouczek platformy Apache Storm: wprowadzenie do platformy Storm opartej na systemie Linux w usłudze HDInsight | Microsoft Docs'
-description: Wprowadzenie do analizy danych big data na platformie Apache Storm i przykłady z projektu Storm Starter w usłudze HDInsight opartej na systemie Linux. Dowiedz się, jak używać systemu Storm do przetwarzania danych w czasie rzeczywistym.
+title: "Samouczek platformy Apache Storm: wprowadzenie do platformy Storm opartej na systemie Linux w usłudze HDInsight | Microsoft Docs"
+description: "Wprowadzenie do analizy danych big data na platformie Apache Storm i przykłady z projektu Storm Starter w usłudze HDInsight opartej na systemie Linux. Dowiedz się, jak używać systemu Storm do przetwarzania danych w czasie rzeczywistym."
 keywords: apache storm,apache storm tutorial,big data analytics,storm starter
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d710dcac-35d1-4c27-a8d6-acaf8146b485
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/12/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 84567b646e9cb5e95b2aaf5c3ce19fc227decc82
+
 
 ---
-# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Samouczek systemu Apache Storm: wprowadzenie do przykładów z projektu Storm Starter dotyczących analizy danych big data w usłudze HDInsight
+# <a name="apache-storm-tutorial-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Samouczek systemu Apache Storm: wprowadzenie do przykładów z projektu Storm Starter dotyczących analizy danych big data w usłudze HDInsight
 Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy działający w czasie rzeczywistym do przetwarzania strumieni danych. Dzięki platformie Storm w usłudze Azure HDInsight można utworzyć oparty na chmurze klaster Storm do wykonywania analizy danych big data w czasie rzeczywistym.
 
 > [!NOTE]
@@ -66,9 +70,13 @@ W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.2 (Storm 0.9.3) przy
      > * [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
      > 
      > 
+
 3. Kliknij przycisk **OK**, aby zapisać parametry.
+
 4. W bloku **Wdrożenie niestandardowe** kliknij pole listy rozwijanej **Grupa zasobów**, a następnie kliknij przycisk **Nowa**, aby utworzyć nową grupę zasobów. Grupa zasobów jest kontenerem, który grupuje klaster, zależne konto magazynu oraz inne powiązane zasoby.
+
 5. Kliknij opcję **Postanowienia prawne**, a następnie kliknij przycisk **Utwórz**.
+
 6. Kliknij przycisk **Utwórz**. Zostanie wyświetlony nowy kafelek zatytułowany Submitting deployment for Template deployment (Przesyłanie wdrożenia dla wdrożenia szablonu). Utworzenie klastra i bazy danych SQL trwa około 20 minut.
 
 ## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Uruchamianie przykładu z projektu Storm Starter w usłudze HDInsight
@@ -169,10 +177,16 @@ Wróć do strony **Topology summary** (Podsumowanie topologii) dla topologii Wor
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Następne kroki
+## <a name="a-idnextanext-steps"></a><a id="next"></a>Następne kroki
 W tym samouczku platformy Apache Storm użyto przykładu z projektu Storm Starter, aby przedstawić sposób tworzenia klastra platformy Storm w usłudze HDInsight oraz używania pulpitu nawigacyjnego Storm do wdrażania i monitorowania topologii Storm oraz zarządzania nimi. W dalszej kolejności zapoznaj się ze sposobem [opracowywania topologii opartych na języku Java za pomocą programu Maven](hdinsight-storm-develop-java-topology.md).
 
 Jeśli umiesz już opracowywać topologie oparte na języku Java i chcesz wdrożyć istniejącą topologię w usłudze HDInsight, zobacz temat [Wdrażanie topologii Apache Storm w usłudze HDInsight i zarządzanie nimi](hdinsight-storm-deploy-monitor-topology-linux.md).
+
+Jeśli jesteś deweloperem platformy .NET, możesz tworzyć topologie C# lub hybrydowe topologie C#/Java za pomocą programu Visual Studio. Aby uzyskać więcej informacji na ten temat, zobacz [Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md) (Tworzenie topologii C# dla Apache Storm w usłudze HDInsight przy użyciu narzędzi Hadoop dla programu Visual Studio).
+
+Aby uzyskać przykładowe topologie, które mogą być używane z narzędziem Storm w usłudze HDInsight, zobacz następujące przykłady:
+
+    * [Przykładowe topologie dla systemu Storm w usłudze HDInsight](hdinsight-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
@@ -184,6 +198,6 @@ Jeśli umiesz już opracowywać topologie oparte na języku Java i chcesz wdroż
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

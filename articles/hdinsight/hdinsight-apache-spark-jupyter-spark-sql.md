@@ -1,30 +1,34 @@
 ---
-title: Tworzenie klastra Spark w usłudze HDInsight w systemie Linux i korzystanie z programu Spark SQL w aplikacji Jupyter do analizy interakcyjnej | Microsoft Docs
-description: Instrukcje krok po kroku dotyczące sposobu szybkiego tworzenia klastra Apache Spark w usłudze HDInsight oraz używania programu Spark SQL w notesach Jupyter do wykonywania interakcyjnych zapytań.
+title: "Tworzenie klastra Spark w usłudze HDInsight w systemie Linux i korzystanie z programu Spark SQL w aplikacji Jupyter do analizy interakcyjnej | Microsoft Docs"
+description: "Instrukcje krok po kroku dotyczące sposobu szybkiego tworzenia klastra Apache Spark w usłudze HDInsight oraz używania programu Spark SQL w notesach Jupyter do wykonywania interakcyjnych zapytań."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/05/2016
+ms.date: 10/28/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 906d78b3177289dc5d2806ec9fbdb868a5bcb6fb
+
 
 ---
-# Wprowadzenie: tworzenie klastra Apache Spark w usłudze HDInsight w systemie Linux i uruchamianie interakcyjnych zapytań przy użyciu programu Spark SQL
+# <a name="get-started-create-apache-spark-cluster-on-hdinsight-linux-and-run-interactive-queries-using-spark-sql"></a>Wprowadzenie: tworzenie klastra Apache Spark w usłudze HDInsight w systemie Linux i uruchamianie interakcyjnych zapytań przy użyciu programu Spark SQL
 Dowiedz się, jak utworzyć klaster Apache Spark w usłudze HDInsight, a następnie użyć notesu [Jupyter](https://jupyter.org) do uruchamiania interakcyjnych zapytań Spark SQL w klastrze Spark.
 
    ![Rozpoczęcie pracy z platformą Apache Spark w usłudze HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * **Subskrypcja platformy Azure**. Przed rozpoczęciem tego samouczka musisz dysponować subskrypcją platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Klient Secure Shell (SSH)**: systemy Linux, Unix i OS X dostarczają klienta SSH za pośrednictwem polecenia `ssh`. W przypadku systemów Windows zalecamy użycie programu [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 * **Klucze Secure Shell (SSH) (opcjonalnie)**: można zabezpieczyć konto SSH użyte do nawiązania połączenia z klastrem przy użyciu hasła lub klucza publicznego. Zastosowanie hasła pozwala szybko rozpocząć pracę. Warto użyć tej opcji, jeśli chcesz szybko utworzyć klaster i wykonywać zadania testowe. Użycie klucza jest bardziej bezpieczne, jednak wymaga dodatkowej konfiguracji. Ta metoda jest przydatna podczas tworzenia klastra produkcyjnego. W tym artykule używamy metody hasła. Instrukcje dotyczące sposobu tworzenia i używania kluczy SSH z usługą HDInsight można znaleźć w następujących artykułach:
@@ -37,10 +41,10 @@ Dowiedz się, jak utworzyć klaster Apache Spark w usłudze HDInsight, a następ
 > 
 > 
 
-### Wymagania dotyczące kontroli dostępu
+### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Tworzenie klastra Spark
+## <a name="create-spark-cluster"></a>Tworzenie klastra Spark
 W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.4 (Spark 1.6.1) przy użyciu szablonu usługi Azure Resource Manager. Informacje o wersji usługi HDInsight i umowach SLA można znaleźć w temacie [Przechowywanie wersji składnika usługi HDInsight](hdinsight-component-versioning.md). Aby zapoznać się z innymi metodami tworzenia klastra, zobacz temat [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Kliknij poniższy obraz, aby otworzyć szablon w witrynie Azure Portal.         
@@ -67,12 +71,16 @@ W tej sekcji utworzysz klaster usługi HDInsight w wersji 3.4 (Spark 1.6.1) przy
      > * [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
      > 
      > 
+
 3. Kliknij przycisk **OK**, aby zapisać parametry.
+
 4. W bloku **Wdrożenie niestandardowe** kliknij pole listy rozwijanej **Grupa zasobów**, a następnie kliknij przycisk **Nowa**, aby utworzyć nową grupę zasobów. Grupa zasobów jest kontenerem, który grupuje klaster, zależne konto magazynu oraz inne powiązane zasoby.
+
 5. Kliknij opcję **Postanowienia prawne**, a następnie kliknij przycisk **Utwórz**.
+
 6. Kliknij przycisk **Utwórz**. Zostanie wyświetlony nowy kafelek zatytułowany Submitting deployment for Template deployment (Przesyłanie wdrożenia dla wdrożenia szablonu). Utworzenie klastra i bazy danych SQL trwa około 20 minut.
 
-## Uruchamianie zapytań Spark SQL za pomocą notesu Jupyter
+## <a name="run-spark-sql-queries-using-a-jupyter-notebook"></a>Uruchamianie zapytań Spark SQL za pomocą notesu Jupyter
 W tej sekcji użyjesz notesu Jupyter do uruchamiania zapytań Spark SQL w klastrze Spark. Klastry HDInsight Spark zapewniają dwa jądra, których można użyć z notesem Jupyter. Są to:
 
 * **PySpark** (dla aplikacji napisanych w języku Python)
@@ -84,7 +92,7 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 * Możliwość używania w komórkach poleceń magicznych, takich jak `%%sql`, aby bezpośrednio uruchamiać zapytania SQL lub Hive, bez żadnych poprzedzających fragmentów kodu.
 * Automatyczna wizualizacja wyników zapytań SQL lub Hive.
 
-### Tworzenie notesu Jupyter z użyciem jądra PySpark
+### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Tworzenie notesu Jupyter z użyciem jądra PySpark
 1. W [Portalu Azure](https://portal.azure.com/) na tablicy startowej kliknij kafelek klastra Spark (jeśli został przypięty do tablicy startowej). Możesz także przejść do klastra, wybierając polecenia **Przeglądaj wszystko** > **Klastry usługi HDInsight**.   
 2. W bloku klastra Spark kliknij pozycję **Pulpit nawigacyjny klastra**, a następnie opcję **Jupyter Notebook**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
    
@@ -131,20 +139,20 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 8. Po pomyślnym ukończeniu zadania domyślnie wyświetlane są następujące tabelaryczne dane wyjściowe.
    
-    ![Wyniki zapytania w tabeli danych wyjściowych](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
+     ![Wyniki zapytania w tabeli danych wyjściowych](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
    
     Wyniki można również przeglądać w postaci innych wizualizacji. Na przykład wykres warstwowy tych samych danych wyjściowych będzie wyglądać w następujący sposób.
    
     ![Wykres warstwowy wyników zapytania](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Area graph of query result")
 9. Po zakończeniu działania aplikacji należy ją zamknąć, aby zwolnić zasoby. W tym celu w menu **File** (Plik) w notesie kliknij polecenie **Close and Halt** (Zamknij i zatrzymaj). Spowoduje to zakończenie pracy i zamknięcie notesu.
 
-## Usuwanie klastra
+## <a name="delete-the-cluster"></a>Usuwanie klastra
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 * [Przegląd: platforma Apache Spark w usłudze Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### Scenariusze
+### <a name="scenarios"></a>Scenariusze
 * [Platforma Spark i analiza biznesowa: interakcyjna analiza danych na platformie Spark w usłudze HDInsight z użyciem narzędzi do analizy biznesowej](hdinsight-apache-spark-use-bi-tools.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do analizy temperatury w budynku z użyciem danych HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Platforma Spark i usługa Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do przewidywania wyników kontroli żywności](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -152,11 +160,11 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 * [Analiza dzienników witryny sieci Web na platformie Spark w usłudze HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 * [Analiza danych telemetrycznych usługi Application Insight przy użyciu platformy Spark w usłudze HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
 
-### Tworzenie i uruchamianie aplikacji
+### <a name="create-and-run-applications"></a>Tworzenie i uruchamianie aplikacji
 * [Tworzenie autonomicznych aplikacji przy użyciu języka Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Zdalne uruchamianie zadań w klastrze Spark przy użyciu programu Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Narzędzia i rozszerzenia
+### <a name="tools-and-extensions"></a>Narzędzia i rozszerzenia
 * [Tworzenie i przesyłanie aplikacji Spark Scala przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Zdalne debugowanie aplikacji Spark przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Korzystanie z notesów Zeppelin w klastrze Spark w usłudze HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
@@ -164,7 +172,7 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 * [Korzystanie z zewnętrznych pakietów z notesami Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Zarządzanie zasobami
+### <a name="manage-resources"></a>Zarządzanie zasobami
 * [Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Śledzenie i debugowanie zadań uruchamianych w klastrze Apache Spark w usłudze HDInsight](hdinsight-apache-spark-job-debugging.md)
 
@@ -180,6 +188,6 @@ W tym artykule będzie używane jądro PySpark. W artykule [Jądra dostępne dla
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

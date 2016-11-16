@@ -1,12 +1,12 @@
 <a name="tellmevm"></a>
 
-## Opowiedz mi o maszynach wirtualnych
+## <a name="tell-me-about-virtual-machines"></a>Opowiedz mi o maszynach wirtualnych
 Usługa Azure Virtual Machines umożliwia tworzenie i używanie maszyn wirtualnych w chmurze. Z technologii maszyn wirtualnych zapewniającej dostęp do *infrastruktury jako usługi (IaaS)* można korzystać na różne sposoby. Przykłady to:
 
 * **Maszyny wirtualne na potrzeby tworzenia i testowania.** Grupy programistów często używają maszyn wirtualnych, ponieważ oferują one szybki i łatwy sposób tworzenia komputerów o określonej konfiguracji wymaganej do kodowania i testowania aplikacji. Usługa Azure Virtual Machines zapewnia prosty i ekonomiczny sposób tworzenia maszyn wirtualnych, korzystania z nich, a następnie usuwania ich, gdy nie są już potrzebne.
 * **Uruchamianie aplikacji w chmurze.** Uruchamianie niektórych aplikacji w chmurze publicznej jest z punktu widzenia ekonomii prawidłowym podejściem. Przykładem jest aplikacja, która ma duże wartości szczytowe zapotrzebowania. Mimo że można wyposażyć centrum danych z wystarczającą ilość sprzętu do obsługi szczytowego zapotrzebowania, sprzęt ten może być niewystarczająco wykorzystywany przez większość czasu. Uruchomienie takiej aplikacji na platformie Azure pozwala na zapłacenie za dodatkowe maszyny wirtualny tylko wtedy, gdy są potrzebne, a następnie na ich zamknięcie. Załóżmy z kolei, że masz nową firmę, która szybko potrzebuje zasobów obliczeniowych dostępnych na żądanie i bez zobowiązań. I w tym przypadku warto wybrać platformę Azure.
 * **Rozszerzanie własnego centrum danych do chmury publicznej.** W przypadku korzystania z usługi Azure Virtual Network organizacja może utworzyć sieć wirtualną (VNET) stanowiącą rozszerzenie sieci lokalnej i dodać maszyny wirtualne do tej sieci VNET. Umożliwia to uruchamianie aplikacji, takich jak [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) i inne, na maszynie wirtualnej platformy Azure. Takie podejście może być łatwiejsze do wdrożenia lub mniej kosztowne niż uruchamianie ich na maszynach wirtualnych we własnych centrum danych.   
-* **Odzyskiwanie sprawności systemu po awarii.** Zamiast bez przerwy płacić za zapasowe, rzadko używane centrum danych, dzięki funkcji odzyskiwania sprawności po awarii korzystająca z usługi IaaS można płacić za zasoby obliczeniowe tylko wtedy, gdy są naprawdę potrzebne.  Na przykład w razie awarii głównego centrum danych można utworzyć działające na platformie Azure maszyny wirtualne, które pozwalają na uruchomienie najważniejszych aplikacji. Gdy przestaną one być potrzebne, można je wyłączyć.
+* **Odzyskiwanie po awarii.** Zamiast bez przerwy płacić za zapasowe, rzadko używane centrum danych, dzięki funkcji odzyskiwania sprawności po awarii korzystająca z usługi IaaS można płacić za zasoby obliczeniowe tylko wtedy, gdy są naprawdę potrzebne.  Na przykład w razie awarii głównego centrum danych można utworzyć działające na platformie Azure maszyny wirtualne, które pozwalają na uruchomienie najważniejszych aplikacji. Gdy przestaną one być potrzebne, można je wyłączyć.
 
 Podobnie jak inne maszyny wirtualne, maszyny wirtualne platformy Azure są wyposażone w system operacyjny, oferują możliwości sieciowe i magazynowe oraz umożliwiają uruchamianie wielu różnych aplikacji. Możesz użyć obrazu dostarczonego przez zespół Azure lub partnera Azure bądź skorzystać z własnego obrazu. Przykłady obejmują różne wersje i konfiguracje elementów wymienionych poniżej:
 
@@ -37,6 +37,8 @@ Inne korzyści z maszyn wirtualnych, które należy wziąć pod uwagę, obejmuj�
 
 **Odporność** — w ramach platformy Azure jest monitorowany sprzęt fizyczny wykorzystywany do hostowania poszczególnych uruchomionych maszyn wirtualnych. Ewentualna awaria serwera fizycznego z uruchomioną maszyną wirtualną zostaje wykryta przez zespół Azure, po czym maszyna wirtualna zostaje przeniesiona na nowy sprzęt oraz ponownie uruchomiona. Ten proces jest niekiedy nazywany naprawą usługi. Zespół Azure chroni także dane maszyny wirtualnej, przechowując nadmiarowe kopie dysków VHD w magazynie obiektów blob. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

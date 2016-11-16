@@ -1,13 +1,13 @@
 ---
-title: 'Samouczek systemu Linux: wprowadzenie do usług Hadoop i Hive | Microsoft Docs'
-description: Skorzystaj z tego samouczka systemu Linux, aby rozpocząć korzystanie z usługi Hadoop w usłudze HDInsight. Dowiedz się, jak udostępniać klastry z systemem Linux i wykonywać zapytania na danych przy użyciu Hive.
+title: "Samouczek systemu Linux: wprowadzenie do usług Hadoop i Hive | Microsoft Docs"
+description: "Skorzystaj z tego samouczka systemu Linux, aby rozpocząć korzystanie z usługi Hadoop w usłudze HDInsight. Dowiedz się, jak udostępniać klastry z systemem Linux i wykonywać zapytania na danych przy użyciu Hive."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+
 
 ---
-# Samouczek Hadoop: rozpoczynanie pracy z opartą na systemie Linux usługą Hadoop w usłudze HDInsight
+# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Samouczek Hadoop: rozpoczynanie pracy z opartą na systemie Linux usługą Hadoop w usłudze HDInsight
 > [!div class="op_single_selector"]
 > * [Oparte na systemie Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Oparte na systemie Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -28,15 +32,15 @@ Informacje o sposobie tworzenia opartych na systemie Linux klastrów [Hadoop](ht
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka potrzebna będzie:
 
 * **Subskrypcja platformy Azure**: aby utworzyć bezpłatne konto próbne na jeden miesiąc, przejdź do [azure.microsoft.com/free](https://azure.microsoft.com/free).
 
-### Wymagania dotyczące kontroli dostępu
+### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Tworzenie klastra
+## <a name="create-cluster"></a>Tworzenie klastra
 Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, uruchamiasz pewne zadania, a następnie usuwasz klaster. W tej sekcji pokazano, jak utworzyć oparty na systemie Linux klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../resource-group-template-deploy.md). Szablon usługi Resource Manager jest w pełni dostosowywalny. Dzięki niemu tworzenie zasobów platformy Azure, takich jak usługa HDInsight, jest proste. Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Szablon usługi Resource Manager używany w tym samouczku znajduje się w publicznym kontenerze obiektu blob [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
 1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w usłudze Azure Portal. 
@@ -63,7 +67,7 @@ Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, urucham
    
    Na liście są dwa zasoby, czyli klaster i domyślne konto magazynu.
 
-## Uruchamianie zapytań Hive
+## <a name="run-hive-queries"></a>Uruchamianie zapytań Hive
 [Apache Hive](hdinsight-use-hive.md) jest najbardziej popularnym składnikiem używanym w usłudze HDInsight Istnieje wiele sposobów uruchamiania zadań Hive w usłudze HDInsight. W tym samouczku użyjesz widoku Hive narzędzia Ambari, korzystając z portalu, aby uruchamiać zadania Hive. Aby poznać inne metody przesyłania zadań Hive, zobacz temat [Używanie Hive w usłudze HDInsight](hdinsight-use-hive.md).
 
 1. Aby otworzyć narzędzie Ambari, przejdź do **https://&lt;ClusterName>. azurehdinsight.net**, gdzie &lt;ClusterName> to klaster utworzony w poprzedniej sekcji.
@@ -96,7 +100,7 @@ Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, urucham
 
 Po zakończeniu zadania Hive można [wyeksportować wyniki do bazy danych Azure SQL lub bazy danych programu SQL Server](hdinsight-use-sqoop-mac-linux.md), można także [wizualizować wyniki za pomocą programu Excel](hdinsight-connect-excel-power-query.md). Aby uzyskać więcej informacji o korzystaniu z Hive w usłudze HDInsight, zobacz [Używanie Hive i HiveQL z usługą Hadoop w usłudze HDInsight do analizy przykładowego pliku Apache log4j](hdinsight-use-hive.md).
 
-## Czyszczenie na koniec samouczka
+## <a name="clean-up-the-tutorial"></a>Czyszczenie na koniec samouczka
 Po ukończeniu korzystania z samouczka warto usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ze względów ekonomicznych warto usuwać klastry, gdy nie są używane. 
 
 > [!NOTE]
@@ -110,7 +114,7 @@ Po ukończeniu korzystania z samouczka warto usunąć klaster. Dzięki usłudze 
 2. Na pulpicie nawigacyjnym portalu kliknij kafelek z nazwą grupy zasobów użytą podczas tworzenia klastra.
 3. Kliknij przycisk **Usuń** w bloku zasobów, aby usunąć grupę zasobów, zawierającą klaster i domyślne konto magazynu; lub kliknij nazwę klastra na kafelku **Zasoby**, a następnie kliknij przycisk **Usuń** w bloku klastra. Uwaga: usunięcie grupy zasobów powoduje usunięcie konta magazynu. Jeśli chcesz zachować konta magazynu, wybierz opcję usunięcia tylko klastra.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po przeczytaniu tego samouczka umiesz utworzyć oparty na systemie Linux klaster usługi HDInsight przy użyciu szablonu usługi Resource Manager oraz wykonywać podstawowe zapytania Hive.
 
 Aby dowiedzieć się więcej na temat analizowania danych za pomocą usługi HDInsight, zobacz następujące tematy:
@@ -159,6 +163,6 @@ Jeśli chcesz dowiedzieć się więcej o tworzeniu klastra usługi HDInsight i z
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -2,16 +2,18 @@ Aby połączyć się z wystąpieniem usługi Azure Redis Cache, klienci pamięci
 
 ![Ustawienia pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
-### Nazwa hosta i porty
+### <a name="host-name-and-ports"></a>Nazwa hosta i porty
 Aby uzyskać dostęp do nazwy hosta i portów, kliknij opcję **Właściwości**.
 
 ![Właściwości pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-properties.png)
 
-### Klawisze dostępu
+### <a name="access-keys"></a>Klawisze dostępu
 Aby pobrać klucze dostępu, kliknij opcję **Klucze dostępu**.
 
 ![Klucze dostępu pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

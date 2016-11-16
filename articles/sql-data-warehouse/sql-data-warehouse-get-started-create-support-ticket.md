@@ -1,25 +1,29 @@
 ---
-title: Tworzenie biletu pomocy technicznej dotyczącej usługi SQL Data Warehouse | Microsoft Docs
-description: Tworzenie biletu pomocy technicznej w usłudze Azure SQL Data Warehouse.
+title: "Tworzenie biletu pomocy technicznej dotyczącej usługi SQL Data Warehouse | Microsoft Docs"
+description: "Tworzenie biletu pomocy technicznej w usłudze Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: a91d1f53-03cb-464b-9d5b-4a9c1a194ed3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/01/2016
-ms.author: sonyama;barbkess
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
+
 
 ---
-# Tworzenie biletu pomocy technicznej dotyczącej usługi SQL Data Warehouse
+# <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Tworzenie biletu pomocy technicznej dotyczącej usługi SQL Data Warehouse
 Jeśli masz problemy z usługą SQL Data Warehouse, utwórz bilet pomocy technicznej, aby umożliwić naszemu zespołowi inżynierów udzielenie pomocy.
 
-## Tworzenie biletu pomocy technicznej
+## <a name="create-a-support-ticket"></a>Tworzenie biletu pomocy technicznej
 1. Otwórz witrynę [Azure Portal][Azure Portal].
 2. Na ekranie głównym kliknij kafelek **Pomoc i obsługa techniczna**.
    
@@ -34,7 +38,7 @@ Jeśli masz problemy z usługą SQL Data Warehouse, utwórz bilet pomocy technic
     ![Typ żądania](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
    
    > [!NOTE]
-   > Domyślnie każdy serwer SQL (np. myserver.database.windows.net) ma **limit przydziału jednostek DTU** wynoszący 45 000. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Możesz zwiększyć limit przydziału, tworząc bilet pomocy technicznej i wybierając pozycję *Limit przydziału* jako typ żądania. Aby obliczyć zapotrzebowanie na jednostki DTU, należy pomnożyć 7,5 przez łączną wymaganą liczbę jednostek [DWU][DWU]. Jeśli na przykład chcesz hostować dwie bazy danych z poziomem celu usługi DW6000 na jednym serwerze SQL, zażądaj limitu przydziału wynoszącego 90 000.  Aktualne użycie jednostek DTU możesz zobaczyć z poziomu bloku serwera SQL w portalu. Limit przydziału jednostek DTU obejmuje zarówno wstrzymane, jak i niewstrzymane bazy danych. 
+   > Domyślnie każdy serwer SQL (np. myserver.database.windows.net) ma **limit przydziału jednostek DTU** wynoszący 45 000. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Możesz zwiększyć limit przydziału, tworząc bilet pomocy technicznej i wybierając pozycję *Limit przydziału* jako typ żądania. Aby obliczyć zapotrzebowanie na jednostki DTU, należy pomnożyć 7,5 przez łączną wymaganą liczbę jednostek [DWU][DWU]. Jeśli na przykład chcesz hostować dwie bazy danych z poziomem celu usługi DW6000 na jednym serwerze SQL, zażądaj limitu przydziału wynoszącego 90 000.  Aktualne użycie jednostek DTU możesz zobaczyć z poziomu bloku serwera SQL w portalu. Limit przydziału jednostek DTU obejmuje zarówno wstrzymane, jak i niewstrzymane bazy danych. 
    > 
    > 
 5. W polu **Subskrypcja** wybierz subskrypcję obejmującą problematyczną bazę danych.
@@ -63,13 +67,13 @@ Jeśli masz problemy z usługą SQL Data Warehouse, utwórz bilet pomocy technic
     ![Informacje kontaktowe](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
 11. Kliknij przycisk **Utwórz**, aby przesłać żądanie pomocy technicznej.
 
-## Monitorowanie biletu pomocy technicznej
+## <a name="monitor-a-support-ticket"></a>Monitorowanie biletu pomocy technicznej
 Po przesłaniu żądania pomocy technicznej zespół pomocy technicznej platformy Azure skontaktuje się z Tobą. Aby sprawdzić stan żądania i szczegółowe informacje, kliknij opcję **Zarządzaj żądaniami obsługi** na pulpicie nawigacyjnym.
 
 ![Sprawdzanie stanu](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
-## Inne zasoby
-Ponadto można połączyć się ze społecznością usługi SQL Data Warehouse w witrynie [Stack Overflow][Stack Overflow] lub na [forum MSDN dotyczącym usługi Azure SQL Data Warehouse][forum MSDN dotyczącym usługi Azure SQL Data Warehouse].
+## <a name="other-resources"></a>Inne zasoby
+Ponadto można nawiązać kontakt ze społecznością usługi SQL Data Warehouse w witrynie [Stack Overflow][Stack Overflow] lub na [forum MSDN dotyczącym usługi Azure SQL Data Warehouse][forum MSDN dotyczącym usługi Azure SQL Data Warehouse].
 
 <!--Image references--> 
 
@@ -93,6 +97,6 @@ Ponadto można połączyć się ze społecznością usługi SQL Data Warehouse w
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

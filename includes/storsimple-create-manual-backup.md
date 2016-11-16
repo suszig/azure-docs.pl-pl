@@ -2,7 +2,7 @@
 <!--author=SharS last changed: 9/15/15-->
 
 
-#### Ręczne tworzenie kopii zapasowej
+#### <a name="to-create-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
 1. Na stronie **Urządzenia** przejdź do karty **Zasady tworzenia kopii zapasowych**. Zawiera ona listę wszystkich zasad tworzenia kopii zapasowych w formie tabeli, w tym zasad dla woluminu, którego kopię zapasową chcesz utworzyć.
 2. Wybierz zasady, klikając w odpowiednim miejscu (z wyjątkiem pierwszej kolumny). W dolnej części strony kliknij opcję **Pobierz kopię zapasową**. Przycisk rozwinie się i zostaną wyświetlone opcje tworzenia kopii zapasowych: migawka lokalna i migawka w chmurze. 
 3. Po wybraniu opcji zostanie wyświetlony monit o potwierdzenie. Kliknij przycisk **Tak**. 
@@ -18,6 +18,8 @@
    
    Kopia zapasowa powinna pojawić się na liście zestawów kopii zapasowych, która jest wyświetlana w katalogu.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

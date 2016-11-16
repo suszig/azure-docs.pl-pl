@@ -1,13 +1,13 @@
 ---
-title: 'Samouczek usługi SQL Database: wprowadzenie do zabezpieczeń'
-description: Dowiedz się, jak tworzyć konta służące do uzyskiwania dostępu do bazy danych i zarządzania nią.
-keywords: ''
+title: "Samouczek usługi SQL Database: wprowadzenie do zabezpieczeń"
+description: "Dowiedz się, jak tworzyć konta służące do uzyskiwania dostępu do bazy danych i zarządzania nią."
+keywords: 
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,11 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/17/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a3bd8ac5466ae67df0a1865509c8fb897d1374ec
+
 
 ---
-# Samouczek usługi SQL Database: tworzenie kont użytkowników bazy danych SQL służących do uzyskiwania dostępu do bazy danych i zarządzania nią
+# <a name="sql-database-tutorial-create-sql-database-user-accounts-to-access-and-manage-a-database"></a>Samouczek usługi SQL Database: tworzenie kont użytkowników bazy danych SQL służących do uzyskiwania dostępu do bazy danych i zarządzania nią
 > [!div class="op_single_selector"]
-> * [Wprowadzenie](sql-database-get-started-security.md)
+> * [Samouczek z wprowadzeniem](sql-database-get-started-security.md)
 > * [Udzielanie dostępu](sql-database-manage-logins.md)
 > 
 > 
@@ -41,9 +45,12 @@ Z tego samouczka dowiesz się, jak przy użyciu programu SQL Server Management S
 
 [!INCLUDE [Create SQL Database database](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po ukończeniu tego samouczka usługi SQL Database, utworzeniu konta użytkownika i przyznaniu mu uprawnień właściciela bazy danych możesz pogłębić wiedzę o [zabezpieczeniach usługi SQL Database](sql-database-manage-logins.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

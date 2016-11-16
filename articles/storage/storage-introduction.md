@@ -1,23 +1,27 @@
 ---
-title: Wprowadzenie do usługi Storage | Microsoft Docs
-description: Omówienie usługi Azure Storage — magazynu danych online w chmurze firmy Microsoft. Dowiedz się, jak używać najlepszego dostępnego rozwiązania magazynu w chmurze dla Twoich aplikacji.
+title: "Wprowadzenie do usługi Storage | Microsoft Docs"
+description: "Omówienie usługi Azure Storage — magazynu danych online w chmurze firmy Microsoft. Dowiedz się, jak używać najlepszego dostępnego rozwiązania magazynu w chmurze dla Twoich aplikacji."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: vamshik;tamram
+ms.date: 10/25/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 73bd16f44f0848c74ce3edd5042900525e4811db
+
 
 ---
-# Wprowadzenie do usługi Microsoft Azure Storage
-## Omówienie
+# <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
+## <a name="overview"></a>Omówienie
 Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplikacji, które polegają na trwałości, dostępności i skalowalności, aby spełniać potrzeby klientów. Ten artykuł, przeznaczony dla deweloperów, specjalistów IT i osób podejmujących decyzje biznesowe, zawiera następujące informacje:
 
 * Co to jest usługa Azure Storage i jak można ją wykorzystać w aplikacjach w chmurze, mobilnych, serwerowych i klasycznych
@@ -30,7 +34,7 @@ Aby szybko rozpocząć pracę z usługą Azure Storage, zobacz [Szybkie wprowadz
 
 Aby uzyskać szczegółowe informacje dotyczące narzędzi, bibliotek i innych zasobów dotyczących pracy z usługą Azure Storage, zobacz [Następne kroki](#next-steps) poniżej.
 
-## Co to jest Azure Storage?
+## <a name="what-is-azure-storage"></a>Co to jest Azure Storage?
 Obliczenia w chmurze umożliwiają użycie nowych scenariuszy w aplikacjach wymagających skalowalnego i trwałego magazynu o wysokiej dostępności dla danych — dlatego firma Microsoft opracowała usługę Azure Storage. Poza umożliwieniem deweloperom tworzenia aplikacji na dużą skalę na potrzeby obsługi nowych scenariuszy, usługa Azure Storage stanowi również podstawowy magazyn dla usługi Azure Virtual Machines, co także świadczy o jej niezawodności.
 
 Usługa Azure Storage jest skalowalna na ogromną skalę, dzięki czemu można przechowywać i przetwarzać setki terabajtów danych na potrzeby obsługi scenariuszy korzystających z danych big data wymaganych w przypadku aplikacji naukowych, finansowych, analitycznych i multimedialnych. Możesz także przechowywać małe ilości danych przeznaczone dla witryny sieci Web małej firmy. Gdy Twoje potrzeby zmniejszą się, zapłacisz tylko za przechowywane dane. Obecnie Magazyn Azure przechowuje dziesiątki bilionów unikatowych obiektów klienckich i obsługuje średnio miliony żądań na sekundę.
@@ -45,7 +49,7 @@ Usługa Azure Storage obsługuje klientów używających różnorodnych systemó
 
 Usługa Azure Premium Storage oferuje obsługę dysków o wysokiej wydajności i małych opóźnieniach na potrzeby obciążeń intensywnie korzystających z operacji we/wy, które są uruchomione w usłudze Azure Virtual Machines. Usługa Azure Premium Storage umożliwia dołączenie wielu dysków danych trwałych do maszyny wirtualnej i skonfigurowanie ich pod kątem wymagań dotyczących wydajności. Każdy dysk danych jest wspierany przez dysk SSD w usłudze Azure Premium Storage w celu zapewnienia maksymalnej wydajności operacji we/wy. Zobacz [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) (Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure), aby uzyskać szczegółowe informacje.
 
-## Wprowadzenie do usług Azure Storage
+## <a name="introducing-the-azure-storage-services"></a>Wprowadzenie do usług Azure Storage
 Magazyn Azure obejmuje cztery następujące usługi: Magazyn obiektów Blob, Magazyn tabel, Magazyn kolejek i Magazyn plików.
 
 * Usługa Blob Storage przechowuje dane obiektów bez struktury. Obiekt blob może być dowolnymi danymi tekstowymi lub binarnymi, takimi jak dokument, plik multimedialny lub instalator aplikacji. Magazyn obiektów Blob jest także nazywany magazynem obiektów.
@@ -61,7 +65,7 @@ Konto usługi Azure Storage to bezpieczne konto, które umożliwia dostęp do us
 
 [!INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
-## Blob Storage
+## <a name="blob-storage"></a>Blob Storage
 Dla użytkowników z dużymi ilościami danych bez struktury, które mają być przechowywane w chmurze, Magazyn obiektów blob oferuje ekonomiczne i skalowalne rozwiązanie. Możesz użyć Magazynu obiektów blob do przechowywania zawartości takiej jak:
 
 * Dokumenty
@@ -81,7 +85,7 @@ Magazyn obiektów blob udostępnia trzy typy obiektów blob: blokowe obiekty blo
 
 W wypadku bardzo dużych zestawów danych, gdy ograniczenia sieci mogą w praktyce uniemożliwić przekazanie lub pobranie danych do Magazynu obiektów blob, możesz przesłać dysk twardy do firmy Microsoft, aby zaimportować dane bezpośrednio do centrum danych lub wyeksportować je stamtąd. Zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](storage-import-export-service.md).
 
-## Magazyn tabel
+## <a name="table-storage"></a>Magazyn tabel
 Nowoczesne aplikacje często wymagają magazynu, który jest bardziej skalowalny i elastyczny, niż określają to wymagania poprzedniej generacji oprogramowania. Magazyn tabel jest skalowalny na ogromną skalę i oferuje wysoką dostępność, dzięki czemu aplikacja może automatycznie skalować się, aby spełnić wymagania użytkownika. Magazyn tabel to magazyn typu NoSQL (par klucz-atrybut) firmy Microsoft — nie korzysta ze schematów, czym różni się od tradycyjnych relacyjnych baz danych. W wypadku magazynu danych bez schematów można łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Magazyn tabel jest łatwy w użyciu, dzięki czemu deweloperzy mogą szybko tworzyć aplikacje. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji.  Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
 
 Magazyn tabel to magazyn zawierający pary klucz-atrybut, co oznacza, że każda wartość w tabeli jest przechowywana razem z nazwą właściwości z określonym typem. Nazwa właściwości może służyć do filtrowania i określania kryteriów wyboru. Kolekcja właściwości i ich wartości stanowi jednostkę. Ponieważ Magazyn tabel nie korzysta ze schematów, dwie jednostki w tej samej tabeli mogą zawierać różne kolekcje właściwości, a te właściwości mogą być różnych typów.
@@ -92,12 +96,12 @@ Podobnie jak w wypadku Magazynów obiektów blob i kolejek, deweloperzy mogą za
 
 Dla współczesnych aplikacji internetowych bazy danych NoSQL, takie jak Magazyn tabel, stanowią popularną alternatywę do tradycyjnych relacyjnych baz danych.
 
-## Queue Storage
+## <a name="queue-storage"></a>Queue Storage
 W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji są często rozłączane, dzięki czemu mogą być skalowane niezależnie. Magazyn kolejek zapewnia niezawodne rozwiązanie do obsługi komunikatów na potrzeby komunikacji asynchronicznej między składnikami aplikacji niezależnie od tego, czy działają w chmurze, na komputerze, serwerze lokalnym lub urządzeniu przenośnym. Magazyn kolejek obsługuje również zarządzanie asynchronicznymi zadaniami oraz przepływy pracy procesu kompilacji.
 
 Konto magazynu może zawierać dowolną liczbę kolejek. Kolejki mogą zawierać dowolną liczbę komunikatów aż do limitu pojemności konta magazynu. Poszczególne wiadomości mogą mieć maksymalnie 64 KB.
 
-## File Storage
+## <a name="file-storage"></a>File Storage
 Magazyn plików Azure oferuje udziały plików w chmurze oparte na protokole SMB, dzięki czemu można zmigrować starsze aplikacje korzystające z udziałów plików na platformę Azure szybko i bez kosztownych modyfikacji oprogramowania. W przypadku usługi Azure File Storage aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure mogą zainstalować udziały plików w chmurze tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba składników aplikacji może następnie równocześnie zainstalować udział Magazynu plików i uzyskiwać do niego dostęp.
 
 Ponieważ udział Magazynu plików to standardowy udział plików SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy systemu plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure.
@@ -106,7 +110,7 @@ Podobnie jak inne usługi magazynu platformy Azure, Magazyn plików uwidacznia i
 
 Aplikacje rozproszone mogą także używać Magazynu plików do przechowywania i udostępniania przydatnych danych aplikacji oraz narzędzi do programowania i testowania. Na przykład aplikacja może przechowywać pliki konfiguracji i dane diagnostyczne, takie jak dzienniki, metryki i zrzuty awaryjne, w udziale Magazynu plików, dzięki czemu są one dostępne dla wielu maszyn wirtualnych lub ról. Deweloperzy i administratorzy mogą przechowywać narzędzia, które są im niezbędne do kompilacji aplikacji lub zarządzania aplikacją, w udziale Magazynu plików, który jest dostępny dla wszystkich składników, zamiast instalowania ich na każdej maszynie wirtualnej lub w każdym wystąpieniu roli.
 
-## Dostęp do zasobów obiektów blob, tabel, kolejek i plików
+## <a name="access-to-blob-table-queue-and-file-resources"></a>Dostęp do zasobów obiektów blob, tabel, kolejek i plików
 Domyślnie tylko właściciel konta magazynu ma dostęp do zasobów w ramach konta magazynu. Dla bezpieczeństwa danych każde żądanie dotyczące zasobów w ramach Twojego konta musi zostać uwierzytelnione. Uwierzytelnianie jest oparte na modelu klucza wspólnego. Obiekty blob można skonfigurować w taki sposób, aby zapewnić obsługę uwierzytelniania anonimowego.
 
 Do Twojego konta magazynu podczas jego tworzenia są przypisywane dwa prywatne klucze dostępu, które są używane do uwierzytelniania. Dwa klucze zapewniają, że aplikacja pozostanie dostępna podczas okresowego ponownego generowania kluczy, co jest powszechną praktyką zarządzania kluczami zabezpieczeń.
@@ -121,14 +125,14 @@ Istnieje także możliwość określenia kontenera i jego obiektów blob lub kon
 
 Zobacz [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji o sygnaturach dostępu współdzielonego. Aby uzyskać więcej informacji na temat bezpiecznego dostępu do konta magazynu, zobacz [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Zarządzanie anonimowym dostępem do odczytu do kontenerów i obiektów blob) i [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Uwierzytelnianie dla usług Azure Storage).
 
-## Replikacja na potrzeby trwałości i wysokiej dostępności
-Dane konta usługi Microsoft Azure Storage są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności, spełniając [wymagania umowy SLA dotyczącej usługi Storage](https://azure.microsoft.com/support/legal/sla/storage/) nawet w wypadku przejściowych awarii sprzętu.
+## <a name="replication-for-durability-and-high-availability"></a>Replikacja na potrzeby trwałości i wysokiej dostępności
+Dane konta usługi Microsoft Azure Storage są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności. W zależności od wybranej opcji replikacji dane są kopiowane w ramach tego samego centrum danych lub do innego centrum danych. Replikacja chroni dane i utrzymuje sprawne działanie aplikacji w wypadku przejściowych awarii sprzętu. Jeśli dane są replikowane do innego centrum danych, są one również chronione przed katastrofalnym błędem w lokalizacji podstawowej.
 
-Aby uzyskać więcej informacji na temat dostępności usług w poszczególnych regionach, zobacz temat [Regiony świadczenia usługi Azure](https://azure.microsoft.com/regions/#services).
+Replikacja gwarantuje, że Twoje konto magazynu spełnia warunki [Umowy dotyczącej poziomu usług (SLA) dla Magazynu](https://azure.microsoft.com/support/legal/sla/storage/) nawet w przypadku wystąpienia błędów. Zobacz umowę SLA, aby uzyskać informacje o gwarancjach usługi Azure Storage dotyczących trwałości i dostępności. 
 
-Podczas tworzenia konta magazynu należy wybrać jedną z następujących opcji replikacji:  
+Podczas tworzenia konta magazynu można wybrać jedną z następujących opcji replikacji:  
 
-* **Magazyn lokalnie nadmiarowy (LRS).** Magazyn lokalnie nadmiarowy przechowuje trzy kopie danych. Magazyn LRS jest replikowany trzy razy w jednym obiekcie w pojedynczym regionie. Magazyn LRS chroni dane przed zwykłymi awariami sprzętu, lecz nie przed awarią pojedynczego obiektu.  
+* **Magazyn lokalnie nadmiarowy (LRS).** Magazyn lokalnie nadmiarowy przechowuje trzy kopie danych. Magazyn LRS jest replikowany trzy razy w jednym centrum danych w pojedynczym regionie. Magazyn LRS chroni dane przed zwykłymi awariami sprzętu, lecz nie przed awarią pojedynczego centrum danych.  
   
     Magazyn LRS jest oferowany z rabatem. Aby uzyskać maksymalną trwałość, zalecamy użycie magazynu geograficznie nadmiarowego opisanego poniżej.
 * **Magazyn strefowo nadmiarowy (ZRS).** Magazyn strefowo nadmiarowy przechowuje trzy kopie danych. Magazyn ZRS jest replikowany trzykrotnie w ramach dwóch lub trzech obiektów, w jednym lub dwóch regionach, zapewniając większą trwałość niż magazyn LRS. Magazyn ZRS zapewnia, że dane są trwałe w pojedynczym regionie.  
@@ -144,7 +148,7 @@ Podczas tworzenia konta magazynu należy wybrać jedną z następujących opcji 
 * **Magazyn geograficznie nadmiarowy (GRS)**. Magazyn GRS przechowuje sześć kopii danych. W wypadku magazynu GRS dane są replikowane trzy razy w regionie podstawowym i trzy razy w regionie dodatkowym oddalonym o setki kilometrów od podstawowego, co zapewnia najwyższy poziom trwałości. Jeśli wystąpi awaria w regionie podstawowym, usługa Azure Storage przejdzie w tryb failover w regionie dodatkowym. Magazyn GRS zapewnia, że dane są trwałe w dwóch oddzielnych regionach.
   
     Informacje o parach podstawowych i dodatkowych według regionów można znaleźć w temacie [Regiony platformy Azure](https://azure.microsoft.com/regions/).
-* **Dostęp do odczytu dla magazynu geograficznie nadmiarowego (RA-GRS)**. Dostęp do odczytu dla magazynu geograficznie nadmiarowego jest domyślnie włączany dla konta magazynu podczas jego tworzenia. W ramach dostępu do odczytu dla magazynu geograficznie nadmiarowego dane są replikowane do dodatkowej lokalizacji geograficznej, gdzie są dostępne do odczytu. Dostęp do odczytu dla magazynu geograficznie nadmiarowego umożliwia dostęp do danych z lokalizacji podstawowej lub dodatkowej w sytuacji, gdy jedna z nich stanie się niedostępna.
+* **Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)**. W ramach dostępu do odczytu dla magazynu geograficznie nadmiarowego dane są replikowane do dodatkowej lokalizacji geograficznej, gdzie są dostępne do odczytu. Dostęp do odczytu dla magazynu geograficznie nadmiarowego umożliwia dostęp do danych z lokalizacji podstawowej lub dodatkowej w sytuacji, gdy jedna z nich stanie się niedostępna. Dostęp do odczytu dla magazynu geograficznie nadmiarowego jest opcją domyślnie włączaną dla konta magazynu podczas jego tworzenia. 
   
   > [!IMPORTANT]
   > Możesz zmienić sposób replikacji danych po utworzeniu konta magazynu, o ile jest on inny niż ZRS. Zwróć jednak uwagę, że w wypadku przejścia z replikacji LRS na GRS lub RA-GRS mogą zostać naliczone dodatkowo i jednorazowo koszty transferu danych.
@@ -153,95 +157,98 @@ Podczas tworzenia konta magazynu należy wybrać jedną z następujących opcji 
 
 Aby uzyskać szczegółowe informacje na temat opcji replikacji magazynu, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).
 
-Aby uzyskać informacje o cenniku replikacji konta magazynu, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Aby uzyskać informacje o cenniku replikacji konta magazynu, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Aby uzyskać więcej informacji na temat dostępności usług w poszczególnych regionach, zobacz temat [Regiony świadczenia usługi Azure](https://azure.microsoft.com/regions/#services).
 
 Aby uzyskać szczegółowe informacje o trwałości w usłudze Azure Storage, zobacz [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Dokument SOSP — Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z dużą trwałością).
 
-## Transferowanie danych do i z usługi Azure Storage
+## <a name="transferring-data-to-and-from-azure-storage"></a>Transferowanie danych do i z usługi Azure Storage
 Możesz użyć narzędzia wiersza polecenia AzCopy do kopiowania obiektów blob, plików i danych tabel w ramach jednego lub wielu kont magazynu. Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md).
 
 Podstawą narzędzia AzCopy jest [biblioteka przenoszenia danych platformy Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), która jest aktualnie dostępna w wersji zapoznawczej.
 
 Usługa Import/Eksport Azure umożliwia zaimportowanie lub wyeksportowanie danych obiektów blob w ramach konta magazynu za pomocą dysku twardego przesłanego pocztą do centrum danych platformy Azure. Aby uzyskać więcej informacji o usłudze Import/Export, zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](storage-import-export-service.md).
 
-## Cennik
+## <a name="pricing"></a>Cennik
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
-## Interfejsy API usługi Storage, biblioteki i narzędzia
+## <a name="storage-apis-libraries-and-tools"></a>Interfejsy API usługi Storage, biblioteki i narzędzia
 Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który obsługuje żądania HTTP/HTTPS. Dodatkowo Magazyn Azure oferuje biblioteki programistyczne dla kilku popularnych języków. Te biblioteki upraszczają wiele aspektów pracy z Magazynem Azure, obsługując szczegóły takie jak wywołania synchroniczne i asynchroniczne, przetwarzanie wsadowe operacji, zarządzanie wyjątkami, automatyczne ponawianie, zachowania podczas działania itd. Biblioteki są obecnie dostępne dla następujących języków i platform, a kolejne są planowane:
 
-### Usługi danych usługi Azure Storage
+### <a name="azure-storage-data-services"></a>Usługi danych usługi Azure Storage
 * [Interfejs API REST usług Storage](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Biblioteka klienta usługi Storage dla platformy .NET, systemu Windows Phone i środowiska uruchomieniowego systemu Windows](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Biblioteka klienta usługi Storage dla języka C++](https://github.com/Azure/azure-storage-cpp)
 * [Biblioteka klienta usługi Storage dla języka Java w systemie Android](/develop/java/)
 * [Biblioteka klienta usługi Storage dla oprogramowania Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
 * [Biblioteka klienta usługi Storage dla języka PHP](/develop/php/)
-* [Biblioteka klienta usłuigi Storage dla języka Ruby](/develop/ruby/)
+* [Biblioteka klienta usługi Storage dla języka Ruby](/develop/ruby/)
 * [Biblioteka klienta usługi Storage dla języka Python](/develop/python/)
 * [Polecenia cmdlet usługi Storage dla programu PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
-### Usługi zarządzania usługą Azure Storage
+### <a name="azure-storage-management-services"></a>Usługi zarządzania usługą Azure Storage
 * [Dokumentacja interfejsu API REST dostawcy zasobów usługi Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 * [Biblioteka klienta dostawcy zasobów usługi Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx)
 * [Polecenia cmdlet dostawcy zasobów usługi Storage dla programu PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
 * [Interfejs API REST zarządzania usługą Storage (klasyczny)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
-### Usługi przenoszenia danych usługi Azure Storage
+### <a name="azure-storage-data-movement-services"></a>Usługi przenoszenia danych usługi Azure Storage
 * [Interfejs API REST usługi Import/Eksport usługi Storage](https://msdn.microsoft.com/library/azure/dn529096.aspx)
 * [Biblioteka klienta przenoszenia danych usługi Storage dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
-### Narzędzia i programy narzędziowe
+### <a name="tools-and-utilities"></a>Narzędzia i programy narzędziowe
 * [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage Client Tools](storage-explorers.md)
-* [Zestawy Azure SDK i narzędzia](https://azure.microsoft.com/tools/)
-* [Emulator usługi Azure Storage](http://www.microsoft.com/download/details.aspx?id=43709)
+* [Zestawy SDK i narzędzia platformy Azure](https://azure.microsoft.com/tools/)
+* [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
 * [Azure PowerShell](../powershell-install-configure.md)
-* [Program narzędziowy wiersza polecenia AzCopy](http://aka.ms/downloadazcopy)
+* [Narzędzie wiersza polecenia AzCopy](http://aka.ms/downloadazcopy)
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tymi zasobami:
 
-### Dokumentacja
+### <a name="documentation"></a>Dokumentacja
 * [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
-### Dla administratorów
+### <a name="for-administrators"></a>Dla administratorów
 * [Używanie programu Azure PowerShell z usługą Azure Storage](storage-powershell-guide-full.md)
 * [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](storage-azure-cli.md)
 
-### Dla deweloperów platformy .NET
+### <a name="for-net-developers"></a>Dla deweloperów platformy .NET
 * [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md)
 * [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md)
-* [Rozpoczynanie pracy z Magazynem kolejek Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md)
-* [Rozpoczynanie pracy z Magazynem plików Azure w systemie Windows](storage-dotnet-how-to-use-files.md)
+* [Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md)
+* [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](storage-dotnet-how-to-use-files.md)
 
-### Dla deweloperów języka Java w systemie Android
-* [Jak używać Magazynu obiektów Blob w języku Java](storage-java-how-to-use-blob-storage.md)
-* [Jak używać Magazynu tabel w języku Java](storage-java-how-to-use-table-storage.md)
-* [Jak używać Magazynu kolejek w języku Java](storage-java-how-to-use-queue-storage.md)
-* [Jak używać Magazynu plików w języku Java](storage-java-how-to-use-file-storage.md)
+### <a name="for-javaandroid-developers"></a>Dla deweloperów języka Java w systemie Android
+* [Używanie usługi Blob Storage w języku Java](storage-java-how-to-use-blob-storage.md)
+* [Używanie usługi Table Storage w języku Java](storage-java-how-to-use-table-storage.md)
+* [Używanie usługi Queue Storage w języku Java](storage-java-how-to-use-queue-storage.md)
+* [Używanie usługi File Storage w języku Java](storage-java-how-to-use-file-storage.md)
 
-### Dla deweloperów oprogramowania Node.js
-* [Jak używać Magazynu obiektów Blob w oprogramowaniu Node.js](storage-nodejs-how-to-use-blob-storage.md)
-* [Jak używać Magazynu tabel w oprogramowaniu Node.js](storage-nodejs-how-to-use-table-storage.md)
-* [Jak używać Magazynu kolejek w oprogramowaniu Node.js](storage-nodejs-how-to-use-queues.md)
+### <a name="for-nodejs-developers"></a>Dla deweloperów oprogramowania Node.js
+* [Używanie usługi Blob Storage w oprogramowaniu Node.js](storage-nodejs-how-to-use-blob-storage.md)
+* [Używanie usługi Table Storage w oprogramowaniu Node.js](storage-nodejs-how-to-use-table-storage.md)
+* [Używanie usługi Queue Storage w oprogramowaniu Node.js](storage-nodejs-how-to-use-queues.md)
 
-### Dla programistów języka PHP
-* [Jak używać Magazynu obiektów Blob w języku PHP](storage-php-how-to-use-blobs.md)
-* [Jak używać Magazynu tabel w języku PHP](storage-php-how-to-use-table-storage.md)
-* [Jak używać Magazynu kolejek w języku PHP](storage-php-how-to-use-queues.md)
+### <a name="for-php-developers"></a>Dla programistów języka PHP
+* [Używanie usługi Blob Storage w języku PHP](storage-php-how-to-use-blobs.md)
+* [Używanie usługi Table Storage w języku PHP](storage-php-how-to-use-table-storage.md)
+* [Używanie usługi Queue Storage w języku PHP](storage-php-how-to-use-queues.md)
 
-### Dla deweloperów języka Ruby
-* [Jak używać Magazynu obiektów Blob w języku Ruby](storage-ruby-how-to-use-blob-storage.md)
-* [Jak używać Magazynu tabel w języku Ruby](storage-ruby-how-to-use-table-storage.md)
-* [Jak używać Magazynu kolejek w języku Ruby](storage-ruby-how-to-use-queue-storage.md)
+### <a name="for-ruby-developers"></a>Dla deweloperów języka Ruby
+* [Używanie usługi Blob Storage w języku Ruby](storage-ruby-how-to-use-blob-storage.md)
+* [Używanie usługi Table Storage w języku Ruby](storage-ruby-how-to-use-table-storage.md)
+* [Używanie usługi Queue Storage w języku Ruby](storage-ruby-how-to-use-queue-storage.md)
 
-### Dla deweloperów języka Python
-* [Jak używać Magazynu obiektów Blob w języku Python](storage-python-how-to-use-blob-storage.md)
-* [Jak używać Magazynu tabel w języku Python](storage-python-how-to-use-table-storage.md)
-* [Jak używać Magazynu kolejek w języku Python](storage-python-how-to-use-queue-storage.md)
-* [Jak używać Magazynu plików w języku Python](storage-python-how-to-use-file-storage.md)
+### <a name="for-python-developers"></a>Dla deweloperów języka Python
+* [Używanie usługi Blob Storage w języku Python](storage-python-how-to-use-blob-storage.md)
+* [Używanie usługi Table Storage w języku Python](storage-python-how-to-use-table-storage.md)
+* [Używanie usługi Queue Storage w języku Python](storage-python-how-to-use-queue-storage.md)
+* [Używanie usługi File Storage w języku Python](storage-python-how-to-use-file-storage.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

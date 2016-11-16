@@ -1,12 +1,12 @@
 ---
-title: Analyze data usage in Log Analytics | Microsoft Docs
-description: You can use the Usage page in Log Analytics to view how much data is being sent to the OMS service.
+title: "Analizowanie użycia danych w usłudze Log Analytics | Microsoft Docs"
+description: "Za pomocą strony Użycie w usłudze Log Analytics możesz wyświetlić informacje o tym, ile danych jest wysyłanych do usługi OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,57 +14,64 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/11/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c1d0319e768eec69718d8b49db30069ec1331d9
+
 
 ---
-# Analyze data usage in Log Analytics
-Log Analytics in the Operations Management Suite (OMS) collects data and sends it to the OMS service periodically.  You can use the **Usage** page to view how much data is being sent to the OMS service. The **Usage** page also shows you how much data is being sent daily by solutions and how often your servers are sending data.
+# <a name="analyze-data-usage-in-log-analytics"></a>Analizowanie użycia danych w usłudze Log Analytics
+Usługa Log Analytics w pakiecie Operations Management Suite (OMS) gromadzi dane i okresowo wysyła je do usługi OMS.  Za pomocą strony **Użycie** możesz wyświetlić informacje o tym, ile danych jest wysyłanych do usługi OMS. Na stronie **Użycie** są również wyświetlane informacje o tym, ile danych jest wysyłanych dziennie przez rozwiązania i jak często Twoje serwery wysyłają dane.
 
 > [!NOTE]
-> If you have a free account created using the [OMS website](http://www.microsoft.com/oms), you're limited to sending 500 MB of data to the OMS service daily. If you reach the daily limit, data analysis will stop and resume at the start of the next day. You'll also need to resend any data that wasn't accepted or processed by OMS.
+> Jeśli masz bezpłatne konto utworzone za pomocą [witryny internetowej usługi OMS](http://www.microsoft.com/oms), dziennie możesz wysłać do usługi OMS maksymalnie 500 MB danych. Jeśli przekroczysz dzienny limit, analiza danych zostanie zatrzymana, a następnie zostanie wznowiona na początku następnego dnia. Ponadto konieczne będzie ponowne przesłanie wszystkich danych, które nie zostały przyjęte lub przetworzone przez usługę OMS.
 > 
 > 
 
-You can view your usage by using the **Usage** tile on the **Overview** dashboard in OMS.
+Możesz wyświetlić swoje użycie za pomocą kafelka **Użycie** na pulpicie nawigacyjnym **Przegląd** w usłudze OMS.
 
-![usage tile](./media/log-analytics-usage/usage-tile.png)
+![kafelek Użycie](./media/log-analytics-usage/usage-tile.png)
 
-If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove a solution to reduce the amount of data that you send to the OMS service. For more information about removing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+W przypadku przekroczenia dziennego limitu użycia lub zbliżenia się do niego możesz opcjonalnie usunąć rozwiązanie, aby ograniczyć ilość danych przesyłanych do usługi OMS. Aby uzyskać więcej informacji o usuwaniu rozwiązań, zobacz [Dodawanie rozwiązań usługi Log Analytics z galerii rozwiązań](log-analytics-add-solutions.md).
 
-![usage dashboard](./media/log-analytics-usage/usage-dashboard.png)
+![pulpit nawigacyjny Użycie](./media/log-analytics-usage/usage-dashboard.png)
 
-The **Usage** page displays the following information:
+Na stronie **Użycie** są wyświetlane następujące informacje:
 
-* Average usage per day
-* Data usage for each solution over the last 30 days
-* How much data the servers in your environment are sending to the OMS service over the last 30 days
-* Your data plan pricing tier and estimated cost
-* Information about your service level agreement (SLA), including how long it takes OMS to process your data
+* Średnie użycie na dzień
+* Użycie danych dla poszczególnych rozwiązań w ciągu ostatnich 30 dni
+* Ile danych przesłały serwery w Twoim środowisku do usługi OMS w ciągu ostatnich 30 dni
+* Warstwa cenowa i szacowany koszt Twojego planu danych
+* Informacje o Twojej umowie dotyczącej poziomu usług (SLA), w tym informacje o tym, ile czasu potrzebuje usługa OMS na przetworzenie Twoich danych
 
-## To work with usage data
-1. On the **Overview** page, click the **Usage** tile.
-2. On the **Usage** page, view the usage categories that show areas you’re concerned about.
-3. If you have a solution that is consuming too much of your daily upload quota, you might consider removing that solution.
+## <a name="to-work-with-usage-data"></a>Aby pracować z danymi użycia
+1. Na stronie **Przegląd** kliknij kafelek **Użycie**.
+2. Na stronie **Użycie** przejrzyj kategorie użycia zawierające interesujące Cię obszary.
+3. Jeśli masz rozwiązanie, która zużywa zbyt dużo dziennego przydziału przekazywania, możesz rozważyć usunięcie tego rozwiązania.
 
-## To view your estimated cost and billing information
-1. On the **Overview** page, click the **Usage** tile.
-2. On the **Usage** page under **Usage**, click the chevron (**>**) next to **Estimated cost**.
-3. In the expanded **Your data plan** details, you can see your estimated monthly cost.  
-    ![Your data plan](./media/log-analytics-usage/usage-data-plan.png)
-4. If you want to view your billing information, click **View my bill** to view your subscription information.
-   * On the subscriptions page, click your subscription to view details and a line-item list of usage.  
-       ![subscription](./media/log-analytics-usage/usage-sub01.png)
-   * On the Summary page for your subscription, you can perform a variety of tasks to manage and view more details about your subscription.  
-       ![subscription details](./media/log-analytics-usage/usage-sub02.png)
+## <a name="to-view-your-estimated-cost-and-billing-information"></a>Aby wyświetlić szacowany koszt i informacje rozliczeniowe
+1. Na stronie **Przegląd** kliknij kafelek **Użycie**.
+2. Na stronie **Użycie** w obszarze **Użycie** kliknij cudzysłów ostrokątny (**>**) obok pozycji **Szacowany koszt**.
+3. W rozwiniętym okienku szczegółów **Twój plan danych** możesz sprawdzić szacowany koszt miesięczny.  
+    ![Okienko szczegółów Twój plan danych](./media/log-analytics-usage/usage-data-plan.png)
+4. Aby wyświetlić informacje rozliczeniowe, kliknij pozycję **Wyświetl mój rachunek**. Spowoduje to wyświetlenie informacji o Twojej subskrypcji.
+   * Na stronie Subskrypcje kliknij swoją subskrypcję, aby wyświetlić szczegóły użycia i listę wierszy z jego pozycjami.  
+       ![subskrypcja](./media/log-analytics-usage/usage-sub01.png)
+   * Na stronie Podsumowanie dla Twojej subskrypcji możesz wykonywać różne zadania związane z zarządzaniem i wyświetlaniem dodatkowych szczegółów dotyczących Twojej subskrypcji.  
+       ![szczegóły subskrypcji](./media/log-analytics-usage/usage-sub02.png)
 
-## To view data batches for your SLA
-1. On the **Overview** page, click the **Usage** tile.
-2. Under **Service Level Agreement**, click **Download SLA details**.
-3. An Excel XLSX file is downloaded for you to review.  
-    ![SLA details](./media/log-analytics-usage/usage-sla-details.png)
+## <a name="to-view-data-batches-for-your-sla"></a>Aby wyświetlić partie danych dla Twojej umowy dotyczącej poziomu usług (SLA)
+1. Na stronie **Przegląd** kliknij kafelek **Użycie**.
+2. W obszarze **Umowa SLA** kliknij pozycję **Pobierz szczegóły umowy SLA**.
+3. Zostanie pobrany plik XLSX programu Excel, który możesz przejrzeć.  
+    ![Szczegóły umowy SLA](./media/log-analytics-usage/usage-sla-details.png)
 
-## Next steps
-* See [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed information gathered by solutions.
+## <a name="next-steps"></a>Następne kroki
+* Zobacz [Wyszukiwania w dziennikach w usłudze Log Analytics](log-analytics-log-searches.md), aby dowiedzieć się, jak przeglądać szczegółowe informacje zebrane przez rozwiązania.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

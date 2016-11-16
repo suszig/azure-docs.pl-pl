@@ -1,28 +1,32 @@
 ---
-title: Często zadawane pytania dotyczące usługi Azure Active Directory | Microsoft Docs
-description: Często zadawane pytania dotyczące usługi Azure Active Directory zawierają odpowiedzi na pytania związane z uzyskiwaniem dostępu do platformy Azure i usługi Azure Active Directory, zarządzaniem hasłami i uzyskiwaniem dostępu do aplikacji.
+title: "Często zadawane pytania dotyczące usługi Azure Active Directory | Microsoft Docs"
+description: "Często zadawane pytania dotyczące usługi Azure Active Directory zawierają odpowiedzi na pytania związane z uzyskiwaniem dostępu do platformy Azure i usługi Azure Active Directory, zarządzaniem hasłami i uzyskiwaniem dostępu do aplikacji."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2016
+ms.date: 10/31/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0f7070d9d691e2471978a2986025ebfdafbeaa7c
+
 
 ---
-# Często zadawane pytania dotyczące usługi Azure Active Directory
+# <a name="azure-active-directory-faq"></a>Często zadawane pytania dotyczące usługi Azure Active Directory
 Azure Active Directory jest kompleksowym rozwiązaniem Identity as a Service (IDaaS), które obejmuje wszystkie aspekty tożsamości, zarządzania dostępem i bezpieczeństwa.
 
 Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Active Directory?](active-directory-whatis.md).
 
-## Uzyskiwanie dostępu do platformy Azure i usługi Azure Active Directory
-**Pytanie: dlaczego otrzymuję błąd „Nie znaleziono żadnych subskrypcji” podczas próby dostępu do usługi Azure AD w klasycznym portalu Azure (https://manage.windowsazure.com)?**
+## <a name="accessing-azure-and-azure-active-directory"></a>Uzyskiwanie dostępu do platformy Azure i usługi Azure Active Directory
+**Pytanie: dlaczego otrzymuję błąd „Nie znaleziono żadnych subskrypcji” podczas próby dostępu do usługi Azure AD w klasycznej witrynie Azure Portal (https://manage.windowsazure.com)?**
 
 **Odpowiedź:** dostęp do klasycznego portalu Azure wymaga od każdego użytkownika uprawnień subskrypcji platformy Azure. Jeśli korzystasz z płatnej licencji usługi Office 365 lub Azure AD, przejdź do strony [http://aka.ms/accessAAD](http://aka.ms/accessAAD), aby użyć jednorazowej aktywacji. W przeciwnym razie należy aktywować pełną [wersję próbną platformy Azure](https://azure.microsoft.com/pricing/free-trial/) lub płatną subskrypcję. 
 
@@ -41,7 +45,7 @@ W rzeczywistości wszyscy użytkownicy włączeni do usług online firmy Microso
 Ponadto usługi płatne Azure AD (np. Azure AD Podstawowa, Premium, EMS itp.) uzupełniają inne usługi online, np. Office 365 i Microsoft Azure, zapewniając kompleksowe rozwiązania z zakresu skalowalnego zarządzania dla przedsiębiorstw i bezpieczeństwa.
 
 - - -
-## Wprowadzenie do hybrydowej usługi Azure AD
+## <a name="getting-started-with-hybrid-azure-ad"></a>Wprowadzenie do hybrydowej usługi Azure AD
 **Pytanie: jak połączyć katalog lokalny z usługą Azure AD?**
 
 **Odpowiedź:** możesz połączyć katalog lokalny z usługą Azure AD przy użyciu narzędzia **Azure AD Connect**. 
@@ -72,7 +76,7 @@ Aby uzyskać więcej informacji, zobacz [Wprowadzenie do panelu dostępu](active
 Aby uzyskać więcej informacji, zobacz [Monitorowanie lokalnej infrastruktury do obsługi tożsamości i usług synchronizacji w chmurze](active-directory-aadconnect-health.md).  
 
 - - -
-## Zarządzanie hasłami
+## <a name="password-management"></a>Zarządzanie hasłami
 **Pytanie: czy można użyć funkcji zapisywania zwrotnego haseł usługi Azure AD bez synchronizacji haseł? (Czyli chcę używać usługi Azure AD SSPR z funkcją zapisywania zwrotnego haseł, ale nie chcę przechowywać haseł w chmurze).**
 
 **Odpowiedź:** nie musisz synchronizować haseł usługi AD z usługą Azure AD, aby skorzystać z funkcji zapisywania zwrotnego haseł. W środowisku federacyjnym logowanie SSO usługi Azure AD opiera się na katalogu lokalnym w celu uwierzytelniania użytkownika. Ten scenariusz nie wymaga śledzenia lokalnego hasła w usłudze Azure AD.
@@ -92,7 +96,7 @@ Aby uzyskać więcej informacji, zobacz [Wprowadzenie do zarządzania hasłami](
 Aby uzyskać więcej odpowiedzi na pytania związane z hasłami, zobacz [Często zadawane pytania dotyczące zarządzania hasłami](active-directory-passwords-faq.md).
 
 - - -
-## Dostęp do aplikacji
+## <a name="application-access"></a>Dostęp do aplikacji
 **Pytanie: gdzie mogę znaleźć listę aplikacji, które są wstępnie zintegrowane z usługą Azure AD i jej funkcjami?**
 
 **Odpowiedź:** usługa Azure AD ma ponad 2600 wstępnie zintegrowanych aplikacji od firmy Microsoft, dostawców usług aplikacji lub partnerów. Wszystkie wstępnie zintegrowane aplikacje obsługują logowanie SSO. Logowanie SSO umożliwia użycie poświadczeń w organizacji do uzyskania dostępu do aplikacji. Niektóre aplikacje obsługują również zautomatyzowaną aprowizację i anulowanie obsługi.
@@ -154,6 +158,9 @@ Aby uzyskać więcej informacji, zobacz [Zabezpieczanie dostępu do usługi Offi
 Aby uzyskać więcej informacji, zobacz [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md) (Automatyzacja aprowizacji i anulowania obsługi użytkowników dla aplikacji SaaS przy użyciu usługi Azure Active Directory)
 
 - - -
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

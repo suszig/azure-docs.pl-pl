@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do zestawu SDK bramy usługi IoT Hub | Microsoft Docs
-description: W tym przewodniku po zestawie SDK bramy usługi IoT Hub użyto systemu Linux, aby zilustrować kluczowe założenia, które należy rozumieć w przypadku używania zestawu SDK bramy usługi IoT Hub.
+title: "Wprowadzenie do zestawu SDK bramy usługi IoT Hub | Microsoft Docs"
+description: "W tym przewodniku po zestawie SDK bramy usługi Azure IoT użyto systemu Linux, aby zilustrować kluczowe założenia, które należy rozumieć w przypadku używania zestawu SDK bramy usługi Azure IoT."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cf537bdd-2352-4bb1-96cd-a283fcd3d6cf
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+
 
 ---
-# Zestaw SDK bramy IoT (wersja beta) — wprowadzenie przy użyciu systemu Linux
+# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Zestaw SDK bramy usługi Azure IoT (wersja beta) — wprowadzenie przy użyciu systemu Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
-## Jak skompilować przykład
+## <a name="how-to-build-the-sample"></a>Jak skompilować przykład
 Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-setupdevbox] do pracy z zestawem SDK w systemie Linux.
 
 1. Otwórz powłokę.
@@ -31,7 +35,7 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 > 
 > 
 
-## Jak uruchomić przykład
+## <a name="how-to-run-the-sample"></a>Jak uruchomić przykład
 1. Skrypt **build.sh** generuje swoje dane wyjściowe w folderze **build** w lokalnej kopii repozytorium **azure-iot-gateway-sdk**. Obejmuje to dwa moduły używane w tym przykładzie.
    
     Skrypt kompilacji umieszcza plik **liblogger_hl.so** w folderze **build/modules/logger/**, a plik **libhello_world_hl.so** w folderze **build/modules/hello_world/**. Użyj tych ścieżek dla wartości **module path**, jak pokazano poniżej w pliku ustawień JSON.
@@ -46,7 +50,9 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
       [ 
         {
           "module name" : "logger_hl",
-          "module path" : "./build/modules/logger/liblogger_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/logger/liblogger_hl.so"
+          },
           "args" : 
           {
             "filename":"./log.txt"
@@ -54,7 +60,9 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
         },
         {
           "module name" : "hello_world",
-          "module path" : "./build/modules/hello_world/libhello_world_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+          },
           "args" : null
         }
       ],
@@ -81,6 +89,6 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

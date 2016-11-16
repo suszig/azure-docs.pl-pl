@@ -1,11 +1,11 @@
-## Aprowizacja rozwiązania
+## <a name="provision-the-solution"></a>Aprowizacja rozwiązania
 1. Zaloguj się w witrynie [azureiotsuite.com][lnk-azureiotsuite] przy użyciu poświadczeń konta platformy Azure i kliknij pozycję **+**, aby utworzyć nowe rozwiązanie.
 2. Kliknij pozycję **Wybierz** na kafelku **Zdalne monitorowanie**.
 3. W polu **Nazwa rozwiązania** wprowadź nazwę wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego.
 4. W polach **Region** i **Subskrypcja** wybierz wartości, których chcesz użyć do aprowizacji rozwiązania.
 5. Kliknij pozycję **Utwórz rozwiązanie**, aby rozpocząć proces aprowizowania. Zwykle trwa to kilka minut.
 
-### Oczekiwanie na ukończenie procesu aprowizowania
+### <a name="wait-for-the-provisioning-process-to-complete"></a>Oczekiwanie na ukończenie procesu aprowizowania
 1. Kliknij kafelek swojego rozwiązania zawierający informację o stanie **aprowizacji**.
 2. Zwróć uwagę na informację o **stanach aprowizacji** podczas wdrażania usług Azure w Twojej subskrypcji platformy Azure.
 3. Po ukończeniu aprowizowania stan zmieni się na wartość **Gotowe**.
@@ -23,6 +23,6 @@ Czy istnieją jakieś szczegóły dotyczące Twojego rozwiązania, które nie s�
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

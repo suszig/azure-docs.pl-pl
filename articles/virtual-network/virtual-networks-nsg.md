@@ -1,12 +1,12 @@
 ---
-title: Co to jest grupa zabezpieczeń sieci (Network Security Group, NSG)
-description: Informacje na temat rozproszonej zapory w systemie Azure korzystającej z grup zabezpieczeń sieci oraz użycia grup NSG do izolowania przepływu ruchu oraz sterowania nim w sieciach wirtualnych.
+title: "Co to jest grupa zabezpieczeń sieci (Network Security Group, NSG)"
+description: "Informacje na temat rozproszonej zapory w systemie Azure korzystającej z grup zabezpieczeń sieci oraz użycia grup NSG do izolowania przepływu ruchu oraz sterowania nim w sieciach wirtualnych."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 92ba745915c4b496ac6b0ff3b3e25f6611f5707c
+
 
 ---
-# Co to jest grupa zabezpieczeń sieci?
+# <a name="what-is-a-network-security-group-nsg"></a>Co to jest grupa zabezpieczeń sieci?
 Grupa zabezpieczeń sieci zawiera listę reguł listy kontroli dostępu (ACL), które blokują lub zezwalają na ruch sieciowy do wystąpień maszyn wirtualnych w sieci wirtualnej. Grupy NSG można kojarzyć z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w danej podsieci. Gdy grupa NSG jest skojarzona z podsiecią, reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci. Ponadto ruch do poszczególnych maszyn wirtualnych można ograniczyć jeszcze bardziej przez skojarzenie grupy NSG bezpośrednio z tą maszyną wirtualną.
 
-## Zasób NSG
+## <a name="nsg-resource"></a>Zasób NSG
 Grupy NSG obejmują następujące właściwości.
 
 | Właściwość | Opis | Ograniczenia | Zagadnienia do rozważenia |
@@ -34,7 +38,7 @@ Grupy NSG obejmują następujące właściwości.
 > 
 > 
 
-### Reguły NSG
+### <a name="nsg-rules"></a>Reguły NSG
 Reguły NSG obejmują następujące właściwości.
 
 | Właściwość | Opis | Ograniczenia | Zagadnienia do rozważenia |
@@ -55,14 +59,14 @@ Grupy NSG zawierają dwa zestawy reguł: zestaw reguł przychodzących i wychodz
 
 Na rysunku powyżej przedstawiono, jak są przetwarzane reguły NSG.
 
-### Znaczniki domyślne
+### <a name="default-tags"></a>Znaczniki domyślne
 Znaczniki domyślne są dostarczanymi przez system identyfikatorami określającymi kategorię adresów IP. Można użyć znaczników domyślnych we właściwościach **prefiksu adresu źródłowego** i **prefiksu adresu docelowego** dowolnej reguły. Istnieją trzy znaczniki domyślne, których można użyć.
 
 * **VIRTUAL_NETWORK:** określa całą przestrzeń adresową sieci. Obejmuje przestrzeń adresową sieci wirtualnej (zakresy CIDR określone na platformie Azure), a także wszystkie połączone lokalne przestrzenie adresowe i połączone sieci wirtualne Azure (sieci lokalne).
 * **AZURE_LOADBALANCER:** określa moduł równoważenia obciążenia infrastruktury platformy Azure. Przekłada się on na adres IP centrum danych Azure, z którego pochodzą sondy kondycji Azure.
 * **INTERNET:** określa przestrzeń adresów IP, która znajduje się poza siecią wirtualną i do której można uzyskać dostęp w publicznym Internecie. Ten zakres obejmuje również [publiczną przestrzeń adresów IP należącą do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### Reguły domyślne
+### <a name="default-rules"></a>Reguły domyślne
 Wszystkie grupy NSG zawierają zestaw reguł domyślnych. Reguł domyślnych nie można usunąć, ale ponieważ mają przypisany najniższy priorytet, mogą być zastąpione przez tworzone zasady. 
 
 Zgodnie z przedstawionymi poniżej regułami domyślnymi ruch pochodzący z sieci wirtualnej i kończący się w niej jest dozwolony zarówno w kierunku przychodzącym, jak i wychodzącym. Podczas gdy łączność z Internetem jest dozwolona dla kierunku wychodzącego, jest ona domyślnie blokowana dla ruchu przychodzącego. Istnieje reguła domyślna umożliwiająca modułowi równoważenia obciążenia Azure badanie kondycji maszyn wirtualnych i wystąpień ról. Tę zasadę można zastąpić, jeśli nie używa się zestawu z równoważeniem obciążenia.
@@ -83,7 +87,7 @@ Zgodnie z przedstawionymi poniżej regułami domyślnymi ruch pochodzący z siec
 | ALLOW INTERNET OUTBOUND |65001 |* |* |INTERNET |* |* |ALLOW |
 | DENY ALL OUTBOUND |65500 |* |* |* |* |* |DENY |
 
-## Kojarzenie grup NSG
+## <a name="associating-nsgs"></a>Kojarzenie grup NSG
 W zależności od używanego modelu wdrażania można skojarzyć grupę NSG z maszynami wirtualnymi, kartami sieciowymi i podsieciami.
 
 [!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
@@ -98,27 +102,27 @@ Można skojarzyć różne grupy NSG z maszyną wirtualną (lub kartą sieciową,
   
   1. Grupa NSG stosowana do podsieci. 
      
-         If subnet NSG has a matching rule to deny traffic, packet will be dropped here.
+     Jeżeli grupa NSG w podsieci zawiera regułę dopasowania w celu blokowania ruchu, pakiet zostanie porzucony w tym miejscu.
   2. Grupa NSG stosowana do karty sieciowej (Resource Manager) lub maszyny wirtualnej (wdrożenia klasyczne). 
      
-         If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
+     Jeżeli grupa NSG maszyny wirtualnej lub karty interfejsu sieciowego zawiera regułę dopasowania w celu blokowania ruchu, pakiet zostanie porzucony w maszynie wirtualnej lub karcie interfejsu sieciowego, mimo że grupa NSG w podsieci ma regułę dopasowania zezwalającą na ruch.
 * **Ruch wychodzący**
   
   1. Grupa NSG stosowana do karty sieciowej (Resource Manager) lub maszyny wirtualnej (wdrożenia klasyczne). 
      
-         If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped here.
+     Jeżeli grupa NSG maszyny wirtualnej lub karty interfejsu sieciowego zawiera regułę dopasowania w celu blokowania ruchu, pakiet zostanie porzucony w tym miejscu.
   2. Grupa NSG stosowana do podsieci.
      
-         If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
+     Jeżeli grupa NSG w podsieci zawiera regułę dopasowania w celu blokowania ruchu, pakiet zostanie porzucony w tym miejscu, mimo że grupa NSG maszyny wirtualnej lub karty interfejsu sieciowego ma regułę dopasowania zezwalającą na ruch.
      
-     ![Listy ACL grupy NSG](./media/virtual-network-nsg-overview/figure2.png)
+      ![Listy ACL grupy NSG](./media/virtual-network-nsg-overview/figure2.png)
 
 > [!NOTE]
 > Chociaż z podsiecią można skojarzyć tylko jedną grupę NSG, maszynę wirtualną lub kartę sieciową, tę samą grupę NSG można skojarzyć z dowolną liczbą zasobów.
 > 
 > 
 
-## Wdrażanie
+## <a name="implementation"></a>Wdrażanie
 Grupy NSG można wdrożyć w modelach wdrażania: klasycznym oraz usługi Resource Manager przy użyciu różnych wymienionych poniżej narzędzi.
 
 | Narzędzie wdrażania | Wdrożenie klasyczne | Resource Manager |
@@ -133,18 +137,18 @@ Grupy NSG można wdrożyć w modelach wdrażania: klasycznym oraz usługi Resour
 | --- | --- | --- |
 |  | | |
 
-## Planowanie
-Przed wdrożeniem grup NSG należy odpowiedzieć na pytania poniżej:   
+## <a name="planning"></a>Planowanie
+Przed wdrożeniem grup NSG należy odpowiedzieć na pytania poniżej:    
 
 1. Do jakich lub z jakich typów zasobów chcesz filtrować ruch (do i z kart sieciowych na tej samej maszynie wirtualnej, maszynach wirtualnych lub innych zasobów, takich jak usługi w chmurze lub środowiska usług aplikacji, połączonych z tą samą podsiecią czy pomiędzy zasobami połączonymi z różnymi podsieciami)?
 2. Czy zasoby, do i z których chcesz filtrować ruch, są połączone z podsieciami w istniejących sieciach wirtualnych, czy będą połączone z nowymi sieciami wirtualnymi lub podsieciami?
 
 Aby uzyskać więcej informacji na temat planowania zabezpieczeń sieciowych na platformie Azure, przeczytaj artykuł o [najlepszych rozwiązaniach dotyczących usług w chmurze i zabezpieczeń sieciowych](../best-practices-network-security.md). 
 
-## Zagadnienia dotyczące projektowania
+## <a name="design-considerations"></a>Zagadnienia dotyczące projektowania
 Jeśli znasz już odpowiedzi na pytania w sekcji [Planowanie](#Planning), przed zdefiniowaniem grup NSG sprawdź następujące warunki.
 
-### Limity
+### <a name="limits"></a>Limity
 Podczas projektowania grup NSG musisz wziąć pod uwagę następujące limity.
 
 | **Opis** | **Limit domyślny** | **Implikacje** |
@@ -158,35 +162,35 @@ Podczas projektowania grup NSG musisz wziąć pod uwagę następujące limity.
 > 
 > 
 
-### Projekt sieci wirtualnej i podsieci
+### <a name="vnet-and-subnet-design"></a>Projekt sieci wirtualnej i podsieci
 Ze względu na to, że grupy NSG można zastosować do podsieci, można zminimalizować liczbę grup NSG przez grupowanie zasobów według podsieci i zastosowanie grup NSG do podsieci.  Jeśli zdecydujesz się zastosować grupy NSG do podsieci, może się okazać, że istniejące sieci wirtualne i podsieci nie zostały zdefiniowane z uwzględnieniem grup NSG. Może zajść konieczność zdefiniowania nowych sieci wirtualnych i podsieci obsługujących grupy NSG, a także wdrożenie nowych zasobów do nowych podsieci. Następnie można zdefiniować strategię migracji, aby przenieść istniejące zasoby do nowych podsieci. 
 
-### Reguły specjalne
+### <a name="special-rules"></a>Reguły specjalne
 Należy wziąć pod uwagę wymienione poniżej reguły specjalne. Pamiętaj, aby nie blokować ruchu dozwolonego przez te reguły. W przeciwnym razie infrastruktura nie będzie mogła nawiązać połączenia z podstawowymi usługami Azure.
 
 * **Wirtualny adres IP węzła hosta:** podstawowe usługi infrastruktury, takie jak DHCP, DNS i monitorowanie kondycji, są realizowane za pośrednictwem zwirtualizowanego adresu IP hosta 168.63.129.16. Ten publiczny adres IP należy do firmy Microsoft i jest jedynym zwirtualizowanym adresem IP używanym do tego celu we wszystkich regionach. Ten adres IP mapuje do fizycznego adresu IP komputera serwera (węzła hosta) obsługującego maszynę wirtualną. Węzeł hosta pełni rolę przekaźnika DHCP, cyklicznego programu rozpoznawania nazw DNS i źródła sondy kondycji modułu równoważenia obciążenia oraz sondy kondycji komputera. Połączenie z tym adresem IP nie powinno być uważane za atak.
 * **Licencjonowanie (usługa zarządzania kluczami):** obrazy systemu Windows uruchomione na maszynach wirtualnych powinny być licencjonowane. W tym celu zostaje wysłane żądanie licencjonowania do serwerów hosta usługi zarządzania kluczami, które takie żądania obsługują. Zawsze ma to miejsce na porcie wychodzącym 1688.
 
-### Ruch protokołu ICMP
+### <a name="icmp-traffic"></a>Ruch protokołu ICMP
 Bieżące reguły NSG uwzględniają tylko protokoły *TCP* lub *UDP*. Nie ma określonego znacznika dla protokołu *ICMP*. Ruch protokołu ICMP jest jednak domyślnie dozwolony w ramach sieci wirtualnej przez regułę ruchu przychodzącego sieci wirtualnej (domyślna reguła 65000 ruchu przychodzącego), która zezwala na ruch od i do dowolnego portu i protokołu w ramach sieci wirtualnej.
 
-### Podsieci
+### <a name="subnets"></a>Podsieci
 * Weź pod uwagę liczbę warstw, której wymaga obciążenie. Każdą warstwę można wyizolować przy użyciu podsieci, do której z kolei można zastosować grupę NSG. 
 * Jeśli musisz wdrożyć podsieć dla bramy VPN lub obwodu ExpressRoute, pamiętaj, aby **NIE** stosować grupy NSG do tej podsieci. Jeśli tak zrobisz, nie będzie działać łączność pomiędzy różnymi sieciami wirtualnymi lub między różnymi lokalizacjami.
 * Jeśli musisz wdrożyć urządzenie wirtualne, pamiętaj, aby wdrożyć je do jego własnej podsieci, aby trasy zdefiniowane przez użytkownika (UDR) mogły działać prawidłowo. Możesz wdrożyć grupę NSG poziomu podsieci, aby filtrować ruch do i z tej podsieci. Dowiedz się więcej o [sterowaniu przepływem ruchu i używaniu urządzeń wirtualnych](virtual-networks-udr-overview.md).
 
-### Moduły równoważenia obciążenia
+### <a name="load-balancers"></a>Moduły równoważenia obciążenia
 * Należy uwzględnić równoważenie obciążenia i reguły NAT dla każdego modułu równoważenia obciążenia używanego przez każde z obciążeń. Reguły te są powiązane z pulą wewnętrznej bazy danych, która zawiera karty sieciowe (wdrożenia usługi Resource Manager) lub maszyny wirtualne/wystąpienia ról (wdrożenia klasyczne). Należy rozważyć utworzenie grupy NSG dla każdej puli wewnętrznej bazy danych, zezwalającej tylko na ruch mapowany za pomocą reguł wdrożonych w modułach równoważenia obciążenia. Pozwala to zagwarantować, że ruch przychodzący bezpośrednio do puli wewnętrznej bazy danych z pominięciem modułu równoważenia obciążenia jest również filtrowany.
 * We wdrożeniach klasycznych tworzy się punkty końcowe, które mapują porty w module równoważenia obciążenia na porty na maszynach wirtualnych lub w wystąpieniach ról. Można również utworzyć osobisty publiczny moduł równoważenia obciążenia we wdrożeniu usługi Resource Manager. W przypadku ograniczania ruchu do maszyn wirtualnych i wystąpień ról, które są częścią puli wewnętrznej bazy danych, za pomocą modułu równoważenia obciążenia za pomocą grup NSG, należy pamiętać, że port docelowy dla ruchu przychodzącego jest rzeczywistym portem na maszynie wirtualnej lub w wystąpieniu roli, a nie portem udostępnianym przez moduł równoważenia obciążenia. Należy również pamiętać, że port źródłowy i adres dla połączenia z maszyną wirtualną to port i adres na komputerze zdalnym w Internecie, a nie port i adres udostępniane przez moduł równoważenia obciążenia.
 * Podobnie jak w przypadku publicznych modułów równoważenia obciążenia podczas tworzenia grup NSG do filtrowania ruchu przechodzącego przez wewnętrzny moduł równoważenia obciążenia należy mieć świadomość, że zastosowany port źródłowy i zakres adresów dotyczą komputera, z którego zostało przesłane wywołanie, a nie modułu równoważnia obciążenia. Port docelowy i zakres adresu są powiązane z komputerem odbierającym ruch, a nie z modułem równoważenia obciążenia.
 
-### Inne
+### <a name="other"></a>Inne
 * Listy ACL oparte na punktach końcowych i grupy NSG nie są obsługiwane w tym samym wystąpieniu maszyny wirtualnej. Jeśli chcesz użyć grupy NSG, a masz już listę ACL punktów końcowych, najpierw usuń listę ACL punktów końcowych. Aby dowiedzieć się, jak to zrobić, zobacz temat [Manage endpoint ACLs](virtual-networks-acl-powershell.md) (Zarządzanie listami ACL opartymi na punktach końcowych).
 * W modelu wdrażania usługi Resource Manager można użyć grupy NSG skojarzonej z kartą sieciową dla maszyn wirtualnych z wieloma kartami sieciowymi, aby włączyć zarządzanie (dostęp zdalny) przez karty sieciowe, a tym samym rozdzielić ruch.
 * Podobnie jak w przypadku modułów równoważenia obciążenia podczas filtrowania ruchu z innych sieci wirtualnych należy użyć zakresu adresów źródłowych komputera zdalnego, a nie bramy łączącej sieci wirtualne.
 * Wielu usług Azure nie można podłączyć do sieci wirtualnych Azure, tak więc ruchu z nich i do nich nie można filtrować za pomocą grup NSG.  Przeczytaj dokumentację dotyczącą usług, których używasz, aby ustalić, czy można je podłączyć do sieci wirtualnych.
 
-## Przykładowe wdrożenie
+## <a name="sample-deployment"></a>Przykładowe wdrożenie
 Aby przedstawić, jak zastosować informacje z tego artykułu w praktyce, zdefiniujemy grupy NSG do filtrowania ruchu sieciowego dla rozwiązania obejmującego obciążenie dwuwarstwowe o następujących wymaganiach:
 
 1. Rozdzielenie ruchu między frontonem (serwery sieci Web systemu Windows) i wewnętrzną bazą danych (serwery baz danych SQL).
@@ -205,7 +209,7 @@ W schemacie powyżej maszyny wirtualne *Web 1* i *Web 2* są połączone z podsi
 
 Wymagania 1–6 (z wyjątkiem 3) powyżej ograniczają się do przestrzeni podsieci. Aby zminimalizować liczbę reguł wymaganych dla każdej grupy NSG oraz ułatwić dodawanie kolejnych maszyn wirtualnych do podsieci z uruchomionymi tymi samymi typami obciążenia co na istniejących maszynach wirtualnych, możemy wdrożyć następujące grupy NSG na poziomie podsieci.
 
-### Grupa NSG dla podsieci FrontEnd
+### <a name="nsg-for-frontend-subnet"></a>Grupa NSG dla podsieci FrontEnd
 **Reguły przychodzące**
 
 | Reguła | Dostęp | Priorytet | Zakres adresów źródłowych | Port źródłowy | Zakres adresów docelowych | Port docelowy | Protokół |
@@ -220,7 +224,7 @@ Wymagania 1–6 (z wyjątkiem 3) powyżej ograniczają się do przestrzeni podsi
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | zablokuj Internet |Zablokuj |100 |\* |\* |INTERNET |\* |\* |
 
-### NSG podsieci wewnętrznej bazy danych
+### <a name="nsg-for-backend-subnet"></a>NSG podsieci wewnętrznej bazy danych
 **Reguły przychodzące**
 
 | Reguła | Dostęp | Priorytet | Zakres adresów źródłowych | Port źródłowy | Zakres adresów docelowych | Port docelowy | Protokół |
@@ -233,7 +237,7 @@ Wymagania 1–6 (z wyjątkiem 3) powyżej ograniczają się do przestrzeni podsi
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | zablokuj Internet |Zablokuj |100 |\* |\* |INTERNET |\* |\* |
 
-### Grupa NSG dla jednej maszyny wirtualnej (karty sieciowej) frontonu dla protokołu RDP z Internetu
+### <a name="nsg-for-single-vm-nic-in-frontend-for-rdp-from-internet"></a>Grupa NSG dla jednej maszyny wirtualnej (karty sieciowej) frontonu dla protokołu RDP z Internetu
 **Reguły przychodzące**
 
 | Reguła | Dostęp | Priorytet | Zakres adresów źródłowych | Port źródłowy | Zakres adresów docelowych | Port docelowy | Protokół |
@@ -245,14 +249,14 @@ Wymagania 1–6 (z wyjątkiem 3) powyżej ograniczają się do przestrzeni podsi
 > 
 > 
 
-### Grupa NSG do zarządzania kartami sieciowymi w wewnętrznej bazie danych
+### <a name="nsg-for-management-nics-in-backend"></a>Grupa NSG do zarządzania kartami sieciowymi w wewnętrznej bazie danych
 **Reguły przychodzące**
 
 | Reguła | Dostęp | Priorytet | Zakres adresów źródłowych | Port źródłowy | Zakres adresów docelowych | Port docelowy | Protokół |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | zezwalaj na RDP z frontonu |Zezwalaj |100 |192.168.1.0/24 |* |\* |3389 |TCP |
 
-### Grupa NSG do kart sieciowych dostępu do bazy danych w wewnętrznej bazie danych
+### <a name="nsg-for-database-access-nics-in-back-end"></a>Grupa NSG do kart sieciowych dostępu do bazy danych w wewnętrznej bazie danych
 **Reguły przychodzące**
 
 | Reguła | Dostęp | Priorytet | Zakres adresów źródłowych | Port źródłowy | Zakres adresów docelowych | Port docelowy | Protokół |
@@ -261,17 +265,17 @@ Wymagania 1–6 (z wyjątkiem 3) powyżej ograniczają się do przestrzeni podsi
 
 Ponieważ niektóre z grup NSG powyżej muszą być powiązane z poszczególnymi kartami sieciowymi, należy wdrożyć ten scenariusz jako wdrożenie usługi Resource Manager. Zwróć uwagę na to, jak reguły są łączone na poziomie podsieci i karty sieciowej w zależności od tego, jak powinny być zastosowane. 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md) (Wdrażanie grup NSG w klasycznym modelu wdrażania).
 * [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md) (Wdrażanie grup NSGs we wdrożeniu za pomocą usługi Resource Manager).
 * [Manage NSG logs](virtual-network-nsg-manage-log.md) (Zarządzanie dziennikami grupy NSG).
 
 [zielony]: ./media/virtual-network-nsg-overview/green.png
 [żółty]: ./media/virtual-network-nsg-overview/yellow.png
-[red]: ./media/virtual-network-nsg-overview/red.png
+[czerwony]: ./media/virtual-network-nsg-overview/red.png
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

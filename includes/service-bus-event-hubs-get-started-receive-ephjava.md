@@ -1,10 +1,10 @@
-## Odbieranie komunikatów EventProcessorHost w języku Java
+## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Odbieranie komunikatów EventProcessorHost w języku Java
 EventProcessorHost jest klasą języka Java, która upraszcza odbieranie zdarzeń z centrów Event Hubs przez zarządzanie trwałymi punktami kontrolnymi i równoległymi odbiorami z tych centrów. Za pomocą klasy EventProcessorHost można podzielić zdarzenia między wieloma odbiornikami, nawet w przypadku hostowania w różnych węzłach. W tym przykładzie przedstawiono, jak używać klasy EventProcessorHost dla jednego odbiornika.
 
-### Tworzenie konta magazynu
-Aby można było korzystać z klasy EventProcessorHost, trzeba mieć [Konto usługi Azure Storage][Konto usługi Azure Storage]:
+### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
+Aby używać klasy EventProcessorHost, trzeba mieć [konto usługi Azure Storage][konto usługi Azure Storage]:
 
-1. Zaloguj się do [klasyczny portal Azure][klasyczny portal Azure] i kliknij opcję **NOWE** u dołu ekranu.
+1. Zaloguj się do [klasycznej witryny Azure Portal][Klasyczna witryna Azure Portal] i kliknij pozycję **NOWE** w dolnej części ekranu.
 2. Kliknij opcję **Data Services**, następnie **Storage**, **Szybkie tworzenie**, a następnie wpisz nazwę konta magazynu. Wybierz odpowiedni region, a następnie kliknij opcję **Utwórz konto magazynu**.
    
     ![][11]
@@ -14,7 +14,7 @@ Aby można było korzystać z klasy EventProcessorHost, trzeba mieć [Konto usł
    
     Skopiuj podstawowy klucz dostępu, który zostanie użyty później w tym samouczku.
 
-### Tworzenie projektu języka Java za pomocą hosta EventProcessor
+### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Tworzenie projektu języka Java za pomocą hosta EventProcessor
 Bibliotekę klienta Java dla usługi Event Hubs można używać w projektach narzędzia Maven za pomocą usługi [Maven Central Repository][Maven Package] i można się do niej odwołać przy użyciu poniższej deklaracji zależności wewnątrz pliku projektu Maven:    
 
 ``` XML
@@ -184,9 +184,9 @@ Dla różnych typów środowisk kompilacji można jawnie uzyskać najnowsze wers
 > 
 
 <!-- Links -->
-[Przegląd usługi Event Hubs]: event-hubs-overview.md
-[Konto usługi Azure Storage]: ../storage/storage-create-storage-account.md
-[klasyczny portal Azure]: http://manage.windowsazure.com
+[Przegląd usługi Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
+[konto usługi Azure Storage]: ../articles/storage/storage-create-storage-account.md
+[Klasyczna witryna Azure Portal]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
@@ -195,6 +195,6 @@ Dla różnych typów środowisk kompilacji można jawnie uzyskać najnowsze wers
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

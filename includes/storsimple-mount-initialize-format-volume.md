@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Aby zainstalować, zainicjować i sformatować wolumin
+#### <a name="to-mount-initialize-and-format-a-volume"></a>Aby zainstalować, zainicjować i sformatować wolumin
 1. Uruchom inicjatora iSCSI firmy Microsoft.
 2. W oknie **Właściwości inicjatora iSCSI** na karcie **Odnajdowanie** kliknij pozycję **Odnajdź portal**.
 3. W oknie dialogowym **Odnajdowanie portalu obiektu docelowego** podaj adres IP interfejsu sieci iSCSI, a następnie kliknij przycisk **OK**. 
@@ -27,6 +27,6 @@ Aby obejrzeć wideo demonstrujące sposób instalowania, inicjowania i formatowa
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

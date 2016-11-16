@@ -1,10 +1,11 @@
 ---
-title: Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs
-description: Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania.
+title: "Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs"
+description: "Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania."
 services: search
-documentationcenter: ''
+documentationcenter: 
+manager: jhubbard
 author: ashmaka
-
+ms.assetid: 8b3ca890-2f5f-44b6-a140-6cb676fc2c9c
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -12,9 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
+
 
 ---
-# Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
 > * [Omówienie](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -27,7 +32,7 @@ W tym artykule opisano tworzenie zapytań względem indeksu przy użyciu [interf
 
 Przed rozpoczęciem pracy z tym przewodnikiem należy [utworzyć indeks usługi Azure Search](search-what-is-an-index.md) i [wypełnić go danymi](search-what-is-data-import.md).
 
-## I. Identyfikowanie klucza api-key zapytania usługi Azure Search
+## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Identyfikowanie klucza api-key zapytania usługi Azure Search
 Głównym składnikiem każdej operacji wyszukiwania wykonywanej przy użyciu interfejsu API REST usługi Azure Search jest *klucz api-key* wygenerowany dla aprowizowanej usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
@@ -41,7 +46,7 @@ Usługa będzie dysponować *kluczami administratora* i *kluczami zapytań*.
 
 W celu tworzenia zapytań względem indeksu można użyć dowolnego klucza zapytania. Do tworzenia zapytań można również używać kluczy administratora, ale w kodzie aplikacji należy używać klucza zapytania, ponieważ takie podejście jest bardziej zgodne z [zasadą najniższych uprawnień](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## II. Formułowanie zapytania
+## <a name="ii-formulate-your-query"></a>II. Formułowanie zapytania
 Istnieją dwie metody [przeszukiwania indeksu przy użyciu interfejsu API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx). Pierwsza z nich polega na wysłaniu żądania HTTP POST, w ramach którego parametry zapytania są definiowane w obiekcie JSON w treści żądania. Druga metoda obejmuje wysłanie żądania HTTP GET, w ramach którego parametry zapytania są definiowane w adresie URL żądania. Warto pamiętać o tym, że w przypadku żądania POST limity dotyczące rozmiaru parametrów zapytania są [luźniejsze](https://msdn.microsoft.com/library/azure/dn798927.aspx) niż dla żądania GET. Z tego powodu zaleca się używanie żądania POST, o ile nie występują specjalne okoliczności, w których korzystanie z żądania GET jest wygodniejsze.
 
 Zarówno dla żądania POST, jak i GET zawartość adresu URL żądania musi obejmować *nazwę usługi*, *nazwę indeksu* oraz odpowiednią *wersję interfejsu API* (w momencie publikowania tego dokumentu aktualna wersja interfejsu API to `2015-02-28`). W przypadku żądania GET parametry zapytania są określane w *ciągu zapytania* na końcu adresu URL. Format adresu URL został przedstawiony poniżej:
@@ -50,7 +55,7 @@ Zarówno dla żądania POST, jak i GET zawartość adresu URL żądania musi obe
 
 Format dla żądania POST jest taki sam, ale parametry ciągu zapytania zawierają tylko element api-version.
 
-#### Przykładowe zapytania
+#### <a name="example-queries"></a>Przykładowe zapytania
 Poniżej znajduje się kilka przykładowych zapytań względem indeksu o nazwie „hotels”. Zostały one przedstawione zarówno w formacie GET, jak i POST.
 
 Wyszukaj termin „budget” w całym indeksie i zwróć tylko pole `hotelName`:
@@ -65,7 +70,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Zastosuj filtr na indeks, aby znaleźć hotele, w których koszt noclegu jest niższy niż 150 USD, i zwróć pola `hotelId` i `description`:
+Zastosuj filtr na indeks, aby znaleźć hotele, w których koszt noclegu jest niższy niż 150 USD, i zwróć pola `hotelId` i `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
@@ -92,10 +97,10 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-## III. Przesyłanie żądania HTTP
+## <a name="iii-submit-your-http-request"></a>III. Przesyłanie żądania HTTP
 Po sformułowaniu zapytania w ramach adresu URL (w przypadku żądania GET) lub treści (w przypadku żądania POST) żądania HTTP można zdefiniować nagłówki żądania i przesłać zapytanie.
 
-#### Żądanie i nagłówki żądania
+#### <a name="request-and-request-headers"></a>Żądanie i nagłówki żądania
 Należy zdefiniować dwa nagłówki dla żądania GET lub trzy nagłówki dla żądania POST:
 
 1. Nagłówek `api-key` musi mieć wartość klucza zapytania określonego w kroku I powyżej. Jako nagłówka `api-key` można również używać klucza administratora, ale zaleca się używanie klucza zapytania, ponieważ umożliwia on przyznanie wyłącznego dostępu tylko do odczytu do indeksów i dokumentów.
@@ -158,6 +163,9 @@ Po pomyślnym wykonaniu zapytania kod stanu przyjmie wartość `200 OK`, a wynik
 
 Aby dowiedzieć się więcej, przejdź do sekcji „Response” (Odpowiedź) w artykule [Search Documents](https://msdn.microsoft.com/library/azure/dn798927.aspx) (Wyszukiwanie dokumentów). Aby uzyskać więcej informacji o innych kodach stanów HTTP, które mogą być zwracane w przypadku niepowodzenia, zobacz [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) (Usługa Azure Search — kody stanów HTTP).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

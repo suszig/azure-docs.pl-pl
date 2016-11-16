@@ -1,4 +1,4 @@
-## Tworzenie sieci wirtualnej w witrynie Azure Portal
+## <a name="how-to-create-a-vnet-in-the-azure-portal"></a>Tworzenie sieci wirtualnej w witrynie Azure Portal
 Aby utworzyć sieć wirtualną w oparciu o powyższy scenariusz, korzystając z portalu Azure w wersji zapoznawczej, wykonaj poniższe kroki.
 
 1. W przeglądarce przejdź do strony http://portal.azure.com i w razie potrzeby zaloguj się przy użyciu konta platformy Azure.
@@ -8,7 +8,7 @@ Aby utworzyć sieć wirtualną w oparciu o powyższy scenariusz, korzystając z 
 3. W bloku **Utwórz sieć wirtualną** skonfiguruj ustawienia sieci wirtualnej, jak pokazano na poniższej ilustracji.
    
     ![Tworzenie bloku sieci wirtualnej](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
-4. Kliknij opcję **Grupa zasobów** i wybierz grupę zasobów, aby dodać do niej sieć wirtualną, lub kliknij opcję **Utwórz nową**, aby dodać sieć wirtualną do nowej grupy zasobów. Na poniższej ilustracji przedstawiono ustawienia nowej grupy zasobów o nazwie **TestRG**. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../articles/resource-group-overview.md#resource-groups).
+4. Kliknij opcję **Grupa zasobów** i wybierz grupę zasobów, aby dodać do niej sieć wirtualną, lub kliknij opcję **Utwórz nową**, aby dodać sieć wirtualną do nowej grupy zasobów. Na poniższej ilustracji przedstawiono ustawienia nowej grupy zasobów o nazwie **TestRG**. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
    
     ![Grupa zasobów](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 5. W razie potrzeby zmień wartości ustawień **Subskrypcja** i **Lokalizacja** sieci wirtualnej. 
@@ -26,6 +26,8 @@ Aby utworzyć sieć wirtualną w oparciu o powyższy scenariusz, korzystając z 
     
     ![Lista podsieci w sieci wirtualnej](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

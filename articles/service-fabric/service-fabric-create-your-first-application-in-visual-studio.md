@@ -1,22 +1,26 @@
 ---
-title: Tworzenie pierwszej aplikacji usługi Service Fabric w programie Visual Studio | Microsoft Docs
-description: Tworzenie, wdrażanie i debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio
+title: "Tworzenie pierwszej aplikacji usługi Service Fabric w programie Visual Studio | Microsoft Docs"
+description: "Tworzenie, wdrażanie i debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+
 
 ---
-# Tworzenie pierwszej aplikacji usługi Azure Service Fabric
+# <a name="create-your-first-azure-service-fabric-application"></a>Tworzenie pierwszej aplikacji usługi Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [C# — Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java — Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -26,17 +30,17 @@ ms.author: ryanwi
 
 Zestaw SDK usługi Service Fabric zawiera dodatek dla programu Visual Studio, który zawiera szablony i narzędzia do tworzenia, wdrażania i debugowania aplikacji usługi Service Fabric. W tym temacie przedstawiono proces tworzenia pierwszej aplikacji w programie Visual Studio.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programowania](service-fabric-get-started.md).
 
-## Przewodnik wideo
+## <a name="video-walkthrough"></a>Przewodnik wideo
 Poniższe wideo przedstawia kroki omówione w niniejszym samouczku:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
-## Tworzenie aplikacji
+## <a name="create-the-application"></a>Tworzenie aplikacji
 Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Za pomocą kreatora nowego projektu można utworzyć projekt aplikacji wraz z projektem pierwszej usługi. Później można dodać więcej usług.
 
 1. Uruchom program Visual Studio jako administrator.
@@ -65,7 +69,7 @@ Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a ka
      
      Aby zapoznać się z omówieniem zawartości projektu usługi, zobacz [Pierwsze kroki z usługami Reliable Services](service-fabric-reliable-services-quick-start.md).
 
-## Wdrażanie i debugowanie aplikacji
+## <a name="deploy-and-debug-the-application"></a>Wdrażanie i debugowanie aplikacji
 Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
 
 1. W programie Visual Studio naciśnij klawisz F5, aby wdrożyć aplikację do debugowania.
@@ -75,7 +79,7 @@ Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
    > 
    > 
    
-    Gdy klaster będzie gotowy, otrzymasz powiadomienie z aplikacji menedżera paska zadań klastra lokalnego, która jest zawarta w zestawie SDK.
+    Gdy klaster jest gotowy, z aplikacji znajdującej się w zestawie SDK otrzymasz powiadomienie menedżera paska zadań klastra lokalnego.
    
     ![Powiadomienie klastra lokalnego na pasku zadań][4]
 2. Po uruchomieniu aplikacji program Visual Studio automatycznie wyświetli okno podglądu zdarzeń diagnostycznych, w którym można zobaczyć wyniki śledzenia usługi.
@@ -107,24 +111,24 @@ Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
     ![Zatrzymanie węzła w narzędziu Service Fabric Explorer][sfx-stop-node]
    
     Chwilowo powinien być widoczny trafiony punkt przerwania w programie Visual Studio, gdy obliczenia wykonywane w jednym węźle zostaną awaryjnie przełączone na inny węzeł.
-8. Wróć do podglądu zdarzeń diagnostycznych i sprawdź komunikaty. Zauważ, że wartość licznika nadal wzrastała, mimo że zdarzenia w rzeczywistości pochodzą z innego węzła.
+8. Wróć do podglądu zdarzeń diagnostycznych i sprawdź komunikaty. Wartość licznika nadal wzrastała, mimo że zdarzenia w rzeczywistości pochodzą z innego węzła.
    
     ![Szczegóły w podglądzie zdarzeń diagnostycznych po przełączeniu do trybu failover][diagnostic-events-viewer-detail-post-failover]
 
-## Przełączanie trybu klastra
+## <a name="switch-cluster-mode"></a>Przełączanie trybu klastra
 Domyślnie lokalny klaster projektowy jest skonfigurowany do uruchamiania jako klaster z 5 węzłami, co ułatwia debugowanie usług wdrożonych w wielu węzłach. Wdrożenie aplikacji w klastrze projektowym z 5 węzłami może być jednak czasochłonne. Jeśli chcesz szybko iterować zmiany kodu, bez uruchamiania aplikacji w 5 węzłach, możesz przełączyć klaster projektowy do trybu 1 węzła. Aby uruchomić kod w klastrze z jednym węzłem, kliknij prawym przyciskiem myszy ikonę Menedżer klastra lokalnego na pasku zadań i wybierz polecenie **Przełącz tryb klastra -> 1 węzeł**.  
 
 ![Przełączanie trybu klastra][switch-cluster-mode]
 
 Po zmianie trybu klastra klaster projektowy jest resetowany i wszystkie aplikacje zaprowizowane lub działające w klastrze są usuwane.
 
-## Czyszczenie
+## <a name="cleaning-up"></a>Czyszczenie
   Przed zakończeniem należy zapamiętać, że klaster lokalny jest bardzo prawdziwy. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Istnieje kilka możliwości zarządzania klastrem:
 
 1. Aby zamknąć klaster, zachowując dane i ślady aplikacji, kliknij opcję **Zatrzymaj klaster lokalny** na pasku zadań systemu.
 2. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Klaster lokalny należy usunąć tylko wtedy, gdy nie będziesz go używać przez pewien czas lub gdy chcesz odzyskać zasoby.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak utworzyć [klaster na platformie Azure](service-fabric-cluster-creation-via-portal.md) lub [autonomiczny klaster w systemie Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Spróbuj utworzyć usługę za pomocą usług [Reliable Services](service-fabric-reliable-services-quick-start.md) lub modelu programowania [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 * Dowiedz się, jak można udostępnić swoje usługi w Internecie za pomocą [frontonu usługi sieci Web](service-fabric-add-a-web-frontend.md).
@@ -147,6 +151,6 @@ Po zmianie trybu klastra klaster projektowy jest resetowany i wszystkie aplikacj
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

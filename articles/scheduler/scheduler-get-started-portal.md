@@ -1,12 +1,12 @@
 ---
-title: Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure | Microsoft Docs
-description: Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure
+title: "Rozpoczynanie pracy z usługą Azure Scheduler w witrynie Azure Portal | Microsoft Docs"
+description: "Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 85e0f59bdaae76f6feb03e66a7bbf96c29b45dec
+
 
 ---
-# Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure
 Azure Scheduler umożliwia łatwe tworzenie zaplanowanych zadań. Niniejszy samouczek zawiera informacje na temat tworzenia zadania. Są w nim zawarte także informacje na temat możliwości monitorowania oraz zarządzania, jakie oferuje usługa Scheduler.
 
-## Tworzenie zadania
+## <a name="create-a-job"></a>Tworzenie zadania
 1. Zaloguj się w [portalu Azure](https://portal.azure.com/).  
 2. Kliknij przycisk **+ Nowy** > wpisz w polu wyszukiwania *Harmonogram* > wybierz z wyników **Harmonogram** > kliknij **Utwórz**.
    
@@ -46,7 +50,7 @@ Azure Scheduler umożliwia łatwe tworzenie zaplanowanych zadań. Niniejszy samo
       ![][recurrence-schedule]
 6. Kliknij przycisk **Utwórz**
 
-## Zarządzanie i monitorowanie zadań
+## <a name="manage-and-monitor-jobs"></a>Zarządzanie i monitorowanie zadań
 Utworzone zadanie zostaje wyświetlone na głównym pulpicie nawigacyjnym Azure. Kliknij zadanie. Zostanie otwarte nowe okno z następującymi kartami:
 
 1. Właściwości  
@@ -57,12 +61,12 @@ Utworzone zadanie zostaje wyświetlone na głównym pulpicie nawigacyjnym Azure.
    
    ![][job-overview]
 
-### Właściwości
+### <a name="properties"></a>Właściwości
 Te właściwości tylko do odczytu opisują metadane dotyczące zarządzania odnoszące się do zadania usługi Scheduler.
 
    ![][job-properties]
 
-### Ustawienia akcji
+### <a name="action-settings"></a>Ustawienia akcji
 Kliknięcie zadania na ekranie **Zadania** umożliwia jego konfigurowanie. Dzięki temu można skonfigurować ustawienia zaawansowane, które nie zostały skonfigurowane za pomocą kreatora szybkiego tworzenia.
 
 W przypadku wszystkich typów akcji istnieje możliwość zmiany zasad ponawiania i akcji błędu.
@@ -75,7 +79,7 @@ W przypadku typów akcji magistrali usług można zmieniać przestrzenie nazw, �
 
    ![][job-action-settings]
 
-### Harmonogram
+### <a name="schedule"></a>Harmonogram
 Tu można ponownie skonfigurować harmonogram utworzony z użyciem kreatora szybkiego tworzenia i wprowadzić w nim zmiany.
 
 Zapewnia to możliwość tworzenia [złożonych harmonogramów i zaawansowanych cykli w ramach zadania](scheduler-advanced-complexity.md)
@@ -84,7 +88,7 @@ Możesz zmienić datę i godzinę rozpoczęcia, harmonogram cyklu oraz datę i g
 
    ![][job-schedule]
 
-### Historia
+### <a name="history"></a>Historia
 Na karcie **Historia** są wyświetlane wybrane metryki odnoszące się do każdego wykonania wybranego zadania w systemie. Metryki te przedstawiają wartości dotyczące stanu harmonogramu w czasie rzeczywistym:
 
 1. Stan  
@@ -100,23 +104,23 @@ Możesz kliknąć przebieg, aby wyświetlić odnoszące się do niego dane z sek
 
    ![][job-history-details]
 
-### Użytkownicy
+### <a name="users"></a>Użytkownicy
 Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla usługi Azure Scheduler. Aby uzyskać informacje o sposobie korzystania z karty Użytkownicy, należy zapoznać się z tematem [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) (Kontrola dostępu na podstawie ról na platformie Azure).
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
  [Co to jest usługa Scheduler?](scheduler-intro.md)
 
- [Pojęcia i terminologia dotyczące usługi Scheduler oraz hierarchia jednostki](scheduler-concepts-terms.md)
+ [Pojęcia i terminologia dotyczące usługi Scheduler oraz hierarchia jednostek](scheduler-concepts-terms.md)
 
  [Plany i rozliczenia w usłudze Azure Scheduler](scheduler-plans-billing.md)
 
  [Tworzenie złożonych harmonogramów i zaawansowanych cykli z użyciem usługi Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Dokumentacja interfejsu REST API usługi Scheduler](https://msdn.microsoft.com/library/mt629143)
+ [Dokumentacja interfejsu API REST usługi Scheduler](https://msdn.microsoft.com/library/mt629143)
 
  [Dokumentacja poleceń cmdlet programu PowerShell dla usługi Scheduler](scheduler-powershell-reference.md)
 
- [Wysoka dostępność i niezawodność usługi Scheduler.](scheduler-high-availability-reliability.md)
+ [Wysoka dostępność i niezawodność usługi Scheduler](scheduler-high-availability-reliability.md)
 
  [Limity, wartości domyślne i kody błędów usługi Scheduler](scheduler-limits-defaults-errors.md)
 
@@ -151,6 +155,6 @@ Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platform
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

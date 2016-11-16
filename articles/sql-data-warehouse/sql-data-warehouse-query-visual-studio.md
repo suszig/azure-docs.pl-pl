@@ -1,40 +1,45 @@
 ---
-title: Tworzenie zapytań względem usługi Azure SQL Data Warehouse (Visual Studio) | Microsoft Docs
-description: Tworzenie zapytań względem usługi SQL Data Warehouse przy użyciu programu Visual Studio.
+title: "Tworzenie zapytań względem usługi Azure SQL Data Warehouse (Visual Studio) | Microsoft Docs"
+description: "Tworzenie zapytań względem usługi SQL Data Warehouse przy użyciu programu Visual Studio."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: sonyama;barbkess
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+
 
 ---
-# Tworzenie zapytań względem usługi Azure SQL Data Warehouse (Visual Studio)
+# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Tworzenie zapytań względem usługi Azure SQL Data Warehouse (Visual Studio)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 Używając programu Visual Studio, można w kilka minut utworzyć zapytanie do usługi Azure SQL Data Warehouse. Ta metoda bazuje na rozszerzeniu usługi SQL Server Data Tools (SSDT) w programie Visual Studio. 
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Aby użyć tego samouczka, potrzebne są następujące elementy:
 
-* Istniejący magazyn danych SQL. Aby go utworzyć, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][Tworzenie bazy danych w usłudze SQL Data Warehouse].
+* Istniejący magazyn danych SQL. Aby go utworzyć, zobacz [Tworzenie bazy danych w usłudze SQL Data Warehouse][Tworzenie bazy danych w usłudze SQL Data Warehouse].
 * Rozszerzenie SSDT dla programu Visual Studio. Jeśli masz program Visual Studio, prawdopodobnie masz też to rozszerzenie. Aby uzyskać instrukcje instalacji i informacje na temat dostępnych opcji, zobacz artykuł [Instalowanie programu Visual Studio i narzędzi SSDT][Instalowanie programu Visual Studio i narzędzi SSDT].
 * W pełni kwalifikowana nazwa serwera SQL. Aby ją znaleźć, zobacz [Nawiązywanie połączenia z usługą SQL Data Warehouse][Nawiązywanie połączenia z usługą SQL Data Warehouse].
 
-## 1. Nawiązywanie połączenia z usługą SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Nawiązywanie połączenia z usługą SQL Data Warehouse
 1. Otwórz program Visual Studio 2013 lub 2015.
 2. Otwórz Eksplorator obiektów SQL Server. W tym celu wybierz pozycje **Widok**  >  **Eksplorator obiektów SQL Server**.
    
@@ -54,7 +59,7 @@ Aby użyć tego samouczka, potrzebne są następujące elementy:
    
     ![Poznawanie bazy danych AdventureWorksDW][4]
 
-## 2. Uruchamianie przykładowego zapytania
+## <a name="2-run-a-sample-query"></a>2. Uruchamianie przykładowego zapytania
 Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
 
 1. Kliknij prawym przyciskiem myszy bazę danych w Eksploratorze obiektów SQL Server.
@@ -73,10 +78,10 @@ Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
    
     ![Wyniki zapytania][7]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Teraz, kiedy umiesz nawiązywać połączenia i wykonywać zapytania, spróbuj wykonać [wizualizację danych przy użyciu usługi Power BI][wizualizację danych przy użyciu usługi Power BI].
 
-Aby skonfigurować środowisko do uwierzytelniania usługi Azure Active Directory, zobacz artykuł [Uwierzytelnianie w usłudze SQL Data Warehouse][Uwierzytelnianie w usłudze SQL Data Warehouse].
+Aby skonfigurować środowisko do uwierzytelniania usługi Azure Active Directory, zobacz [Uwierzytelnianie w usłudze SQL Data Warehouse][Uwierzytelnianie w usłudze SQL Data Warehouse].
 
 <!--Arcticles-->
 [Nawiązywanie połączenia z usługą SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
@@ -100,6 +105,6 @@ Aby skonfigurować środowisko do uwierzytelniania usługi Azure Active Director
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Wprowadzenie do usługi Microsoft Power BI Embedded
-description: Usługa Power BI Embedded — dodawanie interaktywnych raportów usługi Power BI do aplikacji analizy biznesowej
+title: "Wprowadzenie do usługi Microsoft Power BI Embedded"
+description: "Usługa Power BI Embedded — dodawanie interaktywnych raportów usługi Power BI do aplikacji analizy biznesowej"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,16 +15,20 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+
 
 ---
-# Wprowadzenie do usługi Microsoft Power BI Embedded
+# <a name="get-started-with-microsoft-power-bi-embedded"></a>Wprowadzenie do usługi Microsoft Power BI Embedded
 **Power BI Embedded** to usługa Azure, która umożliwia programistom dodawanie interaktywnych raportów usługi Power BI do własnych aplikacji. Usługa **Power BI Embedded** działa z istniejącymi aplikacjami bez potrzeby ich przeprojektowywania lub zmiany sposobu logowania się przez użytkowników.
 
 Zasoby są dostarczane do usługi **Microsoft Power BI Embedded** przez [interfejsy API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). W tym przypadku dostarczanym zasobem jest **kolekcja obszarów roboczych usługi Power BI**.
 
 ![](media\\power-bi-embedded-get-started\\introduction.png)
 
-## Tworzenie kolekcji obszarów roboczych
+## <a name="create-a-workspace-collection"></a>Tworzenie kolekcji obszarów roboczych
 **Kolekcja obszarów roboczych** jest najwyższego poziomu zasobem platformy Azure i kontenerem zawartości, która zostanie osadzona w aplikacji. **Kolekcję obszarów roboczych** można utworzyć na dwa sposoby:
 
 * Ręcznie przy użyciu witryny Azure Portal
@@ -50,7 +54,7 @@ Dostarczenie  **kolekcji obszarów roboczych** potrwa parę chwil. Po zakończen
 
 <a name="view-access-keys"/>
 
-## Wyświetlanie kluczy dostępu interfejsu API usługi Power BI
+## <a name="view-power-bi-api-access-keys"></a>Wyświetlanie kluczy dostępu interfejsu API usługi Power BI
 Jedną z najważniejszych informacji potrzebnych do wywoływania interfejsów API REST usługi Power BI są **klucze dostępu**. Są one używane do generowania **tokenów aplikacji** służących do uwierzytelniania żądań interfejsu API. Aby wyświetlić **klucze dostępu**, kliknij przycisk **Klucze dostępu** w **bloku Ustawienia**. Aby uzyskać więcej informacji o **tokenach aplikacji**, zobacz [Uwierzytelnianie i autoryzowanie za pomocą usługi Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\\power-bi-embedded-get-started\\access-keys.png)
@@ -65,8 +69,8 @@ Chociaż wyświetlane są dwa klucze, w określonym czasie potrzebny jest tylko 
 
 Teraz, gdy masz wystąpienie usługi Power BI dla danej aplikacji oraz **klucze dostępu**, możesz zaimportować raport do aplikacji. Przed zapoznaniem się z instrukcją importowania raportu przeczytaj informacje o tworzeniu zestawów danych i raportów usługi Power BI w celu osadzenia w aplikacji zawarte w następnej części.
 
-## Tworzenie zestawów danych i raportów usługi Power BI w celu osadzenia w aplikacji
-Teraz, gdy masz utworzone wystąpienie usługi Power BI dla aplikacji i **klucze dostępu**, trzeba utworzyć zestawy danych i raporty usługi Power BI potrzebne do osadzenia. Zestawy danych i raporty można tworzyć za pomocą programu **Power BI Desktop**. Możesz pobrać program [Power BI Desktop za darmo](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Możesz też pobrać przykładowy plik [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), aby szybko rozpocząć pracę. Aby dowiedzieć się więcej o sposobie używania programu **Power BI Desktop**, zobacz stronę [Getting Started With Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Wprowadzenie do programu Power BI Desktop).
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Tworzenie zestawów danych i raportów usługi Power BI w celu osadzenia w aplikacji
+Teraz, gdy masz utworzone wystąpienie usługi Power BI dla aplikacji i **klucze dostępu**, trzeba utworzyć zestawy danych i raporty usługi Power BI potrzebne do osadzenia. Zestawy danych i raporty można tworzyć za pomocą programu **Power BI Desktop**. Możesz pobrać program [Power BI Desktop za darmo](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Możesz też pobrać plik z [przykładem analizy sprzedaży PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), aby szybko rozpocząć pracę. Aby dowiedzieć się więcej o sposobie używania programu **Power BI Desktop**, zobacz stronę [Getting Started With Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Wprowadzenie do programu Power BI Desktop).
 
 W programie **Power BI Desktop** łączysz się ze źródłem danych, importując kopię danych do programu **Power BI Desktop**, lub korzystasz bezpośrednio ze źródła danych przy użyciu **trybu DirectQuery**.
 
@@ -85,7 +89,7 @@ Po zapisaniu pracy w programie **Power BI Desktop** tworzony jest plik PBIX. Ten
 > 
 > 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W poprzednich krokach utworzono kolekcję obszarów roboczych oraz pierwszy raport i zestaw danych. Teraz nadszedł czas, aby dowiedzieć się, jak pisać kod **Power BI Embedded**. Aby pomóc Ci rozpocząć, utworzyliśmy przykładową aplikację sieci Web: [Rozpoczęcie pracy z przykładem](power-bi-embedded-get-started-sample.md). Przykład obejmuje:
 
 * Udostępnianie zawartości
@@ -95,11 +99,14 @@ W poprzednich krokach utworzono kolekcję obszarów roboczych oraz pierwszy rapo
   * Aktualizowanie parametrów połączenia i ustawianie poświadczeń dla zestawów danych.
 * Bezpieczne osadzanie raportu
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 * [Rozpoczęcie pracy z przykładem](power-bi-embedded-get-started-sample.md)
 * [Uwierzytelnianie i autoryzowanie za pomocą usługi Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Program Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

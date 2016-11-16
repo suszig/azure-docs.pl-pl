@@ -1,12 +1,12 @@
 ---
-title: Tworzenie elastycznej puli baz danych w języku C# | Microsoft Docs
-description: Techniki tworzenia bazy danych w języku C# umożliwiają tworzenie elastycznej puli baz danych w bazie danych Azure SQL Database i udostępnianie w ten sposób zasobów przez wiele baz danych.
+title: "Tworzenie elastycznej puli baz danych w języku C# | Microsoft Docs"
+description: "Techniki tworzenia bazy danych w języku C# umożliwiają tworzenie elastycznej puli baz danych w bazie danych Azure SQL Database i udostępnianie w ten sposób zasobów przez wiele baz danych."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+
 
 ---
-# Tworzenie elastycznej puli baz danych w języku C&#x23;
+# <a name="create-an-elastic-database-pool-with-cx23"></a>Tworzenie elastycznej puli baz danych w języku C&#x23;
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [Witryna Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
@@ -26,10 +30,10 @@ ms.author: sstein
 
 W tym artykule opisano, jak przy użyciu poleceń języka C# utworzyć elastyczną pulę baz danych Azure SQL z zastosowaniem biblioteki [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Aby utworzyć autonomiczną bazę danych SQL, zobacz [Używanie języka C# do tworzenia bazy danych SQL z zastosowaniem biblioteki SQL Database Library for .NET](sql-database-get-started-csharp.md).
 
-Biblioteka Azure SQL Database Library for .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Biblioteka Azure SQL Database Library for .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Wiele nowych funkcji usługi SQL Database jest obsługiwanych tylko w przypadku zastosowania [modelu wdrażania przy użyciu usługi Azure Resource Manager](../resource-group-overview.md). Dlatego należy zawsze używać najnowszej **Biblioteki zarządzania usługą SQL Database platformy Azure dla programu .NET ([dokumentacja](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pakiet NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starsze [biblioteki oparte na modelu wdrożenia klasycznego](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) są obsługiwane tylko w trybie zgodności z poprzednimi wersjami, w związku z czym zalecane jest użycie nowszych bibliotek opartych na modelu wdrożenia przy użyciu usługi Resource Manager.
+> Wiele nowych funkcji usługi SQL Database jest obsługiwanych tylko w przypadku zastosowania [modelu wdrażania przy użyciu usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Dlatego należy zawsze używać najnowszej **Biblioteki zarządzania usługą SQL Database platformy Azure dla programu .NET ([dokumentacja](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pakiet NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starsze [biblioteki oparte na modelu wdrożenia klasycznego](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) są obsługiwane tylko w trybie zgodności z poprzednimi wersjami, w związku z czym zalecane jest użycie nowszych bibliotek opartych na modelu wdrożenia przy użyciu usługi Resource Manager.
 > 
 > 
 
@@ -38,7 +42,7 @@ Do wykonania kroków opisanych w tym artykule potrzebne są:
 * Subskrypcja platformy Azure. Jeśli potrzebujesz subskrypcji platformy Azure, po prostu kliknij pozycję **BEZPŁATNE KONTO** u góry tej strony, a następnie wróć do artykułu.
 * Program Visual Studio. Aby uzyskać bezpłatną kopię programu Visual Studio, zobacz stronę [Visual Studio — pliki do pobrania](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
-## Tworzenie aplikacji konsoli i instalowanie wymaganych bibliotek
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Tworzenie aplikacji konsoli i instalowanie wymaganych bibliotek
 1. Uruchom program Visual Studio.
 2. Kliknij pozycję **Plik** > **Nowy** > **Projekt**.
 3. Utwórz **aplikację konsolową** w języku C# i nadaj jej następującą nazwę: *SqlElasticPoolConsoleApp*
@@ -55,7 +59,7 @@ Aby utworzyć bazę danych SQL w języku C#, załaduj wymagane biblioteki zarzą
 > 
 > 
 
-## Tworzenie elastycznej puli baz danych SQL — przykład w języku C
+## <a name="create-a-sql-elastic-database-pool-c-example"></a>Tworzenie elastycznej puli baz danych SQL — przykład w języku C#
 W poniższym przykładzie tworzone są: grupa zasobów, serwer, reguła zapory, pula elastyczna, a następnie baza danych SQL w tej puli. Zobacz [Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów](#create-a-service-principal-to-access-resources), aby uzyskać zmienne `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Zastąp zawartość pliku **Program.cs** poniższym kodem i zaktualizuj elementy `{variables}` wartościami aplikacji (bez znaków `{}`).
@@ -254,7 +258,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 
-## Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów
+## <a name="create-a-service-principal-to-access-resources"></a>Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów
 Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directory (AD) oraz jednostkę usługi wymaganą do uwierzytelnienia aplikacji w języku C#. Skrypt generuje wartości wyjściowe potrzebne w poprzednim przykładzie w języku C#. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell](../resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
@@ -298,15 +302,18 @@ Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directo
 
 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Zarządzanie pulą](sql-database-elastic-pool-manage-csharp.md)
 * [Tworzenie zadań elastycznych](sql-database-elastic-jobs-overview.md): zadania elastyczne umożliwiają uruchamianie skryptów T-SQL na dowolnej liczbie baz danych w puli.
 * [Skalowanie w poziomie przy użyciu usługi Azure SQL Database](sql-database-elastic-scale-introduction.md): użyj narzędzi elastycznej bazy danych do skalowania w poziomie.
 
-## Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe zasoby
 * [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Interfejsy API usługi Azure Resource Management](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

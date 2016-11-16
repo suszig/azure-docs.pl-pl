@@ -1,14 +1,14 @@
 ---
-title: Łączenie z klastrem usługi kontenera platformy Azure | Microsoft Docs
-description: Łączenie z klastrem usługi kontenera platformy Azure przy użyciu tunelu SSH.
+title: "Łączenie z klastrem usługi Azure Container Service | Microsoft Docs"
+description: "Łączenie z klastrem usługi kontenera platformy Azure przy użyciu tunelu SSH."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, kontenery, mikrousługi, DC/OS, Azure
-
+keywords: "Docker, kontenery, mikrousługi, DC/OS, Azure"
+ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+
 
 ---
-# Łączenie z klastrem usługi kontenera platformy Azure
+# <a name="connect-to-an-azure-container-service-cluster"></a>Łączenie z klastrem usługi kontenera platformy Azure
 Klastry DC/OS i Docker Swarm wdrażane przez usługę Azure Container Service uwidaczniają punkty końcowe REST. Te punkty końcowe nie są jednak otwarte dla użytkowników zewnętrznych. Aby zarządzać tymi punktami końcowymi, należy utworzyć tunel Secure Shell (SSH). Po ustanowieniu tunelu SSH możesz uruchamiać polecenia względem punktów końcowych klastra i wyświetlać interfejs użytkownika klastra za pośrednictwem przeglądarki we własnym systemie. Ten dokument zawiera opis kroków tworzenia tunelu SSH w systemach Linux, OS X i Windows.
 
 > [!NOTE]
@@ -26,7 +30,7 @@ Klastry DC/OS i Docker Swarm wdrażane przez usługę Azure Container Service uw
 > 
 > 
 
-## Tworzenie tunelu SSH w systemie Linux lub OS X
+## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Tworzenie tunelu SSH w systemie Linux lub OS X
 Pierwszym krokiem tworzenia tunelu SSH w systemie Linux lub OS X jest zlokalizowanie publicznej nazwy DNS serwerów głównych ze zrównoważonym obciążeniem. W tym celu rozwiń grupę zasobów, aby wyświetlić poszczególne zasoby. Znajdź i wybierz publiczny adres IP serwera głównego. Spowoduje to otwarcie bloku z informacjami o publicznym adresie IP, w tym o nazwie DNS. Zapisz tę nazwę do późniejszego użycia. <br />
 
 ![Publiczna nazwa DNS](media/pubdns.png)
@@ -46,7 +50,7 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 > 
 > 
 
-## Tunel DC/OS
+## <a name="dcos-tunnel"></a>Tunel DC/OS
 Aby otworzyć tunel do punktów końcowych powiązanych z klastrem DC/OS, wykonaj polecenie podobne do następującego:
 
 ```bash
@@ -61,7 +65,7 @@ Teraz możesz uzyskiwać dostęp do punktów końcowych powiązanych z klastrem 
 
 Podobnie za pomocą tego tunelu możesz uzyskiwać dostęp do interfejsów API REST dla poszczególnych aplikacji.
 
-## Tunel Swarm
+## <a name="swarm-tunnel"></a>Tunel Swarm
 Aby otworzyć tunel do punktu końcowego Swarm, wykonaj polecenie podobne do następującego:
 
 ```bash
@@ -74,7 +78,7 @@ Teraz możesz ustawić zmienną środowiskową DOCKER_HOST w następujący spos�
 export DOCKER_HOST=:2375
 ```
 
-## Tworzenie tunelu SSH w systemie Windows
+## <a name="create-an-ssh-tunnel-on-windows"></a>Tworzenie tunelu SSH w systemie Windows
 Istnieje wiele opcji tworzenia tuneli SSH w systemie Windows. W tym dokumencie opisano sposób wykonania tej czynności przy użyciu programu PuTTY.
 
 Pobierz program PuTTY do systemu Windows i uruchom aplikację.
@@ -113,12 +117,15 @@ Po skonfigurowaniu tunelu dla platformy DC/OS można uzyskiwać dostęp do powi�
 
 Po skonfigurowaniu tunelu dla rozwiązania Docker Swarm można uzyskiwać dostęp do klastra Swarm za pośrednictwem interfejsu wiersza polecenia programu Docker. Najpierw należy skonfigurować zmienną środowiskową systemu Windows o nazwie `DOCKER_HOST` i wartości ` :2375`.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Wdrażanie kontenerów i zarządzanie nimi przy użyciu rozwiązania DC/OS lub Swarm:
 
 * [Współpraca z usługą Azure Container Service i rozwiązaniem DC/OS](container-service-mesos-marathon-rest.md)
 * [Współpraca z usługą Azure Container Service i rozwiązaniem Docker Swarm](container-service-docker-swarm.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

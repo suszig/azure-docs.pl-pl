@@ -1,12 +1,12 @@
 ---
 title: Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
-description: W tym dokumencie opisano sposób rozpoczęcia pracy z serwerem Azure MFA oraz uaktualnienia ze starszej wersji agenta PhoneFactor.
+description: "W tym dokumencie opisano sposób rozpoczęcia pracy z serwerem Azure MFA oraz uaktualnienia ze starszej wersji agenta PhoneFactor."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1cd92121b150461698674b8acd4369d09c9b9920
+
 
 ---
-# Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
+# <a name="upgrading-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
 Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure Multi-Factor Authentication wymaga odinstalowania agenta PhoneFactor i powiązanych z nim składników przed rozpoczęciem instalowania serwera Multi-Factor Authentication i powiązanych z nim składników.
 
-## Aby uaktualnić agenta PhoneFactor do serwera Azure Multi-Factor Authentication
+## <a name="to-upgrade-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Aby uaktualnić agenta PhoneFactor do serwera Azure Multi-Factor Authentication
 <ol>
 <li>Najpierw należy utworzyć kopię zapasową pliku danych PhoneFactor. Domyślna lokalizacja instalacji to C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
@@ -66,6 +70,6 @@ Uaktualnianie z agenta PhoneFactor (v5.x lub starszej wersji) do serwera Azure M
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

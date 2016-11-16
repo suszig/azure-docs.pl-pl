@@ -1,12 +1,12 @@
 ---
-title: Korzystam z usługi Mobile Services. Jak usługa App Service może mi pomóc?
-description: Dowiedz się, jakie korzyści z usługi App Service można osiągać podczas pracy z istniejącymi projektami usługi Mobile Services.
+title: "Korzystam z usługi Mobile Services. Jak usługa App Service może mi pomóc?"
+description: "Dowiedz się, jakie korzyści z usługi App Service można osiągać podczas pracy z istniejącymi projektami usługi Mobile Services."
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+
 
 ---
 # <a name="getting-started"> </a>Korzystam z usługi Mobile Services. Jak usługa App Service może mi pomóc?
-## Omówienie
+## <a name="overview"></a>Omówienie
 Istniejąca Usługa mobilna jest bezpieczna i pozostanie objęta pomocą techniczną. Platforma *usługi Azure App Service* oferuje jednak pewne korzyści związane z aplikacją mobilną, które nie są obecnie dostępne w usłudze Mobile Services:
 
 * Prostsze, łatwiejsze i bardziej ekonomiczne oferty aplikacji obejmujących klientów sieci Web i mobilnych
@@ -29,7 +33,7 @@ Istniejąca Usługa mobilna jest bezpieczna i pozostanie objęta pomocą technic
 * Wbudowane automatyczne skalowanie, równoważenie obciążenia i monitorowanie wydajności
 * Wbudowane możliwości wdrażania przejściowego, tworzenia kopii zapasowych, wycofywania i testowania w produkcji
 
-## Nowe funkcje hostingu
+## <a name="new-hosting-features"></a>Nowe funkcje hostingu
 W *usłudze Azure App Service* kod zaplecza *plikacji mobilnej* działa w tym samym kontenerze co aplikacja sieci Web i aplikacja interfejsu API. W związku z tym możesz korzystać ze wszystkich funkcji w tym kontenerze, w tym z niektórych funkcji, które nie są aktualnie dostępne w usłudze Mobile Services:
 
 * Dodawanie działającej w sposób ciągły logiki zaplecza za pośrednictwem zadań Web Job.
@@ -40,26 +44,29 @@ W *usłudze Azure App Service* kod zaplecza *plikacji mobilnej* działa w tym sa
 * (.NET) Korzystanie z dowolnej funkcji programu ASP.NET, w tym MVC.
 * (Node.js) Korzystanie z dowolnej czystej biblioteki języka JavaScript ekosystemu języka Node, w tym wspólnych bibliotek MVC.
 
-## Dostęp do danych lokalnych przy użyciu sieci wirtualnej
+## <a name="access-onpremises-data-using-vnet"></a>Dostęp do danych lokalnych przy użyciu sieci wirtualnej
 Obecnie w usłudze Mobile Services można już uzyskiwać dostęp do zasobów lokalnych za pomocą połączeń hybrydowych. W niektórych sytuacjach preferowane jest jednak użycie rozwiązania VPN. *Usługa Azure App Service* umożliwia korzystanie z sieci wirtualnej platformy Azure na potrzeby kodu zaplecza aplikacji mobilnej.
 
-## Korzystanie z ulubionego języka zaplecza
+## <a name="use-your-favorite-backend-language"></a>Korzystanie z ulubionego języka zaplecza
 *Usługa Azure App Service* oferuje bardziej rozbudowaną i zaawansowaną obsługę platform ASP.NET i Node.js, w tym dostęp do najnowszych środowisk uruchomieniowych.
 
-## Ustawianie skalowania automatycznego
+## <a name="set-up-automatic-scale"></a>Ustawianie skalowania automatycznego
 W przypadku usługi Mobile Services wszystkie wystąpienia kodu zaplecza były uruchamiane na małych maszynach wirtualnych. *Usługa Azure App Service* umożliwia wybranie rozmiaru maszyn wirtualnych ze znacznie większego zestawu opcji. Możesz szybko skalować w górę lub w poziomie, co pozwala na obsługę dowolnych przychodzących obciążeń klientów w oparciu o różne metryki wydajności.
 
-## Trzymaj rękę na pulsie
+## <a name="be-in-the-know"></a>Trzymaj rękę na pulsie
 Reaguj na problemy w czasie rzeczywistym dzięki możliwościom automatycznego powiadamiania Ciebie i Twojego zespołu za pomocą funkcji monitorowania i alertów. Integruj zaawansowane funkcje monitorowania i analizy aplikacji z usług New Relic i AppInsights w celu uzyskania bardziej szczegółowego wglądu w sposób działania aplikacji mobilnej. W *usłudze Azure App Service* możesz teraz konfigurować alerty oparte na różnych metrykach wydajności — programowo i za pośrednictwem witryny Azure Portal.
 
-## Zabezpieczanie zasobów
+## <a name="keep-your-assets-safe"></a>Zabezpieczanie zasobów
 Automatycznie twórz kopię zapasową zaplecza i bazy danych. Kod i dane są chronione przed awariami. Można je też łatwo przywrócić, aby zapewnić firmie pewność działania.
 
-## Gotowe, przejściowe, już!
+## <a name="ready-stage-go"></a>Gotowe, przejściowe, już!
 Dzięki *usłudze Azure App Service* można teraz tworzyć wiele prywatnych środowisk testowania i przejściowych dla aplikacji mobilnych. Używaj ich do testowania aplikacji przed wdrożeniem. Przechodź do środowiska produkcyjnego bez przestojów. Aplikacje sieci Web są wstępnie załadowane, dzięki czemu można pracować w najlepszym środowisku klienta.
 
 Aby rozpocząć korzystanie z zalet *usługi App Service* dla istniejącej Usługi mobilnej, wykonaj czynności opisane w tym [samouczku](app-service-mobile-migrating-from-mobile-services.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,21 +1,25 @@
 ---
-title: Telemetria usługi Application Insights i użycie funkcji CodeLens programu Visual Studio | Microsoft Docs
-description: Szybki dostęp do żądania usługi Application Insights i wyjątków telemetrii za pomocą funkcji CodeLens w programie Visual Studio.
+title: "Telemetria usługi Application Insights i użycie funkcji CodeLens programu Visual Studio | Microsoft Docs"
+description: "Szybki dostęp do żądania usługi Application Insights i wyjątków telemetrii za pomocą funkcji CodeLens w programie Visual Studio."
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
 manager: douge
-
+ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 11/14/2016
 ms.author: daviste
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
+
 
 ---
-# Telemetria usługi Application Insights i użycie funkcji CodeLens programu Visual Studio
+# <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria usługi Application Insights i użycie funkcji CodeLens programu Visual Studio
 Metody w kodzie aplikacji sieci Web mogą być adnotowane przy użyciu telemetrii dotyczącej wyjątków czasu wykonywania i czasu odpowiedzi na żądanie. W przypadku instalowania usługi [Visual Studio Application Insights](app-insights-overview.md) w aplikacji dane telemetryczne pojawią się w funkcji [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) programu Visual Studio — w uwagach na górze każdej funkcji, w których są wyświetlane użyteczne informacje, takie jak liczba miejsc, w których odwoływano się do funkcji i nazwisko ostatniej osoby, która ją edytowała.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
@@ -25,7 +29,7 @@ Metody w kodzie aplikacji sieci Web mogą być adnotowane przy użyciu telemetri
 > 
 > 
 
-## Znajdywanie danych usługi Application Insights
+## <a name="where-to-find-application-insights-data"></a>Znajdywanie danych usługi Application Insights
 Poszukaj danych telemetrycznych usługi Application Insights we wskaźnikach CodeLens dla metod publicznych żądań aplikacji sieci Web. Wskaźniki CodeLens są wyświetlane powyżej metody i innych deklaracji w kodzie języka C# i Visual Basic. Jeśli dane usługi Application Insights są dostępne dla metody, zobaczysz wskaźniki dla żądań i wyjątków, takie jak „100 żądań, 1% zakończony niepowodzeniem” lub „Liczba wyjątków: 10”. Kliknij wskaźnik CodeLens, aby uzyskać więcej szczegółów. 
 
 > [!TIP]
@@ -33,7 +37,7 @@ Poszukaj danych telemetrycznych usługi Application Insights we wskaźnikach Cod
 > 
 > 
 
-## Wyjątki w funkcji CodeLens
+## <a name="exceptions-in-codelens"></a>Wyjątki w funkcji CodeLens
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
 Wskaźnik CodeLens wyjątku pokazuje liczbę wyjątków, które wystąpiły w ciągu ostatnich 24 godzin w 15 najczęściej występujących wyjątkach w aplikacji w tym okresie podczas przetwarzania żądania obsłużonego przez metodę.
@@ -55,7 +59,7 @@ Aby uzyskać szczegółowe informacje, kliknij wskaźnik CodeLens wyjątków:
 > 
 > 
 
-## Żądania w funkcji CodeLens
+## <a name="requests-in-codelens"></a>Żądania w funkcji CodeLens
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
 Wskaźnik CodeLens żądania pokazuje liczbę żądań HTTP, które zostały obsłużone przez metodę w ciągu ostatnich 24 godzin oraz wartość procentową żądań, które nie powiodły się.
@@ -68,13 +72,16 @@ Aby uzyskać szczegółowe informacje, kliknij wskaźnik CodeLens żądań:
 * Wybierz polecenie **Trend**, aby wyświetlić wizualizację trendu dla żądań, żądań zakończonych niepowodzeniem lub średniego czasu odpowiedzi w ciągu ostatnich 24 godzin.
 * Wybierz nazwę zasobu usługi Application Insights w lewym górnym rogu widoku szczegółów funkcji CodeLens, aby zmienić zasób, który jest źródłem danych tej funkcji.
 
-## <a name="next"></a>Następne kroki
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Następne kroki
 |  |  |
 | --- | --- |
-| **[Praca z usługą Application Insights w programie Visual Studio](app-insights-visual-studio.md)**<br/>Wyszukiwanie danych telemetrycznych, wyświetlanie danych CodeLens i konfigurowanie usługi Application Insights. Wszystko to w programie Visual Studio. |![Kliknij prawym przyciskiem myszy projekt i wybierz kolejno opcje Application Insights, Wyszukiwanie](./media/app-insights-visual-studio-trends/34.png) |
-| **[Dodawanie większej ilości danych](app-insights-asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
-| **[Praca z portalem usługi Application Insights](app-insights-dashboards.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
+| **[Praca z usługą Application Insights w programie Visual Studio](app-insights-visual-studio.md)**<br/>Wyszukiwanie danych telemetrycznych, wyświetlanie danych CodeLens i konfigurowanie usługi Application Insights. Wszystko to w programie Visual Studio. |![Kliknij prawym przyciskiem myszy projekt i wybierz kolejno opcje Application Insights, Wyszukiwanie](./media/app-insights-visual-studio-codelens/34.png) |
+| **[Dodawanie większej ilości danych](app-insights-asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
+| **[Praca z portalem usługi Application Insights](app-insights-dashboards.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

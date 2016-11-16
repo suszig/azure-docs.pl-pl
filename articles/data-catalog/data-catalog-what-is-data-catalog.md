@@ -1,13 +1,13 @@
 ---
-title: Co to jest usługa Azure Data Catalog? | Microsoft Docs
-description: W tym artykule omówiono usługę Microsoft Azure Data Catalog i jej funkcje oraz problemy, które ma ona rozwiązywać. Usługa Data Catalog oferuje możliwości dostępne dla każdego użytkownika — od analityków, przez analityków danych, do deweloperów — służące do rejestrowania, odnajdywania, zrozumienia i używania źródeł danych.
+title: "Co to jest usługa Azure Data Catalog? | Microsoft Docs"
+description: "W tym artykule omówiono usługę Microsoft Azure Data Catalog i jej funkcje oraz problemy, które ma ona rozwiązywać. Usługa Data Catalog oferuje możliwości dostępne dla każdego użytkownika — od analityków, przez analityków danych, do deweloperów — służące do rejestrowania, odnajdywania, zrozumienia i używania źródeł danych."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/21/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97482bc365395e3d9218688bf38ded4a54bb556a
+
 
 ---
-# Co to jest usługa Azure Data Catalog?
+# <a name="what-is-azure-data-catalog"></a>Co to jest usługa Azure Data Catalog?
 Azure Data Catalog to w pełni zarządzana usługa w chmurze umożliwiająca użytkownikom odnajdywanie potrzebnych im źródeł danych i zrozumienie ich działania. Usługa ta ułatwia także organizacjom osiąganie większych zysków z ich istniejących inwestycji. Usługa Data Catalog oferuje możliwości dostępne dla każdego użytkownika — od analityków, przez analityków danych, do programistów — służące do odnajdywania, zrozumienia i używania źródeł danych. Usługa Data Catalog zawiera model crowdsourcingu w postaci metadanych oraz adnotacji i umożliwia wszystkim użytkownikom dzielenie się swoją wiedzą w celu tworzenia społeczności i kultury danych.
 
-## Wyzwania dotyczące odnajdywania dla konsumentów danych
+## <a name="discovery-challenges-for-data-consumers"></a>Wyzwania dotyczące odnajdywania dla konsumentów danych
 Tradycyjnie wykrywanie firmowych źródeł danych było organicznym procesem opartym na wiedzy pochodzącej z wewnątrz firmy. Stawiało to wiele wyzwań przed firmami, które chciały uzyskać najlepsze efekty podczas pracy ze swoimi zasobami informacyjnymi.
 
 * Użytkownicy nie dowiedzą o istnieniu źródeł danych, dopóki nie zaczną ich używać w ramach innego procesu — nie ma centralnej lokalizacji, w której źródła danych są rejestrowane.
@@ -29,7 +33,7 @@ Tradycyjnie wykrywanie firmowych źródeł danych było organicznym procesem opa
 * Jeśli użytkownik ma pytania dotyczące zasobu informacyjnego, musi zlokalizować specjalistę lub zespół odpowiedzialny za te dane i skontaktować się z nimi w trybie offline. Nie istnieje jawne połączenie między danymi i z użytkownikami korzystającymi z perspektywy ekspertów.
 * Jeśli użytkownik nie ma wiedzy na temat procesu żądania dostępu do źródła danych, odnajdywanie źródła danych i jego dokumentacji nadal nie umożliwia mu dostępu do wymaganych danych.
 
-## Wyzwania dotyczące odnajdywania dla producentów danych
+## <a name="discovery-challenges-for-data-producers"></a>Wyzwania dotyczące odnajdywania dla producentów danych
 Gdy konsumenci danych stawiają czoła tym wyzwaniom, użytkownicy odpowiedzialni za tworzenie i utrzymywanie zasobów informacyjnych mają inne wyzwania.
 
 * Dodawanie adnotacji do źródła danych z opisowymi metadanymi jest często niepotrzebnym wysiłkiem; aplikacje klienckie zwykle ignorują opisy przechowywane w źródle danych.
@@ -40,7 +44,7 @@ Tworzenie dokumentacji źródła danych i jej utrzymywanie to złożony i czasoc
 
 Po połączeniu wszystkie te wyzwania stanowią dużą przeszkodę dla przedsiębiorstw, które zachęcają i promują używanie danych firmowych i zrozumienie ich.
 
-## Usługa Azure Data Catalog może pomóc
+## <a name="azure-data-catalog-can-help"></a>Usługa Azure Data Catalog może pomóc
 Usługa Data Catalog została zaprojektowana po to, aby rozwiązywać powyższe problemy i umożliwić przedsiębiorstwom osiągnięcie jak największych korzyści z istniejących zasobów informacyjnych. Usługa Data Catalog pomaga rozwiązywać problemy dzięki ułatwieniu odnajdywania źródeł danych i pomocy w ich rozumieniu przez użytkowników potrzebujących danych, którymi zarządzają.
 
 Usługa Data Catalog udostępnia usługę w chmurze, w której można zarejestrować źródło danych. Dane pozostają w istniejącej lokalizacji, ale kopia metadanych jest dodawana do usługi Data Catalog wraz z odwołaniem do lokalizacji źródła danych. Te metadane są również indeksowane, aby można było łatwo je odnaleźć za pomocą wyszukiwania oraz uczynić je zrozumiałymi dla użytkowników, które je odnajdą.
@@ -51,12 +55,12 @@ Wykrywanie źródeł danych i ich zrozumienie to główny cel rejestrowania źr�
 
 ![Możliwości usługi Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## Wprowadzenie do usługi Data Catalog
+## <a name="get-started-with-data-catalog"></a>Wprowadzenie do usługi Data Catalog
 Aby poznać możliwości usługi Data Catalog już dziś, odwiedź witrynę sieci Web [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
 Przewodnik z wprowadzeniem jest dostępny [tutaj](data-catalog-get-started.md).
 
-## Dowiedz się więcej na temat usługi Data Catalog
+## <a name="learn-more-about-data-catalog"></a>Dowiedz się więcej na temat usługi Data Catalog
 Aby dowiedzieć się więcej o możliwościach wykazu danych, zobacz:
 
 * [Jak rejestrować źródła danych](data-catalog-how-to-register.md)
@@ -69,6 +73,9 @@ Aby dowiedzieć się więcej o możliwościach wykazu danych, zobacz:
 * [Jak skonfigurować słownik biznesowy](data-catalog-how-to-business-glossary.md)
 * [Często zadawane pytania](data-catalog-frequently-asked-questions.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

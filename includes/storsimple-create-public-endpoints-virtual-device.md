@@ -1,4 +1,4 @@
-#### Aby utworzyć publiczne punkty końcowe na urządzeniu wirtualnym
+#### <a name="to-create-public-endpoints-on-the-virtual-device"></a>Aby utworzyć publiczne punkty końcowe na urządzeniu wirtualnym
 1. Zaloguj się do klasycznego portalu Azure.
 
 * Kliknij opcję **Maszyny wirtualne**, a następnie wybierz maszynę wirtualną, która jest używana jako urządzenie wirtualne.
@@ -12,6 +12,8 @@
 
 Po utworzeniu punktu końcowego można wyświetlić jego szczegóły, aby ustalić adres publiczny wirtualnego adresu IP (VIP). Zapisz ten adres.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

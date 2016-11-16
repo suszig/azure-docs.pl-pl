@@ -1,22 +1,26 @@
 ---
-title: Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET | Microsoft Docs
-description: Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości na żądanie w usługach Azure Media Services z użyciem platformy .NET.
+title: "Wprowadzenie do dostarczania zawartości na żądanie przy użyciu platformy .NET | Microsoft Docs"
+description: "Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości na żądanie w usługach Azure Media Services z użyciem platformy .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/11/2016
+ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+
 
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
@@ -29,7 +33,7 @@ Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości
 
 Samouczek przedstawia podstawowy przepływ pracy usług Media Services oraz najczęściej występujące obiekty i zadania programowania wymagane w celu projektowania usług Media Services. Po zakończeniu samouczka będziesz umieć przesłać strumieniowo lub pobrać progresywnie przykładowy plik multimedialny, który został wcześniej przekazany, zakodowany oraz pobrany.
 
-## <a name="what-you'll-learn"></a>Zawartość
+## <a name="what-youll-learn"></a>Zawartość
 Ten samouczek przedstawia sposób wykonania następujących zadań:
 
 1. Tworzenie konta usługi Media Services (przy użyciu witryny Azure Portal).
@@ -67,7 +71,7 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
    
    1. W polu **Nazwa konta** wprowadź nazwę nowego konta usługi AMS. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.
    2. W subskrypcji wybierz jedną z różnych subskrypcji Azure, do których masz dostęp.
-   3. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../resource-group-overview.md#resource-groups).
+   3. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. W polu **Lokalizacja** wybierz region geograficzny używany do przechowywania nośników i rekordów metadanych dla konta usługi Media Services. Ten region służy do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services. 
    5. W polu **Konto magazynu** wybierz konto magazynu, aby udostępnić magazyn obiektów Blob dla zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.
       
@@ -113,7 +117,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
 1. Utwórz nową aplikację konsoli w języku C# w programie Visual Studio 2013, Visual Studio 2012 lub Visual Studio 2010 SP1. Uzupełnij informacje w polach **Nazwa**, **Lokalizacja** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
 2. Użyj pakietu NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions), aby zainstalować **rozszerzenia zestawu .NET SDK usługi Azure Media Services**.  Rozszerzenia .NET SDK usługi Media Services to zestaw metod rozszerzeń i funkcji pomocniczych, które pozwalają uprościć kod i ułatwiają pracę z usługą Media Services. Podczas instalacji tego pakietu instalowany jest również zestaw **.NET SDK usługi Media Services** oraz dodawane są wszystkie inne wymagane zależności.
 3. Dodaj odwołanie do zestawu System.Configuration. Ten zestaw zawiera klasę **System.Configuration.ConfigurationManager**, która jest używana na potrzeby uzyskiwania dostępu do plików konfiguracyjnych, np. App.config.
-4. Otwórz plik App.config (dodaj plik do projektu, jeśli nie został dodany domyślnie) i dodaj do pliku sekcję *appSettings*. Ustaw wartości dla nazwy i klucza konta usługi Azure Media Services, jak pokazano w poniższym przykładzie. Aby uzyskać nazwę konta i informacje o kluczu, otwórz klasyczny portal Azure, wybierz konto usługi Media Services, a następnie kliknij przycisk **ZARZĄDZAJ KLUCZAMI**.
+4. Otwórz plik App.config (dodaj plik do projektu, jeśli nie został dodany domyślnie) i dodaj do pliku sekcję *appSettings*. Ustaw wartości dla nazwy i klucza konta usługi Azure Media Services, jak pokazano w poniższym przykładzie. Aby uzyskać informacje o kluczu i nazwie konta, przejdź do witryny [Azure Portal](https://portal.azure.com/) i wybierz swoje konto AMS. Następnie wybierz pozycję **Ustawienia** > **Klucze**. W oknie Zarządzanie kluczami widoczna jest nazwa konta oraz wyświetlane są klucze podstawowe i pomocnicze.
    
         <configuration>
         ...
@@ -408,13 +412,13 @@ Do przesyłania strumieniowego zawartości wideo użyj [odtwarzacza usługi Azur
 
 Aby przetestować pobieranie progresywne, wklej adres URL do przeglądarki (np. Internet Explorer, Chrome lub Safari).
 
-## <a name="next-steps:-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Szukasz czegoś innego?
+### <a name="looking-for-something-else"></a>Szukasz czegoś innego?
 Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się z nami swoją opinią w wątku Disqus poniżej.
 
 <!-- Anchors. -->
@@ -426,6 +430,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -6,28 +6,28 @@
 6. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
 7. W polu **Lokalizacja** wybierz kraj lub region, w którym powinna być hostowana przestrzeń nazw.
    
-    ![Tworzenie przestrzeni nazw][create-namespace]
+    ![Create namespace][create-namespace]
 8. Kliknij pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
 
-### Uzyskiwanie poświadczeń zarządzania
+### <a name="obtain-the-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
 1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
 2. W bloku przestrzeni nazw usługi Service Bus kliknij pozycję **Zasady dostępu współdzielonego**.
 3. W bloku **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.
    
-    ![połączenia — informacje][connection-info]
+    ![connection-info][connection-info]
 4. W bloku **Zasady: RootManageSharedAccessKey** kliknij przycisk kopiowania obok pozycji **Parametry połączenia — klucz podstawowy**, aby skopiować parametry połączenia do schowka w celu późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
    
-    ![połączenie — parametry][connection-string]
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[tworzenie — przestrzeń nazw]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[połączenia — informacje]: ./media/service-bus-create-namespace-portal/connection-info.png
-[połączenie — parametry]: ./media/service-bus-create-namespace-portal/connection-string.png
+[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

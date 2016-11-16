@@ -1,22 +1,26 @@
 ---
-title: Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service | Microsoft Docs
-description: Dowiedz się, jak utworzyć nową aplikację sieci Web platformy Azure dla bloga WordPress przy użyciu witryny Azure Portal.
+title: "Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć nową aplikację sieci Web platformy Azure dla bloga WordPress przy użyciu witryny Azure Portal."
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 193ae094-0d7c-4749-a09b-ff4b1240149e
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+
 
 ---
-# Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service
+# <a name="create-a-wordpress-web-app-in-azure-app-service"></a>Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Ten samouczek pokazuje, jak wdrożyć witrynę bloga WordPress z poziomu portalu Azure Marketplace.
@@ -42,7 +46,7 @@ Witryna WordPress wdrażana w tym samouczku korzysta z bazy danych MySQL. Jeśli
 > 
 > 
 
-## Wybieranie platformy WordPress i konfigurowanie dla usługi Azure App Service
+## <a name="select-wordpress-and-configure-for-azure-app-service"></a>Wybieranie platformy WordPress i konfigurowanie dla usługi Azure App Service
 1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
 2. Kliknij przycisk **Nowy**.
    
@@ -59,10 +63,10 @@ Witryna WordPress wdrażana w tym samouczku korzysta z bazy danych MySQL. Jeśli
 6. Jeśli masz więcej niż jedną subskrypcję, wybierz odpowiednią subskrypcję. 
 7. Wybierz **grupę zasobów** lub utwórz nową.
    
-    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../resource-group-overview.md).
+    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 8. Wybierz pozycję **Plan usługi App Service/Lokalizacja** lub utwórz nowy plan.
    
-    Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [Omówienie planów usługi Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+    Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [Omówienie planów usługi Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).    
 9. Kliknij pozycję **Baza danych**, a następnie w bloku **Nowa baza danych MySQL** podaj wartości wymagane do skonfigurowania bazy danych MySQL.
    
     a. Wprowadź nową nazwę lub pozostaw nazwę domyślną.
@@ -81,7 +85,7 @@ Witryna WordPress wdrażana w tym samouczku korzysta z bazy danych MySQL. Jeśli
     
      ![Wskaźnik postępu](./media/web-sites-php-web-site-gallery/progress.png)
 
-## Uruchamianie aplikacji sieci Web WordPress i zarządzanie nią
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Uruchamianie aplikacji sieci Web WordPress i zarządzanie nią
 1. Po ukończeniu tworzenia aplikacji sieci Web przejdź w witrynie Azure Portal do grupy zasobów, w której utworzono aplikację, aby wyświetlić aplikację sieci Web i bazę danych.
    
     Dodatkowym zasobem z ikoną żarówki jest usługa [Application Insights](/services/application-insights/), która umożliwia monitorowanie aplikacji sieci Web.
@@ -99,12 +103,12 @@ Witryna WordPress wdrażana w tym samouczku korzysta z bazy danych MySQL. Jeśli
    
     ![Witryna WordPress](./media/web-sites-php-web-site-gallery/wpdashboard.png)
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Przedstawiono sposób tworzenia i wdrożenia aplikacji sieci Web PHP z poziomu galerii. Aby uzyskać więcej informacji na temat używania struktury PHP na platformie Azure, zobacz [Centrum deweloperów języka PHP](/develop/php/).
 
 Aby uzyskać więcej informacji na temat sposobu pracy z aplikacjami Web Apps w usłudze App Service, zobacz linki po lewej stronie (szerokie okna przeglądarki) lub w górnej części strony (wąskie okna przeglądarki). 
 
-## Co zostało zmienione
+## <a name="whats-changed"></a>Co zostało zmienione
 * Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
@@ -113,6 +117,6 @@ Aby uzyskać więcej informacji na temat sposobu pracy z aplikacjami Web Apps w 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

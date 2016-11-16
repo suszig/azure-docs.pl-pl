@@ -1,13 +1,13 @@
 ---
-title: Tworzenie sieci wirtualnej przy użyciu szablonu usługi ARM| Microsoft Docs
-description: Dowiedz się, jak utworzyć sieć wirtualną przy użyciu szablonu usługi ARM | Resource Manager.
+title: "Tworzenie sieci wirtualnej przy użyciu szablonu usługi ARM| Microsoft Docs"
+description: "Dowiedz się, jak utworzyć sieć wirtualną przy użyciu szablonu usługi ARM | Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 69530861-2f97-4a6e-b336-a7baf2690044
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 31b066d85474e781bd282603fceba3fa8ab135d7
+
 
 ---
-# Tworzenie sieci wirtualnej przy użyciu szablonu usługi ARM
+# <a name="create-a-virtual-network-by-using-an-arm-template"></a>Tworzenie sieci wirtualnej przy użyciu szablonu usługi ARM
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -40,6 +44,9 @@ Jeśli po prostu wdrażasz szablon usługi ARM bezpośrednio z serwisu GitHub, b
 
 [!INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

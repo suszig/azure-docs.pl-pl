@@ -1,12 +1,12 @@
 ---
 title: Definiowanie strategii Mobile Engagement | Microsoft Docs
-description: Dowiedz się, jak dołączyć i zoptymalizować strategię Mobile Engagement przy użyciu analizy i powiadomień wypychanych.
+description: "Dowiedz się, jak dołączyć i zoptymalizować strategię Mobile Engagement przy użyciu analizy i powiadomień wypychanych."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+
 
 ---
-# Definiowanie strategii Mobile Engagement
+# <a name="define-your-mobile-engagement-strategy"></a>Definiowanie strategii Mobile Engagement
 *Twoja aplikacja powstała z jednego powodu: aby Twoi użytkownicy mogli jej używać!*
 
 Wiemy, że stworzenie wspaniałej aplikacji, którą pokochają użytkownicy, wymagało dużego wysiłku. Ponadto najprawdopodobniej pozyskanie użytkowników było związane ze znaczną inwestycją w zakresie marketingu. Niemniej po początkowej, radosnej fazie wielkiego zainteresowania użytkowników możesz zauważyć, że powoli przestają oni używać Twojej aplikacji. *Właśnie o to chodzi w usłudze Azure Mobile Engagement!*: utrzymanie użytkowników i umożliwienie stopniowego usprawniania aplikacji poprzez testowanie i uczenie się.
@@ -25,7 +29,7 @@ Nasze podejście do poprawiania przechowywania i użycia opiera się na angażow
 
 Jednak żeby to osiągnąć, musisz rozpocząć od *zrozumienia swoich użytkowników*, a następnie utworzyć grupy w oparciu o zachowania lub cechy użytkowników (nazywamy je segmentami) i dopiero wtedy zająć się tworzeniem odpowiedniej komunikacji dla każdego segmentu.
 
-## Strategia Mobile Engagement służy Twoim celom
+## <a name="mobile-engagement-serves-your-objectives"></a>Strategia Mobile Engagement służy Twoim celom
 *Wspomnieliśmy o przechowywaniu i użyciu, ale właściwie po co?*
 
 Tworzenie strategii Mobile Engagement wymaga przyjrzenia się celom aplikacji i kluczowym wskaźnikom wydajności (KPI).
@@ -45,14 +49,14 @@ Po zdefiniowaniu przypadków użycia i segmentów przechodzimy do wskazówek zwi
 
 W oparciu o integrację, po opublikowaniu aplikacji, jako marketingowiec będziesz w stanie wyświetlać analizy w czasie rzeczywistym, segmentować odbiorców i wysyłać inteligentne, nakierowane powiadomienia wypychane, aby angażować użytkowników końcowych w aplikacji lub poza nią.
 
-### Przypadki użycia — wprowadzenie
+### <a name="usecases-to-get-started"></a>Przypadki użycia — wprowadzenie
 1. Strategia powitalna: utwórz kilka kampanii z wykorzystaniem powiadomień wypychanych opartych na zachowaniu użytkownika końcowego w momencie uruchomienia aplikacji, aby ponownie zaangażować użytkowników w D+2/5/10/15 po pierwszej sesji i zwiększyć przechowywanie po pierwszym uruchomieniu aplikacji.
 2. Promuj nową zawartość (funkcję, artykuł/wideo lub produkt) w oparciu o zachowanie użytkownika końcowego, aby wysyłać informacje tylko do tych użytkowników końcowych, którzy najprawdopodobniej zareagują na komunikat.
 3. Oceń aplikację: nakieruj komunikat na mniej niż 1 procent użytkowników w bazie, którzy najprawdopodobniej ocenią aplikację na 5 gwiazdek w sklepie.
 4. Zwiększ wykorzystanie subskrypcji: promuj cenną zawartość, przedstawiając ją użytkownikom końcowym, którzy jeszcze jej nie widzieli, aby zwiększyć liczbę subskrypcji.
 5. Samouczek: koniec obowiązkowych samouczków dla wszystkich. Zamiast tego możesz stworzyć wspaniałe samouczki wewnątrz aplikacji i wyzwalać je poprzez komunikaty w aplikacji tylko wtedy, gdy użytkownik wydaje się nie korzystać z aplikacji lub ma trudności z używaniem danej funkcji.
 
-## Dlaczego do zaangażowania użytkowników potrzebna jest analiza?
+## <a name="why-do-you-need-analytics-to-engage"></a>Dlaczego do zaangażowania użytkowników potrzebna jest analiza?
 Na tym etapie można już wywnioskować, że utworzenie jednego powiadomienia wypychanego do wszystkich użytkowników nie wystarczy. Kluczową ideą usługi Mobile Engagement jest pomaganie marketingowcom i deweloperom w angażowaniu odpowiednich użytkowników końcowych w odpowiednim momencie i w odpowiednim miejscu. Aby poznać te trzy kluczowe aspekty, ważne jest zbieranie danych analitycznych z aplikacji i ich wykorzystanie do segmentowania odbiorców. Takie rozwiązanie jest jeszcze bardziej skuteczne, jeśli segmenty oparte na zachowaniach uzupełniają dane pochodzące z innej bazy danych, systemu CRM lub rozwiązań opartych na wielu kanałach. Usługa Mobile Engagement umożliwia zbieranie danych z dowolnego miejsca i wykorzystuje je do określania odpowiednich odbiorców.
 
 Aby działać w możliwie najlepszym kontekście podczas angażowania swoich odbiorców, niezwykle ważne jest posiadanie odpowiedniej wiedzy o zachowaniach użytkowników końcowych i możliwość wglądu w ich stan w czasie rzeczywistym. Gromadzenie danych umożliwia marketingowcom skupienie się na tym, co naprawdę istotne, aby mogli wykorzystywać przypadki użycia i osiągać strategiczne cele w marketingu na urządzeniach przenośnych. Osiąganie wcześniej ustalonych celów to powód, dla którego najlepszą praktyką nie jest zbieranie wszystkich możliwych danych do analizy, a jedynie tych, które umożliwiają skupienie się na tym, czego chcemy się dowiedzieć i co umożliwia wykorzystanie przypadków użycia. Jest to dobry sposób na początek: spróbować, przetestować i dowiedzieć się, jak używać rozwiązania, a następnie zaadresować inteligentne powiadomienia wypychane i zwiększyć przechowywanie aplikacji, co przełoży się na osiągnięcie sukcesu.
@@ -62,42 +66,42 @@ Aby działać w możliwie najlepszym kontekście podczas angażowania swoich odb
 > 
 > 
 
-### Przypadki użycia i najlepsze praktyki
+### <a name="usecases-and-best-practices"></a>Przypadki użycia i najlepsze praktyki
 W poniższych sekcjach omówiono pokrótce niektóre kluczowe przypadki użycia nadsyłane przez naszych klientów, dzięki którym łatwiej będzie rozpocząć pracę.
 
-#### Multimedia
+#### <a name="media"></a>Multimedia
 Zbieraj dane o typie zawartości, którą wykorzystują użytkownicy końcowi, a następnie segmentuj odbiorców w oparciu o te zachowania, aby nakierowywać wybrane typy zawartości na odbiorców, którzy najprawdopodobniej z nich skorzystają. Takie rozwiązanie pomaga uniknąć spamowania całej bazy użytkowników i zapewnia lepsze przechowywanie.
 
-#### M-commerce
+#### <a name="mcommerce"></a>M-commerce
 Zbieraj dane o kategoriach produktów najczęściej odwiedzanych w aplikacji i nakieruj działania na odbiorców, aby promować oferty lub nowe produkty w danej kategorii, co zwiększa szansę na dokonanie zakupu przez użytkownika końcowego. Staraj się zwiększyć przychody. Celem nie jest spamowanie użytkowników!
 
-#### Gry
+#### <a name="gaming"></a>Gry
 Zbieraj dane o poziomie gry użytkownika końcowego i czasie spędzonym w grze w danym okresie, aby nakierować działania na odbiorców, którzy utknęli w danym momencie i chętniej przejdą do następnego poziomu przy użyciu oferty bonusowej.
 
 Przekazuj informacje o konkretnych zdarzeniach, zachęcając użytkowników, którzy nie grali od dłuższego czasu, aby spróbować zachęcić ich do powrotu.
 
-#### Sprzedaż detaliczna
+#### <a name="retail"></a>Sprzedaż detaliczna
 Zbieraj dane o produktach i markach, które najprawdopodobniej wybiorą odbiorcy w oparciu o ich ulubione produkty lub zachowania i motywuj odbiorców do wizyt w sklepie, aby zwiększyć swoje przychody z zakupów.
 
-#### Bankowość
+#### <a name="banking"></a>Bankowość
 Zbieraj dane od użytkowników końcowych, którzy utworzyli konto podczas pierwszego uruchomienia aplikacji. Staraj się wdrożyć strategię powitalną z nakierowanymi powiadomieniami wypychanymi, aby zwiększyć liczbę subskrypcji kont.
 
-### Jak utworzyć wspaniały plan tagu?
+### <a name="how-to-create-a-great-tag-plan"></a>Jak utworzyć wspaniały plan tagu?
 Plan tagu musi być swoistym opisem ścieżki użytkownika lub rodzajem przepływu pracy aplikacji zawierającym wszystkie niezbędne tagi (dane), które należy zebrać, aby zapewnić odpowiednią analizę, zrozumieć zachowania użytkownika i odpowiednio segmentować bazę użytkowników. Nie jest to proces techniczny. W związku z tym marketingowcy mogą określać dane, które chcą zebrać, w oparciu o strategię Mobile Engagement.
 
 Jako minimum uznaje się tagowanie co najmniej wszystkich ekranów (nazwanych *działaniami* w usłudze Mobile Engagement) aplikacji. Dzięki temu można ustalić ścieżkę użytkownika.
 
 Działanie może zawierać osadzone *zdarzenia*, które zbierają informacje o działaniu, np. kliknięcie przycisku. Umożliwia to zbieranie danych o interakcji w aplikacji. Dzięki temu marketingowcy mogą dowiedzieć się, które ekrany odwiedzają użytkownicy i co robią w aplikacji.
 
-`Jobs` to działania o czasie trwania. Bardzo przydatna dla marketingowca jest możliwość zrozumienia, jak długo użytkownik tworzy konto lub loguje się do aplikacji itp. Ponadto jest to przydatna funkcja dla deweloperów, którzy mogą monitorować czas wywoływania usługi sieci Web.
+`Jobs`to działania o czasie trwania. Bardzo przydatna dla marketingowca jest możliwość zrozumienia, jak długo użytkownik tworzy konto lub loguje się do aplikacji itp. Ponadto jest to przydatna funkcja dla deweloperów, którzy mogą monitorować czas wywoływania usługi sieci Web.
 
-`Errors` można również monitorować, aby dowiedzieć się, czy użytkownicy mają problemy w aplikacji. Na przykład częste problemy z nawiązywaniem połączenia.
+`Errors`można również monitorować, aby dowiedzieć się, czy użytkownicy mają problemy w aplikacji. Na przykład częste problemy z nawiązywaniem połączenia.
 
 Wszystkie te typy danych można rozszerzyć za pomocą parametrów (*extra-information* w usłudze Mobile Engagement), które umożliwiają zbieranie dynamicznych danych z aplikacji. Jest to niezwykle ważne, jeśli chcemy skorzystać z precyzyjnej segmentacji. Przykładowo marketingowcy mogą segmentować użytkowników w oparciu o typ zawartości, z którego korzystają. Typ zawartości będzie dynamiczną informacją działania lub zdarzenia.
 
 *Informacje o aplikacji* to dane, które umożliwiają potwierdzenie stanu aplikacji lub użytkownika w czasie rzeczywistym. Pomaga to również w kategoryzowaniu bazy odbiorców i szybkim nakierowywaniu działań. Przykładowo można użyć stanu prawda/fałsz dla logowania użytkownika lub daty wygaśnięcia subskrypcji.
 
-#### Przykład tagów
+#### <a name="example-of-tags"></a>Przykład tagów
 *Przypadek użycia: segmentowanie zachowań odbiorców w celu nakierowania odpowiedniej zawartości powiadomienia wypychanego na odpowiedniego użytkownika końcowego*
 
 1. Wysyłaj powiadomienia wypychane, aby promować kategorię lub produkt: zbieraj dane o zachowaniach, aby segmentować odbiorców w oparciu o kategorię lub produkt, który odwiedzili x razy w danym okresie czasu lub z uwzględnieniem konkretnego produktu, który dodali do koszyka. Zebrane dane umożliwią segmentowanie odbiorców i wysyłanie powiadomień wypychanych do odpowiednich użytkowników.
@@ -111,8 +115,8 @@ Wszystkie te typy danych można rozszerzyć za pomocą parametrów (*extra-infor
 2. Segmentuj odbiorców w oparciu o stan logowania. Zbieraj dane, aby dowiedzieć się, czy użytkownik nawiązał połączenie lub utworzył konto. Pomaga nakierować działania na użytkowników końcowych, którzy jeszcze się nie zalogowali, i wysyła powiadomienia wypychane, które mają zachęcić użytkowników końcowych do skorzystania z aplikacji.
    ![][2]
 
-### Następne kroki
-* Odwiedź stronę [Mobile Engagement Concepts](Pojęcia dotyczące usługi Mobile Engagement.md), aby dowiedzieć się więcej o podstawowych pojęciach dotyczących usługi Mobile Engagement.
+### <a name="next-steps"></a>Następne kroki
+* Odwiedź stronę [Mobile Engagement Concepts] \(Pojęcia dotyczące usługi Mobile Engagement), aby dowiedzieć się więcej o podstawowych pojęciach dotyczących usługi Mobile Engagement.
 * Odwiedź stronę [Create a Mobile Engagement App](mobile-engagement-create.md) (Tworzenie aplikacji usługi Mobile Engagement), aby utworzyć nową kolekcję aplikacji usługi Mobile Engagement na platformie Azure i rozpocząć zarządzanie aplikacjami za pomocą portalu Mobile Engagement.
 * Odwiedź stronę [Best practices](mobile-engagement-getting-started-best-practices.md) (Najlepsze praktyki), aby uzyskać szczegółowe informacje.
 * Odwiedź stronę [Gaming App scenario](mobile-engagement-gaming-scenario.md) (Scenariusz aplikacji do grania), aby dowiedzieć się więcej o implementacji usługi Mobile Engagement przy użyciu prostej aplikacji do grania. 
@@ -124,12 +128,12 @@ Wszystkie te typy danych można rozszerzyć za pomocą parametrów (*extra-infor
 [2]: ./media/mobile-engagement-define-your-mobile-engagement-strategy/use-case2.png
 
 <!-- URLs. -->
-[Pojęcia dotyczące usługi Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
+[Mobile Engagement Concepts]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Samouczki]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

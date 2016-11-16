@@ -1,12 +1,12 @@
 ---
-title: Pierwsze kroki wdrażania i uaktualniania aplikacji w klastrze lokalnym | Microsoft Docs
-description: Konfigurowanie lokalnego klastra usługi Service Fabric, wdrażanie w nim istniejącej aplikacji, a następnie uaktualnianie tej aplikacji.
+title: "Pierwsze kroki wdrażania i uaktualniania aplikacji w klastrze lokalnym | Microsoft Docs"
+description: "Konfigurowanie lokalnego klastra usługi Service Fabric, wdrażanie w nim istniejącej aplikacji, a następnie uaktualnianie tej aplikacji."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2016
 ms.author: ryanwi;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+
 
 ---
-# Pierwsze kroki wdrażania i aktualizowania aplikacji w klastrze lokalnym
+# <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Pierwsze kroki wdrażania i aktualizowania aplikacji w klastrze lokalnym
 Zestaw SDK usługi Azure Service Fabric zawiera pełne lokalne środowisko deweloperskie, którego można użyć, aby szybko rozpocząć wdrażanie aplikacji i zarządzanie nimi w klastrze lokalnym. Z tego artykułu dowiesz się, jak utworzyć klaster lokalny, wdrożyć w nim istniejącą aplikację, a następnie uaktualnić ją do nowej wersji — a wszystko to z programu Windows PowerShell.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ Zestaw SDK usługi Azure Service Fabric zawiera pełne lokalne środowisko dewel
 > 
 > 
 
-## Tworzenie klastra lokalnego
+## <a name="create-a-local-cluster"></a>Tworzenie klastra lokalnego
 Klaster usługi Service Fabric stanowi zestaw zasobów sprzętowych, w którym można wdrażać aplikacje. Zazwyczaj klaster składa się z dowolnej liczby maszyn z zakresu od pięciu sztuk do wielu tysięcy. Jednak zestaw SDK usługi Service Fabric obejmuje konfigurację klastra, która może działać na jednej maszynie.
 
 Należy zrozumieć, że klaster lokalny usługi Service Fabric nie jest emulatorem ani symulatorem. Jest na nim wykonywany ten sam kod platformy, który można znaleźć w klastrach obejmujących wiele maszyn. Jedyna różnica polega na tym, że na jednej maszynie realizuje on procesy platformowe, które standardowo są rozmieszczone na pięciu maszynach.
@@ -49,7 +53,7 @@ Zestaw SDK udostępnia dwa sposoby instalacji klastra lokalnego: skrypt programu
    
     Teraz możesz spróbować wdrożyć aplikację na swoim klastrze.
 
-## Wdrażanie aplikacji
+## <a name="deploy-an-application"></a>Wdrażanie aplikacji
 Zestaw SDK usługi Service Fabric zawiera bogaty zestaw struktur i narzędzi programistycznych przeznaczonych do tworzenia aplikacji. Jeśli chcesz się dowiedzieć, jak tworzyć aplikacje w programie Visual Studio, zobacz [Tworzenie pierwszej aplikacji usługi Service Fabric w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
 W tym samouczku używamy istniejącej aplikacji przykładowej (o nazwie WordCount), dzięki czemu możemy skupić się na aspektach zarządzania na platformie, takich jak wdrażanie, monitorowanie i uaktualnianie.
@@ -89,7 +93,7 @@ W tym samouczku używamy istniejącej aplikacji przykładowej (o nazwie WordCoun
    
     Aplikacja, którą wdrożyliśmy, zawiera cztery partycje. Słowa zaczynające się na litery od A do G są przechowywane w pierwszej partycji, słowa zaczynające się na litery od H do N są przechowywane w drugiej partycji i tak dalej.
 
-## Wyświetlanie szczegółów i stanu aplikacji
+## <a name="view-application-details-and-status"></a>Wyświetlanie szczegółów i stanu aplikacji
 Po wdrożeniu aplikacji przyjrzymy się części jej szczegółów w programie PowerShell.
 
 1. Wygeneruj zapytanie dotyczące wszystkich aplikacji wdrożonych w klastrze:
@@ -129,7 +133,7 @@ Po wdrożeniu aplikacji przyjrzymy się części jej szczegółów w programie P
    > 
    > 
 
-## Uaktualnianie aplikacji
+## <a name="upgrade-an-application"></a>Uaktualnianie aplikacji
 Usługa Service Fabric realizuje uaktualnienia bez przestojów, ponieważ monitoruje stan aplikacji wdrażanej w klastrze. Przeprowadźmy proste uaktualnienie aplikacji WordCount.
 
 Nowa wersja aplikacji zlicza teraz tylko słowa zaczynające się od samogłosek. Podczas wdrażania tego uaktualnienia będzie można zaobserwować dwie zmiany w zachowaniu aplikacji. Po pierwsze szybkości narastania licznika powinna być mniejsza, ponieważ liczba zliczanych słów będzie mniejsza. Po drugie w pierwszej partycji znajdują się dwie samogłoski (A i E), a wszystkie pozostałe partycje zawierają po jednej sylabie, dlatego licznik pierwszej partycji powinien po pewnym czasie narastać szybciej niż pozostałych.
@@ -162,7 +166,7 @@ Nowa wersja aplikacji zlicza teraz tylko słowa zaczynające się od samogłosek
    
     ![Widok nowej wersji aplikacji w przeglądarce][deployed-app-ui-v2]
 
-## Czyszczenie
+## <a name="cleaning-up"></a>Czyszczenie
 Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Aplikacje pozostaną uruchomione w tle, dopóki nie zostaną usunięte.  W zależności od charakteru działające aplikacje mogą wykorzystywać znaczące ilości zasobów na maszynie. Istnieje kilka możliwości zarządzania aplikacjami i klastrem:
 
 1. Aby usunąć pojedynczą aplikację i wszystkie jej dane, uruchom następujące polecenie:
@@ -185,7 +189,7 @@ Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Apli
 3. Aby zamknąć klaster, zachowując dane i ślady aplikacji, kliknij opcję **Zatrzymaj klaster lokalny** na pasku zadań systemu.
 4. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Klaster lokalny należy usuwać tylko wtedy, gdy nie będzie planowane używanie klastra lokalnego przez pewien czas lub konieczne jest odzyskanie zasobów.
 
-## Tryb klastra z 1 węzłem lub 5 węzłami
+## <a name="1-node-and-5-node-cluster-mode"></a>Tryb klastra z 1 węzłem lub 5 węzłami
 Podczas pracy z lokalnym klastrem w celu opracowania aplikacji często wykonywane są szybkie iteracje podczas pisania kodu, debugowania, zmiany kodu, debugowania itd. Aby pomóc zoptymalizować ten proces, klaster lokalny można uruchomić w dwóch trybach: z 1 węzłem lub z 5 węzłami. Oba tryby klastra mają swoje zalety.
 Tryb klastra z 5 węzłami umożliwia pracę z rzeczywistym klastrem. Można przetestować scenariusze pracy awaryjnej i pracować z większą liczbą wystąpień i replik usług.
 Tryb klastra z 1 węzłem jest zoptymalizowany do szybkiego wdrażania i rejestrowania usług, co ułatwia szybkie sprawdzanie poprawności kodu za pomocą środowiska uruchomieniowego usługi Service Fabric.
@@ -219,7 +223,7 @@ Jeśli używasz menedżera klastra lokalnego usługi Service Fabric:
 > 
 > 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Po wdrożeniu i uaktualnieniu wstępnie przygotowanych aplikacji możesz [spróbować utworzyć własne aplikacje w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 * Wszystkie akcje wykonane w tym artykule w klastrze lokalnym można również wykonać w [klastrze platformy Azure](service-fabric-cluster-creation-via-portal.md).
 * Uaktualnienie wykonane w tym artykule było podstawowe. Aby dowiedzieć się więcej o możliwościach i elastyczności uaktualnień w usłudze Service Fabric, zobacz [dokumentację uaktualniania](service-fabric-application-upgrade.md).
@@ -246,6 +250,6 @@ Jeśli używasz menedżera klastra lokalnego usługi Service Fabric:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

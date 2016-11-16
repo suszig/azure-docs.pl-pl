@@ -1,12 +1,12 @@
 ---
-title: Rozpoczynanie pracy z usługą Azure Mobile Engagement dla oprogramowania Cordova/Phonegap
-description: Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi dla aplikacji Cordova/Phonegap.
+title: "Rozpoczynanie pracy z usługą Azure Mobile Engagement dla oprogramowania Cordova/Phonegap"
+description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi dla aplikacji Cordova/Phonegap."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-phonegap
@@ -14,9 +14,13 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
+
 
 ---
-# Rozpoczynanie pracy z usługą Azure Mobile Engagement dla oprogramowania Cordova/Phonegap
+# <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Rozpoczynanie pracy z usługą Azure Mobile Engagement dla oprogramowania Cordova/Phonegap
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 W tym temacie przedstawiono sposób użycia usługi Azure Mobile Engagement umożliwiający zbieranie informacji o użyciu aplikacji i wysyłanie powiadomień wypychanych do segmentowanych użytkowników aplikacji mobilnych opracowanych za pomocą oprogramowania Cordova.
@@ -41,15 +45,15 @@ Dla tego samouczka wymagane są następujące elementy:
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji Cordova
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji Cordova
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a name="a-idconnectingappaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. 
 
 Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą systemu Cordova:
 
-### Tworzenie nowego projektu Cordova
+### <a name="create-a-new-cordova-project"></a>Tworzenie nowego projektu Cordova
 1. Uruchom okno *Terminal* na komputerze Mac i wpisz następujące polecenie, które utworzy nowy projekt Cordova przy użyciu szablonu domyślnego. Upewnij się, że profil publikowania, którego możesz użyć do wdrożenia aplikacji systemu iOS, używa frazy „com.mycompany.myapp” jako identyfikatora aplikacji. 
    
         $ cordova create azme-cordova com.mycompany.myapp
@@ -64,13 +68,13 @@ Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą sys
         $ cordova run android
 4. Dodaj wtyczkę konsoli Cordova. 
    
-       $ cordova plugin add cordova-plugin-console 
+    $ cordova plugin add cordova-plugin-console 
 
-### Łączenie aplikacji z zapleczem usługi Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement 
 1. Zainstaluj wtyczkę Azure Mobile Engagement Cordova, podając wartości zmiennych w celu skonfigurowania wtyczki:
    
         cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-            --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+             --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
             --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
             --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
             --variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
@@ -83,7 +87,7 @@ Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą sys
 
 *iOS Reach Icon* (Ikona zasięgu systemu iOS): musi być nazwą zasobu z rozszerzeniem (np. mynotificationicon.png), a plik ikony musi być dodany do projektu systemu iOS za pomocą środowiska XCode (przy użyciu menu Dodaj pliki)
 
-## <a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
 1. W projekcie Cordova edytuj plik **www/js/index.js**, aby dodać wywołanie usługi Mobile Engagement i zadeklarować nowe działanie po odebraniu zdarzenia *deviceReady*.
    
          onDeviceReady: function() {
@@ -110,14 +114,14 @@ Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą sys
         [Engagement] Connection: Sent: startSession
         [Engagement] Connection: Sent: activity name='myPage'
 
-## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 Usługa Mobile Engagement umożliwia wchodzenie w interakcję z użytkownikami przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
 Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
 
-### Konfigurowanie poświadczeń wypychania dla usługi Mobile Engagement
+### <a name="configure-push-credentials-for-mobile-engagement"></a>Konfigurowanie poświadczeń wypychania dla usługi Mobile Engagement
 Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych w Twoim imieniu, musisz przyznać jej dostęp do certyfikatu Apple iOS lub klucza interfejsu API serwera GCM Server. 
 
 1. Przejdź do portalu Mobile Engagement. Upewnij się, że jesteś w aplikacji, której używamy dla celów tego projektu, a następnie naciśnij przycisk **Engage** (Włącz) widoczny u dołu:
@@ -140,19 +144,19 @@ Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych 
    
     ![][4]
 
-### Włączanie powiadomień wypychanych w aplikacji Cordova
+### <a name="enable-push-notifications-in-the-cordova-app"></a>Włączanie powiadomień wypychanych w aplikacji Cordova
 Edytuj plik **www/js/index.js**, aby dodać wywołanie do usługi Mobile Engagement i zażądać powiadomień wypychanych oraz zadeklarować mechanizm obsługi:
 
      onDeviceReady: function() {
            Engagement.initializeReach(  
-                // on OpenUrl  
-                function(_url) {   
-                alert(_url);   
-                });  
+                 // on OpenUrl  
+                 function(_url) {   
+                 alert(_url);   
+                 });  
             Engagement.startActivity("myPage",{});  
         }
 
-### Uruchomienie aplikacji
+### <a name="run-the-app"></a>Uruchomienie aplikacji
 **[iOS]**
 
 1. Użyjemy środowiska XCode do skompilowania i wdrożenia aplikacji na urządzeniu, aby przetestować powiadomienia wypychane, ponieważ system iOS umożliwia tylko wysyłanie powiadomień wypychanych do rzeczywistego urządzenia. Przejdź do lokalizacji, w której utworzono projekt Cordova, a następnie przejdź do folderu **...\platforms\ios**. Otwórz plik natywny .xcodeproj w środowisku XCode. 
@@ -165,7 +169,7 @@ Możesz użyć emulatora do uruchomienia aplikacji systemu Android, ponieważ po
 
     cordova run android
 
-## <a id="send"></a>Wysyłanie powiadomienia do aplikacji
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Wysyłanie powiadomienia do aplikacji
 Teraz utworzymy prostą kampanię powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji uruchomionej na urządzeniu:
 
 1. Przejdź do karty **Reach** (Zasięg) w portalu Mobile Engagement.
@@ -199,7 +203,7 @@ Teraz utworzymy prostą kampanię powiadomień wypychanych, która wyśle powiad
     ![][10]
 9. W ramach kampanii na urządzeniu lub w emulatorze powinno pojawić się powiadomienie wypychane. 
 
-## <a id="next-steps"></a>Następne kroki
+## <a name="a-idnextstepsanext-steps"></a><a id="next-steps"></a>Następne kroki
 [Przegląd wszystkich metod dostępnych przy użyciu zestawu Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- Images. -->
@@ -217,6 +221,6 @@ Teraz utworzymy prostą kampanię powiadomień wypychanych, która wyśle powiad
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

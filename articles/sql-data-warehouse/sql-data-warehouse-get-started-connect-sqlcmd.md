@@ -1,33 +1,38 @@
 ---
-title: Tworzenie zapytań względem usługi Azure SQL Data Warehouse (sqlcmd) | Microsoft Docs
-description: Tworzenie zapytań względem usługi Azure SQL Data Warehouse przy użyciu narzędzia wiersza polecenia sqlcmd.
+title: "Tworzenie zapytań względem usługi Azure SQL Data Warehouse (sqlcmd) | Microsoft Docs"
+description: "Tworzenie zapytań względem usługi Azure SQL Data Warehouse przy użyciu narzędzia wiersza polecenia sqlcmd."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Tworzenie zapytań względem usługi Azure SQL Data Warehouse (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Tworzenie zapytań względem usługi Azure SQL Data Warehouse (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 Z tego przewodnika dowiesz się, jak utworzyć zapytanie względem usługi Azure SQL Data Warehouse przy użyciu narzędzia wiersza polecenia [sqlcmd][sqlcmd].  
 
-## 1. Połączenie
+## <a name="1-connect"></a>1. Połączenie
 Aby rozpocząć pracę z narzędziem [sqlcmd][sqlcmd], otwórz wiersz polecenia i wpisz **sqlcmd**, a następnie podaj parametry połączenia z bazą danych usługi SQL Data Warehouse. Wymagane parametry połączenia to:
 
 * **Serwer (-S):** serwer w postaci `<`nazwa_serwera`>`.database.windows.net
@@ -60,7 +65,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## 2. Zapytanie
+## <a name="2-query"></a>2. Zapytanie
 Po nawiązaniu połączenia można wydawać dowolne obsługiwane instrukcje języka Transact-SQL dotyczące wystąpienia.  W tym przykładzie zapytania są przesyłane w trybie interaktywnym.
 
 ```sql
@@ -80,7 +85,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat opcji dostępnych w narzędziu sqlcmd, zobacz [dokumentację narzędzia sqlcmd][sqlcmd].
 
 <!--Image references-->
@@ -89,12 +94,12 @@ Aby uzyskać więcej informacji na temat opcji dostępnych w narzędziu sqlcmd, 
 
 <!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

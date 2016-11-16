@@ -1,13 +1,13 @@
 ---
-title: Wprowadzenie do usługi Azure Search | Microsoft Docs
-description: Dowiedz się, jak utworzyć pierwszy indeks usługi Azure Search, korzystając z tego samouczka i przykładowych danych usługi DocumentDB. Przedstawione ćwiczenie jest oparte na portalu, nie korzysta z kodu i jest przeprowadzane przy użyciu kreatora importu danych.
+title: "Wprowadzenie do usługi Azure Search | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć pierwszy indeks usługi Azure Search, korzystając z tego samouczka i przykładowych danych usługi DocumentDB. Przedstawione ćwiczenie jest oparte na portalu, nie korzysta z kodu i jest przeprowadzane przy użyciu kreatora importu danych."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+
 
 ---
-# Wprowadzenie do usługi Azure Search w portalu
+# <a name="get-started-with-azure-search-in-the-portal"></a>Wprowadzenie do usługi Azure Search w portalu
 To niekorzystające z kodu wprowadzenie pozwala rozpocząć pracę z usługą Microsoft Azure Search za pomocą funkcji wbudowanych bezpośrednio w portal. 
 
 W samouczku założono, że istnieje [przykładowa baza danych DocumentDB platformy Azure](#apdx-sampledata), którą możesz łatwo utworzyć, korzystając z naszych danych i instrukcji, ale możesz też dostosować te kroki do swoich danych istniejących w bazie danych zarówno DocumentDB, jak i SQL.
@@ -27,17 +31,17 @@ W samouczku założono, że istnieje [przykładowa baza danych DocumentDB platfo
 > 
 > 
 
-## Znajdowanie usługi
+## <a name="find-your-service"></a>Znajdowanie usługi
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Otwórz pulpit nawigacyjny usługi Azure Search. Oto kilka sposobów na odnalezienie pulpitu nawigacyjnego.
    
    * Na pasku przechodzenia kliknij pozycję **Usługi wyszukiwania**. Pasek przechodzenia wyświetla wszystkie usługi aprowizowane w Twojej subskrypcji. Jeśli zdefiniowano usługę wyszukiwania, na liście zostanie wyświetlona pozycja **Usługi wyszukiwania**.
    * Na pasku przechodzenia kliknij pozycję **Przeglądaj**, a następnie wpisz ciąg „wyszukiwanie” w polu wyszukiwania, aby wyświetlić listę wszystkich usług wyszukiwania utworzonych w Twoich subskrypcjach.
 
-## Sprawdzanie ilości wolnego miejsca
+## <a name="check-for-space"></a>Sprawdzanie ilości wolnego miejsca
 Wielu klientów zaczyna od bezpłatnej usługi. Ta wersja jest ograniczona do trzech indeksów, trzech źródeł danych i trzech indeksatorów. Przed rozpoczęciem upewnij się, że dysponujesz miejscem na dodatkowe elementy. Ten przewodnik tworzy po jednym obiekcie każdego typu.
 
-## Tworzenie indeksu i ładowanie danych
+## <a name="create-an-index-and-load-data"></a>Tworzenie indeksu i ładowanie danych
 Zapytania wyszukiwania przechodzą przez kolejne pozycje *indeksu* zawierającego dane z możliwością wyszukiwania, metadane i konstrukcje używane do optymalizacji niektórych zachowań wyszukiwania. Pierwszym krokiem jest zdefiniowanie i wypełnienie indeksu.
 
 Indeks możesz utworzyć na jeden z kilku sposobów. Jeśli dane znajdują się w magazynie, który usługa Azure Search może przeszukiwać — takim jak usługa Azure SQL Database, program SQL Server na maszynie wirtualnej platformy Azure lub usługa DocumentDB — możesz bardzo łatwo utworzyć i wypełnić indeks, używając *indeksatora*.
@@ -48,7 +52,7 @@ Przed kontynuowaniem pracy z samouczkiem utwórz [przykładową bazę danych us�
 
 <a id="defineDS"></a>
 
-#### Krok 1. Definiowanie źródła danych
+#### <a name="step-1-define-the-data-source"></a>Krok 1. Definiowanie źródła danych
 1. Na pulpicie nawigacyjnym usługi Azure Search kliknij pozycję **Importuj dane** na pasku poleceń, aby uruchomić kreatora, który zarówno tworzy, jak i wypełnia indeks.
    
     ![][7]
@@ -61,7 +65,7 @@ Zwróć uwagę, że zapytanie jest pomijane. Jest to spowodowane tym, że obecni
 
 Kliknij przycisk **OK**, aby ukończyć ten krok kreatora.
 
-#### Krok 2. Definiowanie indeksu
+#### <a name="step-2-define-the-index"></a>Krok 2. Definiowanie indeksu
 W kreatorze kliknij pozycję **Indeks** i zapoznaj się z powierzchnią projektową tworzenia indeksu usługi Azure Search. Indeks wymaga co najmniej nazwy i kolekcji pól, z jednym polem oznaczonym jako klucz dokumentu. Ponieważ używamy zestawu danych usługi DocumentDB, pola są automatycznie wykrywane przez kreatora, a do indeksu są wstępnie ładowane pola i przypisane typy danych. 
 
   ![][3]
@@ -96,7 +100,7 @@ Dla porównania na poniższym zrzucie ekranu przedstawiono indeks utworzony wed�
 
 Kliknij przycisk **OK**, aby ukończyć ten krok kreatora.
 
-#### Krok 3. Definiowanie indeksatora
+#### <a name="step-3-define-the-indexer"></a>Krok 3. Definiowanie indeksatora
 W kreatorze **Import danych** kliknij pozycję **Indeksator** > **Nazwa**, wpisz nazwę indeksatora i użyj ustawień domyślnych dla pozostałych wartości. Ten obiekt definiuje proces wykonywalny. Po utworzeniu indeksatora możesz go uruchamiać w ramach harmonogramu cyklicznego, ale na razie użyj opcji domyślnej, aby uruchomić indeksatora jednorazowo natychmiast po kliknięciu przycisku **OK**. 
 
 Wszystkie pozycje importowanych danych powinny zostać uzupełnione i przygotowane do pracy.
@@ -105,12 +109,12 @@ Wszystkie pozycje importowanych danych powinny zostać uzupełnione i przygotowa
 
 Aby uruchomić kreatora, kliknij przycisk **OK** w celu rozpoczęcia importowania, a następnie zamknij kreatora.
 
-## Sprawdzanie postępu
+## <a name="check-progress"></a>Sprawdzanie postępu
 Aby sprawdzić postęp wróć do pulpitu nawigacyjnego usługi, przewiń w dół, a następnie kliknij dwukrotnie kafelek **Indeksatory**, aby otworzyć listę indeksatorów. Na liście powinien być widoczny właśnie utworzony indeksator o stanie wskazującym trwające indeksowanie lub pomyślne jego zakończenie wraz z liczbą dokumentów umieszczonych w indeksie usługi Azure Search.
 
   ![][6]
 
-## Wykonywanie zapytań względem indeksu
+## <a name="query-the-index"></a>Wykonywanie zapytań względem indeksu
 Dysponujesz już indeksem wyszukiwania, którego możesz używać do wykonywania zapytań. 
 
 **Eksplorator wyszukiwania** jest narzędziem do wykonywania zapytań wbudowanym w portal. Zawiera pole wyszukiwania, dzięki czemu możesz sprawdzić, czy dane wejściowe wyszukiwania zwracają oczekiwane dane. 
@@ -121,15 +125,15 @@ Dysponujesz już indeksem wyszukiwania, którego możesz używać do wykonywania
 4. Wprowadź kilka zapytań wyszukiwania pełnotekstowego. Możesz przejrzeć wyniki wyszukiwania z użyciem symboli wieloznacznych, aby zapoznać się z artystami, albumami i gatunkami, dla których możesz wykonywać zapytania.
 5. Wypróbuj inną składnię zapytania, korzystając z [przykładów podanych na końcu tego artykułu](https://msdn.microsoft.com/library/azure/dn798927.aspx) oraz modyfikując zapytanie do używania ciągów wyszukiwania, które mogą znajdować się w indeksie.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po jednokrotnym uruchomieniu kreatora możesz wrócić i wyświetlić lub zmodyfikować poszczególne składniki: indeks, indeksator lub źródło danych. Niektóre zmiany, takie jak zmiana typu danych pola, są niedozwolone w indeksie, ale większość właściwości i ustawień można modyfikować. Aby wyświetlić poszczególne składniki, kliknij kafelek **Indeks**, **Indeksator** lub **Źródła danych** na pulpicie nawigacyjnym w celu wyświetlenia listy istniejących obiektów.
 
 Aby dowiedzieć się więcej o innych funkcjach wymienionych w tym artykule, odwiedź te linki:
 
-* [Indexers (Indeksatory)](search-indexer-overview.md)
-* [Create Index (Tworzenie indeksu) — zawiera szczegółowe wyjaśnienie atrybutów indeksu](https://msdn.microsoft.com/library/azure/dn798941.aspx)
+* [Indexers](search-indexer-overview.md) (Indeksatory)
+* [Create Index](https://msdn.microsoft.com/library/azure/dn798941.aspx) (Tworzenie indeksu) — zawiera szczegółowe wyjaśnienie atrybutów indeksu
 * [Eksplorator wyszukiwania](search-explorer.md)
-* [Search Documents (Wyszukiwanie dokumentów) — zawiera przykłady składni zapytania](https://msdn.microsoft.com/library/azure/dn798927.aspx)
+* [Search Documents](https://msdn.microsoft.com/library/azure/dn798927.aspx) (Wyszukiwanie dokumentów) — zawiera przykłady składni zapytania
 
 Możesz spróbować wykonać ten sam przepływ pracy z użyciem kreatora Importu danych dla innych źródeł danych, takich jak usługa Azure SQL Database lub program SQL Server na maszynach wirtualnych platformy Azure.
 
@@ -139,14 +143,14 @@ Możesz spróbować wykonać ten sam przepływ pracy z użyciem kreatora Importu
 > 
 > 
 
-## Dodatek: tworzenie danych przykładowych w usłudze DocumentDB
+## <a name="appendix-create-sample-data-in-documentdb"></a>Dodatek: tworzenie danych przykładowych w usłudze DocumentDB
 W tej sekcji zostanie utworzona mała baza danych w usłudze DocumentDB, której możesz użyć podczas wykonywania zadań w tym samouczku.
 
 Poniższe instrukcje zawierają ogólne wytyczne, ale nie są wyczerpujące. Jeśli potrzebujesz więcej pomocy przy nawigacji w portalu usługi DocumentDB lub przy wykonywaniu zadań, możesz zapoznać się z dokumentacją usługi DocumentDB. Jednak większość potrzebnych poleceń znajduje się na pasku poleceń usługi w górnej części pulpitu nawigacyjnego lub w bloku bazy danych. 
 
   ![][1]
 
-### Tworzenie bazy danych musicstoredb dla tego samouczka
+### <a name="create-musicstoredb-for-this-tutorial"></a>Tworzenie bazy danych musicstoredb dla tego samouczka
 1. [Kliknij tutaj](https://github.com/HeidiSteen/azure-search-get-started-sample-data), aby pobrać plik ZIP zawierający pliki danych w formacie JSON dla sklepu z muzyką. Udostępniamy 246 dokumentów w formacie JSON dla tego zestawu danych.
 2. Dodaj usługę DocumentDB do subskrypcji, a następnie otwórz pulpit nawigacyjny usługi.
 3. Kliknij pozycję **Dodaj bazę danych**, aby utworzyć nową bazę danych o identyfikatorze `musicstoredb`. Po utworzeniu zostanie ona wyświetlona w kafelku bazy danych poniżej na stronie.
@@ -177,6 +181,6 @@ Powinny zostać wyświetlone dane wyjściowe JSON, począwszy od dokumentu numer
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

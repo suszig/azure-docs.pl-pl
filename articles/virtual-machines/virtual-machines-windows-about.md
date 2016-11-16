@@ -1,13 +1,13 @@
 ---
-title: Informacje o maszynach wirtualnych Virtual Machines z systemem Windows | Microsoft Docs
-description: Podstawowe informacje na temat maszyn wirtualnych z systemem Windows na platformie Azure używających obu modeli wdrażania.
+title: Informacje o maszynach wirtualnych z systemem Windows | Microsoft Docs
+description: "Podstawowe informacje na temat maszyn wirtualnych z systemem Windows na platformie Azure używających obu modeli wdrażania."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 316883a8-e526-48f6-a20b-7f1490b24d6c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
+
 
 ---
-# Informacje o maszynach wirtualnych z systemem Windows na platformie Azure
+# <a name="about-windows-virtual-machines-in-azure"></a>Informacje o maszynach wirtualnych z systemem Windows na platformie Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Maszyny wirtualne Azure Virtual Machines są jednym z wielu typów skalowalnych zasobów obliczeniowych dostępnych na żądanie, które są oferowane na platformie Azure. W większości przypadków maszynę wirtualną należy wybrać wtedy, gdy potrzebujesz większej kontroli nad środowiskiem obliczeniowym, niż mają do zaoferowania inne opcje.
@@ -30,11 +34,14 @@ Ta tabela ułatwia porównanie opcji oferowanych na platformie Azure.
 
 [!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Wypróbuj maszynę wirtualną, szybko tworząc prostą maszynę wirtualną. Aby uzyskać instrukcje, zobacz [Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-hero-tutorial.md) (Tworzenie maszyny wirtualnej z systemem Windows w witrynie Azure Portal).
 
 Jako że samouczek ma na celu pomoc w szybkim utworzeniu maszyny wirtualnej, przedstawia on tylko jeden sposób przeprowadzenia tej operacji, bez opisywania różnych narzędzi, dzięki którym możesz tworzyć maszyny wirtualne. Podsumowanie tych narzędzi i linki do instrukcji znajdują się w temacie [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md) (Różne sposoby tworzenia maszyny wirtualnej z systemem Windows).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

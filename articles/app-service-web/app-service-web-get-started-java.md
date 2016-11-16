@@ -1,22 +1,26 @@
 ---
-title: Wdrożenie pierwszej aplikacji sieci Web Java na platformie Azure w ciągu pięciu minut | Microsoft Docs
-description: Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w usłudze App Service, wdrażając przykładową aplikację. Szybko rozpocznij rzeczywiste tworzenie aplikacji i od razu zobacz wyniki.
+title: "Wdrażanie pierwszej aplikacji sieci Web Java na platformie Azure w ciągu pięciu minut | Microsoft Docs"
+description: "Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w usłudze App Service, wdrażając przykładową aplikację. Szybko rozpocznij rzeczywiste tworzenie aplikacji i od razu zobacz wyniki."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 10/13/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+
 
 ---
-# Wdrażanie pierwszej aplikacji sieci Web Java na platformie Azure w ciągu pięciu minut
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Wdrażanie pierwszej aplikacji sieci Web Java na platformie Azure w ciągu pięciu minut
 Ten samouczek ułatwia wdrażanie prostej aplikacji sieci Web Java w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Za pomocą usługi App Service można tworzyć aplikacje sieci Web, [zaplecza aplikacji mobilnych](/documentation/learning-paths/appservice-mobileapps/) oraz [aplikacje interfejsu API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -26,7 +30,7 @@ Wykonasz następujące zadania:
 * wdrożysz przykładową aplikację Java,
 * sprawdzisz działanie kodu w środowisku produkcyjnym;
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * Pobierz klienta FTP/FTPS, np. program [FileZilla](https://filezilla-project.org/).
 * Utwórz konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
@@ -37,7 +41,7 @@ Wykonasz następujące zadania:
 
 <a name="create"></a>
 
-## Tworzenie aplikacji sieci Web
+## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 2. W lewym menu kliknij kolejno pozycje **Nowy** > **Sieci Web i mobilność** > **Aplikacja sieci Web**.
    
@@ -61,7 +65,7 @@ Wykonasz następujące zadania:
    
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Wdrażanie aplikacji Java w aplikacji sieci Web
+## <a name="deploy-a-java-app-to-your-web-app"></a>Wdrażanie aplikacji Java w aplikacji sieci Web
 Wdrożymy teraz aplikację Java na platformie Azure przy użyciu protokołu FTPS.
 
 1. W bloku aplikacji sieci Web przewiń w dół do pozycji **Ustawienia aplikacji** lub ją wyszukaj, a następnie kliknij tę pozycję. 
@@ -100,19 +104,22 @@ Wdrożymy teraz aplikację Java na platformie Azure przy użyciu protokołu FTPS
 
 Gotowe. Od teraz aplikacja języka Java działa na platformie Azure. Aby sprawdzić jego działanie, w przeglądarce przejdź do adresu http://*&lt;nazwa_aplikacji>*.azurewebsites.net. 
 
-## Aktualizowanie aplikacji
+## <a name="make-updates-to-your-app"></a>Aktualizowanie aplikacji
 Zawsze, gdy trzeba dokonać aktualizacji, wystarczy przekazać nowy plik WAR do tego samego katalogu zdalnego za pomocą klienta FTP/FTPS.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 [Tworzenie aplikacji sieci Web Java na podstawie szablonu w portalu Azure Marketplace](web-sites-java-get-started.md#marketplace). Możesz pobrać kontener Tomcat z pełnymi możliwościami dostosowywania i uzyskać znajomy interfejs użytkownika menedżera. 
 
 Przeprowadź debugowanie swojej aplikacji sieci Web na platformie Azure bezpośrednio w środowisku [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) lub [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
 Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją sieci Web . Na przykład:
 
-* Wypróbuj [inne sposoby wdrożenia kodu na platformie Azure](web-sites-deploy.md). Na przykład w celu wdrożenia jednego z naszych repozytoriów GitHub wystarczy wybrać pozycję **GitHub** zamiast **Lokalne repozytorium Git** w obszarze **Opcje wdrażania**.
+* Wypróbuj [inne sposoby wdrożenia kodu na platformie Azure](web-sites-deploy.md). 
 * Przenieś swoją aplikację Azure na wyższy poziom. Uwierzytelniaj użytkowników. Skaluj ją zależnie od potrzeb. Skonfiguruj alerty dotyczące wydajności. Wszystkie te czynności możesz wykonać za pomocą kilku kliknięć. Zobacz [Dodawanie funkcji do pierwszej aplikacji sieci Web](app-service-web-get-started-2.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

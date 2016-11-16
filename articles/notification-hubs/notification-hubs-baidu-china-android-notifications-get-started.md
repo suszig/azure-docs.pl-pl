@@ -1,111 +1,115 @@
 ---
-title: Rozpoczynanie pracy z usługą Azure Notification Hubs przy użyciu usługi Baidu | Microsoft Docs
-description: Korzystając z tego samouczka, dowiesz się, jak za pomocą usługi Azure Notification Hubs wysyłać powiadomienia wypychane do urządzeń z systemem Android przy użyciu usługi Baidu.
+title: "Rozpoczynanie pracy z usługą Azure Notification Hubs przy użyciu usługi Baidu | Microsoft Docs"
+description: "Korzystając z tego samouczka, dowiesz się, jak za pomocą usługi Azure Notification Hubs wysyłać powiadomienia wypychane do urządzeń z systemem Android przy użyciu usługi Baidu."
 services: notification-hubs
 documentationcenter: android
-author: wesmc7777
+author: ysxu
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9e6af9016318f9e31a143c6cf1329a7ab2c8acd6
+
 
 ---
-# Rozpoczynanie pracy z usługą Azure Notification Hubs przy użyciu usługi Baidu
+# <a name="get-started-with-notification-hubs-using-baidu"></a>Rozpoczynanie pracy z usługą Azure Notification Hubs przy użyciu usługi Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 Powiadomienia wypychane w chmurze Baidu to chińska usługa w chmurze służąca do wysyłania powiadomień wypychanych do urządzeń przenośnych. Ta usługa jest szczególnie przydatna w Chinach, gdzie dostarczanie powiadomień wypychanych do urządzeń z systemem Android jest złożone z powodu istnienia różnych sklepów z aplikacjami i usług powiadomień wypychanych oraz dostępności urządzeń z systemem Android, które zwykle nie są podłączone do usługi GCM (Google Cloud Messaging).
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Dla tego samouczka wymagane są następujące elementy:
 
 * Zestaw SDK systemu Android (założono, że używany jest program Eclipse), który można pobrać z <a href="http://go.microsoft.com/fwlink/?LinkId=389797">witryny systemu Android</a>
 * [Zestaw SDK usługi Mobile Services dla systemu Android]
-* [zestaw SDK systemu Android dla powiadomień wypychanych w usłudze Baidu]
+* [Zestaw SDK systemu Android dla powiadomień wypychanych w usłudze Baidu]
 
 > [!NOTE]
 > Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 > 
 > 
 
-## Tworzenia konta usługi Baidu
+## <a name="create-a-baidu-account"></a>Tworzenia konta usługi Baidu
 Aby korzystać z usługi Baidu, musisz mieć konto Baidu. Jeśli masz już konto, zaloguj się do [portalu Baidu] i przejdź do następnego kroku. W przeciwnym razie zapoznaj się z poniższymi instrukcjami dotyczącymi sposobu tworzenia konta usługi Baidu.  
 
 1. Przejdź do [portalu Baidu] i kliknij link **登录** (**Zaloguj się**). Kliknij pozycję **立即注册**, aby rozpocząć proces rejestracji konta.
    
-    ![][1]
+       ![][1]
 2. Wprowadź wymagane szczegóły (telefon lub adres e-mail, hasło i kod weryfikacyjny), a następnie kliknij przycisk **Zarejestruj się**.
    
-    ![][2]
+       ![][2]
 3. Na podany adres e-mail zostanie wysłana wiadomość e-mail zawierająca link umożliwiający aktywację konta usługi Baidu.
    
-    ![][3]
+       ![][3]
 4. Zaloguj się do konta e-mail, otwórz aktywacyjną wiadomość e-mail usługi Baidu, a następnie kliknij link aktywacyjny, aby aktywować konto usługi Baidu.
    
-    ![][4]
+       ![][4]
 
 Po aktywowaniu konta usługi Baidu zaloguj się do [portalu Baidu].
 
-## Rejestrowanie się jako deweloper usługi Baidu
+## <a name="register-as-a-baidu-developer"></a>Rejestrowanie się jako deweloper usługi Baidu
 1. Po zalogowaniu się do [portalu Baidu] kliknij pozycję **更多>>** (**więcej**).
    
-    ![][5]
+      ![][5]
 2. Przewiń w dół w sekcji **站长与开发者服务** (Usługi dla webmasterów i deweloperów) i kliknij pozycję **百度开放云平台** (**Otwarta platforma chmury Baidu**).
    
-    ![][6]
+      ![][6]
 3. Na następnej stronie kliknij pozycję **开发者服务** (**Usługi dla deweloperów**) w prawym górnym rogu.
    
-    ![][7]
+      ![][7]
 4. Na następnej stronie kliknij pozycję **注册开发者** (**Zarejestrowani deweloperzy**) w menu w prawym górnym rogu.
    
-    ![][8]
+      ![][8]
 5. Wprowadź imię i nazwisko, opis oraz numer telefonu komórkowego do odebrania weryfikacyjnej wiadomości tekstowej, a następnie kliknij pozycję **送验证码** (**Wyślij kod weryfikacyjny**). Pamiętaj, że w przypadku międzynarodowych numerów telefonów należy dołączyć kod kraju w nawiasie. Na przykład numer dla Stanów Zjednoczonych będzie mieć postać **(1)1234567890**.
    
-    ![][9]
+      ![][9]
 6. Otrzymasz wiadomość tekstową zawierającą numer weryfikacyjny, jak przedstawiono w poniższym przykładzie:
    
-    ![][10]
+      ![][10]
 7. Wprowadź numer weryfikacyjny z wiadomości w polu **验证码** (**Kod potwierdzenia**).
 8. Następnie ukończ rejestrację jako deweloper, akceptując umowę usługi Baidu i klikając przycisk **提交** (**Prześlij**). Po pomyślnym ukończeniu rejestracji zostanie wyświetlona następująca strona:
    
-    ![][11]
+      ![][11]
 
-## Tworzenie projektu powiadomień wypychanych w chmurze Baidu
+## <a name="create-a-baidu-cloud-push-project"></a>Tworzenie projektu powiadomień wypychanych w chmurze Baidu
 Podczas tworzenia projektu powiadomień wypychanych w chmurze Baidu otrzymasz identyfikator aplikacji, klucz interfejsu API i klucz tajny.
 
 1. Po zalogowaniu się do [portalu Baidu] kliknij pozycję **更多>>** (**więcej**).
    
-    ![][5]
+      ![][5]
 2. Przewiń w dół w sekcji **站长与开发者服务** (**Usługi dla webmasterów i deweloperów**) i kliknij pozycję **百度开放云平台** (**Otwarta platforma chmury Baidu**).
    
-    ![][6]
+      ![][6]
 3. Na następnej stronie kliknij pozycję **开发者服务** (**Usługi dla deweloperów**) w prawym górnym rogu.
    
-    ![][7]
+      ![][7]
 4. Na następnej stronie kliknij pozycję **云推送** (**Powiadomienia wypychane w chmurze**) w sekcji **云服务** (**Usługi w chmurze**).
    
-    ![][12]
+      ![][12]
 5. Po zarejestrowaniu jako deweloper w menu u góry zostanie wyświetlona pozycja **管理控制台** (**Konsola zarządzania**). Kliknij pozycję **开发者服务管理** (**Zarządzanie usługami dla deweloperów**).
    
-    ![][13]
+      ![][13]
 6. Na następnej stronie kliknij pozycję **创建工程** (**Utwórz projekt**).
    
-    ![][14]
+      ![][14]
 7. Wprowadź nazwę aplikacji, a następnie kliknij pozycję **创建** (**Utwórz**).
    
-    ![][15]
+      ![][15]
 8. Po pomyślnym utworzeniu projektu powiadomień wypychanych w chmurze Baidu zostanie wyświetlona strona zawierająca następujące dane: **AppID** (Identyfikator aplikacji), **API Key** (Klucz interfejsu API) i **Secret Key** (Klucz tajny). Zanotuj klucz interfejsu API i klucz tajny. Użyjemy ich później.
    
-    ![][16]
+      ![][16]
 9. Skonfiguruj projekt dla powiadomień wypychanych, klikając pozycję **云推送** (**Powiadomienia wypychane w chmurze**) w okienku po lewej stronie.
    
-    ![][31]
+      ![][31]
 10. Na następnej stronie kliknij przycisk **推送设置** (**Ustawienia powiadomień wypychanych**).
     
     ![][32]  
@@ -115,29 +119,29 @@ Podczas tworzenia projektu powiadomień wypychanych w chmurze Baidu otrzymasz id
 
 Zostanie wyświetlony komunikat **保存成功！** (**Zapisano pomyślnie!**).
 
-## Konfigurowanie centrum powiadomień
-1. Zaloguj się do [klasycznego portalu Azure], a następnie kliknij przycisk **+NOWY** u dołu ekranu.
+## <a name="configure-your-notification-hub"></a>Konfigurowanie centrum powiadomień
+1. Zaloguj się do [Klasyczny portal Azure], a następnie kliknij przycisk **+NOWY** u dołu ekranu.
 2. Kliknij pozycję **App Services**, pozycję **Service Bus** i pozycję **Centrum powiadomień**, a następnie kliknij pozycję **Szybkie tworzenie**.
 3. Podaj nazwę w polu **Centrum powiadomień**, wybierz odpowiednie opcje w polach **Region** i **Przestrzeń nazw**, aby określić, gdzie zostanie utworzone centrum powiadomień, a następnie kliknij pozycję **Utwórz nowe centrum powiadomień**.  
    
-    ![][17]
+      ![][17]
 4. Kliknij przestrzeń nazw, w której utworzono centrum powiadomień, a następnie kliknij pozycję **Centra powiadomień** u góry.
    
-    ![][18]
+      ![][18]
 5. Wybierz utworzone centrum powiadomień, a następnie kliknij pozycję **Konfiguruj** w menu u góry.
    
-    ![][19]
+      ![][19]
 6. Przewiń w dół do sekcji **Ustawienia powiadomień Baidu** i wprowadź klucz interfejsu API oraz klucz tajny uzyskany wcześniej w konsoli Baidu dla projektu powiadomień wypychanych w chmurze Baidu. Kliknij pozycję **Zapisz**.
    
-    ![][20]
+      ![][20]
 7. Kliknij kartę **Pulpit nawigacyjny** u góry dla centrum powiadomień, a następnie kliknij pozycję **Wyświetl parametry połączenia**.
    
-    ![][21]
+      ![][21]
 8. Zanotuj wartości **DefaultListenSharedAccessSignature** i **DefaultFullSharedAccessSignature** w oknie **Dostęp do informacji o połączeniu**.
    
     ![][22]
 
-## Łączenie aplikacji z centrum powiadomień
+## <a name="connect-your-app-to-the-notification-hub"></a>Łączenie aplikacji z centrum powiadomień
 1. W środowisku Eclipse ADT utwórz nowy projekt dla systemu Android: **File** > **New** > **Android Application Project** (Plik — Nowy — Projekt aplikacji dla systemu Android).
    
     ![][23]
@@ -151,7 +155,7 @@ Zostanie wyświetlony komunikat **保存成功！** (**Zapisano pomyślnie!**).
    
     ![][26]
 5. Pobierz plik notification-hubs-0.4.jar dostępny na karcie **Files** (Pliki) w projekcie [Notification-Hubs-Android-SDK w serwisie Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Dodaj plik do folderu **libs** w projekcie Eclipse i odśwież folder *libs*.
-6. Pobierz i rozpakuj [zestaw SDK systemu Android dla powiadomień wypychanych w usłudze Baidu], otwórz folder **libs**, a następnie skopiuj plik jar **pushservice-x.y.z** oraz foldery **armeabi** & **mips** do folderu **libs** aplikacji dla systemu Android.
+6. Pobierz i rozpakuj [Zestaw SDK systemu Android dla powiadomień wypychanych w usłudze Baidu], otwórz folder **libs**, a następnie skopiuj plik jar **pushservice-x.y.z** oraz foldery **armeabi** & **mips** do folderu **libs** aplikacji dla systemu Android.
 7. Otwórz plik **AndroidManifest.xml** projektu dla systemu Android i dodaj uprawnienia wymagane przez zestaw SDK usługi Baidu.
    
         <uses-permission android:name="android.permission.INTERNET" />
@@ -259,7 +263,7 @@ Zostanie wyświetlony komunikat **保存成功！** (**Zapisano pomyślnie!**).
                 mUserId = userId;
     
                 try {
-                 if (hub == null) {
+                    if (hub == null) {
                         hub = new NotificationHub(
                                 ConfigurationSettings.NotificationHubName,
                                 ConfigurationSettings.NotificationHubConnectionString,
@@ -280,10 +284,10 @@ Zostanie wyświetlony komunikat **保存成功！** (**Zapisano pomyślnie!**).
                      try {
                          hub.registerBaidu(mUserId, mChannelId);
                          Log.i(TAG, "Registered with Notification Hub - '"
-                                + ConfigurationSettings.NotificationHubName + "'"
-                                + " with UserId - '"
-                                + mUserId + "' and Channel Id - '"
-                                + mChannelId + "'");
+                                 + ConfigurationSettings.NotificationHubName + "'"
+                                 + " with UserId - '"
+                                 + mUserId + "' and Channel Id - '"
+                                 + mChannelId + "'");
                      } catch (Exception e) {
                          Log.e(TAG, e.getMessage());
                      }
@@ -349,7 +353,7 @@ Zostanie wyświetlony komunikat **保存成功！** (**Zapisano pomyślnie!**).
             import com.baidu.android.pushservice.PushConstants;
             import com.baidu.android.pushservice.PushManager;
 
-## Wysyłanie powiadomień do aplikacji
+## <a name="send-notifications-to-your-app"></a>Wysyłanie powiadomień do aplikacji
 Odbieranie powiadomień w aplikacji możesz szybko przetestować, wysyłając powiadomienia w witrynie [Azure Portal](https://portal.azure.com/) za pomocą przycisku **Testuj wysyłanie** w centrum powiadomień, jak pokazano na poniższym zrzucie ekranu.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
@@ -361,10 +365,10 @@ W tym samouczku dla uproszczenia przedstawiono testowanie aplikacji klienckiej p
 * **Interfejs REST**: powiadomienia mogą być obsługiwane na dowolnej platformie zaplecza za pomocą [interfejsu REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Zestaw SDK .NET dla usługi Microsoft Azure Notification Hubs**: w menedżerze pakietów NuGet dla programu Visual Studio uruchom polecenie [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js**: [Jak używać usługi Notification Hubs z poziomu środowiska Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Azure Mobile Services**: aby zapoznać się z przykładem wysyłania powiadomień z poziomu zaplecza usługi Azure Mobile Services zintegrowanego z usługą Notification Hubs, zobacz [Add push notifications to your Mobile Services app](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md) (Dodawanie powiadomień wypychanych do aplikacji Mobile Services).
+* **Mobile Apps**: aby zapoznać się z przykładem wysyłania powiadomień z poziomu usługi Azure App Service Mobile Apps zintegrowanej z usługą Notification Hubs, zobacz [Dodawanie powiadomień wypychanych do aplikacji mobilnej](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 * **Java / PHP**: aby zapoznać się z przykładem wysyłania powiadomień przy użyciu interfejsów API REST, zobacz „How to use Notification Hubs from Java/PHP” (Jak używać usługi Notification Hubs za pomocą języka Java/PHP) — [Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md).
 
-## (Opcjonalnie) Wysyłanie powiadomień z poziomu aplikacji konsolowej .NET
+## <a name="optional-send-notifications-from-a-net-console-app"></a>(Opcjonalnie) Wysyłanie powiadomień z poziomu aplikacji konsolowej .NET
 W tej sekcji przedstawiono sposób wysyłania powiadomienia za pomocą aplikacji konsolowej .NET.
 
 1. Utwórz nową aplikację konsoli języka Visual C#:
@@ -393,7 +397,7 @@ W tej sekcji przedstawiono sposób wysyłania powiadomienia za pomocą aplikacji
          SendNotificationAsync();
          Console.ReadLine();
 
-## Testowanie aplikacji
+## <a name="test-your-app"></a>Testowanie aplikacji
 Aby przetestować tę aplikację przy użyciu rzeczywistego telefonu, podłącz telefon do komputera za pomocą kabla USB. Spowoduje to załadowanie aplikacji do podłączonego telefonu.
 
 Aby przetestować tę aplikację przy użyciu emulatora, na górnym pasku narzędzi Eclipse kliknij pozycję **Run** (Uruchom), a następnie wybierz aplikację. Spowoduje to uruchomienie emulatora, a następnie załadowanie i uruchomienie aplikacji.
@@ -440,11 +444,11 @@ Testowe powiadomienie można wysłać przy użyciu karty debugowania klasycznego
 <!-- URLs. -->
 [Zestaw SDK usługi Mobile Services dla systemu Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Zestaw SDK systemu Android dla powiadomień wypychanych w usłudze Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[klasycznego portalu Azure]: https://manage.windowsazure.com/
+[Klasyczny portal Azure]: https://manage.windowsazure.com/
 [portalu Baidu]: http://www.baidu.com/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

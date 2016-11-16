@@ -12,6 +12,8 @@
 5. Kliknij kartę **Wiadomości w chmurze** u góry okna. 
 6. Zanotuj **Klucz serwera** i **Identyfikator nadawcy**; zostaną one wykorzystywane później w *pliku manifestu systemu Android*.  
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

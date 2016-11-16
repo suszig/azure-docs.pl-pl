@@ -1,80 +1,85 @@
 ---
-title: Rozpoczęcie pracy z programem PowerShell w usłudze Azure Batch | Microsoft Docs
-description: Krótkie wprowadzenie do poleceń cmdlet programu Azure PowerShell, których można użyć do zarządzania usługą Azure Batch
+title: "Rozpoczęcie pracy z programem PowerShell w usłudze Azure Batch | Microsoft Docs"
+description: "Krótkie wprowadzenie do poleceń cmdlet programu Azure PowerShell, których można użyć do zarządzania usługą Azure Batch"
 services: batch
-documentationcenter: ''
-author: dlepow
+documentationcenter: 
+author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
 ms.service: batch
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 07/28/2016
-ms.author: danlep
+ms.date: 10/20/2016
+ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
+
 
 ---
-# Rozpoczęcie pracy z poleceniami cmdlet programu PowerShell w usłudze Azure Batch
-Za pomocą poleceń cmdlet PowerShell usługi Azure Batch można wykonywać oraz tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz interfejsu wiersza polecenia Azure (CLI). Oto krótkie wprowadzenie do poleceń cmdlet, których można używać do zarządzania kontami usługi Batch oraz pracy z zasobami usługi Batch, np. pulami i zadaniami. Informacje w tym artykule dotyczą poleceń cmdlet usługi Azure PowerShell w wersji 1.6.0.
+# <a name="get-started-with-azure-batch-powershell-cmdlets"></a>Rozpoczęcie pracy z poleceniami cmdlet programu PowerShell w usłudze Azure Batch
+Za pomocą poleceń cmdlet PowerShell usługi Azure Batch można wykonywać oraz tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz interfejsu wiersza polecenia Azure (CLI). Oto krótkie wprowadzenie do poleceń cmdlet, których można używać do zarządzania kontami usługi Batch oraz pracy z zasobami usługi Batch, np. pulami i zadaniami.
 
-Pełna lista poleceń cmdlet w usłudze Batch oraz szczegółowa składnia poleceń cmdlet znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx). 
+Pełna lista poleceń cmdlet w usłudze Batch oraz szczegółowa składnia poleceń cmdlet znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
-## Wymagania wstępne
-* **Azure PowerShell** — Instrukcje dotyczące pobierania i instalacji programu Azure PowerShell znajdują się w temacie [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell). 
+Informacje w tym artykule dotyczą poleceń cmdlet programu Azure PowerShell w wersji 3.0.0. Zaleca się częstą aktualizację programu Azure PowerShell, aby mieć możliwość korzystania z aktualizacji i rozszerzeń usługi.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+Wykonaj poniższe operacje, aby używać programu Azure PowerShell do zarządzania zasobami usługi Batch.
+
+* [Zainstaluj i skonfiguruj program Azure PowerShell](../powershell-install-configure.md)
+* Uruchom polecenie cmdlet **Login-AzureRmAccount**, aby podłączyć się do subskrypcji (polecenia cmdlet usługi Azure Batch są dostarczane w module usługi Azure Resource Manager):
   
-  * Ponieważ polecenia cmdlet usługi Azure Batch są dostarczane w module usługi Azure Resource Manager, trzeba będzie uruchomić polecenie cmdlet **Login-AzureRmAccount**, aby podłączyć się do subskrypcji. 
-  * Zaleca się częstą aktualizację programu Azure PowerShell, aby mieć możliwość korzystania z aktualizacji i rozszerzeń usługi. 
-* **Rejestrowanie w przestrzeni nazw dostawcy usługi Batch (operacja jednorazowa)** — przed rozpoczęciem pracy z kontami usługi Batch należy zarejestrować się w przestrzeni nazw dostawcy usługi Batch. Tę operację należy wykonać tylko raz w całym okresie obowiązywania subskrypcji. Uruchom następujące polecenie cmdlet:
+    `Login-AzureRmAccount`
+* **Zarejestruj się w przestrzeni nazw dostawcy usługi Batch**. Tę operację należy wykonać tylko **raz w całym okresie obowiązywania subskrypcji**.
   
-        Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
+    `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
 
-## Zarządzanie kontami i kluczami usługi Batch
-### Tworzenie konta usługi Batch
-Polecenie **New-AzureRmBatchAccount** umożliwia utworzenie nowego konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją przez uruchomienie polecenia cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx), określając jeden z regionów platformy Azure w parametrze **Location** (Lokalizacja), np. „Środkowe stany USA”. Na przykład:
+## <a name="manage-batch-accounts-and-keys"></a>Zarządzanie kontami i kluczami usługi Batch
+### <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
+Polecenie **New-AzureRmBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Na przykład:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
+Następnie utwórz konto usługi Batch w grupie zasobów, określając nazwę konta w parametrze <*account_name*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Na przykład:
 
-Następnie utwórz nowe konto usługi Batch w grupie zasobów, określając nazwę konta w parametrze <*account_name*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Na przykład:
-
-    New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
+    New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
 > [!NOTE]
 > Nazwa konta usługi Batch musi być unikatowa dla regionu Azure dla grupy zasobów, zawierać od 3 do 24 znaków i tylko małe litery i cyfry.
 > 
 > 
 
-### Pobieranie kluczy dostępu do konta
+### <a name="get-account-access-keys"></a>Pobieranie kluczy dostępu do konta
 Polecenie **Get-AzureRmBatchAccountKeys** umożliwia wyświetlenie kluczy dostępu powiązanych z kontem usługi Azure Batch. Na przykład uruchom następujące polecenia, aby pobrać klucz podstawowy i klucz pomocniczy do utworzonego konta.
 
-    $Account = Get-AzureRmBatchAccountKeys –AccountName <accountname>
+    $Account = Get-AzureRmBatchAccountKeys –AccountName <account_name>
 
     $Account.PrimaryAccountKey
 
     $Account.SecondaryAccountKey
 
-
-### Generowanie nowego klucza dostępu
+### <a name="generate-a-new-access-key"></a>Generowanie nowego klucza dostępu
 Polecenie **New-AzureRmBatchAccountKey** umożliwia generowanie nowego klucza podstawowego lub klucza pomocniczego do konta usługi Azure Batch. Na przykład, aby wygenerować nowy klucz podstawowy do konta usługi Batch, wpisz:
 
     New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
-
 
 > [!NOTE]
 > Aby wygenerować nowy klucz pomocniczy, wpisz „Secondary” dla parametru **KeyType**. Ponowne generowanie klucza podstawowego i klucza pomocniczego należy wykonywać oddzielnie.
 > 
 > 
 
-### Usuwanie konta usługi Batch
+### <a name="delete-a-batch-account"></a>Usuwanie konta usługi Batch
 Polecenie **Remove-AzureRmBatchAccount** umożliwia usunięcie konta usługi Batch. Na przykład:
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
 Po wyświetleniu monitu potwierdź, że chcesz usunąć konto. Usunięcie konta może potrwać trochę czasu.
 
-## Tworzenie obiektu BatchAccountContext
+## <a name="create-a-batchaccountcontext-object"></a>Tworzenie obiektu BatchAccountContext
 Aby uwierzytelniać się przy użyciu poleceń cmdlet programu PowerShell w usłudze Batch podczas tworzenia pul, zadań, podzadań oraz innych zasobów w usłudze Batch oraz zarządzania nimi, najpierw utwórz obiekt BatchAccountContext, aby przechować nazwę konta i klucze do konta:
 
     $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
@@ -86,65 +91,155 @@ Obiekt BatchAccountContext zostaje przeniesiony do poleceń cmdlet, które używ
 > 
 > 
 
-## Tworzenie i modyfikowanie zasobów usługi Batch
-Do tworzenia zasobów w ramach konta usługi Batch służą takie polecenia cmdlet jak **New-AzureBatchPool**, **New-AzureBatchJob** oraz **New-AzureBatchTask**. Istnieją odpowiednie polecenia cmdlet **Get-** i **Set-** do aktualizacji właściwości istniejących zasobów oraz polecenia cmdlet **Remove-** do usuwania zasobów w ramach konta usługi Batch. 
+## <a name="create-and-modify-batch-resources"></a>Tworzenie i modyfikowanie zasobów usługi Batch
+Do tworzenia zasobów w ramach konta usługi Batch służą takie polecenia cmdlet jak **New-AzureBatchPool**, **New-AzureBatchJob** oraz **New-AzureBatchTask**. Istnieją odpowiednie polecenia cmdlet **Get-** i **Set-** do aktualizacji właściwości istniejących zasobów oraz polecenia cmdlet **Remove-** do usuwania zasobów w ramach konta usługi Batch.
 
 Podczas korzystania z wielu tych poleceń cmdlet oprócz przekazywania obiektu BatchContext należy utworzyć lub przekazać obiekty, które zawierają szczegółowe ustawienia zasobów, jak pokazano w poniższym przykładzie. Dodatkowe przykłady zamieszczono w szczegółowych plikach pomocy każdego polecenia cmdlet.
 
-### Tworzenie puli usługi Batch
-Podczas tworzenia lub aktualizowania puli usługi Batch należy wybrać konfigurację usługi w chmurze lub konfigurację maszyny wirtualnej dla systemu operacyjnego węzłów obliczeniowych — zobacz artykuł [Batch feature overview](batch-api-basics.md#pool) (Omówienie funkcji usługi Batch). Wybór określa, czy na węzłach obliczeniowych są stosowane obrazy jednej z [wersji systemów operacyjnych gościa platformy Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases), czy jeden z obsługiwanych obrazów maszyn wirtualnych Linux lub Windows z portalu Azure Marketplace. 
+### <a name="create-a-batch-pool"></a>Tworzenie puli usługi Batch
+Podczas tworzenia lub aktualizowania puli usługi Batch należy wybrać konfigurację usługi w chmurze lub konfigurację maszyny wirtualnej dla systemu operacyjnego węzłów obliczeniowych — zobacz artykuł [Batch feature overview](batch-api-basics.md#pool) (Omówienie funkcji usługi Batch). Wybór określa, czy na węzłach obliczeniowych są stosowane obrazy jednej z [wersji systemów operacyjnych gościa platformy Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases), czy jeden z obsługiwanych obrazów maszyn wirtualnych Linux lub Windows z portalu Azure Marketplace.
 
 Po uruchomieniu polecenia **New-AzureBatchPool** należy przekazać ustawienia systemu operacyjnego w obiekcie PSCloudServiceConfiguration lub PSVirtualMachineConfiguration. Na przykład poniższe polecenie cmdlet tworzy nową pulę usługi Batch z małymi węzłami obliczeniowymi w konfiguracji usługi w chmurze i obrazami najnowszej wersji systemu operacyjnego z rodziny 3 (Windows Server 2012). W tym miejscu parametr **CloudServiceConfiguration** określa zmienną *$configuration* jako obiekt PSCloudServiceConfiguration. Parametr **BatchContext** określa uprzednio zdefiniowaną zmienną *$context* jako obiekt BatchAccountContext.
 
-    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(4,"*")
 
     New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
-Docelowa liczba węzłów obliczeniowych w nowej puli jest określana przez formułę skalowania automatycznego. W takim przypadku formuła wygląda po prostu w taki sposób — **$TargetDedicated=4**, co oznacza, że liczba węzłów obliczeniowych w puli nie przekracza 4. 
+Docelowa liczba węzłów obliczeniowych w nowej puli jest określana przez formułę skalowania automatycznego. W takim przypadku formuła wygląda po prostu w taki sposób — **$TargetDedicated=4**, co oznacza, że liczba węzłów obliczeniowych w puli nie przekracza 4.
 
-## Zapytania dotyczące puli, zadań, podzadań oraz innych szczegółów
+## <a name="query-for-pools-jobs-tasks-and-other-details"></a>Zapytania dotyczące puli, zadań, podzadań oraz innych szczegółów
 Takie polecenia cmdlet jak **Get-AzureBatchPool**, **Get-AzureBatchJob** oraz **Get-AzureBatchTask** służą do przesyłania zapytań dotyczących jednostek utworzonych w ramach konta usługi Batch.
 
-### Zapytania dotyczące danych
+### <a name="query-for-data"></a>Zapytania dotyczące danych
 Przykładowo polecenie **Get-AzureBatchPools** służy do znajdowania pul. Domyślnie umożliwia to przesłanie zapytań dotyczących wszystkich pul w ramach konta, zakładając, że obiekt BatchAccountContext został już zapisany w zmiennej *$context*:
 
     Get-AzureBatchPool -BatchContext $context
 
-### Korzystanie z filtru OData
+### <a name="use-an-odata-filter"></a>Korzystanie z filtru OData
 Można skonfigurować filtr OData przy użyciu parametru **Filtr** w taki sposób, by znajdowane były tylko obiekty, które interesują użytkownika. Np. można znaleźć wszystkie pule z identyfikatorami zaczynającymi się od „myPool”:
 
     $filter = "startswith(id,'myPool')"
 
     Get-AzureBatchPool -Filter $filter -BatchContext $context
 
-
 Ta metoda nie jest tak elastyczna jak w przypadku korzystania z parametru „Where-Object” w lokalnym potoku. Jednak zapytanie zostaje przesłane bezpośrednio do usługi Batch, więc całe filtrowanie odbywa się po stronie serwera, co pozwala na oszczędność przepustowości internetowej.
 
-### Korzystanie z parametru Id
+### <a name="use-the-id-parameter"></a>Korzystanie z parametru Id
 Alternatywą dla filtru OData jest użycie parametru **Id**. Aby przesłać zapytanie dotyczące określonej puli o identyfikatorze „myPool”:
 
     Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
-
 Parametr **Id** obsługuje tylko wyszukiwanie pełnych identyfikatorów, a nie symboli wieloznacznych czy filtrów typu OData.
 
-### Korzystanie z parametru MaxCount
+### <a name="use-the-maxcount-parameter"></a>Korzystanie z parametru MaxCount
 Domyślnie każde polecenie cmdlet zwraca maksymalnie 1000 obiektów. W przypadku osiągnięcia tego limitu zmień ustawienia filtru w taki sposób, aby zwracał mniej obiektów, lub jawnie ustaw wartość maksymalną przy użyciu parametru **MaxCount** (Maksymalna liczba). Na przykład:
 
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 Aby usunąć górną granicę, ustaw parametr **MaxCount** na wartość 0 lub mniejszą.
 
-### Korzystanie z potoku
-Polecenia cmdlet usługi Batch mogą użyć potoku programu PowerShell do przesyłania danych między poleceniami cmdlet. Powoduje to taki sam skutek co określenie parametru, ale sprawia, że umieszczanie na liście wielu jednostek jest łatwiejsze. Np. polecenie poniżej umożliwia znalezienie wszystkich podzadań w ramach konta:
+### <a name="use-the-powershell-pipeline"></a>Korzystanie z potoku programu PowerShell
+Polecenia cmdlet usługi Batch mogą użyć potoku programu PowerShell do przesyłania danych między poleceniami cmdlet. Powoduje to taki sam skutek co określenie parametru, ale sprawia, że praca z wieloma jednostkami jest łatwiejsza.
+
+Na przykład znalezienie i wyświetlenie wszystkich zadań na Twoim koncie:
 
     Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 
+Ponowne uruchomienie (ponowny rozruch) każdego węzła obliczeniowego w puli:
 
-## Następne kroki
+    Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
+
+## <a name="application-package-management"></a>Zarządzanie pakietem aplikacji
+Pakiety aplikacji zapewniają uproszczony sposób na wdrażanie aplikacji do węzłów obliczeniowych w pulach. Przy użyciu poleceń cmdlet programu PowerShell usługi Batch możesz przekazywać pakiety aplikacji na swoim koncie usługi Batch i zarządzać nimi oraz wdrażać wersje pakietów do węzłów obliczeniowych.
+
+**Tworzenie** aplikacji:
+
+    New-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
+
+**Dodawanie** pakietu aplikacji:
+
+    New-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
+
+Ustaw **wersję domyślną** aplikacji:
+
+    Set-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
+
+**Wyświetlanie listy** pakietów aplikacji
+
+    $application = Get-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
+
+    $application.ApplicationPackages
+
+**Usuwanie** pakietu aplikacji
+
+    Remove-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
+
+**Usuwanie** aplikacji
+
+    Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
+
+> [!NOTE]
+> Przed usunięciem aplikacji musisz usunąć wszystkie wersje pakietu aplikacji. Jeśli spróbujesz usunąć aplikację, która zawiera obecnie pakiety aplikacji, zostanie wyświetlony komunikat o błędzie „Konflikt”.
+> 
+> 
+
+### <a name="deploy-an-application-package"></a>Wdrażanie pakietu aplikacji
+Podczas tworzenia puli możesz określić co najmniej jeden pakiet aplikacji dla wdrożenia. Jeśli określisz pakiet w czasie tworzenia puli, zostanie wdrożony w każdym węźle w przypadku dołączenia węzła do puli. Pakiety są też wdrażane, gdy węzeł zostaje uruchomiony ponownie lub odtworzony z obrazu.
+
+Określ opcję `-ApplicationPackageReference` podczas tworzenia puli, aby wdrożyć pakiet aplikacji do węzłów dołączanych do puli. Najpierw utwórz obiekt **PSApplicationPackageReference** i skonfiguruj go, używając identyfikatora aplikacji i wersji pakietu, który chcesz wdrożyć do węzłów obliczeniowych puli:
+
+    $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
+
+    $appPackageReference.ApplicationId = "MyBatchApplication"
+
+    $appPackageReference.Version = "1.0"
+
+Teraz utwórz pulę i określ obiekt odwołania do pakietu jako argument opcji `ApplicationPackageReferences`:
+
+    New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
+
+Więcej informacji dotyczących pakietów aplikacji można znaleźć w temacie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji usługi Azure Batch).
+
+> [!IMPORTANT]
+> Najpierw [połącz konto usługi Azure Storage](#linked-storage-account-autostorage) z kontem usługi Batch, aby użyć pakietów aplikacji.
+> 
+> 
+
+### <a name="update-a-pools-application-packages"></a>Aktualizowanie pakietów aplikacji puli
+Aby zaktualizować aplikacje przypisane do istniejącej puli, najpierw utwórz obiekt PSApplicationPackageReference z żądanymi właściwościami (identyfikatorem aplikacji oraz wersją pakietu):
+
+    $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
+
+    $appPackageReference.ApplicationId = "MyBatchApplication"
+
+    $appPackageReference.Version = "2.0"
+
+Następnie pobierz pulę z usługi Batch, wyczyść wszystkie istniejące pakiety, dodaj nasze nowe odwołanie do pakietu i zaktualizuj usługę Batch przy użyciu nowych ustawień puli:
+
+    $pool = Get-AzureBatchPool -BatchContext $context -Id "PoolWithAppPackage"
+
+    $pool.ApplicationPackageReferences.Clear()
+
+    $pool.ApplicationPackageReferences.Add($appPackageReference)
+
+    Set-AzureBatchPool -BatchContext $context -Pool $pool
+
+Właściwości puli w usłudze Batch zostały zaktualizowane. Jednak aby rzeczywiście wdrożyć nowy pakiet aplikacji do węzłów obliczeniowych w puli, musisz uruchomić ponownie te węzły lub odtworzyć je z obrazu. Każdy węzeł w puli możesz uruchomić ponownie za pomocą tego polecenia:
+
+    Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
+
+> [!TIP]
+> Do węzłów obliczeniowych w puli możesz wdrożyć wiele pakietów aplikacji. Jeśli chcesz *dodać* pakiet aplikacji zamiast zastępowania aktualnie wdrożonych pakietów, pomiń wiersz `$pool.ApplicationPackageReferences.Clear()` powyżej.
+> 
+> 
+
+## <a name="next-steps"></a>Następne kroki
 * Szczegóły składni poleceń cmdlet oraz przykłady znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
-* Więcej informacji na temat zmniejszenia liczby elementów oraz typu informacji zwracanych dla zapytań w usłudze Batch znajduje się w temacie [Query the Batch service efficiently](batch-efficient-list-queries.md) (Skuteczne wykonywanie zapytań w usłudze Batch). 
+* Aby uzyskać więcej informacji na temat aplikacji i pakietów aplikacji w usłudze Batch, zobacz [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji usługi Azure Batch).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

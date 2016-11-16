@@ -1,64 +1,68 @@
 ---
 title: Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure | Microsoft Docs
-description: W tym artykule opisano sposób replikowania maszyn wirtualnych funkcji Hyper-V na hostach funkcji Hyper-V w chmurach programu System Center VMM do platformy Azure.
+description: "W tym artykule opisano sposób replikowania maszyn wirtualnych funkcji Hyper-V na hostach funkcji Hyper-V w chmurach programu System Center VMM do platformy Azure."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 9d526a1f-0d8e-46ec-83eb-7ea762271db5
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/06/2016
+ms.date: 11/01/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4743f1335856bcfc7a44d76841d3be83693ad063
+
 
 ---
-# Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure
+# <a name="replicate-hyperv-virtual-machines-in-vmm-clouds-to-azure"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
-> * [PowerShell — ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+> * [Program PowerShell — model usługi Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Klasyczny portal](site-recovery-vmm-to-azure-classic.md)
-> * [PowerShell — Classic](site-recovery-deploy-with-powershell.md)
+> * [PowerShell — model klasyczny](site-recovery-deploy-with-powershell.md)
 > 
 > 
 
 Usługa Azure Site Recovery przyczynia się do strategii związanej z ciągłością biznesową i odzyskiwaniem po awarii (BCDR, business continuity and disaster recovery) poprzez organizowanie replikacji, pracy w trybie failover i odzyskiwania maszyn wirtualnych oraz serwerów fizycznych. Maszyny można replikować do platformy Azure lub lokalnego pomocniczego centrum danych. Aby zapoznać się z szybkim omówieniem, przeczytaj temat [Co to jest usługa Azure Site Recovery?](site-recovery-overview.md)
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 W tym artykule opisano sposób wdrażania usługi Site Recovery w celu replikowania maszyn wirtualnych funkcji Hyper-V na hostach funkcji Hyper-V w chmurach programu VMM do platformy Azure.
 
 W tym artykule omówiono wymagania wstępne dla scenariusza i przedstawiono sposób konfigurowania magazynu usługi Azure Site Recovery, zapewniania instalacji dostawcy usługi Azure Site Recovery na źródłowym serwerze programu VMM, rejestrowania serwera w magazynie, dodawania konta magazynu Azure, instalowania agenta Usług odzyskiwania Azure na serwerach hostów funkcji Hyper-V, konfigurowania ustawień ochrony chmur programu VMM, które będą stosowane do wszystkich chronionych maszyn wirtualnych, a następnie zapewniania ochrony tych maszyn wirtualnych. Aby zakończyć, przetestuj tryb failover w celu sprawdzenia, czy wszystko działa zgodnie z oczekiwaniami.
 
 Zamieść wszelkie komentarze lub pytania pod tym artykułem lub na [forum Usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Architektura
+## <a name="architecture"></a>Architektura
 ![Architektura](./media/site-recovery-vmm-to-azure-classic/topology.png)
 
 * Dostawca usługi Azure Site Recovery jest instalowany na serwerze programu VMM podczas wdrażania usługi Site Recovery, a serwer programu VMM jest rejestrowany w magazynie usługi Site Recovery. Dostawca komunikuje się z usługą Site Recovery, aby replikować aranżację.
 * Agent Usług odzyskiwania Azure jest instalowany na serwerach hostów funkcji Hyper-V podczas wdrażania usługi Site Recovery. Obsługuje on replikację danych do magazynu Azure.
 
-## Wymagania wstępne platformy Azure
+## <a name="azure-prerequisites"></a>Wymagania wstępne platformy Azure
 Oto, czego będziesz potrzebować na platformie Azure.
 
 | **Wymagania wstępne** | **Szczegóły** |
 | --- | --- |
 | **Konto platformy Azure** |Będziesz potrzebować konta platformy [Microsoft Azure](https://azure.microsoft.com/). Możesz rozpocząć od [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/). [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/site-recovery/) o cenach usługi Site Recovery. |
-| **Azure Storage** |Będziesz potrzebować konta magazynu Azure do przechowywania replikowanych danych. Replikowane dane są przechowywane w usłudze Azure Storage, a w przypadku przejścia w tryb failover uruchamiane są maszyny wirtualne platformy Azure. <br/><br/>Potrzebujesz [standardowego konta magazynu geograficznie nadmiarowego](../storage/storage-redundancy.md#geo-redundant-storage). Konto musi znajdować się w tym samym regionie co magazyn usługi Site Recovery i musi być skojarzone z tą samą subskrypcją. Replikacja do konta magazynu w warstwie Premium obecnie nie jest obsługiwana i nie powinna być używana.<br/><br/>[Przeczytaj o](../storage/storage-introduction.md) usłudze Azure Storage. |
+| **Magazyn platformy Azure** |Będziesz potrzebować konta magazynu Azure do przechowywania replikowanych danych. Replikowane dane są przechowywane w usłudze Azure Storage, a w przypadku przejścia w tryb failover uruchamiane są maszyny wirtualne platformy Azure. <br/><br/>Potrzebujesz [standardowego konta magazynu geograficznie nadmiarowego](../storage/storage-redundancy.md#geo-redundant-storage). Konto musi znajdować się w tym samym regionie co magazyn usługi Site Recovery i musi być skojarzone z tą samą subskrypcją. Replikacja do konta magazynu w warstwie Premium obecnie nie jest obsługiwana i nie powinna być używana.<br/><br/>[Przeczytaj o](../storage/storage-introduction.md) usłudze Azure Storage. |
 | **Sieć platformy Azure** |Potrzebujesz sieci wirtualnej platformy Azure, z którą maszyny wirtualne Azure będą nawiązywać połączenie w przypadku przejścia w tryb failover. Sieć wirtualna platformy Azure musi znajdować się w tym samym regionie co magazyn usługi Site Recovery. |
 
-## Lokalne wymagania wstępne
+## <a name="onpremises-prerequisites"></a>Lokalne wymagania wstępne
 Oto, co należy zapewnić lokalnie.
 
 | **Wymagania wstępne** | **Szczegóły** |
 | --- | --- |
 | **VMM** |Będziesz potrzebować co najmniej jednego serwera programu VMM wdrożonego jako fizyczny lub wirtualny serwer autonomiczny lub jako klaster wirtualny. <br/><br/>Na serwerze programu VMM powinien być uruchomiony program System Center 2012 R2 z najnowszymi aktualizacjami zbiorczymi.<br/><br/>Będziesz potrzebować co najmniej jednej chmury skonfigurowanej na serwerze programu VMM.<br/><br/>Chmura źródłowa, którą chcesz chronić, musi zawierać co najmniej jedną grupę hostów programu VMM.<br/><br/>Aby dowiedzieć się więcej na temat konfigurowania chmur programu VMM, zobacz [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) (Przewodnik: tworzenie chmur prywatnych przy użyciu programu System Center 2012 SP1 VMM) na blogu Keitha Mayera. |
-| **Funkcja Hyper-V** |Będziesz potrzebować co najmniej jednego serwera hosta lub klastra funkcji Hyper-V w chmurze programu VMM. Serwer hosta powinien mieć co najmniej jedną maszynę wirtualną. <br/><br/>Serwer funkcji Hyper-V musi być uruchomiony w systemie Windows Server 2012 R2 (lub nowszym) z rolą Hyper-V i musi mieć zainstalowane najnowsze aktualizacje.<br/><br/>Serwer funkcji Hyper-V zawierający maszyny wirtualne, które chcesz chronić, musi znajdować się w chmurze programu VMM.<br/><br/>Jeśli używasz funkcji Hyper-V w klastrze, broker klastra nie jest tworzony automatycznie, jeśli masz klaster oparty na statycznym adresie IP. Konieczne będzie ręczne skonfigurowanie brokera klastra. Aby [dowiedzieć się więcej](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters), zobacz wpis na blogu Aidana Finna. |
+| **Funkcja Hyper-V** |Będziesz potrzebować co najmniej jednego serwera hosta lub klastra funkcji Hyper-V w chmurze programu VMM. Serwer hosta powinien mieć co najmniej jedną maszynę wirtualną. <br/><br/>Serwer funkcji Hyper-V musi być uruchomiony w **systemie Windows Server 2012 R2** z rolą Hyper-V lub w **systemie Microsoft Hyper-V Server 2012 R2** i musi mieć zainstalowane najnowsze aktualizacje.<br/><br/>Serwer funkcji Hyper-V zawierający maszyny wirtualne, które chcesz chronić, musi znajdować się w chmurze programu VMM.<br/><br/>Jeśli używasz funkcji Hyper-V w klastrze, broker klastra nie jest tworzony automatycznie, jeśli masz klaster oparty na statycznym adresie IP. Konieczne będzie ręczne skonfigurowanie brokera klastra. Aby [dowiedzieć się więcej](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters), zobacz wpis na blogu Aidana Finna. |
 | **Chronione maszyny** |Maszyny wirtualne, które chcesz chronić, powinny być zgodne z [wymaganiami platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). |
 
-## Wymagania wstępne związane z mapowaniem sieci
+## <a name="network-mapping-prerequisites"></a>Wymagania wstępne związane z mapowaniem sieci
 Gdy chronisz maszyny wirtualne na platformie Azure, mapowanie sieci działa między źródłowymi sieciami maszyny wirtualnej na źródłowym serwerze programu VMM a docelowymi sieciami platformy Azure. Dzięki temu dostępne są następujące korzyści:
 
 * Wszystkie maszyny, które przechodzą w tryb failover w tej samej sieci, mogą się ze sobą łączyć niezależnie od tego, jakiego planu odzyskiwania używają.
@@ -78,7 +82,7 @@ Przygotuj się do mapowania sieci w następujący sposób:
    * [Skonfiguruj sieci logiczne](https://technet.microsoft.com/library/jj721568.aspx).
    * [Skonfiguruj sieci maszyn wirtualnych](https://technet.microsoft.com/library/jj721575.aspx).
 
-## Krok 1. Tworzenie magazynu usługi Site Recovery
+## <a name="step-1-create-a-site-recovery-vault"></a>Krok 1. Tworzenie magazynu usługi Site Recovery
 1. Zaloguj się do [portalu zarządzania](https://portal.azure.com) z serwera programu VMM, który chcesz zarejestrować.
 2. Kliknij pozycje **Data Services** > **Usługi odzyskiwania** > **Magazyn usługi Site Recovery**.
 3. Kliknij pozycje **Utwórz nowe** > **Szybkie tworzenie**.
@@ -90,7 +94,7 @@ Przygotuj się do mapowania sieci w następujący sposób:
 
 Sprawdź informacje na pasku stanu, aby potwierdzić pomyślne utworzenie magazynu. Magazyn będzie wyświetlany jako **Aktywny** na stronie głównej Usług odzyskiwania.
 
-## Krok 2. Generowanie klucza rejestracji magazynu
+## <a name="step-2-generate-a-vault-registration-key"></a>Krok 2. Generowanie klucza rejestracji magazynu
 Wygeneruj klucz rejestracji magazynu. Po pobraniu dostawcy usługi Azure Site Recovery i zainstalowaniu go na serwerze programu VMM użyjesz tego klucza do zarejestrowania serwera programu VMM w magazynie.
 
 1. Na stronie **Usługi odzyskiwania** kliknij magazyn, aby otworzyć stronę Szybki start. Stronę Szybki start można również otworzyć w dowolnym momencie przy użyciu ikony.
@@ -101,7 +105,7 @@ Wygeneruj klucz rejestracji magazynu. Po pobraniu dostawcy usługi Azure Site Re
    
     ![Klucz rejestracji](./media/site-recovery-vmm-to-azure-classic/register-key.png)
 
-## Krok 3. Instalowanie dostawcy usługi Azure Site Recovery
+## <a name="step-3-install-the-azure-site-recovery-provider"></a>Krok 3. Instalowanie dostawcy usługi Azure Site Recovery
 1. W oknie **Szybki Start** > **Przygotowanie serwerów programu VMM** kliknij pozycję **Pobierz dostawcę usługi Microsoft Azure Site Recovery do instalacji na serwerach programu VMM**, aby uzyskać najnowszą wersję pliku instalacyjnego dostawcy.
 2. Uruchom ten plik na źródłowym serwerze programu VMM.
    
@@ -146,7 +150,7 @@ Wygeneruj klucz rejestracji magazynu. Po pobraniu dostawcy usługi Azure Site Re
 
 Po rejestracji metadane z serwera programu VMM są pobierane przez usługę Azure Site Recovery. Serwer jest wyświetlany na karcie **Serwery programu VMM** na stronie **Serwery** w magazynie.
 
-### Instalacja przy użyciu wiersza polecenia
+### <a name="command-line-installation"></a>Instalacja przy użyciu wiersza polecenia
 Dostawcę usługi Azure Site Recovery można również zainstalować przy użyciu następującego polecenia w wierszu polecenia. Tej metody można użyć do zainstalowania dostawcy w rdzeniu serwera dla systemu Windows Server 2012 R2.
 
 1. Pobierz plik instalacyjny dostawcy i klucz rejestracji do folderu. Na przykład C:\ASR.
@@ -173,7 +177,7 @@ gdzie parametry są następujące:
 * **/proxyUsername**: opcjonalny parametr określający nazwę użytkownika serwera proxy.
 * **/proxyPassword**: opcjonalny parametr określający hasło serwera proxy.  
 
-## Krok 4. Tworzenie konta magazynu platformy Azure
+## <a name="step-4-create-an-azure-storage-account"></a>Krok 4. Tworzenie konta magazynu platformy Azure
 1. Jeśli nie masz konta usługi Azure Storage, kliknij pozycję **Dodaj konto usługi Azure Storage**, aby utworzyć konto.
 2. Utwórz konto z włączoną funkcją replikacji geograficznej. Musi ono znajdować się w tym samym regionie co usługa Azure Site Recovery i musi być skojarzone z tą samą subskrypcją.
    
@@ -184,7 +188,7 @@ gdzie parametry są następujące:
 > 
 > 
 
-## Krok 5. Instalowanie agenta Usług odzyskiwania Azure
+## <a name="step-5-install-the-azure-recovery-services-agent"></a>Krok 5. Instalowanie agenta Usług odzyskiwania Azure
 Zainstaluj agenta Usług odzyskiwania Azure na każdym serwerze hosta funkcji Hyper-V w chmurze programu VMM.
 
 1. Kliknij pozycje **Szybki Start** > **Pobierz agenta Usług odzyskiwania Azure do instalacji na hostach**, aby otrzymać najnowszą wersję pliku instalacyjnego agenta.
@@ -199,12 +203,12 @@ Zainstaluj agenta Usług odzyskiwania Azure na każdym serwerze hosta funkcji Hy
    
     ![Rejestracja agenta MARS](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
-### Instalacja przy użyciu wiersza polecenia
+### <a name="command-line-installation"></a>Instalacja przy użyciu wiersza polecenia
 Agenta Usług odzyskiwania Microsoft Azure można również zainstalować z poziomu wiersza polecenia przy użyciu następującego polecenia:
 
     marsagentinstaller.exe /q /nu
 
-## Krok 6. Konfigurowanie ustawień ochrony chmury
+## <a name="step-6-configure-cloud-protection-settings"></a>Krok 6. Konfigurowanie ustawień ochrony chmury
 Po zarejestrowaniu serwera VMM można skonfigurować ustawienia ochrony chmury. Opcja **Synchronizuj dane chmury z magazynem** została włączona podczas instalowania dostawcy, dlatego wszystkie chmury na serwerze programu VMM są wyświetlane na karcie <b>Chronione elementy</b> w magazynie.
 
 ![Opublikowana chmura](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
@@ -225,7 +229,7 @@ Po zapisaniu ustawień zostanie utworzone zadanie, które można monitorować na
 
 Zapisane ustawienia chmury można modyfikować na karcie **Konfigurowanie**. Aby zmodyfikować lokalizację docelową lub docelowe konto magazynu, musisz usunąć konfigurację chmury, a następnie ponownie skonfigurować chmurę. Jeśli zmienisz konto magazynu, ta zmiana zostanie zastosowana tylko do maszyn wirtualnych skonfigurowanych do ochrony po zmodyfikowaniu konta magazynu. Istniejące maszyny wirtualne nie są migrowane do nowego konta magazynu.
 
-## Krok 7. Konfigurowanie mapowania sieci
+## <a name="step-7-configure-network-mapping"></a>Krok 7. Konfigurowanie mapowania sieci
 Przed rozpoczęciem mapowania sieci należy się upewnić, że maszyny wirtualne na źródłowym serwerze programu VMM są połączone z siecią maszyny wirtualnej. Ponadto należy utworzyć co najmniej jedną sieć wirtualną platformy Azure. Wiele sieci maszyn wirtualnych można mapować do pojedynczej sieci platformy Azure.
 
 1. Na stronie Szybki start kliknij pozycję **Mapuj sieci**.
@@ -246,7 +250,7 @@ Jeśli sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą n
 > 
 > 
 
-## Krok 8. Włączanie ochrony dla maszyn wirtualnych
+## <a name="step-8-enable-protection-for-virtual-machines"></a>Krok 8. Włączanie ochrony dla maszyn wirtualnych
 Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę dla maszyn wirtualnych w chmurze. Pamiętaj o następujących kwestiach:
 
 * Maszyny wirtualne muszą spełniać [wymagania związane z platformą Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
@@ -274,7 +278,7 @@ Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę
   
   * Jeśli liczba kart sieciowych w maszynie źródłowej jest mniejsza lub równa liczbie kart sieciowych dozwolonych dla rozmiaru maszyny docelowej, maszyna docelowa będzie mieć taką samą liczbę kart sieciowych jak maszyna źródłowa.
   * Jeśli liczba kart sieciowych dla źródłowej maszyny wirtualnej przekracza liczbę dozwolonych kart sieciowych dla rozmiaru maszyny docelowej, zostanie użyta maksymalna liczba kart dla rozmiaru maszyny docelowej.
-  * Na przykład, jeśli maszyna źródłowa ma dwie karty sieciowe, a rozmiar maszyny docelowej obsługuje cztery karty, maszyna docelowa będzie mieć dwie karty sieciowe. Jeśli maszyna źródłowa ma dwie karty sieciowe, ale rozmiar maszyny docelowej obsługuje tylko jedną kartę, maszyna docelowa będzie mieć tylko jedną kartę sieciową.    
+  * Na przykład, jeśli maszyna źródłowa ma dwie karty sieciowe, a rozmiar maszyny docelowej obsługuje cztery karty, maszyna docelowa będzie mieć dwie karty sieciowe. Jeśli maszyna źródłowa ma dwie karty sieciowe, ale rozmiar maszyny docelowej obsługuje tylko jedną kartę, maszyna docelowa będzie mieć tylko jedną kartę sieciową.     
 * **Sieć docelowej maszyny wirtualnej** — Sieć, z którą łączy się maszyna wirtualna, jest wybierana zgodnie z mapowaniem sieci dla źródłowej maszyny wirtualnej. Jeśli źródłowa maszyna wirtualna ma kilka kart sieciowych, a źródłowe maszyny wirtualne są zamapowane do innych sieci w lokalizacji docelowej, należy wybrać jedną z sieci docelowych.
 * **Podsieć każdej karty sieciowej** — Dla każdej karty sieciowej można wybrać podsieć, z którą będzie łączyć się maszyna wirtualna po przejściu w tryb failover.
 * **Docelowy adres IP** — Jeśli karta sieciowa źródłowej maszyny wirtualnej jest skonfigurowana do użycia statycznego adresu IP, można zapewnić adres IP dla docelowej maszyny wirtualnej. Korzystając z tej funkcji, można zachować adres IP źródłowej maszyny wirtualnej po przejściu w tryb failover. Jeśli nie zapewniono adresu IP, dowolny dostępny adres IP jest przypisywany do karty sieciowej podczas przejścia w tryb failover. Jeśli docelowy adres IP zostanie określony, ale jest już używany przez inną maszynę wirtualną uruchomioną na platformie Azure, przejście w tryb failover zakończy się niepowodzeniem.  
@@ -286,7 +290,7 @@ Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę
 > 
 > 
 
-## Testowanie wdrożenia
+## <a name="test-the-deployment"></a>Testowanie wdrożenia
 Aby przetestować wdrożenie, możesz przeprowadzić próbę przejścia w tryb failover dla pojedynczej maszyny wirtualnej lub utworzyć plan odzyskiwania uwzględniający wiele maszyn wirtualnych i przeprowadzić próbę przejścia w tryb failover dla tego planu.  
 
 Próba przejścia w tryb failover symuluje mechanizm pracy awaryjnej i odzyskiwania w sieci izolowanej. Należy pamiętać, że:
@@ -299,7 +303,7 @@ Próba przejścia w tryb failover symuluje mechanizm pracy awaryjnej i odzyskiwa
 > 
 > 
 
-### Tworzenie planu odzyskiwania
+### <a name="create-a-recovery-plan"></a>Tworzenie planu odzyskiwania
 1. Na karcie **Plany odzyskiwania** dodaj nowy plan. Określ nazwę **VMM** w polu **Typ źródła** i źródłowy serwer programu VMM w polu **Lokalizacja źródłowa**. Lokalizacją źródłową będzie platforma Azure.
    
     ![Tworzenie planu odzyskiwania](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
@@ -312,7 +316,7 @@ Próba przejścia w tryb failover symuluje mechanizm pracy awaryjnej i odzyskiwa
 
 Utworzony plan odzyskiwania jest wyświetlany na karcie **Plany odzyskiwania**. Możesz również dodać [elementy runbook automatyzacji Azure](site-recovery-runbook-automation.md) do planu odzyskiwania, aby automatyzować czynności wykonywane w trybie failover.
 
-### Wykonywanie próby przejścia w tryb failover
+### <a name="run-a-test-failover"></a>Wykonywanie próby przejścia w tryb failover
 Istnieją dwa sposoby wykonania próby trybu failover do platformy Azure.
 
 * **Testowanie trybu failover bez sieci platformy Azure** — Ten test trybu failover pozwala sprawdzić, czy maszyna wirtualna funkcjonuje poprawnie na platformie Azure. Maszyna wirtualna nie zostanie połączona z żadną siecią platformy Azure po przejściu w tryb failover.
@@ -330,7 +334,7 @@ Aby testować tryb failover, wykonaj następujące czynności:
     ![Brak sieci](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. Jeśli szyfrowanie danych jest włączone dla chmury, w polu **Klucz szyfrowania** wybierz certyfikat wystawiony podczas instalacji dostawcy na serwerze programu VMM, gdy została włączona opcja szyfrowania danych dla chmury.
 4. Na karcie **Zadania** można śledzić postęp trybu failover. W portalu Azure powinna być również widoczna testowa replika maszyny wirtualnej. Jeśli skonfigurowano dostęp do maszyn wirtualnych z sieci lokalnej, możesz zainicjować połączenie Pulpitu zdalnego z maszyną wirtualną.
-5. Gdy tryb failover osiągnie fazę **Ukończ testowanie**, kliknij przycisk **Zakończ test**, aby ukończyć test trybu failover. Możesz przejść do szczegółów na karcie **Zadanie**, aby śledzić postęp i stan trybu falover oraz wykonać dowolne potrzebne akcje.
+5. Gdy tryb failover osiągnie fazę **Ukończ testowanie**, kliknij przycisk **Zakończ test**, aby ukończyć test trybu failover. Możesz przejść do szczegółów na karcie **Zadanie**, aby śledzić postęp i stan trybu failover oraz wykonać dowolne potrzebne akcje.
 6. Po przejściu w tryb failover w portalu Azure będzie widoczna testowa replika maszyny wirtualnej. Jeśli skonfigurowano dostęp do maszyn wirtualnych z sieci lokalnej, możesz zainicjować połączenie Pulpitu zdalnego z maszyną wirtualną. Wykonaj następujące czynności:
    
    1. Sprawdź, czy maszyna wirtualna jest uruchamiana pomyślnie.
@@ -343,9 +347,12 @@ Aby testować tryb failover, wykonaj następujące czynności:
 
 >
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat [konfigurowania planów odzyskiwania](site-recovery-create-recovery-plans.md) i [trybu failover](site-recovery-failover.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

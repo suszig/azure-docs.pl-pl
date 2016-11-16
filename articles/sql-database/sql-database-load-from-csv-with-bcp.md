@@ -1,12 +1,12 @@
 ---
-title: Ładowanie danych z pliku CSV do usługi Azure SQL Database (bcp) | Microsoft Docs
-description: Dane niewielkich rozmiarów można importować do usługi Azure SQL Database za pomocą narzędzia bcp.
+title: "Ładowanie danych z pliku CSV do usługi Azure SQL Database (bcp) | Microsoft Docs"
+description: "Dane niewielkich rozmiarów można importować do usługi Azure SQL Database za pomocą narzędzia bcp."
 services: sql-database
 documentationcenter: NA
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 09/13/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8d6e201ba5fb8283d883272e0cb2b8e7c11f43e5
+
 
 ---
-# Ładowanie danych z pliku CSV do usługi Azure SQL Data Warehouse (pliki proste)
+# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Ładowanie danych z pliku CSV do usługi Azure SQL Data Warehouse (pliki proste)
 Dane z pliku CSV można importować do usługi Azure SQL Database za pomocą narzędzia wiersza polecenia bcp.
 
-## Przed rozpoczęciem
-### Wymagania wstępne
+## <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
 * Serwer logiczny i baza danych usługi Azure SQL Database
@@ -29,10 +33,10 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
 Narzędzia bcp i sqlcmd można pobrać z [Centrum pobierania Microsoft][Centrum pobierania Microsoft].
 
-### Dane w formacie ASCII lub UTF-16
+### <a name="data-in-ascii-or-utf16-format"></a>Dane w formacie ASCII lub UTF-16
 Jeśli próbujesz wykonać kroki tego samouczka z użyciem własnych danych, musisz zastosować do danych kodowanie ASCII lub UTF-16, ponieważ narzędzie bcp nie obsługuje formatu UTF-8. 
 
-## 1. Tworzenie tabeli docelowej
+## <a name="1-create-a-destination-table"></a>1. Tworzenie tabeli docelowej
 Zdefiniuj tabelę w usłudze SQL Database jako tabelę docelową. Kolumny w tabeli muszą odpowiadać danym w poszczególnych wierszach pliku danych.
 
 Aby utworzyć tabelę, otwórz wiersz polecenia i użyj programu sqlcmd.exe, aby uruchomić następujące polecenie:
@@ -50,7 +54,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2. Tworzenie źródłowego pliku danych
+## <a name="2-create-a-source-data-file"></a>2. Tworzenie źródłowego pliku danych
 Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku tekstowego, a następnie zapisz ten plik w lokalnym katalogu tymczasowym: C:\Temp\DimDate2.txt. Te dane są w formacie ASCII.
 
 ```
@@ -74,7 +78,7 @@ Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku 
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
 ```
 
-## 3. Ładowanie danych
+## <a name="3-load-the-data"></a>3. Ładowanie danych
 Aby załadować dane, otwórz wiersz polecenia i uruchom następujące polecenie, zastępując najpierw wartości parametrów nazwą serwera, nazwą bazy danych, nazwą użytkownika i hasłem.
 
 ```sql
@@ -104,18 +108,18 @@ Wyniki powinny wyglądać następująco:
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby przeprowadzić migrację bazy danych programu SQL Server, zobacz [SQL Server database migration](sql-database-cloud-migrate.md) (Migracja bazy danych programu SQL Server).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[składni polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[Składnia polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centrum pobierania Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

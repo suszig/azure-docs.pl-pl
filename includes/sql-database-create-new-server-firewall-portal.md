@@ -9,22 +9,22 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Tworzenie nowej zapory poziomu serwera SQL Azure
+## <a name="create-a-new-azure-sql-serverlevel-firewall"></a>Tworzenie nowej zapory poziomu serwera SQL Azure
 Wykonaj następujące kroki w witrynie Azure Portal, aby utworzyć regułę zapory na poziomie serwera, która umożliwi połączenia z indywidualnego adresu IP (komputera klienckiego) lub całego zakresu adresów IP z serwerem logicznym usługi SQL Database.
 
 1. Połącz się z [witryną Azure Portal](http://portal.azure.com), jeśli połączenie nie zostało nawiązane już wcześniej.
 2. W bloku domyślnym kliknij pozycję **Serwery SQL**.
    
-    ![Nowa zapora serwera](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
+      ![Nowa zapora serwera](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 3. W bloku **Serwery SQL** kliknij serwer, na którym ma zostać utworzona reguła zapory.
    
-    ![Nowa zapora serwera](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
+     ![Nowa zapora serwera](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
 4. Sprawdź właściwości serwera.
    
-    ![Nowa zapora serwera](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
+     ![Nowa zapora serwera](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
 5. W bloku **Ustawienia** kliknij opcję **Zapora**.
    
-    ![Nowa zapora serwera](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
+     ![Nowa zapora serwera](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
    > Dostęp do bloku **Ustawienia zapory** na poziomie serwera można uzyskać również z paska narzędzi bloku **Baza danych**.
@@ -45,4 +45,8 @@ Wykonaj następujące kroki w witrynie Azure Portal, aby utworzyć regułę zapo
    > 
    > 
 
-<!---HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do korzystania z usługi Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia platformy Azure | Microsoft Docs
-description: 'Dowiedz się, jak za pomocą interfejsu wiersza polecenia utworzyć konto usługi Data Lake Store oraz utworzyć i przesłać zadanie usługi Data Lake Analytics, korzystając z języka U-SQL. '
+title: "Wprowadzenie do korzystania z usługi Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia platformy Azure | Microsoft Docs"
+description: "Dowiedz się, jak za pomocą interfejsu wiersza polecenia utworzyć konto usługi Data Lake Store oraz utworzyć i przesłać zadanie usługi Data Lake Analytics, korzystając z języka U-SQL. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 651021d4-4591-4c48-b1ef-3ebc4606d66d
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+
 
 ---
-# Samouczek: wprowadzenie do korzystania z usługi Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Samouczek: wprowadzenie do korzystania z usługi Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Dowiedz się, jak używać kont usługi Azure Data Lake Analytics, definiować zadania usługi Data Lake Analytics w języku [U-SQL](data-lake-analytics-u-sql-get-started.md) i wysyłać je do kont usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 W ramach tego samouczka utworzysz zadanie, które odczytuje zawartość pliku z wartościami rozdzielanymi tabulatorami (TSV) i konwertuje je do pliku z wartościami rozdzielanymi przecinkami (CSV). Aby wykonać kroki opisane w tym samouczku, korzystając z innych obsługiwanych narzędzi, kliknij odpowiednią kartę w górnej części tej sekcji.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz artykuł [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -37,10 +41,10 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
   
         azure config mode arm
 
-## Tworzenie konta usługi Data Lake Analytics
+## <a name="create-data-lake-analytics-account"></a>Tworzenie konta usługi Data Lake Analytics
 Aby można było uruchomić jakiekolwiek zadanie, musisz mieć konto usługi Data Lake Analytics. Aby utworzyć takie konto, należy określić następujące elementy:
 
-* **Grupa zasobów Azure**: konto usługi Data Lake Analytics należy utworzyć w grupie zasobów Azure. Usługa [Azure Resource Manager](../resource-group-overview.md) umożliwia pracę z zasobami w aplikacji jak z grupą. Wszystkie zasoby aplikacji można wdrożyć, zaktualizować lub usunąć w jednej, skoordynowanej operacji.  
+* **Grupa zasobów Azure**: konto usługi Data Lake Analytics należy utworzyć w grupie zasobów Azure. Usługa [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) umożliwia pracę z zasobami w aplikacji jak z grupą. Wszystkie zasoby aplikacji można wdrożyć, zaktualizować lub usunąć w jednej, skoordynowanej operacji.  
   
     Aby wyliczyć grupy zasobów w subskrypcji:
   
@@ -71,7 +75,7 @@ Aby można było uruchomić jakiekolwiek zadanie, musisz mieć konto usługi Dat
         azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
         azure datalake analytics account list
-        azure datalake analytics account show "<Data Lake Analytics Account Name>"          
+        azure datalake analytics account show "<Data Lake Analytics Account Name>"            
 
 ![Data Lake Analytics — pokaż konto](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
@@ -80,19 +84,19 @@ Aby można było uruchomić jakiekolwiek zadanie, musisz mieć konto usługi Dat
 > 
 > 
 
-## Przekazywanie danych do usługi Data Lake Store
+## <a name="upload-data-to-data-lake-store"></a>Przekazywanie danych do usługi Data Lake Store
 W ramach tego samouczka przetworzymy wybrane dzienniki wyszukiwania.  Dziennik wyszukiwania może być przechowywany w usłudze Data Lake Store lub w usłudze Azure Blob Storage. 
 
 Portal Azure udostępnia interfejs użytkownika umożliwiający skopiowanie przykładowych plików danych na domyślne konto usługi Data Lake. Pliki te obejmują również dziennik wyszukiwania. Zobacz temat [Przygotowanie danych źródłowych](data-lake-analytics-get-started-portal.md#prepare-source-data), aby przekazać dane na domyślne konto usługi Data Lake Store.
 
 Aby przekazać pliki, używając interfejsu wiersza polecenia, skorzystaj z następującego polecenia:
 
-    azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
-    azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
+      azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
+      azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
 Usługa Data Lake Analytics może także uzyskiwać dostęp do usługi Azure Blob Storage.  Aby uzyskać informacje o przekazywaniu danych do usługi Azure Blob Storage, zobacz temat [Korzystanie z interfejsu wiersza polecenia platformy Azure w usłudze Azure Storage](../storage/storage-azure-cli.md).
 
-## Przesyłanie zadań usługi Data Lake Analytics
+## <a name="submit-data-lake-analytics-jobs"></a>Przesyłanie zadań usługi Data Lake Analytics
 Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL](data-lake-analytics-u-sql-get-started.md) i [Dokumentację języka U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Aby utworzyć skrypt zadania usługi Data Lake Analytics**
@@ -138,9 +142,11 @@ Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzie�
 
 Aby wyświetlić listę zadań, uzyskać szczegółowe informacje o zadaniu lub anulować zadania, można posłużyć się następującymi poleceniami:
 
-    azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
-    azure datalake analytics job list "<Data Lake Analytics Account Name>"
-    azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+```
+azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
+azure datalake analytics job list "<Data Lake Analytics Account Name>"
+azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+```
 
 Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyświetlić i pobrać plik:
 
@@ -148,7 +154,7 @@ Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyśw
     azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
     azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 * Aby wyświetlić ten samouczek przy użyciu innych narzędzi, kliknij odpowiedni selektor karty w górnej części strony.
 * Aby uzyskać informacje na temat bardziej złożonego zapytania, zobacz temat [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Aby rozpocząć tworzenie aplikacji w języku U-SQL, zobacz artykuł [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
@@ -156,6 +162,9 @@ Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyśw
 * Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).
 * Aby zapoznać się z omówieniem usługi Data Lake Analytics, zobacz [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

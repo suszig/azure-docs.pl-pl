@@ -1,20 +1,24 @@
 ---
-title: Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell | Microsoft Docs
-description: Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell
+title: "Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell | Microsoft Docs"
+description: "Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Tworzenie zestawu skalowania maszyn wirtualnych systemu Windows przy użyciu programu Azure PowerShell
@@ -22,41 +26,18 @@ Te kroki są stosowane w przypadku metody uzupełniania podczas tworzenia zestaw
 
 Wykonanie kroków opisanych w tym artykule powinno zająć około 30 minut.
 
-## <a name="step-1:-install-azure-powershell"></a>Krok 1. Instalowanie programu Azure PowerShell
+## <a name="step-1-install-azure-powershell"></a>Krok 1. Instalowanie programu Azure PowerShell
 Zobacz [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
 
-## <a name="step-2:-create-resources"></a>Krok 2: Tworzenie zasobów
+## <a name="step-2-create-resources"></a>Krok 2: Tworzenie zasobów
 Utwórz zasoby wymagane dla nowego zestawu skalowania.
 
 ### <a name="resource-group"></a>Grupa zasobów
 Zestaw skalowania maszyn wirtualnych musi być zawarty w grupie zasobów.
 
-1. Pobierz listę dostępnych lokalizacji i usług, które są obsługiwane:
+1. Pobierz listę dostępnych lokalizacji, w których można umieścić zasoby:
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    Powinny zostać wyświetlone informacje podobne do następujących:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Wybierz najbardziej odpowiednią dla siebie lokalizację, zastąp wartość **$locName** nazwą lokalizacji, a następnie utwórz zmienną:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ Sieć wirtualna jest wymagana dla maszyn wirtualnych w zestawie skalowania.
 4. Utwórz sieć wirtualną:
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Publiczny adres IP
-Przed utworzeniem interfejsu sieciowego należy utworzyć publiczny adres IP.
-
-1. Zastąp wartość **$domName** etykietą nazwy domeny, która ma być używana z tym publicznym adresem IP, a następnie utwórz zmienną:  
-   
-        $domName = "domain name label"
-   
-    Etykieta może zawierać tylko litery, cyfry i łączniki, a ostatni znak musi być literą lub cyfrą.
-2. Sprawdź, czy nazwa jest unikatowa:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Jeśli odpowiedzią jest **True** (Prawda), zaproponowana nazwa jest unikatowa.
-3. Zastąp wartość **$pipName** nazwą, której chcesz używać dla sieci publicznego adresu IP, a następnie utwórz zmienną: 
-   
-        $pipName = "public ip address name"
-4. Utwórz publiczny adres IP:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Interfejs sieciowy
-Teraz, gdy masz publiczny adres IP, możesz utworzyć interfejs sieciowy.
-
-1. Zastąp wartość **$nicName** nazwą, której chcesz używać dla interfejsu sieciowego, a następnie utwórz zmienną: 
-   
-        $nicName = "network interface name"
-2. Utwórz interfejs sieciowy:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Konfiguracja zestawu skalowania
 Masz wszystkie zasoby potrzebne do konfiguracji zestawu skalowania, więc utwórz go.  
@@ -253,7 +204,7 @@ Na koniec możesz utworzyć zestaw skalowania.
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>Krok 3: Przeglądanie zasobów
+## <a name="step-3-explore-resources"></a>Krok 3: Przeglądanie zasobów
 Użyj tych zasobów, aby eksplorować zestaw skalowania maszyn wirtualnych, który został utworzony:
 
 * Azure Portal — za pośrednictwem witryny portalu dostępna jest ograniczona ilość informacji.
@@ -271,6 +222,9 @@ Użyj tych zasobów, aby eksplorować zestaw skalowania maszyn wirtualnych, któ
 * Rozważ skonfigurowanie automatycznego skalowania dla zestawu skalowania przy użyciu informacji podanych w temacie [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md) (Automatyczne skalowanie i zestawy skalowania maszyn wirtualnych)
 * Więcej informacji o skalowaniu w pionie zawiera artykuł [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md) (Automatyczne skalowanie w pionie za pomocą zestawów skalowania maszyn wirtualnych)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

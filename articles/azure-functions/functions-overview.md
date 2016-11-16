@@ -1,14 +1,14 @@
 ---
-title: Azure Functions — omówienie | Microsoft Docs
-description: Informacje na temat sposobu używania usługi Azure Functions do optymalizowania obciążeń asynchronicznych w ciągu minut.
+title: "Azure Functions — omówienie | Microsoft Docs"
+description: "Informacje na temat sposobu używania usługi Azure Functions do optymalizowania obciążeń asynchronicznych w ciągu minut."
 services: functions
 documentationcenter: na
 author: mattchenderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: usługa Azure Functions, funkcje, przetwarzanie zdarzeń, elementy webhook, obliczanie dynamiczne, architektura bez serwera
-
+editor: 
+tags: 
+keywords: "usługa Azure Functions, funkcje, przetwarzanie zdarzeń, elementy webhook, obliczanie dynamiczne, architektura bez serwera"
+ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -16,14 +16,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/29/2016
 ms.author: cfowler;mahender;glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 601c5a61023fe1565dc0f8e22d9826ae5705fe22
+
 
 ---
-# Azure Functions — omówienie
+# <a name="azure-functions-overview"></a>Azure Functions — omówienie
 Azure Functions to rozwiązanie umożliwiające łatwe uruchamianie małych fragmentów kodu („funkcji”) w chmurze. Możesz napisać tylko kod rozwiązujący aktualny problem, nie martwiąc się o całą aplikację ani infrastrukturę do jej uruchomienia. Dzięki temu programowanie może być jeszcze wydajniejsze i można korzystać z wybranego języka programowania, takiego jak C#, F#, Node.js, Python lub PHP. Płać tylko za czas działania kodu — platforma Azure jest skalowana zgodnie z potrzebami.
 
 W tym temacie przedstawiono ogólne omówienie usługi Azure Functions. Jeśli chcesz od razu rozpocząć korzystanie z usługi Azure Functions, skorzystaj z artykułu [Tworzenie pierwszej funkcji platformy Azure](functions-create-first-azure-function.md). Jeśli chcesz uzyskać informacje techniczne o usłudze Functions, zobacz [dokumentację dla deweloperów](functions-reference.md).
 
-## Funkcje
+## <a name="features"></a>Funkcje
 Oto główne funkcje usługi Azure Functions:
 
 * **Wybór języka** — tworzenie funkcji przy użyciu języka C#, F#, Node.js, Python, PHP, batch, bash, Java lub użycie dowolnych plików wykonywalnych.
@@ -34,7 +38,7 @@ Oto główne funkcje usługi Azure Functions:
 * **Elastyczne programowanie** — kodowanie funkcji bezpośrednio w portalu lub konfigurowanie ciągłej integracji i wdrażanie kodu za pomocą usług GitHub, Visual Studio Team Services i innych [obsługiwanych narzędzi deweloperskich](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
 * **Open source** — środowisko uruchomieniowe Functions typu open source jest [dostępne w serwisie GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
-## Co można zrobić w środowisku Functions?
+## <a name="what-can-i-do-with-functions"></a>Co można zrobić w środowisku Functions?
 Środowisko Azure Functions to doskonałe rozwiązanie do przetwarzania danych, integrowania systemów, pracy z Internetem rzeczy oraz tworzenia prostych interfejsów API i mikrousług. Usługa Functions może pomóc w wykonywaniu takich zadań jak przetwarzanie zamówień lub obrazów, zarządzanie plikami, zadania długoterminowe do uruchamiania w wątku w tle lub wszelkie zadania, które mają być uruchamiane zgodnie z harmonogramem. 
 
 Środowisko usługi Functions zawiera szablony ułatwiające rozpoczęcie pracy z kluczowymi scenariuszami, między innymi:
@@ -51,7 +55,7 @@ Oto główne funkcje usługi Azure Functions:
 
 Środowisko usługi Azure Functions obsługuje *wyzwalacze*, czyli metody uruchamiania wykonywania kodu, i *powiązania*, czyli metody upraszczania kodowania danych wejściowych i wyjściowych. Szczegółowy opis wyzwalaczy i powiązań oferowanych w środowisku Azure Functions można znaleźć w [odpowiedniej dokumentacji usługi Azure Functions dla deweloperów](functions-triggers-bindings.md).
 
-## <a name="integrations"></a>Integracje
+## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integracje
 Usługę Azure Functions można integrować z różnymi usługami platformy Azure i firm zewnętrznych. Umożliwiają one wyzwalanie funkcji i uruchamianie wykonywania. Mogą również służyć jako dane wejściowe i wyjściowe dla kodu. W środowisku usługi Azure Functions obsługiwane są poniższe integracje usług. 
 
 * Azure DocumentDB
@@ -63,7 +67,7 @@ Usługę Azure Functions można integrować z różnymi usługami platformy Azur
 * GitHub (elementy webhook)
 * Lokalne (za pomocą usługi Service Bus)
 
-## <a name="pricing"></a>Ile kosztuje usługa Azure Functions?
+## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Ile kosztuje usługa Azure Functions?
 Usługa Azure Functions oferuje dwa rodzaje planów cenowych. Wybierz ten, który najlepiej zaspokaja Twoje potrzeby: 
 
 * **Dynamiczny plan hostingu** — po uruchomieniu funkcji platforma Azure udostępnia wszystkie niezbędne zasoby obliczeniowe. Nie musisz martwić się o zarządzanie zasobami i płacisz tylko za czas działania kodu. Szczegółowe informacje są dostępne na [stronie cennika usługi Functions](/pricing/details/functions). 
@@ -71,7 +75,7 @@ Usługa Azure Functions oferuje dwa rodzaje planów cenowych. Wybierz ten, któr
 
 Aby uzyskać więcej informacji na temat skalowania funkcji, zobacz artykuł [Jak skalować usługę Azure Functions](functions-scale.md).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pierwszej funkcji platformy Azure](functions-create-first-azure-function.md)  
   Od razu utwórz swoją pierwszą funkcję przy użyciu opcji szybkiego startu usługi Azure Functions. 
 * [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)  
@@ -83,6 +87,9 @@ Aby uzyskać więcej informacji na temat skalowania funkcji, zobacz artykuł [Ja
 * [Dowiedz się więcej o usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md)  
   Środowisko Azure Functions używa platformy Azure App Service na potrzeby funkcji podstawowych, takich jak wdrożenia, zmienne środowiskowe i diagnostyka. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

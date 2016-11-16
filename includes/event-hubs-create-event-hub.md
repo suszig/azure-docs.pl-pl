@@ -1,5 +1,5 @@
-## Tworzenie centrum zdarzeń
-1. Zaloguj się do witryny [Azure Portal][Azure Portal], a następnie kliknij pozycję **Nowe** w lewym górnym rogu ekranu.
+## <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
+1. Zaloguj się do witryny [Azure Portal][Azure Portal], a następnie kliknij pozycję **Nowy** w lewym górnym rogu ekranu.
 2. Kliknij pozycję **Dane i analiza**, a następnie pozycję **Centra zdarzeń**.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
@@ -34,6 +34,6 @@ Utworzono centrum zdarzeń i uzyskano parametry połączenia potrzebne do wysył
 
 [Azure Portal]: https://portal.azure.com/
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

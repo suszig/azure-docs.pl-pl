@@ -1,13 +1,13 @@
 ---
-title: Konfigurowanie funkcji Azure AD Join dla użytkowników| Microsoft Docs
-description: Wyjaśnia, jak administratorzy mogą skonfigurować funkcję Azure AD Join dla katalogu lokalnego i rejestracji urządzeń.
+title: "Konfigurowanie funkcji Azure AD Join dla użytkowników| Microsoft Docs"
+description: "Wyjaśnia, jak administratorzy mogą skonfigurować funkcję Azure AD Join dla katalogu lokalnego i rejestracji urządzeń."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: bfc5d415-c918-4d8b-afee-b3f41cc28469
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aaa52cdecc09adb3b7ca53e0c0283d4203b21810
+
 
 ---
-# Konfigurowanie funkcji Azure AD Join w organizacji
+# <a name="setting-up-azure-ad-join-in-your-organization"></a>Konfigurowanie funkcji Azure AD Join w organizacji
 Przed skonfigurowaniem usługi Azure Active Directory Join (Azure AD Join), należy albo zsynchronizować katalog lokalny użytkowników z chmurą, albo ręcznie utworzyć konta zarządzane w usłudze Azure AD.
 
 Aby uzyskać szczegółowe instrukcje dotyczące synchronizacji lokalnych użytkowników z usługą Azure AD, zobacz [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).
 
 Aby ręcznie tworzyć użytkowników w usłudze Azure AD i zarządzać nimi, zobacz [Zarządzanie użytkownikami w usłudze Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
-## Konfigurowanie rejestracji urządzeń
+## <a name="set-up-device-registration"></a>Konfigurowanie rejestracji urządzeń
 1. Zaloguj się w witrynie Azure Portal jako administrator.
 2. W lewym okienku wybierz pozycję **Active Directory**.
 3. Na karcie **Katalog** wybierz swój katalog.
@@ -46,13 +50,16 @@ Poniżej przedstawiono trzy możliwe scenariusze postępowania w celu umożliwie
 * Użytkownicy przyłączają do domeny urządzenia należącego do firmy do lokalnej usługi Active Directory, a następnie rozszerzają urządzenie o usługę Azure AD.
 * Użytkownicy dodają konta służbowe do systemu Windows na urządzeniu osobistym.
 
-## Dodatkowe informacje
+## <a name="additional-information"></a>Dodatkowe informacje
 * [System Windows 10 dla przedsiębiorstw: sposoby używania urządzenia do pracy](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Rozszerzanie możliwości chmury dla urządzeń z systemem Windows 10 za pomocą usługi Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Dowiedz się więcej na temat scenariuszy użycia funkcji Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Łączenie urządzeń przyłączonych do domeny z usługą Azure AD w celu korzystania z możliwości systemu Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Konfigurowanie funkcji Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -13,6 +13,8 @@
     
     ![Utwórz połączenie lokacja-lokacja](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

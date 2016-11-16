@@ -1,12 +1,12 @@
 ---
 title: Szyfrowanie maszyny wirtualnej platformy Azure | Microsoft Docs
-description: Ten dokument zawiera informacje ułatwiające szyfrowanie maszyny wirtualnej platformy Azure po odebraniu alertu z Centrum zabezpieczeń Azure.
+description: "Ten dokument zawiera informacje ułatwiające szyfrowanie maszyny wirtualnej platformy Azure po odebraniu alertu z Centrum zabezpieczeń Azure."
 services: security, security-center
 documentationcenter: na
 author: TomShinder
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+
 
 ---
-# Szyfrowanie maszyny wirtualnej platformy Azure
+# <a name="encrypt-an-azure-virtual-machine"></a>Szyfrowanie maszyny wirtualnej platformy Azure
 Jeśli masz maszyny wirtualne, które nie są szyfrowane, w Centrum zabezpieczeń Azure zostanie wyświetlony alert. Te alerty będą widoczne jako alerty o wysokiej ważności. Zaleca się zaszyfrowanie tych maszyn wirtualnych.
 
 ![Zalecenia dotyczące szyfrowania dysków](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
@@ -42,10 +46,10 @@ Istnieje wiele metod konfigurowania wymagań wstępnych i konfigurowania szyfrow
 > 
 > 
 
-## Instalowanie i konfigurowanie programu Azure PowerShell
+## <a name="install-and-configure-azure-powershell"></a>Instalowanie i konfigurowanie programu Azure PowerShell
 Na komputerze musi być zainstalowany program Azure PowerShell w wersji 1.2.1 lub nowszej. Artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](../powershell-install-configure.md) zawiera opis wszystkich kroków aprowizacji komputera do pracy z programem Azure PowerShell. Najprostszym rozwiązaniem jest użycie Instalatora platformy sieci Web wspomnianego w tym artykule. Nawet jeśli program Azure PowerShell jest już zainstalowany, zainstaluj go ponownie przy użyciu Instalatora platformy sieci Web, aby dysponować najnowszą wersją programu Azure PowerShell.
 
-## Uzyskanie i uruchomienie skryptu konfiguracji wymagań wstępnych szyfrowania dysków Azure
+## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Uzyskanie i uruchomienie skryptu konfiguracji wymagań wstępnych szyfrowania dysków Azure
 Skrypt konfiguracji wymagań wstępnych szyfrowania dysków Azure umożliwia skonfigurowanie wszystkich wymagań wstępnych dotyczących szyfrowania maszyn wirtualnych platformy Azure.
 
 1. Przejdź do strony GitHub, która zawiera [skrypt konfiguracji wymagań wstępnych szyfrowania dysków Azure](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -70,7 +74,7 @@ Zawartość na ekranie powinna wyglądać jak poniżej.
 
 Górne okienko jest nazywane „okienkiem skryptu”, a dolne okienko jest określane jako „konsola”. Terminy te będą używane w dalszej części artykułu.
 
-## Uruchamianie polecenia skryptu wymagań wstępnych szyfrowania dysków Azure w programie PowerShell
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Uruchamianie polecenia skryptu wymagań wstępnych szyfrowania dysków Azure w programie PowerShell
 Po uruchomieniu skryptu wymagań wstępnych szyfrowania dysków Azure zostaną wyświetlone zapytania o następujące informacje:
 
 * **Resource Group Name** (Nazwa grupy zasobów) — nazwa grupy zasobów, w której ma być umieszczony magazyn kluczy.  Jeśli grupa zasobów o podanej nazwie nie istnieje, zostanie utworzona nowa grupa zasobów o nazwie zgodnej z wprowadzoną. Jeśli masz już grupę zasobów, której chcesz użyć w tej subskrypcji, wprowadź nazwę tej grupy zasobów.
@@ -108,7 +112,7 @@ Dane wyjściowe skryptu powinny wyglądać podobnie jak poniżej:
 
 ![Dane wyjściowe programu PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
 
-## Szyfrowanie maszyny wirtualnej platformy Azure
+## <a name="encrypt-the-azure-virtual-machine"></a>Szyfrowanie maszyny wirtualnej platformy Azure
 Teraz można przystąpić do szyfrowania maszyny wirtualnej. Jeśli maszyna wirtualna znajduje się w tej samej grupie zasobów, co magazyn kluczy, możesz przejść do sekcji z opisem kroków szyfrowania. Jeśli jednak maszyna wirtualna nie znajduje się w tej samej grupie zasobów, co magazyn kluczy, musisz wprowadzić następujące polecenie w konsoli w programie PowerShell ISE:
 
 **$resourceGroupName = <’GZ_maszyny_wirtualnej’>**
@@ -122,7 +126,7 @@ Naciśnij klawisz **ENTER**. Powinna zostać wyświetlona nazwa grupy zasobów, 
 
 ![Dane wyjściowe programu PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
 
-### Kroki szyfrowania
+### <a name="encryption-steps"></a>Kroki szyfrowania
 Najpierw należy przekazać do programu PowerShell nazwę maszyny wirtualnej, którą chcesz zaszyfrować. W konsoli wpisz polecenie:
 
 **$vmName = <’nazwa_maszyny_wirtualnej’>**
@@ -167,7 +171,7 @@ W bloku **Dyski** wyświetlana będzie informacja, że opcja **Szyfrowanie** ma 
 
 ![Właściwości dysku](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym dokumencie opisano sposób szyfrowania maszyny wirtualnej platformy Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 
 * [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów na platformie Azure.
@@ -175,6 +179,9 @@ W tym dokumencie opisano sposób szyfrowania maszyny wirtualnej platformy Azure.
 * [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md) — odpowiedzi na najczęstsze pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

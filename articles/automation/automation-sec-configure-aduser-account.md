@@ -1,13 +1,13 @@
 ---
-title: Konfigurowanie konta użytkownika usługi Azure AD | Microsoft Docs
-description: W tym artykule opisano sposób konfigurowania poświadczeń dla konta użytkownika usługi Azure AD dla elementów Runbook w usłudze Azure Automation do uwierzytelniania w usługach ARM i ASM.
+title: "Konfigurowanie konta użytkownika usługi Azure AD | Microsoft Docs"
+description: "W tym artykule opisano sposób konfigurowania poświadczeń dla konta użytkownika usługi Azure AD dla elementów Runbook w usłudze Azure Automation do uwierzytelniania w usługach ARM i ASM."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-keywords: konto użytkownika usługi Azure Active Directory, azure service management, konto użytkownika usługi Azure AD
-
+keywords: "konto użytkownika usługi Azure Active Directory, azure service management, konto użytkownika usługi Azure AD"
+ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
+ms.openlocfilehash: db4eb96b3354d83864a7869c1fd08e9bb2884a1f
+
 
 ---
-# Uwierzytelnianie elementów Runbook w usłudze Azure Service Management i Resource Manager
+# <a name="authenticate-runbooks-with-azure-service-management-and-resource-manager"></a>Uwierzytelnianie elementów Runbook w usłudze Azure Service Management i Resource Manager
 W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto użytkownika usługi Azure AD dla elementów Runbook usługi Azure Automation działających w odniesieniu do zasobów usługi Azure Service Management (ASM) lub Azure Resource Manager (ARM).  To konto nadal jest obsługiwaną tożsamością uwierzytelniania dla elementów Runbook w ramach usługi ARM, jednak zalecane jest używanie nowego konta Uruchom jako platformy Azure.       
 
-## Tworzenie nowego użytkownika usługi Azure Active Directory
+## <a name="create-a-new-azure-active-directory-user"></a>Tworzenie nowego użytkownika usługi Azure Active Directory
 1. Zaloguj się do klasycznego portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
 2. Wybierz usługę **Active Directory**, a następnie wybierz nazwę katalogu organizacji.
 3. Wybierz kartę **Użytkownicy**, a następnie w obszarze poleceń wybierz polecenie **Dodaj użytkownika**.
@@ -34,13 +38,13 @@ W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto 
 11. Wybierz subskrypcję, którą ma zarządzać ten użytkownik.
 12. Wyloguj się z platformy Azure, a następnie zaloguj się ponownie przy użyciu właśnie utworzonego konta. Zostanie wyświetlony monit informujący o konieczności zmiany hasła użytkownika.
 
-## Tworzenie konta usługi Automation w klasycznym portalu Azure
+## <a name="create-an-automation-account-in-azure-classic-portal"></a>Tworzenie konta usługi Automation w klasycznym portalu Azure
 W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usługi Azure Automation w portalu Azure, które będzie używane z elementami Runbook zarządzającymi zasobami w trybie ASM i ARM.  
 
 > [!NOTE]
 > Kontami usługi Automation utworzonymi za pomocą klasycznego portalu Azure można zarządzać zarówno za pomocą klasycznego portalu Azure, jak i portalu Azure oraz zestawu poleceń cmdlet. Po utworzeniu konta nie ma znaczenia, jak są tworzone zasoby w ramach konta ani jak się nimi zarządza. Jeśli planujesz dalsze używanie klasycznego portalu Azure, użyj go zamiast portalu Azure do tworzenia kont usługi Automation.
-> 
-> 
+>
+>
 
 1. Zaloguj się do klasycznego portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
 2. Wybierz opcję **Automatyzacja**.
@@ -55,7 +59,7 @@ W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usług
 11. Na stronie **Definiowanie poświadczenia** wybierz opcję **Poświadczenie programu Windows PowerShell** z listy rozwijanej **Typ poświadczenia** i podaj nazwę dla poświadczenia.
 12. Na następnej stronie **Definiowanie poświadczenia** wpisz nazwę użytkownika utworzonego wcześniej konta użytkownika usługi AD w polu **Nazwa użytkownika** oraz hasło w polach **Hasło** i **Potwierdź hasło**. Kliknij przycisk **OK**, aby zapisać zmiany.
 
-## Tworzenie konta usługi Automation w portalu Azure
+## <a name="create-an-automation-account-in-the-azure-portal"></a>Tworzenie konta usługi Automation w portalu Azure
 W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usługi Azure Automation w portalu Azure, które będzie używane w odniesieniu do elementów Runbook zarządzających zasobami w trybie ARM.  
 
 1. Zaloguj się do portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
@@ -64,18 +68,18 @@ W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usług
 4. W bloku **Dodaj konto automatyzacji** w polu **Nazwa** wpisz nazwę nowego konta usługi Automation.
 5. Jeśli masz więcej niż jedną subskrypcję, jedną z nich określ dla nowego konta, podaj także nową lub istniejącą **grupę zasobów** i **lokalizację** centrum danych Azure.
 6. Wybierz wartość **Nie** dla opcji **Utwórz konto Uruchom jako platformy Azure**, a następnie kliknij przycisk **Utwórz**.  
-   
+
    > [!NOTE]
    > Jeśli wybrano opcję **Nie**, aby nie tworzyć konta Uruchom jako, w bloku **Dodaj konto automatyzacji** zostanie wyświetlony komunikat ostrzegawczy.  Gdy konto zostanie utworzone i przypisane do roli **Współautor** w subskrypcji, nie będzie miało odpowiedniej tożsamości uwierzytelniania w usłudze katalogowej subskrypcji i dlatego nie będzie miało dostępu do zasobów w ramach subskrypcji.  Pozwoli to zapobiec sytuacji, w której wszelkie elementy Runbook odwołujące się do tego konta miałyby możliwość uwierzytelniania i wykonywania zadań w odniesieniu do zasobów usługi ARM.
-   > 
-   > 
-   
+   >
+   >
+
     ![Ostrzeżenie podczas dodawania konta usługi Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 7. W trakcie tworzenia konta usługi Automation na platformie Azure postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
 
-Po zakończeniu tworzenia poświadczenia konieczne będzie utworzenie zasobu poświadczenia, aby skojarzyć konto usługi Automation z utworzonym wcześniej kontem użytkownika usługi AD.  Należy pamiętać, że utworzone zostało tylko konto usługi Automation i nie jest ono skojarzone z tożsamością uwierzytelniania.  Wykonaj czynności opisane w artykule [Credential assets in Azure Automation](automation-credentials.md#creating-a-new-credential) (Zasoby poświadczeń w usłudze Azure Automation) i wprowadź wartość dla zmiennej **username** w formacie **domena\użytkownik**.
+Po zakończeniu tworzenia poświadczenia konieczne będzie utworzenie zasobu poświadczenia, aby skojarzyć konto usługi Automation z utworzonym wcześniej kontem użytkownika usługi AD.  Należy pamiętać, że utworzone zostało tylko konto usługi Automation i nie jest ono skojarzone z tożsamością uwierzytelniania.  Wykonaj czynności opisane w artykule [Credential assets in Azure Automation](automation-credentials.md#creating-a-new-credential-asset) (Zasoby poświadczeń w usłudze Azure Automation) i wprowadź wartość dla zmiennej **username** w formacie **domena\użytkownik**.
 
-## Użycie poświadczeń w elemencie Runbook
+## <a name="use-the-credential-in-a-runbook"></a>Użycie poświadczeń w elemencie Runbook
 Można pobrać poświadczenie w elemencie Runbook za pomocą działania [Get-AutomationPSCredential](http://msdn.microsoft.com/library/dn940015.aspx), a następnie można go użyć za pomocą działania [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) w celu nawiązania połączenia z subskrypcją platformy Azure. Jeśli poświadczenie odnosi się do administratora wielu subskrypcji Azure, należy też użyć polecenia [Select-AzureSubscription](http://msdn.microsoft.com/library/dn495203.aspx), aby wskazać odpowiednią subskrypcję. Zostało to pokazane w poniższym przykładzie kodu programu Windows PowerShell, który występuje na początku większości elementów Runbook usługi Azure Automation.
 
     $cred = Get-AutomationPSCredential –Name "myuseraccount.onmicrosoft.com"
@@ -84,9 +88,11 @@ Można pobrać poświadczenie w elemencie Runbook za pomocą działania [Get-Aut
 
 Te wiersze należy powtórzyć po każdym [punkcie kontrolnym](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) w elemencie Runbook. Jeśli element Runbook został zawieszony, a następnie jego działanie zostało wznowione w ramach innego procesu roboczego, konieczne jest ponowienie uwierzytelniania.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Informacje o różnych typach elementów Runbook i krokach prowadzących do tworzenia własnych elementów Runbook można znaleźć w artykule [Azure Automation runbook types](automation-runbook-types.md) (Typy elementów Runbook usługi Azure Automation).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

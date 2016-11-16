@@ -1,30 +1,34 @@
 ---
-title: Chłodny magazyn platformy Azure dla obiektów blob | Microsoft Docs
-description: Warstwy magazynowania dla usługi Azure Blob Storage oferują efektywny kosztowo sposób magazynowania danych obiektu w oparciu o wzorce dostępu. Warstwa magazynu chłodnego została zoptymalizowana pod kątem danych, do których rzadziej uzyskuje się dostęp.
+title: "Chłodny magazyn platformy Azure dla obiektów blob | Microsoft Docs"
+description: "Warstwy magazynowania dla usługi Azure Blob Storage oferują efektywny kosztowo sposób magazynowania danych obiektu w oparciu o wzorce dostępu. Warstwa magazynu chłodnego została zoptymalizowana pod kątem danych, do których rzadziej uzyskuje się dostęp."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: michaelhauss
 manager: vamshik
 editor: tysonn
-
+ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: mihauss;robinsh
+ms.date: 10/18/2016
+ms.author: mihauss
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+
 
 ---
-# Azure Blob Storage: warstwy magazynu gorącego i chłodnego
-## Omówienie
+# <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: warstwy magazynu gorącego i chłodnego
+## <a name="overview"></a>Omówienie
 Usługa Azure Storage oferuje teraz dwie warstwy magazynowania dla magazynu obiektów blob, dzięki czemu możliwe jest najbardziej ekonomiczne przechowywanie danych w zależności od sposobu ich używania. **Warstwa magazynu gorącego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których często uzyskuje się dostęp. **Warstwa magazynu chłodnego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których rzadko uzyskuje się dostęp i które mają długi okres życia. Dla danych w warstwie magazynu chłodnego nie ma znaczenia nieco niższa dostępność, ale nadal wymagana jest wysoka trwałość oraz podobny czas dostępu i parametry przepływności jak w przypadku gorących danych. W przypadku chłodnych danych umowa SLA dotycząca nieco niższej dostępności i wyższe koszty dostępu to dopuszczalne wady, biorąc pod uwagę znacznie niższe koszty magazynowania.
 
 Obecnie ilość danych przechowywanych w chmurze rośnie w tempie wykładniczym. Aby zarządzać kosztami zwiększających się potrzeb dotyczących magazynowania, warto zorganizować dane na podstawie atrybutów, takich jak częstotliwość dostępu do danych i planowany okres przechowywania. Dane przechowywane w chmurze mogą być zupełnie różne pod względem sposobu ich generowania, przetwarzania i uzyskiwania do nich dostępu przez cały okres ich istnienia. Do niektórych danych często uzyskuje się dostęp. Są one również często modyfikowane w trakcie całego okresu istnienia. Do niektórych danych często uzyskuje się dostęp na początkowym etapie istnienia, a z czasem już zdecydowanie rzadziej. Niektóre dane pozostają nieużywane w chmurze i dostęp do nich uzyskuje się rzadko (lub w ogóle) po umieszczeniu ich w magazynie.
 
 Dla każdego z opisanych powyżej scenariuszy dostępu do danych istnieją korzyści ze zróżnicowanych warstw magazynowania zoptymalizowanych pod kątem określonego wzorca dostępu. Wraz z wprowadzeniem warstw magazynu gorącego i chłodnego usługa Azure Blob Storage zaspokaja tę potrzebę posiadania zróżnicowanych warstw magazynowania z oddzielnymi modelami cenowymi.
 
-## Konta usługi Blob Storage
+## <a name="blob-storage-accounts"></a>Konta usługi Blob Storage
 **Konta usługi Blob Storage** to specjalne konta magazynu służące do przechowywania danych bez struktury jako obiekty blob (obiekty) w usłudze Azure Storage. Za pomocą kont usługi Blob Storage można teraz wybierać między warstwą magazynu gorącego a warstwą magazynu chłodnego w celu przechowywania rzadziej używanych chłodnych danych z niższym kosztem magazynowania i częściej używanych gorących danych z niższym kosztem dostępu. Konta usługi Blob Storage są podobne do istniejących kont magazynu ogólnego przeznaczenia i udostępniają wszystkie używane obecnie funkcje doskonałej trwałości, dostępności, skalowalności i wydajności, łącznie z pełną spójnością interfejsu API na potrzeby blokowych obiektów blob i uzupełnialnych obiektów blob.
 
 > [!NOTE]
@@ -66,7 +70,7 @@ Dla aplikacji wymagających tylko magazynu blokowych obiektów blob lub magazynu
 > 
 > 
 
-## Porównanie warstw magazynowania
+## <a name="comparison-between-the-storage-tiers"></a>Porównanie warstw magazynowania
 W poniższej tabeli znajduje się porównanie dwóch warstw magazynowania:
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
@@ -118,7 +122,7 @@ W poniższej tabeli znajduje się porównanie dwóch warstw magazynowania:
 > 
 > 
 
-## Cennik i rozliczenia
+## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 Konta usługi Blob Storage używają nowego modelu cenowego opartego na warstwie magazynowania. W przypadku korzystania z konta usługi Blob Storage mają zastosowanie następujące zagadnienia dotyczące rozliczeń:
 
 * **Koszty usługi Storage**: oprócz ilości przechowywanych danych koszt przechowywania danych różni się w zależności od warstwy magazynowania. Koszt za każdy gigabajt jest niższy dla warstwy magazynu chłodnego niż dla warstwy magazynu gorącego.
@@ -133,14 +137,14 @@ Konta usługi Blob Storage używają nowego modelu cenowego opartego na warstwie
 > 
 > 
 
-## Szybki start
+## <a name="quick-start"></a>Szybki start
 W tej sekcji zostaną przedstawione następujące scenariusze obejmujące użycie witryny Azure Portal:
 
 * Tworzenie konta usługi Blob Storage.
 * Zarządzanie kontem usługi Blob Storage.
 
-### Korzystanie z witryny Azure Portal
-#### Tworzenie konta usługi Blob Storage za pośrednictwem witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Tworzenie konta usługi Blob Storage za pośrednictwem witryny Azure Portal
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W menu Centrum wybierz kolejno pozycje **Nowe** > **Dane i usługa Storage** > **Konto usługi Storage**.
 3. Wprowadź nazwę konta magazynu.
@@ -148,10 +152,10 @@ W tej sekcji zostaną przedstawione następujące scenariusze obejmujące użyci
     Nazwa musi być globalnie unikatowa, ponieważ jest używana jako część adresu URL, z którego korzysta się, aby uzyskać dostęp do obiektów na koncie magazynu.  
 4. Wybierz pozycję **Resource Manager** jako model wdrażania.
    
-    Magazynu warstwowego można używać tylko z kontami magazynu usługi Resource Manager — jest to zalecany model wdrażania dla nowych zasobów. Aby uzyskać więcej informacji, zobacz temat [Omówienie usługi Azure Resource Manager](../resource-group-overview.md).  
+    Magazynu warstwowego można używać tylko z kontami magazynu usługi Resource Manager — jest to zalecany model wdrażania dla nowych zasobów. Aby uzyskać więcej informacji, zobacz temat [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 5. Z listy rozwijanej Rodzaj konta wybierz pozycję **Blob Storage**.
    
-    Tutaj wybierasz typ konta magazynu. Magazyn warstwowy nie jest dostępny w magazynie ogólnego przeznaczenia — jest on dostępny tylko w ramach konta typu usługi Blob Storage.    
+    Tutaj wybierasz typ konta magazynu. Magazyn warstwowy nie jest dostępny w magazynie ogólnego przeznaczenia — jest on dostępny tylko w ramach konta typu usługi Blob Storage.     
    
     Należy zauważyć, że po wybraniu tej opcji warstwa wydajności jest ustawiona na Standardowa. Magazyn warstwowy nie jest dostępny z warstwą wydajności Premium.
 6. Wybierz opcję replikacji dla konta magazynu: **LRS**, **GRS** lub **RA-GRS**. Wartość domyślna to **RA-GRS**.
@@ -161,11 +165,11 @@ W tej sekcji zostaną przedstawione następujące scenariusze obejmujące użyci
     Aby uzyskać więcej informacji na temat opcji replikacji usługi Azure Storage, zobacz [Azure Storage replication](storage-redundancy.md) (Replikacja usługi Azure Storage).
 7. Wybierz odpowiednią dla Twoich potrzeb warstwę magazynu: ustaw pozycję **Warstwa dostępu** na wartość **Chłodna** lub **Gorąca**. Wartość domyślna to **Gorąca**.
 8. Wybierz subskrypcję, w ramach której chcesz utworzyć nowe konto magazynu.
-9. Określ nową grupę zasobów lub wybierz istniejącą grupę zasobów. Więcej informacji na temat grup zasobów znajduje się w temacie [Omówienie usługi Azure Resource Manager](../resource-group-overview.md).
+9. Określ nową grupę zasobów lub wybierz istniejącą grupę zasobów. Więcej informacji na temat grup zasobów znajduje się w temacie [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 10. Wybierz region dla swojego konta magazynu.
 11. Kliknij pozycję **Utwórz**, aby utworzyć konto magazynu.
 
-#### Dokonywanie zmiany warstwy magazynowania dla konta usługi Blob Storage za pośrednictwem witryny Azure Portal
+#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Dokonywanie zmiany warstwy magazynowania dla konta usługi Blob Storage za pośrednictwem witryny Azure Portal
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Aby przejść do konta magazynu, zaznacz pozycję Wszystkie zasoby, a następnie wybierz konto magazynu.
 3. W bloku Ustawienia kliknij pozycję **Konfiguracja**, aby wyświetlić i/lub zmienić konfigurację konta.
@@ -177,7 +181,7 @@ W tej sekcji zostaną przedstawione następujące scenariusze obejmujące użyci
 > 
 > 
 
-## Ocenianie i migrowanie do kont usługi Blob Storage
+## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Ocenianie i migrowanie do kont usługi Blob Storage
 Informacje przedstawione w tej sekcji mają ułatwić użytkownikom płynne przejście do kont usługi Blob Storage. Istnieją dwa scenariusze dotyczące użytkowników:
 
 * Masz już istniejące konto magazynu ogólnego przeznaczenia i chcesz ocenić jego zamianę na konto usługi Blob Storage z odpowiednio dobraną warstwą magazynowania.
@@ -185,13 +189,13 @@ Informacje przedstawione w tej sekcji mają ułatwić użytkownikom płynne prze
 
 W obu przypadkach najpierw należy oszacować koszt magazynowania i uzyskiwania dostępu do danych przechowywanych na koncie usługi Blob Storage i porównać go z obecnie ponoszonymi kosztami.
 
-### Ocenianie warstw dla konta usługi Blob Storage
+### <a name="evaluating-blob-storage-account-tiers"></a>Ocenianie warstw dla konta usługi Blob Storage
 Aby oszacować koszty magazynowania i uzyskiwania dostępu do danych przechowywanych na koncie usługi Blob Storage, konieczne będzie dokonanie oceny istniejącego wzorca użycia lub określenie w przybliżeniu oczekiwanego wzorca użycia. Ogólnie potrzebne są odpowiedzi na następujące pytania:
 
 * Wykorzystanie magazynu — jaka ilość danych jest magazynowana i jak ta ilość zmienia się w ciągu miesiąca?
 * Wzorzec dostępu do magazynu — jak dużo danych jest odczytywanych z konta i zapisywanych na nim (w tym nowych danych)? Ile transakcji jest przeprowadzanych w celu uzyskania dostępu do danych i jakiego rodzaju są to transakcje?
 
-#### Monitorowanie istniejących kont magazynu
+#### <a name="monitoring-existing-storage-accounts"></a>Monitorowanie istniejących kont magazynu
 Aby monitorować istniejące konta magazynu i gromadzić uzyskane dane, można skorzystać z usługi Azure Storage Analytics, która umożliwia rejestrowanie i dostarcza danych metryk dotyczących konta magazynu.
 Usługa Storage Analytics może przechowywać metryki, które obejmują zagregowane statystyki transakcji oraz dane dyspozycyjności o żądaniach do usługi Blob Storage, zarówno dla konta magazynu ogólnego przeznaczenia, jak i kont usługi Blob Storage.
 Te dane są przechowywane w dobrze znanych tabelach tego samego konta magazynu.
@@ -225,15 +229,15 @@ Aby uzyskać szczegółowe informacje na temat włączania, gromadzenia i wyświ
 > 
 > 
 
-#### Używanie metryk użycia do szacowania kosztów
-##### Koszty magazynowania
+#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Używanie metryk użycia do szacowania kosztów
+##### <a name="storage-costs"></a>Koszty magazynowania
 Najnowszy wpis w tabeli metryk pojemności *$MetricsCapacityBlob* z kluczem wiersza *„data”* pokazuje pojemność magazynu zajętą przez dane użytkownika.
 Najnowszy wpis w tabeli metryk pojemności *$MetricsCapacityBlob* z kluczem wiersza *„analytics”* pokazuje pojemność magazynu zajętą przez dzienniki analiz.
 
 Łączna pojemność zajęta przez dane użytkownika i dzienniki analiz (jeśli są włączone) może być użyta do szacowania kosztów magazynowania danych w ramach konta magazynu.
 Tę samą metodę można również użyć do szacowania kosztów magazynowania dla blokowych obiektów blob i uzupełnialnych obiektów blob w ramach konta magazynu ogólnego przeznaczenia.
 
-##### Koszty transakcji
+##### <a name="transaction-costs"></a>Koszty transakcji
 Suma *„TotalBillableRequests”* dla wszystkich wpisów interfejsu API w tabeli metryk transakcji wskazuje całkowitą liczbę transakcji dla tego konkretnego interfejsu API. *np.* całkowitą liczbę transakcji *„GetBlob”* w danym okresie można obliczyć, sumując liczbę płatnych żądań dla wszystkich wpisów z kluczem wiersza *'user;GetBlob'*.
 
 Aby oszacować koszty transakcji dla kont magazynu usługi Blob Storage, konieczne będzie podzielenie transakcji na trzy grupy, ponieważ mają one różne ceny.
@@ -244,7 +248,7 @@ Aby oszacować koszty transakcji dla kont magazynu usługi Blob Storage, koniecz
 
 W celu oszacowania kosztów transakcji dla kont magazynu ogólnego przeznaczenia należy zagregować wszystkie transakcje niezależnie od operacji/interfejsu API.
 
-##### Dostęp do danych i koszty transferu danych replikacji geograficznej
+##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Dostęp do danych i koszty transferu danych replikacji geograficznej
 Usługa Storage Analytics nie udostępnia informacji na temat ilości odczytywanych i zapisywanych danych na koncie magazynu, ale można je w przybliżeniu oszacować, analizując tabelę metryk transakcji.
 Suma *„TotalIngress”* dla wszystkich wpisów interfejsu API w tabeli metryk transakcji wskazuje całkowitą ilość danych przychodzących w bajtach dla tego konkretnego interfejsu API.
 Podobnie suma *„TotalEgress”* wskazuje całkowitą ilość danych wychodzących w bajtach.
@@ -261,21 +265,21 @@ Koszt transferu danych replikacji geograficznej dla kont magazynu usługi Blob S
 > 
 > 
 
-### Migrowanie istniejących danych
+### <a name="migrating-existing-data"></a>Migrowanie istniejących danych
 Konto usługi Blob Storage jest przeznaczone do przechowywania tylko blokowych obiektów blob i uzupełnialnych obiektów blob. Istniejące konta magazynu ogólnego przeznaczenia, które umożliwiają przechowywanie tabel, kolejek, plików, dysków, a także obiektów blob, nie mogą być konwertowane na konta usługi Blob Storage. Aby użyć warstw magazynowania, należy utworzyć nowe konta usługi Blob Storage i przeprowadzić migrację istniejących danych do nowo utworzonych kont.
 Poniższych metod można użyć do migrowania istniejących danych do kont usługi Blob Storage z lokalnych urządzeń magazynujących, od innych dostawców magazynu w chmurze lub z istniejących kont magazynu ogólnego przeznaczenia na platformie Azure:
 
-#### Narzędzie AzCopy
+#### <a name="azcopy"></a>Narzędzie AzCopy
 Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Narzędzia AzCopy można użyć do skopiowania danych na konto usługi Magazynu obiektów blob z istniejących kont magazynu ogólnego przeznaczenia lub do przekazania danych z lokalnych urządzeń magazynujących na konto Magazynu obiektów blob.
 
 Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md).
 
-#### Biblioteka przenoszenia danych
+#### <a name="data-movement-library"></a>Biblioteka przenoszenia danych
 Biblioteka przenoszenia danych usługi Azure Storage dla programu .NET jest oparta na podstawowym środowisku przenoszenia danych, w którym działa narzędzie AzCopy. Biblioteka została zaprojektowana na potrzeby przeprowadzania wysokowydajnych, niezawodnych i prostych operacji transferu danych w sposób podobny do narzędzia AzCopy. Pozwala to w pełni wykorzystać funkcje oferowane przez narzędzie AzCopy natywnie w aplikacji bez konieczności uruchamiania i monitorowania zewnętrznych wystąpień narzędzia AzCopy.
 
 Aby uzyskać więcej informacji, zobacz [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement) (Biblioteka przenoszenia danych usługi Magazyn Azure dla platformy .NET).
 
-#### Interfejs API REST lub biblioteka klienta
+#### <a name="rest-api-or-client-library"></a>Interfejs API REST lub biblioteka klienta
 Można utworzyć aplikację niestandardową służącej do migracji danych do konta Magazynu obiektów blob przy użyciu jednej z bibliotek klienta platformy Azure lub interfejsu API REST usług magazynu platformy Azure. Usługa Azure Storage udostępnia rozbudowane biblioteki dla wielu języków programowania i platform, takich jak .NET, Java, C++, Node.JS, PHP, Ruby i Python. Biblioteki klienta oferują zaawansowane możliwości, takie jak logika ponowień, rejestrowanie i przekazywanie równoległe. Możliwe jest również programowanie bezpośrednio przy użyciu interfejsu API REST, który może być wywoływany przez dowolny język programowania mający możliwość wysyłania żądań HTTP lub HTTPS.
 
 Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obiektów blob Azure](storage-dotnet-how-to-use-blobs.md).
@@ -285,14 +289,14 @@ Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obie
 > 
 > 
 
-## Często zadawane pytania
+## <a name="faqs"></a>Często zadawane pytania
 1. **Czy istniejące konta magazynu są nadal dostępne?**
    
     Tak, istniejące konta magazynu są nadal dostępne, a ich ceny i funkcje nie zostały zmienione.  W przypadku takich kont nie ma możliwości wyboru warstwy magazynowania, a funkcje obsługi warstw nie zostaną wprowadzone w przyszłości.
 2. **Kiedy i dlaczego należy rozpocząć używanie kont usługi Blob Storage?**
    
     Konta Magazynu obiektów blob są przeznaczone do przechowywania obiektów blob i umożliwiają wprowadzenie nowych funkcji związanych z obiektami blob. Idąc dalej, konta Magazynu obiektów blob to zalecany sposób przechowywania obiektów blob, ponieważ przyszłe możliwości, takie jak magazyn hierarchiczny czy obsługa warstw, zostaną wprowadzone na podstawie tego typu konta. Decyzja o migracji należy jednak do użytkownika i zależy od jego potrzeb biznesowych.
-3. **Czy mogę przekonwertować istniejące konto magazynu na konto Magazynu obiektów blob?**
+3. **Czy mogę przekonwertować istniejące konto magazynu na konto usługi Blob Storage?**
    
     Nie. Konto usługi Blob Storage to inny typ konta magazynu i należy utworzyć je na nowo, a następnie przeprowadzić migrację danych w sposób opisany powyżej.
 4. **Czy mogę przechowywać obiekty w obu warstwach magazynowania w ramach tego samego konta?**
@@ -309,28 +313,28 @@ Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obie
     Obiekty blob w gorącej warstwie magazynowania mają takie samo opóźnienie jak obiekty blob na kontach magazynu ogólnego przeznaczenia. Obiekty blob w chłodniej warstwie magazynowania mają podobne opóźnienie (w milisekundach) jak obiekty blob na kontach magazynu ogólnego przeznaczenia.
    
     Obiekty blob w chłodniej warstwie magazynowania będą miały nieco niższy poziom dostępności usług (umowa SLA) niż obiekty blob przechowywane w gorącej warstwie magazynowania. Aby uzyskać więcej szczegółów, zobacz [Magazyn — umowa SLA](https://azure.microsoft.com/support/legal/sla/storage).
-8. **Czy mogę przechowywać stronicowe obiekty i dyski maszyny wirtualnej na kontach Magazynu obiektów blob?**
+8. **Czy mogę przechowywać stronicowe obiekty i dyski maszyny wirtualnej na kontach usługi Blob Storage?**
    
     Konta Magazynu obiektów blob obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane. Dyski maszyny wirtualnej platformy Azure są oparte na stronicowych obiektach blob, w związku z czym konta Magazynu obiektów blob nie mogą być używane do przechowywania dysków maszyny wirtualnej. Istnieje jednak możliwość przechowywania kopii zapasowych dysków maszyny wirtualnej jako blokowych obiektów blob na kontach Magazynu obiektów blob.
-9. **Czy muszę zmienić swoje istniejące aplikacje, aby umożliwić korzystanie z kont Magazynu obiektów blob?**
+9. **Czy muszę zmienić swoje istniejące aplikacje, aby umożliwić korzystanie z kont usługi Blob Storage?**
    
     Konta Magazynu obiektów blob są w pełni spójne pod względem interfejsu API z kontami magazynu ogólnego przeznaczenia dla blokowych obiektów blob i uzupełnialnych obiektów blob. Twoja aplikacja powinna działać, dopóki korzysta z blokowych obiektów blob lub uzupełnialnych obiektów blob i używasz wersji 2014-02-14 lub nowszej [interfejsu API REST usług Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx). Jeśli używasz starszej wersji protokołu, musisz zaktualizować aplikację do nowej wersji, tak aby bezproblemowo współpracowała z oboma typami kont magazynu. Ogólnie zawsze zalecamy używanie najnowszej wersji niezależnie od używanego typu konta magazynu.
 10. **Czy w środowisku użytkownika zostaną wprowadzone zmiany?**
     
     Konta usługi Blob Storage są bardzo podobne do kont magazynu ogólnego przeznaczenia służących do przechowywania blokowych obiektów blob oraz uzupełnialnych obiektów blob i obsługują wszystkie kluczowe funkcje usługi Azure Storage, w tym funkcje związane z wysoką trwałością i dostępnością, skalowalnością, wydajnością i zabezpieczeniami. Wszystkie inne elementy niż opisane powyżej funkcje oraz ograniczenia dotyczące kont usługi Blob Storage i ich warstw magazynowania pozostają takie same.
 
-## Następne kroki
-### Ocena konta Magazynu obiektów blob
-[Sprawdzanie dostępności kont Magazynu obiektów blob według regionu](https://azure.microsoft.com/regions/#services)
+## <a name="next-steps"></a>Następne kroki
+### <a name="evaluate-blob-storage-accounts"></a>Ocena konta Magazynu obiektów blob
+[Sprawdzanie dostępności kont usługi Blob Storage według regionu](https://azure.microsoft.com/regions/#services)
 
 [Ocena użycia bieżących kont magazynu przez włączenie metryk usługi Azure Storage](storage-enable-and-view-metrics.md)
 
-[Sprawdzanie cen Magazynu obiektów blob według regionu](https://azure.microsoft.com/pricing/details/storage/)
+[Sprawdzanie cen usługi Blob Storage według regionu](https://azure.microsoft.com/pricing/details/storage/)
 
 [Sprawdzanie ceny transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-### Rozpoczynanie korzystania z kont Magazynu obiektów blob
-[Rozpoczynanie pracy z Magazynem obiektów blob Azure](storage-dotnet-how-to-use-blobs.md)
+### <a name="start-using-blob-storage-accounts"></a>Rozpoczynanie korzystania z kont Magazynu obiektów blob
+[Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md)
 
 [Przenoszenie danych do i z usługi Azure Storage](storage-moving-data.md)
 
@@ -338,6 +342,9 @@ Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obie
 
 [Przeglądaj i eksploruj konta magazynu](http://storageexplorer.com/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

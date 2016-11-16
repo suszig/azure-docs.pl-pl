@@ -1,6 +1,6 @@
 
 
-## Łączenie z bazą danych SQL platformy Azure za pomocą uwierzytelniania programu SQL Server
+## <a name="connect-to-azure-sql-database-using-sql-server-authentication"></a>Łączenie z bazą danych SQL platformy Azure za pomocą uwierzytelniania programu SQL Server
 Poniższe kroki pokazują, jak nawiązać połączenie z serwerem i bazą danych SQL platformy Azure przy użyciu programu SSMS. Jeśli nie masz serwera i bazy danych, a chcesz je utworzyć, zobacz temat [Tworzenie bazy danych SQL w ciągu kilku minut](../articles/sql-database/sql-database-get-started.md).
 
 1. Aby uruchomić program SSMS, w polu wyszukiwania systemu Windows wpisz nazwę **Microsoft SQL Server Management Studio**, a następnie kliknij aplikację klasyczną.
@@ -12,7 +12,7 @@ Poniższe kroki pokazują, jak nawiązać połączenie z serwerem i bazą danych
    * **Nazwa użytkownika**: wprowadź nazwę użytkownika z dostępem do bazy danych na serwerze (na przykład nazwę *administratora serwera* podaną podczas tworzenia serwera). 
    * **Hasło**: wprowadź hasło dla określonego użytkownika (na przykład *hasło* ustawione podczas tworzenia serwera).
      
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
+       ![SQL Server Management Studio: łączenie z serwerem usługi SQL Database](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 3. Kliknij przycisk **Połącz**.
 4. Domyślnie nowe serwery nie mają określonych [reguł zapory](../articles/sql-database/sql-database-firewall-configure.md), dlatego klienci mają zablokowaną możliwość nawiązywania połączenia. Jeśli serwer nie ma jeszcze reguły zapory umożliwiającej nawiązywanie połączenia z określonego adresu IP, program SSMS wysyła monit o utworzenie reguły zapory na poziomie serwera.
    
@@ -23,7 +23,7 @@ Poniższe kroki pokazują, jak nawiązać połączenie z serwerem i bazą danych
    
      ![nowa zapora poziomu serwera](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
 
-## Rozwiązywanie problemów z błędami połączeń
+## <a name="troubleshoot-connection-failures"></a>Rozwiązywanie problemów z błędami połączeń
 Najbardziej typowymi przyczynami błędów połączenia są błędy w nazwie serwera i problemy z połączeniem sieciowym. Należy pamiętać, że <*nazwa_serwera*> jest nazwą serwera, a nie bazy danych, poza tym należy podać w pełni kwalifikowaną nazwę serwera: `<servername>.database.windows.net`
 
 Sprawdź również, czy nazwa użytkownika i hasło nie zawierają żadnych literówek ani dodatkowych spacji (dla nazwy użytkownika wielkość liter nie ma znaczenia, ale dla hasła już tak). 
@@ -34,6 +34,8 @@ Problemy z połączeniem sieciowym także mogą powodować błędy połączeń i
 
 Szczegóły oraz więcej informacji na temat problemów z łącznością zawiera temat [Rozwiązywanie i diagnozowanie błędów połączeń SQL oraz krótkotrwałych błędów bazy danych SQL i zapobieganie im](../articles/sql-database/sql-database-connectivity-issues.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

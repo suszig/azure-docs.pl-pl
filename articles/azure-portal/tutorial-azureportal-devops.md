@@ -1,12 +1,12 @@
 ---
 title: 'Samouczek: metodyka DevOps w witrynie Azure Portal | Microsoft Docs'
-description: Informacje o różnych przepływach pracy metodyki DevOps w witrynie Azure Portal.
+description: "Informacje o różnych przepływach pracy metodyki DevOps w witrynie Azure Portal."
 services: azure-portal
-documentationcenter: ''
+documentationcenter: 
 author: mlearned
 manager: douge
 editor: mlearned
-
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+
 
 ---
-# Samouczek: metodyka DevOps w witrynie Azure Portal
+# <a name="tutorial-devops-with-the-azure-portal"></a>Samouczek: metodyka DevOps w witrynie Azure Portal
 Platforma Azure zawiera wiele elastycznych przepływów pracy metodyki DevOps. Niniejszy samouczek zawiera informacje na temat możliwości witryny Azure Portal, które pozwalają opracowywać, testować, wdrażać i monitorować uruchomione aplikacje oraz zarządzać nimi, a także rozwiązywać problemy z nimi związane. W tym samouczku omówiono następujące kwestie:
 
 1. Tworzenie aplikacji sieci Web i włączanie ciągłego wdrażania
@@ -24,13 +28,13 @@ Platforma Azure zawiera wiele elastycznych przepływów pracy metodyki DevOps. N
 3. Monitorowanie aplikacji i rozwiązywanie problemów z nią związanych
 4. Ogólne zadania zarządzania aplikacją
 
-## Tworzenie aplikacji sieci Web i włączanie ciągłego wdrażania
+## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Tworzenie aplikacji sieci Web i włączanie ciągłego wdrażania
 Aplikacja sieci Web zostanie utworzona za pomocą usługi [Azure App Service](https://azure.microsoft.com/services/app-service/), która będzie używana w pozostałej części tego samouczka. Na początku zostanie włączone ciągłe wdrażanie z repozytorium kodu źródłowego do uruchomionego środowiska platformy Azure.
 
 1. Zaloguj się do witryny Azure Portal.
 2. Wybierz kolejno pozycje **App Services** &gt; **ikona Dodaj**, a następnie wprowadź nazwę, wybierz subskrypcję i utwórz nową grupę zasobów, która posłuży jako kontener dla usługi.
    
-   Grupy zasobów umożliwiają zarządzanie różnymi aspektami rozwiązania, takimi jak rozliczenia, wdrożenia i monitorowanie, w ramach pojedynczej grupy za pośrednictwem usługi [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+   Grupy zasobów umożliwiają zarządzanie różnymi aspektami rozwiązania, takimi jak rozliczenia, wdrożenia i monitorowanie, w ramach pojedynczej grupy za pośrednictwem usługi [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Po chwil zostanie utworzona usługa aplikacji. Poświęć kilka minut na zapoznanie się z opcjami menu dla tej usługi, które są dostępne w portalu.
@@ -79,7 +83,7 @@ Aplikacja sieci Web zostanie utworzona za pomocą usługi [Azure App Service](ht
     
     Włączanie ciągłego wdrażania w witrynie Azure Portal jest proste. Możesz również tworzyć bardziej złożone potoki tworzenia wersji i korzystać z wielu innych rozwiązań, takich jak systemy automatycznej kompilacji i zarządzania wersjami, umożliwiających wdrażanie na platformie Azure istniejących systemów kontroli źródła i ciągłej integracji.
 
-## Tworzenie i testowanie aplikacji
+## <a name="develop-and-test-an-app"></a>Tworzenie i testowanie aplikacji
 Teraz w bazie kodu zostaną wprowadzone pewne zmiany, które zostaną szybko wdrożone. Zostanie również skonfigurowane testowanie wydajności aplikacji sieci Web.
 
 1. W witrynie Azure Portal w okienku nawigacji wybierz pozycję App Services i znajdź swoją usługę aplikacji.
@@ -145,7 +149,7 @@ Teraz w bazie kodu zostaną wprowadzone pewne zmiany, które zostaną szybko wdr
     
     ![image36][image36]
 
-## Monitorowanie aplikacji i rozwiązywanie problemów z nią związanych
+## <a name="monitoring-and-troubleshooting-an-app"></a>Monitorowanie aplikacji i rozwiązywanie problemów z nią związanych
 Platforma Azure udostępnia wiele możliwości monitorowania uruchomionych aplikacji i rozwiązywania problemów z nimi związanych.
 
 1. W witrynie Azure Portal przejdź do utworzonej aplikacji sieci Web i wybierz pozycję Narzędzia.
@@ -176,7 +180,7 @@ Platforma Azure udostępnia wiele możliwości monitorowania uruchomionych aplik
    ![image44][image44]
 7. Przewiń w dół do kategorii funkcji i wybierz pozycję Dzienniki diagnostyczne.
    
-    ![image45][image45]
+      ![image45][image45]
 8. Zostaną wyświetlone różne opcje rejestrowania. Włącz opcję Rejestrowanie serwera sieci Web i kliknij przycisk Zapisz.
    
    ![image46][image46]
@@ -208,7 +212,7 @@ Platforma Azure udostępnia wiele możliwości monitorowania uruchomionych aplik
     
     Witryna Azure Portal zapewnia komfort korzystania z zaawansowanych i dobrze znanych narzędzi, które ułatwiają monitorowanie uruchomionych aplikacji i rozwiązywanie problemów z nimi. Ponadto możesz szybko podejmować odpowiednie działania i wykonywać takie zadania, jak odtwarzanie procesów, włączanie i wyłączanie zbierania różnych danych, a także integracja z profesjonalną pomocą techniczną firmy Microsoft.
 
-## Ogólne zarządzanie aplikacjami
+## <a name="general-application-management"></a>Ogólne zarządzanie aplikacjami
 Zarządzanie aplikacjami często obejmuje szeroką gamę działań, takich jak konfigurowanie strategii tworzenia kopii zapasowych, wdrażanie dostawców tożsamości i zarządzanie nimi oraz konfigurowanie kontroli dostępu opartej na rolach. Podobnie jak w przypadku innych funkcji metodyki DevOps, platforma Azure pozwala zintegrować te zadania bezpośrednio z portalem.
 
 1. Aby zapobiec utracie danych aplikacji sieci Web, musisz skonfigurować kopie zapasowe. Przejdź do obszaru Ustawienia swojej aplikacji sieci Web.
@@ -254,11 +258,11 @@ Zarządzanie aplikacjami często obejmuje szeroką gamę działań, takich jak k
     
      ![image69][image69]
 
-## Podsumowanie
+## <a name="summary"></a>Podsumowanie
 W tym samouczku przedstawiono niektóre możliwości udostępniane przez platformę Azure: szybkie włączanie ciągłego wdrażania aplikacji sieci Web, wykonywanie różnych działań w zakresie tworzenia i testowania aplikacji, monitorowanie uruchomionej aplikacji i rozwiązywanie problemów z nią związanych oraz zarządzanie kluczowymi strategiami, takimi jak odzyskiwanie awaryjne, zarządzanie tożsamościami i kontrola dostępu oparta na rolach. Platforma Azure umożliwia integrację tych przepływów pracy metodyki DevOps, pozwalając użytkownikom pracować wydajnie dzięki możliwości korzystania z informacji kontekstowych dotyczących wykonywanego zadania.
 
-## Następne kroki
-* Usługa Azure Resource Manager pełni ważną rolę w procesie włączania metodyki DevOps na platformie Azure.  Aby dowiedzieć się więcej, zobacz artykuł [Omówienie usługi Azure Resource Manager](../resource-group-overview.md).
+## <a name="next-steps"></a>Następne kroki
+* Usługa Azure Resource Manager pełni ważną rolę w procesie włączania metodyki DevOps na platformie Azure.  Aby dowiedzieć się więcej, zobacz artykuł [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 * Aby dowiedzieć się więcej o wdrażaniu w usłudze Azure App Service, zobacz artykuł [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md) (Wdrażanie aplikacji w usłudze Azure App Service).
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
@@ -333,6 +337,6 @@ W tym samouczku przedstawiono niektóre możliwości udostępniane przez platfor
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

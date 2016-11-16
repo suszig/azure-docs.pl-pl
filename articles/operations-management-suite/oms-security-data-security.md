@@ -1,12 +1,12 @@
 ---
-title: Operations Management Suite Security and Audit Solution Data Security | Microsoft Docs
-description: This document explains how data is managed and safeguarded in Operations Management Suite Security and Audit Solution.
+title: "Bezpieczeństwo danych w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite | Microsoft Docs"
+description: "Ten dokument przedstawia sposób zarządzania danymi i ich ochrony w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 9cdf7deb-2a30-4672-b89f-71179ee8326a
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -14,46 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d81d3ff9c91d0056c69f5f190d3dfaa507c1e340
+
 
 ---
-# Operations Management Suite Security and Audit solution data security
-To help customers prevent, detect, and respond to threats, [Operations Management Suite  (OMS) Security and Audit Solution](operations-management-suite-overview.md) collects and processes data about your resources, which includes:
+# <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Bezpieczeństwo danych w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
+Aby ułatwić klientom zapobieganie zagrożeniom, wykrywanie ich i reagowanie na nie, [rozwiązanie Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS)](operations-management-suite-overview.md) zbiera i przetwarza dane dotyczące zasobów, takie jak:
 
-* Security event log
-* Event Tracing for Windows (ETW) events
-* AppLocker auditing events
-* Windows Firewall log
-* Advanced Threat Analytics events
-* Results of baseline assessment
-* Results of antimalware assessment
-* Results of update/patch assessment
-* Syslogs streams that are explicitly enabled on the agent
+* Dziennik zdarzeń zabezpieczeń
+* Zdarzenia funkcji Śledzenie zdarzeń systemu Windows (ETW)
+* Zdarzenia inspekcji funkcji AppLocker
+* Dziennik zapory systemu Windows
+* Zdarzenia rozwiązania Advanced Threat Analytics
+* Wyniki oceny linii bazowej
+* Wyniki oceny oprogramowania chroniącego przed złośliwym kodem
+* Wyniki oceny aktualizacji/poprawek
+* Strumienie dzienników systemowych jawnie włączone dla agenta
 
-We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
-This article explains how data is managed and safeguarded in OMS Security and Audit Solution.
+Firma Microsoft zobowiązuje się chronić poufność i bezpieczeństwo tych danych. Firma Microsoft przestrzega surowych wymogów z zakresu zabezpieczeń i zgodności — od kodu po działanie usługi.
+Ten artykuł przedstawia sposób zarządzania danymi i ich ochrony w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie OMS.
 
-## Data sources
-OMS Security and Audit Solution analyze data from your Virtual Machines and physical computers where the OMS Agent is installed. OMS Security and Audit Solution can collect configuration information about security events, such as Windows event, audit logs, IIS logs and syslog messages. Examples of such data are: operating system type and version, running processes, machine name, IP addresses, logged in user, and tenant ID.  
+## <a name="data-sources"></a>Źródła danych
+Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS analizuje dane z maszyn wirtualnych i fizycznych komputerów, na których jest zainstalowany Agent pakietu OMS. Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS może zbierać informacje o konfiguracji dotyczące zdarzeń zabezpieczeń, takich jak zdarzenia systemu Windows, dzienniki inspekcji, dzienniki usług IIS i komunikaty dziennika systemowego. Przykłady takich danych to: typ i wersja systemu operacyjnego, uruchomione procesy, nazwa maszyny, adresy IP, zalogowany użytkownik i identyfikator dzierżawy.  
 
-## Data protection
-**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. 
+## <a name="data-protection"></a>Ochrona danych
+**Podział danych**: dane są logicznie oddzielone dla każdego składnika w całej usłudze. Wszystkie dane są otagowane informacjami o organizacji. To tagowanie jest obecne przez cały cykl życia danych i jest wymuszane w każdej warstwie usługi. 
 
-**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to your own data.
+**Dostęp do danych**: aby móc przedstawić zalecenia w zakresie zabezpieczeń i zbadać potencjalne zagrożenia dla bezpieczeństwa, personel firmy Microsoft może uzyskać dostęp do informacji zbieranych lub analizowanych przez usługi. Stosujemy się do [warunków korzystania z usług Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) i [zasad zachowania poufności informacji](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), które stanowią, że firma Microsoft nie będzie używać danych klienta ani informacji pochodnych do żadnych celów reklamowych ani zbliżonych celów komercyjnych. Aby móc przedstawić zalecenia w zakresie zabezpieczeń i zbadać potencjalne zagrożenia dla bezpieczeństwa, personel firmy Microsoft może uzyskać dostęp do informacji zbieranych lub analizowanych przez usługi. Danych klienta używamy tylko w razie potrzeby w celu świadczenia usług platformy Azure, włączając w to cele zgodne ze świadczeniem tych usług. Klient zachowuje wszystkie prawa do swoich danych.
 
-**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Użycie danych**: firma Microsoft używa wzorców i analizy zagrożeń obecnych w wielu dzierżawach, aby zwiększyć możliwości wykrywania zagrożeń i zapobiegania im — robimy to zgodnie ze zobowiązaniami co do prywatności opisanymi w [zasadach zachowania poufności informacji](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
 > [!NOTE]
-> Data location is configured at the OMS workspace level, during the workspace creation, which is part of the initial OMS Security and Audit configuration process.
+> Lokalizacja danych jest konfigurowana na poziomie obszaru roboczego pakietu OMS, podczas tworzenia obszaru roboczego. Proces ten jest częścią początkowej konfiguracji rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS.
 > 
 > 
 
-## See also
-In this document, you learned how data is managed and safeguarded in OMS. To learn more about OMS Security and Audit solution, see:
+## <a name="see-also"></a>Zobacz też
+W tym dokumencie przedstawiono sposób zarządzania danymi i ich ochrony w pakiecie OMS. Więcej informacji na temat rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS zawierają artykuły:
 
-* [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
-* [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
-* [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
+* [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)
+* [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md)
+* [Monitorowanie zasobów w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

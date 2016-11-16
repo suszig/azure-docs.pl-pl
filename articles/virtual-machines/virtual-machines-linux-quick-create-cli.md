@@ -1,41 +1,46 @@
 ---
-title: Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu interfejsu wiersza polecenia | Microsoft Docs
-description: Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu interfejsu wiersza polecenia.
+title: "Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu interfejsu wiersza polecenia | Microsoft Docs"
+description: "Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu interfejsu wiersza polecenia."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: vlivech
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/08/2016
+ms.date: 10/27/2016
 ms.author: v-livech
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd75ab9a37dfc75679427a16c3ecb36adb1c9925
+
 
 ---
-# Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu interfejsu wiersza polecenia
+# <a name="create-a-linux-vm-on-azure-by-using-the-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu interfejsu wiersza polecenia
 Ten artykuł pokazuje, jak szybko wdrożyć maszynę wirtualną systemu Linux na platformie Azure przy użyciu polecenia `azure vm quick-create` w interfejsie wiersza polecenia (CLI) platformy Azure. Polecenie `quick-create` umożliwia wdrożenie maszyny wirtualnej wewnątrz podstawowej, bezpiecznej infrastruktury, której można używać do prototypowania lub szybkiego testowania koncepcji. Wykonanie czynności opisanych w tym artykule wymaga:
 
 * konta platformy Azure ([skorzystaj z bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/));
-* dostępu do [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) (po zalogowaniu przy użyciu `azure login`
-* Interfejs wiersza polecenia platformy Azure *musi działać w* trybie usługi Azure Resource Manager `azure config mode arm`
+* dostępu do [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) (po zalogowaniu przy użyciu `azure login`).
+* Interfejs wiersza polecenia platformy Azure *musi działać w* trybie usługi Azure Resource Manager`azure config mode arm`.
 
 Szybkie wdrożenie maszyny wirtualnej z systemem Linux jest możliwe również przy użyciu witryny [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
-## Szybkie polecenia
+## <a name="quick-commands"></a>Szybkie polecenia
 Poniższy przykład pokazuje, jak wdrożyć maszynę Wirtualną CoreOS i dołączyć klucz Secure Shell (SSH) (argumenty mogą się różnić).
 
-```bash
-azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
+```azurecli
+azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 ```
 
-W poniższych sekcjach opisano polecenie i jego wymagania w systemie Ubuntu Server 14.04 LTS jako dystrybucji systemu Linux.  
+## <a name="detailed-walkthrough"></a>Szczegółowy przewodnik
+W następującym przewodniku krok po kroku wdrażana jest maszyna wirtualna z systemem UbuntuLTS. Przy każdym kroku wyjaśnione jest, co dany krok robi.
 
-## Aliasy szybkiego tworzenia maszyny wirtualnej
-Szybkim sposobem wyboru dystrybucji jest użycie aliasów interfejsu wiersza polecenia (CLI) platformy Azure przypisanych najbardziej typowym dystrybucjom systemu operacyjnego. Poniższa tabela zawiera listę aliasów dystrybucji (stan dla interfejsu wiersza polecenia platformy Azure w wersji 0.10). Wszystkie wdrożenia, które używają polecenia `quick-create`, są domyślnie maszynami wirtualnymi na dyskach półprzewodnikowych (SSD), zapewniających szybszą aprowizację oraz wyższą wydajność dostępu do dysku. (Te aliasy stanowią niewielką część dystrybucji dostępnych na platformie Azure. Więcej obrazów można znaleźć w witrynie Azure Marketplace, [wyszukując obraz](virtual-machines-linux-cli-ps-findimage.md) lub [przesyłając własny obraz niestandardowy](virtual-machines-linux-create-upload-generic.md)).
+## <a name="vm-quickcreate-aliases"></a>Aliasy szybkiego tworzenia maszyny wirtualnej
+Szybkim sposobem wyboru dystrybucji jest użycie aliasów interfejsu wiersza polecenia (CLI) platformy Azure przypisanych najbardziej typowym dystrybucjom systemu operacyjnego. Poniższa tabela zawiera listę aliasów dystrybucji (stan dla interfejsu wiersza polecenia platformy Azure w wersji 0.10). Wszystkie wdrożenia, które używają polecenia `quick-create`, są domyślnie maszynami wirtualnymi na dyskach półprzewodnikowych (SSD), zapewniających szybszą aprowizację oraz wyższą wydajność dostępu do dysku. (Te aliasy stanowią niewielką część dystrybucji dostępnych na platformie Azure. Więcej obrazów można znaleźć w witrynie Azure Marketplace, [wyszukując obraz w programie PowerShell](virtual-machines-linux-cli-ps-findimage.md) lub [w sieci Web](https://azure.microsoft.com/marketplace/virtual-machines/) albo [przesyłając własny obraz niestandardowy](virtual-machines-linux-create-upload-generic.md)).
 
 | Alias | Wydawca | Oferta | SKU | Wersja |
 |:--- |:--- |:--- |:--- |:--- |
@@ -48,7 +53,6 @@ Szybkim sposobem wyboru dystrybucji jest użycie aliasów interfejsu wiersza pol
 
 W poniższych sekcjach użyto aliasu `UbuntuLTS` dla opcji **ImageURN** (`-Q`) w celu wdrożenia w systemie Ubuntu 14.04.4 LTS Server.
 
-## Szczegółowy przewodnik
 W poprzednim przykładzie polecenie `quick-create` wywoływało tylko flagę `-M` w celu identyfikacji klucza publicznego SSH do przesłania po wyłączeniu haseł SSH, więc zostanie wyświetlony monit o wprowadzenie następujących argumentów:
 
 * nazwę grupy zasobów (dla pierwszej grupy zasobów platformy Azure jest zazwyczaj odpowiedni dowolny ciąg)
@@ -59,23 +63,23 @@ W poprzednim przykładzie polecenie `quick-create` wywoływało tylko flagę `-M
 
 W poniższym przykładzie określono wszystkie wartości, dzięki czemu żadne dalsze monity nie są wymagane. Plik klucza publicznego w formacie ssh-rsa `~/.ssh/id_rsa.pub` działa prawidłowo.
 
-```bash
+```azurecli
 azure vm quick-create \
--g exampleResourceGroup \
--n exampleVMName \
--l westus \
--y Linux \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub \
--Q UbuntuLTS
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --admin-username myAdminUser \
+  --ssh-public-file ~/.ssh/id_rsa.pub \
+  --image-urn UbuntuLTS
 ```
 
 Dane wyjściowe powinny wyglądać podobnie do następującego bloku:
 
-```bash
+```azurecli
 info:    Executing command vm quick-create
 + Listing virtual machine sizes available in the location "westus"
-+ Looking up the VM "exampleVMName"
++ Looking up the VM "myVM"
 info:    Verifying the public key SSH file: /Users/ahmet/.ssh/id_rsa.pub
 info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
@@ -95,8 +99,8 @@ info:    PublicIP with given name "examp-westu-1633070839-pip" not found, creati
 + Creating NIC "examp-westu-1633070839-nic"
 + Looking up the NIC "examp-westu-1633070839-nic"
 + Looking up the storage account clisto1710997031examplev
-+ Creating VM "exampleVMName"
-+ Looking up the VM "exampleVMName"
++ Creating VM "myVM"
++ Looking up the VM "myVM"
 + Looking up the NIC "examp-westu-1633070839-nic"
 + Looking up the public ip "examp-westu-1633070839-pip"
 data:    Id                              :/subscriptions/2<--snip-->d/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMName
@@ -124,8 +128,8 @@ data:        Vhd:
 data:          Uri                       :https://cli16330708391032639673.blob.core.windows.net/vhds/clic7fadb847357e9cf-os-1473374894359.vhd
 data:
 data:    OS Profile:
-data:      Computer Name                 :exampleVMName
-data:      User Name                     :exampleAdminUser
+data:      Computer Name                 :myVM
+data:      User Name                     :myAdminUser
 data:      Linux Configuration:
 data:        Disable Password Auth       :true
 data:
@@ -148,10 +152,11 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
+## <a name="log-in-to-the-new-vm"></a>Logowanie się do nowej maszyny wirtualnej
 Zaloguj się do maszyny wirtualnej, używając publicznego adresu IP podanego w danych wyjściowych. Można również użyć podanej w pełni kwalifikowanej nazwy domeny (FQDN):
 
 ```bash
-ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
+ssh -i ~/.ssh/id_rsa.pub ahmet@138.91.247.29
 ```
 
 Proces logowania powinien wyglądać podobnie do następującego bloku danych wyjściowych:
@@ -185,18 +190,21 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-exampleAdminUser@exampleVMName:~$
+myAdminUser@myVM:~$
 ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Polecenie `azure vm quick-create` jest szybkim sposobem wdrożenia maszyny wirtualnej, dzięki któremu możesz zalogować się do powłoki bash i rozpocząć pracę. Jednak użycie polecenia `vm quick-create` nie zapewnia rozbudowanej kontroli ani nie umożliwia tworzenia bardziej złożonego środowiska.  Aby wdrożyć maszynę wirtualną z systemem Linux dostosowaną do swojej infrastruktury, możesz skorzystać z dowolnego z poniższych artykułów:
 
-* [Use an Azure Resource Manager template to create a specific deployment (Tworzenie konkretnego wdrożenia za pomocą szablonu usługi Azure Resource Manager)](virtual-machines-linux-cli-deploy-templates.md)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly (Tworzenie niestandardowego środowiska dla maszyny wirtualnej z systemem Linux poprzez bezpośrednie użycie poleceń interfejsu wiersza polecenia platformy Azure)](virtual-machines-linux-create-cli-complete.md)
-* [Create an SSH Secured Linux VM on Azure using templates (Tworzenie maszyny wirtualnej z systemem Linux zabezpieczonej przez protokół SSH na platformie Azure przy użyciu szablonów)](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Tworzenie konkretnego wdrożenia za pomocą szablonu usługi Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md)
+* [Tworzenie niestandardowego środowiska dla maszyny wirtualnej z systemem Linux poprzez bezpośrednie użycie poleceń interfejsu wiersza polecenia platformy Azure](virtual-machines-linux-create-cli-complete.md)
+* [Tworzenie maszyny wirtualnej z systemem Linux zabezpieczonej przez protokół SSH na platformie Azure przy użyciu szablonów](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 Można również [użyć sterownika platformy Azure `docker-machine` z różnymi poleceniami do szybkiego utworzenia maszyny wirtualnej systemu Linux jako hosta docker](virtual-machines-linux-docker-machine.md).
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

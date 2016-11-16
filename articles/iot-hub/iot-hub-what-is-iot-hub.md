@@ -1,12 +1,12 @@
 ---
-title: Omówienie usługi Azure IoT Hub | Microsoft Docs
-description: 'Omówienie usługi Azure IoT Hub: czym jest centrum IoT, łączność urządzeń, wzorce komunikacji w Internecie rzeczy oraz wzorzec komunikacji korzystającej z usług'
+title: "Omówienie usługi Azure IoT Hub | Microsoft Docs"
+description: "Omówienie usługi Azure IoT Hub: czym jest centrum IoT, łączność urządzeń, wzorce komunikacji w Internecie rzeczy oraz wzorzec komunikacji korzystającej z usług"
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9e718ceadc229d7207a5be66d6d7cdd443275b4e
+
 
 ---
-# Czym jest usługa Azure IoT Hub?
+# <a name="what-is-azure-iot-hub"></a>Czym jest usługa Azure IoT Hub?
 Witamy w usłudze Azure IoT Hub. W tym artykule omówiono usługę Azure IoT Hub oraz opisano, dlaczego należy używać tej usługi w przypadku implementowania rozwiązania Internetu rzeczy (IoT). Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między milionami urządzeń IoT i zapleczem rozwiązania. Usługa Azure IoT Hub:
 
 * zapewnia niezawodne przesyłanie komunikatów z urządzeń do chmury i z chmury do urządzeń na dużą skalę;
@@ -33,7 +37,7 @@ W artykule [Comparison of IoT Hub and Event Hubs][lnk-compare] (Porównanie usł
 > 
 > 
 
-## Wyzwania dotyczące łączności z urządzeniami IoT
+## <a name="iot-deviceconnectivity-challenges"></a>Wyzwania dotyczące łączności z urządzeniami IoT
 Usługa IoT Hub i biblioteki urządzeń pomagają sprostać wyzwaniom związanym z zapewnieniem niezawodnej i bezpiecznej łączności urządzeń z zapleczem. Urządzenia IoT:
 
 * są często systemami osadzonymi bez osoby pełniącej rolę operatora;
@@ -46,7 +50,7 @@ Usługa IoT Hub i biblioteki urządzeń pomagają sprostać wyzwaniom związanym
 
 Oprócz powyższych wymagań każde rozwiązanie IoT musi również zapewniać skalowalność, bezpieczeństwo i niezawodność. Ustalony zbiór wymogów dotyczących łączności jest trudny i czasochłonny we wdrażaniu przy użyciu tradycyjnych technologii, takich jak kontenery sieci Web i brokery obsługujące komunikaty.
 
-## Dlaczego warto korzystać z usługi Azure IoT Hub
+## <a name="why-use-azure-iot-hub"></a>Dlaczego warto korzystać z usługi Azure IoT Hub
 Usługa Azure IoT Hub wychodzi naprzeciw wyzwaniom związanym z łącznością urządzeń, zapewniając następujące korzyści:
 
 * **Uwierzytelnianie poszczególnych urządzeń i bezpieczna łączność**. Każde urządzenie może być aprowizowane za pomocą własnego [klucza zabezpieczeń][lnk-devguide-security] w celu umożliwienia nawiązania połączenia z usługą IoT Hub. W [rejestrze tożsamości usługi IoT Hub][lnk-devguide-identityregistry] są przechowywane tożsamości i klucze urządzeń należących do rozwiązania. Zaplecze rozwiązania może dodawać poszczególne urządzenia do listy dozwolonych i niedozwolonych urządzeń, co pozwala na pełną kontrolę nad ich dostępem.
@@ -64,14 +68,14 @@ Te ogólne korzyści dotyczą wielu wzorców komunikacyjnych. Obecnie usługa Io
 * **Niezawodne wysyłanie komunikatów (lub *poleceń*)** z chmury do urządzeń. Za pomocą usługi IoT Hub zaplecze rozwiązania może wysyłać komunikaty do poszczególnych urządzeń z gwarancją co najmniej jednokrotnego dostarczenia. Każdy komunikat ma przypisany czas wygaśnięcia. Do zaplecza mogą być wysyłane zarówno potwierdzenia dostarczania, jak i potwierdzenia wygaśnięcia. Te potwierdzenia zapewniają pełny wgląd w cykl życia komunikatu wysyłanego z chmury do urządzenia. Dzięki temu można zaimplementować logikę biznesową obejmującą operacje, które są wykonywane na urządzeniach.
 * **Przekazywanie plików i buforowanych danych czujników do chmury.** Urządzenia mogą przekazywać pliki do usługi Azure Storage przy użyciu identyfikatorów URI SAS automatycznie zarządzanych przez usługę IoT Hub. Gdy pliki pojawią się w chmurze, usługa IoT Hub może wygenerować powiadomienia, co pozwoli zapleczu na przetworzenie plików.
 
-## Bramy
+## <a name="gateways"></a>Bramy
 Brama rozwiązania IoT jest zwykle [bramą protokołu][lnk-gateway] wdrożoną w chmurze lub [bramą pola][lnk-field-gateway] wdrożoną lokalnie na urządzeniach. Brama protokołu dokonuje translacji protokołu, na przykład przekształca protokół MQTT na protokół AMQP. Brama pola może uruchamiać funkcje analityczne na obrzeżu rozwiązania, podejmować szybkie decyzje w celu zmniejszenia opóźnień, udostępniać usługi zarządzania urządzeniami oraz wymuszać stosowanie ograniczeń dotyczących zabezpieczeń i prywatności. Może również dokonywać translacji protokołów. Oba typy bram pełnią rolę pośredników między urządzeniami i usługą IoT Hub.
 
 Działanie bramy pola jest inne niż w przypadku urządzenia zapewniającego prosty routing ruchu (takiego jak zapora lub translator adresów sieciowych) — zwykle odgrywa ona aktywną rolę w zarządzaniu dostępem i przepływem informacji w rozwiązaniu.
 
 Rozwiązanie może zawierać zarówno bramę protokołu, jak i bramę pola.
 
-## Jak działa usługa IoT Hub?
+## <a name="how-does-iot-hub-work"></a>Jak działa usługa IoT Hub?
 W usłudze Azure IoT Hub zaimplementowano wzorzec [komunikacji korzystającej z usług][lnk-service-assisted-pattern], aby zapewnić obsługę interakcji między urządzeniami a zapleczem rozwiązania. Celem komunikacji korzystającej z usług jest zapewnienie zaufanych ścieżek komunikacji dwukierunkowej między system sterującym, takim jak usługa IoT Hub, a specjalnymi urządzeniami, które są wdrożone w niezaufanych lokalizacjach fizycznych. W ramach tego wzorca określono następujące zasady:
 
 * Bezpieczeństwo jest nadrzędne w stosunku do wszystkich innych funkcji.
@@ -84,8 +88,10 @@ W usłudze Azure IoT Hub zaimplementowano wzorzec [komunikacji korzystającej z 
 
 Wzorzec komunikacji korzystającej z usług jest używany na ogromną skalę w branży urządzeń przenośnych na potrzeby implementacji usług powiadomień wypychanych, takich jak [usługa powiadomień WNS][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] i [Apple Push Notification Service][lnk-apple-push].
 
-## Następne kroki
-Aby dowiedzieć się, jak usługa Azure IoT Hub umożliwia oparte na standardach zarządzanie urządzeniami IoT pozwalające na zdalne konfigurowanie i aktualizowanie urządzeń oraz zarządzanie nimi, zobacz [Omówienie zarządzania urządzeniami w usłudze Azure IoT Hub][lnk-device-management].
+Usługa IoT Hub jest obsługiwana przy użyciu ścieżki publicznej komunikacji równorzędnej usługi ExpressRoute.
+
+## <a name="next-steps"></a>Następne kroki
+Aby dowiedzieć się, jak usługa Azure IoT Hub umożliwia oparte na standardach zarządzanie urządzeniami pozwalające na zdalne konfigurowanie i aktualizowanie urządzeń oraz zarządzanie nimi, zobacz [Omówienie zarządzania urządzeniami w usłudze Azure IoT Hub][lnk-device-management].
 
 W celu wdrożenia aplikacji klienckich na wielu różnych platformach sprzętowych i w różnych systemach operacyjnych można użyć zestawów SDK urządzeń IoT. Zestawy SDK urządzeń IoT zawierają biblioteki, które ułatwiają wysyłanie danych telemetrycznych do usługi IoT Hub i odbieranie poleceń wysyłanych z chmury do urządzeń. Zestawy SDK udostępniają możliwość wyboru różnych protokołów sieciowych służących do komunikowania się z usługą IoT Hub. Aby dowiedzieć się więcej, zobacz [i][lnk-device-sdks].
 
@@ -112,6 +118,6 @@ Aby rozpocząć pisanie kodu i uruchomić kilka przykładów, zobacz samouczek [
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

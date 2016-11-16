@@ -1,11 +1,11 @@
 ---
-title: Co zawierają obrazy szablonów usługi Azure RemoteApp? | Microsoft Docs
-description: Dowiedz się więcej na temat obrazów szablonów dołączonych do usługi Azure RemoteApp.
+title: "Co zawierają obrazy szablonów usługi Azure RemoteApp? | Microsoft Docs"
+description: "Dowiedz się więcej na temat obrazów szablonów dołączonych do usługi Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: 7f8442b2-81da-421e-a453-aa53ba2066b7
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b589fb3b1cdbf1f14ece6adf43e1eb0313ff09df
+
 
 ---
-# Co zawierają obrazy szablonów usługi Azure RemoteApp?
+# <a name="what-is-in-the-azure-remoteapp-template-images"></a>Co zawierają obrazy szablonów usługi Azure RemoteApp?
 > [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -36,7 +40,7 @@ Subskrypcja usługi Azure RemoteApp obejmuje trzy obrazy szablonów:
 
 Poniżej podano szczegółowe informacje o zawartości każdego obrazu.
 
-## Windows Server 2012 R2 (obraz podstawowy)
+## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 (obraz podstawowy)
 Ten obraz jest oparty na systemie operacyjnym Microsoft Windows Server 2012 R2 Datacenter i ma zainstalowane następujące role i funkcje spełniające wymagania obrazów szablonów usługi Azure RemoteApp:
 
 * .NET Framework 4.5, 3.5.1, 3.5
@@ -55,7 +59,7 @@ W tym obrazie zainstalowano także następujące aplikacje:
 * Microsoft System Center 2012 Endpoint Protection
 * Microsoft Windows Media Player
 
-## Microsoft Office 365 ProPlus (wymagana jest subskrypcja)
+## <a name="microsoft-office-365-proplus-subscription-required"></a>Microsoft Office 365 ProPlus (wymagana jest subskrypcja)
 Usługa Office 365 jest najbardziej pożądaną aplikacją, dlatego utworzyliśmy „niestandardowy” obraz umożliwiający pracę z tą usługą.
 
 Ten obraz jest rozszerzeniem obrazu podstawowego i oprócz składników zawartych w obrazie systemu Windows Server 2012 R2 zawiera następujące zainstalowane składniki usługi Microsoft Office 365 ProPlus:
@@ -86,7 +90,7 @@ Pełna funkcjonalność aplikacji usługi Office 365 ProPlus jest dostępna tylk
 
 Należy zauważyć, że wymagane są osobne licencje usługi Office 365 ProPlus, programu Visio Pro i programu Project Pro.
 
-## Microsoft Office 2013 Professional Plus (tylko wersja próbna)
+## <a name="microsoft-office-2013-professional-plus-trial-only"></a>Microsoft Office 2013 Professional Plus (tylko wersja próbna)
 W bezpłatnym okresie próbnym można testować usługę z użyciem obrazu pakietu Office 2013.
 
 Ten obraz jest rozszerzeniem obrazu podstawowego i oprócz składników zawartych w obrazie systemu Windows Server 2012 R2 zawiera następujące zainstalowane składniki pakietu Microsoft Office 2013 Professional Plus:
@@ -108,6 +112,9 @@ Ten obraz jest rozszerzeniem obrazu podstawowego i oprócz składników zawartyc
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -5,6 +5,8 @@ Jeśli znasz się już na usłudze Notification Hubs, być może lepszym rozwią
 
 Traktujemy opinie naszych użytkowników bardzo poważnie. Jeśli masz trudności z wykonaniem instrukcji w tym temacie lub uważasz, że zawartość należy poprawić, prosimy o wyrażenie opinii na dole strony.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

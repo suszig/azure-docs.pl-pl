@@ -1,12 +1,12 @@
 ---
-title: Konfigurowanie środowiska projektowego w systemie Mac OS X | Microsoft Docs
-description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji w systemie Mac OS X.
+title: "Konfigurowanie środowiska projektowego w systemie Mac OS X | Microsoft Docs"
+description: "Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji w systemie Mac OS X."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Konfigurowanie środowiska projektowego w systemie Mac OS X
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 Przy użyciu systemu Mac OS X można kompilować aplikacje usługi Service Fabric, aby działały w klastrach Linux.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Usługa Service Fabric nie działa natywnie w systemie OS X. Aby uruchomić lokalny klaster usługi Service Fabric, udostępniamy wstępnie skonfigurowaną maszynę wirtualną z systemem Ubuntu przy użyciu narzędzia Vagrant i VirtualBox. Przed rozpoczęciem potrzebne są następujące elementy:
 
-* [Narzędzie Vagrant w wersji 1.8.4 lub nowsze](http://wwww.vagrantup.com/downloads)
-* [Narzędzie VirtualBox](http://www.virtualbox.org/wiki/Downloads)
+* [Vagrant (wersja 1.8.4 lub nowsza)](http://wwww.vagrantup.com/downloads)
+* [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## Tworzenie lokalnej maszyny wirtualnej
+## <a name="create-the-local-vm"></a>Tworzenie lokalnej maszyny wirtualnej
 Aby utworzyć lokalną maszynę wirtualną zawierającą pięciowęzłowy klaster usługi Service Fabric, wykonaj następujące czynności:
 
 1. Sklonuj repozytorium Vagrantfile.
@@ -67,7 +71,7 @@ Aby utworzyć lokalną maszynę wirtualną zawierającą pięciowęzłowy klaste
    
     ![Narzędzie Service Fabric Explorer wyświetlane z komputera Mac hosta][sfx-mac]
 
-## Instalowanie wtyczki usługi Service Fabric dla środowiska Eclipse Neon (opcjonalnie)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Instalowanie wtyczki usługi Service Fabric dla środowiska Eclipse Neon (opcjonalnie)
 Usługa Service Fabric udostępnia wtyczkę dla środowiska IDE Eclipse Neon, która upraszcza proces kompilowania i wdrażania usług Java.
 
 1. W środowisku Eclipse upewnij się, że zainstalowany został zestaw Buildship w wersji 1.0.17 lub nowszej. Wersje zainstalowanych składników można sprawdzić, wybierając pozycję **Help > Installation Details** (Pomoc > Szczegóły instalacji). Zestaw Buildship można zaktualizować, postępując zgodnie z instrukcjami znajdującymi się [tutaj][buildship-update].
@@ -79,7 +83,7 @@ Usługa Service Fabric udostępnia wtyczkę dla środowiska IDE Eclipse Neon, kt
 5. Wybierz wtyczkę usługi Service Fabric i kliknij przycisk Next (Dalej).
 6. Postępuj zgodnie z instrukcjami instalacji i zaakceptuj umowę licencyjną użytkownika końcowego.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pierwszej aplikacji usługi Service Fabric dla systemu Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
@@ -96,6 +100,6 @@ Usługa Service Fabric udostępnia wtyczkę dla środowiska IDE Eclipse Neon, kt
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

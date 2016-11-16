@@ -1,26 +1,30 @@
 ---
-title: Wysyłanie powiadomień wypychanych do urządzeń z systemem Windows Phone przy użyciu usługi Azure Notification Hubs | Microsoft Docs
-description: Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji platformy Silverlight dla systemu Windows Phone 8 lub Windows Phone 8.1 przy użyciu usługi Azure Notification Hubs.
+title: "Wysyłanie powiadomień wypychanych do urządzeń z systemem Windows Phone przy użyciu usługi Azure Notification Hubs | Microsoft Docs"
+description: "Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji platformy Silverlight dla systemu Windows Phone 8 lub Windows Phone 8.1 przy użyciu usługi Azure Notification Hubs."
 services: notification-hubs
 documentationcenter: windows
 keywords: powiadomienie wypychane, powiadomienia wypychane, wypychanie w systemie windows phone
-author: wesmc7777
+author: ysxu
 manager: erikre
 editor: erikre
-
+ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
+
 
 ---
-# Wysyłanie powiadomień wypychanych do urządzeń z systemem Windows Phone przy użyciu usługi Azure Notification Hubs
+# <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Wysyłanie powiadomień wypychanych do urządzeń z systemem Windows Phone przy użyciu usługi Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 > [!NOTE]
 > Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 > 
@@ -36,14 +40,14 @@ Korzystając z tego samouczka, utworzysz pustą aplikację dla systemu Windows P
 
 W tym samouczku został omówiony prosty scenariusz wysyłania przy użyciu usługi Notification Hubs.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Dla tego samouczka wymagane są następujące elementy:
 
 * Program [Visual Studio 2012 Express for Windows Phone] lub nowsza wersja.
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Notification Hubs dotyczących aplikacji dla systemu Windows Phone 8.
 
-## Tworzenie centrum powiadomień
+## <a name="create-your-notification-hub"></a>Tworzenie centrum powiadomień
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
@@ -60,10 +64,10 @@ Centrum zostało utworzone i jest skonfigurowane do wysyłania nieuwierzytelnion
 > 
 > 
 
-## Łączenie aplikacji z centrum powiadomień
+## <a name="connecting-your-app-to-the-notification-hub"></a>Łączenie aplikacji z centrum powiadomień
 1. W programie Visual Studio utwórz nową aplikację dla systemu Windows Phone 8.
    
-    ![Visual Studio — Nowy projekt — Aplikacja dla systemu Windows Phone][13]
+       ![Visual Studio - New Project - Windows Phone App][13]
    
     W programie Visual Studio 2013 Update 2 lub nowszym zamiast tego utwórz aplikację platformy Silverlight dla systemu Windows Phone.
    
@@ -115,9 +119,9 @@ Centrum zostało utworzone i jest skonfigurowane do wysyłania nieuwierzytelnion
    > 
 6. W Eksploratorze rozwiązań rozwiń węzeł **Właściwości**, otwórz plik `WMAppManifest.xml`, kliknij kartę **Możliwości** i upewnij się, że możliwość **ID_CAP_PUSH_NOTIFICATION** jest zaznaczona.
    
-    ![Visual Studio — możliwości aplikacji dla systemu Windows Phone][14]
+       ![Visual Studio - Windows Phone App Capabilities][14]
    
-    Dzięki temu aplikacja może odbierać powiadomienia wypychane. Bez tego wszystkie próby wysłania powiadomienia wypychanego do aplikacji zakończą się niepowodzeniem.
+       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
 7. Naciśnij klawisz `F5`, aby uruchomić aplikację.
    
     W aplikacji zostanie wyświetlony komunikat dotyczący rejestracji.
@@ -128,7 +132,7 @@ Centrum zostało utworzone i jest skonfigurowane do wysyłania nieuwierzytelnion
    > 
    > 
 
-## Wysyłanie powiadomień wypychanych z poziomu zaplecza
+## <a name="send-push-notifications-from-your-backend"></a>Wysyłanie powiadomień wypychanych z poziomu zaplecza
 Powiadomienia wypychane przy użyciu usługi Notification Hubs można wysyłać z poziomu dowolnego zaplecza za pośrednictwem publicznego <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfejsu REST</a>. W tym samouczku powiadomienia wypychane są wysyłane przy użyciu aplikacji konsolowej programu .NET. 
 
 Aby uzyskać przykład sposobu wysyłania powiadomień wypychanych z zaplecza ASP.NET WebAPI zintegrowanego z usługą Notification Hubs, zobacz [Azure Notification Hubs Notify Users with .NET backend](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) (Powiadamianie użytkowników przy użyciu usługi Azure Notification Hubs z poziomu zaplecza programu .NET).  
@@ -137,7 +141,7 @@ Aby zapoznać się z przykładem wysyłania powiadomień wypychanych przy użyci
 
 1. Kliknij prawym przyciskiem myszy rozwiązanie, wybierz polecenie **Dodaj** i pozycję **Nowy projekt...**, a następnie w obszarze **Visual C#** kliknij pozycję **Windows** i pozycję **Aplikacja konsolowa**, a następnie kliknij przycisk **OK**.
    
-    ![Visual Studio — Nowy projekt — Aplikacja konsolowa][6]
+       ![Visual Studio - New Project - Console Application][6]
    
     Spowoduje to dodanie nowej aplikacji konsolowej w języku Visual C# do rozwiązania. Można to również zrobić w oddzielnym rozwiązaniu.
 2. Kliknij pozycję **Narzędzia**, kliknij pozycję **Menedżer pakietów biblioteki**, a następnie kliknij pozycję **Konsola menedżera pakietów**.
@@ -182,7 +186,7 @@ Aby zapoznać się z przykładem wysyłania powiadomień wypychanych przy użyci
 
 Wszystkie dozwolone ładunki można znaleźć w tematach dotyczących [wykazu powiadomień wyskakujących] i [wykazu kafelków] w witrynie MSDN.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym prostym przykładzie wysłano powiadomienia wypychane do wszystkich urządzeń z systemem Windows Phone 8. 
 
 Aby skierować je do określonych użytkowników, zapoznaj się z samouczkiem [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]. 
@@ -223,6 +227,6 @@ Dowiedz się więcej o sposobie użycia usługi Notification Hubs w temacie [Wsk
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

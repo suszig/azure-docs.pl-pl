@@ -1,34 +1,38 @@
 ---
-title: Tworzenie i wdrażanie aplikacji interfejsu API języka Java w usłudze Azure App Service
-description: Dowiedz się, jak utworzyć pakiet aplikacji interfejsu API języka Java i wdrożyć go w usłudze Azure App Service.
+title: "Tworzenie i wdrażanie aplikacji interfejsu API języka Java w usłudze Azure App Service"
+description: "Dowiedz się, jak utworzyć pakiet aplikacji interfejsu API języka Java i wdrożyć go w usłudze Azure App Service."
 services: app-service\api
 documentationcenter: java
-author: bradygaster
-manager: mohisri
+author: rmcmurray
+manager: erikre
 editor: tdykstra
-
+ms.assetid: 8d21ba5f-fc57-4269-bc8f-2fcab936ec22
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 08/31/2016
-ms.author: rachelap
+ms.date: 10/19/2016
+ms.author: rachelap;robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
+
 
 ---
-# Tworzenie i wdrażanie aplikacji interfejsu API języka Java w usłudze Azure App Service
+# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Tworzenie i wdrażanie aplikacji interfejsu API języka Java w usłudze Azure App Service
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 W tym samouczku pokazano, jak utworzyć aplikację języka Java i wdrożyć ją w funkcji Azure App Service API Apps za pomocą systemu [Git]. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić oprogramowanie Java. Kod w tym samouczku został utworzony za pomocą narzędzia [Maven]. Projekt [Jax-RS], który służy do tworzenia usługi RESTful, jest generowany na podstawie specyfikacji metadanych programu [Swagger] przy użyciu [Edytora programu Swagger].
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 1. [Java Developer's Kit 8] \(lub nowszy)
 2. [Maven] zainstalowane na komputerze deweloperskim
 3. [Git] zainstalowany na komputerze deweloperskim
 4. Wersja płatna lub [bezpłatna wersja próbna] subskrypcji platformy [Microsoft Azure]
 5. Aplikacja testowa HTTP, taka jak [Postman]
 
-## Tworzenie szkieletu interfejsu API przy użyciu narzędzia Swagger.IO
+## <a name="scaffold-the-api-using-swaggerio"></a>Tworzenie szkieletu interfejsu API przy użyciu narzędzia Swagger.IO
 Za pomocą edytora online swagger.io można wprowadzić kod JSON lub YAML programu Swagger reprezentujący strukturę interfejsu API. Po zaprojektowaniu powierzchni interfejsu API można wyeksportować kod dla różnych platform i struktur. W następnej sekcji kod z utworzonym szkieletem zostanie zmodyfikowany w celu dodania funkcji testowych. 
 
 Ten pokaz rozpocznie się od przedstawienia treści kodu JSON programu Swagger, która zostanie wklejona do edytora swagger.io. Przy użyciu tego edytora zostanie wygenerowany kod korzystający z projektu JAX-RS w celu uzyskania dostępu do punktu końcowego interfejsu API REST. Następnie kod z utworzonym szkieletem zostanie zmodyfikowany w celu zwrócenia danych testowych, co stanowi symulację interfejsu API REST korzystającego z mechanizmu stanu trwałego danych.  
@@ -142,7 +146,7 @@ Ten pokaz rozpocznie się od przedstawienia treści kodu JSON programu Swagger, 
    
     Po wygenerowaniu kodu zostanie udostępniony plik ZIP do pobrania. Zawiera on szkielet kodu utworzonego przez generator kodu programu Swagger oraz wszystkie skojarzone skrypty kompilacji. Rozpakuj całą zawartość biblioteki do katalogu na deweloperskiej stacji roboczej. 
 
-## Edytowanie kodu w celu dodania implementacji interfejsu API
+## <a name="edit-the-code-to-add-api-implementation"></a>Edytowanie kodu w celu dodania implementacji interfejsu API
 W tej sekcji implementacja po stronie serwera zawarta w kodzie wygenerowanym przez program Swagger zostanie zastąpiona niestandardowym kodem. Nowy kod zwróci element ArrayList z jednostkami kontaktowymi do klienta wywołującego. 
 
 1. Otwórz plik modelu *Contact.java* znajdujący się w folderze *src/gen/java/io/swagger/model* za pomocą programu [Visual Studio Code] lub edytora tekstu, którego używasz. 
@@ -165,7 +169,6 @@ W tej sekcji implementacja po stronie serwera zawarta w kodzie wygenerowanym prz
    
         import io.swagger.api.*;
         import io.swagger.model.*;
-        import com.sun.jersey.multipart.FormDataParam;
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
@@ -236,10 +239,10 @@ W tej sekcji implementacja po stronie serwera zawarta w kodzie wygenerowanym prz
           copy target\ROOT.war deploy\webapps
           cd deploy
 
-## Publikowanie danych wyjściowych w usłudze Azure App Service
+## <a name="publish-the-output-to-azure-app-service"></a>Publikowanie danych wyjściowych w usłudze Azure App Service
 W tej sekcji dowiesz się, jak utworzyć nową aplikację interfejsu API przy użyciu portalu Azure, przygotować ją do hostowania aplikacji języka Java i wdrożyć nowo utworzony plik WAR w usłudze Azure App Service w celu uruchomienia nowej aplikacji interfejsu API. 
 
-1. Utwórz nową aplikację interfejsu API w [Azure portal], klikając elementy menu **Nowy -> Sieć Web i mobilność -> Aplikacja interfejsu API**, wprowadzając informacje dotyczące aplikacji, a następnie klikając pozycję **Utwórz**.
+1. Utwórz nową aplikację interfejsu API w [Azure Portal], klikając elementy menu **Nowy -> Sieć Web i mobilność -> Aplikacja interfejsu API**, wprowadzając informacje dotyczące aplikacji, a następnie klikając pozycję **Utwórz**.
    
     ![Tworzenie nowej aplikacji interfejsu API][create-api-app]
 2. Po utworzeniu aplikacji interfejsu API otwórz blok **Ustawienia** dla tej aplikacji, a następnie kliknij element menu **Ustawienia aplikacji**. Za pomocą dostępnych opcji wybierz najnowsze wersje oprogramowania Java, wybierz najnowszą wersję serwera Tomcat w menu **Kontener sieci Web**, a następnie kliknij pozycję **Zapisz**.
@@ -267,21 +270,24 @@ W tej sekcji dowiesz się, jak utworzyć nową aplikację interfejsu API przy u�
    
     ![Używanie interfejsu API REST kontaktów języka Java uruchomionego na platformie Azure][postman-calling-azure-contacts]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym artykule udało się rozpocząć pracę z plikiem JSON programu Swagger i kodem języka Java z utworzonym szkieletem uzyskanym za pomocą edytora Swagger.io. W efekcie wprowadzenia prostych zmian i zastosowania procesu wdrażania narzędzia Git utworzono funkcjonalną aplikację interfejsu API napisaną w języku Java. W następnym samouczku przedstawiono [korzystanie z Aplikacji interfejsu API z poziomu klientów języka JavaScript przy użyciu mechanizmu CORS][App Service API CORS]. W kolejnych samouczkach z tej serii opisano implementowanie uwierzytelniania i autoryzacji.
 
 Aby poszerzyć wiedzę przyswojoną w tym przykładzie, możesz zapoznać się z zagadnieniami dotyczącymi utrwalania obiektów blob JSON za pomocą [Storage SDK for Java]. Możesz również użyć [Document DB Java SDK], aby zapisać dane kontaktowe w bazie danych dokumentów na platformie Azure. 
 
-Aby uzyskać więcej informacji o używaniu języka Java na platformie Azure, zobacz [Java Developer Center].
+<a name="see-also"></a>
+
+## <a name="see-also"></a>Zobacz też
+Aby uzyskać więcej informacji o używaniu platformy Azure z językiem Java, zobacz [Azure Java Developer Center].
 
 <!-- URL List -->
 
 [App Service API CORS]: app-service-api-cors-consume-javascript.md
-[Azure portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
 [bezpłatna wersja próbna]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Java Developer Center]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
@@ -313,6 +319,6 @@ Aby uzyskać więcej informacji o używaniu języka Java na platformie Azure, zo
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

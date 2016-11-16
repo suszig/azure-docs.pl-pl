@@ -1,12 +1,12 @@
 ---
 title: Co to jest Logic Apps?
-description: Dowiedz się więcej o funkcji App Service Logic Apps
+description: "Dowiedz się więcej o funkcji App Service Logic Apps"
 author: kevinlam1
 manager: dwrede
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: klam
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 44941876c976fdad0303b3c638ed6a3811136634
+
 
 ---
-# <a name="what-are-logic-apps?"></a>Co to jest Logic Apps?
+# <a name="what-are-logic-apps"></a>Co to jest Logic Apps?
 Usługa Logic Apps umożliwia uproszczenie i wdrażanie skalowalnych integracji i przepływów pracy w chmurze. Udostępnia ona wizualnego projektanta pozwalającego na modelowanie i automatyzację procesu w postaci serii kroków znanych jako przepływ pracy.  Istnieje [wiele łączników](../connectors/apis-list.md) dla rozwiązań w chmurze i lokalnych, które umożliwiają szybką integrację usług i protokołów.  Aplikacja logiki rozpoczyna się od wyzwalacza (na przykład „Gdy konto zostanie dodane do oprogramowania Dynamics CRM”), po uruchomieniu którego można użyć wielu akcji łączenia, konwersji i logiki warunkowej.
 
 Zalety korzystania z aplikacji logiki są następujące:  
@@ -40,7 +44,7 @@ Jak wspomniano, dzięki usłudze Logic Apps można automatyzować procesy biznes
 
 Wszystkie tego typu scenariusze można skonfigurować przy użyciu projektanta wizualnego i bez konieczności napisania jakiegokolwiek wiersza kodu. Rozpocznij [teraz tworzenie aplikacji logiki][create].  Napisana aplikacja logiki może być [szybko wdrażana i ponownie konfigurowana](app-service-logic-create-deploy-template.md) w wielu środowiskach i regionach.
 
-## <a name="why-logic-apps?"></a>Dlaczego warto korzystać z usługi Logic Apps?
+## <a name="why-logic-apps"></a>Dlaczego warto korzystać z usługi Logic Apps?
 Usługa Logic Apps zapewnia szybkość i skalowalność w obszarze integracji w przedsiębiorstwie.  Łatwy w użyciu projektant, dostępne różne wyzwalacze i akcje, a także zaawansowane narzędzia do zarządzania ułatwiają centralizację interfejsów API bardziej niż kiedykolwiek wcześniej.  Usługa Logic Apps umożliwia firmom wdrażającym cyfryzację łączenie starszych systemów z najnowszymi.
 
 Ponadto dzięki naszemu [kontu integracji w przedsiębiorstwie ][biztalk] można przeprowadzać skalowanie do zaawansowanej integracji przy użyciu między innymi [przetwarzania wiadomości XML][xml] i [zarządzania partnerami handlowymi][tpm].
@@ -76,6 +80,6 @@ Poniżej przedstawiono niektóre z kluczowych elementów składających się na 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

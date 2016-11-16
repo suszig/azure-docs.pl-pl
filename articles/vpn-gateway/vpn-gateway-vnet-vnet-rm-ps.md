@@ -1,13 +1,13 @@
 ---
-title: Łączenie sieci wirtualnych platformy Azure przy użyciu usługi VPN Gateway i programu PowerShell | Microsoft Docs
-description: W tym artykule przedstawiono procedurę łączenia sieci wirtualnych przy użyciu usługi Azure Resource Manager i programu PowerShell.
+title: "Łączenie sieci wirtualnych platformy Azure przy użyciu usługi VPN Gateway i programu PowerShell | Microsoft Docs"
+description: "W tym artykule przedstawiono procedurę łączenia sieci wirtualnych przy użyciu usługi Azure Resource Manager i programu PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,10 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636606f5f5f651c10d174854de8471b5dd060dce
+
 
 ---
-# Konfigurowanie połączenia między sieciami wirtualnymi usługi Resource Manager przy użyciu programu PowerShell
+# <a name="configure-a-vnettovnet-connection-for-resource-manager-using-powershell"></a>Konfigurowanie połączenia między sieciami wirtualnymi usługi Resource Manager przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
+> * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Model klasyczny — klasyczny portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
@@ -28,22 +33,22 @@ W tym artykule opisano kroki tworzenia połączenia między sieciami wirtualnymi
 
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-### Modele wdrażania i metody nawiązywania połączeń między sieciami wirtualnymi
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Modele wdrażania i metody połączeń między sieciami wirtualnymi
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-Połączenie między sieciami wirtualnymi można skonfigurować w obu modelach wdrażania i przy użyciu kilku różnych narzędzi. Poniższą tabelę aktualizujemy w miarę pojawiania się nowych artykułów i dodatkowych narzędzi dla tej konfiguracji. Jeśli artykuł jest dostępny, można przejść do niego bezpośrednio z tabeli.<br><br>
+W poniższej tabeli przedstawiono aktualnie dostępne modele wdrażania i metody konfiguracji między sieciami wirtualnymi. Jeśli dostępny jest artykuł zawierający kroki konfiguracji, można do niego przejść bezpośrednio z tabeli.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### Komunikacja równorzędna sieci wirtualnych
+#### <a name="vnet-peering"></a>Komunikacja równorzędna sieci wirtualnych
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## Informacje o połączeniach między sieciami wirtualnymi
+## <a name="about-vnettovnet-connections"></a>Informacje o połączeniach między sieciami wirtualnymi
 Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN na platformie Azure, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Sieci wirtualne, które mają zostać połączone, mogą być zlokalizowane w różnych regionach. Mogę także należeć do różnych subskrypcji. Można także łączyć połączenia między sieciami wirtualnymi z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi, jak pokazano na poniższym diagramie.
 
 ![Informacje o połączeniach](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
-### Dlaczego łączy się sieci wirtualne?
+### <a name="why-connect-virtual-networks"></a>Dlaczego łączy się sieci wirtualne?
 Sieci wirtualne można łączyć z następujących powodów:
 
 * **Niezależna od regionu nadmiarowość i obecność geograficzna**
@@ -54,23 +59,23 @@ Sieci wirtualne można łączyć z następujących powodów:
   
   * W ramach jednego regionu można skonfigurować aplikacje wielowarstwowe z wielu połączonych ze sobą sieci wirtualnych, korzystając z izolacji lub wymagań administracyjnych.
 
-### Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
+### <a name="vnettovnet-faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-## Która instrukcje mają zastosowanie w moim przypadku?
+## <a name="which-set-of-steps-should-i-use"></a>Która instrukcje mają zastosowanie w moim przypadku?
 W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw dla [sieci wirtualnych znajdujących się w tej samej subskrypcji](#samesub), a drugi dla [sieci wirtualnych znajdujących się w różnych subskrypcjach](#difsub). Kluczowa różnica między wspomnianymi zestawami czynności polega na możliwości bądź braku możliwości konfiguracji i tworzenia wszystkich zasobów sieci wirtualnej i bramy w ramach tej samej sesji programu PowerShell.
 
 Kroki opisane w tym artykule używają zmiennych, które są zadeklarowane na początku każdej sekcji. Jeśli pracujesz z istniejącymi sieciami wirtualnymi, zmodyfikuj zmienne, aby uwzględnić ustawienia we własnym środowisku. 
 
 ![Oba rodzaje połączeń](./media/vpn-gateway-vnet-vnet-rm-ps/differentsubscription.png)
 
-## <a name="samesub"></a>Łączenie sieci wirtualnych, które należą do tej samej subskrypcji
+## <a name="a-namesamesubahow-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Łączenie sieci wirtualnych, które należą do tej samej subskrypcji
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-### Przed rozpoczęciem
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 Niezbędne jest zainstalowanie poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell).
 
-### <a name="Step1"></a>Krok 1 — planowanie zakresów adresów IP
+### <a name="a-namestep1astep-1-plan-your-ip-address-ranges"></a><a name="Step1"></a>Krok 1 — planowanie zakresów adresów IP
 W poniższych krokach utworzymy dwie sieci wirtualne wraz z odpowiednimi konfiguracjami oraz podsieciami bram. Następnie utworzymy połączenie sieci VPN między dwiema sieciami wirtualnymi. Ważne, aby zaplanować zakresy adresów IP dla konfiguracji sieci. Niezbędne jest upewnienie się, że zakresy sieci wirtualnej ani sieci lokalnej nie zachodzą na siebie w jakikolwiek sposób.
 
 W przykładach stosujemy następujące wartości:
@@ -108,7 +113,7 @@ W przykładach stosujemy następujące wartości:
 * Połączenie: VNet4toVNet1
 * ConnectionType: VNet2VNet
 
-### <a name="Step2"></a>Krok 2 — tworzenie i konfigurowanie sieci TestVNet1
+### <a name="a-namestep2astep-2-create-and-configure-testvnet1"></a><a name="Step2"></a>Krok 2 — tworzenie i konfigurowanie sieci TestVNet1
 1. Zadeklarowanie zmiennych
    
     Rozpocznij od zadeklarowania zmiennych. W poniższym przykładzie zmienne są deklarowane przy użyciu wartości podanych dla tego ćwiczenia. W większości przypadków należy zastąpić wartości własnymi. Można jednak użyć tych zmiennych, aby wykonać opisane kroki w celu zapoznania się z tego typu konfiguracją. Jeśli jest taka konieczność, zmodyfikuj zmienne, a następnie skopiuj je i wklej do konsoli programu PowerShell.
@@ -182,7 +187,7 @@ W przykładach stosujemy następujące wartości:
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-### Krok 3 — tworzenie i konfigurowanie sieci TestVNet4
+### <a name="step-3-create-and-configure-testvnet4"></a>Krok 3 — tworzenie i konfigurowanie sieci TestVNet4
 Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki opisane poniżej, w razie potrzeby zastępując podane wartości własnymi. Ten krok można przeprowadzić w tej samej sesji programu PowerShell ze względu na przynależność do tej samej subskrypcji.
 
 1. Zadeklarowanie zmiennych
@@ -234,7 +239,7 @@ Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki opisan
         -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-### Krok 4 — połączenie bram
+### <a name="step-4-connect-the-gateways"></a>Krok 4 — połączenie bram
 1. Użycie obu bram sieci wirtualnej
    
     Jako że obie bramy należą do tej samej subskrypcji, w tym przykładzie omawiany krok można wykonać w ramach tej samej sesji programu PowerShell.
@@ -259,7 +264,7 @@ Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki opisan
     Po kilku minutach połączenie powinno zostać ustanowione.
 4. Weryfikowanie połączenia. Zobacz sekcję [Weryfikowanie połączenia](#verify).
 
-## <a name="difsub"></a>Łączenie sieci wirtualnych, które należą do różnych subskrypcji
+## <a name="a-namedifsubahow-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Łączenie sieci wirtualnych, które należą do różnych subskrypcji
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 W tym scenariuszu nawiązywane jest połączenie między sieciami wirtualnymi TestVNet1 i TestVNet5. Sieci TestVNet1 i TestVNet5 znajdują się w innych subskrypcjach. Czynności opisane dla tej konfiguracji dodają dodatkowe połączenie między sieciami wirtualnymi, aby można było nawiązać połączenie między sieciami TestVNet1 i TestVNet5. 
@@ -268,7 +273,7 @@ W tym przykładzie różnica polega na tym, że w kontekście drugiej subskrypcj
 
 Poniższe instrukcje stanowią ciąg dalszy kroków wymienionych powyżej. Należy wykonać [Krok 1](#Step1) i [Krok 2](#Step2), aby utworzyć i skonfigurować sieć TestVNet1 i bramę VPN Gateway dla tej sieci. Po ukończeniu kroków 1 i 2 kontynuuj krok 5, aby utworzyć sieć wirtualną TestVNet5.
 
-### Krok 5 — sprawdzenie dodatkowych zakresów adresów IP
+### <a name="step-5-verify-the-additional-ip-address-ranges"></a>Krok 5 — sprawdzenie dodatkowych zakresów adresów IP
 Należy upewnić się, że przestrzeń adresów IP nowej sieci wirtualnej o nazwie TestVNet5 nie nakłada się na żaden z zakresów sieci wirtualnych ani na żaden z zakresów bramy sieci lokalnej. 
 
 W tym przykładzie sieci wirtualne mogą należeć do różnych organizacji. Na potrzeby tego ćwiczenia można zastosować następujące wartości dla sieci wirtualnej TestVNet5:
@@ -293,7 +298,7 @@ W tym przykładzie sieci wirtualne mogą należeć do różnych organizacji. Na 
 
 * Połączenie: VNet1toVNet5
 
-### Krok 6 — tworzenie i konfigurowanie sieci TestVNet5
+### <a name="step-6-create-and-configure-testvnet5"></a>Krok 6 — tworzenie i konfigurowanie sieci TestVNet5
 Ten krok należy wykonać w kontekście nowej subskrypcji. Tę część procedury może wykonać administrator w innej organizacji, która jest właścicielem subskrypcji.
 
 1. Zadeklarowanie zmiennych
@@ -356,7 +361,7 @@ Ten krok należy wykonać w kontekście nowej subskrypcji. Tę część procedur
         New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
         -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
-### Krok 7 — połączenie bram
+### <a name="step-7-connecting-the-gateways"></a>Krok 7 — połączenie bram
 Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano rozbicie na dwie sesje programu PowerShell oznaczone jako [Subskrypcja 1] i [Subskrypcja 5].
 
 1. **[Subskrypcja 1]** Pobranie bramy sieci wirtualnej dla Subskrypcji 1
@@ -415,15 +420,18 @@ Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano
         $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
         New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
-## <a name="verify"></a>Jak zweryfikować połączenie
+## <a name="a-nameverifyahow-to-verify-a-connection"></a><a name="verify"></a>Jak zweryfikować połączenie
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
+[!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP). 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

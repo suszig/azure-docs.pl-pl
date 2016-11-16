@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 12/01/15-->
 
 
-#### Konfigurowanie i rejestrowanie urządzenia
+#### <a name="to-configure-and-register-the-device"></a>Konfigurowanie i rejestrowanie urządzenia
 1. Przejdź do interfejsu programu Windows PowerShell na konsoli szeregowej urządzenia StorSimple. Instrukcje można znaleźć w temacie [Nawiązywanie połączenia z konsolą szeregową urządzenia przy użyciu programu PuTTY](#use-putty-to-connect-to-the-device-serial-console). **Pamiętaj, aby dokładnie wykonać procedurę, w przeciwnym wypadku nie uzyskasz dostępu do konsoli.**
 2. W otwartej sesji naciśnij jednokrotnie klawisz Enter, aby wyświetlić wiersz polecenia. 
 3. Zostanie wyświetlony monit o wybranie języka dla danego urządzenia. Wybierz język, a następnie naciśnij klawisz Enter. 
@@ -30,7 +30,8 @@
      > 
 8. Opcjonalnie skonfiguruj serwer proxy sieci Web. Konfiguracja serwera proxy sieci Web jest opcjonalna, jednak **warto wiedzieć, że w przypadku korzystania z serwera proxy sieci Web można go skonfigurować tylko w tym miejscu**. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie serwera proxy sieci Web dla urządzenia](../articles/storsimple/storsimple-configure-web-proxy.md). Jeśli napotkasz jakieś problemy w tym kroku, zobacz wskazówki dotyczące rozwiązywania problemów w temacie [Błędy podczas konfigurowania serwera proxy sieci Web](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
 
-      > [AZURE.NOTE] Możesz nacisnąć klawisze Ctrl + C i zakończyć działanie Kreatora instalacji w dowolnym momencie. Wszystkie ustawienia zastosowane przed wydaniem tego polecenia zostaną zachowane.
+     > [!NOTE]
+     > Możesz nacisnąć klawisze Ctrl + C i zakończyć działanie Kreatora instalacji w dowolnym momencie. Wszystkie ustawienia zastosowane przed wydaniem tego polecenia zostaną zachowane.
 
 1. Ze względów bezpieczeństwa hasło administratora urządzenia wygasa po pierwszej sesji i należy je zmienić w kolejnych sesjach. Po wyświetleniu monitu podaj hasło administratora urządzenia. Prawidłowe hasło administratora urządzenia musi zawierać od 8 do 15 znaków. Hasło musi zawierać kombinację małych liter, wielkich liter, cyfr i znaków specjalnych.
 2. Hasło do programu StorSimple Snapshot Manager również należy ustawić w tym miejscu. To hasło jest używane podczas uwierzytelniania urządzenia na hoście systemu Windows z uruchomionym programem StorSimple Snapshot Manager. Po wyświetleniu monitu podaj hasło o długości od 14 do 15 znaków. Hasło musi zawierać kombinację trzech z wymienionych elementów: małe litery, wielkie litery, cyfry i znaki specjalne. 
@@ -73,6 +74,8 @@ Jeśli urządzenie zostało pomyślnie zarejestrowane i nie przeszło do trybu o
 
 Aby obejrzeć film przedstawiający konfigurowanie i rejestrowanie urządzenia za pośrednictwem programu Windows PowerShell dla usługi StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

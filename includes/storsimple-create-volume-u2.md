@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 08/16/2016-->
 
-#### Aby utworzyć wolumin
+#### <a name="to-create-a-volume"></a>Aby utworzyć wolumin
 1. Na stronie **Szybki start** urządzenia kliknij pozycję **Dodaj wolumin**, aby uruchomić Kreatora dodawania woluminu.
 2. W Kreatorze dodawania woluminu w obszarze **Ustawienia podstawowe**:
    
@@ -39,6 +39,8 @@
       ![Dodawanie woluminu](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Po ustawieniu filtrów ![ikona znacznika wyboru](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Wolumin zostanie utworzony przy użyciu wybranych ustawień.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

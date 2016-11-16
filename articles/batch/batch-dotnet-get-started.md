@@ -1,12 +1,12 @@
 ---
-title: Samouczek — wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET | Microsoft Docs
-description: Podstawowe informacje na temat usługi Azure Batch oraz tworzenia aplikacji dla usługi Batch w przykładowym scenariuszu.
+title: "Samouczek — wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET | Microsoft Docs"
+description: "Podstawowe informacje na temat usługi Azure Batch oraz tworzenia aplikacji dla usługi Batch w przykładowym scenariuszu."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 08/15/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0cac7008f41d8dcff3dde151364ae315a204fdbb
+
 
 ---
-# Wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET
+# <a name="get-started-with-the-azure-batch-library-for-net"></a>Wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -27,10 +31,10 @@ W tym artykule opisujemy podstawy usługi [Azure Batch][azure_batch] i bibliotek
 
 ![Przepływ pracy w usłudze Batch (podstawowy)][11]<br/>
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i programu Visual Studio. Przyjęto również założenie, że jesteś w stanie spełnić wymagania dotyczące tworzenia konta, które zostały wyszczególnione poniżej dla platformy Azure oraz usług Batch i Storage.
 
-### Konta
+### <a name="accounts"></a>Konta
 * **Konto platformy Azure**: jeśli nie masz jeszcze subskrypcji platformy Azure, [utwórz bezpłatne konto platformy Azure][azure_free_account].
 * **Konto usługi Batch**: po uzyskaniu subskrypcji platformy Azure [utwórz konto usługi Azure Batch](batch-account-create-portal.md).
 * **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
@@ -40,18 +44,18 @@ W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i pr
 > 
 > 
 
-### Visual Studio
+### <a name="visual-studio"></a>Visual Studio
 Do utworzenia przykładowego projektu potrzebny jest program **Visual Studio 2015**. Bezpłatne i próbne wersje programu Visual Studio można znaleźć w [omówieniu produktów Visual Studio 2015][visual_studio].
 
-### Przykład kodu *DotNetTutorial*
+### <a name="dotnettutorial-code-sample"></a>Przykład kodu *DotNetTutorial*
 [DotNetTutorial][github_dotnettutorial] to jeden z wielu przykładów kodu w repozytorium [azure-batch-samples][github_samples] w witrynie GitHub. Pobierz próbkę, klikając przycisk **Download ZIP** (Pobierz plik ZIP) na stronie głównej repozytorium lub klikając bezpośredni link pobierania [azure-batch-samples-master.zip][github_samples_zip]. Po wyodrębnieniu zawartości pliku ZIP znajdziesz rozwiązanie w następującym folderze:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### Azure Batch Explorer (opcjonalnie)
+### <a name="azure-batch-explorer-optional"></a>Azure Batch Explorer (opcjonalnie)
 [Azure Batch Explorer][github_batchexplorer] to bezpłatne narzędzie, które znajduje się w repozytorium [azure-batch-samples][github_samples] w witrynie GitHub. Chociaż nie jest wymagane do ukończenia tego samouczka, może przydać się podczas tworzenia i debugowania rozwiązań w usłudze Batch.
 
-## Omówienie przykładowego projektu DotNetTutorial
+## <a name="dotnettutorial-sample-project-overview"></a>Omówienie przykładowego projektu DotNetTutorial
 Przykładowy kod *DotNetTutorial* jest rozwiązaniem programu Visual Studio 2015, które obejmuje dwa projekty: **DotNetTutorial** i **TaskApplication**.
 
 * **DotNetTutorial** jest aplikacją kliencką, która współdziała z usługami Batch i Storage w celu wykonania równoległego obciążenia w węzłach obliczeniowych (maszyny wirtualne). Aplikacja DotNetTutorial jest uruchamiana na lokalnej stacji roboczej.
@@ -75,7 +79,7 @@ Na poniższym diagramie przedstawiono podstawowe operacje wykonywane przez aplik
 
 Jak wspomniano wcześniej, nie wszystkie rozwiązania usługi Batch obejmują dokładnie te kroki i mogą obejmować wiele innych. Aplikacja przykładowa *DotNetTutorial* pokazuje jednak typowe procesy występujące w rozwiązaniu usługi Batch.
 
-## Kompilowanie przykładowego projektu *DotNetTutorial*
+## <a name="build-the-dotnettutorial-sample-project"></a>Kompilowanie przykładowego projektu *DotNetTutorial*
 Aby pomyślnie uruchomić próbkę, należy najpierw określić poświadczenia konta Storage i usługi Batch w pliku `Program.cs` projektu *DotNetTutorial*. Jeśli jeszcze tego nie zrobiono, otwórz rozwiązanie w programie Visual Studio, klikając dwukrotnie plik rozwiązania `DotNetTutorial.sln`. Lub otwórz je w programie Visual Studio przy użyciu opcji menu **Plik > Otwórz > Projekt/Rozwiązanie**.
 
 Otwórz `Program.cs` w projekcie *DotNetTutorial*. Następnie dodaj poświadczenia określone w górnej części pliku:
@@ -108,7 +112,7 @@ Poświadczenia konta usług Batch i Storage znajdziesz w blokach konta poszczeg�
 Po zaktualizowaniu projektu przy użyciu poświadczeń kliknij prawym przyciskiem myszy rozwiązanie w Eksploratorze rozwiązań i kliknij przycisk **Kompiluj rozwiązanie**. Jeśli zostanie wyświetlony monit, potwierdź przywrócenie pakietów NuGet.
 
 > [!TIP]
-> Jeśli pakiety nie zostaną automatycznie przywrócone lub zostaną wyświetlone błędy z informacją o nieudanej próbie przywrócenia pakietów, sprawdź, czy jest zainstalowany [Menedżer pakietów NuGet][nuget_packagemgr]. Następnie włącz pobieranie brakujących pakietów. Zobacz sekcję [Enabling Package Restore During Build](Włączanie przywracania pakietów podczas kompilacji.md) [nuget_restore], która zawiera instrukcje dotyczące włączania pobierania pakietów.
+> Jeśli pakiety nie zostaną automatycznie przywrócone lub zostaną wyświetlone błędy z informacją o nieudanej próbie przywrócenia pakietów, sprawdź, czy jest zainstalowany [Menedżer pakietów NuGet][nuget_packagemgr]. Następnie włącz pobieranie brakujących pakietów. Zobacz sekcję [Enabling Package Restore During Build] (Włączanie przywracania pakietów podczas kompilacji) [nuget_restore], która zawiera instrukcje dotyczące włączania pobierania pakietów.
 > 
 > 
 
@@ -116,7 +120,7 @@ W poniższych sekcjach przykładowa aplikacja została podzielona na kroki wykon
 
 Przejdź do góry metody `MainAsync` w pliku `Program.cs` projektu *DotNetTutorial*, aby rozpocząć od kroku 1. Wszystkie kroki poniżej odpowiadają mniej więcej postępowi wywołań metody w elemencie `MainAsync`.
 
-## Krok 1: utworzenie kontenerów w usłudze Storage
+## <a name="step-1-create-storage-containers"></a>Krok 1: tworzenie kontenerów w usłudze Storage
 ![Tworzenie kontenerów w usłudze Azure Storage][1]
 <br/>
 
@@ -184,8 +188,8 @@ Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą 
 > 
 > 
 
-## Krok 2: przekazanie aplikacji podzadań i plików danych
-![Przekaż aplikację podzadań i pliki danych wejściowych do kontenerów.][2]
+## <a name="step-2-upload-task-application-and-data-files"></a>Krok 2: przekazanie aplikacji podzadań i plików danych
+![Przekazywanie aplikacji podzadań i plików danych wejściowych do kontenerów][2]
 <br/>
 
 Podczas przekazywania plików aplikacja *DotNetTutorial* najpierw definiuje kolekcje **aplikacji** i ścieżki plików **wejściowych** na komputerze lokalnym. Następnie przekazuje te pliki do kontenerów, które zostały utworzone w poprzednim kroku.
@@ -261,7 +265,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 }
 ```
 
-### ResourceFiles
+### <a name="resourcefiles"></a>ResourceFiles
 Klasa [ResourceFile][net_resourcefile] zawiera podzadania w usłudze Batch z adresem URL do pliku w usłudze Azure Storage, które są pobierane do węzła obliczeniowego przed uruchomieniem tego podzadania. Właściwość [ResourceFile.BlobSource][net_resourcefile_blobsource] określa pełny adres URL pliku przechowywanego w usłudze Azure Storage. Adres URL może także zawierać sygnaturę dostępu współdzielonego (SAS), która zapewnia bezpieczny dostęp do pliku. Większość typów podzadań w usłudze Batch dla platformy .NET obejmuje właściwość *ResourceFiles*, w tym następujące elementy:
 
 * [CloudTask][net_task]
@@ -271,7 +275,7 @@ Klasa [ResourceFile][net_resourcefile] zawiera podzadania w usłudze Batch z adr
 
 Przykładowa aplikacja DotNetTutorial nie używa typów zadań JobPreparationTask ani JobReleaseTask, ale więcej informacji o nich można znaleźć w temacie [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md) (Uruchamianie podzadań przygotowania i ukończenia zadania w węzłach obliczeniowych w usłudze Azure Batch).
 
-### Sygnatura dostępu współdzielonego (SAS)
+### <a name="shared-access-signature-sas"></a>Sygnatura dostępu współdzielonego (SAS)
 Sygnatury dostępu współdzielonego to ciągi, które — w przypadku dołączenia ich do adresu URL — zapewniają bezpieczny dostęp do kontenerów i obiektów blob w usłudze Azure Storage. Aplikacja DotNetTutorial używa adresów URL sygnatury dostępu współdzielonego kontenera i obiektów blob i służy do pokazania, jak uzyskać te ciągi sygnatur dostępu współdzielonego za pomocą usługi Storage.
 
 * **Sygnatury dostępu współdzielonego obiektów Blob**: funkcja StartTask puli w aplikacji DotNetTutorial używa sygnatur dostępu współdzielonego obiektów blob podczas pobierania danych binarnych aplikacji i plików danych wejściowych za pomocą usługi Storage (zobacz krok 3 poniżej). Metoda `UploadFileToContainerAsync` w elemencie `Program.cs` aplikacji DotNetTutorial obejmuje kod, który uzyskuje dostęp do sygnatur dostępu współdzielonego poszczególnych obiektów blob. Odbywa się to przez wywołanie funkcji [CloudBlob.GetSharedAccessSignature][net_sas_blob].
@@ -282,7 +286,7 @@ Sygnatury dostępu współdzielonego to ciągi, które — w przypadku dołącze
 > 
 > 
 
-## Krok 3: tworzenie puli usługi Batch
+## <a name="step-3-create-batch-pool"></a>Krok 3: tworzenie puli usługi Batch
 ![Tworzenie puli usługi Batch][3]
 <br/>
 
@@ -367,7 +371,7 @@ W powyższym fragmencie kodu warto również zwrócić uwagę na użycie dwóch 
 > 
 > 
 
-## Krok 4: tworzenie zadania w usłudze Batch
+## <a name="step-4-create-batch-job"></a>Krok 4: tworzenie zadania w usłudze Batch
 ![Tworzenie zadania w usłudze Batch][4]<br/>
 
 **Zadanie** usługi Batch jest kolekcją podzadań i jest skojarzone z pulą węzłów obliczeniowych. Podzadania tego zadania są wykonywane w węzłach obliczeniowych skojarzonej puli.
@@ -394,7 +398,7 @@ private static async Task CreateJobAsync(
 
 Teraz, kiedy zadanie zostało utworzone, są dodawane podzadania, aby wykonać pracę.
 
-## Krok 5: dodawanie podzadań do zadania
+## <a name="step-5-add-tasks-to-job"></a>Krok 5: dodawanie podzadań do zadania
 ![Dodawanie podzadań do zadania][5]<br/>
 *(1) Podzadania są dodawane do zadania, (2) podzadania są planowane do uruchomienia w węzłach i (3) podzadania pobierają pliki danych do przetwarzania*
 
@@ -485,7 +489,7 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 }
 ```
 
-## Krok 6: monitorowanie podzadań
+## <a name="step-6-monitor-tasks"></a>Krok 6: monitorowanie podzadań
 ![Monitorowanie podzadań][6]<br/>
 *Aplikacja kliencka (1) monitoruje podzadania pod kątem stanu ukończenia i powodzenia, a (2) podzadania przekazują dane wynikowe do usługi Azure Storage*
 
@@ -588,7 +592,7 @@ private static async Task<bool> MonitorTasks(
 }
 ```
 
-## Krok 7: pobranie danych wyjściowych podzadań
+## <a name="step-7-download-task-output"></a>Krok 7: pobranie danych wyjściowych podzadań
 ![Pobieranie danych wyjściowych podzadań z usługi Storage][7]<br/>
 
 Po ukończeniu zadania można pobrać dane wyjściowe podzadań przy użyciu usługi Azure Storage. Odbywa się to przy użyciu wywołania do funkcji `DownloadBlobsFromContainerAsync` w pliku `Program.cs` *DotNetTutorial*:
@@ -626,7 +630,7 @@ private static async Task DownloadBlobsFromContainerAsync(
 > 
 > 
 
-## Krok 8: usuwanie kontenerów
+## <a name="step-8-delete-containers"></a>Krok 8: usuwanie kontenerów
 Ponieważ użytkownik jest rozliczany za dane przechowywane w usłudze Azure Storage, zawsze dobrym rozwiązaniem jest usunięcie wszystkich obiektów blob, które nie są już potrzebne do zadań w ramach usługi Batch. W pliku `Program.cs` programu DotNetTutorial odbywa się to przy użyciu trzech wywołań do metody pomocy `DeleteContainerAsync`:
 
 ```csharp
@@ -657,7 +661,7 @@ private static async Task DeleteContainerAsync(
 }
 ```
 
-## Krok 9: usuwanie zadania i puli
+## <a name="step-9-delete-the-job-and-the-pool"></a>Krok 9: usuwanie zadania i puli
 W ostatnim kroku zostaje wyświetlony monit o usunięcie zadania i puli, które zostały utworzone przez aplikację DotNetTutorial. Mimo że nie są naliczane opłaty za same zadania i podzadania, *są* naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie węzłów tylko zależnie do potrzeb. Usuwanie nieużywanych pul może odbywać się podczas konserwacji.
 
 W przypadku obu funkcji [JobOperations][net_joboperations] i [PoolOperations][net_pooloperations]BatchClient istnieją odpowiednie metody usuwania, które są wywoływane, jeśli użytkownik potwierdzi usunięcie:
@@ -685,7 +689,7 @@ if (response != "n" && response != "no")
 > 
 > 
 
-## Uruchamianie aplikacji przykładowej *DotNetTutorial*
+## <a name="run-the-dotnettutorial-sample"></a>Uruchamianie aplikacji przykładowej *DotNetTutorial*
 Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej w taki sposób. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia paska zadań `Awaiting task completion, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Użyj witryny [Azure Portal][azure_portal] do monitorowania puli, węzłów obliczeniowych, zadania i podzadań w trakcie wykonywania i po nim. Użyj witryny [Azure Portal][azure_portal] lub programu [Azure Storage Explorer][storage_explorers] do wyświetlania zasobów usługi Storage (kontenerów i obiektów blob) tworzonych przez aplikację.
 
 Typowy czas wykonywania wynosi **mniej więcej 5 minut** w przypadku uruchomienia aplikacji w konfiguracji domyślnej.
@@ -721,7 +725,7 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Możesz swobodnie wprowadzać zmiany w funkcjach *DotNetTutorial* i *TaskApplication*, aby eksperymentować z różnymi scenariuszami obliczeniowymi. Spróbuj na przykład dodać opóźnienie wykonywania do funkcji *TaskApplication*, tak jak w przypadku funkcji [Thread.Sleep][net_thread_sleep], w celu symulowania podzadań długotrwałych i monitorowania ich w portalu. Spróbuj dodać więcej podzadań lub dostosować liczbę węzłów obliczeniowych. Dodaj logikę, pod kątem której będzie odbywać się sprawdzanie, i zezwól na użycie istniejącej puli, aby przyspieszyć czas wykonywania (*wskazówka*: zobacz plik `ArticleHelpers.cs` w projekcie [Microsoft.Azure.Batch.Samples.Common][github_samples_common] w [azure-batch-samples][github_samples]).
 
 Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch nadszedł czas, aby poszerzyć wiedzę na temat dodatkowych funkcji tej usługi.
@@ -791,6 +795,6 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

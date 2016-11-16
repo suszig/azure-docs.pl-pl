@@ -1,26 +1,30 @@
 ---
-title: Korzystanie z zestawu Java SDK usługi Data Lake Store w celu projektowania aplikacji | Microsoft Docs
-description: Korzystanie z zestawu Java SDK usługi Azure Data Lake Store w celu projektowania aplikacji
+title: "Korzystanie z zestawu SDK Java usługi Data Lake Store w celu projektowania aplikacji | Microsoft Docs"
+description: "Korzystanie z zestawu Java SDK usługi Azure Data Lake Store w celu projektowania aplikacji"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/18/2016
+ms.date: 10/17/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
+
 
 ---
-# Rozpoczynanie pracy z usługą Azure Data Lake Store przy użyciu języka Java
+# <a name="get-started-with-azure-data-lake-store-using-java"></a>Rozpoczynanie pracy z usługą Azure Data Lake Store przy użyciu języka Java
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Zestaw SDK .NET](data-lake-store-get-started-net-sdk.md)
+> * [Zestaw SDK platformy .NET](data-lake-store-get-started-net-sdk.md)
 > * [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [Interfejs API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
@@ -28,251 +32,122 @@ ms.author: nitinme
 > 
 > 
 
-Dowiedz się, jak używać zestawu Java SDK usługi Azure Data Lake Store, aby utworzyć konto usługi Azure Data Lake i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake, zobacz temat [Usługa Azure Data Lake Store](data-lake-store-overview.md).
+Dowiedz się, jak używać zestawu SDK Java usługi Azure Data Lake Store, aby wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych itp. Aby uzyskać więcej informacji o usłudze Data Lake, zobacz temat [Usługa Azure Data Lake Store](data-lake-store-overview.md).
 
-## Zestaw Java SDK usługi Azure Data Lake Store
-Poniższe linki udostępniają lokalizację pobierania zestawu Java SDK usługi Data Lake Store oraz dokumentacji dotyczącej zestawu Java SDK. Do celów tego samouczka nie trzeba pobierać zestawu SDK ani wykonywać czynności opisanych w dokumencie referencyjnym. Te linki mają tylko charakter informacyjny.
+Dostęp do dokumentów interfejsu API zestawu SDK Java usługi Azure Data Lake Store można uzyskać w [dokumentacji interfejsu API języka Java usługi Azure Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
-* Kod źródłowy zestawu Java SDK dla usługi Data Lake Store jest dostępny w serwisie [GitHub](https://github.com/Azure/azure-sdk-for-java).
-* Dokumentacja dotycząca zestawu Java SDK dla usługi Data Lake Store jest dostępna na stronie [https://azure.github.io/azure-sdk-for-java/](https://azure.github.io/azure-sdk-for-java/).
+## <a name="prerequisites"></a>Wymagania wstępne
+* Zestaw Java Development Kit (JDK 7 lub nowszy, korzystający z języka Java w wersji 1.7 lub nowszej)
+* Konto usługi Azure Data Lake Store. Postępuj zgodnie z instrukcjami w temacie [Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą witryny Azure Portal](data-lake-store-get-started-portal.md).
+* [Maven](https://maven.apache.org/install.html). Ten samouczek używa programu Maven na potrzeby zależności między kompilacją i projektem. Chociaż istnieje możliwość kompilacji bez używania systemu kompilacji, takiego jak Maven lub Gradle, systemy te znacznie ułatwiają zarządzanie zależnościami.
+* (Opcjonalnie) Wtyczka [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) lub [Eclipse](https://www.eclipse.org/downloads/) przypominająca środowisko IDE lub podobna.
 
-## Wymagania wstępne
-* Zestaw Java Development Kit (JDK) 8 (z użyciem języka Java w wersji 1.8).
-* IntelliJ lub inne odpowiednie środowisko programistyczne Java. Jest to opcjonalne, ale zalecane. W poniższych instrukcjach jest używane środowisko IntelliJ.
-* **Subskrypcja platformy Azure**. Zobacz artykuł [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Włączenie subskrypcji platformy Azure** w celu uzyskania publicznej wersji zapoznawczej usługi Data Lake Store. Zobacz [instrukcje](data-lake-store-get-started-portal.md#signup).
-* **Utworzenie aplikacji usługi Azure Active Directory**. Istnieją dwa sposoby uwierzytelniania z użyciem usługi Azure Active Directory — **interakcyjne** i **nieinterakcyjne**. W zależności od sposobu uwierzytelniania należy spełnić różne wymagania wstępne.
-  
-  * **Uwierzytelnianie interaktywne** — w usłudze Azure Active Directory należy utworzyć **aplikację klienta natywnego**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
-    
-    * Uzyskaj **identyfikator klienta** i **identyfikator URI przekierowania** dla aplikacji.
-    * Ustaw uprawnienia delegowane.
-  * **Uwierzytelnianie nieinteraktywne** (używane w tym artykule) — w usłudze Azure Active Directory należy utworzyć **aplikację sieci Web**. Po utworzeniu aplikacji pobierz następujące wartości związane z tą aplikacją.
-    
-    * Pobierz **identyfikator klienta**, **klucz tajny klienta** oraz **identyfikator URI przekierowania** dla aplikacji
-    * Ustaw uprawnienia delegowane.
-    * Przypisz aplikację usługi Azure Active Directory do roli. Rola może być na poziomie zakresu, na którym chcesz nadać uprawnienie do aplikacji usługi Azure Active Directory. Na przykład możesz przypisać aplikację na poziomie subskrypcji lub na poziomie grupy zasobów.
-    
-    Instrukcje dotyczące pobierania tych wartości, ustawiania uprawnień i przypisywania ról znajdują się w temacie [Tworzenie aplikacji i nazwy głównej usługi Active Directory przy użyciu portalu](../resource-group-create-service-principal-portal.md).
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a>W jaki sposób uwierzytelniać za pomocą usługi Azure Active Directory?
+W tym samouczku do pobrania tokenu usługi Azure Active Directory (uwierzytelnianie „service to service”) używamy klucza tajnego klienta aplikacji Azure AD. Ten token służy do utworzenia obiektu klienta usługi Data Lake Store w celu wykonywania operacji na plikach i operacji na katalogach. Aby uzyskać informacje na temat uwierzytelniania w usłudze Azure Data Lake Store za pomocą klucza tajnego klienta, wykonamy następujące czynności wysokiego poziomu:
 
-## Jak wykonać uwierzytelnianie przy użyciu usługi Azure Active Directory?
-Poniższy fragment kodu zawiera kod uwierzytelniania **nieinteraktywnego**, w przypadku którego aplikacja udostępnia własne poświadczenia.
+1. Utworzenie aplikacji sieci Web Azure AD
+2. Pobranie identyfikatora klienta, klucza tajnego klienta i punktu końcowego tokenu dla aplikacji sieci Web Azure AD.
+3. Skonfigurowanie dostępu dla aplikacji sieci Web Azure AD do pliku/folderu usługi Data Lake Store, do którego chcesz uzyskać dostęp z tworzonej aplikacji Java.
 
-Przed wykonaniem kroków tego samouczka należy zezwolić aplikacji na tworzenie zasobów na platformie Azure. **Zdecydowanie zalecamy**, aby do celów związanych z tym samouczkiem nadać tej aplikacji uprawnienia współautora dotyczące nowej, nieużywanej i pustej grupy zasobów w subskrypcji platformy Azure.
+Aby uzyskać instrukcje na temat sposobu wykonania tych czynności, zobacz [Tworzenie aplikacji usługi Active Directory](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
 
-## Tworzenie aplikacji Java
-1. Otwórz środowisko IntelliJ i utwórz nowy projekt języka Java przy użyciu szablonu **Command Line App** (Aplikacja wiersza polecenia). Wykonaj kroki kreatora, aby utworzyć projekt.
-2. Otwórz opcję **Plik** -> **Struktura projektu** -> **Moduły** (w obszarze Ustawienia projektu) -> **Zależności** -> **+** -> **Biblioteka** -> **Z programu Maven**.
-3. Wyszukaj następujące pakiety Maven i dodaj je do projektu:
-   
-   * com.microsoft.azure:azure-mgmt-datalake-store:1.0.0-beta1.2
-   * com.microsoft.azure:azure-mgmt-datalake-store-uploader:1.0.0-beta1.2
-   * com.microsoft.azure:azure-client-authentication:1.0.0-beta2
-4. W lewym okienku przejdź do pozycji **src**, **main**, **java**, **\<package name>**, a następnie otwórz plik **Main.java** i zastąp istniejący blok kodu poniższym kodem. Ponadto podaj wartości parametrów wywoływanych we fragmencie kodu, takich jak **localFolderPath**, **DATA-LAKE-STORE-NAME** i **RESOURCE-GROUP-NAME** oraz zastąp symbole zastępcze **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** i **SUBSCRIPTION-ID** informacjami na temat subskrypcji i jej katalogu Azure Active Directory. Aby uzyskać informacje o tym, jak znaleźć te informacje, zobacz [podręcznik tworzenia nazw głównych usług platformy Azure](../resource-group-authenticate-service-principal.md).
-   
-    Ten kod przechodzi przez procesy tworzenia konta usługi Data Lake Store, tworzenia plików w magazynie, łączenia plików, pobierania pliku i usunięcia konta.
-   
-        package com.company;
-   
-        import com.microsoft.azure.CloudException;
-        import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-        import com.microsoft.azure.management.datalake.store.implementation.DataLakeStoreAccountManagementClientImpl;
-        import com.microsoft.azure.management.datalake.store.implementation.DataLakeStoreFileSystemManagementClientImpl;
-        import com.microsoft.azure.management.datalake.store.models.*;
-        import com.microsoft.azure.management.datalake.store.uploader.*;
-        import com.microsoft.rest.credentials.ServiceClientCredentials;
-        import java.io.*;
-        import java.nio.charset.Charset;
-        import java.util.ArrayList;
-        import java.util.List;
-   
-        public class Main {
-            final static String ADLS_ACCOUNT_NAME = <DATA-LAKE-STORE-NAME>;
-            final static String RESOURCE_GROUP_NAME = "<RESOURCE-GROUP-NAME>";
-            final static String LOCATION = "East US 2";
-            final static String TENANT_ID = "<TENANT-ID>";
-            final static String SUBSCRIPTION_ID =  "<SUBSCRIPTION-ID>";
-            final static String CLIENT_ID = "<CLIENT-ID>";
-            final static String CLIENT_SECRET = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
-   
-            private static DataLakeStoreAccountManagementClientImpl _adlsClient;
-            private static DataLakeStoreFileSystemManagementClientImpl _adlsFileSystemClient;
-   
-            public static void main(String[] args) throws Exception {
-                String localFolderPath = "C:\\local_path\\"; // TODO: Change this to any unused, new, empty folder on your local machine.
-   
-                // Authenticate
-                ApplicationTokenCredentials creds = new ApplicationTokenCredentials(CLIENT_ID, TENANT_ID, CLIENT_SECRET, null);
-                SetupClients(creds);
-   
-                // Create Data Lake Store account
-                WaitForNewline("Authenticated.", "Creating NEW account.");
-                CreateAccount();
-                WaitForNewline("Account created.", "Displaying account(s).");
-   
-                // List Data Lake Store accounts that this app can access
-                System.out.println(String.format("All ADL Store accounts that this app can access in subscription %s:", SUBSCRIPTION_ID));
-                List<DataLakeStoreAccount> adlsListResult = _adlsClient.accounts().list().getBody();
-                for (DataLakeStoreAccount acct : adlsListResult) {
-                    System.out.println(acct.name());
-                }
-                WaitForNewline("Account(s) displayed.", "Uploading file.");
-   
-                // Upload a file to Data Lake Store: file1.csv
-                UploadFile(localFolderPath + "file1.csv", "/file1.csv");
-                WaitForNewline("File uploaded.", "Appending newline.");
-   
-                // Append newline to file1.csv
-                AppendToFile("/file1.csv", "\r\n");
-                WaitForNewline("Newline appended.", "Creating file.");
-   
-                // Create a new file in Data Lake Store: file2.csv
-                CreateFile("/file2.csv", "456,def", true);
-                WaitForNewline("File created.", "Concatenating files.");
-   
-                // Concatenate two files in Data Lake Store
-                List<String> srcFilePaths = new ArrayList<String>();
-                srcFilePaths.add("/file1.csv");
-                srcFilePaths.add("/file2.csv");
-                ConcatenateFiles(srcFilePaths, "/input.csv");
-                WaitForNewline("Files concatenated.", "Downloading file.");
-   
-                // Download file from Data Lake Store
-                DownloadFile("/input.csv", localFolderPath + "input.csv");
-                WaitForNewline("File downloaded.", "Deleting file.");
-   
-                // Delete file from Data Lake Store
-                DeleteFile("/input.csv");
-                WaitForNewline("File deleted.", "Deleting account.");
-   
-                // Delete account
-                DeleteAccount();
-                WaitForNewline("Account deleted.", "DONE.");
-            }
-   
-            //Set up clients
-            public static void SetupClients(ServiceClientCredentials creds)
-            {
-                _adlsClient = new DataLakeStoreAccountManagementClientImpl(creds);
-                _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClientImpl(creds);
-                _adlsClient.withSubscriptionId(SUBSCRIPTION_ID);
-            }
-   
-            // Helper function to show status and wait for user input
-            public static void WaitForNewline(String reason, String nextAction)
-            {
-                if (nextAction == null)
-                    nextAction = "";
-                if (!nextAction.isEmpty())
-                {
-                    System.out.println(reason + "\r\nPress ENTER to continue...");
-                    try{System.in.read();}
-                    catch(Exception e){}
-                    System.out.println(nextAction);
-                }
-                else
-                {
-                    System.out.println(reason + "\r\nPress ENTER to continue...");
-                    try{System.in.read();}
-                    catch(Exception e){}
-                }
-            }
-   
-            // Create Data Lake Store account
-            public static void CreateAccount() throws InterruptedException, CloudException, IOException {
-                DataLakeStoreAccount adlsParameters = new DataLakeStoreAccount();
-                adlsParameters.withLocation(LOCATION);
-   
-                _adlsClient.accounts().create(RESOURCE_GROUP_NAME, ADLS_ACCOUNT_NAME, adlsParameters);
-            }
-   
-            // Create file
-            public static void CreateFile(String path) throws IOException, AdlsErrorException {
-                _adlsFileSystemClient.fileSystems().create(ADLS_ACCOUNT_NAME, path);
-            }
-   
-            // Create file with contents
-            public static void CreateFile(String path, String contents, boolean force) throws IOException, AdlsErrorException {
-                byte[] bytesContents = contents.getBytes();
-   
-                _adlsFileSystemClient.fileSystems().create(ADLS_ACCOUNT_NAME, path, bytesContents, force);
-            }
-   
-            // Append to file
-            public static void AppendToFile(String path, String contents) throws IOException, AdlsErrorException {
-                byte[] bytesContents = contents.getBytes();
-   
-                _adlsFileSystemClient.fileSystems().append(ADLS_ACCOUNT_NAME, path, bytesContents);
-            }
-   
-            // Concatenate files
-            public static void ConcatenateFiles(List<String> srcFilePaths, String destFilePath) throws IOException, AdlsErrorException {
-                _adlsFileSystemClient.fileSystems().concat(ADLS_ACCOUNT_NAME, destFilePath, srcFilePaths);
-            }
-   
-            // Delete concatenated file
-            public static void DeleteFile(String filePath) throws IOException, AdlsErrorException {
-                _adlsFileSystemClient.fileSystems().delete(ADLS_ACCOUNT_NAME, filePath);
-            }
-   
-            // Get file or directory info
-            public static FileStatusProperties GetItemInfo(String path) throws IOException, AdlsErrorException {
-                return _adlsFileSystemClient.fileSystems().getFileStatus(ADLS_ACCOUNT_NAME, path).getBody().fileStatus();
-            }
-   
-            // List files and directories
-            public static List<FileStatusProperties> ListItems(String directoryPath) throws IOException, AdlsErrorException {
-                return _adlsFileSystemClient.fileSystems().listFileStatus(ADLS_ACCOUNT_NAME, directoryPath).getBody().fileStatuses().fileStatus();
-            }
-   
-            // Upload file
-            public static void UploadFile(String srcPath, String destPath) throws Exception {
-                UploadParameters parameters = new UploadParameters(srcPath, destPath, ADLS_ACCOUNT_NAME);
-                FrontEndAdapter frontend = new DataLakeStoreFrontEndAdapterImpl(ADLS_ACCOUNT_NAME, _adlsFileSystemClient);
-                DataLakeStoreUploader uploader = new DataLakeStoreUploader(parameters, frontend);
-                uploader.execute();
-            }
-   
-            // Download file
-            public static void DownloadFile(String srcPath, String destPath) throws IOException, AdlsErrorException {
-                InputStream stream = _adlsFileSystemClient.fileSystems().open(ADLS_ACCOUNT_NAME, srcPath).getBody();
-   
-                PrintWriter pWriter = new PrintWriter(destPath, Charset.defaultCharset().name());
-   
-                String fileContents = "";
-                if (stream != null) {
-                    Writer writer = new StringWriter();
-   
-                    char[] buffer = new char[1024];
-                    try {
-                        Reader reader = new BufferedReader(
-                                new InputStreamReader(stream, "UTF-8"));
-                        int n;
-                        while ((n = reader.read(buffer)) != -1) {
-                            writer.write(buffer, 0, n);
-                        }
-                    } finally {
-                        stream.close();
-                    }
-                    fileContents =  writer.toString();
-                }
-   
-                pWriter.println(fileContents);
-                pWriter.close();
-            }
-   
-            // Delete account
-            public static void DeleteAccount() throws InterruptedException, CloudException, IOException {
-                _adlsClient.accounts().delete(RESOURCE_GROUP_NAME, ADLS_ACCOUNT_NAME);
-            }
-        }
-5. Uruchom aplikację. Postępuj zgodnie z monitami, aby uruchomić aplikację i ukończyć jej działanie.
+Usługa Azure Active Directory oferuje również inne opcje pobierania tokenu. Do wyboru jest wiele różnych mechanizmów uwierzytelniania odpowiednich dla danego scenariusza, na przykład aplikacja działająca w przeglądarce, aplikacja rozproszona jako aplikacja tradycyjna albo aplikacja serwera uruchomiona lokalnie lub na maszynie wirtualnej platformy Azure. Można również wybrać różne rodzaje poświadczeń, takie jak hasła, certyfikaty, uwierzytelnianie 2-etapowe itd. Ponadto usługa Azure Active Directory umożliwia synchronizowanie lokalnych użytkowników usługi Active Directory z chmurą. Aby uzyskać szczegółowe informacje, zobacz [Scenariusze uwierzytelniania dla usługi Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 
-## Następne kroki
+## <a name="create-a-java-application"></a>Tworzenie aplikacji Java
+Przykładowy kod dostępny [w usłudze GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) przeprowadzi Cię przez proces tworzenia plików w magazynie, łączenia plików, pobierania pliku i usuwania niektórych plików z magazynu. Ta część artykułu przeprowadzi Cię przez najważniejsze fragmenty kodu.
+
+1. Utwórz projekt Maven za pomocą polecenia [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) w wierszu polecenia lub w środowisku IDE. Aby uzyskać instrukcje dotyczące sposobu tworzenia projektu Java przy użyciu wtyczki IntelliJ, zobacz [tutaj](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Aby uzyskać instrukcje dotyczące sposobu tworzenia projektu Java przy użyciu wtyczki Eclipse, zobacz [tutaj](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
+2. Dodaj poniższe zależności do Twojego pliku **pom.xml** programu Maven. Dodaj poniższy fragment tekstu między tagiem **\</version>** i tagiem **\</project>**:
+   
+        <dependencies>
+          <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-data-lake-store-sdk</artifactId>
+            <version>2.0.4-SNAPSHOT</version>
+          </dependency>
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.21</version>
+          </dependency>
+        </dependencies>
+   
+    Pierwszą zależnością jest użycie zestawu SDK usługi Data Lake Store (`azure-datalake-store`) z repozytorium maven. Drugą zależnością (`slf4j-nop`) jest określenie, jaka struktura rejestrowania ma być używana dla tej aplikacji. Zestaw SDK usługi Data Lake Store używa fasady rejestrowania [slf4j](http://www.slf4j.org/), która umożliwia wybór spośród wielu popularnych struktur rejestrowania, takich jak log4j, rejestrowanie Java, logback itp. lub brak rejestrowania. W tym przykładzie wyłączymy rejestrowanie, dlatego używamy powiązania **slf4j-nop**. Aby używać innych opcji rejestrowania w aplikacji, zobacz [tutaj](http://www.slf4j.org/manual.html#projectDep).
+
+### <a name="add-the-application-code"></a>Dodawanie kodu aplikacji
+Istnieją trzy główne fragmenty kodu.
+
+1. Uzyskiwanie tokenu usługi Azure Active Directory
+2. Token umożliwia utworzenie klienta usługi Data Lake Store.
+3. Klient usługi Data Lake Store służy do wykonywania operacji.
+
+#### <a name="step-1-obtain-an-azure-active-directory-token"></a>Krok 1. Uzyskaj token usługi Azure Active Directory
+Zestaw SDK usługi Data Lake Store udostępnia wygodne metody uzyskiwania tokenów zabezpieczających, które są potrzebne do komunikacji z kontem usługi Data Lake Store. Jednak zestaw SDK nie zmusza do używania tylko tych metod. Możesz również używać jakichkolwiek innych sposobów uzyskiwania tokenu, na przykład przy użyciu [zestawu SDK usługi Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) lub własnego kodu niestandardowego.
+
+Aby uzyskać token dla utworzonej wcześniej aplikacji sieci Web usługi Active Directory za pomocą zestawu SDK usługi Data Lake Store, użyj metod statycznych w klasie `AzureADAuthenticator`. Zastąp wartość **FILL-IN-HERE** (Wypełnij tutaj) rzeczywistymi wartościami dla aplikacji sieci Web usługi Azure Active Directory.
+
+    private static String clientId = "FILL-IN-HERE";
+    private static String authTokenEndpoint = "FILL-IN-HERE";
+    private static String clientKey = "FILL-IN-HERE";
+
+    AzureADToken token = AzureADAuthenticator.getTokenUsingClientCreds(authTokenEndpoint, clientId, clientKey);
+
+#### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>Krok 2. Utwórz obiekt klienta usługi Azure Data Lake Store (ADLStoreClient)
+Utworzenie obiektu [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) wymaga określenia nazwy konta usługi Data Lake Store oraz tokenu usługi Azure Active Directory, który został wygenerowany w ostatnim kroku. Pamiętaj, że nazwa konta usługi Data Lake Store musi być w pełni kwalifikowaną nazwą domeny. Na przykład zastąp ciąg **FILL-IN-HERE** (Wypełnij tutaj) czymś w rodzaju **mydatalakestore.azuredatalakestore.net**.
+
+    private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
+    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, token);
+
+### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>Krok 3. Używaj obiektu ADLStoreClient do wykonywania operacji na plikach i katalogach
+Poniższy kod zawiera przykładowe fragmenty niektórych typowych operacji. Aby zobaczyć inne operacje, możesz zapoznać się z pełną [dokumentacją interfejsu API zestawu SDK Java usługi Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/) obiektu **ADLStoreClient**.
+
+Pamiętaj, że pliki są odczytywane i zapisywane za pomocą standardowych strumieni Java. Oznacza to, że możesz umieścić dowolne strumienie Java na wierzchu strumieni usługi Data Lake Store, aby korzystać ze standardowych funkcji języka Java (np. strumieni drukowania sformatowanych danych wyjściowych albo dowolnych strumieni kompresji lub szyfrowania na potrzeby dodatkowych funkcji itp.).
+
+    // set file permission
+    client.setPermission(filename, "744");
+
+    // append to file
+    stream = client.getAppendStream(filename);
+    stream.write(getSampleContent());
+    stream.close();
+
+    // Read File
+    InputStream in = client.getReadStream(filename);
+    byte[] b = new byte[64000];
+    while (in.read(b) != -1) {
+        System.out.write(b);
+    }
+    in.close();
+
+    // concatenate the two files into one
+    List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
+    client.concatenateFiles("/a/b/f.txt", fileList);
+
+    //rename the file
+    client.rename("/a/b/f.txt", "/a/b/g.txt");
+
+    // list directory contents
+    List<DirectoryEntry> list = client.enumerateDirectory("/a/b", 2000);
+    System.out.println("Directory listing for directory /a/b:");
+    for (DirectoryEntry entry : list) {
+        printDirectoryInfo(entry);
+    }
+
+    // delete directory along with all the subdirectories and files in it
+    client.deleteRecursive("/a");
+
+#### <a name="step-4-build-and-run-the-application"></a>Krok4. Skompiluj i uruchom aplikację
+1. Aby przeprowadzić uruchomienie z poziomu środowiska IDE, znajdź i naciśnij przycisk **Run** (Uruchom). Aby przeprowadzić uruchomienie z poziomu programu Maven, użyj polecenia [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
+2. Aby wygenerować autonomiczny plik JAR, który można uruchomić z poziomu wiersza polecenia, skompiluj plik JAR zawierający wszystkie zależności, używając [wtyczki zestawu Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Przykładowy sposób wykonania tych czynności znajduje się w pliku pom.xml w [przykładowym kodzie źródłowym w serwisie github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml).
+
+## <a name="next-steps"></a>Następne kroki
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 * [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

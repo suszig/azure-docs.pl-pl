@@ -1,13 +1,13 @@
 ---
-title: Przewodnik po wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego | Microsoft Docs
-description: Opis wstępnie skonfigurowanego rozwiązania Azure IoT do monitorowania zdalnego wraz z informacjami dotyczącymi architektury rozwiązania.
-services: ''
+title: "Przewodnik po wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego | Microsoft Docs"
+description: "Opis wstępnie skonfigurowanego rozwiązania Azure IoT do monitorowania zdalnego wraz z informacjami dotyczącymi architektury rozwiązania."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6338750446b33269614c404ecaad8f8192bf1ab2
+
 
 ---
-# Przewodnik po wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego
-## Wprowadzenie
+# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Przewodnik po wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego
+## <a name="introduction"></a>Wprowadzenie
 [Wstępnie skonfigurowane rozwiązanie][lnk-preconfigured-solutions] do zdalnego monitorowania pakietu IoT to implementacja end-to-end rozwiązania do monitorowania wielu maszyn działających w zdalnych lokalizacjach. Rozwiązanie łączy kluczowe usługi platformy Azure w celu zapewnienia ogólnej implementacji scenariusza biznesowego. Możesz go użyć jako punktu wyjścia dla własnej implementacji. Rozwiązanie możesz [dostosować][lnk-customize], aby spełniało określone wymagania Twojej firmy.
 
 Ten artykuł przeprowadzi Cię przez niektóre kluczowe elementy rozwiązania do monitorowania zdalnego, aby umożliwić Ci zrozumienie jego sposobu działania. Ta wiedza ułatwi Ci:
@@ -27,12 +31,12 @@ Ten artykuł przeprowadzi Cię przez niektóre kluczowe elementy rozwiązania do
 * Planowanie sposobu dostosowywania rozwiązania, aby spełniało Twoje wymagania. 
 * Projektowanie własnego rozwiązania IoT korzystającego z usług Azure.
 
-## Architektura logiczna
+## <a name="logical-architecture"></a>Architektura logiczna
 Poniższy diagram przedstawia składniki logiczne wstępnie skonfigurowanego rozwiązania:
 
 ![Architektura logiczna](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## Symulowane urządzenia
+## <a name="simulated-devices"></a>Symulowane urządzenia
 W tym wstępnie skonfigurowanym rozwiązaniu symulowane urządzenie odpowiada urządzeniu chłodzącemu (np. klimatyzatorowi lub centrali wentylacyjnej w budynku). Podczas wdrażania wstępnie skonfigurowanego rozwiązania automatycznie aprowizujesz też cztery symulowane urządzenia działające w zadaniu [WebJob Azure][lnk-webjobs]. Symulowane urządzenia ułatwiają badanie zachowania rozwiązania bez konieczności wdrażania jakichkolwiek urządzeń fizycznych. Aby wdrożyć prawdziwe urządzenie fizyczne, zobacz samouczek [Łączenie urządzenia ze wstępnie skonfigurowanym rozwiązaniem do monitorowania zdalnego][lnk-connect-rm].
 
 Każde symulowane urządzenie może wysyłać do usługi IoT Hub następujące typy wiadomości:
@@ -76,10 +80,10 @@ Symulowane urządzenia obsługują następujące polecenia wysyłane z pulpitu n
 
 Usługa IoT Hub udostępnia potwierdzenia poleceń urządzenia wysyłanych do zaplecza rozwiązania.
 
-## Usługa IoT Hub
+## <a name="iot-hub"></a>Usługa IoT Hub
 Usługa [IoT Hub][lnk-iothub] pozyskuje dane wysyłane z urządzeń do chmury i udostępnia je zadaniom usługi Azure Stream Analytics (ASA). Usługa IoT Hub wysyła również polecenia do urządzeń w imieniu portalu urządzeń. Każde zadanie strumieniowe ASA odczytuje strumień komunikatów z urządzeń przy użyciu osobnej grupy konsumentów usługi IoT Hub.
 
-## Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 W rozwiązaniu monitorowania zdalnego usługa [Azure Stream Analytics][lnk-asa] (ASA) wysyła komunikaty urządzeń odebrane przez usługę IoT Hub do innych składników zaplecza w celu ich przetwarzania lub magazynowania. Różne zadania ASA pełnią określone funkcje w zależności od zawartości komunikatów.
 
 **Zadanie 1: Informacje o urządzeniu** odfiltrowuje komunikaty z informacjami o urządzeniu ze strumienia komunikatów przychodzących i wysyła je do punktu końcowego Centrum zdarzeń. Komunikat z informacjami o urządzeniu jest wysyłany podczas uruchamiania urządzenia oraz w odpowiedzi na polecenie **SendDeviceInfo**. To zadanie identyfikuje komunikaty **device-info** przy użyciu następującej definicji zapytania:
@@ -176,26 +180,26 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## Usługa Event Hubs
+## <a name="event-hubs"></a>Usługa Event Hubs
 Zadania ASA **informacje o urządzeniu** i **reguły** przesyłają dane wyjściowe do centrum zdarzeń w celu ich niezawodnego przekazania do **procesora zdarzeń** uruchomionego w zadaniu WebJob.
 
-## Azure Storage
+## <a name="azure-storage"></a>Azure Storage
 Rozwiązanie korzysta z magazynu obiektów blob platformy Azure, aby utrwalić wszystkie nieprzetworzone i podsumowane dane telemetryczne z urządzeń w rozwiązaniu. Pulpit nawigacyjny odczytuje dane telemetryczne z magazynu obiektów blob w celu wypełnienia wykresów. Aby wyświetlić alerty, pulpit nawigacyjny odczytuje dane z magazynu obiektów blob, który rejestruje, kiedy wartości telemetryczne przekraczają skonfigurowane wartości progowe. Rozwiązanie używa również magazynu obiektów blob do rejestrowania wartości progowych określonych na pulpicie nawigacyjnym.
 
-## Zadania WebJob
+## <a name="webjobs"></a>Zadania WebJob
 Oprócz hostowania symulatorów urządzenia, zadania WebJob w rozwiązaniu hostują także **procesor zdarzeń** uruchomiony w zadaniu WebJob Azure, które obsługuje komunikaty z informacjami o urządzeniu i odpowiedzi na polecenia. Procesor zdarzeń korzysta z następujących elementów:
 
 * Komunikaty z informacjami o urządzeniach umożliwiające aktualizację rejestru urządzeń (przechowywanego w bazie danych DocumentDB) przy użyciu bieżących informacji.
 * Komunikaty z odpowiedziami na polecenia umożliwiające aktualizację historii poleceń urządzenia (przechowywanej w bazie danych DocumentDB).
 
-## DocumentDB
+## <a name="documentdb"></a>DocumentDB
 Rozwiązanie przechowuje informacje o urządzeniach połączonych z rozwiązaniem, używając bazy danych DocumentDB. Informacje te obejmują metadane urządzeń oraz historię poleceń wysłanych do urządzeń z pulpitu nawigacyjnego.
 
-## Aplikacje sieci Web
-### Pulpit nawigacyjny monitorowania zdalnego
+## <a name="web-apps"></a>Aplikacje sieci Web
+### <a name="remote-monitoring-dashboard"></a>Pulpit nawigacyjny monitorowania zdalnego
 Na tej stronie aplikacji sieci Web są używane kontrolki JavaScript usługi Power BI (zobacz [repozytorium PowerBI-visuals](https://www.github.com/Microsoft/PowerBI-visuals)), które umożliwiają wizualizację danych telemetrycznych z urządzeń. Rozwiązanie zapisuje dane telemetryczne w magazynie obiektów blob, używając zadań telemetrii usługi ASA.
 
-### Portal administrowania urządzeniami
+### <a name="device-administration-portal"></a>Portal administrowania urządzeniami
 Ta aplikacja sieci Web umożliwia wykonywanie następujących czynności:
 
 * Aprowizacja nowego urządzenia. Ta czynność obejmuje określenie unikatowego identyfikatora urządzenia i wygenerowanie klucza uwierzytelniania. Zapisuje ona informacje o urządzeniu w rejestrze tożsamości usługi IoT Hub oraz w bazie danych DocumentDB określonego rozwiązania.
@@ -204,7 +208,7 @@ Ta aplikacja sieci Web umożliwia wykonywanie następujących czynności:
 * Wyświetlanie historii poleceń dla urządzenia.
 * Włączanie i wyłączanie urządzeń.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Następujące wpisy na blogu w witrynie TechNet zawierają więcej informacji dotyczących wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego:
 
 * [IoT Suite - Under The Hood - Remote Monitoring (Za kulisami pakietu IoT — monitorowanie zdalne)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
@@ -224,6 +228,7 @@ Możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

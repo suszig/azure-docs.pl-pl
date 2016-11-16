@@ -1,14 +1,14 @@
 ---
 title: Rozpoczynanie pracy z szablonami prywatnymi | Microsoft Docs
-description: Dodawanie i udostępnianie szablonów prywatnych oraz zarządzanie nimi przy użyciu portalu Azure, interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
+description: "Dodawanie i udostępnianie szablonów prywatnych oraz zarządzanie nimi przy użyciu portalu Azure, interfejsu wiersza polecenia platformy Azure lub programu PowerShell."
 services: marketplace-customer
-documentationcenter: ''
+documentationcenter: 
 author: VybavaRamadoss
 manager: asimm
-editor: ''
+editor: 
 tags: marketplace, azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: 6ec20778-b578-4885-acb5-104b0e51ea1a
 ms.service: marketplace
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,16 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cada217a967597ecb44d84c469367157c7bc785e
+
 
 ---
-# Rozpoczynanie pracy z szablonami prywatnymi w portalu Azure
+# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Rozpoczynanie pracy z szablonami prywatnymi w portalu Azure
 Szablon usługi [Azure Resource Manager](../resource-group-authoring-templates.md) to deklaracyjny szablon używany do definiowania wdrożenia. Można zdefiniować zasoby w celu wdrożenia rozwiązania oraz określić parametry i zmienne, które umożliwią wprowadzanie wartości dla różnych środowisk. Szablon składa się z kodu JSON i wyrażeń, których można używać do tworzenia wartości na potrzeby wdrożenia.
 
 Aby umożliwić użytkownikom tworzenie i wdrażanie szablonów prywatnych oraz zarządzanie nimi z poziomu biblioteki osobistej, można użyć nowej funkcji **Szablony** w witrynie [Azure Portal](https://portal.azure.com) razem z dostawcą zasobów **Microsoft.Gallery** jako rozszerzenia portalu [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 Ten dokument przeprowadzi Cię przez proces dodawania i udostępniania **szablonu** prywatnego oraz zarządzania nim za pośrednictwem witryny Azure Portal.
 
-## Wskazówki
+## <a name="guidance"></a>Wskazówki
 Poniższe sugestie pomogą Ci w pełni wykorzystać możliwości **szablonów** w pracy z rozwiązaniami:
 
 * **Szablon** to hermetyzowany zasób, który zawiera szablon usługi Resource Manager i dodatkowe metadane. Jego zachowanie jest bardzo podobne do zachowania elementu w witrynie Marketplace. Najważniejsza różnica polega na tym, że jest to element prywatny, a witryna Marketplace zawiera elementy publiczne.
@@ -35,10 +39,10 @@ Poniższe sugestie pomogą Ci w pełni wykorzystać możliwości **szablonów** 
 * **Szablony** są powiązane z użytkownikiem, który je opublikował. Nazwa wydawcy jest widoczna dla każdej osoby, która ma uprawnienia do odczytu szablonu.
 * **Szablony** to zasoby usługi Resource Manager. Po opublikowaniu nie można zmienić ich nazwy.
 
-## Dodawanie zasobu Szablon
+## <a name="add-a-template-resource"></a>Dodawanie zasobu Szablon
 Istnieją dwa sposoby tworzenia zasobu **Szablon** w witrynie Azure Portal.
 
-### Metoda 1. Tworzenie nowego zasobu Szablon z poziomu uruchomionej grupy zasobów
+### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Metoda 1. Tworzenie nowego zasobu Szablon z poziomu uruchomionej grupy zasobów
 1. Przejdź do istniejącej grupy zasobów w portalu Azure. Wybierz pozycję **Eksportuj szablon** w obszarze **Ustawienia**.
 2. Po wyeksportowaniu szablonu usługi Resource Manager użyj przycisku **Zapisz szablon** w celu zapisania go w repozytorium **Szablony**. Wszystkie szczegóły eksportowania szablonu możesz znaleźć [tutaj](../resource-manager-export-template.md).
    <br /><br />
@@ -58,7 +62,7 @@ Istnieją dwa sposoby tworzenia zasobu **Szablon** w witrynie Azure Portal.
    > 
    > 
 
-### B. Metoda 2. Dodawanie nowego szablonu przy użyciu funkcji przeglądania
+### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. Metoda 2. Dodawanie nowego szablonu przy użyciu funkcji przeglądania
 Możesz także dodać nowy **szablon** od początku, korzystając z przycisku polecenia +Dodaj, dostępnego po wybraniu pozycji **Przeglądaj > Szablony**. Musisz podać nazwę, opis i kod JSON szablonu usługi Resource Manager.
 
 ![Dodawanie szablonu](media/add-template-portal1.PNG)  <br />
@@ -68,7 +72,7 @@ Możesz także dodać nowy **szablon** od początku, korzystając z przycisku po
 > 
 > 
 
-## Wyświetlanie zasobów Szablon
+## <a name="view-template-resources"></a>Wyświetlanie zasobów Szablon
 Wszystkie dostępne **szablony** można wyświetlić, wybierając pozycje **Przeglądaj > Szablony**. Będą to **szablony** utworzone przez Ciebie, a także te, które zostały Ci udostępnione z różnymi poziomami uprawnień. Więcej szczegółów znajduje się w poniższej sekcji dotyczącej [kontroli dostępu](#access-control-for-a-tenant-resource-provider).
 
 ![Wyświetlanie szablonu](media/view-template-portal1.PNG)  <br />
@@ -77,7 +81,7 @@ Aby wyświetlić szczegółowe informacje o **szablonie**, kliknij element listy
 
 ![Wyświetlanie szablonu](media/view-template-portal2c.png)  <br />
 
-## Edytowanie zasobu Szablon
+## <a name="edit-a-template-resource"></a>Edytowanie zasobu Szablon
 Możesz zainicjować przepływ edycji **szablonu**, klikając prawym przyciskiem myszy element na liście przeglądania lub wybierając przycisk polecenia edycji.
 
 ![Edytowanie szablonu](media/edit-template-portal1a.PNG)  <br />
@@ -90,15 +94,15 @@ Po zapisaniu **szablonu** zobaczysz powiadomienie z potwierdzeniem.
 
 ![Edytowanie szablonu](media/edit-template-portal3b.png)  <br />
 
-## Wdrażanie zasobu Szablon
+## <a name="deploy-a-template-resource"></a>Wdrażanie zasobu Szablon
 Możesz wdrożyć dowolny **szablon**, do którego masz uprawnienia do **odczytu**. Przepływ wdrożenia powoduje uruchomienie standardowego bloku wdrożenia szablonu platformy Azure. Wprowadź wartości parametrów szablonu usługi Resource Manager, aby kontynuować wdrażanie.
 
 ![Wdrażanie szablonu](media/deploy-template-portal1b.png)  <br />
 
-## Udostępnianie zasobu Szablon
+## <a name="share-a-template-resource"></a>Udostępnianie zasobu Szablon
 Zasób **Szablon** można udostępniać innym użytkownikom. Udostępnianie działa w sposób podobny do [przypisywania roli dla dowolnego zasobu na platformie Azure](../active-directory/role-based-access-control-configure.md). Właściciel **szablonu** zapewnia uprawnienia innym użytkownikom, którzy mogą współdziałać z zasobem Szablon. Osoba lub grupa osób, której udostępniono **szablon**, będzie mogła zobaczyć szablon usługi Resource Manager i galerię jego właściwości.
 
-### Kontrola dostępu do zasobów Microsoft.Gallery
+### <a name="access-control-for-the-microsoftgallery-resources"></a>Kontrola dostępu do zasobów Microsoft.Gallery
 | Rola | Uprawnienia |
 | --- | --- |
 | Właściciel |Umożliwia pełną kontrolę zasobu Szablon, w tym udostępnianie. |
@@ -124,11 +128,14 @@ Kliknij pozycję **Wybierz**, a następnie przycisk **OK**. Możesz teraz przegl
 > 
 > 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Aby uzyskać informacje na temat tworzenia szablonów usługi Resource Manager, zobacz artykuł [Authoring templates](../resource-group-authoring-templates.md) (Tworzenie szablonów).
 * Aby poznać funkcje, których można użyć w szablonie usługi Resource Manager, zobacz artykuł [Template functions](../resource-group-template-functions.md) (Funkcje szablonu).
 * Aby uzyskać wskazówki dotyczące projektowania szablonów, zobacz artykuł [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md) (Najlepsze rozwiązania dotyczące projektowania szablonów usługi Azure Resource Manager).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

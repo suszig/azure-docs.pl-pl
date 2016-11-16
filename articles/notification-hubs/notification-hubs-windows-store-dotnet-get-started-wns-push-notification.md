@@ -1,80 +1,84 @@
 ---
-title: Rozpoczynanie pracy z usługą Azure Notification Hubs dla aplikacji platformy uniwersalnej systemu Windows | Microsoft Docs
-description: Korzystając z tego samouczka, dowiesz się, jak wypychać powiadomienia do aplikacji platformy uniwersalnej systemu Windows przy użyciu usługi Azure Notification Hubs.
+title: "Rozpoczynanie pracy z usługą Azure Notification Hubs dla aplikacji platformy uniwersalnej systemu Windows | Microsoft Docs"
+description: "Korzystając z tego samouczka, dowiesz się, jak wypychać powiadomienia do aplikacji platformy uniwersalnej systemu Windows przy użyciu usługi Azure Notification Hubs."
 services: notification-hubs
 documentationcenter: windows
-author: wesmc7777
+author: ysxu
 manager: erikre
 editor: erikre
-
+ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d59348a0f794b3989fe9b1ce457b2f7a85b3b7a9
+
 
 ---
-# Rozpoczynanie pracy z usługą Azure Notification Hubs dla aplikacji platformy uniwersalnej systemu Windows
+# <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Rozpoczynanie pracy z usługą Azure Notification Hubs dla aplikacji platformy uniwersalnej systemu Windows
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji platformy uniwersalnej systemu Windows (UWP, Universal Windows Platform) przy użyciu usługi Azure Notification Hubs.
 
 Korzystając z tego samouczka, utworzysz pustą aplikację ze Sklepu Windows, która odbiera powiadomienia wypychane przy użyciu usługi powiadomień WNS (Windows Push Notification Service). Po zakończeniu będzie można za pomocą centrum powiadomień wysyłać powiadomienia wypychane do wszystkich urządzeń z tą aplikacją.
 
-## Przed rozpoczęciem
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 Kompletny kod dla tego samouczka można znaleźć w witrynie GitHub [tutaj](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Dla tego samouczka wymagane są następujące elementy:
 
 * Program [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) lub nowszy
-* [Zainstalowane narzędzia programistyczne aplikacji uniwersalnych systemu Windows](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+* [Zainstalowane narzędzia do programowania aplikacji uniwersalnych systemu Windows](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 * Aktywne konto platformy Azure <br/>Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 * Aktywne konto Sklepu Windows
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Notification Hubs dotyczących aplikacji platformy uniwersalnej systemu Windows.
 
-## Rejestrowanie aplikacji w Sklepie Windows
+## <a name="register-your-app-for-the-windows-store"></a>Rejestrowanie aplikacji w Sklepie Windows
 Aby wysyłać powiadomienia wypychane do aplikacji UWP, należy skojarzyć aplikację ze Sklepem Windows. Następnie należy skonfigurować integrację centrum powiadomień z usługą WNS.
 
 1. Jeśli nie zarejestrowano jeszcze aplikacji, przejdź do [Centrum deweloperów systemu Windows](https://dev.windows.com/overview), zaloguj się przy użyciu konta Microsoft, a następnie kliknij pozycję **Utwórz nową aplikację**.
 2. Wpisz nazwę aplikacji i kliknij pozycję **Rezerwuj nazwę aplikacji**.
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
+       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
    
-    Spowoduje to utworzenie nowej rejestracji aplikacji w Sklepie Windows.
+       This creates a new Windows Store registration for your app.
 3. W programie Visual Studio utwórz nowy projekt aplikacji ze Sklepu w języku Visual C# za pomocą szablonu **Pusta aplikacja** i kliknij pozycję **OK**.
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
+       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
 4. Zaakceptuj wartości domyślne dla wersji platformy docelowej i minimalnej.
 5. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji ze Sklepu Windows i kliknij pozycję **Sklep**, a następnie kliknij pozycję **Skojarz aplikację ze sklepem...**.
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
+       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
 
-    Zostanie wyświetlony kreator **Kojarzenie aplikacji ze Sklepem Windows**.
+       The **Associate Your App with the Windows Store** wizard appears.
 
 1. W kreatorze kliknij pozycję **Zaloguj**, a następnie zaloguj się przy użyciu konta Microsoft.
 2. Kliknij aplikację zarejestrowaną w kroku 2, kliknij przycisk **Dalej**, a następnie kliknij pozycję **Skojarz**.
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
+       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
    
-    Spowoduje to dodanie wymaganych informacji dotyczących rejestracji w Sklepie Windows do manifestu aplikacji.
+       This adds the required Windows Store registration information to the application manifest.
 3. Ponownie na stronie [Centrum deweloperów systemu Windows](http://go.microsoft.com/fwlink/p/?LinkID=266582) dla nowej aplikacji kliknij pozycję **Usługi**, **Powiadomienia wypychane** i **Witryna usług Live** w obszarze **Usługi powiadomień WNS i Microsoft Azure Mobile Apps**.
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
+       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
 4. Na stronie rejestracji aplikacji zanotuj hasło **Klucz tajny aplikacji** oraz **identyfikator zabezpieczeń pakietu (SID)** znajdujący się w ustawieniach platformy **Sklep Windows**.
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
 
-    > [AZURE.WARNING]
+     > [AZURE.WARNING]
     Klucz tajny aplikacji i identyfikator SID pakietu są ważnymi poświadczeniami zabezpieczeń. Nie udostępniaj nikomu tych wartości ani nie rozpowszechniaj ich razem z aplikacją.
 
-## Konfigurowanie centrum powiadomień
+## <a name="configure-your-notification-hub"></a>Konfigurowanie centrum powiadomień
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
@@ -86,7 +90,7 @@ Aby wysyłać powiadomienia wypychane do aplikacji UWP, należy skojarzyć aplik
 
 Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą WNS i uzyskano parametry połączenia na potrzeby rejestrowania aplikacji i wysyłania powiadomień.
 
-## Łączenie aplikacji z centrum powiadomień
+## <a name="connect-your-app-to-the-notification-hub"></a>Łączenie aplikacji z centrum powiadomień
 1. W programie Visual Studio kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
    
     Zostanie wyświetlone okno dialogowe **Zarządzanie pakietami NuGet**.
@@ -132,11 +136,11 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą WNS i u
     Gwarantuje to, że identyfikator URI kanału jest rejestrowany w centrum powiadomień przy każdym uruchomieniu aplikacji.
 6. Naciśnij klawisz **F5**, aby uruchomić aplikację. Zostanie wyświetlone podręczne okno dialogowe zawierające klucz rejestracji.
    
-    ![][19]
+       ![][19]
 
 Aplikacja jest teraz gotowa do odbierania wyskakujących powiadomień.
 
-## Wysyłanie powiadomień
+## <a name="send-notifications"></a>Wysyłanie powiadomień
 Odbieranie powiadomień w aplikacji możesz szybko przetestować, wysyłając powiadomienia w witrynie [Azure Portal](https://portal.azure.com/) za pomocą przycisku **Testuj wysyłanie** w centrum powiadomień, jak pokazano na poniższym zrzucie ekranu.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
@@ -151,12 +155,12 @@ W tym samouczku dla uproszczenia przedstawiono testowanie aplikacji klienckiej p
 * **Azure Mobile Apps**: aby zapoznać się z przykładem wysyłania powiadomień z poziomu aplikacji usługi Azure Mobile Apps zintegrowanej z usługą Notification Hubs, zobacz [Add push notifications for Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) (Dodawanie powiadomień wypychanych do aplikacji usługi Mobile Apps).
 * **Java / PHP**: aby zapoznać się z przykładem wysyłania powiadomień przy użyciu interfejsów API REST, zobacz „How to use Notification Hubs from Java/PHP” (Jak używać usługi Notification Hubs za pomocą języka Java/PHP) — [Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md).
 
-## (Opcjonalnie) Wysyłanie powiadomień z poziomu aplikacji konsolowej
+## <a name="optional-send-notifications-from-a-console-app"></a>(Opcjonalnie) Wysyłanie powiadomień z poziomu aplikacji konsolowej
 Aby wysłać powiadomienia za pomocą aplikacji konsolowej programu .NET, wykonaj następujące kroki. 
 
 1. Kliknij prawym przyciskiem myszy rozwiązanie, wybierz polecenie **Dodaj** i pozycję **Nowy projekt...**, a następnie w obszarze **Visual C#** kliknij pozycję **Windows** i pozycję **Aplikacja konsolowa**, a następnie kliknij przycisk **OK**.
    
-    ![][13]
+       ![][13]
    
     Spowoduje to dodanie nowej aplikacji konsolowej w języku Visual C# do rozwiązania. Można to również zrobić w oddzielnym rozwiązaniu.
 2. W programie Visual Studio kliknij kolejno pozycje **Narzędzia**, **Menedżer pakietów NuGet**, **Konsola menedżera pakietów**.
@@ -182,7 +186,7 @@ Aby wysłać powiadomienia za pomocą aplikacji konsolowej programu .NET, wykona
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
    
-    Zastąp symbol zastępczy „nazwa centrum” nazwą centrum powiadomień wyświetlaną w witrynie Azure Portal. Zastąp również symbol zastępczy parametrów połączenia przy użyciu parametrów połączenia **DefaultFullSharedAccessSignature** uzyskanych ze strony **Zasady dostępu** Centrum powiadomień w sekcji zatytułowanej „Konfigurowanie centrum powiadomień”.
+       Make sure to replace the "hub name" placeholder with the name of the notification hub that as it appears in the Azure Portal. Also, replace the connection string placeholder with the **DefaultFullSharedAccessSignature** connection string that you obtained from the **Access Policies** page of your Notification Hub in the section called "Configure your notification hub."
    
    > [!NOTE]
    > Upewnij się, że użyto parametrów połączenia z uprawnieniami dostępu **Pełne**, a nie **Nasłuchiwanie**. Parametry połączenia z uprawnieniami dostępu do nasłuchiwania nie mają uprawnień do wysyłania powiadomień.
@@ -194,13 +198,13 @@ Aby wysłać powiadomienia za pomocą aplikacji konsolowej programu .NET, wykona
          Console.ReadLine();
 7. Kliknij prawym przyciskiem myszy projekt aplikacji konsolowej w programie Visual Studio, a następnie kliknij polecenie **Ustaw jako projekt startowy**, aby ustawić go jako projekt startowy. Następnie naciśnij klawisz **F5**, aby uruchomić aplikację.
    
-    ![][14]
+       ![][14]
    
     Otrzymasz wyskakujące powiadomienie na wszystkich zarejestrowanych urządzeniach. Kliknięcie lub naciśnięcie baneru powiadomienia wyskakującego spowoduje załadowanie aplikacji.
 
 Wszystkie obsługiwane ładunki można znaleźć w tematach dotyczących [wykazu powiadomień wyskakujących], [wykazu kafelków] i [omówienia znaczków] w witrynie MSDN.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym prostym przykładzie wysłano wyemitowane powiadomienia do wszystkich urządzeń z systemem Windows korzystających z portalu lub aplikacji konsolowej. Zalecanym następnym krokiem jest zapoznanie się z samouczkiem [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]. Przedstawiono w nim sposób wysyłania powiadomień z zaplecza programu ASP.NET przy użyciu tagów służących do adresowania powiadomień do określonych użytkowników.
 
 Jeśli chcesz podzielić użytkowników na grupy zainteresowań, zobacz [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]. 
@@ -224,6 +228,6 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

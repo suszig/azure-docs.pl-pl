@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do usługi Azure Search w języku Java | Microsoft Docs
-description: Jak utworzyć hostowaną aplikację wyszukiwania w chmurze na platformie Azure, używając języka Java jako języka programowania.
+title: "Wprowadzenie do usługi Azure Search w języku Java | Microsoft Docs"
+description: "Jak utworzyć hostowaną aplikację wyszukiwania w chmurze na platformie Azure, używając języka Java jako języka programowania."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: EvanBoyle
 manager: pablocas
 editor: v-lincan
-
+ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -14,9 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+
 
 ---
-# Wprowadzenie do usługi Azure Search w języku Java
+# <a name="get-started-with-azure-search-in-java"></a>Wprowadzenie do usługi Azure Search w języku Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -33,7 +37,7 @@ Do utworzenia i przetestowania przedstawionego przykładu użyto następującego
 * [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-## Informacje o danych
+## <a name="about-the-data"></a>Informacje o danych
 Ta przykładowa aplikacja korzysta z danych agencji [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) zawężonych do stanu Rhode Island w celu zmniejszenia rozmiaru zestawu danych. Użyjemy tych danych do utworzenia aplikacji wyszukiwania, która zwraca punkty orientacyjne, takie jak szpitale i szkoły, jak również formy geologiczne, takie jak strumienie, jeziora i szczyty.
 
 W tej aplikacji program **SearchServlet.java** tworzy i ładuje indeks, używając konstrukcji [indeksatora](https://msdn.microsoft.com/library/azure/dn798918.aspx), a zawężony zestaw danych z agencji USGS jest pobierany z publicznej usługi Azure SQL Database. Wstępnie zdefiniowane poświadczenia oraz informacje o połączeniu ze źródłem danych w trybie online są zawarte w kodzie programu. W zakresie dostępu do danych nie jest konieczna dalsza konfiguracja.
@@ -43,7 +47,7 @@ W tej aplikacji program **SearchServlet.java** tworzy i ładuje indeks, używaj�
 > 
 > 
 
-## Informacje o plikach programu
+## <a name="about-the-program-files"></a>Informacje o plikach programu
 Na poniższej liście opisano pliki, które mają zastosowanie w tym przykładzie.
 
 * Search.jsp: udostępnia interfejs użytkownika
@@ -56,7 +60,7 @@ Na poniższej liście opisano pliki, które mają zastosowanie w tym przykładzi
 
 <a id="sub-2"></a>
 
-## Znajdowanie nazwy usługi oraz klucza interfejsu API usługi Azure Search
+## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Znajdowanie nazwy usługi oraz klucza interfejsu API usługi Azure Search
 Wszystkie wywołania interfejsu API REST do usługi Azure Search wymagają podania adresu URL usługi i klucza api-key. 
 
 1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
@@ -64,17 +68,17 @@ Wszystkie wywołania interfejsu API REST do usługi Azure Search wymagają podan
 3. Wybierz usługę, której chcesz użyć.
 4. Na pulpicie nawigacyjnym usługi zobaczysz kafelki z istotnymi informacjami, jak również ikonę klucza, służącą do uzyskiwania dostępu do kluczy administratora.
    
-    ![][3]
+      ![][3]
 5. Skopiuj adres URL usługi i klucz administratora. Będą Ci potrzebne później podczas dodawania ich do pliku **config.properties**.
 
-## Pobieranie plików przykładowych
+## <a name="download-the-sample-files"></a>Pobieranie plików przykładowych
 1. Wybierz pozycję [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) w witrynie GitHub.
 2. Kliknij przycisk **Download ZIP** (Pobierz ZIP), zapisz plik zip na dysku, a następnie wyodrębnij wszystkie pliki w nim zawarte. Rozważ wyodrębnienie plików do obszaru roboczego Java, aby ułatwić znajdowanie projektu w przyszłości.
 3. Pliki przykładowe są tylko do odczytu. Kliknij prawym przyciskiem myszy folder właściwości i usuń atrybut tylko do odczytu.
 
 Wszystkie kolejne modyfikacje plików i instrukcje uruchamiania będą wykonywane względem plików w tym folderze.  
 
-## Importowanie projektu
+## <a name="import-project"></a>Importowanie projektu
 1. W środowisku Eclipse wybierz pozycję **Plik** > **Importuj** > **Ogólne** > **Istniejące projekty do obszaru roboczego**.
    
     ![][4]
@@ -84,14 +88,14 @@ Wszystkie kolejne modyfikacje plików i instrukcje uruchamiania będą wykonywan
 3. Kliknij przycisk **Zakończ**.
 4. W obszarze **Eksplorator projektów** możesz wyświetlać i edytować pliki. Jeśli nie jest on jeszcze otwarty, kliknij pozycję **Okna** > **Pokaż widok** > **Eksplorator projektów** lub użyj skrótu, aby go otworzyć.
 
-## Konfigurowanie adresu URL usługi i klucza api-key
+## <a name="configure-the-service-url-and-apikey"></a>Konfigurowanie adresu URL usługi i klucza api-key
 1. W obszarze **Eksplorator projektów** kliknij dwukrotnie pozycję **config.properties**, aby edytować ustawienia konfiguracji, które zawierają nazwę serwera i klucz api-key.
 2. Wróć do kroków opisanych wcześniej w tym artykule, aby odnaleźć adres URL usługi oraz klucz api-key w witrynie [Azure Portal](https://portal.azure.com). Uzyskane wartości należy wpisać w pliku **config.properties**.
 3. W pliku **config.properties** zastąp ciąg „Api Key” (Klucz interfejsu API) kluczem api-key dla Twojej usługi. Następnie nazwą usługi (pierwszy składnik adresu URL http://nazwa_uslugi.search.windows.net) zastąp ciąg „service name” (nazwa usługi) w tym samym pliku.
    
     ![][5]
 
-## Konfigurowanie środowisk projektowania i kompilacji oraz środowisk uruchomieniowych
+## <a name="configure-the-project-build-and-runtime-environments"></a>Konfigurowanie środowisk projektowania i kompilacji oraz środowisk uruchomieniowych
 1. W środowisku Eclipse, w Eksploratorze projektów kliknij prawym przyciskiem myszy pozycję Projekt > **Właściwości** > **Aspekty projektu**.
 2. Wybierz pozycje: **Dynamiczny moduł WWW**, **Java** i **JavaScript**.
    
@@ -117,7 +121,7 @@ Wszystkie kolejne modyfikacje plików i instrukcje uruchamiania będą wykonywan
 
 Zadania konfiguracji zostały zakończone. W dalszej części skompilujesz i uruchomisz projekt.
 
-## Kompilowanie projektu
+## <a name="build-the-project"></a>Kompilowanie projektu
 1. W obszarze Eksplorator projektów kliknij prawym przyciskiem myszy nazwę projektu i wybierz polecenie **Wykonaj jako** > **Kompilacja Maven...**, aby skonfigurować projekt.
    
     ![][10]
@@ -125,7 +129,7 @@ Zadania konfiguracji zostały zakończone. W dalszej części skompilujesz i uru
 
 Komunikaty o stanie zostaną wyświetlone w oknie konsoli. Powinien zostać wyświetlony komunikat BUDOWANIE POWIODŁO SIĘ wskazujący, że kompilowanie projektu zakończyło się bez błędów.
 
-## Uruchamianie aplikacji
+## <a name="run-the-app"></a>Uruchamianie aplikacji
 W tym ostatnim kroku uruchomisz aplikację w środowisku uruchomieniowym serwera lokalnego.
 
 Jeśli środowisko uruchomieniowe serwera nie zostało jeszcze określone w środowisku Eclipse, należy to zrobić w pierwszej kolejności.
@@ -142,7 +146,7 @@ Po uruchomieniu aplikacji powinno zostać wyświetlone okno przeglądarki zawier
 
 Poczekaj około minutę, zanim klikniesz pozycję **Szukaj**, aby dać usłudze czas na utworzenie i załadowanie indeksu. Jeśli wystąpi błąd 404 protokołu HTTP, wystarczy poczekać nieco dłużej przed podjęciem ponownej próby.
 
-## Przeszukiwanie danych agencji USGS
+## <a name="search-on-usgs-data"></a>Przeszukiwanie danych agencji USGS
 Zestaw danych agencji USGS zawiera rekordy, które odnoszą się do stanu Rhode Island. Jeśli klikniesz przycisk **Szukaj**, pozostawiając pole wyszukiwania puste, zostanie wyświetlonych 50 pierwszych wpisów, co jest ustawieniem domyślnym.
 
 Wprowadzenie terminu wyszukiwania zaangażuje do pracy wyszukiwarkę. Spróbuj wprowadzić nazwę regionalną. „Roger Williams” był pierwszym gubernatorem stanu Rhode Island. Liczne parki, budynki i szkoły są nazwane jego imieniem.
@@ -155,7 +159,7 @@ Możesz też wprowadzić jeden z poniższych terminów:
 * Pembroke
 * goose +cape
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 To jest pierwszy samouczek usługi Azure Search bazujący na języku Java i zestawie danych agencji USGS. Wraz z upływem czasu będziemy rozszerzać ten samouczek, aby zademonstrować dodatkowe funkcje wyszukiwania, których mogą być przydatne w rozwiązaniach niestandardowych.
 
 Jeśli masz już pewną wiedzę na temat usługi Azure Search, możesz użyć tego przykładu jako podstawy do dalszych eksperymentów. Na przykład możesz rozszerzyć [stronę wyszukiwania](search-pagination-page-layout.md) lub zaimplementować [nawigację aspektową](search-faceted-navigation.md). Możesz również ulepszyć stronę wyników wyszukiwania przez dodanie liczników i łączenie dokumentów w partie, aby użytkownicy mogli przechodzić do kolejnych stron wyników.
@@ -178,6 +182,6 @@ Dopiero zaczynasz korzystać z usługi Azure Search? Zalecamy wypróbować inne 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

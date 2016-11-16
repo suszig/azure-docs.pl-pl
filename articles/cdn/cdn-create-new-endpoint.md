@@ -1,12 +1,12 @@
 ---
-title: Korzystanie z usługi Azure CDN | Microsoft Docs
-description: W tym temacie przedstawiono sposób włączania usługi Content Delivery Network (CDN) dla platformy Azure. Samouczek przeprowadza przez tworzenie nowego profilu i punktu końcowego usługi CDN.
+title: "Korzystanie z usługi Azure CDN | Microsoft Docs"
+description: "W tym temacie przedstawiono sposób włączania usługi Content Delivery Network (CDN) dla platformy Azure. Samouczek przeprowadza przez tworzenie nowego profilu i punktu końcowego usługi CDN."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+
 
 ---
-# Korzystanie z usługi Azure CDN
+# <a name="using-azure-cdn"></a>Korzystanie z usługi Azure CDN
 W tym temacie opisano włączanie usługi Azure CDN z tworzeniem nowego profilu i punktu końcowego usługi CDN.
 
 > [!IMPORTANT]
@@ -24,7 +28,7 @@ W tym temacie opisano włączanie usługi Azure CDN z tworzeniem nowego profilu 
 > 
 > 
 
-## Tworzenie nowego profilu CDN
+## <a name="create-a-new-cdn-profile"></a>Tworzenie nowego profilu CDN
 Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawiera jeden lub więcej punktów końcowych usługi CDN.  Możesz używać wielu profilów, aby organizować punkty końcowe usługi CDN według domeny internetowej, aplikacji sieci Web lub innych kryteriów.
 
 > [!NOTE]
@@ -36,7 +40,7 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## Tworzenie nowego punktu końcowego usługi CDN
+## <a name="create-a-new-cdn-endpoint"></a>Tworzenie nowego punktu końcowego usługi CDN
 **Aby utworzyć nowy punkt końcowy usługi CDN**
 
 1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojego profilu CDN.  Być może został on przypięty do pulpitu nawigacyjnego w poprzednim kroku.  Jeśli nie, możesz go znaleźć, klikając pozycję **Przeglądaj**, następnie pozycję **Profile CDN** i klikając profil, do którego planujesz dodać punkt końcowy.
@@ -88,7 +92,7 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
     > 
     > 
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 * [Kontrolowanie zachowania buforowania żądań z ciągami zapytań](cdn-query-string.md)
 * [Jak zamapować zawartość usługi CDN na domenę niestandardową](cdn-map-content-to-custom-domain.md)
 * [Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN](cdn-preload-endpoint.md)
@@ -102,6 +106,6 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

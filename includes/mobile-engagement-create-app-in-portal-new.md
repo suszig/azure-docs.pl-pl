@@ -10,7 +10,7 @@
    * **Name** (Nazwa): nazwa *kolekcji aplikacji* 
    * **Platforms** (Platformy): w otwartym bloku Platforms (Platformy) wybierz docelowe platformy dla swojej aplikacji. Na przykład Jeśli chcesz utworzyć aplikację zarówno dla systemu iOS, jak i systemu Android, wybierz obie platformy, a otrzymasz dwie aplikacje utworzone w tej kolekcji aplikacji. 
      
-     ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
+      ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **Subscription** (Subskrypcja): wybierz subskrypcję platformy Azure. 
    * **Resource group** (Grupa zasobów): wybierz grupę zasobów platformy Azure, w której chcesz umieścić określony zasób platformy Azure (kolekcja aplikacji usługi Mobile Engagement). Możesz też utworzyć nową grupę zasobów.  
    * **Location** (Lokalizacja): region, w którym będą przechowywane dane dotyczące danej kolekcji aplikacji i samej aplikacji.
@@ -30,6 +30,8 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

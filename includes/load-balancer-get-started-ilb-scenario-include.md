@@ -1,11 +1,16 @@
-## Scenario
-You are creating an internal load balancer according to the following scenario
+## <a name="scenario"></a>Scenariusz
 
-![IMAGE DESCRIPTION](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+Tworzenie wewnętrznego modułu równoważenia obciążenia zgodnie z poniższym scenariuszem
 
-An internal load balancer is configured in a virtual network  
+![OPIS ILUSTRACJI](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-* 2 virtual machines called DB1 and DB2<BR>
-* Endpoints <BR>
-* Internal load balancer<BR>
+Wewnętrzny moduł równoważenia obciążenia jest konfigurowany w sieci wirtualnej
+
+* 2 maszyny wirtualne o nazwach DB1 i DB2
+* Punkty końcowe
+* Wewnętrzny moduł równoważenia obciążenia
+
+
+<!--HONumber=Nov16_HO2-->
+
 

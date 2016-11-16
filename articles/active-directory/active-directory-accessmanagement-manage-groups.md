@@ -1,12 +1,12 @@
 ---
-title: Zarządzanie grupami w usłudze Azure Active Directory | Microsoft Docs
-description: Jak tworzyć grupy i zarządzać nimi, aby zarządzać użytkownikami platformy Azure przy użyciu usługi Azure Active Directory.
+title: "Zarządzanie grupami w usłudze Azure Active Directory | Microsoft Docs"
+description: "Jak tworzyć grupy i zarządzać nimi, aby zarządzać użytkownikami platformy Azure przy użyciu usługi Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d1f5451c-3807-423c-8bac-2822d27b893f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+
 
 ---
-# Zarządzanie grupami w usłudze Azure Active Directory
+# <a name="managing-groups-in-azure-active-directory"></a>Zarządzanie grupami w usłudze Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-groups-create-azure-portal.md)
-> * [klasyczny portal Azure](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [Klasyczna witryna Azure Portal](active-directory-accessmanagement-manage-groups.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
@@ -31,7 +35,7 @@ Jedną z funkcji zarządzania użytkownikami w usłudze Azure Active Directory (
 
 Ponadto właściciel zasobu może także przypisać dostęp do tego zasobu do grupy usługi Azure AD należącej do innej osoby. To przypisanie spowoduje przydzielenie dostępu do zasobu członkom tej grupy. Następnie właściciel grupy może zarządzać członkostwem w grupie. Zatem w praktyce właściciel zasobu przekazuje właścicielowi grupy uprawnienie do przypisywania użytkowników do swojego zasobu.
 
-## Jak utworzyć grupę?
+## <a name="how-do-i-create-a-group"></a>Jak utworzyć grupę?
 W zależności od usług, które subskrybuje Twoja organizacja, możesz utworzyć grupę w jednym z następujących miejsc:
 
 * Klasyczny portal Azure
@@ -45,7 +49,7 @@ Zadania opiszemy w taki sposób, jakby były wykonywane w klasycznym portalu Azu
 3. Wybierz polecenie **Dodaj grupę**.
 4. W oknie **Dodawanie grupy** podaj nazwę i opis grupy.
 
-## Jak dodawać i usuwać pojedynczych użytkowników w grupie zabezpieczeń?
+## <a name="how-do-i-add-or-remove-individual-users-in-a-security-group"></a>Jak dodawać i usuwać pojedynczych użytkowników w grupie zabezpieczeń?
 **Aby dodać użytkownika do grupy**
 
 1. W [klasycznym portalu Azure](https://manage.windowsazure.com) wybierz pozycję **Active Directory**, a następnie wybierz nazwę katalogu swojej organizacji.
@@ -62,7 +66,7 @@ Zadania opiszemy w taki sposób, jakby były wykonywane w klasycznym portalu Azu
 4. Wybierz kartę **Członkowie**, wybierz nazwę członka, którego chcesz usunąć z grupy, a następnie kliknij polecenie **Usuń**.
 5. Po wyświetleniu monitu potwierdź, że chcesz usunąć tego członka z grupy.
 
-## Jak dynamicznie zarządzać członkostwem w grupie?
+## <a name="how-can-i-manage-the-membership-of-a-group-dynamically"></a>Jak dynamicznie zarządzać członkostwem w grupie?
 W usłudze Azure AD można bardzo łatwo skonfigurować prostą regułę w celu określenia, którzy użytkownicy powinni być członkami grupy. Prosta reguła to taka, która wykonuje tylko jedno porównanie. Jeśli na przykład grupa jest przypisana do aplikacji SaaS, możesz skonfigurować regułę dodającą użytkowników, którzy mają stanowisko „Przedstawiciel handlowy”. Następnie ta reguła udziela dostępu do tej aplikacji SaaS wszystkim użytkownikom mającym to stanowisko w katalogu.
 
 Po zmianie dowolnych atrybutów użytkownika system ocenia wszystkie zasady dotyczące grup dynamicznych w katalogu, aby ustalić, czy zmiana atrybutów użytkownika spowoduje dodanie elementów do grupy lub usunięcie ich z niej. Jeśli użytkownik spełnia wymagania zasad grupy, jest dodawany jako członek do tej grupy. Jeśli użytkownicy nie spełniają już zasad grupy, której są członkami, są usuwani z tej grupy.
@@ -88,7 +92,7 @@ Po zmianie dowolnych atrybutów użytkownika system ocenia wszystkie zasady doty
 
 Aby dowiedzieć się, jak tworzyć reguły *zaawansowane* (czyli takie, które mogą zawierać więcej niż jedno porównanie) na potrzeby dynamicznego zarządzania członkostwem w grupach, zobacz [Tworzenie reguł zaawansowanych za pomocą atrybutów](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
-## Dodatkowe informacje
+## <a name="additional-information"></a>Dodatkowe informacje
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 * [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
@@ -97,6 +101,9 @@ Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 * [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

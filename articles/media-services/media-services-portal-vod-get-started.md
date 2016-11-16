@@ -1,12 +1,12 @@
 ---
-title: " Wprowadzenie do dostarczania zawartości na żądanie przy użyciu portalu Azure | Microsoft Docs"
-description: W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu portalu Azure.
+title: " Wprowadzenie do dostarczania zawartości na żądanie przy użyciu witryny Azure Portal | Microsoft Docs"
+description: "W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu portalu Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25d8b204f328514ebcfc69228dcbf9342bdf205b
+
 
 ---
-# Wprowadzenie do dostarczania zawartości na żądanie przy użyciu portalu Azure
+# <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu portalu Azure
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu portalu Azure.
@@ -35,11 +39,11 @@ W tym samouczku opisano następujące zadania:
 5. Publikowanie elementu zawartości i uzyskiwanie adresów URL na potrzeby przesyłania strumieniowego i pobierania progresywnego.  
 6. Odtwarzanie zawartości.
 
-## Tworzenie konta usługi Azure Media Services
+## <a name="create-an-azure-media-services-account"></a>Tworzenie konta usługi Azure Media Services
 W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
 
 1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
-2. Kliknij kolejno pozycje **+Nowe** > **Media + CDN** > **Media Services**.
+2. Kliknij pozycję **+Nowe** > **Sieci Web i mobilność** > **Media Services**.
    
     ![Tworzenie usługi Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. Na stronie **TWORZENIE KONTA USŁUGI MEDIA SERVICES** wprowadź wymagane wartości.
@@ -48,7 +52,7 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
    
    1. W polu **Nazwa konta** wprowadź nazwę nowego konta usługi AMS. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.
    2. W subskrypcji wybierz jedną z różnych subskrypcji Azure, do których masz dostęp.
-   3. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../resource-group-overview.md#resource-groups).
+   3. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. W polu **Lokalizacja** wybierz region geograficzny używany do przechowywania nośników i rekordów metadanych dla konta usługi Media Services. Ten region służy do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services. 
    5. W polu **Konto magazynu** wybierz konto magazynu, aby udostępnić magazyn obiektów Blob dla zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.
       
@@ -62,7 +66,7 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
    
     Do zarządzania kontem AMS (na przykład przekazywania plików wideo, kodowania elementów zawartości, monitorowania postępu zadania) używaj okna **Ustawienia**.
 
-## Zarządzanie kluczami
+## <a name="manage-keys"></a>Zarządzanie kluczami
 Do uzyskania programowego dostępu do konta usługi Media Services będą wymagane nazwa konta i informacje o kluczu podstawowym.
 
 1. W portalu Azure wybierz konto. 
@@ -75,7 +79,7 @@ Do uzyskania programowego dostępu do konta usługi Media Services będą wymaga
    
     ![Klucze usługi Media Services](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## Konfigurowanie punktów końcowych przesyłania strumieniowego
+## <a name="configure-streaming-endpoints"></a>Konfigurowanie punktów końcowych przesyłania strumieniowego
 Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH i HDS (tylko dla posiadaczy licencji Adobe PrimeTime/Access).
 
 Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach transmisji strumieniowej obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
@@ -103,7 +107,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
    > 
    > 
 
-## Przekazywanie plików
+## <a name="upload-files"></a>Przekazywanie plików
 Aby przesłać strumieniowo pliki wideo przy użyciu usługi Azure Media Services, musisz przekazać źródłowe pliki wideo, zakodować je do wielokrotnych szybkości transmisji bitów oraz opublikować wynik. Pierwszy krok został omówiony w tej sekcji. 
 
 1. W oknie **Ustawienie** kliknij przycisk **Elementy zawartości**.
@@ -123,7 +127,7 @@ Aby przesłać strumieniowo pliki wideo przy użyciu usługi Azure Media Service
 
 Po zakończeniu przekazywania na liście w oknie **Elementy zawartości** pojawi się nowy element zawartości. 
 
-## Kodowanie elementów zawartości
+## <a name="encode-assets"></a>Kodowanie elementów zawartości
 Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH i HDS (tylko dla posiadaczy licencji Adobe PrimeTime/Access). Aby przygotować pliki wideo do przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów, należy zakodować źródłowy plik wideo do plików o różnej szybkości transmisji bitów. Do kodowania plików wideo należy używać kodera **Media Encoder Standard**.  
 
 Usługa Media Services udostępnia również funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać pliki MP4 o różnej szybkości transmisji bitów w formatach przesyłania strumieniowego MPEG DASH, HLS, Smooth Streaming lub HDS bez konieczności ponownego tworzenia pakietów w tych formatach. Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
@@ -133,7 +137,7 @@ Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać nas
 * Koduj plik źródłowy do zestawu plików MP4 o różnej szybkości transmisji bitów (kroki kodowania przedstawiono w dalszej części tej sekcji).
 * Pobierz co najmniej jedną jednostkę przesyłania strumieniowego dla punktu końcowego przesyłania strumieniowego, z którego planujesz dostarczać zawartość. Aby uzyskać więcej informacji, zobacz temat dotyczący [konfigurowania punktów końcowych przesyłania strumieniowego](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
 
-### Aby korzystać z portalu do kodowania
+### <a name="to-use-the-portal-to-encode"></a>Aby korzystać z portalu do kodowania
 W tej sekcji opisano kroki, które należy wykonać w celu zakodowania zawartości przy użyciu standardu Media Encoder Standard.
 
 1. W oknie **Ustawienia** wybierz opcję **Elementy zawartości**.  
@@ -146,12 +150,12 @@ W tej sekcji opisano kroki, które należy wykonać w celu zakodowania zawartoś
    ![Kodowanie elementów zawartości](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Kliknij przycisk **Utwórz**.
 
-### Monitorowanie postępu zadania kodowania
+### <a name="monitor-encoding-job-progress"></a>Monitorowanie postępu zadania kodowania
 Aby monitorować postęp zadania kodowania, kliknij pozycję **Ustawienia** (w górnej części strony), a następnie wybierz pozycję **Zadania**.
 
 ![Zadania](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-## Publikowanie zawartości
+## <a name="publish-content"></a>Publikowanie zawartości
 Aby podać użytkownikowi adres URL, który może służyć do przesyłania strumieniowego lub pobierania zawartości, należy najpierw „opublikować” element zawartości przez utworzenie lokalizatora. Lokalizatory zapewniają dostęp do plików znajdujących się w elemencie zawartości. Usługa Media Services obsługuje dwa typy lokalizatorów: 
 
 * Lokalizatory przesyłania strumieniowego (OnDemandOrigin) używane do adaptacyjnego przesyłania strumieniowego (na przykład, przesyłania MPEG DASH, HLS lub Smooth Streaming). Aby utworzyć lokalizator przesyłania strumieniowego element zawartości musi zawierać plik .ism. 
@@ -181,7 +185,7 @@ Adres URL SAS ma następujący format.
 
 Do aktualizacji daty wygaśnięcia na lokalizatorze użyj interfejsu API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) lub [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Po zaktualizowaniu daty wygaśnięcia lokalizatora SAS następuje zmiana adresu URL.
 
-### Aby opublikować element zawartości za pomocą portalu
+### <a name="to-use-the-portal-to-publish-an-asset"></a>Aby opublikować element zawartości za pomocą portalu
 Aby opublikować element zawartości za pomocą portalu, wykonaj następujące czynności:
 
 1. Wybierz kolejno pozycje **Ustawienia** > **Elementy zawartości**.
@@ -194,7 +198,7 @@ Aby opublikować element zawartości za pomocą portalu, wykonaj następujące c
 
 Adres URL jest dodawany do listy **Opublikowane adresy URL**.
 
-## Odtwarzanie zawartości z portalu
+## <a name="play-content-from-the-portal"></a>Odtwarzanie zawartości z portalu
 Portal Azure udostępnia odtwarzacz zawartości, który może służyć do testowania pliku wideo.
 
 Kliknij wybrany plik wideo, a następnie kliknij przycisk **Odtwórz**.
@@ -206,14 +210,17 @@ Zagadnienia do rozważenia:
 * Zadbaj o to, aby film wideo został opublikowany.
 * Ten **odtwarzacz multimediów** odtwarza z domyślnego punktu końcowego przesyłania strumieniowego. Aby odtworzyć z punktu końcowego przesyłania strumieniowego innego niż domyślny, kliknij, aby skopiować adres URL i użyć innego odtwarzacza (np. [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Przekazywanie opinii
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

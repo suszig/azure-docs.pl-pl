@@ -1,12 +1,12 @@
 ---
-title: Co to jest usługa Azure RemoteApp? | Microsoft Docs
-description: Dowiedz się, jak udostępniać aplikacje i zasoby na dowolnym urządzeniu za pośrednictwem usługi Azure RemoteApp.
+title: "Co to jest usługa Azure RemoteApp? | Microsoft Docs"
+description: "Dowiedz się, jak udostępniać aplikacje i zasoby na dowolnym urządzeniu za pośrednictwem usługi Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: d7a8a311-e70a-4463-ac85-c7f62c500921
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 95b4e6914de787bb2c25527ce9635f872b4746a6
+
 
 ---
-# Co to jest usługa Azure RemoteApp?
+# <a name="what-is-azure-remoteapp"></a>Co to jest usługa Azure RemoteApp?
 > [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -34,7 +38,7 @@ Usługa Azure RemoteApp jest częścią [infrastruktury pulpitów zdalnych firmy
 
 **Nowość!** Chcesz dowiedzieć się więcej na temat usługi Azure RemoteApp? A może chcesz zweryfikować usługę Azure RemoteApp w skali? Dołącz do naszych cotygodniowych [seminariów internetowych obejmujących pytania do ekspertów](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
 
-## Kolekcje usługi Azure RemoteApp
+## <a name="azure-remoteapp-collections"></a>Kolekcje usługi Azure RemoteApp
 Istnieją dwa rodzaje [kolekcji usługi Azure RemoteApp](remoteapp-collections.md):
 
 * **Kolekcja w chmurze** jest hostowana w chmurze i tam przechowuje dane programów. Użytkownicy mogą uzyskiwać dostęp do aplikacji, logując się przy użyciu konta Microsoft lub poświadczeń firmowych synchronizowanych lub sfederowanych z usługą Azure Active Directory.
@@ -52,7 +56,7 @@ Istnieją dwa rodzaje [kolekcji usługi Azure RemoteApp](remoteapp-collections.m
 
 Różne kolekcje mają różne opcje, w tym sieci, dlatego zastanów się, [która kolekcja](remoteapp-collections.md) najbardziej Ci odpowiada. 
 
-### Aktualizowanie kolekcji
+### <a name="updating-your-collection"></a>Aktualizowanie kolekcji
 Jedną z podstawowych różnic między kolekcjami hybrydowymi i w chmurze jest sposób obsługi aktualizacji oprogramowania. W przypadku kolekcji w chmurze, która używa wstępnie zainstalowanego obrazu usługi Office 365 ProPlus lub Office 2013, nie trzeba martwić się aktualizacjami. Usługa sama obsługuje i wdraża aktualizacje w sposób ciągły — w aplikacjach i systemie operacyjnym.
 
 W przypadku kolekcji hybrydowych, jak i kolekcji w chmurze korzystających z obrazu niestandardowego szablonu, użytkownik odpowiada za obsługę obrazu i aplikacji. Aktualizacje obrazów dołączonych do domeny można kontrolować za pomocą narzędzi takich jak Windows Update, zasady grupy lub program System Center.
@@ -61,12 +65,12 @@ Po zaktualizowaniu obrazu niestandardowego szablonu przekaż nowy obraz do chmur
 
 Aby uzyskać więcej informacji, zobacz [Update your collection](remoteapp-update.md) (Aktualizowanie kolekcji).
 
-## Obsługiwani klienci usługi RemoteApp
+## <a name="supported-remoteapp-clients"></a>Obsługiwani klienci usługi RemoteApp
 Usługa Azure RemoteApp jest obsługiwana w aplikacjach klienckich usługi RemoteApp systemów Windows i Windows RT, a także aplikacjach pulpitu zdalnego firmy Microsoft dla komputerów Mac oraz systemów Mac i Android. Użytkownicy mogą używać tych aplikacji na urządzeniach przenośnych lub obliczeniowych w celu uzyskiwania dostępu do nowych programów Azure RemoteApp.
 
 Aby uzyskać więcej informacji na temat klientów, zobacz [Accessing your apps in Azure RemoteApp](remoteapp-clients.md) (Uzyskiwanie dostępu do aplikacji w usłudze Azure RemoteApp).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Wszystko gotowe. Czas wypróbować usługę. Następujące artykuły pomogą Ci rozpocząć pracę z usługą Azure RemoteApp:
 
 * [Jakiego rodzaju kolekcji potrzebujesz w usłudze Azure RemoteApp?](remoteapp-collections.md)
@@ -77,9 +81,12 @@ Wszystko gotowe. Czas wypróbować usługę. Następujące artykuły pomogą Ci 
 * [Najlepsze rozwiązania dotyczące korzystania z usługi Azure RemoteApp](remoteapp-bestpractices.md)
 * [Często zadawane pytania dotyczące usługi Azure RemoteApp](remoteapp-faq.md)
 
-### Pomóż nam sobie pomóc
+### <a name="help-us-help-you"></a>Pomóż nam sobie pomóc
 Czy wiesz, że możesz nie tylko ocenić ten artykuł i dodać komentarze poniżej, ale także wprowadzać zmiany w samym artykule? Brakuje informacji? Coś jest nie tak? Treść artykułu jest niejasna? Przewiń w górę i kliknij pozycję **Edit on GitHub** (Edytuj w serwisie GitHub) lub pozycję **Edit** (Edytuj) w celu wprowadzenia zmian. Te modyfikacje zostaną przesłane do nas do przeglądu, a jeśli zostaną zatwierdzone, Twoje zmiany i udoskonalenia pojawią się w tym miejscu.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

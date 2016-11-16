@@ -1,12 +1,12 @@
 ---
-title: Dodawanie znakowania firmowego do stron logowania i panelu dostępu
-description: Dowiedz się, jak dodać znakowanie firmowe do strony logowania i strony panelu dostępu platformy Azure
+title: "Dodawanie znakowania firmowego do stron logowania i panelu dostępu"
+description: "Dowiedz się, jak dodać znakowanie firmowe do strony logowania i strony panelu dostępu platformy Azure"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+
 
 ---
-# Dodawanie znakowania firmowego do stron logowania i panelu dostępu
+# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Dodawanie znakowania firmowego do stron logowania i panelu dostępu
 Aby uniknąć nieporozumień, wiele firm chce zastosować spójny wygląd i zachowanie we wszystkich witrynach sieci Web i usługach, którymi zarządzają. Usługa Azure Active Directory zapewnia tę funkcję, umożliwiając dostosowanie wyglądu następujących stron sieci Web przez dodanie logo firmy i niestandardowych schematów kolorów:
 
 * **Strona logowania** — jest to strona wyświetlana podczas logowania się do usługi Office 365 lub innych aplikacji sieci Web, które używają usługi Azure AD jako dostawcy tożsamości. W interakcję z tą stroną wchodzisz podczas wykrywania obszaru głównego lub wprowadzania poświadczeń. Wykrywanie obszaru głównego umożliwia systemowi przekierowanie użytkowników federacyjnych do ich lokalnej usługi STS (takiej jak usługi AD FS).
@@ -30,7 +34,7 @@ W tym temacie wyjaśniono, jak można dostosować stronę logowania i stronę pa
 > 
 > 
 
-## Dostosowywanie strony logowania
+## <a name="customizing-the-signin-page"></a>Dostosowywanie strony logowania
 Zwykle na potrzeby dostępu opartego na przeglądarce do aplikacji i usług w chmurze subskrybowanych przez organizację używana jest strona logowania.
 
 W przypadku zastosowania zmian do strony logowania uwzględnienie ich może zająć godzinę.
@@ -73,7 +77,7 @@ A oto jak ilustracja wygląda po zmianie rozmiaru przeglądarki w kierunku do g�
 
 ![][7]
 
-## Jakie elementy na stronie można dostosować?
+## <a name="what-elements-on-the-page-can-i-customize"></a>Jakie elementy na stronie można dostosować?
 Na stronie logowania można dostosować następujące elementy:
 
 ![][5]
@@ -108,14 +112,14 @@ Możesz również dostosować wszystkie elementy na tej stronie. Po skonfigurowa
 * Utworzyć „domyślną” dużą ilustrację działającą dla wszystkich języków, a następnie utworzyć specyficzne wersje dla angielskiego i francuskiego. W przypadku ustawienia w przeglądarce jednego z tych dwóch języków wyświetlany będzie określony obraz, podczas gdy ilustracja domyślna będzie wyświetlana dla wszystkich pozostałych języków.
 * Skonfigurować różne wersje logo dla organizacji (np. wersję japońską lub hebrajską).
 
-## Dostosowywanie strony panelu dostępu
+## <a name="access-panel-page-customization"></a>Dostosowywanie strony panelu dostępu
 Strona panelu dostępu jest zasadniczo stroną portalu umożliwiającą szybki dostęp do aplikacji w chmurze, do których administrator udzielił użytkownikowi dostępu. Na tej stronie aplikacje są wyświetlane jako aktywne kafelki aplikacji do kliknięcia.
 
 Poniższy zrzut ekranu przedstawia przykład strony panelu dostępu po dostosowaniu.
 
 ![][8]
 
-## Konfigurowanie katalogu za pomocą znaków firmowych
+## <a name="configure-your-directory-with-company-branding"></a>Konfigurowanie katalogu za pomocą znaków firmowych
 W klasycznym portalu Azure dla każdego katalogu można skonfigurować jeden domyślny zestaw elementów dostosowywalnych. Po zapisaniu ustawień domyślnych administrator może dodać zlokalizowane wersje każdego elementu dla różnych języków/ustawień regionalnych. Wszystkie elementy dostosowywalne są opcjonalne.
 
 Na przykład jeśli skonfigurujesz domyślny baner logo, ale nie skonfigurujesz dużej ilustracji, na stronie logowania w prawym górnym rogu wyświetlane będzie dostosowane logo. Jako duża ilustracja wyświetlana będzie domyślna ilustracja lokacji.
@@ -173,7 +177,7 @@ Uwzględnienie nowych zmian znakowania na stronie logowania może potrwać do go
 8. W razie potrzeby kliknij ponownie pozycję **Customize Branding (Dostosuj znakowanie)** i powtórz te kroki dla całego znakowania specyficznego dla języka, które musi zostać usunięte.
     Jeśli po kliknięciu pozycji **Customize Branding (Dostosuj znakowanie)** zobaczysz formularz **Customize Default Branding (Dostosuj domyślne znakowanie)** bez żadnych skonfigurowanych ustawień, oznacza to, że wszystkie ustawienia znakowania zostały usunięte.
 
-## Testowanie i przykłady
+## <a name="testing-and-examples"></a>Testowanie i przykłady
 Zalecamy wypróbowanie dostosowań za pomocą dzierżawy testowej przed wprowadzeniem zmian w środowisku produkcyjnym.
 
 **Aby sprawdzić, czy znakowanie zostało zastosowane:**
@@ -190,7 +194,7 @@ Aby ułatwić utworzenie efektywnych zestawów dostosowań, dostosowaliśmy dwie
 
 Aby przetestować ustawienia specyficzne dla języka, należy zmienić domyślne preferencje języka w przeglądarce sieci Web na język ustawiony w dostosowaniu. W programie Internet Explorer do konfigurowania tych preferencji służy menu **Opcje internetowe**.
 
-## Elementy dostosowywalne
+## <a name="customizable-elements"></a>Elementy dostosowywalne
 Niektóre elementy dostosowywalne w usłudze Azure AD mają wiele zastosowań. Można skonfigurować logo firmy raz dla katalogu i będzie ono używane na obu stronach — logowania i panelu dostępu. Niektóre elementy dostosowywalne są specyficzne tylko dla strony logowania. Poniższa tabela zawiera szczegółowe informacje dotyczące różnych elementów dostosowywalnych.
 
 | Nazwa | Opis | Ograniczenia | Zalecenia |
@@ -203,7 +207,7 @@ Niektóre elementy dostosowywalne w usłudze Azure AD mają wiele zastosowań. M
 | Ilustracja strony logowania |Ilustracja to duży obraz wyświetlany na stronie logowania na lewo od formularza strony logowania. |<p>JPG lub PNG</p><p>1420 x 1200</p><p>500 KB</p> |<p>1420 x 1200 pikseli</p><p>Ważne: zachowaj jak najmniejszy rozmiar, najlepiej poniżej 200 KB. Jeśli ten obraz jest za duży, pogarsza to wydajność strony logowania, gdy obraz nie jest buforowany</p><p>Ten obraz jest często przycinany w celu dopasowania do różnych współczynników proporcji ekranu. Zachowaj podstawowe elementy wizualne w lewym górnym rogu (prawym górnym dla języków z zapisem od prawej do lewej), ponieważ zmiana rozmiaru podczas zmniejszania okna przeglądarki następuje od prawego dolnego rogu w kierunku do góry/do lewej.</p> |
 | Kolor tła strony logowania |Kolor tła strony logowania jest używany w obszarze na lewo od formularza strony logowania. |Wymagany jest kolor RGB w postaci szesnastkowej (przykład: #FFFFFF) |<p>W przypadku połączeń o niskiej przepustowości zamiast dużej ilustracji może być wyświetlany kolor tła.</p><p>Sugerujemy wybranie podstawowego koloru baneru logo</p> |
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do usługi Azure Active Directory — wersja Premium](active-directory-get-started-premium.md)
 * [Wyświetlanie raportów dostępu i użycia](active-directory-view-access-usage-reports.md)
 
@@ -220,6 +224,6 @@ Niektóre elementy dostosowywalne w usłudze Azure AD mają wiele zastosowań. M
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

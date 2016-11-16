@@ -1,19 +1,23 @@
 ---
-title: Włączanie zasad SSL i kompleksowej usługi SSL w usłudze Application Gateway | Microsoft Docs
-description: Ta strona zawiera omówienie kompleksowej obsługi protokołu SSL w usłudze Application Gateway.
+title: "Włączanie zasad SSL i kompleksowej usługi SSL w usłudze Application Gateway | Microsoft Docs"
+description: "Ta strona zawiera omówienie kompleksowej obsługi protokołu SSL w usłudze Application Gateway."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 3976399b-25ad-45eb-8eb3-fdb736a598c5
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 11/10/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9642ea16bff4b0cd4bf3e88d7530765d4c7bfbc5
+
 
 ---
 # <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Włączanie zasad SSL i kompleksowej usługi SSL w usłudze Application Gateway
@@ -24,23 +28,29 @@ Kompleksowa usługa SSL pozwala na bezpieczne przesyłanie zaszyfrowanych danych
 
 Po skonfigurowaniu kompleksowego trybu komunikacji SSL usługa Application Gateway kończy sesje SSL użytkownika na bramie i odszyfrowuje ruch użytkownika. Następnie stosuje skonfigurowane reguły, aby wybrać odpowiednie wystąpienie puli serwerów zaplecza w celu skierowania do nich ruchu. Następnie usługa Application Gateway inicjuje nowe połączenie SSL z serwerem zaplecza i ponownie szyfruje dane przy użyciu certyfikatu klucza publicznego serwera zaplecza przed przekazaniem żądania do zaplecza. Kompleksową usługę SSL można włączyć, konfigurując dla ustawienia protokołu BackendHTTPSetting wartość HTTP, co jest następnie stosowane do puli zaplecza. Każdy serwer zaplecza w puli zaplecza z włączoną kompleksową usługą SSL należy skonfigurować przy użyciu certyfikatu, aby umożliwić bezpieczną komunikację.
 
-![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
+![Scenariusz kompleksowej usługi SSL][1]
 
-W tym przykładzie żądania dla adresu https://contoso.com mogą być kierowane do puli ContosoServerPool za pośrednictwem protokołu HTTP, a dla adresu https://fabrikam.com będą kierowane do puli FabrikamServerPool za pośrednictwem protokołu HTTPS przy użyciu kompleksowej usługi SSL.
+W tym przykładzie żądania używające protokołu TLS 1.2 są kierowane do serwerów zaplecza w puli Pula1 za pomocą kompleksowej usługi SSL.
 
-## <a name="end-to-end-ssl-and-white-listing-of-certificates"></a>Kompleksowa usługa SSL i lista dozwolonych certyfikatów
-Usługa Application Gateway komunikuje się tylko ze znanymi wystąpieniami zaplecza, których certyfikaty znajdują się na liście dozwolonych certyfikatów tej usługi. Aby włączyć listę dozwolonych certyfikatów, należy przekazać klucz publiczny certyfikatów serwera zaplecza do usługi Application Gateway. W takim przypadku możliwe będą tylko połączenia do znanych zapleczy, które znajdują się na liście dozwolonych, a pozostałe zakończą się błędem bramy. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty także muszą zostać umieszczone na liście dozwolonych usługi Application Gateway, jak opisano powyżej, zanim będzie można ich użyć.
+## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>Kompleksowa usługa SSL i lista dozwolonych certyfikatów
+Usługa Application Gateway komunikuje się tylko ze znanymi wystąpieniami zaplecza, których certyfikaty znajdują się na liście dozwolonych certyfikatów tej usługi. Aby włączyć listę dozwolonych certyfikatów, należy przekazać klucz publiczny certyfikatów serwera zaplecza do usługi Application Gateway (nie certyfikat główny). W takim przypadku możliwe będą tylko połączenia do znanych zapleczy, które znajdują się na liście dozwolonych. Połączenia do pozostałych zapleczy zakończą się błędem bramy. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty także muszą zostać umieszczone na liście dozwolonych usługi Application Gateway, jak opisano w poprzednich krokach, zanim będzie można ich użyć.
 
 ## <a name="application-gateway-ssl-policy"></a>Zasady SSL usługi Application Gateway
-Usługa Application Gateway obsługuje również zasady negocjacji protokołu SSL konfigurowane przez użytkownika, które umożliwiają bardziej szczegółową kontrolę klienta nad połączeniami SSL na bramie aplikacji.
+Usługa Application Gateway obsługuje zasady negocjacji protokołu SSL konfigurowane przez użytkownika, które umożliwiają większą kontrolę klienta nad połączeniami SSL na bramie aplikacji.
 
-1. Protokoły SSL 2.0 i 3.0 są przymusowo wyłączane dla wszystkich bram aplikacji. Nie są one w ogóle konfigurowane.
-2. Definicja zasad SSL udostępnia opcję wyłączenia każdego z następujących trzech protokołów: TLS 1_0, TLS 1_1, TLS 1_2.
-3. Jeśli żadna zasada SSL nie zostanie zdefiniowana, wszystkie trzy protokoły (TLS 1_0, TLS 1_1, TLS 1_2) będą włączone.
+1. Protokoły SSL 2.0 i 3.0 są domyślnie wyłączane dla wszystkich bram aplikacji. Nie są one w ogóle konfigurowane.
+2. Definicja zasad SSL udostępnia opcję wyłączenia każdego z następujących trzech protokołów: TLS 1\_0, TLS 1\_1, TLS 1\_2.
+3. Jeśli żadna zasada SSL nie zostanie zdefiniowana, wszystkie trzy protokoły (TLS 1\_0, TLS 1\_1, TLS 1_2) będą włączone.
 
 ## <a name="next-steps"></a>Następne kroki
-Po zapoznaniu się z kompleksową usługą SSL i zasadami SSL zapoznaj się z informacjami dotyczącymi [włączania kompleksowej usługi SSL na bramie aplikacji](application-gateway-end-to-end-ssl-powershell.md), aby utworzyć bramę aplikacji z funkcją wysyłania ruchu do serwera zaplecza w postaci zaszyfrowanej.
+Po zapoznaniu się z kompleksową usługą SSL i zasadami SSL zapoznaj się z informacjami dotyczącymi [włączania kompleksowej usługi SSL na bramie aplikacji](application-gateway-end-to-end-ssl-powershell.md), aby utworzyć bramę aplikacji z funkcją wysyłania ruchu do serwerów zaplecza w postaci zaszyfrowanej.
 
-<!--HONumber=Oct16_HO3-->
+<!--Image references-->
+
+[1]: ./media/application-gateway-backend-ssl/scenario.png
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

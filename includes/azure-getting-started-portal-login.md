@@ -8,16 +8,16 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Łączenie z witryną Azure Portal w przypadku posiadania subskrypcji
+## <a name="connect-to-the-azure-portal-with-a-subscription"></a>Łączenie z witryną Azure Portal w przypadku posiadania subskrypcji
 Aby połączyć się z witryną Azure Portal, trzeba mieć subskrypcję.
 
-### Zakładanie nowego konta
+### <a name="get-a-new-account"></a>Zakładanie nowego konta
 Jeśli nie masz jeszcze konta Azure, skorzystaj z jednej z poniższych opcji, by je założyć:
 
 * Załóż [bezpłatne konto](https://azure.microsoft.com/get-started/).
 * Użyj [subskrypcji MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/).
 
-### Logowanie przy użyciu istniejącego konta
+### <a name="sign-in-by-using-your-existing-account"></a>Logowanie przy użyciu istniejącego konta
 Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Index) wykonaj poniższe kroki, aby połączyć się z witryną Azure Portal.
 
 1. Otwórz wybraną przeglądarkę i połącz się z witryną [Azure Portal](https://portal.azure.com/).
@@ -26,4 +26,8 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
    
    ![Logowanie](./media/azure-getting-started-portal-login/login.png)
 
-<!---HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

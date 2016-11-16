@@ -1,20 +1,24 @@
 ---
-title: Omówienie programu SQL Server w usłudze Azure Virtual Machines | Microsoft Docs
-description: Dowiedz się, jak uruchomić pełne wersje programu SQL Server na maszynach wirtualnych platformy Azure. Pobierz bezpośrednie linki do wszystkich obrazów maszyn wirtualnych programu SQL Server i powiązanej zawartości.
+title: "Omówienie programu SQL Server w usłudze Azure Virtual Machines | Microsoft Docs"
+description: "Dowiedz się, jak uruchomić pełne wersje programu SQL Server na maszynach wirtualnych platformy Azure. Pobierz bezpośrednie linki do wszystkich obrazów maszyn wirtualnych programu SQL Server i powiązanej zawartości."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 10/19/2016
 ms.author: jroth
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fcc2883ae52bb3d4be098ce741bbf5f5047777d2
+
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Omówienie programu SQL Server w usłudze Azure Virtual Machines
@@ -51,19 +55,10 @@ Flm wideo obejmuje następujące zagadnienia:
 > 
 > 
 
-## <a name="understand-your-options"></a>Opis opcji
+## <a name="scenarios"></a>Scenariusze
 Istnieje wiele powodów, dla których warto zdecydować się na hosting danych w usłudze Azure. Jeśli aplikacja zostanie przeniesiona na platformę Azure, poprawi się również wydajność przenoszenia danych. Są jednak także inne korzyści. Automatycznie uzyskujesz dostęp do wielu centrów danych, co zapewnia globalną obecność i odzyskiwanie po awarii. Dane są również objęte zaawansowanymi zabezpieczeniami, co wpływa także na ich trwałość.
 
-Program SQL Server uruchomiony na maszynach wirtualnych platformy Azure stanowi jedną z opcji przechowywania danych relacyjnych w systemie Azure. Poniższa tabela zawiera krótkie podsumowanie możliwości serwera SQL platformy Azure.
-
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Możliwości serwera SQL | Opis |
-| ---:| --- | --- |
-| ![Program SQL Server na maszynach wirtualnych platformy Azure](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png) |[Program SQL Server na maszynach wirtualnych platformy Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) |Uruchom program SQL Server na maszynach wirtualnych platformy Azure (główne zagadnienie z tego tematu). Bezpośrednie zarządzanie maszyną wirtualną i uruchomienie bazy danych w wersjach handlowych programu SQL Server. |
-| ![SQL Database](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png) |[SQL Database](https://azure.microsoft.com/services/sql-database/) |Korzystanie z usługi SQL Database w celu uzyskania dostępu do bazy danych i jej skalowania bez konieczności zarządzania podstawową infrastrukturą. |
-| ![Magazyn danych SQL](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png) |[Magazyn danych SQL](https://azure.microsoft.com/en-us/services/sql-data-warehouse/) |Usługa Azure SQL Data Warehouse służy do przetwarzania dużych ilości danych relacyjnych i nierelacyjnych. Dostarcza ona skalowalne możliwości magazynowania danych. |
-| ![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png) |[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/) |Dynamicznie rozciąganie lokalnych danych transakcyjnych z programu Microsoft SQL Server 2016 na platformie Azure. |
-
-Dostępne opcje powodują, że program SQL Server uruchomiony na maszynach wirtualnych platformy Azure stanowi dobre rozwiązanie w przypadku kilku scenariuszy. Można na przykład skonfigurować maszyny wirtualne platformy Azure w sposób najbardziej zbliżony do lokalnej maszyny z programem SQL Server. Można też uruchamiać dodatkowe aplikacje i usługi na tym samym serwerze bazy danych. Istnieją dwa zasoby, które pozwalają lepiej przeanalizować korzyści z podjęcia danej decyzji:
+Program SQL Server uruchomiony na maszynach wirtualnych platformy Azure stanowi jedną z opcji przechowywania danych relacyjnych w systemie Azure. Dla kilku scenariuszy jest to właściwy wybór. Można na przykład skonfigurować maszyny wirtualne platformy Azure w sposób najbardziej zbliżony do lokalnej maszyny z programem SQL Server. Można też uruchamiać dodatkowe aplikacje i usługi na tym samym serwerze bazy danych. Istnieją dwa główne zasoby, które mogą pomóc w przemyśleniu większej liczby scenariuszy i zagadnień:
 
 * Witryna [Program SQL Server na maszynach wirtualnych platformy Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) zawiera omówienie najlepszych scenariuszy użycia programu SQL Server na maszynach wirtualnych platformy Azure. 
 * Artykuł [Wybieranie opcji programu SQL Server w chmurze: usługa Azure SQL Database (PaaS) lub program SQL Server na maszynach wirtualnych Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) zawiera szczegółowe porównanie usługi SQL Database oraz programu SQL Server uruchomionego na maszynie wirtualnej.
@@ -73,7 +68,7 @@ Poniższe sekcje zawierają bezpośrednie linki do obrazów maszyn wirtualnych p
 
 Samouczek [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md) zawiera wskazówki krok po krok dotyczące tego procesu. Sprawdź również temat [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności maszyn wirtualnych z programem SQL Server), który wyjaśnia, w jaki sposób wybrać odpowiedni rozmiar maszyny i inne funkcje dostępne podczas aprowizacji.
 
-## <a name="option-1:-create-a-sql-vm-with-per-minute-licensing"></a>Opcja 1. Tworzenie maszyny wirtualnej SQL z licencją płatną według stawki minutowej
+## <a name="option-1-create-a-sql-vm-with-perminute-licensing"></a>Opcja 1. Tworzenie maszyny wirtualnej SQL z licencją płatną według stawki minutowej
 Poniższa tabela zawiera macierz dostępnych obrazów programu SQL Server w galerii maszyn wirtualnych. Kliknij dowolny link, aby rozpocząć tworzenie nowej maszyny wirtualnej z programem SQL o określonej wersji, wybranym wydaniu i z danym systemem operacyjnym.
 
 | Wersja | System operacyjny | Wersja |
@@ -87,7 +82,7 @@ Poniższa tabela zawiera macierz dostępnych obrazów programu SQL Server w gale
 | **SQL 2008 R2 SP3** |Windows Server 2008 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2) |
 | **SQL 2008 R2 SP3** |Windows Server 2012 |[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012) |
 
-## <a name="option-2:-create-a-sql-vm-with-an-existing-license"></a>Opcja 2. Tworzenie maszyny wirtualnej SQL przy użyciu istniejącej licencji
+## <a name="option-2-create-a-sql-vm-with-an-existing-license"></a>Opcja 2. Tworzenie maszyny wirtualnej SQL przy użyciu istniejącej licencji
 Możesz również skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server. Aby użyć własnej licencji, skorzystaj z macierzy wersji i wydań programu SQL Server oraz systemów operacyjnych. W portalu takie nazwy obrazów mają prefiks **{BYOL}**.
 
 | Wersja | System operacyjny | Wersja |
@@ -121,7 +116,7 @@ Maszyny wirtualne Azure umożliwiają korzystanie z funkcji [Automatyczne kopie 
 ### <a name="automate-updates"></a>Automatyzowanie aktualizacji
 Maszyny wirtualne platformy Azure umożliwiają korzystanie z funkcji [Automatyczne stosowanie poprawek](virtual-machines-windows-sql-automated-patching.md) w celu zaplanowania okna obsługi, w którym mają być automatycznie instalowane ważne aktualizacje systemu Windows i programu SQL Server.
 
-### <a name="customer-experience-improvement-program-(ceip)"></a>Program poprawy jakości obsługi klienta
+### <a name="customer-experience-improvement-program-ceip"></a>Program poprawy jakości obsługi klienta
 Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on okresowo raporty do firmy Microsoft w celu umożliwienia doskonalenia programu SQL Server. Program poprawy jakości obsługi klienta nie wymaga przeprowadzenia żadnych czynności związanych z zarządzaniem. Wyjątek stanowi sytuacja, gdy ma on zostać wyłączony po ukończeniu aprowizacji. Program poprawy jakości obsługi klienta możesz dostosować lub wyłączyć, łącząc się z maszyną wirtualną za pomocą pulpitu zdalnego. Następnie uruchom narzędzie **SQL Server Error and Usage Reporting**. Postępuj zgodnie z instrukcjami, aby wyłączyć raportowanie. 
 
 Aby uzyskać więcej informacji, zapoznaj się z poświęconą programowi poprawy jakości obsługi klienta częścią tematu [Accept License Terms](https://msdn.microsoft.com/library/ms143343.aspx) (Akceptacja postanowień licencyjnych). 
@@ -131,6 +126,9 @@ Aby uzyskać więcej informacji, zapoznaj się z poświęconą programowi popraw
 
 Masz więcej pytań? Najpierw zobacz [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md) (Często zadawane pytania dotyczące programu SQL Server w usłudze Azure Virtual Machines). Możesz też dodać pytania lub komentarze na końcu dowolnego tematu dotyczącego maszyn wirtualnych z programem SQL, aby porozmawiać z przedstawicielem firmy Microsoft i społecznością.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

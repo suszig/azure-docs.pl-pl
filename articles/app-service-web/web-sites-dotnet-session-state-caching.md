@@ -1,12 +1,12 @@
 ---
-title: Stan sesji i usługa Azure Redis Cache w usłudze Azure App Service
-description: Dowiedz się, jak używać usługi Azure Redis Cache do obsługi buforowania informacji o stanie sesji programu ASP.NET.
+title: "Stan sesji i usługa Azure Redis Cache w usłudze Azure App Service"
+description: "Dowiedz się, jak używać usługi Azure Redis Cache do obsługi buforowania informacji o stanie sesji programu ASP.NET."
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
 manager: wpickett
 editor: none
-
+ms.assetid: 4f98d289-2698-464d-85cd-99ec40fad1f2
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,19 +14,23 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
+
 
 ---
-# Stan sesji i usługa Azure Redis Cache w usłudze Azure App Service
+# <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>Stan sesji i usługa Azure Redis Cache w usłudze Azure App Service
 W tym temacie wyjaśniono, jak używać usługi Azure Redis Cache do buforowania informacji o stanie sesji.
 
 Jeśli aplikacja sieci Web programu ASP.NET używa informacji o stanie sesji, należy skonfigurować zewnętrznego dostawcę stanu sesji (usługę Azure Redis Cache lub dostawcę stanu sesji programu SQL Server). Jeśli korzystasz z informacji o stanie sesji i nie używasz dostawcy zewnętrznego, obowiązuje ograniczenie do pojedynczego wystąpienia aplikacji sieci Web. Użycie usługi Azure Redis Cache jest najszybszym i najprostszym sposobem zapewnienia tej funkcji.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a id="createcache"></a>Tworzenie pamięci podręcznej
+## <a name="a-idcreatecacheacreate-the-cache"></a><a id="createcache"></a>Tworzenie pamięci podręcznej
 Wykonaj [te kroki](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache), aby utworzyć pamięć podręczną.
 
-## <a id="configureproject"></a>Dodawanie pakietu RedisSessionStateProvider NuGet do aplikacji sieci Web
+## <a name="a-idconfigureprojectaadd-the-redissessionstateprovider-nuget-package-to-your-web-app"></a><a id="configureproject"></a>Dodawanie pakietu RedisSessionStateProvider NuGet do aplikacji sieci Web
 Zainstaluj pakiet NuGet `RedisSessionStateProvider`.  Użyj następującego polecenia do instalacji z poziomu konsoli menedżera pakietów (**Narzędzia** > **Menedżer pakietów NuGet** > **Konsola menedżera pakietów**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -35,7 +39,7 @@ Aby zainstalować z lokalizacji **Narzędzia** > **Menedżer pakietów NuGet** >
 
 Aby uzyskać więcej informacji, zapoznaj się ze [stroną pakietu NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) i sekcją [Configure the cache client](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet) (Konfigurowanie klienta pamięci podręcznej).
 
-## <a id="configurewebconfig"></a>Modyfikowanie pliku Web.Config
+## <a name="a-idconfigurewebconfigamodify-the-webconfig-file"></a><a id="configurewebconfig"></a>Modyfikowanie pliku Web.Config
 Oprócz tworzenia odwołań do zestawów dla pamięci podręcznej pakiet NuGet dodaje wpisy zastępcze w pliku *web.config*. 
 
 1. Otwórz plik *web.config* i znajdź element **sessionState**.
@@ -69,7 +73,7 @@ Oprócz tworzenia odwołań do zestawów dla pamięci podręcznej pakiet NuGet d
             </sessionState>;
           </system.web>;
 
-## <a id="usesessionobject"></a> Użycie obiektu Session w kodzie
+## <a name="a-idusesessionobjecta-use-the-session-object-in-code"></a><a id="usesessionobject"></a>Użycie obiektu Session w kodzie
 Ostatnim krokiem jest rozpoczęcie korzystania z obiektu Session w kodzie ASP.NET. Obiekty są dodawane do stanu sesji przy użyciu metody **Session.Add**. Ta metoda używa par kluczy i wartości do przechowywania elementów w pamięci podręcznej stanu sesji.
 
     string strValue = "yourvalue";
@@ -79,7 +83,7 @@ Poniższy kod pobiera tę wartość z informacji o stanie sesji.
 
     object objValue = Session["yourkey"];
     if (objValue != null)
-       strValue = (string)objValue; 
+       strValue = (string)objValue;    
 
 Możesz również użyć usługi Pamięć podręczna Redis do buforowania obiektów w aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [MVC movie app with Azure Redis Cache in 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/) (Tworzenie aplikacji filmowej MVC przy użyciu usługi Azure Redis Cache w ciągu 15 minut).
 Aby uzyskać więcej informacji na temat sposobu użycia informacji o stanie sesji programu ASP.NET, zobacz [ASP.NET Session State Overview][ASP.NET Session State Overview] (Omówienie informacji o stanie sesji programu ASP.NET).
@@ -89,10 +93,10 @@ Aby uzyskać więcej informacji na temat sposobu użycia informacji o stanie ses
 > 
 > 
 
-## Co zostało zmienione
+## <a name="whats-changed"></a>Co zostało zmienione
 * Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
   
-  *Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)*
+  Autor: *Rick Anderson[](https://twitter.com/RickAndMSFT)*
 
 [zainstalowana najnowsza wersja]: http://www.windowsazure.com/downloads/?sdk=net  
 [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
@@ -104,11 +108,11 @@ Aby uzyskać więcej informacji na temat sposobu użycia informacji o stanie ses
 [OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
 [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
 [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
-[ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+[Zarządzanie kluczami]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

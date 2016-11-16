@@ -1,12 +1,12 @@
 ---
-title: Usługa Azure AD B2C | Microsoft Docs
-description: Jak utworzyć interfejs API sieci Web programu .NET przy użyciu usługi Azure Active Directory B2C zabezpieczonej przy użyciu tokenów dostępu protokołu OAuth 2.0 na potrzeby uwierzytelniania.
+title: "Usługa Azure AD B2C | Microsoft Docs"
+description: "Jak utworzyć interfejs API sieci Web programu .NET przy użyciu usługi Azure Active Directory B2C zabezpieczonej przy użyciu tokenów dostępu protokołu OAuth 2.0 na potrzeby uwierzytelniania."
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
-manager: msmbaldwin
-editor: ''
-
+manager: mbaldwin
+editor: 
+ms.assetid: 7146ed7f-2eb5-49e9-8d8b-ea1a895e1966
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+
 
 ---
-# Azure Active Directory B2C: tworzenie interfejsu API sieci Web platformy .NET
+# <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: tworzenie interfejsu API sieci Web platformy .NET
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Usługa Azure Active Directory (Azure AD) B2C umożliwia zabezpieczanie interfejsu API sieci Web za pomocą tokenów dostępu protokołu OAuth 2.0. Tokeny te służą aplikacjom klienckim używającym usługi Azure AD B2C do uwierzytelniania w obrębie interfejsu API. W tym artykule pokazano, jak utworzyć interfejs API „lista zadań do wykonania” kontrolera MVC (Model-View-Controler) platformy .NET umożliwiający użytkownikom wykonywanie zadań CRUD. Interfejs API sieci Web jest zabezpieczony za pomocą usługi Azure AD B2C i zezwala na zarządzanie listami zadań do wykonania tylko uwierzytelnionym użytkownikom.
 
-## Tworzenie katalogu usługi Azure AD B2C
+## <a name="create-an-azure-ad-b2c-directory"></a>Tworzenie katalogu usługi Azure AD B2C
 Przed rozpoczęciem korzystania z usługi Azure AD B2C należy utworzyć katalog lub dzierżawę. Katalog jest kontenerem dla wszystkich użytkowników, aplikacji, grup i innych elementów. Jeśli jeszcze go nie masz, [utwórz katalog usługi B2C](active-directory-b2c-get-started.md), zanim przejdziesz dalej.
 
-## Tworzenie aplikacji
+## <a name="create-an-application"></a>Tworzenie aplikacji
 Następnie musisz utworzyć aplikację w katalogu usługi B2C. Dzięki temu informacje wymagane do bezpiecznego komunikowania się z aplikacją będą przekazywane do usługi Azure AD. Aby utworzyć aplikację, postępuj zgodnie z [tymi instrukcjami](active-directory-b2c-app-registration.md). Należy pamiętać o wykonaniu następujących czynności:
 
 * Uwzględnij **aplikację sieci Web** lub **interfejs API sieci Web** w aplikacji.
@@ -33,7 +37,7 @@ Następnie musisz utworzyć aplikację w katalogu usługi B2C. Dzięki temu info
   
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Tworzenie zasad
+## <a name="create-your-policies"></a>Tworzenie zasad
 W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). W tym przykładzie kodu klient obejmuje trzy funkcje tożsamości: rejestrację, logowanie się i edytowanie profilu. Dla każdego typu musisz utworzyć środowisko zgodnie z opisem w [artykule informacyjnym na temat zasad](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Podczas tworzenia trzech zbiorów zasad należy koniecznie:
 
 * W bloku dostawców tożsamości wybrać opcję **tworzenia konta przy użyciu identyfikatora użytkownika** lub **tworzenia konta przy użyciu adresu e-mail**.
@@ -45,7 +49,7 @@ W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy uż
 
 Po pomyślnym utworzeniu trzech zasad możesz rozpocząć tworzenie aplikacji.
 
-## Pobieranie kodu
+## <a name="download-the-code"></a>Pobieranie kodu
 Kod używany w tym samouczku [jest przechowywany w serwisie GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Aby samodzielnie tworzyć przykładowy kod w trakcie pracy, możesz [pobrać plik ZIP ze szkieletem projektu](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Można również sklonować szkielet:
 
 ```
@@ -56,7 +60,7 @@ Ukończona aplikacja jest również [dostępna jako plik ZIP](https://github.com
 
 Po pobraniu przykładu kodu otwórz plik SLN programu Visual Studio, aby rozpocząć. Plik rozwiązania zawiera dwa projekty: `TaskWebApp` i `TaskService`. `TaskWebApp` to aplikacja sieci Web z architekturą MVC, z której korzysta użytkownik. `TaskService` to interfejs API zaplecza aplikacji, który przechowuje listy zadań do wykonania poszczególnych użytkowników.
 
-## Konfigurowanie aplikacji sieci Web do obsługi zadań
+## <a name="configure-the-task-web-app"></a>Konfigurowanie aplikacji sieci Web do obsługi zadań
 Gdy użytkownik korzysta z aplikacji `TaskWebApp`, klient wysyła żądania do usługi Azure AD i otrzymuje w odpowiedzi tokeny, których można użyć do wywołania interfejsu API sieci Web aplikacji `TaskService`. Aby zalogować użytkownika i uzyskać tokeny, projektowi `TaskWebApp` należy podać niektóre informacje o aplikacji. W projekcie `TaskWebApp` otwórz plik `web.config` w katalogu głównym i zastąp wartości w sekcji `<appSettings>`.  Wartości `AadInstance`, `RedirectUri` i `TaskServiceUrl` możesz zostawić bez zmian.
 
 ```
@@ -78,10 +82,10 @@ Gdy użytkownik korzysta z aplikacji `TaskWebApp`, klient wysyła żądania do u
 
 W tym artykule nie omówiono tworzenia klienta `TaskWebApp`.  Aby dowiedzieć się, jak utworzyć aplikację sieci Web, używając usługi Azure AD B2C, zobacz [nasz samouczek dotyczący aplikacji sieci Web platformy .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## Zabezpieczanie interfejsu API
+## <a name="secure-the-api"></a>Zabezpieczanie interfejsu API
 Jeśli klient wywołuje interfejs API w imieniu użytkowników, należy zabezpieczyć projekt `TaskService` za pomocą tokenów elementu nośnego OAuth 2.0. Interfejs API może akceptować i weryfikować tokeny przy użyciu biblioteki interfejsu OWIN (Open Web Interface for .NET) firmy Microsoft.
 
-### Instalowanie interfejsu OWIN
+### <a name="install-owin"></a>Instalowanie interfejsu OWIN
 Rozpocznij od zainstalowania potoku uwierzytelniania OAuth interfejsu OWIN:
 
 ```
@@ -90,7 +94,7 @@ PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TaskService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
-### Wprowadzanie szczegółów B2C
+### <a name="enter-your-b2c-details"></a>Wprowadzanie szczegółów B2C
 Otwórz plik `web.config` w katalogu głównym projektu `TaskService` i zastąp wartości w sekcji `<appSettings>`. Te wartości będą używane w bibliotece interfejsu API i OWIN.  Wartość `AadInstance` możesz zostawić bez zmian.
 
 ```
@@ -108,7 +112,7 @@ Otwórz plik `web.config` w katalogu głównym projektu `TaskService` i zastąp 
   </appSettings>
 ```
 
-### Dodawanie klasy początkowej OWIN
+### <a name="add-an-owin-startup-class"></a>Dodawanie klasy początkowej OWIN
 Dodaj klasę początkową OWIN do projektu `TaskService` o nazwie `Startup.cs`.  Kliknij projekt prawym przyciskiem myszy, wybierz kolejno pozycje **Dodaj** i **Nowy element**, a następnie wyszukaj interfejs OWIN.
 
 ```C#
@@ -125,7 +129,7 @@ public partial class Startup
 }
 ```
 
-### Konfigurowanie uwierzytelniania OAuth 2.0
+### <a name="configure-oauth-20-authentication"></a>Konfigurowanie uwierzytelniania OAuth 2.0
 Otwórz plik `App_Start\Startup.Auth.cs` i zaimplementuj metodę `ConfigureAuth(...)`:
 
 ```C#
@@ -166,7 +170,7 @@ public partial class Startup
 }
 ```
 
-### Zabezpieczanie kontrolera zadań
+### <a name="secure-the-task-controller"></a>Zabezpieczanie kontrolera zadań
 Po skonfigurowaniu aplikacji do używania uwierzytelniania OAuth 2.0 możesz zabezpieczyć interfejs API sieci Web, dodając tag `[Authorize]` do kontrolera zadań. Jest to kontroler, w obrębie którego odbywają się wszystkie operacje edytowania listy zadań do wykonania, dlatego należy zabezpieczyć cały kontroler na poziomie klasy. Można również dodać tag `[Authorize]` do poszczególnych czynności w celu uzyskania ściślejszej kontroli.
 
 ```C#
@@ -179,7 +183,7 @@ public class TasksController : ApiController
 }
 ```
 
-### Uzyskiwanie informacji o użytkowniku z tokenu
+### <a name="get-user-information-from-the-token"></a>Uzyskiwanie informacji o użytkowniku z tokenu
 `TasksController` przechowuje zadania w bazie danych. Z każdym zadaniem jest skojarzony użytkownik będący jego „właścicielem”. Właściciel jest identyfikowany za pomocą **identyfikatora obiektu** użytkownika. (Dlatego trzeba było dodać identyfikator obiektu jako oświadczenie aplikacji we wszystkich zasadach).
 
 ```C#
@@ -193,10 +197,10 @@ public IEnumerable<Models.Task> Get()
 }
 ```
 
-## Uruchamianie przykładowej aplikacji
+## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 Na koniec skompiluj i uruchom oba projekty: `TaskWebApp` i `TaskService`. Utwórz konto aplikacji, używając adresu e-mail lub nazwy użytkownika. Utwórz kilka zadań na liście użytkownika i zwróć uwagę na to, że zostają one zachowane w interfejsie API nawet po zatrzymaniu i ponownym uruchomieniu klienta.
 
-## Edytowanie zasad
+## <a name="edit-your-policies"></a>Edytowanie zasad
 Po zabezpieczeniu interfejsu API za pomocą usługi Azure AD B2C możesz eksperymentować z zasadami aplikacji i sprawdzać skutki (lub ich brak) powiązane z interfejsem API. Możesz manipulować oświadczeniami aplikacji w zasadach i zmieniać informacje o użytkowniku dostępne w interfejsie API sieci Web. Wszystkie dodane oświadczenia będą dostępne dla interfejsu API sieci Web w architekturze MVC programu .NET w obiekcie `ClaimsPrincipal`, zgodnie z opisem we wcześniejszej części tego artykułu.
 
 <!--
@@ -213,6 +217,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

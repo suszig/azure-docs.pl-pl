@@ -1,242 +1,247 @@
 ---
-title: Update Management solution in OMS | Microsoft Docs
-description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
+title: "Rozwiązanie do zarządzania aktualizacjami w usłudze OMS | Dokumentacja firmy Microsoft"
+description: "Ten artykuł pomaga zrozumieć, jak używać tego rozwiązania do zarządzania aktualizacjami komputerów z systemami Windows i Linux."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2016
+ms.date: 10/14/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+
 
 ---
-# ![Update Management Solution in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
-The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
+# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Rozwiązanie do zarządzania aktualizacjami w usłudze OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
+Rozwiązanie do zarządzania aktualizacjami w usłudze OMS pozwala na zarządzanie aktualizacjami dla komputerów z systemami Windows i Linux.  Pozwala szybko ocenić stan dostępnych aktualizacji na wszystkich komputerach z agentami i inicjuje proces instalacji wymaganych aktualizacji serwerów. 
 
-## Prerequisites
-* Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
+## <a name="prerequisites"></a>Wymagania wstępne
+* Agenci dla systemu Windows muszą być skonfigurowani do komunikowania się z serwerem Windows Server Update Services (WSUS) albo mieć dostęp do usługi Microsoft Update.  
   
   > [!NOTE]
-  > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
+  > Agent dla systemu Windows nie może być zarządzany współbieżnie przez program System Center Configuration Manager.  
   > 
   > 
-* Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
+* Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.  Agenta usługi OMS dla systemu Linux można pobrać z witryny [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
-## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents.  Windows agents are added automatically with no additional configuration.
+## <a name="configuration"></a>Konfiguracja
+Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS, a także dodać agentów systemu Linux.  Agenci systemu Windows są dodawani automatycznie bez dodatkowej konfiguracji.
 
-1. Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
-2. In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
-3. Perform the following steps for each Linux computer.
+1. Dodaj rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS przy użyciu procesu opisanego w artykule [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) (Dodawanie rozwiązań OMS) z galerii rozwiązań.  
+2. W portalu usługi OMS wybierz pozycję **Ustawienia**, a następnie pozycję **Połączone źródła**.  Zanotuj **identyfikator obszaru roboczego** i **klucz podstawowy** albo **klucz pomocniczy**.
+3. Wykonaj następujące czynności na każdym komputerze z systemem Linux.
    
-   a.  Install the latest version of the OMS Agent for Linux by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
+   a.    Zainstaluj najnowszą wersję agenta usługi OMS dla systemu Linux, uruchamiając następujące polecenia.  Zastąp parametr <Workspace ID> identyfikatorem obszaru roboczego, a parametr <Key> kluczem podstawowym lub pomocniczym.
    
-       cd ~
-       wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
    
-    b. To remove the agent, run the following command.
+   b. Aby usunąć agenta, uruchom następujące polecenie:
    
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
-## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace, then the following management packs will be installed in Operations Manager when you add this solution. There is no configuration or maintenance of these management packs required. 
+## <a name="management-packs"></a>Pakiety administracyjne
+Jeśli grupa zarządzania programu System Center Operations Manager jest połączona z obszarem roboczym usługi OMS, to następujące pakiety administracyjne zostaną zainstalowane w programie Operations Manager po dodaniu tego rozwiązania. Nie jest wymagana żadna konfiguracja ani obsługa tych pakietów administracyjnych. 
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
-* Update Deployment MP
+* Pakiet administracyjny wdrożenia aktualizacji
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Aby uzyskać więcej informacji na temat aktualizowania pakietów administracyjnych rozwiązania, zobacz artykuł [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md) (Połączenie programu Operations Manager z usługą Log Analytics).
 
-## Data collection
-### Supported agents
-The following table describes the connected sources that are supported by this solution.
+## <a name="data-collection"></a>Zbieranie danych
+### <a name="supported-agents"></a>Obsługiwani agenci
+W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiązanie.
 
-| Connected Source | Supported | Description |
+| Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
-| Linux agents |Yes |The solution collects information about system updates from Linux agents. |
-| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository. |
-| Azure storage account |No |Azure storage does not include information about system updates. |
+| Agenci dla systemu Windows |Tak |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów dla systemu Windows i inicjuje instalowanie wymaganych aktualizacji. |
+| Agenci dla systemu Linux |Tak |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów dla systemu Linux. |
+| Grupa zarządzania programu Operations Manager |Tak |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br>Bezpośrednie połączenie agenta programu Operations Manager z usługą Log Analytics nie jest wymagane. Dane są przekazywane z grupy zarządzania do repozytorium usługi OMS. |
+| Konto magazynu Azure |Nie |Magazyn Azure nie zawiera informacji o aktualizacjach systemu. |
 
-### Collection frequency
-For each managed Windows computer, a scan is performed twice per day.  When an update is installed, its information is updated within 15 minutes.  
+### <a name="collection-frequency"></a>Częstotliwość zbierania
+Skanowanie każdego zarządzanego komputera z systemem Windows odbywa się dwa razy dziennie.  Po zainstalowaniu aktualizacji informacje o niej są aktualizowane w ciągu 15 minut.  
 
-For each managed Linux computer, a scan is performed every 3 hours.  
+Skanowanie każdego zarządzanego komputera z systemem Linux odbywa się co 3 godziny.  
 
-## Using the solution
-When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
-![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
+## <a name="using-the-solution"></a>Użycie rozwiązania
+Po dodaniu do obszaru roboczego OMS rozwiązania do zarządzania aktualizacjami kafelek **Zarządzanie aktualizacjami** zostanie dodany do pulpitu nawigacyjnego usługi OMS. Ten kafelek zawiera liczbę oraz graficzną reprezentację liczby komputerów w środowisku, które obecnie wymagają aktualizacji systemu.<br><br>
+![Kafelek podsumowujący zarządzanie aktualizacjami](media/oms-solution-update-management/update-management-summary-tile.png)  
 
-## Viewing Update Assessments
-Click on the **Update Management** tile to open the **Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
+## <a name="viewing-update-assessments"></a>Wyświetlanie ocen aktualizacji
+Kliknij kafelek **Zarządzanie aktualizacjami**, aby otworzyć pulpit nawigacyjny **Zarządzanie aktualizacjami**. Na pulpicie nawigacyjnym znajdują się kolumny wymienione w poniższej tabeli. Każda kolumna zawiera do dziesięciu elementów spełniających jej kryteria dla podanego zakresu i przedziału czasu. Można uruchomić wyszukiwanie w dzienniku, które zwróci wszystkie rekordy. W tym celu kliknij przycisk **Zobacz wszystko** na dole kolumny lub kliknij nagłówek kolumny.
 
-| Column | Description |
+| Kolumna | Opis |
 | --- | --- |
-| **Computers Missing Updates** | |
-| Critical or Security Updates |Lists the top ten computers that are missing updates sorted by the number of updates they're missing. Click on a computer name to run a log search returning all update records for that computer. |
-| Critical or Security Updates older than 30 days |Identifies number of computers that are missing critical or security updates grouped by the length of time since the update was published. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Required Missing Updates** | |
-| Critical or Security Updates |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification. |
-| **Update Deployments** | |
-| Update Deployments |Number of currently scheduled update deployments and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new deployment. |
+| **Komputery bez aktualizacji** | |
+| Aktualizacje krytyczne lub zabezpieczeń |Wyświetla dziesięć pierwszych komputerów, na których brakuje aktualizacji. Komputery są posortowane według liczby brakujących aktualizacji. Kliknij nazwę komputera, aby uruchomić wyszukiwanie w dzienniku, które zwróci wszystkie rekordy aktualizacji dotyczące tego komputera. |
+| Aktualizacje krytyczne lub zabezpieczeń starsze niż 30 dni |Wyświetla liczbę komputerów, na których brakuje aktualizacji krytycznych lub zabezpieczeń, grupując je według czasu od momentu opublikowania aktualizacji. Kliknij jeden z wpisów, aby uruchomić wyszukiwanie w dzienniku, które zwraca wszystkie brakujące aktualizacje krytyczne. |
+| **Wymagane brakujące aktualizacje** | |
+| Aktualizacje krytyczne lub zabezpieczeń |Wyświetla listę klasyfikacji aktualizacji, których brakuje na komputerach, posortowaną według liczby komputerów, na których brakuje aktualizacji z danej kategorii. Kliknij nazwę klasyfikacji, aby uruchomić wyszukiwanie w dzienniku, które zwróci wszystkie rekordy aktualizacji dotyczące tej klasyfikacji. |
+| **Wdrożenia aktualizacji** | |
+| Wdrożenia aktualizacji |Liczba obecnie zaplanowanych wdrożeń aktualizacji i czas do następnego zaplanowanego uruchomienia.  Kliknij kafelek, aby wyświetlić harmonogramy oraz aktualnie uruchomione i ukończone aktualizacje lub aby zaplanować nowe wdrożenie. |
 
 <br>  
-![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
+![Pulpit nawigacyjny podsumowujący zarządzanie aktualizacjami](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
 <br>
-![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
+![Widok komputerów pulpitu nawigacyjnego zarządzania aktualizacjami](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
 <br>
-![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
+![Widok pakietów pulpitu nawigacyjnego zarządzania aktualizacjami](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
-## Installing updates
-Once updates have been assessed for all of the computers in your environment, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more Windows computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included.  
+## <a name="installing-updates"></a>Instalowanie aktualizacji
+Gdy aktualizacje zostaną przeanalizowane dla wszystkich komputerów z systemem Windows w środowisku, konieczne może być utworzenie *wdrożenia aktualizacji* w celu zainstalowania wymaganych aktualizacji.  Wdrożenie aktualizacji to zaplanowana instalacja wymaganych aktualizacji na co najmniej jednym komputerze z systemem Windows.  Należy określić datę i godzinę wdrożenia, a także komputer lub grupę komputerów, które mają zostać uwzględnione.  
 
-Updates are installed by runbooks in Azure Automation.  You cannot currently view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
+Aktualizacje są instalowane przez elementy runbook w usłudze Azure Automation.  Obecnie nie można wyświetlić tych elementów runbook i nie wymagają one żadnej konfiguracji.  Utworzenie wdrożenia aktualizacji powoduje utworzenie harmonogramu, który uruchamia główny element runbook aktualizacji w określonym czasie na uwzględnionych komputerach.  Ten główny element runbook uruchamia podrzędny element runbook na każdym agencie systemu Windows, który przeprowadza instalację wymaganych aktualizacji.  
 
-### Viewing update deployments
-Click the **Update Deployment** tile to view the list of existing Update Deployments.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Deployments Schedule Page](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
+### <a name="viewing-update-deployments"></a>Wyświetlanie wdrożeń aktualizacji
+Kliknij kafelek **Wdrożenia aktualizacji**, aby wyświetlić listę istniejących wdrożeń aktualizacji.  Są one pogrupowane według stanu — **Zaplanowano**, **Uruchomiono** i **Ukończono**.<br><br> ![Strona harmonogramu wdrożenia aktualizacji](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
-The properties displayed for each Update Deployment are described in the following table.
+Właściwości wyświetlane w każdym wdrożeniu aktualizacji są opisane w poniższej tabeli.
 
-| Property | Description |
+| Właściwość | Opis |
 | --- | --- |
-| Name |Name of the Update Deployment. |
-| Schedule |Type of schedule.  *OneTime* is currently the only possible value. |
-| Start Time |Date and time that the Update Deployment is scheduled to start. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Servers |Number of computers affected by the Update Deployment. |
-| Status |Current status of the Update Deployment.<br><br>Possible values are:<br>-  Not Started<br>- Running<br>- Finished |
+| Nazwa |Nazwa wdrożenia aktualizacji. |
+| Harmonogram |Typ harmonogramu.  Obecnie jedyną możliwą wartością jest *OneTime* (Jednorazowy). |
+| Godzina rozpoczęcia |Data i godzina zaplanowanego uruchomienia wdrożenia aktualizacji. |
+| Czas trwania |Liczba minut, przez jaką może działać wdrożenie aktualizacji.  Jeśli wszystkie aktualizacje nie zostaną zainstalowane przed upływem tego czasu, pozostałe aktualizacje zostaną odroczone do następnego wdrażania aktualizacji. |
+| Serwery |Liczba komputerów, których dotyczy wdrożenie aktualizacji. |
+| Stan |Stan wdrożenia aktualizacji.<br><br>Możliwe wartości:<br>- Nie uruchomiono<br>- Uruchomiono<br>- Ukończono |
 
-Click on an Update Deployment to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Deployment has not yet started.<br>
+Kliknij wdrożenie aktualizacji, aby wyświetlić ekran szczegółów, który zawiera kolumny podane w tabeli poniżej.  Kolumny te będą niewypełnione, jeśli wdrożenie aktualizacji nie zostało jeszcze uruchomione.<br>
 
-| Column | Description |
+| Kolumna | Opis |
 | --- | --- |
-| **Computer Results** | |
-| Completed Successfully |Lists the number of computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
-| Computer Installation Status |Lists the computers involved in the Update Deployment and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Update Instance Results** | |
-| Instance Installation Status |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a computer to run a log search returning all update records for that computer. |
+| **Wyniki komputera** | |
+| Ukończono pomyślnie |Wyświetla liczbę komputerów objętych wdrażaniem aktualizacji według ich stanu.  Kliknij stan, aby uruchomić wyszukiwanie w dzienniku, które zwraca wszystkie rekordy aktualizacji o tym stanie wdrażania aktualizacji. |
+| Stan instalacji komputera |Wyświetla listę komputerów objętych wdrożeniem aktualizacji i procent pomyślnie zainstalowanych aktualizacji. Kliknij jeden z wpisów, aby uruchomić wyszukiwanie w dzienniku, które zwraca wszystkie brakujące aktualizacje krytyczne. |
+| **Aktualizowanie wyników wystąpienia** | |
+| Stan instalacji wystąpienia |Wyświetla listę klasyfikacji aktualizacji, których brakuje na komputerach, posortowaną według liczby komputerów, na których brakuje aktualizacji z danej kategorii. Kliknij nazwę komputera, aby uruchomić wyszukiwanie w dzienniku, które zwróci wszystkie rekordy aktualizacji dotyczące tego komputera. |
 
-<br><br> ![Overview of Update Deployment Results](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
+<br><br> ![Przegląd wyników wdrożenia aktualizacji](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
 
-### Creating an Update Deployment
-Create a new Update Deployment by clicking the **Add** button at the top of the screen to open the **New Update Deployment** page.  You must provide values for the properties in the following table.
+### <a name="creating-an-update-deployment"></a>Tworzenie wdrożenia aktualizacji
+Utwórz nowe wdrożenie aktualizacji, klikając przycisk **Dodaj** na górze ekranu, aby otworzyć stronę **New Update Deployment** (Nowe wdrożenie aktualizacji).  Należy podać wartości właściwości zawartych w poniższej tabeli.
 
-| Property | Description |
+| Właściwość | Opis |
 | --- | --- |
-| Name |Unique name to identify the update deployment. |
-| Time Zone |Time zone to use for the start time. |
-| Start Time |Date and time to start the update deployment. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Computers |Names of computers or computer groups to include in the Update Deployment.  Select one or more entries from the drop down list. |
+| Nazwa |Unikatowa nazwa identyfikującą wdrożenie aktualizacji. |
+| Strefa czasowa |Strefa czasowa służąca do określenia godziny rozpoczęcia. |
+| Godzina rozpoczęcia |Data i godzina rozpoczęcia wdrażania aktualizacji. |
+| Czas trwania |Liczba minut, przez jaką może działać wdrożenie aktualizacji.  Jeśli wszystkie aktualizacje nie zostaną zainstalowane przed upływem tego czasu, pozostałe aktualizacje zostaną odroczone do następnego wdrażania aktualizacji. |
+| Komputery |Nazwy komputerów lub grup komputerów do uwzględnienia podczas wdrożenia aktualizacji.  Wybierz co najmniej jeden wpis z listy rozwijanej. |
 
-<br><br> ![New Update Deployment Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
+<br><br> ![Strona nowego wdrożenia aktualizacji](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
-### Time range
-By default, the scope of the data analyzed in the Update Management solution is from all connected management groups generated within the last 1 day. 
+### <a name="time-range"></a>Przedział czasu
+Domyślnie zakres danych przeanalizowanych w rozwiązaniu do zarządzania aktualizacjami obejmuje wszystkie połączone grupy zarządzania wygenerowane w ciągu ostatniego dnia. 
 
-To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
+Aby zmienić okres danych, wybierz pozycję **Dane oparte na** u góry pulpitu nawigacyjnego. Możesz wybrać rekordy utworzone lub zaktualizowane w ciągu ostatnich 7 dni, 1 dnia lub 6 godzin. Możesz też wybrać opcję **Niestandardowy** i określić niestandardowy zakres dat.<br><br> ![Opcja niestandardowego przedziału czasu](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
 
-## Log Analytics records
-The Update Management solution creates two types of records in the OMS repository.
+## <a name="log-analytics-records"></a>Rekordy usługi Log Analytics
+Rozwiązanie do zarządzania aktualizacjami tworzy dwa typy rekordów w repozytorium OMS.
 
-### Update records
-A record with a type of **Update** is created for each update that is either installed or needed on each computer. Update records have the properties in the following table.
+### <a name="update-records"></a>Rekordy Update (Aktualizacja)
+Rekord o typie **Update** (Aktualizacja) jest tworzony dla każdej aktualizacji, która jest zainstalowana lub wymagana na poszczególnych komputerach. Rekordy Update (Aktualizacja) mają właściwości podane w poniższej tabeli.
 
-| Property | Description |
+| Właściwość | Opis |
 | --- | --- |
-| Type |*Update* |
-| SourceSystem |The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-  Windows Update<br>- SCCM<br>- Linux Servers (Fetched from Package Managers) |
-| Approved |Specifies whether the update has been approved for installation.<br> For Linux servers this is currently optional as patching is not managed by OMS. |
-| Classification for Windows |Classification of the update.<br>Possible values are:<br>- Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates |
-| Classification for Linux |Cassification of the update.<br>Possible values are:<br>-Critical Updates<br>- Security Updates<br>- Other Updates |
-| Computer |Name of the computer. |
-| InstallTimeAvailable |Specifies whether the installation time is available from other agents that installed the same update. |
-| InstallTimePredictionSeconds |Estimated installation time in seconds based on other agents that installed the same update. |
-| KBID |ID of the KB article that describes the update. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-<workspace ID>. |
-| MSRCBulletinID |ID of the Microsoft security bulletin describing the update. |
-| MSRCSeverity |Severity of the Microsoft security bulletin.<br>Possible values are:<br>- Critical<br>- Important<br>- Moderate |
-| Optional |Specifies whether the update is optional. |
-| Product |Name of the product the update is for.  Click **View** to open the article in a browser. |
-| PackageSeverity |The severity of the vulnerability fixed in this update, as reported by the  Linux distro vendors. |
-| PublishDate |Date and time that the update was installed. |
-| RebootBehavior |Specifies if the update forces a reboot.<br>Possible values are:<br>- canrequestreboot<br>- neverreboots |
-| RevisionNumber |Revision number of the update. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| Title |Title of the update. |
-| UpdateID |GUID to uniquely identify the update. |
-| UpdateState |Specifies whether the update is installed on this computer.<br>Possible values are:<br>- Installed - The update is installed on this computer.<br>- Needed - The update is not installed and is needed on this computer. |
+| Typ |*Aktualizacja* |
+| SourceSystem |Źródło zatwierdzonych instalacji aktualizacji.<br>Możliwe wartości:<br>- Microsoft Update<br>- Windows Update<br>- SCCM<br>- Linux Servers (serwery systemu Linux pobrane z menedżerów pakietów) |
+| Approved (Zatwierdzono) |Określa, czy aktualizacja została zatwierdzona do instalacji.<br> W przypadku serwerów z systemem Linux jest to obecnie opcjonalne, ponieważ poprawki nie są zarządzane przez usługę OMS. |
+| Klasyfikacja dla systemu Windows |Klasyfikacja aktualizacji.<br>Możliwe wartości:<br>- Applications (Aplikacje)<br>- Critical Updates (Aktualizacje krytyczne)<br>- Definition Updates (Aktualizacje definicji)<br>- Feature Packs (Pakiety funkcji)<br>- Security Updates (Aktualizacje zabezpieczeń)<br>- Service Packs (Dodatki Service Pack)<br>- Update Rollups (Pakiety zbiorcze aktualizacji)<br>- Updates (Aktualizacje) |
+| Klasyfikacja dla systemu Linux |Klasyfikacja aktualizacji.<br>Możliwe wartości:<br>- Critical Updates (Aktualizacje krytyczne)<br>- Security Updates (Aktualizacje zabezpieczeń)<br>- Other Updates (Inne aktualizacje) |
+| Computer (Komputer) |Nazwa komputera. |
+| InstallTimeAvailable |Określa, czy inni agenci, którzy zainstalowali tę samą aktualizację, mają dostęp do czasu instalacji. |
+| InstallTimePredictionSeconds |Czas instalacji w sekundach, szacowany na podstawie innych agentów, którzy zainstalowali tę samą aktualizację. |
+| KBID |Identyfikator artykułu w bazie wiedzy (KB), który opisuje tę aktualizację. |
+| ManagementGroupName |Nazwa grupy zarządzania agentów SCOM.  W przypadku innych agentów jest to AOI-<workspace ID>. |
+| MSRCBulletinID |Identyfikator biuletynu zabezpieczeń firmy Microsoft zawierającego opis aktualizacji. |
+| MSRCSeverity |Ważność biuletynu zabezpieczeń firmy Microsoft.<br>Możliwe wartości:<br>- Critical (Krytyczny)<br>- Important (Ważny)<br>- Moderate (Średni) |
+| Optional (Opcjonalność) |Określa, czy aktualizacja jest opcjonalna. |
+| Product (Produkt) |Nazwa produktu, którego dotyczy aktualizacja.  Kliknij przycisk **Wyświetl**, aby otworzyć artykuł w przeglądarce. |
+| PackageSeverity |Ważności luki w zabezpieczeniach naprawionej w ramach tej aktualizacji, określona przez dostawców dystrybucji systemu Linux. |
+| PublishDate |Data i godzina zainstalowania aktualizacji. |
+| RebootBehavior |Określa, czy aktualizacja wymusza ponowne uruchomienie komputera.<br>Możliwe wartości:<br>- canrequestreboot (może wymagać ponownego uruchomienia)<br>- neverreboots (nigdy nie uruchamia ponownie) |
+| RevisionNumber |Numer poprawki aktualizacji. |
+| SourceComputerId |Identyfikator GUID służący do unikatowej identyfikacji komputera. |
+| TimeGenerated |Data i godzina ostatniej aktualizacji rekordu. |
+| Tytuł |Tytuł aktualizacji. |
+| UpdateID |Identyfikator GUID służący do unikatowego identyfikowania aktualizacji. |
+| UpdateState |Określa, czy aktualizacja jest zainstalowana na tym komputerze.<br>Możliwe wartości:<br>- Installed — aktualizacja jest zainstalowana na tym komputerze.<br>- Needed — aktualizacja nie jest zainstalowana i jest wymagana na tym komputerze. |
 
 <br>
-When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br> 
+Jeśli wykonujesz dowolne wyszukiwanie w dzienniku, które zwraca rekordy w typu **Update** (Aktualizacja), możesz wybrać widok **Aktualizacje**, który wyświetla zestaw kafelków z podsumowaniem aktualizacji zwracanych przez wyszukiwanie. Możesz kliknąć pozycje na kafelkach **Aktualizacje brakujące i zainstalowane** i **Aktualizacje wymagane i opcjonalne**, aby ograniczyć zakres widoku do tego zestawu aktualizacji. Wybierz widok **Lista** lub **Tabela**, aby przywrócić widok poszczególnych rekordów.<br> 
 
-![Log Search Update View with Record Type Update](./media/oms-solution-update-management/update-la-view-updates.png)  
+![Widok aktualizacji wyszukiwania w dzienniku z aktualizacją typu rekord](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-In the **Table** view, you can click on the **KBID** for any record to open a browser with the KB article. This allows you to quickly read about the details of the particular update.<br> 
+W widoku **Tabela** możesz kliknąć identyfikator **KBID** dowolnego rekordu, aby otworzyć przeglądarkę z artykułem bazy wiedzy (KB). Dzięki temu można szybko zapoznać się ze szczegółami danej aktualizacji.<br> 
 
-![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-table.png)
+![Widok tabeli wyszukiwania w dzienniku z kafelkami aktualizacji typu rekord](./media/oms-solution-update-management/update-la-view-table.png)
 
-In the **List** view, you click the **View** link next to the KBID to open the KB article.<br>
+W widoku **Lista** kliknij link **Wyświetl** obok identyfikatora KBID, aby otworzyć artykuł bazy wiedzy (KB).<br>
 
-![Log Search List View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-list.png)
+![Widok listy wyszukiwania w dzienniki z kafelkami aktualizacji typu rekord](./media/oms-solution-update-management/update-la-view-list.png)
 
-### UpdateSummary records
-A record with a type of **UpdateSummary** is created for each Windows agent computer. This record is updated each time the computer is scanned for updates. **UpdateSummary** records have the properties in the following table.
+### <a name="updatesummary-records"></a>Rekordy UpdateSummary
+Rekord **UpdateSummary** jest tworzony dla każdego komputera agenta systemu Windows. Jest on aktualizowany przy każdym skanowaniu komputera w poszukiwaniu aktualizacji. Rekordy **UpdateSummary** mają właściwości podane w poniższej tabeli.
 
-| Property | Description |
+| Właściwość | Opis |
 | --- | --- |
-| Type |UpdateSummary |
+| Typ |UpdateSummary |
 | SourceSystem |OpsManager |
-| Computer |Name of the computer. |
-| CriticalUpdatesMissing |Number of critical updates missing on the computer. |
-| ManagementGroupName |Name of the management group for SCOM agents. For other agents, this is AOI-<workspace ID>. |
-| NETRuntimeVersion |Version of the .NET runtime installed on the computer. |
-| OldestMissingSecurityUpdateBucket |Bucket to categorize the time since the oldest missing security update on this computer was published.<br>Possible values are:<br>- Older<br>-  180 days ago<br>- 150 days ago<br>- 120 days ago<br>- 90 days ago<br>- 60 days ago<br>- 30 days go<br>- Recent |
-| OldestMissingSecurityUpdateInDays |Number of days since the oldest missing security update on this computer was published. |
-| OsVersion |Version of the operating system installed on the computer. |
-| OtherUpdatesMissing |Number of other updates missing on the computer. |
-| SecurityUpdatesMissing |Number of security updates missing on the computer. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| TotalUpdatesMissing |Total number of updates missing on the computer. |
-| WindowsUpdateAgentVersion |Version number of the Windows Update agent on the computer. |
-| WindowsUpdateSetting |Setting for how the computer will install important updates.<br>Possible values are:<br>- Disabled<br>- Notify before installation<br>- Scheduled installation |
-| WSUSServer |URL of WSUS server if the computer is configured to use one. |
+| Computer (Komputer) |Nazwa komputera. |
+| CriticalUpdatesMissing |Liczba aktualizacji krytycznych, których brakuje na komputerze. |
+| ManagementGroupName |Nazwa grupy zarządzania agentów SCOM. W przypadku innych agentów jest to AOI-<workspace ID>. |
+| NETRuntimeVersion |Wersja środowiska uruchomieniowego .NET zainstalowanego na komputerze. |
+| OldestMissingSecurityUpdateBucket |Przedział służący do kategoryzowania czasu od opublikowania najstarszej aktualizacji zabezpieczeń, której brakuje na tym komputerze.<br>Możliwe wartości:<br>- OIder (Starsze)<br>- 180 days ago (180 dni temu)<br>- 150 days ago (150 dni temu)<br>- 120 days ago (120 dni temu)<br>- 90 days ago (90 dni temu)<br>- 60 days ago (60 dni temu)<br>- 30 days ago (30 dni temu)<br>- Recent (Najnowsze) |
+| OldestMissingSecurityUpdateInDays |Liczba dni od czasu opublikowania najstarszej aktualizacji zabezpieczeń, której brakuje na tym komputerze. |
+| OsVersion |Wersja systemu operacyjnego zainstalowanego na komputerze. |
+| OtherUpdatesMissing |Liczba innych aktualizacji, których brakuje na komputerze. |
+| SecurityUpdatesMissing |Liczba aktualizacji zabezpieczeń, których brakuje na komputerze. |
+| SourceComputerId |Identyfikator GUID służący do unikatowej identyfikacji komputera. |
+| TimeGenerated |Data i godzina ostatniej aktualizacji rekordu. |
+| TotalUpdatesMissing |Liczba wszystkich aktualizacji, których brakuje na komputerze. |
+| WindowsUpdateAgentVersion |Numer wersji agenta usługi Windows Update na komputerze. |
+| WindowsUpdateSetting |Ustawienie sposobu instalowania ważnych aktualizacji na komputerze.<br>Możliwe wartości:<br>- Disabled (Wyłączono)<br>- Notify before installation (Powiadom przed rozpoczęciem instalacji)<br>- Scheduled installation (Instalacja zaplanowana) |
+| WSUSServer |Adres URL serwera WSUS, jeśli komputer jest skonfigurowany do korzystania z tego serwera. |
 
-## Sample log searches
-The following table provides sample log searches for update records collected by this solution. 
+## <a name="sample-log-searches"></a>Przykładowe wyszukiwania dzienników
+Poniższa tabela zawiera przykładowe wyszukiwania w dzienniku dotyczące rekordów aktualizacji zbieranych przez to rozwiązanie. 
 
-| Query | Description |
+| Zapytanie | Opis |
 | --- | --- |
-| All computers with missing updates |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Missing updates for computer "COMPUTER01.contoso.com" (replace with your own computer name) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
-| All computers with missing critical or security updates |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
-| Critical or security updates needed by machines where updates are manually applied |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
-| Error events for machines that have missing critical or security required updates |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
-| All computers with missing update rollups |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Distinct missing updates across all computers |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
-| WSUS computer membership |Type=UpdateSummary &#124; measure count() by WSUSServer |
-| Automatic update configuration |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
-| Computers with automatic update disabled |Type=UpdateSummary WindowsUpdateSetting=Manual |
-| List of all the Linux machines which have a package update available |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
-| List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
-| List of all packages that have an update available |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| List of all packages that have an update available which addresses Critical or Security vulnerability |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
-| List of all the “Ubuntu” machines with any update available |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
+| Wszystkie komputery z brakującymi aktualizacjami |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
+| Brakujące aktualizacje na komputerze „COMPUTER01.contoso.com” (zastąp to nazwą własnego komputera) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
+| Wszystkie komputery z brakującymi aktualizacjami krytycznymi i zabezpieczeń |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
+| Aktualizacje krytyczne lub zabezpieczeń wymagane przez komputery, na których aktualizacje są stosowane ręcznie |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
+| Zdarzenia błędu dotyczące komputerów, na których brakuje wymaganych aktualizacji krytycznych lub zabezpieczeń |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
+| Wszystkie komputery z brakującymi pakietami zbiorczymi aktualizacji |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
+| Różne brakujące aktualizacje na wszystkich komputerach |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
+| Korzystanie przez komputer z usług WSUS |Type=UpdateSummary &#124; measure count() by WSUSServer |
+| Konfiguracja automatycznej aktualizacji |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
+| Komputery z wyłączoną automatyczną aktualizacją |Type=UpdateSummary WindowsUpdateSetting=Manual |
+| Lista wszystkich komputerów z systemem Linux, które mają dostępne aktualizacje pakietu |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
+| Lista wszystkich komputerów z systemem Linux, dla których jest dostępna aktualizacja pakietu o znaczeniu krytycznym lub dotycząca luki w zabezpieczeniach |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
+| Lista wszystkich pakietów, które mają dostępną aktualizację |Type=Update and OSType=Linux and UpdateState!="Not needed" |
+| Lista wszystkich pakietów, dla których jest dostępna aktualizacja o znaczeniu krytycznym lub dotycząca luki w zabezpieczeniach |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
+| Listę wszystkich komputerów z systemem Ubuntu, dla których są dostępne dowolne aktualizacje |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
 
-## Next steps
-* Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
-* [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) showing update compliance for your managed computers.
-* [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.  
+## <a name="next-steps"></a>Następne kroki
+* Korzystanie z wyszukiwania w dzienniku usługi [Log Analytics](../log-analytics/log-analytics-log-searches.md) w celu wyświetlania szczegółowych danych aktualizacji.
+* [Tworzenie własnych pulpitów nawigacyjnych](../log-analytics/log-analytics-dashboards.md) przedstawiających zgodność aktualizacji na zarządzanych komputerach.
+* [Tworzenie alertów](../log-analytics/log-analytics-alerts.md) po wykryciu braku aktualizacji krytycznych na komputerach lub komputera z wyłączonymi aktualizacjami automatycznymi.  
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

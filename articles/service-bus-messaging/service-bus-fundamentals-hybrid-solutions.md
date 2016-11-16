@@ -1,12 +1,12 @@
 ---
 title: Azure Service Bus | Microsoft Docs
-description: Wprowadzenie do używania usługi Service Bus w celu łączenia aplikacji Azure z innym oprogramowaniem.
+description: "Wprowadzenie do używania usługi Service Bus w celu łączenia aplikacji Azure z innym oprogramowaniem."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
+
 
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
@@ -73,7 +77,7 @@ Pomimo swojej przydatności, kolejki nie zawsze są odpowiednim rozwiązaniem. C
 *Temat* jest pod wieloma względami podobny do kolejki. Nadawcy wysyłają komunikaty do tematu w taki sam sposób jak do kolejki, a komunikaty wyglądają tak samo jak w przypadku kolejek. Istotną różnicą jest to, że tematy umożliwiają każdej aplikacji odbierającej tworzenie własnej *subskrypcji* przez zdefiniowanie *filtru*. Subskrybent będzie wtedy widział tylko komunikaty zgodne z filtrem. Przykładowo, Rysunek 3 przedstawia nadawcę i temat z trzema subskrybentami, z których każdy ma własny filtr:
 
 * Subskrybent 1 odbiera tylko komunikaty, które zawierają właściwość *Seller="Ava"*.
-* Subskrybent 2 odbiera komunikaty, które zawierają właściwość *Seller="Ruby"* i/lub zawierają właściwość *Amount* o wartości większej niż 100 000. Być może Ruby jest kierownikiem ds. sprzedaży, więc chce widzieć własną sprzedaż i wszystkie duże transakcje sprzedaży niezależnie od tego, kto ich dokonuje.
+* Subskrybent 2 odbiera komunikaty, które zawierają właściwość *Seller="Ruby"* i/lub zawierają właściwość *Amount* o wartości większej niż 100 000. Być może Ruby jest kierownikiem ds. sprzedaży, więc chce widzieć własną sprzedaż i wszystkie duże transakcje sprzedaży niezależnie od tego, kto ich dokonuje.
 * Subskrybent 3 ustawił filtr na wartość *True*, co oznacza, że odbiera wszystkie komunikaty. Ta aplikacja może być na przykład odpowiedzialna za utrzymanie dziennika inspekcji i w związku z tym musi widzieć wszystkie komunikaty.
 
 Podobnie jak w przypadku kolejek subskrybenci tematu mogą odczytywać komunikaty przy użyciu metody **ReceiveAndDelete** lub **PeekLock**. W przeciwieństwie do kolejek pojedynczy komunikat wysłany do tematu może zostać odebrany w ramach wielu subskrypcji. Takie podejście, często nazywane *publikowaniem i subskrybowaniem* (lub *publikowaniem/subskrypcją*), jest przydatne, gdy wiele aplikacji jest zainteresowanych tymi samymi komunikatami. Dzięki zdefiniowaniu właściwego filtru każdy subskrybent może korzystać tylko z tej części strumienia komunikatów, którą chce wyświetlać.
@@ -106,7 +110,7 @@ Teraz, kiedy znasz już podstawy usługi Azure Service Bus, skorzystaj z poniżs
 * Jak używać [kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * Jak używać [tematów usługi Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 * Jak używać [przekaźnika usługi Service Bus](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
-* [Przykłady usługi Service Bus](../service-bus/service-bus-samples.md)
+* [Przykłady usługi Service Bus](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
@@ -115,6 +119,6 @@ Teraz, kiedy znasz już podstawy usługi Azure Service Bus, skorzystaj z poniżs
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

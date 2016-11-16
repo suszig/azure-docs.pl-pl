@@ -1,13 +1,13 @@
 ---
-title: Łączenie z bazą danych SQL Database z użyciem zapytania C# | Microsoft Docs
-description: Napisz program w języku C#, aby wykonywać zapytania i nawiązać połączenie z bazą danych SQL. Informacje na temat adresów IP, parametrów połączenia, bezpiecznego logowania i bezpłatnego programu Visual Studio.
+title: "Łączenie z bazą danych SQL Database z użyciem zapytania C# | Microsoft Docs"
+description: "Napisz program w języku C#, aby wykonywać zapytania i nawiązać połączenie z bazą danych SQL. Informacje na temat adresów IP, parametrów połączenia, bezpiecznego logowania i bezpłatnego programu Visual Studio."
 services: sql-database
-keywords: c# zapytanie bazy danych, zapytanie c# , nawiązywanie połączenia z bazą danych, SQL C#
-documentationcenter: ''
+keywords: "c# zapytanie bazy danych, zapytanie c# , nawiązywanie połączenia z bazą danych, SQL C#"
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,11 +15,15 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: stevestein
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 333babec567a4700ca0882c883e4460442d844e1
+
 
 ---
-# Nawiązywanie połączenia z bazą danych SQL Database za pomocą programu Visual Studio
+# <a name="connect-to-a-sql-database-with-visual-studio"></a>Nawiązywanie połączenia z bazą danych SQL Database za pomocą programu Visual Studio
 > [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
+> * [Program Visual Studio](sql-database-connect-query.md)
 > * [SSMS](sql-database-connect-query-ssms.md)
 > * [Excel](sql-database-connect-excel.md)
 > 
@@ -27,7 +31,7 @@ ms.author: stevestein
 
 Dowiedz się, jak nawiązać połączenie z bazą danych SQL Azure w programie Visual Studio. 
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Do nawiązania połączenia z bazą danych SQL za pomocą programu Visual Studio potrzebne są następujące elementy: 
 
 * Baza danych SQL, z którą chcesz nawiązać połączenie. W tym artykule użyto przykładowej bazy danych **AdventureWorks**. Aby uzyskać przykładową bazę danych AdventureWorks, zobacz [Tworzenie demonstracyjnej bazy danych](sql-database-get-started.md).
@@ -36,7 +40,7 @@ Do nawiązania połączenia z bazą danych SQL za pomocą programu Visual Studio
   * [Visual Studio Community, pobierz](http://www.visualstudio.com/products/visual-studio-community-vs)
   * [Więcej opcji bezpłatnego programu Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
 
-## Otwieranie programu Visual Studio z poziomu witryny Azure Portal
+## <a name="open-visual-studio-from-the-azure-portal"></a>Otwieranie programu Visual Studio z poziomu witryny Azure Portal
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Kliknij kolejno pozycje **Więcej usług** > **Bazy danych SQL**
 3. Otwórz blok bazy danych **AdventureWorks**, znajdując i klikając bazę danych *AdventureWorks*.
@@ -56,7 +60,7 @@ Do nawiązania połączenia z bazą danych SQL za pomocą programu Visual Studio
    
     ![Nowe zapytanie. Łączenie z serwerem usługi SQL Database: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
 
-## Uruchamianie przykładowego zapytania
+## <a name="run-a-sample-query"></a>Uruchamianie przykładowego zapytania
 Teraz, gdy połączenie z bazą danych jest już nawiązane, poniższe kroki wyjaśnią, jak uruchomić przykładowe zapytanie:
 
 1. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję **Nowe zapytanie**.
@@ -75,10 +79,13 @@ Teraz, gdy połączenie z bazą danych jest już nawiązane, poniższe kroki wyj
    
     ![Powodzenie. Łączenie z serwerem usługi SQL Database: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Podczas otwierania baz danych SQL w programie Visual Studio używane są narzędzia SQL Server Data Tools. Aby uzyskać więcej informacji, zobacz [Narzędzia SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
 * Aby połączyć się z bazą danych SQL przy użyciu kodu, zobacz [Connect to SQL Database by using .NET (C#) ](sql-database-develop-dotnet-simple.md)(Łączenie z bazą danych usługi SQL Database przy użyciu platformy .NET [C#]).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -5,10 +5,12 @@ Skorzystaj z forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&cl
 * [Kodowanie i przetwarzanie](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [Transmisja strumieniowa na żywo](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
 * [Analiza multimediów](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
-* [Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
+* [Azure portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [Interfejs API REST i platforma](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [Transmisja strumieniowa VoD](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

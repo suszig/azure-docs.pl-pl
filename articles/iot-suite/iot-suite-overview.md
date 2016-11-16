@@ -1,13 +1,13 @@
 ---
-title: Omówienie Pakietu IoT Microsoft Azure | Microsoft Docs
-description: Omówienie dotyczące wstępnie skonfigurowanych rozwiązań Internetu rzeczy udostępnianych w Pakiecie IoT Azure umożliwiających zbieranie, analizowanie i przechowywanie danych, przeprowadzanie wizualizacji oraz integrację z innymi systemami.
-services: ''
+title: "Omówienie Pakietu IoT Microsoft Azure | Microsoft Docs"
+description: "Omówienie dotyczące wstępnie skonfigurowanych rozwiązań Internetu rzeczy udostępnianych w Pakiecie IoT Azure umożliwiających zbieranie, analizowanie i przechowywanie danych, przeprowadzanie wizualizacji oraz integrację z innymi systemami."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7b0df1fc79e82a99ea65296a4e09bdb48fde9451
+
 
 ---
-# Co to jest Pakiet IoT Azure?
+# <a name="what-is-azure-iot-suite"></a>Co to jest Pakiet IoT Azure?
 Usługi Internetu rzeczy (IoT) platformy Azure oferują szeroką gamę możliwości. Są to usługi klasy korporacyjnej, które pozwalają wykonywać następujące operacje:
 
 * Zbieranie danych z urządzeń
@@ -34,7 +38,7 @@ Poniższy klip wideo zawiera wprowadzenie do Pakietu IoT Azure:
 > 
 > 
 
-## Usługi Azure IoT w Pakiecie IoT Azure
+## <a name="azure-iot-services-in-azure-iot-suite"></a>Usługi Azure IoT w Pakiecie IoT Azure
 Wstępnie skonfigurowane rozwiązania zwykle korzystają z następujących usług:
 
 * Podstawowym elementem Pakietu IoT Azure jest usługa [Azure IoT Hub][lnk-iot-hub]. Umożliwia ona dwukierunkowe przesyłanie komunikatów między urządzeniami a chmurą i działa jako brama chmury i innych kluczowych usług Pakietu IoT. Usługa ta pozwala odbierać komunikaty z urządzeń na dużą skalę i wysyłać polecenia do urządzeń.
@@ -44,10 +48,10 @@ Wstępnie skonfigurowane rozwiązania zwykle korzystają z następujących usłu
 
 Omówienie architektury typowego rozwiązania IoT można znaleźć w artykule [Platforma Azure i Internet rzeczy][iot-suite-what-is-azure-iot]
 
-## Wstępnie skonfigurowane rozwiązania
+## <a name="preconfigured-solutions"></a>Wstępnie skonfigurowane rozwiązania
 Pakiet IoT zawiera wstępnie skonfigurowane rozwiązania, które pozwalają na szybkie rozpoczęcie pracy i zapoznanie się z typowymi scenariuszami IoT (których realizację umożliwia Pakiet IoT Azure) obejmującymi na przykład *zdalne monitorowanie* i *konserwację predykcyjną*. Rozwiązania te można wdrożyć w swojej subskrypcji platformy Azure, a następnie uruchomić kompletny, uniwersalny scenariusz IoT.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Teraz, gdy masz już pojęcie o możliwościach Pakietu IoT i jego głównych składnikach, możesz dowiedzieć się więcej o wstępnie skonfigurowanych rozwiązaniach Pakietu IoT — zobacz artykuł [Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
@@ -62,6 +66,6 @@ Teraz, gdy masz już pojęcie o możliwościach Pakietu IoT i jego głównych sk
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

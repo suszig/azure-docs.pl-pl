@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do usługi API Apps i platformy ASP.NET w usłudze App Service | Microsoft Docs
-description: Dowiedz się, jak za pomocą programu Visual Studio 2015 utworzyć i wdrożyć aplikację interfejsu API platformy ASP.NET w usłudze Azure App Service oraz korzystać z tej aplikacji.
+title: "Wprowadzenie do usługi API Apps i programu ASP.NET w usłudze App Service | Microsoft Docs"
+description: "Dowiedz się, jak za pomocą programu Visual Studio 2015 utworzyć i wdrożyć aplikację interfejsu API platformy ASP.NET w usłudze Azure App Service oraz korzystać z tej aplikacji."
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
 ms.workload: na
 ms.tgt_pltfrm: dotnet
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+
 
 ---
-# Wprowadzenie do usługi API Apps, platformy ASP.NET i programu Swagger w usłudze Azure App Service
+# <a name="get-started-with-api-apps-aspnet-and-swagger-in-azure-app-service"></a>Wprowadzenie do usługi API Apps, platformy ASP.NET i programu Swagger w usłudze Azure App Service
 [!INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
 Jest to pierwszy z serii samouczków demonstrujących korzystanie z funkcji Azure App Service, która pomaga tworzyć i hostować interfejsy API RESTful.  Ten samouczek obejmuje obsługę metadanych interfejsu API w formacie struktury Swagger.
@@ -27,7 +31,7 @@ Dowiesz się:
 * Jak automatyzować odnajdywanie interfejsów API przy użyciu pakietu Swashbuckle NuGet w celu dynamicznego generowania metadanych interfejsu API struktury Swagger.
 * Jak używać metadanych interfejsu API struktury Swagger w celu automatycznego generowania kodu klienta dla aplikacji interfejsu API.
 
-## Omówienie przykładowej aplikacji
+## <a name="sample-application-overview"></a>Omówienie przykładowej aplikacji
 W tym samouczku będziemy pracować z przykładową aplikacją zawierającą prostą listę zadań do wykonania. Aplikacja obejmuje fronton aplikacji jednostronicowej, warstwę środkową interfejsu API sieci Web platformy ASP.NET oraz warstwę danych interfejsu API sieci Web platformy ASP.NET.
 
 ![Diagram przedstawiający przykładową aplikację usługi API Apps](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
@@ -50,7 +54,7 @@ Po wykonaniu czynności opisanych w tym samouczku dwa projekty interfejsu API si
 
 Następny samouczek z tej serii dotyczy wdrożenia frontonu aplikacji jednostronicowej w chmurze.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * Interfejs API sieci Web platformy ASP.NET — w instrukcjach samouczka założono, że masz podstawową wiedzę z zakresu korzystania z [interfejsu API sieci Web 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) platformy ASP.NET w programie Visual Studio.
 * Konto platformy Azure — możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
@@ -66,19 +70,19 @@ Następny samouczek z tej serii dotyczy wdrożenia frontonu aplikacji jednostron
     > 
     > 
 
-## Pobieranie przykładowej aplikacji
+## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 1. Pobierz repozytorium [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list).
    
     Możesz kliknąć przycisk **Download ZIP** (Pobierz plik ZIP) lub sklonować repozytorium na komputerze lokalnym.
 2. Otwórz rozwiązanie ToDoList w programie Visual Studio w wersji 2015 lub 2013.
    
    1. Należy zaufać każdemu rozwiązaniu.
-        ![Ostrzeżenie o zabezpieczeniach](./media/app-service-api-dotnet-get-started/securitywarning.png)
+         ![Ostrzeżenie o zabezpieczeniach](./media/app-service-api-dotnet-get-started/securitywarning.png)
 3. Skompiluj rozwiązanie (Ctrl + Shift + B) w celu przywrócenia pakietów NuGet.
    
     Możesz uruchomić aplikację lokalnie, jeśli chcesz sprawdzić jej działanie przed wdrożeniem. Upewnij się, że projektem startowym jest ToDoListDataAPI, a następnie uruchom rozwiązanie. Należy oczekiwać wyświetlenia błędu HTTP 403 w przeglądarce.
 
-## Korzystanie z interfejsu użytkownika oraz metadanych interfejsu API programu Swagger
+## <a name="use-swagger-api-metadata-and-ui"></a>Korzystanie z interfejsu użytkownika oraz metadanych interfejsu API programu Swagger
 Usługa Azure App Service zapewnia wbudowaną obsługę metadanych interfejsu API programu [Swagger](http://swagger.io/) 2.0. W każdej aplikacji interfejsu API można określić końcowy adres URL, z którego są zwracane metadane w formacie JSON programu Swagger dla interfejsu API. Metadanych zwróconych z tego punktu końcowego można użyć do wygenerowania kodu klienta.
 
 W projekcie interfejsu API sieci Web platformy ASP.NET można dynamicznie generować metadane programu Swagger za pomocą pakietu [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet. Pakiet Swashbuckle NuGet jest już zainstalowany w pobranych projektach ToDoListDataAPI i ToDoListAPI.
@@ -194,7 +198,7 @@ Pakiet Swashbuckle współdziała z dowolnym projektem interfejsu API sieci Web 
 > 
 > 
 
-## <a id="createapiapp"></a> Tworzenie aplikacji interfejsu API na platformie Azure i wdrażanie w niej kodu
+## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Tworzenie aplikacji interfejsu API na platformie Azure i wdrażanie w niej kodu
 W tej sekcji użyjemy narzędzi platformy Azure zintegrowanych z kreatorem **Publikowanie w sieci Web** programu Visual Studio w celu utworzenia nowej usługi aplikacji interfejsu API na platformie Azure. Następnie wdrożymy projekt ToDoListDataAPI w nowej aplikacji interfejsu API i wywołamy interfejs API, uruchamiając interfejs użytkownika programu Swagger.
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt ToDoListDataAPI, a następnie kliknij polecenie **Opublikuj**.
@@ -220,9 +224,9 @@ W tej sekcji użyjemy narzędzi platformy Azure zintegrowanych z kreatorem **Pub
     Adres URL aplikacji interfejsu API to `{API app name}.azurewebsites.net`.
 6. Na liście **Grupa zasobów** kliknij pozycję **Nowa**, a następnie wprowadź ciąg „ToDoListGroup” lub inną wybraną nazwę.
    
-    Grupa zasobów to kolekcja zasobów platformy Azure, takich jak aplikacje interfejsu API, bazy danych i maszyny wirtualne. Do celów tego samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku wszystkich zasobów platformy Azure utworzonych na potrzeby samouczka.
+    Grupa zasobów to kolekcja zasobów platformy Azure, takich jak aplikacje interfejsu API, bazy danych i maszyny wirtualne.    Do celów tego samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku wszystkich zasobów platformy Azure utworzonych na potrzeby samouczka.
    
-    To pole pozwala wybrać istniejącą [grupę zasobów](../resource-group-overview.md) lub utworzyć nową przez wpisanie nazwy, która różni się od wszystkich istniejących nazw grup zasobów w subskrypcji użytkownika.
+    To pole pozwala wybrać istniejącą [grupę zasobów](../azure-resource-manager/resource-group-overview.md) lub utworzyć nową przez wpisanie nazwy, która różni się od wszystkich istniejących nazw grup zasobów w subskrypcji użytkownika.
 7. Kliknij przycisk **Nowy** obok listy rozwijanej **Plan usługi App Service**.
    
     Na poniższym zrzucie ekranu przedstawiono przykładowe wartości pól **Nazwa aplikacji interfejsu API**, **Subskrypcja** i **Grupa zasobów**. Wartości wyświetlane na Twoim komputerze będą inne.
@@ -298,7 +302,7 @@ W tej sekcji użyjemy narzędzi platformy Azure zintegrowanych z kreatorem **Pub
     
     Po wybraniu aplikacji interfejsu API w celu wygenerowania dla niej kodu klienta program Visual Studio pobiera metadane z tego adresu URL.
 
-## <a id="codegen"></a> Generowanie kodu klienta dla warstwy danych
+## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Generowanie kodu klienta dla warstwy danych
 Automatyczne generowanie kodu to jedna z zalet integracji programu Swagger z aplikacjami interfejsu API platformy Azure. Wygenerowane klasy klienta ułatwiają pisanie kodu, który wywołuje aplikację interfejsu API.
 
 W projekcie ToDoListAPI kod klienta został już wygenerowany, ale w poniższych krokach zostanie on usunięty i wygenerowany ponownie. Ma to na celu zapoznanie się z procedurą generowania kodu.
@@ -369,7 +373,7 @@ wprowadź następujące zmiany:
             var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
-## Tworzenie aplikacji interfejsu API w celu hostowania warstwy środkowej
+## <a name="create-an-api-app-to-host-the-middle-tier"></a>Tworzenie aplikacji interfejsu API w celu hostowania warstwy środkowej
 W jednej z poprzednich części samouczka [utworzyliśmy aplikację interfejsu API warstwy danych i wdrożyliśmy w niej kod](#createapiapp).  Teraz wykonamy tę samą procedurę dla aplikacji interfejsu API warstwy środkowej.
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt ToDoListAPI warstwy środkowej (a nie projekt ToDoListDataAPI warstwy danych), a następnie kliknij polecenie **Opublikuj**.
@@ -388,7 +392,7 @@ W jednej z poprzednich części samouczka [utworzyliśmy aplikację interfejsu A
    
    Program Visual Studio wdroży projekt ToDoListAPI w nowej aplikacji interfejsu API i otworzy w przeglądarce adres URL tej aplikacji. Pojawi się informacja o pomyślnym utworzeniu strony.
 
-## Konfigurowanie wywoływania warstwy danych przez warstwę środkową
+## <a name="configure-the-middle-tier-to-call-the-data-tier"></a>Konfigurowanie wywoływania warstwy danych przez warstwę środkową
 Jeśli teraz wywołasz aplikację interfejsu API warstwy środkowej, spróbuje ona wywołać warstwę danych przy użyciu adresu URL localhost, który wciąż jest skonfigurowany w pliku Web.config. W tej sekcji wprowadzimy adres URL aplikacji interfejsu API warstwy danych do ustawień środowiska aplikacji interfejsu API warstwy środkowej. Po pobraniu ustawienia adresu URL warstwy danych przez kod aplikacji interfejsu API warstwy środkowej ustawienie środowiska zastąpi wartość określoną w pliku Web.config.
 
 1. Otwórz [portal Azure](https://portal.azure.com/) i przejdź do bloku **Aplikacja interfejsu API** dla aplikacji interfejsu API utworzonej w celu hostowania projektu TodoListAPI (warstwy środkowej).
@@ -405,7 +409,7 @@ Jeśli teraz wywołasz aplikację interfejsu API warstwy środkowej, spróbuje o
    
     Gdy kod działa na platformie Azure, ta wartość zastępuje adres URL localhost określony w pliku Web.config.
 
-## Testowanie
+## <a name="test"></a>Testowanie
 1. W oknie przeglądarki otwórz adres URL nowej aplikacji interfejsu API warstwy środkowej utworzonej przed chwilą dla projektu ToDoListAPI. Aby przejść do tej lokalizacji, możesz kliknąć adres URL w głównym bloku aplikacji interfejsu API w portalu.
 2. Dodaj element „swagger” do adresu URL na pasku adresu przeglądarki, a następnie naciśnij klawisz Enter. (Adres URL to `http://{apiappname}.azurewebsites.net/swagger`).
    
@@ -414,7 +418,7 @@ Jeśli teraz wywołasz aplikację interfejsu API warstwy środkowej, spróbuje o
    
     ![Metoda Get interfejsu użytkownika programu Swagger](./media/app-service-api-dotnet-get-started/midtierget.png)
 
-## Rozwiązywanie problemów
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 W przypadku napotkania problemów podczas pracy z tym samouczkiem skorzystaj z poniższych sugestii dotyczących ich rozwiązywania:
 
 * Upewnij się, że używasz najnowszej wersji [zestawu Azure SDK dla platformy .NET](http://go.microsoft.com/fwlink/?linkid=518003).
@@ -424,7 +428,7 @@ W przypadku napotkania problemów podczas pracy z tym samouczkiem skorzystaj z p
 
 Po uruchomieniu aplikacji interfejsu API platformy ASP.NET w usłudze Azure App Service warto dowiedzieć się więcej na temat funkcji programu Visual Studio ułatwiających rozwiązywanie problemów. Aby uzyskać informacje na temat rejestrowania, zdalnego debugowania i innych funkcji, zobacz temat [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md) (Rozwiązywanie problemów z aplikacjami Azure App Service w programie Visual Studio).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym samouczku omówiono wdrażanie istniejących projektów interfejsu API sieci Web w aplikacjach interfejsu API, generowanie kodu klienta dla aplikacji interfejsu API oraz używanie aplikacji interfejsu API przez klientów platformy .NET. W następnym samouczku z tej serii przedstawiono [korzystanie z aplikacji interfejsu API z poziomu klientów języka JavaScript przy użyciu mechanizmu CORS](app-service-api-cors-consume-javascript.md).
 
 Aby uzyskać więcej informacji na temat generowania kodu klienta, przejdź do repozytorium [Azure/AutoRest](https://github.com/azure/autorest) w witrynie GitHub.com. Aby uzyskać pomoc dotyczącą problemów z używaniem wygenerowanego klienta, zapoznaj się z opisem [problemu w repozytorium AutoRest](https://github.com/azure/autorest/issues).
@@ -435,6 +439,9 @@ Jeśli chcesz tworzyć nowe projekty aplikacji interfejsu API zupełnie od pocz�
 
 Użycie szablonu projektu **aplikacji interfejsu API na platformie Azure** jest równoważne wybraniu **pustego** szablonu platformy ASP.NET 4.5.2, dodaniu obsługi interfejsu API sieci Web za pomocą pola wyboru i zainstalowaniu pakietu Swashbuckle NuGet. Ponadto do szablonu dodawany jest kod konfiguracji pakietu Swashbuckle, który zapobiega tworzeniu zduplikowanych identyfikatorów operacji programu Swagger. Po utworzeniu projektu aplikacji interfejsu API możesz go wdrożyć w aplikacji interfejsu API w sposób opisany w tym samouczku.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Tworzenie nowej puli elastycznej za pomocą witryny Azure Portal | Microsoft Docs
-description: Dodawanie do konfiguracji bazy danych SQL skalowalnej elastycznej puli baz danych ułatwiającej administrowanie zasobami i ich udostępnianie między bazami danych.
+title: "Tworzenie nowej puli elastycznej za pomocą witryny Azure Portal | Microsoft Docs"
+description: "Dodawanie do konfiguracji bazy danych SQL skalowalnej elastycznej puli baz danych ułatwiającej administrowanie zasobami i ich udostępnianie między bazami danych."
 keywords: skalowalna baza danych, konfiguracja bazy danych
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ninarn
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 07/20/2016
@@ -15,11 +15,15 @@ ms.author: ninarn
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f83e1aa30cfee86137c13c3a15c0e989558c0df8
+
 
 ---
-# Tworzenie nowej elastycznej puli baz danych za pomocą witryny Azure Portal
+# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Tworzenie nowej elastycznej puli baz danych za pomocą witryny Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [Witryna Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
@@ -34,7 +38,7 @@ Można dodać wiele pul na serwerze, ale nie można dodać baz danych z różnyc
 > 
 > 
 
-## Krok 1. Tworzenie nowej puli
+## <a name="step-1-create-a-new-pool"></a>Krok 1. Tworzenie nowej puli
 W tym artykule przedstawiono, jak utworzyć nową pulę z bloku istniejącego **serwera** w portalu, co jest najprostszym sposobem przenoszenia istniejących baz danych do puli. 
 
 > [!NOTE]
@@ -58,7 +62,7 @@ W tym artykule przedstawiono, jak utworzyć nową pulę z bloku istniejącego **
     ![Konfigurowanie puli elastycznej](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 3. Określ nazwę puli elastycznej lub pozostaw wartość domyślną.
 
-## Krok 2. Wybieranie warstwy cenowej
+## <a name="step-2-choose-a-pricing-tier"></a>Krok 2. Wybieranie warstwy cenowej
 Warstwa cenowa puli określa funkcje dostępne dla elastycznych baz danych w puli, maksymalną liczbę jednostek eDTU i magazyn dostępny dla każdej bazy danych (GB). Aby uzyskać szczegółowe informacje, zobacz Warstwy usługi.
 
 Aby zmienić warstwę cenową dla puli, kliknij przycisk **Warstwa cenowa**, kliknij wybraną warstwę cenową, a następnie kliknij przycisk **Wybierz**.
@@ -70,7 +74,7 @@ Aby zmienić warstwę cenową dla puli, kliknij przycisk **Warstwa cenowa**, kli
 
 ![Wybór warstwy cenowej](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
-## Krok 3. Konfigurowanie puli
+## <a name="step-3-configure-the-pool"></a>Krok 3. Konfigurowanie puli
 Po ustawieniu warstwy cenowej kliknij przycisk Konfiguruj pulę, za pomocą którego można dodać bazy danych, ustawić jednostki eDTU i magazyn (GB puli) oraz ustawić wartości minimalne i maksymalne jednostek eDTU dla elastycznej bazy danych w puli.
 
 1. Kliknij przycisk **Konfiguruj pulę**.
@@ -86,7 +90,7 @@ Po ustawieniu warstwy cenowej kliknij przycisk Konfiguruj pulę, za pomocą któ
 4. Po wprowadzeniu zmian w ustawieniach kliknij przycisk **Wybierz** w bloku **Konfigurowanie puli**.
 5. Kliknij przycisk **OK**, aby utworzyć pulę.
 
-## Omówienie zaleceń puli
+## <a name="understand-pool-recommendations"></a>Omówienie zaleceń puli
 Usługa SQL Database ocenia historyczne dane użycia bazy danych i zaleca zastosowanie co najmniej jednej puli baz danych, jeśli okaże się, że jest to bardziej ekonomiczne rozwiązanie niż używanie pojedynczych baz danych. Każde zalecenie jest konfigurowane z unikatowym podzbiorem baz danych serwera, które są najlepiej dopasowane do puli.
 
 ![zalecana pula](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
@@ -102,17 +106,20 @@ Podczas rekomendowania pul usługa uwzględnia dane telemetryczne z ostatnich 30
 
 Usługa oblicza zapotrzebowanie na zasoby oraz opłacalność przenoszenia pojedynczych baz danych w każdej warstwie usług do pul w tej samej warstwie. Na przykład wszystkie bazy danych w warstwie Standardowej na serwerze są oceniane pod względem dopasowania do Standardowej puli elastycznej. Oznacza to, że usługa nie tworzy zaleceń międzywarstwowych, takich jak przeniesienie bazy danych z warstwy Standardowej do puli Premium.
 
-### Zalecenia dynamiczne
+### <a name="dynamic-recommendations"></a>Zalecenia dynamiczne
 Po dodaniu bazy danych do puli zalecenia są generowane dynamicznie na podstawie historycznych danych użycia wybranych baz danych. Zalecenia te będą wyświetlane na wykresie użycia jednostek eDTU i GB oraz na banerze w górnej części bloku **Konfigurowanie puli**. Mają one na celu ułatwić tworzenie puli zoptymalizowanej pod kątem konkretnych baz danych.
 
 ![zalecenia dynamiczne](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-## Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Manage a SQL Database elastic pool with the portal (Zarządzanie pulą elastyczną baz danych SQL Database za pomocą portalu)](sql-database-elastic-pool-manage-portal.md)
 * [Manage a SQL Database elastic pool with PowerShell (Zarządzanie pulą elastyczną baz danych SQL Database za programu PowerShell)](sql-database-elastic-pool-manage-powershell.md)
-* [Manage a SQL Database elastic pool with C (Zarządzanie pulą elastyczną baz danych SQL Database przy użyciu języka C)#](sql-database-elastic-pool-manage-csharp.md)
+* [Manage a SQL Database elastic pool with C (Zarządzanie pulą elastyczną baz danych SQL Database przy użyciu języka C)](sql-database-elastic-pool-manage-csharp.md)
 * [Scaling out with Azure SQL Database (Skalowanie w poziomie za pomocą usługi Azure SQL Database)](sql-database-elastic-scale-introduction.md) 
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

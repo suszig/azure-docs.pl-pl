@@ -1,12 +1,12 @@
 ---
-title: Usługi SQL Azure z usługą Azure RemoteApp | Microsoft Docs
-description: Dowiedz się, jak korzystać z usług SQL Azure z usługą Azure RemoteApp.
+title: "Usługi SQL Azure z usługą Azure RemoteApp | Microsoft Docs"
+description: "Dowiedz się, jak korzystać z usług SQL Azure z usługą Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: ericorman
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 35f81d75-bfd7-4980-807e-00339f2cb2a4
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cfd3da08a8c8674e686ae2933db331809fb0e34d
+
 
 ---
-# Usługi SQL Azure z usługą Azure RemoteApp
+# <a name="sql-azure-with-azure-remoteapp"></a>Usługi SQL Azure z usługą Azure RemoteApp
 > [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -24,10 +28,10 @@ ms.author: elizapo
 
 Często zdarza się, że klienci planujący hostowanie swoich aplikacji systemu Windows w chmurze za pomocą usługi Azure RemoteApp chcą także dokonać migracji ich danych (na przykład serwerów SQL Server) do chmury w celu osiągnięcia pełnego wdrożenia w chmurze. Pozwala to uzyskać całościowe rozwiązanie hostowane w chmurze, dostępne w dowolnym momencie z każdego miejsca przy użyciu dowolnego urządzenia za pośrednictwem usługi Azure RemoteApp. Poniżej znajdują się linki i odniesienia oraz wskazówki ułatwiające przeprowadzenie tego procesu.  
 
-## Migrowanie danych SQL
+## <a name="migrate-your-sql-data"></a>Migrowanie danych SQL
 Rozpocznij od [migracji bazy danych SQL Server do usługi Azure SQL Database](../sql-database/sql-database-cloud-migrate.md). 
 
-## Konfigurowanie usługi Azure RemoteApp
+## <a name="configure-azure-remoteapp"></a>Konfigurowanie usługi Azure RemoteApp
 Możesz hostować aplikacje systemu Windows w usłudze Azure RemoteApp Poniżej znajduje się ogólny opis kroków, które należy wykonać:
 
 1. Utwórz [maszynę wirtualną z szablonem usługi Azure RemoteApp](remoteapp-imageoptions.md). 
@@ -37,7 +41,7 @@ Możesz hostować aplikacje systemu Windows w usłudze Azure RemoteApp Poniżej 
 5. Zaimportuj niestandardowy obraz do biblioteki usługi Azure RemoteApp, wybierając właściwą lokalizację geograficzną wdrożenia usług SQL Azure. 
 6. Dokonaj wdrożenia kolekcji usługi RemoteApp w tym samym centrum danych, co wdrożenie usług SQL Azure, używając powyższego szablonu, po czym opublikuj aplikację. Wdrożenie usługi Azure RemoteApp w tym samym centrum danych, w którym zostały wdrożone usługi SQL Azure, zapewnia największą szybkość połączeń i skrócony czas oczekiwania. 
 
-## Zagadnienia do rozważenia związane z konfiguracją aplikacji i bazy danych SQL:
+## <a name="app-and-sql-configuration-considerations"></a>Zagadnienia do rozważenia związane z konfiguracją aplikacji i bazy danych SQL:
 Istnieje kilka kwestii, które należy wziąć pod uwagę podczas korzystania z usług Azure SQL z usługą RemoteApp:
 
 Dowiedz się, [jak skonfigurować zaporę bazy danych Azure SQL](../sql-database/sql-database-firewall-configure.md). Zgodnie z artykułem: „Początkowo dostęp do serwera usługi Azure SQL Database jest blokowany przez zaporę. Aby rozpocząć korzystanie z serwera usługi Azure SQL Database, należy przejść do portalu klasycznego i określić reguły zapory na poziomie serwera, które umożliwią dostęp do serwera Azure SQL Database. Użyj reguł zapory do określenia zakresu dozwolonych adresów IP pochodzących z Internetu oraz możliwości podejmowania przez aplikacje platformy Azure prób połączenia się z serwerem usługi Azure SQL Database”.
@@ -46,13 +50,16 @@ Gdy komputer próbuje połączyć się w Internecie z serwerem bazy danych, zapo
 
 Postępuj zgodnie z instrukcjami krok po kroku opisanych w temacie [Konfigurowanie ustawień zapory dla usługi SQL Database przy użyciu witryny Azure Portal](../sql-database/sql-database-configure-firewall-settings.md), aby określić zakres adresów IP. Podczas konfigurowania reguł zapory SQL podaj zakres adresów IP podsieci, która jest przeznaczona do obsługi kolekcji usługi Azure RemoteApp. Powinno to umożliwić serwerom ARA nawiązanie połączenia z bazą danych SQL pomimo korzystania z dynamicznie przypisywanych adresów IP.
 
-## Rozwiązywanie problemów
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Istnieje kilka przyczyn spowolnienia działania aplikacji klienckiej hostowanej w usłudze Azure RemoteApp, która łączy się z bazą danych SQL hostowaną na platformie Azure lub lokalnie.  
 
 * Opóźnienie sieci pomiędzy urządzeniem a platformą Azure jest wysokie. Aby uzyskać najlepszą wydajność, wybierz najlepsze i najszybsze dostępne połączenie sieciowe. Skorzystaj z witryny [azurespeed.com](http://azurespeed.com/) jako ogólnego narzędzia do testowania opóźnienia między urządzeniami a centrum danych Azure.  
 * Aplikacja kliencka hostowana w usłudze Azure RemoteApp jest mocno obciążona. Wybór innego planu rozliczeniowego, na przykład Premium, umożliwi zwiększenie wydajności. Innym sposobem jest monitorowanie zasobów zużywanych przez aplikację. Podczas aktywnej sesji naciśnij kolejno klawisze Ctrl-Alt-End, co spowoduje uruchomienie ekranu SAS, wybierz Menedżera zadań i sprawdź wykorzystanie zasobów przez aplikację.
 * Serwer SQL jest mocno obciążony lub nie jest zoptymalizowany. Postępuj zgodnie ze wskazówkami dotyczącymi rozwiązywania problemów z bazą danych SQL. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

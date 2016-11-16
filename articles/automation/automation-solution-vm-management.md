@@ -1,12 +1,12 @@
 ---
-title: Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] | Microsoft Docs
-description: Rozwiązania z zakresu zarządzania maszynami wirtualnymi uruchamiają i zatrzymują maszyny wirtualne usługi Azure Resource Manager zgodnie z harmonogramem i aktywnie monitorują działanie z poziomu usługi Log Analytics.
+title: "Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] | Microsoft Docs"
+description: "Rozwiązania z zakresu zarządzania maszynami wirtualnymi uruchamiają i zatrzymują maszyny wirtualne usługi Azure Resource Manager zgodnie z harmonogramem i aktywnie monitorują działanie z poziomu usługi Log Analytics."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] w usłudze Automation
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] w usłudze Automation
 Rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] uruchamia i zatrzymuje maszyny wirtualne usługi Azure Resource Manager zgodnie z harmonogramem zdefiniowanym przez użytkownika i zapewnia wgląd w powodzenie zadań usługi Automation, które uruchamiają i zatrzymują maszyny wirtualne, za pomocą usługi OMS Log Analytics.  
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * Elementy Runbook działają przy użyciu [konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md).  Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa certyfikatu zamiast hasła, które może wygasać lub ulegać częstym zmianom.  
 * To rozwiązanie może zarządzać tylko maszynami wirtualnymi, które znajdują się w tej samej subskrypcji i grupie zasobów co konto usługi Automation.  
 * To rozwiązanie może być wdrożone tylko w następujących regionach platformy Azure: Australia Południowo-Wschodnia, Wschodnie stany USA, Azja Południowo-Wschodnia oraz Europa Zachodnia.  Elementy Runbook, które zarządzają harmonogramem maszyny wirtualnej, mogą kierować działania na maszyny wirtualne w dowolnym regionie.  
 * Aby wysyłać powiadomienia e-mail w momencie zakończenia działania elementów Runbook uruchamiających lub zatrzymujących maszyny wirtualne, wymagana jest subskrypcja klasy biznesowej usługi Office 365.  
 
-## Składniki rozwiązania
+## <a name="solution-components"></a>Składniki rozwiązania
 To rozwiązanie składa się z następujących zasobów, które zostaną zaimportowane i dodane do konta usługi Automation.
 
-### Elementy Runbook
+### <a name="runbooks"></a>Elementy Runbook
 | Element Runbook | Opis |
 | --- | --- |
 | CleanSolution-MS-Mgmt-VM |Ten element Runbook spowoduje usunięcie wszystkich zasobów i harmonogramów po rozpoczęciu operacji usuwania rozwiązania z subskrypcji. |
@@ -38,7 +42,7 @@ To rozwiązanie składa się z następujących zasobów, które zostaną zaimpor
 
 <br>
 
-### Zmienne
+### <a name="variables"></a>Zmienne
 | Zmienna | Opis |
 | --- | --- |
 | Element Runbook **SendMailO365-MS-Mgmt** | |
@@ -65,18 +69,18 @@ To rozwiązanie składa się z następujących zasobów, które zostaną zaimpor
 
 <br>
 
-### Harmonogramy
+### <a name="schedules"></a>Harmonogramy
 | Harmonogram | Opis |
 | --- | --- |
 | StartByResourceGroup-Schedule-MS-Mgmt |Harmonogram elementu Runbook StartByResourceGroup, który wykonuje uruchamianie maszyn wirtualnych zarządzanych przez to rozwiązanie. |
 | StopByResourceGroup-Schedule-MS-Mgmt |Harmonogram elementu Runbook StopByResourceGroup, który wykonuje zatrzymywanie maszyn wirtualnych zarządzanych przez to rozwiązanie. |
 
-### Poświadczenia
+### <a name="credentials"></a>Poświadczenia
 | Poświadczenie | Opis |
 | --- | --- |
 | O365Credential |Określa prawidłowe konto użytkownika usługi Office 365 do wysłania wiadomości e-mail.  Wymagane tylko wtedy, gdy zmienna SendMailO365-IsSendEmail-MS-Mgmt jest ustawiona na wartość **True**. |
 
-## Konfiguracja
+## <a name="configuration"></a>Konfiguracja
 Wykonaj poniższe kroki, aby dodać rozwiązanie umożliwiające uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami szczytu [wersja zapoznawcza] do konta usługi Automation, a następnie skonfiguruj zmienne, aby dostosować rozwiązanie.
 
 1. Na ekranie głównym w witrynie Azure Portal wybierz kafelek **Marketplace**.  Jeśli kafelek nie jest już przypięty do ekranu głównego, wybierz opcję **Nowy** w lewym okienku nawigacyjnym.  
@@ -109,10 +113,10 @@ Wykonaj poniższe kroki, aby dodać rozwiązanie umożliwiające uruchamianie/za
    * Wybranie **Harmonogramu** czyli cyklicznej daty i godziny uruchamiania oraz zatrzymywania maszyn wirtualnych w docelowych grupach zasobów.  
 9. Po zakończeniu konfigurowania ustawień początkowych wymaganych dla rozwiązania wybierz opcję **Utwórz**.  Wszystkie ustawienia zostaną sprawdzone, a następnie zostanie podjęta próba wdrożenia rozwiązania w subskrypcji.  Ten proces może potrwać kilka sekund. Możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu. 
 
-## Częstotliwość zbierania
+## <a name="collection-frequency"></a>Częstotliwość zbierania
 Dziennik zadań usługi Automation oraz dane strumienia zadań są zbierane w repozytorium OMS co pięć minut.  
 
-## Użycie rozwiązania
+## <a name="using-the-solution"></a>Użycie rozwiązania
 Po dodaniu rozwiązania do zarządzania maszynami wirtualnymi w obszarze roboczym OMS do pulpitu nawigacyjnego OMS zostanie dodany kafelek **Widok StartStopVM**.  Ten kafelek wyświetla liczbę i graficzne przedstawienie zadań elementów Runbook dla rozwiązania, które zostały uruchomione i zakończyły pracę z powodzeniem.<br><br> ![Zarządzanie maszynami wirtualnymi — kafelek Widok StartStopVM](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
 Na koncie usługi Automation możesz uzyskać dostęp do rozwiązania i zarządzać nim poprzez wybranie kafelka **Rozwiązania**, a następnie wybranie w bloku **Rozwiązania** opcji **Start-Stop-VM[Obszar roboczy]** z lity.<br><br> ![Lista rozwiązań usługi Automation](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
@@ -121,7 +125,7 @@ Wybranie rozwiązania spowoduje wyświetlenie bloku rozwiązania **Start-Stop-VM
 
 W tym miejscu możesz także otworzyć obszar roboczy OMS i wykonać dalszą analizę rekordów zadania.  Po prostu kliknij pozycję **Wszystkie ustawienia** i blok **Ustawienia**, wybierz opcję **Szybki start** i następnie w bloku **Szybki start** wybierz pozycję **Portal pakietu OMS**.   To spowoduje otwarcie nowej karty lub nowej sesji przeglądarki i wyświetlenie obszaru roboczego OMS skojarzonego z Twoim kontem i subskrypcją usługi Automation.  
 
-### Konfigurowanie powiadomień e-mail
+### <a name="configuring-email-notifications"></a>Konfigurowanie powiadomień e-mail
 Aby włączyć powiadomienia e-mail wysyłane w przypadku zakończenia pracy elementów Runbook uruchamiających i zatrzymujących maszyny wirtualne, należy zmodyfikować poświadczenie **O365Credential** oraz co najmniej następujące zmienne:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -142,13 +146,13 @@ Aby skonfigurować wcześniej wyróżnione zmienne, wykonaj następujące czynno
 3. W bloku **Zasoby** wybierz kafelek **Zmienne**, a następnie w bloku **Zmienne** wybierz zmienną wymienioną powyżej. Zmodyfikuj wartość zmiennej zgodnie z opisem określonym wcześniej w sekcji [Zmienne](##variables).  
 4. Kliknij przycisk **Zapisz**, aby zapisać zmiany wprowadzone w zmiennej.   
 
-### Modyfikowanie harmonogramu uruchamiania i zamykania
+### <a name="modifying-the-startup-and-shutdown-schedule"></a>Modyfikowanie harmonogramu uruchamiania i zamykania
 Zarządzanie harmonogramem uruchamiania i zamykania w tym rozwiązaniu obejmuje te same kroki co przedstawione w temacie [Planowanie elementu Runbook w usłudze Azure Automation](automation-scheduling-a-runbook.md).  Należy pamiętać, że nie można zmodyfikować konfiguracji harmonogramu.  Należy wyłączyć istniejący harmonogram, utworzyć nowy i następnie połączyć go z elementem Runbook **StartByResourceGroup-MS-Mgmt-VM** lub **StopByResourceGroup-MS-Mgmt-VM**, dla którego ma zostać zastosowany harmonogram.   
 
-## Rekordy usługi Log Analytics
+## <a name="log-analytics-records"></a>Rekordy usługi Log Analytics
 Usługa Automation tworzy dwa typy rekordów w repozytorium OMS.
 
-### Dzienniki zadań
+### <a name="job-logs"></a>Dzienniki zadań
 | Właściwość | Opis |
 | --- | --- |
 | Obiekt wywołujący |Użytkownik, który zainicjował operację.  Możliwe wartości to adres e-mail lub system w przypadku zaplanowanych zadań. |
@@ -168,7 +172,7 @@ Usługa Automation tworzy dwa typy rekordów w repozytorium OMS.
 | SubscriptionId |Określa identyfikator subskrypcji zadania. |
 | Time |Data i godzina dla wykonania zadania elementu Runbook. |
 
-### Strumienie zadania
+### <a name="job-streams"></a>Strumienie zadania
 | Właściwość | Opis |
 | --- | --- |
 | Obiekt wywołujący |Użytkownik, który zainicjował operację.  Możliwe wartości to adres e-mail lub system w przypadku zaplanowanych zadań. |
@@ -188,7 +192,7 @@ Usługa Automation tworzy dwa typy rekordów w repozytorium OMS.
 
 Jeśli wykonujesz dowolne wyszukiwanie dzienników, które zwraca rekordy w kategorii **JobLogs** lub **JobStreams**, możesz wybrać widok **JobLogs** lub **JobStreams**, który zawiera zestaw kafelków z podsumowaniem aktualizacji zwracanych przez wyszukiwanie.
 
-## Przykładowe wyszukiwania dzienników
+## <a name="sample-log-searches"></a>Przykładowe wyszukiwania dzienników
 Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów dzienników zbieranych przez to rozwiązanie. 
 
 | Zapytanie | Opis |
@@ -197,11 +201,14 @@ Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów dzi
 | Znajdź zadania dla elementu Runbook StopVM, które zostały zakończone powodzeniem |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g |
 | Pokaż stan zadania w czasie dla elementów Runbook StartVM i StopVM |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") |
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Aby dowiedzieć się więcej o sposobie tworzenia różnych zapytań wyszukiwania i sprawdzaniu dzienników zadań usługi Automation przy użyciu usługi Log Analytics, zobacz [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) (Wyszukiwanie dzienników w usłudze Log Analytics)
 * Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, sposobie monitorowania zadań elementów Runbook i innych szczegółach technicznych, zobacz [Track a runbook job](automation-runbook-execution.md) (Śledzenie zadania elementu Runbook)
 * Aby dowiedzieć się więcej o usłudze OMS Log Analytics i źródłach zbierania danych, zobacz [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md) (Zbieranie danych magazynu platformy Azure w usłudze Log Analytics — omówienie)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

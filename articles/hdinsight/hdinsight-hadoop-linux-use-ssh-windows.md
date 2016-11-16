@@ -1,13 +1,13 @@
 ---
-title: Używanie kluczy SSH z usługą Hadoop w klastrach opartych na systemie Linux w systemie Windows | Microsoft Docs
-description: Poznaj sposoby tworzenia i używania kluczy SSH w celu uwierzytelniania w klastrach usługi HDInsight opartych na systemie Linux. Nawiązywanie połączeń z klastrami w klientach opartych na systemie Windows przy użyciu klienta SSH PuTTY.
+title: "Używanie kluczy SSH z usługą Hadoop w klastrach opartych na systemie Linux w systemie Windows | Microsoft Docs"
+description: "Poznaj sposoby tworzenia i używania kluczy SSH w celu uwierzytelniania w klastrach usługi HDInsight opartych na systemie Linux. Nawiązywanie połączeń z klastrami w klientach opartych na systemie Windows przy użyciu klienta SSH PuTTY."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 639328ca-d800-4fa9-97ed-5664477b88cd
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/30/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d98b40b91f3f84aa717ed2f295fb9c341fe4a38
+
 
 ---
-# Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows
+# <a name="use-ssh-with-linuxbased-hadoop-on-hdinsight-from-windows"></a>Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows
 > [!div class="op_single_selector"]
 > * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Systemy Linux, Unix i OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+> * [Linux, Unix i OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 > 
 > 
 
@@ -33,7 +37,7 @@ ms.author: larryfr
 > 
 > 
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * Programy **PuTTy** i **PuTTYGen** dla klientów z systemem Windows. Te narzędzia są dostępne pod adresem [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 * Nowoczesna przeglądarka sieci Web, obsługująca język HTML5.
 
@@ -43,20 +47,20 @@ LUB
   
     [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-## Co to jest SSH?
+## <a name="what-is-ssh"></a>Co to jest SSH?
 SSH jest narzędziem do zdalnego logowania oraz wykonywania poleceń na serwerze zdalnym. W przypadku korzystania z usługi HDInsight opartej na systemie Linux protokół SSH ustanawia szyfrowane połączenie z głównym węzłem klastra i dostarcza wiersz polecenia służący do wpisywania poleceń. Polecenia są następnie wykonywane bezpośrednio na serwerze.
 
-### Nazwa użytkownika SSH
+### <a name="ssh-user-name"></a>Nazwa użytkownika SSH
 Nazwa użytkownika SSH to nazwa używana do uwierzytelniania w klastrze usługi HDInsight. Po określeniu nazwy użytkownika SSH podczas tworzenia klastra dany użytkownik zostaje utworzony we wszystkich węzłach w klastrze. Po utworzeniu klastra można używać tej nazwy użytkownika do nawiązywania połączeń z głównymi węzłami klastra usługi HDInsight. Z węzłów głównych można następnie łączyć się z poszczególnymi węzłami procesów roboczych.
 
-### Hasło SSH lub klucz publiczny
+### <a name="ssh-password-or-public-key"></a>Hasło SSH lub klucz publiczny
 Użytkownik SSH może używać do uwierzytelniania hasła lub klucza publicznego. Hasło jest po prostu określonym ciągiem tekstu, a klucz publiczny jest częścią pary kluczy kryptograficznych wygenerowanej w celu unikatowej identyfikacji użytkownika.
 
 Klucz jest bezpieczniejszy niż hasło, jednak jego wygenerowanie wymaga dodatkowych czynności, a pliki zawierające klucz muszą być przechowywane w bezpiecznej lokalizacji. Jeśli ktokolwiek uzyska dostęp do plików kluczy, uzyska również dostęp do Twojego konta. Natomiast utrata plików kluczy uniemożliwia zalogowanie się do konta.
 
 Para kluczy składa się z klucza publicznego (który jest wysyłany do serwera HDInsight) i klucza prywatnego (który jest przechowywany na komputerze klienckim). Podczas łączenia z serwerem usługi HDInsight przy użyciu protokołu SSH klient SSH użyje klucza prywatnego na komputerze do wykonania uwierzytelnienia na serwerze.
 
-## Tworzenie klucza SSH
+## <a name="create-an-ssh-key"></a>Tworzenie klucza SSH
 Jeśli zamierzasz używać kluczy SSH w klastrze, skorzystaj z poniższych informacji. Jeśli planujesz używać hasła, możesz pominąć tę sekcję.
 
 1. Otwórz program PuTTYGen.
@@ -89,7 +93,7 @@ Jeśli zamierzasz używać kluczy SSH w klastrze, skorzystaj z poniższych infor
    > 
    > 
 
-## Tworzenie klastra usługi HDInsight opartej na systemie Linux
+## <a name="create-a-linuxbased-hdinsight-cluster"></a>Tworzenie klastra usługi HDInsight opartej na systemie Linux
 Podczas tworzenia klastra usługi HDInsight opartej na systemie Linux należy podać wcześniej utworzony klucz publiczny. Istnieją dwa sposoby tworzenia klastra usługi HDInsight opartej na systemie Linux na komputerach klienckich z systemem Windows:
 
 * **Azure Portal** — tworzenie klastra przy użyciu portalu sieci Web.
@@ -97,7 +101,7 @@ Podczas tworzenia klastra usługi HDInsight opartej na systemie Linux należy po
 
 Każda z tych metod będzie wymagać klucza publicznego. Aby uzyskać pełne informacje dotyczące tworzenia klastra usługi HDInsight opartej na systemie Linux, zobacz artykuł [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Obsługa administracyjna klastrów usługi HDInsight opartej na systemie Linux).
 
-### Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 Podczas używania witryny [Azure Portal][preview-portal] do tworzenia klastra usługi HDInsight opartej na systemie Linux należy wprowadzić dane w polu **Nazwa użytkownika SSH** i wybrać opcję wprowadzenia hasła w polu **HASŁO** lub klucza publicznego w polu **KLUCZ PUBLICZNY SSH**.
 
 W przypadku wybrania opcji **KLUCZ PUBLICZNY SSH** można wkleić klucz publiczny wyświetlany w polu **Public key for pasting into OpenSSH authorized\_keys file** (Klucz publiczny do wklejenia do autoryzowanego pliku kluczy OpenSSH) w programie PuttyGen w polu **Klucz publiczny SSH** albo wybrać opcję **Wybierz plik**, aby przejść do pliku zawierającego klucz publiczny.
@@ -106,12 +110,12 @@ W przypadku wybrania opcji **KLUCZ PUBLICZNY SSH** można wkleić klucz publiczn
 
 Zostanie utworzony identyfikator logowania dla określonego użytkownika i włączone uwierzytelnianie przy użyciu hasła lub klucza SSH.
 
-### Interfejs wiersza polecenia platformy Azure dla komputerów Mac oraz komputerów z systemem Linux i Windows
+### <a name="azure-commandline-interface-for-mac-linux-and-windows"></a>Interfejs wiersza polecenia platformy Azure dla komputerów Mac oraz komputerów z systemem Linux i Windows
 Możesz użyć [interfejsu wiersza polecenia platformy Azure dla systemów Mac, Linux i Windows](../xplat-cli-install.md) do utworzenia nowego klastra przy użyciu polecenia `azure hdinsight cluster create`.
 
 Aby uzyskać więcej informacji na temat używania tego polecenia, zobacz temat [Provision Hadoop Linux clusters in HDInsight using custom options](hdinsight-hadoop-provision-linux-clusters.md) (Obsługa administracyjna klastrów Hadoop w usłudze HDInsight opartej na systemie Linux przy użyciu opcji niestandardowych).
 
-## Łączenie z klastrem usługi HDInsight opartej na systemie Linux
+## <a name="connect-to-a-linuxbased-hdinsight-cluster"></a>Łączenie z klastrem usługi HDInsight opartej na systemie Linux
 1. Otwórz program PuTTY.
    
     ![interfejs programu putty](./media/hdinsight-hadoop-linux-use-ssh-windows/putty.png)
@@ -140,7 +144,7 @@ Aby uzyskać więcej informacji na temat używania tego polecenia, zobacz temat 
 > 
 > 
 
-### Łączenie z węzłami procesu roboczego
+### <a name="connect-to-worker-nodes"></a>Łączenie z węzłami procesu roboczego
 Węzły procesu roboczego nie są bezpośrednio dostępne poza centrum danych Azure, są jednak dostępne z węzła głównego klastra za pośrednictwem protokołu SSH.
 
 Jeśli podczas tworzenia konta użytkownika podano klucz SSH, w celu nawiązania połączenia z węzłami procesów roboczych należy wykonać następujące kroki, aby użyć klucza prywatnego podczas uwierzytelniania w klastrze.
@@ -182,7 +186,7 @@ Jeśli podczas tworzenia konta użytkownika podano klucz SSH, w celu nawiązania
 9. Po ustanowieniu sesji informacja w wierszu sesji programu PuTTY zmieni się z `username@hn#-clustername` na `username@wn#-clustername`, wskazując istnienie połączenia z węzłem procesu roboczego. Dowolne polecenia wykonywane na tym etapie zostaną uruchomione w węźle procesu roboczego.
 10. Po zakończeniu wykonywania akcji w węźle procesu roboczego użyj polecenia `exit`, aby zamknąć sesję węzła procesu roboczego. Spowoduje to powrót do wiersza `username@hn#-clustername`.
 
-## Dodawanie większej liczby kont
+## <a name="add-more-accounts"></a>Dodawanie większej liczby kont
 Jeśli potrzebujesz dodać więcej kont do klastra, wykonaj następujące czynności:
 
 1. Wygeneruj nowy klucz publiczny i klucz prywatny dla nowego konta użytkownika, zgodnie z wcześniejszym opisem.
@@ -204,7 +208,7 @@ Jeśli potrzebujesz dodać więcej kont do klastra, wykonaj następujące czynno
         sudo chown -hR <username>:<username> /home/<username>/.ssh
 6. Teraz powinno być możliwe uwierzytelnienie na serwerze przy użyciu nowego konta użytkownika i klucza prywatnego.
 
-## <a id="tunnel"></a>Tunelowanie SSH
+## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunelowanie SSH
 Protokół SSH może również służyć do tunelowania żądań lokalnych, takich jak żądania sieci Web, do klastra usługi HDInsight. Żądania będą następnie kierowane do wymaganego zasobu, tak jakby pochodziły z węzła głównego klastra usługi HDInsight.
 
 > [!IMPORTANT]
@@ -214,7 +218,7 @@ Protokół SSH może również służyć do tunelowania żądań lokalnych, taki
 
 Aby uzyskać więcej informacji dotyczących tworzenia i używania tunelu SSH, zobacz artykuł [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) (Korzystanie z tunelowania SSH w celu uzyskania dostępu do interfejsów użytkownika sieci Web Ambari, ResourceManager, JobHistory, NameNode, Oozie i innych).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz się, jak korzystać z usługi MapReduce z Hadoop w usłudze HDInsight.
 
 * [Korzystanie z programu Hive z usługą HDInsight](hdinsight-use-hive.md)
@@ -225,6 +229,6 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

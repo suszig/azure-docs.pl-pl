@@ -1,22 +1,26 @@
 ---
-title: Zarządzanie pierwszym interfejsem API w usłudze Azure API Management | Microsoft Docs
-description: Naucz się tworzyć interfejsy API, dodawać operacje i zacznij korzystać z usługi API Management.
+title: "Zarządzanie pierwszym interfejsem API w usłudze Azure API Management | Microsoft Docs"
+description: "Naucz się tworzyć interfejsy API, dodawać operacje i zacznij korzystać z usługi API Management."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+
 
 ---
-# Zarządzanie pierwszym interfejsem API w usłudze Azure API Management
+# <a name="manage-your-first-api-in-azure-api-management"></a>Zarządzanie pierwszym interfejsem API w usłudze Azure API Management
 ## <a name="overview"> </a>Omówienie
 W tym przewodniku przedstawiono, jak szybko rozpocząć korzystanie z usługi Azure API Management i utworzyć pierwsze wywołanie interfejsu API.
 
@@ -55,37 +59,35 @@ System składa się z następujących składników:
 
 ## <a name="create-service-instance"> </a>Tworzenie wystąpienia usługi API Management
 > [!NOTE]
-> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure][Bezpłatna wersja próbna platformy Azure].
+> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna platformy Azure][Bezpłatna wersja próbna platformy Azure].
 > 
 > 
 
-Pierwszym krokiem podczas pracy z usługą API Management jest utworzenie wystąpienia usługi. Zaloguj się do [klasyczny portal Azure][klasyczny portal Azure] i kliknij kolejno opcje **Nowy**, **Usługi aplikacji**, ** API Management**, **Utwórz**.
+Pierwszym krokiem podczas pracy z usługą API Management jest utworzenie wystąpienia usługi. Zaloguj się do witryny [Azure Portal][Azure Portal], a następnie kliknij kolejno pozycje **Nowy**, **Sieć Web i mobilność** i **API Management**.
 
 ![Nowe wystąpienie usługi API Management][api-management-create-instance-menu]
 
-W polu **Adres URL** podaj unikatową nazwę domeny podrzędnej do użycia jako adres URL usługi.
+W polu **Nazwa** podaj unikatową nazwę domeny podrzędnej do użycia jako adres URL usługi.
 
-W polach **Subskrypcja** i **Region** wybierz wartości odpowiednie dla swojego wystąpienia usługi. Po wprowadzeniu odpowiednich informacji kliknij przycisk **Dalej**.
-
-![Nowa usługa API Management][api-management-create-instance-step1]
+W polach **Subskrypcja**, **Grupa zasobów** i **Lokalizacja** wybierz wartości odpowiadające wystąpieniu usługi.
 
 Wprowadź wartość **Contoso Ltd.** w polu **Nazwa organizacji**, a następnie wprowadź adres e-mail w polu **Adres e-mail administratora**.
 
 > [!NOTE]
-> Ten adres e-mail służy do wysyłania powiadomienia z systemu usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [How to configure notifications and email templates in Azure API Management][How to configure notifications and email templates in Azure API Management] (Konfigurowanie powiadomień i szablonów e-mail w usłudze Azure API Management).
+> Ten adres e-mail służy do wysyłania powiadomienia z systemu usługi API Management. Aby uzyskać więcej informacji, zobacz [How to configure notifications and email templates in Azure API Management][How to configure notifications and email templates in Azure API Management] (Jak konfigurować powiadomienia i szablony wiadomości e-mail w usłudze Azure API Management).
 > 
 > 
 
-![Nowa usługa API Management][api-management-create-instance-step2]
+![Nowa usługa API Management][api-management-create-instance-step1]
 
-Wystąpienia usługi API Management są dostępne w trzech warstwach: Deweloper, Standardowej i Premium. Domyślnie nowe wystąpienia usługi API Management są tworzone w warstwie Deweloper. Aby wybrać warstwę Standardową lub Premium, zaznacz pole wyboru **Ustawienia zaawansowane**, a następnie wybierz żądaną warstwę na kolejnym ekranie.
+Wystąpienia usługi API Management są dostępne w trzech warstwach: Deweloper, Standardowej i Premium.
 
 > [!NOTE]
-> Warstwa Deweloper służy do rozwoju, testowania i pilotażu programów interfejsu API, gdzie wysoka dostępność nie jest wymagana. W przypadku warstw Standardowej i Premium można skalować liczbę zarezerwowanych jednostek do obsługi większego ruchu. Warstwy Standardowa i Premium zapewniają usłudze API Management najlepszą moc obliczeniową i wydajność. W tym samouczku można korzystać z dowolnej warstwy. Aby uzyskać więcej informacji na temat warstw usługi API Management, zobacz stronę [Zarządzanie interfejsami API — cennik][Zarządzanie interfejsami API — cennik].
+> Warstwa Deweloper służy do rozwoju, testowania i pilotażu programów interfejsu API, gdzie wysoka dostępność nie jest wymagana. W przypadku warstw Standardowej i Premium można skalować liczbę zarezerwowanych jednostek do obsługi większego ruchu. Warstwy Standardowa i Premium zapewniają usłudze API Management najlepszą moc obliczeniową i wydajność. W tym samouczku można korzystać z dowolnej warstwy. Aby uzyskać więcej informacji na temat warstw usługi API Management, zobacz [API Management — cennik][API Management — cennik].
 > 
 > 
 
-Kliknij pole wyboru, aby utworzyć wystąpienie usługi.
+Kliknij przycisk **Utwórz**, aby rozpocząć aprowizowanie wystąpienia usługi.
 
 ![Nowa usługa API Management][api-management-instance-created]
 
@@ -101,7 +103,7 @@ Interfejsy API mogą być tworzone ręcznie (wraz z dodawaniem operacji) lub imp
 > 
 > 
 
-Interfejsy API są konfigurowane w portalu wydawcy, który jest dostępny za pośrednictwem klasycznego portalu Azure. Aby uzyskać dostęp do portalu wydawcy, kliknij opcję **Zarządzaj** w klasycznym portalu Azure dla usługi API Management.
+Interfejsy API są konfigurowane w portalu wydawcy. Aby przejść do niego, kliknij pozycję **Portal wydawcy** na pasku narzędzi usługi.
 
 ![Portal wydawcy][api-management-management-console]
 
@@ -213,48 +215,48 @@ Sekcja **Analiza** zawiera cztery karty:
 [Konfigurowanie ustawień interfejsu API]: api-management-howto-create-apis.md#configure-api-settings
 [How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
 [Odpowiedzi]: api-management-howto-add-operations.md#responses
-[Tworzenie i publikowanie produktu]: api-management-howto-add-products.md
-[Zarządzanie interfejsami API — cennik]: http://azure.microsoft.com/pricing/details/api-management/
+[Jak utworzyć i opublikować produkt]: api-management-howto-add-products.md
+[API Management — cennik]: http://azure.microsoft.com/pricing/details/api-management/
 
-[klasyczny portal Azure]: https://manage.windowsazure.com/
+[Azure Portal]: https://portal.azure.com/
 
-[api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
-[api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
-[api-management-create-instance-step1]: ./media/api-management-get-started/api-management-create-instance-step1.png
-[api-management-create-instance-step2]: ./media/api-management-get-started/api-management-create-instance-step2.png
-[api-management-instance-created]: ./media/api-management-get-started/api-management-instance-created.png
-[api-management-import-api]: ./media/api-management-get-started/api-management-import-api.png
-[api-management-import-new-api]: ./media/api-management-get-started/api-management-import-new-api.png
-[api-management-imported-api-summary]: ./media/api-management-get-started/api-management-imported-api-summary.png
-[api-management-calc-operations]: ./media/api-management-get-started/api-management-calc-operations.png
-[api-management-list-products]: ./media/api-management-get-started/api-management-list-products.png
-[api-management-add-api-to-product]: ./media/api-management-get-started/api-management-add-api-to-product.png
-[api-management-add-myechoapi-to-product]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
-[api-management-api-added-to-product]: ./media/api-management-get-started/api-management-api-added-to-product.png
-[api-management-developers]: ./media/api-management-get-started/api-management-developers.png
-[api-management-add-subscription]: ./media/api-management-get-started/api-management-add-subscription.png
-[api-management-add-subscription-window]: ./media/api-management-get-started/api-management-add-subscription-window.png
-[api-management-subscription-added]: ./media/api-management-get-started/api-management-subscription-added.png
-[api-management-developer-portal-menu]: ./media/api-management-get-started/api-management-developer-portal-menu.png
-[api-management-developer-portal-calc-api]: ./media/api-management-get-started/api-management-developer-portal-calc-api.png
-[api-management-developer-portal-calc-api-console]: ./media/api-management-get-started/api-management-developer-portal-calc-api-console.png
-[api-management-invoke-get]: ./media/api-management-get-started/api-management-invoke-get.png
-[api-management-invoke-get-response]: ./media/api-management-get-started/api-management-invoke-get-response.png
-[api-management-manage-menu]: ./media/api-management-get-started/api-management-manage-menu.png
-[api-management-dashboard]: ./media/api-management-get-started/api-management-dashboard.png
+[usługa API Management — konsola zarządzania]: ./media/api-management-get-started/api-management-management-console.png
+[usługa API Management — menu tworzenia wystąpień]: ./media/api-management-get-started/api-management-create-instance-menu.png
+[usługa API Management — tworzenie wystąpienia (krok 1)]: ./media/api-management-get-started/api-management-create-instance-step1.png
+[usługa API Management — tworzenie wystąpienia (krok 2)]: ./media/api-management-get-started/api-management-create-instance-step2.png
+[usługa API Management — wystąpienie utworzone]: ./media/api-management-get-started/api-management-instance-created.png
+[usługa API Management — importowanie interfejsu API]: ./media/api-management-get-started/api-management-import-api.png
+[usługa API Management — importowanie nowego interfejsu API]: ./media/api-management-get-started/api-management-import-new-api.png
+[usługa API Management — podsumowanie zaimportowanego interfejsu API]: ./media/api-management-get-started/api-management-imported-api-summary.png
+[usługa API Management — operacje obliczania]: ./media/api-management-get-started/api-management-calc-operations.png
+[usługa API Management — tworzenie listy produktów]: ./media/api-management-get-started/api-management-list-products.png
+[usługa API Management — dodawanie interfejsu API do produktu]: ./media/api-management-get-started/api-management-add-api-to-product.png
+[usługa API Management — dodawanie interfejsu Echo API do produktu]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
+[usługa API Management — interfejs API dodany do produktu]: ./media/api-management-get-started/api-management-api-added-to-product.png
+[usługa API Management — deweloperzy]: ./media/api-management-get-started/api-management-developers.png
+[usługa API Management — dodawanie subskrypcji]: ./media/api-management-get-started/api-management-add-subscription.png
+[usługa API Management — okno dodawania subskrypcji]: ./media/api-management-get-started/api-management-add-subscription-window.png
+[usługa API Management — dodano subskrypcję]: ./media/api-management-get-started/api-management-subscription-added.png
+[usługa API Management — menu portalu dla deweloperów]: ./media/api-management-get-started/api-management-developer-portal-menu.png
+[usługa API Management — interfejs API obliczania portalu dla deweloperów]: ./media/api-management-get-started/api-management-developer-portal-calc-api.png
+[usługa API Management — konsola interfejsu API obliczania portalu dla deweloperów]: ./media/api-management-get-started/api-management-developer-portal-calc-api-console.png
+[usługa API Management — wywoływanie polecenia „get”]: ./media/api-management-get-started/api-management-invoke-get.png
+[usługa API Management — odpowiedź na wywołanie polecenia „get”]: ./media/api-management-get-started/api-management-invoke-get-response.png
+[usługa API Management — menu zarządzania]: ./media/api-management-get-started/api-management-manage-menu.png
+[usługa API Management — pulpit nawigacyjny]: ./media/api-management-get-started/api-management-dashboard.png
 
-[api-management-add-response]: ./media/api-management-get-started/api-management-add-response.png
-[api-management-add-response-window]: ./media/api-management-get-started/api-management-add-response-window.png
-[api-management-developer-key]: ./media/api-management-get-started/api-management-developer-key.png
-[api-management-mouse-over]: ./media/api-management-get-started/api-management-mouse-over.png
-[api-management-api-summary-metrics]: ./media/api-management-get-started/api-management-api-summary-metrics.png
-[api-management-analytics-overview]: ./media/api-management-get-started/api-management-analytics-overview.png
-[api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
-[api-management-]: ./media/api-management-get-started/api-management-.png
-[api-management-]: ./media/api-management-get-started/api-management-.png
+[usługa API Management — dodawanie odpowiedzi]: ./media/api-management-get-started/api-management-add-response.png
+[usługa API Management — okno dodawania odpowiedzi]: ./media/api-management-get-started/api-management-add-response-window.png
+[usługa API Management — klucz dla deweloperów]: ./media/api-management-get-started/api-management-developer-key.png
+[usługa API Management — umieszczenie wskaźnika myszy]: ./media/api-management-get-started/api-management-mouse-over.png
+[usługa API Management — metryki podsumowania interfejsu API]: ./media/api-management-get-started/api-management-api-summary-metrics.png
+[usługa API Management — omówienie analizy]: ./media/api-management-get-started/api-management-analytics-overview.png
+[usługa API Management — użycie analizy]: ./media/api-management-get-started/api-management-analytics-usage.png
+[usługa API Management — ]: ./media/api-management-get-started/api-management-.png
+[usługa API Management — ]: ./media/api-management-get-started/api-management-.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

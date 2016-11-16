@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### Aby utworzyć kopię zapasową
+### <a name="to-take-a-backup"></a>Aby utworzyć kopię zapasową
 1. Na stronie **Szybki start** urządzenia kliknij pozycję **Dodaj zasady tworzenia kopii zapasowej**. Spowoduje to uruchomienie Kreatora dodawania zasad tworzenia kopii zapasowej. 
 2. Na stronie **Definiowanie zasad tworzenia kopii zapasowej**:
    
@@ -28,6 +28,8 @@ Konfiguracja urządzenia została ukończona.
 
 Aby obejrzeć wideo demonstrujące sposób wykonania kopii zapasowej danych StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

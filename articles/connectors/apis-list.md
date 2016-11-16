@@ -1,13 +1,13 @@
 ---
-title: Lista łączników zarządzanych przez firmę Microsoft do użycia w aplikacjach logiki Microsoft Azure | Microsoft Docs
-description: Pobierz pełną listę łączników zarządzanych przez firmę Microsoft służących do tworzenia aplikacji logiki w usłudze Azure App Service
+title: "Lista łączników zarządzanych przez firmę Microsoft do użycia w aplikacjach Microsoft Azure Logic Apps | Microsoft Docs"
+description: "Pobierz pełną listę łączników zarządzanych przez firmę Microsoft służących do tworzenia aplikacji logiki w usłudze Azure App Service"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMAN
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
+
 
 ---
-# Lista łączników
+# <a name="list-of-connectors"></a>Lista łączników
 Wybierz łącznik, aby dowiedzieć się, jak użyć go do szybkiego tworzenia przepływów pracy.
 
-## Łączniki standardowe
+## <a name="standard-connectors"></a>Łączniki standardowe
 | Łączniki |  |  |  |
 | --- | --- | --- | --- |
 | [![Ikona interfejsu API][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc] |[![Ikona interfejsu API][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc] |[![Ikona interfejsu API][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc] |[![Ikona interfejsu API][Boxicon]<br/>**Box**][Boxdoc] |
@@ -42,7 +46,7 @@ Wybierz łącznik, aby dowiedzieć się, jak użyć go do szybkiego tworzenia pr
 > 
 > 
 
-## Łączniki pakietu integracyjnego dla przedsiębiorstw (EIP, Enterprise Integration Pack)
+## <a name="enterprise-integration-pack-eip-connectors"></a>Łączniki pakietu integracyjnego dla przedsiębiorstw (EIP, Enterprise Integration Pack)
 Łączniki EIP służą do tworzenia aplikacji logiki dla scenariuszy B2B obejmujących mechanizmy EAI I EDI.  
 
 | Łączniki EIP |  |  |  |
@@ -52,7 +56,7 @@ Wybierz łącznik, aby dowiedzieć się, jak użyć go do szybkiego tworzenia pr
 | [![Ikona interfejsu API][x12icon]<br/>**Dekodowanie</br>EDIFACT**][EDIFACTdecode] |[![Ikona interfejsu API][x12icon]<br/>**Kodowanie</br>EDIFACT**][EDIFACTencode] | | |
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### Łączniki mogą być wyzwalaczami
+### <a name="connectors-can-be-triggers"></a>Łączniki mogą być wyzwalaczami
 Wiele łączników udostępnia wyzwalacze, które mogą powiadamiać aplikację w przypadku wystąpienia określonych zdarzeń. Na przykład łącznik FTP ma wyzwalacz OnUpdatedFile. Można utworzyć aplikację logiki, aplikację PowerApps lub przepływ, które nasłuchują tego wyzwalacza i wykonują akcję przy każdym uruchomieniu wyzwalacza.
 
 Istnieją dwa typy wyzwalaczy:  
@@ -60,11 +64,11 @@ Istnieją dwa typy wyzwalaczy:
 * Wyzwalacze sondowania: te wyzwalacze sondują usługę z określoną częstotliwością w celu wyszukiwania nowych danych. Jeśli nowe dane są dostępne, uruchamiane jest nowe wystąpienie aplikacji z tymi danymi jako danymi wejściowymi. Aby zapobiec wielokrotnemu używaniu tych samych danych, wyzwalacz może czyścić dane odczytane i przekazane do aplikacji.
 * Wyzwalacze wypychania: te wyzwalacze nasłuchują danych w punkcie końcowym lub zdarzeń, a następnie uruchamiają nowe wystąpienie aplikacji. Przykładem takiego łącznika jest łącznik Twitter.
 
-### Łączniki mogą być akcjami
+### <a name="connectors-can-be-actions"></a>Łączniki mogą być akcjami
 Łączniki mogą być również używane jako akcje w aplikacjach. Akcje są przydatne do wyszukiwania danych, które następnie mogą być używane podczas wykonywania aplikacji. Na przykład można wyszukiwać dane klienta w bazie danych SQL podczas przetwarzania zamówienia. Można również zapisywać, aktualizować lub usuwać dane w tabeli docelowej. Te czynności można wykonywać przy użyciu akcji udostępnianych przez łączniki. Akcje są mapowane na operacje, które są zdefiniowane w metadanych struktury Swagger.
 
-## Następne kroki
-* [Tworzenie aplikacji logiki](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+## <a name="next-steps"></a>Następne kroki
+* [Kompilowanie aplikacji logiki](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 * [Tworzenie łącznika niestandardowego](../app-service-logic/app-service-logic-create-api-app.md)
 * [Monitorowanie aplikacji logiki](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
@@ -196,6 +200,6 @@ Istnieją dwa typy wyzwalaczy:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Obsługa mechanizmu CORS w usłudze App Service | Microsoft Docs
-description: Dowiedz się, jak korzystać z obsługi mechanizmu CORS w usłudze Azure App Service.
+title: "Obsługa mechanizmu CORS w usłudze App Service | Microsoft Docs"
+description: "Dowiedz się, jak korzystać z obsługi mechanizmu CORS w usłudze Azure App Service."
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
 ms.workload: na
 ms.tgt_pltfrm: dotnet
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+
 
 ---
-# Korzystanie z aplikacji interfejsu API z poziomu języka JavaScript przy użyciu mechanizmu CORS
+# <a name="consume-an-api-app-from-javascript-using-cors"></a>Korzystanie z aplikacji interfejsu API z poziomu języka JavaScript przy użyciu mechanizmu CORS
 Usługa App Service udostępnia wbudowaną obsługę [współużytkowania zasobów między źródłami (CORS, Cross-Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), co pozwala klientom języka JavaScript wykonywać międzydomenowe wywołania interfejsów API hostowanych w Aplikacjach interfejsu API. Usługa App Service umożliwia skonfigurowanie dostępu do interfejsu API za pomocą mechanizmu CORS bez pisania żadnego kodu interfejsu API.
 
 Ten artykuł zawiera dwie sekcje:
@@ -24,10 +28,10 @@ Ten artykuł zawiera dwie sekcje:
 * W sekcji [Konfigurowanie mechanizmu CORS](#corsconfig) ogólnie opisano konfigurowanie mechanizmu CORS w przypadku dowolnej aplikacji interfejsu API, aplikacji sieci Web lub aplikacji mobilnej. Te informacje dotyczą wszystkich platform obsługiwanych przez usługę App Service, w tym .NET, Node.js i Java. 
 * Sekcja [Kolejne kroki samouczka ułatwiającego rozpoczęcie pracy z platformą .NET](#tutorialstart) stanowi początek samouczka demonstrującego obsługę mechanizmu CORS. Te informacje rozszerzają zagadnienia omówione w [pierwszym samouczku zawierającym wprowadzenie do usługi API Apps](app-service-api-dotnet-get-started.md). 
 
-## <a id="corsconfig"></a> Konfigurowanie mechanizmu CORS w usłudze Azure App Service
-Mechanizm CORS można skonfigurować w witrynie Azure Portal lub za pomocą narzędzi usługi [Azure Resource Manager](../resource-group-overview.md).
+## <a name="a-idcorsconfiga-how-to-configure-cors-in-azure-app-service"></a><a id="corsconfig"></a> Konfigurowanie mechanizmu CORS w usłudze Azure App Service
+Mechanizm CORS można skonfigurować w witrynie Azure Portal lub za pomocą narzędzi usługi [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-#### Konfigurowanie mechanizmu CORS w portalu Azure
+#### <a name="configure-cors-in-the-azure-portal"></a>Konfigurowanie mechanizmu CORS w portalu Azure
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com/) w przeglądarce.
 2. Kliknij pozycję **App Services**, a następnie kliknij nazwę aplikacji interfejsu API.
    
@@ -46,7 +50,7 @@ Mechanizm CORS można skonfigurować w witrynie Azure Portal lub za pomocą narz
    
    Po kliknięciu pozycji **Zapisz** aplikacja interfejsu API będzie akceptować wywołania języka JavaScript pochodzące z określonych adresów URL.
 
-#### Konfigurowanie mechanizmu CORS za pomocą narzędzi usługi Azure Resource Manager
+#### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Konfigurowanie mechanizmu CORS za pomocą narzędzi usługi Azure Resource Manager
 Mechanizm CORS dla aplikacji interfejsu API można również skonfigurować za pomocą [szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md) i narzędzi wiersza polecenia, takich jak [program Azure PowerShell](../powershell-install-configure.md) i [interfejs wiersza polecenia Azure](../xplat-cli-install.md). 
 
 Aby zobaczyć przykładowy szablon usługi Azure Resource Manager, który umożliwia ustawienie właściwości CORS, otwórz [plik azuredeploy.json znajdujący się w repozytorium przykładowej aplikacji opisanej w tym samouczku ](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Znajdź sekcję szablonu, który wygląda następująco:
@@ -57,12 +61,12 @@ Aby zobaczyć przykładowy szablon usługi Azure Resource Manager, który umożl
             ]
         }
 
-## <a id="tutorialstart"></a> Kolejne kroki samouczka ułatwiającego rozpoczęcie pracy z platformą .NET
+## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> Kolejne kroki samouczka ułatwiającego rozpoczęcie pracy z platformą .NET
 Jeśli korzystasz z serii szkoleń wprowadzających do Aplikacji interfejsu API dotyczących platform Node.js lub Java, to w tym momencie kończysz tę serię. Sekcja [Następne kroki](#next-steps) zawiera propozycje materiałów, które umożliwiają kontynuowanie poznawania usługi API Apps.
 
 W dalszej części tego artykułu, która stanowi kontynuację serii wprowadzającej do platformy .NET, założono, że udało Ci się ukończyć [pierwszy samouczek](app-service-api-dotnet-get-started.md).
 
-## Wdrażanie projektu ToDoListAngular w nowej aplikacji sieci Web
+## <a name="deploy-the-todolistangular-project-to-a-new-web-app"></a>Wdrażanie projektu ToDoListAngular w nowej aplikacji sieci Web
 W [pierwszym samouczku](app-service-api-dotnet-get-started.md) utworzono aplikacje interfejsu API warstwy środkowej i warstwy danych. Bieżący samouczek obejmuje utworzenie jednostronicowej aplikacji sieci Web, która wywołuje aplikację interfejsu API warstwy środkowej. Aby aplikacja jednostronicowa działała, musisz włączyć mechanizm CORS w aplikacji interfejsu API warstwy środkowej. 
 
 [Przykładowa aplikacja ToDoList](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) zawiera projekt ToDoListAngular, który jest prostym klientem AngularJS wywołującym projekt interfejsu API sieci Web warstwy środkowej ToDoListAPI. Kod języka JavaScript zawarty w pliku *app/scripts/todoListSvc.js* wywołuje funkcje interfejsu API przy użyciu dostawcy usługi HTTP AngularJS. 
@@ -86,7 +90,7 @@ W [pierwszym samouczku](app-service-api-dotnet-get-started.md) utworzono aplikac
             };
         }]);
 
-### Tworzenie nowej aplikacji sieci Web dla projektu ToDoListAngular
+### <a name="create-a-new-web-app-for-the-todolistangular-project"></a>Tworzenie nowej aplikacji sieci Web dla projektu ToDoListAngular
 Procedura obejmująca tworzenie nowej aplikacji sieci Web usługi App Service i wdrażanie w niej projektu jest podobna do instrukcji dotyczących [tworzenia i wdrażania aplikacji interfejsu API zawartych w pierwszym samouczku tej serii](app-service-api-dotnet-get-started.md#createapiapp). Jedyna różnica polega na tym, że typ aplikacji to **aplikacja sieci Web**, a nie **aplikacja interfejsu API**.  Aby zapoznać się ze zrzutami ekranu okien dialogowych, zobacz 
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt ToDoListAngular, a następnie kliknij polecenie **Opublikuj**.
@@ -102,7 +106,7 @@ Procedura obejmująca tworzenie nowej aplikacji sieci Web usługi App Service i 
    
     W tym momencie nie klikaj pozycji **Opublikuj**. W następnej sekcji zostanie skonfigurowana nowa aplikacja sieci Web wywołująca aplikację interfejsu API warstwy środkowej, w której działa usługa App Service. 
 
-### Konfigurowanie adresu URL warstwy środkowej w ustawieniach aplikacji sieci Web
+### <a name="set-the-middle-tier-url-in-web-app-settings"></a>Konfigurowanie adresu URL warstwy środkowej w ustawieniach aplikacji sieci Web
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com/) i przejdź do bloku **Aplikacja sieci Web** dla aplikacji sieci Web utworzonej w celu hostowania projektu TodoListAngular (frontonu).
 2. Kliknij kolejno pozycje **Ustawienia > Ustawienia aplikacji**.
 3. W sekcji **Ustawienia aplikacji** dodaj następujący klucz i wartość:
@@ -144,12 +148,12 @@ Procedura obejmująca tworzenie nowej aplikacji sieci Web usługi App Service i 
             }
         };
 
-### Wdrażanie projektu sieci Web ToDoListAngular w nowej aplikacji sieci Web
+### <a name="deploy-the-todolistangular-web-project-to-the-new-web-app"></a>Wdrażanie projektu sieci Web ToDoListAngular w nowej aplikacji sieci Web
 * W programie Visual Studio w kroku **Połączenie** kreatora **Publikowanie w sieci Web** kliknij pozycję **Opublikuj**.
   
    Program Visual Studio wdroży projekt ToDoListAngular w nowej aplikacji sieci Web i otworzy w przeglądarce adres URL aplikacji sieci Web. 
 
-### Testowanie aplikacji bez włączonego mechanizmu CORS
+### <a name="test-the-application-without-cors-enabled"></a>Testowanie aplikacji bez włączonego mechanizmu CORS
 1. W obszarze narzędzi dla deweloperów w przeglądarce otwórz okno konsoli.
 2. W oknie przeglądarki, w którym zostanie wyświetlony interfejs użytkownika klienta AngularJS, kliknij link **listy zadań do wykonania**.
    
@@ -157,7 +161,7 @@ Procedura obejmująca tworzenie nowej aplikacji sieci Web usługi App Service i 
    
     ![Komunikat o błędzie między źródłami](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
 
-## Konfigurowanie mechanizmu CORS dla aplikacji interfejsu API warstwy środkowej
+## <a name="configure-cors-for-the-middle-tier-api-app"></a>Konfigurowanie mechanizmu CORS dla aplikacji interfejsu API warstwy środkowej
 Ta sekcja dotyczy konfiguracji ustawienia mechanizmu CORS na platformie Azure na potrzeby aplikacji interfejsu API warstwy środkowej ToDoListAPI. To ustawienie umożliwia aplikacji interfejsu API warstwy środkowej odbieranie wywołań języka JavaScript z aplikacji sieci Web utworzonej dla projektu ToDoListAngular.
 
 1. Otwórz [portal Azure](https://portal.azure.com/) w przeglądarce.
@@ -176,14 +180,14 @@ Ta sekcja dotyczy konfiguracji ustawienia mechanizmu CORS na platformie Azure na
    
    Po kliknięciu pozycji **Zapisz** aplikacja interfejsu API będzie akceptować wywołania języka JavaScript pochodzące z określonego adresu URL. Na tym zrzucie ekranu widać, że skonfigurowano akceptowanie wywołań klienta języka JavaScript pochodzących z aplikacji sieci Web ToDoListAngular przez aplikację interfejsu API ToDoListAPI0223.
 
-### Testowanie aplikacji z włączonym mechanizmem CORS
+### <a name="test-the-application-with-cors-enabled"></a>Testowanie aplikacji z włączonym mechanizmem CORS
 * Otwórz w przeglądarce adres URL HTTPS aplikacji sieci Web. 
   
     W tej konfiguracji aplikacja pozwala wyświetlać, dodawać, edytować i usuwać elementy zadań do wykonania. 
   
     ![Strona z listą zadań do wykonania w przykładowej aplikacji](./media/app-service-api-cors-consume-javascript/corssuccess.png)
 
-## Porównanie mechanizmu CORS usługi App Service i mechanizmu CORS interfejsu API sieci Web
+## <a name="app-service-cors-versus-web-api-cors"></a>Porównanie mechanizmu CORS usługi App Service i mechanizmu CORS interfejsu API sieci Web
 W projekcie interfejsu API sieci Web można zainstalować pakiet NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/), aby móc za pomocą kodu określać domeny, z których mogą pochodzić wywołania języka JavaScript akceptowane przez interfejs API.
 
 Obsługa mechanizmu CORS interfejsu API sieci Web jest bardziej elastyczna niż obsługa mechanizmu CORS usługi App Service. Na przykład za pomocą kodu można określić różne dozwolone źródła dla różnych metod akcji, natomiast mechanizm CORS usługi App Service pozwala skonfigurować tylko jeden zestaw dozwolonych źródeł dla wszystkich metod aplikacji interfejsu API.
@@ -193,7 +197,7 @@ Obsługa mechanizmu CORS interfejsu API sieci Web jest bardziej elastyczna niż 
 > 
 > 
 
-### Włączanie mechanizmu CORS w kodzie interfejsu API sieci Web
+### <a name="how-to-enable-cors-in-web-api-code"></a>Włączanie mechanizmu CORS w kodzie interfejsu API sieci Web
 Poniższe instrukcje stanowią podsumowanie procesu włączania obsługi mechanizmu CORS interfejsu API sieci Web. Aby uzyskać więcej informacji, zobacz [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Włączanie żądań Cross-Origin w interfejsie API sieci Web 2 platformy ASP.NET).
 
 1. W projekcie interfejsu API sieci Web zainstaluj pakiet NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/).
@@ -226,13 +230,13 @@ Poniższe instrukcje stanowią podsumowanie procesu włączania obsługi mechani
             [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
             public class ToDoListController : ApiController
 
-## Używanie usługi Azure API Management z usługą API Apps
+## <a name="using-azure-api-management-with-api-apps"></a>Używanie usługi Azure API Management z usługą API Apps
 Jeśli używasz usługi Azure API Management razem z aplikacją interfejsu API, skonfiguruj mechanizm CORS w usłudze API Management zamiast w aplikacji interfejsu API. Więcej informacji zawierają następujące zasoby:
 
-* [Azure API Management Overview (Omówienie usługi Azure API Management) (klip wideo, informacje dotyczące mechanizmu CORS są prezentowane od momentu 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
-* [API Management cross domain policies (Zasady usługi API Management obejmujące różne domeny)](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
+* [Omówienie usługi Azure API Management (klip wideo, informacje dotyczące mechanizmu CORS są prezentowane od momentu 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
+* [Zasady usługi API Management obejmujące różne domeny](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
 
-## Rozwiązywanie problemów
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 W przypadku napotkania problemów podczas pracy z tym samouczkiem skorzystaj z poniższych sugestii dotyczących ich rozwiązywania.
 
 * Upewnij się, że używasz najnowszej wersji [zestawu Azure SDK dla platformy .NET dla programu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
@@ -242,9 +246,12 @@ W przypadku napotkania problemów podczas pracy z tym samouczkiem skorzystaj z p
 
 Aby dowiedzieć się więcej o funkcjach programu Visual Studio, które ułatwiają rozwiązywanie problemów, zobacz [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md) (Rozwiązywanie problemów z aplikacjami usługi Azure App Service w programie Visual Studio).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym artykule pokazano, jak włączyć obsługę mechanizmu CORS usługi App Service w celu umożliwienia wywołania funkcji API z innej domeny przez kod języka JavaScript klienta. Aby dowiedzieć się więcej o aplikacjach interfejsu API, zapoznaj się z [wprowadzeniem do uwierzytelniania w usłudze App Service](../app-service/app-service-authentication-overview.md), a następnie przejdź do samouczka dotyczącego [uwierzytelniania użytkowników w Aplikacjach interfejsu API](app-service-api-dotnet-user-principal-auth.md).
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

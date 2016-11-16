@@ -1,12 +1,12 @@
 ---
-title: Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET | Microsoft Docs
-description: Samouczek dotyczący komunikatów obsługiwanych przez brokera dla platformy .NET.
+title: "Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET | Microsoft Docs"
+description: "Samouczek dotyczący komunikatów obsługiwanych przez brokera dla platformy .NET."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET
 Usługa Azure Service Bus udostępnia dwa kompleksowe rozwiązania do obsługi komunikatów — pierwsze za pośrednictwem scentralizowanej usługi „przekaźnika” działającej w chmurze, która obsługuje wiele różnych protokołów i standardów sieci Web, w tym SOAP, WS-* i REST. Klient nie potrzebuje bezpośredniego połączenia z usługą lokalną ani nie musi wiedzieć, gdzie usługa się znajduje. Usługa lokalna nie wymaga otwarcia w zaporze żadnych portów przychodzących.
 
 Drugie rozwiązanie do obsługi komunikatów włącza funkcje komunikatów obsługiwanych przez brokera. Te można traktować jako funkcje asynchronicznej lub oddzielonej obsługi komunikatów, obsługujące scenariusze publikacji/subskrypcji, oddzielenia czasowego i równoważenia obciążenia z wykorzystaniem infrastruktury obsługi komunikatów usługi Service Bus. Komunikacja oddzielona ma wiele zalet, na przykład klienci i serwery mogą nawiązywać połączenie zgodnie z potrzebami i wykonywać ich operacje w sposób asynchroniczny.
 
-Ten samouczek ma umożliwić przegląd oraz zdobycie praktycznego doświadczenia z kolejkami, jednym z podstawowych składników funkcji obsługi komunikatów przez brokera w usłudze Service Bus. Po zakończeniu pracy z sekwencją tematów w tym samouczku będziesz mieć aplikację, która zapełnia listę komunikatów, tworzy kolejkę i wysyła wiadomości do tej kolejki. Na koniec aplikacja odbiera i wyświetla komunikaty z kolejki, a następnie czyści jej zasoby i zamyka. Odpowiedni samouczek, w którym opisano sposób kompilowania aplikacji korzystającej z usługi Service Bus Relay, można znaleźć w artykule [Samouczek dotyczący komunikatów obsługiwanych przez przekaźnik w usłudze Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+Ten samouczek ma umożliwić przegląd oraz zdobycie praktycznego doświadczenia z kolejkami, jednym z podstawowych składników funkcji obsługi komunikatów przez brokera w usłudze Service Bus. Po zakończeniu pracy z sekwencją tematów w tym samouczku będziesz mieć aplikację, która zapełnia listę komunikatów, tworzy kolejkę i wysyła wiadomości do tej kolejki. Na koniec aplikacja odbiera i wyświetla komunikaty z kolejki, a następnie czyści jej zasoby i zamyka. Odpowiedni samouczek, w którym opisano sposób kompilowania aplikacji korzystającej z usługi Service Bus WCF Relay, można znaleźć w artykule [Samouczek dotyczący komunikatów obsługiwanych przez przekaźnik w usłudze Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Wprowadzenie i wymagania wstępne
 Kolejki oferują dostarczanie komunikatów metodą pierwszy na wejściu — pierwszy na wyjściu (FIFO) do jednego lub większej liczby konkurencyjnych odbiorców. Metoda FIFO oznacza, że komunikaty są zwykle odbierane i przetwarzane przez odbiorców w kolejności, w której zostały dodane do kolejki, a każdy komunikat jest odbierany i przetwarzany przez tylko jednego odbiorcę komunikatów. Najważniejszą korzyścią z używania kolejek jest osiągnięcie *oddzielenia czasowego* składników aplikacji; innymi słowy, producenci i konsumenci nie muszą wysyłać i odbierać komunikatów w tym samym czasie, ponieważ komunikaty są trwale przechowywane w kolejce. Pokrewną korzyścią jest *wyrównywanie obciążenia*, które umożliwia producentom i odbiorcom wysyłanie i odbieranie komunikatów z różną szybkością.
@@ -29,7 +33,7 @@ Kolejki oferują dostarczanie komunikatów metodą pierwszy na wejściu — pier
 Poniżej przedstawiono niektóre czynności administracyjne i kroki dotyczące wymagań wstępnych, które należy wykonać przed rozpoczęciem samouczka. Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza sygnatury dostępu współdzielonego. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw usługi i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus do uwierzytelniania dostępu do aplikacji.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Tworzenie przestrzeni nazw usługi i uzyskiwanie klucza sygnatury dostępu współdzielonego
-Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza [sygnatury dostępu współdzielonego](../service-bus/service-bus-sas-overview.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego usługi dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
+Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza [sygnatury dostępu współdzielonego](service-bus-sas-overview.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego usługi dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -611,14 +615,17 @@ Po ukończeniu powyższych kroków możesz skompilować i uruchomić aplikację 
 W programie Visual Studio w menu **Kompilacja** kliknij pozycję **Kompiluj rozwiązanie** lub naciśnij klawisze **Ctrl+Shift+B**. Jeśli występują błędy, sprawdź, czy kod jest poprawny, korzystając z kompletnego przykładu przedstawionego na końcu poprzedniego kroku.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku przedstawiono sposób kompilowania aplikacji i usługi klienckiej usługi Service Bus przy użyciu możliwości komunikatów obsługiwanych przez brokera usługi Service Bus. Aby skorzystać z podobnego samouczka dotyczącego usługi Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging), zobacz [Samouczek dotyczący komunikatów obsługiwanych przez przekaźnik w usłudze Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+W tym samouczku przedstawiono sposób kompilowania aplikacji i usługi klienckiej usługi Service Bus przy użyciu możliwości komunikatów obsługiwanych przez brokera usługi Service Bus. Aby skorzystać z podobnego samouczka dotyczącego usługi Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging), zobacz [Samouczek dotyczący komunikatów obsługiwanych przez przekaźnik w usłudze Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Aby dowiedzieć się więcej na temat usługi [Service Bus](https://azure.microsoft.com/services/service-bus/), zobacz następujące tematy:
 
 * [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
-* [Podstawy usługi Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Architektura usługi Service Bus](../service-bus/service-bus-architecture.md)
+* [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Architektura usługi Service Bus](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Jak skonfigurować routing dla obwodu usługi ExpressRoute | Microsoft Docs
-description: Ten artykuł zawiera instrukcje tworzenia i inicjowania obsługi komunikacji równorzędnej prywatnej, publicznej i firmy Microsoft obwodu usługi ExpressRoute. W tym artykule opisano również, jak aktualizować i usuwać komunikację równoległą dla obwodu oraz sprawdzać jej stan.
+title: "Jak skonfigurować routing dla obwodu usługi ExpressRoute | Microsoft Docs"
+description: "Ten artykuł zawiera instrukcje tworzenia i inicjowania obsługi komunikacji równorzędnej prywatnej, publicznej i firmy Microsoft obwodu usługi ExpressRoute. W tym artykule opisano również, jak aktualizować i usuwać komunikację równoległą dla obwodu oraz sprawdzać jej stan."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/05/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45c0646f6eb1067f49bc185f1592cd1c94fc9470
+
 
 ---
-# Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute
+# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute
 > [!div class="op_single_selector"]
 > [Azure Portal — model usługi Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 > [Program PowerShell — model usługi Resource Manager](expressroute-howto-routing-arm.md)
@@ -31,7 +35,7 @@ Ten artykuł zawiera instrukcje tworzenia konfiguracji routingu i zarządzania n
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## Wymagania wstępne dotyczące konfiguracji
+## <a name="configuration-prerequisites"></a>Wymagania wstępne dotyczące konfiguracji
 * Potrzebna będzie najnowsza wersja modułów programu Azure PowerShell, 1.0 lub nowsza. 
 * Pamiętaj, aby przed rozpoczęciem konfiguracji przejrzeć strony z [wymaganiami wstępnymi](expressroute-prerequisites.md), [wymaganiami routingu](expressroute-routing.md) oraz [przepływami pracy](expressroute-workflows.md).
 * Musisz mieć aktywny obwód usługi ExpressRoute. Zanim przejdziesz dalej, postępuj zgodnie z instrukcjami, aby [utworzyć obwód usługi ExpressRoute](expressroute-howto-circuit-arm.md), który powinien zostać włączony przez dostawcę połączenia. Obwód usługi ExpressRoute musi być zainicjowany i włączony, aby można było uruchamiać polecenia cmdlet opisane poniżej.
@@ -45,13 +49,13 @@ Te instrukcje dotyczą tylko obwodów utworzonych przy pomocy dostawców oferuj�
 
 Można skonfigurować jedną komunikację równorzędną, dwie lub trzy (prywatną Azure, publiczną Azure i Microsoft) dla obwodu usługi ExpressRoute. Możesz skonfigurować komunikację równorzędną w dowolnej kolejności. Musisz jednak pamiętać, aby kończyć konfiguracje poszczególnych komunikacji równorzędnych pojedynczo. 
 
-## Prywatna komunikacja równorzędna Azure
+## <a name="azure-private-peering"></a>Prywatna komunikacja równorzędna Azure
 Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute. 
 
-### Aby utworzyć prywatną komunikację równorzędną
+### <a name="to-create-azure-private-peering"></a>Aby utworzyć prywatną komunikację równorzędną
 1. Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.
    
-    Aby zacząć używać poleceń cmdlet usługi ExpressRoute, musisz zainstalować najnowszą wersję Instalatora programu PowerShell z [galerii programu PowerShell](http://www.powershellgallery.com/) i zaimportować moduły usługi Azure Resource Manager do sesji programu PowerShell. Musisz uruchomić program PowerShell jako administrator.
+     Aby zacząć używać poleceń cmdlet usługi ExpressRoute, musisz zainstalować najnowszą wersję Instalatora programu PowerShell z [galerii programu PowerShell](http://www.powershellgallery.com/) i zaimportować moduły usługi Azure Resource Manager do sesji programu PowerShell. Musisz uruchomić program PowerShell jako administrator.
    
         Install-Module AzureRM
    
@@ -133,15 +137,15 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
      > 
      > 
 
-### Aby wyświetlić szczegóły dotyczące prywatnej komunikacji równorzędnej Azure
+### <a name="to-view-azure-private-peering-details"></a>Aby wyświetlić szczegóły dotyczące prywatnej komunikacji równorzędnej Azure
 Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego polecenia cmdlet.
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-        Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt   
+        Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt    
 
 
-### Aby zaktualizować konfigurację prywatnej komunikacji równorzędnej Azure
+### <a name="to-update-azure-private-peering-configuration"></a>Aby zaktualizować konfigurację prywatnej komunikacji równorzędnej Azure
 Możesz zaktualizować dowolną część konfiguracji za pomocą następującego polecenia cmdlet. W poniższym przykładzie identyfikator sieci VLAN obwodu jest aktualizowany ze 100 do 500.
 
     Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
@@ -149,7 +153,7 @@ Możesz zaktualizować dowolną część konfiguracji za pomocą następującego
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Aby usunąć prywatną komunikację równorzędną Azure
+### <a name="to-delete-azure-private-peering"></a>Aby usunąć prywatną komunikację równorzędną Azure
 Możesz usunąć konfigurację komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet.
 
 > [!WARNING]
@@ -162,13 +166,13 @@ Możesz usunąć konfigurację komunikacji równorzędnej, uruchamiając następ
 
 
 
-## Publiczna komunikacja równorzędna Azure
+## <a name="azure-public-peering"></a>Publiczna komunikacja równorzędna Azure
 Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji publicznej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute.
 
-### Aby utworzyć publiczną komunikację równorzędną Azure
+### <a name="to-create-azure-public-peering"></a>Aby utworzyć publiczną komunikację równorzędną Azure
 1. Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.
    
-    Aby zacząć używać poleceń cmdlet usługi ExpressRoute, musisz zainstalować najnowszą wersję Instalatora programu PowerShell z [galerii programu PowerShell](http://www.powershellgallery.com/) i zaimportować moduły usługi Azure Resource Manager do sesji programu PowerShell. Musisz uruchomić program PowerShell jako administrator.
+     Aby zacząć używać poleceń cmdlet usługi ExpressRoute, musisz zainstalować najnowszą wersję Instalatora programu PowerShell z [galerii programu PowerShell](http://www.powershellgallery.com/) i zaimportować moduły usługi Azure Resource Manager do sesji programu PowerShell. Musisz uruchomić program PowerShell jako administrator.
    
         Install-Module AzureRM
    
@@ -222,7 +226,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
                                              "BandwidthInMbps": 200
                                            }
         ServiceKey                       : **************************************
-        Peerings                         : []   
+        Peerings                         : []    
 4. Skonfiguruj publiczną konfigurację równorzędną Azure dla obwodu.
    
     Zanim przejdziesz dalej, upewnij się, że masz poniższe informacje.
@@ -247,7 +251,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
 
     >[AZURE.IMPORTANT] Pamiętaj, aby określić numer AS jako ASN komunikacji równorzędnej, a nie ASN klienta.
 
-### Aby wyświetlić szczegóły dotyczące publicznej komunikacji równorzędnej Azure
+### <a name="to-view-azure-public-peering-details"></a>Aby wyświetlić szczegóły dotyczące publicznej komunikacji równorzędnej Azure
 Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego polecenia cmdlet.
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -255,7 +259,7 @@ Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego
         Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
 
-### Aby zaktualizować konfigurację publicznej komunikacji równorzędnej Azure
+### <a name="to-update-azure-public-peering-configuration"></a>Aby zaktualizować konfigurację publicznej komunikacji równorzędnej Azure
 Możesz zaktualizować dowolną część konfiguracji za pomocą następującego polecenia cmdlet.
 
     Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600 
@@ -264,19 +268,19 @@ Możesz zaktualizować dowolną część konfiguracji za pomocą następującego
 
 W przykładzie powyżej identyfikator sieci VLAN obwodu jest aktualizowany z 200 do 600.
 
-### Aby usunąć publiczną komunikację równorzędną Azure
+### <a name="to-delete-azure-public-peering"></a>Aby usunąć publiczną komunikację równorzędną Azure
 Możesz usunąć konfigurację komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet.
 
     Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-## Komunikacja równorzędna firmy Microsoft
+## <a name="microsoft-peering"></a>Komunikacja równorzędna firmy Microsoft
 Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji komunikacji równorzędnej Microsoft dla obwodu usługi ExpressRoute. 
 
-### Aby utworzyć komunikację równorzędną Microsoft
+### <a name="to-create-microsoft-peering"></a>Aby utworzyć komunikację równorzędną Microsoft
 1. Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.
    
-    Aby zacząć używać poleceń cmdlet usługi ExpressRoute, musisz zainstalować najnowszą wersję Instalatora programu PowerShell z [galerii programu PowerShell](http://www.powershellgallery.com/) i zaimportować moduły usługi Azure Resource Manager do sesji programu PowerShell. Musisz uruchomić program PowerShell jako administrator.
+     Aby zacząć używać poleceń cmdlet usługi ExpressRoute, musisz zainstalować najnowszą wersję Instalatora programu PowerShell z [galerii programu PowerShell](http://www.powershellgallery.com/) i zaimportować moduły usługi Azure Resource Manager do sesji programu PowerShell. Musisz uruchomić program PowerShell jako administrator.
    
         Install-Module AzureRM
    
@@ -330,7 +334,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
                                              "BandwidthInMbps": 200
                                            }
         ServiceKey                       : **************************************
-        Peerings                         : []   
+        Peerings                         : []    
 4. Skonfiguruj komunikację równorzędną Microsoft dla obwodu.
    
     Zanim przejdziesz dalej, upewnij się, że masz poniższe informacje.
@@ -350,7 +354,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
      
        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-### Aby pobrać szczegóły dotyczące komunikacji równorzędnej firmy Microsoft
+### <a name="to-get-microsoft-peering-details"></a>Aby pobrać szczegóły dotyczące komunikacji równorzędnej firmy Microsoft
 Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego polecenia cmdlet.
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -358,7 +362,7 @@ Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego
         Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 
-### Aby zaktualizować konfigurację komunikacji równorzędnej firmy Microsoft
+### <a name="to-update-microsoft-peering-configuration"></a>Aby zaktualizować konfigurację komunikacji równorzędnej firmy Microsoft
 Możesz zaktualizować dowolną część konfiguracji za pomocą następującego polecenia cmdlet.
 
         Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -366,20 +370,23 @@ Możesz zaktualizować dowolną część konfiguracji za pomocą następującego
         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Aby usunąć komunikację równorzędną firmy Microsoft
+### <a name="to-delete-microsoft-peering"></a>Aby usunąć komunikację równorzędną firmy Microsoft
 Możesz usunąć konfigurację komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet.
 
     Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Następny krok: [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute).
 
 * Więcej informacji na temat przepływów pracy usługi ExpressRoute znajduje się w artykule [ExpressRoute workflows](expressroute-workflows.md) (Przepływy pracy usługi ExpressRoute).
 * Aby uzyskać więcej informacji o komunikacji równorzędnej obwodu, zobacz artykuł [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (Obwody i domeny routingu usługi ExpressRoute).
 * Więcej informacji na temat pracy z sieciami wirtualnymi znajduje się w artykule [Virtual network overview](../virtual-network/virtual-networks-overview.md) (Omówienie sieci wirtualnych).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

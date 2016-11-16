@@ -1,12 +1,12 @@
 ---
-title: Publikowanie aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp (wersja zapoznawcza) | Microsoft Docs
-description: Dowiedz się, jak publikować aplikacje dla indywidualnych użytkowników zamiast dla całych grup w usłudze Azure RemoteApp.
+title: "Publikowanie aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp (wersja zapoznawcza) | Microsoft Docs"
+description: "Dowiedz się, jak publikować aplikacje dla indywidualnych użytkowników zamiast dla całych grup w usłudze Azure RemoteApp."
 services: remoteapp-preview
-documentationcenter: ''
+documentationcenter: 
 author: piotrci
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 1fd0539d-fa65-4ea5-a98e-0be0cf580690
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: piotrci
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+
 
 ---
-# Publikowanie aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp (wersja zapoznawcza)
+# <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Publikowanie aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp (wersja zapoznawcza)
 > [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -42,7 +46,7 @@ Ta funkcja jest już dostępna w usłudze Azure RemoteApp, obecnie jako ogranicz
    * Ta funkcja nie zapewnia bezpiecznej blokady aplikacji, lecz tylko ogranicza ich widoczność w źródle aplikacji.
    * Jeśli konieczne jest odizolowanie użytkowników od aplikacji, należy użyć w tym celu oddzielnych kolekcji.
 
-## Jak uzyskać polecenia cmdlet środowiska PowerShell usługi Azure RemoteApp
+## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Jak uzyskać polecenia cmdlet środowiska PowerShell usługi Azure RemoteApp
 Aby wypróbować nową funkcję w wersji zapoznawczej, należy użyć poleceń cmdlet programu Azure PowerShell. Obecnie nie można włączać nowego trybu publikowania aplikacji przy użyciu portalu zarządzania Azure.
 
 Najpierw upewnij się, że [moduł Azure PowerShell](../powershell-install-configure.md) jest zainstalowany.
@@ -53,7 +57,7 @@ Następnie uruchom konsolę programu PowerShell w trybie administratora i urucho
 
 Może zostać wyświetlony monit o podanie nazwy użytkownika i hasła platformy Azure. Po zalogowaniu można uruchomić polecenia cmdlet usługi Azure RemoteApp przy użyciu subskrypcji platformy Azure.
 
-## Jak sprawdzić tryb kolekcji
+## <a name="how-to-check-which-mode-a-collection-is-in"></a>Jak sprawdzić tryb kolekcji
 Uruchom następujące polecenie cmdlet:
 
         Get-AzureRemoteAppCollection <collectionName>
@@ -65,14 +69,14 @@ Właściwość AclLevel może mieć następujące wartości:
 * Collection: oryginalny tryb publikowania. Wszyscy użytkownicy widzą wszystkie opublikowane aplikacje.
 * Application: nowy tryb publikowania. Użytkownicy widzą tylko aplikacje opublikowane bezpośrednio dla nich.
 
-## Jak przejść do trybu publikowania aplikacji
+## <a name="how-to-switch-to-application-publishing-mode"></a>Jak przejść do trybu publikowania aplikacji
 Uruchom następujące polecenie cmdlet:
 
         Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
 
 Stan publikowania aplikacji zostanie zachowany: początkowo wszyscy użytkownicy będą widzieli wszystkie oryginalnie opublikowane aplikacje.
 
-## Jak wyświetlić listę użytkowników, dla których jest widoczna określona aplikacja
+## <a name="how-to-list-users-who-can-see-a-specific-application"></a>Jak wyświetlić listę użytkowników, dla których jest widoczna określona aplikacja
 Uruchom następujące polecenie cmdlet:
 
         Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
@@ -81,24 +85,27 @@ Ta lista zawiera wszystkich użytkowników, którzy widzą aplikację.
 
 Uwaga: można wyświetlić aliasy aplikacji (określane jako „app alias” w powyższej przykładowej składni), uruchamiając polecenie Get AzureRemoteAppProgram -CollectionName<collectionName>.
 
-## Jak przypisać aplikację do użytkownika
+## <a name="how-to-assign-an-application-to-a-user"></a>Jak przypisać aplikację do użytkownika
 Uruchom następujące polecenie cmdlet:
 
         Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
 Użytkownik zobaczy aplikację w kliencie usługi Azure RemoteApp i będzie mógł nawiązać z nią połączenie.
 
-## Jak usunąć przypisanie aplikacji do użytkownika
+## <a name="how-to-remove-an-application-from-a-user"></a>Jak usunąć przypisanie aplikacji do użytkownika
 Uruchom następujące polecenie cmdlet:
 
         Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-## Przekazywanie opinii
+## <a name="providing-feedback"></a>Przekazywanie opinii
 Dziękujemy za Twoje opinie i sugestie dotyczące tej funkcji wersji zapoznawczej. Prosimy o wypełnienie [ankiety](http://www.instant.ly/s/FDdrb), która pozwoli nam poznać Twoje zdanie.
 
-## Funkcja wersji zapoznawczej nie została jeszcze wypróbowana?
+## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Funkcja wersji zapoznawczej nie została jeszcze wypróbowana?
 Jeśli nie korzystasz jeszcze z wersji zapoznawczej, użyj tej [ankiety](http://www.instant.ly/s/AY83p) w celu przesłania wniosku o uzyskanie dostępu.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

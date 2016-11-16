@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Aby dodać nowe konto magazynu w wersji StorSimple (GA)
+#### <a name="to-add-a-new-storage-account-in-storsimple-release-version-ga"></a>Aby dodać nowe konto magazynu w wersji StorSimple (GA)
 1. Na stronie początkowej usługi StorSimple Manager zaznacz usługę i kliknij ją dwukrotnie. Nastąpi przekierowanie do strony **Szybki start**. Wybierz stronę **Konfigurowanie**.
 2. Kliknij przycisk **Dodaj/edytuj konto magazynu**.
 3. W oknie dialogowym **Dodawanie/edytowanie konta magazynu** wykonaj następujące czynności:
@@ -14,6 +14,8 @@
       ![Dodaj konto magazynu](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Nowo utworzone konto magazynu zostanie wyświetlone na stronie **Konfigurowanie** w obszarze **Konto magazynu**. Kliknij przycisk **Zapisz**, aby zapisać nowo utworzone konto magazynu. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

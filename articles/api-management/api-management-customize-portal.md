@@ -1,28 +1,32 @@
 ---
-title: Dostosowywanie portalu dla deweloperów w usłudze Azure API Management | Microsoft Docs
-description: Dowiedz się, jak dostosować portal dla deweloperów w usłudze Azure API Management.
+title: "Dostosowywanie portalu dla deweloperów w usłudze Azure API Management | Microsoft Docs"
+description: "Dowiedz się, jak dostosować portal dla deweloperów w usłudze Azure API Management."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# Dostosowywanie portalu dla deweloperów w usłudze Azure API Management
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>Dostosowywanie portalu dla deweloperów w usłudze Azure API Management
 W tym przewodniku przedstawiono sposób modyfikowania wyglądu i działania portalu dla deweloperów w usłudze Azure API Management w celu zachowania spójności z własną marką.
 
 ## <a name="change-page-headers"> </a>Zmiana tekstu lub logo w nagłówku strony
 Jednym z kluczowych aspektów dostosowywania portalu jest zastąpienie tekstu w górnej części wszystkich stron nazwą lub logo firmy.
 
-Zawartość portalu dla deweloperów jest modyfikowana przy użyciu portalu wydawcy, który jest dostępny za pośrednictwem klasycznego portalu Azure. Aby uzyskać dostęp do portalu wydawcy interfejsu API, kliknij przycisk **Zarządzaj** w klasycznym portalu Azure dla usługi API Management.
+Zawartość portalu dla deweloperów jest modyfikowana przy użyciu portalu wydawcy dostępnego za pośrednictwem klasycznej witryny Azure Portal. Aby przejść do niego, kliknij pozycję **Portal wydawcy** na pasku narzędzi wystąpienia usługi API Management.
 
 ![Portal wydawcy][api-management-management-console]
 
@@ -51,7 +55,7 @@ W tej części chcemy zmienić tylko style nagłówków. Kliknij opcję **Wybier
 
 Każda reguła reprezentuje właściwość stylu wybranego elementu. Na przykład w wybranym powyżej tekście nagłówka rozmiar tekstu to @font-size-h1, a nazwa czcionki z alternatywami to @headings-font-family.
 
-> Jeśli znasz środowisko [bootstrap][bootstrap], zauważysz, że te reguły są w rzeczywistości [zmiennymi LESS][zmiennymi LESS] w motywie bootstrap używanym w portalu dla deweloperów.
+> Jeśli znasz środowisko [bootstrap][bootstrap], zauważysz, że te reguły to w rzeczywistości [zmienne LESS][zmienne LESS] w motywie bootstrap używanym w portalu dla deweloperów.
 > 
 > 
 
@@ -90,19 +94,19 @@ Kliknij stronę **Zapraszamy**, aby edytować zawartość strony głównej porta
 
 [Klasyczny portal Azure]: https://manage.windowsazure.com/
 
-[api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
-[api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
-[api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
-[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
-[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
-[api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
+[usługa API Management — konsola zarządzania]: ./media/api-management-customize-portal/api-management-management-console.png
+[usługa API Management — nagłówek Widżety]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[dostosowywanie usługi API Management — pasek narzędzi]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
+[dostosowywanie usługi API Management — selektor kolorów paska narzędzi]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
+[dostosowywanie usługi API Management — formularz publikowania paska narzędzi]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
+[dostosowywanie usługi API Management — zarządzanie zawartością]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
 [bootstrap]: http://getbootstrap.com/
-[zmiennymi LESS]: http://getbootstrap.com/css/
+[zmienne LESS]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

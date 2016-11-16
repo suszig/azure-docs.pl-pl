@@ -1,26 +1,30 @@
 ---
-title: Rozpoczynanie pracy z usługą Data Lake Store | Microsoft Docs
-description: Użyj portalu, aby utworzyć konto usługi Data Lake Store i wykonywać podstawowe operacje w usłudze Data Lake Store
+title: "Wprowadzenie do usługi Data Lake Store | Dokumentacja firmy Microsoft"
+description: "Użyj portalu, aby utworzyć konto usługi Data Lake Store i wykonywać podstawowe operacje w usłudze Data Lake Store"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
-
+ms.assetid: fea324d0-ad1a-4150-81f0-8682ddb4591c
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2016
+ms.date: 11/02/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+
 
 ---
-# Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą witryny Azure Portal
+# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą witryny Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Zestaw SDK .NET](data-lake-store-get-started-net-sdk.md)
+> * [Zestaw SDK platformy .NET](data-lake-store-get-started-net-sdk.md)
 > * [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [Interfejs API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
@@ -30,43 +34,58 @@ ms.author: nitinme
 
 Dowiedz się, jak użyć witryny Azure Portal, aby utworzyć konto usługi Azure Data Lake Store i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake Store, zobacz [Omówienie usługi Azure Data Lake Store](data-lake-store-overview.md).
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
-* **Subskrypcja platformy Azure**. Zobacz [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="signup"></a>Włączanie możliwości korzystania z publicznej wersji zapoznawczej usługi Data Lake Store w ramach subskrypcji platformy Azure
-Najpierw należy zażądać włączenia możliwości korzystania z publicznej wersji zapoznawczej usługi Data Lake Store w ramach subskrypcji platformy Azure. Wykonaj poniższe kroki.
-
-1. Zaloguj się w nowej witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij pozycję **NOWY**, pozycję **Dane i magazyn**, a następnie pozycję **Azure Data Lake Store**.
-3. W bloku **Nowa usługa Data Lake Store** kliknij pozycję **Zarejestruj się, aby skorzystać z wersji zapoznawczej**. Przeczytaj informacje, a następnie kliknij przycisk **OK**. Po włączeniu możliwości korzystania z publicznej wersji zapoznawczej w ramach subskrypcji otrzymasz wiadomość e-mail.
-   
-    ![Rejestracja w celu skorzystania z publicznej wersji zapoznawczej](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
-
-## Czy dzięki filmom szybko się uczysz?
+## <a name="do-you-learn-faster-with-videos"></a>Czy uczysz się szybciej dzięki filmom?
 Obejrzyj następujące filmy wideo, aby rozpocząć pracę z usługą Data Lake Store.
 
 * [Tworzenie konta usługi Data Lake Store](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Manage data in Data Lake Store using the Data Explorer (Zarządzanie danymi w usłudze Data Lake Store za pomocą eksploratora danych)](https://mix.office.com/watch/icletrxrh6pc)
+* [Manage data in Data Lake Store using the Data Explorer](https://mix.office.com/watch/icletrxrh6pc) (Zarządzanie danymi w usłudze Data Lake Store za pomocą eksploratora danych)
 
-## Tworzenie konta usługi Azure Data Lake Store
+## <a name="create-an-azure-data-lake-store-account"></a>Tworzenie konta usługi Azure Data Lake Store
 1. Zaloguj się w nowej witrynie [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **NOWY**, pozycję **Dane i magazyn**, a następnie pozycję **Azure Data Lake Store**. Przeczytaj informacje w bloku **Azure Data Lake Store**, a następnie kliknij pozycję **Utwórz** w lewym dolnym rogu bloku.
 3. W bloku **Nowa usługa Data Lake Store** podaj wartości, jak pokazano na poniższym zrzucie ekranu:
    
     ![Tworzenie nowego konta usługi Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
    
+   * **Nazwa**. Wprowadź unikatową nazwę konta usługi Data Lake Store.
    * **Subskrypcja**. Wybierz subskrypcję, w ramach której chcesz utworzyć nowe konto usługi Data Lake Store.
-   * **Grupa zasobów**. Wybierz istniejącą grupę zasobów lub kliknij pozycję **Utwórz grupę zasobów**, aby utworzyć taką grupę. Grupa zasobów to kontener, który zawiera powiązane zasoby dla aplikacji. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](../resource-group-overview.md#resource-groups).
+   * **Grupa zasobów**. Wybierz istniejącą grupę zasobów lub użyj opcji **Utwórz nową**, aby utworzyć taką grupę. Grupa zasobów to kontener, który zawiera powiązane zasoby dla aplikacji. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
    * **Lokalizacja**. Wybierz lokalizację, w której chcesz utworzyć konto usługi Data Lake Store.
-4. Jeśli chcesz, aby konto usługi Data Lake Store było dostępne z tablicy startowej, wybierz pozycję **Przypnij do tablicy startowej**.
-5. Kliknij przycisk **Utwórz**. Jeśli wybierzesz opcję przypięcia konta do tablicy startowej, nastąpi powrót do tablicy startowej i widoczny będzie postęp aprowizowania konta usługi Data Lake Store. Po aprowizowaniu konta usługi Data Lake Store pojawi się blok konta.
-6. Rozwiń listę rozwijaną **Podstawowe elementy**, aby wyświetlić informacje o Twoim koncie usługi Data Lake Store, na przykład informacje o grupie zasobów, do której należy, lokalizacji itp. Kliknij ikonę **Szybki start**, aby zobaczyć linki do innych zasobów powiązanych z usługą Data Lake Store.
-   
-    ![Twoje konto usługi Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Your Azure Data Lake account")
+   * **Ustawienia szyfrowania**. Możesz wybrać, czy chcesz szyfrować konto usługi Data Lake Store. Jeśli zdecydujesz się na szyfrowanie, możesz również określić sposób zarządzania głównym kluczem szyfrowania, którego chcesz używać do szyfrowania danych na swoim koncie.
+     
+     * (Domyślnie) Wybierz pozycję **Nie włączaj szyfrowania** z listy rozwijanej, aby zrezygnować z szyfrowania.
+     * (Opcjonalnie) Wybierz pozycję **Użyj kluczy zarządzanych przez usługę Azure Data Lake**, jeśli chcesz zarządzać kluczami szyfrowania za pomocą usługi Azure Data Lake.
+       
+         ![Szyfrowanie usługi Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
+     * (Opcjonalnie) Wybierz pozycję **Wybierz klucze z usługi Azure Key Vault**, jeśli chcesz używać własnych kluczy znajdujących się w usłudze Azure Key Vault. Po wybraniu tej opcji możesz również utworzyć konto i klucze usługi Key Vault, jeśli ich jeszcze nie masz.
+       
+         ![Szyfrowanie usługi Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
+       
+       Kliknij przycisk **OK** w bloku **Ustawienia szyfrowania**.
+       
+       > [!NOTE]
+       > Jeśli używasz kluczy z usługi Azure Key Vault do skonfigurowania szyfrowania konta Data Lake Store, musisz przypisać do konta usługi Azure Data Lake uprawnienia dostępu do usługi Azure Key Vault. Informacje o tym, jak to zrobić, znajdziesz w sekcji [Przypisywanie uprawnień do usługi Azure Key Vault](#assign-permissions-to-the-azure-key-vault)
+       > 
+       > 
+4. Kliknij przycisk **Utwórz**. Jeśli wybrano opcję przypięcia konta do pulpitu nawigacyjnego, nastąpi powrót do pulpitu nawigacyjnego i będzie widoczny postęp aprowizowania konta usługi Data Lake Store. Po aprowizowaniu konta usługi Data Lake Store pojawi się blok konta.
 
-## <a name="createfolder"></a>Tworzenie folderów w ramach konta usługi Azure Data Lake Store
+## <a name="assign-permissions-to-the-azure-key-vault"></a>Przypisywanie uprawnień do usługi Azure Key Vault
+Jeśli używasz kluczy z usługi Azure Key Vault do skonfigurowania szyfrowania konta Data Lake Store, musisz skonfigurować dostęp między kontami usług Azure Data Lake a Azure Key Vault. W tym celu wykonaj poniższe kroki.
+
+1. Jeśli użyto kluczy z usługi Azure Key Vault, na górze bloku konta usługi Data Lake Store zostanie wyświetlone ostrzeżenie. Kliknij je, aby otworzyć blok **Konfigurowanie uprawnień usługi Key Vault **.
+   
+    ![Szyfrowanie usługi Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
+2. Blok zawiera dwie opcje umożliwiające skonfigurowanie dostępu.
+   
+   * W pierwszej opcji kliknij przycisk **Udziel uprawnienia** w celu skonfigurowania dostępu. Pierwsza opcja jest włączona tylko wtedy, gdy użytkownik, który utworzył konto usługi Data Lake Store jest również administratorem usługi Azure Key Vault.
+   * Druga opcja polega na uruchomieniu polecenia cmdlet programu PowerShell wyświetlonego w bloku. Musisz być właścicielem usługi Azure Key Vault lub mieć możliwość udzielania uprawnień w usłudze Azure Key Vault. Po uruchomieniu polecenia cmdlet wróć do bloku i kliknij przycisk **Włącz**, aby skonfigurować dostęp.
+
+## <a name="a-namecreatefolderacreate-folders-in-azure-data-lake-store-account"></a><a name="createfolder"></a>Tworzenie folderów w ramach konta usługi Azure Data Lake Store
 W ramach konta usługi Data Lake Store możesz tworzyć foldery w celu zarządzania danymi i przechowywania ich.
 
 1. Otwórz właśnie utworzone konto usługi Data Lake Store. W okienku po lewej stronie kliknij pozycję **Przeglądaj**, kliknij pozycję **Data Lake Store**, a następnie w bloku Data Lake Store kliknij nazwę konta, w ramach którego chcesz utworzyć foldery. Jeśli konto jest przypięte do tablicy startowej, kliknij kafelek konta.
@@ -81,14 +100,14 @@ W ramach konta usługi Data Lake Store możesz tworzyć foldery w celu zarządza
    
     ![Tworzenie folderów w ramach konta usługi Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
-## <a name="uploaddata"></a>Przekazywanie danych do konta usługi Azure Data Lake Store
+## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Przekazywanie danych do konta usługi Azure Data Lake Store
 Swoje dane możesz przekazać do konta usługi Azure Data Lake Store bezpośrednio na poziom główny albo do folderu utworzonego w ramach konta. Wykonaj kroki przekazywania pliku do podfolderu z bloku **Eksplorator danych** przedstawione na poniższym zrzucie ekranu. Na tym zrzucie ekranu plik jest przekazywany do podfolderu widocznego w obszarze nawigacji (zaznaczony czerwonym prostokątem).
 
 Jeśli szukasz przykładowych danych do przekazania, możesz pobrać folder **Ambulance Data** z [repozytorium Git usługi Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Przekazywanie danych](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 
-## <a name="properties"></a>Właściwości i akcje dostępne dla przechowywanych danych
+## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Właściwości i akcje dostępne dla przechowywanych danych
 Kliknij nowo dodany plik, aby otworzyć blok **Właściwości**. W tym bloku dostępne są właściwości powiązane z plikiem i akcje, które można wykonać względem pliku. Możesz również skopiować pełną ścieżkę do pliku w ramach swojego konta usługi Azure Data Lake Store. Ścieżka jest zaznaczona czerwonym prostokątem na poniższym zrzucie ekranu.
 
 ![Właściwości danych](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
@@ -100,20 +119,23 @@ Kliknij nowo dodany plik, aby otworzyć blok **Właściwości**. W tym bloku dos
 * Aby zmienić nazwę pliku, kliknij pozycję **Zmień nazwę pliku**.
 * Aby usunąć plik, kliknij pozycję **Usuń plik**.
 
-## Zabezpieczanie danych
+## <a name="secure-your-data"></a>Zabezpieczanie danych
 Dane przechowywane w ramach konta usługi Azure Data Lake Store możesz zabezpieczyć, korzystając z usługi Azure Active Directory i kontroli dostępu (listy ACL). Aby uzyskać instrukcje, jak to zrobić, zobacz [Zabezpieczanie danych w usłudze Azure Data Lake Store](data-lake-store-secure-data.md).
 
-## Usuwanie konta usługi Azure Data Lake Store
+## <a name="delete-azure-data-lake-store-account"></a>Usuwanie konta usługi Azure Data Lake Store
 Aby usunąć konto usługi Azure Data Lake Store z bloku Data Lake Store, kliknij pozycję **Usuń**. W celu potwierdzenia akcji zostanie wyświetlony monit o wprowadzenie nazwy konta, które chcesz usunąć. Wprowadź nazwę konta, a następnie kliknij pozycję **Usuń**.
 
 ![Usuwanie konta usługi Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 * [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Dostęp do dzienników diagnostycznych usługi Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
