@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: d6059070f8cb8765986763a2ae52068ab692d41d
+ms.openlocfilehash: 9614778d6c7502f16639d2ccb2f259a98be5b0c9
+
 ---
-# Key Vault Documentation
+# <a name="key-vault-documentation"></a>Key Vault Documentation
 
 Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
 
@@ -100,21 +104,21 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 ---
 
-## Reference
+## <a name="reference"></a>Reference
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 [Azure PowerShell Reference](/PowerShell/azureps-cmdlets-docs)
 
-### Azure CLI 
+### <a name="azure-cli"></a>Azure CLI 
 [Key Vault using Azure CLI](/cli/azure/keyvault)
 
-### Java 
+### <a name="java"></a>Java 
 [Key Vault in Java Reference](/java/api/)
 
-### .NET 
+### <a name="net"></a>.NET 
 [Key Vault Managed Reference API](/dotnet/api/) 
 
-### REST 
+### <a name="rest"></a>REST 
 [Key Vault REST API Reference](/rest/api/keyvault) 
 
 ---
@@ -123,7 +127,12 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Key Vault Documentation
-        </div>
+Download Key Vault Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

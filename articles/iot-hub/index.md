@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
+ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
+
 ---
-#IoT Hub Documentation
+#<a name="iot-hub-documentation"></a>IoT Hub Documentation
 
 Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  It also provides extensive monitoring for device connectivity and includes device libraries for most popular languages and platforms. 
 
@@ -100,18 +104,18 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 
 ---
 
-##Reference
+##<a name="reference"></a>Reference
 
-###Azure CLI 
+###<a name="azure-cli"></a>Azure CLI 
 [IoT HUB with Azure CLI](/cli/azure/iot)  
 
-###.NET 
+###<a name="net"></a>.NET 
 [.NET Managed Reference API](/dotnet/api/) 
 
-###Java 
+###<a name="java"></a>Java 
 [Java SDK Reference](/java/api/) 
 
-###REST 
+###<a name="rest"></a>REST 
 [IoT HUB REST API Reference](/rest/api/iothub) 
 
 
@@ -119,7 +123,12 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>
         <div class="text">
-            Download IoT Hub Documentation
-        </div>
+Download IoT Hub Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,59 +1,63 @@
-# Overview
-## [What is Application Gateway?](application-gateway-introduction.md)
-## [Web application firewall](application-gateway-webapplicationfirewall-overview.md)
-## [Health monitoring](application-gateway-probe-overview.md)
-## [URL routing](application-gateway-url-route-overview.md)
-## [Multi-site](application-gateway-multi-site-overview.md)
-## [End to end SSL](application-gateway-backend-ssl.md)
-## [Websocket](application-gateway-websocket.md)
-## [Subscription and service limits](../azure-subscription-service-limits.md#application-gateway-limits.md)
-# Get started
-## Create an Application Gateway
-### Public facing
+# Omówienie
+## [Co to jest usługa Application Gateway?](application-gateway-introduction.md)
+## [Zapora aplikacji sieci Web](application-gateway-webapplicationfirewall-overview.md)
+## [Monitorowanie kondycji](application-gateway-probe-overview.md)
+## [Routing adresów URL](application-gateway-url-route-overview.md)
+## [Wiele witryn](application-gateway-multi-site-overview.md)
+## [Kompleksowa usługa SSL](application-gateway-backend-ssl.md)
+## [Protokół WebSocket](application-gateway-websocket.md)
+## [Limity usług i subskrypcji](../azure-subscription-service-limits.md#application-gateway-limits.md)
+# Rozpoczęcie pracy
+## Tworzenie bramy aplikacji
+### Użytek publiczny
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
-#### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-arm-template.md)
-#### [PowerShell (classic)](application-gateway-create-gateway-arm-template.md)
-### Internal facing
+#### [Szablon usługi Resource Manager](application-gateway-create-gateway-arm-template.md)
+#### [Interfejs wiersza polecenia](application-gateway-create-gateway-arm-template.md)
+#### [PowerShell (klasyczny)](application-gateway-create-gateway-arm-template.md)
+### Użytek wewnętrzny
 #### [PowerShell](application-gateway-ilb-arm.md)
-#### [PowerShell (classic)](application-gateway-ilb.md)
-# How to
-## Create with web application firewall
+#### [PowerShell (klasyczny)](application-gateway-ilb.md)
+# Instrukcje
+## Tworzenie przy użyciu zapory aplikacji sieci Web
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-## Configure for SSL
+## Konfigurowanie na potrzeby protokołu SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
-### [PowerShell (Classic)](application-gateway-ssl.md)
-### [Policy and end to end](application-gateway-end-to-end-ssl-powershell.md)
-## Create URL path based Routing
+### [PowerShell (klasyczny)](application-gateway-ssl.md)
+### [Zasady i połączenie typu end-to-end](application-gateway-end-to-end-ssl-powershell.md)
+## Tworzenie routingu opartego na ścieżkach URL
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-## Configure for multiple site hosting
+## Konfigurowanie na potrzeby hostingu wielu witryn
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Create health probes
+## Tworzenie sond kondycji
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
-### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
-### Manage
-### [Diagnostics](application-gateway-diagnostics.md)
-### [Troubleshoot](application-gateway-troubleshooting-502.md)
-# Reference
-## [Resource Manager APIs](https://msdn.microsoft.com/library/azure/mt684941)
-## [Service Management APIs](https://msdn.microsoft.com/library/azure/mt299393)
-## [PowerShell cmdlets](https://go.microsoft.com/fwlink/p/?LinkId=536407)
-# Related
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Virtual network](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Load balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-# Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+### [PowerShell (klasyczny)](application-gateway-create-probe-classic-ps.md)
+## Zarządzanie
+### [Diagnostyka](application-gateway-diagnostics.md)
+### [Rozwiązywanie problemów](application-gateway-troubleshooting-502.md)
+# Dokumentacja
+## [Polecenia cmdlet programu PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [Klasyczny interfejs REST](https://msdn.microsoft.com/library/azure/mt299393)
+
+# Powiązane
+## [ExpressRoute](/azure/expressroute/)
+## [Sieć wirtualna](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Maszyny wirtualne](/azure/virtual-machines/)
+## [Moduł równoważenia obciążenia](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
+# Zasoby
+## [Cennik](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=application-gateway)
+## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)
+
 
 <!--HONumber=Nov16_HO2-->
 

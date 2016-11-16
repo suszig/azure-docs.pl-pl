@@ -1,40 +1,41 @@
-# Overview
-## [Azure and IoT](iot-suite-what-is-azure-iot.md)
-## [What is IoT Suite?](iot-suite-overview.md)
-## [What are the preconfigured solutions?](iot-suite-what-are-preconfigured-solutions.md)
-## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+# Omówienie
+## [Platforma Azure i Internet rzeczy](iot-suite-what-is-azure-iot.md)
+## [Co to jest Pakiet IoT?](iot-suite-overview.md)
+## [Co to są wstępnie skonfigurowane rozwiązania?](iot-suite-what-are-preconfigured-solutions.md)
 
-# Get Started
-## [Get started with the preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
-## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
-## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
-## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
-## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
 
-# How To
-## [Connect your device to the remote monitoring solution (Windows)](iot-suite-connecting-devices.md)
-## [Connect your device to the remote monitoring solution (Linux)](iot-suite-connecting-devices-linux.md)
-## [Connect your device to the remote monitoring solution (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Connect your device to the remote monitoring solution (Node)](iot-suite-connecting-devices-node.md)
-## [Connect a Logic App to the remote monitoring solution](iot-suite-logic-apps-tutorial.md)
-## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
-## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
-## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
+# Wprowadzenie
+## [Wprowadzenie do wstępnie skonfigurowanych rozwiązań](iot-suite-getstarted-preconfigured-solutions.md)
+## [Uprawnienia w witrynie azureiotsuite.com](iot-suite-permissions.md)
+## [Omówienie rozwiązania do konserwacji zapobiegawczej](iot-suite-predictive-overview.md)
+## [Przewodnik po rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-sample-walkthrough.md)
+## [Przewodnik po rozwiązaniu do konserwacji zapobiegawczej](iot-suite-predictive-walkthrough.md)
 
-# Reference
-## [Security architecture](iot-security-architecture.md)
-## [Security best practices](iot-security-best-practices.md)
-## [Secure your IoT deployment](iot-suite-security-deployment.md)
-## [Security from the ground up](securing-iot-ground-up.md)
+# Instrukcje
+## [Łączenie urządzenia z rozwiązaniem do zdalnego monitorowania (Windows)](iot-suite-connecting-devices.md)
+## [Łączenie urządzenia z rozwiązaniem do zdalnego monitorowania (Linux)](iot-suite-connecting-devices-linux.md)
+## [Łączenie urządzenia z rozwiązaniem do zdalnego monitorowania (mbed)](iot-suite-connecting-devices-mbed.md)
+## [Łączenie urządzenia z rozwiązaniem do zdalnego monitorowania (Node)](iot-suite-connecting-devices-node.md)
+## [Łączenie aplikacji logiki z rozwiązaniem do zdalnego monitorowania](iot-suite-logic-apps-tutorial.md)
+## [Dostosowanie wstępnie skonfigurowanego rozwiązania](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
+## [Korzystanie z telemetrii dynamicznej z rozwiązaniem do zdalnego monitorowania](iot-suite-dynamic-telemetry.md)
+## [Informacje o urządzeniu w rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-device-info.md)
 
-# Related
-## [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
-## [Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-## [IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-## [Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+# Dokumentacja
+## [Architektura zabezpieczeń](iot-security-architecture.md)
+## [Najlepsze rozwiązania dotyczące zabezpieczeń](iot-security-best-practices.md)
+## [Zabezpieczanie wdrożenia IoT](iot-suite-security-deployment.md)
+## [Zabezpieczenia od podstaw](securing-iot-ground-up.md)
 
-# Resources
-## [FAQ](iot-suite-faq.md)
+# Powiązane
+## [Stream Analytics](/azure/stream-analytics/)
+## [Event Hubs](/azure/event-hubs/)
+## [IoT Hub](/azure/iot-hub/)
+## [Machine Learning](/azure/machine-learning/)
+
+# Zasoby
+## [Często zadawane pytania](iot-suite-faq.md)
+## [Ścieżka szkoleniowa dla Pakietu IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
 

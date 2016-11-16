@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: bfc1bf3d78099ba04a2621bcec9f870f7f88b122
+ms.openlocfilehash: 3eadd4b9bdb7621965057271f0e1b5e034bdcbf8
+
 ---
-#Service Bus Documentation
+#<a name="service-bus-documentation"></a>Service Bus Documentation
 
 Service Bus provides cloud-enabled communication with enterprise messaging and relayed communication that helps you connect on-premises solutions with the cloud. 
 
@@ -190,22 +194,27 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
 
 ---
 
-## Reference
+## <a name="reference"></a>Reference
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 [Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
-### .NET
+### <a name="net"></a>.NET
 [.NET Managed Reference API](/dotnet/api/) 
 
-### REST 
+### <a name="rest"></a>REST 
 [Service Bus REST API Reference](/rest/api/servicebus)  
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Service Bus Documentation
-        </div>
+Download Service Bus Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

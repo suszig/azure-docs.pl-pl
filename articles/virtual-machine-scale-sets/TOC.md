@@ -26,11 +26,12 @@
 ### [Troubleshoot autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 # Reference
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [Scale set REST API](/rest/api/compute/virtualmachinescalesets)
-## [Scale set VMs REST API](/rest/api/compute/virtualmachinescalesetvms)
-## [Azure Powershell](/powershell/resourcemanager/)
-## [Azure templates](https://azure.microsoft.com/documentation/templates/?term=vmss)
+## [REST](/rest/api/compute/)
+
+# Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 
 
 <!--HONumber=Nov16_HO2-->
