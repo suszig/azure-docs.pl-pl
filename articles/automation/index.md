@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: d6f53d51a2ceb6d499209b874c79d3d3ccb1758f
+ms.openlocfilehash: b36299b17809bafb0956818d346063e89b86b7c6
+
 ---
-# Automation Documentation
+# <a name="automation-documentation"></a>Automation Documentation
 
 Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
 
@@ -119,15 +123,15 @@ Azure Automation provides a way for users to automate the manual, long-running, 
 
 ---
 
-## Reference
+## <a name="reference"></a>Reference
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 [Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
-### .NET
+### <a name="net"></a>.NET
 [Azure Managed Reference API](/dotnet/api)
 
-### REST
+### <a name="rest"></a>REST
 [Automation REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt662285)
 
 
@@ -135,7 +139,12 @@ Azure Automation provides a way for users to automate the manual, long-running, 
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Automation Documentation
-        </div>
+Download Automation Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

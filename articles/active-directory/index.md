@@ -1,8 +1,12 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 844e18a1ab702773799cf9045844d982d9ee2581
+ms.openlocfilehash: 0e1d5e7e38aa23c0888e166d584b17fdcbdce40f
+
 ---
 
-# Azure Active Directory Documentation
+# <a name="azure-active-directory-documentation"></a>Azure Active Directory Documentation
 
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.  Azure AD offers identity and access capabilities for applications running in Azure as well as on Premises.  
 
@@ -83,18 +87,18 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 
 ---
 
-## Reference
+## <a name="reference"></a>Reference
 
-###PowerShell
+###<a name="powershell"></a>PowerShell
 [Azure PowerShell Reference](/powershell/)
 
-###Azure CLI
+###<a name="azure-cli"></a>Azure CLI
 [Azure Active Directory Using Azure CLI](/cli/azure/ad)
 
-###.NET
+###<a name="net"></a>.NET
 [Azure Active Directory .NET Reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
 
-###Java
+###<a name="java"></a>Java
 [Azure Java API Reference](/java/api/)
 
 
@@ -104,7 +108,12 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Active Directory Documentation
-        </div>
+Download Active Directory Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

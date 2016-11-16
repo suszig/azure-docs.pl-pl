@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 50a8865afe60b47b094e3fa64ab622c229a8a4a4
+ms.openlocfilehash: fc7e57b12158c34b2ee0de334f1b08469765f39d
+
 ---
-#Backup Documentation
+#<a name="backup-documentation"></a>Backup Documentation
 
 Azure Backup is cloud service you can use to back up (or protect) and restore your data in the Microsoft cloud.  Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.  
 
@@ -100,19 +104,24 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
 
 ---
 
-##Reference
+##<a name="reference"></a>Reference
 
-###.NET
+###<a name="net"></a>.NET
 [.NET Managed Reference](/dotnet/api)
 
-###REST
+###<a name="rest"></a>REST
 [Backup REST API Reference](/rest/api/recoveryservices)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Backup Documentation
-        </div>
+Download Azure Backup Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

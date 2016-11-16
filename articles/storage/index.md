@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
+
 ---
-#Storage Documentation
+#<a name="storage-documentation"></a>Storage Documentation
 
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  It is highly scalable, elastic, globally accessible, and automatically load-balances your data based on traffic.  Azure Storage provides the following four services to meet application needs:  Blob storage, Table storage, Queue storage, and File storage.
 
@@ -82,21 +86,21 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 ---
 
-##Reference
+##<a name="reference"></a>Reference
 
-###PowerShell
+###<a name="powershell"></a>PowerShell
 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-###Azure CLI 
+###<a name="azure-cli"></a>Azure CLI 
 [Storage using Azure CLI Reference](/cli/azure/storage)
 
-###Java 
+###<a name="java"></a>Java 
 [Storage in Java Reference](/java/api/)
 
-###.NET 
+###<a name="net"></a>.NET 
 [Storage Managed Reference API](https://msdn.microsoft.com/library/azure/mt347887) 
 
-###REST 
+###<a name="rest"></a>REST 
 [Storage REST API Reference](/rest/api/storageservices) 
 [Storage Resource Provider REST API Reference](/rest/api/storagerp)  
 
@@ -108,7 +112,12 @@ Azure Storage is the cloud storage solution for modern applications that rely on
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Storage Documentation
-        </div>
+Download Storage Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

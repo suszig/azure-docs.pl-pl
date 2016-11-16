@@ -1,43 +1,43 @@
-# Overview
-## [What is Azure AD Domain Services?](https://azure.microsoft.com/services/active-directory-ds/)
-## [How it works](active-directory-ds-overview.md)
-## [Is it right for you?](active-directory-ds-comparison.md)
-## [Features](active-directory-ds-features.md)
-## [Scenarios](active-directory-ds-scenarios.md)
+# Omówienie
+## [Co to są usługi Azure AD Domain Services?](https://azure.microsoft.com/services/active-directory-ds/)
+## [Jak to działa](active-directory-ds-overview.md)
+## [Czy jest to rozwiązanie odpowiednie dla Ciebie?](active-directory-ds-comparison.md)
+## [Funkcje](active-directory-ds-features.md)
+## [Scenariusze](active-directory-ds-scenarios.md)
 
-# Get started
-## [Create administrative group](active-directory-ds-getting-started.md)
-## [Create or select a virtual network](active-directory-ds-getting-started-vnet.md)
-## [Enable Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
-## [Update DNS settings](active-directory-ds-getting-started-dns.md)
-## Enable password sync
-### [Cloud-only tenant](active-directory-ds-getting-started-password-sync.md)
-### [Synced tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+# Rozpoczęcie pracy
+## [Tworzenie grupy administracyjnej](active-directory-ds-getting-started.md)
+## [Tworzenie lub wybieranie sieci wirtualnej](active-directory-ds-getting-started-vnet.md)
+## [Włączanie usług Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
+## [Aktualizowanie ustawień DNS](active-directory-ds-getting-started-dns.md)
+## Włączanie synchronizacji haseł
+### [Dzierżawa tylko w chmurze](active-directory-ds-getting-started-password-sync.md)
+### [Dzierżawa zsynchronizowana](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
-# How to
-## [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm.md)
-## [Join a Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-## [Join a Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-## [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
-## [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
-## [Configure secure LDAP for a managed domain](active-directory-ds-admin-guide-configure-secure-ldap.md)
-## [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
-## [Select a virtual network](active-directory-ds-networking.md)
-## [Synchronize with you on-premises directory](active-directory-ds-synchronization.md)
+# Instrukcje
+## [Dołączanie maszyny wirtualnej z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
+## [Dołączanie maszyny wirtualnej z systemem Windows Server przy użyciu programu PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+## [Dołączanie maszyny wirtualnej z systemem Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+## [Administrowanie domeną zarządzaną](active-directory-ds-admin-guide-administer-domain.md)
+## [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
+## [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej](active-directory-ds-admin-guide-configure-secure-ldap.md)
+## [Tworzenie jednostki organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md)
+## [Wybieranie sieci wirtualnej](active-directory-ds-networking.md)
+## [Synchronizowanie z katalogiem lokalnym](active-directory-ds-synchronization.md)
 
-## Troubleshoot
-### [FAQs](active-directory-ds-faqs.md)
-### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
+## Rozwiązywanie problemów
+### [Często zadawane pytania](active-directory-ds-faqs.md)
+### [Przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md)
 
-# Related
+# Powiązane
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Resources 
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Contact us](active-directory-ds-contact-us.md)
-## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
+# Zasoby 
+## [Cennik](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Kontakt z nami](active-directory-ds-contact-us.md)
+## [Forum z opiniami na temat platformy Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 <!--HONumber=Nov16_HO2-->
 

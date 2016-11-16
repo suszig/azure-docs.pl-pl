@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 80001fda921c4504237b1c5e3812a84924814dfd
+ms.openlocfilehash: c0c908d2597c6570511d6a15ea3f1f48b2dab6c8
+
 ---
-#DocumentDB Documentation
+#<a name="documentdb-documentation"></a>DocumentDB Documentation
 
 Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
 
@@ -172,15 +176,15 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
 
 ---
 
-##Reference
+##<a name="reference"></a>Reference
 
-###.NET
+###<a name="net"></a>.NET
 [.NET Managed Reference](/dotnet/api)
 
-### Java
+### <a name="java"></a>Java
 [Java SDK Reference](/java/api)
 
-###REST
+###<a name="rest"></a>REST
 [DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481)
 
 
@@ -189,7 +193,12 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
         <div class="img"></div>
         <div class="text">
-            Download DocumentDB Documentation
-        </div>
+Download DocumentDB Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
+
 ---
-#Load Balancer Documentation
+#<a name="load-balancer-documentation"></a>Load Balancer Documentation
 
 Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
 
@@ -82,21 +86,21 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 ---
 
-##Reference
+##<a name="reference"></a>Reference
 
-###PowerShell
+###<a name="powershell"></a>PowerShell
 [Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-doc)
 
-###Azure CLI
+###<a name="azure-cli"></a>Azure CLI
 [Load Balancer Azure CLI] (/cli/azure/network/lb)
 
-###.NET
+###<a name="net"></a>.NET
 [.NET API Reference](/dotnet/api)
 
-###Java
+###<a name="java"></a>Java
 [Java API Reference](/java/api)
 
-###REST
+###<a name="rest"></a>REST
 [Load Balancer REST API Reference](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
@@ -104,7 +108,12 @@ Azure Load Balancer delivers high availability and network performance to your a
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Load Balancer Documentation
-        </div>
+Download Load Balancer Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

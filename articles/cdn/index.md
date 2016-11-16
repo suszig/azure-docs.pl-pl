@@ -1,7 +1,11 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
+ms.openlocfilehash: 5cc39b23ab6282ea1c4367fcbdf8c7b095180b51
+
 ---
-#CDN Documentation
+#<a name="cdn-documentation"></a>CDN Documentation
 
 Azure Content Delivery Network (CDN) provides developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location.  Using the CDN you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location.  The CDN is typically used to deliver static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
 
@@ -63,12 +67,12 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
 
 ---
 
-##Reference
+##<a name="reference"></a>Reference
 
-###PowerShell
+###<a name="powershell"></a>PowerShell
 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-###REST
+###<a name="rest"></a>REST
 [CDN REST API Reference](/rest/api/CDN)
 
 
@@ -76,7 +80,12 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure CDN Documentation
-        </div>
+Download Azure CDN Documentation </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
