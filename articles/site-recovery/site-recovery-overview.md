@@ -79,6 +79,6 @@ Usługa Site Recovery umożliwia replikację z uwzględnieniem aplikacji, dzięk
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

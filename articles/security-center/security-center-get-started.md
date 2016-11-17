@@ -102,7 +102,7 @@ W tym dokumencie zostały opisane składniki monitorowania zabezpieczeń i zarz�
 * [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md) — odpowiedzi na najczęstsze pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — najnowsze informacje na temat zabezpieczeń platformy Azure.
 
-<!--Image references-->
+<!---Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
 [2]: ./media/security-center-get-started/pin-blade.png
 [3]: ./media/security-center-get-started/security-center.png
@@ -116,6 +116,6 @@ W tym dokumencie zostały opisane składniki monitorowania zabezpieczeń i zarz�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
