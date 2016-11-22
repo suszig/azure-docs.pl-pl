@@ -104,6 +104,6 @@ Stworzenie zespołu przed wystąpieniem ataku jest bardzo istotne dla organizacj
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 
