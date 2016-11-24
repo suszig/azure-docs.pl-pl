@@ -1,22 +1,22 @@
 ---
 title: "Wprowadzenie do połączeń hybrydowych usługi Relay | Microsoft Docs"
 description: "Jak pisać aplikację konsoli Node dla połączeń hybrydowych"
-services: service-bus
+services: service-bus-relay
 documentationcenter: node
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 10/28/2016
-ms.author: jotaub
+ms.author: jotaub,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f59faed2edb75e32ea62fa7f1d7013da5f387d8
+ms.sourcegitcommit: e26b6005116c7aacdf42afea6ea39e100a9d8080
+ms.openlocfilehash: 218082e4cedba2c11871d47bcfb7b92688d97f04
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 0f59faed2edb75e32ea62fa7f1d7013da5f387d8
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 ## <a name="what-will-be-accomplished"></a>Co zostanie osiągnięte?
-Ponieważ połączenia hybrydowe wymagają zarówno składnika klienta, jak i składnika serwera, w tym samouczku utworzymy dwie aplikacje konsoli. Oto konkretne kroki:
+Ponieważ połączenia hybrydowe wymagają zarówno składnika klienta, jak i składnika serwera, w tym samouczku utworzymy dwie aplikacje konsolowe. Oto konkretne kroki:
 
 1. Utworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal.
 2. Utworzenie połączenia hybrydowego za pomocą witryny Azure Portal.
@@ -62,7 +62,7 @@ Aby wysyłać komunikaty do usługi Relay, napiszemy aplikację konsoli Node.js.
 2. Uruchom aplikację klienta i wprowadź jakiś tekst.
 3. Upewnij się, że w konsoli aplikacji serwera pojawia się tekst wprowadzony w aplikacji klienta.
 
-![Uruchamianie aplikacji](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Gratulacje, aplikacja end-to-end do obsługi połączeń hybrydowych jest gotowa.
 
@@ -75,6 +75,6 @@ Gratulacje, aplikacja end-to-end do obsługi połączeń hybrydowych jest gotowa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

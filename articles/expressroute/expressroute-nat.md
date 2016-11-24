@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Ruch pochodzący z sieci skierowany do firmy Microsoft
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Ruch pochodzący z sieci skierowany do firmy Microsoft
 * Należy zadbać o to, by ruch wchodził na ścieżkę komunikacji równorzędnej Microsoft z prawidłowym publicznym adresem IPv4. Firma Microsoft musi mieć możliwość weryfikacji właściciela puli adresów translatora adresów sieciowych IPv4 względem regionalnego rejestru internetowego routingu (RIR) lub internetowego rejestru routingu (IRR). Nastąpi sprawdzenie w oparciu o numer AS połączony za pomocą komunikacji równorzędnej oraz adresy IP używane do translatora adresów sieciowych. Informacje dotyczące rejestrów routingu znajdują się w temacie [ExpressRoute routing requirements](expressroute-routing.md) (Wymagania dotyczące routingu w usłudze ExpressRoute).
 * Adresów IP używanych do konfiguracji publicznej komunikacji równorzędnej Azure oraz innych obwodów usługi ExpressRoute nie można anonsować do firmy Microsoft za pośrednictwem sesji protokołu BGP. Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adresów sieciowych anonsowanego za pośrednictwem komunikacji równorzędnej.
   
@@ -54,7 +54,7 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Ruch pochodzący z firmy Microsoft skierowany do sieci
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Ruch pochodzący z firmy Microsoft skierowany do sieci
 * Niektóre scenariusze wymagają od firmy Microsoft zainicjowania połączenia z punktami końcowymi usługi obsługiwanymi w ramach sieci użytkownika. Typowym przykładem takiego scenariusza jest łączność z serwerami usług AD FS obsługiwanymi w sieci użytkownika z poziomu usługi Office 365. W takich przypadkach należy przefiltrować odpowiednie prefiksy z sieci użytkownika do komunikacji równorzędnej firmy Microsoft. 
 * Należy użyć funkcji SNAT względem ruchu z firmy Microsoft skierowanego do adresów IP w ramach sieci użytkownika. 
 
@@ -70,6 +70,6 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

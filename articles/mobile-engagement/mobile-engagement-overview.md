@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d8043e09cb04ef2cdf4f5c005d549a6cb6f73c
+ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
+ms.openlocfilehash: 758680cf8ff8a9e2f0a6c241613a2ba254462f4a
 
 
 ---
@@ -30,10 +30,10 @@ Usługa Azure Mobile Engagement to platforma zwiększająca zaangażowanie użyt
 
 Za pomocą usługi Azure Mobile Engagement wydawcy aplikacji i pracownicy działu marketingu mogą lepiej zrozumieć użytkowników aplikacji i wchodzić z nimi w interakcję.
 
-## <a name="realtime-actionable-analytics-to-maximize-return-on-investment"></a>Analiza z możliwością działania w czasie rzeczywistym służąca do zmaksymalizowania zwrotu z inwestycji
+## <a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>Analiza z możliwością działania w czasie rzeczywistym służąca do zmaksymalizowania zwrotu z inwestycji
 Wyzwalanie scenariuszy zwiększania aktywności zgodnie z zachowaniem i danymi demograficznymi użytkownika aplikacji przez połączenie zbierania danych `big data` z przetwarzaniem komunikatów w czasie rzeczywistym. Usługa Mobile Engagement pozwala uzyskać odpowiedzi na niemal każde pytanie dotyczące konkretnych wymagań biznesowych. Można na przykład tworzyć niestandardowe pulpity nawigacyjne, które umożliwiają mierzenie kluczowych wskaźników wydajności, szybkie znajdowanie i eliminowanie wąskich gardeł w zakresie użycia w ścieżce użycia oraz śledzenie przechowywanych danych i lepkości użytkowników. Pozwala to określić, które kampanie zapewniają największy zwrot z inwestycji. Widok 360° ścieżki użytkownika w usłudze Mobile Engagement umożliwia łatwe i ciągłe rozszerzanie oraz optymalizowanie interfejsu użytkownika, co pozwala zwiększyć ilość przechowywanych danych i użycie aplikacji.
 
-## <a name="valueadded-push-and-communications-platform"></a>Platforma powiadomień wypychanych i komunikacji z dodatkowymi usługami
+## <a name="value-added-push-and-communications-platform"></a>Platforma powiadomień wypychanych i komunikacji z dodatkowymi usługami
 Usługa Mobile Engagement zapewnia możliwość obsługi wiadomości w aplikacji i bezproblemowo współdziała z natywnymi bramami powiadomień wypychanych, takimi jak Google GCM, Apple APNS i Microsoft MPNS. Oprócz tego umożliwia również tworzenie kampanii skierowanych do określonych grup odbiorców dzięki analizie zachowania użytkowników służącej do określenia unikatowych segmentów użytkowników.
 
 Pozwala to deweloperom na bardzo skuteczne dotarcie do klientów bez narzucania się im.
@@ -47,7 +47,7 @@ Firma Microsoft od dawna dba o ochronę prywatności, która stanowi nieodłącz
 ### <a name="next-steps"></a>Następne kroki:
 [Najlepsze praktyki i proces tworzenia Twojej usługi Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Wprowadzenie](/documentation/services/mobile-engagement/)
+[Wprowadzenie](/index.md)
 
 [Pobieranie aplikacji demonstracyjnych z kodem źródłowym](https://aka.ms/azmedemoapps)
 

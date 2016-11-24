@@ -36,7 +36,7 @@ Zestaw SDK zawiera warstwę abstrakcji umożliwiającą tworzenie bram, które m
 ### <a name="messages"></a>Komunikaty
 Wyobrażenie modułów przekazujących sobie nawzajem komunikaty ułatwia zrozumienie sposobu działania bramy, jednak nie odzwierciedla precyzyjnie tego procesu. Moduły komunikują się ze sobą przy użyciu brokera, publikując komunikaty do brokera (wzorzec komunikatów magistrali, pubsub lub inny), a następnie pozwalając brokerowi przekazać komunikat do modułów, które są do niego podłączone.
 
-Moduły publikują komunikaty do brokera przy użyciu funkcji **Broker_Publish**. Broker dostarcza komunikaty do modułu za pomocą funkcji wywołania zwrotnego. Komunikat składa się z zestawu właściwości klucz/wartość oraz zawartości przekazywanej w postaci bloku pamięci.
+Moduł publikuje komunikaty do brokera przy użyciu funkcji **Broker_Publish**. Broker dostarcza komunikaty do modułu za pomocą funkcji wywołania zwrotnego. Komunikat składa się z zestawu właściwości klucz/wartość oraz zawartości przekazywanej w postaci bloku pamięci.
 
 ![Rola brokera w zestawie Azure IoT Gateway SDK][3]
 
@@ -72,6 +72,6 @@ Powyższy rysunek przedstawia architekturę przykładu Witaj, świecie i ścież
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

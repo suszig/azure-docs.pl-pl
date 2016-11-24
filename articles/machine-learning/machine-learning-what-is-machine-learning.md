@@ -1,7 +1,7 @@
 ---
 title: "Co to jest usługa Machine Learning na platformie Azure? | Microsoft Docs"
 description: "W tym temacie objaśniono podstawowe pojęcia dotyczące uczenia maszynowego w chmurze, opisano jego możliwe zastosowania i zdefiniowano terminy dotyczące uczenia maszynowego."
-keywords: "co to jest uczenie maszynowe, terminy dotyczące uczenia maszynowego, predykcyjna, co to jest analiza predykcyjna, operacjonalizacja"
+keywords: "co to jest uczenie maszynowe, terminy dotyczące uczenia maszynowego, predykcyjna, co to jest analiza predykcyjna, terminy dotyczące uczenia maszynowego"
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 11/11/2016
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0415a3a07a1334f1947ff89e79bc710332de113
+ms.sourcegitcommit: ab8e5861dd7214dab41024e7048b739c072d3f64
+ms.openlocfilehash: 52a431c2af8b670fc4e4babb0a0d077051a46f54
 
 
 ---
@@ -30,41 +30,40 @@ Prognozy lub predykcje uzyskiwane z uczenia maszynowego mogą sprawiać, że apl
 Krótki przegląd zawiera seria klipów wideo [Przetwarzanie danych dla początkujących](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Nie używając żargonu ani matematyki, seria Przetwarzanie danych dla początkujących przedstawia uczenie maszynowe i prowadzi Cię krok po kroku przez prosty model predykcyjny.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Co to jest usługa Machine Learning w chmurze Microsoft Azure?
-Usługa Azure Machine Learning to oparta na chmurze usługa zaawansowanej analizy predykcyjnej, która pozwala na szybkie tworzenie i wdrażanie modeli predykcyjnych jako rozwiązań analitycznych. Gdy uruchamiasz eksperymenty lub tworzysz rozwiązania dotyczące uczenia maszynowego za pomocą chmury Azure, nie musisz kupować drogiego sprzętu ani infrastruktury.
+Usługa Azure Machine Learning to oparta na chmurze usługa analizy predykcyjnej, która pozwala na szybkie tworzenie i wdrażanie modeli predykcyjnych jako rozwiązań analitycznych.
+
+Możesz pracować z poziomu biblioteki gotowych do użycia algorytmów, używać ich do tworzenia modeli na komputerze połączonym z Internetem i szybko wdrażać swoje rozwiązanie predykcyjne. Zacznij od gotowych do użycia przykładów i rozwiązań znajdujących się w witrynie [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
 
 ![Co to jest uczenie maszynowe? Podstawowy przepływ pracy, który umożliwia operacjonalizację analiz predykcyjnych w usłudze Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
-Usługa Azure Machine Learning nie tylko udostępnia narzędzia do modelowania analizy predykcyjnej, ale również zapewnia w pełni zarządzaną usługę, z której można korzystać w celu wdrażania modeli predykcyjnych w postaci gotowych do użycia usług sieci Web. Usługa Azure Machine Learning zapewnia narzędzia do tworzenia kompletnych rozwiązań analizy predykcyjnej w chmurze, dzięki czemu pozwala na szybkie tworzenie i testowanie modeli predykcyjnych, a także ich operacjonalizację i zarządzanie nimi.
+Usługa Azure Machine Learning nie tylko udostępnia narzędzia do modelowania analizy predykcyjnej, ale również zapewnia w pełni zarządzaną usługę, z której można korzystać w celu wdrażania modeli predykcyjnych w postaci gotowych do użycia usług sieci Web.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-predictive-analytics"></a>Co to jest analiza predykcyjna?
-Analiza predykcyjna używa różnych formuł matematycznych nazywanych algorytmami, które analizują dane historyczne lub bieżące w poszukiwaniu wzorców lub trendów umożliwiających prognozowanie przyszłych zdarzeń.
+Analiza predykcyjna używa formuł matematycznych nazywanych algorytmami, które analizują dane historyczne lub bieżące w celu ustalenia wzorców lub trendów umożliwiających prognozowanie przyszłych zdarzeń.
 
-Usługa Azure Machine Learning to szczególnie wydajna metoda analizy predykcyjnej: możesz korzystać z gotowej do użycia biblioteki algorytmów, używać algorytmów do tworzenia modeli na komputerze podłączonym do Internetu i szybko wdrażać rozwiązania predykcyjne. Aby szybko uzyskać wyniki, zacznij od gotowych do użycia przykładów i rozwiązań znajdujących się w witrynie [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
-
-## <a name="build-complete-machine-learning-solutions-in-the-cloud"></a>Tworzenie kompletnych rozwiązań do uczenia maszynowego w chmurze
-Usługa Azure Machine Learning obejmuje wszystko, czego potrzebujesz do tworzenia rozwiązań analizy predykcyjnej — począwszy od dużej biblioteki algorytmów, poprzez studio przeznaczone do budowania modeli, aż po łatwy sposób wdrażania modelu w postaci usługi sieci Web.
+## <a name="tools-to-build-complete-machine-learning-solutions-in-the-cloud"></a>Narzędzia do tworzenia kompletnych rozwiązań do uczenia maszynowego w chmurze
+Usługa Azure Machine Learning obejmuje wszystko, czego potrzebujesz do tworzenia kompletnych rozwiązań analizy predykcyjnej — począwszy od dużej biblioteki algorytmów, poprzez studio przeznaczone do budowania modeli, aż po łatwy sposób wdrażania modelu w postaci usługi sieci Web. Szybko twórz, testuj i operacjonalizuj modele predykcyjne oraz zarządzaj nimi.
 
 ### <a name="machine-learning-studio-create-predictive-models"></a>Usługa Machine Learning Studio: tworzenie modeli predykcyjnych
-W usłudze [Machine Learning Studio](machine-learning-what-is-ml-studio.md) możesz szybko tworzyć modele predykcyjne, przeciągając, upuszczając i łącząc moduły. Eksperymentowanie z różnymi kombinacjami jest łatwe, a [próby nic nie kosztują](https://studio.azureml.net/?selectAccess=true&o=2).
+W usłudze [Machine Learning Studio](machine-learning-what-is-ml-studio.md) możesz szybko tworzyć modele predykcyjne, przeciągając, upuszczając i łącząc moduły. Możesz eksperymentować z różnymi kombinacjami, a [próby nic nie kosztują](https://studio.azureml.net/?selectAccess=true&o=2).
 
 * W witrynie [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) możesz wypróbować rozwiązania analityczne stworzone przez innych użytkowników lub dodać swoje własne. Publikuj pytania lub komentarze dotyczące eksperymentów w ramach społeczności albo udostępniaj linki do eksperymentów w sieciach społecznościowych, takich jak LinkedIn i Twitter.
-  
+
   ![Wypróbuj eksperymenty predykcyjne lub publikuj swoje w witrynie Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Skorzystaj z obszernej biblioteki [algorytmów i modułów uczenia maszynowego](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) w usłudze Machine Learning Studio, aby szybko rozpocząć tworzenie modeli predykcyjnych. Wybieraj rozwiązania spośród przykładowych eksperymentów, pakietów dla języków R i Python oraz najlepszych w swojej klasie algorytmów z produktów Microsoft, takich jak Xbox i Bing. Rozszerzaj moduły Studia o własne skrypty w językach [R](machine-learning-r-quickstart.md) i [Python](machine-learning-execute-python-scripts.md).
-  
+
   ![Co to jest analiza predykcyjna: przykład eksperymentu analizy predykcyjnej w usłudze Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-### <a name="operationalize-predictive-analytics-solutions-purchase-web-services-or-publish-your-own"></a>Operacjonalizuj rozwiązania analizy predykcyjnej: zakup lub opublikuj własne usługi sieci Web
-* Zakup gotowe usługi sieci Web w portalu [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), takie jak Recommendations, Text Analytics albo Anomaly Detection.
-* Operacjonalizuj modele analizy predykcyjnej:
-  
-  * [Wdrażaj usługi sieci Web](machine-learning-publish-a-machine-learning-web-service.md)
-  * [Ucz i ponownie ucz modele za pośrednictwem interfejsów API](machine-learning-retrain-models-programmatically.md)
-  * [Zarządzaj punktami końcowymi usług sieci Web](machine-learning-create-endpoint.md)
-  * [Skaluj usługę sieci Web](machine-learning-scaling-webservice.md)
-  * [Korzystaj z usług sieci Web](machine-learning-consume-web-services.md)
+### <a name="operationalize-predictive-analytics-solutions-by-publishing-your-own"></a>Operacjonalizowanie rozwiązań analizy predykcyjnej, publikując własne
+Następujące samouczki pokazują, jak operacjonalizować modele analizy predykcyjnej:
+
+ * [Wdrażaj usługi sieci Web](machine-learning-publish-a-machine-learning-web-service.md)
+ * [Ucz i ponownie ucz modele za pośrednictwem interfejsów API](machine-learning-retrain-models-programmatically.md)
+ * [Zarządzaj punktami końcowymi usług sieci Web](machine-learning-create-endpoint.md)
+ * [Skaluj usługę sieci Web](machine-learning-scaling-webservice.md)
+ * [Korzystaj z usług sieci Web](machine-learning-consume-web-services.md)
 
 ## <a name="key-machine-learning-terms-and-concepts"></a>Kluczowe terminy i pojęcia dotyczące uczenia maszynowego
 Terminy dotyczące uczenia maszynowego mogą być mylące. Poniżej znajdują się pomocne definicje kluczowych terminów. Skorzystaj z możliwości przekazania komentarzy na końcu artykułu, aby poinformować nas o dowolnym terminie, który powinien zostać zdefiniowany.
@@ -115,6 +114,6 @@ Podstaw analizy predykcyjnej i uczenia maszynowego możesz się nauczyć, korzys
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

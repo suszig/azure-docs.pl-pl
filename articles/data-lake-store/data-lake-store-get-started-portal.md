@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/15/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 408a5fb25ef7b285a76e8f5b65890dc625574437
+ms.openlocfilehash: fba738575ee9a60cc930adfb68b7c34323bbe747
 
 
 ---
@@ -58,8 +58,8 @@ Obejrzyj następujące filmy wideo, aby rozpocząć pracę z usługą Data Lake 
    * **Lokalizacja**. Wybierz lokalizację, w której chcesz utworzyć konto usługi Data Lake Store.
    * **Ustawienia szyfrowania**. Możesz wybrać, czy chcesz szyfrować konto usługi Data Lake Store. Jeśli zdecydujesz się na szyfrowanie, możesz również określić sposób zarządzania głównym kluczem szyfrowania, którego chcesz używać do szyfrowania danych na swoim koncie.
      
-     * (Domyślnie) Wybierz pozycję **Nie włączaj szyfrowania** z listy rozwijanej, aby zrezygnować z szyfrowania.
-     * (Opcjonalnie) Wybierz pozycję **Użyj kluczy zarządzanych przez usługę Azure Data Lake**, jeśli chcesz zarządzać kluczami szyfrowania za pomocą usługi Azure Data Lake.
+     * (Opcjonalnie) Wybierz pozycję **Nie włączaj szyfrowania** z listy rozwijanej, aby zrezygnować z szyfrowania.
+     * (Domyślnie) Wybierz pozycję **Użyj kluczy zarządzanych przez usługę Azure Data Lake**, jeśli chcesz zarządzać kluczami szyfrowania za pomocą usługi Azure Data Lake Store.
        
          ![Szyfrowanie usługi Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Opcjonalnie) Wybierz pozycję **Wybierz klucze z usługi Azure Key Vault**, jeśli chcesz używać własnych kluczy znajdujących się w usłudze Azure Key Vault. Po wybraniu tej opcji możesz również utworzyć konto i klucze usługi Key Vault, jeśli ich jeszcze nie masz.
@@ -136,6 +136,6 @@ Aby usunąć konto usługi Azure Data Lake Store z bloku Data Lake Store, klikni
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

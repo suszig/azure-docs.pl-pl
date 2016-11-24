@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d437ad6300970bd1f015413b8ad70620e2e7fd04
 
 
 ---
@@ -43,19 +43,19 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
 1. Otwórz program Visual Studio jako administrator, klikając prawym przyciskiem myszy ikonę programu w menu Start, a następnie klikając polecenie **Uruchom jako administrator**.
 2. Utwórz nowy projekt aplikacji konsoli. Kliknij menu **Plik** i wybierz pozycję **Nowy**, a następnie kliknij pozycję **Projekt**. W oknie dialogowym **Nowy projekt** kliknij pozycję **Visual C#** (jeśli pozycja **Visual C#** nie jest wyświetlana, sprawdź w obszarze **Inne języki**), kliknij szablon **Aplikacja konsoli** i nadaj mu nazwę **QueueSample**. Użyj domyślnej **lokalizacji**. Kliknij przycisk **OK**, aby utworzyć projekt.
 3. Użyj menedżera pakietów NuGet, aby dodać biblioteki usługi Service Bus do projektu:
-   
+
    1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **QueueSample**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
    2. W oknie dialogowym **Zarządzanie pakietami NuGet** kliknij przycisk **Przeglądaj**, wyszukaj pozycję **Azure Service Bus**, a następnie kliknij pozycję **Zainstaluj**.
       <br />
 4. W Eksploratorze rozwiązań kliknij dwukrotnie plik Program.cs, aby otworzyć go w edytorze programu Visual Studio. Zmień nazwę przestrzeni nazw z domyślnej nazwy `QueueSample` na `Microsoft.ServiceBus.Samples`.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. Zmodyfikuj instrukcje `using`, tak jak pokazano w poniższym kodzie.
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Utwórz plik tekstowy o nazwie Data.csv i skopiuj następujący tekst rozdzielony przecinkami.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -85,25 +85,25 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Zapisz i zamknij plik Data.csv i zapamiętaj lokalizację, w której został zapisany.
 7. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu (w tym przykładzie **QueueSample**), kliknij polecenie **Dodaj**, a następnie kliknij pozycję **Istniejący element**.
 8. Przejdź do pliku Data.csv, który został utworzony w kroku 6. Kliknij plik, a następnie kliknij pozycję **Dodaj**. Upewnij się, że na liście typów plików jest zaznaczona pozycja **Wszystkie pliki (*.*)**.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>Tworzenie metody, która analizuje listę komunikatów
 1. W klasie `Program` przed metodą `Main()` zadeklaruj dwie zmienne, jedną typu **DataTable**, która będzie zawierać listę komunikatów z pliku Data.csv, i drugą typu Obiekt listy, silnie typizowaną do klasy [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Druga zmienna jest listą komunikatów obsługiwanych przez brokera, która będzie używana w kolejnych krokach samouczka.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. Poza metodą `Main()` zdefiniuj metodę `ParseCSV()`, która analizuje listę komunikatów w pliku Data.csv i ładuje komunikaty do tabeli [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), jak pokazano tutaj. Metoda zwraca obiekt **DataTable**.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -115,14 +115,14 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -134,31 +134,31 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. W metodzie `Main()` dodaj instrukcję, która wywołuje metodę `ParseCSVFile()`:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>Tworzenie metody, która ładuje listę komunikatów
-1. Poza metodą `Main()` zdefiniuj metodę `GenerateMessages()`, która przyjmuje obiekt **DataTable** zwracany przez metodę `ParseCSVFile()` i ładuje tabelę do silnie typizowanej listy komunikatów obsługiwanych przez brokera. Następnie metoda zwraca obiekt **Lista**, jak w poniższym przykładzie. 
-   
+1. Poza metodą `Main()` zdefiniuj metodę `GenerateMessages()`, która przyjmuje obiekt **DataTable** zwracany przez metodę `ParseCSVFile()` i ładuje tabelę do silnie typizowanej listy komunikatów obsługiwanych przez brokera. Następnie metoda zwraca obiekt **Lista**, jak w poniższym przykładzie.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -173,11 +173,11 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
     }
     ```
 2. W metodzie `Main()`, bezpośrednio po wywołaniu metody `ParseCSVFile()`, dodaj instrukcję, która wywołuje metodę `GenerateMessages()` z wartością zwracaną z metody `ParseCSVFile()` jako argumentem:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -186,46 +186,46 @@ Następnym krokiem jest utworzenie projektu programu Visual Studio i napisanie d
 
 ### <a name="obtain-user-credentials"></a>Uzyskiwanie poświadczeń użytkownika
 1. Najpierw utwórz trzy zmienne globalne ciągu do przechowywania tych wartości. Zadeklaruj te zmienne bezpośrednio po poprzednich deklaracjach zmiennych, na przykład:
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. Następnie utwórz funkcję, która przyjmuje i przechowuje przestrzeń nazw usługi i klucz sygnatury dostępu współdzielonego. Dodaj tę metodę poza metodą `Main()`. Na przykład: 
-   
+2. Następnie utwórz funkcję, która przyjmuje i przechowuje przestrzeń nazw usługi i klucz sygnatury dostępu współdzielonego. Dodaj tę metodę poza metodą `Main()`. Na przykład:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. W metodzie `Main()` bezpośrednio po wywołaniu metody `GenerateMessages()` dodaj instrukcję, która wywołuje metodę `CollectUserInput()`:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -238,7 +238,7 @@ W menu **Kompilacja** w programie Visual Studio kliknij pozycję **Kompiluj rozw
 W tym kroku należy zdefiniować operacje zarządzania, które będą używane do tworzenia poświadczeń sygnatury dostępu współdzielonego, za pomocą których aplikacja będzie autoryzowana.
 
 1. Z myślą o przejrzystości, ten samouczek umieszcza wszystkie operacje kolejki w oddzielnych metodach. Utwórz metodę asynchroniczną `Queue()` w klasie `Program` po metodzie `Main()`. Na przykład:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -249,7 +249,7 @@ W tym kroku należy zdefiniować operacje zarządzania, które będą używane d
     }
     ```
 2. Następnym krokiem jest utworzenie poświadczeń sygnatury dostępu współdzielonego, używając obiektu [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Metoda tworzenia przyjmuje nazwę i wartość klucza sygnatury dostępu współdzielonego uzyskane w metodzie `CollectUserInput()`. Dodaj następujący kod do metody `Queue()`:
-   
+
     ```
     static async Task Queue()
     {
@@ -258,7 +258,7 @@ W tym kroku należy zdefiniować operacje zarządzania, które będą używane d
     }
     ```
 3. Utwórz nowy obiekt zarządzania przestrzenią nazw, z identyfikatorem URI zawierającym jako argumenty nazwę przestrzeni nazw i poświadczenia zarządzania uzyskane w poprzednim kroku. Dodaj ten kod bezpośrednio po kodzie dodanym w poprzednim kroku. Pamiętaj, aby zastąpić ciąg `<yourNamespace>` nazwą swojej przestrzeni nazw usługi:
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -375,29 +375,29 @@ W tym kroku zostanie utworzona kolejka, a następnie komunikaty znajdujące się
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>Tworzenie kolejki i wysyłanie komunikatów do kolejki
 1. Najpierw utwórz kolejkę. Nazwij ją na przykład `myQueue` i zadeklaruj bezpośrednio po operacji zarządzania dodanej w metodzie `Queue()` w ostatnim kroku:
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. W metodzie `Queue()` utwórz obiekt fabryki obsługi komunikatów z nowo utworzonym identyfikatorem URI usługi Service Bus jako argumentem. Dodaj poniższy kod bezpośrednio po operacjach zarządzania dodanych w ostatnim kroku. Pamiętaj, aby zastąpić ciąg `<yourNamespace>` nazwą swojej przestrzeni nazw usługi:
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. Następnie utwórz obiekt kolejki przy użyciu obiektu klasy [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Dodaj poniższy kod bezpośrednio po kodzie dodanym w ostatnim kroku:
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. Następnie dodaj kod, który przetwarza w pętli utworzoną wcześniej listę komunikatów obsługiwanych przez brokera, wysyłając każdy z nich do kolejki. Dodaj poniższy kod bezpośrednio po instrukcji `CreateQueueClient()` dodanej w poprzednim kroku:
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -615,14 +615,13 @@ Po ukończeniu powyższych kroków możesz skompilować i uruchomić aplikację 
 W programie Visual Studio w menu **Kompilacja** kliknij pozycję **Kompiluj rozwiązanie** lub naciśnij klawisze **Ctrl+Shift+B**. Jeśli występują błędy, sprawdź, czy kod jest poprawny, korzystając z kompletnego przykładu przedstawionego na końcu poprzedniego kroku.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku przedstawiono sposób kompilowania aplikacji i usługi klienckiej usługi Service Bus przy użyciu możliwości komunikatów obsługiwanych przez brokera usługi Service Bus. Aby skorzystać z podobnego samouczka dotyczącego usługi Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging), zobacz [Samouczek dotyczący komunikatów obsługiwanych przez przekaźnik w usłudze Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+W tym samouczku przedstawiono sposób kompilowania aplikacji i usługi klienckiej usługi Service Bus przy użyciu możliwości komunikatów obsługiwanych przez brokera usługi Service Bus. Aby skorzystać z podobnego samouczka dotyczącego usługi Service Bus [WCF Relay](service-bus-messaging-overview.md#service-bus-relay), zobacz [Samouczek dotyczący komunikatów obsługiwanych przez przekaźnik w usłudze Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Aby dowiedzieć się więcej na temat usługi [Service Bus](https://azure.microsoft.com/services/service-bus/), zobacz następujące tematy:
 
 * [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
 * [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Architektura usługi Service Bus](service-bus-architecture.md)
-
 
 
 

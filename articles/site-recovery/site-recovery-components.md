@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94250becb238adad7983d4b45939eb988411fca3
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: ef9a7da86e7528d3052f89dbe1eaac6fbb90527c
 
 
 ---
@@ -94,7 +94,7 @@ Oto, co jest potrzebne:
 * [Dowiedz się więcej](site-recovery-failback-azure-to-vmware.md) o powrocie po awarii w witrynie Azure Portal.
 * [Dowiedz się więcej](site-recovery-failback-azure-to-vmware-classic.md) o powrocie po awarii w portalu klasycznym.
 
-## <a name="replicate-to-azure-hyperv-vms-not-managed-by-vmm"></a>Replikacja do platformy Azure: maszyny wirtualne funkcji Hyper-V niezarządzane przez program VMM
+## <a name="replicate-to-azure-hyper-v-vms-not-managed-by-vmm"></a>Replikacja do platformy Azure: maszyny wirtualne funkcji Hyper-V niezarządzane przez program VMM
 Można replikować maszyny wirtualne funkcji Hyper-V, które nie są zarządzane przez program System Center VMM, do platformy Azure przy użyciu usługi Site Recovery w następujący sposób:
 
 * **Za pomocą portalu Azure** — w przypadku wdrożenia usługi Site Recovery w portalu Azure możesz przełączać awaryjnie maszyny wirtualne do klasycznego magazynu lub do usługi Resource Manager. [Dowiedz się więcej](site-recovery-hyper-v-site-to-azure.md).
@@ -120,7 +120,7 @@ Oto, co jest potrzebne:
 * [Dowiedz się więcej](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites) o wymaganiach dotyczących wdrożenia w portalu Azure.
 * [Dowiedz się więcej](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites) o wymaganiach dotyczących wdrożenia w portalu klasycznym.
 
-## <a name="replicate-to-azure-hyperv-vms-managed-by-vmm"></a>Replikacja do platformy Azure: maszyny wirtualne funkcji Hyper-V zarządzane przez program VMM
+## <a name="replicate-to-azure-hyper-v-vms-managed-by-vmm"></a>Replikacja do platformy Azure: maszyny wirtualne funkcji Hyper-V zarządzane przez program VMM
 Można replikować maszyny wirtualne funkcji Hyper-V w chmurach VMM na platformę Azure przy użyciu usługi Site Recovery w następujący sposób:
 
 * **Za pomocą portalu Azure** — w przypadku wdrożenia usługi Site Recovery w portalu Azure możesz przełączać awaryjnie maszyny wirtualne do klasycznego magazynu lub do usługi Resource Manager. [Dowiedz się więcej](site-recovery-vmm-to-azure.md).
@@ -144,8 +144,8 @@ Oto, co jest potrzebne:
 
 ![Z programu VMM na platformę Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-* [Dowiedz się więcej](site-recovery-vmm-to-azure.md#azure-requirements) o wymaganiach dotyczących wdrożenia w portalu Azure.
-* [Dowiedz się więcej](site-recovery-vmm-to-azure-classic.md#before-you-start) o wymaganiach dotyczących wdrożenia w portalu klasycznym.
+* [Dowiedz się więcej](site-recovery-vmm-to-azure.md#azure-prerequisites) o wymaganiach dotyczących wdrożenia w portalu Azure.
+* [Dowiedz się więcej](site-recovery-vmm-to-azure-classic.md) o wymaganiach dotyczących wdrożenia w portalu klasycznym.
 
 ## <a name="replicate-to-a-secondary-site-vmware-virtual-machines-or-physical-servers"></a>Replikowanie do lokacji dodatkowej: replikowanie maszyn wirtualnych VMware lub serwerów fizycznych
 Aby zreplikować maszyny wirtualne VMware lub serwery fizyczne do lokacji dodatkowej, konieczne będzie pobranie programu InMage Scout, który jest dołączony do subskrypcji usługi Azure Site Recovery. Można go pobrać z portalu Azure lub klasycznego portalu Azure.
@@ -167,7 +167,7 @@ Oto, co jest potrzebne:
 
 ![Z programu VMware do programu VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
-## <a name="replicate-to-a-secondary-site-hyperv-vms-managed-by-vmm"></a>Replikacja do lokacji dodatkowej: maszyny wirtualne funkcji Hyper-V zarządzane przez program VMM
+## <a name="replicate-to-a-secondary-site-hyper-v-vms-managed-by-vmm"></a>Replikacja do lokacji dodatkowej: maszyny wirtualne funkcji Hyper-V zarządzane przez program VMM
 Można replikować maszyny wirtualne funkcji Hyper-V, które są zarządzane przez program System Center VMM, do dodatkowego centrum danych przy użyciu usługi Site Recovery w następujący sposób:
 
 * **Za pomocą portalu Azure** — w przypadku wdrożenia usługi Site Recovery w portalu Azure. [Dowiedz się więcej](site-recovery-hyper-v-site-to-azure.md).
@@ -193,7 +193,7 @@ Oto, co jest potrzebne:
 * [Dowiedz się więcej](site-recovery-vmm-to-vmm.md#azure-prerequisites) o wymaganiach dotyczących wdrożenia w portalu Azure.
 * * [Dowiedz się więcej](site-recovery-vmm-to-vmm-classic.md#before-you-start) o wymaganiach dotyczących wdrożenia w portalu klasycznym.
 
-## <a name="replicate-to-a-secondary-site-with-san-replication-hyperv-vms-managed-by-vmm"></a>Replikacja do lokacji dodatkowej z replikacją sieci SAN: maszyny wirtualne funkcji Hyper-V zarządzane przez program VMM
+## <a name="replicate-to-a-secondary-site-with-san-replication-hyper-v-vms-managed-by-vmm"></a>Replikacja do lokacji dodatkowej z replikacją sieci SAN: maszyny wirtualne funkcji Hyper-V zarządzane przez program VMM
 Można replikować maszyny wirtualne funkcji Hyper-V zarządzane w chmurach VMM do lokacji dodatkowej przy użyciu replikacji sieci SAN w portalu klasycznym Azure. W nowym portalu Azure ten scenariusz nie jest obecnie obsługiwany.
 
 W tym scenariuszu podczas wdrażania usługi Site Recovery zainstaluj dostawcę usług Azure Site Recovery na serwerach VMM. Dostawca koordynuje i organizuje replikację za pomocą usługi Site Recovery przez Internet. Dane są replikowane między tablicami magazynów podstawowych i pomocniczych przy użyciu synchronicznej replikacji sieci SAN.
@@ -213,8 +213,8 @@ Oto, co jest potrzebne:
 
 [Dowiedz się więcej](site-recovery-vmm-san.md#before-you-start) o wymaganiach dotyczących wdrożenia.
 
-### <a name="onpremises"></a>Lokalnie
-## <a name="hyperv-protection-lifecycle"></a>Cykl życia ochrony funkcji Hyper-V
+### <a name="on-premises"></a>Lokalnie
+## <a name="hyper-v-protection-lifecycle"></a>Cykl życia ochrony funkcji Hyper-V
 Ten przepływ pracy przedstawia proces ochrony, replikowania i przechodzenia w tryb failover maszyn wirtualnych funkcji Hyper-V.
 
 1. **Włącz ochronę**: przeprowadzana jest konfiguracja magazynu usługi Site Recovery, konfiguracja ustawień replikacji dla chmury VMM lub lokacji funkcji Hyper-V oraz włączana jest ochrona maszyn wirtualnych. Inicjowane jest zadanie o nazwie **Włączanie ochrony**, które można monitorować na karcie **Zadania**. Zadanie sprawdza, czy maszyna spełnia wymagania wstępne, a następnie wywołuje metodę [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), która konfiguruje replikację na platformę Azure za pomocą określonych ustawień. Zadanie **Włączanie ochrony** wywołuje również metodę [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) w celu zainicjowania pełnej replikacji maszyny wirtualnej.
@@ -229,7 +229,6 @@ Ten przepływ pracy przedstawia proces ochrony, replikowania i przechodzenia w t
 
 ## <a name="next-steps"></a>Następne kroki
 [Przygotowanie do wdrożenia](site-recovery-best-practices.md)
-
 
 
 

@@ -13,24 +13,25 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 9a8a4454a0676c403356e9989665242978949011
-
+ms.sourcegitcommit: 2cddd262f912efff029bb05f0f3f3551409167ed
+ms.openlocfilehash: 4c969499f562d8cef9c09ebd909508b1c0542c57
 
 ---
+
 # <a name="indexers-in-azure-search"></a>Indeksatory w usłudze Azure Search
 > [!div class="op_single_selector"]
+>
 > * [Omówienie](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
-> * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+> * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 > * [DocumentDB](../documentdb/documentdb-search-indexer.md)
 > * [Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md)
 > * [Table Storage (wersja zapoznawcza)](search-howto-indexing-azure-tables.md)
-> 
-> 
+>
+>
 
 Dostępny w usłudze Azure Search **indeksator** jest przeszukiwarką, która umożliwia wyodrębnienie danych oraz metadanych z możliwością wyszukiwania z zewnętrznego źródła danych i wypełnienie indeksu na podstawie mapowań poszczególnych pól między indeksem a źródłem danych. Ta metoda jest czasami określana jako „model ściągania”, ponieważ usługa pobiera dane bez konieczności pisania kodu, który wypycha dane do indeksu.
 
@@ -45,8 +46,6 @@ Tworzenie ogólnie dostępnych indeksatorów, takich jak Azure SQL czy DocumentD
 * [Interfejs API REST usługi](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 * [Zestaw SDK platformy .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
-Indeksatory w wersji zapoznawczej, takie jak Azure Blob Storage czy Table Storage, wymagają interfejsów API kodu i interfejsów API w wersji zapoznawczej, na przykład [Interfejsu API REST usługi Azure Search (wersja zapoznawcza) dla indeksatorów](search-api-indexers-2015-02-28-preview.md). Narzędzia portalu są zwykle niedostępne dla funkcji w wersji zapoznawczej.
-
 ## <a name="basic-configuration-steps"></a>Podstawowe kroki konfiguracji
 Indeksatory oferują funkcje, które są unikatowe dla źródła danych. W związku z tym niektóre aspekty konfiguracji indeksatora lub źródła danych różnią się w zależności od typu indeksatora. Wszystkie indeksatory korzystają jednak z takich samych kompozycji i wymagań. Kroki, które są wspólne dla wszystkich indeksatorów, znajdują się poniżej.
 
@@ -56,12 +55,12 @@ Indeksator będzie automatyzować niektóre zadania związane z wprowadzaniem da
 ### <a name="step-2-create-a-data-source"></a>Krok 2. Tworzenie źródła danych
 Indeksator pobiera dane ze **źródła danych**, które zawiera na przykład parametry połączenia. Obecnie są obsługiwane następujące źródła danych:
 
-* [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Azure Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md) używany do wyodrębniania tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML
-* [Azure Table Storage (wersja zapoznawcza)](search-howto-indexing-azure-tables.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) używany do wyodrębniania tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
-Źródła danych są konfigurowane i zarządzane niezależnie od indeksatorów, które z nich korzystają. Oznacza to, że jedno źródło może być używane przez wiele indeksatorów w celu jednoczesnego ładowania kilku indeksów. 
+Źródła danych są konfigurowane i zarządzane niezależnie od indeksatorów, które z nich korzystają. Oznacza to, że jedno źródło może być używane przez wiele indeksatorów w celu jednoczesnego ładowania kilku indeksów.
 
 ### <a name="step-3create-and-schedule-the-indexer"></a>Krok 3. Tworzenie indeksatora i ustawianie jego harmonogramu
 Definicja indeksatora to konstrukcja określająca indeks, źródło danych i harmonogram. Indeksator może odwoływać się do źródła danych z innej usługi pod warunkiem, że źródło danych jest z tej samej subskrypcji. Aby uzyskać więcej informacji dotyczących tworzenia struktury indeksatora, zobacz [Create Indexer (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn946899.aspx) (Tworzenie indeksatora — interfejs API REST usługi Azure Search).
@@ -69,16 +68,15 @@ Definicja indeksatora to konstrukcja określająca indeks, źródło danych i ha
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy masz już podstawowe informacje, następnym krokiem jest przegląd wymagań i zadań specyficznych dla poszczególnych typów źródeł danych.
 
-* [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Azure Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md) używany do wyodrębniania tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML
-* [Azure Table Storage (wersja zapoznawcza)](search-howto-indexing-azure-tables.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) używany do wyodrębniania tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indeksowanie obiektów blob plików CSV za pomocą indeksatora obiektów blob usługi Azure Search (wersja zapoznawcza)](search-howto-index-csv-blobs.md)
 * [Indeksowanie obiektów blob plików JSON za pomocą indeksatora obiektów blob usługi Azure Search (wersja zapoznawcza)](search-howto-index-json-blobs.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -5,12 +5,13 @@
 > * [Zestaw SDK Java](../articles/data-lake-analytics/data-lake-analytics-get-started-java-sdk.md)
 > * [Program Visual Studio](../articles/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)
 > * [Interfejs wiersza polecenia](../articles/data-lake-analytics/data-lake-analytics-get-started-cli.md)
+> * [Python](../articles/data-lake-analytics/data-lake-analytics-get-started-python.md)
 > * [Interfejs API REST](../articles/data-lake-analytics/data-lake-analytics-get-started-rest-api.md)
 > 
 > 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

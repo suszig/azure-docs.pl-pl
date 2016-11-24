@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 38735f7c0154388e8698edc5bac931c5a079a865
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 005d2fb2bce7e42d1ce961b90610b16f299abfd0
 
 
 ---
@@ -68,7 +68,7 @@ Powiadomienia wypychane są jedną z najbardziej pożądanych funkcji usług w c
 
 * **Zależności dotyczące platformy.** Wysyłanie powiadomień do urządzeń na różnych platformach wymaga utworzenia kodu wielu interfejsów zaplecza. Różnice dotyczą nie tylko szczegółów niskiego poziomu, ale również prezentacji powiadomienia (kafelka, powiadomienia wyskakującego lub wskaźnika), która jest zależna od platformy. Te różnice mogą prowadzić do utworzenia złożonego i trudnego w obsłudze kodu.
 * **Skalowalność.** Skalowanie tej infrastruktury ma następujące dwa aspekty:
-  
+
   * Zgodnie z zaleceniami systemu powiadomień platformy tokeny urządzeń muszą być odświeżane przy każdym uruchomieniu aplikacji. Prowadzi to do dużego ruchu (i wynikającej z niego dużej liczby operacji uzyskiwania dostępu do bazy danych) w celu zachowania aktualności tokenów urządzeń. W przypadku zwiększenia liczby urządzeń (potencjalnie do milionów sztuk) koszt tworzenia i obsługi tej infrastruktury jest znaczący.
   * Większość systemów powiadomień platformy nie obsługuje emisji do wielu urządzeń. Z tego względu emisja do milionów urządzeń powoduje miliony wywołań do systemu powiadomień platformy. Zapewnienie możliwości skalowania tych żądań nie jest proste, ponieważ zwykle deweloperzy aplikacji chcą utrzymywać niskie opóźnienie całkowite. Na przykład ostatnie urządzenie odbierające wiadomość nie powinno otrzymać powiadomienia 30 minut po wysłaniu powiadomień, ponieważ w wielu przypadkach mija się to z celem powiadomień wypychanych.
 * **Routing.** Systemy powiadomień platformy umożliwiają wysyłanie komunikatów do urządzeń. Jednak w przypadku większości aplikacji powiadomienia są przeznaczone dla użytkowników i/lub grup zainteresowań (na przykład wszystkich pracowników przypisanych do określonego konta klienta). W związku z tym, aby można było kierować powiadomienia do odpowiednich urządzeń, zaplecze aplikacji musi zapewniać rejestr zawierający skojarzenia grup zainteresowań z tokenami urządzeń. Ten narzut zwiększa całkowity czas wprowadzenia na rynek oraz koszty obsługi aplikacji.
@@ -81,19 +81,19 @@ Usługa Notification Hubs eliminuje złożoność: nie trzeba zarządzać wyzwan
 Usługa Notification Hubs zapewnia gotową do użycia infrastrukturę powiadomień wypychanych oferującą następujące korzyści:
 
 * **Wiele platform.**
-  
+
   * Obsługa wszystkich głównych platform urządzeń przenośnych. Usługa Notification Hubs umożliwia wysyłanie powiadomień wypychanych do aplikacji ze Sklepu Windows oraz aplikacji dla systemu iOS, Android i Windows Phone.
   * Usługa Notification Hubs zapewnia wspólny interfejs do wysyłania powiadomień do wszystkich obsługiwanych platform. Protokoły dla poszczególnych platform nie są wymagane. Zaplecze aplikacji może wysyłać powiadomienia w formatach przeznaczonych dla określonych platform lub w formacie niezależnym od platformy. Aplikacja komunikuje się wyłącznie z usługą Notification Hubs.
   * Zarządzanie dojściami urządzeń. Usługa Notification Hubs przechowuje rejestr dojść i informacji zwrotnych z systemów powiadomień platformy.
 * **Działa z każdym zapleczem**: w środowisku w chmurze lub lokalnym, .NET, PHP, Java, Node itd.
 * **Skalowalność.** Usługa Notification Hubs umożliwia skalowanie do milionów urządzeń bez konieczności ponownego projektowania lub fragmentacji.
 * **Bogaty zestaw wzorców dostarczania**:
-  
+
   * *Emisja*: możliwość niemal jednoczesnej emisji do milionów urządzeń przy użyciu jednego wywołania interfejsu API.
   * *Emisja pojedyncza lub multiemisja*: wypychanie do tagów reprezentujących poszczególnych użytkowników, w tym wszystkie ich urządzenia, lub do szerszej grupy, na przykład oddzielnych typów urządzeń (tablet lub telefon).
   * *Segmentacja*: wypychanie do złożonego segmentu zdefiniowanego przy użyciu wyrażeń tagów (na przykład urządzenia w Warszawie obserwujące wydarzenia dotyczące Legii).
-    
-    Każde urządzenie podczas wysyłania dojścia do centrum powiadomień może określić jeden lub więcej *tagów*. Więcej informacji na temat [tagów]. Tagów nie trzeba wstępnie tworzyć ani usuwać. Tagi umożliwiają proste wysyłanie powiadomień do użytkowników lub grup zainteresowań. Tagi mogą zawierać dowolny identyfikator specyficzny dla aplikacji (na przykład identyfikator użytkownika lub grupy), dlatego ich użycie zwalnia zaplecze aplikacji z konieczności przechowywania dojść urządzeń i zarządzania nimi.
+
+    Każde urządzenie podczas wysyłania dojścia do centrum powiadomień może określić jeden lub więcej *tagów*. Więcej informacji na temat [tagów](http://msdn.microsoft.com/library/azure/dn530749.aspx). Tagów nie trzeba wstępnie tworzyć ani usuwać. Tagi umożliwiają proste wysyłanie powiadomień do użytkowników lub grup zainteresowań. Tagi mogą zawierać dowolny identyfikator specyficzny dla aplikacji (na przykład identyfikator użytkownika lub grupy), dlatego ich użycie zwalnia zaplecze aplikacji z konieczności przechowywania dojść urządzeń i zarządzania nimi.
 * **Personalizacja**: poszczególne urządzenia mogą mieć jeden lub więcej szablonów w celu uzyskania możliwości lokalizacji i personalizacji bez wpływu na kod zaplecza.
 * **Zabezpieczenia**: uwierzytelnianie przy użyciu klucza tajnego dostępu współdzielonego (SAS, Shared Access Secret) lub uwierzytelnianie federacyjne.
 * **Rozbudowane informacje telemetryczne**: dostępne w portalu i programowo.
@@ -111,7 +111,7 @@ Deweloperzy aplikacji mobilnych mogą korzystać z usługi Notification Hubs prz
 Oto niektóre udogodnienia dla deweloperów wynikające z tej integracji:
 
 * **Zestawy SDK klienta usługi Mobile Apps.** Te wieloplatformowe zestawy SDK zapewniają proste interfejsy API do rejestracji i komunikacji z centrum powiadomień automatycznie skojarzone z aplikacją mobilną. Deweloperzy nie muszą odnajdywać poświadczeń usługi Notification Hubs i pracować przy użyciu dodatkowych usług.
-  
+
   * Zestawy SDK automatycznie dodają tagi dla danego urządzenia przy użyciu identyfikatora uwierzytelnionego użytkownika usługi Mobile Apps w celu umożliwienia scenariusza wypychania do użytkownika.
   * Zestawy SDK automatycznie używają identyfikatora instalacji usługi Mobile Apps jako identyfikatora GUID do rejestracji w usłudze Notification Hubs, oszczędzając deweloperom pracy związanej z obsługą identyfikatorów GUID wielu usług.
 * **Model instalacji.** Usługa Mobile Apps współpracuje z najnowszym modelem wypychania usługi Notification Hubs w celu reprezentowania wszystkich właściwości wypychania skojarzonych z urządzeniem w instalacji JSON, które są zgodne z usługami powiadomień wypychanych i łatwe w użyciu.

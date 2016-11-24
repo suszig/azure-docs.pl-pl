@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: 
 tags: azure-service-management
 ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
 ms.service: load-balancer
@@ -16,50 +15,53 @@ ms.workload: infrastructure-services
 ms.date: 03/17/2016
 ms.author: sewhee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 171d5cd41d900b83c22e1db4bc514471a3d4b556
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 6a471050a03c8399b0715c331b54636c68fd71cb
 
 ---
 
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Wprowadzenie do tworzenia dostępnego z Internetu modułu równoważenia obciążenia do usług w chmurze
 
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Klasyczna witryna Azure Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-W tym artykule opisano klasyczny model wdrażania. Możesz też zapoznać się z artykułem na temat [tworzenia dostępnego z Internetu modułu równoważenia obciążenia za pomocą usługi Azure Resource Manager](load-balancer-get-started-internet-arm-cli.md).
+> [!IMPORTANT]
+> Przed rozpoczęciem pracy z zasobami platformy Azure należy pamiętać, że ma ona obecnie dwa modele wdrażania: za pomocą usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-classic-rm.md). Dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty w górnej części artykułu. W tym artykule opisano klasyczny model wdrażania. Możesz też zapoznać się z artykułem na temat [tworzenia dostępnego z Internetu modułu równoważenia obciążenia za pomocą usługi Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 Usługi w chmurze są konfigurowane automatycznie z modułem równoważenia obciążenia i mogą być dostosowane za pośrednictwem modelu usług.
 
 ## <a name="create-a-load-balancer-using-the-service-definition-file"></a>Tworzenie modułu równoważenia obciążenia z użyciem pliku definicji usługi
 
-Do aktualizacji usługi w chmurze można wykorzystać zestaw narzędzi Azure SDK do platformy .NET 2.5. Ustawienia punktu końcowego usług w chmurze są dokonywane w pliku [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+Do aktualizacji usługi w chmurze można wykorzystać zestaw narzędzi Azure SDK do platformy .NET 2.5. Ustawienia punktu końcowego usług w chmurze są określane w pliku [definicji usługi](https://msdn.microsoft.com/library/azure/gg557553.aspx) .csdef.
 
 Poniższy przykład zawiera informacje dotyczące konfiguracji pliku servicedefinition.csdef do wdrożenia w chmurze:
 
 Podczas sprawdzania fragmentu pliku .csdef wygenerowanego przez wdrażanie w chmurze widoczny jest zewnętrzny punkt końcowy z konfiguracją do użycia portów protokołu HTTP na portach 10000, 10001 oraz 10002.
 
 ```xml
-    <ServiceDefinition name=“Tenant“>
-       <WorkerRole name=“FERole” vmsize=“Small“>
-    <Endpoints>
-        <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
-        <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
-        <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
+<ServiceDefinition name=“Tenant“>
+    <WorkerRole name=“FERole” vmsize=“Small“>
+<Endpoints>
+    <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
+    <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
+    <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
 
-        <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
+    <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
 
-        <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
-           <AllocatePublicPortFrom>
-              <FixedPortRange min=“10110” max=“10120“  />
-           </AllocatePublicPortFrom>
-        </InstanceInputEndpoint>
-        <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
-    </Endpoints>
-      </WorkerRole>
-    </ServiceDefinition>
+    <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
+        <AllocatePublicPortFrom>
+            <FixedPortRange min=“10110” max=“10120“  />
+        </AllocatePublicPortFrom>
+    </InstanceInputEndpoint>
+    <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
+</Endpoints>
+    </WorkerRole>
+</ServiceDefinition>
 ```
 
 ## <a name="check-load-balancer-health-status-for-cloud-services"></a>Sprawdzanie kondycji modułu równoważenia obciążenia do usług w chmurze
@@ -67,12 +69,12 @@ Podczas sprawdzania fragmentu pliku .csdef wygenerowanego przez wdrażanie w chm
 Poniżej podano przykład sondy kondycji:
 
 ```xml
-    <LoadBalancerProbes>
-        <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
-    </LoadBalancerProbes>
+<LoadBalancerProbes>
+    <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
+</LoadBalancerProbes>
 ```
 
-Moduł równoważenia obciążenia łączy informacje z punktu końcowego oraz informacje z sondy i tworzy z nich adres URL w postaci http://{adres DIP maszyny wirtualnej}:80/Probe.aspx, którego można użyć do zapytania o kondycję usługi.
+Moduł równoważenia obciążenia łączy informacje z punktu końcowego oraz informacje z sondy i tworzy z nich adres URL w postaci `http://{DIP of VM}:80/Probe.aspx`, którego można użyć do zapytania o kondycję usługi.
 
 Usługa wykrywa sondy wysyłane okresowo z tego samego adresu IP. Jest to żądanie sondy kondycji wysyłane z hosta węzła, w którym działa maszyna wirtualna. Usługa musi odpowiedzieć kodem stanu HTTP 200, aby moduł równoważenia obciążenia przyjął, że jej kondycja jest dobra. Każdy inny kod stanu HTTP (np. 503) powoduje bezpośrednie wykluczenie maszyny wirtualnej z rotacji.
 
@@ -91,6 +93,6 @@ Aby dowiedzieć się więcej, zapoznaj się ze schematem definicji usługi [sond
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

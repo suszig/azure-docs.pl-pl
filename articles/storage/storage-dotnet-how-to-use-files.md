@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bf8acbd37f717c0e055facde781966665ca67d2d
 
 
 ---
@@ -210,8 +210,8 @@ Gdy klient uzyskuje dostęp do usługi Magazyn plików, używana wersja protoko�
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Instalowanie udziału plików z maszyny wirtualnej platformy Azure z systemem Windows
 Aby zademonstrować sposób instalacji udziału plików na platformie Azure, utworzymy teraz maszynę wirtualną platformy Azure z systemem Windows i połączymy się z nią zdalnie w celu zainstalowania udziału
 
-1. Najpierw utwórz nową maszynę wirtualną platformy Azure, postępując zgodnie z instrukcjami w artykule [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w witrynie Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Następnie nawiąż połączenie zdalne z maszyną wirtualną, postępując zgodnie z instrukcjami w artykule [Logowanie na maszynie wirtualnej z systemem Windows za pomocą witryny Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. Najpierw utwórz nową maszynę wirtualną platformy Azure, postępując zgodnie z instrukcjami w artykule [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w witrynie Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Następnie nawiąż połączenie zdalne z maszyną wirtualną, postępując zgodnie z instrukcjami w artykule [Logowanie na maszynie wirtualnej z systemem Windows za pomocą witryny Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Otwórz okno programu PowerShell na maszynie wirtualnej.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Utrwalanie poświadczeń konta magazynu dla maszyny wirtualnej
@@ -242,7 +242,7 @@ Teraz możesz pracować z udziałem usługi File Storage z poziomu maszyny wirtu
 
 Udział plików można również zainstalować z poziomu roli uruchomionej w usłudze w chmurze na platformie Azure, łącząc się z tą rolą zdalnie.
 
-### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Instalowanie udziału plików z klienta lokalnego z systemem Windows
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Instalowanie udziału plików z klienta lokalnego z systemem Windows
 Aby zainstalować udział plików z klienta lokalnego, musisz najpierw wykonać następujące czynności:
 
 * Zainstaluj wersję systemu Windows, która obsługuje protokół SMB 3.0. System Windows będzie korzystać z szyfrowania w protokole SMB 3.0 do bezpiecznego transferu danych między klientem lokalnym a udziałem plików na platformie Azure w chmurze.

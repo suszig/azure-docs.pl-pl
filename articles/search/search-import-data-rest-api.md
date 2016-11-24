@@ -13,21 +13,22 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 10/27/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
+ms.openlocfilehash: 02eebb8517183abbdbd500820d8c8beb57865ac5
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Przekazywanie danych do usługi Azure Search przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
+>
 > * [Omówienie](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
-> 
-> 
+>
+>
 
 W tym artykule opisano, jak używać [interfejsu API REST usługi Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) w celu importowania danych do indeksu usługi Azure Search.
 
@@ -35,7 +36,7 @@ Przed rozpoczęciem pracy z tym przewodnikiem powinien zostać [utworzony indeks
 
 Aby wypchnąć dokumenty do indeksu za pomocą interfejsu API REST, należy wysłać żądanie HTTP POST do końcowego adresu URL indeksu. Treść żądania HTTP jest obiektem JSON, który zawiera dokumenty do dodania, zmodyfikowania lub usunięcia.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identyfikowanie klucza api-key administratora usługi Azure Search
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identyfikowanie klucza api-key administratora usługi Azure Search
 *Wszystkie* żądania HTTP wysyłane do usługi przy użyciu interfejsu API REST muszą zawierać klucz api-key wygenerowany dla aprowizowanej usługi wyszukiwania. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
@@ -65,9 +66,9 @@ Poszczególne obiekty JSON w tablicy „wartość” reprezentują dokumenty, kt
 Po zebraniu wartości pól wymaganych dla akcji indeksu można przystąpić do konstruowania rzeczywistego żądania HTTP i treści żądania JSON w celu zaimportowania danych.
 
 #### <a name="request-and-request-headers"></a>Żądanie i nagłówki żądania
-Zawartość adresu URL musi obejmować nazwę usługi, nazwę indeksu (w tym przypadku „hotels”) oraz odpowiednią wersję interfejsu API (w momencie publikowania tego dokumentu aktualna wersja interfejsu API to `2015-02-28`). Musisz zdefiniować nagłówki żądań `Content-Type` i `api-key`. W przypadku drugiego nagłówka użyj jednego z kluczy administratora usługi.
+Zawartość adresu URL musi obejmować nazwę usługi, nazwę indeksu (w tym przypadku „hotels”) oraz odpowiednią wersję interfejsu API (w momencie publikowania tego dokumentu aktualna wersja interfejsu API to `2016-09-01`). Musisz zdefiniować nagłówki żądań `Content-Type` i `api-key`. W przypadku drugiego nagłówka użyj jednego z kluczy administratora usługi.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ Kod stanu `207` jest zwracany, gdy co najmniej jeden element nie został pomyśl
 
 > [!NOTE]
 > Często oznacza to, że obciążenie usługi wyszukiwania wkrótce osiągnie punkt, w którym żądania indeksowania zaczną zwracać odpowiedzi `503`. W takim przypadku zdecydowanie zaleca się wycofanie kodu klienta i odczekanie przed ponownym wysłaniem żądania. Zapewni to systemowi dodatkowy czas na przetworzenie danych, co zwiększy prawdopodobieństwo pomyślnego wykonania przyszłych żądań. Szybkie ponawianie żądań tylko wydłuży czas trwania problemu.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 Kod stanu `429` jest zwracany w przypadku przekroczenia limitu przydziału liczby dokumentów w indeksie.
@@ -171,8 +172,8 @@ Kod stanu `503` jest zwracany, jeśli żaden z elementów w żądaniu nie zosta�
 
 > [!NOTE]
 > W takim przypadku zdecydowanie zaleca się wycofanie kodu klienta i odczekanie przed ponownym wysłaniem żądania. Zapewni to systemowi dodatkowy czas na przetworzenie danych, co zwiększy prawdopodobieństwo pomyślnego wykonania przyszłych żądań. Szybkie ponawianie żądań tylko wydłuży czas trwania problemu.
-> 
-> 
+>
+>
 
 Aby uzyskać więcej informacji na temat akcji dla dokumentów oraz odpowiedzi oznaczających powodzenie lub błąd, zobacz [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) (Dodawanie, aktualizowanie lub usuwanie dokumentów). Aby uzyskać więcej informacji o innych kodach stanów HTTP, które mogą być zwracane w przypadku niepowodzenia, zobacz [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) (Usługa Azure Search — kody stanów HTTP).
 
@@ -181,7 +182,6 @@ Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zap
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

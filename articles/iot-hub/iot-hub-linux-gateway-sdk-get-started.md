@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/25/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+ms.sourcegitcommit: fb085ca229beba1757efa100ffca1e42089aedfa
+ms.openlocfilehash: 827ecc587dabfba58e87d192001c2714a1d7ce4a
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Zestaw SDK bramy usługi Azure IoT (wersja beta) — wprowadzenie przy użyciu systemu Linux
+# <a name="azure-iot-gateway-sdk-beta---get-started-using-linux"></a>Zestaw SDK bramy usługi Azure IoT (wersja beta) — wprowadzenie przy użyciu systemu Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Jak skompilować przykład
@@ -38,30 +38,30 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 ## <a name="how-to-run-the-sample"></a>Jak uruchomić przykład
 1. Skrypt **build.sh** generuje swoje dane wyjściowe w folderze **build** w lokalnej kopii repozytorium **azure-iot-gateway-sdk**. Obejmuje to dwa moduły używane w tym przykładzie.
    
-    Skrypt kompilacji umieszcza plik **liblogger_hl.so** w folderze **build/modules/logger/**, a plik **libhello_world_hl.so** w folderze **build/modules/hello_world/**. Użyj tych ścieżek dla wartości **module path**, jak pokazano poniżej w pliku ustawień JSON.
-2. Plik **hello_world_lin.json** w folderze **samples/hello_world/src** to przykładowy plik ustawień JSON dla systemu Linux, którego można użyć do uruchomienia przykładu. W przykładowych ustawieniach JSON przedstawionych poniżej przyjęto założenie, że przykład zostanie uruchomiony z katalogu głównego lokalnej kopii repozytorium **azure-iot-gateway-sdk**.
-3. Dla modułu **logger_hl** w sekcji **args** ustaw wartość elementu **filename** na ścieżkę do pliku i nazwę pliku, który będzie zawierać dane dziennika.
-   
-    Jest to przykładowy plik ustawień JSON dla systemu Linux, który będzie zapisywał dane w pliku **log.txt** w folderze, z poziomu którego zostanie uruchomiony przykład.
+    Skrypt kompilacji umieszcza plik **liblogger.so** w folderze **build/modules/logger/**, a plik **libhello_world.so** w folderze **build/modules/hello_world/**. Użyj tych ścieżek dla wartości **module path**, jak pokazano poniżej w pliku ustawień JSON.
+2. Proces hello_world_sample przyjmuje ścieżkę do pliku konfiguracji JSON jako argument w wierszu polecenia. Przykładowy plik JSON został udostępniony w repozytorium: **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json**, a także skopiowany poniżej. Będzie działał bez wprowadzania zmian, o ile nie zmodyfikowano skryptu kompilacji w celu umieszczenia modułów lub przykładowych plików wykonywalnych w lokalizacjach innych niż domyślne.
+
+   > [!NOTE]
+   > Względne ścieżki modułów odnoszą się do bieżącego katalogu roboczego, z którego jest uruchamiany plik wykonywalny hello_world_sample, a nie do katalogu, w którym znajduje się ten plik wykonywalny. Przykładowy plik konfiguracji JSON domyślnie zapisuje plik „log.txt” w bieżącym katalogu roboczym.
    
     ```
     {
       "modules" :
       [ 
         {
-          "module name" : "logger_hl",
+          "module name" : "logger",
           "loading args": {
-            "module path" : "./build/modules/logger/liblogger_hl.so"
+            "module path" : "./build/modules/logger/liblogger.so"
           },
           "args" : 
           {
-            "filename":"./log.txt"
+            "filename":"log.txt"
           }
         },
         {
           "module name" : "hello_world",
           "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+            "module path" : "./build/modules/hello_world/libhello_world.so"
           },
           "args" : null
         }
@@ -70,13 +70,13 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
       [
         {
           "source": "hello_world",
-          "sink": "logger_hl"
+          "sink": "logger"
         }
       ]
     }
     ```
-4. W powłoce przejdź do folderu **azure-iot-gateway-sdk**.
-5. Uruchom następujące polecenie:
+3. Przejdź do folderu **azure-iot-gateway-sdk**.
+4. Uruchom następujące polecenie:
    
    ```
    ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
@@ -89,6 +89,6 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

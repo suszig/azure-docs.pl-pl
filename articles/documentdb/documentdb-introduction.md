@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23a6be60d7bf8fa47589fffb5132a09994d33d4c
+ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
+ms.openlocfilehash: cb1fd606fa03650980a02325b82774ce9ef8cf77
 
 
 ---
@@ -46,7 +46,7 @@ Usługa Azure DocumentDB oferuje następujące kluczowe funkcje i korzyści:
 * **Celowa ogólnodostępność**: można szybko rozpocząć pracę, wykorzystując posiadane umiejętności i narzędzia. Programowanie bazy danych DocumentDB jest łatwe, przystępne i nie wymaga wdrażania nowych narzędzi ani niestandardowych rozszerzeń formatu JSON czy języka JavaScript. Możesz uzyskać dostęp do wszystkich funkcji bazy danych, w tym operacji CRUD, zapytań i przetwarzania języka JavaScript przy użyciu prostego interfejsu RESTful protokołu HTTP. Usługa DocumentDB wykorzystuje istniejące formaty, języki i standardy, jednocześnie oferując oparte na nich i zapewniające wysoką wartość możliwości bazy danych.
 * **Automatyczne indeksowanie:** domyślnie usługa DocumentDB [automatycznie indeksuje](documentdb-indexing.md) wszystkie dokumenty w bazie danych i nie oczekuje ani nie wymaga żadnego schematu lub tworzenia indeksów pomocniczych. Nie chcesz indeksować wszystkiego? Nie martw się, możesz również [zrezygnować ze ścieżki plików JSON](documentdb-indexing-policies.md).
 
-## <a name="a-namedatamanagementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Jak usługa DocumentDB zarządza danymi?
+## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Jak usługa DocumentDB zarządza danymi?
 Usługa Azure DocumentDB zarządza danymi JSON za pomocą dobrze zdefiniowanych zasobów bazy danych. Te zasoby są replikowane w celu zapewnienia wysokiej dostępności i unikatowo adresowane przez ich logiczny identyfikator URI. Usługa DocumentDB oferuje prosty model programowania RESTful oparty na protokole HTTP dla wszystkich zasobów. 
 
 Konto bazy danych usługi DocumentDB jest unikatową przestrzenią nazw, która umożliwia dostęp do usługi Azure DocumentDB. Przed utworzeniem konta bazy danych musisz mieć subskrypcję platformy Azure, która umożliwia dostęp do różnych usług platformy Azure. 
@@ -71,6 +71,8 @@ Usługa Azure DocumentDB udostępnia zasoby za pośrednictwem interfejsu API RES
 | Nie dotyczy |[Zestaw SDK dla języka JavaScript po stronie serwera](http://azure.github.io/azure-documentdb-js-server/) |
 | [Zestaw SDK dla języka Python](https://pypi.python.org/pypi/pydocumentdb) |[Biblioteka języka Python](http://azure.github.io/azure-documentdb-python/) |
 
+Za pomocą [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md) możesz lokalnie opracowywać i testować swoją aplikację bez tworzenia subskrypcji platformy Azure i generowania kosztów. Jeśli sposób działania aplikacji w emulatorze usługi DocumentDB jest zadowalający, możesz przełączyć się do korzystania z konta usługi Azure DocumentDB w chmurze.
+
 Poza podstawowymi operacjami tworzenia, odczytu, aktualizacji i usuwania usługa DocumentDB udostępnia interfejs zaawansowanych zapytań SQL na potrzeby pobierania dokumentów JSON oraz obsługę po stronie serwera na potrzeby transakcyjnego wykonywania logiki aplikacji JavaScript. Interfejsy wykonywania zapytań i skryptów są dostępne za pośrednictwem bibliotek wszystkich platform, a także interfejsów API REST. 
 
 ### <a name="sql-query"></a>Zapytanie SQL
@@ -92,6 +94,7 @@ Nie masz konta platformy Azure? Możesz:
 
 * Możesz utworzyć konto [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/free/), które zapewnia 30 dni i 200 USD na wypróbowanie usług Azure. 
 * Jeśli masz subskrypcję MSDN, przysługuje Ci [150 USD miesięcznie w ramach bezpłatnych środków platformy Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) na korzystanie z dowolnej usługi Azure. 
+* Pobierz [emulator usługi Azure DocumentDB](documentdb-nosql-local-emulator.md), aby lokalnie opracowywać aplikację.
 
 Następnie, kiedy zechcesz dowiedzieć się więcej, odwiedź naszą [ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/documentdb/), aby przejrzeć listę wszystkich dostępnych zasobów szkoleniowych. 
 
@@ -100,6 +103,6 @@ Następnie, kiedy zechcesz dowiedzieć się więcej, odwiedź naszą [ścieżkę
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
