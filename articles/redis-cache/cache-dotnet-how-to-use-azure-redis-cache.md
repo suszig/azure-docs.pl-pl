@@ -207,7 +207,7 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 * Usługi Azure Redis Cache można również używać z usługami i narzędziami innych firm, takimi jak Redsmin i Redis Desktop Manager.
   * Więcej informacji na temat usługi Redsmin znajduje się w artykule [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Jak pobrać parametry połączenia usługi Azure Redis Cache i używać ich w usłudze Redsmin).
   * Dostęp do danych w usłudze Azure Redis Cache oraz możliwość ich inspekcji można uzyskać za pomocą graficznego interfejsu użytkownika, używając usługi [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
-* Zapoznaj się z dokumentacją dotyczącą usługi [redis][redis], przeczytaj o [typach danych usługi redis][typy danych usługi redis] oraz poznaj [piętnastominutowe wprowadzenie do typów danych usługi Redis][piętnastominutowe wprowadzenie do typów danych usługi Redis].
+* Zapoznaj się z dokumentacją dotyczącą usługi [redis][redis], przeczytaj o [typach danych usługi redis][typach danych usługi redis] oraz poznaj [piętnastominutowe wprowadzenie do typów danych usługi Redis][piętnastominutowe wprowadzenie do typów danych usługi Redis].
 
 <!-- INTRA-TOPIC LINKS -->
 [Następne kroki]: #next-steps

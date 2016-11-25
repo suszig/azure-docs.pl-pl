@@ -59,7 +59,7 @@ W poniższej tabeli przedstawiono różnice.
 
 <tr>
 <td><strong>Cena początkowa</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services — cennik</a> <br/><br/>Kalkulator cen platformy Azure:  <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"></a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services — cennik</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Kalkulator cen platformy Azure</a></td>
 </tr>
 <tr>
 <td><strong>Domyślna konfiguracja minimalna</strong></td>
