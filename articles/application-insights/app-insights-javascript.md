@@ -218,7 +218,7 @@ Chcesz dowiedzieć się, w jaki sposób użytkownicy korzystają z aplikacji?
 * [Informacje o interfejsie API do monitorowania niestandardowych zdarzeń i metryk](app-insights-api-custom-events-metrics.md).
 
 #### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> Wideo: Śledzenie użycia
-> [!WIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
+> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
 > 
 > 
 
