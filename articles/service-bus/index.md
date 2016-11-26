@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: bfc1bf3d78099ba04a2621bcec9f870f7f88b122
-ms.openlocfilehash: 3eadd4b9bdb7621965057271f0e1b5e034bdcbf8
+ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
+ms.openlocfilehash: 618c677ea675e6dc8f9dfb41f8e00b66f3f31886
 
 ---
-#<a name="service-bus-documentation"></a>Service Bus Documentation
+#<a name="service-bus-documentation"></a>Dokumentacja usługi Service Bus
 
-Service Bus provides cloud-enabled communication with enterprise messaging and relayed communication that helps you connect on-premises solutions with the cloud. 
+Usługa Service Bus zapewnia komunikację w chmurze z obsługą komunikatów w przedsiębiorstwie i przekazywaniem komunikacji, co ułatwia połączenie rozwiązań lokalnych z chmurą. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -21,7 +21,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Service Bus</h3>
+                        <h3>Dowiedz się więcej o usłudze Azure Service Bus</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Service Bus Video Library</h3>
+                        <h3>Biblioteka wideo usługi Azure Service Bus</h3>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Service Bus using the Azure portal</h3>
+                        <h3>Rozpoczynanie pracy z usługą Service Bus przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Service Bus queues using .NET</h3>
+                        <h3>Rozpoczynanie pracy z kolejkami usługi Service Bus przy użyciu platformy .NET</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Service Bus queues using Java</h3>
+                        <h3>Rozpoczynanie pracy z kolejkami usługi Service Bus przy użyciu języka Java</h3>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Service Bus queues using Node.js</h3>
+                        <h3>Rozpoczynanie pracy z kolejkami usługi Service Bus przy użyciu środowiska Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Service Bus queues using PHP</h3>
+                        <h3>Rozpoczynanie pracy z kolejkami usługi Service Bus przy użyciu języka PHP</h3>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Service Bus queues using Python</h3>
+                        <h3>Rozpoczynanie pracy z kolejkami usługi Service Bus przy użyciu języka Python</h3>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Service Bus queues using Ruby</h3>
+                        <h3>Rozpoczynanie pracy z kolejkami usługi Service Bus przy użyciu języka Ruby</h3>
                     </div>
                 </div>
             </div>
@@ -183,7 +183,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Service Bus queues using REST</h3>
+                        <h3>Rozpoczynanie pracy z kolejkami usługi Service Bus przy użyciu rozwiązania REST</h3>
                     </div>
                 </div>
             </div>
@@ -194,27 +194,63 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
 
 ---
 
-## <a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-### <a name="powershell"></a>PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-### <a name="net"></a>.NET
-[.NET Managed Reference API](/dotnet/api/) 
-
-### <a name="rest"></a>REST 
-[Service Bus REST API Reference](/rest/api/servicebus)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Dokumentacja programu Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Zarządzana dokumentacja dotycząca interfejsu API platformy .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/servicebus">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi Service Bus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
         <div class="img"></div>
         <div class="text">
-Download Service Bus Documentation </div>
+Pobierz dokumentację usługi Service Bus </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

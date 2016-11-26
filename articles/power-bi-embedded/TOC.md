@@ -1,39 +1,39 @@
-# Overview
-## [What is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-## [What's new in Power BI Embedded](power-bi-embedded-whats-new.md)
+# Omówienie
+## [Co to jest usługa Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
+## [Co nowego w usłudze Power BI Embedded](power-bi-embedded-whats-new.md)
 
-# Get started
-## [Get started with Power BI Embedded](power-bi-embedded-get-started.md)
-## [Get started with a sample](power-bi-embedded-get-started-sample.md)
-## [FAQ](power-bi-embedded-faq.md)
+# Rozpoczęcie pracy
+## [Rozpoczynanie pracy z usługą Power BI Embedded](power-bi-embedded-get-started.md)
+## [Rozpoczynanie pracy przy użyciu przykładu](power-bi-embedded-get-started-sample.md)
+## [Często zadawane pytania](power-bi-embedded-faq.md)
 
-# How to
-## Plan and design
-### [Common scenarios](power-bi-embedded-scenarios.md)
+# Instrukcje
+## Planowanie i projektowanie
+### [Typowe scenariusze](power-bi-embedded-scenarios.md)
 
-## Manage
-### [Connect to a data source](power-bi-embedded-connect-datasource.md)
-### [Embed a Power BI report with an IFrame](power-bi-embedded-iframe.md)
-### [Interact with Reports](power-bi-embedded-interact-with-reports.md)
+## Zarządzanie
+### [Łączenie ze źródłem danych](power-bi-embedded-connect-datasource.md)
+### [Osadzanie raportu usługi Power BI przy użyciu elementu IFrame](power-bi-embedded-iframe.md)
+### [Interakcja z raportami](power-bi-embedded-interact-with-reports.md)
 
-## Secure
-### [Authenticating and authorizing](power-bi-embedded-app-token-flow.md)
-### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
+## Bezpieczeństwo
+### [Uwierzytelnianie i autoryzacja](power-bi-embedded-app-token-flow.md)
+### [Zabezpieczenia na poziomie wierszy w usłudze Power BI Embedded](power-bi-embedded-rls.md)
 
-# Reference
-## [PowerShell](/powershell/resourcemanager/)
+# Dokumentacja
+## [Program PowerShell](/powershell/resourcemanager/)
 ## [.NET](/dotnet/api/)
-## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
+## [Zestaw SDK dla platformy .NET do pobrania](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [REST](/rest/api/powerbiembedded/)
 
 
-# Resources
-## [Samples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
-## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+# Zasoby
+## [Przykłady](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Społeczność użytkowników usługi Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

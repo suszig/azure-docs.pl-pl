@@ -1,27 +1,27 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4a2f8753e38d3d7f88b9af9bc588b544f33c0ae4
-ms.openlocfilehash: ab71026ce41ba387092f1de719818c0236173e59
+ms.sourcegitcommit: 1cea7999fcb9ba3d4f0febdac5acb298ec5a489a
+ms.openlocfilehash: 76a07ecf333fec4d7e406a6c6b4dc796058e664b
 
 ---
-# <a name="azure-billing-documentation"></a>Dokumentacja rozliczeń platformy Azure
+# <a name="analysis-services-documentation"></a>Dokumentacja usług Analysis Services
 
-Klienci i partnerzy wymagają możliwości dokładnego przewidywania kosztów związanych z platformą Azure oraz zarządzania nimi. Przenosząc infrastrukturę z obszaru kosztów kapitałowych do obszaru kosztów operacyjnych, potrzebują możliwości wykonania analizy porównawczej kosztów w ujęciu uwzględniającym obciążenia zwrotne oraz bez uwzględniania wzajemnych rozliczeń, jak również wierności trybu szacowania i rozliczeń, szczególnie w przypadku dużych wdrożeń w chmurze.
+Usługi Azure Analysis Services utworzone w oparciu o sprawdzony aparat analityczny usług Microsoft SQL Server Analysis Services udostępniają funkcje modelowania danych w chmurze klasy korporacyjnej.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/analysis-services/analysis-services-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/billing.svg" alt="" />
+                            <img src="media/index/analysis-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Dowiedz się więcej o usłudze Azure Billing</h3>
+                        <h3>Więcej informacji na temat usług Analysis Services</h3>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ Klienci i partnerzy wymagają możliwości dokładnego przewidywania kosztów zw
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/free">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -39,7 +39,7 @@ Klienci i partnerzy wymagają możliwości dokładnego przewidywania kosztów zw
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Załóż bezpłatne konto</h3>
+                        <h3>Biblioteka wideo platformy Azure</h3>
                     </div>
                 </div>
             </div>
@@ -47,38 +47,51 @@ Klienci i partnerzy wymagają możliwości dokładnego przewidywania kosztów zw
         </a>
     </li>
     <li>
-        <a href="/azure/billing-download-azure-invoice-daily-usage-date">
+        <a href="/azure/analysis-services/analysis-services-create-server">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Pobieranie faktur i danych użycia</h3>
+                        <h3>Tworzenie serwera usług Analysis Services</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
+    </li>    
 </ul>
 
 ---
-
 ## <a name="reference"></a>Dokumentacja
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">
+        <a href="/powershell/resourcemanager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Program PowerShell z poleceniami cmdlet usługi Azure Resource Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/analysisservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Dokumentacja interfejsu API REST rozliczeń</p>
+                        <p>Rozwiązanie REST z usługami Azure Analysis Services — informacje o interfejsie API REST</p>
                     </div>
                 </div>
             </div>
@@ -90,12 +103,13 @@ Klienci i partnerzy wymagają możliwości dokładnego przewidywania kosztów zw
 ---
 
 <div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/billing.pdf">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
         <div class="img"></div>
         <div class="text">
-Pobierz dokumentację rozliczeń platformy Azure </div>
+Pobierz dokumentację usług Analysis Services </div>
     </a>
 </div>
+
 
 
 <!--HONumber=Nov16_HO4-->

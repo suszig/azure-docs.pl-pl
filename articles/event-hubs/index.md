@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 69ae7c09af46b933899692e81d60e040a1c02eb5
-ms.openlocfilehash: f7d40ef2fdfbed7ab9be633637aafbfd7963b232
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
 
 ---
-#<a name="event-hubs-documentation"></a>Event Hubs Documentation
+#<a name="event-hubs-documentation"></a>Dokumentacja usługi Event Hubs
 
-Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or any batching or storage adapter.
+Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Usługa Event Hubs działa jako drzwi wejściowe dla potoku zdarzeń. Po pobraniu danych do centrum zdarzeń można je przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub za pomocą adapterów przetwarzania wsadowego i magazynowania.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -21,7 +21,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Event Hubs</h3>
+                        <h3>Informacje o usłudze Azure Event Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Event Hubs Video Library</h3>
+                        <h3>Biblioteka wideo usługi Azure Event Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with the Event Hubs programming guide</h3>
+                        <h3>Wprowadzenie do programowania usługi Event Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Event Hubs using the Azure portal</h3>
+                        <h3>Rozpoczynanie pracy z usługą Event Hubs przy użyciu portalu Azure</h3>
                     </div>
                 </div>
             </div>
@@ -86,29 +86,65 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
 
 ---
 
-##<a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-###<a name="net"></a>.NET
-[.NET Managed Reference](/dotnet/api)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Zarządzana dokumentacja dotycząca platformy .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="amqp"></a>AMQP 
-[AMQP 1.0 protocol guide](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
+<li>
+        <a href="/azure/service-bus-messaging/service-bus-amqp-protocol-guide">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>AMQP</h3>
+                        <p>Przewodnik dotyczący protokołu AMQP 1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[Event Hubs REST API Reference](/rest/api/eventhub)
-
-
+<li>
+        <a href="/rest/api/eventhub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi Event Hubs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
         <div class="img"></div>
         <div class="text">
-Download Event Hubs Documentation </div>
+Pobierz dokumentację usługi Event Hubs </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

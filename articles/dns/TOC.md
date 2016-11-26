@@ -1,56 +1,58 @@
-# Overview
-## [What is Azure DNS?](dns-overview.md)
-## [DNS zones and records](dns-zones-records.md)
+# Omówienie
+## [Co to jest usługa Azure DNS?](dns-overview.md)
+## [Strefy i rekordy DNS](dns-zones-records.md)
 
-# Get Started
+# Wprowadzenie
 
-## [Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [CLI](dns-getstarted-create-dnszone-cli.md)
+## [Tworzenie strefy DNS](dns-getstarted-create-dnszone-portal.md)
+### [Program PowerShell](dns-getstarted-create-dnszone.md)
+### [Interfejs wiersza polecenia](dns-getstarted-create-dnszone-cli.md)
 
-## [Create DNS records](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [CLI](dns-getstarted-create-recordset-cli.md)
+## [Tworzenie rekordów DNS](dns-getstarted-create-recordset-portal.md)
+### [Program PowerShell](dns-getstarted-create-recordset.md)
+### [Interfejs wiersza polecenia](dns-getstarted-create-recordset-cli.md)
 
-## [Delegate your domain to Azure DNS](dns-domain-delegation.md)
+## [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md)
+## [Tworzenie niestandardowych rekordów DNS aplikacji sieci Web](dns-web-sites-custom-domain.md)
 
-# How to
+# Instrukcje
 
-## Manage DNS zones
-### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones.md)
+## Zarządzanie strefami DNS
+### [Program PowerShell](dns-operations-dnszones.md)
+### [Interfejs wiersza polecenia](dns-operations-dnszones-cli.md)
 
-## [Manage DNS records](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
-### [CLI](dns-operations-recordsets-cli.md)
+## [Zarządzanie rekordami DNS](dns-operations-recordsets-portal.md)
+### [Program PowerShell](dns-operations-recordsets.md)
+### [Interfejs wiersza polecenia](dns-operations-recordsets-cli.md)
 
-## [Manage reverse DNS records](dns-reverse-dns-record-operations-ps.md)
-### [CLI](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## [Zarządzanie rekordami odwrotnego systemu DNS](dns-reverse-dns-record-operations-ps.md)
+### [Interfejs wiersza polecenia](dns-reverse-dns-record-operations-cli.md)
+### [Program PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
-## [Import and export a DNS zone file](dns-import-export.md)
-## [Using Azure DNS with other Azure services](dns-for-azure-services.md)
-## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
-## [Automate DNS operations with the .NET SDK](dns-sdk.md)
+## [Importowanie i eksportowanie pliku strefy systemu DNS](dns-import-export.md)
+## [Integracja z innymi usługami platformy Azure](dns-for-azure-services.md)
+## [Ochrona stref i rekordów DNS](dns-protect-zones-recordsets.md)
+## [Automatyzowanie operacji systemu DNS przy użyciu zestawu .NET SDK](dns-sdk.md)
 
-# Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [REST APIs](/rest/api/dns/)
+# Dokumentacja
+## [Program PowerShell](/powershell/azureps-cmdlets-docs)
+## [Interfejsy API REST](/rest/api/dns/)
 
-# Related
+# Powiązane
 ## [Application Gateway](/azure/application-gateway/)
 ## [Virtual Network](/azure/virtual-network/)
-## [Virtual Machine](/azure/virtual-machines/)
+## [Maszyna wirtualna](/azure/virtual-machines/)
 ## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Web apps](/azure/app-service-web/)
+## [Aplikacje sieci Web](/azure/app-service-web/)
 
-# Resources
-## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
-## [Networking forum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Pricing](https://azure.microsoft.com/pricing/details/dns/)
+# Zasoby
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=dns)
+## [Cennik](https://azure.microsoft.com/pricing/details/dns/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

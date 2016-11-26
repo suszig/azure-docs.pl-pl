@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
 ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
 
 
@@ -27,22 +27,22 @@ Pakiet OMS dostarcza wartościowych usług, a ponadto można go zintegrować ze 
 
 Poniższe sekcje zawierają ogólny opis różnych obszarów wartości pakietu OMS i usług, które je implementują.  Przed zapoznaniem się ze szczegółową dokumentacją każdego składnika pakietu OMS można skorzystać z omówienia architektury pakietu OMS.
 
-## <a name="insight-and-analyticsmediaoperationsmanagementsuiteoverviewiconinsightanalyticspng-insight-and-analytics"></a>![Wgląd w dane i analizy](media/operations-management-suite-overview/icon-insight-analytics.png) Wgląd w dane i analizy
+## <a name="insight-and-analyticsmediaoperations-management-suite-overviewicon-insight-analyticspng-insight-and-analytics"></a>![Wgląd w dane i analizy](media/operations-management-suite-overview/icon-insight-analytics.png) Wgląd w dane i analizy
 [Usługa Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) pomaga w zbieraniu, korelowaniu i wyszukiwaniu danych dziennika i danych wydajnościowych wygenerowanych przez systemy operacyjne i aplikacje, a także podejmowaniu odpowiednich działań na podstawie tych danych. Udostępnia informacje operacyjne w czasie rzeczywistym przy użyciu zintegrowanego wyszukiwania i niestandardowych pulpitów nawigacyjnych, umożliwiając łatwe analizowanie milionów rekordów dla wszystkich obciążeń i serwerów, niezależnie od ich lokalizacji fizycznej.
 
 Do usługi Log Analytics można łatwo dodawać rozwiązania definiujące dane, które mają być zbierane, i logikę ich analizy.  Rozwiązania mogą zawierać dodatkową funkcjonalność, która jest automatycznie dostarczana do agentów po wykonaniu minimalnej konfiguracji lub bez konfiguracji.  Oprócz używania narzędzi analizy dostarczonych przez indywidualne rozwiązania można wykonywać niestandardowe wyszukiwania w całym zestawie danych w celu skorelowania danych między systemami i aplikacjami.  
 
-## <a name="automation-controlmediaoperationsmanagementsuiteoverviewiconautomationcontrolpng-automation-control"></a>![Automatyzacja i kontrola](media/operations-management-suite-overview/icon-automation-control.png) Automatyzacja i kontrola
+## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Automatyzacja i kontrola](media/operations-management-suite-overview/icon-automation-control.png) Automatyzacja i kontrola
 Usługa Azure Automation pozwala automatyzować procesy administracyjne za pomocą opartych na programie PowerShell elementów [Runbook](../automation/automation-runbook-types.md), które działają w chmurze Azure.  Elementy Runbook mają dostęp do dowolnego produktu lub usługi, którymi można zarządzać za pomocą programu PowerShell, w tym do zasobów znajdujących się w innych chmurach, jak Amazon Web Services (AWS).  Elementy Runbook mogą być również wykonywane na serwerze w lokalnym centrum danych w celu zarządzania zasobami lokalnymi.
 
 Usługa Azure Automation udostępnia funkcję zarządzania konfiguracją za pomocą programu [PowerShell DSC](../automation/automation-dsc-overview.md).  Można tworzyć zasoby DSC hostowane na platformie Azure i nimi zarządzać oraz stosować je w systemach chmurowych i lokalnych w celu definiowania i automatycznego wymuszania ich konfiguracji.
 
-## <a name="protection-and-recoverymediaoperationsmanagementsuiteoverviewiconprotectionrecoverypng-protection-and-disaster-recovery"></a>![Ochrona i odzyskiwanie](media/operations-management-suite-overview/icon-protection-recovery.png) Ochrona i odzyskiwanie po awarii
+## <a name="protection-and-recoverymediaoperations-management-suite-overviewicon-protection-recoverypng-protection-and-disaster-recovery"></a>![Ochrona i odzyskiwanie](media/operations-management-suite-overview/icon-protection-recovery.png) Ochrona i odzyskiwanie po awarii
 Usługa [Azure Backup](http://azure.microsoft.com/documentation/services/backup) chroni dane aplikacji i przechowuje je przez wiele lat bez konieczności ponoszenia jakichkolwiek inwestycji kapitałowych i przy minimalnych kosztach operacyjnych.  Poza tworzeniem kopii zapasowych z obciążeń aplikacji, takich jak SQL Server i SharePoint, może także tworzyć kopie zapasowe danych z fizycznych i wirtualnych serwerów z systemem Windows.  Może również być wykorzystywana przez program System Center Data Protection Manager (DPM) do replikacji chronionych danych na platformę Azure w celu uzyskania nadmiarowości i długoterminowego przechowywania.
 
 Usługa [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) przyczynia się do realizacji strategii ciągłości biznesowej i odzyskiwania po awarii (BCDR, business continuity and disaster recovery) poprzez organizowanie replikacji, pracy w trybie failover i odzyskiwania danych w odniesieniu do lokalnych maszyn wirtualnych funkcji Hyper-V, maszyn wirtualnych VMware oraz serwerów fizycznych z systemem Windows lub Linux. Można replikować maszyny do dodatkowego centrum danych lub rozszerzyć centrum danych przez replikowanie ich na platformę Azure. Usługa Site Recovery udostępnia także prosty tryb failover oraz odzyskiwanie dla obciążeń. Integruje się z mechanizmami odzyskiwania po awarii, takimi jak SQL Server AlwaysOn, i udostępnia plany odzyskiwania w celu zapewnienia łatwego trybu failover dla obciążeń, które są rozmieszczone warstwowo na różnych maszynach.
 
-## <a name="oms-security-and-compliancemediaoperationsmanagementsuiteoverviewiconsecuritycompliancepng-security-and-compliance"></a>![Zabezpieczenia i zgodność w ramach pakietu OMS](media/operations-management-suite-overview/icon-security-compliance.png) Zabezpieczenia i zgodność
+## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![Zabezpieczenia i zgodność w ramach pakietu OMS](media/operations-management-suite-overview/icon-security-compliance.png) Zabezpieczenia i zgodność
 Usługa zabezpieczeń i zgodności pomaga zidentyfikować, oszacować i ograniczyć zagrożenia bezpieczeństwa dotyczące infrastruktury.  Te funkcje oprogramowania OMS są implementowane za pomocą wielu rozwiązań w usłudze Log Analytics, która analizuje dane dziennika i konfiguracji z systemów agentów, aby pomóc w zapewnieniu bezpieczeństwa środowiska użytkownika.
 
 * [Rozwiązanie zabezpieczeń i inspekcji](oms-security-getting-started.md) zbiera i analizuje zdarzenia zabezpieczeń w zarządzanych systemach w celu identyfikacji podejrzanych działań.
@@ -58,6 +58,6 @@ Usługa zabezpieczeń i zgodności pomaga zidentyfikować, oszacować i ogranicz
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

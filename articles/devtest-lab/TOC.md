@@ -1,38 +1,40 @@
-# Overview
-## [What is DevTest Labs?](devtest-lab-overview.md)
-## [Why DevTest Labs?](devtest-lab-why.md)
-## [DevTest Labs concepts](devtest-lab-concepts.md)
+# Omówienie
+## [Co to jest usługa DevTest Labs?](devtest-lab-overview.md)
+## [Dlaczego usługa DevTest Labs?](devtest-lab-why.md)
+## [DevTest Labs — pojęcia](devtest-lab-concepts.md)
 
-# Get Started
-## [Create a lab](devtest-lab-create-lab.md)
-## [Create VM artifacts](devtest-lab-add-vm-with-artifacts.md)
-## [Create a lab for training](devtest-lab-training-lab.md)
-## [FAQ](devtest-lab-faq.md)
+# Wprowadzenie
+## [Tworzenie laboratorium](devtest-lab-create-lab.md)
+## [Tworzenie artefaktów maszyny wirtualnej](devtest-lab-add-vm-with-artifacts.md)
+## [Tworzenie laboratorium na potrzeby szkolenia](devtest-lab-training-lab.md)
+## [Często zadawane pytania](devtest-lab-faq.md)
 
-# How To
-## Manage Labs
-### [Add lab owners and users](devtest-lab-add-devtest-user.md)
-### [Define lab policies](devtest-lab-set-lab-policy.md)
-### [Grant permissions to policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
-### [Configure cost management](devtest-lab-configure-cost-management.md)
-### [Configure virtual networks](devtest-lab-configure-vnet.md)
+# Instrukcje
+## Zarządzanie laboratoriami
+### [Dodawanie właścicieli i użytkowników laboratorium](devtest-lab-add-devtest-user.md)
+### [Definiowanie zasad laboratorium](devtest-lab-set-lab-policy.md)
+### [Nadawanie uprawnień zasadom](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
+### [Konfigurowanie zarządzania kosztami](devtest-lab-configure-cost-management.md)
+### [Konfigurowanie sieci wirtualnych](devtest-lab-configure-vnet.md)
 
-## Manage Artifacts
-### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
-### [Create custom artifacts](devtest-lab-artifact-author.md)
+## Zarządzanie artefaktami
+### [Dodawanie repozytorium artefaktów](devtest-lab-add-artifact-repo.md)
+### [Tworzenie niestandardowych artefaktów](devtest-lab-artifact-author.md)
 
-## Manage VM bases
-### [Create custom image](devtest-lab-create-template.md)
-### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
-### [Manage formulas](devtest-lab-manage-formulas.md)
-### [Comparing images versus formulas](devtest-lab-comparing-vm-base-image-types.md)
+## Zarządzanie bazami maszyn wirtualnych
+### [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md)
+### [Konfigurowanie obrazów z portalu Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Zarządzanie formułami](devtest-lab-manage-formulas.md)
+### [Porównywanie obrazów i formuł](devtest-lab-comparing-vm-base-image-types.md)
 
-# Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=devtest-lab&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+# Zasoby
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=devtest-lab)
+## [Cennik](https://azure.microsoft.com/pricing/details/devtest-lab/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

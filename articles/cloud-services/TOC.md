@@ -1,121 +1,121 @@
-# Overview
-## [What is Cloud Services?](cloud-services-choose-me.md)
-## [Cloud service config files and packaging](cloud-services-model-and-package.md)
+# Omówienie
+## [Co to jest Cloud Services?](cloud-services-choose-me.md)
+## [Pliki konfiguracji usługi Cloud Service i tworzenie pakietów](cloud-services-model-and-package.md)
 
-# Get Started
-## [Example .NET Cloud Service](cloud-services-dotnet-get-started.md)
-## [Example Python for Visual Studio Cloud Service](cloud-services-python-ptvs.md)
-## [Set up a hybrid HPC cluster with Microsoft HPC Pack](cloud-services-setup-hybrid-hpcpack-cluster.md)
+# Wprowadzenie
+## [Przykładowa usługa Cloud Service — .NET](cloud-services-dotnet-get-started.md)
+## [Przykładowy kod w języku Python dla usługi w chmurze w programie Visual Studio](cloud-services-python-ptvs.md)
+## [Konfigurowanie hybrydowego klastra HPC za pomocą pakietu Microsoft HPC Pack](cloud-services-setup-hybrid-hpcpack-cluster.md)
 
-# How To
-## Plan
-### [Virtual machine sizes](cloud-services-sizes-specs.md)
-### [Updates](cloud-services-update-azure-service.md)
+# Instrukcje
+## Planowanie
+### [Rozmiary maszyn wirtualnych](cloud-services-sizes-specs.md)
+### [Aktualizacje](cloud-services-update-azure-service.md)
 
-## Develop
-### [Create PHP web and worker roles](../cloud-services-php-create-web-role.md)
-### [Build and deploy a Node.js application](cloud-services-nodejs-develop-deploy-app.md)
-### [Build a Node.js web application using Express](cloud-services-nodejs-develop-deploy-express-app.md)
-### Storage and Visual Studio
-#### [Blob storage and connected services](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue storage and connected services](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table storage and connected services](../storage/vs-storage-cloud-services-getting-started-tables.md)
-### Configure packages for continuous build and deploy
-#### [Visual Studio Team Services and Git](cloud-services-continuous-delivery-use-vso-git.md)
+## Programowanie
+### [PHP — tworzenie roli Sieć Web i roli Proces roboczy](../cloud-services-php-create-web-role.md)
+### [Tworzenie i wdrażanie aplikacji Node.js](cloud-services-nodejs-develop-deploy-app.md)
+### [Tworzenie aplikacji sieci Web Node.js za pomocą usługi Express](cloud-services-nodejs-develop-deploy-express-app.md)
+### Storage i Visual Studio
+#### [Magazyn obiektów blob i połączone usługi](../storage/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Magazyn kolejek i połączone usługi](../storage/vs-storage-cloud-services-getting-started-queues.md)
+#### [Magazyn tabel i połączone usługi](../storage/vs-storage-cloud-services-getting-started-tables.md)
+### Konfigurowanie pakietów dla kompilacji ciągłej i wdrażania
+#### [Visual Studio Team Services i Git](cloud-services-continuous-delivery-use-vso-git.md)
 #### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
-#### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
-### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
-### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
-### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
-### [Use Twilio to make a phone call (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
+#### [TFS i Team Build](cloud-services-dotnet-continuous-delivery.md)
+### [Konfigurowanie reguł ruchu dla roli](cloud-services-enable-communication-role-instances.md)
+### [Obsługa zdarzeń cyklu życia usługi w chmurze](cloud-services-role-lifecycle-dotnet.md)
+### [Biblioteka Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
+### [Nawiązywanie połączenia telefonicznego za pomocą usługi Twilio (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
 ### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
-### Configure start up tasks
-#### [Create startup tasks](cloud-services-startup-tasks.md)
-#### [Common startup tasks](cloud-services-startup-tasks-common.md)
-#### [Use a task to Install .NET on a Cloud Service role](cloud-services-dotnet-install-dotnet.md)
+### Konfigurowanie zadań uruchamiania
+#### [Tworzenie zadań uruchamiania](cloud-services-startup-tasks.md)
+#### [Popularne zadania uruchamiania](cloud-services-startup-tasks-common.md)
+#### [Instalowanie programu .NET w roli usługi w chmurze przy użyciu zadania](cloud-services-dotnet-install-dotnet.md)
 
-### Configure Remote Desktop
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
+### Konfigurowanie pulpitu zdalnego
+#### [Program Visual Studio](cloud-services-role-enable-remote-desktop.md)
 #### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Program PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
-## Deploy
-### Create and deploy a cloud service in portal
+## Wdrożenie
+### Tworzenie i wdrażanie usługi w chmurze w portalu
 #### [Portal](cloud-services-how-to-create-deploy-portal.md)
-#### [Classic portal](cloud-services-how-to-create-deploy.md)
-### [Create an empty cloud service container in PowerShell](cloud-services-powershell-create-cloud-container.md)
-### Configure a custom domain name
+#### [Portal klasyczny](cloud-services-how-to-create-deploy.md)
+### [Tworzenie pustego kontenera usługi w chmurze w programie PowerShell](cloud-services-powershell-create-cloud-container.md)
+### Konfigurowanie niestandardowej nazwy domeny
 #### [Portal](cloud-services-custom-domain-name-portal.md)
-#### [Classic portal](cloud-services-custom-domain-name.md)
-### [Stage a cloud service deployment (Node.js)](cloud-services-nodejs-stage-application.md)
-### [Connect to a custom Domain Controller](cloud-services-connect-to-custom-domain.md)
+#### [Portal klasyczny](cloud-services-custom-domain-name.md)
+### [Testowanie wdrażania usługi w chmurze (Node.js)](cloud-services-nodejs-stage-application.md)
+### [Połączenie z niestandardowym kontrolerem domeny](cloud-services-connect-to-custom-domain.md)
 
-## Manage service
-### Common management tasks
+## Zarządzanie usługą
+### Typowe zadania zarządzania
 #### [Portal](cloud-services-how-to-manage-portal.md)
-#### [Classic portal](cloud-services-how-to-manage.md)
-### Configure Cloud Service
+#### [Portal klasyczny](cloud-services-how-to-manage.md)
+### Konfigurowanie usługi w chmurze
 #### [Portal](cloud-services-how-to-configure-portal.md)
-#### [Classic portal](cloud-services-how-to-configure.md)
-### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)
-### Configure automatic scaling
+#### [Portal klasyczny](cloud-services-how-to-configure.md)
+### [Zarządzanie usługą w chmurze przy użyciu usługi Azure Automation](automation-manage-cloud-services.md)
+### Konfigurowanie automatycznego skalowania
 #### [Portal](cloud-services-how-to-scale-portal.md)
-#### [Classic portal](cloud-services-how-to-scale.md)
-### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
+#### [Portal klasyczny](cloud-services-how-to-scale.md)
+### [Zarządzanie zasobami platformy Azure przy użyciu języka Python](cloud-services-python-how-to-use-service-management.md)
 
-## Manage certificates
-### [Cloud Services and management certificates](cloud-services-certs-create.md)
-### Configure SSL 
+## Zarządzanie certyfikatami
+### [Certyfikaty usług w chmurze i zarządzania](cloud-services-certs-create.md)
+### Konfigurowanie protokołu SSL 
 #### [Portal](cloud-services-configure-ssl-certificate-portal.md)
-#### [Classic portal](cloud-services-configure-ssl-certificate.md)
+#### [Portal klasyczny](cloud-services-configure-ssl-certificate.md)
 
-## Monitor
-### [Monitor cloud service](cloud-services-how-to-monitor.md)
-### [Test performance](../vs-azure-tools-performance-profiling-cloud-services.md)
-#### [Test with Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
-### Enable diagnostics
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+## Monitorowanie
+### [Monitorowanie usługi w chmurze](cloud-services-how-to-monitor.md)
+### [Testowanie wydajności](../vs-azure-tools-performance-profiling-cloud-services.md)
+#### [Testowanie przy użyciu programu Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
+### Włączanie diagnostyki
+#### [Program PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
-#### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Use performance counters in Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
-### [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
-### [Trace Cloud Service with Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Send diagnostic data to App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
+#### [Program Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+### [Używanie liczników wydajności w usłudze Diagnostyka Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
+### [Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
+### [Śledzenie usługi w chmurze przy użyciu usługi Diagnostyka](cloud-services-dotnet-diagnostics-trace-flow.md)
+### [Wysyłanie danych diagnostycznych do usługi App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
-## Troubleshoot
-### Debug 
-#### [Enable remote debugging with cont. delivery](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
-#### [Options for a Cloud Service](../vs-azure-tools-debugging-cloud-services-overview.md)
-#### [Local Cloud Service with Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
-#### [Published Cloud Service with Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
-### [Cloud Service allocation failure](cloud-services-allocation-failures.md)
-### [Common causes of Cloud Service roles recycling](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
-### [Default TEMP folder size too small for role](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)
-### [Common deployment problems](cloud-services-troubleshoot-deployment-problems.md)
-### [Role failed to start](cloud-services-troubleshoot-roles-that-fail-start.md)
-### [Recovery guidance](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services FAQ](cloud-services-faq.md)
+## Rozwiązywanie problemów
+### Debugowanie 
+#### [Włączanie debugowania zdalnego z dostarczaniem ciągłym](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
+#### [Opcje dla usługi w chmurze](../vs-azure-tools-debugging-cloud-services-overview.md)
+#### [Lokalna usługa w chmurze przy użyciu programu Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
+#### [Opublikowana usługa w chmurze przy użyciu programu Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
+### [Niepowodzenie alokacji usługi w chmurze](cloud-services-allocation-failures.md)
+### [Typowe przyczyny powtarzania cykli ról usługi w chmurze](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
+### [Domyślny rozmiar folderu TEMP jest zbyt mały dla roli](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)
+### [Typowe problemy z wdrażaniem](cloud-services-troubleshoot-deployment-problems.md)
+### [Nie można uruchomić roli](cloud-services-troubleshoot-roles-that-fail-start.md)
+### [Wskazówki dotyczące odzyskiwania](cloud-services-disaster-recovery-guidance.md)
+### [Cloud Services — często zadawane pytania](cloud-services-faq.md)
 
-# Reference
-## [.NET](https://msdn.microsoft.com/library)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
-## [Guest OS patches](cloud-services-guestos-msrc-releases.md)
-## Guest OS retirement
-### [Retirement policy](cloud-services-guestos-retirement-policy.md)
-### [Family 1 retirement notice](cloud-services-guestos-family1-retirement.md)
-## [Guest OS release news](cloud-services-guestos-update-matrix.md)
-## [Cloud Services Role config XPath cheat sheet](cloud-services-role-config-xpath.md)
+# Dokumentacja
+## [Schemat XML .csdef](https://msdn.microsoft.com/library/azure/ee758711)
+## [Schemat XML .cscfg](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](https://msdn.microsoft.com/library/azure/ee460812)
+## [Poprawki systemu operacyjnego gościa](cloud-services-guestos-msrc-releases.md)
+## Wycofanie systemu operacyjnego gościa
+### [Zasady wycofywania](cloud-services-guestos-retirement-policy.md)
+### [Powiadomienie o wycofaniu rodziny 1](cloud-services-guestos-family1-retirement.md)
+## [Informacje o nowych wersjach systemu operacyjnego gościa](cloud-services-guestos-update-matrix.md)
+## [Konfiguracja roli usług Cloud Services (XPath) — ściągawka](cloud-services-role-config-xpath.md)
 
-# Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+# Zasoby
+## [Cennik](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

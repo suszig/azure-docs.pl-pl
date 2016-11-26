@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 1b5f6156de634d3e32dd848518d4433a5d2e4b5c
-ms.openlocfilehash: 050d31a70a7dddff1f840235002f9b233dee9059
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 1513c4d2b658efff20095a293cec2a9687ebeabf
 
 ---
-#<a name="azure-hdinsight-documentation"></a>Azure HDInsight Documentation
+#<a name="azure-hdinsight-documentation"></a>Dokumentacja usługi Azure HDInsight
 
-Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HDInsight makes the Hadoop components from the Hortonworks Data Platform (HDP) distribution available in the cloud, and deploys and provisions managed clusters with reliability and availability.  Azure HDInsight provides cluster configurations for Apache Hadoop, Spark, HBase, and Storm.  You can also use custom clusters with script actions.  
+Usługa Azure HDInsight to dystrybucja usługi Apache Hadoop obsługiwana przez chmurę.  Usługa Azure HDInsight udostępnia w chmurze składniki platformy Hadoop z dystrybucji Hortonworks Data Platform (HDP) oraz wdraża i obsługuje klastry zarządzane o wysokiej niezawodności i dostępności.  Usługa Azure HDInsight zapewnia konfiguracje klastrów dla technologii Apache Hadoop, Spark, HBase i Storm.  Można też dostosowywać klastry za pomocą akcji skryptów.  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -21,7 +21,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure HDInsight</h3>
+                        <h3>Dowiedz się więcej o usłudze Azure HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure HDInsight Video Library</h3>
+                        <h3>Biblioteka wideo usługi Azure HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using a Linux-based Hadoop cluster</h3>
+                        <h3>Rozpoczynanie pracy z usługą HDInsight przy użyciu klastra Hadoop opartego na systemie Linux</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using a Spark cluster with R Server</h3>
+                        <h3>Rozpoczynanie pracy z usługą HDInsight przy użyciu klastra Spark z programem R Server</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using an HBase cluster</h3>
+                        <h3>Rozpoczynanie pracy z usługą HDInsight przy użyciu klastra HBase</h3>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using an Apache Storm cluster</h3>
+                        <h3>Rozpoczynanie pracy z usługą HDInsight przy użyciu klastra Apache Storm</h3>
                     </div>
                 </div>
             </div>
@@ -123,28 +123,76 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
 
 ---
 
-##<a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Dokumentacja programu Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[HDInsight REST API Reference](/rest/api/hdinsight)
-[Spark for HDInsight REST API Reference](/rest/api/hdinsightspark)
+ <li>
+        <a href="/rest/api/hdinsight">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi HDInsight</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+         <a href="/rest/api/hdinsightspark">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Dokumentacja interfejsu API REST usługi Spark dla usługi HDInsight</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET
-[HDInsight Managed Reference](https://msdn.microsoft.com/library/azure/mt271028)
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt271028">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Dokumentacja zarządzana usługi HDInsight</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
         <div class="img"></div>
         <div class="text">
-Download HDInsight Documentation </div>
+Pobierz dokumentację usługi HDInsight </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

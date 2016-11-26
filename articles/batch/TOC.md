@@ -1,53 +1,53 @@
-# Overview
-## [What is Azure Batch](batch-technical-overview.md)
-## [Feature overview](batch-api-basics.md)
-## [Quotas and limits](batch-quota-limit.md)
-# Get Started
-## [Create a Batch account](batch-account-create-portal.md)
-## [Batch .NET tutorial](batch-dotnet-get-started.md)
-## [Batch Python tutorial](batch-python-tutorial.md)
-# How To
-## Develop
-### [Application packages](batch-application-packages.md)
-### [Autoscale compute nodes](batch-automatic-scaling.md)
-### [Concurrent node tasks](batch-parallel-node-tasks.md)
-### [Efficient list queries](batch-efficient-list-queries.md)
-### [Job preparation and completion tasks](batch-job-prep-release.md)
-### [Linux compute nodes](batch-linux-nodes.md)
-### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
-### [Persist job and task output](batch-task-output.md)
-### [Run MPI jobs in Batch](batch-mpi.md)
-### [Task dependencies](batch-task-dependencies.md)
-### [Visual Studio project templates for Batch](batch-visual-studio-templates.md)
-## Manage
-### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-### [Azure CLI](batch-cli-get-started.md)
-### [Batch diagnostic logs](batch-diagnostics.md)
+# Omówienie
+## [Co to jest Azure Batch?](batch-technical-overview.md)
+## [Omówienie funkcji](batch-api-basics.md)
+## [Limity przydziału i ograniczenia](batch-quota-limit.md)
+# Wprowadzenie
+## [Tworzenie konta usługi Batch](batch-account-create-portal.md)
+## [Samouczek platformy .NET dla usługi Batch](batch-dotnet-get-started.md)
+## [Samouczek języka Python dla usługi Batch](batch-python-tutorial.md)
+# Instrukcje
+## Programowanie
+### [Pakiety aplikacji](batch-application-packages.md)
+### [Automatyczne skalowanie węzłów obliczeniowych](batch-automatic-scaling.md)
+### [Równoczesne zadania w węzłach](batch-parallel-node-tasks.md)
+### [Wydajne zapytania dotyczące list](batch-efficient-list-queries.md)
+### [Zadania związane z przygotowywaniem i kończeniem prac](batch-job-prep-release.md)
+### [Węzły obliczeniowe z systemem Linux](batch-linux-nodes.md)
+### [Zarządzanie kontami usługi Batch przy użyciu funkcji zarządzania partiami platformy .NET](batch-management-dotnet.md)
+### [Utrwalanie danych wyjściowych zadań i zadań podrzędnych](batch-task-output.md)
+### [Uruchamianie zadań MPI w usłudze Batch](batch-mpi.md)
+### [Zależności zadań podrzędnych](batch-task-dependencies.md)
+### [Szablony projektu programu Visual Studio dla usługi Batch](batch-visual-studio-templates.md)
+## Zarządzaj
+### [Polecenia cmdlet programu PowerShell usługi Batch](batch-powershell-cmdlets-get-started.md)
+### [Interfejs wiersza polecenia platformy Azure](batch-cli-get-started.md)
+### [Dzienniki diagnostyczne usługi Batch](batch-diagnostics.md)
 
-# Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+# Dokumentacja
+## [Polecenia cmdlet programu PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
 ## [Java](https://docs.microsoft.com/java/api)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
-## [Python SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [Interfejs API .NET](https://docs.microsoft.com/dotnet/api)
+## [Zestaw SDK dla języka Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
 ## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
 ## [REST](https://docs.microsoft.com/rest/api/batchservice/)
 
-# Related
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
-## [Big Compute in Azure: technical resources](big-compute-resources.md)
+# Powiązane
+## [Usługa Batch Shipyard](https://github.com/Azure/batch-shipyard)
+## [Rozwiązania usługi Batch i HPC w chmurze Azure](batch-hpc-solutions.md)
+## [Duże obliczenia na platformie Azure: zasoby techniczne](big-compute-resources.md)
 
-# Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+# Zasoby
+## [Cennik](https://azure.microsoft.com/pricing/details/batch/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Batch C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Batch Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=batch)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [Przykłady kodu języka C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Przykłady kodu języka Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

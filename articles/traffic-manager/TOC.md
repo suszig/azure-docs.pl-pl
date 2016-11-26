@@ -1,43 +1,45 @@
-# Overview
-## [What is Traffic Manager?](traffic-manager-overview.md)
-## [How Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
-## [Traffic Manager endpoints](traffic-manager-endpoint-types.md)
-## [Traffic Manager endpoint monitoring and failover](traffic-manager-monitoring.md)
-## [Traffic routing methods](traffic-manager-routing-methods.md)
-## [Nested profiles](traffic-manager-nested-profiles.md)
-## [Performance considerations for Traffic Manager](traffic-manager-performance-considerations.md)
-## [Azure Resource Manager support](traffic-manager-powershell-arm.md)
+# Omówienie
+## [Co to jest usługa Traffic Manager?](traffic-manager-overview.md)
+## [Jak działa usługa Traffic Manager](traffic-manager-how-traffic-manager-works.md)
+## [Punkty końcowe usługi Traffic Manager](traffic-manager-endpoint-types.md)
+## [Monitorowanie i przełączanie w tryb failover punktu końcowego usługi Traffic Manager](traffic-manager-monitoring.md)
+## [Metody routingu ruchu](traffic-manager-routing-methods.md)
+## [Profile zagnieżdżone](traffic-manager-nested-profiles.md)
+## [Zagadnienia związane z wydajnością w usłudze Traffic Manager](traffic-manager-performance-considerations.md)
+## [Obsługa usługi Azure Resource Manager](traffic-manager-powershell-arm.md)
 
-# Get Started
-## [Manage endpoints](traffic-manager-manage-endpoints.md)
-## [Manage profiles](traffic-manager-manage-profiles.md)
-## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
+# Wprowadzenie
+## [Zarządzanie punktami końcowymi](traffic-manager-manage-endpoints.md)
+## [Zarządzanie profilami](traffic-manager-manage-profiles.md)
+## [Wskazywanie usługi Traffic Manager dla domeny internetowej](traffic-manager-point-internet-domain.md)
 
-# How To
-## [Configure a routing method](traffic-manager-configure-routing-method.md)
-## [Test your settings](traffic-manager-testing-settings.md)
-## [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
-## [Use network resources](../virtual-network/resource-groups-networking.md)
+# Instrukcje
+## [Konfigurowanie metody routingu](traffic-manager-configure-routing-method.md)
+## [Testowanie ustawień](traffic-manager-testing-settings.md)
+## [Rozwiązywanie problemów z punktem końcowym o obniżonym poziomie](traffic-manager-troubleshooting-degraded.md)
+## [Łączenie usług równoważenia obciążenia](traffic-manager-load-balancing-azure.md)
+## [Korzystanie z zasobów sieciowych](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
-# Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell (classic)](/powershell/servicemanagement/)
+# Dokumentacja
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell (klasyczny)](/powershell/servicemanagement/)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
-# Related
+# Powiązane
 ## [Application Gateway](/azure/application-gateway/)
-## [Load Balancer](/azure/load-balancer/)
-## [Azure DNS](/azure/dns/)
+## [Moduł równoważenia obciążenia](/azure/load-balancer/)
+## [System DNS platformy Azure](/azure/dns/)
 
-# Resources
-##[Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
+# Zasoby
+## [Cennik](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Limity usługi](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Service updates](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,6 +1,6 @@
 # Omówienie
 ## [Co to jest Application Insights?](app-insights-overview.md)
-## [Jak to działa](app-insights-detect-triage-diagnose.md)
+## [Monitorowanie wydajności w cyklu strategii devOps](app-insights-detect-triage-diagnose.md)
 
 # Rozpoczęcie pracy
 ## Monitorowanie platformy Azure
@@ -62,9 +62,9 @@
 #### [Dostępność](app-insights-monitor-web-app-availability.md)
 #### [Alerty metryki](app-insights-alerts.md)
 
-### [Inteligentne wykrywanie](app-insights-proactive-diagnostics.md)
-#### [Wykrywanie błędów](app-insights-proactive-failure-diagnostics.md)
-#### [Wykrywanie anomalii](app-insights-proactive-performance-diagnostics.md)
+### [Wykrywanie inteligentne](app-insights-proactive-diagnostics.md)
+#### [Anomalie błędów](app-insights-proactive-failure-diagnostics.md)
+#### [Anomalie wydajności](app-insights-proactive-performance-diagnostics.md)
 
 ## Analiza
 
@@ -128,10 +128,10 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Dokumentacja
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Interfejs API języka Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [Interfejs API .NET](https://docs.microsoft.com/dotnet/api)
 ## [Interfejs API języka JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analiza](app-insights-analytics-reference.md)
+## [Dokumentacja usługi analizy](app-insights-analytics-reference.md)
 ## [Próbkowanie](app-insights-sampling.md)
 ## [Adresy IP](app-insights-ip-addresses.md)
 ## [Plik ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
@@ -145,18 +145,18 @@
 ## [Informacje o wersji zestawu SDK usługi Application Insights dla systemu Windows Phone i Sklepu Windows](app-insights-release-notes-windows.md)
 ## [Informacje o wersji narzędzi Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Informacje o wersji zestawu SDK — usługa Application Insights](app-insights-release-notes.md)
-## [Interfejs API REST](https://dev.applicationinsights.io/)
+## [Interfejs API REST dostępu do danych](https://dev.applicationinsights.io/)
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
-## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
 ## [Aktualizacje usług](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
 ## [Pomoc techniczna](app-insights-get-dev-support.md)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

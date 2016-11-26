@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
-ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
 
 ---
-#<a name="iot-hub-documentation"></a>IoT Hub Documentation
+#<a name="iot-hub-documentation"></a>Dokumentacja usługi IoT Hub
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  It also provides extensive monitoring for device connectivity and includes device libraries for most popular languages and platforms. 
+Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między milionami urządzeń IoT i zapleczem rozwiązania.  Usługa zapewnia również rozbudowane monitorowanie łączności między urządzeniami i zawiera biblioteki dla najbardziej popularnych języków i platform. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -21,7 +21,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure IoT Hub</h3>
+                        <h3>Dowiedz się więcej o usłudze Azure IoT Hub</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure IoT Hub Video Library</h3>
+                        <h3>Biblioteka wideo usługi Azure IoT Hub</h3>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using .NET</h3>
+                        <h3>Rozpoczynanie pracy z usługą IoT Hub w środowisku .NET</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Java</h3>
+                        <h3>Rozpoczynanie pracy z usługą IoT Hub przy użyciu języka Java</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Node.js</h3>
+                        <h3>Rozpoczynanie pracy z usługą IoT Hub w środowisku Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -104,31 +104,80 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 
 ---
 
-##<a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-###<a name="azure-cli"></a>Azure CLI 
-[IoT HUB with Azure CLI](/cli/azure/iot)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/iot">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
+                        <p>Usługa IoT HUB z interfejsem wiersza polecenia platformy Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET 
-[.NET Managed Reference API](/dotnet/api/) 
+<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Zarządzana dokumentacja dotycząca interfejsu API platformy .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java 
-[Java SDK Reference](/java/api/) 
+<li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Dokumentacja zestawu Java SDK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST 
-[IoT HUB REST API Reference](/rest/api/iothub) 
-
+<li>
+        <a href="/rest/api/iothub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi IoT HUB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>
         <div class="text">
-Download IoT Hub Documentation </div>
+Pobierz dokumentację usługi IoT Hub </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

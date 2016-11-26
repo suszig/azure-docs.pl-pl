@@ -1,46 +1,28 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 448cccdf35510db9bac9cdb5648739b18302c90b
-ms.openlocfilehash: 146078c8caf1bcd757d3e19aae5860aba9049ab9
+ms.sourcegitcommit: 42be91bb4ddf87671ed9c3c5b2e5e640b0c5b059
+ms.openlocfilehash: fe9ee140084f0ab659e9db519098bbeb03305470
 
 ---
-#<a name="expressroute-documentation"></a>Dokumentacja usługi ExpressRoute
 
-Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem specjalnego połączenia prywatnego wspieranego przez dostawcę połączenia. Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji.
+# <a name="azure-container-registry-documentation"></a>Dokumentacja usługi Azure Container Registry
 
+Usługa Azure Container Registry (wersja zapoznawcza) to prywatny rejestr obrazów kontenera hostowania. Korzystając z usługi Azure Container Registry, można przechowywać obrazy w formacie platformy Docker dla wszystkich typów wdrożeń kontenera. Usługa Azure Container Registry zapewnia dobre możliwości integracji z koordynatorami hostowanymi w usłudze Azure Container Service, takimi jak Docker Swarm DC/OS i Kubernetes. 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressroute/expressroute-introduction">
+        <a href="/azure/container-registry/container-registry-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/expressroute.svg" alt="" />
+                            <img src="./media/index/container-registry.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Dowiedz się więcej o usłudze ExpressRoute</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=expressroute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Biblioteka wideo usługi ExpressRoute</h3>
+                        <h3>Dowiedz się więcej o usłudze Azure Container Registry</h3>
                     </div>
                 </div>
             </div>
@@ -48,17 +30,35 @@ Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Mi
         </a>
     </li>
     <li>
-        <a href="/azure/expressroute/expressroute-prerequisites">
+        <a href="/azure/container-registry/container-registry-get-started-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="./media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpocznij pracę z usługą ExpressRoute</h3>
+                        <h3>Rozpoczynanie tworzenia rejestru przy użyciu portalu</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/container-registry/container-registry-get-started-azure-cli">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./media/index/cli.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Rozpoczynanie tworzenia rejestru przy użyciu interfejsu wiersza polecenia</h3>
                     </div>
                 </div>
             </div>
@@ -66,35 +66,32 @@ Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Mi
         </a>
     </li>
 </ul>
-
----
 
 ## <a name="reference"></a>Dokumentacja
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
+        <a href="/cli/azure/acr">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Dokumentacja programu Azure PowerShell</p>
+                        <h3>Interfejs wiersza polecenia</h3>
+                        <p>Dokumentacja interfejsu wiersza polecenia</p>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
+    <li>
+        <a href="/rest/api/containerregistry">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Dokumentacja interfejsu API REST usługi ExpressRoute</p>
+                        <p>Dokumentacja interfejsu API REST</p>
                     </div>
                 </div>
             </div>
@@ -102,14 +99,6 @@ Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Mi
         </a>
     </li>
 </ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi ExpressRoute </div>
-    </a>
-</div>
 
 
 

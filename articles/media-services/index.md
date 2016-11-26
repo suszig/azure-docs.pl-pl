@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 472f14b049093920b43ef249b0286d78b2fbbece
-ms.openlocfilehash: 48030ab29d18b0963f1770732761a464abaed446
+ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
+ms.openlocfilehash: a7eda833f1bbaaa64ebfb1a26925dc42cbf6cb9c
 
 ---
-# <a name="media-services-documentation"></a>Media Services Documentation
+# <a name="media-services-documentation"></a>Dokumentacja usługi Media Services
 
-Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
+Azure Media Services to oparta na chmurze rozszerzona platforma, która umożliwia deweloperom tworzenie skalowalnych aplikacji do dostarczania multimediów i zarządzania nimi. Usługa Media Services są oparte na interfejsach API REST, które umożliwiają bezpieczne przekazywanie, przechowywanie, kodowanie i tworzenie pakietów zawartości wideo lub audio na potrzeby dostarczania transmisji strumieniowej na żądanie i na żywo do różnych klientów (np. odbiorników TV, komputerów PC i urządzeń przenośnych).
 
-You can build end-to-end workflows entirely using Media Services. You can also choose to use third-party components for some parts of your workflow. For example, you can encode using a third-party encoder and then upload, protect, package, and deliver using Media Services.
+Można tworzyć kompleksowe przepływy pracy, korzystając wyłącznie z usługi Media Services. W przypadku niektórych części przepływu pracy można użyć składników innych firm. Na przykład za pomocą usługi Media Services można przeprowadzić kodowanie przy użyciu kodera innej firmy, a następnie przesłać, zapakować i dostarczyć zawartość, zapewniając przy tym jej ochronę.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -23,7 +23,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Media Services</h3>
+                        <h3>Dowiedz się więcej o usłudze Media Services</h3>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Media Services Video Library</h3>
+                        <h3>Biblioteka wideo usługi Media Services</h3>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure Media Services using the Azure Portal</h3>
+                        <h3>Rozpoczynanie pracy z usługą Azure Media Services przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure Media Services account using the Azure Portal</h3>
+                        <h3>Tworzenie konta usługi Azure Media Services przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started delivering content using the Azure Portal</h3>
+                        <h3>Wprowadzenie do dostarczania zawartości przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started delivering content on demand using .NET</h3>
+                        <h3>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK</h3>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started delivering content on demand using Java</h3>
+                        <h3>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu języka Java</h3>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started delivering content on demand using REST</h3>
+                        <h3>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu usługi REST</h3>
                     </div>
                 </div>
             </div>
@@ -159,27 +159,63 @@ You can build end-to-end workflows entirely using Media Services. You can also c
 
 ---
 
-## <a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-### <a name="powershell"></a>PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs/)
-
-### <a name="net"></a>.NET
-[.NET Managed Reference API](/dotnet/api/)
-
-### <a name="rest"></a>REST
-[Media Services REST API Reference](/rest/api/media/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Dokumentacja programu Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Zarządzana dokumentacja dotycząca interfejsu API platformy .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/media/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi Media Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
         <div class="img"></div>
         <div class="text">
-Download Media Services Documentation </div>
+Pobierz dokumentację usługi Media Services </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
