@@ -40,7 +40,7 @@ Możesz [tworzyć własne elementy Runbook](automation-creating-importing-runboo
 
 Wolisz obejrzeć film niż przeczytać artykuł? Obejrzyj poniższy film z nagraniem sesji konferencji Microsoft Ignite, która odbyła się w maju 2015 r. Uwaga: pojęcia i funkcje omówione w tym filmie są poprawne, ale od momentu jego nagrania usługa Azure Automation znacznie się rozwinęła i ma teraz obszerniejszy interfejs użytkownika w portalu Azure oraz obsługuje dodatkowe funkcje.
 
-> [!WIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3451/player]
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3451/player]
 > 
 > 
 
