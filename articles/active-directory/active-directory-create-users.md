@@ -39,7 +39,7 @@ Dodaj użytkowników, aby wypełnić katalog. W tym artykule opisano sposób dod
 > Jeśli Twoja organizacja korzysta z więcej niż jednej domeny, podczas dodawania konta użytkownika musisz wiedzieć o następujących kwestiach:
 > 
 > * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com,, **a następnie** geoffgrisso@contoso.com.
-> * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com.. Ta kolejność jest ważna, a jej cofnięcie może być kłopotliwe.
+> * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com. Ta kolejność jest ważna, a jej cofnięcie może być kłopotliwe.
 > 
 > 
 
