@@ -30,7 +30,6 @@
 
 
 ## Korzystanie z pakietu integracyjnego dla przedsiębiorstw (EIP)
-### [Pakiet integracyjny dla przedsiębiorstw](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Omówienie integracji kont](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Umowy](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Przetwarzanie B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -87,10 +86,9 @@
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=logic-apps) 
-
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
 <!--HONumber=Nov16_HO4-->

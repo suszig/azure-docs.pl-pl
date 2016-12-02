@@ -7,16 +7,41 @@
 #### [Sprawdzanie wymagań](storsimple-ova-system-requirements.md)
 #### [Poznawanie ograniczeń](storsimple-ova-limits.md)
 #### [Przeglądanie najlepszych rozwiązań](storsimple-ova-best-practices.md)
-### Wdrożenie
+
+### Wdrażanie (witryna Azure Portal)
+#### [Przygotowanie do wdrożenia](storsimple-virtual-array-deploy1-portal-prep.md)
+##### [Wdrażanie usługi StorSimple Manager](storsimple-virtual-array-manage-service.md)
+#### [Aprowizacja za pomocą funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
+#### [Aprowizacja w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
+#### [Konfigurowanie serwera jako serwera plików](storsimple-virtual-array-deploy3-fs-setup.md)
+#### [Konfigurowanie serwera jako serwera iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
+
+### Wdrażanie (portal klasyczny)
 #### [Przygotowanie do wdrożenia](storsimple-ova-deploy1-portal-prep.md)
-#### [Wdrażanie usługi StorSimple Manager](storsimple-ova-manage-service.md)
+##### [Wdrażanie usługi StorSimple Manager](storsimple-ova-manage-service.md)
 #### [Aprowizacja za pomocą funkcji Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
 #### [Aprowizacja w oprogramowaniu VMware](storsimple-ova-deploy2-provision-vmware.md)
 #### [Konfigurowanie serwera jako serwera plików](storsimple-ova-deploy3-fs-setup.md)
 #### [Konfigurowanie serwera jako serwera iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
 ## Instrukcje
-### [Zarządzanie w witrynie Azure Portal](storsimple-ova-manager-service-administration.md)
+### [Zarządzanie w witrynie Azure Portal](storsimple-virtual-array-manager-service-administration.md)
+#### [Instalowanie najnowszych aktualizacji](storsimple-virtual-array-install-update.md)
+#### [Wykonywanie kopii zapasowych i zarządzanie nimi](storsimple-virtual-array-backup.md)
+#### [Klonowanie z kopii zapasowych](storsimple-virtual-array-clone.md)
+#### [Praca w trybie failover i odzyskiwanie po awarii](storsimple-virtual-array-failover-dr.md)
+#### [Dezaktywacja i usuwanie](storsimple-virtual-array-deactivate-and-delete-device.md)
+#### [Zarządzanie udziałami](storsimple-virtual-array-manage-shares.md)
+#### [Zarządzanie woluminami](storsimple-virtual-array-manage-volumes.md)
+#### [Wyświetlanie podsumowania usługi](storsimple-virtual-array-service-summary.md)
+#### [Wyświetlanie podsumowania urządzenia](storsimple-virtual-array-device-summary.md)
+#### [Zarządzanie kontami magazynu](storsimple-virtual-array-manage-storage-accounts.md)
+#### [Zarządzanie rekordami ACR](storsimple-virtual-array-manage-acrs.md)
+#### [Zarządzanie zadaniami](storsimple-virtual-array-manage-jobs.md)
+#### [Zmienianie hasła urządzenia](storsimple-virtual-array-change-device-admin-password.md)
+#### [Konfigurowanie wielościeżkowego wejścia/wyjścia na hoście systemu Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+
+### [Zarządzanie za pomocą klasycznej witryny Azure Portal](storsimple-ova-manager-service-administration.md)
 #### [Instalowanie najnowszych aktualizacji](storsimple-ova-install-update-01.md)
 #### [Wykonywanie kopii zapasowych i zarządzanie nimi](storsimple-ova-backup.md)
 #### [Przywracanie z kopii zapasowych](storsimple-ova-restore.md)
@@ -61,7 +86,7 @@
 ##### [Urządzenie fizyczne na platformie Azure — aktualizacja Update 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Urządzenie fizyczne na platformie Azure — ogólne udostępnienie](storsimple-deployment-walkthrough.md)
 #### [Urządzenie fizyczne w portalu dla instytucji rządowych — bieżące](storsimple-deployment-walkthrough-gov-u2.md)
-##### [Urządzenie fizyczne w portalu dla instytucji rządowych — bieżące](storsimple-deployment-walkthrough-gov.md)
+##### [Urządzenie fizyczne w portalu dla instytucji rządowych — aktualizacja Update 1](storsimple-deployment-walkthrough-gov.md)
 #### [Urządzenie wirtualne na platformie Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [Adapter usługi StorSimple dla programu SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -113,9 +138,11 @@
 ##### [Korzystanie z akcji przystawki MMC w programie StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Tworzenie rozwiązań
-#### [Rozproszona globalna przestrzeń nazw](https://www.microsoft.com/download/details.aspx?id=45507)
 #### [Automatyzowanie odzyskiwania po awarii serwera plików na platformie Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Usługa StorSimple z usługą Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+#### [StorSimple with VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463) (Usługa StorSimple z oprogramowaniem VMware)
+#### [StorSimple with Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6) (Usługa StorSimple z funkcją Hyper-V)
+#### [Rozproszona globalna przestrzeń nazw](https://www.microsoft.com/download/details.aspx?id=45507)
 
 ### Monitorowanie
 #### [Korzystanie z pulpitu nawigacyjnego usług](storsimple-service-dashboard.md)
@@ -160,7 +187,18 @@
 
 ## Dokumentacja
 ### [Azure PowerShell](/powershell/servicemanagement)
-### [Polecenia cmdlet programu Windows PowerShell dla usługi StorSimple] (https://technet.microsoft.com/library/dn688168.aspx)
+### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx) (Polecenia cmdlet programu Windows PowerShell dla usługi StorSimple)
+
+# Usługa StorSimple Data Manager (prywatna wersja zapoznawcza)
+
+## Omówienie
+### [Jakie jest rozwiązanie?](storsimple-data-manager-overview.md)
+
+## Rozpoczęcie pracy
+### [Using StorSimple Data Manager](storsimple-data-manager-ui.md) (Korzystanie z usługi StorSimple Data Manager)
+
+## Instrukcje
+### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md) (Korzystanie z platformy .NET do przekształcania danych)
 
 # Powiązane
 ## [StorSimple 5000–7000 Series](http://onlinehelp.storsimple.com)
@@ -179,6 +217,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

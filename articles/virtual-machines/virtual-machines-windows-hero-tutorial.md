@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
+ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 
 
 ---
@@ -31,7 +31,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Jako przykładu używamy obrazu systemu Windows Server 2012 R2 Datacenter, ale jest to tylko jeden z wielu obrazów oferowanych na platformie Azure. Obrazy dostępne do wyboru zależą od subskrypcji. Na przykład niektóre obrazy komputerowe są dostępne dla [subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu Centrum kliknij kolejno pozycje **Nowy** > **Maszyny wirtualne** > **Windows Server 2012 R2 Datacenter**.
+2. W menu Centrum kliknij kolejno pozycje **Nowy** > **Obliczanie** > **Windows Server 2012 R2 Datacenter**.
    
     ![Zrzut ekranu pokazujący dostępne w portalu obrazy maszyn wirtualnych Azure](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. W bloku **Windows Server 2012 R2 Datacenter** w sekcji **Wybierz model wdrożenia** sprawdź, czy wybrano pozycję **Menedżer zasobów**. Kliknij przycisk **Utwórz**.
@@ -49,7 +49,7 @@ Po wybraniu obrazu możesz użyć ustawień domyślnych i szybko utworzyć maszy
 4. Gdy skończysz, kliknij przycisk **OK**, aby przejść do następnej sekcji. 
    
     ![Zrzut ekranu pokazujący ustawienia w bloku **Podstawowe** służące do konfigurowania maszyny wirtualnej Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Wybierz [rozmiar](virtual-machines-windows-sizes.md) maszyny wirtualnej, a następnie kliknij przycisk **Wybierz**, aby kontynuować. 
+5. Wybierz [rozmiar](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) maszyny wirtualnej, a następnie kliknij przycisk **Wybierz**, aby kontynuować. 
    
     ![Zrzut ekranu bloku Rozmiar pokazujący dostępne do wyboru rozmiary maszyn wirtualnych Azure](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. W bloku **Ustawienia** możesz zmienić opcje magazynu i sieci. Dla celów tego samouczka zaakceptuj ustawienia domyślne. Jeśli wybrano rozmiar maszyny wirtualnej, który obsługuję tę funkcję, możesz wypróbować usługę Premium Storage, wybierając opcję **Premium (SSD)** w obszarze **Typ dysku**. Po zakończeniu wprowadzania zmian kliknij przycisk **OK**.
@@ -76,7 +76,7 @@ Po wybraniu obrazu możesz użyć ustawień domyślnych i szybko utworzyć maszy
    
    ![Zrzut ekranu przedstawiający komunikat dotyczący potwierdzenia tożsamości maszyny wirtualnej](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-Jeśli podczas próby połączenia wystąpiły problemy, zobacz [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md) (Rozwiązywanie problemów z połączeniami pulpitu zdalnego z maszyną wirtualną Azure z systemem Windows).
+Jeśli podczas próby połączenia wystąpiły problemy, zobacz [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozwiązywanie problemów z połączeniami pulpitu zdalnego z maszyną wirtualną Azure z systemem Windows).
 
 Teraz możesz pracować z maszyną wirtualną tak samo jak z każdym innym serwerem.
 
@@ -88,13 +88,13 @@ Dobrym rozwiązaniem jest zatrzymanie maszyny wirtualnej w celu uniknięcia opł
 Kliknij przycisk **Uruchom**, aby ponownie uruchomić maszynę wirtualną, gdy wszystko będzie gotowe do jej ponownego użycia.
 
 ## <a name="next-steps"></a>Następne kroki
-* Z nową maszyną wirtualną można poeksperymentować, [instalując program IIS](virtual-machines-windows-hero-role.md). W tym samouczku pokazano także, jak otworzyć port 80 na przychodzący ruch sieciowy przy użyciu sieciowej grupy zabezpieczeń (NSG, network security group). 
-* Można także [utworzyć maszynę wirtualną z systemem Windows przy użyciu programu PowerShell](virtual-machines-windows-ps-create.md) lub [utworzyć maszynę wirtualną z systemem Linux](virtual-machines-linux-quick-create-cli.md) przy użyciu interfejsu wiersza polecenia platformy Azure.
-* Jeśli interesuje Cię automatyzacja wdrożeń, zobacz temat [Create a Windows virtual machine by using a Resource Manager template](virtual-machines-windows-ps-template.md) (Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu menedżera zasobów).
+* Z nową maszyną wirtualną można poeksperymentować, [instalując program IIS](virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). W tym samouczku pokazano także, jak otworzyć port 80 na przychodzący ruch sieciowy przy użyciu sieciowej grupy zabezpieczeń (NSG, network security group). 
+* Można także [utworzyć maszynę wirtualną z systemem Windows przy użyciu programu PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lub [utworzyć maszynę wirtualną z systemem Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) przy użyciu interfejsu wiersza polecenia platformy Azure.
+* Jeśli interesuje Cię automatyzacja wdrożeń, zobacz temat [Create a Windows virtual machine by using a Resource Manager template](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu menedżera zasobów).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

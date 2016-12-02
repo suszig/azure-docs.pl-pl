@@ -4,8 +4,8 @@ hide_bc: true
 title: Dokumentacja platformy Microsoft Azure | Microsoft Docs
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 translationtype: Human Translation
-ms.sourcegitcommit: 267a6facc9ed8e6f75c150d627545deafc589040
-ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
+ms.sourcegitcommit: 392db4d8261f6e927aa5ea4b2f6b30e244bfec50
+ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
 
 ---
 <div id="main" class="v2">
@@ -2355,11 +2355,11 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                 </ul>
             </li>
             <li>
-                <a href="#developer">Dla deweloperów</a>
-                <ul id="developer">
+                <a href="#sdktools">Zestaw SDK/Narzędzia</a>
+                <ul id="sdktools">
                     <li>
-                        <a href="#developer-all">Wszystkie</a>
-                        <ul id="developer-all" class="cardsF">
+                        <a href="#sdktools-all">Wszystkie</a>
+                        <ul id="sdktools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Języki i struktury</h1>
@@ -2861,6 +2861,6 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

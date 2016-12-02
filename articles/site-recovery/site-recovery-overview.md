@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 10/30/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 64d085bff08d9a824204851d32504fac3e79024c
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
 
 
 ---
@@ -30,7 +30,7 @@ Usługa Site Recovery wspiera strategię zapewniającą ciągłość biznesową 
 W przypadku wystąpienia awarii w lokacji głównej następuje przejście do lokacji dodatkowej w trybie failover, dzięki czemu obciążenia są nadal dostępne. Powrót po awarii może mieć miejsce do lokalizacji głównej, gdy powróci ona do normalnego działania.
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Usługa Site Recovery w portalu Azure
-Platforma Azure oferuje dwa różne [modele wdrażania](../resource-manager-deployment-model.md) związane z tworzeniem zasobów i pracą z nimi. Model oparty na usłudze Azure Resource Manager oraz klasyczny model zarządzania usługami. Platforma Azure ma dwie witryny Portal. [Klasyczną witrynę Azure Portal](https://manage.windowsazure.com/) i [witrynę Azure Portal](https://portal.azure.com).
+Platforma Azure oferuje dwa różne [modele wdrażania](../azure-resource-manager/resource-manager-deployment-model.md) związane z tworzeniem zasobów i pracą z nimi. Model oparty na usłudze Azure Resource Manager oraz klasyczny model zarządzania usługami. Platforma Azure ma dwie witryny Portal. [Klasyczną witrynę Azure Portal](https://manage.windowsazure.com/) i [witrynę Azure Portal](https://portal.azure.com).
 
 * Usługa Site Recovery może zostać wdrożona zarówno w klasycznej witrynie Portal, jak i w witrynie Azure Portal.
 * W klasycznej witrynie Azure Portal możliwe jest korzystanie z usługi Site Recovery przy użyciu klasycznego modelu zarządzania usługami.
@@ -79,6 +79,6 @@ Usługa Site Recovery umożliwia replikację z uwzględnieniem aplikacji, dzięk
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

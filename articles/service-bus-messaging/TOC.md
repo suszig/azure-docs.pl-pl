@@ -47,7 +47,7 @@
 ### [Sparowane przestrzenie nazw](service-bus-paired-namespaces.md)
 ### [Łączenie jednostek w łańcuchy z automatycznym przekazywaniem](service-bus-auto-forwarding.md)
 ## Zarządzanie
-### [Korzystanie z szablonów usługi ARM](service-bus-resource-manager-overview.md)
+### [Używanie szablonów usługi Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Aprowizacja jednostek za pomocą programu PowerShell](service-bus-powershell-how-to-provision.md)
 
 # Dokumentacja
@@ -57,6 +57,10 @@
 ## [Przydziały](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [Składnia elementu SQLFilter](service-bus-messaging-sql-filter.md)
+## [Składnia elementu SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+## [Przewodnik po protokole AMQP1.0](service-bus-amqp-protocol-guide.md)
+### [AMQP 1.0 request-response-based operations](service-bus-amqp-request-response.md) (Operacje protokołu AMQP 1.0 na podstawie żądań i odpowiedzi)
 
 # Zasoby
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

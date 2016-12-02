@@ -21,7 +21,7 @@
 ## [Przykłady](service-bus-relay-samples.md)
 ## [Interfejs API platformy .NET połączeń hybrydowych](/dotnet/api/microsoft.servicebus)
 ## [Interfejs API platformy .NET przekaźników WCF](/dotnet/api/microsoft.servicebus)
-
+## [Ustawienia portu](service-bus-relay-port-settings.md)
 
 # Zasoby
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -33,6 +33,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -111,7 +111,7 @@
 ### Informacje
 #### [Omówienie](sql-database-business-continuity.md)
 #### [Kopie zapasowe bazy danych](sql-database-automated-backups.md)
-#### [Długoterminowe przechowywanie](sql-database-long-term-retention.md) 
+#### [Długoterminowe przechowywanie](sql-database-long-term-retention.md)
 #### [Odzyskiwanie bazy danych przy użyciu kopii zapasowych](sql-database-recovery-using-backups.md)
 #### [Wymagania dotyczące uwierzytelniania dla odzyskiwania po awarii](sql-database-geo-replication-security-config.md)
 #### [Ciągłość działania — scenariusze dotyczące projektów](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -220,7 +220,7 @@
 #### [Uwierzytelnianie w usłudze Azure AD](sql-database-aad-authentication.md)
 #### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### Reguły zapory
-#### [Azure portal](sql-database-configure-firewall-settings.md)
+#### [Azure Portal](sql-database-configure-firewall-settings.md)
 #### [Program PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [Interfejs API REST](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->

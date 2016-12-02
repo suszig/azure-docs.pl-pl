@@ -13,7 +13,7 @@
 ### [Importowanie definicji interfejsu API](api-management-howto-import-api.md)
 ## Zabezpieczanie zaplecza
 ### [Ochrona zaplecza interfejsu API sieci Web za pomocą usługi AAD](api-management-howto-protect-backend-with-aad.md)
-### [Łączenie za pośrednictwem sieci VPN lub przy użyciu usługi ExpressRoute](api-management-howto-setup-vpn.md)
+### [Łączenie z siecią wirtualną](api-management-using-with-vnet.md)
 ### [Wzajemne uwierzytelnianie certyfikatów](api-management-howto-mutual-certificates.md)
 ## Konfigurowanie zasad
 ### [Buforowanie niestandardowe](api-management-sample-cache-by-key.md)
@@ -63,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 
