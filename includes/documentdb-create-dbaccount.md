@@ -1,5 +1,5 @@
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Na pasku dostępu kliknij pozycje **Nowy** i **Dane i magazyn**, a następnie kliknij pozycję **DocumentDB (NoSQL)**.
+2. Na pasku dostępu kliknij pozycje **Nowy** i **Bazy danych**, a następnie kliknij pozycję **NoSQL (DocumentDB)**.
    
    ![Zrzut ekranu przedstawiający witrynę Azure Portal z wyróżnionymi poleceniami Więcej usług i DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 3. W bloku **Nowe konto** określ odpowiednią konfigurację konta usługi DocumentDB.
@@ -16,11 +16,11 @@
    ![Szybkie tworzenie baz danych — zrzut ekranu przedstawiający centrum powiadomień z informacją o trwającym tworzeniu konta usługi DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![Zrzut ekranu przedstawiający centrum powiadomień z informacją o pomyślnym utworzeniu i wdrożeniu w grupie zasobów konta usługi DocumentDB — powiadomienie kreatora bazy danych w trybie online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. Utworzone konto usługi DocumentDB jest gotowe do użycia z ustawieniami domyślnymi. Domyślna spójność konta usługi DocumentDB jest ustawiona na wartość **Sesja**.  Można ją dostosować, klikając pozycję **Domyślna spójność** w menu zasobów. Aby dowiedzieć się więcej na temat poziomów spójności oferowanych przez usługę DocumentDB, zobacz temat [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md) (Poziomy spójności w usłudze DocumentDB).
-   
-   ![Zrzut ekranu przedstawiający blok Grupa zasobów — rozpoczęcie tworzenia aplikacji](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
-   
-   ![Zrzut ekranu przedstawiający blok poziomu spójności — spójność sesji](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+5. Utworzone konto usługi DocumentDB jest gotowe do użycia z ustawieniami domyślnymi. Aby przejrzeć ustawienia domyślne, kliknij ikonę **NoSQL (DocumentDB)** ikonę na pasku dostępu, kliknij nowe konto, a następnie w menu zasobów kliknij pozycję **Domyślna spójność**.
+
+   ![Zrzut ekranu przedstawiający sposób otwierania konta bazy danych Azure DocumentDB w witrynie Azure Portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
+
+   Domyślna spójność konta usługi DocumentDB jest ustawiona na wartość **Sesja**.  Można ją dostosować, klikając pozycję **Domyślna spójność** w menu zasobów. Aby dowiedzieć się więcej na temat poziomów spójności oferowanych przez usługę DocumentDB, zobacz temat [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md) (Poziomy spójności w usłudze DocumentDB).
 
 [Porady: tworzenie konta usługi DocumentDB]: #Howto
 [Następne kroki]: #NextSteps
