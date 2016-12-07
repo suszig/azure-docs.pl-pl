@@ -1,12 +1,12 @@
 ---
-title: Wymagania dotyczące technologii QoS dla usługi ExpressRoute | Microsoft Docs
-description: Ta strona zawiera szczegółowe wymagania dotyczące konfigurowania technologii QoS oraz zarządzania nią na potrzeby obwodów usługi ExpressRoute.
+title: "Wymagania dotyczące technologii QoS dla usługi ExpressRoute | Microsoft Docs"
+description: "Ta strona zawiera szczegółowe wymagania dotyczące konfigurowania technologii QoS oraz zarządzania nią na potrzeby obwodów usługi ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
+
 
 ---
-# Wymagania dotyczące technologii QoS w usłudze ExpressRoute
+# <a name="expressroute-qos-requirements"></a>Wymagania dotyczące technologii QoS w usłudze ExpressRoute
 Program Skype dla firm obejmuje różne obciążenia, które wymagają zróżnicowanej obsługi w technologii QoS. Jeśli planujesz korzystać z usług głosowych za pośrednictwem usługi ExpressRoute, musisz spełnić opisane poniżej wymagania.
 
 ![](./media/expressroute-qos/expressroute-qos.png)
@@ -40,7 +44,7 @@ Poniższa tabela zawiera listę oznaczeń DSCP używanych przez program Skype dl
 * Skonfiguruj i obsługuj wiele kolejek w technologii QoS w sieci. Połączenia głosowe muszą być klasą autonomiczną i być obsługiwane w sposób określony w RFC 3246. 
 * Możesz wybrać mechanizm kolejkowania, zasady wykrywania przeciążenia oraz alokację przepustowości na klasę ruchu. Oznaczanie DSCP dla obciążeń programu Skype dla firm musi jednak zostać zachowane. Jeśli używasz oznaczenia DSCP niewymienionego powyżej, np. AF31 (26), musisz zmodyfikować tę wartość DSCP do 0 przed wysłaniem pakietu do firmy Microsoft. Firma Microsoft wysyła tylko pakiety oznaczone wartościami DSCP pokazanymi w powyższej tabeli. 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Zapoznaj się z wymaganiami dotyczącymi [routingu](expressroute-routing.md) i [translatora adresów sieciowych](expressroute-nat.md).
 * Użyj następujących linków przydatnych podczas konfigurowania połączenia za pomocą usługi ExpressRoute.
   
@@ -48,6 +52,9 @@ Poniższa tabela zawiera listę oznaczeń DSCP używanych przez program Skype dl
   * [Configure routing (Konfigurowanie routingu)](expressroute-howto-routing-classic.md)
   * [Link a VNet to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,8 +1,12 @@
-The following tasks will be done in this scenario:
+W tym scenariuszu zostaną wykonane następujące zadania:
 
-* Create a load balancer that receives network traffic on port 80 and send load-balanced traffic to virtual machines "web1" and "web2"
-* Create NAT rules for remote desktop access/SSH for virtual machines behind the load balancer
-* Create health probes
+* Utworzenie modułu równoważenia obciążenia, który odbiera ruch sieciowy na porcie 80 i wysyła go do maszyn wirtualnych „web1” i „web2”, równoważąc ich obciążenie.
+* Utworzenie reguł NAT dotyczących dostępu do pulpitu zdalnego lub dostępu SSH na maszynach wirtualnych za modułem równoważenia obciążenia.
+* Utworzenie sond kondycji.
 
-![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+![Scenariusz modułu równoważenia obciążenia](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+
+
+<!--HONumber=Nov16_HO2-->
+
 

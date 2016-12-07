@@ -1,23 +1,27 @@
 ---
-title: 'Samouczek HBase: wprowadzenie do klastrów HBase opartych na systemie Linux na platformie Hadoop | Microsoft Docs'
-description: Postępuj zgodnie z tym samouczkiem bazy danych HBase, aby rozpocząć korzystanie z bazy danych Apache HBase na platformie Hadoop w usłudze HDInsight. Utwórz tabele z poziomu powłoki HBase i wykonuj zapytania przy użyciu aplikacji Hive.
+title: "Samouczek HBase: wprowadzenie do klastrów HBase opartych na systemie Linux na platformie Hadoop | Microsoft Docs"
+description: "Postępuj zgodnie z tym samouczkiem bazy danych HBase, aby rozpocząć korzystanie z bazy danych Apache HBase na platformie Hadoop w usłudze HDInsight. Utwórz tabele z poziomu powłoki HBase i wykonuj zapytania przy użyciu aplikacji Hive."
 keywords: apache hbase,hbase,hbase shell,hbase tutorial
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/25/2016
+ms.date: 10/19/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
+
 
 ---
-# Samouczek HBase: rozpoczęcie korzystania z bazy danych Apache HBase na platformie Hadoop opartej na systemie Linux w usłudze HDInsight
+# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linuxbased-hadoop-in-hdinsight"></a>Samouczek HBase: rozpoczęcie korzystania z bazy danych Apache HBase na platformie Hadoop opartej na systemie Linux w usłudze HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Dowiedz się, jak utworzyć klaster HBase w usłudze HDInsight i tabele bazy danych HBase oraz jak wykonywać zapytania dotyczące tabel za pomocą aplikacji Hive. Aby uzyskać ogólne informacje o bazie danych HBase, zobacz [Przegląd bazy danych HBase w usłudze HDInsight][hdinsight-hbase-overview].
@@ -26,24 +30,27 @@ Informacje przedstawione w tym dokumencie dotyczą klastrów usługi HDInsight o
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem korzystania z tego samouczka HBase należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Bezpieczna powłoka (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [Program curl](http://curl.haxx.se/download.html).
 
-### Wymagania dotyczące kontroli dostępu
+### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Tworzenie klastra HBase
-W poniższej procedurze do utworzenia klastra HBase jest używany szablon usługi Azure Resource Manager. Aby zapoznać się z parametrami używanymi w tej procedurze oraz innymi metodami tworzenia klastra, zobacz temat [Tworzenie opartych na systemie Linux klastrów Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="create-hbase-cluster"></a>Tworzenie klastra HBase
+W poniższej procedurze użyto szablonu usługi Azure Resource Manager do utworzenia klastra HBase opartego na systemie Linux w wersji 3.4 i zależnego domyślnego konta usługi Azure Storage. Aby zapoznać się z parametrami używanymi w tej procedurze oraz innymi metodami tworzenia klastra, zobacz temat [Tworzenie opartych na systemie Linux klastrów Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Kliknij poniższy obraz, aby otworzyć szablon w witrynie Azure Portal. Szablon znajduje się w publicznym kontenerze obiektów blob. 
+1. Kliknij poniższy obraz, aby otworzyć szablon w usłudze Azure Portal. Szablon znajduje się w publicznym kontenerze obiektów blob. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. W bloku **Parametry** wprowadź następujące informacje:
+2. W bloku **Wdrożenie niestandardowe** wprowadź wartości następujących opcji:
    
+   * **Subskrypcja**: wybierz subskrypcję platformy Azure, które zostanie użyta do utworzenia klastra.
+   * **Grupa zasobów**: utwórz nową grupę usługi Azure Resource Management lub użyj istniejącej.
+   * **Lokalizacja**: określ lokalizację grupy zasobów. 
    * **ClusterName**: wprowadź nazwę tworzonego klastra HBase.
    * **Nazwa logowania i hasło klastra**: domyślna nazwa logowania to **admin**.
    * **Nazwa użytkownika i hasło SSH**: domyślna nazwa użytkownika to **sshuser**.  Tę nazwę można zmienić.
@@ -51,30 +58,27 @@ W poniższej procedurze do utworzenia klastra HBase jest używany szablon usług
      Inne parametry są opcjonalne.  
      
      Każdy klaster zależy od konta Magazynu obiektów Blob platformy Azure. Po usunięciu klastra dane pozostają zachowane na koncie magazynu. Domyślna nazwa konta magazynu klastra to nazwa klastra z dołączonym ciągiem „store”. Jest ona umieszczona w kodzie w sekcji zmiennych szablonu.
-3. Kliknij przycisk **OK**, aby zapisać parametry.
-4. W bloku **Wdrożenie niestandardowe** kliknij pole listy rozwijanej **Grupa zasobów**, a następnie kliknij pozycję **Nowa**, aby utworzyć nową grupę zasobów.  Grupa zasobów jest kontenerem, który grupuje klaster, zależne konto magazynu oraz inne powiązane zasoby.
-5. Kliknij opcję **Postanowienia prawne**, a następnie kliknij przycisk **Utwórz**.
-6. Kliknij przycisk **Utwórz**. Utworzenie klastra trwa około 20 minut.
+3. Zaznacz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia**, a następnie kliknij przycisk **Kup**. Utworzenie klastra trwa około 20 minut.
 
 > [!NOTE]
 > Po usunięciu klastra HBase można utworzyć inny klaster HBase za pomocą tego samego domyślnego kontenera obiektów blob. Nowy klaster przejmie tabele bazy danych HBase utworzone w oryginalnym klastrze. Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra.
 > 
 > 
 
-## Tworzenie tabel i wstawianie danych
-Protokół SSH umożliwia łączenie się z klastrami HBase i korzystanie z powłoki HBase w celu tworzenia tabel bazy danych HBase, wstawiania danych i wykonywania zapytań. Aby uzyskać informacje na temat korzystania z protokołu SSH w systemach Linux, Unix, OS X i Windows, zobacz tematy [Korzystanie z SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight w systemach Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md) oraz [Korzystanie z SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight w systemie Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+## <a name="create-tables-and-insert-data"></a>Tworzenie tabel i wstawianie danych
+Protokół SSH umożliwia połączenie z klastrami HBase, a następnie korzystanie z powłoki HBase w celu tworzenia tabel bazy danych HBase, wstawiania danych i wykonywania zapytań. Aby uzyskać informacje na temat korzystania z protokołu SSH, zobacz tematy [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md) oraz [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Dla większości użytkowników dane są wyświetlane w formacie tabelarycznym:
 
-![hbase hdinsight dane tabelaryczne][img-hbase-sample-data-tabular]
+![Dane tabelaryczne usługi HDInsight HBase][img-hbase-sample-data-tabular]
 
 W bazie danych HBase, która jest implementacją BigTable, te same dane wyglądają następująco:
 
-![hdinsight hbase dane bigtable][img-hbase-sample-data-bigtable]
+![Dane bigtable usługi HDInsight HBase][img-hbase-sample-data-bigtable]
 
 Stanie się to bardziej zrozumiałe po zakończeniu następnej procedury.  
 
-**Korzystanie z powłoki HBase**
+**Aby użyć powłoki HBase**
 
 1. Z poziomu bezpiecznej powłoki (SSH) uruchom następujące polecenie:
    
@@ -103,22 +107,22 @@ Stanie się to bardziej zrozumiałe po zakończeniu następnej procedury.
    
         exit
 
-**Ładowanie danych zbiorczo do tabeli kontaktów HBase**
+**Aby zbiorczo załadować dane do tabeli kontaktów HBase**
 
 Baza danych HBase obsługuje kilka metod ładowania danych do tabel.  Aby uzyskać więcej informacji, zobacz temat [Ładowanie zbiorcze](http://hbase.apache.org/book.html#arch.bulk.load).
 
-Przykładowy plik danych został przekazany do publicznego kontenera obiektów blob *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Plik danych ma następującą zawartość:
+Przykładowy plik danych został przekazany do publicznego kontenera obiektów blob, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Plik danych ma następującą zawartość:
 
-    8396    Calvin Raji     230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600   Karen Wu        646-555-0113    230-555-0192    9265 La Paz
+    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
     4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891   Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
-    3273    Miguel Miller   397-555-0155    230-555-0195    6696 Anchor Drive
+    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
     3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272   Julia Lee       870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes      599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander 670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443   Terry Chander   998-555-0171    230-555-0200    771 Northridge Drive
+    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
 Możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzyskać instrukcje, zobacz temat [Przekazywanie danych dotyczących zadań Hadoop w usłudze HDInsight][hdinsight-upload-data].
 
@@ -129,13 +133,13 @@ Możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzy
 
 1. Z poziomu bezpiecznej powłoki (SSH) uruchom następujące polecenie, aby przekształcić plik danych do postaci StoreFiles i zapisać go w ścieżce względnej określonej przez parametr Dimporttsv.bulk.output:.  Jeśli jest otwarta powłoka HBase, użyj polecenia exit, aby z niej wyjść.
    
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 2. Uruchom następujące polecenie, aby przekazać dane z katalogu /example/data/storeDataFileOutput do tabeli HBase:
    
         hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 3. Możesz otworzyć powłokę HBase i użyć polecenia scan w celu wyświetlenia zawartości tabeli.
 
-## Uruchamianie zapytania bazy danych HBase przy użyciu programu Hive
+## <a name="use-hive-to-query-hbase"></a>Uruchamianie zapytania bazy danych HBase przy użyciu programu Hive
 Korzystając z programu Hive, można wykonywać zapytania dotyczące danych w tabelach HBase. W tej sekcji zostanie utworzona tabela programu Hive odwzorowująca dane w tabeli HBase, która będzie używana do wykonywania zapytań o dane w tabeli HBase.
 
 1. Otwórz program **PuTTY** i połącz się z klastrem.  Zapoznaj się z instrukcjami w poprzedniej procedurze.
@@ -148,11 +152,11 @@ Korzystając z programu Hive, można wykonywać zapytania dotyczące danych w ta
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
         WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
-4. Uruchom poniższy skrypt HiveQL. Zapytanie programu Hive zostaje wykonane względem danych w tabeli HBase:
+4. Uruchom poniższy skrypt HiveQL, aby wykonać zapytanie o dane w tabeli HBase:
    
-        SELECT count(*) FROM hbasecontacts;
+         SELECT count(*) FROM hbasecontacts;
 
-## Korzystanie z interfejsów API REST HBase przy użyciu programu Curl
+## <a name="use-hbase-rest-apis-using-curl"></a>Korzystanie z interfejsów API REST HBase przy użyciu programu Curl
 > [!NOTE]
 > Używając programu Curl lub innego połączenia REST z usługą WebHCat, należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra usługi HDInsight. Należy również użyć nazwy klastra jako części identyfikatora URI stosowanego przy wysyłaniu żądań do serwera.
 > 
@@ -214,7 +218,7 @@ Korzystając z programu Hive, można wykonywać zapytania dotyczące danych w ta
 
 Aby uzyskać więcej informacji o interfejsie Rest HBase, zobacz [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest) (Podręcznik referencyjny Apache HBase).
 
-## Sprawdzanie stanu klastra
+## <a name="check-cluster-status"></a>Sprawdzanie stanu klastra
 Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkownika sieci Web służącym do monitorowania klastrów. Za pośrednictwem interfejsu użytkownika sieci Web możesz przesyłać żądania dotyczące statystyk lub informacji o regionach.
 
 Protokół SSH może również służyć do tunelowania żądań lokalnych, takich jak żądania sieci Web, do klastra usługi HDInsight. Żądania będą następnie kierowane do wymaganego zasobu, tak jakby pochodziły z węzła głównego klastra usługi HDInsight. Aby uzyskać więcej informacji, zobacz temat [Używanie SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
@@ -265,12 +269,12 @@ Protokół SSH może również służyć do tunelowania żądań lokalnych, taki
 
 W klastrze wysokiej dostępności można znaleźć link do bieżącego aktywnego węzła głównego HBase obsługującego interfejs użytkownika sieci Web.
 
-## Usuwanie klastra
+## <a name="delete-the-cluster"></a>Usuwanie klastra
 Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym samouczku HBase dotyczącym usługi HDInsight pokazano, jak utworzyć klaster HBase i tabele oraz jak wyświetlać dane w tych tabelach z poziomu powłoki HBase. Przedstawiono również sposób wykonywania zapytań programu Hive względem danych w tabelach HBase oraz korzystania z interfejsów API REST HBase w języku C# w celu tworzenia tabel HBase i pobierania danych z tabeli.
 
 Aby dowiedzieć się więcej, zobacz:
@@ -306,6 +310,6 @@ Aby dowiedzieć się więcej, zobacz:
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

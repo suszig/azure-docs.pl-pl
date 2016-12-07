@@ -1,13 +1,13 @@
 ---
-title: Program Azure AD Connect w usłudze Microsoft Cloud w Niemczech
-description: Program Azure AD Connect umożliwia integrowanie katalogów lokalnych z usługą Azure Active Directory. Dzięki temu można posługiwać się wspólną tożsamością dla usługi Office 365, platformy Azure i aplikacji SaaS zintegrowanych z usługą Azure AD.
-keywords: wprowadzenie do programu Azure AD Connect, omówienie programu Azure AD Connect, co to jest program Azure AD Connect, instalowanie usługi Active Directory, Niemcy, Black Forest
+title: "Program Azure AD Connect w usłudze Microsoft Cloud w Niemczech"
+description: "Program Azure AD Connect umożliwia integrowanie katalogów lokalnych z usługą Azure Active Directory. Dzięki temu można posługiwać się wspólną tożsamością dla usługi Office 365, platformy Azure i aplikacji SaaS zintegrowanych z usługą Azure AD."
+keywords: "wprowadzenie do programu Azure AD Connect, omówienie programu Azure AD Connect, co to jest program Azure AD Connect, instalowanie usługi Active Directory, Niemcy, Black Forest"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2bcb0caf-5d97-46cb-8c32-bda66cc22dad
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+
 
 ---
-# Program Azure AD Connect w usłudze Microsoft Cloud w Niemczech — publiczna wersja zapoznawcza
-## Wprowadzenie
+# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Program Azure AD Connect w usłudze Microsoft Cloud w Niemczech — publiczna wersja zapoznawcza
+## <a name="introduction"></a>Wprowadzenie
 Azure AD Connect zapewnia synchronizację między lokalną usługą Active Directory a usługą Azure Active Directory.
 Obecnie wiele scenariuszy w usłudze [Microsoft Cloud w Niemczech](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) musi być wykonywanych przez operatora. Korzystając z usługi Microsoft Cloud w Niemczech, należy pamiętać o następujących kwestiach:
 
@@ -33,10 +37,10 @@ Obecnie wiele scenariuszy w usłudze [Microsoft Cloud w Niemczech](https://www.m
   * Automatyczne aktualizacje
   * Zapisywanie zwrotne haseł
 
-## Do pobrania
+## <a name="download"></a>Do pobrania
 Usługę Azure AD Connect można pobrać z bloku programu Azure AD Connect w portalu.  Znajdź blok programu Azure AD Connect, korzystając z poniższych instrukcji.
 
-### Blok programu Azure AD Connect
+### <a name="the-azure-ad-connect-blade"></a>Blok programu Azure AD Connect
 Po zalogowaniu się do witryny Azure Portal wykonaj następujące czynności:
 
 1. Przejdź do pozycji Przeglądaj
@@ -55,12 +59,15 @@ W poniższej tabeli opisano funkcje wyświetlane w bloku.
 | OSTATNIA SYNCHRONIZACJA |Godzina zakończenia ostatniej pomyślnej synchronizacji. |
 | DOMENY FEDERACYJNE |Wyświetla liczbę obecnie skonfigurowanych domen federacyjnych. |
 
-## Instalacja
+## <a name="installation"></a>Instalacja
 Możesz zainstalować program Azure AD Connect, korzystając z dokumentacji znajdującej się [tutaj](active-directory-aadconnect.md#install-azure-ad-connect).
 
-## Funkcje zaawansowane i dodatkowe informacje
+## <a name="advanced-features-and-additional-information"></a>Funkcje zaawansowane i dodatkowe informacje
 Aby uzyskać dodatkowe informacje i wskazówki dotyczące ustawień niestandardowych lub zaawansowanych konfiguracji, na początek zapoznaj się z artykułem [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).  Ta strona zawiera informacje i linki do dodatkowych wskazówek.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Tworzenie pierwszej fabryki danych (Visual Studio) | Microsoft Docs
-description: Ten samouczek zawiera instrukcje tworzenia przykładowego potoku dla usługi Azure Data Factory przy użyciu programu Visual Studio.
+description: "Ten samouczek zawiera instrukcje tworzenia przykładowego potoku dla usługi Azure Data Factory przy użyciu programu Visual Studio."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/17/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc46837a2be9047e5bcbd920c2e0119f2c5a5ea6
+
 
 ---
-# <a name="tutorial:-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Samouczek: Tworzenie pierwszej fabryki danych Azure przy użyciu programu Microsoft Visual Studio
+# <a name="tutorial-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Samouczek: Tworzenie pierwszej fabryki danych Azure przy użyciu programu Microsoft Visual Studio
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
-> * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-> * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+> * [Witryna Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Program Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+> * [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Szablon usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
@@ -100,7 +104,7 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
    * Możesz użyć **własnego klastra usługi HDInsight** zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
    * Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony przy każdym przetwarzaniu wycinka — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**). Klaster jest automatycznie usuwany po zakończeniu przetwarzania.
      
-       Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: „adf**twojanazwafabrykidanych**-**nazwapołączonejusługi**-znacznikdatygodziny”. Aby usunąć kontenery z magazynu obiektów blob Azure, użyj takich narzędzi, jak [Microsoft Storage Explorer](http://storageexplorer.com/).
+       Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: „adf**twojanazwafabrykidanych**-**nazwapołączonejusługi**-znacznikdatygodziny”. Aby usunąć kontenery z usługi Azure Blob Storage, użyj takich narzędzi, jak [Microsoft Storage Explorer](http://storageexplorer.com/).
      
      Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie). 
 4. Zapisz plik **HDInsightOnDemandLinkedService1.json**.
@@ -236,7 +240,7 @@ W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsigh
             }
         }
    
-    Ten fragment kodu JSON służy do utworzenia potoku obejmującego jedno działanie, które korzysta z programu Hive do przetwarzania danych w klastrze usługi HDInsight.
+     Ten fragment kodu JSON służy do utworzenia potoku obejmującego jedno działanie, które korzysta z programu Hive do przetwarzania danych w klastrze usługi HDInsight.
    
     Ten fragment kodu JSON służy do utworzenia potoku obejmującego jedno działanie, które korzysta z programu Hive do przetwarzania danych w klastrze usługi HDInsight.
    
@@ -254,13 +258,13 @@ W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsigh
    > 
 4. Zapisz plik **HiveActivity1.json**.
 
-### <a name="add-partitionweblogs.hql-and-input.log-as-a-dependency"></a>Dodawanie plików partitionweblogs.hql i input.log jako zależności
+### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>Dodawanie plików partitionweblogs.hql i input.log jako zależności
 1. Kliknij prawym przyciskiem myszy pozycję **Zależności** w oknie **Eksplorator rozwiązań**, wskaż polecenie **Dodaj** i kliknij pozycję **Istniejący element**.  
 2. Przejdź do folderu **C:\ADFGettingStarted** i wybierz pliki **partitionweblogs.hql** **input.log**, a następnie kliknij przycisk **Dodaj**. Te dwa pliki zostały utworzone w ramach wymagań wstępnych z [Omówienia samouczka](data-factory-build-your-first-pipeline.md).
 
 Podczas publikowania rozwiązania w następnym kroku plik **partitionweblogs.hql** zostanie przekazany do folderu skryptów w kontenerze obiektów blob **adfgetstarted**.   
 
-### <a name="publish/deploy-data-factory-entities"></a>Publikowanie/wdrażanie jednostek usługi Fabryka danych
+### <a name="publishdeploy-data-factory-entities"></a>Publikowanie/wdrażanie jednostek usługi Fabryka danych
 1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, a następnie kliknij polecenie **Publikuj**. 
 2. Jeśli zostanie wyświetlone okno dialogowe **Logowanie na koncie Microsoft** wprowadź poświadczenia dla konta z subskrypcją Azure i kliknij przycisk **Zaloguj**.
 3. Powinno zostać wyświetlone następujące okno dialogowe:
@@ -272,7 +276,8 @@ Podczas publikowania rozwiązania w następnym kroku plik **partitionweblogs.hql
    2. Wprowadź unikatową **nazwę** fabryki danych. Na przykład: **FirstDataFactoryUsingVS09152016**. Nazwa musi być unikatowa w skali globalnej.  
 
         > [AZURE.IMPORTANT] Jeśli podczas publikowania wystąpi błąd **Nazwa fabryki danych „FirstDataFactoryUsingVS” jest niedostępna**, zmień nazwę (np. TwojaNazwaFirstDataFactoryUsingVS). Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
-1. Wybierz odpowiednią subskrypcję w polu **Subskrypcja**.
+3. Wybierz odpowiednią subskrypcję w polu **Subskrypcja**.
+
 
         > [AZURE.IMPORTANT] Jeśli nie jest widoczna żadna subskrypcja, upewnij się, że do logowania zostało użyte konto o uprawnieniach administratora lub współadministratora subskrypcji.  
 
@@ -333,7 +338,7 @@ Ważne rzeczy, na które należy zwrócić uwagę:
    > 
    > 
    
-    ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png) 
+    ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. Gdy wycinek będzie w stanie **Gotowe**, sprawdź folder **partitioneddata** w kontenerze **adfgetstarted** w magazynie obiektów blob pod kątem danych wyjściowych.  
     
     ![Dane wyjściowe](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
@@ -341,13 +346,13 @@ Ważne rzeczy, na które należy zwrócić uwagę:
     
     ![Szczegóły wycinka danych](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
 12. Kliknij uruchomienie działania na **liście uruchomień działań**, aby zobaczyć szczegóły dotyczące uruchamiania działania (w tym scenariuszu działanie Hive) w oknie **Szczegóły uruchamiania działania**.   
-    ![Szczegóły uruchamiania działania](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)  
+    ![Szczegóły uruchamiania działania](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
     
     W plikach dziennika zobaczysz zapytanie Hive, które zostało wykonane, oraz informacje o stanie. Dzienniki te są przydatne w przypadku rozwiązywania różnych problemów.  
 
 Zobacz artykuł [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) (Monitorowanie zestawów danych i potoku), aby uzyskać instrukcje dotyczące korzystania z witryny Azure Portal do monitorowania potoku i zestawów danych utworzonych przez siebie w ramach tego samouczka.
 
-### <a name="monitor-pipeline-using-monitor-&-manage-app"></a>Monitorowanie potoku przy użyciu aplikacji Monitorowanie i zarządzanie
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>Monitorowanie potoku przy użyciu aplikacji Monitorowanie i zarządzanie
 Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i zarządzanie. Szczegółowe informacje dotyczące korzystania z aplikacji znajdują się w artykule [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md) (Monitorowanie potoków usługi Fabryka danych Azure oraz zarządzanie nimi za pomocą aplikacji Monitorowanie i zarządzanie).
 
 1. Kliknij kafelek Monitorowanie i zarządzanie.
@@ -426,11 +431,11 @@ Dodaj plik konfiguracji dla każdego środowiska, wykonując następujące czynn
     Jeśli kod JSON zawiera właściwość obejmującą tablicę wartości, jak pokazano poniżej:  
    
         "structure": [
-            {
-                "name": "FirstName",
+              {
+                  "name": "FirstName",
                 "type": "String"
-            },
-            {
+              },
+              {
                 "name": "LastName",
                 "type": "String"
             }
@@ -502,6 +507,9 @@ W tym artykule opisano tworzenie potoku za pomocą działania przekształcenia (
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

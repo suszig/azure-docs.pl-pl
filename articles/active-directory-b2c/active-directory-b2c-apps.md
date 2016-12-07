@@ -1,12 +1,12 @@
 ---
-title: Usługa Azure AD B2C | Microsoft Docs
-description: Typy aplikacji, które można tworzyć w usłudze Azure Active Directory B2C.
+title: "Usługa Azure AD B2C | Microsoft Docs"
+description: "Typy aplikacji, które można tworzyć w usłudze Azure Active Directory B2C."
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
-manager: msmbaldwin
-editor: ''
-
+manager: mbaldwin
+editor: 
+ms.assetid: bb9d4abe-0db7-4bd9-b0c4-2f43b2c9cf33
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4d36102549550515e516522ecbd964cc7bd1b4d4
+
 
 ---
-# Usługa Azure Active Directory B2C: typy aplikacji
+# <a name="azure-active-directory-b2c-types-of-applications"></a>Usługa Azure Active Directory B2C: typy aplikacji
 Usługa Azure Active Directory (Azure AD) B2C obsługuje uwierzytelnianie w wielu nowoczesnych architekturach aplikacji. Wszystkie one są oparte na standardowych protokołach branżowych [OAuth 2.0](active-directory-b2c-reference-protocols.md) lub [OpenID Connect](active-directory-b2c-reference-protocols.md). W tym dokumencie krótko opisano typy aplikacji, które można tworzyć, niezależnie od preferowanego języka lub platformy. Ułatwia on także zrozumienie ogólnych scenariuszy przed [rozpoczęciem tworzenia aplikacji](active-directory-b2c-overview.md#getting-started).
 
-## Podstawy
+## <a name="the-basics"></a>Podstawy
 Każda aplikacja, która korzysta z usługi Azure AD B2C musi być zarejestrowana w [katalogu usługi B2C](active-directory-b2c-get-started.md) za pośrednictwem witryny [Azure Portal](https://portal.azure.com/). Proces rejestracji aplikacji polega na zgromadzeniu kilku wartości i przypisaniu ich do aplikacji:
 
 * **Identyfikator aplikacji** który w sposób unikatowy identyfikuje aplikację.
@@ -47,7 +51,7 @@ Interakcja wszystkich aplikacji z punktem końcowym v2.0 jest realizowana wedłu
 <!-- TODO: Need a page for libraries to link to -->
 Te kroki mogą się nieznacznie różnić w zależności od typu tworzonej aplikacji. Szczegółowe informacje można znaleźć w bibliotekach open source.
 
-## Aplikacje sieci Web
+## <a name="web-apps"></a>Aplikacje sieci Web
 W przypadku aplikacji sieci Web (w tym .NET, PHP, Java, Ruby, Python i Node.js), które są hostowane na serwerze i dostępne za pośrednictwem przeglądarki, usługa Azure AD B2C obsługuje protokół [OpenID Connect](active-directory-b2c-reference-protocols.md) w odniesieniu wszystkich funkcji środowiska użytkownika. Obejmuje to logowanie, rejestrację i zarządzanie profilami. Podczas wdrażania protokołu OpenID Connect w usłudze Azure AD B2C aplikacja sieci Web inicjuje te funkcje środowiska użytkownika, wysyłając żądania uwierzytelniania do usługi Azure AD. Wynikiem żądania jest token `id_token`. Ten token zabezpieczający reprezentuje tożsamość użytkownika. Zawiera także informacje o użytkowniku w formie oświadczeń:
 
 ```
@@ -77,7 +81,7 @@ Oprócz ułatwienia prostego logowania aplikacja serwera sieci Web może równie
 
 <!--, and in our [WebApp-WebAPI Getting started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
-## Interfejsy API sieci Web
+## <a name="web-apis"></a>Interfejsy API sieci Web
 Usługi Azure AD B2C można użyć do zabezpieczania usług sieci Web, np. interfejsu API sieci Web RESTful aplikacji. Interfejsy API sieci Web mogą zabezpieczać swoje dane za pomocą protokołu OAuth 2.0, uwierzytelniając żądania przychodzące HTTP przy użyciu tokenów. Element wywołujący interfejs API sieci Web dołącza token w nagłówku autoryzacji żądania HTTP:
 
 ```
@@ -103,7 +107,7 @@ Aby dowiedzieć się więcej o kodach autoryzacji, tokenach odświeżania i krok
 
 Aby dowiedzieć się, jak zabezpieczyć interfejs API sieci Web przy użyciu usługi Azure AD B2C, zapoznaj się z samouczkami dotyczącymi interfejsu API sieci Web w [sekcji Wprowadzenie](active-directory-b2c-overview.md#getting-started).
 
-## Aplikacje mobilne i natywne
+## <a name="mobile-and-native-apps"></a>Aplikacje mobilne i natywne
 Aplikacje, które są zainstalowane na urządzeniach, takie jak aplikacje mobilne i klasyczne, często muszą uzyskiwać dostęp do usług zaplecza lub interfejsów API sieci Web w imieniu użytkowników. Możesz dodać niestandardowe środowiska zarządzania tożsamością do aplikacji natywnych i bezpiecznie wywoływać usługi zaplecza przy użyciu usługi Azure AD B2C i [przepływu kodu autoryzacji protokołu OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
 W tym przepływie aplikacja wykonuje [zasady](active-directory-b2c-reference-policies.md) i odbiera kod `authorization_code` od usługi Azure AD po wypełnieniu zasad przez użytkownika. Kod `authorization_code` reprezentuje zezwolenie aplikacji na wywołanie usług zaplecza w imieniu użytkownika, który jest aktualnie zalogowany. Aplikacja może następnie wymienić kod `authorization_code` w tle na tokeny `id_token` i `refresh_token`.  Aplikacja może używać tokenu `id_token` do uwierzytelniania interfejsu API sieci Web zaplecza w żądaniach HTTP. Może również użyć tokenu `refresh_token` do pobrania nowego tokenu `id_token`, gdy wygaśnie stary.
@@ -115,22 +119,25 @@ W tym przepływie aplikacja wykonuje [zasady](active-directory-b2c-reference-pol
 
 ![Obraz ścieżek aplikacji natywnej](./media/active-directory-b2c-apps/native.png)
 
-## Bieżące ograniczenia
+## <a name="current-limitations"></a>Bieżące ograniczenia
 Usługa Azure AD B2C nie obsługuje obecnie poniższych typów aplikacji, ale są one w planach. Dodatkowe ograniczenia zawiązane z usługą Azure AD B2C opisano w temacie [Ograniczenia](active-directory-b2c-limitations.md).
 
-### Aplikacje jednej strony (JavaScript)
+### <a name="single-page-apps-javascript"></a>Aplikacje jednej strony (JavaScript)
 W wielu nowoczesnych aplikacjach fronton aplikacji jednej strony jest napisany głównie w języku JavaScript. Często używane są takie struktury, jak AngularJS, Ember.js lub Durandal. Ogólnie dostępna usługa Azure AD obsługuje te aplikacje przy użyciu niejawnego przepływu OAuth 2.0. Przepływ ten nie jest jednak jeszcze dostępny w usłudze Azure AD B2C.
 
-### Demony/aplikacje po stronie serwera
+### <a name="daemonsserverside-apps"></a>Demony/aplikacje po stronie serwera
 Aplikacje obejmujące procesy długotrwałe lub niewymagające obecności użytkownika również potrzebują sposobu uzyskiwania dostępu do zabezpieczonych zasobów, np. interfejsów API sieci Web. Te aplikacje mogą uwierzytelniać i uzyskiwać tokeny przy użyciu tożsamości aplikacji (zamiast delegowanej tożsamości użytkownika) oraz przy użyciu przepływu poświadczeń klienta OAuth 2.0.
 
 Ten przepływ nie jest obecnie obsługiwany w usłudze Azure AD B2C. Te aplikacje mogą uzyskiwać tokeny tylko po wystąpieniu interaktywnego przepływu użytkownika.
 
-### Łańcuchy interfejsu API sieci Web (przepływ „w imieniu”)
+### <a name="web-api-chains-onbehalfof-flow"></a>Łańcuchy interfejsu API sieci Web (przepływ „w imieniu”)
 Wiele architektur obejmuje interfejs API sieci Web, który musi wywołać inny podrzędny interfejs API sieci Web, przy czym oba interfejsy są zabezpieczane przez usługę Azure AD B2C. Ten scenariusz jest często spotykany w klientach natywnych, którzy mają zaplecza interfejsu API sieci Web. Następnie następuje wywołanie usługi online firmy Microsoft, np. interfejsu API Azure AD Graph.
 
 Ten scenariusz obejmujący łańcuch interfejsów API sieci Web może być obsługiwany przy użyciu przyznania poświadczeń elementu nośnego OAuth 2.0 JWT, określanego również jako przepływ „w imieniu”.  Jednak przepływ „w imieniu” nie jest obecnie wdrażany w usłudze Azure AD B2C.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -22,7 +22,7 @@ W bloku **Nowa pamięć podręczna Redis** określ odpowiednią konfigurację pa
 
 * W polu **Nazwa DNS** wprowadź nazwę pamięci podręcznej, która zostanie użyta dla punktu końcowego pamięci podręcznej. Nazwa pamięci podręcznej musi być ciągiem od 1 do 63 znaków i może zawierać tylko cyfry, litery i znak `-`. Na początku ani na końcu nazwy pamięci podręcznej nie może występować znak `-`, a następujące po sobie znaki `-` nie są prawidłowe.
 * W polu **Subskrypcja** wybierz subskrypcję platformy Azure, która ma być używana dla pamięci podręcznej. Jeśli konto ma tylko jedną subskrypcję, zostanie ona automatycznie wybrana i lista rozwijana **Subskrypcja** nie będzie wyświetlana.
-* W polu **Grupa zasobów** wybierz lub utwórz grupę zasobów dla pamięci podręcznej. Więcej informacji można znaleźć w temacie [Używanie grup zasobów do zarządzania zasobami platformy Azure](../articles/resource-group-overview.md). 
+* W polu **Grupa zasobów** wybierz lub utwórz grupę zasobów dla pamięci podręcznej. Więcej informacji można znaleźć w temacie [Używanie grup zasobów do zarządzania zasobami platformy Azure](../articles/azure-resource-manager/resource-group-overview.md). 
 * Użyj opcji **Lokalizacja**, aby określić lokalizację geograficzną, w której będzie hostowana pamięć podręczna. Firma Microsoft zdecydowanie zaleca tworzenie pamięci podręcznej w tym samym regionie, w którym występuje aplikacja klienta pamięci podręcznej, w celu uzyskania możliwie najlepszej wydajności.
 * W polu **Warstwa cenowa** wybierz odpowiedni rozmiar i funkcje pamięci podręcznej.
 * **Klaster Redis** umożliwia tworzenie pamięci podręcznych większych niż 53 GB i współdzielenie danych między wieloma węzłami Redis. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie usługi klastrowania dla usługi Azure Redis Cache w warstwie Premium](../articles/redis-cache/cache-how-to-premium-clustering.md).
@@ -33,6 +33,8 @@ Po skonfigurowaniu opcji nowej pamięci podręcznej kliknij przycisk **Utwórz**
 
 ![Utworzono pamięć podręczną](media/redis-cache-create/redis-cache-cache-created.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

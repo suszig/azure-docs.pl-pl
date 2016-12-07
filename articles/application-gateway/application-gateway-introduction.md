@@ -1,28 +1,30 @@
 ---
-title: Wprowadzenie do usługi Application Gateway | Microsoft Docs
-description: Ta strona zawiera omówienie usługi Application Gateway dla równoważenia obciążenia warstwy 7, z uwzględnieniem rozmiarów bramy, równoważenia obciążenia HTTP, koligacji sesji na podstawie plików cookie i odciążania protokołu SSL.
+title: "Wprowadzenie do usługi Application Gateway | Microsoft Docs"
+description: "Ta strona zawiera omówienie usługi Application Gateway dla równoważenia obciążenia warstwy 7, z uwzględnieniem rozmiarów bramy, równoważenia obciążenia HTTP, koligacji sesji na podstawie plików cookie i odciążania protokołu SSL."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
 manager: carmonm
 editor: tysonn
-
+ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 10/25/2016
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
+ms.openlocfilehash: b365a44d59b7d6f4d0f1eec42aa02a565412b18e
+
 
 ---
 # <a name="application-gateway-overview"></a>Application Gateway — omówienie
 ## <a name="what-is-application-gateway"></a>Co to jest usługa Application Gateway
-Usługa Microsoft Azure Application Gateway oferuje kontrolera dostarczania aplikacji (ADC, Application Delivery Controller) jako usługę, zapewniając wiele możliwości równoważenia obciążenia warstwy 7. Mówiąc prościej, działanie tej usługi polega na akceptowaniu ruchu i kierowaniu go do odpowiednich wystąpień zaplecza na podstawie zdefiniowanych za jej pomocą reguł.
+Usługa Microsoft Azure Application Gateway oferuje kontrolera dostarczania aplikacji (ADC, Application Delivery Controller) jako usługę, zapewniając różnorodne możliwości równoważenia obciążenia warstwy 7 dla Twojej aplikacji. Umożliwia to klientom optymalizowanie wydajności farmy sieci Web dzięki przeniesieniu obciążenia intensywnego przerywania połączenia SSL z procesora CPU do usługi Application Gateway. Zapewnia także inne możliwości routingu warstwy 7, takie jak okrężna dystrybucja ruchu przychodzącego, koligacja sesji na podstawie plików cookie, routing oparty na ścieżkach URL i możliwość hostowania wielu witryn sieci Web za pojedynczą usługą Application Gateway. Usługa Application Gateway ma również zaporę aplikacji sieci Web (WAF, web application firewall), która chroni Twoją aplikację przed większością z 10 najpopularniejszych luk w zabezpieczeniach sieci Web OWASP. Usługę Application Gateway można skonfigurować jako bramę umożliwiającą dostęp do Internetu, bramę tylko wewnętrzną lub jako kombinację obu tych opcji. Usługa Application Gateway jest w pełni zarządzana przez platformę Azure, skalowalna i wysoko dostępna. Zapewnia ona bogaty zestaw funkcji diagnostyki i rejestrowania, aby uprościć zarządzanie. Usługa Application Gateway współpracuje z maszynami wirtualnymi, usługami w chmurze oraz wewnętrznymi i zewnętrznymi aplikacjami sieci Web.
 
-Równoważenie obciążenia aplikacji umożliwia administratorom IT i deweloperom tworzenie reguł routingu dla ruchu sieciowego na podstawie protokołu HTTP.  Usługa Application Gateway jest wysoko dostępna i mierzalna. Umowę SLA oraz ceny można znaleźć na stronach [Umowa SLA](https://azure.microsoft.com/support/legal/sla/) i [Cennik](https://azure.microsoft.com/pricing/details/application-gateway/).
-
-Usługa Application Gateway stosuje reguły routingu do ruchu HTTP, zapewniając równoważenie obciążenia warstwy 7 (HTTP). Utworzenie bramy aplikacji powoduje powiązanie punktu końcowego (adresu VIP) i używanie go jako publicznego adresu IP dla ruchu sieciowego danych przychodzących. Platforma Azure zapewnia równoważenie obciążenia warstwy 4 za pośrednictwem usługi Azure Load Balancer, która działa na poziomie transportu (TCP/UDP) i równoważy obciążenie całego przychodzącego ruchu sieciowego do usługi Application Gateway. Usługa Application Gateway kieruje ruch HTTP na podstawie konfiguracji, niezależnie od tego, czy jest to maszyna wirtualna, usługa w chmurze czy zewnętrzny adres IP.
+Usługa Application Gateway to dedykowane urządzenie wirtualne dla aplikacji i składa się z wielu wystąpień procesu roboczego, co zapewnia skalowalność i wysoką dostępność. Utworzenie bramy aplikacji powoduje powiązanie punktu końcowego (publicznego adresu VIP lub wewnętrznego adresu IP modułu równoważenia obciążenia) i używanie go na potrzeby ruchu sieciowego danych przychodzących. Ten adres VIP lub adres IP wewnętrznego modułu równoważenia obciążenia jest dostarczany za pośrednictwem usługi Azure Load Balancer, która działa na poziomie transportu (TCP/UDP) i równoważy obciążenie całego przychodzącego ruchu sieciowego do wystąpień procesu roboczego usługi Application Gateway. Następnie usługa Application Gateway kieruje ruch HTTP/HTTPS na podstawie konfiguracji, niezależnie od tego, czy jest to maszyna wirtualna, usługa w chmurze czy wewnętrzny lub zewnętrzny adres IP. Umowę SLA oraz ceny można znaleźć na stronach [Umowa SLA](https://azure.microsoft.com/support/legal/sla/) i [Cennik](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Funkcje
 Usługa Application Gateway obecnie obsługuje dostarczanie aplikacji warstwy 7 z następującymi funkcjami:
@@ -36,6 +38,7 @@ Usługa Application Gateway obecnie obsługuje dostarczanie aplikacji warstwy 7 
 * **[Routing obejmujący wiele witryn](application-gateway-multi-site-overview.md)** — usługa Application Gateway umożliwia konsolidację maksymalnie 20 witryn sieci Web na jednej bramie aplikacji.
 * **[Obsługa protokołu Websocket](application-gateway-websocket.md)** — kolejną atrakcyjną funkcją usługi Application Gateway jest natywna obsługa protokołu Websocket.
 * **[Monitorowanie kondycji](application-gateway-probe-overview.md)** — usługa Application Gateway zapewnia domyślne monitorowanie kondycji zasobów zaplecza i niestandardowe sondy na potrzeby monitorowania bardziej specyficznych scenariuszy.
+* **[Zaawansowana diagnostyka](application-gateway-diagnostics.md)** — aplikacja Application Gateway oferuje kompletne dzienniki dostępu i diagnostyki. Dzienniki zapory są dostępne dla zasobów usługi Application Gateway z włączoną zaporą aplikacji sieci Web.
 
 ## <a name="benefits"></a>Korzyści
 Usługa Application Gateway ma następujące zastosowania:
@@ -46,6 +49,10 @@ Usługa Application Gateway ma następujące zastosowania:
 * Aplikacje, które obsługują ruch w ramach protokołu Websocket.
 * Ochrona aplikacji sieci Web przed typowymi atakami internetowymi, takimi jak iniekcja SQL, ataki z użyciem skryptów wykorzystywanych w obrębie wielu witryn i przejęcia sesji.
 
+Ze względu na to, że równoważenie obciążenia usługi Application Gateway jest usługą zarządzaną przez platformę Azure, możliwa jest aprowizacja modułu równoważenia obciążenia warstwy 7 za modułem równoważenia obciążenia oprogramowania Azure. Przy użyciu usługi Traffic Manager można ukończyć wykonywanie scenariusza, jak pokazano to na poniższym rysunku. W tym przypadku usługa Traffic Manager umożliwia przekierowywanie oraz udostępnianie ruchu wielu zasobom aplikacji w różnych regionach, a brama aplikacji zapewnia równoważenie obciążenia warstwy 7 w regionie. Przykład tego scenariusza można znaleźć w temacie [Using load balancing services in the Azure cloud](../traffic-manager/traffic-manager-load-balancing-azure.md) (Używanie usług równoważenia obciążenia w chmurze platformy Azure).
+
+![scenariusz dla usług traffic manager i application gateway](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
+
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## <a name="gateway-sizes-and-instances"></a>Wystąpienia i rozmiary usługi Application Gateway
@@ -53,19 +60,19 @@ Usługa Application Gateway jest obecnie oferowana w trzech rozmiarach: małym (
 
 Obecnie istnieją dwie jednostki SKU dla usługi Application Gateway: WAF i Standard.
 
-Można utworzyć maksymalnie 50 bram aplikacji na subskrypcję, a każda brama aplikacji może mieć maksymalnie 10 wystąpień. Każda brama aplikacji może składać się z 20 odbiorników HTTP. Ze względu na to, że równoważenie obciążenia usługi Application Gateway jest usługą zarządzaną przez platformę Azure, możliwa jest aprowizacja modułu równoważenia obciążenia warstwy 7 za modułem równoważenia obciążenia oprogramowania Azure.
+Można utworzyć maksymalnie 50 bram aplikacji na subskrypcję, a każda brama aplikacji może mieć maksymalnie 10 wystąpień. Każda brama aplikacji może składać się z 20 odbiorników HTTP. Pełną listę limitów bramy aplikacji można znaleźć w temacie [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure).
 
 W poniższej tabeli przedstawiono przepływność przy średniej wydajności dla każdego wystąpienia bramy aplikacji:
 
 | Odpowiedź strony zaplecza | Small | Medium | Large |
 | --- | --- | --- | --- |
 | 6000 |7,5 Mb/s |13 Mb/s |50 Mb/s |
-| 100 000 |35 Mb/s |100 Mb/s |200 Mb/s |
+| 100 000 |35 Mb/s |100 Mb/s |200 Mb/s |
 
 > [!NOTE]
 > Są to przybliżone wartości przepływności bramy aplikacji. Rzeczywista przepływność zależy od różnorodnych szczegółów środowiska, takich jak średni rozmiar strony, lokalizacja wystąpień zaplecza i czas przetwarzania potrzebny do obsługi strony. Aby uzyskać dokładne wartości wydajności, należy przeprowadzić własne testy. Te wartości są podane tylko jako wskazówki na potrzeby planowania pojemności.
-> 
-> 
+>
+>
 
 ## <a name="health-monitoring"></a>Monitorowanie kondycji
 Usługa Azure Application Gateway automatycznie monitoruje kondycję wystąpień zaplecza za pośrednictwem podstawowych lub niestandardowych sond kondycji. Użycie sond kondycji zapewnia, że tylko hosty o dobrej kondycji będą odpowiadać na ruch sieciowy. Aby uzyskać więcej informacji, zobacz [Application Gateway health monitoring overview](application-gateway-probe-overview.md) (Monitorowanie kondycji usługi Application Gateway — omówienie).
@@ -80,6 +87,8 @@ Po zapoznaniu się z informacjami na temat usługi Application Gateway możesz [
 
 Aby dowiedzieć się, jak utworzyć bramę aplikacji przy użyciu routingu zawartości opartego na adresach URL, zobacz [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) (Tworzenie bramy aplikacji przy użyciu routingu opartego na adresach URL).
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

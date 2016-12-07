@@ -1,5 +1,5 @@
-## Tworzenie sieci wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
-Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasobami Azure z poziomu wiersza polecenia dowolnego komputera z systemem Windows, Linux lub OS X. Aby utworzyć sieć wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure, wykonaj poniższe kroki.
+## <a name="how-to-create-a-vnet-using-the-azure-cli"></a>Tworzenie sieci wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
+Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasobami Azure z poziomu wiersza polecenia dowolnego komputera z systemem Windows, Linux lub OS X. Aby utworzyć sieć wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure, wykonaj poniższe kroki.
 
 1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz temat [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) (Instalacja i konfiguracja interfejsu wiersza polecenia platformy Azure) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
 2. Uruchom polecenie **azure config mode**, aby włączyć tryb Resource Manager, jak pokazano poniżej.
@@ -9,7 +9,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasob
     Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
    
         info:    New mode is arm
-3. W razie potrzeby uruchom polecenie **azure group create**, aby utworzyć nową grupę zasobów, jak pokazano poniżej. Zwróć uwagę na dane wyjściowe polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../articles/resource-group-overview.md#resource-groups).
+3. W razie potrzeby uruchom polecenie **azure group create**, aby utworzyć nową grupę zasobów, jak pokazano poniżej. Zwróć uwagę na dane wyjściowe polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
    
         azure group create -n TestRG -l centralus
    
@@ -100,6 +100,8 @@ Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasob
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-### Przyznawanie dostępu usługi Mobile Engagement do klucza interfejsu API usługi GCM
+### <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Przyznawanie dostępu usługi Mobile Engagement do klucza interfejsu API usługi GCM
 Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych w swoim imieniu, musisz przyznać jej dostęp do klucza interfejsu API. W tym celu należy skonfigurować i wprowadzić klucz w portalu usługi Mobile Engagement.
 
 1. W klasycznym portalu Azure upewnij się, że znajdujesz się w aplikacji używanej w tym projekcie, a następnie kliknij przycisk **Engage** (Włącz) widoczny u dołu:
@@ -14,7 +14,7 @@ Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych 
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a id="send"></a>Wysyłanie powiadomienia do aplikacji
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Wysyłanie powiadomienia do aplikacji
 Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji.
 
 1. Przejdź do karty **REACH** (Zasięg) w portalu usługi Mobile Engagement.
@@ -42,6 +42,8 @@ Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wy
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

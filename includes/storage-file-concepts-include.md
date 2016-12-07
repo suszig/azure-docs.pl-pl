@@ -1,4 +1,4 @@
-## Co to jest usługa Azure File Storage?
+## <a name="what-is-azure-file-storage"></a>Co to jest usługa Azure File Storage?
 Usługa File Storage oferuje współużytkowany magazyn dla aplikacji używających standardowego protokołu SMB 2.1 lub SMB 3.0. Usługa Microsoft Azure Virtual Machines i usługi w chmurze mogą udostępniać dane między składnikami aplikacji za pośrednictwem zainstalowanych udziałów i aplikacji lokalnych, które mogą uzyskiwać dostęp do danych plików w udziale za pomocą interfejsu API usługi File Storage.
 
 Aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure mogą zainstalować udziały usługi File Storage, aby uzyskać dostęp do danych plików tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba maszyn wirtualnych lub ról platformy Azure może następnie równocześnie zainstalować udział usługi File Storage i uzyskiwać do niego dostęp.
@@ -12,7 +12,7 @@ Najczęstsze zastosowania usługi File Storage to:
 * Przechowywanie danych diagnostycznych, takich jak dzienniki, metryki i zrzuty awaryjne we współdzielonej lokalizacji 
 * Przechowywanie narzędzi i programów potrzebnych do tworzenia maszyn wirtualnych lub usług i administrowania nimi w chmurze platformy Azure
 
-## Pojęcia dotyczące usługi File Storage
+## <a name="file-storage-concepts"></a>Pojęcia dotyczące usługi File Storage
 Usługa File Storage zawiera następujące składniki:
 
 ![files-concepts][files-concepts]
@@ -33,6 +33,6 @@ Szczegółowe informacje o nazewnictwie udziałów, katalogów i plików można 
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

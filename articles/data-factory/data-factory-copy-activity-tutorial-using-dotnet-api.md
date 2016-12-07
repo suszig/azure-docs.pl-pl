@@ -1,28 +1,32 @@
 ---
-title: 'Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API .NET | Microsoft Docs'
-description: Ten samouczek zawiera instrukcje tworzenia potoku usługi Azure Data Factory za pomocą działania kopiowania przy użyciu interfejsu API .NET.
+title: "Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API .NET | Microsoft Docs"
+description: "Ten samouczek zawiera instrukcje tworzenia potoku usługi Azure Data Factory za pomocą działania kopiowania przy użyciu interfejsu API .NET."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+
 
 ---
-# Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API .NET
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API .NET
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
-> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Witryna Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
@@ -38,13 +42,13 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
 > 
 > 
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * Przejrzyj [omówienie samouczka i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), aby uzyskać omówienie samouczka i pełne kroki **wymagań wstępnych**. 
 * Program Visual Studio w wersji 2012, 2013 lub 2015.
 * Pobierz i zainstaluj zestaw [SDK .NET Azure](http://azure.microsoft.com/downloads/).
 * Azure PowerShell. Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować program Azure PowerShell na komputerze. Program Azure PowerShell służy do tworzenia aplikacji Azure Active Directory.
 
-### Tworzenie aplikacji w usłudze Azure Active Directory
+### <a name="create-an-application-in-azure-active-directory"></a>Tworzenie aplikacji w usłudze Azure Active Directory
 Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usługi aplikacji i przypisz ją do roli **Współautor Data Factory**.  
 
 1. Uruchom program **PowerShell**. 
@@ -95,7 +99,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
 * Identyfikator aplikacji 
 * Hasło (określone w pierwszym poleceniu)   
 
-## Przewodnik
+## <a name="walkthrough"></a>Przewodnik
 1. Za pomocą programu Visual Studio 2012/2013/2015 utwórz aplikację konsolową .NET C#.
    1. Uruchom program **Visual Studio** 2012/2013/2015.
    2. Kliknij pozycję **Plik**, wskaż polecenie **Nowy** i kliknij pozycję **Projekt**.
@@ -105,25 +109,29 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
    6. Wybierz ścieżkę **C:\ADFGetStarted** jako lokalizację.
    7. Kliknij przycisk **OK**, aby utworzyć projekt.
 2. Kliknij pozycję **Narzędzia**, wskaż pozycję **Menedżer pakietów NuGet**, a następnie kliknij pozycję **Konsola menedżera pakietów**.
-3. W oknie **Konsola menedżera pakietów** wykonaj po kolei następujące polecenia. 
-   
-       Install-Package Microsoft.Azure.Management.DataFactories
-       Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3. W **konsoli menedżera pakietów** wykonaj następujące czynności: 
+   1. Uruchom następujące polecenie, aby zainstalować pakiet Fabryka danych: `Install-Package Microsoft.Azure.Management.DataFactories`        
+   2. Uruchom następujące polecenie, aby zainstalować pakiet Azure Active Directory (użyjesz interfejsu API usługi Active Directory w kodzie): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Dodaj następującą sekcję **appSetttings** do pliku **App.config**. Te ustawienia są używane przez metodę pomocy **GetAuthorizationHeader**. 
    
     Zastąp wartości **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** i **&lt;tenant ID&gt;** własnymi wartościami. 
    
-        <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <appSettings>
+                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
    
-            <!-- Replace the following values with your own -->
-            <add key="ApplicationId" value="<Application ID>" />
-            <add key="Password" value="<Password>" />    
-            <add key="SubscriptionId" value= "Subscription ID" />
-            <add key="ActiveDirectoryTenantId" value="tenant ID" />
-        </appSettings>
+                <add key="ApplicationId" value="your application ID" />
+                <add key="Password" value="Password you used while creating the AAD application" />
+                <add key="SubscriptionId" value= "Subscription ID" />
+                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+            </appSettings>
+        </configuration>
 5. Dodaj następujące instrukcje **using** do pliku źródłowego (Program.cs) w projekcie.
    
         using System.Threading;
@@ -345,7 +353,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
                            },
                        }
                    }
-               }); 
+               });    
 2. Dodaj następujący kod do metody **Main**, aby pobrać stan wycinka danych zestawu danych wyjściowych. W tym przykładzie oczekiwany jest tylko wycinek.   
    
            // Pulling status within a timeout threshold
@@ -453,12 +461,15 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
    * Połączona usługa: **LinkedService_AzureStorage** 
    * Zestaw danych: **DatasetBlobSource** i **DatasetBlobDestination**.
    * Potok: **PipelineBlobSample** 
-10. Sprawdź, czy plik wyjściowy został utworzony w folderze „**apifactoryoutput**” w kontenerze **adftutorial**.
+10. Sprawdź, czy w tabeli „**emp**” w określonej bazie danych SQL Azure zostały utworzone rekordy dwóch pracowników.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Przeczytaj artykuł [Data Movement Activities](data-factory-data-movement-activities.md) (Działania przenoszenia danych), który zawiera szczegółowe informacje dotyczące działania kopiowania używanego w tym samouczku.
 * Szczegółowe informacje na temat zestawu SDK .NET usługi Data Factory zamieszczono w temacie [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) (Informacje o interfejsie API .NET usługi Data Factory). Ten artykuł nie obejmuje całego interfejsu API .NET usługi Data Factory. 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

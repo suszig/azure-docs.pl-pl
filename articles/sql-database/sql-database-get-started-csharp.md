@@ -1,13 +1,13 @@
 ---
-title: 'Wypróbuj usługę SQL Database: używanie języka C# do tworzenia bazy danych SQL | Microsoft Docs'
-description: Wypróbuj usługę SQL Database SQL do tworzenia aplikacji w językach SQL i C#, a także utwórz bazę danych Azure SQL w języku C# przy użyciu biblioteki SQL Database Library for .NET.
-keywords: wypróbuj usługę sql, sql c#
+title: "Wypróbuj usługę SQL Database: używanie języka C# do tworzenia bazy danych SQL | Microsoft Docs"
+description: "Wypróbuj usługę SQL Database SQL do tworzenia aplikacji w językach SQL i C#, a także utwórz bazę danych Azure SQL w języku C# przy użyciu biblioteki SQL Database Library for .NET."
+keywords: "wypróbuj usługę sql, sql c#"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+
 
 ---
-# Wypróbuj usługę SQL Database: używanie języka C# do tworzenia bazy danych SQL z zastosowaniem biblioteki SQL Database Library for .NET
+# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Wypróbuj usługę SQL Database: używanie języka C# do tworzenia bazy danych SQL z zastosowaniem biblioteki SQL Database Library for .NET
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-get-started.md)
+> * [Witryna Azure Portal](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
 > * [PowerShell](sql-database-get-started-powershell.md)
 > 
@@ -27,10 +31,10 @@ ms.author: sstein
 
 Dowiedz się, jak używać języka C# do tworzenia bazy danych Azure SQL z zastosowaniem [Biblioteki zarządzania usługą Microsoft Azure SQL dla programu .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). W tym artykule opisano sposób tworzenia jednej bazy danych SQL w języku C#. Aby tworzyć elastyczne pule baz danych, zobacz artykuł [Tworzenie elastycznej puli baz danych](sql-database-elastic-pool-create-csharp.md).
 
-Biblioteka zarządzania usługą Azure SQL Database dla programu .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Biblioteka zarządzania usługą Azure SQL Database dla programu .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Wiele nowych funkcji usługi SQL Database jest obsługiwanych tylko w przypadku zastosowania [modelu wdrażania przy użyciu usługi Azure Resource Manager](../resource-group-overview.md). Dlatego należy zawsze używać najnowszej **Biblioteki zarządzania usługą SQL Database platformy Azure dla programu .NET ([dokumentacja](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pakiet NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starsze [biblioteki oparte na modelu wdrożenia klasycznego](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) są obsługiwane tylko w trybie zgodności z poprzednimi wersjami, w związku z czym zalecane jest użycie nowszych bibliotek opartych na modelu wdrożenia przy użyciu usługi Resource Manager.
+> Wiele nowych funkcji usługi SQL Database jest obsługiwanych tylko w przypadku zastosowania [modelu wdrażania przy użyciu usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Dlatego należy zawsze używać najnowszej **Biblioteki zarządzania usługą SQL Database platformy Azure dla programu .NET ([dokumentacja](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pakiet NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Starsze [biblioteki oparte na modelu wdrożenia klasycznego](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) są obsługiwane tylko w trybie zgodności z poprzednimi wersjami, w związku z czym zalecane jest użycie nowszych bibliotek opartych na modelu wdrożenia przy użyciu usługi Resource Manager.
 > 
 > 
 
@@ -44,7 +48,7 @@ Do wykonania kroków opisanych w tym artykule potrzebne są:
 > 
 > 
 
-## Tworzenie aplikacji konsoli i instalowanie wymaganych bibliotek
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Tworzenie aplikacji konsoli i instalowanie wymaganych bibliotek
 1. Uruchom program Visual Studio.
 2. Kliknij pozycję **Plik** > **Nowy** > **Projekt**.
 3. Utwórz **aplikację konsolową** w języku C# i nadaj jej następującą nazwę: *SqlDbConsoleApp*
@@ -61,7 +65,7 @@ Aby utworzyć bazę danych SQL w języku C#, załaduj wymagane biblioteki zarzą
 > 
 > 
 
-## Tworzenie serwera programu SQL Database, reguły zapory i bazy danych SQL — przykład w języku C
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Tworzenie serwera programu SQL Database, reguły zapory i bazy danych SQL — przykład w języku C#
 W poniższym przykładzie tworzone są: grupa zasobów, serwer, reguła zapory i baza danych SQL. Zobacz [Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów](#create-a-service-principal-to-access-resources), aby uzyskać zmienne `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Zastąp zawartość pliku **Program.cs** poniższym kodem i zaktualizuj elementy `{variables}` wartościami aplikacji (bez znaków `{}`).
@@ -223,7 +227,7 @@ Zastąp zawartość pliku **Program.cs** poniższym kodem i zaktualizuj elementy
 
 
 
-## Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów
+## <a name="create-a-service-principal-to-access-resources"></a>Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów
 Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directory (AD) oraz jednostkę usługi wymaganą do uwierzytelnienia aplikacji w języku C#. Skrypt generuje wartości wyjściowe potrzebne w poprzednim przykładzie w języku C#. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell](../resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
@@ -266,12 +270,12 @@ Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directo
 
 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po wypróbowaniu usługi SQL Database i skonfigurowaniu bazy danych przy użyciu języka C# możesz przystąpić do czytania następujących artykułów:
 
 * [Nawiązywanie połączenia z usługą SQL Database za pomocą programu SQL Server Management Studio i wykonywanie przykładowego zapytania T-SQL](sql-database-connect-query-ssms.md)
 
-## Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe zasoby
 * [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Klasa bazy danych](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
@@ -288,6 +292,6 @@ Po wypróbowaniu usługi SQL Database i skonfigurowaniu bazy danych przy użyciu
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

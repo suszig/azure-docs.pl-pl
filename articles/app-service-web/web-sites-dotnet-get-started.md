@@ -1,12 +1,12 @@
 ---
-title: Wdrażanie aplikacji ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio | Microsoft Docs
-description: Dowiedz się, jak wdrożyć projekt sieci Web ASP.NET w nowej aplikacji sieci Web w usłudze Azure App Service przy użyciu programu Visual Studio.
+title: "Wdrażanie aplikacji ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio | Microsoft Docs"
+description: "Dowiedz się, jak wdrożyć projekt sieci Web ASP.NET w nowej aplikacji sieci Web w usłudze Azure App Service przy użyciu programu Visual Studio."
 services: app-service\web
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 07/22/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+
 
 ---
-# Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio
+# <a name="deploy-an-aspnet-web-app-to-azure-app-service-using-visual-studio"></a>Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 Ten samouczek pokazuje, jak wdrożyć aplikację sieci Web programu ASP.NET w nowej [aplikacji sieci Web w usłudze Azure App Service](app-service-web-overview.md) przy użyciu programu Visual Studio 2015.
 
 Samouczek jest przeznaczony dla deweloperów programu ASP.NET, którzy nie mają doświadczenia w korzystaniu z platformy Azure. Po zakończeniu będziesz mieć prostą aplikację sieci Web uruchomioną w chmurze.
@@ -39,13 +43,13 @@ Jest to samouczek ułatwiający rozpoczynanie pracy, dlatego przedstawia wdraża
 
 Oprócz czasu wymaganego do zainstalowania zestawu Azure SDK dla programu .NET wykonanie tego samouczka trwa około 10–15 minut.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * Samouczek jest przeznaczony dla użytkowników, którzy pracowali już z aplikacją ASP.NET MVC i programem Visual Studio. Jeśli potrzebujesz wprowadzenia, zobacz [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) (Wprowadzenie do aplikacji ASP.NET MVC 5).
 * Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751). W tej lokalizacji możesz utworzyć początkową aplikację o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
 
-## <a name="setupdevenv"></a>Konfigurowanie środowiska projektowego
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Konfigurowanie środowiska projektowego
 Samouczek jest przeznaczony dla programu Visual Studio 2015 z [zestawem Azure SDK dla programu .NET](../dotnet-sdk.md) w wersji 2.9 lub nowszej. 
 
 * [Pobierz najnowszy zestaw Azure SDK dla programu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Zestaw SDK instaluje program Visual Studio 2015, jeśli jest to konieczne.
@@ -57,7 +61,7 @@ Samouczek jest przeznaczony dla programu Visual Studio 2015 z [zestawem Azure SD
 
 Jeśli masz program Visual Studio 2013 i wolisz użyć tego programu, możesz [pobrać najnowszy zestaw Azure SDK dla programu Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Niektóre ekrany mogą różnić się od przedstawionych na ilustracjach.
 
-## Konfigurowanie nowego projektu sieci Web
+## <a name="configure-a-new-web-project"></a>Konfigurowanie nowego projektu sieci Web
 Następnym krokiem jest utworzenie projektu sieci Web w programie Visual Studio i aplikacji sieci Web w usłudze Azure App Service. W tej sekcji samouczka zostanie skonfigurowany nowy projekt sieci Web. 
 
 1. Otwórz program Visual Studio 2015.
@@ -85,7 +89,7 @@ Następnym krokiem jest utworzenie projektu sieci Web w programie Visual Studio 
     Te ustawienia polecają programowi Visual Studio utworzenie aplikacji sieci Web platformy Azure dla projektu sieci Web.
 10. Kliknij przycisk **OK**.
 
-## Konfigurowanie zasobów Azure dla nowej aplikacji sieci Web
+## <a name="configure-azure-resources-for-a-new-web-app"></a>Konfigurowanie zasobów Azure dla nowej aplikacji sieci Web
 Teraz przekaż programowi Visual Studio informacje dotyczące zasobów Azure, które powinien utworzyć.
 
 1. W oknie dialogowym **Tworzenie usługi App Service** kliknij pozycję **Dodaj konto**, a następnie zaloguj się do platformy Azure przy użyciu identyfikatora i hasła konta, których używasz do zarządzania subskrypcją platformy Azure.
@@ -104,7 +108,7 @@ Teraz przekaż programowi Visual Studio informacje dotyczące zasobów Azure, kt
    
     ![Okno dialogowe Tworzenie usługi App Service](./media/web-sites-dotnet-get-started/rgcreate.png)
    
-    Grupa zasobów to kolekcja zasobów platformy Azure, takich jak aplikacje sieci Web, bazy danych i maszyny wirtualne. W przypadku korzystania z samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku dowolnych zasobów platformy Azure utworzonych na potrzeby samouczka. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](../resource-group-overview.md).
+    Grupa zasobów to kolekcja zasobów platformy Azure, takich jak aplikacje sieci Web, bazy danych i maszyny wirtualne. W przypadku korzystania z samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku dowolnych zasobów platformy Azure utworzonych na potrzeby samouczka. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 4. Kliknij przycisk **Nowy** obok listy rozwijanej **Plan usługi App Service**.
    
     ![Okno dialogowe Tworzenie usługi App Service](./media/web-sites-dotnet-get-started/createasplan.png)
@@ -124,7 +128,7 @@ Teraz przekaż programowi Visual Studio informacje dotyczące zasobów Azure, kt
 8. W oknie dialogowym **Konfigurowanie planu usługi App Service** kliknij przycisk **OK**.
 9. W oknie dialogowym **Tworzenie usługi App Service** kliknij przycisk **Utwórz**.
 
-## Tworzenie projektu i aplikacji sieci Web przez program Visual Studio
+## <a name="visual-studio-creates-the-project-and-web-app"></a>Tworzenie projektu i aplikacji sieci Web przez program Visual Studio
 Program Visual Studio szybko (zazwyczaj trwa to nie dłużej niż minutę) tworzy projekt sieci Web i aplikację sieci Web.  
 
 W oknie **Eksplorator rozwiązań** wyświetlane są pliki i foldery w nowym projekcie.
@@ -139,7 +143,7 @@ Korzystając z okna **Eksplorator chmury**, można wyświetlać zasoby platformy
 
 ![Aplikacja sieci Web utworzona w Eksploratorze chmury](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Wdrażanie projektu sieci Web w aplikacji sieci Web platformy Azure
+## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Wdrażanie projektu sieci Web w aplikacji sieci Web platformy Azure
 W tej sekcji projekt sieci Web jest wdrażany w aplikacji sieci Web.
 
 1. W **Eksploratorze rozwiązań** kliknij projekt prawym przyciskiem myszy i wybierz pozycję **Opublikuj**.
@@ -179,14 +183,14 @@ W tej sekcji projekt sieci Web jest wdrażany w aplikacji sieci Web.
    > 
    > 
 
-## Rozwiązywanie problemów
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Jeśli wystąpi problem podczas korzystania z tego samouczka, upewnij się, że używasz najnowszej wersji zestawu Azure SDK dla platformy .NET. Najłatwiejszym sposobem wykonania tego zadania jest [pobranie zestawu Azure SDK dla programu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Jeśli masz zainstalowaną bieżącą wersję, Instalator platformy sieci Web potwierdzi, że instalacja nie jest wymagana.
 
 Jeśli korzystasz z komputera działającego w sieci firmowej i próbujesz przeprowadzić wdrożenie w usłudze Azure App Service przez zaporę, upewnij się, że porty 443 i 8172 są otwarte dla narzędzia Web Deploy. Jeśli nie możesz otworzyć tych portów, skorzystaj z innych opcji wdrażania z sekcji Następne kroki.
 
 Po uruchomieniu aplikacji sieci Web programu ASP.NET w usłudze Azure App Service warto dowiedzieć się więcej na temat funkcji programu Visual Studio ułatwiających rozwiązywanie problemów. Aby uzyskać informacje na temat rejestrowania, zdalnego debugowania i innych funkcji, zobacz [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md) (Rozwiązywanie problemów z aplikacjami sieci Web platformy Azure w programie Visual Studio).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym samouczku przedstawiono sposób tworzenia prostej aplikacji sieci Web i wdrożenia jej w aplikacji sieci Web platformy Azure. Aby dowiedzieć się więcej na temat usługi Azure App Service, zobacz poniższe tematy pokrewne i zasoby:
 
 * Monitorowanie aplikacji sieci Web i zarządzanie nią w [Portalu Azure](https://portal.azure.com/). 
@@ -212,6 +216,9 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji sieci Web i wd
     Aby uzyskać informacje na temat sposobu pracy z grupami zasobów w witrynie Azure Portal, zobacz [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md) (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i Portalu Azure).   
 * Aby zobaczyć więcej przykładów dotyczących tworzenia aplikacji sieci Web platformy ASP.NET w usłudze App Service, zobacz [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Tworzenie i wdrażanie aplikacji sieci web ASP.NET w usłudze Azure App Service) i [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Tworzenie i wdrażanie aplikacji mobilnej w usłudze Azure App Service) w [pokazie](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) 2015 Connect witryny [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz). Aby uzyskać więcej materiałów szybkiego startu z w wersji demonstracyjnej witryny HealthClinic.biz, zobacz [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Materiały szybkiego startu narzędzi deweloperskich platformy Azure).
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

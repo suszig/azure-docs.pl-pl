@@ -1,12 +1,12 @@
 ---
-title: 'Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API REST | Microsoft Docs'
-description: Ten samouczek zawiera instrukcje tworzenia potoku usługi Azure Data Factory za pomocą działania kopiowania przy użyciu interfejsu API REST.
+title: "Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API REST | Microsoft Docs"
+description: "Ten samouczek zawiera instrukcje tworzenia potoku usługi Azure Data Factory za pomocą działania kopiowania przy użyciu interfejsu API REST."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+
 
 ---
-# Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API REST
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-rest-api"></a>Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
-> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Witryna Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
@@ -36,7 +40,7 @@ Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych Azure przy 
 > 
 > 
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj kroki **wymagań wstępnych**.
 * Zainstaluj na komputerze narzędzie [Curl](https://curl.haxx.se/dlwiz/). W połączeniu z poleceniami REST umożliwia ono utworzenie fabryki danych. 
 * Postępuj zgodnie z instrukcjami zawartymi w [tym artykule](../resource-group-create-service-principal-portal.md), aby wykonać następujące czynności: 
@@ -64,10 +68,10 @@ Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych Azure przy 
      
       W niektórych krokach w tym samouczku zakłada się, że używana jest grupa zasobów o nazwie ADFTutorialResourceGroup. Jeśli używasz innej grupy zasobów, podczas wykonywania instrukcji w tym samouczku trzeba będzie wstawić jej nazwę zamiast nazwy ADFTutorialResourceGroup.
 
-## Tworzenie definicji JSON
+## <a name="create-json-definitions"></a>Tworzenie definicji JSON
 W folderze, w którym znajduje się narzędzie curl.exe, utwórz następujące pliki w formacie JSON. 
 
-### datafactory.json
+### <a name="datafactoryjson"></a>datafactory.json
 > [!IMPORTANT]
 > Nazwa musi być globalnie unikatowa — można o to zadbać, dodając do niej prefiks/sufiks ADFCopyTutorialDF. 
 > 
@@ -78,7 +82,7 @@ W folderze, w którym znajduje się narzędzie curl.exe, utwórz następujące p
         "location": "WestUS"
     }  
 
-### azurestoragelinkedservice.json
+### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
 > Zastąp wartości **accountname** i **accountkey** nazwą konta usługi Azure Storage oraz jego kluczem. Informacje na temat pobierania klucza dostępu do magazynu znajdują się w artykule [Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu do magazynu](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 > 
@@ -94,7 +98,7 @@ W folderze, w którym znajduje się narzędzie curl.exe, utwórz następujące p
         }
     }
 
-### azuersqllinkedservice.json
+### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
 > Zastąp parametry **servername**, **databasename**, **username** oraz **password** nazwą serwera SQL Azure, bazy danych, konta użytkownika i hasłem do konta.  
 > 
@@ -112,7 +116,7 @@ W folderze, w którym znajduje się narzędzie curl.exe, utwórz następujące p
     }
 
 
-### inputdataset.json
+### <a name="inputdatasetjson"></a>inputdataset.json
     {
       "name": "AzureBlobInput",
       "properties": {
@@ -152,7 +156,7 @@ Powyższa definicja JSON określa zestaw danych o nazwie **AzureBlobInput**, kt�
 * parametr **linkedServiceName** został ustawiony na **AzureStorageLinkedService**. 
 * Parametr **folderPath** został ustawiony na kontener **adftutorial**, a parametr **fileName** ma wartość **emp.txt**.  
 * Parametr **type** formatu został ustawiony na **TextFormat**
-* W pliku tekstowym znajdują się dwa pola — **FirstName** i **LastName** — oddzielone przecinkiem (**columnDelimiter**) 
+* W pliku tekstowym znajdują się dwa pola — **FirstName** i **LastName** — oddzielone przecinkiem (**columnDelimiter**)    
 * Parametr **availability** został ustawiony na wartość **hourly** (parametr frequency ma wartość hour, a interval — 1). W związku z tym usługa Data Factory szuka danych wejściowych co godzinę w folderze głównym określonego kontenera obiektów blob (**adftutorial**). 
 
 Jeśli nie określisz parametru **fileName** dla wejściowego zestawu danych, wszystkie pliki/obiekty blob z folderu danych wejściowych (**folderPath**) będą traktowane jako dane wejściowe. Jeśli określisz parametr fileName w kodzie JSON, tylko określony plik/obiekt blob będzie traktowany jako dane wejściowe.
@@ -161,7 +165,7 @@ Jeśli nie określisz parametru **fileName** dla **tabeli wyjściowej**, wygener
 
 Aby ustawić parametry **folderPath** i **fileName** dynamicznie w oparciu o czas **SliceStart**, użyj właściwości **partitionedBy**. W poniższym przykładzie parametr folderPath używa elementów Year, Month i Day z parametru SliceStart (czas rozpoczęcia przetwarzania wycinka), a parametr fileName używa elementu Hour z parametru SliceStart. Na przykład jeśli wycinek jest generowany dla czasu 2014-10-20T08:00:00, parametr folderName zostaje ustawiony na wikidatagateway/wikisampledataout/2014/10/20, a parametr fileName zostaje ustawiony na wartość 08.csv. 
 
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+      "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
     "partitionedBy": 
     [
@@ -172,7 +176,7 @@ Aby ustawić parametry **folderPath** i **fileName** dynamicznie w oparciu o cza
     ],
 
 
-### outputdataset.json
+### <a name="outputdatasetjson"></a>outputdataset.json
     {
       "name": "AzureSqlOutput",
       "properties": {
@@ -209,7 +213,7 @@ Pamiętaj o następujących kwestiach:
 * Tabela emp bazy danych zawiera trzy kolumny — **ID**, **FirstName** i **LastName**. ID to kolumna tożsamości, więc należy określić tylko wartości **FirstName** i **LastName**.
 * Parametr **availability** (dostępność) został ustawiony na wartość **hourly** (co godzinę) (parametr **frequency** [częstotliwość] został ustawiony na **hour** [godzinę], a **interval** [interwał] został ustawiony na wartość **1**).  Usługa Data Factory co godzinę generuje wycinek danych wyjściowych w tabeli **emp** w bazie danych Azure SQL Database.
 
-### pipeline.json
+### <a name="pipelinejson"></a>pipeline.json
     {
       "name": "ADFTutorialPipeline",
       "properties": {
@@ -272,7 +276,7 @@ W tym przykładzie występują 24 wycinki danych, ponieważ poszczególne wycink
 > 
 > 
 
-## Ustawianie zmiennych globalnych
+## <a name="set-global-variables"></a>Ustawianie zmiennych globalnych
 Po zastąpieniu wartości własnymi wykonaj następujące polecenia w programie Azure PowerShell:
 
 > [!IMPORTANT]
@@ -288,7 +292,7 @@ Po zastąpieniu wartości własnymi wykonaj następujące polecenia w programie 
     $rg = "ADFTutorialResourceGroup"
     $adf = "ADFCopyTutorialDF"
 
-## Uwierzytelnianie przy użyciu usługi AAD
+## <a name="authenticate-with-aad"></a>Uwierzytelnianie przy użyciu usługi AAD
 Uruchom następujące polecenie w celu uwierzytelniania za pomocą usługi Azure Active Directory (AAD). 
 
     $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -297,7 +301,7 @@ Uruchom następujące polecenie w celu uwierzytelniania za pomocą usługi Azure
 
     (ConvertFrom-Json $responseToken) 
 
-## Tworzenie fabryki danych
+## <a name="create-data-factory"></a>Tworzenie fabryki danych
 W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFCopyTutorialDF**. Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania w celu kopiowania danych ze źródła do docelowego magazynu danych. Albo działanie programu Hive w usłudze HDInsight w celu uruchamiania skryptu programu Hive służącego do przekształcania danych. Uruchom następujące polecenia, aby utworzyć fabrykę danych: 
 
 1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
@@ -336,12 +340,12 @@ Pamiętaj o następujących kwestiach:
 
 Przed utworzeniem potoku musisz utworzyć kilka jednostek usługi Fabryka danych. Najpierw utwórz połączone usługi, aby połączyć źródłowy i docelowy magazyn danych ze swoim magazynem danych. Następnie zdefiniuj wejściowy i wyjściowy zestaw danych w celu reprezentowania danych w połączonych magazynach danych. Na koniec utwórz potok z działaniem używającym tych zestawów danych.
 
-## Tworzenie połączonych usług
+## <a name="create-linked-services"></a>Tworzenie połączonych usług
 Połączone usługi łączą magazyny danych lub usługi obliczeniowe z fabryką danych Azure. Magazynem danych może być usługa Azure Storage, usługa Azure SQL Database lub lokalna baza danych SQL Server, która zawiera dane wejściowe lub przechowuje dane wyjściowe dla potoku usługi Data Factory. Usługą obliczeniową jest usługa, która przetwarza dane wejściowe i generuje dane wyjściowe. 
 
 W tym kroku opisano tworzenie dwóch połączonych usług: **AzureStorageLinkedService** i **AzureSqlLinkedService**. Połączona usługa AzureStorageLinkedService łączy z fabryką danych **ADFCopyTutorialIDF** konto usługi Azure Storage, a usługa AzureSqlLinkedService — bazę danych Azure SQL Database. W dalszej części tego samouczka opisano tworzenie potoku, który kopiuje dane z kontenera obiektów blob w usłudze AzureStorageLinkedService do tabeli SQL w usłudze AzureSqlLinkedService.
 
-### Tworzenie połączonej usługi Azure Storage
+### <a name="create-azure-storage-linked-service"></a>Tworzenie połączonej usługi Azure Storage
 W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych. W tym samouczku do przechowywania danych wejściowych używa się konta usługi Azure Storage. 
 
 1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
@@ -354,7 +358,7 @@ W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych. W 
    
         Write-Host $results
 
-### Tworzenie połączonej usługi SQL Azure
+### <a name="create-azure-sql-linked-service"></a>Tworzenie połączonej usługi SQL Azure
 W tym kroku opisano łączenie bazy danych Azure SQL Database z fabryką danych. W tym samouczku do przechowywania danych wyjściowych jest używana ta sama baza danych Azure SQL Database.
 
 1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
@@ -367,12 +371,12 @@ W tym kroku opisano łączenie bazy danych Azure SQL Database z fabryką danych.
    
         Write-Host $results
 
-## Tworzenie zestawów danych
+## <a name="create-datasets"></a>Tworzenie zestawów danych
 W poprzednim kroku utworzono połączone usługi **AzureStorageLinkedService** i **AzureSqlLinkedService** w celu powiązania konta usługi Azure Storage i bazy danych Azure SQL Database z fabryką danych **ADFCopyTutorialDF**. W tym kroku przedstawiono tworzenie zestawów danych reprezentujących dane wejściowe i wyjściowe dla działania kopiowania w potoku, który zostanie utworzony w następnym kroku. 
 
 Wejściowy zestaw danych w tym samouczku odnosi się do kontenera obiektu blob w usłudze Azure Storage, na który wskazuje element AzureStorageLinkedService. Wyjściowy zestaw danych odwołuje się do tabeli SQL w bazie danych Azure SQL Database, na którą wskazuje element AzureSqlLinkedService.  
 
-### Przygotowanie magazynu obiektów blob Azure i bazy danych SQL Azure na potrzeby samouczka
+### <a name="prepare-azure-blob-storage-and-azure-sql-database-for-the-tutorial"></a>Przygotowanie magazynu obiektów blob Azure i bazy danych SQL Azure na potrzeby samouczka
 Aby przygotować magazyn obiektów blob Azure i bazę danych Azure SQL Database w ramach tego samouczka, wykonaj następujące kroki. 
 
 * Utwórz kontener obiektów blob o nazwie **adftutorial** w magazynie obiektów blob Azure, na który wskazuje usługa **AzureStorageLinkedService**. 
@@ -402,7 +406,7 @@ Aby przygotować magazyn obiektów blob Azure i bazę danych Azure SQL Database 
 
     Jeśli klient nie ma dostępu do serwera SQL Azure, musisz skonfigurować zaporę serwera SQL Azure tak, aby dostęp z Twojego komputera (adresu IP) był dozwolony. W [tym artykule](../sql-database/sql-database-configure-firewall-settings.md) opisano kroki konfigurowania zapory dla serwera SQL Azure.
 
-### Tworzenie wejściowego zestawu danych
+### <a name="create-input-dataset"></a>Tworzenie wejściowego zestawu danych
 W tym kroku opisano tworzenie zestawu danych o nazwie **AzureBlobInput** wskazującego na kontener obiektów blob w usłudze Azure Storage reprezentowany przez połączoną usługę **AzureStorageLinkedService**. Ten kontener obiektów blob (**adftutorial**) zawiera dane wejściowe w pliku **emp.txt**. 
 
 1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
@@ -415,7 +419,7 @@ W tym kroku opisano tworzenie zestawu danych o nazwie **AzureBlobInput** wskazuj
    
         Write-Host $results
 
-### Tworzenie wyjściowego zestawu danych
+### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 W tym kroku tworzona jest tabela danych wyjściowych o nazwie **AzureSqlOutput**. Ten zestaw danych wskazuje tabelę SQL (**emp**) w bazie danych Azure SQL Database reprezentowanej przez usługę **AzureSqlLinkedService**. Potok kopiuje dane z wejściowego obiektu blob do tabeli **emp**. 
 
 1. Przypisz polecenie do zmiennej o nazwie **cmd**.
@@ -428,7 +432,7 @@ W tym kroku tworzona jest tabela danych wyjściowych o nazwie **AzureSqlOutput**
    
         Write-Host $results 
 
-## Tworzenie potoku
+## <a name="create-pipeline"></a>Tworzenie potoku
 W tym kroku opisano tworzenie potoku za pomocą **działania kopiowania**, w którym parametr **AzureBlobInput** jest używany jako dane wejściowe, a parametr **AzureSqlOutput** jako dane wyjściowe.
 
 1. Przypisz polecenie do zmiennej o nazwie **cmd**.
@@ -443,7 +447,7 @@ W tym kroku opisano tworzenie potoku za pomocą **działania kopiowania**, w kt�
 
 **Gratulacje!** Fabryka danych Azure z potokiem kopiującym dane z usługi Azure Blob Storage do bazy danych Azure SQL Database została pomyślnie utworzona.
 
-## Monitorowanie potoku
+## <a name="monitor-pipeline"></a>Monitorowanie potoku
 W tym kroku interfejs API REST usługi Data Factory służy do monitorowania wycinków generowanych przez potok.
 
     $ds ="AzureSqlOutput"
@@ -463,17 +467,17 @@ Uruchamiaj te polecenia cmdlet do momentu, gdy wycinek będzie widoczny w stanie
 
 Dla każdego wycinka do tabeli emp w bazie danych Azure SQL Database zostają skopiowane dwa wiersze danych z pliku źródłowego. Po pomyślnym przetworzeniu wycinków (stan Gotowe) w tabeli emp będą widoczne 24 nowe rekordy. 
 
-## Podsumowanie
+## <a name="summary"></a>Podsumowanie
 W tym samouczku opisano tworzenie fabryki danych Azure za pomocą interfejsu API REST w celu kopiowania danych z obiektu blob Azure do bazy danych Azure SQL Database. Główne kroki opisane w tym samouczku:  
 
 1. Tworzenie **fabryki danych** Azure.
 2. Tworzenie **połączonych usług**:
-   1. Połączona usługa Azure Storage, która ma nawiązać połączenie z kontem usługi Azure Storage, na którym przechowywane są dane wejściowe.    
+   1. Połączona usługa Azure Storage, która ma nawiązać połączenie z kontem usługi Azure Storage, na którym przechowywane są dane wejściowe.     
    2. Połączona usługa SQL Azure, która ma nawiązać połączenie z bazą danych Azure SQL Database, w której przechowywane są dane wyjściowe. 
 3. Tworzenie **zestawów danych** opisujących dane wejściowe i wyjściowe dla potoków.
 4. Tworzenie **potoku** za pomocą działania kopiowania, w którym źródłem jest element BlobSource, a ujściem element SqlSink. 
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 | Temat | Opis |
 |:--- |:--- |
 | [Działania przenoszenia danych](data-factory-data-movement-activities.md) |Ten artykuł zawiera szczegółowe informacje dotyczące działania kopiowania używanego w tym samouczku. |
@@ -500,6 +504,6 @@ W tym samouczku opisano tworzenie fabryki danych Azure za pomocą interfejsu API
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

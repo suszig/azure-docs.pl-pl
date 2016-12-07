@@ -1,4 +1,5 @@
 ## <a name="load-balancer-differences"></a>Różnice między modułami równoważenia obciążenia
+
 Istnieją różne opcje umożliwiające dystrybucję ruchu sieciowego za pomocą platformy Microsoft Azure. Działanie tych opcji różni się między sobą, a same opcje wykorzystują różny zbiór funkcji i obsługują różne scenariusze. Można korzystać z nich osobno lub używać ich łącznie.
 
 * Usługa **Azure Load Balancer** działa w warstwie transportowej (warstwa 4. w modelu odniesienia OSI). Usługa zapewnia dystrybucję ruchu na poziomie sieci między wystąpieniami aplikacji uruchomionej w tym samym centrum danych Azure.
@@ -26,6 +27,7 @@ Usługi Azure Load Balancer i Application Gateway zapewniają routing ruchu siec
 | Sondy kondycji |Wartość domyślna: interwał sondowania — 15 sekund. Wykluczenie z rotacji: dwa powtarzające się niepowodzenia. Obsługa sond zdefiniowanych przez użytkownika |Interwał bezczynności sondy — 30 sekund. Usunięta po pięciu kolejnych niepowodzeniach obsługi ruchu lub po pojedynczym niepowodzeniu sondy w trybie bezczynności. Obsługa sond zdefiniowanych przez użytkownika |
 | Odciążanie protokołu SSL |Nieobsługiwane |Obsługiwane |
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

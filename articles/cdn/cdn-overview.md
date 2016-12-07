@@ -1,12 +1,12 @@
 ---
-title: Omówienie usługi Azure CDN | Microsoft Docs
-description: Dowiedz się, co to jest usługa Azure Content Delivery Network (CDN) i jak z niej korzystać w celu dostarczania zawartości wysokiej przepustowości przez buforowanie obiektów blob i zawartości statycznej.
+title: "Omówienie usługi Azure CDN | Microsoft Docs"
+description: "Dowiedz się, co to jest usługa Azure Content Delivery Network (CDN) i jak z niej korzystać w celu dostarczania zawartości wysokiej przepustowości przez buforowanie obiektów blob i zawartości statycznej."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+
 
 ---
-# Omówienie usługi Azure Content Delivery Network (CDN)
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Omówienie usługi Azure Content Delivery Network (CDN)
 > [!NOTE]
 > W tym dokumencie opisano, co to jest i jak działa usługa Azure Content Delivery Network (CDN) oraz funkcje każdego produktu Azure CDN.  Jeśli chcesz pominąć te informacje i przejść od razu do samouczka na temat tworzenia punktu końcowego usługi CDN, zobacz [Korzystanie z usługi CDN](cdn-create-new-endpoint.md).  Jeśli chcesz wyświetlić listę bieżących lokalizacji węzłów CDN, zobacz [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md).
 > 
@@ -30,7 +34,7 @@ Zalety używania usługi CDN do buforowania zasobów witryny sieci Web obejmują
 * Duże skalowanie, aby lepiej obsługiwać natychmiastowe wysokie obciążenie, na przykład na początku zdarzenia uruchamiania produktu.
 * Dystrybucję żądań użytkowników i obsługę zawartości z serwerów krawędzi, dzięki czemu mniej ruchu jest wysyłane do punktu początkowego.
 
-## Jak to działa
+## <a name="how-it-works"></a>Jak to działa
 ![Omówienie usługi CDN](./media/cdn-overview/cdn-overview.png)
 
 1. Użytkownik (Anna) żąda pliku (nazywanego również zasobem) przy użyciu adresu URL ze specjalną nazwą domeny, taką jak `<endpointname>.azureedge.net`.  System DNS kieruje żądanie do najlepiej działającej lokalizacji punktu obecności (POP, Point-of-Presence).  Zazwyczaj jest to punkt obecności znajdujący się geograficznie najbliżej użytkownika.
@@ -40,12 +44,12 @@ Zalety używania usługi CDN do buforowania zasobów witryny sieci Web obejmują
 5. Dodatkowi użytkownicy mogą następnie zażądać tego samego pliku przy użyciu tego samego adresu URL, a także mogą być kierowani do tego samego punktu obecności.
 6. Jeśli czas wygaśnięcia pliku nie upłynął, serwer krawędzi zwraca plik z pamięci podręcznej.  Skutkuje to szybszymi czasami reakcji w środowisku użytkownika.
 
-## Funkcje usługi Azure CDN
+## <a name="azure-cdn-features"></a>Funkcje usługi Azure CDN
 Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon** i **Azure CDN Premium from Verizon**.  W tabeli poniżej wymieniono funkcje dostępne w poszczególnych produktach.
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) i [Media Services](../media-services/media-services-manage-origins.md#enable-cdn) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) i [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Zarządzanie za pomocą [interfejsu API REST](https://msdn.microsoft.com/library/mt634456.aspx), [platformy .NET](cdn-app-dev-net.md), [środowiska Node.js](cdn-app-dev-node.md) lub [programu PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Obsługa protokołu HTTPS |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Równoważenie obciążenia |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -53,7 +57,7 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 | Podwójny stos protokołów IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Obsługa niestandardowych nazw domen](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Buforowanie ciągu zapytania](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrowanie kraju](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Filtrowanie geograficzne](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
 | [Szybkie przeczyszczanie](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Wstępne ładowanie zasobów](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Podstawowa analiza](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -71,7 +75,7 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 > 
 > 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby rozpocząć pracę z usługą CDN, zobacz [Korzystanie z usługi Azure CDN](cdn-create-new-endpoint.md).
 
 Jeśli jesteś istniejącym klientem usługi CDN, możesz teraz zarządzać punktami końcowymi usługi CDN za pomocą witryny [Microsoft Azure Portal](https://portal.azure.com) lub programu [PowerShell](cdn-manage-powershell.md).
@@ -82,6 +86,9 @@ Dowiedz się, jak zautomatyzować usługę Azure CDN przy użyciu platformy [.NE
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

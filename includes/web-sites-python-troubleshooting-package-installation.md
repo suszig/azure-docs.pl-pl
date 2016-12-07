@@ -2,17 +2,17 @@ Nie zawsze instalowanie pakietów w sieci Azure przy użyciu programu pip kończ
 
 W tej części wyjaśniono, jak rozwiązać ten problem.
 
-### Żądanie plików w formacie Wheel
+### <a name="request-wheels"></a>Żądanie plików w formacie Wheel
 Jeśli instalacja pakietu wymaga kompilatora, możesz spróbować skontaktować się z właścicielem pakietu i zażądać udostępnienia go jako plików w formacie Wheel.
 
-Od momentu opublikowania kompilatora [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7] tworzenie pakietów korzystających z kodu macierzystego języka Python 2.7 stało się łatwiejsze.
+Od momentu opublikowania kompilatora [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7] kompilowanie pakietów korzystających z kodu natywnego języka Python 2.7 stało się łatwiejsze.
 
-### Tworzenie plików w formacie Wheel (wymaga systemu Windows)
+### <a name="build-wheels-requires-windows"></a>Tworzenie plików w formacie Wheel (wymaga systemu Windows)
 Uwaga: Korzystając z tej opcji, należy się upewnić, że pakiet jest kompilowany w środowisku Python odpowiadającym platformie/architekturze/wersji używanym w aplikacji sieci Web w usłudze Azure App Service (Windows/32-bitowy/2.7 lub 3.4).
 
 Jeśli pakiet nie instaluje się z powodu braku kompilatora, można zainstalować kompilator na komputerze lokalnym i skompilować pakiet w formacie Wheel, który następnie zostanie dołączony do repozytorium.
 
-Użytkownicy systemów Mac/Linux: Jeśli nie masz dostępu do komputera z systemem Windows, zobacz artykuł [Tworzenie maszyny wirtualnej w systemie Windows][Tworzenie maszyny wirtualnej w systemie Windows] opisujący tworzenie maszyny wirtualnej na platformie Azure.  W zależności od potrzeb można wykorzystać ją przy tworzeniu plików w formacie Wheel, dodać je do repozytorium, po czym usunąć maszynę wirtualną. 
+Użytkownicy systemów Mac/Linux: jeśli nie masz dostępu do komputera z systemem Windows, zobacz temat [Tworzenie maszyny wirtualnej w systemie Windows][Tworzenie maszyny wirtualnej w systemie Windows] zawierający opis sposobu tworzenia maszyny wirtualnej na platformie Azure.  W zależności od potrzeb można wykorzystać ją przy tworzeniu plików w formacie Wheel, dodać je do repozytorium, po czym usunąć maszynę wirtualną. 
 
 W przypadku języka Python 2.7 można zainstalować oprogramowanie [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
@@ -37,7 +37,7 @@ Jeśli chcesz umieścić w folderze \wheelhouse wszystkie zależności i nie uż
 
     --no-index
 
-### Instalacja niestandardowa
+### <a name="customize-installation"></a>Instalacja niestandardowa
 Można dostosować skrypt wdrożenia w celu zainstalowania pakietu w środowisku wirtualnym przy użyciu instalatora alternatywnego, takiego jak easy\_install.  Zapoznaj się z plikiem deploy.cmd, w którym odpowiedni przykład jest zakomentowany.  Upewnij się, że takie pakiety nie są wymienione w pliku requirements.txt, gdyż w przeciwnym razie program pip może je zainstalować.
 
 Dodaj następujące polecenie do skryptu wdrażania:
@@ -50,7 +50,7 @@ Dodaj następujące polecenie do skryptu wdrażania:
 
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
-### Dołącza środowisko wirtualne do repozytorium (wymaga systemu Windows)
+### <a name="include-the-virtual-environment-in-the-repository-requires-windows"></a>Dołącza środowisko wirtualne do repozytorium (wymaga systemu Windows)
 Uwaga: Korzystając z tej opcji, należy się upewnić, że jest używane środowisko wirtualne odpowiadające platformie/architekturze/wersji używanym w aplikacji sieci Web w usłudze Azure App Service (Windows/32-bitowy/2.7 lub 3.4).
 
 W przypadku dołączenia środowiska wirtualnego do repozytorium można zapobiec zarządzaniu środowiskiem wirtualnym w systemie Azure przez skrypt wdrażania, tworząc pusty plik:
@@ -64,6 +64,6 @@ Zaleca się usunięcie z aplikacji istniejącego środowiska wirtualnego w celu 
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

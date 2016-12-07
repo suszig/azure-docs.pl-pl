@@ -1,4 +1,4 @@
-## Wysyłanie komunikatów do usługi Event Hubs
+## <a name="send-messages-to-event-hubs"></a>Wysyłanie komunikatów do usługi Event Hubs
 W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która wysyła zdarzenia do Centrum zdarzeń.
 
 1. W programie Visual Studio utwórz nowy projekt aplikacji klasycznej Visual C# za pomocą szablonu projektu **Aplikacja konsoli**. Nazwij projekt **Nadawca**.
@@ -58,6 +58,8 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
     SendingRandomMessages();
     ```
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Omówienie warstw cenowych Premium i Standardowa komunikatów usługi Service Bus | Microsoft Docs
-description: Komunikaty usługi Service Bus w warstwie Premium i Standardowa
+title: "Omówienie warstw cenowych Premium i Standardowa komunikatów usługi Service Bus | Microsoft Docs"
+description: "Komunikaty usługi Service Bus w warstwie Premium i Standardowa"
 services: service-bus
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/02/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5f4fccdafd9b47794bf625ac51dc650b6e8752f1
+
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Warstwy Premium i Standardowa komunikatów usługi Service Bus
@@ -29,7 +33,7 @@ W poniższej tabeli wyróżniono pewne ogólne różnice.
 | Przewidywalna wydajność |Zmienne opóźnienie |
 | Przewidywalne ceny |Zmienne ceny i płatność zgodnie z rzeczywistym użyciem |
 | Możliwość skalowania obciążenia |Nie dotyczy |
-| Rozmiar komunikatu > 256 KB |Rozmiar komunikatu równy 256 KB |
+| Rozmiar komunikatu > 256 KB |Rozmiar komunikatu równy 256 KB |
 
 **Obsługa komunikatów usługi Service Bus Premium** zapewnia izolację zasobów w warstwie procesora i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany *jednostką obsługi komunikatów*. Każda przestrzeń nazw w warstwie Premium ma przydzieloną co najmniej jedną jednostkę obsługi komunikatów. Możesz kupić 1, 2 lub 4 jednostki obsługi komunikatów dla każdej przestrzeni nazw usługi Service Bus w warstwie Premium. Pojedyncze obciążenie lub jednostka może obejmować wiele jednostek obsługi komunikatów, a ich liczbę można dowolnie zmieniać, chociaż opłaty są naliczane w cyklu 24-godzinnym lub codziennie. Pozwala to uzyskać przewidywalną i powtarzalną wydajność dla rozwiązania opartego na usłudze Service Bus.
 
@@ -52,6 +56,9 @@ Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus,
 * [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
 * [Jak używać kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

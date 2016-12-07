@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do usługi Azure Search w środowisku NodeJS | Microsoft Docs
-description: Zapoznaj się z tworzeniem aplikacji wyszukiwania w hostowanej usłudze wyszukiwania w chmurze na platformie Azure przy użyciu języka programowania NodeJS.
+title: "Wprowadzenie do usługi Azure Search w środowisku NodeJS | Microsoft Docs"
+description: "Zapoznaj się z tworzeniem aplikacji wyszukiwania w hostowanej usłudze wyszukiwania w chmurze na platformie Azure przy użyciu języka programowania NodeJS."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: EvanBoyle
 manager: pablocas
 editor: v-lincan
-
+ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -14,9 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8a66c8f6079671b16c1c60467e6d458ed54be5af
+
 
 ---
-# Wprowadzenie do usługi Azure Search w środowisku NodeJS
+# <a name="get-started-with-azure-search-in-nodejs"></a>Wprowadzenie do usługi Azure Search w środowisku NodeJS
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -29,7 +33,7 @@ Do napisania i przetestowania tego kodu zostało użyte środowisko [NodeJS](htt
 
 Aby uruchomić ten przykład, będzie potrzebna usługa Azure Search, do której możesz zarejestrować się w witrynie [Azure Portal](https://portal.azure.com). Aby uzyskać szczegółowe instrukcje, zobacz [Create an Azure Search service in the portal](search-create-service-portal.md) (Tworzenie usługi Azure Search w portalu).
 
-## Informacje o danych
+## <a name="about-the-data"></a>Informacje o danych
 Ta przykładowa aplikacja korzysta z danych agencji [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) zawężonych do stanu Rhode Island w celu zmniejszenia rozmiaru zestawu danych. Użyjemy tych danych do utworzenia aplikacji wyszukiwania, która zwraca punkty orientacyjne, takie jak szpitale i szkoły, jak również formy geologiczne, takie jak strumienie, jeziora i szczyty.
 
 W tej aplikacji program **DataIndexer** tworzy i ładuje indeks, używając konstrukcji [indeksatora](https://msdn.microsoft.com/library/azure/dn798918.aspx), a zawężony zestaw danych z agencji USGS jest pobierany z publicznej usługi Azure SQL Database. Poświadczenia oraz informacje o połączeniu ze źródłem danych w trybie online są zawarte w kodzie programu. Nie jest konieczna żadna dodatkowa konfiguracja.
@@ -41,7 +45,7 @@ W tej aplikacji program **DataIndexer** tworzy i ładuje indeks, używając kons
 
 <a id="sub-2"></a>
 
-## Znajdowanie nazwy usługi oraz klucza interfejsu API usługi Azure Search
+## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Znajdowanie nazwy usługi oraz klucza interfejsu API usługi Azure Search
 Po utworzeniu usługi wróć do portalu, aby uzyskać adres URL lub klucz `api-key`. Połączenia z usługą wyszukiwania wymagają zarówno adresu URL, jak i klucza `api-key` do uwierzytelnienia wywołania.
 
 1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
@@ -49,10 +53,10 @@ Po utworzeniu usługi wróć do portalu, aby uzyskać adres URL lub klucz `api-k
 3. Wybierz usługę, której chcesz użyć.
 4. Na pulpicie nawigacyjnym usługi zobaczysz kafelki z istotnymi informacjami, jak również ikonę klucza, służącą do uzyskiwania dostępu do kluczy administratora.
    
-    ![][3]
+      ![][3]
 5. Skopiuj adres URL usługi, klucz administratora i klucz zapytania. Wszystkie trzy trzeba będzie później dodać do pliku config.js.
 
-## Pobieranie plików przykładowych
+## <a name="download-the-sample-files"></a>Pobieranie plików przykładowych
 Pobierz przykład za pomocą jednej z następujących metod.
 
 1. Przejdź do strony [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
@@ -60,7 +64,7 @@ Pobierz przykład za pomocą jednej z następujących metod.
 
 Wszystkie kolejne modyfikacje plików i instrukcje uruchamiania będą wykonywane względem plików w tym folderze.
 
-## Aktualizowanie pliku config.js przy użyciu adresu URL usługi wyszukiwania i klucza api-key
+## <a name="update-the-configjs-with-your-search-service-url-and-apikey"></a>Aktualizowanie pliku config.js przy użyciu adresu URL usługi wyszukiwania i klucza api-key
 Korzystając ze skopiowanego wcześniej adresu URL i klucza api-key, podaj adres URL, klucz administratora i klucz zapytania w pliku konfiguracyjnym.
 
 Klucze administratora przyznają pełną kontrolę nad operacjami usługi, w tym nad tworzeniem i usuwaniem indeksu oraz ładowaniem dokumentów. Z kolei klucze zapytania są przeznaczone dla operacji tylko do odczytu i są zwykle używane przez aplikacje klienckie, które nawiązują połączenie z usługą Azure Search.
@@ -71,7 +75,7 @@ Poniższy zrzut ekranu przedstawia plik **config.js** otwarty w edytorze tekstu,
 
 ![][5]
 
-## Hostowanie środowiska uruchomieniowego dla przykładu
+## <a name="host-a-runtime-environment-for-the-sample"></a>Hostowanie środowiska uruchomieniowego dla przykładu
 Przykład wymaga serwera HTTP, który można zainstalować globalnie za pomocą menedżera pakietów npm.
 
 Dla poniższych poleceń użyj okna programu PowerShell.
@@ -80,13 +84,13 @@ Dla poniższych poleceń użyj okna programu PowerShell.
 2. Wpisz polecenie `npm install`.
 3. Wpisz polecenie `npm install -g http-server`.
 
-## Tworzenie indeksu i uruchamianie aplikacji
+## <a name="build-the-index-and-run-the-application"></a>Tworzenie indeksu i uruchamianie aplikacji
 1. Wpisz polecenie `npm run indexDocuments`.
 2. Wpisz polecenie `npm run build`.
 3. Wpisz polecenie `npm run start_server`.
 4. Za pomocą przeglądarki przejdź do strony `http://localhost:8080/index.html`
 
-## Przeszukiwanie danych agencji USGS
+## <a name="search-on-usgs-data"></a>Przeszukiwanie danych agencji USGS
 Zestaw danych agencji USGS zawiera rekordy, które odnoszą się do stanu Rhode Island. Jeśli klikniesz przycisk **Szukaj**, pozostawiając pole wyszukiwania puste, zostanie wyświetlonych 50 pierwszych wpisów, co jest ustawieniem domyślnym.
 
 Wprowadzenie terminu wyszukiwania zaangażuje do pracy wyszukiwarkę. Spróbuj wprowadzić nazwę regionalną. „Roger Williams” był pierwszym gubernatorem stanu Rhode Island. Liczne parki, budynki i szkoły są nazwane jego imieniem.
@@ -99,7 +103,7 @@ Możesz też wprowadzić jeden z poniższych terminów:
 * Pembroke
 * goose +cape
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 To jest pierwszy samouczek usługi Azure Search bazujący na środowisku NodeJS i zestawie danych agencji USGS. Wraz z upływem czasu będziemy rozszerzać ten samouczek, aby zademonstrować dodatkowe funkcje wyszukiwania, których mogą być przydatne w rozwiązaniach niestandardowych.
 
 Jeśli masz już jakieś doświadczenie z usługą Azure Search, możesz użyć tego przykładu jako punktu wyjścia do wypróbowania sugestorów (uzupełnianie przy wpisywaniu lub autouzupełnianie zapytań), filtrów i nawigacji aspektowej. Możesz również ulepszyć stronę wyników wyszukiwania przez dodanie liczników i łączenie dokumentów w partie, aby użytkownicy mogli przechodzić do kolejnych stron wyników.
@@ -115,6 +119,6 @@ Dopiero zaczynasz korzystać z usługi Azure Search? Zalecamy wypróbować inne 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

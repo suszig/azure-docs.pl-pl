@@ -1,13 +1,13 @@
 ---
-title: Ładowanie danych z usługi Azure Data Factory | Microsoft Docs
-description: Dowiedz się, jak załadować dane przy użyciu usługi Azure Data Factory
+title: "Ładowanie danych przy użyciu usługi Azure Data Factory | Microsoft Docs"
+description: "Dowiedz się, jak załadować dane przy użyciu usługi Azure Data Factory"
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-sql-data-warehouse
-
+ms.assetid: ac7ddaa7-a3a5-4e15-b3cf-c696d2d105df
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+
 
 ---
 # <a name="load-data-with-azure-data-factory"></a>Ładowanie danych przy użyciu usługi Azure Data Factory
 > [!div class="op_single_selector"]
 > * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
 > * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 > * [BCP](sql-data-warehouse-load-with-bcp.md)  
 > 
@@ -45,7 +49,7 @@ Przed rozpoczęciem tego samouczka trzeba mieć następujące zasoby:
 * **Azure Storage Blob**: w tym samouczku używamy rozszerzenia Azure Storage Blob jako źródła danych dla potoku usługi Azure Data Factory, zatem potrzebny będzie dostęp do takiego obiektu w celu przechowywania przykładowych danych. Jeśli nie masz jeszcze takiego obiektu, zapoznaj się z artykułem [Tworzenie konta magazynu][Tworzenie konta magazynu].
 * Usługa **SQL Data Warehouse**: w tym samouczku przenosimy dane z rozszerzenia Azure Storage Blob do usługi SQL Data Warehouse, dlatego potrzebujemy mieć magazyn danych online z załadowanymi danymi przykładowymi AdventureWorksDW. Jeśli nie masz jeszcze magazynu danych, dowiedz się, jak [aprowizować magazyn][Tworzenie bazy danych w usłudze SQL Data Warehouse]. Jeśli masz magazyn danych, ale bez przykładowych danych, możesz [załadować je ręcznie][Ładowanie przykładowych danych do usługi SQL Data Warehouse].
 * **Azure Data Factory**: usługa Azure Data Factory uzupełnia rzeczywiste obciążenie, więc potrzebna jest taka, której będzie można użyć do utworzenia potoku przenoszenia danych. Jeśli jeszcze jej nie masz, informacje na temat jej tworzenia można znaleźć w Kroku 1 w temacie [Rozpoczynanie pracy z usługą Azure Data Factory (Edytor usługi Data Factory)][Rozpoczynanie pracy z usługą Azure Data Factory (Edytor usługi Data Factory)].
-* **AZCopy**: program AZCopy jest potrzebny do skopiowania przykładowych danych z lokalnego klienta do rozszerzenia Azure Storage Blob. Aby uzyskać instrukcje instalacji, zobacz [dokumentację programu AZCopy][].
+* **AZCopy**: program AZCopy jest potrzebny do skopiowania przykładowych danych z lokalnego klienta do rozszerzenia Azure Storage Blob. Aby uzyskać instrukcje instalacji, zobacz [dokumentację programu AZCopy][dokumentację programu AZCopy].
 
 ## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Krok 1: kopiowanie przykładowych danych do rozszerzenia Azure Storage Blob
 Gdy wszystkie elementy są gotowe, możesz przystąpić do kopiowania przykładowych danych do rozszerzenia Azure Storage Blob.
@@ -192,7 +196,7 @@ W sekcji „Utwórz i wdróż” kliknij pozycję „Więcej poleceń”, a nast
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej, zapoznaj się z tymi artykułami:
 
-* [Ścieżka szkoleniowa dotycząca usługi Azure Data Factory][Ścieżka szkoleniowa dotycząca usługi Azure Data Factory].
+* [Ścieżka szkoleniowa usługi Azure Data Factory][Ścieżka szkoleniowa usługi Azure Data Factory].
 * [Łącznik usługi Azure SQL Data Warehouse][Łącznik usługi Azure SQL Data Warehouse]. Jest to podstawy temat referencyjny dotyczący używania usługi Azure Data Factory z usługą Azure SQL Data Warehouse.
 
 Te tematy zawierają szczegółowe informacje na temat usługi Azure Data Factory. Omówiono w nich usługi Azure SQL Database lub HDInsight, ale informacje dotyczą także usługi SQL Data Warehouse.
@@ -203,7 +207,7 @@ Te tematy zawierają szczegółowe informacje na temat usługi Azure Data Factor
 <!--Image references-->
 
 <!--Article references-->
-[Dokumentacja programu AZCopy]: ../storage/storage-use-azcopy.md
+[dokumentację programu AZCopy]: ../storage/storage-use-azcopy.md
 [Łącznik usługi Azure SQL Data Warehouse]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
 [Tworzenie bazy danych w usłudze SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
@@ -220,12 +224,12 @@ Te tematy zawierają szczegółowe informacje na temat usługi Azure Data Factor
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Ścieżka szkoleniowa dotycząca usługi Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
+[Ścieżka szkoleniowa usługi Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
 [Azure Portal]: https://portal.azure.com
 [Pobierz przykładowe dane]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

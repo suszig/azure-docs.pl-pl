@@ -1,34 +1,38 @@
 ---
-title: Zarządzanie kontenerem usługi kontenera platformy Azure przy użyciu interfejsu API REST | Microsoft Docs
-description: Wdrażanie kontenerów do klastra Mesos usługi kontenera platformy Azure przy użyciu interfejsu API REST platformy Marathon.
+title: "Zarządzanie kontenerem usługi Azure Container Service przy użyciu interfejsu API REST | Microsoft Docs"
+description: "Wdrażanie kontenerów do klastra Mesos usługi kontenera platformy Azure przy użyciu interfejsu API REST platformy Marathon."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, kontenery, mikrousługi, Mesos, Azure
-
+keywords: "Docker, kontenery, mikrousługi, Mesos, Azure"
+ms.assetid: c7175446-4507-4a33-a7a2-63583e5996e3
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: nepeters
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+
 
 ---
-# Zarządzenie kontenerem przy użyciu interfejsu API REST
+# <a name="container-management-through-the-rest-api"></a>Zarządzenie kontenerem przy użyciu interfejsu API REST
 Platforma DC/OS dostarcza środowisko wdrażania i skalowania obciążeń klastrowanych, zapewniając jednocześnie abstrakcyjność sprzętu bazowego. Ponad systemem DC/OS istnieje platforma, która zarządza planowaniem i wykonywaniem obciążeń obliczeniowych.
 
 Platformy są dostępne dla wielu popularnych zadań. W tym dokumencie opisano, jak tworzyć i skalować wdrożenia kontenerów przy użyciu platformy Marathon. Przed przystąpieniem do pracy nad tymi przykładami będziesz potrzebować klastra DC/OS skonfigurowanego w usłudze kontenera platformy Azure. Potrzebna będzie także zdalna łączność z tym klastrem. Aby uzyskać więcej informacji na temat tych elementów, zobacz następujące artykuły:
 
-* [Wdrażanie klastra usługi kontenera platformy Azure](container-service-deployment.md)
-* [Łączenie z klastrem usługi kontenera platformy Azure](container-service-connect.md)
+* [Wdrażanie klastra usługi Azure Container Service](container-service-deployment.md)
+* [Łączenie z klastrem usługi Azure Container Service](container-service-connect.md)
 
 Po nawiązaniu połączeniu z klastrem usługi kontenera platformy Azure masz dostęp do platformy DC/OS i powiązanych interfejsów API REST pod adresem http://localhost:local-port. W przykładach przedstawionych w tym dokumencie założono, że tunelowanie korzysta z portu 80. Na przykład dostęp do punktu końcowego platformy Marathon można uzyskać pod adresem `http://localhost/marathon/v2/`. Aby uzyskać więcej informacji o różnych interfejsach API, zobacz dokumentację Mesosphere dotyczącą [interfejsu API platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) i [interfejsu API programu Chronos](https://mesos.github.io/chronos/docs/api.html) oraz dokumentację Apache dotyczącą [interfejsu API aplikacji Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
-## Gromadzenie informacji z platform DC/OS i Marathon
+## <a name="gather-information-from-dcos-and-marathon"></a>Gromadzenie informacji z platform DC/OS i Marathon
 Przed wdrożeniem kontenerów do klastra DC/OS zbierz określone informacje o klastrze DC/OS, takie jak nazwy i bieżący stan agentów DC/OS. W tym celu wykonaj zapytanie w punkcie końcowym `master/slaves` interfejsu API REST platformy DC/OS. Jeśli operacja zostanie wykonana pomyślnie, wyświetlona zostanie lista agentów DC/OS i szereg właściwości każdego z nich.
 
 ```bash
@@ -43,7 +47,7 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Wdrażanie kontenera w formacie programu Docker
+## <a name="deploy-a-dockerformatted-container"></a>Wdrażanie kontenera w formacie programu Docker
 Kontenery w formacie programu Docker można wdrażać za pośrednictwem platformy Marathon przy użyciu pliku JSON, który opisuje zamierzone wdrożenie. W poniższym przykładzie zostanie wdrożony kontener Nginx, który powiąże port 80 agenta DC/OS z portem 80 kontenera. Warto zauważyć, że właściwość „acceptedResourceRoles” jest ustawiona na wartość „slave_public”. Spowoduje to wdrożenie kontenera w agencie w zestawie skali agenta publicznego.
 
 ```json
@@ -86,7 +90,7 @@ Teraz po wykonaniu zapytania dotyczącego aplikacji na platformie Marathon nowa 
 curl localhost/marathon/v2/apps
 ```
 
-## Skalowanie kontenerów
+## <a name="scale-your-containers"></a>Skalowanie kontenerów
 Interfejs API platformy Marathon umożliwia także skalowanie w poziomie oraz skalowanie na zewnątrz wdrożeń aplikacji. W poprzednim przykładzie wdrożono jedno wystąpienie aplikacji. Wykonamy teraz skalowanie w poziomie, aby uzyskać trzy wystąpienia aplikacji. W tym celu utwórz plik JSON zawierający następujący tekst JSON i zapisz go w dostępnej lokalizacji.
 
 ```json
@@ -110,7 +114,7 @@ Na koniec wykonaj zapytanie dotyczące aplikacji w punkcie końcowym platformy M
 curl localhost/marathon/v2/apps
 ```
 
-## Użycie programu PowerShell w tym ćwiczeniu: interakcja interfejsu API REST platformy Marathon z programem PowerShell
+## <a name="use-powershell-for-this-exercise-marathon-rest-api-interaction-with-powershell"></a>Użycie programu PowerShell w tym ćwiczeniu: interakcja interfejsu API REST platformy Marathon z programem PowerShell
 Te same akcje można wykonać za pomocą poleceń programu PowerShell w systemie Windows.
 
 Aby zebrać informacje dotyczące klastra DC/OS, takie jak nazwy i stan agenta, uruchom następujące polecenie.
@@ -163,10 +167,13 @@ Uruchom poniższe polecenie, aby skalować aplikację w poziomie.
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Dowiedz się więcej o punktach końcowych HTTP platformy Mesos](http://mesos.apache.org/documentation/latest/endpoints/).
 * [Dowiedz się więcej o interfejsie API REST platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

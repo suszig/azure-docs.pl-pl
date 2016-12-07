@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do usługi Azure Mobile Engagement na potrzeby wdrożenia aplikacji platformy Unity na urządzeniu z systemem Android
-description: Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji platformy Unity wdrażanych na urządzeniach z systemem iOS.
+title: "Wprowadzenie do usługi Azure Mobile Engagement na potrzeby wdrożenia aplikacji platformy Unity na urządzeniu z systemem Android"
+description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji platformy Unity wdrażanych na urządzeniach z systemem iOS."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
+
 
 ---
-# Wprowadzenie do usługi Azure Mobile Engagement na potrzeby wdrożenia aplikacji platformy Unity na urządzeniu z systemem Android
+# <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Wprowadzenie do usługi Azure Mobile Engagement na potrzeby wdrożenia aplikacji platformy Unity na urządzeniu z systemem Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 W tym temacie pokazano, w jaki sposób za pomocą usługi Azure Mobile Engagement można określić sposób użycia aplikacji oraz wysyłać powiadomienia wypychane do segmentowanych użytkowników aplikacji platformy Unity podczas wdrażania w urządzeniu z systemem Android.
@@ -29,15 +33,15 @@ Dla tego samouczka wymagane są następujące elementy:
 * Zestaw SDK systemu Google Android
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Android
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
-### Importowanie pakietu Unity
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+### <a name="import-the-unity-package"></a>Importowanie pakietu Unity
 1. Pobierz [pakiet Unity usługi Mobile Engagement](https://aka.ms/azmeunitysdk) i zapisz go na komputerze lokalnym. 
 2. Wybierz pozycję **Assets -> Import Package -> Custom Package** (Zasoby -> Importuj pakiet -> Pakiet niestandardowy), a następnie wybierz pakiet, który został pobrany w kroku powyżej. 
    
@@ -49,7 +53,7 @@ Dla tego samouczka wymagane są następujące elementy:
    
     ![][72] 
 
-### Aktualizowanie pliku skryptu EngagementConfiguration
+### <a name="update-the-engagementconfiguration"></a>Aktualizowanie pliku skryptu EngagementConfiguration
 1. Otwórz pliku skryptu **EngagementConfiguration** z folderu zestawu SDK, a następnie zaktualizuj zmienną **ANDROID\_CONNECTION\_STRING** parametrami połączenia uzyskanymi wcześniej z witryny Azure Portal.  
    
     ![][73]
@@ -63,7 +67,7 @@ Dla tego samouczka wymagane są następujące elementy:
 > 
 > 
 
-### Konfigurowanie aplikacji na potrzeby śledzenia podstawowego
+### <a name="configure-the-app-for-basic-tracking"></a>Konfigurowanie aplikacji na potrzeby śledzenia podstawowego
 1. Otwórz do edycji skrypt **PlayerController** dołączony do obiektu Player. 
 2. Dodaj następującą instrukcję using:
    
@@ -73,7 +77,7 @@ Dla tego samouczka wymagane są następujące elementy:
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### Wdrażanie i uruchamianie aplikacji
+### <a name="deploy-and-run-the-app"></a>Wdrażanie i uruchamianie aplikacji
 Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij się, że na komputerze jest zainstalowany zestaw SDK systemu Android. 
 
 1. Podłącz urządzenie z systemem Android do swojego komputera. 
@@ -94,13 +98,13 @@ Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij si
 6. Może pojawić się monit o podanie nazwy folderu do przechowywania pakietu systemu Android. 
 7. Jeśli wszystko odbędzie się poprawnie, pakiet zostanie wdrożony na podłączonym urządzeniu i na telefonie będzie widoczna Twoja gra na platformie Unity. 
 
-## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-### Aktualizowanie pliku skryptu EngagementConfiguration
+### <a name="update-the-engagementconfiguration"></a>Aktualizowanie pliku skryptu EngagementConfiguration
 1. Otwórz plik skryptu **EngagementConfiguration** z folderu zestawu SDK i zaktualizuj zmienną **ANDROID\_GOOGLE\_NUMBER** **numerem projektu Google** uzyskanym wcześniej z portalu Google Cloud Developer. Jest to wartość ciągu, więc upewnij się, że została ujęta w cudzysłów. 
    
     ![][75]
@@ -109,7 +113,7 @@ Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij si
    
     ![][74]
 
-### Konfigurowanie aplikacji na potrzeby otrzymywania powiadomień
+### <a name="configure-the-app-to-receive-notifications"></a>Konfigurowanie aplikacji na potrzeby otrzymywania powiadomień
 1. Otwórz do edycji skrypt **PlayerController** dołączony do obiektu Player. 
 2. Dodaj następujący kod do metody `Start()`:
    
@@ -133,6 +137,6 @@ Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij si
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

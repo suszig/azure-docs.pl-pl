@@ -1,12 +1,12 @@
 ---
-title: Uwierzytelnianie usług IIS i serwer usługi Azure Multi-Factor Authentication
-description: Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera wskazówki pomocne we wdrażaniu uwierzytelniania usług IIS i serwera usługi Azure Multi-Factor Authentication.
+title: "Uwierzytelnianie usług IIS i serwer usługi Azure Multi-Factor Authentication"
+description: "Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera wskazówki pomocne we wdrażaniu uwierzytelniania usług IIS i serwera usługi Azure Multi-Factor Authentication."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+
 
 ---
-# Uwierzytelnianie usług IIS
+# <a name="iis-authentication"></a>Uwierzytelnianie usług IIS
 Sekcja Uwierzytelnianie usług IIS dostępna w ramach serwera usługi Azure Multi-Factor Authentication pozwala włączyć i skonfigurować uwierzytelnianie usług IIS na potrzeby integracji z aplikacjami sieci Web usług Microsoft IIS. Serwer usługi Azure Multi-Factor Authentication instaluje wtyczkę, która pozwala filtrować żądania wysyłane do serwera sieci Web usług IIS w celu dodania usługi Azure Multi-Factor Authentication. Wtyczka IIS obsługuje uwierzytelnianie oparte na formularzach i zintegrowane uwierzytelnianie HTTP systemu Windows. Ponadto skonfigurowanie zaufanych adresów IP umożliwia wykluczenie wewnętrznych adresów IP z uwierzytelniania dwuskładnikowego.
 
 ![Uwierzytelnianie usług IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## Używanie uwierzytelniania usług IIS opartego na formularzach z serwerem usługi Azure Multi-Factor Authentication
+## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>Używanie uwierzytelniania usług IIS opartego na formularzach z serwerem usługi Azure Multi-Factor Authentication
 Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta z uwierzytelniania opartego na formularzach, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze sieci Web usług IIS i skonfiguruj go zgodnie z poniższą procedurą.
 
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania usług IIS w menu po lewej stronie.
@@ -39,7 +43,7 @@ Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta z uwierzyteln
 13. Po wykryciu lub wprowadzeniu adresu URL i zmiennych na stronie dane witryny sieci Web pojawią się w panelu Oparte na formularzach.
 14. Aby uzyskać informacje umożliwiające ukończenie konfiguracji uwierzytelniania usług IIS, przejdź do sekcji Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication znajdującej się w dalszej części tego artykułu.
 
-## Używanie zintegrowanego uwierzytelniania systemu Windows z serwerem usługi Azure Multi-Factor Authentication
+## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Używanie zintegrowanego uwierzytelniania systemu Windows z serwerem usługi Azure Multi-Factor Authentication
 Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta ze zintegrowanego uwierzytelniania HTTP systemu Windows, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze sieci Web usług IIS i skonfiguruj go zgodnie z poniższą procedurą.
 
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania usług IIS w menu po lewej stronie.
@@ -52,14 +56,14 @@ Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta ze zintegrowa
 8. Kliknij przycisk OK.
 9. Aby uzyskać informacje umożliwiające ukończenie konfiguracji uwierzytelniania usług IIS, przejdź do sekcji [Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) znajdującej się w dalszej części tego artykułu.
 
-## Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication
+## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication
 Po skonfigurowaniu adresów URL i ustawień dla uwierzytelniania opartego na formularzach lub uwierzytelniania HTTP musisz wybrać lokalizacje w usługach IIS, w których zostaną załadowane i włączone wtyczki IIS usługi Azure Multi-Factor Authentication. Postępuj zgodnie z następującą procedurą:
 
 1. W przypadku korzystania z usług IIS 6 kliknij kartę ISAPI i wybierz witrynę sieci Web, w ramach której działa aplikacja sieci Web (np. Domyślna witryna sieci Web), aby włączyć wtyczkę filtru ISAPI usługi Azure Multi-Factor Authentication dla tej witryny.
 2. W przypadku korzystania z usług IIS 7 lub nowszych kliknij kartę Moduł macierzysty i wybierz serwer, co najmniej jedną witrynę sieci Web lub co najmniej jedną aplikację, aby włączyć wtyczkę IIS i skonfigurować dla niej odpowiednie poziomy.
 3. Kliknij pole Włącz uwierzytelnianie usług IIS w górnej części ekranu. Po wykonaniu tych czynności wybrana aplikacja usług IIS jest zabezpieczona przez usługę Azure Multi-Factor Authentication. Upewnij się, że zaimportowano użytkowników na serwer. Jeśli chcesz umieścić wewnętrzne adresy IP na liście dozwolonych adresów, tak aby uwierzytelnianie dwuskładnikowe nie było wymagane w przypadku logowania się do witryny sieci Web z tych lokalizacji, zobacz sekcję Zaufane adresy IP w dalszej części tego artykułu.
 
-## Zaufane adresy IP
+## <a name="trusted-ips"></a>Zaufane adresy IP
 Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą usługi Azure Multi-Factor Authentication w przypadku żądań witryn sieci Web pochodzących z określonych adresów IP lub podsieci. Na przykład można wykluczyć użytkowników z uwierzytelniania za pomocą usługi Azure Multi-Factor Authentication, jeśli logują się oni z komputerów znajdujących się w biurze. W tym celu musisz dodać podsieć biurową do listy zaufanych adresów IP. Aby skonfigurować zaufane adresy IP, postępuj zgodnie z poniższą procedurą:
 
 1. W sekcji Uwierzytelnianie usług IIS kliknij kartę Zaufane adresy IP.
@@ -67,6 +71,9 @@ Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą
 3. Gdy pojawi się okno dialogowe Dodawanie zaufanych adresów IP, wybierz przycisk radiowy odpowiadający pojedynczemu adresowi IP lub zakresowi adresów IP albo podsieci.
 4. Wprowadź adres IP lub zakres adresów IP albo podsieć, którą chcesz dodać do listy dozwolonych adresów. Jeśli wprowadzasz podsieć, wybierz odpowiednią maskę sieci i kliknij przycisk OK. Po wykonaniu tych czynności została dodana lista zaufanych adresów.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

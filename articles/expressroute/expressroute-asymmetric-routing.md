@@ -1,12 +1,12 @@
 ---
 title: Routing asymetryczny | Microsoft Docs
-description: W tym artykule przedstawiono problemy związane z routingiem asymetrycznym w sieci, które może napotkać klient, jeśli sieć zawiera wiele połączeń z miejscem docelowym.
+description: "W tym artykule przedstawiono problemy związane z routingiem asymetrycznym w sieci, które może napotkać klient, jeśli sieć zawiera wiele połączeń z miejscem docelowym."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+
 
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routing asymetryczny z wieloma ścieżkami sieciowymi
@@ -60,7 +64,7 @@ Należy upewnić się, że Twoje publiczne adresy IP są anonsowane odpowiednim 
 
 Jeśli chcesz użyć usługi ExpressRoute do uwierzytelniania, musisz upewnić się, że publiczne adresy IP usługi AD FS są anonsowane przez usługę ExpressRoute bez translatora adresów sieciowych (NAT). W ten sposób ruch, który pochodzi od firmy Microsoft i przechodzi do lokalnego serwera usług AD FS, korzysta z usługi ExpressRoute. Powrotny ruch danych od klienta do firmy Microsoft korzysta z usługi ExpressRoute, ponieważ jest ona trasą preferowaną.
 
-### <a name="source-based-nat"></a>Translator adresów sieciowych oparty na źródle
+### <a name="sourcebased-nat"></a>Translator adresów sieciowych oparty na źródle
 Innym sposobem rozwiązania problemów z routingiem asymetrycznym jest translator adresów sieciowych oparty na źródle (SNAT). Na przykład na lokalnym serwerze SMTP możesz mieć nieanonsowane za pośrednictwem usługi ExpressRoute publiczne adresy IP, ponieważ zamierzasz używać Internetu dla tego typu komunikacji. Żądanie pochodzące z firmy Microsoft i przychodzące do lokalnego serwera SMTP jest przesyłane za pośrednictwem Internetu. Translator adresów sieciowych oparty na źródle przetwarza żądanie przychodzące i przekazuje do wewnętrznego adresu IP. Ruch odwrotny z serwera SMTP przechodzi do zapory na krawędzi (która jest używana do translacji adresów sieciowych) zamiast za pośrednictwem usługi ExpressRoute. Powrotny ruch danych jest przesyłany za pośrednictwem Internetu.
 
 ![Konfiguracja translatora adresów sieciowych opartych na źródle](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -68,6 +72,9 @@ Innym sposobem rozwiązania problemów z routingiem asymetrycznym jest translato
 ## <a name="asymmetric-routing-detection"></a>Wykrywanie routingu asymetrycznego
 Polecenie traceroute jest najlepszym sposobem zapewnienia, że ruch sieciowy jest kierowany oczekiwaną ścieżką. Jeśli oczekujesz, że ruch z lokalnego serwera SMTP do firmy Microsoft będzie przepływał ścieżką internetową, wykonaj polecenie traceroute z serwera SMTP do usługi Office 365. Wynik pozwoli sprawdzić, czy po opuszczeniu sieci ruch rzeczywiście jest kierowany do Internetu, a nie do usługi ExpressRoute.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

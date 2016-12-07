@@ -1,19 +1,23 @@
 ---
-title: Hostowanie wielu witryn w usłudze Application Gateway | Microsoft Docs
-description: Ta strona zawiera omówienie obsługi wielu witryn w usłudze Application Gateway.
+title: "Hostowanie wielu witryn w usłudze Application Gateway | Microsoft Docs"
+description: "Ta strona zawiera omówienie obsługi wielu witryn w usłudze Application Gateway."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
@@ -25,7 +29,7 @@ Hostowanie wielu witryn pozwala na skonfigurowanie więcej niż jednej aplikacji
 
 Podobnie dwie domeny podrzędne tej samej domeny nadrzędnej mogą być hostowane na tym samym wdrożeniu usługi Application Gateway. Przykłady użycia domen podrzędnych mogą obejmować domeny http://blog.contoso.com i http://app.contoso.com hostowane na jednym wdrożeniu usługi Application Gateway.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
+## <a name="host-headers-and-server-name-indication-sni"></a>Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
 Istnieją trzy popularne mechanizmy włączania hostingu wielu witryn w tej samej infrastrukturze.
 
 1. Hostowanie wielu aplikacji sieci Web — każda z nich na unikatowym adresie IP.
@@ -117,6 +121,9 @@ Reguła routingu nie wymaga żadnej zmiany. Nadal należy wybierać podstawową 
 ## <a name="next-steps"></a>Następne kroki
 Po zapoznaniu się z informacjami o hostowaniu wielu witryn przejdź do [tworzenia bramy aplikacji przy użyciu hostowania wielu witryn](application-gateway-create-multisite-azureresourcemanager-powershell.md), aby utworzyć bramę aplikacji z możliwością obsługi więcej niż jednej aplikacji sieci Web.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

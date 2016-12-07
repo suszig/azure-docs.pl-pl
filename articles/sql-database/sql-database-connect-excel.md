@@ -1,13 +1,13 @@
 ---
-title: Łączenie programu Excel z bazą danych SQL Database | Microsoft Docs
-description: Dowiedz się, jak połączyć program Microsoft Excel z bazą danych Azure SQL w chmurze. Importowanie danych do programu Excel, raportowanie i eksploracja danych.
+title: "Łączenie programu Excel z bazą danych SQL Database | Microsoft Docs"
+description: "Dowiedz się, jak połączyć program Microsoft Excel z bazą danych Azure SQL w chmurze. Importowanie danych do programu Excel, raportowanie i eksploracja danych."
 services: sql-database
-keywords: łączenie programu excel z sql, importowanie danych do programu excel
-documentationcenter: ''
+keywords: "łączenie programu excel z sql, importowanie danych do programu excel"
+documentationcenter: 
 author: joseidz
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,11 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2016
 ms.author: joseidz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a0f9501760ba3ea97341d30cd706c971c826430
+
 
 ---
-# Samouczek usługi SQL Database: łączenie programu Excel z bazą danych Azure SQL i tworzenie raportu
+# <a name="sql-database-tutorial-connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Samouczek usługi SQL Database: łączenie programu Excel z bazą danych Azure SQL i tworzenie raportu
 > [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
+> * [Program Visual Studio](sql-database-connect-query.md)
 > * [SSMS](sql-database-connect-query-ssms.md)
 > * [Excel](sql-database-connect-excel.md)
 > 
@@ -31,7 +35,7 @@ Przed rozpoczęciem pracy będziesz potrzebować bazy danych SQL na platformie A
 
 Potrzebna będzie również kopia programu Excel. W tym artykule wykorzystano program [Microsoft Excel 2016](https://products.office.com/en-US/).
 
-## Łączenie programu Excel z bazą danych SQL i tworzenie pliku odc
+## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>Łączenie programu Excel z bazą danych SQL i tworzenie pliku odc
 1. Aby połączyć program Excel z bazą danych SQL, otwórz program Excel, a następnie utwórz nowy skoroszyt lub otwórz istniejący skoroszyt programu Excel.
 2. Na pasku menu w górnej części strony kliknij kartę **Dane**, kliknij przycisk **Z innych źródeł**, a następnie kliknij pozycję **Z programu SQL Server**.
    
@@ -58,7 +62,7 @@ Potrzebna będzie również kopia programu Excel. W tym artykule wykorzystano pr
    
     Zostanie otwarte okno dialogowe **Importowanie danych**.
 
-## Importowanie danych do programu Excel i tworzenie wykresu przestawnego
+## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importowanie danych do programu Excel i tworzenie wykresu przestawnego
 Po nawiązaniu połączenia i utworzeniu pliku zawierającego dane oraz informacje o połączeniu należy zapoznać się z wskazówkami na temat importowania danych.
 
 1. W oknie dialogowym **Importowanie danych** kliknij opcję prezentacji danych w arkuszu, a następnie kliknij przycisk **OK**. Wybrano **Wykres przestawny**. Można również utworzyć **Nowy arkusz** lub wybrać opcję **Dodaj te dane do modelu danych**. Więcej informacji o modelach danych można znaleźć w temacie [Tworzenie modelu danych w programie Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). Kliknij przycisk **Właściwości**, aby zapoznać się z informacjami o pliku odc utworzonym w poprzednim kroku i wybrać opcje odświeżania danych.
@@ -76,11 +80,14 @@ Po nawiązaniu połączenia i utworzeniu pliku zawierającego dane oraz informac
 > 
 > 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Aby wykonywać zaawansowane zapytania i analizy, zobacz temat [Connect to SQL Database with SQL Server Management Studio](sql-database-connect-query-ssms.md) (Nawiązywanie połączenia z usługą SQL Database za pomocą programu SQL Server Management Studio).
 * Dowiedz się, jakie zalety mają [pule elastyczne](sql-database-elastic-pool.md).
 * Dowiedz się, jak [utworzyć aplikację sieci Web, która łączy się z bazą danych SQL Database zaplecza](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

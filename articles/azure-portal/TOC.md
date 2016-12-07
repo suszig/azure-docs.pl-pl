@@ -22,7 +22,7 @@
 ### [Wyświetlanie zdarzeń i dzienników inspekcji](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Otrzymywanie powiadomień o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# Dokumentacja
+# Powiązane
 ## [Funkcje szablonu usługi Azure Resource Manager](../resource-group-template-functions.md)
 ## [Najlepsze rozwiązania dotyczące automatycznego skalowania](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Typowe metryki automatycznego skalowania](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -32,10 +32,16 @@
 ## [Szybki start — przykłady poleceń programu PowerShell usługi Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Szybki start — przykłady poleceń interfejsu wiersza polecenia usługi Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
 
+# Zasoby
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

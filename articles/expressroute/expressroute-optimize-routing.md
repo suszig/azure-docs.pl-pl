@@ -1,12 +1,12 @@
 ---
-title: Optymalizacja routingu usługi ExpressRoute| Microsoft Docs
-description: Ta strona zawiera szczegółowe informacje dotyczące optymalizacji routingu, gdy klient ma więcej niż jeden obwód usługi ExpressRoute łączący firmę Microsoft z siecią firmową klienta.
+title: "Optymalizacja routingu usługi ExpressRoute| Microsoft Docs"
+description: "Ta strona zawiera szczegółowe informacje dotyczące optymalizacji routingu, gdy klient ma więcej niż jeden obwód usługi ExpressRoute łączący firmę Microsoft z siecią firmową klienta."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+
 
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
@@ -24,7 +28,7 @@ Przyjrzyjmy się problemowi z routingiem, korzystając z przykładu. Załóżmy,
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
-### <a name="solution:-use-bgp-communities"></a>Rozwiązanie: użyj społeczności BGP
+### <a name="solution-use-bgp-communities"></a>Rozwiązanie: użyj społeczności BGP
 Aby zoptymalizować routing dla użytkowników obu biur, trzeba wiedzieć, który prefiks odpowiada zachodnim, a który wschodnim stanom USA. Kodujemy te informacje przy użyciu [wartości społeczności BGP](expressroute-routing.md). Przypisaliśmy unikatową wartość społeczności BGP do każdego regionu świadczenia usługi Azure, np. „12076:51004” dla wschodnich, a „12076:51006” dla zachodnich stanów USA. Skoro już wiesz, który prefiks odpowiada któremu regionowi świadczenia usługi Azure, możesz skonfigurować preferowany obwód usługi ExpressRoute. Ponieważ do wymiany informacji o routingu używamy protokołu BGP, w celu wpłynięcia na routing możesz użyć lokalnej preferencji BGP. W naszym przykładzie można przypisać wyższą wartość preferencji lokalnej na 13.100.0.0/16 w zachodnich niż we wschodnich stanach USA i podobnie wyższą wartość preferencji lokalnej na 23.100.0.0/16 we wschodnich niż w zachodnich stanach USA. Ta konfiguracja pozwoli zagwarantować, że gdy obie ścieżki do firmy Microsoft będą dostępne, użytkownicy w Los Angeles będą korzystać z obwodu usługi ExpressRoute w zachodnich stanach USA do połączenia ze stanami zachodnimi, natomiast użytkownicy z Nowego Jorku będą korzystać z usługi ExpressRoute we wschodnich stanach USA w celu połączenia ze stanami wschodnimi. Routing jest zoptymalizowany po obu stronach. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
@@ -34,7 +38,7 @@ Oto inny przykład, w którym połączenia z firmy Microsoft używają dłuższe
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
-### <a name="solution:-use-as-path-prepending"></a>Rozwiązanie: użyj dołączania ścieżki AS
+### <a name="solution-use-as-path-prepending"></a>Rozwiązanie: użyj dołączania ścieżki AS
 Istnieją dwa rozwiązania tego problemu. Pierwsze z nich polega na tym, by po prostu anonsować prefiks lokalny biura w Los Angeles, 177.2.0.0/31, w obwodzie usługi ExpressRoute w stanach zachodnich, a prefiks lokalny biura w Nowym Jorku, 177.2.0.2/31, w obwodzie w stanach wschodnich. W wyniku tego istnieje tylko jedna ścieżka dla firmy Microsoft do połączenia się z każdym z biur. Nie ma żadnych niejednoznaczności i routing zostaje zoptymalizowany. Dla tego projektu należy przemyśleć strategię pracy awaryjnej. W przypadku, gdy ścieżka do firmy Microsoft za pośrednictwem usługi ExpressRoute zostanie uszkodzona, musisz zadbać o to, by usługa Exchange Online mogła nadal łączyć się z serwerami lokalnymi. 
 
 Drugim rozwiązaniem jest dalsze anonsowanie obu prefiksów w obu obwodach usługi ExpressRoute i dodatkowo podawanie wskazówki z informacją, który prefiks jest blisko którego biura. Ponieważ firma Microsoft obsługuje ścieżkę AS BGP do wywołania, można skonfigurować ścieżkę AS dla prefiksu, aby wpłynąć na routing. W tym przykładzie można wydłużyć ścieżkę AS dla 172.2.0.0/31 we wschodnich stanach USA, aby firma Microsoft preferowała obwód usługi ExpressRoute w stanach zachodnich dla ruchu przeznaczonego dla tego prefiksu (dla naszej sieci ścieżka do tego prefiksu jest krótsza na zachodzie). Podobnie można wydłużyć ścieżkę AS dla 172.2.0.2/31 w zachodnich stanach USA, by firma Microsoft preferowała obwód usługi ExpressRoute w stanach wschodnich. Routing zostaje zoptymalizowany dla obu biur. W tym projekcie jeśli jeden obwód usługi ExpressRoute zostanie uszkodzony, usługa Exchange Online może nadal uzyskać dostęp do użytkownika za pośrednictwem innego obwodu usługi ExpressRoute i sieci WAN. 
@@ -51,6 +55,9 @@ Drugim rozwiązaniem jest dalsze anonsowanie obu prefiksów w obu obwodach usłu
 > 
 > 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

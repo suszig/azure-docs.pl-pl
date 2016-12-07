@@ -1,13 +1,13 @@
 ---
-title: 'Samouczek usługi SQL Database: tworzenie bazy danych SQL | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować logiczny serwer usługi SQL Database, regułę zapory serwera, bazę danych SQL i przykładowe dane. Dowiedz się też, jak połączyć się z narzędziami klienta, skonfigurować użytkowników i regułę zapory bazy danych.
-keywords: samouczek usługi sql database, tworzenie bazy danych sql
+title: "Samouczek usługi SQL Database: tworzenie bazy danych SQL | Microsoft Docs"
+description: "Dowiedz się, jak skonfigurować logiczny serwer usługi SQL Database, regułę zapory serwera, bazę danych SQL i przykładowe dane. Dowiedz się też, jak połączyć się z narzędziami klienta, skonfigurować użytkowników i regułę zapory bazy danych."
+keywords: "samouczek usługi sql database, tworzenie bazy danych sql"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,11 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/07/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+
 
 ---
-# Samouczek usługi SQL Database: tworzenie bazy danych SQL w ciągu kilku minut za pomocą witryny Azure Portal
+# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>Samouczek usługi SQL Database: tworzenie bazy danych SQL w ciągu kilku minut za pomocą witryny Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-get-started.md)
+> * [Azure portal](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
 > * [PowerShell](sql-database-get-started-powershell.md)
 > 
@@ -36,7 +40,7 @@ Te same czynności można wykonać, używając języka [C#](sql-database-get-sta
 
 <a name="create-logical-server-bk"></a>
 
-## Tworzenie pierwszej bazy danych SQL na platformie Azure
+## <a name="create-your-first-azure-sql-database"></a>Tworzenie pierwszej bazy danych SQL na platformie Azure
 1. Połącz się z [witryną Azure Portal](http://portal.azure.com), jeśli połączenie nie zostało nawiązane już wcześniej.
 2. Kliknij **Nowy**, kliknij **Dane i magazyn**, a następnie znajdź opcję **Baza danych SQL**.
    
@@ -69,7 +73,7 @@ Te same czynności można wykonać, używając języka [C#](sql-database-get-sta
 12. W obszarze **Logowanie administratora serwera** podaj nazwę użytkownika w celu logowania się jako administrator — np. „moje_konto_administratora”. Ta nazwa logowania jest nazywana główną nazwą logowania serwera. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
     
     ![Nowa baza danych SQL 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. W obszarze **Hasło** i **Potwierdź hasło** podaj hasło do głównego konta logowania serwera, na przykład „p@ssw0rd1”. Zielony znacznik wyboru wskazuje, czy podane hasło jest poprawne.
+13. W obszarze **Hasło** i **Potwierdź hasło** podaj hasło do głównego konta logowania serwera, na przykład "p@ssw0rd1". Zielony znacznik wyboru wskazuje, czy podane hasło jest poprawne.
     
     ![Nowa baza danych SQL 11](./media/sql-database-get-started/sql-database-new-database-11.png)
 14. W obszarze **Lokalizacja** wybierz centrum danych odpowiednie dla danej lokalizacji — np. „Australia Wschodnia”.
@@ -101,7 +105,7 @@ Te same czynności można wykonać, używając języka [C#](sql-database-get-sta
 
 [!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po ukończeniu tego samouczka usługi SQL Database i utworzeniu bazy danych z przykładowymi danymi możesz przystąpić do jej eksplorowania przy użyciu ulubionych narzędzi.
 
 * Jeśli znasz język Transact-SQL i program SQL Server Management Studio (SSMS), dowiedz się, jak [nawiązać połączenie z bazą danych SQL i odpytywać ją w programie SSMS](sql-database-connect-query-ssms.md).
@@ -111,7 +115,12 @@ Po ukończeniu tego samouczka usługi SQL Database i utworzeniu bazy danych z pr
 * Jeśli chcesz załadować dane z pliku CSV do nowej tabeli przy użyciu narzędzia wiersza polecenia BCP, zobacz artykuł [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md) (Ładowanie danych do usługi SQL Database z pliku CSV przy użyciu narzędzia BCP).
 * Jeśli chcesz rozpocząć eksplorowanie zabezpieczeń usługi Azure SQL Database, zobacz artykuł [Getting started with security](sql-database-get-started-security.md) (Wprowadzenie do zabezpieczeń)
 
-## Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe zasoby
 [Co to jest SQL Database?](sql-database-technical-overview.md)
 
-<!---HONumber=sep12_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,22 +1,26 @@
 ---
-title: " Przekazywanie plików na konto usługi Azure Media Services za pomocą portalu Azure | Microsoft Docs"
-description: Ten samouczek przeprowadzi Cię przez kroki przekazywania plików na konto usługi Media Services za pomocą portalu Azure
+title: " Przekazywanie plików na konto usługi Azure Media Services za pomocą witryny Azure Portal | Microsoft Docs"
+description: "Ten samouczek przeprowadzi Cię przez kroki przekazywania plików na konto usługi Media Services za pomocą portalu Azure"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2016
+ms.date: 10/14/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
+
 
 ---
-# Przekazywanie plików na konto usługi Azure Media Services za pomocą portalu Azure
+# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Przekazywanie plików na konto usługi Azure Media Services za pomocą portalu Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
@@ -29,10 +33,11 @@ ms.author: juliako
 
 Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu zawartości. Element zawartości może zawierać pliki wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików). Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze, na potrzeby dalszego przetwarzania i przesyłania strumieniowego.
 
-1. W oknie **Ustawienie** kliknij przycisk **Elementy zawartości**.
+1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
+2. W bloku **Ustawienia** kliknij opcję **Elementy zawartości**.
    
     ![Przekazywanie plików](./media/media-services-portal-vod-get-started/media-services-upload.png)
-2. Kliknij przycisk **Przekaż**.
+3. Kliknij przycisk **Przekaż**.
    
     Zostanie wyświetlone okno **Przekaż element zawartości wideo**.
    
@@ -40,21 +45,24 @@ Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu za
    > Nie ma żadnego limitu rozmiaru pliku.
    > 
    > 
-3. Przejdź do wybranego pliku wideo na komputerze, zaznacz go, a następnie kliknij przycisk OK.  
+4. Przejdź do wybranego pliku wideo na komputerze, zaznacz go, a następnie kliknij przycisk OK.  
    
     Rozpocznie się przekazywanie, a postęp będzie widoczny pod nazwą pliku.  
 
 Po zakończeniu przekazywania na liście w oknie **Elementy zawartości** pojawi się nowy element zawartości. 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Teraz możesz zakodować przekazane elementy zawartości. Więcej informacji znajduje się na stronie [Kodowanie elementów zawartości](media-services-portal-encode.md).
 
-## Ścieżki szkoleniowe dotyczące usługi Media Services
+## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Przekazywanie opinii
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

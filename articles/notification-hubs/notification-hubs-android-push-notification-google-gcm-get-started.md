@@ -1,26 +1,30 @@
 ---
-title: Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs | Microsoft Docs
-description: Korzystając z tego samouczka, dowiesz się, jak za pomocą usługi Azure Notification Hubs wysyłać powiadomienia wypychane do urządzeń z systemem Android.
+title: "Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs | Microsoft Docs"
+description: "Korzystając z tego samouczka, dowiesz się, jak za pomocą usługi Azure Notification Hubs wysyłać powiadomienia wypychane do urządzeń z systemem Android."
 services: notification-hubs
 documentationcenter: android
 keywords: powiadomienia wypychane, powiadomienie wypychane, powiadomienia wypychane w systemie android
-author: wesmc7777
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/05/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+
 
 ---
-# Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs
+# <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 > [!IMPORTANT]
 > W tym temacie przedstawiono powiadomienia wypychane za pomocą usługi Google Cloud Messaging (GCM). Jeśli używasz usługi Google Firebase Cloud Messaging (FCM), zobacz [Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usług Azure Notification Hubs i FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
 > 
@@ -33,7 +37,7 @@ Utworzysz pustą aplikację dla systemu Android służącą do odbierania powiad
 
 Kompletny kod dla tego samouczka można pobrać z witryny GitHub [tutaj](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 > [!IMPORTANT]
 > Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 > 
@@ -43,10 +47,10 @@ Oprócz aktywnego konta platformy Azure wspomnianego powyżej w tym samouczku wy
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Notification Hubs dotyczących aplikacji dla systemu Android.
 
-## Tworzenie projektu obsługującego usługę Google Cloud Messaging
+## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Tworzenie projektu obsługującego usługę Google Cloud Messaging
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-## Konfigurowanie nowego centrum powiadomień
+## <a name="configure-a-new-notification-hub"></a>Konfigurowanie nowego centrum powiadomień
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 &emsp;&emsp;6.   W bloku **Ustawienia** wybierz pozycję **Usługi powiadomień**, a następnie wybierz pozycję **Google (GCM)**. Wprowadź klucz interfejsu API i kliknij pozycję **Zapisz**.
@@ -55,20 +59,20 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
 
 Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i uzyskano parametry połączenia do rejestrowania aplikacji w celu odbierania i wysyłania powiadomień wypychanych.
 
-## <a id="connecting-app"></a>Łączenie aplikacji z centrum powiadomień
-### Tworzenie nowego projektu dla systemu Android
+## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Łączenie aplikacji z centrum powiadomień
+### <a name="create-a-new-android-project"></a>Tworzenie nowego projektu dla systemu Android
 1. W programie Android Studio utwórz nowy projekt programu Android Studio.
    
-    ![Android Studio — nowy projekt][13]
+       ![Android Studio - new project][13]
 2. Wybierz kształt **Phone and Tablet** (Telefon i tablet) oraz odpowiednią wersję z listy **Minimum SDK** (Minimalna wersja zestawu SDK), która ma być obsługiwana. Następnie kliknij przycisk **Next** (Dalej).
    
-    ![Android Studio — przepływ pracy tworzenia projektu][14]
+       ![Android Studio - project creation workflow][14]
 3. Wybierz pozycję **Empty Activity** (Puste działanie) dla głównego działania i kliknij przycisk **Next** (Dalej), a następnie kliknij przycisk **Finish** (Zakończ).
 
-### Dodawanie usług Google Play do projektu
+### <a name="add-google-play-services-to-the-project"></a>Dodawanie usług Google Play do projektu
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
-### Dodawanie bibliotek usługi Azure Notification Hubs
+### <a name="adding-azure-notification-hubs-libraries"></a>Dodawanie bibliotek usługi Azure Notification Hubs
 1. W pliku `Build.Gradle` dla **aplikacji** dodaj następujące wiersze w sekcji **dependencies**.
    
         compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
@@ -81,7 +85,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
             }
         }
 
-### Aktualizowanie pliku AndroidManifest.xml
+### <a name="updating-the-androidmanifestxml"></a>Aktualizowanie pliku AndroidManifest.xml
 1. W celu zapewnienia obsługi usługi GCM musimy zaimplementować w naszym kodzie wystąpienie usługi odbiornika interfejsu Instance ID, który służy do [uzyskiwania tokenów rejestracji](https://developers.google.com/cloud-messaging/android/client#sample-register) przy użyciu [interfejsu API Instance ID firmy Google](https://developers.google.com/instance-id/). W tym samouczku nazwiemy tę klasę `MyInstanceIDService`. 
    
     Dodaj następującą definicję usługi do pliku AndroidManifest.xml wewnątrz tagu `<application>`. Zastąp symbol zastępczy `<your package>` rzeczywistą nazwą pakietu wyświetlaną u góry pliku `AndroidManifest.xml`.
@@ -120,7 +124,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
         <permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
         <uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
-### Dodawanie kodu
+### <a name="adding-code"></a>Dodawanie kodu
 1. W widoku projektu rozwiń węzeł **app** > **src** > **main** > **java**. Kliknij prawym przyciskiem folder pakietu w węźle **java**, kliknij pozycję **New** (Nowy), a następnie kliknij pozycję **Java Class** (Klasa Java). Dodaj nową klasę o nazwie `NotificationSettings`. 
    
     ![Android Studio – nowa klasa Java][6]
@@ -187,7 +191,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
             }
    
             @Override
-            protected void onHandleIntent(Intent intent) {      
+            protected void onHandleIntent(Intent intent) {        
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
                 String resultString = null;
                 String regID = null;
@@ -201,7 +205,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
                     // Storing the registration id that indicates whether the generated token has been
                     // sent to your server. If it is not stored, send the token to your server,
                     // otherwise your server should have already received the token.
-                    if ((regID=sharedPreferences.getString("registrationID", null)) == null) {      
+                    if ((regID=sharedPreferences.getString("registrationID", null)) == null) {        
                         NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
                                 NotificationSettings.HubListenConnectionString, this);
                         Log.i(TAG, "Attempting to register with NH using token : " + token);
@@ -213,7 +217,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
                         // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
    
                         resultString = "Registered Successfully - RegId : " + regID;
-                        Log.i(TAG, resultString);       
+                        Log.i(TAG, resultString);        
                         sharedPreferences.edit().putString("registrationID", regID ).apply();
                     } else {
                         resultString = "Previously Registered Successfully - RegId : " + regID;
@@ -387,14 +391,14 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
         }
 12. W programie Android Studio na pasku menu kliknij pozycję **Build** > **Rebuild Project** (Kompiluj — Kompiluj ponownie projekt), aby upewnić się, że w kodzie nie występują żadne błędy.
 
-## Wysyłanie powiadomień wypychanych
+## <a name="sending-push-notifications"></a>Wysyłanie powiadomień wypychanych
 Odbieranie powiadomień wypychanych w aplikacji możesz przetestować, wysyłając je z poziomu witryny [Azure Portal] za pośrednictwem sekcji **Rozwiązywanie problemów** w bloku centrum, jak przedstawiono poniżej.
 
 ![Azure Notification Hubs — Wysyłanie testowe](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## (Opcjonalnie) Wysyłanie powiadomień wypychanych bezpośrednio z poziomu aplikacji
+## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych bezpośrednio z poziomu aplikacji
 Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych przypadkach warto wysyłać powiadomienia bezpośrednio z aplikacji klienta. W tej sekcji wyjaśniono sposób wysyłania powiadomień z klienta przy użyciu [interfejsu API REST usługi Azure Notification Hubs](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
 1. W widoku projektu programu Android Studio rozwiń węzeł **App** > **src** > **main** > **res** > **layout**. Otwórz plik układu `activity_main.xml` i kliknij kartę **Text** (Tekst), aby zaktualizować zawartość tekstową pliku. Zaktualizuj go przy użyciu poniższego kodu, który dodaje nowe kontrolki `Button` i `EditText` służące do wysyłania komunikatów powiadomień wypychanych do centrum powiadomień. Dodaj ten kod w dolnej części bezpośrednio przed elementem `</RelativeLayout>`.
@@ -439,7 +443,7 @@ Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych 
         import android.util.Base64;
         import android.view.View;
         import android.widget.EditText;
-5. W pliku `MainActivity.java` dodaj następujące elementy członkowskie u góry klasy `MainActivity`.  
+5. W pliku `MainActivity.java` dodaj następujące elementy członkowskie u góry klasy `MainActivity`.    
    
         private String HubEndpoint = null;
         private String HubSasKeyName = null;
@@ -570,7 +574,7 @@ Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych 
                             // Example below targets 3 specific tags
                             // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                             // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
-                            //      "tag1 || tag2 || tag3");
+                            //        "tag1 || tag2 || tag3");
    
                             // Send notification message
                             urlConnection.setFixedLengthStreamingMode(json.length());
@@ -606,24 +610,24 @@ Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych 
             }.start();
         }
 
-## Testowanie aplikacji
-#### Powiadomienia wypychane w emulatorze
+## <a name="testing-your-app"></a>Testowanie aplikacji
+#### <a name="push-notifications-in-the-emulator"></a>Powiadomienia wypychane w emulatorze
 Aby przetestować powiadomienia wypychane w emulatorze, upewnij się, że obraz emulatora obsługuje poziom interfejsu API Google wybrany dla aplikacji. Jeśli obraz nie obsługuje natywnych interfejsów API Google, wystąpi wyjątek **SERVICE\_NOT\_AVAILABLE** (usługa niedostępna).
 
 Oprócz powyższego, upewnij się, że dodano konto Google do uruchomionego emulatora w obszarze **Settings** > **Accounts** (Ustawienia — Konta). W przeciwnym razie próby rejestracji w usłudze GCM mogą spowodować wystąpienie wyjątku **AUTHENTICATION\_FAILED** (uwierzytelnianie nie powiodło się).
 
-#### Uruchamianie aplikacji
+#### <a name="running-the-application"></a>Uruchamianie aplikacji
 1. Uruchom aplikację i zwróć uwagę, czy identyfikator rejestracji jest zgłaszany, co oznacza pomyślną rejestrację.
    
-    ![Testowanie w systemie Android — rejestracja kanału][18]
+       ![Testing on Android - Channel registration][18]
 2. Wprowadź komunikat powiadomienia, który ma zostać wysłany do wszystkich urządzeń z systemem Android zarejestrowanych w centrum.
    
-    ![Testowanie w systemie Android — wysyłanie komunikatu][19]
+       ![Testing on Android - sending a message][19]
 3. Naciśnij przycisk **Send Notification** (Wyślij powiadomienie). Na wszystkich urządzeniach, na których jest uruchomiona aplikacja, zostanie wyświetlone wystąpienie kontrolki `AlertDialog` z komunikatem powiadomienia wypychanego. Urządzenia, na których aplikacja nie jest uruchomiona, ale zostały wcześniej zarejestrowane do otrzymywania powiadomień wypychanych otrzymają powiadomienie w menedżerze powiadomień systemu Android. Można je wyświetlić, szybko przesuwając w dół od lewego górnego rogu.
    
-    ![Testowanie w systemie Android — powiadomienia][21]
+       ![Testing on Android - notifications][21]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Zalecanym następnym krokiem jest zapoznanie się z samouczkiem [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]. Przedstawiono w nim sposób wysyłania powiadomień z zaplecza programu ASP.NET przy użyciu tagów służących do adresowania powiadomień do określonych użytkowników.
 
 Jeśli chcesz podzielić użytkowników na grupy zainteresowań, zobacz samouczek [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs].
@@ -659,7 +663,7 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 [Wprowadzenie do powiadomień wypychanych w usłudze Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Zestaw SDK usługi Mobile Services dla systemu Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Odwołanie do projektu biblioteki]: http://go.microsoft.com/fwlink/?LinkId=389800
-[klasyczny portal Azure]: https://manage.windowsazure.com/
+[Klasyczny portal Azure]: https://manage.windowsazure.com/
 [Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
@@ -667,6 +671,6 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

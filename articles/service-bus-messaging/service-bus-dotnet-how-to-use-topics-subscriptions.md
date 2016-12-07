@@ -1,12 +1,12 @@
 ---
-title: Używanie tematów usługi Service Bus z platformą .NET | Microsoft Docs
-description: Dowiedz się, jak używać tematów i subskrypcji usługi Service Bus z platformą .NET na platformie Azure. Przykłady kodu są napisane dla aplikacji .NET.
+title: "Używanie tematów usługi Service Bus z platformą .NET | Microsoft Docs"
+description: "Dowiedz się, jak używać tematów i subskrypcji usługi Service Bus z platformą .NET na platformie Azure. Przykłady kodu są napisane dla aplikacji .NET."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Jak używać tematów i subskrypcji usługi Service Bus
@@ -151,7 +155,7 @@ Można również tworzyć subskrypcje tematu przy użyciu klasy [NamespaceManage
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Tworzenie subskrypcji z filtrem domyślnym (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Tworzenie subskrypcji z filtrem domyślnym (MatchAll)
 Filtr **MatchAll** jest filtrem domyślnym, który jest używany, gdy podczas tworzenia nowej subskrypcji nie został określony żaden filtr. Kiedy używasz filtru **MatchAll**, wszystkie komunikaty opublikowane do tematu są umieszczane w wirtualnej kolejce subskrypcji. Poniższy przykład tworzy subskrypcję o nazwie „AllMessages” i używa domyślnego filtru **MatchAll**.
 
 ```
@@ -306,8 +310,8 @@ Teraz, kiedy znasz już podstawy tematów i subskrypcji usługi Service Bus, sko
 * [Kolejki, tematy i subskrypcje][Kolejki, tematy i subskrypcje].
 * [Przykładowe filtry tematu][Przykładowe filtry tematu]
 * Dokumentacja interfejsów API dla elementu [SqlFilter][SqlFilter].
-* Utwórz działającą aplikację, która wysyła i odbiera komunikaty z kolejki usługi Service Bus: [samouczka Komunikaty obsługiwane przez brokera w usłudze Service Bus dla platformy .NET][].
-* Przykłady usługi Service Bus: pobierz ze strony [przykładów dla platformy Azure][] lub zobacz [przegląd przykładów](../service-bus/service-bus-samples.md).
+* Utwórz działającą aplikację, która wysyła komunikaty do kolejki usługi Service Bus i odbiera je z niej: [samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET][samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET].
+* Przykłady usługi Service Bus: pobierz ze strony [przykładów dla platformy Azure][przykładów dla platformy Azure] lub zobacz [przegląd przykładów](service-bus-samples.md).
 
 [Azure Portal]: https://portal.azure.com
 
@@ -317,11 +321,11 @@ Teraz, kiedy znasz już podstawy tematów i subskrypcji usługi Service Bus, sko
 [Przykładowe filtry tematu]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET]: service-bus-brokered-tutorial-dotnet.md
-[Przykłady dla platformy Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+[samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET]: service-bus-brokered-tutorial-dotnet.md
+[przykładów dla platformy Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

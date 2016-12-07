@@ -1,58 +1,81 @@
 ---
-title: Get started creating an Internet facing load balancer in classic mode using PowerShell | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic mode using PowerShell
+title: "Wprowadzenie do tworzenia modułu równoważenia obciążenia mającego połączenie z Internetem w trybie klasycznym przy użyciu programu PowerShell | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w trybie klasycznym przy użyciu programu PowerShell"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: kumudd
+manager: timlt
 tags: azure-service-management
-
+ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2016
-ms.author: sewhee
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 16ebe82b866565f676fb33bfa915465c08a5ea89
 
 ---
-# Get started creating an Internet facing load balancer (classic) in PowerShell
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Wprowadzenie do tworzenia dostępnego z Internetu modułu równoważenia obciążenia (klasycznego) przy użyciu programu PowerShell
+
+> [!div class="op_single_selector"]
+> * [Klasyczna witryna Azure Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Przed rozpoczęciem pracy z zasobami platformy Azure należy pamiętać, że ma ona obecnie dwa modele wdrażania: za pomocą usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-classic-rm.md). Dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty w górnej części artykułu. W tym artykule opisano klasyczny model wdrażania. Możesz też zapoznać się z artykułem na temat [tworzenia dostępnego z Internetu modułu równoważenia obciążenia za pomocą usługi Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Set up load balancer using PowerShell
-To set up a load balancer using powershell, follow the steps below:
+## <a name="set-up-load-balancer-using-powershell"></a>Konfiguracja modułu równoważenia obciążenia za pomocą programu PowerShell
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. After creating a virtual machine, you can use PowerShell cmdlets to add a load balancer to a virtual machine within the same cloud service.
+Aby skonfigurować moduł równoważenia obciążenia za pomocą programu PowerShell, wykonaj poniższe kroki:
 
-In the following example you will add a load balancer set called "webfarm" to cloud service "mytestcloud" (or myctestcloud.cloudapp.net) , adding the endpoints for the load balancer to virtual machines named "web1" and "web2". The load balancer receives network traffic on port 80 and load balances between the virtual machines defined by the local endpoint (in this case port 80) using TCP.
+1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](../powershell-install-configure.md) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
+2. Po utworzeniu maszyny wirtualnej możesz użyć poleceń cmdlet programu PowerShell, aby dodać moduł równoważenia obciążenia do maszyny wirtualnej w ramach tej samej usługi w chmurze.
 
-### Step 1
-Create a load balanced endpoint for the first VM "web1"
+W poniższym przykładzie opisano sposób dodania zestawu modułu równoważenia obciążenia o nazwie „webfarm” do usługi w chmurze „mytestcloud” (lub myctestcloud.cloudapp.net), przy jednoczesnym dodaniu punktów końcowych modułu równoważenia obciążenia do maszyn wirtualnych o nazwach „web1” i „web2”. Moduł równoważenia obciążenia odbiera ruch sieciowy przez port 80, a równoważenie obciążenia między maszynami wirtualnymi jest definiowane przez lokalny punkt końcowy (w tym przypadku port 80) przy użyciu protokołu TCP.
 
-    Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+### <a name="step-1"></a>Krok 1
 
-### Step 2
-Create another endpoint for the second VM  "web2" using the same load balancer set name
+Tworzenie punktu końcowego o zrównoważonym obciążeniu dla pierwszej maszyny wirtualnej „web1”
 
-    Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+```powershell
+Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+```
 
-## Remove a virtual machine from a load balancer
-You can use Remove-AzureEndpoint to remove a virtual machine endpoint from the load balancer 
+### <a name="step-2"></a>Krok 2
 
-    Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin| Update-AzureVM
+Tworzenie kolejnego punktu końcowego dla drugiej maszyny wirtualnej „web2” za pomocą zestawu modułu równoważenia obciążenia o tej samej nazwie
 
-## Next steps
-You can also [get started creating an internal load balancer](load-balancer-get-started-ilb-classic-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an especific load balancer network traffic behavior.
+```powershell
+Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+```
 
-If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer. 
+## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>Usuwanie maszyny wirtualnej z modułu równoważenia obciążenia
+
+Możesz wykorzystać polecenie Remove-AzureEndpoint, aby usunąć punkt końcowy maszyny wirtualnej z modułu równoważenia obciążenia
+
+```powershell
+Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin | Update-AzureVM
+```
+
+## <a name="next-steps"></a>Następne kroki
+
+Możesz też zapoznać się z artykułem na temat [wprowadzenia do tworzenia wewnętrznego modułu równoważenia obciążenia](load-balancer-get-started-ilb-classic-ps.md) i określić typ [trybu dystrybucji](load-balancer-distribution-mode.md) dotyczącego danego ruchu sieciowego modułu równoważenia obciążenia.
+
+Jeśli zastosowanie wymaga zachowania działających połączeń z serwerami za modułem równoważenia obciążenia, zapoznaj się z informacjami o [ustawieniach limitu czasu bezczynności protokołu TCP modułu równoważenia obciążenia](load-balancer-tcp-idle-timeout.md). Pozwoli to zrozumieć zachowanie bezczynnego połączenia podczas używania usługi Azure Load Balancer.
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

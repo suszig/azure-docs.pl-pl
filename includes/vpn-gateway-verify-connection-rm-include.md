@@ -41,6 +41,8 @@ Przechodząc w witrynie Azure Portal do połączenia, można sprawdzić stan po�
    
     ![Sprawdź połączenie](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

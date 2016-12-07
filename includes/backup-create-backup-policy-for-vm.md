@@ -1,4 +1,4 @@
-## Określanie zasad tworzenia kopii zapasowych
+## <a name="defining-a-backup-policy"></a>Określanie zasad tworzenia kopii zapasowych
 Zasady tworzenia kopii zapasowych określają macierz z informacjami, kiedy są pobierane migawki danych i jak długo są przechowywane. W przypadku określania zasad tworzenia kopii zapasowych maszyny wirtualnej można wyzwolić zadanie tworzenia kopii zapasowej *raz dziennie*. W przypadku tworzenia nowych zasad zostają one zastosowane do magazynu. Interfejs zasad tworzenia kopii zapasowych wygląda następująco:
 
 ![Zasady tworzenia kopii zapasowych](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -26,6 +26,8 @@ Aby utworzyć zasady:
    
     Nowe zasady zostaną natychmiast zastosowane do magazynu.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

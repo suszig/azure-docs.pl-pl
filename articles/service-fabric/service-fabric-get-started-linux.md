@@ -1,12 +1,12 @@
 ---
-title: Konfigurowanie środowiska projektowego w systemie Linux | Microsoft Docs
-description: Zainstaluj środowisko uruchomieniowe i zestaw SDK oraz utwórz lokalny klaster projektowy w systemie Linux. Po ukończeniu tej konfiguracji wszystko będzie gotowe do tworzenia aplikacji.
+title: "Konfigurowanie środowiska projektowego w systemie Linux | Microsoft Docs"
+description: "Zainstaluj środowisko uruchomieniowe i zestaw SDK oraz utwórz lokalny klaster projektowy w systemie Linux. Po ukończeniu tej konfiguracji wszystko będzie gotowe do tworzenia aplikacji."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+
 
 ---
-# Przygotowywanie środowiska projektowego w systemie Linux
+# <a name="prepare-your-development-environment-on-linux"></a>Przygotowywanie środowiska projektowego w systemie Linux
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
  Aby wdrażać i uruchamiać [aplikacje usługi Azure Service Fabric](service-fabric-application-model.md) na maszynie deweloperskiej z systemem Linux, należy zainstalować środowisko uruchomieniowe i wspólny zestaw SDK. Można także zainstalować opcjonalne zestawy SDK dla platformy Java i .NET Core.
 
-## Wymagania wstępne
-### Obsługiwane wersje systemu operacyjnego
+## <a name="prerequisites"></a>Wymagania wstępne
+### <a name="supported-operating-system-versions"></a>Obsługiwane wersje systemu operacyjnego
 Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu operacyjnego:
 
 * Ubuntu 16.04 (Xenial Xerus)
 
-## Aktualizowanie źródeł APT
+## <a name="update-your-apt-sources"></a>Aktualizowanie źródeł APT
 Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego przy użyciu polecenia apt-get, należy najpierw zaktualizować źródła APT.
 
 1. Otwórz terminal.
@@ -53,7 +57,7 @@ Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego pr
     sudo apt-get update
     ```
 
-## Instalowanie i konfigurowanie zestawu SDK
+## <a name="install-and-set-up-the-sdk"></a>Instalowanie i konfigurowanie zestawu SDK
 Po zaktualizowaniu źródeł można zainstalować zestaw SDK.
 
 1. Zainstaluj pakiet zestawu SDK usługi Service Fabric. Zostanie wyświetlona prośba o potwierdzenie instalacji i zaakceptowanie umowy licencyjnej.
@@ -67,7 +71,7 @@ Po zaktualizowaniu źródeł można zainstalować zestaw SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## Konfigurowanie wieloplatformowego interfejsu wiersza polecenia Azure
+## <a name="set-up-the-azure-crossplatform-cli"></a>Konfigurowanie wieloplatformowego interfejsu wiersza polecenia Azure
 [Wieloplatformowy interfejs wiersza polecenia Azure][azure-xplat-cli-github] zawiera polecenia służące do interakcji z jednostkami usługi Service Fabric, w tym klastrami i aplikacjami. Jest on oparty na języku Node.js, więc [należy upewnić się, że zainstalowano środowisko Node][install-node] przed dalszym wykonywaniem poniższych instrukcji.
 
 1. Sklonuj repozytorium Github na maszynie deweloperskiej.
@@ -94,7 +98,7 @@ Po zaktualizowaniu źródeł można zainstalować zestaw SDK.
     source ~/azure.completion.sh
     ```
 
-## Tworzenie klastra lokalnego
+## <a name="set-up-a-local-cluster"></a>Tworzenie klastra lokalnego
 Jeśli wszystko zostało zainstalowane pomyślnie, powinno być możliwe uruchomienie klastra lokalnego.
 
 1. Uruchom skrypt instalacji klastra.
@@ -108,7 +112,7 @@ Jeśli wszystko zostało zainstalowane pomyślnie, powinno być możliwe uruchom
 
 W tym momencie możliwe jest wdrożenie wstępnie skompilowanych pakietów aplikacji usługi Service Fabric lub nowych pakietów opartych na kontenerach gościa lub plikach wykonywalnych gościa. Aby skompilować nowe usługi przy użyciu zestawów SDK platformy Java lub .NET Core, wykonaj poniższe opcjonalne kroki instalacji.
 
-## Instalowanie zestawu Java SDK i wtyczki środowiska Eclipse Neon (opcjonalnie)
+## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Instalowanie zestawu Java SDK i wtyczki środowiska Eclipse Neon (opcjonalnie)
 Zestaw Java SDK udostępnia biblioteki i szablony wymagane do kompilowania usług Service Fabric przy użyciu platformy Java.
 
 1. Zainstaluj pakiet Java SDK.
@@ -133,7 +137,7 @@ Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z p
 5. Wybierz wtyczkę usługi Service Fabric i kliknij przycisk Next (Dalej).
 6. Postępuj zgodnie z instrukcjami instalacji i zaakceptuj umowę licencyjną użytkownika końcowego.
 
-## Instalowanie zestawu SDK platformy .NET Core (opcjonalnie)
+## <a name="install-the-net-core-sdk-optional"></a>Instalowanie zestawu SDK platformy .NET Core (opcjonalnie)
 Zestaw SDK platformy .NET Core udostępnia biblioteki i szablony wymagane do kompilowania usług Service Fabric przy użyciu wieloplatformowego środowiska .NET Core.
 
 1. Zainstaluj zestaw SDK platformy .NET Core.
@@ -147,7 +151,7 @@ Zestaw SDK platformy .NET Core udostępnia biblioteki i szablony wymagane do kom
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pierwszej aplikacji Java w systemie Linux](service-fabric-create-your-first-linux-application-with-java.md)
 * [Przygotowywanie środowiska projektowego w systemie OSX](service-fabric-get-started-mac.md)
 
@@ -164,6 +168,6 @@ Zestaw SDK platformy .NET Core udostępnia biblioteki i szablony wymagane do kom
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

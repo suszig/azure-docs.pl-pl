@@ -1,4 +1,4 @@
-> [!div class="op_multi_selector" title1="Nadawca" title2="Odbiorca"]
+> [!div class="op_multi_selector" title1="Sender" title2="Receiver"]
 > * [(C# | C#)](../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 > * [(C# | Java)](../articles/event-hubs/event-hubs-csharp-ephjava-getstarted.md)
 > * [(C# | Apache Storm)](../articles/event-hubs/event-hubs-csharp-storm-getstarted.md)
@@ -11,6 +11,8 @@
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

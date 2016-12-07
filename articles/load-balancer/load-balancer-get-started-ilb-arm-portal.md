@@ -1,94 +1,112 @@
 ---
-title: Get started creating an Internal load balancer in Resource Manager using the Azure portal | Microsoft Docs
-description: Learn how to create an Internal load balancer in Resource Manager using the Azure portal
+title: "Wprowadzenie do tworzenia wewnętrznego modułu równoważenia obciążenia za pomocą usługi Resource Manager w witrynie Azure Portal | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia za pomocą usługi Resource Manager w witrynie Azure Portal"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 10/24/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
+ms.openlocfilehash: 5a0a701638950e750a9aac104845ef1a7248760a
 
 ---
-# Get started creating an Internal load balancer in the Azure portal
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+
+# <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia w witrynie Azure Portal
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Szablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+> [!NOTE]
+> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md).  Ten artykuł dotyczy modelu wdrażania usługi Resource Manager zalecanego przez firmę Microsoft w przypadku większości nowych wdrożeń zamiast [klasycznego modelu wdrażania](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## Get started creating an Internal load balancer using Azure portal
-To create an internal load balancer from the Azure portal, follow the steps below.
+## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Rozpoczęcie tworzenia wewnętrznego modułu równoważenia obciążenia w witrynie Azure Portal
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
-3. In the **Create load balancer** blade, type a **Name** for your load balancer.
-4. Under **Scheme**, click **Internal**.
-5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.
-   
+Wykonaj poniższe kroki, aby utworzyć wewnętrzny moduł równoważenia obciążenia w witrynie Azure Portal.
+
+1. Otwórz przeglądarkę, przejdź do witryny [Azure Portal](http://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
+2. W lewym górnym rogu ekranu kliknij kolejno pozycje **Nowy** > **Sieci** > **Moduł równoważenia obciążenia**.
+3. W bloku **Tworzenie modułu równoważenia obciążenia** wprowadź wartość pola **Nazwa** dla modułu równoważenia obciążenia.
+4. W obszarze **Schemat** kliknij pozycję **Wewnętrzny**.
+5. Kliknij pozycję **Sieć wirtualna**, a następnie wybierz sieć wirtualną, w której chcesz utworzyć moduł równoważenia obciążenia.
+
    > [!NOTE]
-   > If you do not see the virtual network you want to use, check the **Location** you are using for the load balancer, and change it accordingly.
-   > 
-   > 
-6. Click **Subnet**, and then select the subnet where you want to create the load balancer.
-7. Under **IP address assignment**, click either **Dynamic** or **Static**, depending on whether you want the IP address for the load balancer to be fixed (static) or not.
-   
+   > Jeśli nie widzisz sieci wirtualnej, której chcesz użyć, sprawdź wartość pola **Lokalizacja** dla modułu równoważenia obciążenia i odpowiednio ją zmień.
+
+6. Kliknij pozycję **Podsieć**, a następnie wybierz podsieć, w której chcesz utworzyć moduł równoważenia obciążenia.
+7. W obszarze **Przypisanie adresu IP** kliknij opcję **Dynamiczny** lub **Statyczny** w zależności od tego, czy adres IP modułu równoważenia obciążenia ma być ustalony (statyczny) czy nie.
+
    > [!NOTE]
-   > If you select to use a static IP address, you will have to provide an address for the load balancer.
-   > 
-   > 
-8. Under **Resource group** either specify the name of a new resource group for the load balancer, or click **select existing** and select an existing resource group.
-9. Click **Create**.
+   > W przypadku wyboru opcji użycia statycznego adresu IP należy podać adres modułu równoważenia obciążenia.
 
-## Configure load balancing rules
-After the load balancer creation, navigate to the load balancer resource to configure it.
-You need to configure first a back-end address pool and a probe before configuring a load balancing rule.
+8. W obszarze **Grupa zasobów** określ nazwę nowej grupy zasobów dla modułu równoważenia obciążenia lub kliknij pozycję **wybierz istniejącą** i wybierz istniejącą grupę zasobów.
+9. Kliknij przycisk **Utwórz**.
 
-### Step 1: Configure a back-end pool
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Backend pools**.
-3. In the **Backend address pools** blade, click **Add**.
-4. In the **Add backend pool** blade, type a **Name** for the backend pool, and then click **OK**.
+## <a name="configure-load-balancing-rules"></a>Konfigurowanie reguł równoważenia obciążenia
 
-### Step 2: Configure a probe
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Probes**.
-3. In the **Probes**  blade, click **Add**.
-4. In the **Add probe** blade, type a **Name** for the probe.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
-6. Under **Port**, specify the port to use when accessing the probe.
-7. Under **Path** (for HTTP probes only), specify the path to use as a probe.
-8. Under **Interval** specify how frequently to probe the application.
-9. Under **Unhealthy threshold**, specify how many attempts should fail before the backend VM is marked as unhealthy.
-10. click **OK** to create probe.
+Po utworzeniu modułu równoważenia obciążenia przejdź do zasobu modułu równoważenia obciążenia w celu jego skonfigurowania.
+Przed skonfigurowaniem reguły równoważenia obciążenia należy najpierw skonfigurować pulę adresów zaplecza i sondę.
 
-### Step 3: Configure load balancing rules
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Load balancing rules**.
-3. In the **Load balancing rules** blade, click **Add**.
-4. In the **Add load balancing rule** blade, type a **Name** for the rule.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
-6. Under **Port**, specify the port clients connect to int he load balancer.
-7. Under **Backend port**, specify the port to be used in the backend pool (usually, the load balancer port and the backend port are the same).
-8. Under **Backend pool**, select the backend pool you created above.
-9. Under **Session persistence**, select how you want sessions to persist.
-10. Under **Idle timeout (minutes)**, specify the idle timeout.
-11. Under **Floating IP (direct server return)**, click **Disabled** or **Enabled**.
-12. Click **OK**.
+### <a name="step-1-configure-a-back-end-pool"></a>Krok 1. Konfigurowanie puli zaplecza
 
-## Next steps
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj** > **Moduły równoważenia obciążenia**, a następnie kliknij utworzony powyżej moduł równoważenia obciążenia.
+2. W bloku **Ustawienia** kliknij pozycję **Pule zaplecza**.
+3. W bloku **Pule adresów zaplecza** kliknij pozycję **Dodaj**.
+4. W bloku **Dodawanie puli zaplecza** wprowadź wartość pola **Nazwa** dla puli zaplecza, a następnie kliknij przycisk **OK**.
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+### <a name="step-2-configure-a-probe"></a>Krok 2. Konfigurowanie sondy
+
+1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj** > **Moduły równoważenia obciążenia**, a następnie kliknij utworzony powyżej moduł równoważenia obciążenia.
+2. W bloku **Ustawienia** kliknij pozycję **Sondy**.
+3. W bloku **Sondy** kliknij pozycję **Dodaj**.
+4. W bloku **Dodawanie sondy** wprowadź wartość pola **Nazwa** dla sondy.
+5. W obszarze **Protokół** wybierz pozycję **HTTP** (w przypadku witryn sieci Web) lub **TCP** (w przypadku innych aplikacji działających w oparciu o protokół TCP).
+6. W obszarze **Port** określ port używany podczas uzyskiwania dostępu do sondy.
+7. W obszarze **Ścieżka** (tylko w przypadku sond protokołu HTTP) określ ścieżkę do użycia jako sonda.
+8. W obszarze **Interwał** określ częstotliwość sondowania aplikacji.
+9. W obszarze **Próg złej kondycji** określ liczbę prób, która powinna zakończyć się niepowodzeniem, zanim maszyna wirtualna zaplecza zostanie oznaczona jako będąca w złej kondycji.
+10. Kliknij przycisk **OK**, aby utworzyć sondę.
+
+### <a name="step-3-configure-load-balancing-rules"></a>Krok 3. Konfigurowanie reguł równoważenia obciążenia
+
+1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj** > **Moduły równoważenia obciążenia**, a następnie kliknij utworzony powyżej moduł równoważenia obciążenia.
+2. W bloku **Ustawienia** kliknij pozycję **Reguły równoważenia obciążenia**.
+3. W bloku **Reguły równoważenia obciążenia** kliknij pozycję **Dodaj**.
+4. W bloku **Dodaj regułę równoważenia obciążenia** wprowadź wartość pola **Nazwa** dla reguły.
+5. W obszarze **Protokół** wybierz pozycję **HTTP** (w przypadku witryn sieci Web) lub **TCP** (w przypadku innych aplikacji działających w oparciu o protokół TCP).
+6. W obszarze **Port** określ port, z którym klienci łączą się w module równoważenia obciążenia.
+7. W obszarze **Port zaplecza** określ port do użycia w puli zaplecza (przeważnie port modułu równoważenia obciążenia jest taki sam jak port zaplecza).
+8. W obszarze **Pula zaplecza** wybierz utworzoną powyżej pulę zaplecza.
+9. W obszarze **Trwałość sesji** wybierz sposób obsługi trwałości sesji.
+10. W obszarze **Limit czasu bezczynności (minuty)** określ limit czasu bezczynności.
+11. W obszarze **Zmienny adres IP (bezpośredni zwrot serwera)** kliknij pozycję **Wyłączony** lub **Włączony**.
+12. Kliknij przycisk **OK**.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

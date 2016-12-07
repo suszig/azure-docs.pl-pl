@@ -10,6 +10,8 @@
 * Ruch sieciowy w ramach połączenia działa między sieciami wirtualnymi w obrębie sieci Microsoft Network, a nie Internetu.
 * Ruch sieciowy w ramach połączenia między sieciami wirtualnymi w tym samym regionie jest bezpłatny w obu kierunkach. Opłaty są pobierane za ruch wychodzący w ramach połączenia sieci wirtualnych na przestrzeni różnych regionów, przy czym cenę za wychodzący transfer danych wewnątrz sieci wirtualnej określa się na podstawie regionów źródłowych. Szczegółowe informacje można znaleźć na stronie poświęconej [cenom](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET | Microsoft Docs
-description: Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości na żądanie w usługach Azure Media Services z użyciem platformy .NET.
+title: "Wprowadzenie do dostarczania zawartości na żądanie przy użyciu platformy .NET | Microsoft Docs"
+description: "Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości na żądanie w usługach Azure Media Services z użyciem platformy .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/11/2016
+ms.date: 11/07/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 0d9d87d0dc26d2fcaa3886a9f8c0849b71b26847
+ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
+
 
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
@@ -29,7 +33,7 @@ Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości
 
 Samouczek przedstawia podstawowy przepływ pracy usług Media Services oraz najczęściej występujące obiekty i zadania programowania wymagane w celu projektowania usług Media Services. Po zakończeniu samouczka będziesz umieć przesłać strumieniowo lub pobrać progresywnie przykładowy plik multimedialny, który został wcześniej przekazany, zakodowany oraz pobrany.
 
-## <a name="what-you'll-learn"></a>Zawartość
+## <a name="what-youll-learn"></a>Zawartość
 Ten samouczek przedstawia sposób wykonania następujących zadań:
 
 1. Tworzenie konta usługi Media Services (przy użyciu witryny Azure Portal).
@@ -67,7 +71,7 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
    
    1. W polu **Nazwa konta** wprowadź nazwę nowego konta usługi AMS. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.
    2. W subskrypcji wybierz jedną z różnych subskrypcji Azure, do których masz dostęp.
-   3. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../resource-group-overview.md#resource-groups).
+   3. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. W polu **Lokalizacja** wybierz region geograficzny używany do przechowywania nośników i rekordów metadanych dla konta usługi Media Services. Ten region służy do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services. 
    5. W polu **Konto magazynu** wybierz konto magazynu, aby udostępnić magazyn obiektów Blob dla zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.
       
@@ -110,10 +114,17 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
    > 
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
+
 1. Utwórz nową aplikację konsoli w języku C# w programie Visual Studio 2013, Visual Studio 2012 lub Visual Studio 2010 SP1. Uzupełnij informacje w polach **Nazwa**, **Lokalizacja** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
 2. Użyj pakietu NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions), aby zainstalować **rozszerzenia zestawu .NET SDK usługi Azure Media Services**.  Rozszerzenia .NET SDK usługi Media Services to zestaw metod rozszerzeń i funkcji pomocniczych, które pozwalają uprościć kod i ułatwiają pracę z usługą Media Services. Podczas instalacji tego pakietu instalowany jest również zestaw **.NET SDK usługi Media Services** oraz dodawane są wszystkie inne wymagane zależności.
+
+    Aby dodać odwołania za pomocą pakietu NuGet, wykonaj następujące czynności: w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Następnie wyszukaj pozycję **windowsazure.mediaservices.extensions** i kliknij przycisk **Instaluj**.
+
 3. Dodaj odwołanie do zestawu System.Configuration. Ten zestaw zawiera klasę **System.Configuration.ConfigurationManager**, która jest używana na potrzeby uzyskiwania dostępu do plików konfiguracyjnych, np. App.config.
-4. Otwórz plik App.config (dodaj plik do projektu, jeśli nie został dodany domyślnie) i dodaj do pliku sekcję *appSettings*. Ustaw wartości dla nazwy i klucza konta usługi Azure Media Services, jak pokazano w poniższym przykładzie. Aby uzyskać nazwę konta i informacje o kluczu, otwórz klasyczny portal Azure, wybierz konto usługi Media Services, a następnie kliknij przycisk **ZARZĄDZAJ KLUCZAMI**.
+
+    Aby dodać odwołanie, wykonaj następujące czynności: w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz pozycję **Dodaj** > **Odwołanie...** i w polu wyszukiwania wpisz „konfiguracja”. 
+
+4. Otwórz plik App.config (dodaj plik do projektu, jeśli nie został dodany domyślnie) i dodaj do pliku sekcję *appSettings*. Ustaw wartości dla nazwy i klucza konta usługi Azure Media Services, jak pokazano w poniższym przykładzie. Aby uzyskać informacje o kluczu i nazwie konta, przejdź do witryny [Azure Portal](https://portal.azure.com/) i wybierz swoje konto AMS. Następnie wybierz pozycję **Ustawienia** > **Klucze**. W oknie Zarządzanie kluczami widoczna jest nazwa konta oraz wyświetlane są klucze podstawowe i pomocnicze. Skopiuj wartości nazwy konta i klucza podstawowego.
    
         <configuration>
         ...
@@ -137,11 +148,16 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
 6. Utwórz nowy folder w katalogu projektów i skopiuj plik MP4 lub wmv, który ma zostać zakodowany i przesłany strumieniowo lub pobrany progresywnie. W tym przykładzie użyto ścieżki „C:\VideoFiles”.
 
 ## <a name="connect-to-the-media-services-account"></a>Nawiązywanie połączenia z kontem usługi Media Services
+
 Podczas korzystania z usługi Media Services z użyciem platformy .NET należy użyć klasy **CloudMediaContext** do większości zadań programowania usługi Media Services, takich jak nawiązywanie połączenia z kontem usługi Media Services oraz tworzenie, aktualizowanie, usuwanie i uzyskiwanie dostępu do następujących obiektów: elementów zawartości, plików elementów zawartości, zadań, zasad dostępu, lokalizatorów itp.
 
 Zastąp domyślną klasę Program poniższym kodem. Kod przedstawia sposób odczytywania wartości połączenia z pliku App.config oraz sposób tworzenia obiektu **CloudMediaContext** na potrzeby połączenia z usługą Media Services. Aby uzyskać więcej informacji na temat nawiązywania połączenia z usługą Media Services, zobacz temat [Nawiązywanie połączenia z usługą Media Services przy użyciu zestawu SDK usługi Media Services dla programu .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+
 Funkcja **Main** wywołuje metody, które będą zdefiniowane w dalszej części tej sekcji.
+
+> [!NOTE]
+> Błędy kompilacji będą się pojawiać do momentu dodania definicji dla wszystkich funkcji.
 
     class Program
     {
@@ -189,8 +205,10 @@ Funkcja **Main** wywołuje metody, które będą zdefiniowane w dalszej części
                 Console.ReadLine();
             }
         }
+    }
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Tworzenie nowego elementu zawartości i przekazywanie pliku wideo
+
 Za pomocą usługi Media Services można przekazać (lub pozyskać) pliki cyfrowe do elementu zawartości. Obiekt **Element zawartości** może zawierać pliki wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików).  Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze, na potrzeby dalszego przetwarzania i przesyłania strumieniowego. Pliki w elementach zawartości są nazywane **plikami elementów zawartości**.
 
 Zdefiniowana poniżej metoda **UploadFile** wywołuje metodę **CreateFromFile** (zdefiniowaną w rozszerzeniach zestawu SDK programu .NET). Metoda **CreateFromFile** tworzy nowy element zawartości, do którego jest przekazywany określony plik źródłowy.
@@ -277,7 +295,8 @@ Dodaj następującą metodę do klasy Program.
     }
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publikowanie elementu zawartości i uzyskiwanie adresów URL na potrzeby pobierania stopniowego oraz przesyłania progresywnego
-Aby przesłać strumieniowo lub pobrać element zawartości, należy go najpierw opublikować, tworząc lokalizator. Lokalizatory zapewniają dostęp do plików znajdujących się w elemencie zawartości. Usługa Media Services obsługuje dwa typy lokalizatorów: lokalizatory OnDemandOrigin używane do strumieniowego przesyłania plików multimedialnych (na przykład w formacie MPEG DASH, HLS i Smooth Streaming) oraz lokalizatory sygnatury dostępu współdzielonego (SAS) używane do pobierania plików multimedialnych.
+
+Aby przesłać strumieniowo lub pobrać element zawartości, należy go najpierw opublikować, tworząc lokalizator. Lokalizatory zapewniają dostęp do plików znajdujących się w elemencie zawartości. Usługa Media Services obsługuje dwa typy lokalizatorów: lokalizatory OnDemandOrigin używane do strumieniowego przesyłania plików multimedialnych (na przykład w formacie MPEG DASH, HLS i Smooth Streaming) oraz lokalizatory sygnatury dostępu współdzielonego używane do pobierania plików multimedialnych (aby uzyskać więcej informacji o lokalizatorach sygnatury dostępu współdzielonego, zobacz [ten](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
 
 Po utworzeniu lokalizatorów można tworzyć adresy URL, które są używane do strumieniowego przesyłania lub pobierania plików.
 
@@ -408,13 +427,13 @@ Do przesyłania strumieniowego zawartości wideo użyj [odtwarzacza usługi Azur
 
 Aby przetestować pobieranie progresywne, wklej adres URL do przeglądarki (np. Internet Explorer, Chrome lub Safari).
 
-## <a name="next-steps:-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Szukasz czegoś innego?
+### <a name="looking-for-something-else"></a>Szukasz czegoś innego?
 Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się z nami swoją opinią w wątku Disqus poniżej.
 
 <!-- Anchors. -->
@@ -426,6 +445,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

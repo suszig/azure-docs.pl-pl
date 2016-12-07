@@ -8,6 +8,8 @@ Więcej informacji o zarządzaniu dostępem można znaleźć w następujących d
 * [Wprowadzenie do zarządzania dostępem w witrynie Azure Portal](../articles/active-directory/role-based-access-control-what-is.md)
 * [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../articles/active-directory/role-based-access-control-configure.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

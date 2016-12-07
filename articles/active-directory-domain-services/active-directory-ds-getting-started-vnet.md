@@ -1,12 +1,12 @@
 ---
-title: 'Usługi domenowe Azure AD: tworzenie lub wybieranie sieci wirtualnej | Microsoft Docs'
-description: Wprowadzenie do usługi Active Directory Domain Services
+title: 'Azure AD Domain Services: tworzenie lub wybieranie sieci wirtualnej | Microsoft Docs'
+description: "Wprowadzenie do usługi Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 13ab1608-e3d8-40de-9f7b-9b5b42199af4
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0617dbff2ba281091ba5775e7969edfead4d80c8
+
 
 ---
-# Tworzenie lub wybieranie sieci wirtualnej dla usługi Azure AD Domain Services
-## Wytyczne dotyczące wybierania sieci wirtualnej platformy Azure
+# <a name="create-or-select-a-virtual-network-for-azure-ad-domain-services"></a>Tworzenie lub wybieranie sieci wirtualnej dla usługi Azure AD Domain Services
+## <a name="guidelines-to-select-an-azure-virtual-network"></a>Wytyczne dotyczące wybierania sieci wirtualnej platformy Azure
 > [!NOTE]
 > **Przed rozpoczęciem**: zapoznaj się z tematem [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md) (Zagadnienia dotyczące sieci w usłudze Azure AD Domain Services).
 > 
 > 
 
-## Zadanie 2. Tworzenie sieci wirtualnej platformy Azure
+## <a name="task-2-create-an-azure-virtual-network"></a>Zadanie 2. Tworzenie sieci wirtualnej platformy Azure
 Kolejnym zadaniem konfiguracji jest utworzenie sieci wirtualnej platformy Azure oraz podsieci w tej sieci. Usługi Azure AD Domain Services w tej podsieci możesz włączyć w sieci wirtualnej. Jeśli masz już istniejącą sieć wirtualną, której chcesz użyć, możesz pominąć ten krok.
 
 > [!NOTE]
@@ -60,9 +64,12 @@ Wykonaj poniższe czynności konfiguracyjne, aby utworzyć sieć wirtualną plat
 
 <br>
 
-## Zadanie 3. Włączanie Usług domenowych Azure AD
+## <a name="task-3-enable-azure-ad-domain-services"></a>Zadanie 3. Włączanie Usług domenowych Azure AD
 Następne zadanie konfiguracji to [włączenie Usług domenowych Azure AD](active-directory-ds-getting-started-enableaadds.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

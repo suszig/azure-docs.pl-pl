@@ -1,12 +1,12 @@
 ---
-title: Samouczek — wprowadzenie do klienta usługi Azure Batch dla środowiska Python | Microsoft Docs
-description: Podstawowe informacje na temat usługi Azure Batch oraz rozwijania usługi Batch za pomocą prostego scenariusza
+title: "Samouczek — wprowadzenie do klienta usługi Azure Batch dla środowiska Python | Microsoft Docs"
+description: "Podstawowe informacje na temat usługi Azure Batch oraz rozwijania usługi Batch za pomocą prostego scenariusza"
 services: batch
 documentationcenter: python
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
 ms.service: batch
 ms.devlang: python
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 09/27/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
+
 
 ---
-# Wprowadzenie do klienta usługi Azure Batch dla środowiska Python
+# <a name="get-started-with-the-azure-batch-python-client"></a>Wprowadzenie do klienta usługi Azure Batch dla środowiska Python
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -27,24 +31,24 @@ Artykuł zawiera podstawowe informacje dotyczące usługi [Azure Batch][azure_ba
 
 ![Przepływ pracy w usłudze Batch (podstawowy)][11]<br/>
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Python oraz znasz system Linux. Przyjęto również założenie, że jesteś w stanie spełnić wymagania dotyczące tworzenia konta, które zostały wyszczególnione poniżej dla platformy Azure oraz usług Batch i Storage.
 
-### Konta
+### <a name="accounts"></a>Konta
 * **Konto platformy Azure**: jeśli nie masz jeszcze subskrypcji platformy Azure, [utwórz bezpłatne konto platformy Azure][azure_free_account].
 * **Konto usługi Batch**: po uzyskaniu subskrypcji platformy Azure [utwórz konto usługi Azure Batch](batch-account-create-portal.md).
 * **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
 
-### Przykład kodu
+### <a name="code-sample"></a>Przykład kodu
 [Przykład kodu][github_article_samples] z samouczka dotyczącego języka Python jest jednym z wielu przykładów kodu znajdujących się w repozytorium [azure-batch-samples][github_samples] w witrynie GitHub. Możesz pobrać wszystkie przykłady, klikając przycisk **Clone or download > Download ZIP** (Sklonuj lub pobierz > Pobierz plik ZIP) na stronie głównej repozytorium lub klikając bezpośredni link pobierania pliku [azure-batch-samples-master.zip][github_samples_zip]. Po wyodrębnieniu zawartości pliku ZIP dwa skrypty do tego samouczka znajdują się w katalogu `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
-### Środowisko Python
+### <a name="python-environment"></a>Środowisko Python
 Do uruchomienia przykładowego skryptu *python_tutorial_client.py* na lokalnej stacji roboczej potrzebny jest **interpreter języka Python** zgodny z wersją **2.7** lub **3.3+**. Skrypt przetestowano w systemach Windows i Linux.
 
-### Zależności kryptograficzne
+### <a name="cryptography-dependencies"></a>Zależności kryptograficzne
 Musisz zainstalować zależności dla biblioteki [kryptograficznej][crypto], wymagane przez pakiety języka Python `azure-batch` i `azure-storage`. Wykonaj jedną z następujących czynności odpowiednio do używanej platformy lub zapoznaj się z artykułem [cryptography installation][crypto_install] (Instalacja kryptografii) w celu uzyskania szczegółowych informacji:
 
 * Ubuntu
@@ -65,7 +69,7 @@ Musisz zainstalować zależności dla biblioteki [kryptograficznej][crypto], wym
 > 
 > 
 
-### Pakiety platformy Azure
+### <a name="azure-packages"></a>Pakiety platformy Azure
 Następnie zainstaluj pakiety **Azure Batch** i **Azure Storage** dla środowiska Python. Umożliwiają to polecenie **pip** i plik *requirements.txt* dostępne tutaj:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
@@ -80,11 +84,11 @@ Możesz także ręcznie zainstalować pakiety [azure-batch][pypi_batch] i [azure
 `pip install azure-storage`
 
 > [!TIP]
-> Może być konieczne umieszczenie na początku poleceń prefiksu `sudo`, jeśli używasz konta nieuprzywilejowanego. Na przykład `sudo pip install -r requirements.txt`. Więcej informacji na temat instalowania pakietów dla środowiska Python znajduje się w temacie [Installing Packages](Instalowanie pakietów.md) [pypi_install] w witrynie readthedocs.io.
+> Może być konieczne umieszczenie na początku poleceń prefiksu `sudo`, jeśli używasz konta nieuprzywilejowanego. Na przykład `sudo pip install -r requirements.txt`. Więcej informacji na temat instalowania pakietów dla środowiska Python znajduje się w temacie [Installing Packages] (Instalowanie pakietów) [pypi_install] w witrynie readthedocs.io.
 > 
 > 
 
-## Przykład kodu z samouczka dotyczącego usługi Batch dla środowiska Python
+## <a name="batch-python-tutorial-code-sample"></a>Przykład kodu z samouczka dotyczącego usługi Batch dla środowiska Python
 Przykład kodu z samouczka dotyczącego usługi Batch dla środowiska Python zawiera dwa skrypty w języku Python oraz kilka plików danych.
 
 * **python_tutorial_client.py**: współdziała z usługami Batch i Storage w celu wykonania równoległego obciążenia w węzłach obliczeniowych (na maszynach wirtualnych). Skrypt *python_tutorial_client.py* jest uruchamiany na lokalnej stacji roboczej.
@@ -109,7 +113,7 @@ Na poniższym diagramie przedstawiono podstawowe operacje, które są wykonywane
 
 Jak wspomniano wcześniej, nie wszystkie rozwiązania usługi Batch obejmują dokładnie te kroki i mogą obejmować wiele innych, natomiast w tym przykładzie przedstawiono typowe procesy w ramach rozwiązania usługi Batch.
 
-## Przygotowanie skryptu klienta
+## <a name="prepare-client-script"></a>Przygotowanie skryptu klienta
 Przed uruchomieniem przykładu dodaj poświadczenia kont usług Batch i Storage do skryptu *python_tutorial_client.py*. Jeśli jeszcze tego nie zrobiono, otwórz plik w preferowanym edytorze i zaktualizuj następujące wiersze przy użyciu poświadczeń.
 
 ```python
@@ -140,7 +144,7 @@ Przejdź do poniższego wiersza skryptu **python_tutorial_client.py**, aby rozpo
 if __name__ == '__main__':
 ```
 
-## Krok 1: tworzenie kontenerów w usłudze Storage
+## <a name="step-1-create-storage-containers"></a>Krok 1: tworzenie kontenerów w usłudze Storage
 ![Tworzenie kontenerów w usłudze Azure Storage][1]
 <br/>
 
@@ -176,8 +180,8 @@ Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą 
 > 
 > 
 
-## Krok 2: przekazywanie skryptu podzadań i plików danych
-![Przekaż aplikację podzadań i pliki danych wejściowych do kontenerów.][2]
+## <a name="step-2-upload-task-script-and-data-files"></a>Krok 2: przekazywanie skryptu podzadań i plików danych
+![Przekazywanie aplikacji podzadań i plików danych wejściowych do kontenerów][2]
 <br/>
 
 Podczas operacji przekazywania plików skrypt *python_tutorial_client.py* najpierw definiuje kolekcje ścieżek plików **aplikacji** i **danych wejściowych** występujących na komputerze lokalnym. Następnie przekazuje te pliki do kontenerów, które zostały utworzone w poprzednim kroku.
@@ -244,7 +248,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
                                     blob_source=sas_url)
 ```
 
-### ResourceFiles
+### <a name="resourcefiles"></a>ResourceFiles
 Parametr [ResourceFile][py_resource_file] dostarcza podzadaniom w usłudze Batch adres URL do pliku w usłudze Azure Storage, który jest pobierany do węzła obliczeniowego przed uruchomieniem tego podzadania. Właściwość [ResourceFile][py_resource_file].**blob_source** określa pełny adres URL pliku przechowywanego w usłudze Azure Storage. Adres URL może także zawierać sygnaturę dostępu współdzielonego (SAS), która zapewnia bezpieczny dostęp do pliku. Większość typów podzadań w ramach usługi Batch obejmuje właściwość *ResourceFiles*, m.in.:
 
 * [CloudTask][py_task]
@@ -254,7 +258,7 @@ Parametr [ResourceFile][py_resource_file] dostarcza podzadaniom w usłudze Batch
 
 W tym przykładzie nie używa się typów podzadań JobPreparationTask ani JobReleaseTask, ale więcej informacji o nich można znaleźć w artykule [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md) (Uruchamianie podzadań przygotowania i ukończenia zadania w węzłach obliczeniowych w usłudze Azure Batch).
 
-### Sygnatura dostępu współdzielonego (SAS)
+### <a name="shared-access-signature-sas"></a>Sygnatura dostępu współdzielonego (SAS)
 Sygnatury dostępu współdzielonego to ciągi, które zapewniają bezpieczny dostęp do kontenerów i obiektów blob w usłudze Azure Storage. Skrypt *python_tutorial_client.py* używa sygnatur dostępu współdzielonego dla kontenera i obiektów blob i służy do pokazania, jak uzyskać te ciągi sygnatur dostępu współdzielonego z usługi Storage.
 
 * **Sygnatury dostępu współdzielonego obiektów blob**: Funkcja StartTask puli używa sygnatur dostępu współdzielonego obiektów blob podczas pobierania skryptu podzadań i plików danych wejściowych z usługi Storage (zobacz [rok 3](#step-3-create-batch-pool) poniżej). Funkcja `upload_file_to_container` w skrypcie *python_tutorial_client.py* obejmuje kod, który uzyskuje dostęp do sygnatur dostępu współdzielonego poszczególnych obiektów blob. Odbywa się to przez wywołanie [BlockBlobService.make_blob_url][py_make_blob_url] w module usługi Storage.
@@ -265,7 +269,7 @@ Sygnatury dostępu współdzielonego to ciągi, które zapewniają bezpieczny do
 > 
 > 
 
-## Krok 3: tworzenie puli usługi Batch
+## <a name="step-3-create-batch-pool"></a>Krok 3: tworzenie puli usługi Batch
 ![Tworzenie puli usługi Batch][3]
 <br/>
 
@@ -370,7 +374,7 @@ W powyższym fragmencie kodu warto również zwrócić uwagę na użycie dwóch 
 > 
 > 
 
-## Krok 4: tworzenie zadania w usłudze Batch
+## <a name="step-4-create-batch-job"></a>Krok 4: tworzenie zadania w usłudze Batch
 ![Tworzenie zadania w usłudze Batch][4]<br/>
 
 **Zadanie** usługi Batch jest kolekcją podzadań i jest skojarzone z pulą węzłów obliczeniowych. Podzadania tego zadania są wykonywane w węzłach obliczeniowych skojarzonej puli.
@@ -404,7 +408,7 @@ def create_job(batch_service_client, job_id, pool_id):
 
 Teraz, kiedy zadanie zostało utworzone, są dodawane podzadania, aby wykonać pracę.
 
-## Krok 5: dodawanie podzadań do zadania
+## <a name="step-5-add-tasks-to-job"></a>Krok 5: dodawanie podzadań do zadania
 ![Dodawanie podzadań do zadania][5]<br/>
 *(1) Podzadania są dodawane do zadania, (2) podzadania są planowane do uruchomienia w węzłach i (3) podzadania pobierają pliki danych do przetwarzania*
 
@@ -477,7 +481,7 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
                                          sas_token=args.sastoken)
 ```
 
-## Krok 6: monitorowanie podzadań
+## <a name="step-6-monitor-tasks"></a>Krok 6: monitorowanie podzadań
 ![Monitorowanie podzadań][6]<br/>
 *Skrypt (1) monitoruje podzadania pod kątem stanu ukończenia, a (2) podzadania przekazują dane wynikowe do usługi Azure Storage*
 
@@ -520,7 +524,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
                        "timeout period of " + str(timeout))
 ```
 
-## Krok 7: pobieranie danych wyjściowych podzadania
+## <a name="step-7-download-task-output"></a>Krok 7: pobieranie danych wyjściowych podzadania
 ![Pobieranie danych wyjściowych podzadań z usługi Storage][7]<br/>
 
 Po ukończeniu zadania można pobrać dane wyjściowe podzadań przy użyciu usługi Azure Storage. Odbywa się to przy użyciu wywołania funkcji `download_blobs_from_container` w skrypcie *python_tutorial_client.py*:
@@ -562,7 +566,7 @@ def download_blobs_from_container(block_blob_client,
 > 
 > 
 
-## Krok 8: usuwanie kontenerów
+## <a name="step-8-delete-containers"></a>Krok 8: usuwanie kontenerów
 Ponieważ użytkownik jest rozliczany za dane przechowywane w usłudze Azure Storage, zawsze dobrym rozwiązaniem jest usunięcie wszystkich obiektów blob, które nie są już potrzebne do zadań w ramach usługi Batch. W skrypcie *python_tutorial_client.py* odbywa się to przy użyciu trzech wywołań funkcji [BlockBlobService.delete_container][py_delete_container]:
 
 ```
@@ -573,7 +577,7 @@ blob_client.delete_container(input_container_name)
 blob_client.delete_container(output_container_name)
 ```
 
-## Krok 9: usuwanie zadania i puli
+## <a name="step-9-delete-the-job-and-the-pool"></a>Krok 9: usuwanie zadania i puli
 W ostatnim kroku zostaje wyświetlony monit o usunięcie zadania i puli, które zostały utworzone za pomocą skryptu *python_tutorial_client.py*. Mimo że nie są naliczane opłaty za same zadania i podzadania, *są* naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie węzłów tylko zależnie do potrzeb. Usuwanie nieużywanych pul może odbywać się podczas konserwacji.
 
 Dla obu obiektów [JobOperations][py_job] i [PoolOperations][py_pool] klienta BatchServiceClient istnieją odpowiednie metody usuwania, które są wywoływane, jeśli potwierdzisz usunięcie:
@@ -592,7 +596,7 @@ if query_yes_no('Delete pool?') == 'yes':
 > 
 > 
 
-## Uruchamianie przykładowego skryptu
+## <a name="run-the-sample-script"></a>Uruchamianie przykładowego skryptu
 Po uruchomieniu skryptu *python_tutorial_client.py* z [przykładu kodu][github_article_samples] samouczka, dane wyjściowe konsoli przypominają poniższe. Zostanie wyświetlony przycisk wstrzymania po pojawieniu się komunikatu `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` podczas tworzenia i uruchamiania węzłów obliczeniowych puli oraz wykonywania poleceń w podzadaniu startowym puli. Użyj witryny [Azure Portal][azure_portal] do monitorowania puli, węzłów obliczeniowych, zadania i podzadań w trakcie wykonywania i po nim. Użyj witryny [Azure Portal][azure_portal] lub programu [Microsoft Azure Storage Explorer][storage_explorer] do wyświetlania zasobów usługi Storage (kontenerów i obiektów blob) tworzonych przez aplikację.
 
 > [!TIP]
@@ -630,7 +634,7 @@ Delete pool? [Y/n]
 Press ENTER to exit...
 ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Możesz wprowadzić zmiany w skryptach *python_tutorial_client.py* i *python_tutorial_task.py* w celu poeksperymentowania z różnymi scenariuszami obliczeniowymi. Na przykład spróbuj dodać opóźnienie wykonywania do skryptu *python_tutorial_task.py* w celu symulowania podzadań długotrwałych i monitorowania ich w portalu. Spróbuj dodać więcej podzadań lub dostosować liczbę węzłów obliczeniowych. Dodaj logikę do sprawdzenia i zezwól na użycie istniejącej puli, aby przyspieszyć czas wykonywania.
 
 Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch nadszedł czas, by poszerzyć wiedzę na temat dodatkowych funkcji w usłudze Batch.
@@ -705,6 +709,6 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch na
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

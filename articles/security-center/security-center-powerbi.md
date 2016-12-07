@@ -1,12 +1,12 @@
 ---
-title: Uzyskiwanie szczegółowych informacji z Centrum zabezpieczeń Azure za pomocą usługi Power BI| Microsoft Docs
-description: Pakiet zawartości usługi Power BI Centrum zabezpieczeń Azure ułatwia znajdowanie alertów zabezpieczeń, zaleceń, zaatakowanych zasobów i trendów na podstawie zestawu danych, który został utworzony na potrzeby raportu.
+title: "Uzyskiwanie szczegółowych informacji z usługi Azure Security Center za pomocą usługi Power BI | Microsoft Docs"
+description: "Pakiet zawartości usługi Power BI Centrum zabezpieczeń Azure ułatwia znajdowanie alertów zabezpieczeń, zaleceń, zaatakowanych zasobów i trendów na podstawie zestawu danych, który został utworzony na potrzeby raportu."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f085631264439062f6fccff4cdae535d7f80bbe3
+
 
 ---
-# Uzyskiwanie szczegółowych informacji z Centrum zabezpieczeń Azure za pomocą usługi Power BI
+# <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Uzyskiwanie szczegółowych informacji z Centrum zabezpieczeń Azure za pomocą usługi Power BI
 [Pulpit nawigacyjny usługi Power BI](http://aka.ms/azure-security-center-power-bi) w Centrum zabezpieczeń Azure umożliwia wizualizację, analizowanie i filtrowanie zaleceń oraz alertów zabezpieczeń z dowolnego miejsca — także z urządzenia przenośnego. Pulpit nawigacyjny usługi Power BI służy do wyświetlania trendów i wzorców ataków. Można wyświetlać alerty zabezpieczeń według zasobu lub adresu IP źródła oraz nierozwiązane zagrożenia bezpieczeństwa według zasobu lub wieku. 
 
 Można również w różny sposób łączyć alerty zabezpieczeń i zalecenia z usługi Security Center z innymi danymi, na przykład korzystając z [dzienników inspekcji platformy Azure](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) i usługi [Azure SQL Database Auditing](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/). Zarówno dzienniki inspekcji platformy Azure, jak i usługa Azure SQL Database Auditing, zawierają pulpity nawigacyjne usługi Power BI i umożliwiają również wyeksportowanie tych danych do programu Excel, co pozwoli na łatwe raportowanie stanu zabezpieczeń zasobów w chmurze.
 
-## Uzyskiwanie dostępu do usługi Power BI za pomocą pulpitu nawigacyjnego Centrum zabezpieczeń Azure
+## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Uzyskiwanie dostępu do usługi Power BI za pomocą pulpitu nawigacyjnego Centrum zabezpieczeń Azure
 Pulpit nawigacyjny Centrum zabezpieczeń Azure umożliwia również dostęp do raportów usługi Power BI. W tym celu wykonaj następujące kroki: 
 
 1. Na pulpicie nawigacyjnym **Azure Security Center** kliknij przycisk **Eksploruj w usłudze Power BI**.
@@ -80,7 +84,7 @@ W tym momencie można zapisać kopię tego raportu, wydrukować ją lub opubliko
 
 ![Menu Plik](./media/security-center-powerbi/security-center-powerbi-fig8.png)
 
-## Eksplorowanie danych w Centrum zabezpieczeń Azure za pomocą usług Power BI
+## <a name="exploring-your-azure-security-center-data-with-power-bi-services"></a>Eksplorowanie danych w Centrum zabezpieczeń Azure za pomocą usług Power BI
 Połącz się z [usługami pakietów zawartości usługi Power BI](https://msit.powerbi.com/groups/me/getdata/services) w usłudze Power BI i wykonaj następujące czynności:
 
 1. W oknie **Pakiet zawartości dla usługi Power BI** zostaną wyświetlone dwie opcje w sposób przedstawiony poniżej.
@@ -107,7 +111,7 @@ Połącz się z [usługami pakietów zawartości usługi Power BI](https://msit.
    
     ![Pulpit nawigacyjny Zarządzanie zasadami](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 W tym dokumencie omówiono korzystanie z usługi Power BI w Centrum zabezpieczeń Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 
 * [Przewodnik planowania i użytkowania Centrum zabezpieczeń Azure](security-center-planning-and-operations-guide.md)— informacje o sposobie planowania wdrożenia usługi Azure Security Center.
@@ -116,6 +120,9 @@ W tym dokumencie omówiono korzystanie z usługi Power BI w Centrum zabezpiecze�
 * [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

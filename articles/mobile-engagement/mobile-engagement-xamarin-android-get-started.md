@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do usługi Azure Mobile Engagement na potrzeby platformy Xamarin.Android
-description: Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji platformy Xamarin.Android.
+title: "Wprowadzenie do usługi Azure Mobile Engagement na potrzeby platformy Xamarin.Android"
+description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji platformy Xamarin.Android."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: fb68cf98-08a2-41b5-8e59-757469de3fe7
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3580bf0712d704e46e785aa95ef0ab6b54f0ba10
+
 
 ---
-# Rozpoczynanie pracy z usługą Azure Mobile Engagement na potrzeby aplikacji platformy Xamarin.Android
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Rozpoczynanie pracy z usługą Azure Mobile Engagement na potrzeby aplikacji platformy Xamarin.Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 W tym temacie pokazano, jak za pomocą usługi Azure Mobile Engagement można określić sposób użycia aplikacji oraz wysyłać powiadomienia wypychane do segmentowanych użytkowników aplikacji platformy Xamarin.Android.
@@ -28,19 +32,19 @@ Dla tego samouczka wymagane są następujące elementy:
 * [Zestaw SDK platformy Xamarin usługi Mobile Engagement](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Android
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. 
 
 Aby zademonstrować integrację, utworzona zostanie podstawowa aplikacja za pomocą programu Xamarin Studio.
 
-### Tworzenie nowego projektu platformy Xamarin.Android
+### <a name="create-a-new-xamarinandroid-project"></a>Tworzenie nowego projektu platformy Xamarin.Android
 1. Uruchom program **Xamarin Studio**. Wybierz pozycję **File** (Plik) -> **New** (Nowy) -> **Solution** (Rozwiązanie). 
    
     ![][1]
@@ -56,7 +60,7 @@ Aby zademonstrować integrację, utworzona zostanie podstawowa aplikacja za pomo
 
 Za pomocą platformy Xamarin Studio zostanie utworzona aplikacja, w której zostanie zintegrowana usługa Mobile Engagement. 
 
-### Łączenie aplikacji z zapleczem usługi Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement 
 1. Kliknij prawym przyciskiem myszy folder **Packages** w oknie Solution (Rozwiązanie), a następnie wybierz pozycję **Add Packages** (Dodaj pakiety).
    
     ![][5]
@@ -73,7 +77,7 @@ Za pomocą platformy Xamarin Studio zostanie utworzona aplikacja, w której zost
         engagementConfiguration.ConnectionString = "YourConnectionStringFromAzurePortal";
         EngagementAgent.Init(engagementConfiguration);
 
-### Dodawanie uprawnień i deklaracji usługi
+### <a name="add-permissions-and-a-service-declaration"></a>Dodawanie uprawnień i deklaracji usługi
 1. Otwórz plik **Manifest.xml** w folderze właściwości. Wybierz kartę Source (Źródło), aby bezpośrednio zaktualizować źródło XML.
 2. Te uprawnienia są dodawane do pliku Manifest.xml (można go znaleźć w folderze **Properties**) projektu bezpośrednio przed lub po znaczniku `<application>`:
    
@@ -86,13 +90,13 @@ Za pomocą platformy Xamarin Studio zostanie utworzona aplikacja, w której zost
 3. Dodaj następujący kod między tagami `<application>` i `</application>`, aby zadeklarować usługę agenta:
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 4. We wklejonym właśnie kodzie zamień element `"<Your application name>"` w etykiecie. Ta wartość jest wyświetlana w menu **Ustawienia**, w którym użytkownicy mogą zobaczyć usługi uruchomione na urządzeniu. Możesz na przykład dodać wyraz „Usługa” w tej etykiecie.
 
-### Wysyłanie ekranu do usługi Mobile Engagement
+### <a name="send-a-screen-to-mobile-engagement"></a>Wysyłanie ekranu do usługi Mobile Engagement
 Aby rozpocząć wysyłanie danych i sprawdzić, czy użytkownicy są aktywni, konieczne jest wysłanie co najmniej jednego ekranu do zaplecza usługi Mobile Engagement. Aby to zrobić, upewnij się, że klasa `MainActivity` dziedziczy z klasy `EngagementActivity`, a nie z klasy `Activity`.
 
     public class MainActivity : EngagementActivity
@@ -111,10 +115,10 @@ Alternatywnie jeśli nie możesz dziedziczyć z klasy `EngagementActivity`, musi
                 base.OnPause();            
             }
 
-## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 Usługa Mobile Engagement umożliwia interakcję z użytkownikami przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
 W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 
@@ -134,6 +138,6 @@ W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### Konfigurowanie i rejestrowanie urządzenia
+### <a name="to-configure-and-register-the-device"></a>Konfigurowanie i rejestrowanie urządzenia
 1. Przejdź do interfejsu programu Windows PowerShell na konsoli szeregowej urządzenia StorSimple. Instrukcje można znaleźć w temacie [Nawiązywanie połączenia z konsolą szeregową urządzenia przy użyciu programu PuTTY](#use-putty-to-connect-to-the-device-serial-console). **Pamiętaj, aby dokładnie wykonać procedurę, w przeciwnym wypadku nie uzyskasz dostępu do konsoli.**
 2. W otwartej sesji naciśnij jednokrotnie klawisz Enter, aby wyświetlić wiersz polecenia. 
 3. Zostanie wyświetlony monit o wybranie języka dla danego urządzenia. Wybierz język, a następnie naciśnij klawisz Enter. 
@@ -63,6 +63,8 @@
        
         Sprawdź, czy port 9354 jest otwarty dla komunikacji wychodzącej, ponieważ jest on używany przez magistralę usług do komunikacji między usługą i urządzeniem w usłudze StorSimple Manager.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

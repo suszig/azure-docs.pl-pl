@@ -1,13 +1,13 @@
 ---
-title: Tworzenie wirtualnej sieci równorzędnej przy użyciu portalu Azure | Microsoft Docs
-description: Dowiedz się, jak utworzyć sieć wirtualną przy użyciu portalu Azure w usłudze Resource Manager.
+title: "Tworzenie wirtualnej sieci równorzędnej przy użyciu witryny Azure Portal | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć sieć wirtualną przy użyciu portalu Azure w usłudze Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 688fed72b32767f33010b9e8f17921b16320072d
+
 
 ---
-# Tworzenie wirtualnej sieci równorzędnej przy użyciu portalu Azure
+# <a name="create-a-virtual-network-peering-using-the-azure-portal"></a>Tworzenie wirtualnej sieci równorzędnej przy użyciu portalu Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -62,7 +66,7 @@ Istnieje kilka właściwości możliwych do skonfigurowania dla każdego połąc
 | Opcja | Opis | Domyślne |
 |:--- |:--- |:--- |
 | AllowVirtualNetworkAccess |Określa, czy przestrzeń adresów wirtualnej sieci równorzędnej ma zostać dołączona do tagu Virtual_network. |Tak |
-| AllowForwardedTraffic |Określa, czy ruch niepochodzący z wirtualnej sieci równorzędnej jest akceptowany czy pomijany. |Nie |
+| AllowForwardedTraffic |Określa, czy ruch niepochodzący z równorzędnej sieci wirtualnej jest akceptowany, czy pomijany |Nie |
 | AllowGatewayTransit |Umożliwia wirtualnej sieci równorzędnej korzystanie z bramy sieci wirtualnej. |Nie |
 | UseRemoteGateways |Określa, czy ma być używana brama wirtualnej sieci równorzędnej. Wirtualna sieć równorzędna musi mieć skonfigurowaną bramę, a właściwość AllowGatewayTransit musi być wybrana. Tej opcji nie można użyć, jeśli w sieci jest skonfigurowana brama. |Nie |
 
@@ -90,7 +94,7 @@ Każde połączenie w wirtualnej sieci równorzędnej ma zestaw właściwości p
    > 
 6. Zaloguj się do portalu jako użytkownik A, przejdź do bloku VNET3, kliknij pozycję Peering (Sesja komunikacji równorzędnej), zaznacz pole wyboru „I Know my resource ID” (Znam swój identyfikator zasobu) i wpisz identyfikator zasobu dla sieci VNET5 w formacie przedstawionym poniżej.
    
-    /subscriptions/<ID_subskrypcji>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
+    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/VirtualNetwork/{VNETname}
    
     ![Identyfikator zasobu](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Zaloguj się do portalu jako użytkownik B i wykonaj powyższe czynności, aby utworzyć połączenie z sieci VNET5 do sieci VNET3.
@@ -121,7 +125,7 @@ Każde połączenie w wirtualnej sieci równorzędnej ma zestaw właściwości p
    
     ![Sprawdzanie połączenia komunikacji równorzędnej](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
-## Usuwanie wirtualnej sieci równorzędnej
+## <a name="remove-vnet-peering"></a>Usuwanie wirtualnej sieci równorzędnej
 1. W przeglądarce przejdź do strony http://portal.azure.com i w razie potrzeby zaloguj się przy użyciu konta platformy Azure.
 2. Przejdź do bloku sieci wirtualnej, kliknij pozycję Peerings (Sesje komunikacji równorzędnej), kliknij połączenie, które chcesz usunąć, i kliknij przycisk Usuń.
    
@@ -131,6 +135,9 @@ Każde połączenie w wirtualnej sieci równorzędnej ma zestaw właściwości p
     ![Usuwanie 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. W tym stanie nie można ponownie utworzyć połączenia, dopóki stan połączenia nie zmieni się na Zainicjowano. Zalecamy usunięcie obu połączeń przed ponownym utworzeniem wirtualnej sieci równorzędnej.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

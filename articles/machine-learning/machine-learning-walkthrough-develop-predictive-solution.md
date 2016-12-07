@@ -1,13 +1,13 @@
 ---
-title: Rozwiązanie predykcyjne do oceny ryzyka kredytowego w usłudze Machine Learning | Microsoft Docs
-description: Szczegółowy przewodnik pokazujący sposób tworzenia rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning Studio.
-keywords: ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka
+title: "Rozwiązanie predykcyjne do oceny ryzyka kredytowego w usłudze Machine Learning | Microsoft Docs"
+description: "Szczegółowy przewodnik pokazujący sposób tworzenia rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning Studio."
+keywords: "ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa64dc7f5bb3e928aac30987b0904435c603829c
+
 
 ---
-# Przewodnik: tworzenie rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Przewodnik: tworzenie rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning
 Załóżmy, że chcesz przewidzieć ryzyko kredytowe osoby na podstawie informacji przekazanych we wniosku kredytowym.  
 
 Ocena ryzyka kredytowego to złożony problem, ale odrobinę uprościmy badane parametry. Następnie wykorzystamy je jako przykład sposobu użycia usługi Microsoft Azure Machine Learning z usługą Machine Learning Studio oraz z usługą sieci Web Machine Learning w celu utworzenia rozwiązania analizy predykcyjnej.  
@@ -38,12 +42,15 @@ Aby utworzyć rozwiązanie do oceny ryzyka kredytowego, wykonamy następujące k
 1. [Tworzenie obszaru roboczego usługi Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Przekazywanie istniejących danych](machine-learning-walkthrough-2-upload-data.md)
 3. [Tworzenie nowego eksperymentu](machine-learning-walkthrough-3-create-new-experiment.md)
-4. [Nauczanie i ewaluacja modeli](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+4. [Nauczanie i ocena modeli](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 5. [Wdrażanie usługi sieci Web](machine-learning-walkthrough-5-publish-web-service.md)
 6. [Uzyskiwanie dostępu do usługi sieci Web](machine-learning-walkthrough-6-access-web-service.md)
 
 Ten przewodnik jest oparty na uproszczonej wersji przykładowego eksperymentu [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Klasyfikacja binarna: przewidywanie ryzyka kredytowego) dostępnego w witrynie [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

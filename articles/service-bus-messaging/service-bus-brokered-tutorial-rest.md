@@ -1,12 +1,12 @@
 ---
-title: Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla usługi REST | Microsoft Docs
-description: Samouczek dotyczący komunikatów obsługiwanych przez brokera dla usługi REST.
+title: "Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla usługi REST | Microsoft Docs"
+description: "Samouczek dotyczący komunikatów obsługiwanych przez brokera dla usługi REST."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla usługi REST
@@ -22,7 +26,7 @@ ms.author: sethm
 Ten samouczek pokazuje sposób tworzenia podstawowej kolejki i tematu/subskrypcji usługi Azure Service Bus opartej na usłudze REST.
 
 ## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
-Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza [sygnatury dostępu współdzielonego](../service-bus/service-bus-sas-overview.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego usługi dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
+Pierwszym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza [sygnatury dostępu współdzielonego](service-bus-sas-overview.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest automatycznie generowany przez system po utworzeniu przestrzeni nazw usługi. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego usługi dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -31,7 +35,7 @@ Kolejki usługi Service Bus umożliwiają przechowywanie komunikatów w kolejce 
 
 Kod w tym samouczku wykonuje następujące działania.
 
-* Używa podanej przestrzeni nazw oraz klucza [sygnatury dostępu współdzielonego](../service-bus/service-bus-sas-overview.md), aby uzyskać dostęp do zasobów przestrzeni nazw usługi Service Bus.
+* Używa podanej przestrzeni nazw oraz klucza [sygnatury dostępu współdzielonego](service-bus-sas-overview.md), aby uzyskać dostęp do zasobów przestrzeni nazw usługi Service Bus.
 * Tworzy kolejkę, wysyła komunikat do kolejki i odczytuje komunikat z kolejki.
 * Tworzy temat i subskrypcję tego tematu oraz wysyła i odczytuje komunikat z subskrypcji.
 * Pobiera z usługi Service Bus wszystkie informacje o kolejce, temacie i subskrypcji, w tym reguły subskrypcji.
@@ -139,7 +143,7 @@ Po utworzeniu obszaru nazw i uzyskaniu poświadczeń w pierwszym kroku możesz u
 ## <a name="create-management-credentials"></a>Tworzenie poświadczeń zarządzania
 Następnym krokiem jest napisanie metody, która przetwarza przestrzeń nazw i klucz sygnatury dostępu współdzielonego wprowadzone w poprzednim kroku i zwraca token sygnatury dostępu współdzielonego. W tym przykładzie jest tworzony token sygnatury dostępu współdzielonego, który jest ważny przez jedną godzinę.
 
-### <a name="create-a-getsastoken()-method"></a>Tworzenie metody GetSASToken()
+### <a name="create-a-getsastoken-method"></a>Tworzenie metody GetSASToken()
 Wklej następujący kod po metodzie `Main()` w klasie `Program`:
 
 ```
@@ -594,9 +598,12 @@ namespace Microsoft.ServiceBus.Samples
 Zobacz następujące artykuły, aby dowiedzieć się więcej:
 
 * [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
-* [Podstawy usługi Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Podstawy usługi Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Samouczek dotyczący przekaźnika usługi Service Bus dla usługi REST](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

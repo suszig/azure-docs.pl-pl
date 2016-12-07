@@ -1,25 +1,29 @@
 ---
-title: Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (PolyBase) | Microsoft Docs
-description: Eksportowanie danych z programu SQL Server do plików prostych przy użyciu programu bcpw, importowanie danych do usługi Azure Blob Storage przy użyciu programu AZCopy oraz pozyskiwanie danych do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase.
+title: "Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (PolyBase) | Microsoft Docs"
+description: "Eksportowanie danych z programu SQL Server do plików prostych przy użyciu programu bcpw, importowanie danych do usługi Azure Blob Storage przy użyciu programu AZCopy oraz pozyskiwanie danych do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 4d42786a-fb28-43c9-9c3b-72d19c0ecc11
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/30/2016
-ms.author: cakarst;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f3a4ad30d1aa0ec273b6b875b0d2d037005ac159
+
 
 ---
-# Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (AZCopy)
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-azcopy"></a>Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (AZCopy)
 Użyj narzędzia bcp i narzędzia wiersza polecenia AZCopy do ładowania danych z programu SQL Server do usługi Azure Blob Storage. Następnie zastosuj technologię PolyBase lub usługę Azure Data Factory do ładowania danych do usługi Azure SQL Data Warehouse. 
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
 * Baza danych usługi SQL Data Warehouse
@@ -31,10 +35,10 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
 > 
 > 
 
-## Importowanie danych do usługi SQL Data Warehouse
+## <a name="import-data-into-sql-data-warehouse"></a>Importowanie danych do usługi SQL Data Warehouse
 W tym samouczku utworzysz tabelę w usłudze Azure SQL Data Warehouse i zaimportujesz dane do tej tabeli.
 
-### Krok 1: tworzenie tabeli w usłudze Azure SQL Data Warehouse
+### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>Krok 1: tworzenie tabeli w usłudze Azure SQL Data Warehouse
 W wierszu polecenia użyj polecenia sqlcmd, aby uruchomić następujące zapytanie w celu utworzenia tabeli w wystąpieniu:
 
 ```sql
@@ -54,11 +58,11 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Zobacz artykuł [Omówienie tabel][Omówienie tabel] lub [składni polecenia CREATE TABLE][składni polecenia CREATE TABLE], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
+> Zobacz artykuł [Omówienie tabel][Omówienie tabel] lub [Składnia polecenia CREATE TABLE][Składnia polecenia CREATE TABLE], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
 > 
 > 
 
-### Krok 2: tworzenie źródłowego pliku danych
+### <a name="step-2-create-a-source-data-file"></a>Krok 2: tworzenie źródłowego pliku danych
 Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku tekstowego, a następnie zapisz ten plik w lokalnym katalogu tymczasowym: C:\Temp\DimDate2.txt.
 
 ```
@@ -81,7 +85,7 @@ Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku 
 > 
 > 
 
-### Krok 3: nawiązywanie połączenia i importowanie danych
+### <a name="step-3-connect-and-import-the-data"></a>Krok 3: nawiązywanie połączenia i importowanie danych
 Przy użyciu narzędzia bcp można nawiązać połączenie i zaimportować dane, stosując następujące polecenie z odpowiednio zastąpionymi wartościami:
 
 ```sql
@@ -111,7 +115,7 @@ Powinny zostać zwrócone następujące wyniki:
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-### Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
+### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
 Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk. W celu uzyskania najlepszej wydajności zapytań należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie. Szczegółowy opis statystyk znajduje się w temacie [Statystyki][Statystyki] w grupie artykułów dla programistów. Poniżej przedstawiono prosty przykład tworzenia statystyk dotyczących tabeli załadowanej w tym przykładzie.
 
 W wierszu polecenia sqlcmd wykonaj następującą instrukcję CREATE STATISTICS:
@@ -124,10 +128,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## Eksportowanie danych z usługi SQL Data Warehouse
+## <a name="export-data-from-sql-data-warehouse"></a>Eksportowanie danych z usługi SQL Data Warehouse
 W tym samouczku utworzysz plik danych z tabeli w usłudze SQL Data Warehouse. Wyeksportujemy dane utworzone powyżej do nowego pliku danych o nazwie DimDate2_export.txt.
 
-### Krok 1: eksportowanie danych
+### <a name="step-1-export-the-data"></a>Krok 1: eksportowanie danych
 Przy użyciu narzędzia bcp można nawiązać połączenie i wyeksportować dane za pomocą następującego polecenia z odpowiednio zastąpionymi wartościami:
 
 ```sql
@@ -155,7 +159,7 @@ Możesz sprawdzić, czy dane zostały poprawnie wyeksportowane, otwierając nowy
 > 
 > 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Ogólny opis ładowania można znaleźć w artykule [Ładowanie danych do usługi SQL Data Warehouse][Ładowanie danych do usługi SQL Data Warehouse].
 Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania w usłudze SQL Data Warehouse][Omówienie programowania w usłudze SQL Data Warehouse].
 
@@ -170,13 +174,13 @@ Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania 
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[składni polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[Składnia polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centrum pobierania Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

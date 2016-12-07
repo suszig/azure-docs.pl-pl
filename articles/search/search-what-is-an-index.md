@@ -1,10 +1,10 @@
 ---
-title: Tworzenie indeksu usługi Azure Search | Microsoft Docs
-description: Czym jest indeks w usłudze Azure Search i jak się z niego korzysta?
+title: "Tworzenie indeksu usługi Azure Search | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
+description: "Czym jest indeks w usłudze Azure Search i jak się z niego korzysta?"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: ashmaka
-
+ms.assetid: a395e166-bf2e-4fca-8bfc-116a46c5f7b1
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -12,9 +12,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+
 
 ---
-# Tworzenie indeksu usługi Azure Search
+# <a name="create-an-azure-search-index"></a>Tworzenie indeksu usługi Azure Search
 > [!div class="op_single_selector"]
 > * [Omówienie](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -23,15 +27,15 @@ ms.author: ashmaka
 > 
 > 
 
-## Co to jest indeks?
+## <a name="what-is-an-index"></a>Co to jest indeks?
 *Indeks* jest trwałym magazynem *dokumentów* i innych konstrukcji używanych przez usługę Azure Search. Dokument jest pojedynczą jednostką danych, które można wyszukiwać w indeksie. Na przykład sklep internetowy może mieć dokument dla każdego sprzedawanego produktu, a organizacja medialna — dla każdego artykułu itp. W przełożeniu na lepiej znane pojęcia bazodanowe: *indeks* jest podobny do *tabeli*, a *dokumenty* są w przybliżeniu równe *wierszom* w tabeli.
 
 Podczas dodawania/przekazywania dokumentów i przesyłania zapytań wyszukiwań do usługi Azure Search przesyłasz żądania do konkretnego indeksu w swojej usłudze wyszukiwania.
 
-## Typy i atrybuty pól w indeksie usługi Azure Search
+## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Typy i atrybuty pól w indeksie usługi Azure Search
 W trakcie definiowania schematu musisz określić nazwę, typ i atrybuty każdego pola w indeksie. Typ pola klasyfikuje dane, które są w nim przechowywane. Atrybuty są ustawiane dla poszczególnych pól, aby określić sposób użycia pola. W poniższych tabelach zostały wyszczególnione typy i atrybuty, które możesz określić.
 
-### Typy pól
+### <a name="field-types"></a>Typy pól
 | Typ | Opis |
 | --- | --- |
 | *Edm.String* |Tekst, który opcjonalnie można podzielić na tokeny na potrzeby wyszukiwania pełnotekstowego (dzielenie wyrazów, analiza słowotwórcza itp.). |
@@ -45,7 +49,7 @@ W trakcie definiowania schematu musisz określić nazwę, typ i atrybuty każdeg
 
 Dowiedz się więcej na temat [typów danych obsługiwanych przez usługę Azure Search w witrynie MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx).
 
-### Atrybuty pól
+### <a name="field-attributes"></a>Atrybuty pól
 | Atrybut | Opis |
 | --- | --- |
 | *Klucz* |Ciąg udostępniający unikatowy identyfikator każdego dokumentu, używany do wyszukiwania dokumentu. Każdy indeks musi mieć jeden klucz. Tylko jedno pole może być kluczem i musi ono mieć typ Edm.String. |
@@ -57,11 +61,14 @@ Dowiedz się więcej na temat [typów danych obsługiwanych przez usługę Azure
 
 Dowiedz się więcej na temat [atrybutów indeksów obsługiwanych przez usługę Azure Search w witrynie MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-## Wskazówki dotyczące definiowania schematu indeksu
+## <a name="guidance-for-defining-an-index-schema"></a>Wskazówki dotyczące definiowania schematu indeksu
 W fazie planowania projektu indeksu poświęć odpowiednio dużo czasu na przemyślenie każdej decyzji. Podczas projektowania indeksu należy pamiętać o środowisku wyszukiwania użytkownika oraz o potrzebach biznesowych, ponieważ do każdego pola należy przypisać [odpowiednie atrybuty](https://msdn.microsoft.com/library/azure/dn798941.aspx). Wprowadzanie zmian do indeksu po jego wdrożeniu obejmuje jego ponowne utworzenie i ponownie załadowanie danych.
 
 Jeśli wymagania dotyczące magazynu danych ulegną zmianom, możesz zwiększyć lub zmniejszyć pojemność przez dodanie lub usunięcie partycji. Aby uzyskać szczegółowe informacje, zobacz [Manage your Search service in Azure](search-manage.md) (Zarządzanie usługą wyszukiwania na platformie Azure) lub [Service Limits](search-limits-quotas-capacity.md) (Ograniczenia usługi).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

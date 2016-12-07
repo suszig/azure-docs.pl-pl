@@ -1,4 +1,4 @@
-## Pobieranie szablonu ARM i zapoznawanie się z nim
+## <a name="download-and-understand-the-arm-template"></a>Pobieranie szablonu ARM i zapoznawanie się z nim
 Z witryny github można pobrać istniejący szablon ARM służący do utworzenia sieci wirtualnej z dwoma podsieciami, wprowadzić dowolne zmiany, a następnie użyć go ponownie. W tym celu wykonaj poniższe kroki.
 
 1. Przejdź do [strony przykładowego szablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
@@ -56,6 +56,8 @@ Z witryny github można pobrać istniejący szablon ARM służący do utworzenia
         }
 11. Zapisz plik.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

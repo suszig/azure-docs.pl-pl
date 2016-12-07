@@ -1,22 +1,26 @@
 ---
-title: Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu portalu Azure | Microsoft Docs
-description: W tym samouczku opisano kolejne kroki w procesie tworzenia kanału konfigurowanego do dostarczania w formie przekazywania.
+title: "Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu witryny Azure Portal | Microsoft Docs"
+description: "W tym samouczku opisano kolejne kroki w procesie tworzenia kanału konfigurowanego do dostarczania w formie przekazywania."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu portalu Azure
+# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu portalu Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -30,7 +34,7 @@ W tym samouczku opisano kolejne kroki w procesie tworzenia **kanału** skonfigur
 Do wykonania czynności przedstawionych w tym samouczku są niezbędne następujące elementy:
 
 * Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
+* Konto usługi Media Services.    Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
 * Kamera internetowa. Na przykład [koder Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 Zdecydowanie zaleca się następujące artykuły:
@@ -39,7 +43,7 @@ Zdecydowanie zaleca się następujące artykuły:
 * [Omówienie transmisji strumieniowej na żywo przy użyciu usługi Azure Media Services](media-services-manage-channels-overview.md)
 * [Transmisja strumieniowa na żywo za pomocą koderów lokalnych, które tworzą strumienie różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Typowy scenariusz transmisji strumieniowej na żywo
+## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Typowy scenariusz transmisji strumieniowej na żywo
 W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji do transmisji strumieniowej na żywo używających kanałów skonfigurowanych do dostarczania zawartości w formie przekazywania. W tym samouczku przedstawiono sposób tworzenia kanału do przekazywania zawartości i transmitowania wydarzeń na żywo oraz zarządzania nimi.
 
 1. Podłącz kamerę wideo do komputera. Uruchom i skonfiguruj lokalny koder na żywo, który wyprowadza strumień protokołu RTMP o różnej szybkości transmisji bitów lub pofragmentowany strumień MP4. Aby uzyskać więcej informacji, zobacz temat [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
@@ -97,7 +101,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
    > 
    > 
 
-## <a name="create-and-start-pass-through-channels-and-events"></a>Tworzenie i uruchamianie kanałów i wydarzeń w formie przekazywania
+## <a name="create-and-start-passthrough-channels-and-events"></a>Tworzenie i uruchamianie kanałów i wydarzeń w formie przekazywania
 Kanał jest skojarzony z wydarzeniami/programami, które umożliwiają kontrolowanie publikowania i przechowywania segmentów strumienia na żywo. Kanały zarządzają wydarzeniami. 
 
 Można określić liczbę godzin, aby zachować zarejestrowaną zawartość na potrzeby programu przez ustawienie długości **Okna archiwum**. Ta wartość musi mieścić się w zakresie od 5 minut do maksymalnie 25 godzin. Długość okna archiwum określa również dostępny dla klientów zakres cofania odtwarzania pliku od bieżącego momentu transmisji na żywo. Wydarzenia mogą być uruchamiane w określonym czasie, ale zawartość, która wykracza poza długość okna jest stale odrzucana. Wartość tej właściwości określa również, jak długie mogą być manifesty na kliencie.
@@ -121,15 +125,16 @@ W tej sekcji przedstawiono, jak użyć opcji **Szybkie tworzenie** do utworzenia
 
 Więcej szczegółowych informacji dotyczących kanałów w formie przekazywania można znaleźć w temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
 
-1. W oknie **Ustawienia** kliknij przycisk **Transmisja strumieniowa na żywo**. 
+1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
+2. W oknie **Ustawienia** kliknij przycisk **Transmisja strumieniowa na żywo**. 
    
     ![Wprowadzenie](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     Zostanie wyświetlone okno **Transmisja strumieniowa na żywo**.
-2. Kliknij przycisk **Szybkie tworzenie**, aby utworzyć kanał w formie przekazywania za pomocą protokołu pozyskiwania RTMP.
+3. Kliknij przycisk **Szybkie tworzenie**, aby utworzyć kanał w formie przekazywania za pomocą protokołu pozyskiwania RTMP.
    
     Zostanie wyświetlone okno **UTWÓRZ NOWY KANAŁ**.
-3. Nadaj nazwę nowemu kanałowi, a następnie kliknij przycisk **Utwórz**. 
+4. Nadaj nazwę nowemu kanałowi, a następnie kliknij przycisk **Utwórz**. 
    
     Spowoduje to utworzenie kanału przekazującego za pomocą protokołu pozyskiwania RTMP.
 
@@ -172,6 +177,9 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

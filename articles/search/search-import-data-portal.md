@@ -1,13 +1,13 @@
 ---
-title: Importowanie danych do usługi Azure Search przy użyciu indeksatorów w witrynie Azure Portal | Microsoft Docs
-description: Używanie Kreatora importu danych usługi Azure Search w witrynie Azure Portal w celu przeszukiwania danych z magazynu Azure Blob Storage, magazynu Table Storage, usługi SQL Database oraz programu SQL Server na maszynach wirtualnych platformy Azure.
+title: "Importowanie danych do usługi Azure Search przy użyciu indeksatorów w witrynie Azure Portal | Microsoft Docs"
+description: "Używanie Kreatora importu danych usługi Azure Search w witrynie Azure Portal w celu przeszukiwania danych z magazynu Azure Blob Storage, magazynu Table Storage, usługi SQL Database oraz programu SQL Server na maszynach wirtualnych platformy Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: Azure Portal
-
+ms.assetid: f40fe07a-0536-485d-8dfa-8226eb72e2cd
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+
 
 ---
-# Importowanie danych do usługi Azure Search przy użyciu portalu
+# <a name="import-data-to-azure-search-using-the-portal"></a>Importowanie danych do usługi Azure Search przy użyciu portalu
 W witrynie Azure Portal na pulpicie nawigacyjnym usługi Azure Search znajduje się kreator **Importuj dane**, który umożliwia ładowanie danych do indeksu. 
 
   ![Importowanie danych przy użyciu paska poleceń][1]
@@ -31,7 +35,7 @@ Kreator wewnętrznie konfiguruje i wywołuje *indeksator*, automatyzując kilka 
 
 Ten przepływ pracy można wypróbować przy użyciu przykładowych danych w bazie DocumentDB. Instrukcje znajdziesz na stronie [Wprowadzenie do usługi Azure Search w witrynie Azure Portal](search-get-started-portal.md).
 
-## Źródła danych obsługiwane przez Kreatora importu danych
+## <a name="data-sources-supported-by-the-import-data-wizard"></a>Źródła danych obsługiwane przez Kreatora importu danych
 Kreator importu danych obsługuje następujące źródła danych: 
 
 * Usługa Azure SQL Database
@@ -44,7 +48,7 @@ Wymaganymi danymi wejściowymi jest spłaszczony zestaw danych. Importu można d
 
 Uwaga: niektóre indeksatory są dostępne jedynie w wersji zapoznawczej, co oznacza, że definicja indeksatora zależy od wersji zapoznawczej interfejsu API. Więcej informacji oraz linki znajdziesz w temacie [Omówienie indeksatorów](search-indexer-overview.md).
 
-## Nawiązywanie połączenia z danymi
+## <a name="connect-to-your-data"></a>Nawiązywanie połączenia z danymi
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i otwórz pulpit nawigacyjny usługi. Możesz kliknąć przycisk **Usługi wyszukiwania** na pasku dostępu, aby zobaczyć listę usług dostępnych w bieżącej subskrypcji. 
 2. Kliknij przycisk **Importuj dane** na pasku poleceń, aby otworzyć blok Importuj dane.  
 3. Kliknij pozycję **Połącz z danymi**, aby określić definicję źródła danych, z której będzie korzystać indeksator. W przypadku źródeł danych wewnątrz subskrypcji kreator może zwykle wykrywać i odczytywać informacje o połączeniu, co pozwala zminimalizować wymagania dotyczące konfiguracji.
@@ -52,13 +56,13 @@ Uwaga: niektóre indeksatory są dostępne jedynie w wersji zapoznawczej, co ozn
 |  |  |
 | --- | --- |
 | **Istniejące źródło danych** |Jeśli masz już zdefiniowane indeksatory w usłudze wyszukiwania, możesz użyć istniejącej definicji źródła danych na potrzeby innego importu. |
-| **Usługa Azure SQL Database** |Nazwę usługi, poświadczenia użytkownika z uprawnieniem do odczytu bazy danych i nazwę bazy danych można określić na stronie lub przy użyciu parametrów połączenia ADO.NET. Wybierz opcję parametrów połączenia, aby wyświetlić lub dostosować właściwości. <br/><br/>Na stronie należy określić tabelę lub widok zawierające zestaw wierszy. Ta opcja jest dostępna po udanym nawiązaniu połączenia. Pojawia się wtedy lista rozwijana, z której można dokonać wyboru. |
+| **Azure SQL Database** |Nazwę usługi, poświadczenia użytkownika z uprawnieniem do odczytu bazy danych i nazwę bazy danych można określić na stronie lub przy użyciu parametrów połączenia ADO.NET. Wybierz opcję parametrów połączenia, aby wyświetlić lub dostosować właściwości. <br/><br/>Na stronie należy określić tabelę lub widok zawierające zestaw wierszy. Ta opcja jest dostępna po udanym nawiązaniu połączenia. Pojawia się wtedy lista rozwijana, z której można dokonać wyboru. |
 | **Program SQL Server na maszynie wirtualnej platformy Azure** |Jako parametry połączenia określ w pełni kwalifikowaną nazwę usługi, identyfikator użytkownika, hasło oraz bazę danych. Aby użyć tego źródła danych, należy wcześniej zainstalować w magazynie lokalnym certyfikat szyfrujący połączenie. <br/><br/>Na stronie należy określić tabelę lub widok zawierające zestaw wierszy. Ta opcja jest dostępna po udanym nawiązaniu połączenia. Pojawia się wtedy lista rozwijana, z której można dokonać wyboru. |
 | **DocumentDB** |Wymagane jest konto, baza danych i kolekcja. Wszystkie dokumenty w kolekcji zostaną uwzględnione w indeksie. Można zdefiniować zapytanie w celu spłaszczenia lub filtrowania zestawu wierszy bądź wykrywania zmienionych dokumentów na potrzeby późniejszych operacji odświeżania danych. |
 | **Azure Blob Storage** |Wymagane jest miedzy innymi konto magazynu i kontener. Opcjonalnie, jeśli nazwa obiektu blob jest zgodna z konwencją nazw wirtualnych do celów grupowania, można określić część nazwy oznaczającą katalog wirtualny jako folder w kontenerze. Więcej informacji zawiera artykuł [Indeksowanie w usłudze Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md). |
 | **Azure Table Storage** |Wymagane jest miedzy innymi konto magazynu i nazwa tabeli. Opcjonalnie można określić zapytanie w celu pobrania podzbioru tabel. Więcej informacji zawiera artykuł [(Indeksowanie w usłudze Table Storage (wersja zapoznawcza))](search-howto-indexing-azure-tables.md). |
 
-## Dostosowywanie indeksu docelowego
+## <a name="customize-target-index"></a>Dostosowywanie indeksu docelowego
 Wstępny indeks jest zazwyczaj ustalany na podstawie zestawu danych. Można uzupełnić schemat, dodając, edytując lub usuwając pola. Ponadto można ustawić atrybuty na poziomie pola, aby określić zachowanie podczas późniejszych wyszukiwań.
 
 1. W obszarze **Dostosuj indeks docelowy** określ nazwę i **Klucz** będące unikatowymi identyfikatorami poszczególnych dokumentów. Klucz musi być ciągiem znaków. Jeśli wartości pól zawierają spacje lub kreski, pamiętaj o ustawieniu opcji zaawansowanych w obszarze **Zaimportuj dane** w celu pominięcia weryfikacji tych znaków.
@@ -76,23 +80,23 @@ Wstępny indeks jest zazwyczaj ustalany na podstawie zestawu danych. Można uzup
    * Wybierz odpowiedni analizator. Aby uzyskać szczegółowe informacje, zobacz [Create an index for documents in multiple language](search-language-support.md) (Tworzenie indeksu dla dokumentów w wielu językach).
 5. Kliknij pozycję **Sugestor**, aby włączyć podpowiedzi pojawiające się w trakcie pisania w wybranych polach.
 
-## Importowanie danych
+## <a name="import-your-data"></a>Importowanie danych
 1. W obszarze **Zaimportuj dane** podaj nazwę indeksatora. Pamiętaj, że wynikiem działania kreatora importu danych jest indeksator. Jeśli chcesz go później wyświetlić lub edytować, wybierz go z portalu zamiast ponownie uruchamiać kreatora. 
 2. Określ harmonogram oparty na strefie czasowej regionu, w którym usługa jest aprowizowana.
 3. Ustaw opcje zaawansowane, aby określić progi dotyczące możliwości dalszego indeksowania w przypadku odrzucenia dokumentu. Ponadto możesz określić, czy pola **Klucz** pola mogą zawierać spacje i ukośniki.  
 
-## Edytowanie istniejącego indeksatora
+## <a name="edit-an-existing-indexer"></a>Edytowanie istniejącego indeksatora
 Na pulpicie nawigacyjnym usługi kliknij dwukrotnie kafelek Indeksator, aby wysunąć listę wszystkich indeksatorów utworzonych dla subskrypcji. Kliknij dwukrotnie jeden z indeksatorów, aby go uruchomić, edytować lub usunąć. Możesz zastąpić indeks innym istniejącym indeksem, zmienić źródło danych i ustawić opcje progów błędów podczas indeksowania.
 
-## Edytowanie istniejącego indeksu
+## <a name="edit-an-existing-index"></a>Edytowanie istniejącego indeksu
 W usłudze Azure Search aktualizacje strukturalne indeksu wymagają odbudowania tego indeksu, co obejmuje usunięcie indeksu, ponowne utworzenie indeksu i ponowne załadowanie danych. Aktualizacje strukturalne obejmują zmianę typu danych oraz zmianę nazwy lub usunięcie pola.
 
 Do zmian, które nie wymagają odbudowania indeksu, należą: dodanie nowego pola, zmiana profilów oceniania, zmiana funkcji sugestii i zmiana analizatorów języka. Aby uzyskać więcej informacji, zobacz [Aktualizowanie indeksu](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
-## Następny krok
+## <a name="next-step"></a>Następny krok
 Przejrzyj następujące linki, aby dowiedzieć się więcej o indeksatorach:
 
-* [Indeksowanie w usłudze Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Indeksowanie w usłudze Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Indeksowanie w usłudze DocumentDB](../documentdb/documentdb-search-indexer.md)
 * [Indeksowanie w usłudze Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md)
 * [Indeksowanie w usłudze Table Storage (wersja zapoznawcza)](search-howto-indexing-azure-tables.md)
@@ -103,6 +107,6 @@ Przejrzyj następujące linki, aby dowiedzieć się więcej o indeksatorach:
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

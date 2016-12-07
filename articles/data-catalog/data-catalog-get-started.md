@@ -1,13 +1,13 @@
 ---
-title: Wprowadzenie do usługi Data Catalog | Microsoft Docs
-description: Ten kompleksowy samouczek zawiera scenariusze dotyczące usługi Azure Data Catalog i opis jej możliwości.
-documentationcenter: ''
+title: "Wprowadzenie do usługi Data Catalog | Microsoft Docs"
+description: "Ten kompleksowy samouczek zawiera scenariusze dotyczące usługi Azure Data Catalog i opis jej możliwości."
+documentationcenter: 
 services: data-catalog
 author: steelanddata
-manager: ''
-editor: ''
-tags: ''
-
+manager: jhubbard
+editor: 
+tags: 
+ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/20/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7a401cb0cd9c13f2ab1779fbc18bee2a61ba5e77
+
 
 ---
-# Rozpoczynanie pracy z usługą Azure Data Catalog
+# <a name="get-started-with-azure-data-catalog"></a>Rozpoczynanie pracy z usługą Azure Data Catalog
 Azure Data Catalog to w pełni zarządzana usługa w chmurze służąca jako system rejestracji i odnajdywania zasobów danych przedsiębiorstwa. Szczegółowe omówienie tej usługi można znaleźć w artykule [Co to jest usługa Azure Data Catalog?](data-catalog-what-is-data-catalog.md).
 
 Ten samouczek ułatwia rozpoczęcie pracy z usługą Azure Data Catalog i obejmuje następujące procedury:
@@ -32,20 +36,20 @@ Ten samouczek ułatwia rozpoczęcie pracy z usługą Azure Data Catalog i obejmu
 | [Zarządzanie zasobami danych](#manage-data-assets) |Ta procedura dotyczy konfigurowania zabezpieczeń zasobów danych. Usługa Data Catalog nie zapewnia użytkownikom dostępu do danych. Zarządzanie dostępem do danych należy do właściciela źródła danych. <br/><br/> Usługa Data Catalog umożliwia odnajdywanie źródeł danych zarejestrowanych w wykazie i wyświetlanie **metadanych** powiązanych z tymi źródłami. W niektórych sytuacjach może jednak wystąpić konieczność udostępnienia źródeł danych tylko konkretnym użytkownikom lub członkom określonych grup. Można wtedy skonfigurować usługę Data Catalog pod kątem przejęcia praw własności do zasobów danych zarejestrowanych w wykazie i umożliwienia jej sterowania dostępem do posiadanych zasobów. |
 | [Usuwanie zasobów danych](#remove-data-assets) |Ta procedura obejmuje usuwanie zasobów danych z wykazu danych. |
 
-## Wymagania wstępne dotyczące samouczka
-### Subskrypcja platformy Azure
+## <a name="tutorial-prerequisites"></a>Wymagania wstępne dotyczące samouczka
+### <a name="azure-subscription"></a>Subskrypcja platformy Azure
 Aby skonfigurować usługę Azure Data Catalog, musisz być właścicielem lub współwłaścicielem subskrypcji platformy Azure.
 
 Subskrypcje platformy Azure umożliwiają konfigurowanie dostępu do zasobów usług w chmurze, takich jak usługa Azure Data Catalog. Subskrypcje te ułatwiają również zarządzanie raportowaniem i rozliczaniem użycia zasobów oraz regulowaniem płatności za to użycie. Poszczególne subskrypcje mogą mieć różne ustawienia rozliczeń i płatności, co pozwala na korzystanie z wielu subskrypcji i planów dostosowanych do potrzeb konkretnych działów, projektów, biur regionalnych itp. Z każdą usługą w chmurze jest powiązana subskrypcja. Musisz mieć subskrypcję, aby móc rozpocząć konfigurowanie usługi Azure Data Catalog. Aby dowiedzieć się więcej, zobacz artykuł [Manage accounts, subscriptions, and administrative roles](../active-directory/active-directory-how-subscriptions-associated-directory.md) (Zarządzanie kontami, subskrypcjami i rolami administracyjnymi).
 
 Jeśli nie masz subskrypcji, możesz utworzyć konto bezpłatnej wersji próbnej w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
-### Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 Aby skonfigurować usługę Azure Data Catalog, musisz zalogować się za pomocą konta użytkownika usługi Azure Active Directory (Azure AD). Użytkownik ten musi być właścicielem lub współwłaścicielem subskrypcji platformy Azure.  
 
 Usługa Azure AD umożliwia firmom łatwe zarządzanie tożsamościami i dostępem, zarówno w chmurze, jak i lokalnie. Za pomocą jednego konta służbowego użytkownicy mogą logować się do dowolnej aplikacji sieci Web, działającej w chmurze lub lokalnie. Uwierzytelnianie logowania w usłudze Azure Data Catalog odbywa się za pośrednictwem usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Active Directory](../active-directory/active-directory-whatis.md).
 
-### Konfiguracja zasad usługi Azure Active Directory
+### <a name="azure-active-directory-policy-configuration"></a>Konfiguracja zasad usługi Azure Active Directory
 W niektórych sytuacjach po zalogowaniu się w portalu usługi Azure Data Catalog przy próbie logowania się za pomocą narzędzia do rejestracji źródła danych występuje komunikat o błędzie, który uniemożliwia logowanie. Może się to zdarzyć zarówno podczas nawiązywania połączenia w sieci firmowej, jak i spoza niej.
 
 Narzędzie rejestracji używa *uwierzytelniania formularzy* do weryfikowania logowania użytkowników w usłudze Azure Active Directory. Aby logowanie się powiodło, administrator usługi Azure Active Directory musi włączyć uwierzytelnianie formularzy za pomocą *globalnych zasad uwierzytelniania*.
@@ -56,7 +60,7 @@ Pozwoli to na włączenie uwierzytelniania oddzielnie dla połączeń intranetow
 
 Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zasad uwierzytelniania](https://technet.microsoft.com/library/dn486781.aspx).
 
-## Aprowizowanie wykazu danych
+## <a name="provision-data-catalog"></a>Aprowizowanie wykazu danych
 W ramach organizacji — domeny usługi Azure Active Directory — można aprowizować tylko jeden wykaz danych. W związku z tym jeśli któryś właściciel lub współwłaściciel subskrypcji platformy Azure, który należy do tej domeny usługi Azure Active Directory, już utworzył wykaz, nie będziesz w stanie utworzyć dodatkowego wykazu, nawet jeśli masz kilka subskrypcji platformy Azure. Aby zobaczyć, czy w domenie usługi Azure Active Directory został utworzony wykaz danych, przejdź do [strony głównej usługi Azure Data Catalog](http://azuredatacatalog.com) i sprawdź, czy wykaz jest widoczny. Jeśli wykaz został już utworzony, pomiń poniższą procedurę i przejdź do następnej sekcji.    
 
 1. Przejdź do [strony usługi Data Catalog](https://azure.microsoft.com/services/data-catalog) i kliknij pozycję **Rozpocznij**.
@@ -75,7 +79,7 @@ W ramach organizacji — domeny usługi Azure Active Directory — można aprowi
 7. Kliknij pozycję **Utwórz wykaz**, aby utworzyć wykaz danych dla swojej organizacji. Po utworzeniu wykazu danych zostanie wyświetlona jego strona główna.
     ![Usługa Azure Data Catalog — utworzony wykaz](media/data-catalog-get-started/data-catalog-created.png)    
 
-### Znajdowanie wykazu danych w portalu Azure
+### <a name="find-a-data-catalog-in-the-azure-portal"></a>Znajdowanie wykazu danych w portalu Azure
 1. Na osobnej karcie lub w osobnym oknie przeglądarki sieci Web przejdź do [portalu Azure](https://portal.azure.com) i zaloguj się przy użyciu tego samego konta, którego użyto do utworzenia wykazu danych w poprzednim kroku.
 2. Wybierz pozycję **Przeglądaj**, a następnie kliknij pozycję **Wykaz danych**.
    
@@ -89,10 +93,10 @@ W ramach organizacji — domeny usługi Azure Active Directory — można aprowi
    
     ![Usługa Azure Data Catalog — warstwa cenowa](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
-### Przykładowa baza danych firmy Adventure Works
+### <a name="adventure-works-sample-database"></a>Przykładowa baza danych firmy Adventure Works
 W tym samouczku na potrzeby aparatu bazy danych programu SQL Server zostaną zarejestrowane zasoby danych (tabele) z przykładowej bazy danych AdventureWorks2014. Możesz jednak użyć dowolnego obsługiwanego źródła danych, jeśli wolisz pracować z danymi, które są Ci znane i dotyczą Twojej roli. Aby uzyskać listę obsługiwanych źródeł danych, zobacz [Supported data sources](data-catalog-dsr.md) (Obsługiwane źródła danych).
 
-### Instalowanie bazy danych OLTP Adventure Works 2014
+### <a name="install-the-adventure-works-2014-oltp-database"></a>Instalowanie bazy danych OLTP Adventure Works 2014
 Baza danych firmy Adventure Works obsługuje standardowe scenariusze przetwarzania transakcji online dla fikcyjnego producenta rowerów (firmy Adventure Works Cycles), które obejmują produkty, sprzedaż i zakup. W tym samouczku informacje o produktach zostaną zarejestrowane w usłudze Azure Data Catalog.
 
 Aby zainstalować przykładową bazę danych firmy Adventure Works:
@@ -109,17 +113,17 @@ Aby zainstalować przykładową bazę danych firmy Adventure Works:
 
 Za pomocą usługi Azure Data Catalog możesz teraz zarejestrować zasoby danych z przykładowej bazy danych firmy Adventure Works.
 
-## Rejestrowanie zasobów danych
+## <a name="register-data-assets"></a>Rejestrowanie zasobów danych
 W tym ćwiczeniu zasoby danych z bazy danych firmy Adventure Works zostaną zarejestrowane w wykazie za pomocą narzędzia rejestracji. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych i zasobów, które się w nim znajdują, oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć.
 
-### Rejestrowanie źródła danych
+### <a name="register-a-data-source"></a>Rejestrowanie źródła danych
 1. Przejdź do [strony głównej usługi Azure Data Catalog](https://azuredatacatalog.com) i kliknij pozycję **Publikuj dane**.
    
    ![Usługa Azure Data Catalog — przycisk Publikuj dane](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Kliknij pozycję **Uruchom aplikację**, aby pobrać, zainstalować i uruchomić narzędzie rejestracji na komputerze.
    
    ![Usługa Azure Data Catalog — przycisk Uruchom](media/data-catalog-get-started/data-catalog-launch-application.png)
-3. Na stronie **powitalnej** kliknij pozycję **Zaloguj**, a następnie wprowadź swoje poświadczenia.    
+3. Na stronie **powitalnej** kliknij pozycję **Zaloguj**, a następnie wprowadź swoje poświadczenia.     
    
     ![Usługa Azure Data Catalog — strona powitalna](media/data-catalog-get-started/data-catalog-welcome-dialog.png)
 4. Na stronie **Microsoft Azure Data Catalog** kliknij kolejno pozycje **SQL Server** i **Dalej**.
@@ -134,23 +138,23 @@ W tym ćwiczeniu zasoby danych z bazy danych firmy Adventure Works zostaną zare
    2. Naciśnij klawisz Ctrl i kliknij pozycje **Product**, **ProductCategory**, **ProductDescription** i **ProductPhoto**.
    3. Kliknij **strzałkę przeniesienia** (**>**). Spowoduje to przeniesienie wszystkich wybranych obiektów na listę **Obiekty do zarejestrowania**.
       
-       ![Samouczek dotyczący usługi Azure Data Catalog — przeglądanie i wybieranie obiektów](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
+      ![Samouczek dotyczący usługi Azure Data Catalog — przeglądanie i wybieranie obiektów](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
    4. Wybierz pozycję **Dołącz podgląd**, aby dołączyć podgląd danych w postaci migawki. Migawka jest kopiowana do wykazu i zawiera maksymalnie 20 rekordów z każdej tabeli.
    5. Wybierz pozycję **Dołącz profil danych**, aby dołączyć migawkę statystyk obiektów dla profilu danych (na przykład liczbę wierszy czy minimalną, maksymalną i średnią wartość w kolumnie).
    6. W polu **Dodaj tagi** wprowadź wartość **adventure works, cycles**. Spowoduje to dodanie tagów wyszukiwania dla tych zasobów danych. Tagi to doskonały sposób na ułatwienie użytkownikom znalezienia zarejestrowanego źródła danych.
    7. Podaj imię i nazwisko **eksperta** w zakresie przeznaczenia tych danych (opcjonalnie).
       
-       ![Samouczek dotyczący usługi Azure Data Catalog — obiekty do zarejestrowania](media/data-catalog-get-started/data-catalog-objects-register.png)
+      ![Samouczek dotyczący usługi Azure Data Catalog — obiekty do zarejestrowania](media/data-catalog-get-started/data-catalog-objects-register.png)
    8. Kliknij pozycję **ZAREJESTRUJ**. Wybrane obiekty zostaną zarejestrowane za pomocą usługi Azure Data Catalog. W tym ćwiczeniu są rejestrowane wybrane obiekty z bazy danych firmy Adventure Works. Za pomocą narzędzia rejestracji metadane są wyodrębniane z zasobów danych i kopiowane do usługi Azure Data Catalog. Dane pozostają w miejscu, w którym aktualnie się znajdują, i podlegają kontroli administratorów i zasadom obowiązującym w danym systemie.
       
-       ![Usługa Azure Data Catalog — zarejestrowane obiekty](media/data-catalog-get-started/data-catalog-registered-objects.png)
+      ![Usługa Azure Data Catalog — zarejestrowane obiekty](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Aby wyświetlić zarejestrowane obiekty źródła danych, kliknij pozycję **Wyświetl portal**. Otwórz portal usługi Azure Data Catalog i sprawdź, czy w widoku siatki są widoczne wszystkie cztery tabele i baza danych.
       
-       ![Obiekty w portalu usługi Azure Data Catalog ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Obiekty w portalu usługi Azure Data Catalog ](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 W tym ćwiczeniu zarejestrowano obiekty z przykładowej bazy danych firmy Adventure Works, aby użytkownicy w organizacji mogli je łatwo odnaleźć. W następnym ćwiczeniu zostanie przedstawiony sposób odnajdowania zarejestrowanych zasobów danych.
 
-## Odnajdywanie zasobów danych
+## <a name="discover-data-assets"></a>Odnajdywanie zasobów danych
 Odnajdywanie w usłudze Azure Data Catalog korzysta z dwóch głównych mechanizmów: wyszukiwania i filtrowania.
 
 Wyszukiwanie zaprojektowano pod kątem intuicyjnej obsługi i zaawansowanych możliwości. Domyślnie wyszukiwane terminy są dopasowywane do wszystkich właściwości w wykazie, w tym adnotacji wprowadzonych przez użytkownika.
@@ -163,7 +167,7 @@ To ćwiczenie obejmuje korzystanie z portalu usługi Azure Data Catalog w celu o
 
 Poniżej przedstawiono kilka przykładów dotyczących odnajdywania zasobów danych w wykazie.  
 
-### Odnajdywanie zasobów danych przy użyciu wyszukiwania podstawowego
+### <a name="discover-data-assets-with-basic-search"></a>Odnajdywanie zasobów danych przy użyciu wyszukiwania podstawowego
 Wyszukiwanie podstawowe ułatwia przeszukiwanie wykazu za pomocą co najmniej jednego wyszukiwanego terminu. Wyniki obejmują wszystkie zasoby, których dowolne właściwości są zgodne z co najmniej jednym terminem.
 
 1. Kliknij pozycję **Strona główna** w portalu usługi Azure Data Catalog. Jeśli przeglądarka sieci Web została zamknięta, przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com).
@@ -186,7 +190,7 @@ Wyszukiwanie podstawowe ułatwia przeszukiwanie wykazu za pomocą co najmniej je
    
     ![Usługa Azure Data Catalog — filtrowanie wyników wyszukiwania](media/data-catalog-get-started/data-catalog-filter-search-results.png)
 
-### Odnajdywanie zasobów danych za pomocą wyznaczania zakresu właściwości
+### <a name="discover-data-assets-with-property-scoping"></a>Odnajdywanie zasobów danych za pomocą wyznaczania zakresu właściwości
 Wyznaczanie zakresu właściwości ułatwia odnajdywanie zasobów danych, gdy wyszukiwany termin zostanie dopasowany do określonej właściwości.
 
 1. Wyczyść filtr **Tabela** w obszarze **Typ obiektu** w sekcji **Filtry**.  
@@ -195,7 +199,7 @@ Wyznaczanie zakresu właściwości ułatwia odnajdywanie zasobów danych, gdy wy
    
     ![Usługa Data Catalog — wyniki wyszukiwania uzyskane z użyciem wyznaczania zakresu właściwości](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
 
-### Zapisywanie wyszukiwania
+### <a name="save-the-search"></a>Zapisywanie wyszukiwania
 1. W okienku **Wyszukiwania** w sekcji **Bieżące wyszukiwanie** wprowadź nazwę wyszukiwania i kliknij pozycję **Zapisz**.
    
     ![Usługa Azure Data Catalog — zapisywanie wyszukiwania](media/data-catalog-get-started/data-catalog-save-search.png)
@@ -206,7 +210,7 @@ Wyznaczanie zakresu właściwości ułatwia odnajdywanie zasobów danych, gdy wy
    
     ![Usługa Azure Data Catalog — opcje dotyczące zapisanego wyszukiwania](media/data-catalog-get-started/data-catalog-saved-search-options.png)
 
-### Operatory logiczne
+### <a name="boolean-operators"></a>Operatory logiczne
 Za pomocą operatorów logicznych można rozszerzyć lub zawęzić wyszukiwanie.
 
 1. W polu wyszukiwania wpisz `tags:cycles AND objectType:table` i naciśnij klawisz **ENTER**.
@@ -214,7 +218,7 @@ Za pomocą operatorów logicznych można rozszerzyć lub zawęzić wyszukiwanie.
    
     ![Usługa Azure Data Catalog — zastosowanie operatora logicznego w wyszukiwaniu](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
 
-### Grupowanie za pomocą nawiasów
+### <a name="grouping-with-parentheses"></a>Grupowanie za pomocą nawiasów
 Nawiasy umożliwiają grupowanie części zapytania w celu uzyskania izolacji logicznej, szczególnie w połączeniu z operatorami logicznymi.
 
 1. W polu wyszukiwania wpisz `name:product AND (tags:cycles AND objectType:table)` i naciśnij klawisz **ENTER**.
@@ -222,7 +226,7 @@ Nawiasy umożliwiają grupowanie części zapytania w celu uzyskania izolacji lo
    
     ![Usługa Azure Data Catalog — wyszukiwanie przy użyciu grupowania](media/data-catalog-get-started/data-catalog-grouping-search.png)   
 
-### Operatory porównania
+### <a name="comparison-operators"></a>Operatory porównania
 Operatory porównania pozwalają używać innych porównań niż równość dla właściwości, które mają numeryczne i datowe typy danych.
 
 1. W polu wyszukiwania wpisz `lastRegisteredTime:>"06/09/2016"`.
@@ -234,7 +238,7 @@ Operatory porównania pozwalają używać innych porównań niż równość dla 
 
 Szczegółowe informacje dotyczące odnajdywania zasobów danych można znaleźć w artykule [How to discover data assets](data-catalog-how-to-discover.md) (Jak odnajdywać zasoby danych). Informacje na temat składni wyszukiwania zawiera artykuł [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) (Dokumentacja dotycząca składni wyszukiwania w usłudze Data Catalog).
 
-## Dodawanie adnotacji do zasobów danych
+## <a name="annotate-data-assets"></a>Dodawanie adnotacji do zasobów danych
 W tym ćwiczeniu portal usługi Azure Data Catalog zostanie użyty do dodawania adnotacji (na przykład opisów, tagów czy informacji dotyczących ekspertów) do zasobów danych, które zostały wcześniej zarejestrowane w wykazie. Adnotacje uzupełniają i rozszerzają metadane strukturalne wyodrębnione ze źródła podczas rejestracji i znacznie ułatwiają odnajdywanie i zrozumienie zasobów danych.
 
 W tym ćwiczeniu adnotacje zostaną dodane do pojedynczego zasobu danych (tabeli ProductPhoto). Do zasobu danych ProductPhoto zostanie dodana przyjazna nazwa oraz opis.  
@@ -268,7 +272,7 @@ Usługa Azure Data Catalog obsługuje dodawanie adnotacji przez społeczność. 
 
 Szczegółowe informacje dotyczące dodawania adnotacji do zasobów danych można znaleźć w artykule [How to annotate data assets](data-catalog-how-to-annotate.md) (Jak dodawać adnotacje do zasobów danych).
 
-## Łączenie z zasobami danych
+## <a name="connect-to-data-assets"></a>Łączenie z zasobami danych
 To ćwiczenie obejmuje otwieranie zasobów danych za pomocą zintegrowanego narzędzia klienckiego (programu Excel) oraz narzędzia niezintegrowanego (programu SQL Server Management Studio) przy użyciu informacji o połączeniu.
 
 > [!NOTE]
@@ -276,7 +280,7 @@ To ćwiczenie obejmuje otwieranie zasobów danych za pomocą zintegrowanego narz
 > 
 > 
 
-### Nawiązywanie połączenia z zasobem danych przy użyciu programu Excel
+### <a name="connect-to-a-data-asset-from-excel"></a>Nawiązywanie połączenia z zasobem danych przy użyciu programu Excel
 1. Wybierz pozycję **Product** w wynikach wyszukiwania. Kliknij pozycję **Otwórz w** na pasku narzędzi, a następnie kliknij pozycję **Excel**.
    
     ![Usługa Azure Data Catalog — nawiązywanie połączenia z zasobem danych](media/data-catalog-get-started/data-catalog-connect1.png)
@@ -303,7 +307,7 @@ W tym ćwiczeniu zostało nawiązane połączenie z zasobami danych odnalezionym
 
 Kliknij pozycję **Wyświetl parametry połączenia**, aby wyświetlić parametry połączeń ADF.NET, ODBC i OLEDB oraz skopiować je do schowka w celu użycia ich w aplikacji.
 
-## Zarządzanie zasobami danych
+## <a name="manage-data-assets"></a>Zarządzanie zasobami danych
 Ta procedura obejmuje konfigurowanie zabezpieczeń zasobów danych. Usługa Data Catalog nie zapewnia użytkownikom dostępu do danych. Zarządzanie dostępem do danych należy do właściciela źródła danych.
 
 Usługa Data Catalog umożliwia odnajdywanie źródeł danych zarejestrowanych w wykazie i wyświetlanie metadanych powiązanych z tymi źródłami. W niektórych sytuacjach może jednak wystąpić konieczność udostępnienia źródeł danych tylko konkretnym użytkownikom lub członkom określonych grup. Można wtedy skonfigurować usługę Data Catalog pod kątem przejęcia praw własności do zasobów danych zarejestrowanych w wykazie i umożliwienia jej sterowania dostępem do posiadanych zasobów.
@@ -314,7 +318,7 @@ Usługa Data Catalog umożliwia odnajdywanie źródeł danych zarejestrowanych w
 > 
 > 
 
-### Przejmowanie własności do zasobów danych i ograniczanie ich widoczności
+### <a name="take-ownership-of-data-assets-and-restrict-visibility"></a>Przejmowanie własności do zasobów danych i ograniczanie ich widoczności
 1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com). W polu **Wyszukiwanie** wpisz `tags:cycles` i naciśnij klawisz **ENTER**.
 2. Kliknij element na liście wyników, a następnie kliknij pozycję **Przejmij na własność** na pasku narzędzi.
 3. W sekcji **Zarządzanie** na panelu **Właściwości** kliknij pozycję **Przejmij na własność**.
@@ -324,7 +328,7 @@ Usługa Data Catalog umożliwia odnajdywanie źródeł danych zarejestrowanych w
    
     ![Usługa Azure Data Catalog — ograniczanie dostępu](media/data-catalog-get-started/data-catalog-ownership.png)
 
-## Usuwanie zasobów danych
+## <a name="remove-data-assets"></a>Usuwanie zasobów danych
 W tym ćwiczeniu portal usługi Azure Data Catalog zostanie użyty do usunięcia danych podglądu z zarejestrowanych zasobów danych i usunięcia zasobów danych z wykazu.
 
 W usłudze Azure Data Catalog można usuwać pojedyncze zasoby lub wiele zasobów.
@@ -348,10 +352,10 @@ W usłudze Azure Data Catalog można usuwać pojedyncze zasoby lub wiele zasobó
 > 
 > 
 
-## Podsumowanie
+## <a name="summary"></a>Podsumowanie
 W tym samouczku zostały przedstawione podstawowe funkcje usługi Azure Data Catalog, w tym rejestrowanie, dodawanie adnotacji, odnajdywanie i zarządzanie firmowymi zasobami danych. Po zakończeniu tego samouczka nadszedł czas na rozpoczęcie pracy. Możesz rozpocząć dzisiaj od zarejestrowania źródeł danych, na którym pracujesz Ty i Twój zespół, oraz od zaproszenia współpracowników do korzystania z wykazu.
 
-## Dokumentacja
+## <a name="references"></a>Dokumentacja
 * [Jak rejestrować zasoby danych](data-catalog-how-to-register.md)
 * [Jak odnajdywać zasoby danych](data-catalog-how-to-discover.md)
 * [Jak dodawać adnotacje do zasobów danych](data-catalog-how-to-annotate.md)
@@ -359,6 +363,9 @@ W tym samouczku zostały przedstawione podstawowe funkcje usługi Azure Data Cat
 * [Jak łączyć się z zasobami danych](data-catalog-how-to-connect.md)
 * [Jak zarządzać zasobami danych](data-catalog-how-to-manage.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

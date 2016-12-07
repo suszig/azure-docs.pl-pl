@@ -1,27 +1,32 @@
 ---
-title: Wizualizacja danych usługi SQL Data Warehouse przy użyciu usługi Power BI | Microsoft Docs
-description: Wizualizacja danych usługi SQL Data Warehouse przy użyciu usługi Power BI
+title: "Wizualizacja danych usługi SQL Data Warehouse przy użyciu usługi Power BI | Microsoft Azure"
+description: "Wizualizacja danych usługi SQL Data Warehouse przy użyciu usługi Power BI"
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+
 
 ---
-# Wizualizacja danych przy użyciu usługi Power BI
+# <a name="visualize-data-with-power-bi"></a>Wizualizacja danych przy użyciu usługi Power BI
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,15 +36,15 @@ Ten samouczek przedstawia sposób nawiązania połączenia z usługą SQL Data W
 > 
 > 
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
-* Baza danych usługi SQL Data Warehouse ze wstępnie załadowaną bazą danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][Tworzenie bazy danych w usłudze SQL Data Warehouse]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][ręcznie załadować przykładowe dane].
+* Baza danych usługi SQL Data Warehouse ze wstępnie załadowaną bazą danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][Tworzenie bazy danych w usłudze SQL Data Warehouse]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][ręczne ładowanie przykładowych danych].
 
-## 1. Nawiązywanie połączenia z bazą danych
+## <a name="1-connect-to-your-database"></a>1. Nawiązywanie połączenia z bazą danych
 Aby otworzyć usługę Power BI nawiązać połączenie się z bazą danych AdventureWorksDW:
 
-1. Zaloguj się do [Azure Portal][Azure Portal].
+1. Zaloguj się w witrynie [Azure Portal][Azure Portal].
 2. Kliknij pozycję **Bazy danych SQL** i wybierz bazę danych AdventureWorks usługi SQL Data Warehouse.
    
     ![Znajdowanie bazy danych][1]
@@ -56,7 +61,7 @@ Aby otworzyć usługę Power BI nawiązać połączenie się z bazą danych Adve
    
     ![Otwieranie bazy danych AdventureWorksDW w usłudze Power BI][5]
 
-## 2. Tworzenie raportu
+## <a name="2-create-a-report"></a>2. Tworzenie raportu
 Teraz możesz przystąpić do analizowania przykładowych danych bazy AdventureWorksDW przy użyciu usługi Power BI. Do wykonywania analizy służy widok bazy danych AdventureWorksDW o nazwie AggregateSales (Łączna sprzedaż). Ten widok zawiera kilka kluczowych metryk do analizowania sprzedaży firmy.
 
 1. Aby utworzyć mapę kwot sprzedaży na podstawie kodów pocztowych, w okienku pól po prawej stronie kliknij widok AggregateSales (Łączna sprzedaż), aby go rozwinąć. Kliknij kolumny PostalCode (Kod pocztowy) and SalesAmount (Kwota sprzedaży), aby je zaznaczyć.
@@ -83,8 +88,8 @@ Teraz możesz przystąpić do analizowania przykładowych danych bazy AdventureW
 
 W dowolnym momencie możesz kliknąć menu **Plik** i wybrać polecenie **Zapisz**, aby zapisać postęp.
 
-## Następne kroki
-Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj się ze sposobami wykonywania takich czynności, jak [opracowywanie][opracowywanie], [ładowanie][ładowanie] lub [migrowanie][migrowanie] danych. Możesz też zapoznać się z [witryną sieci Web usługi Power BI][witryną sieci Web usługi Power BI].
+## <a name="next-steps"></a>Następne kroki
+Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj się ze sposobami wykonywania takich czynności, jak [opracowywanie][opracowywanie], [ładowanie][ładowanie] lub [migrowanie][migrowanie] danych. Możesz też zapoznać się z [witryną sieci Web usługi Power BI][witryna sieci Web usługi Power BI].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -104,16 +109,16 @@ Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj 
 [migrowanie]: sql-data-warehouse-overview-migrate.md
 [opracowywanie]: sql-data-warehouse-overview-develop.md
 [ładowanie]: sql-data-warehouse-overview-load.md
-[ręcznie załadować przykładowe dane]: sql-data-warehouse-load-sample-databases.md
+[ręczne ładowanie przykładowych danych]: sql-data-warehouse-load-sample-databases.md
 [nawiązywanie połączenia z usługą SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
 [Tworzenie bazy danych w usłudze SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [Azure Portal]: https://portal.azure.com/
-[witryną sieci Web usługi Power BI]: http://www.powerbi.com/
+[witryna sieci Web usługi Power BI]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

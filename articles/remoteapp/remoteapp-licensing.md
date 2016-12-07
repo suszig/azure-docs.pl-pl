@@ -1,11 +1,11 @@
 ---
-title: Licencjonowanie usługi Azure RemoteApp | Microsoft Docs
-description: Dowiedz się, jak działa licencjonowanie w usłudze Azure RemoteApp.
+title: "Licencjonowanie usługi Azure RemoteApp | Microsoft Docs"
+description: "Dowiedz się, jak działa licencjonowanie w usłudze Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: ff8ebd20-61a1-4f10-87a6-234a170534c9
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f4429461139a41644f87185bbb06b1f6a8011345
+
 
 ---
-# Jak działa licencjonowanie w usłudze Azure RemoteApp?
+# <a name="how-does-licensing-work-in-azure-remoteapp"></a>Jak działa licencjonowanie w usłudze Azure RemoteApp?
 > [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -37,6 +41,9 @@ Ma to sens, prawda? Możesz opublikować dowolną aplikację, którą zgodnie z 
 
 Należy pamiętać, że w przypadku kolekcji w chmurze nie można użyć umowy licencji zbiorczej ani licencji dostępowej. *Możesz* jednak aktywować aplikacje w kolekcji hybrydowej (z wyjątkiem usługi Office) przy użyciu umowy licencji zbiorczej. Wystarczy zainstalować je w obrazie szablonu z nośnika licencji zbiorczej. Postępuj zgodnie z informacjami otrzymanymi od dostawcy aplikacji w celu zainstalowania licencji w środowisku pulpitu zdalnego.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

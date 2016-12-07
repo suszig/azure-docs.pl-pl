@@ -1,12 +1,12 @@
 ---
-title: Integracja katalogu między usługami Azure Multi-Factor Authentication i Active Directory
-description: To jest strona usługi Azure Multi-Factor Authentication, na której opisano integrację serwera tej usługi z usługą Active Directory, w wyniku której możliwa jest synchronizacja katalogów.
+title: "Integracja katalogu między usługami Azure Multi-Factor Authentication i Active Directory"
+description: "To jest strona usługi Azure Multi-Factor Authentication, na której opisano integrację serwera tej usługi z usługą Active Directory, w wyniku której możliwa jest synchronizacja katalogów."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da64189de722b5ee3552530bb1276539e5c6c323
+
 
 ---
-# Integracja katalogu między serwerem Azure MFA i usługą Active Directory
+# <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integracja katalogu między serwerem Azure MFA i usługą Active Directory
 Sekcja poświęcona integracji katalogu zawiera informacje dotyczące konfiguracji serwera pod kątem integracji z usługą Active Directory lub innym katalogiem LDAP.  Pozwala ona skonfigurować atrybuty w celu ich dostosowania do schematu katalogu oraz ustawić automatyczną synchronizację użytkowników.
 
-## Ustawienia
+## <a name="settings"></a>Ustawienia
 Domyślnie usługa Serwer Azure Multi-Factor Authentication jest skonfigurowana pod kątem importowania lub synchronizowania użytkowników z usługi Active Directory.  Karta pozwala zastąpić domyślne zachowanie i utworzyć powiązanie z innym katalogiem LDAP, katalogiem ADAM lub określonym kontrolerem domeny usługi Active Directory.  Umożliwia także korzystanie z uwierzytelniania LDAP w odniesieniu do serwera proxy protokołu LDAP lub do powiązania protokołu LDAP jako obiektu docelowego usługi RADIUS, uwierzytelniania wstępnego w ramach uwierzytelniania IIS lub uwierzytelniania podstawowego dla portalu użytkownika.  W poniższej tabeli opisano poszczególne ustawienia.
 
 ![Ustawienia](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
@@ -45,7 +49,7 @@ W poniższej tabeli opisano ustawienia konfiguracji LDAP.
 | Limit rozmiaru zapytania |Określ limit rozmiaru dla maksymalnej liczby użytkowników, których dane zostaną zwrócone w wynikach wyszukiwania w katalogu.  Ten limit powinien odpowiadać konfiguracji w katalogu LDAP.  W ramach dużych wyszukiwań, w przypadku których stronicowanie nie jest obsługiwane, podczas operacji importowania i synchronizacji będą podejmowane próby pobierania użytkowników w partiach.  Jeśli limit rozmiaru określony w tym obszarze jest większy niż limit skonfigurowany w katalogu LDAP, niektórzy użytkownicy mogą zostać pominięci. |
 | Przycisk Testuj |Kliknij przycisk Testuj, aby przetestować powiązanie z serwerem LDAP.  <br><br> Uwaga: nie trzeba wybierać opcji Użyj LDAP, aby przetestować powiązanie.  Dzięki temu możliwe jest sprawdzenie powiązania przed zastosowaniem konfiguracji LDAP. |
 
-## Filtry
+## <a name="filters"></a>Filtry
 Filtry umożliwiają ustawienie kryteriów kwalifikowania rekordów podczas przeprowadzania wyszukiwania w katalogu.  Ustawiając filtr, można określić zakres obiektów, które mają podlegać synchronizacji.  
 
 ![Filtry](./media/multi-factor-authentication-get-started-server-dirint/dirint2.png)
@@ -56,7 +60,7 @@ Usługa Azure Multi-Factor Authentication zapewnia dostęp do następujących 3 
 * **Filtr grupy zabezpieczeń** — pozwala określić kryteria filtru wykorzystywane do kwalifikowania rekordów grupy zabezpieczeń podczas przeprowadzania wyszukiwania w katalogu.  W przypadku katalogów Active Directory i ADAM zwykle wykorzystywane są kryteria filtrowania (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  W przypadku innych katalogów LDAP w zależności od schematu katalogu należy użyć kryteriów filtrowania służących do kwalifikowania poszczególnych typów obiektu grupy zabezpieczeń.  <br>Uwaga: jeśli pole pozostanie puste, domyślnie użyte zostaną kryteria filtrowania (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).
 * **Filtr użytkownika** — pozwala określić kryteria filtru wykorzystywane do kwalifikowania rekordów użytkowników podczas przeprowadzania wyszukiwania w katalogu.  W przypadku katalogów Active Directory i ADAM zwykle wykorzystywane są kryteria filtrowania (&(objectClass=user)(objectCategory=person)).  W przypadku innych katalogów LDAP w zależności od schematu katalogu mogą zostać użyte kryteria (objectClass = inetOrgPerson) lub podobne. <br>Uwaga: jeśli pole pozostanie puste, domyślnie użyte zostaną kryteria filtrowania (&(objectCategory=person)(objectClass=user)).
 
-## Atrybuty
+## <a name="attributes"></a>Atrybuty
 Atrybuty można w razie potrzeby dostosować pod kątem określonego katalogu.  Pozwala to na dodawanie atrybutów niestandardowych oraz dostosowanie synchronizacji wyłącznie pod kątem określonych atrybutów.  Wartością każdego pola atrybutu powinna być nazwa atrybutu określona w schemacie katalogu.  Więcej informacji można znaleźć w poniższej tabeli.
 
 ![Atrybuty](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
@@ -96,7 +100,7 @@ Aby edytować atrybuty, wystarczy kliknąć przycisk edycji na karcie Atrybuty. 
 
 ![Edytuj atrybuty](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
-## Synchronizacja
+## <a name="synchronization"></a>Synchronizacja
 Proces synchronizacji gwarantuje synchronizację bazy danych użytkowników usługi Azure Multi-Factor z użytkownikami w katalogu Active Directory lub innym katalogu protokołu Lightweight Directory Access Protocol (LDAP).  Proces przebiega podobnie do ręcznego importowania użytkowników z katalogu Active Directory, obejmuje jednak także okresowe sondowanie pod kątem użytkowników usługi Active Directory i zmiany w grupie zabezpieczeń, które wymagają przetworzenia.  Umożliwia także wyłączenie lub usunięcie użytkowników usuniętych z kontenera lub grupy zabezpieczeń oraz usunięcie użytkowników usuniętych z usługi Active Directory.
 
 Multi-Factor Auth ADSync to usługa systemu Windows, która przeprowadza okresowe sondowanie katalogu Active Directory.  Nie należy jej mylić z usługą Azure AD Sync ani Azure AD Connect.  Usługa Multi-Factor Auth ADSync, choć opiera się na podobnym kodzie podstawowym, jest powiązana w sposób wyłączny z serwerem usługi Azure Multi-Factor Authentication.  Usługa jest instalowana w stanie zatrzymania i zostaje uruchomiona przez usługę Multi-Factor Auth Server w momencie określonym podczas konfiguracji.  W przypadku konfiguracji usługi Multi-Factor Auth Server obejmującej wiele serwerów funkcja Multi-Factor Auth ADSync może zostać uruchomiona tylko na jednym serwerze.
@@ -135,11 +139,14 @@ Przyciski Przenieś w górę i Przenieś w dół umożliwiają administratorowi 
 > 
 > 
 
-## Serwery usługi Multi-Factor Auth
+## <a name="multifactor-auth-servers"></a>Serwery usługi Multi-Factor Auth
 Można skonfigurować dodatkowe serwery Multi-Factor Auth, które będą pełnić rolę zapasowych serwerów proxy LDAP wykorzystywanych do uwierzytelniania RADIUS lub uwierzytelniania w usługach IIS. Konfiguracja synchronizacji zostanie udostępniona wszystkim agentom. Usługę Multi-Factor Auth Server można jednak uruchomić tylko na jednym z tych agentów. Na tej karcie można wybrać serwer usługi Multi-Factor Auth, dla którego ma zostać włączona synchronizacja.
 
 ![Serwery usługi Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

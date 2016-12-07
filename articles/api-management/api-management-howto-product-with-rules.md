@@ -1,22 +1,26 @@
 ---
-title: Ochrona interfejsu API za pomocą usługi Azure API Management | Microsoft Docs
-description: Dowiedz się, jak chronić interfejs API za pomocą zasad przydziałów i dławienia (ograniczania liczby wywołań).
+title: "Ochrona interfejsu API za pomocą usługi Azure API Management | Microsoft Docs"
+description: "Dowiedz się, jak chronić interfejs API za pomocą zasad przydziałów i dławienia (ograniczania liczby wywołań)."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+
 
 ---
-# Ochrona interfejsu API za pomocą ograniczania liczby wywołań przy użyciu usługi Azure API Management
+# <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Ochrona interfejsu API za pomocą ograniczania liczby wywołań przy użyciu usługi Azure API Management
 W tym przewodniku przedstawiono, jak łatwo można dodawać ochronę do interfejsu API zaplecza dzięki konfigurowaniu zasad ograniczania liczby wywołań i przydziałów za pomocą usługi Azure API Management.
 
 W tym samouczku utworzysz produkt interfejsu API o nazwie „Bezpłatna wersja próbna”, który umożliwia deweloperom wykonywanie do 10 wywołań na minutę i maksymalnie 200 wywołań na tydzień tego interfejsu API przy użyciu zasad [Ograniczanie liczby wywołań na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [Ustawianie przydziału użycia na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Następnie opublikujesz interfejs API i przetestujesz zasadę ograniczania liczby wywołań.
@@ -31,11 +35,11 @@ W tym kroku utworzysz produkt Bezpłatna wersja próbna, który nie wymaga zatwi
 > 
 > 
 
-Na początku kliknij opcję **Zarządzaj** w klasycznym portalu Azure usługi API Management. Spowoduje to przejście do portalu wydawcy usługi API Management.
+Na początku kliknij opcję **Portal wydawcy** w klasycznej witrynie Azure Portal dla usługi API Management.
 
 ![Portal wydawcy][api-management-management-console]
 
-> Jeśli jeszcze nie utworzono wystąpienia usługi API Management, zobacz temat [Tworzenie wystąpienia usługi API Management][Tworzenie wystąpienia usługi API Management] w samouczku [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Zarządzanie pierwszym interfejsem API w usłudze Azure API Management].
+> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management zobacz temat [Tworzenie wystąpienia usługi API Management][Tworzenie wystąpienia usługi API Management] w samouczku [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Zarządzanie pierwszym interfejsem API w usłudze Azure API Management].
 > 
 > 
 
@@ -63,7 +67,7 @@ Po wprowadzeniu wszystkich wartości kliknij przycisk **Zapisz**, aby utworzyć 
 
 Domyślnie nowe produkty są widoczne dla użytkowników w grupie **Administratorzy**. Zamierzamy dodać grupę **Deweloperzy**. Kliknij produkt **Bezpłatna wersja próbna**, a następnie kliknij kartę **Widoczność**.
 
-> W usłudze API Management grupy służą do zarządzania widocznością produktów dla deweloperów. Widoczność produktów jest przydzielana według grup, a deweloperzy mogą wyświetlać i subskrybować produkty, które są widoczne dla grup, do których należą. Aby uzyskać więcej informacji, zobacz artykuł [How to create and use groups in Azure API Management][How to create and use groups in Azure API Management] (Tworzenie i używanie grup w usłudze Azure API Management).
+> W usłudze API Management grupy służą do zarządzania widocznością produktów dla deweloperów. Widoczność produktów jest przydzielana według grup, a deweloperzy mogą wyświetlać i subskrybować produkty, które są widoczne dla grup, do których należą. Aby uzyskać więcej informacji, zobacz [Jak tworzyć grupy i ich używać w usłudze Azure API Management][Jak tworzyć grupy i ich używać w usłudze Azure API Management].
 > 
 > 
 
@@ -74,7 +78,7 @@ Zaznacz pole wyboru **Deweloperzy**, a następnie kliknij przycisk **Zapisz**.
 ## <a name="add-api"> </a>Aby dodać interfejs API do produktu
 W tym kroku samouczka dodamy interfejs Echo API do nowego produktu Bezpłatna wersja próbna.
 
-> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, którego można używać do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Zarządzanie pierwszym interfejsem API w usłudze Azure API Management]
+> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, którego można używać do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management][Zarządzanie pierwszym interfejsem API w usłudze Azure API Management].
 > 
 > 
 
@@ -255,40 +259,40 @@ Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejn
 > 
 > 
 
-[api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
-[api-management-add-product]: ./media/api-management-howto-product-with-rules/api-management-add-product.png
-[api-management-new-product-window]: ./media/api-management-howto-product-with-rules/api-management-new-product-window.png
-[api-management-product-added]: ./media/api-management-howto-product-with-rules/api-management-product-added.png
-[api-management-add-policy]: ./media/api-management-howto-product-with-rules/api-management-add-policy.png
-[api-management-policy-editor-inbound]: ./media/api-management-howto-product-with-rules/api-management-policy-editor-inbound.png
-[api-management-limit-policies]: ./media/api-management-howto-product-with-rules/api-management-limit-policies.png
-[api-management-policy-save]: ./media/api-management-howto-product-with-rules/api-management-policy-save.png
-[api-management-configure-product]: ./media/api-management-howto-product-with-rules/api-management-configure-product.png
-[api-management-add-api]: ./media/api-management-howto-product-with-rules/api-management-add-api.png
-[api-management-add-echo-api]: ./media/api-management-howto-product-with-rules/api-management-add-echo-api.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-menu.png
-[api-management-publish-product]: ./media/api-management-howto-product-with-rules/api-management-publish-product.png
-[api-management-configure-developer]: ./media/api-management-howto-product-with-rules/api-management-configure-developer.png
-[api-management-add-subscription-menu]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-menu.png
-[api-management-add-subscription]: ./media/api-management-howto-product-with-rules/api-management-add-subscription.png
-[api-management-developer-portal-api-menu]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-api-menu.png
-[api-management-open-console]: ./media/api-management-howto-product-with-rules/api-management-open-console.png
-[api-management-http-get]: ./media/api-management-howto-product-with-rules/api-management-http-get.png
-[api-management-http-get-results]: ./media/api-management-howto-product-with-rules/api-management-http-get-results.png
-[api-management-http-get-429]: ./media/api-management-howto-product-with-rules/api-management-http-get-429.png
-[api-management-product-policy]: ./media/api-management-howto-product-with-rules/api-management-product-policy.png
-[api-management-add-developers-group]: ./media/api-management-howto-product-with-rules/api-management-add-developers-group.png
-[api-management-select-key]: ./media/api-management-howto-product-with-rules/api-management-select-key.png
-[api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
-[api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
+[usługa API Management — konsola zarządzania]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
+[usługa API Management — dodawanie produktu]: ./media/api-management-howto-product-with-rules/api-management-add-product.png
+[usługa API Management — okno nowego produktu]: ./media/api-management-howto-product-with-rules/api-management-new-product-window.png
+[usługa API Management — dodano produkt]: ./media/api-management-howto-product-with-rules/api-management-product-added.png
+[usługa API Management — dodawanie zasad]: ./media/api-management-howto-product-with-rules/api-management-add-policy.png
+[usługa API Management — edytor zasad ruchu przychodzącego]: ./media/api-management-howto-product-with-rules/api-management-policy-editor-inbound.png
+[usługa API Management — ograniczanie zasad]: ./media/api-management-howto-product-with-rules/api-management-limit-policies.png
+[usługa API Management — zapisywanie zasad]: ./media/api-management-howto-product-with-rules/api-management-policy-save.png
+[usługa API Management — konfigurowanie produktu]: ./media/api-management-howto-product-with-rules/api-management-configure-product.png
+[usługa API Management — dodawanie interfejsu API]: ./media/api-management-howto-product-with-rules/api-management-add-api.png
+[usługa API Management — dodawanie interfejsu Echo API]: ./media/api-management-howto-product-with-rules/api-management-add-echo-api.png
+[usługa API Management — menu portalu dla deweloperów]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-menu.png
+[usługa API Management — publikowanie produktu]: ./media/api-management-howto-product-with-rules/api-management-publish-product.png
+[usługa API Management — konfigurowanie dla deweloperów]: ./media/api-management-howto-product-with-rules/api-management-configure-developer.png
+[usługa API Management — menu dodawania subskrypcji]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-menu.png
+[usługa API Management — dodawanie subskrypcji]: ./media/api-management-howto-product-with-rules/api-management-add-subscription.png
+[usługa API Management — menu interfejsu API portalu dla deweloperów]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-api-menu.png
+[usługa API Management — otwarta konsola]: ./media/api-management-howto-product-with-rules/api-management-open-console.png
+[usługa API Management — polecenie „get” kodu HTTP]: ./media/api-management-howto-product-with-rules/api-management-http-get.png
+[usługa API Management — wyniki polecenia „get” kodu HTTP]: ./media/api-management-howto-product-with-rules/api-management-http-get-results.png
+[usługa API Management — wynik 429 polecenia „get” kodu HTTP]: ./media/api-management-howto-product-with-rules/api-management-http-get-429.png
+[usługa API Management — zasady produktu]: ./media/api-management-howto-product-with-rules/api-management-product-policy.png
+[usługa API Management — grupa dodawania deweloperów]: ./media/api-management-howto-product-with-rules/api-management-add-developers-group.png
+[usługa API Management — wybieranie klucza]: ./media/api-management-howto-product-with-rules/api-management-select-key.png
+[usługa API Management — dodano subskrypcję]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
+[usługa API Management — dodawanie wielu subskrypcji]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[Dodawanie operacji do interfejsu API]: api-management-howto-add-operations.md
-[Dodawanie i publikowanie produktu]: api-management-howto-add-products.md
+[Jak dodać operacje do interfejsu API]: api-management-howto-add-operations.md
+[Jak dodać i opublikować produkt]: api-management-howto-add-products.md
 [Monitorowanie i analizowanie]: ../api-management-monitoring.md
 [Dodawanie interfejsów API do produktu]: api-management-howto-add-products.md#add-apis
 [Publikowanie produktu]: api-management-howto-add-products.md#publish-product
 [Zarządzanie pierwszym interfejsem API w usłudze Azure API Management]: api-management-get-started.md
-[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[Jak tworzyć grupy i ich używać w usłudze Azure API Management]: api-management-howto-create-groups.md
 [Wyświetlanie subskrybentów produktu]: api-management-howto-add-products.md#view-subscribers
 [Wprowadzenie do usługi Azure API Management]: api-management-get-started.md
 [Tworzenie wystąpienia usługi API Management]: api-management-get-started.md#create-service-instance
@@ -306,6 +310,6 @@ Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejn
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

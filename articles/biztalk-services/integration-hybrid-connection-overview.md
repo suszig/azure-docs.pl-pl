@@ -1,25 +1,29 @@
 ---
-title: Połączenia hybrydowe — omówienie | Microsoft Docs
-description: Informacje na temat połączeń hybrydowych, zabezpieczeń, portów TCP i obsługiwanych konfiguracji. MABS, WABS.
+title: "Połączenia hybrydowe — omówienie | Microsoft Docs"
+description: "Informacje na temat połączeń hybrydowych, zabezpieczeń, portów TCP i obsługiwanych konfiguracji. MABS, WABS."
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 216e4927-6863-46e7-aa7c-77fec575c8a6
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
-ms.author: mandia
+ms.date: 10/18/2016
+ms.author: ccompy
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
+
 
 ---
-# Połączenia hybrydowe — omówienie
+# <a name="hybrid-connections-overview"></a>Połączenia hybrydowe — omówienie
 Wprowadzenie do połączeń hybrydowych, lista obsługiwanych konfiguracji i lista wymaganych portów TCP.
 
-## Czym jest połączenie hybrydowe
+## <a name="what-is-a-hybrid-connection"></a>Czym jest połączenie hybrydowe
 Połączenia hybrydowe są funkcją usługi Azure BizTalk Services. Połączenia hybrydowe zapewniają łatwy i dogodny sposób łączenia funkcji Web Apps w usłudze Azure App Service (dawniej nazywanej Websites) oraz funkcji Mobile Apps w usłudze Azure App Service (dawniej nazywanej Mobile Services) z zasobami lokalnymi za zaporą.
 
 ![Połączenia hybrydowe][HCImage]
@@ -44,7 +48,7 @@ Połączenia hybrydowe zapewniają także administratorom przedsiębiorstw widoc
 * Za pomocą ustawień zasad grupy administratorzy mogą zezwolić na połączenia hybrydowe w sieci, jak również określić zasoby, do których można uzyskać dostęp za pośrednictwem aplikacji hybrydowych.
 * Dzienniki zdarzeń i inspekcji w sieci firmowej zapewniają widoczność zasobów, do których uzyskują dostęp połączenia hybrydowe.
 
-## Przykładowe scenariusze
+## <a name="example-scenarios"></a>Przykładowe scenariusze
 Połączenia hybrydowe obsługują następujące kombinacje środowisk i aplikacji:
 
 * Dostęp do programu SQL Server w środowisku .NET
@@ -61,7 +65,7 @@ Podczas korzystania z połączeń hybrydowych w celu uzyskania dostępu do lokal
 * Parametr `ApplicationIntent=ReadOnly` nie jest obecnie obsługiwany.
 * Uwierzytelnianie SQL może być wymagane jako metoda autoryzacji typu end-to-end obsługiwana przez aplikację Azure i lokalny serwer SQL.
 
-## Zabezpieczenie i porty
+## <a name="security-and-ports"></a>Zabezpieczenie i porty
 Połączenia hybrydowe używają autoryzacji za pomocą sygnatury dostępu współdzielonego (SAS) w celu zabezpieczenia połączeń z aplikacji Azure i lokalnego Menedżera połączeń hybrydowych z połączeniem hybrydowym. Zostają utworzone oddzielne klucze połączenia dla aplikacji i lokalnego Menedżera połączeń hybrydowych. Te klucze połączenia można niezależnie przywracać i odwoływać.
 
 Połączenia hybrydowe zapewniają bezproblemową i bezpieczną dystrybucję kluczy do aplikacji i lokalnego Menedżera połączeń hybrydowych.
@@ -70,7 +74,7 @@ Zobacz temat [Create and Manage Hybrid Connections](integration-hybrid-connectio
 
 *Autoryzacja aplikacji jest oddzielona od połączenia hybrydowego*. Można użyć dowolnej metody autoryzacji. Metoda autoryzacji zależy od metod autoryzacji typu end-to-end obsługiwanych w chmurze Azure i składnikach lokalnych. Na przykład aplikacja Azure uzyskuje dostęp do lokalnego programu SQL Server. W tym scenariuszu autoryzacja SQL może być metodą autoryzacji obsługiwaną na całej trasie.
 
-#### Porty TCP
+#### <a name="tcp-ports"></a>Porty TCP
 Połączenia hybrydowe wymagają tylko łączności wychodzącej za pośrednictwem protokołu TCP lub HTTP z sieci prywatnej. Nie trzeba otwierać żadnych portów zapory ani zmieniać konfiguracji obwodu sieci, aby zezwolić na połączenie przychodzące do sieci.
 
 Połączenia hybrydowe używają następujących portów TCP:
@@ -81,17 +85,16 @@ Połączenia hybrydowe używają następujących portów TCP:
 | 5671 |Gdy port 9352 używany do ruchu w sieci, port 5671 jest używany jako kanał kontrolny. <br/><br/>Zezwalaj na połączenia wychodzące przez ten port. |
 | 80, 443 |Te porty są używane do niektórych żądań danych wysyłanych do platformy Azure. Ponadto, jeśli nie można użyć portów 9352 i 5671, *wtedy* porty 80 i 443 są portami rezerwowymi służącymi do transmisji danych i kanału kontrolnego.<br/><br/>Zezwalaj na połączenia wychodzące przez te porty. <br/><br/>**Uwaga** Nie zaleca się używania ich jako portów rezerwowych zamiast innych portów TCP. Dla kanałów danych używany jest protokół HTTP/WebSocket, a nie natywny protokół TCP. Może to spowodować obniżenie wydajności. |
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 [Tworzenie połączeń hybrydowych i zarządzanie nimi](integration-hybrid-connection-create-manage.md)<br/>
-[Łączenie witryny sieci Web platformy Azure z lokalnym zasobem](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Łączenie usługi Azure Web Apps z zasobem lokalnym](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
 [Łączenie z lokalnym serwerem SQL Server w aplikacji sieci Web platformy Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
-[Funkcja Azure Mobile Services i połączenia hybrydowe](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 [REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) (Interfejs API REST do zarządzania usługą BizTalk Services na platformie Microsoft Azure) 
 [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md) (BizTalk Services: tabela wersji)<br/>
-[Create a BizTalk Service using Azure portal (Tworzenie usługi BizTalk Service przy użyciu witryny Azure Portal)](biztalk-provision-services.md)<br/>
-[BizTalk Services: Dashboard, Monitor and Scale tabs (Usługa BizTalk Services: karty Pulpit nawigacyjny, Monitor i Skalowanie)](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[Tworzenie usługi BizTalk przy użyciu witryny Azure Portal](biztalk-provision-services.md)<br/>
+[BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md) (Usługa BizTalk Services: karty Pulpit nawigacyjny, Monitor i Skalowanie)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
@@ -100,6 +103,6 @@ Połączenia hybrydowe używają następujących portów TCP:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

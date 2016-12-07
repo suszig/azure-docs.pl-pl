@@ -1,24 +1,28 @@
 ---
-title: Wdrażanie urządzenia StorSimple (aktualizacja Update 2) | Microsoft Docs
-description: W tym artykule opisano kroki i najlepsze rozwiązania dotyczące wdrażania usług i urządzeń StorSimple z aktualizacją Update 2.
+title: "Wdrażanie urządzenia StorSimple (aktualizacja Update 2) | Microsoft Docs"
+description: "W tym artykule opisano kroki i najlepsze rozwiązania dotyczące wdrażania usług i urządzeń StorSimple z aktualizacją Update 2."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7dff0612-617b-4fc8-a3fe-994c24bc7c51
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+
 
 ---
-# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Wdrażanie lokalnego urządzenia StorSimple (aktualizacja Update 2)
+# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Wdrażanie lokalnego urządzenia StorSimple (aktualizacja Update 2)
 > [!div class="op_single_selector"]
-> * [Aktualizacja 2](storsimple-deployment-walkthrough-u2.md)
+> * [Aktualizacja Update 2 i nowsze ](storsimple-deployment-walkthrough-u2.md)
 > * [Aktualizacja 1](storsimple-deployment-walkthrough-u1.md)
 > * [Wersja ogólnodostępna](storsimple-deployment-walkthrough.md)
 > 
@@ -91,10 +95,10 @@ Przed rozpoczęciem upewnij się, że:
 
 * Porty w zaporze centrum danych zostały otwarte w celu zezwolenia na ruch związany z interfejsem iSCSI i chmurą, zgodnie z opisem w temacie [Networking requirements for your StorSimple device](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device) (Wymagania dotyczące pracy w sieci dla urządzenia StorSimple).
 
-## <a name="step-by-step-deployment"></a>Wdrożenie krok po kroku
+## <a name="stepbystep-deployment"></a>Wdrożenie krok po kroku
 Poniższe instrukcje krok po kroku dotyczą wdrażania urządzenia StorSimple w centrum danych.
 
-## <a name="step-1:-create-a-new-service"></a>Krok 1. Tworzenie nowej usługi
+## <a name="step-1-create-a-new-service"></a>Krok 1. Tworzenie nowej usługi
 Usługa Menedżer StorSimple umożliwia zarządzanie wieloma urządzeniami StorSimple. Wykonaj poniższe kroki, aby utworzyć nowe wystąpienie usługi Menedżer StorSimple.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -107,19 +111,19 @@ Usługa Menedżer StorSimple umożliwia zarządzanie wieloma urządzeniami StorS
 > 
 > 
 
-## <a name="step-2:-get-the-service-registration-key"></a>Krok 2. Pobieranie klucza rejestracji usługi
+## <a name="step-2-get-the-service-registration-key"></a>Krok 2. Pobieranie klucza rejestracji usługi
 Po skonfigurowaniu i uruchomieniu usługi Menedżer StorSimple musisz pobrać klucz rejestracji usługi. Ten klucz służy do rejestrowania urządzenia StorSimple i łączenia go z usługą.
 
 Wykonaj poniższe czynności w portalu zarządzania.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Krok 3. Konfigurowanie i rejestrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Krok 3. Konfigurowanie i rejestrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple
 Użyj programu Windows PowerShell dla urządzenia StorSimple do przeprowadzenia konfiguracji początkowej urządzenia StorSimple, jak opisano w poniższej procedurze. Do wykonania tego kroku niezbędne jest użycie oprogramowania do emulacji terminala. Aby uzyskać więcej informacji, zobacz część [Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## <a name="step-4:-complete-minimum-device-setup"></a>Krok 4. Przeprowadzenie minimalnej konfiguracji urządzenia
+## <a name="step-4-complete-minimum-device-setup"></a>Krok 4. Przeprowadzenie minimalnej konfiguracji urządzenia
 Do przeprowadzenia minimalnej konfiguracji urządzenia StorSimple konieczne jest: 
 
 * Skonfigurowanie pomocniczego serwera DNS.
@@ -130,14 +134,14 @@ Aby przeprowadzić minimalną konfigurację urządzenia, wykonaj poniższe kroki
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## <a name="step-5:-create-a-volume-container"></a>Krok 5. Tworzenie kontenera woluminów
+## <a name="step-5-create-a-volume-container"></a>Krok 5. Tworzenie kontenera woluminów
 Kontener woluminów obejmuje ustawienia konta magazynu, przepustowości i szyfrowania wszystkich woluminów, które zawiera. Kontener woluminów należy utworzyć przed zainicjowaniem woluminów na urządzeniu StorSimple. 
 
 Wykonaj poniższe czynności w portalu zarządzania, aby utworzyć kontener woluminów.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## <a name="step-6:-create-a-volume"></a>Krok 6. Tworzenie woluminu
+## <a name="step-6-create-a-volume"></a>Krok 6. Tworzenie woluminu
 Po utworzeniu kontenera woluminów możesz zainicjować obsługę woluminu magazynu w urządzeniu StorSimple dla serwerów. Wykonaj poniższe czynności w portalu zarządzania, aby utworzyć wolumin.
 
 > [!IMPORTANT]
@@ -147,7 +151,7 @@ Po utworzeniu kontenera woluminów możesz zainicjować obsługę woluminu magaz
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>Krok 7. Instalowanie, inicjowanie i formatowanie woluminu
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>Krok 7. Instalowanie, inicjowanie i formatowanie woluminu
 Poniższe kroki wykonuje się na hoście systemu Windows Server. 
 
 > [!IMPORTANT]
@@ -161,7 +165,7 @@ Jeśli nie chcesz konfigurować wielościeżkowego wejścia/wyjścia (MPIO), wyk
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8:-take-a-backup"></a>Krok 8. Tworzenie kopii zapasowej
+## <a name="step-8-take-a-backup"></a>Krok 8. Tworzenie kopii zapasowej
 Kopie zapasowe oferują ochronę woluminów w określonym momencie i udoskonalają możliwości odzyskiwania przy równoczesnym zminimalizowaniu czasów przywracania. W urządzeniu StorSimple można wykonywać dwa typy kopii zapasowych: migawki lokalne i migawki w chmurze. Kopie obu typów można tworzyć jako **zaplanowane** lub **ręczne**. 
 
 Wykonaj poniższe czynności w portalu zarządzania, aby utworzyć zaplanowaną kopię zapasową.
@@ -217,6 +221,9 @@ Wykonaj poniższe kroki w portalu zarządzania, aby na żądanie ręcznie utworz
 * Skonfiguruj [urządzenie wirtualne](storsimple-virtual-device-u2.md).
 * Użyj [usługi StorSimple Manager](storsimple-manager-service-administration.md) do zarządzania urządzeniem StorSimple.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

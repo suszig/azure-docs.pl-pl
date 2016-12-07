@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Aby pobrać klucz rejestracji usługi StorSimple
+#### <a name="to-get-the-storsimple-service-registration-key"></a>Aby pobrać klucz rejestracji usługi StorSimple
 1. Na stronie **usługi StorSimple Manager** kliknij utworzoną usługę. Nastąpi przekierowanie do strony **Szybki start**. (Możesz kliknąć ikonę szybkiego startu ![Ikona Szybki start usługi StorSimple ](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png), aby w dowolnej chwili uzyskać dostęp do strony **Szybki start**).
    
      ![Strona Szybki start usługi StorSimple](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
@@ -20,6 +20,8 @@
 
 Aby obejrzeć film wideo przedstawiający sposób pobierania klucza rejestracji usługi, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

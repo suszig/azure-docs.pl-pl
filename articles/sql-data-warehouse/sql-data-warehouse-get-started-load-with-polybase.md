@@ -1,12 +1,12 @@
 ---
-title: Aparat PolyBase w usłudze SQL Data Warehouse — samouczek | Microsoft Docs
-description: Dowiedz się, co to jest aparat PolyBase i jak z niego korzystać w scenariuszach dotyczących magazynów danych.
+title: "Aparat PolyBase w usłudze SQL Data Warehouse — samouczek | Microsoft Docs"
+description: "Dowiedz się, co to jest aparat PolyBase i jak z niego korzystać w scenariuszach dotyczących magazynów danych."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
 > * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 > * [BCP](sql-data-warehouse-load-with-bcp.md)
 > 
@@ -40,7 +44,7 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
 * Baza danych usługi SQL Data Warehouse.
 * Konto magazynu platformy Azure typu standardowy magazyn lokalnie nadmiarowy (Standard-LRS), standardowy magazyn geograficznie nadmiarowy (Standard-GRS) lub standardowy magazyn geograficznie nadmiarowy dostępny do odczytu (Standard-RAGRS).
-* Narzędzie wiersza polecenia AzCopy. Pobierz i zainstaluj [najnowszą wersję programu AzCopy][], która jest instalowana z narzędziami Microsoft Azure Storage Tools.
+* Narzędzie wiersza polecenia AzCopy. Pobierz i zainstaluj [najnowszą wersję programu AzCopy][najnowsza wersja programu AzCopy], która jest instalowana z narzędziami Microsoft Azure Storage Tools.
   
     ![Narzędzia Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -103,7 +107,7 @@ Aby skopiować dane do magazynu obiektów blob platformy Azure:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Zobacz też: [Wprowadzenie do narzędzia wiersza polecenia AzCopy][Wprowadzenie do narzędzia wiersza polecenia AzCopy].
+Zobacz też [Wprowadzenie do narzędzia wiersza polecenia AzCopy][Wprowadzenie do narzędzia wiersza polecenia AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Eksplorowanie kontenera magazynu obiektów blob
 Aby zobaczyć plik przekazany do magazynu obiektów blob:
@@ -234,7 +238,7 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Aby dowiedzieć się więcej, zobacz temat [Statystyki][Statystyki]:  
+Aby dowiedzieć się więcej, zobacz temat [Statystyki][Statystyki].  
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz [Przewodnik po programie PolyBase][Przewodnik po programie PolyBase] w celu uzyskania dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.
@@ -274,6 +278,6 @@ Zobacz [Przewodnik po programie PolyBase][Przewodnik po programie PolyBase] w ce
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

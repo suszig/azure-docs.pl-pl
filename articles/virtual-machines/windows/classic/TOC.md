@@ -102,21 +102,23 @@
 ### [Problemy z klasycznym wdrożeniem przy ponownym uruchamianiu lub zmienianiu rozmiaru istniejącej maszyny wirtualnej](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Dokumentacja
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Tworzenie szablonów usługi Resource Manager](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Szablony społeczności](https://azure.microsoft.com/documentation/templates/)
-## [Interfejs REST usług Compute](/rest/api/compute/)
-## [Interfejs REST sieci](/rest/api/)
-## [Interfejs REST usług Storage](/rest/api/storageservices/)
+## [Szablony społeczności](https://azure.microsoft.com/documentation/templates)
+## [Architektura REST — usługa Compute](/rest/api/compute)
+## [Architektura REST — sieć](/rest/api)
+## [Architektura REST — usługa Storage](/rest/api/storageservices)
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Dostępność regionalna](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
-## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

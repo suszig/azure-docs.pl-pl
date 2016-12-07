@@ -1,13 +1,13 @@
 ---
-title: Samouczek tworzenia aplikacji w języku Java za pomocą usługi DocumentDB | Microsoft Docs
-description: W tym samouczku aplikacji sieci Web w języku Java pokazano, jak przy użyciu usługi Azure DocumentDB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji w języku Java hostowanej przez usługę Azure Websites.
+title: "Samouczek tworzenia aplikacji w języku Java za pomocą usługi DocumentDB | Microsoft Docs"
+description: "W tym samouczku aplikacji sieci Web w języku Java pokazano, jak przy użyciu usługi Azure DocumentDB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji w języku Java hostowanej przez usługę Azure Websites."
 keywords: Programowanie aplikacji, samouczek bazy danych, aplikacja Java, samouczek aplikacji sieci Web Java, DocumentDB, Azure, Microsoft Azure
 services: documentdb
 documentationcenter: java
 author: dennyglee
 manager: jhubbard
 editor: mimig
-
+ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: documentdb
 ms.devlang: java
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/02/2016
 ms.author: denlee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
+
 
 ---
 # <a name="build-a-java-web-application-using-documentdb"></a>Tworzenie aplikacji sieci Web w języku Java za pomocą usługi DocumentDB
@@ -755,6 +759,6 @@ Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://gith
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

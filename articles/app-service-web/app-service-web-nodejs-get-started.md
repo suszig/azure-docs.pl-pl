@@ -1,12 +1,12 @@
 ---
-title: Rozpoczynanie pracy z aplikacjami sieci Web Node.js w usłudze Azure App Service
-description: Dowiedz się, jak wdrożyć aplikację Node.js w aplikacji sieci Web w usłudze Azure App Service.
+title: "Rozpoczynanie pracy z aplikacjami sieci Web Node.js w usłudze Azure App Service"
+description: "Dowiedz się, jak wdrożyć aplikację Node.js w aplikacji sieci Web w usłudze Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
-# Rozpoczynanie pracy z aplikacjami sieci Web Node.js w usłudze Azure App Service
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Rozpoczynanie pracy z aplikacjami sieci Web Node.js w usłudze Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js] i wdrażania jej w usłudze [Azure App Service] przy użyciu środowiska wiersza polecenia, takiego jak cmd.exe lub bash. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić środowisko Node.js.
@@ -27,32 +31,32 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js] i wd
 
 <a name="prereq"></a>
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 * [Node.js]
 * [Bower]
 * [Yeoman]
-* [Usługa Git]
+* [Git]
 * [Interfejs wiersza polecenia platformy Azure]
 * Konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej] lub [aktywować korzyści dla subskrybentów programu Visual Studio].
 
-## Tworzenie i wdrażanie prostej aplikacji sieci Web Node.js
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Tworzenie i wdrażanie prostej aplikacji sieci Web Node.js
 1. Otwórz wybrany terminal wiersza polecenia i zainstaluj [Generator aplikacji Express dla narzędzia Yeoman].
    
         npm install -g generator-express
-2. `CD` — za pomocą tej komendy przejdź do katalogu roboczego i wygeneruj aplikację Express przy użyciu następującej składni:
+2. `CD` — za pomocą tego polecenia przejdź do katalogu roboczego i wygeneruj aplikację Express przy użyciu następującej składni:
    
         yo express
    
     Po wyświetleniu monitu wybierz następujące opcje:  
    
-    `? Would you like to create a new directory for your project?` **Tak**  
+    `? Would you like to create a new directory for your project?` **Yes**  
     `? Enter directory name` **{nazwa_aplikacji}**  
     `? Select a version to install:` **MVC**  
     `? Select a view engine to use:` **Jade**  
     `? Select a css preprocessor to use (Sass Requires Ruby):` **None**  
     `? Select a database to use:` **None**  
     `? Select a build tool to use:` **Grunt**
-3. `CD` — za pomocą tej komendy przejdź do katalogu głównego nowej aplikacji i uruchom ją, aby upewnić się, że jest uruchamiana w środowisku projektowania:
+3. `CD` — za pomocą tego polecenia przejdź do katalogu głównego nowej aplikacji i uruchom ją, aby upewnić się, że jest uruchamiana w środowisku projektowym:
    
         npm start
    
@@ -99,20 +103,20 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js] i wd
    
     ![Przykład wyświetlania wdrożonej aplikacji.][deployed-express-app]
 
-## Aktualizowanie aplikacji sieci Web Node.js
+## <a name="update-your-nodejs-web-app"></a>Aktualizowanie aplikacji sieci Web Node.js
 Aby zaktualizować aplikację sieci Web Node.js działającą w usłudze App Service, uruchom polecenia `git add`, `git commit` i `git push`, jak podczas pierwszego wdrożenia aplikacji sieci Web.
 
-## Sposób wdrażania aplikacji Node.js przez usługę App Service
+## <a name="how-app-service-deploys-your-nodejs-app"></a>Sposób wdrażania aplikacji Node.js przez usługę App Service
 Usługa Azure App Service uruchamia aplikacje Node.js przy użyciu programu [iisnode]. Interfejs wiersza polecenia platformy Azure oraz aparat Kudu (wdrożenie Git) współdziałają ze sobą w celu zapewnienia usprawnionego środowiska podczas tworzenia i wdrażania aplikacji Node.js z poziomu wiersza polecenia. 
 
-* `azure site create --git` rozpoznaje wspólny wzorzec plików server.js i app.js środowiska Node.js i tworzy plik iisnode.yml w katalogu głównym. Ten plik służy do dostosowywania programu iisnode.
+* `azure site create --git` — to polecenie rozpoznaje wspólny wzorzec plików server.js i app.js środowiska Node.js i tworzy plik iisnode.yml w katalogu głównym. Ten plik służy do dostosowywania programu iisnode.
 * Po uruchomieniu polecenia `git push azure master` aparat Kudu automatyzuje następujące zadania wdrażania:
   
   * Jeśli plik package.json znajduje się w katalogu głównym repozytorium, uruchom polecenie `npm install --production`.
   * Wygeneruj plik Web.config dla programu iisnode wskazujący skrypt początkowy w pliku package.json (np. server.js lub app.js).
   * Dostosuj plik Web.config, aby przygotować aplikację do debugowania przy użyciu narzędzia Node-Inspector.
 
-## Korzystanie ze środowiska Node.js
+## <a name="use-a-nodejs-framework"></a>Korzystanie ze środowiska Node.js
 Jeśli tworzysz aplikacje przy użyciu popularnego środowiska Node.js, takiego jak [Sails.js][SAILSJS] lub [MEAN.js][MEANJS], możesz je wdrożyć w usłudze App Service. Popularne środowiska Node.js mają swoje osobliwości, a ich zależności pakietów są stale aktualizowane. Jednak usługa App Service udostępnia dzienniki stdout i stderr, dlatego możesz uzyskać dokładne informacje dotyczące działania aplikacji i wprowadzić odpowiednie zmiany. Aby uzyskać więcej informacji, zobacz [Pobieranie dzienników stdout i stderr z programu iisnode](#iisnodelog).
 
 W następujących samouczkach przedstawiono sposób pracy z określonym środowiskiem w usłudze App Service:
@@ -123,7 +127,7 @@ W następujących samouczkach przedstawiono sposób pracy z określonym środowi
 
 <a name="version"></a>
 
-## Korzystanie z określonego aparatu Node.js
+## <a name="use-a-specific-nodejs-engine"></a>Korzystanie z określonego aparatu Node.js
 W typowym przepływie pracy można nakazać usłudze App Service korzystanie z konkretnego aparatu Node.js, tak jak zwykle w pliku package.json.
 Na przykład:
 
@@ -144,7 +148,7 @@ Aparat wdrażania Kudu określa, który aparat Node.js ma zostać użyty, w nast
 
 <a name="iisnodelog"></a>
 
-## Pobieranie dzienników stdout i stderr z programu iisnode
+## <a name="get-stdout-and-stderr-logs-from-iisnode"></a>Pobieranie dzienników stdout i stderr z programu iisnode
 Aby odczytać dzienniki programu iisnode, wykonaj następujące czynności.
 
 > [!NOTE]
@@ -182,7 +186,7 @@ Aby odczytać dzienniki programu iisnode, wykonaj następujące czynności.
    
     ![Sprawdzanie pliku dziennika programu iisnode][iislog-kudu-console-read]
 
-## Debugowanie aplikacji przy użyciu narzędzia Node-Inspector
+## <a name="debug-your-app-with-nodeinspector"></a>Debugowanie aplikacji przy użyciu narzędzia Node-Inspector
 Jeśli do debugowania aplikacji Node.js używasz narzędzia Node-Inspector, możesz go użyć, aby debugować aplikację usługi App Service. Narzędzie Node-Inspector jest wstępnie zainstalowane w instalacji programu iisnode dla usługi App Service. W przypadku wdrożenia przy użyciu programu Git plik Web.config automatycznie wygenerowany przez aparat Kudu zawiera już całą konfigurację niezbędną do włączenia narzędzia Node-Inspector.
 
 Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
@@ -204,13 +208,13 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
    
         http://{appname}.azurewebsites.net/app.js/debug
 
-## Więcej zasobów
+## <a name="more-resources"></a>Więcej zasobów
 * [Specifying a Node.js version in an Azure application (Określanie wersji środowiska Node.js w aplikacji Azure)](../nodejs-specify-node-version-azure-apps.md)
 * [Best practices and troubleshooting guide for Node.js applications on Azure (Najlepsze praktyki i przewodnik rozwiązywania problemów aplikacji Node.js na platformie Azure)](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 * [How to debug a Node.js web app in Azure App Service (Jak debugować aplikację sieci Web Node.js w usłudze Azure App Service)](web-sites-nodejs-debug.md)
 * [Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js (Aplikacje sieci Web w usłudze Azure App Service: Node.js)](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
-* [Node.js Developer Center (Centrum deweloperów środowiska Node.js)](/develop/nodejs/)
+* [Centrum deweloperów środowiska Node.js](/develop/nodejs/)
 * [Rozpoczynanie pracy z aplikacjami sieci Web w usłudze Azure App Service](app-service-web-get-started.md)
 * [Exploring the Super Secret Kudu Debug Console (Szczegółowe informacje o ściśle tajnej konsoli debugowania aparatu Kudu)]
 
@@ -224,14 +228,14 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 [Wdrażanie aplikacji sieci Web Sails.js przy użyciu usługi Azure App Service]: ./app-service-web-nodejs-sails.md
 [Exploring the Super Secret Kudu Debug Console (Szczegółowe informacje o ściśle tajnej konsoli debugowania aparatu Kudu)]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Generator aplikacji Express dla narzędzia Yeoman]: https://github.com/petecoop/generator-express
-[Usługa Git]: http://www.git-scm.com/downloads
+[Git]: http://www.git-scm.com/downloads
 [Sposób użycia platformy io.js z aplikacjami Web Apps w usłudze Azure App Service]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [utworzyć konto bezpłatnej wersji próbnej]: http://go.microsoft.com/fwlink/?LinkId=623901
-[aplikacji sieci Web]: ./app-service-web-overview.md
+[Aplikacja sieci Web]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -243,6 +247,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

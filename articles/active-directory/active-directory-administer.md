@@ -1,13 +1,13 @@
 ---
-title: Administrowanie katalogiem usługi Azure AD | Microsoft Docs
-description: Wyjaśnienia dotyczące pojęcia „dzierżawa usługi Azure AD” i zarządzania nią za pomocą usługi Azure Active Directory
+title: "Administrowanie katalogiem usługi Azure AD | Microsoft Docs"
+description: "Wyjaśnienia dotyczące pojęcia „dzierżawa usługi Azure AD” i zarządzania nią za pomocą usługi Azure Active Directory"
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 writer: markvi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+
 
 ---
-# Administrowanie katalogiem usługi Azure AD
-## Co to jest dzierżawa usługi Azure AD?
+# <a name="administer-your-azure-ad-directory"></a>Administrowanie katalogiem usługi Azure AD
+## <a name="what-is-an-azure-ad-tenant"></a>Co to jest dzierżawa usługi Azure AD?
 W przypadku fizycznego miejsca pracy słowo „dzierżawa” może oznaczać budynek zajmowany przez grupę lub firmę. Na przykład organizacja może posiadać biuro w budynku. Ten budynek może znajdować się przy jednej ulicy razem z budynkami kilku innych organizacji. Twoja organizacja będzie wtedy dzierżawiła ten budynek. Budynek jest zasobem organizacji, zapewnia bezpieczeństwo i możliwość bezpiecznego prowadzenia działalności. Jest także oddzielony od budynków innych firm przy ulicy. To zapewnia, że Twoja organizacja i jej zasoby są izolowane od innych organizacji.
 
 W przypadku miejsca pracy w chmurze dzierżawę można zdefiniować jako klienta lub organizację, do której należy określone wystąpienie danej usługi w chmurze. Na platformie obsługi tożsamości udostępnianej w ramach platformy Microsoft Azure dzierżawa to po prostu dedykowane wystąpienie usługi Azure Active Directory (Azure AD), które otrzymuje i posiada organizacja po utworzeniu konta w usłudze w chmurze firmy Microsoft, takiej jak Azure lub Office 365.
@@ -27,7 +31,7 @@ Każdy katalog usługi Azure AD jest odrębny i oddzielony od innych katalogów 
 
 ![Zarządzanie usługą Azure Active Directory][1]
 
-## Jak mogę uzyskać katalog usługi Azure AD?
+## <a name="how-can-i-get-an-azure-ad-directory"></a>Jak mogę uzyskać katalog usługi Azure AD?
 Usługa Azure AD zapewnia podstawowe możliwości zarządzania katalogiem i tożsamościami, na których bazuje większość usług w chmurze firmy Microsoft, w tym:
 
 * Azure
@@ -50,19 +54,19 @@ Na przykład jeśli pierwotnie utworzono konto w usłudze Microsoft Intune i wyk
 
 Aby uzyskać więcej informacji na temat integracji lokalnego katalogu z usługą Azure AD, zobacz [Directory integration](active-directory-aadconnect.md) (Integracja katalogu).
 
-### Kojarzenie katalogu usługi Azure AD z nową subskrypcją platformy Azure
+### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Kojarzenie katalogu usługi Azure AD z nową subskrypcją platformy Azure
 Możesz skojarzyć nową subskrypcję platformy Azure z tym samym katalogiem, który uwierzytelnia logowanie dla istniejącej subskrypcji usługi Office 365 lub Microsoft Intune. Zaloguj się do Portalu zarządzania Azure za pomocą konta służbowego. Portal zarządzania zwróci komunikat informujący o tym, że nie może odnaleźć żadnych subskrypcji dla konta. Wybierz pozycję **Utwórz konto platformy Azure**, a Twoim katalogiem będzie można administrować za pomocą portalu. Aby uzyskać więcej informacji, zobacz [Zarządzanie katalogiem dla subskrypcji usługi Office 365 na platformie Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 Aby zobaczyć wideo przedstawiające często zadawane pytania dotyczące użycia usługi Azure AD, zobacz [Azure Active Directory - Common Sign-up, sign-in and usage questions](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions) (Usługa Azure Active Directory — często zadawane pytania dotyczące tworzenia konta, logowania i użycia).
 
-### Tworzenie katalogu usługi Azure AD przez utworzenie konta w usłudze w chmurze firmy Microsoft jako organizacja
+### <a name="create-an-azure-ad-directory-by-signing-up-for-a-microsoft-cloud-service-as-an-organization"></a>Tworzenie katalogu usługi Azure AD przez utworzenie konta w usłudze w chmurze firmy Microsoft jako organizacja
 Jeśli jeszcze nie masz subskrypcji usługi w chmurze firmy Microsoft, użyj linków poniżej, aby utworzyć konto. Utworzenie konta w ramach pierwszej usługi spowoduje automatyczne utworzenie katalogu usługi Azure AD.
 
 * [Microsoft Azure](https://account.windowsazure.com/organization)
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### Zarządzanie domyślnym katalogiem aprowizowanym przez platformę Azure
+### <a name="manage-an-azureprovisioned-default-directory"></a>Zarządzanie domyślnym katalogiem aprowizowanym przez platformę Azure
 Obecnie katalog jest tworzony automatycznie podczas tworzenia konta na platformie Azure. Twoja subskrypcja jest z nim kojarzona. Jednak jeśli konto na platformie Azure zostało utworzone przed październikiem 2013 r., katalog nie został automatycznie utworzony. W takim przypadku platforma Azure mogła „uzupełnić” Twoje konto, aprowizując dla niego domyślny katalog. Twoja subskrypcja została następnie skojarzona z domyślnym katalogiem.
 
 Uzupełnianie katalogów zostało wykonane w październiku 2013 r. w ramach ogólnej poprawy modelu zabezpieczeń platformy Azure. Katalog udostępnia funkcje obsługi tożsamości w organizacji dla wszystkich klientów platformy Azure oraz zapewnia, że wszystkie zasoby platformy Azure są dostępne w kontekście użytkownika w katalogu. Nie można używać platformy Azure bez katalogu. Aby to osiągnąć, każdy użytkownik, który utworzył konto przed 7 lipca 2013 r., ale nie miał katalogu, musiał go utworzyć. Jeśli katalog został już utworzony, Twoja subskrypcja została z nim skojarzona.
@@ -71,7 +75,7 @@ Używanie usługi Azure AD nie wiąże się z żadnymi kosztami. Katalog jest be
 
 Aby zmienić nazwę wyświetlaną katalogu, kliknij katalog w portalu, a następnie polecenie **Konfiguruj**. Jak wyjaśniono dalej w tym temacie, możesz dodać nowy katalog lub usunąć katalog, który nie jest już potrzebny. Aby skojarzyć subskrypcję z innym katalogiem, kliknij rozszerzenie **Ustawienia** w obszarze nawigacji po lewej, a potem na dole strony **Subskrypcje** kliknij polecenie **Edytuj katalog**. Możesz także utworzyć niestandardową domenę przy użyciu nazwy DNS, która została zarejestrowana, zamiast domyślnej domeny *.onmicrosoft.com, która może być preferowana w przypadku usług takich jak SharePoint Online.
 
-## Jak mogę zarządzać danymi w katalogu
+## <a name="how-can-i-manage-directory-data"></a>Jak mogę zarządzać danymi w katalogu
 Jako administrator co najmniej jednej subskrypcji usługi w chmurze firmy Microsoft możesz użyć Portalu zarządzania Azure, portalu konta usługi Microsoft Intune lub centrum administracyjnego usługi Office 365 do zarządzania danymi katalogu Twoich organizacji. Możesz również pobrać i uruchomić polecenia cmdlet [modułu Microsoft Azure Active Directory dla Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), które ułatwiają zarządzanie danymi zapisanymi w usłudze Azure AD.
 
 Przy użyciu dowolnego z tych portali (lub poleceń cmdlet) możesz:
@@ -89,7 +93,7 @@ Te portale konta i skojarzone polecenia cmdlet programu PowerShell dla usługi A
 Po wprowadzeniu zmiany przez użytkownika w danych organizacji za pomocą dowolnego z portali (lub polecenia cmdlet) podczas gdy jest on zalogowany w kontekście jednej z tych usług, zmiana będzie również widoczna w innych portalach po następnym logowaniu w kontekście tej usługi, ponieważ dane są dostępne dla usług w chmurze firmy Microsoft, które subskrybuje użytkownik.
 Na przykład jeśli użyto centrum administracyjnego usługi Office 365, aby uniemożliwić użytkownikowi logowanie, ta akcja zablokuje także logowanie do wszystkich innych usług, które obecnie subskrybuje organizacja. Można zobaczyć, że to samo konto użytkownika jest zablokowane w kontekście portalu konta usługi Microsoft Intune.
 
-## Jak mogę dodać wiele katalogów i zarządzać nimi?
+## <a name="how-can-i-add-and-manage-multiple-directories"></a>Jak mogę dodać wiele katalogów i zarządzać nimi?
 Możesz dodać katalog usługi Azure AD w Portalu zarządzania Azure. Wybierz rozszerzenie **Usługa Active Directory** po lewej stronie i kliknij polecenie **Dodaj**.
 
 Możesz zarządzać każdym katalogiem jako w pełni niezależnym zasobem: każdy katalog jest równorzędny, obsługuje wszystkie funkcje i jest logicznie niezależny od innych katalogów zarządzanych przez Ciebie. Między katalogami nie ma relacji nadrzędny-podrzędny. Ta niezależność między katalogami obejmuje niezależność zasobów, niezależność administracyjną i niezależność synchronizacji.
@@ -108,15 +112,15 @@ Możesz zarządzać każdym katalogiem jako w pełni niezależnym zasobem: każd
 
 Zwróć uwagę, że w przeciwieństwie do innych zasobów platformy Azure katalogi nie są zasobami podrzędnymi subskrypcji platformy Azure. Więc jeśli anulujesz subskrypcję platformy Azure lub zezwolisz na jej wygaśnięcie, dane katalogu będą w dalszym ciągu dostępne przy użyciu programu PowerShell usługi Azure AD, interfejsu API Graph platformy Azure lub innych interfejsów, takich jak interfejs centrum administracyjnego usługi Office 365. Możesz także skojarzyć inną subskrypcję z katalogiem.
 
-## Jak mogę usunąć katalog usługi Azure AD?
+## <a name="how-can-i-delete-an-azure-ad-directory"></a>Jak mogę usunąć katalog usługi Azure AD?
 Administrator globalny może usunąć katalog usługi Azure AD z portalu. Po usunięciu katalogu zostaną także usunięte wszystkie zasoby zawarte w katalogu. Dlatego przed usunięciem katalogu należy upewnić się, że nie będzie on potrzebny.
 
 > [!NOTE]
-> Jeśli użytkownik jest zalogowany za pomocą konta służbowego, nie może próbować usunąć własnego katalogu macierzystego. Na przykład jeśli użytkownik jest zalogowany za pomocą konta joe@contoso.onmicrosoft.com, to nie może usunąć katalogu, którego domyślna domena to contoso.onmicrosoft.com.
+> Jeśli użytkownik jest zalogowany za pomocą konta służbowego, nie może próbować usunąć własnego katalogu macierzystego. Na przykład jeśli użytkownik jest zalogowany za pomocą konta joe@contoso.onmicrosoft.com,, to nie może usunąć katalogu, którego domyślna domena to contoso.onmicrosoft.com.
 > 
 > 
 
-### Warunki, które muszą zostać spełnione, aby usunąć katalog usługi Azure AD
+### <a name="conditions-that-must-be-met-to-delete-an-azure-ad-directory"></a>Warunki, które muszą zostać spełnione, aby usunąć katalog usługi Azure AD
 Usługa Azure AD wymaga spełnienia pewnych warunków przed usunięciem katalogu. Zmniejszają one ryzyko negatywnego wpływu, jaki usunięcie katalogu mogłoby mieć na użytkowników lub aplikacje, na przykład na możliwość zalogowania się do usługi Office 365 lub dostęp do zasobów platformy Azure. Na przykład jeśli katalog subskrypcji zostanie przypadkowo usunięty, użytkownicy nie będą mieli dostępu do zasobów platformy Azure dla tej subskrypcji.
 
 Są sprawdzane następujące warunki:
@@ -126,13 +130,13 @@ Są sprawdzane następujące warunki:
 * Z katalogiem nie mogą być skojarzone żadne z usług Microsoft Online Services, takie jak platforma Microsoft Azure, usługa Office 365 lub usługa Azure AD w warstwie Premium. Na przykład jeśli domyślny katalog został utworzony na platformie Azure, nie możesz usunąć tego katalogu, jeśli subskrypcja platformy Azure wciąż korzysta z niego na potrzeby uwierzytelniania. Nie można także usunąć katalogu, jeśli inny użytkownik skojarzył z nim subskrypcję. Aby skojarzyć subskrypcję z innym katalogiem, zaloguj się do Portalu zarządzania Azure, a następnie kliknij pozycję **Ustawienia** w obszarze nawigacji po lewej stronie. Następnie w dolnej części strony **Subskrypcje** kliknij polecenie **Edytuj katalog**. Aby uzyskać więcej informacji na temat subskrypcji platformy Azure, zobacz [Jak subskrypcje platformy Azure są kojarzone z usługą Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
-> Jeśli użytkownik jest zalogowany za pomocą konta służbowego, nie może próbować usunąć własnego katalogu macierzystego. Na przykład jeśli użytkownik jest zalogowany za pomocą konta joe@contoso.onmicrosoft.com, to nie może usunąć katalogu, którego domyślna domena to contoso.onmicrosoft.com.
+> Jeśli użytkownik jest zalogowany za pomocą konta służbowego, nie może próbować usunąć własnego katalogu macierzystego. Na przykład jeśli użytkownik jest zalogowany za pomocą konta joe@contoso.onmicrosoft.com,, to nie może usunąć katalogu, którego domyślna domena to contoso.onmicrosoft.com.
 > 
 > 
 
 * Żaden dostawca usługi Multi-Factor Authentication nie może być połączony z katalogiem.
 
-## Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Forum usługi Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 * [Forum usługi Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
 * [Witryna Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
@@ -146,6 +150,6 @@ Są sprawdzane następujące warunki:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

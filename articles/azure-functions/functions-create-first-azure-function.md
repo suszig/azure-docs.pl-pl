@@ -1,13 +1,13 @@
 ---
 title: Tworzenie pierwszej funkcji platformy Azure | Microsoft Docs
-description: Utwórz swoją pierwszą funkcję platformy Azure, aplikację niekorzystającą z serwera, w niespełna dwie minuty.
+description: "Utwórz swoją pierwszą funkcję platformy Azure, aplikację niekorzystającą z serwera, w niespełna dwie minuty."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 4a1669e7-233e-4ea2-9b83-b8624f2dbe59
 ms.service: functions
 ms.devlang: multiple
 ms.topic: hero-article
@@ -15,21 +15,26 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e446766c0f3d19a8cce585d708e8e7a809593408
+
 
 ---
-# Tworzenie pierwszej funkcji platformy Azure
-## Omówienie
+# <a name="create-your-first-azure-function"></a>Tworzenie pierwszej funkcji platformy Azure
+## <a name="overview"></a>Omówienie
 Azure Functions to oparte na zdarzeniach środowisko umożliwiające przeprowadzanie obliczeń na żądanie, które rozszerza istniejącą platformę aplikacji Azure o funkcje implementowania kodu wyzwalanego przez zdarzenia występujące w obrębie innych usług platformy Azure, produktów SaaS oraz systemów lokalnych. W środowisku Azure Functions aplikacje są skalowane na żądanie i płacisz tylko za użyte zasoby. Usługa Azure Functions umożliwia tworzenie zaplanowanych lub wyzwalanych jednostek kodu implementowanych w różnych językach programowania. Aby dowiedzieć się więcej o usłudze Azure Functions, zobacz [Azure Functions — omówienie](functions-overview.md).
 
 W tym temacie opisano sposób użycia opcji szybkiego startu usługi Azure Functions w portalu w celu utworzenia prostej funkcji Node.js „hello world” wywoływanej przez wyzwalacz protokołu HTTP. Można również obejrzeć krótki film, aby sprawdzić, jak kroki te są wykonywane w portalu.
 
-## Obejrzyj film
+## <a name="watch-the-video"></a>Obejrzyj film
 W poniższym filmie pokazano, jak wykonać podstawowe czynności opisane w tym samouczku. 
 
-[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
+> 
+> 
 
-
-## Tworzenie funkcji przy użyciu opcji szybkiego startu
+## <a name="create-a-function-from-the-quickstart"></a>Tworzenie funkcji przy użyciu opcji szybkiego startu
 Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Wykonaj poniższe kroki, aby utworzyć nową aplikację funkcji oraz nową funkcję. Nowa aplikacja funkcji jest tworzona z domyślną konfiguracją. Konkretny przykład tworzenia aplikacji funkcji można znaleźć w [innym samouczku szybkiego startu usługi Azure Functions](functions-create-first-azure-function-azure-portal.md).
 
 Przed utworzeniem pierwszej funkcji musisz mieć aktywne konto platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, [dostępne są konta bezpłatne](https://azure.microsoft.com/free/).
@@ -39,9 +44,9 @@ Przed utworzeniem pierwszej funkcji musisz mieć aktywne konto platformy Azure. 
 3. Na karcie **Szybki start** kliknij pozycje **Element webhook i interfejs API** oraz **JavaScript**, a następnie kliknij pozycję **Utwórz funkcję**. Zostanie utworzona nowa wstępnie zdefiniowana funkcja Node.js. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
-4. (Opcjonalnie) Na tym etapie pracy z opcją szybkiego startu można przeprowadzić szybki przegląd funkcji usługi Azure Functions w portalu.   Po ukończeniu lub pominięciu samouczka można przetestować nową funkcję przy użyciu wyzwalacza HTTP.
+4. (Opcjonalnie) Na tym etapie pracy z opcją szybkiego startu można przeprowadzić szybki przegląd funkcji usługi Azure Functions w portalu.    Po ukończeniu lub pominięciu samouczka można przetestować nową funkcję przy użyciu wyzwalacza HTTP.
 
-## Testowanie funkcji
+## <a name="test-the-function"></a>Testowanie funkcji
 Ponieważ elementy szybkiego startu usługi Azure Functions zawierają funkcjonalny kod, można natychmiast przetestować nową funkcję.
 
 1. Na karcie **Programowanie** sprawdź zawartość okna **Kod** i zwróć uwagę, że ten kod Node.js oczekuje żądania HTTP z wartością *Nazwa* przekazywaną w treści komunikatu lub w ciągu zapytania. Po uruchomieniu funkcji ta wartość jest zwracana w komunikacie odpowiedzi.
@@ -50,7 +55,7 @@ Ponieważ elementy szybkiego startu usługi Azure Functions zawierają funkcjona
 2. Przewiń w dół do pola tekstowego **Treść żądania**, zmień wartość właściwości *Nazwa* na swoją nazwę i kliknij pozycję **Uruchom**. Wykonanie jest wyzwalane przez testowe żądanie HTTP, informacje są zapisywane w dziennikach przesyłania strumieniowego, a odpowiedź „hello” jest wyświetlana w **danych wyjściowych**. 
 3. Aby wyzwolić wykonywanie tej samej funkcji z innego okna lub karty przeglądarki, skopiuj wartość **Adres URL funkcji** z katy **Programowanie** i wklej go na pasku adresu przeglądarki, a następnie dołącz wartość ciągu zapytania `&name=yourname` i naciśnij klawisz Enter. W dziennikach są zapisywane te same informacje, a w przeglądarce tak jak poprzednio jest wyświetlana odpowiedź „hello”.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Ta opcja szybkiego startu przedstawia bardzo proste wykonywanie podstawowej funkcji wyzwalanej przez HTTP. Więcej informacji na temat używania możliwości usługi Azure Functions w aplikacjach można znaleźć w poniższych tematach.
 
 * [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)  
@@ -64,6 +69,9 @@ Ta opcja szybkiego startu przedstawia bardzo proste wykonywanie podstawowej funk
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

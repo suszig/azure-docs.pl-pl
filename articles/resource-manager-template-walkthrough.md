@@ -1,12 +1,12 @@
 ---
-title: Przewodnik po szablonie usługi Resource Manager | Microsoft Docs
-description: Przewodnik krok po kroku po szablonie usługi Resource Manager służący do aprowizacji podstawowej architektury IaaS platformy Azure.
+title: "Przewodnik po szablonie usługi Resource Manager | Microsoft Docs"
+description: "Przewodnik krok po kroku po szablonie usługi Resource Manager służący do aprowizacji podstawowej architektury IaaS platformy Azure."
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
-manager: ''
-editor: ''
-
+manager: timlt
+editor: 
+ms.assetid: f1cfd704-f6e1-47d5-8094-b439c279c13f
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2016
 ms.author: navale;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8dcfe27b87cd76ea7b8f75c3c36f0115131eb6ae
+
 
 ---
-# Przewodnik po szablonie usługi Resource Manager
+# <a name="resource-manager-template-walkthrough"></a>Przewodnik po szablonie usługi Resource Manager
 Jednym z pierwszych pytań podczas tworzenia szablonu jest „jak rozpocząć?”. Można rozpocząć od pustego szablonu, utworzyć podstawową strukturę zgodnie z opisem w artykule [Tworzenie szablonu](resource-group-authoring-templates.md#template-format), a następnie dodać zasoby oraz odpowiednie parametry i zmienne. Dobrą alternatywą jest rozpoczęcie od zapoznania się z [galerią Szybki start](https://github.com/Azure/azure-quickstart-templates) i znalezienie scenariuszy, których cel jest podobny do tego, co ma zostać zrobione. Możliwe jest scalenie kilku szablonów lub edytowane istniejącego szablonu w taki sposób, aby odpowiadało to potrzebom własnego konkretnego scenariusza. 
 
 Spójrzmy na wspólną infrastrukturę:
@@ -36,7 +40,7 @@ Jednak nie wszystko naraz — utwórzmy najpierw konto magazynu i wdróżmy je. 
 > 
 > 
 
-## Tworzenie szablonu usługi Resource Manager
+## <a name="create-the-resource-manager-template"></a>Tworzenie szablonu usługi Resource Manager
 Szablon to plik JSON definiujący wszystkie zasoby, które zostaną wdrożone. Umożliwia on również zdefiniowanie parametrów określanych podczas wdrażania, zmiennych tworzonych na podstawie innych wartości i wyrażeń oraz danych wyjściowych z wdrożenia. 
 
 Zacznijmy od najprostszego szablonu:
@@ -54,7 +58,7 @@ Zacznijmy od najprostszego szablonu:
 
 Zapisz ten plik pod nazwą **azuredeploy.json** (należy pamiętać, że szablon może mieć dowolną nazwę, ale musi być plikiem json).
 
-## Tworzenie konta magazynu
+## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 W sekcji **resources** dodaj obiekt, który definiuje konto magazynu, w sposób pokazany poniżej. 
 
 ```json
@@ -89,7 +93,7 @@ Wróćmy teraz do sekcji **parameters** i zobaczmy, jak zdefiniować nazwę kont
 ```
 W tym miejscu zdefiniowany został parametr typu ciąg (string), w którym będzie przechowywana nazwa konta magazynu. Wartość tego parametru zostanie podana podczas wdrażania szablonu.
 
-## Wdrażanie szablonu
+## <a name="deploying-the-template"></a>Wdrażanie szablonu
 Mamy pełny szablon służący do tworzenia nowego konta magazynu. Tak jak pamiętasz, szablon został zapisany w pliku **azuredeploy.json**:
 
 ```json
@@ -125,12 +129,13 @@ Istnieje kilka metod wdrażania szablonu, co zostało opisane w artykule dotycz�
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 
 # deploy the template to the resource group
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile azuredeploy.json
 ```
 
 Aby natomiast wdrożyć szablon przy użyciu interfejsu wiersza polecenia platformy Azure, użyj następującego polecenia:
 
-```
+```azurecli
 azure group create -n ExampleResourceGroup -l "West Europe"
 
 azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
@@ -140,7 +145,7 @@ Jesteś teraz dumnym właścicielem konta magazynu!
 
 W następnych krokach zostaną dodane wszystkie zasoby wymagane do wdrożenia architektury opisanej na początku tego samouczka. Te zasoby zostaną dodane w tym samym szablonie, na którym odbywała się wcześniej praca.
 
-## Zestaw dostępności
+## <a name="availability-set"></a>Zestaw dostępności
 Po definicji konta magazynu należy dodać zestaw dostępności dla maszyn wirtualnych. W tym przypadku nie są wymagane żadne dodatkowe właściwości, więc jego definicja jest dość prosta. Zobacz artykuł z opisem [interfejsu API REST na potrzeby tworzenia zestawu dostępności](https://msdn.microsoft.com/library/azure/mt163607.aspx), aby wyświetlić pełną sekcję właściwości, jeśli chcesz zdefiniować wartości liczby domen aktualizacji i domen błędów.
 
 ```json
@@ -163,7 +168,7 @@ Wartość określona dla właściwości **type** zawiera zarówno dostawcę zaso
 
 Jeśli natomiast używasz interfejsu wiersza polecenia platformy Azure, możesz uruchomić następujące polecenie:
 
-```
+```azurecli
     azure provider list
 ```
 Biorąc pod uwagę, że w tym temacie operacje tworzenia będą przeprowadzane za pomocą kont magazynu, maszyn wirtualnych i sieci wirtualnych, praca będzie odbywać się z następującymi zasobami:
@@ -180,13 +185,13 @@ Aby wyświetlić typy zasobów dla określonego dostawcy, uruchom następujące 
 
 Natomiast w przypadku interfejsu wiersza polecenia platformy Azure następujące polecenie zwróci dostępne typy w formacie JSON i zapisze je do pliku.
 
-```
+```azurecli
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 
 Powinien zostać wyświetlony typ **availabilitySets** jako jeden z typów w ramach zasobu **Microsoft.Compute**. Pełna nazwa typu to **Microsoft.Compute/availabilitySets**. Możliwe jest określenie nazwy typu zasobu dla każdego z zasobów w szablonie.
 
-## Publiczny adres IP
+## <a name="public-ip"></a>Publiczny adres IP
 Zdefiniuj publiczny adres IP. Informacje o właściwościach, które należy ustawić, możesz sprawdzić w artykule dotyczącym [interfejsu API REST dla publicznych adresów IP](https://msdn.microsoft.com/library/azure/mt163590.aspx).
 
 ```json
@@ -221,7 +226,7 @@ Aby sprawdzić wersje interfejsu API za pomocą interfejsu wiersza polecenia pla
 
 Podczas tworzenia nowego szablonu wybierz najnowszą wersję interfejsu API.
 
-## Sieć wirtualna i podsieć
+## <a name="virtual-network-and-subnet"></a>Sieć wirtualna i podsieć
 Utwórz sieć wirtualną z jedną podsiecią. Wszystkie właściwości, które należy ustawić, można znaleźć w sekcji [Interfejs API REST dla sieci wirtualnych](https://msdn.microsoft.com/library/azure/mt163661.aspx).
 
 ```json
@@ -248,7 +253,7 @@ Utwórz sieć wirtualną z jedną podsiecią. Wszystkie właściwości, które n
 }
 ```
 
-## Moduł równoważenia obciążenia
+## <a name="load-balancer"></a>Moduł równoważenia obciążenia
 Teraz zostanie utworzony zewnętrzny moduł równoważenia obciążenia. Ponieważ ten moduł równoważenia obciążenia używa publicznego adresu IP, należy zadeklarować zależność w publicznym adresie IP w sekcji **dependsOn**. Oznacza to, że moduł równoważenia obciążenia nie zostanie wdrożony do momentu zakończenia wdrażania publicznego adresu IP. Jeśli ta zależność nie zostanie zdefiniowana, zostanie wyświetlony błąd, ponieważ usługa Resource Manager podejmie próbę równoległego wdrażania zasobów i spróbuje ustawić moduł równoważenia obciążenia na publiczny adres IP, który jeszcze nie istnieje. 
 
 Zostanie również utworzona pula adresów zaplecza, kilka reguł ruchu przychodzącego translatora adresów sieciowych dla protokołu RDP w ramach maszyn wirtualnych, a także reguła równoważenia obciążenia z sondowaniem TCP na porcie 80 w ramach tej definicji zasobu. Wszystkie właściwości można znaleźć w artykule dotyczącym [interfejsu API REST dla modułu równoważenia obciążenia](https://msdn.microsoft.com/library/azure/mt163574.aspx).
@@ -340,7 +345,7 @@ Zostanie również utworzona pula adresów zaplecza, kilka reguł ruchu przychod
 }
 ```
 
-## Interfejs sieciowy
+## <a name="network-interface"></a>Interfejs sieciowy
 Zostaną utworzone dwa interfejsy sieciowe — po jednym dla każdej maszyny wirtualnej. Zamiast konieczności dołączania zduplikowanych wpisów dla interfejsów sieciowych można użyć funkcji [copyIndex()](resource-group-create-multiple.md) w celu iteracji przez pętlę kopiowania (nazywaną nicLoop) i utworzenia kilku interfejsów sieciowych zgodnie z definicją w zmiennych `numberOfInstances`. Interfejs sieciowy jest zależny od utworzenia sieci wirtualnej i modułu równoważenia obciążenia. Interfejs sieciowy używa podsieci zdefiniowanej podczas tworzenia sieci wirtualnej i identyfikatora modułu równoważenia obciążenia do skonfigurowania puli adresów modułu równoważenia obciążenia i reguł ruchu przychodzącego translatora adresów sieciowych.
 Wszystkie właściwości można znaleźć w artykule dotyczącym [interfejsu API REST dla interfejsów sieciowych](https://msdn.microsoft.com/library/azure/mt163668.aspx).
 
@@ -384,7 +389,7 @@ Wszystkie właściwości można znaleźć w artykule dotyczącym [interfejsu API
 }
 ```
 
-## Maszyna wirtualna
+## <a name="virtual-machine"></a>Maszyna wirtualna
 Zostaną utworzone dwie maszyny wirtualne przy użyciu funkcji copyIndex(), tak jak miało to miejsce w przypadku tworzenia [interfejsów sieciowych](#network-interface).
 Proces tworzenia maszyny wirtualnej jest zależny od konta magazynu, interfejsu sieciowego i zestawu dostępności. Ta maszyna wirtualna zostanie utworzona na podstawie obrazu z witryny Marketplace zgodnie z definicją we właściwości `storageProfile` — element `imageReference` służy do definiowania wydawcy obrazu, oferty, jednostki SKU i wersji. Na koniec zostanie skonfigurowany profil diagnostyczny w celu włączenia diagnostyki dla maszyny wirtualnej. 
 
@@ -456,7 +461,7 @@ Aby znaleźć odpowiednie właściwości dla obrazu z witryny Marketplace, post�
 
 Zakończono definiowanie zasobów dla szablonu.
 
-## Parametry
+## <a name="parameters"></a>Parametry
 W sekcji parameters zdefiniuj wartości, które można określić podczas wdrażania szablonu. Zdefiniuj parametry tylko dla wartości, które powinny być zmieniane podczas wdrażania. Możliwe jest podanie wartości domyślnej parametru, która zostanie użyta, jeśli żadna wartość nie zostanie podana podczas wdrażania. Można również zdefiniować dozwolone wartości w sposób pokazany dla parametru **imageSKU**.
 
 ```json
@@ -556,7 +561,7 @@ W sekcji parameters zdefiniuj wartości, które można określić podczas wdraż
   }
 ```
 
-## Zmienne
+## <a name="variables"></a>Zmienne
 W sekcji variables można zdefiniować wartości, które są używane w więcej niż jednym miejscu w szablonie, lub wartości, które są tworzone na podstawie innych wyrażeń lub zmiennych. Zmienne są często używane w celu uproszczenia składni szablonu.
 
 ```json
@@ -578,11 +583,15 @@ Zakończono tworzenie szablonu! Możesz porównać swój szablon z pełnym szabl
 
 Możesz ponownie wdrożyć szablon przy użyciu tych samych poleceń, które zostały użyte podczas wdrażania konta magazynu. Nie ma potrzeby usuwania konta magazynu przed ponownym wdrażaniem, ponieważ usługa Resource Manager pominie proces ponownego tworzenia zasobów, które już istnieją i nie uległy zmianie.
 
-## Następne kroki
-* [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) to doskonałe narzędzie do wizualizacji szablonów ARM, ponieważ mogą one stać się zbyt duże, by były zrozumiałe tylko na podstawie odczytu pliku JSON.
+## <a name="next-steps"></a>Następne kroki
+* [Azure Resource Manager Template Visualizer](http://armviz.io/#/) to doskonałe narzędzie do wizualizacji szablonów usługi Resource Manager, ponieważ mogą one stać się zbyt duże, by były zrozumiałe tylko na podstawie odczytu pliku JSON.
 * Aby uzyskać więcej informacji o strukturze szablonu, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).
 * Aby dowiedzieć się więcej o wdrażaniu szablonu, zobacz [Wdrażanie grupy zasobów za pomocą szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
+* Aby zapoznać się z czteroczęściową serią poświęconą automatyzowaniu wdrożeń, zobacz [Automatyzowanie wdrożeń aplikacji w usłudze Azure Virtual Machines](virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). Omówiono w niej architekturę aplikacji, dostęp i zabezpieczenia, dostępność i skalowanie oraz wdrażanie aplikacji.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Tworzenie nowej elastycznej puli baz danych przy użyciu programu PowerShell | Microsoft Docs
-description: Dowiedz się, jak skalować w poziomie zasoby usługi Azure SQL Database za pomocą programu PowerShell, tworząc skalowalne elastyczne pule baz danych do zarządzania wieloma bazami danych.
+title: "Tworzenie nowej elastycznej puli baz danych przy użyciu programu PowerShell | Microsoft Docs"
+description: "Dowiedz się, jak skalować w poziomie zasoby usługi Azure SQL Database za pomocą programu PowerShell, tworząc skalowalne elastyczne pule baz danych do zarządzania wieloma bazami danych."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: srinia
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
+
 
 ---
-# Tworzenie nowej elastycznej puli baz danych przy użyciu programu PowerShell
+# <a name="create-a-new-elastic-database-pool-with-powershell"></a>Tworzenie nowej elastycznej puli baz danych przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [Witryna Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
@@ -35,21 +39,21 @@ Typowe kody błędów można znaleźć w artykule [SQL error codes for SQL Datab
 
 Wymagany jest działający program Azure PowerShell w wersji 1.0 lub nowszej. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell).
 
-## Tworzenie nowej puli
-Polecenie cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) tworzy nową pulę. Wartości jednostek eDTU na pulę oraz minimalne i maksymalne liczby jednostek DTU są ograniczone przez wartość warstwy usługi (Podstawowa, Standardowa lub Premium). Zobacz [limity liczby jednostek eDTU i magazynu dla elastycznych pul i elastycznych baz danych](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+## <a name="create-a-new-pool"></a>Tworzenie nowej puli
+Polecenie cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) tworzy nową pulę. Wartości jednostek eDTU na pulę oraz minimalne i maksymalne liczby jednostek DTU są ograniczone przez wartość warstwy usługi (Podstawowa, Standardowa lub Premium). Zobacz [limity liczby jednostek eDTU i magazynu dla elastycznych pul i elastycznych baz danych](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Tworzenie nowej elastycznej bazy danych w puli
-Użyj polecenia cmdlet [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx), podając pulę docelową jako parametr **ElasticPoolName**. Aby przenieść istniejącą bazę danych do puli, zobacz temat [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool) (Przenoszenie bazy danych do puli elastycznej).
+## <a name="create-a-new-elastic-database-in-a-pool"></a>Tworzenie nowej elastycznej bazy danych w puli
+Użyj polecenia cmdlet [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx), podając pulę docelową jako parametr **ElasticPoolName**. Aby przenieść istniejącą bazę danych do puli, zobacz temat [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool) (Przenoszenie bazy danych do puli elastycznej).
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Tworzenie puli i wypełnianie jej wieloma nowymi bazami danych
+## <a name="create-a-pool-and-populate-it-with-multiple-new-databases"></a>Tworzenie puli i wypełnianie jej wieloma nowymi bazami danych
 Tworzenie wielu baz danych w puli może trwać długo, jeśli odbywa się za pomocą portalu lub poleceń cmdlet programu PowerShell, które tworzą tylko pojedyncze bazy danych. Aby zautomatyzować tworzenie w nowej puli, skorzystaj ze skryptu [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
 
-## Przykład: tworzenie puli przy użyciu programu PowerShell
+## <a name="example-create-a-pool-using-powershell"></a>Przykład: tworzenie puli przy użyciu programu PowerShell
 Ten skrypt tworzy nową grupę zasobów Azure i nowy serwer. Po wyświetleniu monitu podaj nazwę użytkownika i hasło administratora dla nowego serwera (inne niż poświadczenia Azure).
 
     $subscriptionId = '<your Azure subscription id>'
@@ -72,11 +76,14 @@ Ten skrypt tworzy nową grupę zasobów Azure i nowy serwer. Po wyświetleniu mo
 
 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Zarządzanie pulą](sql-database-elastic-pool-manage-powershell.md)
 * [Tworzenie zadań elastycznych](sql-database-elastic-jobs-overview.md) Zadania elastyczne umożliwiają uruchamianie skryptów T-SQL na dowolnej liczbie baz danych w puli.
 * [Skalowanie w poziomie przy użyciu usługi Azure SQL Database](sql-database-elastic-scale-introduction.md): użyj narzędzi elastycznej bazy danych do skalowania w poziomie.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

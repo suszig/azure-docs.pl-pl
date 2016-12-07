@@ -1,12 +1,12 @@
 ---
-title: Praca w tym samym środowisku usługi Office 365 na dowolnym urządzeniu z usługą Azure RemoteApp | Microsoft Docs
-description: Dowiedz się, jak udostępniać użytkownikom dowolną aplikację Office 365 przy użyciu usługi Azure RemoteApp.
+title: "Praca w tym samym środowisku usługi Office 365 na dowolnym urządzeniu z usługą Azure RemoteApp | Microsoft Docs"
+description: "Dowiedz się, jak udostępniać użytkownikom dowolną aplikację Office 365 przy użyciu usługi Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: guscatalano
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 0c971ce9-7d45-4cfb-9737-15b6706047e8
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: guscatal;elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0146ee4516ee54c3507567c25183e212db1ba7d2
+
 
 ---
-# Praca w tym samym środowisku usługi Office 365 na dowolnym urządzeniu z usługą Azure RemoteApp
+# <a name="get-the-same-office-365-experience-on-any-device-with-azure-remoteapp"></a>Praca w tym samym środowisku usługi Office 365 na dowolnym urządzeniu z usługą Azure RemoteApp
 > [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -26,7 +30,7 @@ W tym artykule opisano sposób wdrażania usługi Office 365 na dowolnym urządz
 
 Osiągniemy ten cel dzięki usłudze Azure RemoteApp, obsługując usługę Office 365 na skalowalnych maszynach wirtualnych platformy Azure, z którymi użytkownicy mogą nawiązywać połączenie. Ten zestaw maszyn wirtualnych nazywamy „kolekcją w chmurze”.
 
-## Tworzenie kolekcji w chmurze
+## <a name="create-a-cloud-collection"></a>Tworzenie kolekcji w chmurze
 Najpierw, po utworzeniu konta platformy Azure, przejdź do usługi **RemoteApp**, klikając link po lewej stronie.
 ![Wyświetlanie usługi Azure RemoteApp w witrynie Azure Portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
@@ -47,7 +51,7 @@ W tym miejscu możesz także dodać więcej użytkowników z dostępem do tej ko
 
 Teraz spróbujmy nawiązać połączenie z usługą Office 365.
 
-## Łączenie z usługą Office 365
+## <a name="connect-to-office-365"></a>Łączenie z usługą Office 365
 Przejdź do strony [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), przewiń w dół i kliknij pozycję **Pobierz klientów**, aby zainstalować klienta usługi Azure RemoteApp na aktualnie używanym urządzeniu. Poniższe zrzuty ekranu dotyczą systemu Windows.
 
 Po uruchomieniu aplikacji zostanie wyświetlony monit o zalogowanie przy użyciu konta Microsoft (zwanego wcześniej „Live ID”). Zaloguj się za pomocą konta używanego jako konto platformy Azure. Po zalogowaniu zobaczysz powiadomienia o nowych zaproszeniach. Kliknij w tym miejscu, aby wyświetlić listę podobną do poniższej. Zaakceptuj zaproszenie odpowiadające adresowi e-mail właściciela konta platformy Azure.
@@ -68,6 +72,9 @@ Kliknięcie dowolnej aplikacji powinno spowodować jej uruchomienie na maszynie 
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

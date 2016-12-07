@@ -1,20 +1,20 @@
-# Overview
-## [Messaging](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Relay](../service-bus-relay/service-bus-relay-overview.md)
-# Reference
-## [PowerShell Resource Manager Cmdlets](/powershell/resourcemanager)
-## [Service Bus Managed Reference API](/dotnet/api/) 
-## [Service Bus REST API Reference](/rest/api/servicebus) 
-# Resources
+# Omówienie
+## [Obsługa komunikatów](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
+## [Usługa Relay](../service-bus-relay/relay-what-is-it.md)
+# Dokumentacja
+## [Polecenia cmdlet usługi Resource Manager programu PowerShell](/powershell/resourcemanager)
+## [Interfejs API dokumentacji zarządzanej usługi Service Bus](/dotnet/api/) 
+## [Dokumentacja interfejsu API REST usługi Service Bus](/rest/api/servicebus) 
+# Zasoby
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/en-US/home?forum=servbus)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
+## [Fora MSDN](https://social.msdn.microsoft.com/forums/en-US/home?forum=servbus)
+## [Cennik](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-bus)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

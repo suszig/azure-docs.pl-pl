@@ -1,13 +1,13 @@
 ---
-title: Instalowanie aplikacji usługi Hadoop w usłudze HDInsight | Microsoft Docs
-description: Informacje o sposobie instalowania aplikacji usługi HDInsight w usłudze HDInsight.
+title: "Instalowanie aplikacji usługi Hadoop w usłudze HDInsight | Microsoft Docs"
+description: "Informacje o sposobie instalowania aplikacji usługi HDInsight w usłudze HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+
 
 ---
-# Instalowanie aplikacji usługi HDInsight
+# <a name="install-hdinsight-applications"></a>Instalowanie aplikacji usługi HDInsight
 Aplikacja usługi HDInsight to aplikacja, którą użytkownicy mogą zainstalować w klastrze usługi HDInsight opartym na systemie Linux. Te aplikacje mogą być opracowane przez firmę Microsoft, niezależnych dostawców oprogramowania (ISV) lub samodzielnie. W tym artykule opisano instalację opublikowanej aplikacji. Informacje na temat instalowania własnych aplikacji można znaleźć w artykule [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md). 
 
 Obecnie dostępna jest jedna opublikowana aplikacja:
@@ -31,10 +35,10 @@ Obecnie dostępna jest jedna opublikowana aplikacja:
 
 W instrukcjach podanych w tym artykule jest używana witryna Azure Portal. Można również wyeksportować szablon usługi Azure Resource Manager z portalu lub uzyskać kopię szablonu usługi Resource Manager od dostawców i użyć programu Azure PowerShell oraz interfejsu wiersza polecenia platformy Azure do wdrożenia szablonu.  Zobacz [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager).
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Jeśli chcesz zainstalować aplikacje usługi HDInsight w istniejącym klastrze usługi HDInsight, musisz dysponować klastrem usługi HDInsight. Aby go utworzyć, zobacz artykuł [Tworzenie klastrów](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). Możesz także zainstalować aplikacje usługi HDInsight podczas tworzenia klastra usługi HDInsight.
 
-## Instalowanie aplikacji w istniejących klastrach
+## <a name="install-applications-to-existing-clusters"></a>Instalowanie aplikacji w istniejących klastrach
 Poniższa procedura pokazuje sposób instalacji aplikacji usługi HDInsight w istniejącym klastrze usługi HDInsight.
 
 **Aby zainstalować aplikację usługi HDInsight**
@@ -56,7 +60,7 @@ Poniższa procedura pokazuje sposób instalacji aplikacji usługi HDInsight w is
 
 Możesz zobaczyć stan instalacji w powiadomieniach portalu (kliknij ikonę dzwonka w górnej części portalu). Po zainstalowaniu aplikacji zostanie ona wyświetlona w bloku Zainstalowane aplikacje.
 
-## Instalowanie aplikacji podczas tworzenia klastra
+## <a name="install-applications-during-cluster-creation"></a>Instalowanie aplikacji podczas tworzenia klastra
 Aplikacje usługi HDInsight możesz także zainstalować podczas tworzenia klastra. W trakcie procesu aplikacje usługi HDInsight są instalowane po utworzeniu i uruchomieniu klastra. Poniższa procedura pokazuje sposób instalacji aplikacji usługi HDInsight podczas tworzenia klastra.
 
 **Aby zainstalować aplikację usługi HDInsight**
@@ -77,7 +81,7 @@ Aplikacje usługi HDInsight możesz także zainstalować podczas tworzenia klast
 9. Kliknij pozycję **Grupa zasobów**, aby wybrać istniejącą grupę zasobów lub kliknij pozycję **Nowa**, aby utworzyć nową grupę zasobów
 10. W bloku **Nowy klaster usługi HDInsight** upewnij się, że wybrano opcję **Przypnij do tablicy startowej**, a następnie kliknij przycisk **Utwórz**. 
 
-## Lista zainstalowanych aplikacji HDInsight i ich właściwości
+## <a name="list-installed-hdinsight-apps-and-properties"></a>Lista zainstalowanych aplikacji HDInsight i ich właściwości
 Portal zawiera listę zainstalowanych aplikacji usługi HDInsight dla klastra oraz właściwości poszczególnych zainstalowanych aplikacji.
 
 **Aby wyświetlić listę aplikacji usługi HDInsight i ich właściwości**
@@ -97,15 +101,15 @@ Portal zawiera listę zainstalowanych aplikacji usługi HDInsight dla klastra or
    * Punkt końcowy protokołu SSH: można użyć opcji [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) do łączenia się z węzłem krawędzi. Poświadczenia protokołu SSH są identyczne z poświadczeniami użytkownika protokołu SSH skonfigurowanymi dla klastra.
 6. Aby usunąć aplikację, kliknij ją prawym przyciskiem myszy, a następnie kliknij polecenie **Usuń** w menu kontekstowym.
 
-## Łączenie z węzłem krawędzi
+## <a name="connect-to-the-edge-node"></a>Łączenie z węzłem krawędzi
 Z węzłem krawędzi możesz połączyć się przy użyciu protokołów HTTP i SSH. Informacje o punkcie końcowym można znaleźć w [portalu](#list-installed-hdinsight-apps-and-properties). Więcej informacji dotyczących korzystania z protokołu SSH można znaleźć w temacie [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) (Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X). 
 
 Poświadczenia punktu końcowego protokołu HTTP to poświadczenia użytkownika protokołu HTTP skonfigurowane dla klastra usługi HDInsight. Poświadczenia punktu końcowego protokołu SSH to poświadczenia SSH skonfigurowane dla klastra usługi HDInsight.
 
-## Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 Zobacz [Troubleshoot the installation](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation) (Rozwiązywanie problemów z instalacją).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): dowiedz się, jak wdrożyć nieopublikowaną aplikację usługi HDInsight w usłudze HDInsight.
 * [Publikowanie aplikacji usługi HDInsight](hdinsight-apps-publish-applications.md): dowiedz się, jak opublikować niestandardowe aplikacje usługi HDInsight w portalu Azure Marketplace.
 * [MSDN: instalowanie aplikacji usługi HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): dowiedz się, jak zdefiniować aplikacje usługi HDInsight.
@@ -113,6 +117,9 @@ Zobacz [Troubleshoot the installation](hdinsight-apps-install-custom-application
 * [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager): dowiedz się, jak wywoływać szablony usługi Resource Manager w celu tworzenia klastrów usługi HDInsight.
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Używanie pustych węzłów krawędzi w usłudze HDInsight): dowiedz się, jak za pomocą pustego węzła krawędzi uzyskiwać dostęp do klastra usługi HDInsight oraz testować i hostować aplikacje usługi HDInsight.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

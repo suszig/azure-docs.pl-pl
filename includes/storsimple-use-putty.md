@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Aby nawiązać połączenie za pośrednictwem konsoli szeregowej
+#### <a name="to-connect-through-the-serial-console"></a>Aby nawiązać połączenie za pośrednictwem konsoli szeregowej
 1. Podłącz kabel szeregowy do urządzenia (bezpośrednio lub za pośrednictwem adaptera szeregowego USB).
 2. Otwórz **Panel sterowania**, a następnie otwórz okno **Menedżer urządzeń**.
 3. Zidentyfikuj port COM w sposób pokazany na poniższym rysunku.
@@ -10,7 +10,7 @@
 5. W okienku po prawej stronie zmień wartość pola **Typ połączenia** na **Szeregowe**.
 6. W okienku po prawej stronie wpisz odpowiedni port COM. Upewnij się, że parametry konfiguracji portu zostały ustawione w następujący sposób:
    
-   * Szybkość: 115 200
+   * Szybkość: 115 200
    * Bity danych: 8
    * Bity stopu: 1
    * Parzystość: Brak
@@ -26,6 +26,8 @@
      > 
 7. Kliknij pozycję **Otwórz**, aby rozpocząć sesję szeregową.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

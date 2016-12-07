@@ -1,12 +1,12 @@
 ---
-title: Za pomocą usługi Data Platform Studio firmy Redgate można ładować dane do usługi SQL Data Warehouse | Microsoft Docs
-description: Dowiedz się, jak używać usługi Data Platform Studio firmy Redgate na potrzeby scenariuszy magazynowania danych.
+title: "Ładowanie danych do usługi SQL Data Warehouse za pomocą usługi Data Platform Studio firmy Redgate | Microsoft Docs"
+description: "Dowiedz się, jak używać usługi Data Platform Studio firmy Redgate na potrzeby scenariuszy magazynowania danych."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 804b0ba72ca73da1a076bd4dbca8bbca33cb76b1
+
 
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Ładowanie danych za pomocą usługi Data Platform Studio firmy Redgate
@@ -149,6 +153,7 @@ Aby uzyskać więcej porad programistycznych, zobacz [Omówienie programowania w
 [Omówienie programowania w usłudze SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

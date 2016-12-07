@@ -1,13 +1,13 @@
 ---
-title: Konfiguracja nowej usługi SQL Database za pomocą programu PowerShell | Microsoft Docs
-description: Dowiedz się teraz, jak utworzyć bazę danych SQL za pomocą programu PowerShell. Typowe zadania dotyczące konfigurowania bazy danych można wykonywać za pomocą poleceń cmdlet programu PowerShell.
+title: "Konfiguracja nowej usługi SQL Database za pomocą programu PowerShell | Microsoft Docs"
+description: "Dowiedz się teraz, jak utworzyć bazę danych SQL za pomocą programu PowerShell. Typowe zadania dotyczące konfigurowania bazy danych można wykonywać za pomocą poleceń cmdlet programu PowerShell."
 keywords: tworzenie nowej bazy danych sql, konfiguracja bazy danych
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7d99869b-cec5-4583-8c1c-4c663f4afd4d
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 08/19/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 87e52fe29f659577d7dc0c9661ebde2c1c475cfc
+
 
 ---
-# Tworzenie bazy danych SQL i wykonywanie typowych zadań dotyczących konfiguracji bazy danych przy użyciu poleceń cmdlet programu PowerShell
+# <a name="create-a-sql-database-and-perform-common-database-setup-tasks-with-powershell-cmdlets"></a>Tworzenie bazy danych SQL i wykonywanie typowych zadań dotyczących konfiguracji bazy danych przy użyciu poleceń cmdlet programu PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-get-started.md)
 > * [PowerShell](sql-database-get-started-powershell.md)
@@ -29,7 +33,7 @@ Dowiedz się, jak utworzyć bazę danych SQL za pomocą poleceń cmdlet programu
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## Konfiguracja bazy danych: tworzenie grupy zasobów, serwera i reguły zapory
+## <a name="database-setup-create-a-resource-group-server-and-firewall-rule"></a>Konfiguracja bazy danych: tworzenie grupy zasobów, serwera i reguły zapory
 Skoro możesz już uruchamiać polecenia cmdlet dla wybranej subskrypcji platformy Azure, następnym krokiem jest ustanowienie grupy zasobów zawierającej serwer, na którym zostanie utworzona baza danych. Możesz edytować poniższe polecenie, aby użyć dowolnej wybranej przez siebie prawidłowej lokalizacji. Uruchom polecenie **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location**, aby uzyskać listę prawidłowych lokalizacji.
 
 Uruchom poniższe polecenie, aby utworzyć grupę zasobów:
@@ -37,8 +41,8 @@ Uruchom poniższe polecenie, aby utworzyć grupę zasobów:
     New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
 
 
-### Tworzenie serwera
-Bazy danych SQL są tworzone wewnątrz serwerów usługi Azure SQL Database. Uruchom polecenie **New-AzureRmSqlServer**, aby utworzyć serwer. Nazwa serwera musi być unikatowa dla wszystkich serwerów usługi Azure SQL Database. Jeśli nazwa serwera jest już zajęta, zostanie wyświetlony komunikat o błędzie. Warto także zauważyć, że wykonanie tego polecenia może potrwać kilka minut. Możesz edytować polecenie, aby użyć dowolnie wybranej prawidłowej lokalizacji, ale najlepiej użyć lokalizacji zastosowanej do grupy zasobów utworzonej w poprzednim kroku.
+### <a name="create-a-server"></a>Tworzenie serwera
+Bazy danych SQL są tworzone wewnątrz serwerów usługi Azure SQL Database. Uruchom polecenie [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx), aby utworzyć serwer. Nazwa serwera musi być unikatowa dla wszystkich serwerów usługi Azure SQL Database. Jeśli nazwa serwera jest już zajęta, zostanie wyświetlony komunikat o błędzie. Warto także zauważyć, że wykonanie tego polecenia może potrwać kilka minut. Możesz edytować polecenie, aby użyć dowolnie wybranej prawidłowej lokalizacji, ale najlepiej użyć lokalizacji zastosowanej do grupy zasobów utworzonej w poprzednim kroku.
 
     New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
 
@@ -46,8 +50,8 @@ Po uruchomieniu tego polecenia zostanie wyświetlony monit o podanie nazwy użyt
 
 Szczegóły serwera są wyświetlane po jego pomyślnym utworzeniu.
 
-### Konfigurowanie reguły zapory serwera, aby zezwolić na dostęp do serwera
-Aby uzyskać dostęp do serwera, należy ustanowić regułę zapory. Uruchom następujące polecenie, zastępując początkowy i końcowy adres IP prawidłowymi wartościami dla danego komputera.
+### <a name="configure-a-server-firewall-rule-to-allow-access-to-the-server"></a>Konfigurowanie reguły zapory serwera, aby zezwolić na dostęp do serwera
+Aby uzyskać dostęp do serwera, należy ustanowić regułę zapory. Uruchom polecenie [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx), zastępując początkowy i końcowy adres IP prawidłowymi wartościami dla danego komputera.
 
     New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
@@ -57,17 +61,17 @@ Aby zezwolić innym usługom platformy Azure na dostęp do serwera, dodaj reguł
 
 Aby uzyskać więcej informacji, zobacz artykuł [Azure SQL Database Firewall](sql-database-firewall-configure.md) (Zapora usługi Azure SQL Database)
 
-## Tworzenie bazy danych SQL
+## <a name="create-a-sql-database"></a>Tworzenie bazy danych SQL
 Skoro masz już grupę zasobów, serwer i skonfigurowaną regułę zapory, możesz uzyskać dostęp do serwera.
 
-Następujące polecenie tworzy (pustą) bazę danych SQL w warstwie usług Standardowa na poziomie wydajności S1:
+Następujące polecenie [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) tworzy (pustą) bazę danych SQL w warstwie usług Standardowa na poziomie wydajności S1:
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
 
 Szczegóły bazy danych są wyświetlane po jej pomyślnym utworzeniu.
 
-## Skrypt programu PowerShell tworzący bazę danych SQL
+## <a name="create-a-sql-database-powershell-script"></a>Skrypt programu PowerShell tworzący bazę danych SQL
 Poniższy skrypt programu PowerShell tworzy bazę danych SQL i jej wszystkie zasoby zależne. Zamień wszystkie ciągi `{variables}` na wartości specyficzne dla Twojej subskrypcji i Twoich zasobów (usuń znaki **{}** podczas ustawiania wartości).
 
     # Sign in to Azure and set the subscription to work with
@@ -119,15 +123,19 @@ Poniższy skrypt programu PowerShell tworzy bazę danych SQL i jej wszystkie zas
 
 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po utworzeniu bazy danych SQL i wykonaniu podstawowych zadań dotyczących jej konfiguracji możesz przystąpić do następujących czynności:
 
 * [Zarządzanie usługą SQL Database za pomocą programu PowerShell](sql-database-manage-powershell.md)
 * [Nawiązywanie połączenia z usługą SQL Database za pomocą programu SQL Server Management Studio i wykonywanie przykładowego zapytania T-SQL](sql-database-connect-query-ssms.md)
 
-## Dodatkowe zasoby
-* [Usługa Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+## <a name="additional-resources"></a>Dodatkowe zasoby
+* [Polecenia cmdlet usługi Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)
+* [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

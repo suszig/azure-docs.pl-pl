@@ -1,8 +1,12 @@
-An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
+Usługa Azure Load Balancer to moduł równoważenia obciążenia w warstwie 4 (TCP, UDP). Moduł równoważenia obciążenia zapewnia wysoką dostępność, dystrybuując ruch przychodzący w wystąpieniach usług o dobrej kondycji w usługach w chmurze lub na maszynach wirtualnych w zestawie modułu równoważenia obciążenia. Usługa Azure Load Balancer może także prezentować te usługi na wielu portach i/lub wielu adresach IP.
 
-You can configure a load balancer to:
+Moduł równoważenia obciążenia można skonfigurować do następujących celów:
 
-* Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet-facing load balancer](../articles/load-balancer/load-balancer-internet-overview.md).
-* Load balance traffic between VMs in a virtual network (VNet), between VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](../articles/load-balancer/load-balancer-internal-overview.md).
-* Forward external traffic to a specific VM instance.
+* Równoważenie obciążenia przychodzącego ruchu internetowego na maszynach wirtualnych (VM). W tym scenariuszu moduł równoważenia obciążenia oznacza [dostępny z Internetu moduł równoważenia obciążenia](../articles/load-balancer/load-balancer-internet-overview.md).
+* Równoważenie obciążenia między maszynami wirtualnymi w sieci wirtualnej (VNet), między maszynami wirtualnymi w usługach w chmurze lub między lokalnymi komputerami i maszynami wirtualnymi w sieci wirtualnej obejmującej wiele lokalizacji. W tym scenariuszu moduł równoważenia obciążenia oznacza [wewnętrzny moduł równoważenia obciążenia (ILB)](../articles/load-balancer/load-balancer-internal-overview.md).
+* Przekazywanie ruchu zewnętrznego do konkretnego wystąpienia maszyny wirtualnej.
+
+
+<!--HONumber=Nov16_HO2-->
+
 

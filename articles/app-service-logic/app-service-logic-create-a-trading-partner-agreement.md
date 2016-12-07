@@ -1,12 +1,12 @@
 ---
-title: Tworzenie umowy z partnerem handlowym w usłudze Azure App Service | Microsoft Docs
-description: Tworzenie umów z partnerami handlowymi
+title: "Tworzenie umowy z partnerem handlowym w usłudze Azure App Service | Microsoft Docs"
+description: "Tworzenie umów z partnerami handlowymi"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: rajram
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 319e46fa-fd81-4730-a742-768bf1676972
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/23/2016
 ms.author: rajram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e41ac0e91bd66fbc7df08b4397e78377021fcbca
+
 
 ---
-# Tworzenie umowy z partnerem handlowym
+# <a name="creating-a-trading-partner-agreement"></a>Tworzenie umowy z partnerem handlowym
 [!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Partnerzy handlowi to jednostki biorące udział w komunikacji B2B (Business-to-Business). Relacja ustanowiona między dwoma partnerami jest nazywana *umową*. Zdefiniowana umowa jest oparta na komunikacji, którą chcą nawiązać dwie jednostki partnerskie. Umowa odnosi się do danego protokołu lub transportu. Różne metody transportu i protokoły B2B obsługiwane przez usługę Azure App Service obejmują:
@@ -25,10 +29,10 @@ Partnerzy handlowi to jednostki biorące udział w komunikacji B2B (Business-to-
 * EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
 * X12 (ASC X12)
 
-### Aplikacje API Apps w BizTalk, które obsługują scenariusze B2B
+### <a name="biztalk-api-apps-that-support-b2b-scenarios"></a>Aplikacje API Apps w BizTalk, które obsługują scenariusze B2B
 Poniższe aplikacje API Apps oferują wymienione możliwości w zaawansowanym i intuicyjnym środowisku pracy w witrynie Azure Portal:
 
-## Zarządzanie partnerami handlowymi BizTalk (TPM, Trading Partner Management)
+## <a name="biztalk-trading-partner-management-tpm"></a>Zarządzanie partnerami handlowymi BizTalk (TPM, Trading Partner Management)
 * Tworzenie partnerów, profilów i tożsamości oraz zarządzanie nimi
 * Przechowywanie schematów EDI i zarządzanie nimi
 * Przechowywanie certyfikatów (używanych w protokole AS2) i zarządzanie nimi
@@ -38,23 +42,23 @@ Poniższe aplikacje API Apps oferują wymienione możliwości w zaawansowanym i 
 
 ![][1]
 
-## Łącznik AS2
+## <a name="as2-connector"></a>Łącznik AS2
 * Wykonuje umowy AS2 zgodnie z definicją w powiązanym wystąpieniu aplikacji interfejsu API TPM.
 * Wydobywa informacje dotyczące przetwarzania/śledzenia informacji AS2 na potrzeby rozwiązywania problemów.
 
-## BizTalk EDIFACT
+## <a name="biztalk-edifact"></a>BizTalk EDIFACT
 * Wykonuje umowy EDIFACT zgodnie z definicją w powiązanym wystąpieniu aplikacji interfejsu API TPM.
 * Wydobywa informacje dotyczące przetwarzania/śledzenia informacji EDIFACT na potrzeby rozwiązywania problemów.
 * Umożliwia zarządzanie stanem partii zadań (rozpoczęcie i zakończenie) zgodnie z definicją w umowach EDIFACT w powiązanym wystąpieniu aplikacji interfejsu API TPM.
 
-## BizTalk X12
+## <a name="biztalk-x12"></a>BizTalk X12
 * Wykonuje umowy X12 zgodnie z definicją w powiązanym wystąpieniu aplikacji interfejsu API TPM. 
 * Wydobywa informacje dotyczące przetwarzania/śledzenia informacji X12 na potrzeby rozwiązywania problemów.
 * Umożliwia zarządzanie stanem partii zadań (rozpoczęcie i zakończenie) zgodnie z definicją w umowach X12 w powiązanym wystąpieniu aplikacji interfejsu API TPM.
 
 Jak podano wcześniej, aby aplikacje API Apps AS2, X12 i EDIFACT działały zgodnie z oczekiwaniami, wymagają aplikacji interfejsu API TPM.
 
-## Wprowadzenie
+## <a name="getting-started"></a>Wprowadzenie
 Aby tworzyć umowy z partnerami handlowymi:
 
 1. Utwórz wystąpienie łącznika **Zarządzanie partnerami handlowymi BizTalk**. Do prawidłowego działania wymaga on pustej bazy danych SQL Database. Przed rozpoczęciem upewnij się, że pusta baza danych jest dostępna i gotowa do użycia.
@@ -75,6 +79,6 @@ Aby tworzyć umowy z partnerami handlowymi:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

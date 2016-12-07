@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
-ms.openlocfilehash: 5cc39b23ab6282ea1c4367fcbdf8c7b095180b51
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 5f0cd9a3f3d4b578312e1b9f9f8b9c5ee7d6aa27
 
 ---
-#<a name="cdn-documentation"></a>CDN Documentation
+#<a name="cdn-documentation"></a>Dokumentacja usługi CDN
 
-Azure Content Delivery Network (CDN) provides developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location.  Using the CDN you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location.  The CDN is typically used to deliver static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
+Usługa Azure Content Delivery Network (CDN) oferuje deweloperom globalne rozwiązanie dostarczania zawartości o wysokiej przepustowości, które jest hostowane na platformie Azure lub w dowolnej innej lokalizacji.  Korzystając z usługi CDN, można buforować publicznie dostępne obiekty załadowane z magazynu obiektów blob platformy Azure, aplikacji sieci Web, maszyny wirtualnej, folderu aplikacji lub innej lokalizacji HTTP/HTTPS.  Usługa CDN jest zwykle używana do dostarczania zawartości statycznej, takiej jak obrazy, arkusze stylów, dokumenty, pliki, skrypty po stronie klienta i strony HTML.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -21,7 +21,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure CDN</h3>
+                        <h3>Dowiedz się więcej o usłudze Azure CDN</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Batch Video Library</h3>
+                        <h3>Biblioteka wideo dotycząca usługi Azure Batch</h3>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure CDN</h3>
+                        <h3>Rozpoczynanie pracy z usługą Azure CDN</h3>
                     </div>
                 </div>
             </div>
@@ -67,25 +67,51 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
 
 ---
 
-##<a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[CDN REST API Reference](/rest/api/CDN)
+    <li>
+        <a href="/rest/api/CDN">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi CDN</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
         <div class="img"></div>
         <div class="text">
-Download Azure CDN Documentation </div>
+Pobierz dokumentację usługi Azure CDN </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

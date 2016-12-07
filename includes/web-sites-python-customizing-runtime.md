@@ -15,6 +15,8 @@ są:
 
 Jeśli wersja mikro (trzecia cyfra) jest określona, zostanie zignorowana.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

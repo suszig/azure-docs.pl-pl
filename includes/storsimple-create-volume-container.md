@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Aby utworzyć kontener woluminów
+#### <a name="to-create-a-volume-container"></a>Aby utworzyć kontener woluminów
 1. Na stronie **Szybki start** urządzenia kliknij pozycję **Dodaj kontener woluminów**. Zostanie wyświetlone okno dialogowe **Tworzenie kontenera woluminów**.
    
     ![Tworzenie kontenera woluminów](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
@@ -20,6 +20,8 @@
 
 Aby obejrzeć film wideo przedstawiający sposób tworzenia kontenera woluminów w rozwiązaniu StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -3,6 +3,8 @@ Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na 
 
 ![](./media/expressroute-intro-include/expressroute-basic.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

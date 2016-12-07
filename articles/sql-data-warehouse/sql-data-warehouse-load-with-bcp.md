@@ -1,12 +1,12 @@
 ---
-title: Ładowanie danych do usługi SQL Data Warehouse przy użyciu programu bcp | Microsoft Docs
-description: Dowiedz się, czym jest program bcp i jak z niego korzystać w scenariuszach dotyczących magazynów danych.
+title: "Ładowanie danych do usługi SQL Data Warehouse przy użyciu programu bcp | Microsoft Docs"
+description: "Dowiedz się, czym jest program bcp i jak z niego korzystać w scenariuszach dotyczących magazynów danych."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+
 
 ---
 # <a name="load-data-with-bcp"></a>Ładowanie danych za pomocą narzędzia BCP
 > [!div class="op_single_selector"]
 > * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Fabryka danych](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
 > * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 > * [BCP](sql-data-warehouse-load-with-bcp.md)
 > 
@@ -78,7 +82,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Zobacz artykuł [Omówienie tabel][Omówienie tabel] lub [składni polecenia CREATE TABLE][], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
+> Zobacz artykuł [Omówienie tabel][Omówienie tabel] lub [składnię polecenia CREATE TABLE][składnię polecenia CREATE TABLE], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
 > 
 > 
 
@@ -194,13 +198,13 @@ Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania 
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[Składnia polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[składnię polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centrum pobierania Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,72 +1,85 @@
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure CLI | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI
+title: "Wprowadzenie do tworzenia modułu równoważenia obciążenia mającego połączenie z Internetem w klasycznym modelu wdrażania przy użyciu interfejsu wiersza polecenia platformy Azure | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w klasycznym modelu wdrażania przy użyciu interfejsu wiersza polecenia Azure"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: kumudd
+manager: timlt
 tags: azure-service-management
-
+ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
-ms.author: sewhee
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 337399d1f832830665be92a97a8458b7a959845b
 
 ---
-# Get started creating an Internet facing load balancer (classic) in the Azure CLI
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Wprowadzenie do tworzenia dostępnego z Internetu modułu równoważenia obciążenia (klasycznego) przy użyciu interfejsu wiersza polecenia Azure
+
+> [!div class="op_single_selector"]
+> * [Klasyczna witryna Azure Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Przed rozpoczęciem pracy z zasobami platformy Azure należy pamiętać, że ma ona obecnie dwa modele wdrażania: za pomocą usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-classic-rm.md). Dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty w górnej części artykułu. W tym artykule opisano klasyczny model wdrażania. Możesz też zapoznać się z artykułem na temat [tworzenia dostępnego z Internetu modułu równoważenia obciążenia za pomocą usługi Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Step by step creating an Internet facing load balancer using CLI
-This guide shows how to create an Internet load balancer based on the scenario above.
+## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Szczegółowy opis tworzenia modułu równoważenia obciążenia dostępnego z Internetu przy użyciu interfejsu wiersza polecenia
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to classic mode, as shown below.
-   
-        azure config mode asm
-   
-    Expected output:
-   
+W tym przewodniku opisano sposób tworzenia internetowego modułu równoważenia obciążenia w oparciu o powyższy scenariusz.
+
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../xplat-cli-install.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+2. Uruchom polecenie **azure config mode**, aby przełączyć tryb na klasyczny, jak pokazano poniżej.
+
+    ```azurecli
+    azure config mode asm
+    ```
+
+    Oczekiwane dane wyjściowe:
+
         info:    New mode is asm
 
-## Create endpoint and load balancer set
-The scenario assumes the virtual machines "web1" and "web2" were created.
-This guide will create a load balancer set using port 80 as public port and port 80 as local port. A probe port is also configured on port 80 and named the load balancer set "lbset".
+## <a name="create-endpoint-and-load-balancer-set"></a>Tworzenie punktu końcowego i zestawu modułu równoważenia obciążenia
 
-### Step 1
-Create the first endpoint and load balancer set using `azure network vm endpoint create` for virtual machine "web1".
+Na potrzeby scenariusza przyjmuje się, że utworzono maszyny wirtualne „web1” i „web2”.
+W tym przewodniku opisano sposób tworzenia modułu równoważenia obciążenia przy użyciu portu 80 jako portu publicznego i lokalnego. Port sondy to również port 80, a zestaw modułu równoważenia obciążenia ma nazwę „lbset”.
 
-    azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
+### <a name="step-1"></a>Krok 1
 
-Parameters used:
+Utwórz pierwszy punkt końcowy oraz zestaw modułu równoważenia obciążenia za pomocą polecenia `azure network vm endpoint create` dla maszyny wirtualnej „web1”.
 
-**-k** - local virtual machine port<br>
-**-o** - protocol<BR>
-**-t** - probe port<BR>
-**-b** - load balancer name<BR>
+```azurecli
+azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
+```
 
-## Step 2
-Add a second virtual machine "web2" to the load balancer set.
+## <a name="step-2"></a>Krok 2
 
-    azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+Dodaj drugą maszynę wirtualną „web2” do zestawu modułu równoważenia obciążenia.
 
-## Step 3
-Verify the load balancer configuration using `azure vm show` .
+```azurecli
+azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
+```
 
-    azure vm show web1
+## <a name="step-3"></a>Krok 3
 
-The output will be:
+Sprawdź konfigurację modułu równoważenia obciążenia za pomocą polecenia `azure vm show`.
+
+```azurecli
+azure vm show web1
+```
+
+Dane wyjściowe to:
 
     data:    DNSName "contoso.cloudapp.net"
     data:    Location "East US"
@@ -110,29 +123,37 @@ The output will be:
     data:    Network Endpoints 2 port 58081
     info:    vm show command OK
 
-## Create a remote desktop endpoint for a virtual machine
-You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Tworzenie punktu końcowego pulpitu zdalnego maszyny wirtualnej
 
-    azure vm endpoint create web1 54580 -k 3389
+Możesz utworzyć punkt końcowy pulpitu zdalnego w celu przesyłania ruchu sieciowego z portu publicznego do lokalnego dla danej maszyny wirtualnej za pomocą polecenia `azure vm endpoint create`.
 
+```azurecli
+azure vm endpoint create web1 54580 -k 3389
+```
 
-## Remove virtual machine from load balancer
-You have to delete the endpoint associated to the load balancer set from the virtual machine. Once the endpoint is removed, the virtual machine doesn't belong to the load balancer set anymore.
+## <a name="remove-virtual-machine-from-load-balancer"></a>Usuwanie maszyny wirtualnej z modułu równoważenia obciążenia
 
- Using the example above, you can remove the endpoint created for virtual machine "web1" from load balancer "lbset" using the command `azure vm endpoint delete`.
+Musisz usunąć punkt końcowy skojarzony z zestawem modułu równoważenia obciążenia z maszyny wirtualnej. Po usunięciu punktu końcowego maszyna wirtualna przestanie należeć do zestawu modułu równoważenia obciążenia.
 
-    azure vm endpoint delete web1 tcp-80-80
+Korzystając z powyższego przykładu, możesz usunąć punkt końcowy utworzony dla maszyny wirtualnej „web1” z modułu równoważenia obciążenia „lbset” za pomocą polecenia `azure vm endpoint delete`.
 
+```azurecli
+azure vm endpoint delete web1 tcp-80-80
+```
 
 > [!NOTE]
-> You can explore more options to manage endpoints using the command `azure vm endpoint --help`
-> 
-> 
+> Możesz poznać więcej opcji zarządzania punktem końcowym, korzystając z polecenia `azure vm endpoint --help`
 
-## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
+## <a name="next-steps"></a>Następne kroki
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md) (Wprowadzenie do konfigurowania wewnętrznego modułu równoważenia obciążenia)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

@@ -45,7 +45,7 @@
 ## [Programowanie z użyciem usługi Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
 # Dokumentacja
-## [Polecenia cmdlet programu PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Polecenia cmdlet programu PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Zasoby 
@@ -54,6 +54,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

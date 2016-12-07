@@ -1,22 +1,26 @@
 ---
-title: Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management | Microsoft Docs
-description: Dowiedz się, jak poprawić czas oczekiwania, zużycie przepustowości i obciążenie usługi sieci Web w przypadku wywołań usługi API Management.
+title: "Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management | Microsoft Docs"
+description: "Dowiedz się, jak poprawić czas oczekiwania, zużycie przepustowości i obciążenie usługi sieci Web w przypadku wywołań usługi API Management."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+
 
 ---
-# Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management
+# <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management
 Operacje w usłudze API Management można skonfigurować do buforowania odpowiedzi. Buforowanie odpowiedzi może znacznie zmniejszyć opóźnienie interfejsu API, zużycie przepustowości i obciążenie usługi sieci Web w przypadku danych, które nie zmieniają się często.
 
 Ten przewodnik pokazuje, jak dodać buforowanie odpowiedzi do interfejsu API oraz skonfigurować zasady dla przykładowych operacji interfejsu Echo API. Następnie możesz wywołać operację z portalu dla deweloperów, aby sprawdzić działanie buforowania.
@@ -26,18 +30,18 @@ Ten przewodnik pokazuje, jak dodać buforowanie odpowiedzi do interfejsu API ora
 > 
 > 
 
-## Wymagania wstępne
-Przed wykonaniem kroków w tym przewodniku potrzebne jest wystąpienie usługi API Management ze skonfigurowanymi interfejsem API i produktem. Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management zobacz temat [Tworzenie wystąpienia usługi API Management][Tworzenie wystąpienia usługi API Management] w samouczku [Wprowadzenie do usługi Azure API Management][Wprowadzenie do usługi Azure API Management].
+## <a name="prerequisites"></a>Wymagania wstępne
+Przed wykonaniem kroków w tym przewodniku potrzebne jest wystąpienie usługi API Management ze skonfigurowanymi interfejsem API i produktem. Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz temat [Tworzenie wystąpienia usługi API Management][Tworzenie wystąpienia usługi API Management] w samouczku [Wprowadzenie do usługi Azure API Management][Wprowadzenie do usługi Azure API Management].
 
 ## <a name="configure-caching"> </a>Konfigurowanie operacji do buforowania
 W tym kroku należy przejrzeć ustawienia buforowania operacji **GET Resource (cached)** (Buforowane pobieranie zasobu) przykładowego interfejsu Echo API.
 
 > [!NOTE]
-> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, który może służyć do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do usługi Azure API Management][Wprowadzenie do usługi Azure API Management]
+> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, który może służyć do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do usługi Azure API Management][Wprowadzenie do usługi Azure API Management].
 > 
 > 
 
-Na początku kliknij opcję **Zarządzaj** w klasycznym portalu Azure dla usługi API Management. Spowoduje to przejście do portalu wydawcy usługi API Management.
+Na początku kliknij opcję **Portal wydawcy** w klasycznej witrynie Azure Portal dla usługi API Management. Spowoduje to przejście do portalu wydawcy usługi API Management.
 
 ![Portal wydawcy][api-management-management-console]
 
@@ -137,20 +141,20 @@ Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2*
 * Więcej informacji na temat zasad buforowania, można znaleźć w temacie [Caching policies][Caching policies] (Zasady buforowania) w artykule [API Management policy reference][API Management policy reference] (Dokumentacja zasad usługi API Management).
 * Aby poznać informacje na temat buforowania elementów według kluczy przy użyciu wyrażeń zasad, zobacz artykuł [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Niestandardowe buforowanie w usłudze Azure API Management).
 
-[api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
-[api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
-[api-management-echo-api-operations]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
-[api-management-caching-tab]: ./media/api-management-howto-cache/api-management-caching-tab.png
-[api-management-operation-dropdown]: ./media/api-management-howto-cache/api-management-operation-dropdown.png
-[api-management-policy-editor]: ./media/api-management-howto-cache/api-management-policy-editor.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-cache/api-management-developer-portal-menu.png
-[api-management-apis-echo-api]: ./media/api-management-howto-cache/api-management-apis-echo-api.png
-[api-management-open-console]: ./media/api-management-howto-cache/api-management-open-console.png
-[api-management-console]: ./media/api-management-howto-cache/api-management-console.png
+[usługa API Management — konsola zarządzania]: ./media/api-management-howto-cache/api-management-management-console.png
+[usługa API Management — interfejs Echo API]: ./media/api-management-howto-cache/api-management-echo-api.png
+[usługa API Management — operacje interfejsu Echo Api]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
+[usługa API Management — karta Buforowanie]: ./media/api-management-howto-cache/api-management-caching-tab.png
+[usługa API Management — lista rozwijana operacji]: ./media/api-management-howto-cache/api-management-operation-dropdown.png
+[usługa API Management — edytor zasad]: ./media/api-management-howto-cache/api-management-policy-editor.png
+[usługa API Management — menu portalu dla deweloperów]: ./media/api-management-howto-cache/api-management-developer-portal-menu.png
+[usługa API Management — interfejsy API i Echo API]: ./media/api-management-howto-cache/api-management-apis-echo-api.png
+[usługa API Management — otwarta konsola]: ./media/api-management-howto-cache/api-management-open-console.png
+[usługa API Management — konsola]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[Dodawanie i publikowanie produktu]: api-management-howto-add-products.md
+[Jak dodać operacje do interfejsu API]: api-management-howto-add-operations.md
+[Jak dodać i opublikować produkt]: api-management-howto-add-products.md
 [Monitorowanie i analizowanie]: api-management-monitoring.md
 [Dodawanie interfejsów API do produktu]: api-management-howto-add-products.md#add-apis
 [Publikowanie produktu]: api-management-howto-add-products.md#publish-product
@@ -168,6 +172,6 @@ Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2*
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

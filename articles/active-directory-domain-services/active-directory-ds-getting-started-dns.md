@@ -1,12 +1,12 @@
 ---
-title: 'Usługi domenowe Azure AD: aktualizowanie ustawień DNS na potrzeby sieci wirtualnej platformy Azure | Microsoft Docs'
-description: Wprowadzenie do usługi Active Directory Domain Services
+title: "Azure AD Domain Services: aktualizowanie ustawień DNS na potrzeby sieci wirtualnej platformy Azure | Microsoft Docs"
+description: "Wprowadzenie do usługi Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 81c0564390c57c7ee001ce5a574ab670faf898b4
+
 
 ---
-# Usługi domenowe Azure AD — aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
-## Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
+# <a name="azure-ad-domain-services-update-dns-settings-for-the-azure-virtual-network"></a>Usługi domenowe Azure AD — aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
 W poprzednich zadaniach konfiguracji pomyślnie włączono Usługi domenowe Azure AD dla katalogu. Następnym krokiem jest zapewnienie komputerom w sieci wirtualnej możliwości łączenia się z tymi usługami i korzystania z nich. Zaktualizuj ustawienia serwera DNS dla sieci wirtualnej, wskazując dwa adresy IP, pod którymi Usługi domenowe Azure AD są dostępne w sieci wirtualnej.
 
 > [!NOTE]
@@ -46,9 +50,12 @@ Wykonaj poniższe czynności konfiguracyjne, aby zaktualizować ustawienia serwe
 > 
 > 
 
-## Zadanie 5. Włączanie synchronizacji haseł w Usługach domenowych Azure AD
+## <a name="task-5-enable-password-synchronization-to-azure-ad-domain-services"></a>Zadanie 5. Włączanie synchronizacji haseł w Usługach domenowych Azure AD
 Następne zadanie konfiguracyjne to [włączenie synchronizacji haseł w Usługach domenowych Azure AD](active-directory-ds-getting-started-password-sync.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

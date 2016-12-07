@@ -1,60 +1,75 @@
-
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure classic portal | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal
+title: "Wprowadzenie do tworzenia dostępnego z Internetu modułu równoważenia obciążenia w klasycznym modelu wdrażania przy użyciu klasycznej witryny Azure Portal | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w klasycznym modelu wdrażania za pomocą klasycznego portalu Azure"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: fa3e93c0-968a-472d-a17c-65665c050db2
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
+ms.openlocfilehash: bf71746d3c23fd69902f1a7af6cbab2ad1a65df4
 
 ---
-# Get started creating an Internet facing load balancer (classic) in the Azure classic portal
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Wprowadzenie do tworzenia dostępnego z Internetu modułu równoważenia obciążenia (klasycznego) za pomocą klasycznego portalu Azure
+
+> [!div class="op_single_selector"]
+> * [Klasyczna witryna Azure Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Przed rozpoczęciem pracy z zasobami platformy Azure należy pamiętać, że ma ona obecnie dwa modele wdrażania: za pomocą usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-classic-rm.md). Dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty w górnej części artykułu. W tym artykule opisano klasyczny model wdrażania. Możesz też zapoznać się z artykułem na temat [tworzenia dostępnego z Internetu modułu równoważenia obciążenia za pomocą usługi Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Set up an Internet-facing load balancer for virtual machines
-In order to load balance network traffic from the Internet across the virtual machines of a cloud service, you must create a load-balanced set. This procedure assumes that you have already created the virtual machines and that they are all within the same cloud service.
+## <a name="set-up-an-internet-facing-load-balancer-for-virtual-machines"></a>Konfigurowanie dostępnego z Internetu modułu równoważenia obciążenia do maszyn wirtualnych
 
-**To configure a load-balanced set for virtual machines**
+Aby zrównoważyć obciążenie ruchu sieciowego z Internetu na maszynach wirtualnych usługi w chmurze, należy utworzyć zestaw o zrównoważonym obciążeniu. Na potrzeby tej procedury przyjęto założenie, że maszyny wirtualne zostały już utworzone i należą do tej samej usługi w chmurze.
 
-1. In the Azure classic portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
-2. Click **Endpoints**, and then click **Add**.
-3. On the **Add an endpoint to a virtual machine** page, click the right arrow.
-4. On the **Specify the details of the endpoint** page:
-   
-   * In **Name**, type a name for the endpoint or select the name from the list of predefined endpoints for common protocols.
-   * In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
-   * In **Public Port and Private Port**, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
-5. Select **Create a load-balanced set**, and then click the right arrow.
-6. On the **Configure the load-balanced set** page, type a name for the load-balanced set, and then assign the values for probe behavior of the Azure Load Balancer. The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
-7. Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
-8. In the portal, click **Virtual Machines**, click the name of an additional virtual machine in the load-balanced set, click **Endpoints**, and then click **Add**.
-9. On the **Add an endpoint to a virtual machine** page, click **Add endpoint to an existing load-balanced set**, select the name of the load-balanced set, and then click the right arrow.
-10. On the **Specify the details of the endpoint** page, type a name for the endpoint, and then click the check mark.
+**Konfigurowanie zestawu o zrównoważonym obciążeniu do maszyn wirtualnych**
 
-For the additional virtual machines in the load-balanced set, repeat steps 8-10.
+1. W klasycznym portalu Azure kliknij opcję **Maszyny wirtualne**, a następnie kliknij nazwę maszyny wirtualnej w zestawie o zrównoważonym obciążeniu.
+2. Kliknij kolejno opcje **Punkty końcowe** i **Dodaj**.
+3. Na stronie **Add an endpoint to a virtual machine** (Dodaj punkt końcowy do maszyny wirtualnej) kliknij strzałkę w prawo.
+4. Na stronie **Specify the details of the endpoint** (Podaj szczegóły punktu końcowego):
 
-## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
+   * W obszarze **Nazwa**, wpisz nazwę punktu końcowego lub wybierz ją z listy wstępnie zdefiniowanych punktów końcowych dla stosowanych powszechnie protokołów.
+   * W obszarze **Protokół** wybierz protokół wymagany przez dany typ punktu końcowego — TCP lub UDP.
+   * W obszarze **Public Port and Private Port** (Port publiczny i port prywatny) wpisz numery portów, z których ma korzystać maszyna wirtualna, zgodnie z potrzebami. Możesz wykorzystać reguły portu prywatnego i zapory maszyny wirtualnej, aby przekierować ruch sieciowy w sposób odpowiedni do danego zastosowania. Port prywatny może być taki sam, jak publiczny. Na przykład w przypadku punktu końcowego ruchu sieciowego (HTTP) port 80 można przypisać zarówno jako publiczny, jak i prywatny.
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+5. Wybierz opcję **Create a load-balanced set** (Utwórz zestaw o zrównoważonym obciążeniu), a następnie kliknij strzałkę w prawo.
+6. Na stronie **Configure the load-balanced set** (Konfiguracja zestawu o zrównoważonym obciążeniu) wpisz nazwę zestawu o zrównoważonym obciążeniu, a następnie przypisz wartości zachowania sondy usługi Azure Load Balancer. Moduł równoważenia obciążenia korzysta z sond, aby określić, czy maszyny wirtualne w zestawie o zrównoważonym obciążeniu mogą otrzymywać przychodzący ruch sieciowy.
+7. Kliknij znacznik wyboru, aby utworzyć punkt końcowy o zrównoważonym obciążeniu. Zostanie wyświetlony komunikat **Tak** w kolumnie **Load-balanced set name** (Nazwa zestawu o zrównoważonym obciążeniu) na stronie **Punkty końcowe** dotyczącej maszyny wirtualnej.
+8. W portalu kliknij kolejno opcję **Maszyny wirtualne**, nazwę dodatkowej maszyny wirtualnej w zestawie o zrównoważonym obciążeniu, opcję **Punkty końcowe** oraz opcję **Dodaj**.
+9. Na stronie **Add an endpoint to a virtual machine** (Dodaj punkt końcowy do maszyny wirtualnej) kliknij opcję **Add endpoint to an existing load-balanced set** (Dodaj punkt końcowy do istniejącego zestawu o zrównoważonym obciążeniu), wybierz nazwę zestawu o zrównoważonym obciążeniu, a następnie kliknij strzałkę w prawo.
+10. Na stronie **Specify the details of the endpoint** (Podaj szczegóły punktu końcowego) wpisz nazwę punktu końcowego, a następnie kliknij znacznik wyboru.
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+Aby dodać maszyny wirtualne do zestawu o zrównoważonym obciążeniu, wykonaj ponownie kroki 8–10.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md) (Wprowadzenie do konfigurowania wewnętrznego modułu równoważenia obciążenia)
+
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

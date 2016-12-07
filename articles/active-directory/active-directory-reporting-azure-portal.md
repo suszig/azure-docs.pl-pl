@@ -1,25 +1,29 @@
 ---
-title: Raporty usługi Azure Active Directory — podgląd | Microsoft Docs
-description: Lista raportów dostępnych w ramach podglądu usługi Azure Active Directory
+title: "Raporty usługi Azure Active Directory — podgląd | Microsoft Docs"
+description: "Lista raportów dostępnych w ramach podglądu usługi Azure Active Directory"
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+
 
 ---
-# Raporty usługi Azure Active Directory — podgląd
+# <a name="azure-active-directory-reporting-preview"></a>Raporty usługi Azure Active Directory — podgląd
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-reporting-azure-portal.md)
-> * [klasyczny portal Azure](active-directory-reporting-guide.md)
+> * [Witryna Azure Portal](active-directory-reporting-azure-portal.md)
+> * [Klasyczna witryna Azure Portal](active-directory-reporting-guide.md)
 > 
 > 
 
@@ -34,8 +38,8 @@ Istnieją dwa główne obszary raportowania:
 
 W zależności od szukanego zakresu danych dostęp do tych raportów można uzyskać na dwa sposoby: klikając pozycję **Użytkownicy i grupy** lub **Aplikacje dla przedsiębiorstw** na liście usług w witrynie [Azure Portal](https://portal.azure.com).
 
-## Działania związane z logowaniem
-### Działania użytkownika związane z logowaniem
+## <a name="signin-activities"></a>Działania związane z logowaniem
+### <a name="user-signin-activities"></a>Działania użytkownika związane z logowaniem
 Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać odpowiedzi na pytania, takie jak:
 
 * Co to jest wzorzec logowania użytkownika?
@@ -62,7 +66,7 @@ Każdy wiersz na liście działań związanych z logowaniem zapewnia szczegóło
 * Jaki jest adres IP komputera, z którego się logowano?
 * Jaki był stan logowania?
 
-### Użycie zarządzanych aplikacji
+### <a name="usage-of-managed-applications"></a>Użycie zarządzanych aplikacji
 Dzięki widokowi skoncentrowanemu na aplikacji w ramach danych logowania można uzyskać odpowiedzi na pytania, takie jak:
 
 * Kto korzysta z aplikacji?
@@ -93,17 +97,23 @@ Za pomocą selektora kolumny można wybrać pola danych, które mają być wyśw
 
 ![Raportowanie](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### Filtrowanie logowań
-Logowania można filtrować według przedziału czasu, aby ograniczyć ilość wyświetlanych danych.
+### <a name="filtering-signins"></a>Filtrowanie logowań
+Logowania można filtrować, aby ograniczyć ilość wyświetlanych danych, przy użyciu następujących pól:
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/927.png "Reporting")
+* Data i godzina 
+* Główna nazwa użytkownika
+* Nazwa aplikacji
+* Nazwa klienta
+* Stan logowania
+
+![Raportowanie](./media/active-directory-reporting-azure-portal/293.png "Reporting")
 
 Inną metodą filtrowania wpisów działań związanych z logowaniem jest wyszukiwanie określonych wpisów.
 Ta metoda wyszukiwania umożliwia zestawienie logowań wokół określonych **użytkowników**, **grup** i **aplikacji**.
 
 ![Raportowanie](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Dzienniki inspekcji
+## <a name="audit-logs"></a>Dzienniki inspekcji
 Dzienniki inspekcji w usłudze Azure Active Directory dostarczają informacji na temat aktywności systemu pod kątem zgodności.
 
 Istnieją trzy główne kategorie aktywności związanych z inspekcją w witrynie Azure Portal:
@@ -126,7 +136,7 @@ Klikając pozycję w widoku listy, można uzyskać więcej szczegółów na jej 
 
 ![Inspekcja](./media/active-directory-reporting-azure-portal/873.png "Auditing")
 
-### Dzienniki inspekcji użytkowników i grup
+### <a name="users-and-groups-audit-logs"></a>Dzienniki inspekcji użytkowników i grup
 Za pomocą raportów inspekcji opartych na użytkownikach i grupach można uzyskać odpowiedzi na pytania, takie jak:
 
 * Jakie typy aktualizacji zostały zastosowane przez użytkowników?
@@ -142,7 +152,7 @@ Jeśli chcesz przeglądać dane inspekcji dotyczące użytkowników i grup, moż
 
 ![Inspekcja](./media/active-directory-reporting-azure-portal/93.png "Auditing")
 
-### Dzienniki inspekcji aplikacji
+### <a name="application-audit-logs"></a>Dzienniki inspekcji aplikacji
 Za pomocą raportów inspekcji opartych na aplikacjach można uzyskać odpowiedzi na pytania, takie jak:
 
 * Jakie aplikacje zostały dodane lub zaktualizowane?
@@ -155,18 +165,44 @@ Jeśli chcesz przeglądać dane inspekcji dotyczące aplikacji, możesz skorzyst
 
 ![Inspekcja](./media/active-directory-reporting-azure-portal/134.png "Auditing")
 
-### Dzienniki inspekcji filtrowania
-Raport inspekcji można filtrować według przedziału czasu, aby ograniczyć ilość wyświetlanych danych.
+### <a name="filtering-audit-logs"></a>Dzienniki inspekcji filtrowania
+Logowania można filtrować, aby ograniczyć ilość wyświetlanych danych, przy użyciu następujących pól:
 
-![Inspekcja](./media/active-directory-reporting-azure-portal/324.png "Auditing")
+* Data i godzina
+* Główna nazwa użytkownika aktora
+* Typ działania
+* Działanie
+
+![Inspekcja](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+
+Zawartość listy **Typ działania** jest ograniczona do punktu wejścia do tego bloku.  
+Jeśli punktem wejścia jest usługa Azure Active Directory, ta lista zawiera wszystkie możliwe typy działań:
+
+* Aplikacja 
+* Grupa 
+* Użytkownik
+* Urządzenie
+* Katalog
+* Zasady
+* Inne
+
+![Inspekcja](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+
+Działania wymienione na liście są podzielone na zakresy według typu działania.
+Jeśli na przykład ustawienie **Typ działania** ma wartość **Grupa**, lista **Działanie** zawiera tylko działania powiązane z grupą.   
+
+![Inspekcja](./media/active-directory-reporting-azure-portal/654.png "Auditing")
 
 Inną metodą filtrowania wpisów dziennika inspekcji jest wyszukiwanie określonych wpisów.
 
 ![Inspekcja](./media/active-directory-reporting-azure-portal/237.png "Auditing")
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Zobacz temat [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md) (Przewodnik po raportach usługi Azure Active Directory).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

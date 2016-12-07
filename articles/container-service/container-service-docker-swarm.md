@@ -1,33 +1,37 @@
 ---
-title: Zarządzanie kontenerem usługi kontenera platformy Azure przy użyciu rozwiązania Docker Swarm | Microsoft Docs
-description: Wdrażanie kontenerów do rozwiązania Docker Swarm w usłudze kontenera platformy Azure
+title: "Zarządzanie kontenerem usługi Azure Container Service przy użyciu rozwiązania Docker Swarm | Microsoft Docs"
+description: "Wdrażanie kontenerów do rozwiązania Docker Swarm w usłudze kontenera platformy Azure"
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, kontenery, mikrousługi, Mesos, Azure
-
+keywords: "Docker, kontenery, mikrousługi, Mesos, Azure"
+ms.assetid: af8f6fb2-13dc-429c-b82a-24a741168d42
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: nepeters
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 99953be1a9d99cc1fdd5cd46522ccd262c09e25b
+
 
 ---
-# Zarządzanie kontenerami przy użyciu rozwiązania Docker Swarm
+# <a name="container-management-with-docker-swarm"></a>Zarządzanie kontenerami przy użyciu rozwiązania Docker Swarm
 Rozwiązanie Docker Swarm oferuje środowisko wdrażania konteneryzowanych obciążeń w puli zestawów hostów Docker. Rozwiązanie Docker Swarm używa natywnego interfejsu API Docker. Przepływ pracy zarządzania kontenerami w rozwiązaniu Docker Swarm jest niemal identyczny jak w przypadku pojedynczego hosta kontenera. Ten dokument zawiera proste przykłady wdrażania konteneryzowanych obciążeń w wystąpieniu usługi kontenera platformy Azure w rozwiązaniu Docker Swarm. Szczegółową dokumentację dotyczącą rozwiązania Docker Swarm można znaleźć na stronie [Docker Swarm w witrynie Docker.com](https://docs.docker.com/swarm/).
 
 Wymagania wstępne dotyczące ćwiczeń opisanych w tym dokumencie:
 
-[Utworzenie klastra Swarm usługi kontenera platformy Azure](container-service-deployment.md)
+[Utworzenie klastra Swarm usługi Azure Container Service](container-service-deployment.md)
 
-[Połączenie z klastrem Swarm w usłudze kontenera platformy Azure](container-service-connect.md)
+[Połączenie z klastrem Swarm w usłudze Azure Container Service](container-service-connect.md)
 
-## Wdrażanie nowego kontenera
+## <a name="deploy-a-new-container"></a>Wdrażanie nowego kontenera
 Aby utworzyć nowy kontener w rozwiązaniu Docker Swarm, użyj polecenia `docker run` (co zapewni otwarcie tunelu SSH do serwerów głównych zgodnie z powyższymi wymaganiami wstępnymi). W tym przykładzie kontener jest tworzony na podstawie obrazu `yeasy/simple-web`:
 
 ```bash
@@ -51,7 +55,7 @@ Możesz teraz uzyskiwać dostęp do aplikacji, która działa w tym kontenerze, 
 
 Domyślnie moduł równoważenia obciążenia ma otwarte porty 80, 8080 i 443. Jeśli chcesz się połączyć na innym porcie, musisz otworzyć ten port w module Azure Load Balancer dla puli agenta.
 
-## Wdrażanie wielu kontenerów
+## <a name="deploy-multiple-containers"></a>Wdrażanie wielu kontenerów
 Ze względu na to, że uruchamia się wiele kontenerów przez wielokrotne wykonanie polecenia „docker run”, możesz użyć polecenia `docker ps`, aby zobaczyć, na których hostach działają kontenery. W poniższym przykładzie trzy kontenery zostały rozmieszczone równomiernie w obrębie trzech agentów Swarm:  
 
 ```bash
@@ -63,7 +67,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   2 minutes ago       Up 2 minutes        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-## Wdrażanie kontenerów przy użyciu rozwiązania Docker Compose
+## <a name="deploy-containers-by-using-docker-compose"></a>Wdrażanie kontenerów przy użyciu rozwiązania Docker Compose
 Rozwiązania Docker Compose możesz używać do automatyzowania wdrażania i konfigurowania wielu kontenerów. W tym celu upewnij się, że utworzono tunel Secure Shell (SSH) oraz że ustawiono zmienną DOCKER_HOST (patrz wymagania wstępne powyżej).
 
 Utwórz plik docker-compose.yml w systemie lokalnym. W tym celu użyj tego [przykładu](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
@@ -109,9 +113,12 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 Naturalnie można użyć polecenia `docker-compose ps` do zbadania tylko kontenerów zdefiniowanych w pliku `compose.yml`.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 [Dowiedz się więcej na temat rozwiązania Docker Swarm](https://docs.docker.com/swarm/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

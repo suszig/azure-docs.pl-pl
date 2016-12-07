@@ -1,22 +1,26 @@
 ---
-title: Korzystanie z usługi Azure Media Services i witryny Azure Portal do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów | Microsoft Docs
-description: Ten samouczek przedstawia tworzenie kanału, który odbiera strumień na żywo o jednej szybkości transmisji bitów i koduje go jako strumień o różnych szybkościach transmisji bitów przy użyciu witryny Azure Portal.
+title: "Korzystanie z usługi Azure Media Services i witryny Azure Portal do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów | Microsoft Docs"
+description: "Ten samouczek przedstawia tworzenie kanału, który odbiera strumień na żywo o jednej szybkości transmisji bitów i koduje go jako strumień o różnych szybkościach transmisji bitów przy użyciu witryny Azure Portal."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
-ms.author: juliako;juliako
+ms.date: 10/24/2016
+ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Korzystanie z usługi Azure Media Services i witryny Azure Portal do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-the-azure-portal"></a>Korzystanie z usługi Azure Media Services i witryny Azure Portal do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -72,7 +76,8 @@ W tym samouczku witryna Azure Portal jest używana do wykonywania następującyc
 ## <a name="prerequisites"></a>Wymagania wstępne
 Następujące elementy są wymagane do wykonania czynności przedstawionych w samouczku.
 
-* Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. 
+  Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).
 * Kamera internetowa i koder, który może wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów.
 
@@ -83,7 +88,7 @@ Aby skorzystać z dynamicznego tworzenia pakietów, pobierz co najmniej jedną j
 
 Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumieniowego, wykonaj następujące czynności:
 
-1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) i wybierz swoje konto AMS.
 2. W oknie **Ustawienia** kliknij przycisk **Punkty końcowe przesyłania strumieniowego**. 
 3. Kliknij domyślny punkt końcowy przesyłania strumieniowego. 
    
@@ -99,7 +104,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
    > 
 
 ## <a name="create-a-channel"></a>Tworzenie KANAŁU
-1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję Media Services, a następnie kliknij nazwę konta usługi Media Services.
+1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz pozycję Media Services, a następnie kliknij nazwę konta usługi Media Services.
 2. Wybierz pozycję **Transmisja strumieniowa na żywo**.
 3. Wybierz pozycję **Tworzenie niestandardowe**. Ta opcja umożliwi utworzenie kanału, który jest skonfigurowany do przeprowadzania kodowania na żywo.
    
@@ -164,7 +169,7 @@ Nawet po zatrzymaniu i usunięciu wydarzenia użytkownicy będą mogli przesyła
 
 Jeśli chcesz zachować zarchiwizowaną zawartość, ale bez udostępniania jej do przesyłania strumieniowego, usuń lokalizator przesyłania strumieniowego.
 
-### <a name="create/start/stop-events"></a>Tworzenie, uruchamianie i zatrzymywanie wydarzeń
+### <a name="createstartstop-events"></a>Tworzenie, uruchamianie i zatrzymywanie wydarzeń
 Po przesłaniu strumienia do kanału można rozpocząć zdarzenie przesyłania strumieniowego poprzez utworzenie elementu zawartości, programu i lokalizatora przesyłania strumieniowego. Spowoduje to archiwizację strumienia i udostępni go użytkownikom za pośrednictwem punktu końcowego przesyłania strumieniowego. 
 
 Istnieją dwa sposoby rozpoczęcia zdarzenia: 
@@ -205,7 +210,7 @@ Aby po zakończeniu strumieniowego przesyłania zdarzeń, wyczyścić udostępni
 ## <a name="view-archived-content"></a>Wyświetlanie zarchiwizowanej zawartości
 Nawet po zatrzymaniu i usunięciu wydarzenia użytkownicy będą mogli przesyłać strumieniowo zarchiwizowaną zawartość wideo na żądanie tak długo, jak zasoby nie zostaną usunięte. Nie można usunąć elementu zawartości, jeśli jest on używany przez wydarzenie. Najpierw należy usunąć wydarzenie. 
 
-Aby zarządzać elementami zawartości, wybierz opcję **Ustawienie** i kliknij przycisk **Elementy zawartości**.
+Aby zarządzać elementami zawartości, wybierz pozycję **Ustawienie** i kliknij przycisk **Elementy zawartości**.
 
 ![Elementy zawartości](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
@@ -221,6 +226,9 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

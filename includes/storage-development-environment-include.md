@@ -1,7 +1,7 @@
-## Konfigurowanie środowiska projektowego
+## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego
 Następnie skonfiguruj środowisko projektowe w programie Visual Studio, aby przygotować się do wypróbowania przykładowych kodów podanych w tym przewodniku.
 
-### Utwórz projekt aplikacji konsolowej dla systemu Windows
+### <a name="create-a-windows-console-application-project"></a>Utwórz projekt aplikacji konsolowej dla systemu Windows
 W programie Visual Studio utwórz nową aplikację konsolową dla systemu Windows:
 
 ![Tworzenie aplikacji konsolowej dla systemu Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
@@ -10,7 +10,7 @@ Wszystkie przykładowe kody w tym samouczku można dodać do metody **Main()** w
 
 Pamiętaj, że Biblioteki klienta usługi Storage platformy Azure można używać z dowolnego typu aplikacji w środowisku .NET, m.in. usługi w chmurze Azure, aplikacji sieci Web platformy Azure, aplikacji pulpitu lub aplikacji mobilnej. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
 
-### Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
+### <a name="use-nuget-to-install-the-required-packages"></a>Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
 Istnieją dwa pakiety, które trzeba zainstalować w projekcie, aby wykonać instrukcje z tego samouczka:
 
 * [Biblioteka klienta usługi Storage platformy Microsoft Azure dla środowiska .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): ten pakiet zapewnia dostęp programowy do zasobów danych na koncie magazynu.
@@ -29,7 +29,7 @@ Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 > 
 > 
 
-### Określanie środowiska docelowego
+### <a name="determine-your-target-environment"></a>Określanie środowiska docelowego
 W przypadku uruchamiania przykładów w tym przewodniku istnieją dwie opcje środowiska:
 
 * Można uruchomić kod dla konta usługi Azure Storage w chmurze. 
@@ -42,7 +42,7 @@ Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy kluc
 > 
 > 
 
-### Konfigurowanie parametrów połączenia magazynu
+### <a name="configure-your-storage-connection-string"></a>Konfigurowanie parametrów połączenia magazynu
 Biblioteka klienta usługi Storage platformy Azure dla środowiska .NET obsługuje korzystanie z parametrów połączenia magazynu w celu konfiguracji punktów końcowych i poświadczeń w celu uzyskania dostępu do usług Storage. Najlepiej przechowywać parametry połączenia magazynu w pliku konfiguracji. 
 
 Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz temat [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md) (Konfigurowania parametrów połączenia z usługą Azure Storage).
@@ -58,9 +58,9 @@ Aby skonfigurować parametry połączenia, otwórz plik `app.config` z Eksplorat
         <startup> 
             <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
         </startup>
-        <appSettings>
+          <appSettings>
             <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-        </appSettings>
+          </appSettings>
     </configuration>
 
 Na przykład ustawienie konfiguracji powinno wyglądać mniej więcej tak:
@@ -73,6 +73,6 @@ Jeśli obiektem docelowym ma być emulator magazynu, możesz użyć skrótu klaw
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

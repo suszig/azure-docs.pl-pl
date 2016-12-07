@@ -102,7 +102,7 @@
 ### [Sygnatury dostępu współdzielonego (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Samouczek: Szyfrowanie i odszyfrowywanie obiektów blob za pomocą usługi Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 ### Szyfrowania po stronie klienta
-#### [Usługa Azure Key Vault](storage-client-side-encryption.md)
+#### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 
@@ -126,7 +126,7 @@
 
 
 # Dokumentacja
-## [Program PowerShell](/powershell/storage/)
+## [PowerShell](/powershell/storage/)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/storage)
 ## [Java](/java/api/)
 
@@ -181,6 +181,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

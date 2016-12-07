@@ -1,13 +1,13 @@
 ---
-title: Wstępnie skonfigurowane rozwiązania Azure IoT | Microsoft Docs
-description: Opis wstępnie skonfigurowanych rozwiązań Azure IoT, w tym informacje dotyczące ich architektury oraz linki prowadzące do dodatkowych zasobów.
-services: ''
+title: "Wstępnie skonfigurowane rozwiązania Azure IoT | Microsoft Docs"
+description: "Opis wstępnie skonfigurowanych rozwiązań Azure IoT, w tym informacje dotyczące ich architektury oraz linki prowadzące do dodatkowych zasobów."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+
 
 ---
-# Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?
+# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?
 Wstępnie skonfigurowane rozwiązania Pakietu IoT Azure to implementacje typowych wzorców rozwiązań IoT, które można wdrożyć na platformie Azure przy użyciu posiadanej subskrypcji. Wstępnie skonfigurowanych rozwiązań można używać w następujący sposób:
 
 * Jako punktu wyjściowego dla własnych rozwiązań IoT.
@@ -45,14 +49,14 @@ W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje
 * *Reguły i akcje*: przy użyciu reguł zaplecze rozwiązania wykonuje działania na podstawie określonych danych przesyłanych z urządzenia do chmury.
 * *Analiza predykcyjna*: zaplecze rozwiązania analizuje dane przesyłane z urządzenia do chmury i przewiduje działania do wykonania. Na przykład analiza danych telemetrycznych silnika samolotu umożliwia określenie konieczności przeprowadzenia konserwacji silnika.
 
-## Omówienie wstępnie skonfigurowanego rozwiązania monitorowania zdalnego
+## <a name="remote-monitoring-preconfigured-solution-overview"></a>Omówienie wstępnie skonfigurowanego rozwiązania monitorowania zdalnego
 W tym artykule omówiono wstępnie skonfigurowane rozwiązanie monitorowania zdalnego, ponieważ zawiera ono wiele typowych elementów projektu, które są używane w innych rozwiązaniach.
 
 Na poniższym diagramie przedstawiono najważniejsze elementy rozwiązania monitorowania zdalnego. Następujące sekcje zawierają więcej informacji na temat tych elementów.
 
 ![Architektura wstępnie skonfigurowanego rozwiązania monitorowania zdalnego][img-remote-monitoring-arch]
 
-## Urządzenia
+## <a name="devices"></a>Urządzenia
 Po wdrożeniu wstępnie skonfigurowanego rozwiązania monitorowania zdalnego następuje wstępna aprowizacja czterech symulowanych urządzeń w ramach rozwiązania, które pozoruje pracę urządzenia chłodzącego. Symulowane urządzenia mają wbudowany model generowania wartości temperatury i wilgotności, który emituje dane telemetryczne. Symulowane urządzenia umożliwiają zilustrowanie całościowego przepływu danych przez rozwiązanie i udostępniają przydatne źródło danych telemetrycznych oraz stanowią obiekty docelowe poleceń wysyłanych przez deweloperów zaplecza, którzy korzystają z rozwiązania jako punktu wyjściowego dla niestandardowych implementacji.
 
 Gdy dane urządzenie pierwszy raz łączy się z usługą IoT Hub we wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego, do usługi IoT Hub jest wysyłany komunikat z informacjami o urządzeniu, który zawiera listę poleceń obsługiwanych przez to urządzenie. W przypadku wstępnie skonfigurowanego rozwiązania monitorowania zdalnego dostępne są następujące polecenia: 
@@ -66,14 +70,14 @@ Gdy dane urządzenie pierwszy raz łączy się z usługą IoT Hub we wstępnie s
 
 Do rozwiązania można dodać kolejne symulowane urządzenia, które emitują te same dane telemetryczne i obsługują te same polecenia. 
 
-## Usługa IoT Hub
+## <a name="iot-hub"></a>Usługa IoT Hub
 W tym wstępnie skonfigurowanym rozwiązaniu wystąpienie usługi IoT Hub odpowiada *bramie chmury* w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
 
 Usługa IoT Hub odbiera dane telemetryczne z urządzeń w jednym punkcie końcowym. Udostępnia również punkty końcowe umożliwiające poszczególnym urządzeniom pobranie wysyłanych do nich poleceń.
 
 Usługa IoT Hub udostępnia odebrane dane telemetryczne za pośrednictwem punktu końcowego odczytu danych telemetrycznych po stronie usługi.
 
-## Usługa Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 Filtrowanie strumienia danych telemetrycznych pochodzących z urządzeń we wstępnie skonfigurowanym rozwiązaniu odbywa się za pomocą trzech zadań usługi [Azure Stream Analytics][lnk-asa] (ASA).
 
 * *Zadanie dotyczące informacji o urządzeniach* — wysyła dane do centrum zdarzeń, które przekazuje specyficzne komunikaty dotyczące rejestracji urządzeń, wysyłane przy pierwszym połączeniu urządzenia lub w odpowiedzi na polecenie **Change device state**, do rejestru urządzeń rozwiązania (bazy danych DocumentDB). 
@@ -82,19 +86,19 @@ Filtrowanie strumienia danych telemetrycznych pochodzących z urządzeń we wst�
 
 W tym wstępnie skonfigurowanym rozwiązaniu zadania usługi ASA stanowią część **zaplecza rozwiązania IoT** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
 
-## Procesor zdarzeń
+## <a name="event-processor"></a>Procesor zdarzeń
 W tym wstępnie skonfigurowanym rozwiązaniu procesor zdarzeń stanowi część **zaplecza rozwiązania IoT** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
 
 Zadania usługi ASA dotyczące **reguł** i **informacji o urządzeniach** wysyłają dane wyjściowe do centrów zdarzeń, z których dane są przekazywane do innych usług zaplecza. Do odczytu komunikatów z centrów zdarzeń jest używane wystąpienie klasy [EventProcessorHost][lnk-event-processor] uruchomione w zadaniu [WebJob][lnk-web-job]. Klasa **EventProcessorHost** aktualizuje dane urządzeń w bazie danych DocumentDB za pomocą danych zadania **dotyczącego informacji o urządzeniach** oraz wywołuje aplikację logiki i aktualizuje alerty wyświetlane w portalu rozwiązania przy użyciu danych zadania **dotyczącego reguł**.
 
-## Rejestr tożsamości urządzeń i baza danych DocumentDB
+## <a name="device-identity-registry-and-documentdb"></a>Rejestr tożsamości urządzeń i baza danych DocumentDB
 Każde wystąpienie usługi IoT Hub zawiera [rejestr tożsamości urządzeń][lnk-identity-registry], który przechowuje klucze urządzeń. Usługa IoT Hub używa tych informacji do uwierzytelniania urządzeń — dane urządzenie musi być zarejestrowane i mieć prawidłowy klucz, zanim będzie mogło połączyć się z centrum.
 
 W tym rozwiązaniu są przechowywane dodatkowe informacje o urządzeniach, takie jak stan, obsługiwane polecenia i inne metadane. Dane dotyczące urządzeń w ramach konkretnego rozwiązania są przechowywane w bazie danych DocumentDB, skąd są pobierane w celu ich wyświetlania i edytowania w portalu rozwiązania.
 
 Informacje przechowywane w rejestrze tożsamości urządzeń muszą być zsynchronizowane z zawartością bazy danych DocumentDB. Klasa **EventProcessorHost** zarządza synchronizacją przy użyciu danych z zadania analizy strumienia dotyczącego **informacji o urządzeniach**.
 
-## Portal rozwiązania
+## <a name="solution-portal"></a>Portal rozwiązania
 ![Pulpit nawigacyjny rozwiązania][img-dashboard]
 
 Portal rozwiązania to oparty na sieci Web interfejs użytkownika wdrożony w chmurze w ramach wstępnie skonfigurowanego rozwiązania. Umożliwia on wykonywanie następujących czynności:
@@ -107,7 +111,7 @@ Portal rozwiązania to oparty na sieci Web interfejs użytkownika wdrożony w ch
 
 W tym wstępnie skonfigurowanym rozwiązaniu portal rozwiązania stanowi część **zaplecza rozwiązania IoT** oraz **przetwarzania i łączności biznesowej** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat architektury rozwiązań IoT, zobacz dokument [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Usługi Microsoft Azure IoT: architektura referencyjna).
 
 Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możesz rozpocząć wdrażanie wstępnie skonfigurowanego rozwiązania *monitorowania zdalnego* : [Wprowadzenie do wstępnie skonfigurowanych rozwiązań][lnk-getstarted-preconfigured].
@@ -125,6 +129,7 @@ Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możes
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Nov16_HO2-->
 
 

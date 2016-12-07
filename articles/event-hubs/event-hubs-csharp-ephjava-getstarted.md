@@ -1,12 +1,12 @@
 ---
-title: Rozpoczynanie pracy z usługą Event Hubs w języku C# | Microsoft Docs
-description: Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Azure Event Hubs, przesyłanie zdarzeń w języku C# i odbieranie ich w języku Java z użyciem klasy EventProcessorHost.
+title: "Rozpoczynanie pracy z usługą Event Hubs w języku C# | Microsoft Docs"
+description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Azure Event Hubs, przesyłanie zdarzeń w języku C# i odbieranie ich w języku Java z użyciem klasy EventProcessorHost."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 059fb733-a397-400e-8e43-0c7ea5930b8b
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Rozpoczynanie pracy z usługą Event Hubs
@@ -49,7 +53,7 @@ Teraz wszystko jest gotowe do uruchomienia aplikacji.
 Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarzeń oraz wysyła i odbiera dane, możesz przejść do następujących scenariuszy:
 
 * Kompletna [przykładowa aplikacja korzystająca z usługi Event Hubs][przykładowa aplikacja korzystająca z usługi Event Hubs].
-* Przykład [skalowania przetwarzania zdarzeń za pomocą usługi Event Hubs][].
+* Przykład [skalowania przetwarzania zdarzeń za pomocą usługi Event Hubs][Skalowanie przetwarzania zdarzeń za pomocą usługi Event Hubs].
 * [Przegląd usługi Event Hubs][Przegląd usługi Event Hubs]
 
 <!-- Images. -->
@@ -64,6 +68,6 @@ Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarz
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

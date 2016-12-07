@@ -1,13 +1,13 @@
 ---
-title: Przekazywanie danych do usługi Azure Search przy użyciu zestawu .NET SDK | Microsoft Docs
-description: Dowiedz się, jak przekazywać dane do indeksu w usłudze Azure Search przy użyciu zestawu .NET SDK.
+title: "Przekazywanie danych do usługi Azure Search przy użyciu zestawu .NET SDK | Microsoft Docs"
+description: "Dowiedz się, jak przekazywać dane do indeksu w usłudze Azure Search przy użyciu zestawu .NET SDK."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
-manager: ''
-editor: ''
-tags: ''
-
+manager: jhubbard
+editor: 
+tags: 
+ms.assetid: 0e0e7e7b-7178-4c26-95c6-2fd1e8015aca
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a63d71de584b526972ff86ba8cb47664e66e22da
+
 
 ---
-# Przekazywanie danych do usługi Azure Search przy użyciu zestawu .NET SDK
+# <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Przekazywanie danych do usługi Azure Search przy użyciu zestawu .NET SDK
 > [!div class="op_single_selector"]
 > * [Omówienie](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -37,7 +41,7 @@ Aby wypchnąć dokumenty do indeksu przy użyciu zestawu .NET SDK, konieczne jes
 2. Utworzenie obiektu `IndexBatch` zawierającego dokumenty przeznaczone do dodania, modyfikacji lub usunięcia.
 3. Wywołanie metody `Documents.Index` klasy `SearchIndexClient`, aby wysłać obiekt `IndexBatch` do indeksu wyszukiwania.
 
-## I. Tworzenie wystąpienia klasy SearchIndexClient
+## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Tworzenie wystąpienia klasy SearchIndexClient
 Aby zaimportować dane do indeksu, używając zestawu .NET SDK usługi Azure Search, konieczne jest utworzenie wystąpienia klasy `SearchIndexClient`. Takie wystąpienie można utworzyć samodzielnie, ale, jeśli masz już wystąpienie klasy `SearchServiceClient`, łatwiej jest wywołać jej metodę `Indexes.GetClient`. W poniższym przykładzie przedstawiono, jak można uzyskać klasę `SearchIndexClient` dla indeksu o nazwie „hotels” z klasy `SearchServiceClient` o nazwie `serviceClient`:
 
 ```csharp
@@ -51,7 +55,7 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` ma właściwość `Documents`. Ta właściwość zapewnia wszystkie metody, które są potrzebne, aby dodawać, modyfikować i usuwać dokumenty w indeksie oraz wykonywać zapytania o nie.
 
-## II. Wybieranie akcji indeksowania do użycia
+## <a name="ii-decide-which-indexing-action-to-use"></a>II. Wybieranie akcji indeksowania do użycia
 Aby zaimportować dane przy użyciu zestawu .NET SDK, należy spakować dane do obiektu `IndexBatch`. Obiekt `IndexBatch` hermetyzuje kolekcję obiektów `IndexAction`, z których każdy zawiera dokument i właściwość, które informują usługę Azure Search, jaką akcję wykonać na tym dokumencie (przekazać, scalić, usunąć itp.). W zależności od tego, którą z poniższych akcji wybierzesz, tylko określone pola muszą być uwzględnione w danym dokumencie:
 
 | Akcja | Opis | Wymagane pola dla każdego dokumentu | Uwagi |
@@ -63,7 +67,7 @@ Aby zaimportować dane przy użyciu zestawu .NET SDK, należy spakować dane do 
 
 Akcję do użycia możesz określić za pomocą różnych metod statycznych klas `IndexBatch` i `IndexAction`. Pokazano to w następnej sekcji.
 
-## III. Konstruowanie obiektu IndexBatch
+## <a name="iii-construct-your-indexbatch"></a>III. Konstruowanie obiektu IndexBatch
 Teraz, kiedy już wiesz, które akcje wykonać na dokumentach, możesz przystąpić do konstruowania obiektu `IndexBatch`. Poniższy przykład przedstawia sposób tworzenia partii z kilkoma różnymi akcjami. Zauważ, że przedstawiony przykład używa niestandardowej klasy o nazwie `Hotel`, która jest mapowana na dokument w indeksie „hotels”.
 
 ```csharp
@@ -126,7 +130,7 @@ Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksyma
 > 
 > 
 
-## IV. Importowanie danych do indeksu
+## <a name="iv-import-data-to-the-index"></a>IV. Importowanie danych do indeksu
 Po zainicjowaniu obiektu `IndexBatch` możesz go wysłać do indeksu przez wywołanie metody `Documents.Index` względem obiektu `SearchIndexClient`. Poniższy przykład pokazuje, jak wywołać metodę `Index` oraz inne dodatkowe kroki, które należy wykonać:
 
 ```csharp
@@ -154,7 +158,7 @@ Na końcu powyższego przykładu umieszczono dwusekundowe opóźnienie. Indeksow
 
 <a name="HotelClass"></a>
 
-### Jak zestaw .NET SDK obsługuje dokumenty
+### <a name="how-the-net-sdk-handles-documents"></a>Jak zestaw .NET SDK obsługuje dokumenty
 Możesz się zastanawiać, jak zestaw .NET SDK usługi Azure Search jest w stanie przekazać wystąpienia klasy zdefiniowanej przez użytkownika, np. `Hotel`, do indeksu. Aby odpowiedzieć na to pytanie, przyjrzyjmy się klasie `Hotel`, która jest mapowana na schemat indeksu zdefiniowany w artykule [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#DefineIndex) (Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK):
 
 ```csharp
@@ -216,9 +220,12 @@ Nie jest to czysto hipotetyczny problem: wyobraź sobie scenariusz, w którym do
 
 Z tego powodu najlepszym i zalecanym rozwiązaniem jest używanie w klasach modeli typów dopuszczających wartość null.
 
-## Następne kroki
+## <a name="next"></a>Następne kroki
 Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zapytań w celu wyszukania dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

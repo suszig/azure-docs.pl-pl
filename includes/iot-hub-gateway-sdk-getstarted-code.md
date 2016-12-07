@@ -1,4 +1,4 @@
-## Najczęściej pojawiające się dane wyjściowe
+## <a name="typical-output"></a>Najczęściej pojawiające się dane wyjściowe
 Poniżej znajduje się przykład danych wyjściowych zapisywanych w pliku dziennika w ramach próbki kodu Hello World. Znaki nowego wiersza i tabulatory zostały dodane, aby poprawić czytelność kodu:
 
 ```
@@ -29,10 +29,10 @@ Poniżej znajduje się przykład danych wyjściowych zapisywanych w pliku dzienn
 }]
 ```
 
-## Fragmenty kodu
+## <a name="code-snippets"></a>Fragmenty kodu
 W tej sekcji omówiono niektóre kluczowe fragmenty kodu znajdujące się w próbce Hello World.
 
-### Tworzenie bramy
+### <a name="gateway-creation"></a>Tworzenie bramy
 Deweloper musi utworzyć *proces bramy*. Ten program tworzy wewnętrzną infrastrukturę (brokera), ładuje moduły i konfiguruje wszystko tak, aby działo poprawnie. Zestaw SDK zawiera funkcję **Gateway_Create_From_JSON**, aby umożliwić uruchomienie bramy z pliku JSON. Aby użyć funkcji **Gateway_Create_From_JSON**, należy udostępnić ścieżkę pliku JSON, który określa moduły do załadowania. 
 
 Kod procesu bramy w próbce Hello World można znaleźć w pliku [main.c][lnk-main-c]. Poniższy fragment kodu zawiera, dla czytelności, skróconą wersję kodu procesu bramy. Zanim program zniszczy bramę, tworzy bramę, a następnie czeka na zatwierdzenie użytkownika poprzez naciśnięcie klawisza **ENTER**. 
@@ -77,12 +77,16 @@ Poniższy przykład pokazuje plik ustawień JSON używany do konfigurowania pró
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
             "args" : null
         }
     ],
@@ -96,7 +100,7 @@ Poniższy przykład pokazuje plik ustawień JSON używany do konfigurowania pró
 }
 ```
 
-### Publikowanie komunikatów w module Hello World
+### <a name="hello-world-module-message-publishing"></a>Publikowanie komunikatów w module Hello World
 Kod używany przez moduł „hello world” do publikacji komunikatów można znaleźć w pliku [„hello_world.c”][lnk-helloworld-c]. Poniższy fragment kodu pokazuje jego zatwierdzoną wersję wraz z dodatkowymi komentarzami. Niektóre elementy kodu obsługujące błędy zostały usunięte, aby uzyskać jego lepszą czytelność:
 
 ```
@@ -145,7 +149,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Przetwarzanie komunikatów w module Hello World
+### <a name="hello-world-module-message-processing"></a>Przetwarzanie komunikatów w module Hello World
 Moduł Hello World nigdy nie musi przetwarzać komunikatów, które inne moduły publikują do brokera. To powoduje, że implementacja zwrotnego komunikatu w module Hello World jest funkcją bez operacji.
 
 ```
@@ -155,7 +159,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Publikowanie i przetwarzanie komunikatu przez moduł rejestratora
+### <a name="logger-module-message-publishing-and-processing"></a>Publikowanie i przetwarzanie komunikatu przez moduł rejestratora
 Moduł rejestratora odbiera komunikaty z brokera i zapisuje je w pliku. Nigdy nie publikuje żadnych komunikatów. W związku z tym kod modułu rejestratora nigdy nie wywołuje funkcji **Broker_Publish**.
 
 Funkcja **Logger_Recieve** w pliku [logger.c][lnk-logger-c] jest wywołaniem zwrotnym, które broker wywołuje w celu dostarczenia komunikatu do modułu rejestratora. Poniższy fragment kodu pokazuje jego zatwierdzoną wersję wraz z dodatkowymi komentarzami. Niektóre elementy kodu obsługujące błędy zostały usunięte, aby uzyskać jego lepszą czytelność:
@@ -199,11 +203,11 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Następne kroki
-Aby dowiedzieć się więcej na temat używania zestawu SDK bramy, zobacz następujące tematy:
+## <a name="next-steps"></a>Następne kroki
+Aby dowiedzieć się więcej na temat używania zestawu SDK usługi IoT Gateway, zobacz następujące tematy:
 
-* [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux](Zestaw SDK Bramy IoT — wysyłanie komunikatów z urządzenia do chmury przy użyciu symulowanego urządzenia z systemem Linux.md) [lnk-gateway-simulated].
-* [Azure IoT Gateway SDK](Zestaw SDK Bramy IoT platformy Azure.md) [lnk-gateway-sdk] w witrynie GitHub.
+* [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux] (Zestaw SDK Bramy IoT — wysyłanie komunikatów z urządzenia do chmury przy użyciu symulowanego urządzenia z systemem Linux) [lnk-gateway-simulated].
+* [Azure IoT Gateway SDK] (Zestaw SDK Bramy IoT platformy Azure) [lnk-gateway-sdk] w witrynie GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -212,6 +216,6 @@ Aby dowiedzieć się więcej na temat używania zestawu SDK bramy, zobacz nastę
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

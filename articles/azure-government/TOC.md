@@ -1,37 +1,38 @@
-# Overview
-## [What is Azure Government?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+# Omówienie
+## [Co to jest platforma Azure Government?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
-## [Justice and Public Safety](documentation-government-overview-jps.md)
-## [Department of Defense](documentation-government-overview-dod.md)
+## [Wymiar sprawiedliwości i bezpieczeństwo publiczne](documentation-government-overview-jps.md)
+## [Departament Obrony](documentation-government-overview-dod.md)
 
-# Get Started
-## [Developer guide](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+# Wprowadzenie
+## [Przewodnik dla deweloperów](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 
-# How To
-## Plan
-### [Security](documentation-government-plan-security.md)
-### [Compliance](documentation-government-plan-compliance.md)
-## Manage
-### [Images](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
+# Instrukcje
+## Planowanie
+### [Bezpieczeństwo](documentation-government-plan-security.md)
+### [Zgodność](documentation-government-plan-compliance.md)
+## Zarządzaj
+### [Obrazy](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Marketplace](documentation-government-manage-marketplace.md)
-### [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
-### [Subscription](documentation-government-manage-subscriptions.md)
+### [Marketplace dla partnerów](documentation-government-manage-marketplace-partners.md)
+### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
+### [Subskrypcja](documentation-government-manage-subscriptions.md)
 
-# Reference
-## [Resource Manager](documentation-government-manage-azure-resource-manager.md)
-## [Services](documentation-government-services.md)
-### [Compute](documentation-government-compute.md)
+# Dokumentacja
+## [Usługi](documentation-government-services.md)
+### [Obliczanie](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
-### [Database](documentation-government-services-database.md)
-### [Networking](documentation-government-networking.md)
-### [Security + identity](documentation-government-services-securityandidentity.md)
-### [Monitoring + management](documentation-government-services-monitoringandmanagement.md)
+### [Baza danych](documentation-government-services-database.md)
+### [Sieć](documentation-government-networking.md)
+### [Bezpieczeństwo i obsługa tożsamości](documentation-government-services-securityandidentity.md)
+### [Monitorowanie i zarządzanie](documentation-government-services-monitoringandmanagement.md)
 
-# Resources
-## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
-## [Pricing](https://azure.microsoft.com/pricing/)
+# Zasoby
+## [Cennik](https://azure.microsoft.com/pricing/)
+## [Wersja próbna](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

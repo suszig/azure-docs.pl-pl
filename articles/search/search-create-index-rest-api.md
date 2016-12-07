@@ -1,30 +1,34 @@
 ---
-title: Tworzenie indeksu usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs
-description: Tworzenie indeksu za pomocą kodu przy użyciu interfejsu API REST protokołu HTTP usługi Azure Search
+title: "Tworzenie indeksu usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs"
+description: "Tworzenie indeksu za pomocą kodu przy użyciu interfejsu API REST protokołu HTTP usługi Azure Search"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: ashmaka
-manager: ''
-editor: ''
+manager: jhubbard
+editor: 
 tags: azure-portal
-
+ms.assetid: ac6c5fba-ad59-492d-b715-d25a7a7ae051
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 10/27/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
+ms.openlocfilehash: 107186c6d77550948169caa6f0f89589dd3bddd9
 
 ---
-# Tworzenie indeksu usługi Azure Search przy użyciu interfejsu API REST
+# <a name="create-an-azure-search-index-using-the-rest-api"></a>Tworzenie indeksu usługi Azure Search przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
+>
 > * [Omówienie](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
-> 
-> 
+>
+>
 
 Ten artykuł przeprowadzi Cię przez proces tworzenia [indeksu](https://msdn.microsoft.com/library/azure/dn798941.aspx) usługi Azure Search przy użyciu interfejsu API REST usługi Azure Search.
 
@@ -32,7 +36,7 @@ Przed rozpoczęciem pracy z przewodnikiem oraz przed utworzeniem indeksu powinna
 
 Aby utworzyć indeks usługi Azure Search przy użyciu interfejsu API REST, należy wysłać pojedyncze żądanie HTTP POST do punktu końcowego adresu URL usługi Azure Search. Definicja indeksu będzie znajdować się w treści żądania jako poprawnie sformułowana zawartość JSON.
 
-## I. Identyfikowanie klucza api-key administratora usługi Azure Search
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identyfikowanie klucza api-key administratora usługi Azure Search
 Po aprowizowaniu usługi Azure Search możesz wysyłać żądania HTTP do punktu końcowego adresu URL usługi za pomocą interfejsu API REST. Jednak *wszystkie* żądania interfejsu API muszą zawierać klucz api-key, który został wygenerowany dla aprowizowanej usługi Search. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
@@ -46,7 +50,7 @@ Usługa będzie dysponować *kluczami administratora* i *kluczami zapytań*.
 
 Podczas tworzenia indeksu można użyć zarówno podstawowego, jak i pomocniczego klucza administratora.
 
-## II. Definiowanie indeksu usługi Azure Search przy użyciu poprawnie sformułowanej zawartości JSON
+## <a name="ii-define-your-azure-search-index-using-well-formed-json"></a>II. Definiowanie indeksu usługi Azure Search przy użyciu poprawnie sformułowanej zawartości JSON
 Pojedyncze żądanie HTTP POST do usługi spowoduje utworzenie indeksu. Treść żądania HTTP POST będzie zawierać pojedynczy obiekt JSON, który definiuje indeks usługi Azure Search.
 
 1. Pierwszą właściwością obiektu JSON jest nazwa Twojego indeksu.
@@ -82,13 +86,13 @@ Zauważ, że dokładnie jedno pole typu `Edm.String` w Twoim indeksie musi być 
 
 Powyższa definicja indeksu używa niestandardowego analizatora języków dla pola `description_fr`, ponieważ jest ono przeznaczone do przechowywania tekstu w języku francuskim. Aby uzyskać więcej informacji o analizatorach języka, zobacz [temat Language support (Obsługa języka) w witrynie MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) oraz odpowiadający mu [wpis w blogu](https://azure.microsoft.com/blog/language-support-in-azure-search/).
 
-## III. Wysyłanie żądania HTTP
-1. Korzystając z definicji indeksu jako treści żądania, wyślij żądanie HTTP POST do punktu końcowego adresu URL usługi Azure Search. Upewnij się, że w adresie URL jako nazwy hosta użyto nazwy usługi oraz że wstawiono właściwą wartość `api-version` jako parametr ciągu zapytania (w chwili opublikowania tego dokumentu `2015-02-28` jest bieżącą wersją interfejsu API).
+## <a name="iii-issue-the-http-request"></a>III. Wysyłanie żądania HTTP
+1. Korzystając z definicji indeksu jako treści żądania, wyślij żądanie HTTP POST do punktu końcowego adresu URL usługi Azure Search. Upewnij się, że w adresie URL jako nazwy hosta użyto nazwy usługi oraz że wstawiono właściwą wartość `api-version` jako parametr ciągu zapytania (w chwili opublikowania tego dokumentu `2016-09-01` jest bieżącą wersją interfejsu API).
 2. W nagłówkach żądania określ wartość `application/json` dla właściwości `Content-Type`. Należy również podać klucz administratora usługi, który został zidentyfikowany w kroku I, w nagłówku `api-key`.
 
 Aby wysłać poniższe żądanie, konieczne jest podanie własnej nazwy usługi oraz klucza interfejsu API: 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [api-key]
 
@@ -97,13 +101,15 @@ Jeśli żądanie zakończy się powodzeniem powinien zostać wyświetlony kod st
 
 Gdy ukończysz pracę z indeksem i zechcesz go usunąć, po prostu wyślij żądanie HTTP DELETE. Na przykład indeks „hotele” możesz usunąć w następujący sposób:
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
     api-key: [api-key]
 
 
-## Następne kroki
+## <a name="next"></a>Następne kroki
 Po utworzeniu indeksu usługi Azure Search można [przekazać zawartość do indeksu](search-what-is-data-import.md), aby rozpocząć wyszukiwanie danych.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

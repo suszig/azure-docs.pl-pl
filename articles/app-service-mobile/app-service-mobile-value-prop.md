@@ -1,12 +1,12 @@
 ---
-title: Co to jest usługa Mobile Apps
-description: Dowiedz się, jakie korzyści z usługi App Service można osiągać podczas pracy z aplikacjami mobilnymi w przedsiębiorstwie.
+title: "Co to jest usługa Mobile Apps"
+description: "Dowiedz się, jakie korzyści z usługi App Service można osiągać podczas pracy z aplikacjami mobilnymi w przedsiębiorstwie."
 services: app-service\mobile
-documentationcenter: ''
+documentationcenter: 
 author: adrianhall
 manager: yochayk
-editor: ''
-
+editor: 
+ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 94c61f4b204b30b16b424fa0716e370a4f4eb51b
+
 
 ---
 # <a name="getting-started"> </a>Czym jest usługa Mobile Apps?
@@ -21,7 +25,7 @@ Usługa Azure App Service to w pełni zarządzana [platforma jako usługa](https
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
-## Dlaczego warto korzystać z usługi Mobile Apps?
+## <a name="why-mobile-apps"></a>Dlaczego warto korzystać z usługi Mobile Apps?
 Funkcja *Mobile Apps* w *Usługa aplikacji Azure* oferuje wysoce skalowalną, globalnie dostępną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych. Dzięki usłudze Mobile Apps można:
 
 * **Kompilować aplikacje natywne i międzyplatformowe** — bez względu na to, czy kompilujesz natywne aplikacje dla systemów iOS, Android i Windows, czy też międzyplatformowe aplikacje platform Xamarin lub Cordova (Phonegap), możesz korzystać z usługi App Service za pośrednictwem natywnych zestawów SDK.
@@ -29,7 +33,7 @@ Funkcja *Mobile Apps* w *Usługa aplikacji Azure* oferuje wysoce skalowalną, gl
 * **Kompilować aplikacje gotowe do działania w trybie offline z opcją synchronizacji danych** — aby personel mobilny mógł pracować wydajnie, należy skompilować aplikacje działające w trybie offline, a następnie po nawiązaniu łączności za pomocą usługi Mobile Apps synchronizować w tle dane z dowolnych źródeł danych przedsiębiorstwa lub interfejsów API usługi SaaS.
 * **Wypychać powiadomienia do milionów użytkowników w ciągu sekund** — można kontaktować się z klientami dzięki błyskawicznym powiadomieniom wypychanym z dowolnego urządzenia, spersonalizowanym zgodnie z ich potrzebami i wysyłanym w odpowiednim czasie.
 
-## Funkcje Aplikacji mobilnej
+## <a name="mobile-app-features"></a>Funkcje Aplikacji mobilnej
 Następujące funkcje są ważnymi elementami tworzenia aplikacji mobilnych z obsługą chmury:
 
 * **Uwierzytelnianie i autoryzacja** — wybieraj z coraz dłuższej listy dostawców tożsamości, obejmującej usługę Azure Active Directory na potrzeby uwierzytelniania w przedsiębiorstwie, a także dostawców sieci społecznościowych, takich jak Facebook, Google, Twitter i konto Microsoft.  Usługa Azure Mobile Apps udostępnia usługę OAuth 2.0 dla każdego dostawcy.  Można również zintegrować zestaw SDK dla dostawcy tożsamości, aby korzystać z funkcji specyficznych dla tego dostawcy.
@@ -44,7 +48,7 @@ Następujące funkcje są ważnymi elementami tworzenia aplikacji mobilnych z ob
   Dowiedz się więcej na temat naszych [funkcje powiadomień wypychanych].
 * **Zestawy SDK klientów** — oferujemy kompletny pakiet zestawów SDK klientów, które obsługują tworzenie aplikacji natywnych ([iOS], [Android] i [Windows]), międzyplatformowych ([Xamarin dla systemów iOS i Android], [Xamarin Forms]) i hybrydowych ([Apache Cordova]).  Każdy zestaw SDK klienta jest dostępny z licencją MIT i jest rozwiązaniem typu open source.
 
-## Funkcje usługi App Service.
+## <a name="azure-app-service-features"></a>Funkcje usługi App Service.
 Poniższe funkcje platformy są zazwyczaj przydatne w przypadku witryn produkcyjnych aplikacji mobilnych.
 
 * **Automatyczne skalowanie** — usługa App Service pozwala szybko skalować w górę lub w poziomie, a co za tym idzie — obsługiwać dowolne przychodzące obciążenia klientów. Ręcznie wybierz liczbę i rozmiar maszyn wirtualnych lub skonfiguruj automatyczne skalowanie, aby skalować zaplecze aplikacji mobilnej w oparciu o obciążenie lub harmonogram.
@@ -63,7 +67,7 @@ Poniższe funkcje platformy są zazwyczaj przydatne w przypadku witryn produkcyj
   
   Dowiedz się więcej na temat [Środowiska usługi App Service].
 
-## Wprowadzenie
+## <a name="getting-started"></a>Wprowadzenie
 Aby rozpocząć pracę z usługą Mobile Apps, wykonaj kroki samouczka [Wprowadzenie].  Kroki te obejmują podstawy tworzenia wybranego zaplecza aplikacji mobilnych i klienta, a następnie integrowanie uwierzytelniania, synchronizacji w trybie offline i powiadomień wypychanych.  Czynności opisane w samouczku [Wprowadzenie] można wykonać kilka razy — raz dla każdej aplikacji klienta.
 
 Aby uzyskać więcej informacji o usłudze Azure Mobile Apps, zapoznaj się z naszą [mapą nauki].
@@ -75,7 +79,7 @@ Aby uzyskać więcej informacji o platformie Azure App Service, zobacz artykuł 
 > 
 
 <!-- URLs. -->
-[Migracja Usługi mobilnej do usługi App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Migrowanie usługi Mobile Service do usługi App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Usługa aplikacji Azure]: ../app-service/app-service-value-prop-what-is.md
 [Wprowadzenie]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]: ../storage/storage-getting-started-guide.md
@@ -100,6 +104,6 @@ Aby uzyskać więcej informacji o platformie Azure App Service, zobacz artykuł 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

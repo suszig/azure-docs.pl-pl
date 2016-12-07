@@ -7,6 +7,8 @@ Aby znaleźć publiczny adres IP bramy sieci wirtualnej przy użyciu programu Po
 
 Publiczny adres IP bramy sieci wirtualnej można także wyświetlić, korzystając z witryny Azure Portal. Przejdź do obszaru **Bramy sieci wirtualnej**, a następnie kliknij nazwę bramy.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

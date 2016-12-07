@@ -1,22 +1,26 @@
 ---
-title: Eksportowanie szablonu usługi Azure Resource Manager | Microsoft Docs
-description: Za pomocą usługi Azure Resource Manager można wyeksportować szablon z istniejącej grupy zasobów.
+title: "Eksportowanie szablonu usługi Azure Resource Manager | Microsoft Docs"
+description: "Za pomocą usługi Azure Resource Manager można wyeksportować szablon z istniejącej grupy zasobów."
 services: azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: tfitzmac
 manager: timlt
 editor: tysonn
-
+ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/03/2016
+ms.date: 10/20/2016
 ms.author: tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18381e2fafb6a1e3883e0dbdf9dcfe5b59a78d32
+
 
 ---
-# Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów
+# <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów
 Usługa Resource Manager umożliwia wyeksportowanie szablonu usługi Resource Manager z istniejących zasobów w ramach subskrypcji. Możesz użyć wygenerowanego szablonu, aby dowiedzieć się więcej o składni szablonu lub aby zautomatyzować ponowne wdrożenie rozwiązania, w razie potrzeby.
 
 Należy pamiętać, że istnieją dwa różne sposoby eksportowania szablonu:
@@ -24,21 +28,21 @@ Należy pamiętać, że istnieją dwa różne sposoby eksportowania szablonu:
 * Możesz wyeksportować szablon, który faktycznie został użyty na potrzeby wdrożenia. W wyeksportowanym szablonie wszystkie parametry i zmienne występują dokładnie tak, jak w oryginalnym szablonie. To pomocne rozwiązanie w przypadku, gdy zasoby wdrożono za pośrednictwem portalu. Przyda Ci się zatem wiedza na temat tego, jak skonstruować szablon umożliwiający utworzenie tych zasobów.
 * Możesz wyeksportować szablon, który reprezentuje bieżący stan grupy zasobów. Wyeksportowany szablon nie jest oparty na żadnym szablonie użytym do wdrożenia. Utworzony szablon będzie stanowić migawkę grupy zasobów. W wyeksportowanym szablonie zawartych jest wiele zakodowanych wartości i prawdopodobnie mniej parametrów, niż się zwykle definiuje. To pomocne rozwiązanie w przypadku, gdy grupę zasobów zmodyfikowano za pośrednictwem portalu lub przy użyciu skryptów. Będzie więc trzeba przechwycić grupę zasobów jako szablon.
 
-W tym temacie opisano obie te metody. W artykule [Dostosowywanie wyeksportowanego szablonu usługi Azure Resource Manager](resource-manager-customize-template.md) znajdują się informacje na temat tego, jak uczynić szablon wygenerowany na podstawie bieżącego stanu grupy zasobów bardziej przydatnym do ponownego wdrożenia Twojego rozwiązania.
+W tym temacie opisano obie te metody.
 
 W tym samouczku zalogujesz się w witrynie Azure Portal, utworzysz konto magazynu i wyeksportujesz szablon dla tego konta magazynu. Dodasz również sieć wirtualną w celu zmodyfikowania grupy zasobów. Na koniec wyeksportujesz nowy szablon, który reprezentuje jej bieżący stan. Chociaż ten artykuł skupia się na uproszczonej infrastrukturze, tych samych kroków można użyć do wyeksportowania szablonu dla bardziej skomplikowanego rozwiązania.
 
-## Tworzenie konta magazynu
-1. W [Portalu Azure](https://portal.azure.com) wybierz pozycję **Nowy** > **Dane i usługa Storage** > **Konto usługi Storage**.
+## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
+1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Nowy** > **Storage** > **Konto usługi Storage**.
    
       ![tworzenie magazynu](./media/resource-manager-export-template/create-storage.png)
-2. Utwórz konto magazynu o nazwie **magazyn** z Twoimi inicjałami i aktualną datą. Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure. Jeśli na początku podasz nazwę, która jest już używana, spróbuj podać inny wariant tej nazwy. Dla grupy zasobów użyj wartości **ExportGroup**. Dla innych właściwości możesz użyć wartości domyślnych. Wybierz pozycję **Utwórz**.
+2. Utwórz konto magazynu o nazwie **magazyn** z Twoimi inicjałami i aktualną datą. Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure. Jeśli nazwa jest już używana, zostanie wyświetlony komunikat o błędzie zawierający używaną nazwę. Spróbuj podać inny wariant tej nazwy. W przypadku grupy zasobów utwórz nową grupę zasobów i nadaj jej nazwę **ExportGroup**. Dla innych właściwości możesz użyć wartości domyślnych. Wybierz pozycję **Utwórz**.
    
       ![podawanie wartości magazynu](./media/resource-manager-export-template/provide-storage-values.png)
 
-Po zakończeniu wdrożenia Twoja subskrypcja będzie zawierać konto magazynu.
+Wdrożenie może chwilę potrwać. Po zakończeniu wdrożenia Twoja subskrypcja będzie zawierać konto magazynu.
 
-## Eksportowanie szablonu z historii wdrożenia
+## <a name="view-a-template-from-deployment-history"></a>Wyświetlanie szablonu z historii wdrożenia
 1. Przejdź do bloku grupy zasobów dla nowej grupy zasobów. Zwróć uwagę, że blok ten zawiera wynik ostatniego wdrożenia. Wybierz ten link.
    
       ![blok grupy zasobów](./media/resource-manager-export-template/resource-group-blade.png)
@@ -63,11 +67,52 @@ Po zakończeniu wdrożenia Twoja subskrypcja będzie zawierać konto magazynu.
       
       Zwróćmy teraz szczególną uwagę na szablon. Szablon powinien być podobny do tego wyświetlonego poniżej:
       
-        {     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",     "contentVersion": "1.0.0.0",     "parameters": {       "name": {         "type": "String"       },       "accountType": {         "type": "String"       },       "location": {         "type": "String"       },       "encryptionEnabled": {         "defaultValue": false,         "type": "Bool"       }     },     "resources": [       {         "type": "Microsoft.Storage/storageAccounts",         "sku": {           "name": "[parameters('accountType')]"         },         "kind": "Storage",         "name": "[parameters('name')]",         "apiVersion": "2016-01-01",         "location": "[parameters('location')]",         "properties": {           "encryption": {             "services": {               "blob": {                 "enabled": "[parameters('encryptionEnabled')]"               }             },             "keySource": "Microsoft.Storage"           }         }       }     ]   }
+        {
+      
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "name": {
+              "type": "String"
+            },
+            "accountType": {
+              "type": "String"
+            },
+            "location": {
+              "type": "String"
+            },
+            "encryptionEnabled": {
+              "defaultValue": false,
+              "type": "Bool"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "sku": {
+                "name": "[parameters('accountType')]"
+              },
+              "kind": "Storage",
+              "name": "[parameters('name')]",
+              "apiVersion": "2016-01-01",
+              "location": "[parameters('location')]",
+              "properties": {
+                "encryption": {
+                  "services": {
+                    "blob": {
+                      "enabled": "[parameters('encryptionEnabled')]"
+                    }
+                  },
+                  "keySource": "Microsoft.Storage"
+                }
+              }
+            }
+          ]
+        }
 
 To prawdziwy szablon użyty do utworzenia Twojego konta magazynu. Zwróć uwagę, że zawiera on parametry umożliwiające wdrażanie różnych typów kont magazynu. Aby uzyskać więcej informacji o strukturze szablonu, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md). Aby uzyskać pełną listę funkcji, których można użyć w szablonie, zobacz [Azure Resource Manager template functions](resource-group-template-functions.md) (Funkcje szablonu usługi Azure Resource Manager).
 
-## Dodawanie sieci wirtualnej
+## <a name="add-a-virtual-network"></a>Dodawanie sieci wirtualnej
 Szablon pobrany w poprzedniej sekcji reprezentował infrastrukturę dla tego oryginalnego wdrożenia. Nie będzie on jednak uwzględniać żadnych zmian wprowadzonych po wdrożeniu.
 Aby zilustrować ten problem, zmodyfikujmy grupę zasobów przez dodanie sieci wirtualnej za pośrednictwem portalu.
 
@@ -83,12 +128,10 @@ Aby zilustrować ten problem, zmodyfikujmy grupę zasobów przez dodanie sieci w
 4. Po pomyślnym wdrożeniu sieci wirtualnej w grupie zasobów spójrz ponownie na historię wdrażania. Są w niej teraz wyświetlone dwa wdrożenia. Jeśli drugie wdrożenie nie jest widoczne, może być konieczne zamknięcie i ponowne otwarcie bloku grupy zasobów. Wybierz nowsze wdrożenie.
    
       ![historia wdrażania](./media/resource-manager-export-template/deployment-history.png)
-5. Spójrz na szablon tego wdrożenia. Zwróć uwagę, że definiuje on tylko zmiany wprowadzone w celu dodania sieci wirtualnej.
+5. Wyświetl szablon tego wdrożenia. Zwróć uwagę, że definiuje on tylko sieć wirtualną. Nie obejmuje wdrożonego wcześniej konta magazynu. Nie ma już szablonu reprezentującego wszystkie zasoby z grupy zasobów.
 
-Zazwyczaj najlepszym rozwiązaniem jest praca z szablonem, za pomocą którego wdrażana jest cała infrastruktura dla danego rozwiązania w ramach jednej operacji. To bardziej niezawodne podejście niż praca z wieloma różnymi szablonami służącymi do przeprowadzenia wdrażania.
-
-## Eksportowanie szablonu na podstawie grupy zasobów
-Mimo że dla każdego wdrożenia wyświetlane są tylko zmiany wprowadzone w danej grupie zasobów, w dowolnym momencie możliwe jest wyeksportowanie szablonu w celu wyświetlenia atrybutów całej grupy zasobów.  
+## <a name="export-the-template-from-resource-group"></a>Eksportowanie szablonu na podstawie grupy zasobów
+Aby uzyskać bieżący stan grupy zasobów, wyeksportuj szablon stanowiący migawkę grupy zasobów.  
 
 > [!NOTE]
 > Nie można eksportować szablonu dla grupy zasobów zawierającej ponad 200 zasobów.
@@ -120,12 +163,147 @@ Mimo że dla każdego wdrożenia wyświetlane są tylko zmiany wprowadzone w dan
         "properties": {
             "accountType": "Standard_RAGRS"
         },
-3. Pobierz szablon, aby móc na nim pracować lokalnie.
+3. Istnieje kilka opcji umożliwiających dalszą pracę z tym szablonem. Szablon można pobrać i pracować nad nim lokalnie w edytorze JSON. Można też zapisać szablon w bibliotece i pracować nad nim za pośrednictwem portalu.
+   
+     Jeśli praca w edytorze JSON, takim jak [VS Code](resource-manager-vs-code.md) lub [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), nie sprawia Ci problemów, lepszym rozwiązaniem może być lokalne pobranie szablonu i skorzystanie z tego edytora. Jeśli nie korzystasz z edytora JSON, możesz preferować edytowanie szablonu za pośrednictwem portalu. W pozostałej części tego tematu założono, że szablon został zapisany w bibliotece w portalu. Do szablonu wprowadza się jednak te same zmiany składniowe niezależnie od trybu pracy — lokalnie w edytorze JSON bądź za pośrednictwem portalu.
+   
+     Aby pracować lokalnie, wybierz pozycję **Pobierz**.
    
       ![pobieranie szablonu](./media/resource-manager-export-template/download-template.png)
-4. Znajdź pobrany plik zip i wyodrębnij jego zawartość. Za pomocą tego pobranego szablonu możesz ponowne wdrożyć swoją infrastrukturę.
+   
+     Aby pracować za pośrednictwem portalu, wybierz pozycję **Dodaj do biblioteki**.
+   
+      ![dodawanie do biblioteki](./media/resource-manager-export-template/add-to-library.png)
+   
+     Podczas dodawania szablonu do biblioteki nadaj mu nazwę i opis. Następnie wybierz pozycję **Zapisz**.
+   
+     ![ustawianie wartości szablonu](./media/resource-manager-export-template/set-template-values.png)
+4. Aby wyświetlić szablon zapisany w bibliotece, wybierz pozycję **Więcej usług**, wpisz ciąg **Szablony** w celu filtrowania wyników, a następnie wybierz pozycję **Szablony**.
+   
+      ![znajdowanie szablonów](./media/resource-manager-export-template/find-templates.png)
+5. Wybierz szablon o zapisanej przez Ciebie nazwie.
+   
+      ![wybieranie szablonu](./media/resource-manager-export-template/select-library-template.png)
 
-## Rozwiązywanie problemów z eksportowaniem
+## <a name="customize-the-template"></a>Dostosowywanie szablonu
+Wyeksportowany szablon nadaje się do utworzenia takiego samego konta magazynu i takiej samej sieci wirtualnej dla każdego wdrożenia. Usługa Resource Manager oferuje jednak opcje, dzięki którym można wdrażać szablony ze znacznie większą elastycznością. Podczas wdrażania możesz na przykład określić typ tworzonego konta magazynu lub wartości, które mają zostać użyte jako prefiks adresu sieci wirtualnej i prefiks podsieci.
+
+W tej sekcji do wyeksportowanego szablonu zostają dodane parametry umożliwiające ponowne użycie szablonu podczas wdrażania tych zasobów w innych środowiskach. Do szablonu zostają dodane również pewne funkcje mające na celu ograniczenie prawdopodobieństwa wystąpienia błędu podczas wdrażania szablonu. Nie trzeba już odgadywać unikatowej nazwy konta magazynu. Zamiast tego unikatowa nazwa zostaje utworzona przez szablon. Wartości, które można określić dla typu konta magazynu, ogranicza się tylko do prawidłowych opcji.
+
+1. Wybierz pozycję **Edytuj**, aby dostosować szablon.
+   
+     ![wyświetlanie szablonu](./media/resource-manager-export-template/show-template.png)
+2. Wybierz szablon.
+   
+     ![edytowanie szablonu](./media/resource-manager-export-template/edit-template.png)
+3. Aby przekazać wartości, które będzie można określić podczas wdrażania, zastąp sekcję **parameters** nowymi definicjami parametrów. Zwróć uwagę na wartości parametrów **allowedValues** dla zmiennej **storageAccount_accountType**. W przypadku niezamierzonego wprowadzenia nieprawidłowej wartości ten błąd zostanie rozpoznany przed rozpoczęciem wdrażania. Zauważ również, że podawany jest tylko prefiks nazwy konta magazynu, a jego długość jest ograniczona do 11 znaków. Ograniczenie długości prefiksu do 11 znaków pozwala mieć pewność, że pełna nazwa nie przekracza maksymalnej liczby znaków dla konta magazynu. Prefiks umożliwia zastosowanie konwencji nazewnictwa do kont magazynu. Sposób tworzenia unikatowej nazwy przedstawiono w kolejnym kroku.
+   
+        "parameters": {
+          "storageAccount_prefix": {
+            "type": "string",
+            "maxLength": 11
+          },
+          "storageAccount_accountType": {
+            "defaultValue": "Standard_RAGRS",
+            "type": "string",
+            "allowedValues": [
+              "Standard_LRS",
+              "Standard_ZRS",
+              "Standard_GRS",
+              "Standard_RAGRS",
+              "Premium_LRS"
+            ]
+          },
+          "virtualNetwork_name": {
+            "type": "string"
+          },
+          "addressPrefix": {
+            "defaultValue": "10.0.0.0/16",
+            "type": "string"
+          },
+          "subnetName": {
+            "defaultValue": "subnet-1",
+            "type": "string"
+          },
+          "subnetAddressPrefix": {
+            "defaultValue": "10.0.0.0/24",
+            "type": "string"
+          }
+        },
+4. Sekcja **variables** szablonu jest obecnie pusta. W sekcji **variables** można tworzyć wartości, które upraszczają składnię w pozostałej części szablonu. Zastąp tę sekcję nową definicją zmiennej. Zmienna **storageAccount_name** łączy prefiks z parametru z unikatowym ciągiem generowanym na podstawie identyfikatora grupy zasobów. Nie trzeba już odgadywać unikatowej nazwy przy podawaniu wartości parametru.
+   
+        "variables": {
+          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+        },
+5. Aby użyć tych parametrów i zmiennej w definicjach zasobów, zastąp sekcję **resources** nowymi definicjami zasobów. Zauważ, że zmiany w definicjach zasobów, oprócz wartości przypisanej do właściwości zasobu, są niewielkie. Właściwości te są takie same jak właściwości z wyeksportowanego szablonu. Właściwości są po prostu przypisywane do wartości parametrów zamiast do zakodowanych wartości. Za pomocą wyrażenia **resourceGroup().location**dla lokalizacji zasobów ustawiono użycie tej samej lokalizacji, w której znajduje się grupa zasobów. Wyrażenie **variables** odwołuje się do zmiennej utworzonej dla nazwy konta magazynu.
+   
+        "resources": [
+          {
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetwork_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "properties": {
+              "addressSpace": {
+                "addressPrefixes": [
+                  "[parameters('addressPrefix')]"
+                ]
+              },
+              "subnets": [
+                {
+                  "name": "[parameters('subnetName')]",
+                  "properties": {
+                    "addressPrefix": "[parameters('subnetAddressPrefix')]"
+                  }
+                }
+              ]
+            },
+            "dependsOn": []
+          },
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageAccount_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "tags": {},
+            "properties": {
+                "accountType": "[parameters('storageAccount_accountType')]"
+            },
+            "dependsOn": []
+          }
+        ]
+6. Po zakończeniu edycji szablonu wybierz pozycję **OK**.
+7. Wybierz przycisk **Zapisz**, aby zapisać zmiany wprowadzone w szablonie.
+   
+     ![zapisywanie szablonu](./media/resource-manager-export-template/save-template.png)
+8. Aby wdrożyć zaktualizowany szablon, wybierz pozycję **Wdróż**.
+   
+     ![wdrażanie szablonu](./media/resource-manager-export-template/deploy-template.png)
+9. Podaj wartości parametrów, a następnie wybierz nową grupę zasobów, w której mają zostać wdrożone zasoby.
+
+## <a name="update-the-downloaded-parameters-file"></a>Aktualizowanie pobranego pliku parametrów
+Jeśli pracujesz z pobranymi plikami (a nie z biblioteką w portalu), musisz zaktualizować pobrany plik parametrów. Nie jest on już zgodny z parametrami w szablonie. Użycie pliku parametrów nie jest konieczne, ale może on uprościć proces w przypadku ponownego wdrożenia środowiska. Użyjesz wartości domyślnych, które zostały zdefiniowane w szablonie dla wielu parametrów, aby w pliku parametrów były wymagane tylko dwie wartości.
+
+Zastąp zawartość pliku parameters.json następującym kodem:
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccount_prefix": {
+      "value": "storage"
+    },
+    "virtualNetwork_name": {
+      "value": "VNET"
+    }
+  }
+}
+```
+
+Zaktualizowany plik parametrów zawiera wartości tylko dla parametrów, które nie mają wartości domyślnej. Możesz podać wartości innych parametrów, jeśli chcesz użyć wartości innej niż wartość domyślna.
+
+## <a name="fix-export-issues"></a>Rozwiązywanie problemów z eksportowaniem
 Nie wszystkie typy zasobów obsługują funkcję eksportowania szablonu. Usługa Resource Manager nie eksportuje niektórych typów zasobów, aby zapobiec ujawnieniu poufnych danych. Na przykład jeśli konfiguracja witryny zawiera parametry połączenia, to najprawdopodobniej nie chcesz, aby były jawnie wyświetlane w wyeksportowanym szablonie. Ten problem można rozwiązać poprzez ręczne dodanie brakujących zasobów do szablonu.
 
 > [!NOTE]
@@ -133,7 +311,7 @@ Nie wszystkie typy zasobów obsługują funkcję eksportowania szablonu. Usługa
 > 
 > 
 
-Na przykład jeśli eksportujesz szablon dla grupy zasobów zawierającej aplikację sieci Web, bazę danych SQL i parametry połączenia w konfiguracji witryny, zostanie wyświetlony następujący komunikat.
+Na przykład jeśli eksportujesz szablon dla grupy zasobów zawierającej aplikację sieci Web, bazę danych SQL Database i parametry połączenia w konfiguracji witryny, zostanie wyświetlony następujący komunikat:
 
 ![wyświetlany błąd](./media/resource-manager-export-template/show-error.png)
 
@@ -141,9 +319,9 @@ Wybranie komunikatu spowoduje wyświetlenie dokładnych typów zasobów, które 
 
 ![wyświetlany błąd](./media/resource-manager-export-template/show-error-details.png)
 
-W tym temacie przedstawiono następujące typowe poprawki. Aby zaimplementować te zasoby, należy dodać parametry do szablonu. Aby uzyskać więcej informacji, zobacz [Dostosowywanie i ponowne wdrażanie wyeksportowanego szablonu](resource-manager-customize-template.md).
+W tym temacie przedstawiono typowe poprawki.
 
-### Parametry połączenia
+### <a name="connection-string"></a>Parametry połączenia
 W zasobie witryny sieci Web dodaj do bazy danych definicję parametrów połączenia:
 
 ```
@@ -169,7 +347,7 @@ W zasobie witryny sieci Web dodaj do bazy danych definicję parametrów połącz
 }
 ```    
 
-### Rozszerzenie witryny sieci Web
+### <a name="web-site-extension"></a>Rozszerzenie witryny sieci Web
 W zasobie witryny sieci Web dodaj definicję na potrzeby zainstalowania kodu:
 
 ```
@@ -198,10 +376,10 @@ W zasobie witryny sieci Web dodaj definicję na potrzeby zainstalowania kodu:
 }
 ```
 
-### Rozszerzenie maszyny wirtualnej
+### <a name="virtual-machine-extension"></a>Rozszerzenie maszyny wirtualnej
 Przykłady rozszerzeń maszyny wirtualnej można znaleźć w artykule [Azure Windows VM Extension Configuration Samples](virtual-machines/virtual-machines-windows-extensions-configuration-samples.md) (Przykłady konfiguracji rozszerzeń Azure dla maszyny wirtualnej systemu Windows).
 
-### Brama sieci wirtualnej
+### <a name="virtual-network-gateway"></a>Brama sieci wirtualnej
 Dodaj jako typ zasobu bramę sieci wirtualnej.
 
 ```
@@ -236,7 +414,7 @@ Dodaj jako typ zasobu bramę sieci wirtualnej.
 },
 ```
 
-### Brama sieci lokalnej
+### <a name="local-network-gateway"></a>Brama sieci lokalnej
 Dodaj jako typ zasobu bramę sieci lokalnej.
 
 ```
@@ -253,7 +431,7 @@ Dodaj jako typ zasobu bramę sieci lokalnej.
 }
 ```
 
-### Połączenie
+### <a name="connection"></a>Połączenie
 Dodaj połączenie jako typ zasobu.
 
 ```
@@ -277,13 +455,16 @@ Dodaj połączenie jako typ zasobu.
 ```
 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Gratulacje! Wiesz już, jak wyeksportować szablon na podstawie zasobów, które zostały utworzone w portalu.
 
-* W drugiej części tego samouczka dostosujesz pobrany szablon, dodając większą liczbę parametrów i wdrażając go ponownie za pomocą skryptu. Zobacz [Dostosowywanie i ponowne wdrażanie wyeksportowanego szablonu](resource-manager-customize-template.md).
+* Szablon można wdrożyć przy użyciu [programu PowerShell](resource-group-template-deploy.md), [interfejsu wiersza polecenia platformy Azure](resource-group-template-deploy-cli.md) lub [interfejsu API REST](resource-group-template-deploy-rest.md).
 * Aby poznać sposób eksportowania szablonu za pomocą programu PowerShell, zobacz [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md) (Używanie programu Azure PowerShell z usługą Azure Resource Manager).
 * Aby poznać sposób eksportowania szablonu za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md) (Używanie interfejsu wiersza polecenia platformy Azure na komputerach Mac i komputerach z systemem Linux oraz Windows z usługą Azure Resource Manager).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

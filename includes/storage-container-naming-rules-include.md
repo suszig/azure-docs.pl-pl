@@ -15,6 +15,8 @@ Nazwa kontenera musi być prawidłową nazwą DNS zgodną z następującymi zasa
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

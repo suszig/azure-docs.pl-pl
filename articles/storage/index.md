@@ -1,17 +1,17 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
+ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
+ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
 
 ---
-#<a name="storage-documentation"></a>Storage Documentation
+#<a name="storage-documentation"></a>Dokumentacja usługi Storage
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  It is highly scalable, elastic, globally accessible, and automatically load-balances your data based on traffic.  Azure Storage provides the following four services to meet application needs:  Blob storage, Table storage, Queue storage, and File storage.
+Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplikacji, które polegają na trwałości, dostępności i skalowalności, aby spełniać potrzeby klientów.  Jest wysoce skalowalne, elastyczne, globalnie dostępne, a przy tym automatycznie równoważy obciążenia na podstawie ruchu danych.  Usługa Azure Storage obejmuje pięć następujących usług udostępnianych aplikacjom: Blob Storage, Table Storage, Queue Storage, Disk Storage i File Storage.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/storage/storage-introduction/ ">
+        <a href="/azure/storage/storage-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -21,7 +21,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Storage</h3>
+                        <h3>Dowiedz się więcej o usłudze Azure Storage</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Storage Video Library</h3>
+                        <h3>Biblioteka wideo usługi Azure Storage</h3>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
         </a>
     </li>
     <li>
-        <a href="/azure/storage/storage-getting-started-guide/ ">
+        <a href="/azure/storage/storage-getting-started-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +57,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Storage</h3>
+                        <h3>Rozpoczynanie pracy z usługą Storage</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Storage account</h3>
+                        <h3>Tworzenie konta usługi Storage</h3>
                     </div>
                 </div>
             </div>
@@ -86,38 +86,102 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 ---
 
-##<a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###<a name="azure-cli"></a>Azure CLI 
-[Storage using Azure CLI Reference](/cli/azure/storage)
-
-###<a name="java"></a>Java 
-[Storage in Java Reference](/java/api/)
-
-###<a name="net"></a>.NET 
-[Storage Managed Reference API](https://msdn.microsoft.com/library/azure/mt347887) 
-
-###<a name="rest"></a>REST 
-[Storage REST API Reference](/rest/api/storageservices) 
-[Storage Resource Provider REST API Reference](/rest/api/storagerp)  
-
-
-
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
+                        <p>Dokumentacja usługi Storage z interfejsem wiersza polecenia platformy Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Dokumentacja usługi Storage w środowisku Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt347887">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Interfejs API dokumentacji zarządzanej usługi Storage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/storageservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi Storage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="/rest/api/storagerp">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Dokumentacja interfejsu API REST dostawcy zasobów usługi Storage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
         <div class="img"></div>
         <div class="text">
-Download Storage Documentation </div>
+Pobierz dokumentację usługi Storage </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

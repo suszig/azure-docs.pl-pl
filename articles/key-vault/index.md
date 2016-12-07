@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d6059070f8cb8765986763a2ae52068ab692d41d
-ms.openlocfilehash: 9614778d6c7502f16639d2ccb2f259a98be5b0c9
+ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
+ms.openlocfilehash: ac0840ad98cc34d190d69b4e317a2c446a3d64d1
 
 ---
-# <a name="key-vault-documentation"></a>Key Vault Documentation
+# <a name="key-vault-documentation"></a>Dokumentacja usługi Key Vault
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
+Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą usługi Key Vault możesz szyfrować klucze i klucze tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych, pliki PFX oraz hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM, hardware security module). W celu zapewnienia dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w modułach HSM.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -21,7 +21,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Key Vault</h3>
+                        <h3>Dowiedz się więcej o usłudze Key Vault</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Key Vault Video Library</h3>
+                        <h3>Biblioteka wideo usługi Key Vault</h3>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Key Vault</h3>
+                        <h3>Rozpoczynanie pracy z usługą Key Vault</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Key Vault from a Web Application</h3>
+                        <h3>Rozpoczynanie pracy z usługą Key Vault z aplikacji sieci Web</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Set up Azure Key Vault with end-to-end key rotation and auditing</h3>
+                        <h3>Konfigurowanie kompleksowej wymiany i inspekcji kluczy w usłudze Azure Key Vault</h3>
                     </div>
                 </div>
             </div>
@@ -104,35 +104,96 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 ---
 
-## <a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-### <a name="powershell"></a>PowerShell
-[Azure PowerShell Reference](/PowerShell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/PowerShell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Dokumentacja programu Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="azure-cli"></a>Azure CLI 
-[Key Vault using Azure CLI](/cli/azure/keyvault)
+<li>
+        <a href="/cli/azure/keyvault">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
+                        <p>Usługa Key Vault używająca interfejsu wiersza polecenia platformy Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="java"></a>Java 
-[Key Vault in Java Reference](/java/api/)
+<li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Dokumentacja usługi Key Vault w środowisku Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="net"></a>.NET 
-[Key Vault Managed Reference API](/dotnet/api/) 
+<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Zarządzania dokumentacja dotycząca interfejsu API usługi Key Vault</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="rest"></a>REST 
-[Key Vault REST API Reference](/rest/api/keyvault) 
-
+<li>
+        <a href="/rest/api/keyvault">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi Key Vault</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 ---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
         <div class="img"></div>
         <div class="text">
-Download Key Vault Documentation </div>
+Pobierz dokumentację usługi Key Vault </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

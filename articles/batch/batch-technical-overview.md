@@ -1,12 +1,12 @@
 ---
-title: Podstawy usługi Azure Batch | Microsoft Docs
-description: Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC
+title: "Podstawy usługi Azure Batch | Microsoft Docs"
+description: "Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC"
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2559aae752f319805c2c9f87a2e2a81d9b37e4b2
+
 
 ---
-# Podstawy usługi Azure Batch
+# <a name="basics-of-azure-batch"></a>Podstawy usługi Azure Batch
 Usługa Azure Batch umożliwia wydajne uruchamianie aplikacji równoległych o wielkiej skali oraz aplikacji do obliczeń o wysokiej wydajności (HPC, High-Performance Computing). Jest to usługa platformy, która umożliwia planowanie pracy wymagającej intensywnych obliczeń do wykonania na zarządzanym zestawie maszyn wirtualnych oraz automatyczne skalowanie zasobów obliczeniowych w celu spełnienia wymagań związanych z zadaniami.
 
 W usłudze Batch definiuje się zasoby obliczeniowe Azure do wykonywania aplikacji równolegle i na dużą skalę. Można uruchamiać zadania zaplanowane i na żądanie oraz nie ma potrzeby ręcznego tworzenia i konfigurowania klastra HPC, poszczególnych maszyn wirtualnych, sieci wirtualnych lub złożonej infrastruktury planowania zadań i podzadań ani zarządzania nimi.
 
-## Przypadki użycia usługi Batch
+## <a name="use-cases-for-batch"></a>Przypadki użycia usługi Batch
 Usługa Batch jest zarządzaną usługą platformy Azure, której używa się do *przetwarzania wsadowego* i *obliczania wsadowego* — uruchamiania dużej liczby podobnych podzadań w celu uzyskania pożądanych efektów. Obliczanie wsadowe jest najczęściej używane przez organizacje, które regularnie przetwarzają, przekształcają i analizują duże ilości danych.
 
 Z usługą Batch działają dobrze aplikacje i obciążenia wewnętrznie równoległe (zwane również „zaskakująco równoległymi”). Obciążenia wewnętrznie równoległe można łatwo podzielić na wiele podzadań, które wykonują prace na wielu komputerach równocześnie.
@@ -42,7 +46,7 @@ W usłudze Batch można również wykonywać obliczenia równoległe, kończąc 
 
 Aby porównać usługę Batch oraz inne opcje rozwiązań HPC na platformie Azure, zobacz artykuł [Rozwiązania usługi Batch i HPC](batch-hpc-solutions.md)
 
-## Programowanie przy użyciu usługi Batch
+## <a name="developing-with-batch"></a>Programowanie przy użyciu usługi Batch
 Przetwarzanie obciążeń równoległych przy użyciu funkcji Batch jest zazwyczaj wykonywane programowo przy użyciu jednego z [interfejsów API usługi Batch](#batch-development-apis). Za pomocą interfejsów API usługi Batch tworzy się pule węzłów obliczeniowych (maszyn wirtualnych) oraz nimi zarządza i planuje się zadania i podzadania do uruchomienia w tych węzłach. Aplikacja lub usługa kliencka, której autorem jest użytkownik, używa interfejsów API usługi Batch do komunikacji z usługą Batch.
 
 Można skutecznie przetwarzać duże obciążenia na potrzeby swojej organizacji lub zapewniać swoim klientom fronton usług, aby umożliwić im uruchamianie zadań i podzadań — na żądanie lub zgodnie z harmonogramem — w jednym węźle albo setkach lub nawet tysiącach węzłów. Można także używać usługi Batch w ramach większego przepływu pracy zarządzanego za pomocą takich narzędzi jak usługa [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
@@ -52,14 +56,14 @@ Można skutecznie przetwarzać duże obciążenia na potrzeby swojej organizacji
 > 
 > 
 
-### Potrzebne konta platformy Azure
+### <a name="azure-accounts-youll-need"></a>Potrzebne konta platformy Azure
 Podczas opracowywania rozwiązań usługi Batch potrzebne będą następujące konta na platformie Microsoft Azure.
 
 * **Konto i subskrypcja platformy Azure** — Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN][msdn_benefits] lub utworzyć [bezpłatne konto][free_account]. Podczas tworzenia konta zostanie utworzona domyślna subskrypcja.
 * **Konto usługi Batch** — Gdy aplikacje wchodzą w interakcję z usługą Batch, nazwa konta, adres URL konta oraz klucz dostępu są używane jako poświadczenia. Wszystkie zasoby usługi Batch, takie jak pule, węzły obliczeniowe, zadania i podzadania są skojarzone z kontem usługi Batch. [Tworzenie konta usługi Batch](batch-account-create-portal.md) można wykonać w witrynie Azure Portal.
 * **Konto usługi Storage** — Usługa Batch obejmuje wbudowaną obsługę pracy z plikami w usłudze [Azure Storage][azure_storage]. Usługa Azure Storage jest używana prawie w każdym scenariuszu usługi Batch — do przemieszczania programów uruchamianych przez podzadania oraz danych, które one przetwarzają, i do przechowywania danych wyjściowych, które generują. Aby utworzyć konto usługi Storage, zobacz temat [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md)
 
-### Interfejsy API programowania w usłudze Batch
+### <a name="batch-development-apis"></a>Interfejsy API programowania w usłudze Batch
 Aplikacje i usługi mogą wydawać bezpośrednie wywołania interfejsów API REST albo używać co najmniej jednej z podanych niżej bibliotek klienta lub kombinacji obu tych rozwiązań do zarządzania zasobami obliczeniowymi i uruchamiania na dużą skalę obciążeń równoległych za pomocą usługi Batch.
 
 | Interfejs API | Dokumentacja interfejsu API | Do pobrania | Przykłady kodu |
@@ -70,21 +74,21 @@ Aplikacje i usługi mogą wydawać bezpośrednie wywołania interfejsów API RES
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |
 | **Batch Java** (wersja zapoznawcza) |[github.io][api_java] |[Maven][api_java_jar] |[GitHub][api_sample_java] |
 
-### Zarządzanie zasobami usługi Batch
+### <a name="batch-resource-management"></a>Zarządzanie zasobami usługi Batch
 Oprócz interfejsów API klienta można również korzystać z następujących metod w celu zarządzania zasobami w ramach konta usługi Batch.
 
 * [Polecenia cmdlet programu PowerShell w usłudze Batch][batch_ps]: polecenia cmdlet usługi Azure Batch w module programu [Azure PowerShell](../powershell-install-configure.md) umożliwiają zarządzanie zasobami usługi Batch za pomocą programu PowerShell.
 * [Interfejs wiersza polecenia platformy Azure](../xplat-cli-install.md): interfejs wiersza polecenia platformy Azure (Azure CLI) jest działającym na wielu platformach zestawem narzędzi, który udostępnia polecenia powłoki do interakcji z wieloma usługami platformy Azure, w tym usługi Batch.
 * Biblioteka klienta [zarządzania usługą Batch dla platformy .NET](batch-management-dotnet.md): dostępna również przez rozwiązanie [NuGet][api_net_mgmt_nuget]. Można jej użyć do programowego zarządzania kontami, przydziałami i pakietami aplikacji usługi Batch. Dokumentacja dotycząca biblioteki zarządzania znajduje się w witrynie [MSDN][api_net_mgmt].
 
-### Narzędzia usługi Batch
+### <a name="batch-tools"></a>Narzędzia usługi Batch
 Chociaż narzędzia te nie są wymagane do tworzenia rozwiązań, które korzystają z usługi Batch, są one przydatne podczas tworzenia i debugowania aplikacji i usług w ramach usługi Batch.
 
 * [Witryna Azure Portal][portal]: możesz tworzyć, monitorować i usuwać pule i zadania usługi Batch w blokach usługi Batch witryny Azure Portal. Można wyświetlić informacje o stanie dla tych i innych zasobów podczas uruchamiania zadań, a nawet pobierać pliki z węzłów obliczeniowych w pulach (można na przykład pobrać plik `stderr.txt` zadania zakończonego niepowodzeniem podczas rozwiązywania problemów). Można również pobrać pliki Remote Desktop (RDP) umożliwiające logowanie się do węzłów obliczeniowych.
 * [Azure Batch Explorer][batch_explorer]: narzędzie Batch Explorer zapewnia podobne funkcje zarządzania zasobami usługi Batch, co witryna Azure Portal, lecz w samodzielnej aplikacji klienckiej Windows Presentation Foundation (WPF). Jest to jedna z przykładowych aplikacji .NET usługi Batch dostępnych w serwisie [GitHub][github_samples]. Można ją skompilować przy użyciu programu Visual Studio 2015 lub nowszego i użyć jej do przeglądania zasobów konta usługi Batch i zarządzania nimi podczas tworzenia i debugowania rozwiązań usługi Batch. Wyświetlaj szczegóły dotyczące zadania, puli i podzadań, pobieraj pliki z węzłów obliczeniowych lub łącz się z węzłami zdalnie przy użyciu plików usług Remote Desktop (RDP), które można pobrać przy użyciu programu Batch Explorer.
 * [Microsoft Azure Storage Explorer][storage_explorer]: Chociaż program Storage Explorer nie jest właściwie narzędziem usługi Azure Batch, jest to kolejne przydatne narzędzie, które warto mieć podczas opracowywania i debugowania rozwiązań usługi Batch.
 
-## Scenariusz: skalowanie obciążenia równoległego
+## <a name="scenario-scale-out-a-parallel-workload"></a>Scenariusz: skalowanie obciążenia równoległego
 Typowe rozwiązanie, w którym interfejsy API usługi Batch są używane do interakcji z usługą Batch, obejmuje skalowanie pracy wewnętrznie równoległej — np. renderowania obrazów dla scen 3D — w puli węzłów obliczeniowych. Ta pula węzłów obliczeniowych może być „farmą renderowania”, która udostępnia dziesiątki, setki lub nawet tysiące rdzeni np. do zadania renderowania.
 
 Na poniższym diagramie przedstawiono typowy przepływ pracy usługi Batch, w którym aplikacja kliencka lub usługa hostowana używa usługi Batch do uruchamiania obciążenia równoległego.
@@ -105,7 +109,7 @@ W tym typowym scenariuszu aplikacja lub usługa przetwarza obciążenie obliczen
 
 Pamiętaj, że jest to tylko jeden sposób korzystania z usługi Batch, a w tym scenariuszu opisano tylko kilka jej dostępnych funkcji. Inne możliwości to np. wykonywanie [wielu podzadań równolegle](batch-parallel-node-tasks.md) na każdym węźle obliczeniowym i używanie [podzadań przygotowania i ukończenia zadania](batch-job-prep-release.md) w celu przygotowania węzłów do zadań, a następnie ich wyczyszczenia.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po wstępnym zapoznaniu się z usługą Batch warto uzyskać więcej informacji o tej usłudze i dowiedzieć się, jak można jej używać do przetwarzania obciążeń równoległych wymagających intensywnych obliczeń.
 
 * Przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów) zawierający informacje kluczowe dla wszystkich osób przygotowujących się do korzystania z usługi Batch. Ten artykuł zawiera bardziej szczegółowe informacje o zasobach usługi Batch, takich jak pule, węzły i zadania oraz wielu funkcjach API, których można używać podczas kompilowania aplikacji usługi Batch.
@@ -142,6 +146,6 @@ Po wstępnym zapoznaniu się z usługą Batch warto uzyskać więcej informacji 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

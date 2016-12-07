@@ -1,6 +1,6 @@
 Aby zmienić adres IP bramy, należy użyć polecenia cmdlet `New-AzureRmVirtualNetworkGatewayConnection`. Jeśli nazwa bramy sieci lokalnej pozostanie taka sama jak nazwa już istniejącej, ustawienia zostaną zastąpione. W tej chwili polecenie cmdlet „Set” nie obsługuje modyfikowania adresu IP bramy.
 
-### <a name="gwipnoconnection"></a>Modyfikowanie adresu IP bramy — brak połączenia bramy
+### <a name="a-namegwipnoconnectionahow-to-modify-the-gateway-ip-address-no-gateway-connection"></a><a name="gwipnoconnection"></a>Modyfikowanie adresu IP bramy — brak połączenia bramy
 Aby zaktualizować adres IP bramy dla bramy sieci lokalnej, która nie ma jeszcze połączenia, skorzystaj z poniższego przykładu. Jednocześnie można również zaktualizować prefiksy adresów. Nowe ustawienia zastąpią istniejące ustawienia. Pamiętaj, aby użyć istniejącej nazwy bramy sieci lokalnej. Jeśli tego nie zrobisz, zostanie utworzona nowa brama sieci lokalnej, która nie zastąpi istniejącej.
 
 Użyj poniższego przykładu, zastępując wartości swoimi własnymi.
@@ -10,7 +10,7 @@ Użyj poniższego przykładu, zastępując wartości swoimi własnymi.
     -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 
 
-### <a name="gwipwithconnection"></a>Modyfikowanie adresu IP bramy — istniejące połączenie bramy
+### <a name="a-namegwipwithconnectionahow-to-modify-the-gateway-ip-address-existing-gateway-connection"></a><a name="gwipwithconnection"></a>Modyfikowanie adresu IP bramy — istniejące połączenie bramy
 Jeśli istnieje już połączenie bramy, musisz najpierw usunąć połączenie. Następnie możesz zmodyfikować adres IP bramy i ponownie utworzyć nowe połączenie. Spowoduje to pewien przestój połączenia sieci VPN.
 
 > [!IMPORTANT]
@@ -42,6 +42,8 @@ Jeśli istnieje już połączenie bramy, musisz najpierw usunąć połączenie. 
         -LocalNetworkGateway2 $local `
         -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

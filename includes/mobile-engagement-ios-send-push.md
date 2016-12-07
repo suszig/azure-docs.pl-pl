@@ -1,4 +1,4 @@
-### Przyznawanie dostępu do certyfikatu wypychania do usługi Mobile Engagement
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Przyznawanie dostępu do certyfikatu wypychania do usługi Mobile Engagement
 Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych w swoim imieniu, musisz przyznać jej dostęp do swojego certyfikatu. W tym celu należy skonfigurować i wprowadzić certyfikat w portalu usługi Mobile Engagement. Upewnij się, że dysponujesz certyfikatem p12, zgodnie z objaśnieniem w [dokumentacji firmy Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
 
 1. Przejdź do portalu Mobile Engagement. Upewnij się, że znajdujesz się na poziomie właściwej aplikacji, a następnie kliknij przycisk **Engage** (Włącz) widoczny u dołu:
@@ -11,7 +11,7 @@ Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych 
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>Wysyłanie powiadomienia do aplikacji
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Wysyłanie powiadomienia do aplikacji
 Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji:
 
 1. Przejdź do karty **Reach** (Zasięg) w portalu usługi Mobile Engagement.
@@ -40,6 +40,8 @@ Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wy
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

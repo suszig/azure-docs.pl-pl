@@ -1,22 +1,26 @@
 ---
-title: Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania dostępem do aplikacji | Microsoft Docs
-description: Samoobsługowe zarządzanie grupami umożliwia użytkownikom tworzenie grup zabezpieczeń lub grup usługi Office 365 i zarządzanie nimi w usłudze Azure Active Directory, a także daje im możliwość żądania członkostwa w grupach zabezpieczeń lub grupach usługi Office 365.
+title: "Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania dostępem do aplikacji | Microsoft Docs"
+description: "Samoobsługowe zarządzanie grupami umożliwia użytkownikom tworzenie grup zabezpieczeń lub grup usługi Office 365 i zarządzanie nimi w usłudze Azure Active Directory, a także daje im możliwość żądania członkostwa w grupach zabezpieczeń lub grupach usługi Office 365."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+
 
 ---
-# Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania grupami
+# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania grupami
 Samoobsługowe zarządzanie grupami pozwala użytkownikom na tworzenie grup zabezpieczeń lub grup Office 365 w usłudze Azure Active Directory (Azure AD) oraz zarządzanie nimi. Użytkownicy mogą również żądać członkostwa w grupie zabezpieczeń lub grupie Office 365, a następnie właściciel grupy może zatwierdzić członkostwo lub odmówić jego przypisania. Dzięki temu można przekazać codzienne zarządzanie członkostwem w grupach osobom znającym kontekst biznesowy tego członkostwa. Funkcje samoobsługowego zarządzania grupami są dostępne wyłącznie w przypadku grup zabezpieczeń i grup Office 365, natomiast nie są dostępne w przypadku list dystrybucyjnych lub grup zabezpieczeń z włączoną obsługą poczty.
 
 Samoobsługowe zarządzanie grupami aktualnie obejmuje dwa podstawowe scenariusze: delegowane zarządzanie grupami i samoobsługowe zarządzanie grupami.
@@ -26,7 +30,7 @@ Samoobsługowe zarządzanie grupami aktualnie obejmuje dwa podstawowe scenariusz
 * **Samoobsługowe zarządzanie grupami**
    — na przykład gdy dwóch użytkowników ma niezależnie skonfigurowane witryny usługi SharePoint Online. Każdy z nich chce przydzielić dostęp do swojej witryny zespołowi drugiego użytkownika. W tym celu mogą utworzyć jedną grupę w usłudze Azure AD i wybrać tę grupę do przydzielenia dostępu do witryn w usłudze SharePoint Online. Gdy inna osoba będzie chciała uzyskać dostęp, wprowadzi żądanie w Panelu dostępu, a po zatwierdzeniu automatycznie uzyska dostęp do obu witryn usługi SharePoint Online. Jeden z użytkowników może stwierdzić później, że wszystkie osoby mające dostęp do witryny powinny również mieć dostęp do określonej aplikacji SaaS. Administrator aplikacji SaaS może dodać do witryny programu SharePoint Online prawa dostępu dla aplikacji. Od tego momentu zatwierdzenie żądania dostępu spowoduje przyznanie dostępu do obu witryn usługi SharePoint Online oraz do tej aplikacji SaaS.
 
-## Włączanie samoobsługi użytkowników końcowych w grupie
+## <a name="making-a-group-available-for-end-user-selfservice"></a>Włączanie samoobsługi użytkowników końcowych w grupie
 1. W [klasycznym portalu Azure](https://manage.windowsazure.com) otwórz katalog Azure AD.
 2. Na karcie **Konfiguracja** ustaw wartość Włączone dla pozycji **Delegowane zarządzanie grupami**.
 3. Ustaw wartość Włączone dla pozycji **Użytkownicy mogą tworzyć grupy zabezpieczeń** lub **Użytkownicy mogą tworzyć grupy Office**.
@@ -37,7 +41,7 @@ Dodatkowo możesz użyć opcji **Użytkownicy, którzy mogą używać samoobsłu
 
 Dodatkowo możesz użyć pola **Grupa, która może używać samoobsługi dla grup zabezpieczeń**, aby wskazać niestandardową nazwę grupy, której członkowie mogą korzystać z funkcji samoobsługi.
 
-## Dodatkowe informacje
+## <a name="additional-information"></a>Dodatkowe informacje
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 * [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
@@ -46,6 +50,9 @@ Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 * [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

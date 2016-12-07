@@ -2,7 +2,7 @@
 
 Aby zapewnić odwołanie do pakietu CloudConfigurationManager, dodaj następującą instrukcję `using` do swojej klasy:
 
-    using Microsoft.Azure;  //Namespace for CloudConfigurationManager
+    using Microsoft.Azure;    //Namespace for CloudConfigurationManager
 
 Oto przykład, w którym przedstawiono, jak pobrać parametry połączenia z pliku konfiguracji:
 
@@ -12,6 +12,8 @@ Oto przykład, w którym przedstawiono, jak pobrać parametry połączenia z pli
 
 Użycie programu Azure Configuration Manager jest opcjonalne. Można także użyć interfejsu API, np. [klasy ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) programu .NET Framework.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

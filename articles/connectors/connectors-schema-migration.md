@@ -1,13 +1,13 @@
 ---
 title: Przeprowadzanie migracji aplikacji logiki do wersji schematu 2015-08-01-preview | Microsoft Docs
-description: Możesz łatwo przeprowadzić migrację aplikacji logiki do najnowszej wersji schematu. Wystarczy wykonać poniższe czynności.
+description: "Możesz łatwo przeprowadzić migrację aplikacji logiki do najnowszej wersji schematu. Wystarczy wykonać poniższe czynności."
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMAN
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab22e0369781f9f9afb9b3df9e7fdd54660a959d
+
 
 ---
-# Przeprowadzanie migracji aplikacji logiki do wersji schematu 2015-08-01-preview
+# <a name="how-to-migrate-logic-apps-to-schema-version-20150801preview"></a>Przeprowadzanie migracji aplikacji logiki do wersji schematu 2015-08-01-preview
 Aby zmienić schemat istniejących aplikacji logiki na nowy, wykonaj następujące czynności:  
 
 1. Otwórz aplikację logiki w witrynie Azure Portal.  
@@ -31,12 +35,12 @@ Aby zmienić schemat istniejących aplikacji logiki na nowy, wykonaj następują
 > 
 > 
 
-## Najlepsze rozwiązania w celu przeprowadzania migracji aplikacji logiki do najnowszej wersji schematu:
+## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>Najlepsze rozwiązania w celu przeprowadzania migracji aplikacji logiki do najnowszej wersji schematu:
 * Skopiuj zmigrowany skrypt do nowej aplikacji logiki — nie zastępuj starego skryptu do chwili, gdy zakończysz testy i potwierdzisz, że zmigrowana aplikacja działa zgodnie z oczekiwaniami.
 * Przetestuj aplikację logiki **przed** użyciem jej w środowisku produkcyjnym.
 * Po zakończeniu migracji rozpocznij aktualizowanie aplikacji logiki, aby korzystały z [zarządzanych interfejsów API](apis-list.md), jeżeli jest to możliwe. Na przykład możesz zacząć używać interfejsu DropBox 2 tam, gdzie jest używany interfejs DropBox 1.
 
-## Co dalej
+## <a name="whats-next"></a>Co dalej
 * [Dowiedz się, jak ręcznie migrować aplikacje logiki](../app-service-logic/app-service-logic-schema-2015-08-01.md)
 
 <!--Icon references-->
@@ -51,6 +55,6 @@ Aby zmienić schemat istniejących aplikacji logiki na nowy, wykonaj następują
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

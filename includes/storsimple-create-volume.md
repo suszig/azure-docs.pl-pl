@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### Aby utworzyć wolumin
+#### <a name="to-create-a-volume"></a>Aby utworzyć wolumin
 1. Na stronie **Szybki start** urządzenia kliknij pozycję **Dodaj wolumin**. Spowoduje to uruchomienie Kreatora dodawania woluminu.
 2. W Kreatorze dodawania woluminu w obszarze **Ustawienia podstawowe** wykonaj następujące czynności:
    
@@ -24,12 +24,14 @@
       > 
       
         ![Dodawanie woluminu](./media/storsimple-create-volume/AddVolume2-include.png)
-4. Kliknij ikonę znacznika wyboru ![ikona znacznika wyboru](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Wolumin zostanie utworzony przy użyciu wybranych ustawień.
+4. Po ustawieniu filtrów ![ikona znacznika wyboru](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Wolumin zostanie utworzony przy użyciu wybranych ustawień.
 
 ![Zobacz film](./media/storsimple-create-volume/Video_icon.png) **Zobacz film**
 
 Aby obejrzeć film wideo, na którym przestawiono tworzenie woluminu StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

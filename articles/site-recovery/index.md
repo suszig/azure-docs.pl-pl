@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
----
-# Site Recovery Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: fbd98ba8100dddf870c8d40d65edc9709bfeda41
+ms.openlocfilehash: 4023b92302b0e7462ff5c067b4ded3123a6f6bcb
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises virtual machines and physical servers. You can replicate servers and VMs from your primary on-premises datacenter to Azure or to a secondary datacenter. If an outage occurs in your primary site, you fail over to the secondary site to keep workloads accessible and available.
+---
+# <a name="site-recovery-documentation"></a>Dokumentacja usługi Site Recovery
+
+Usługa Azure Site Recovery przyczynia się do strategii związanej z ciągłością biznesową i odzyskiwaniem po awarii (BCDR, business continuity and disaster recovery) przez organizowanie replikacji lokalnych maszyn wirtualnych i serwerów fizycznych. Serwery i maszyny wirtualne można replikować z podstawowego lokalnego centrum danych do platformy Azure lub do pomocniczego centrum danych. W przypadku wystąpienia awarii w lokacji podstawowej następuje przejście do lokacji dodatkowej w trybie failover, dzięki czemu obciążenia są nadal dostępne.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/site-recovery/site-recovery-overview/">
+        <a href="/azure/site-recovery/site-recovery-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +21,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Site Recovery</h3>
+                        <h3>Informacje o usłudze Azure Site Recovery</h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +29,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
         </a>
     </li>
     <li>
-        <a href="/azure/site-recovery/site-recovery-best-practices/">
+        <a href="/azure/site-recovery/site-recovery-best-practices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -35,7 +39,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Site Recovery</h3>
+                        <h3>Wprowadzenie do usługi Azure Site Recovery</h3>
                     </div>
                 </div>
             </div>
@@ -46,23 +50,63 @@ Azure Site Recovery contributes to your business continuity and disaster recover
 
 ---
 
-## Reference
+## <a name="reference"></a>Dokumentacja
 
-### PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-### Java
-[Site Recovery Java API Reference](/java/api)
-
-### REST
-[Site Recovery REST API Reference](https://msdn.microsoft.com/en-us/library/mt750497)
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Dokumentacja programu Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Dokumentacja interfejsu API środowiska Java usługi Site Recovery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/en-us/library/mt750497">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi Site Recovery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>   
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Site Recovery Documentation
-        </div>
+Pobierz dokumentację usługi Site Recovery </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

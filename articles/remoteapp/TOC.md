@@ -68,9 +68,9 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Cennik](https://azure.microsoft.com/pricing/details/remoteapp/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
-## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

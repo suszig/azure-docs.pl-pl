@@ -1,22 +1,26 @@
 ---
-title: Wprowadzenie do usługi Azure Active Directory — wersja Premium
-description: Temat opisujący tworzenie konta w usłudze Azure Active Directory — wersja Premium za pośrednictwem witryny sieci Web licencjonowania zbiorowego.
+title: "Wprowadzenie do usługi Azure Active Directory — wersja Premium"
+description: "Temat opisujący tworzenie konta w usłudze Azure Active Directory — wersja Premium za pośrednictwem witryny sieci Web licencjonowania zbiorowego."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f5341ecd0256d6268b9247ef5ec391809b7071a
+
 
 ---
-# Wprowadzenie do usługi Azure Active Directory — wersja Premium
+# <a name="getting-started-with-azure-active-directory-premium"></a>Wprowadzenie do usługi Azure Active Directory — wersja Premium
 Konto w usłudze Active Directory — wersja Premium można utworzyć na kilka sposobów: 
 
 **Platforma Azure lub usługa Office 365** — jako subskrybent platformy Azure lub usługi Office 365 możesz kupić usługę Active Directory — wersja Premium online. Aby uzyskać szczegółowy opis kroków, zobacz [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Jak kupić usługę Azure Active Directory — wersja Premium: istniejący klienci) lub [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Jak kupić usługę Azure Active Directory — wersja Premium: nowi klienci).  
@@ -32,10 +36,10 @@ W tym temacie opisano rozpoczynanie pracy z usługą Azure Active Directory — 
 > 
 > 
 
-## Krok 1: Tworzenie konta w usłudze Active Directory — wersja Premium
+## <a name="step-1-sign-up-for-active-directory-premium"></a>Krok 1: Tworzenie konta w usłudze Active Directory — wersja Premium
 Aby utworzyć konto, zobacz [How to purchase through Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) (Jak kupić w ramach licencjonowania zbiorowego).
 
-## Krok 2: Aktywowanie planu licencjonowania
+## <a name="step-2-activate-your-license-plan"></a>Krok 2: Aktywowanie planu licencjonowania
 Czy to Twój pierwszy zakup planu licencjonowania w ramach programu licencjonowania zbiorowego dla przedsiębiorstw firmy Microsoft?
 W takim przypadku otrzymasz wiadomość e-mail z potwierdzeniem po wykonaniu zakupu.
 Ta wiadomość e-mail będzie potrzebna do aktywowania Twojego pierwszego planu licencjonowania.
@@ -58,7 +62,7 @@ Gdy wszystko będzie gotowe, zostanie wyświetlone następujące okno dialogowe 
 
 ![Potwierdzenie][3]
 
-## Krok 3: Aktywowanie dostępu do usługi Azure Active Directory
+## <a name="step-3-activate-your-azure-active-directory-access"></a>Krok 3: Aktywowanie dostępu do usługi Azure Active Directory
 Jeśli Twoje doświadczenie obejmuje korzystanie z platformy Microsoft Azure, możesz przejść do [Kroku 4](#step-4-assign-license-to-user-accounts). 
 
 Gdy licencje zostaną aprowizowane do Twojego katalogu, zostanie do Ciebie wysłana **powitalna wiadomość e-mail**. Wiadomość e-mail stanowi potwierdzenie, że możesz rozpocząć zarządzanie licencjami i funkcjami usługi Azure Active Directory — wersja Premium lub pakietu Enterprise Mobility Suite. 
@@ -92,7 +96,7 @@ Być może masz już dostęp do platformy Azure, ponieważ wcześniej była prze
 
 ![Możliwości platformy Azure][8]
 
-## Krok 4: Przypisywanie licencji do kont użytkowników
+## <a name="step-4-assign-license-to-user-accounts"></a>Krok 4: Przypisywanie licencji do kont użytkowników
 Przed rozpoczęciem używania zakupionego planu musisz ręcznie przypisać licencje do kont użytkowników w organizacji, tak aby mogli używać różnorodnych funkcji udostępnionych w wersji Premium. Wykonaj następujące kroki, aby przypisać licencje do użytkowników, tak aby mogli używać różnorodnych funkcji usługi Azure Active Directory — wersja Premium.
 
 **Aby przypisać licencje do użytkowników, wykonaj następujące kroki:**
@@ -106,17 +110,17 @@ Przed rozpoczęciem używania zakupionego planu musisz ręcznie przypisać licen
    
     ![Przypisywanie licencji][11]
 
-### Ograniczenia licencji
+### <a name="license-restrictions"></a>Ograniczenia licencji
 Niektóre plany licencjonowania są podzbiorami lub nadzbiorami innych planów licencjonowania. Zazwyczaj do użytkownika nie można przypisać planu licencjonowania, która już został do niego przypisany. Jeśli masz zamiar przypisać plan licencjonowania, który jest nadzbiorem, musisz najpierw usunąć plan licencjonowania będący podzbiorem.
 
-### Wymagania licencyjne
+### <a name="license-requirements"></a>Wymagania licencyjne
 Po przypisaniu licencji do użytkownika możesz określić podstawową lokalizację użytkowania we właściwościach jego konta. Jeśli nie określono lokalizacji użytkowania, lokalizacja dzierżawy zostanie automatycznie przypisana do użytkownika.
 
 ![Lokalizacja użytkownika][12]
 
 Dostępność usług i funkcji dla usługi w chmurze firmy Microsoft jest zależna od kraju lub regionu. Usługa, taka jak protokół Voice over Internet Protocol (VoIP), może być dostępna w jednym kraju lub regionie i niedostępna w innym. Funkcje w ramach usługi mogą być ograniczone z przyczyn prawnych w niektórych krajach lub regionach. Aby sprawdzić, czy usługa lub funkcja jest dostępna z ograniczeniami, wyszukaj Twój kraj lub region w witrynie ograniczeń licencji usługi.
 
-## Co dalej
+## <a name="whats-next"></a>Co dalej
 * [Dodawanie znakowania firmowego do stron logowania i panelu dostępu](active-directory-add-company-branding.md)
 * [Wyświetlanie raportów dostępu i użycia](active-directory-view-access-usage-reports.md)
 
@@ -136,6 +140,6 @@ Dostępność usług i funkcji dla usługi w chmurze firmy Microsoft jest zależ
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

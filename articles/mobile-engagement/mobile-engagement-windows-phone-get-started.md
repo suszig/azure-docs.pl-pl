@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do usługi Azure Mobile Engagement na potrzeby aplikacji platformy Silverlight systemu Windows Phone
-description: Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji platformy Silverlight systemu Windows Phone.
+title: "Wprowadzenie do usługi Azure Mobile Engagement na potrzeby aplikacji platformy Silverlight systemu Windows Phone"
+description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji platformy Silverlight systemu Windows Phone."
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: aa34692f-87f7-47c6-a20c-a1972750bc25
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fc6f97db04ae9dc547beb5a1fa3ee0c8c61885a6
+
 
 ---
-# Wprowadzenie do usługi Azure Mobile Engagement na potrzeby aplikacji platformy Silverlight systemu Windows Phone
+# <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Wprowadzenie do usługi Azure Mobile Engagement na potrzeby aplikacji platformy Silverlight systemu Windows Phone
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 W tym temacie pokazano, jak za pomocą usługi Azure Mobile Engagement można określić sposób użycia aplikacji oraz wysyłać powiadomienia wypychane do segmentowanych użytkowników aplikacji platformy Silverlight systemu Windows Phone.
@@ -33,19 +37,19 @@ Dla tego samouczka wymagane są następujące elementy:
 * Pakiet NuGet [MicrosoftAzure.MobileEngagement]
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started).
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Windows Phone
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Windows Phone
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. Kompletna dokumentacja integracji znajduje się w sekcji [Mobile Engagement Windows Phone SDK integration](mobile-engagement-windows-phone-sdk-overview.md) (Integracja zestawu SDK dla systemu Windows Phone usługi Mobile Engagement).
 
 Aby zademonstrować integrację, utworzona zostanie podstawowa aplikacja za pomocą programu Visual Studio.
 
-### Tworzenie nowego projektu platformy Silverlight systemu Windows Phone
+### <a name="create-a-new-windows-phone-silverlight-project"></a>Tworzenie nowego projektu platformy Silverlight systemu Windows Phone
 W następujących krokach założono korzystanie z programu Visual Studio 2015, chociaż kroki są podobne także w przypadku wcześniejszych wersji programu Visual Studio. 
 
 1. Uruchom program Visual Studio i na ekranie **Strona główna** wybierz pozycję **Nowy projekt**.
@@ -56,7 +60,7 @@ W następujących krokach założono korzystanie z programu Visual Studio 2015, 
 
 Została utworzona nowa aplikacja platformy Silverlight systemu Windows Phone, z którą zostanie zintegrowany zestaw SDK usługi Azure Mobile Engagement.
 
-### Łączenie aplikacji z zapleczem usługi Mobile Engagement
+### <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 1. Zainstaluj pakiet NuGet [MicrosoftAzure.MobileEngagement] w projekcie.
 2. Otwórz plik `WMAppManifest.xml` (w folderze Właściwości) i upewnij się, że w znaczniku `<Capabilities />` został zadeklarowany następujący kod:
    
@@ -87,7 +91,7 @@ Została utworzona nowa aplikacja platformy Silverlight systemu Windows Phone, z
                EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
+## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
 Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni, konieczne jest wysłanie co najmniej jednego ekranu (Działanie) do zaplecza usługi Mobile Engagement.
 
 1. W pliku MainPage.xaml.cs dodaj instrukcję `using`:
@@ -100,18 +104,18 @@ Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni,
    
     a. Dodaj deklaracje przestrzeni nazw:
    
-         xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+            xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
    
     b. Zastąp element `phone:PhoneApplicationPage` w nazwie tagu XML elementem `engagement:EngagementPage`.
 
-## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 Usługa Mobile Engagement umożliwia wchodzenie w interakcję z użytkownikami przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
 W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 
-### Umożliwianie aplikacji otrzymywanie powiadomień wypychanych usługi MPNS
+### <a name="enable-your-app-to-receive-mpns-push-notifications"></a>Umożliwianie aplikacji otrzymywanie powiadomień wypychanych usługi MPNS
 Dodaj nowe funkcje do pliku `WMAppManifest.xml`:
 
         ID_CAP_PUSH_NOTIFICATION
@@ -119,7 +123,7 @@ Dodaj nowe funkcje do pliku `WMAppManifest.xml`:
 
    ![][5]
 
-### Inicjowanie zestawu SDK modułu REACH
+### <a name="initialize-the-reach-sdk"></a>Inicjowanie zestawu SDK modułu REACH
 1. W pliku `App.xaml.cs` wywołaj funkcję `EngagementReach.Instance.Init();` w funkcji **Application_Launching** bezpośrednio po zainicjowaniu agenta:
    
         private void Application_Launching(object sender, LaunchingEventArgs e)
@@ -137,7 +141,7 @@ Dodaj nowe funkcje do pliku `WMAppManifest.xml`:
 
 Wszystko jest gotowe. Teraz zostanie zweryfikowane, czy podstawowa integracja została przeprowadzona prawidłowo.
 
-## <a id="send"></a>Wysyłanie powiadomienia do aplikacji
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Wysyłanie powiadomienia do aplikacji
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Na urządzeniu powinno zostać wyświetlone powiadomienie, które będzie widoczne jako powiadomienie w aplikacji, jeśli aplikacja jest otwarta, lub jeśli nie jest, jako powiadomienie wyskakujące mające postać zbliżoną do następującej: 
@@ -157,6 +161,6 @@ Na urządzeniu powinno zostać wyświetlone powiadomienie, które będzie widocz
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

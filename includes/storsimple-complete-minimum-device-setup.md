@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Wykonywanie minimalnej konfiguracji urządzenia StorSimple
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Wykonywanie minimalnej konfiguracji urządzenia StorSimple
 1. Na stronie **Urządzenia** wybierz urządzenie, kliknij strzałkę obok nazwy urządzenia i przejdź do strony określonego urządzenia. 
    
     ![Strona Urządzenia z urządzeniem w trybie online](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
@@ -19,8 +19,7 @@
 4. Kliknij ikonę strzałki. ![Ikona strzałki StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 5. Na stronie **Interfejsy sieciowe** podaj stałe adresy IP dla kontrolera 0 i kontrolera 1. Jeśli interfejs DATA 0 został skonfigurowany do obsługi protokołu IPv4, stałe adresy IP muszą być podawane w formacie IPv4. Jeśli podano prefiks podczas konfiguracji protokołu IPv6 , stałe adresy IP zostaną wypełnione automatycznie w tych polach.
 
-    > [AZURE.NOTE] 
-    > 
+    > [!NOTE] 
     > - Stałe adresy IP kontrolera muszą być wolnymi adresami IP w obrębie podsieci dostępnej za pośrednictwem adresu IP urządzenia.
     > - Stałe adresy IP kontrolera są używane do obsługi aktualizacji urządzenia i w związku z tym muszą być rutowalne i umożliwiać nawiązanie połączenia z Internetem.
 
@@ -38,6 +37,8 @@
 
 Aby obejrzeć film przedstawiający sposób wykonywania minimalnej konfiguracji urządzenia, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

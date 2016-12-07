@@ -1,28 +1,32 @@
 ---
-title: Szybkie wprowadzenie do usługi Azure Storage | Microsoft Docs
-description: Szybko zapoznaj się z usługami Microsoft Azure Blobs, Table i Queues, korzystając z szablonów Szybki start usługi Azure Storage, programu Visual Studio i emulatora usługi Azure Storage. Uruchom pierwszą aplikację usługi Azure Storage w ciągu pięciu minut.
+title: "Szybkie wprowadzenie do usługi Azure Storage | Microsoft Docs"
+description: "Szybko zapoznaj się z usługami Microsoft Azure Blobs, Table i Queues, korzystając z szablonów Szybki start usługi Azure Storage, programu Visual Studio i emulatora usługi Azure Storage. Uruchom pierwszą aplikację usługi Azure Storage w ciągu pięciu minut."
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 582f76f8-c814-4a69-8a5c-1fd0e0d5d8f2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: dineshm;tamram
+ms.date: 10/18/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+
 
 ---
-# Szybkie wprowadzenie do usługi Azure Storage
-## Omówienie
+# <a name="get-started-with-azure-storage-in-five-minutes"></a>Szybkie wprowadzenie do usługi Azure Storage
+## <a name="overview"></a>Omówienie
 Rozpoczęcie tworzenia rozwiązań z wykorzystaniem usługi Azure Storage jest niezwykle proste. Ten samouczek pokazuje, jak szybko uruchomić aplikację usługi Azure Storage. Użyjesz szablonów Szybki start dołączonych do zestawu Azure SDK dla programu .NET. Szablony szybkiego startu zawierają gotowy do uruchomienia kod, który demonstruje wybrane, podstawowe scenariusze programistyczne związane z usługą Azure Storage.
 
 Aby uzyskać więcej informacji na temat usługi Azure Storage przed rozpoczęciem pracy z kodem, zobacz [Następne kroki](#next-steps).
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem należy spełnić następujące wymagania wstępne:
 
 1. Aby skompilować i utworzyć aplikację, musisz mieć wersję programu [Visual Studio](https://www.visualstudio.com/) zainstalowaną na komputerze.
@@ -35,7 +39,7 @@ Przed rozpoczęciem należy spełnić następujące wymagania wstępne:
    * Aby uzyskać subskrypcję platformy Azure, zobacz tematy [Bezpłatna wersja próbna](https://azure.microsoft.com/pricing/free-trial/), [Opcje zakupu](https://azure.microsoft.com/pricing/purchase-options/) i [Oferty członkowskie](https://azure.microsoft.com/pricing/member-offers/) (dla członków MSDN, Microsoft Partner Network, BizSpark i innych programów firmy Microsoft).
    * Aby utworzyć konto usługi Azure Storage, zobacz [Tworzenie konta magazynu](storage-create-storage-account.md#create-a-storage-account).
 
-## Uruchamianie pierwszej aplikacji usługi Azure Storage w usłudze Azure Storage w chmurze
+## <a name="run-your-first-azure-storage-application-against-azure-storage-in-the-cloud"></a>Uruchamianie pierwszej aplikacji usługi Azure Storage w usłudze Azure Storage w chmurze
 Jeśli masz już konto, możesz utworzyć prostą aplikację usługi Azure Storage, korzystając z jednego z przykładowych projektów Szybki start Azure w programie Visual Studio. Ten samouczek koncentruje się na przykładowych projektach usługi Azure Storage: **Azure Storage: obiekty Blob**, **Azure Storage: pliki**, **Azure Storage: kolejki** i **Azure Storage: tabele**:
 
 1. Uruchom program Visual Studio.
@@ -62,7 +66,7 @@ Uruchom przykładową aplikację:
 4. W menu **Kompilacja** kliknij pozycję **Kompiluj rozwiązanie**.
 5. W menu **Debugowanie** naciśnij klawisz **F11**, aby uruchomić rozwiązanie krok po kroku lub naciśnij klawisz **F5**, aby uruchomić rozwiązanie.
 
-## Uruchamianie pierwszej aplikacji usługi Azure Storage lokalnie z wykorzystaniem emulatora usługi Azure Storage
+## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>Uruchamianie pierwszej aplikacji usługi Azure Storage lokalnie z wykorzystaniem emulatora usługi Azure Storage
 [Emulator usługi Azure Storage](storage-use-emulator.md) zapewnia środowisko lokalne, które emuluje obiekty Blob platformy Azure, kolejki i usługi tabel w celach deweloperskich. Możesz użyć emulatora magazynu, aby przetestować aplikację magazynu lokalnie, bez tworzenia subskrypcji platformy Azure lub konta magazynu i bez ponoszenia jakichkolwiek kosztów.
 
 Aby wypróbować ten scenariusz, utwórz prostą aplikację usługi Azure Storage, korzystając z jednego z przykładowych projektów Szybki start Azure w programie Visual Studio. Ten samouczek koncentruje się na przykładowych projektach **Azure Blob Storage**, **Azure Table Storage** oraz **Azure Queue Storage**:
@@ -87,7 +91,7 @@ Uruchom przykładową aplikację w emulatorze usługi Azure Storage:
 2. W programie Visual Studio kliknij przycisk **Kompiluj rozwiązanie** w menu **Kompilacja**.
 3. W menu **Debugowanie** naciśnij klawisz **F11**, aby uruchomić rozwiązanie krok po kroku, lub naciśnij klawisz **F5**, aby uruchomić rozwiązanie od początku do końca.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Zobacz następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure Storage:
 
 * [Wprowadzenie do usługi Microsoft Azure Storage](storage-introduction.md)
@@ -95,16 +99,16 @@ Zobacz następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure
 * [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md)
 * [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md)
 * [Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md)
-* [Rozpoczynanie pracy z Magazynem plików Azure w systemie Windows](storage-dotnet-how-to-use-files.md)
+* [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](storage-dotnet-how-to-use-files.md)
 * [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
 * [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Biblioteka klienta usługi Microsoft Azure Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [Biblioteka klienta usługi Microsoft Azure Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -5,6 +5,7 @@
 
 # Rozpoczęcie pracy
 ## [Tworzenie zadań i zarządzanie nimi](scheduler-get-started-portal.md)
+## [Pojęcia i terminologia](scheduler-concepts-terms.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
@@ -14,7 +15,7 @@
 
 ## Programowanie
 ### [Obsługa złożonych harmonogramów przy użyciu interfejsu API REST](scheduler-advanced-complexity.md)
-### [Pojęcia i terminologia](scheduler-concepts-terms.md)
+
 
 ## Bezpieczeństwo
 ### [Uwierzytelnianie danych wychodzących](scheduler-outbound-authentication.md)
@@ -25,13 +26,16 @@
 ## [REST](/rest/api/scheduler/)
 
 # Zasoby
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Cennik](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
-## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=scheduler)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

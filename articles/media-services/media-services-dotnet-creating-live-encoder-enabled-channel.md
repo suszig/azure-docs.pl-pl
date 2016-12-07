@@ -1,12 +1,12 @@
 ---
-title: Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów | Microsoft Docs
-description: Ten samouczek przedstawia kroki tworzenia kanału, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów i koduje go jako strumień o wielokrotnej szybkości transmisji bitów przy użyciu zestawu SDK programu .NET.
+title: "Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów | Microsoft Docs"
+description: "Ten samouczek przedstawia kroki tworzenia kanału, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów i koduje go jako strumień o wielokrotnej szybkości transmisji bitów przy użyciu zestawu SDK programu .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów z użyciem programu .NET
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów z użyciem programu .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -68,7 +72,7 @@ Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyła
 3. Zatrzymaj program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
 4. Usuń program (opcjonalnie można również usunąć zasób).
 
-## <a name="what-you'll-learn"></a>Zawartość
+## <a name="what-youll-learn"></a>Zawartość
 W tym temacie opisano sposób wykonywania różnych operacji na kanałach i programach przy użyciu zestawu SDK .NET usługi Media Services. Ponieważ czas trwania wielu operacji jest długi, użyto interfejsów API platformy .NET służących do zarządzania operacjami długotrwałymi.
 
 W temacie przedstawiono sposób wykonywania następujących czynności:
@@ -101,7 +105,7 @@ Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka 
 ## <a name="download-sample"></a>Pobieranie próbki
 Pobierz i uruchom próbkę [z tego miejsca](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-## <a name="set-up-for-development-with-media-services-sdk-for-.net"></a>Konfigurowanie środowiska deweloperskiego przy użyciu zestawu .NET SDK usługi Media Services
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Konfigurowanie środowiska deweloperskiego przy użyciu zestawu .NET SDK usługi Media Services
 1. Utwórz aplikację konsoli przy użyciu programu Visual Studio.
 2. Dodaj zestaw SDK Usługi multimediów dla platformy .NET do aplikacji konsoli przy użyciu pakietu NuGet usługi Media Services.
 
@@ -341,7 +345,7 @@ Dodaj sekcję appSettings w pliku app.config i ustaw wartości nazwy i klucza ko
             /// <returns></returns>
             public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
             {
-                // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+                 // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
                 var locator = _context.Locators.CreateLocator
                     (
                         LocatorType.OnDemandOrigin,
@@ -509,7 +513,7 @@ Dodaj sekcję appSettings w pliku app.config i ustaw wartości nazwy i klucza ko
                     operationId ?? string.Empty);
             }
         }
-    }   
+    }    
 
 
 ## <a name="next-step"></a>Następny krok
@@ -520,9 +524,12 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Szukasz czegoś innego?
+### <a name="looking-for-something-else"></a>Szukasz czegoś innego?
 Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się swoją opinią za pomocą wątku usługi Disqus poniżej.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

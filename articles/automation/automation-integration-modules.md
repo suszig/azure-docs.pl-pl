@@ -1,12 +1,12 @@
 ---
-title: Tworzenie modułu integracji usługi Azure Automation | Microsoft Docs
-description: Samouczek, który przeprowadzi Cię przez proces tworzenia, testowania i przykładowego użycia modułów integracji w usłudze Azure Automation.
+title: "Tworzenie modułu integracji usługi Azure Automation | Microsoft Docs"
+description: "Samouczek, który przeprowadzi Cię przez proces tworzenia, testowania i przykładowego użycia modułów integracji w usłudze Azure Automation."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ca2343c8915690184e63396afa4e45a22a16ec2b
+
 
 ---
-# Moduły integracji usługi Azure Automation
+# <a name="azure-automation-integration-modules"></a>Moduły integracji usługi Azure Automation
 Program PowerShell to podstawowa technologia używana w usłudze Azure Automation. Ponieważ usługa Azure Automation jest zbudowana w oparciu o program PowerShell, moduły tego programu stanowią podstawę możliwości rozszerzania usługi Azure Automation. W tym artykule przedstawimy szczegółowe informacje na temat używania w usłudze Azure Automation modułów programu PowerShell określanych jako „moduły integracji” oraz najlepsze rozwiązania w zakresie takiego tworzenia modułów programu PowerShell, aby mogły one działać jako moduły integracji w usłudze Azure Automation. 
 
-## Co to jest moduł programu PowerShell?
+## <a name="what-is-a-powershell-module"></a>Co to jest moduł programu PowerShell?
 Moduł to grupa poleceń cmdlet programu PowerShell, takich jak **Get-Date** lub **Copy-Item**, które mogą być używane w konsoli programu PowerShell, skryptów, przepływów pracy, elementów Runbook i zasobów konfiguracji DSC programu PowerShell, takich jak plik lub funkcja systemu Windows, których można używać z poziomu konfiguracji DSC programu PowerShell. Wszystkie funkcje programu PowerShell są dostępne za pośrednictwem poleceń cmdlet i zasobów DSC. Wszystkie polecenia cmdlet i zasoby DSC są wspierane przez moduł programu PowerShell (wiele takich modułów jest dołączanych do programu PowerShell). Na przykład polecenie cmdlet **Get-Date** jest częścią modułu Microsoft.PowerShell.Utility programu PowerShell, polecenie cmdlet **Copy-Item** jest częścią modułu Microsoft.PowerShell.Management, a zasób DSC pakietu jest częścią modułu PSDesiredStateConfiguration. Oba te moduły są dostarczane z programem PowerShell. Wiele modułów programu PowerShell nie jest dołączanych do tego programu. Są one rozpowszechniane razem z produktami firmy Microsoft lub firm zewnętrznych, takimi jak System Center 2012 Configuration Manager, albo przez dużą społeczność programu PowerShell w miejscach takich jak Galeria programu PowerShell.  Moduły są przydatne, ponieważ w prostszy sposób wykonują złożone zadania za pomocą zhermetyzowanych funkcji.  Aby uzyskać więcej informacji, zobacz artykuł o [modułach programu PowerShell w witrynie MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx). 
 
-## Co to jest moduł integracji usługi Azure Automation?
+## <a name="what-is-an-azure-automation-integration-module"></a>Co to jest moduł integracji usługi Azure Automation?
 Moduł integracji nie różni się znacząco od modułu programu PowerShell. Jest to po prostu moduł programu PowerShell opcjonalnie zawierający jeden dodatkowy plik — plik metadanych określający typ połączenia usługi Azure Automation do użycia z poleceniami cmdlet modułu w elementach Runbook. Bez względu na to, czy plik opcjonalny jest używany, te moduły programu PowerShell mogą być importowane do usługi Azure Automation w celu udostępnienia ich poleceń cmdlet do użycia w elementach Runbook, a zasobów DSC — do użycia w konfiguracjach DSC. Usługa Azure Automation przechowuje te moduły w tle, a w momencie wykonywania zadania elementu Runbook i zadania kompilacji DSC ładuje je do piaskownic usługi Azure Automation, w których są wykonywane elementy Runbook i kompilowane są konfiguracje DSC.  Wszystkie zasoby DSC w modułach są również automatycznie umieszczane na serwerze ściągania konfiguracji DSC usługi Automation, dzięki czemu mogą być ściągane przez komputery próbujące zastosować konfiguracje DSC.  Niektóre moduły programu Azure PowerShell są dostarczane z usługą Azure Automation jako gotowe do użytku. Dzięki temu można od razu rozpocząć automatyzację zarządzania platformą Azure. Można również łatwo importować moduły programu PowerShell niezależnie od systemu, usługi lub narzędzia do zintegrowania. 
 
 > [!NOTE]
@@ -62,7 +66,7 @@ Jeśli moduł powinien zawierać typ połączenia usługi Azure Automation, musi
 
 Jeśli wdrożono usługę Service Management Automation i utworzono pakiety modułów integracji dla elementów Runbook automatyzacji, szablon powinien wyglądać znajomo. 
 
-## Najlepsze rozwiązania w zakresie tworzenia
+## <a name="authoring-best-practices"></a>Najlepsze rozwiązania w zakresie tworzenia
 Fakt, że moduły integracji są zasadniczo modułami programu PowerShell, nie oznacza, że nie mamy zestawu rozwiązań dotyczących ich tworzenia. Istnieje jednak kilka kwestii, które warto wziąć pod uwagę podczas tworzenia modułu programu PowerShell, aby zmaksymalizować jego użyteczność w usłudze Azure Automation. Niektóre z tych kwestii są powiązane z usługą Azure Automation, a niektóre z nich po prostu ułatwiają współpracę modułów z przepływem pracy programu PowerShell, bez względu na to, czy korzystasz z tej usługi. 
 
 1. Dodaj streszczenie, opis i identyfikator URI pomocy do każdego polecenia cmdlet w module. W programie PowerShell możesz zdefiniować pewne informacje pomocy dotyczące poleceń cmdlet, aby umożliwić użytkownikowi uzyskanie pomocy na temat korzystania z nich dzięki poleceniu cmdlet **Get-Help**. Oto jak możesz na przykład zdefiniować streszczenie i identyfikator URI pomocy dla modułu programu PowerShell zapisanego w pliku psm1.<br>  
@@ -101,8 +105,7 @@ Fakt, że moduły integracji są zasadniczo modułami programu PowerShell, nie o
     $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
     }
     ```
-   <br> 
-   Podanie tych informacji nie tylko umożliwi wyświetlenie pomocy przy użyciu polecenia cmdlet **Get-Help** w konsoli programu PowerShell, ale także udostępni funkcję pomocy w usłudze Azure Automation, na przykład podczas wstawiania działań w procesie tworzenia elementu Runbook. Kliknięcie pozycji „Wyświetl szczegółową pomoc” spowoduje otwarcie identyfikatora URI pomocy na innej karcie przeglądarki sieci Web używanej do uzyskiwania dostępu do usługi Azure Automation.<br>![Pomoc modułu integracji](media/automation-integration-modules/automation-integration-module-activitydesc.png)
+   <br> Podanie tych informacji nie tylko umożliwi wyświetlenie pomocy przy użyciu polecenia cmdlet **Get-Help** w konsoli programu PowerShell, ale także udostępni funkcję pomocy w usłudze Azure Automation, na przykład podczas wstawiania działań w procesie tworzenia elementu Runbook. Kliknięcie pozycji „Wyświetl szczegółową pomoc” spowoduje otwarcie identyfikatora URI pomocy na innej karcie przeglądarki sieci Web używanej do uzyskiwania dostępu do usługi Azure Automation.<br>![Pomoc modułu integracji](media/automation-integration-modules/automation-integration-module-activitydesc.png)
 2. Jeśli moduł działa w odniesieniu do systemu zdalnego, a. powinien zawierać plik metadanych modułu integracji, który definiuje informacje wymagane do nawiązania połączenia z systemem zdalnym, co oznacza typ połączenia; b. w każdym poleceniu cmdlet w module użytkownik powinien móc zastosować obiekt połączenia (wystąpienie tego typu połączenia) jako parametr.  
     Poleceń cmdlet w module będzie można łatwiej używać w usłudze Azure Automation, jeśli zezwolisz na przekazywanie obiektu z polami typu połączenia jako parametru do polecenia cmdlet. Dzięki temu użytkownicy nie będą musieli mapować parametrów elementu zawartości połączenia do odpowiednich parametrów polecenia cmdlet podczas każdego wywoływania polecenia cmdlet. W powyższym przykładzie elementu Runbook element zawartości połączenia usługi Twilio o nazwie CorpTwilio jest używany do uzyskiwania dostępu do usługi Twilio i zwraca wszystkie numery telefonów w ramach konta.  Zwróć uwagę na sposób mapowania pól połączenia do parametrów polecenia cmdlet.<br>
    
@@ -200,10 +203,13 @@ Fakt, że moduły integracji są zasadniczo modułami programu PowerShell, nie o
    <br>
 6. Moduł powinien być w pełni zawarty w pakiecie z obsługą opcji Xcopy. Ponieważ moduły usługi Azure Automation są dystrybuowane do piaskownic usługi Automation, jeśli trzeba wykonać elementy Runbook, muszą one działać niezależnie od hosta, na którym są uruchamiane. Oznacza to, że użytkownik powinien mieć możliwość spakowania pakietu modułu i przeniesienia go na inny host z tą samą lub nowszą wersją programu PowerShell, a moduł powinien działać w zwykły sposób po zaimportowaniu do środowiska PowerShell tego hosta. Aby było to możliwe, moduł nie powinien być zależny od żadnych plików poza folderem modułu (folderem pakowanym podczas importowania do usługi Azure Automation) ani od żadnych ustawień rejestru unikatowych na hoście, na przykład określonych podczas instalowania produktu. Jeśli to rozwiązanie nie zostanie zastosowane, użycie modułu w usłudze Azure Automation będzie niemożliwe.  
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [My first PowerShell workflow runbook](automation-first-runbook-textual.md) (Mój pierwszy element Runbook przepływu pracy programu PowerShell).
 * Aby dowiedzieć się więcej na temat tworzenia modułów programu PowerShell, zobacz artykuł [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) (Pisanie modułu programu Windows PowerShell).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

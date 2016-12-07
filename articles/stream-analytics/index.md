@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 76bc79f1a256b3d4487eecf03a966ff5e094600e
-ms.openlocfilehash: e45fbe593e6e80c6ac758d122d12792b03df4310
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 5cf17ad514127f97319130c4f3f78cdfa1eed052
 
 ---
-#<a name="stream-analytics-documentation"></a>Stream Analytics Documentation
+#<a name="stream-analytics-documentation"></a>Dokumentacja usługi Stream Analytics
 
-Azure Stream Analytics is a fully managed real-time event processing engine that helps to unlock deep insights from data.  Stream Analytics make it easy to set up real-time analytic computations on data streaming from devices, sensors, web sites, social media, applications, infrastructure system, and more.
+Usługa Azure Stream Analytics to w pełni zarządzany aparat przetwarzania zdarzeń w czasie rzeczywistym, który ułatwia uzyskiwanie szczegółowych informacji na podstawie danych.  Usługa Stream Analytics umożliwia łatwe skonfigurowanie obliczeń analitycznych wykonywanych w czasie rzeczywistym na danych przesyłanych strumieniowo z urządzeń, czujników, witryn sieci Web, mediów społecznościowych, aplikacji, systemów infrastruktury i innych źródeł.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -21,7 +21,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Stream Analytics</h3>
+                        <h3>Dowiedz się więcej o usłudze Azure Stream Analytics</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Stream Analytics Video Library</h3>
+                        <h3>Biblioteka wideo usługi Azure Stream Analytics</h3>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Stream Analytics</h3>
+                        <h3>Wprowadzenie do usługi Stream Analytics</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with an IoT solution using Stream Analytics</h3>
+                        <h3>Wprowadzenie do rozwiązania IoT utworzonego z użyciem usługi Stream Analytics</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with a Twitter sentiment analysis solution using Stream Analytics</h3>
+                        <h3>Wprowadzenie do rozwiązania analizującego nastroje klientów usługi Twitter przy użyciu usługi Stream Analytics</h3>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with a real-time scoring solution leveraging Azure Machine Learning</h3>
+                        <h3>Wprowadzenie do rozwiązania do oceniania w czasie rzeczywistym z użyciem usługi Azure Machine Learning</h3>
                     </div>
                 </div>
             </div>
@@ -122,31 +122,77 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
 
 ---
 
-##<a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-###<a name="net"></a>.NET
-[.NET Managed Reference](/dotnet/api)
-
-###<a name="query-language"></a>Query Language
-[Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998)
-
-###<a name="rest"></a>REST
-[Stream Analytics REST API Reference](/rest/api/streamanalytics)
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Dokumentacja programu Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Zarządzana dokumentacja dotycząca platformy .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/dn834998">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Język zapytań</h3>
+                        <p>Dokumentacja języka zapytań usługi Stream Analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/streamanalytics">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu API REST usługi Stream Analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>   
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
         <div class="img"></div>
         <div class="text">
-Download Stream Analytics Documentation </div>
+Pobierz dokumentację usługi Stream Analytics </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

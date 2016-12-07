@@ -1,12 +1,12 @@
 ---
-title: Tworzenie pierwszej fabryki danych (szablon usługi Resource Manager) | Microsoft Docs
-description: W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Azure Data Factory przy użyciu szablonu usługi Azure Resource Manager.
+title: "Tworzenie pierwszej fabryki danych (szablon usługi Resource Manager) | Microsoft Docs"
+description: "W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Azure Data Factory przy użyciu szablonu usługi Azure Resource Manager."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: eb9e70b9-a13a-4a27-8256-2759496be470
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
+
 
 ---
-# <a name="tutorial:-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie pierwszej fabryki danych Azure przy użyciu szablonu usługi Azure Resource Manager
+# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie pierwszej fabryki danych Azure przy użyciu szablonu usługi Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
 > * [Witryna Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -80,166 +84,166 @@ Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFGetStarted
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "parameters": {
             "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the input/output data." } },
-            "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
-            "blobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
-            "inputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that has the input file." } },
-            "inputBlobName": { "type": "string", "metadata": { "description": "Name of the input file/blob." } },
-            "outputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that will hold the transformed data." } },
-            "hiveScriptFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that contains the Hive query file." } },
-            "hiveScriptFile": { "type": "string", "metadata": { "description": "Name of the hive query (HQL) file." } }
+              "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
+              "blobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
+              "inputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that has the input file." } },
+              "inputBlobName": { "type": "string", "metadata": { "description": "Name of the input file/blob." } },
+              "outputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that will hold the transformed data." } },
+              "hiveScriptFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that contains the Hive query file." } },
+              "hiveScriptFile": { "type": "string", "metadata": { "description": "Name of the hive query (HQL) file." } }
         },
         "variables": {
-            "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
-            "azureStorageLinkedServiceName": "AzureStorageLinkedService",
-            "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
-            "blobInputDatasetName": "AzureBlobInput",
-            "blobOutputDatasetName": "AzureBlobOutput",
-            "pipelineName": "HiveTransformPipeline"
+              "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
+              "azureStorageLinkedServiceName": "AzureStorageLinkedService",
+              "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
+              "blobInputDatasetName": "AzureBlobInput",
+              "blobOutputDatasetName": "AzureBlobOutput",
+              "pipelineName": "HiveTransformPipeline"
         },
         "resources": [
-        {
+          {
             "name": "[variables('dataFactoryName')]",
             "apiVersion": "2015-10-01",
             "type": "Microsoft.DataFactory/datafactories",
             "location": "West US",
             "resources": [
-            {
+              {
                 "type": "linkedservices",
                 "name": "[variables('azureStorageLinkedServiceName')]",
                 "dependsOn": [
-                    "[variables('dataFactoryName')]"
+                      "[variables('dataFactoryName')]"
                 ],
                 "apiVersion": "2015-10-01",
                 "properties": {
-                    "type": "AzureStorage",
-                    "description": "Azure Storage linked service",
-                    "typeProperties": {
+                      "type": "AzureStorage",
+                      "description": "Azure Storage linked service",
+                      "typeProperties": {
                         "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-                    }
+                      }
                 }
-            },
-            {
+              },
+              {
                 "type": "linkedservices",
                 "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
                 "dependsOn": [
-                    "[variables('dataFactoryName')]",
-                    "[variables('azureStorageLinkedServiceName')]"
+                      "[variables('dataFactoryName')]",
+                      "[variables('azureStorageLinkedServiceName')]"
                 ],
                 "apiVersion": "2015-10-01",
                 "properties": {
-                    "type": "HDInsightOnDemand",
-                    "typeProperties": {
+                      "type": "HDInsightOnDemand",
+                      "typeProperties": {
                         "clusterSize": 1,
                         "version": "3.2",
                         "timeToLive": "00:05:00",
                         "osType": "windows",
                         "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
-                    }
+                      }
                 }
-            },
-            {
+              },
+              {
                 "type": "datasets",
                 "name": "[variables('blobInputDatasetName')]",
                 "dependsOn": [
-                    "[variables('dataFactoryName')]",
-                    "[variables('azureStorageLinkedServiceName')]"
+                      "[variables('dataFactoryName')]",
+                      "[variables('azureStorageLinkedServiceName')]"
                 ],
                 "apiVersion": "2015-10-01",
                 "properties": {
-                    "type": "AzureBlob",
-                    "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-                    "typeProperties": {
+                      "type": "AzureBlob",
+                      "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+                      "typeProperties": {
                         "fileName": "[parameters('inputBlobName')]",
                         "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'))]",
                         "format": {
-                            "type": "TextFormat",
-                            "columnDelimiter": ","
+                              "type": "TextFormat",
+                              "columnDelimiter": ","
                         }
-                    },
-                    "availability": {
+                      },
+                      "availability": {
                         "frequency": "Month",
                         "interval": 1
-                    },
-                    "external": true
+                      },
+                      "external": true
                 }
-            },
-            {
+              },
+              {
                 "type": "datasets",
                 "name": "[variables('blobOutputDatasetName')]",
                 "dependsOn": [
-                    "[variables('dataFactoryName')]",
-                    "[variables('azureStorageLinkedServiceName')]"
+                      "[variables('dataFactoryName')]",
+                      "[variables('azureStorageLinkedServiceName')]"
                 ],
                 "apiVersion": "2015-10-01",
                 "properties": {
-                    "type": "AzureBlob",
-                    "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-                    "typeProperties": {
+                      "type": "AzureBlob",
+                      "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+                      "typeProperties": {
                         "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'))]",
                         "format": {
-                            "type": "TextFormat",
-                            "columnDelimiter": ","
+                              "type": "TextFormat",
+                              "columnDelimiter": ","
                         }
-                    },
-                    "availability": {
+                      },
+                      "availability": {
                         "frequency": "Month",
                         "interval": 1
-                    }
+                      }
                 }
-            },
-            {
+              },
+              {
                 "type": "datapipelines",
                 "name": "[variables('pipelineName')]",
                 "dependsOn": [
-                    "[variables('dataFactoryName')]",
-                    "[variables('azureStorageLinkedServiceName')]",
-                    "[variables('hdInsightOnDemandLinkedServiceName')]",
-                    "[variables('blobInputDatasetName')]",
-                    "[variables('blobOutputDatasetName')]"
+                      "[variables('dataFactoryName')]",
+                      "[variables('azureStorageLinkedServiceName')]",
+                      "[variables('hdInsightOnDemandLinkedServiceName')]",
+                      "[variables('blobInputDatasetName')]",
+                      "[variables('blobOutputDatasetName')]"
                 ],
                 "apiVersion": "2015-10-01",
                 "properties": {
-                    "description": "Pipeline that transforms data using Hive script.",
-                    "activities": [
+                      "description": "Pipeline that transforms data using Hive script.",
+                      "activities": [
                     {
-                        "type": "HDInsightHive",
-                        "typeProperties": {
+                          "type": "HDInsightHive",
+                          "typeProperties": {
                             "scriptPath": "[concat(parameters('blobContainer'), '/', parameters('hiveScriptFolder'), '/', parameters('hiveScriptFile'))]",
                             "scriptLinkedService": "[variables('azureStorageLinkedServiceName')]",
                             "defines": {
-                                "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
-                                "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
+                                  "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
+                                  "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
                             }
-                        },
-                        "inputs": [
+                          },
+                          "inputs": [
                             {
-                                "name": "[variables('blobInputDatasetName')]"
+                                  "name": "[variables('blobInputDatasetName')]"
                             }
-                        ],
-                        "outputs": [
+                          ],
+                          "outputs": [
                             {
-                                "name": "[variables('blobOutputDatasetName')]"
+                                  "name": "[variables('blobOutputDatasetName')]"
                             }
-                        ],
-                        "policy": {
+                          ],
+                          "policy": {
                             "concurrency": 1,
                             "retry": 3
-                        },
-                        "scheduler": {
+                          },
+                          "scheduler": {
                             "frequency": "Month",
                             "interval": 1
-                        },
-                        "name": "RunSampleHiveActivity",
-                        "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
+                          },
+                          "name": "RunSampleHiveActivity",
+                          "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
                     }
-                    ],
-                    "start": "2016-10-01T00:00:00Z",
-                    "end": "2016-10-02T00:00:00Z",
-                    "isPaused": false
-                }
-            }
+                      ],
+                      "start": "2016-10-01T00:00:00Z",
+                      "end": "2016-10-02T00:00:00Z",
+                      "isPaused": false
+                  }
+              }
             ]
-        }
+          }
         ]
     }
 
@@ -279,10 +283,10 @@ Utwórz plik JSON o nazwie **ADFTutorialARM-Parameters.json** zawierający param
                 "value": "partitioneddata"
             },
             "hiveScriptFolder": {
-                "value": "script"
+                  "value": "script"
             },
             "hiveScriptFile": {
-                "value": "partitionweblogs.hql"
+                  "value": "partitionweblogs.hql"
             }
         }
     }
@@ -303,10 +307,10 @@ Utwórz plik JSON o nazwie **ADFTutorialARM-Parameters.json** zawierający param
 
 ## <a name="monitor-pipeline"></a>Monitorowanie potoku
 1. Po zalogowaniu się do witryny [Azure Portal](https://portal.azure.com/) kliknij przycisk **Przeglądaj** i wybierz opcję **Fabryki danych**.
-       ![Przeglądaj->Fabryki danych](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
-2. W bloku **Fabryki danych** kliknij utworzoną przez siebie fabrykę danych (**TutorialFactoryARM**).   
+     ![Przeglądaj->Fabryki danych](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+2. W bloku **Fabryki danych** kliknij utworzoną przez siebie fabrykę danych (**TutorialFactoryARM**).    
 3. W bloku **Fabryka danych** dla swojej fabryki danych kliknij opcję **Diagram**.
-       ![Kafelek Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+     ![Kafelek Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4. Na stronie **Widok diagramu** zostanie wyświetlony przegląd potoków i zestawów danych używanych w tym samouczku.
    
    ![Widok diagramu](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
@@ -315,7 +319,7 @@ Utwórz plik JSON o nazwie **ADFTutorialARM-Parameters.json** zawierający param
     ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 6. Po zakończeniu przetwarzania wycinek będzie mieć stan **Gotowe**. Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). Dlatego należy oczekiwać, że przetworzenie wycinka przez potok zajmie **około 30 minut**.
    
-    ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
+    ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
 7. Gdy wycinek będzie w stanie **Gotowe**, sprawdź folder **partitioneddata** w kontenerze **adfgetstarted** w magazynie obiektów blob pod kątem danych wyjściowych.  
 
 Zobacz artykuł [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) (Monitorowanie zestawów danych i potoku), aby uzyskać instrukcje dotyczące korzystania z bloków w witrynie Azure Portal w celu monitorowania potoku i zestawów danych utworzonych przez siebie w ramach tego samouczka.
@@ -375,7 +379,7 @@ W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure. Szczeg
 
 Parametr **connectionString** używa parametrów storageAccountName i storageAccountKey. Wartości tych parametrów są przekazywane przy użyciu pliku konfiguracji. Definicja używa także zmiennych azureStorageLinkedService i dataFactoryName zdefiniowanych w szablonie. 
 
-#### <a name="hdinsight-on-demand-linked-service"></a>Połączona usługa HDInsight na żądanie
+#### <a name="hdinsight-ondemand-linked-service"></a>Połączona usługa HDInsight na żądanie
 Szczegółowe informacje o właściwościach JSON używanych do definiowania połączonej usługi HDInsight na żądanie zawiera temat [Usługi połączone usługi Compute](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).  
 
       {
@@ -584,6 +588,9 @@ Ten szablon służy do tworzenia fabryki danych o nazwie GatewayUsingArmDF z bra
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

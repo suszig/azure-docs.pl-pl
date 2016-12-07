@@ -12,6 +12,8 @@ Kliknij opcję **Ustawienia** lub **Wszystkie ustawienia**, aby wyświetlić i s
 
 ![Wszystkie ustawienia pamięci podręcznej Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

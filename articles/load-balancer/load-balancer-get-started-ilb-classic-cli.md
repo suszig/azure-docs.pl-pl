@@ -1,76 +1,84 @@
 ---
-title: Create an internal load balancer using the Azure CLI in the classic deployment model | Microsoft Docs
-description: Learn how to create an internal load balancer using the Azure CLI in the classic deployment model
+title: "Tworzenie wewnętrznego modułu równoważenia obciążenia w klasycznym modelu wdrażania za pośrednictwem interfejsu wiersza polecenia platformy Azure| Microsoft Docs"
+description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia w klasycznym modelu wdrażania przy użyciu interfejsu wiersza polecenia Azure"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 5d1d0f59080827bde2ba9cdd825ba8c498f33751
 
 ---
-# Get started creating an internal load balancer (classic) using the Azure CLI
-[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
+
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Wprowadzenie do tworzenia wewnętrznego modułu równoważenia obciążenia (w modelu klasycznym) przy użyciu interfejsu wiersza polecenia Azure
+
+> [!div class="op_single_selector"]
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [Usługi w chmurze](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-cli.md).
+> [!IMPORTANT]
+> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md).  Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak [wykonać te kroki przy użyciu modelu usługi Resource Manager](load-balancer-get-started-ilb-arm-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## To create an internal load balancer set for virtual machines
-To create an internal load balancer set and the servers that will send their traffic to it, you must do the following:
+## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Tworzenie zestawu wewnętrznego modułu równoważenia obciążenia dla maszyn wirtualnych
 
-1. Create an instance of Internal Load Balancing that will be the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.
-2. Add endpoints corresponding to the virtual machines that will be receiving the incoming traffic.
-3. Configure the servers that will be sending the traffic to be load balanced to send their traffic to the virtual IP (VIP) address of the Internal Load Balancing instance.
+Aby utworzyć zestaw wewnętrznego modułu równoważenia obciążenia, a także serwery, które będą przesyłać do niego ruch, wykonaj następujące czynności:
 
-## Step by step creating an internal load balancer using CLI
-This guide shows how to create an internal load balancer based on the scenario above.
+1. Utwórz wystąpienie wewnętrznego równoważenia obciążenia, które będzie punktem końcowym przychodzącego ruchu sieciowego, aby obciążenie było zrównoważone między serwerami w zestawie o zrównoważonym obciążeniu.
+2. Dodaj punkty końcowe odpowiadające maszynom wirtualnym, które będą otrzymywać ruch przychodzący.
+3. Skonfiguruj serwery wysyłające ruch, którego obciążenie ma zostać zrównoważone, aby wysyłały ruch na wirtualny adres IP (VIP) wystąpienia wewnętrznego równoważenia obciążenia.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to classic mode, as shown below.
-   
-        azure config mode asm
-   
-    Expected output:
-   
+## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Szczegółowy opis tworzenia wewnętrznego modułu równoważenia obciążenia przy użyciu interfejsu wiersza polecenia
+
+W tym przewodniku opisano sposób tworzenia wewnętrznego modułu równoważenia obciążenia w oparciu o powyższy scenariusz.
+
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../xplat-cli-install.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+2. Uruchom polecenie **azure config mode**, aby przełączyć tryb na klasyczny, jak pokazano poniżej.
+
+    ```azurecli
+    azure config mode asm
+    ```
+
+    Oczekiwane dane wyjściowe:
+
         info:    New mode is asm
 
-## Create endpoint and load balancer set
-The scenario assumes the virtual machines "DB1" and "DB2" in a cloud service called "mytestcloud". Both virtual machines are using a virtual network called my "testvnet" with subnet "subnet-1".
+## <a name="create-endpoint-and-load-balancer-set"></a>Tworzenie punktu końcowego i zestawu modułu równoważenia obciążenia
 
-This guide will create an internal load balancer set using port 1433 as private port and 1433 as local port.
+Na potrzeby scenariusza przyjmuje się, że utworzono maszyny wirtualne „DB1” i „DB2” w usłudze w chmurze o nazwie „mytestcloud”. Obie maszyny wirtualne korzystają z sieci wirtualnej o nazwie „testvnet” z podsiecią o nazwie „subnet-1”.
 
-This is a common scenario where you have SQL virtual machines on the back end using an internal load balancer to guarantee the database servers won't be exposed directly using a public IP address.
+W tym przewodniku opisano sposób tworzenia zestawu wewnętrznego modułu równoważenia obciążenia przy użyciu portu 1433 jako portu publicznego i lokalnego.
 
-### Step 1
-Create an internal load balancer set using `azure network service internal-load-balancer add`.
+Jest to typowy scenariusz, w którym na zapleczu występują maszyny wirtualne SQL korzystające z wewnętrznego modułu równoważenia obciążenia, aby zagwarantować, że serwery bazy danych nie będą dostępne bezpośrednio przez publiczny adres IP.
 
-     azure service internal-load-balancer add -r mytestcloud -n ilbset -t subnet-1 -a 192.168.2.7
+### <a name="step-1"></a>Krok 1
 
-Parameters used:
+Utwórz zestaw wewnętrznego modułu równoważenia obciążenia za pomocą polecenia `azure network service internal-load-balancer add`.
 
-**-r** - cloud service name<BR>
-**-n** - internal load balancer name<BR>
-**-t** - subnet name ( same subnet by the virtual machines you will add to the internal load balancer)<BR>
-**-a** - (optional) add a static private IP address<BR>
+```azurecli
+azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
+```
 
-Check out `azure service internal-load-balancer --help` for more information.
+Użyj polecenia `azure service internal-load-balancer --help`, aby uzyskać więcej informacji.
 
-You can check the internal load balancer properties using the command `azure service internal-load-balancer list` *cloud service name*.
+Możesz sprawdzić właściwości wewnętrznego modułu równoważenia obciążenia za pomocą polecenia `azure service internal-load-balancer list` *nazwa usługi w chmurze*.
 
-Here follows an example of the output:
+Przykładowe dane wyjściowe:
 
     azure service internal-load-balancer list my-testcloud
     info:    Executing command service internal-load-balancer list
@@ -81,28 +89,25 @@ Here follows an example of the output:
     info:    service internal-load-balancer list command OK
 
 
-## Step 2
-You configure the internal load balancer set when you add the first endpoint. You will associate the endpoint, virtual machine and probe port to the internal load balancer set in this step.
+## <a name="step-2"></a>Krok 2
 
-    azure vm endpoint create db1 1433 -k 1433 tcp -t 1433 -r tcp -e 300 -f 600 -i ilbset
+Konfiguracja zestawu wewnętrznego modułu równoważenia obciążenia zachodzi podczas dodawania pierwszego punktu końcowego. W tym kroku punkt końcowy, maszyna wirtualna i port sondy zostaną skojarzone z zestawem wewnętrznego modułu równoważenia obciążenia.
 
-Parameters used:
+```azurecli
+azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
+```
 
-**-k** - local virtual machine port<BR>
-**-t** - probe port<BR>
-**-r** - probe protocol<BR>
-**-e** - probe interval in seconds<BR>
-**-f** - timeout interval in seconds <BR>
-**-i** - internal load balancer name <BR>
+## <a name="step-3"></a>Krok 3
 
-## Step 3
-Verify the load balancer configuration using `azure vm show` *virtual machine name*
+Sprawdź konfigurację modułu równoważenia obciążenia za pomocą polecenia `azure vm show` *nazwa maszyny wirtualnej*
+
+```azurecli
+azure vm show DB1
+```
+
+Dane wyjściowe to:
 
     azure vm show DB1
-
-The output will be:
-
-        azure vm show DB1
     info:    Executing command vm show
     + Getting virtual machines
     data:    DNSName "mytestcloud.cloudapp.net"
@@ -149,25 +154,34 @@ The output will be:
     data:    Network Endpoints 2 loadBalancerName "ilbset"
     info:    vm show command OK
 
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Tworzenie punktu końcowego pulpitu zdalnego maszyny wirtualnej
 
-## Create a remote desktop endpoint for a virtual machine
-You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
+Możesz utworzyć punkt końcowy pulpitu zdalnego w celu przesyłania ruchu sieciowego z portu publicznego do lokalnego dla danej maszyny wirtualnej za pomocą polecenia `azure vm endpoint create`.
 
-    azure vm endpoint create web1 54580 -k 3389
+```azurecli
+azure vm endpoint create web1 54580 -k 3389
+```
+
+## <a name="remove-virtual-machine-from-load-balancer"></a>Usuwanie maszyny wirtualnej z modułu równoważenia obciążenia
+
+Możesz usunąć maszynę wirtualną z zestawu wewnętrznego modułu równoważenia obciążenia przez usunięcie skojarzonego punktu końcowego. Po usunięciu punktu końcowego maszyna wirtualna nie będzie należeć do zestawu modułu równoważenia obciążenia.
+
+Korzystając z powyższego przykładu, możesz usunąć punkt końcowy utworzony dla maszyny wirtualnej „DB1” z wewnętrznego modułu równoważenia obciążenia „ilbset” za pomocą polecenia `azure vm endpoint delete`.
+
+```azurecli
+azure vm endpoint delete DB1 tcp-1433-1433
+```
+
+Użyj polecenia `azure vm endpoint --help`, aby uzyskać więcej informacji.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia przy użyciu koligacji źródłowych adresów IP)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
 
 
-## Remove virtual machine from load balancer
-You can remove a virtual machine from an internal load balancer set by deleting the associated endpoint. Once the endpoint is removed, the virtual machine won't belong to the load balancer set anymore.
 
- Using the example above, you can remove the endpoint created for virtual machine "DB1" from internal load balancer "ilbset" by using the command `azure vm endpoint delete`.
+<!--HONumber=Nov16_HO3-->
 
-    azure vm endpoint delete DB1 tcp-1433-1433
-
-
-Check out `azure vm endpoint --help` for more information.
-
-## Next steps
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
-
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 

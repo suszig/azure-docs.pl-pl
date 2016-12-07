@@ -2,6 +2,8 @@ Aby włączyć port niebędący portem SSL, [przejdź](../articles/redis-cache/c
 
 ![Ustawienia pamięci podręcznej Redis](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,10 +1,10 @@
 # Omówienie
 ## [Co to jest Azure Backup?](backup-introduction-to-azure-backup.md)
 # Rozpoczęcie pracy
-## [Często zadawane pytania](backup-azure-backup-faq.md)
 ## [Tworzenie kopii zapasowych plików i folderów](backup-try-azure-backup-in-10-mins.md)
 ## [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vms-first-look.md)
 ## [Ochrona maszyn wirtualnych platformy Azure](backup-azure-vms-first-look-arm.md)
+## [Często zadawane pytania](backup-azure-backup-faq.md)
 # Instrukcje
 ## Automatyzowanie usługi Backup przy użyciu programu PowerShell
 ### [Maszyny wirtualne platformy Azure w witrynie Azure Portal](backup-azure-vms-automation.md)
@@ -52,7 +52,13 @@
 ### [Niepowodzenie tworzenia kopii zapasowej maszyny wirtualnej platformy Azure: Nie można nawiązać komunikacji z agentem maszyny wirtualnej w celu uzyskania stanu migawki — Upłynął limit czasu zadania podrzędnego migawki maszyny wirtualnej](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Powolne tworzenie kopii zapasowych plików i folderów w usłudze Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Zasoby
+## [Cennik](https://azure.microsoft.com/pricing/details/backup/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

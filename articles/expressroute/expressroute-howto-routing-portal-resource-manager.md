@@ -1,13 +1,13 @@
 ---
-title: Jak skonfigurować routing dla obwodu usługi ExpressRoute za pośrednictwem portalu Azure | Microsoft Docs
-description: Ten artykuł zawiera instrukcje tworzenia i inicjowania obsługi komunikacji równorzędnej prywatnej, publicznej i firmy Microsoft obwodu usługi ExpressRoute. W tym artykule opisano również, jak aktualizować i usuwać komunikację równoległą dla obwodu oraz sprawdzać jej stan.
+title: "Jak skonfigurować routing dla obwodu usługi ExpressRoute za pośrednictwem witryny Azure Portal | Microsoft Docs"
+description: "Ten artykuł zawiera instrukcje tworzenia i inicjowania obsługi komunikacji równorzędnej prywatnej, publicznej i firmy Microsoft obwodu usługi ExpressRoute. W tym artykule opisano również, jak aktualizować i usuwać komunikację równoległą dla obwodu oraz sprawdzać jej stan."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+
 
 ---
-# Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute
+# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute
 > [!div class="op_single_selector"]
 > [Azure Portal — model usługi Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 > [Program PowerShell — model usługi Resource Manager](expressroute-howto-routing-arm.md)
@@ -31,7 +35,7 @@ Ten artykuł zawiera instrukcje tworzenia konfiguracji routingu i zarządzania n
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## Wymagania wstępne dotyczące konfiguracji
+## <a name="configuration-prerequisites"></a>Wymagania wstępne dotyczące konfiguracji
 * Pamiętaj, aby przed rozpoczęciem konfiguracji przejrzeć strony z [wymaganiami wstępnymi](expressroute-prerequisites.md), [wymaganiami routingu](expressroute-routing.md) oraz [przepływami pracy](expressroute-workflows.md).
 * Musisz mieć aktywny obwód usługi ExpressRoute. Zanim przejdziesz dalej, postępuj zgodnie z instrukcjami, aby [utworzyć obwód usługi ExpressRoute](expressroute-howto-circuit-arm.md), który powinien zostać włączony przez dostawcę połączenia. Obwód usługi ExpressRoute musi być zainicjowany i włączony, aby można było uruchamiać polecenia cmdlet opisane poniżej.
 
@@ -44,10 +48,10 @@ Te instrukcje dotyczą tylko obwodów utworzonych przy pomocy dostawców oferuj�
 
 Można skonfigurować jedną komunikację równorzędną, dwie lub trzy (prywatną Azure, publiczną Azure i Microsoft) dla obwodu usługi ExpressRoute. Możesz skonfigurować komunikację równorzędną w dowolnej kolejności. Musisz jednak pamiętać, aby kończyć konfiguracje poszczególnych komunikacji równorzędnych pojedynczo. 
 
-## Prywatna komunikacja równorzędna Azure
+## <a name="azure-private-peering"></a>Prywatna komunikacja równorzędna Azure
 Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute. 
 
-### Aby utworzyć prywatną komunikację równorzędną
+### <a name="to-create-azure-private-peering"></a>Aby utworzyć prywatną komunikację równorzędną
 1. Skonfiguruj obwód usługi ExpressRoute. Zanim przejdziesz dalej, upewnij się, że obwód jest w całości obsługiwany przez dostawcę połączenia.
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
@@ -68,25 +72,25 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### Aby wyświetlić szczegóły dotyczące prywatnej komunikacji równorzędnej Azure
+### <a name="to-view-azure-private-peering-details"></a>Aby wyświetlić szczegóły dotyczące prywatnej komunikacji równorzędnej Azure
 Możesz wyświetlić właściwości prywatnej komunikacji równorzędnej Azure, wybierając ją.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### Aby zaktualizować konfigurację prywatnej komunikacji równorzędnej Azure
+### <a name="to-update-azure-private-peering-configuration"></a>Aby zaktualizować konfigurację prywatnej komunikacji równorzędnej Azure
 Można wybrać wiersz dotyczący komunikacji równorzędnej i zmodyfikować jej właściwości. 
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
-### Aby usunąć prywatną komunikację równorzędną Azure
+### <a name="to-delete-azure-private-peering"></a>Aby usunąć prywatną komunikację równorzędną Azure
 Możesz usunąć konfigurację komunikacji równorzędnej, wybierając ikonę usuwania, jak pokazano poniżej.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 
-## Publiczna komunikacja równorzędna Azure
+## <a name="azure-public-peering"></a>Publiczna komunikacja równorzędna Azure
 Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji publicznej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute. 
 
-### Aby utworzyć publiczną komunikację równorzędną Azure
+### <a name="to-create-azure-public-peering"></a>Aby utworzyć publiczną komunikację równorzędną Azure
 1. Skonfiguruj obwód usługi ExpressRoute. Zanim przejdziesz dalej, upewnij się, że obwód jest w całości obsługiwany przez dostawcę połączenia.
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
@@ -108,25 +112,25 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### Aby wyświetlić szczegóły dotyczące publicznej komunikacji równorzędnej Azure
+### <a name="to-view-azure-public-peering-details"></a>Aby wyświetlić szczegóły dotyczące publicznej komunikacji równorzędnej Azure
 Możesz wyświetlić właściwości publicznej komunikacji równorzędnej Azure, wybierając ją.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### Aby zaktualizować konfigurację publicznej komunikacji równorzędnej Azure
+### <a name="to-update-azure-public-peering-configuration"></a>Aby zaktualizować konfigurację publicznej komunikacji równorzędnej Azure
 Można wybrać wiersz dotyczący komunikacji równorzędnej i zmodyfikować jej właściwości. 
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 
-### Aby usunąć publiczną komunikację równorzędną Azure
+### <a name="to-delete-azure-public-peering"></a>Aby usunąć publiczną komunikację równorzędną Azure
 Możesz usunąć konfigurację komunikacji równorzędnej, wybierając ikonę usuwania, jak pokazano poniżej.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
 
-## Komunikacja równorzędna firmy Microsoft
+## <a name="microsoft-peering"></a>Komunikacja równorzędna firmy Microsoft
 Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji komunikacji równorzędnej Microsoft dla obwodu usługi ExpressRoute. 
 
-### Aby utworzyć komunikację równorzędną Microsoft
+### <a name="to-create-microsoft-peering"></a>Aby utworzyć komunikację równorzędną Microsoft
 1. Skonfiguruj obwód usługi ExpressRoute. Zanim przejdziesz dalej, upewnij się, że obwód jest w całości obsługiwany przez dostawcę połączenia.
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
@@ -148,11 +152,11 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Po określeniu wszystkich parametrów zapisz konfigurację. 
    
-    Jeśli obwód przejdzie w stan wymagający sprawdzenia poprawności (jak pokazano poniżej), musisz otworzyć bilet pomocy technicznej, aby okazać dowód własności prefiksów zespołowi pomocy technicznej.  
+    Jeśli obwód przejdzie w stan wymagający sprawdzenia poprawności (jak pokazano poniżej), musisz otworzyć bilet pomocy technicznej, aby okazać dowód własności prefiksów zespołowi pomocy technicznej.    
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-    Bilet pomocy technicznej możesz otworzyć bezpośrednio w portalu, jak pokazano poniżej.   
+    Bilet pomocy technicznej możesz otworzyć bezpośrednio w portalu, jak pokazano poniżej.     
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
@@ -161,28 +165,31 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### Aby wyświetlić szczegóły dotyczące komunikacji równorzędnej firmy Microsoft
+### <a name="to-view-microsoft-peering-details"></a>Aby wyświetlić szczegóły dotyczące komunikacji równorzędnej firmy Microsoft
 Możesz wyświetlić właściwości publicznej komunikacji równorzędnej Azure, wybierając ją.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
-### Aby zaktualizować konfigurację komunikacji równorzędnej firmy Microsoft
+### <a name="to-update-microsoft-peering-configuration"></a>Aby zaktualizować konfigurację komunikacji równorzędnej firmy Microsoft
 Można wybrać wiersz dotyczący komunikacji równorzędnej i zmodyfikować jej właściwości. 
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### Aby usunąć komunikację równorzędną firmy Microsoft
+### <a name="to-delete-microsoft-peering"></a>Aby usunąć komunikację równorzędną firmy Microsoft
 Możesz usunąć konfigurację komunikacji równorzędnej, wybierając ikonę usuwania, jak pokazano poniżej.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Następny krok: [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute).
 
 * Więcej informacji na temat przepływów pracy usługi ExpressRoute znajduje się w artykule [ExpressRoute workflows](expressroute-workflows.md) (Przepływy pracy usługi ExpressRoute).
 * Aby uzyskać więcej informacji o komunikacji równorzędnej obwodu, zobacz artykuł [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (Obwody i domeny routingu usługi ExpressRoute).
 * Więcej informacji na temat pracy z sieciami wirtualnymi znajduje się w artykule [Virtual network overview](../virtual-network/virtual-networks-overview.md) (Omówienie sieci wirtualnych).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

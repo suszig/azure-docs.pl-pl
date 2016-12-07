@@ -1,22 +1,26 @@
 ---
-title: Tworzenie aplikacji sieci Web Node.js w usłudze Azure App Service | Microsoft Docs
-description: Dowiedz się, jak wdrożyć aplikację Node.js w aplikacji sieci Web w usłudze Azure App Service.
+title: "Tworzenie aplikacji sieci Web Node.js w usłudze Azure App Service | Microsoft Docs"
+description: "Dowiedz się, jak wdrożyć aplikację Node.js w aplikacji sieci Web w usłudze Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 85af23df-54af-4430-8d77-a1f97e2f5b10
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+
 
 ---
-# Tworzenie aplikacji sieci Web Node.js w usłudze Azure App Service
+# <a name="create-a-nodejs-web-app-in-azure-app-service"></a>Tworzenie aplikacji sieci Web Node.js w usłudze Azure App Service
 > [!div class="op_single_selector"]
 > * [.Net](web-sites-dotnet-get-started.md)
 > * [Node.js](web-sites-nodejs-develop-deploy-mac.md)
@@ -47,7 +51,7 @@ Samouczki i przykładowy kod z bardziej złożonymi aplikacjami Node.js lub inne
 > 
 > 
 
-## Tworzenie aplikacji sieci Web i umożliwianie publikowania w usłudze Git
+## <a name="create-a-web-app-and-enable-git-publishing"></a>Tworzenie aplikacji sieci Web i umożliwianie publikowania w usłudze Git
 Wykonaj poniższe czynności, aby utworzyć aplikację sieci Web w usłudze Azure App Service i umożliwić publikowanie w usłudze Git. 
 
 [Git](http://git-scm.com/) jest systemem kontroli w wersji rozproszonej, którego możesz użyć do wdrożenia witryny sieci Web platformy Azure. Utworzony kod dla aplikacji sieci Web zostanie zapisany w lokalnym repozytorium Git i wdrożony na platformie Azure przez wypchnięcie do repozytorium zdalnego. Ta metoda wdrażania jest funkcją aplikacji sieci Web w usłudze App Service.  
@@ -63,7 +67,7 @@ Wykonaj poniższe czynności, aby utworzyć aplikację sieci Web w usłudze Azur
 5. Wybierz pozycję **Subskrypcja**.
 6. Wybierz **grupę zasobów** lub utwórz nową.
    
-    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../resource-group-overview.md).
+    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 7. Wybierz pozycję **Plan usługi App Service/Lokalizacja** lub utwórz nowy plan.
    
     Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [Omówienie planów usługi Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
@@ -97,7 +101,7 @@ Wykonaj poniższe czynności, aby utworzyć aplikację sieci Web w usłudze Azur
     
     ![][git-url]
 
-## Kompilowanie i testowanie aplikacji lokalnie
+## <a name="build-and-test-your-application-locally"></a>Kompilowanie i testowanie aplikacji lokalnie
 W tej sekcji utworzysz plik **server.js** zawierający nieco zmodyfikowaną wersję przykładu „Hello World” z witryny [nodejs.org]. Ten kod dodaje port process.env.PORT do nasłuchiwania podczas uruchamiania w aplikacji sieci Web platformy Azure.
 
 1. Utwórz katalog o nazwie *helloworld*.
@@ -119,7 +123,7 @@ W tej sekcji utworzysz plik **server.js** zawierający nieco zmodyfikowaną wers
    
     ![Przeglądarka wyświetlająca ciąg „Hello World”.][helloworld-localhost]
 
-## Publikowanie aplikacji
+## <a name="publish-your-application"></a>Publikowanie aplikacji
 1. Zainstaluj system Git, jeśli jeszcze nie został zainstalowana.
    
     Aby uzyskać instrukcje dotyczące instalacji dla określonej platformy, przejdź na [stronę pobierania systemu Git](http://git-scm.com/download).
@@ -158,7 +162,7 @@ W tej sekcji utworzysz plik **server.js** zawierający nieco zmodyfikowaną wers
    
     ![Aplikacja Hello World na platformie Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-## Publikowanie zmian w aplikacji
+## <a name="publish-changes-to-your-application"></a>Publikowanie zmian w aplikacji
 1. Otwórz plik **server.js** w edytorze tekstów, a następnie zmień ciąg „Hello World” na „Hello Azure”. 
 2. Zapisz plik.
 3. W wierszu polecenia przejdź do katalogu **helloworld**, a następnie uruchom poniższe polecenia:
@@ -172,10 +176,10 @@ W tej sekcji utworzysz plik **server.js** zawierający nieco zmodyfikowaną wers
    
     ![Strona sieci Web z wyświetlonym ciągiem „Hello Azure”][helloworld-completed]
 
-## Wycofywanie wdrożenia
+## <a name="roll-back-a-deployment"></a>Wycofywanie wdrożenia
 W bloku **Aplikacja sieci Web** możesz kliknąć pozycje **Ustawienia > Ciągłe wdrażanie**, aby wyświetlić historię wdrożenia w bloku **Wdrożenia**. Jeśli musisz przywrócić wcześniejsze wdrożenie, możesz wybrać je, a następnie kliknąć pozycję **Wdróż ponownie** w bloku **Szczegóły wdrożenia**.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aplikacja Node.js została wdrożona do aplikacji sieci Web w usłudze Azure App Service. Aby dowiedzieć się więcej na temat sposobu uruchamiania aplikacji Node.js przez usługę App Service, zobacz [Aplikacje Web Apps w usłudze Azure App Service: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) i [Określanie wersji środowiska Node.js w aplikacji Azure](../nodejs-specify-node-version-azure-apps.md).
 
 Środowisko Node.js zapewnia rozbudowany ekosystem modułów, które mogą być używane przez aplikacje. Aby dowiedzieć się, jak usługa Web Apps współpracuje z modułami, zobacz [Użycie modułów Node.js z aplikacjami platformy Azure](../nodejs-use-node-modules-azure-apps.md).
@@ -198,6 +202,6 @@ Informacje dotyczące sposobu tworzenia aplikacji Node.js na platformie Azure mo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Role Sieć Web i Proces roboczy języka Python z pakietem Visual Studio | Microsoft Docs
-description: Omówienie sposobu używania programu Python Tools for Visual Studio do tworzenia usług w chmurze platformy Azure, w tym ról Sieć Web i Proces roboczy.
+title: "Role Sieć Web i Proces roboczy języka Python z pakietem Visual Studio | Microsoft Docs"
+description: "Omówienie sposobu używania programu Python Tools for Visual Studio do tworzenia usług w chmurze platformy Azure, w tym ról Sieć Web i Proces roboczy."
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/03/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Role Sieć Web i Proces roboczy języka Python z programem Python Tools for Visual Studio
@@ -22,12 +26,12 @@ Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Program Visual Studio w wersji 2013 lub 2015
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
-* Program [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] lub [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015]
-* [32-bitowe środowisko Python w wersji 2.7][] lub [32-bitowe środowisko Python w wersji 3.5][]
+* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] lub [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015]
+* [32-bitowe środowisko Python w wersji 2.7][32-bitowe środowisko Python w wersji 2.7] lub [32-bitowe środowisko Python w wersji 3.5][32-bitowe środowisko Python w wersji 3.5]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="what-are-python-web-and-worker-roles?"></a>Co to są role Sieć Web i Proces roboczy języka Python?
+## <a name="what-are-python-web-and-worker-roles"></a>Co to są role Sieć Web i Proces roboczy języka Python?
 Platforma Azure udostępnia trzy modele obliczeniowe na potrzeby uruchamiania aplikacji: [funkcja Web Apps w usłudze App Service][execution model-web sites], [usługa Azure Virtual Machines][execution model-vms] i [usługi Azure Cloud Services][execution model-cloud services]. Wszystkie trzy modele obsługują język Python. Usługi Cloud Services, które obejmują role Sieć Web i Proces roboczy, udostępniają rozwiązanie typu *Platforma jako usługa (Platform as a Service, PaaS)*. W ramach usługi w chmurze rola Sieć Web zapewnia dedykowany serwer sieci Web usług Internet Information Services (IIS), podczas gdy rola Proces roboczy może uruchamiać asynchroniczne, długotrwałe lub ciągłe zadania niezależne od działań użytkownika lub danych wejściowych.
 
 Aby uzyskać więcej informacji, zobacz [Co to jest usługa w chmurze?]
@@ -110,7 +114,7 @@ Należy dodać zmienne **PYTHON2** i **PYPATH** do zadania uruchamiania procesu 
 </Runtime>
 ```
 
-#### <a name="sample-servicedefinition.csdef"></a>Przykładowy plik ServiceDefinition.csdef
+#### <a name="sample-servicedefinitioncsdef"></a>Przykładowy plik ServiceDefinition.csdef
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AzureCloudServicePython" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -161,7 +165,7 @@ Należy dodać zmienne **PYTHON2** i **PYPATH** do zadania uruchamiania procesu 
 
 Następnie należy utworzyć pliki **PrepPython.ps1** i **PipInstaller.ps1** w folderze **./bin** roli użytkownika.
 
-#### <a name="preppython.ps1"></a>PrepPython.ps1
+#### <a name="preppythonps1"></a>PrepPython.ps1
 Ten skrypt instaluje język Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, zostanie zainstalowany język Python 2.7. W przeciwnym razie zostanie zainstalowany język Python 3.5.
 
 ```powershell
@@ -207,7 +211,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
+#### <a name="pipinstallerps1"></a>PipInstaller.ps1
 Ten skrypt wywołuje kod pip i instaluje wszystkie zależności w pliku **requirements.txt**. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, używany jest język Python 2.7. W przeciwnym razie używany jest język Python 3.5.
 
 ```powershell
@@ -235,7 +239,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="modify-launchworker.ps1"></a>Modyfikowanie skryptu LaunchWorker.ps1
+#### <a name="modify-launchworkerps1"></a>Modyfikowanie skryptu LaunchWorker.ps1
 > [!NOTE]
 > W przypadku projektu **roli procesu roboczego** plik **LauncherWorker.ps1** jest wymagany do wykonania pliku uruchamiania. W projektach **roli sieci Web** plik uruchamiania jest zdefiniowany we właściwościach projektu.
 > 
@@ -280,7 +284,7 @@ else
 }
 ```
 
-#### <a name="ps.cmd"></a>ps.cmd
+#### <a name="pscmd"></a>ps.cmd
 Szablony Visual Studio powinny utworzyć plik **ps.cmd** w folderze **./bin**. Ten skrypt powłoki wywołuje powyższe skrypty otoki PowerShell i zapewnia rejestrowanie na podstawie nazwy wywołanej otoki PowerShell. Jeśli ten plik nie został utworzony, jego zawartość powinna wyglądać następująco. 
 
 ```bat
@@ -319,7 +323,7 @@ W oknie danych wyjściowych będzie wyświetlany postęp, a następnie zostanie 
 Wdrożenie potrwa kilka minut, a następnie role Sieć Web i/lub Proces roboczy będą działały na platformie Azure!
 
 ### <a name="investigate-logs"></a>Sprawdzanie dzienników
-Po uruchomieniu maszyny wirtualnej usługi w chmurze i zainstalowaniu języka Python można sprawdzić dzienniki pod kątem komunikatów o błędach. Te dzienniki znajdują się w folderze **C:\Resources\Directory\{rola} \LogFiles**. Plik **PrepPython.err.txt** będzie zawierał co najmniej jeden błąd, jeśli skrypt próbuje wykryć instalację języka Python, a plik **PipInstaller.err.txt** może zgłaszać błąd nieaktualnej wersji kodu pip.
+Po uruchomieniu maszyny wirtualnej usługi w chmurze i zainstalowaniu języka Python można sprawdzić dzienniki pod kątem komunikatów o błędach. Te dzienniki znajdują się w folderze **C:\Resources\Directory\\{rola}\LogFiles**. Plik **PrepPython.err.txt** będzie zawierał co najmniej jeden błąd, jeśli skrypt próbuje wykryć instalację języka Python, a plik **PipInstaller.err.txt** może zgłaszać błąd nieaktualnej wersji kodu pip.
 
 ## <a name="next-steps"></a>Następne kroki
 Bardziej szczegółowe informacje na temat pracy z rolami Sieć Web i Proces roboczy w ramach programu Python Tools for Visual Studio zawiera dokumentacja programu PTVS:
@@ -356,11 +360,11 @@ Więcej szczegółów dotyczących korzystania z usług Azure na podstawie ról 
 [Projekty usługi w chmurze]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 (32 bity)]: https://www.python.org/downloads/
-[Python 3.5 (32 bity)]: https://www.python.org/downloads/
+[32-bitowe środowisko Python w wersji 2.7]: https://www.python.org/downloads/
+[32-bitowe środowisko Python w wersji 3.5]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

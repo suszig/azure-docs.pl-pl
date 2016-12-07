@@ -1,13 +1,13 @@
 ---
-title: Szczegółowy przewodnik dotyczący użycia podglądu współpracy B2B usługi Azure Active Directory | Microsoft Docs
-description: Współpraca B2B usługi Azure Active Directory wspiera relacje między firmami, umożliwiając partnerom biznesowym selektywne uzyskiwanie dostępu do Twoich aplikacji firmowych
+title: "Szczegółowy przewodnik dotyczący użycia podglądu współpracy B2B usługi Azure Active Directory | Microsoft Docs"
+description: "Współpraca B2B usługi Azure Active Directory wspiera relacje między firmami, umożliwiając partnerom biznesowym selektywne uzyskiwanie dostępu do Twoich aplikacji firmowych"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: viv-liu
 manager: cliffdi
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 7ae68208-63c1-4128-8e44-43a4f56d34dc
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/09/2016
 ms.author: viviali
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f2e38a5b8b541f3e1797cfdb700fd4c7107657b9
+
 
 ---
-# Podgląd współpracy B2B usługi Azure AD: szczegółowy przewodnik
+# <a name="azure-ad-b2b-collaboration-preview-detailed-walkthrough"></a>Podgląd współpracy B2B usługi Azure AD: szczegółowy przewodnik
 Ten przewodnik przedstawia sposób użycia funkcji współpracy B2B usługi Azure AD. Jako administrator IT firmy Contoso chcemy udostępnić aplikacje pracownikom z trzech firm partnerskich. Żadna z firm partnerskich nie musi mieć usługi Azure AD.
 
 * Alicja z firmy Simple Partner Org
@@ -26,7 +30,7 @@ Ten przewodnik przedstawia sposób użycia funkcji współpracy B2B usługi Azur
 
 Po wysłaniu zaproszeń do użytkowników z firm partnerskich można skonfigurować ich w usłudze Azure AD, aby zezwolić na dostęp do aplikacji i członkostwa w grupach poprzez witrynę Azure Portal. Zacznijmy od dodania Alicji.
 
-## Dodawanie Alicji do katalogu Contoso
+## <a name="adding-alice-to-the-contoso-directory"></a>Dodawanie Alicji do katalogu Contoso
 1. Utwórz plik csv z nagłówkami pokazanymi na zrzucie ekranu, uzupełniając kolumny **Email** (Adres e-mail), **DisplayName** (Nazwa wyświetlana) i **InviteContactUsUrl** (Adres URL z zaproszeniem do kontaktu). **DisplayName** (Nazwa wyświetlana) jest nazwą, która pojawi się w zaproszeniu oraz w katalogu firmy Contoso w usłudze Azure AD. **InviteContactUsUrl** (Adres URL z zaproszeniem do kontaktu) umożliwia Alicji kontakt z firmą Contoso. W poniższym przykładzie kolumna InviteContactUsUrl określa profil LinkedIn firmy Contoso. Bardzo ważne jest dokładne przepisanie etykiet w pierwszym wierszu pliku CSV zgodnie z [dokumentem referencyjnym dotyczącym formatowania pliku CSV](active-directory-b2b-references-csv-file-format.md).  
    ![Przykładowy plik CSV dla Alicji](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 2. W witrynie Azure Portal dodaj użytkownika do katalogu Contoso (Active Directory > Contoso > Użytkownicy > Dodaj użytkownika). W menu rozwijanym „Typ użytkownika” wybierz opcję „Użytkownicy w firmach partnerskich”. Przekaż plik CSV. Upewnij się, że plik CSV jest zamknięty przed przesłaniem.  
@@ -42,7 +46,7 @@ Po wysłaniu zaproszeń do użytkowników z firm partnerskich można skonfigurow
 
 Ta procedura umożliwia wykorzystanie najprostszej formy współpracy B2B. Jako użytkownik w katalogu firmy Contoso w usłudze Azure AD Alicja może otrzymać dostęp do aplikacji i grup za pośrednictwem witryny Azure Portal. Teraz dodajmy Roberta, który wymaga dostępu do aplikacji Moodle i Salesforce.
 
-## Dodawanie Roberta do katalogu firmy Contoso i udzielanie dostępu do aplikacji
+## <a name="adding-bob-to-the-contoso-directory-and-granting-access-to-apps"></a>Dodawanie Roberta do katalogu firmy Contoso i udzielanie dostępu do aplikacji
 1. Użyj środowiska Windows PowerShell z zainstalowanym modułem Azure AD, aby znaleźć identyfikatory aplikacji Moodle i Salesforce. Identyfikatory można pobrać przy użyciu polecenia cmdlet: `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`. Taka operacja wyświetli listę wszystkich dostępnych aplikacji w firmie Contoso i ich identyfikatorów AppPrincialId.  
    ![Pobieranie identyfikatorów dla Roberta](./media/active-directory-b2b-detailed-walkthrough/BobPowerShell.png)
 2. Utwórz plik CSV zawierający adres e-mail i nazwę wyświetlaną Roberta, **InviteAppID** (Identyfikator zaproszenia do aplikacji), **InviteAppResources** (Zasoby zaproszenia do aplikacji) oraz adres InviteContactUsUrl (Adres URL z zaproszeniem do kontaktu). Wypełnij kolumnę **InviteAppResources** (Zasoby zaproszenia do aplikacji) identyfikatorami AppPrincipalId aplikacji Moodle i Salesforce znalezionymi w programie PowerShell, oddzielając je spacją. Wypełnij kolumnę **InviteAppId** (Identyfikator zaproszenia do aplikacji) tym samym identyfikatorem AppPrincipalId aplikacji Moodle, aby dodać logo Moodle do adresu e-mail i stron logowania.  
@@ -55,7 +59,7 @@ Ta procedura umożliwia wykorzystanie najprostszej formy współpracy B2B. Jako 
 
 Teraz dodamy Karolinę, która wymaga dostępu do aplikacji oraz członkostwa w grupach w katalogu firmy Contoso.
 
-## Dodawanie Karoliny do katalogu firmy Contoso, udzielanie dostępu do aplikacji i przydzielanie członkostwa w grupie
+## <a name="adding-carol-to-the-contoso-directory-granting-access-to-apps-and-giving-group-membership"></a>Dodawanie Karoliny do katalogu firmy Contoso, udzielanie dostępu do aplikacji i przydzielanie członkostwa w grupie
 1. Użyj środowiska Windows PowerShell z zainstalowanym modułem Azure AD, aby znaleźć identyfikatory aplikacji i grup w katalogu firmy Contoso.
    
    * Pobierz identyfikator AppPrincipalId przy użyciu polecenia cmdlet `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` tak samo jak w przypadku Roberta.
@@ -71,7 +75,7 @@ Teraz dodamy Karolinę, która wymaga dostępu do aplikacji oraz członkostwa w 
 To już wszystko, jeśli chodzi o dodawanie użytkowników z firm partnerskich do współpracy B2B w usłudze Azure AD. W tym poradniku pokazano, jak dodać użytkowników (Alicję, Roberta i Karolinę) do katalogu Contoso przy użyciu trzech oddzielnych plików CSV. Proces ten można ułatwić poprzez skondensowanie trzech oddzielnych plików CSV do jednego pliku.  
 ![Przykładowy plik CSV dla Alicji, Roberta i Karoliny](./media/active-directory-b2b-detailed-walkthrough/CombinedCSV.png)
 
-## Pokrewne artykuły:
+## <a name="related-articles"></a>Pokrewne artykuły:
 Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 
 * [Czym jest współpraca B2B w usłudze Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
@@ -82,6 +86,9 @@ Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 * [Bieżące ograniczenia wersji zapoznawczej](active-directory-b2b-current-preview-limitations.md)
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

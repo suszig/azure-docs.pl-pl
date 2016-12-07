@@ -1,12 +1,12 @@
 ---
-title: Zabezpieczanie własnego magazynu kluczy | Microsoft Docs
-description: Zarządzaj uprawnieniami dostępu do magazynu kluczy na potrzeby zarządzania magazynami, kluczami i wpisami tajnymi. Model uwierzytelniania i autoryzacji dla magazynu kluczy i sposób zabezpieczania własnego magazynu kluczy
+title: "Zabezpieczanie własnego magazynu kluczy | Microsoft Docs"
+description: "Zarządzaj uprawnieniami dostępu do magazynu kluczy na potrzeby zarządzania magazynami, kluczami i wpisami tajnymi. Model uwierzytelniania i autoryzacji dla magazynu kluczy i sposób zabezpieczania własnego magazynu kluczy"
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+
 
 ---
-# Zabezpieczanie własnego magazynu kluczy
+# <a name="secure-your-key-vault"></a>Zabezpieczanie własnego magazynu kluczy
 Usługa Azure Key Vault to usługa w chmurze, która zabezpiecza klucze szyfrowania i wpisy tajne (takie jak certyfikaty, parametry połączenia, hasła) dla aplikacji w chmurze. Ponieważ te dane są poufne i mają krytyczne znaczenie dla prowadzonej działalności, wskazane jest zabezpieczenie dostępu do własnego magazynu kluczy, tak aby tylko autoryzowane aplikacje i użytkownicy mogli uzyskiwać do niego dostęp. Ten artykuł zawiera omówienie modelu dostępu do magazynu kluczy, wyjaśnia uwierzytelnianie i autoryzację oraz na przykładzie opisuje sposób zabezpieczania dostępu do magazynu kluczy dla aplikacji w chmurze.
 
-## Omówienie
+## <a name="overview"></a>Omówienie
 Dostęp do magazynu kluczy jest kontrolowany za pośrednictwem dwóch oddzielnych interfejsów: płaszczyzny zarządzania i płaszczyzny danych. W przypadku obu płaszczyzn wymagane jest odpowiednie uwierzytelnianie i autoryzacja, zanim obiekt wywołujący (użytkownik lub aplikacja) będzie mógł uzyskać dostęp do magazynu kluczy. Uwierzytelnianie ustala tożsamość obiektu wywołującego, podczas gdy autoryzacja określa, jakie operacje może wykonywać obiekt wywołujący.
 
 Na potrzeby uwierzytelniania płaszczyzna zarządzania i płaszczyzna danych używają usługi Azure Active Directory. Na potrzeby autoryzacji płaszczyzna zarządzania używa kontroli dostępu opartej na rolach (RBAC), natomiast płaszczyzna danych używa zasad dostępu magazynu kluczy.
@@ -36,7 +40,7 @@ Oto krótki przegląd omówionych tematów:
 
 [Przykład](#example) — w tej sekcji zamieszczono przykład opisujący sposób konfigurowania kontroli dostępu do magazynu kluczy w celu umożliwienia trzem różnym zespołom (zespołowi zabezpieczeń, deweloperom/operatorom i audytorom) wykonywania określonych zadań na potrzeby opracowywania, zarządzania i monitorowania aplikacji na platformie Azure.
 
-## Uwierzytelnianie za pomocą usługi Azure Active Directory
+## <a name="authentication-using-azure-active-directory"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory
 Podczas tworzenia magazynu kluczy w subskrypcji platformy Azure zostaje on automatycznie powiązany z dzierżawą usługi Azure Active Directory dla tej subskrypcji. Wszystkie podmioty wywołujące (użytkownicy i aplikacje) muszą być zarejestrowane w tej dzierżawie, aby uzyskiwać dostęp do tego magazynu kluczy. Aplikacja lub użytkownik musi uwierzytelnić się za pomocą usługi Azure Active Directory, aby uzyskać dostęp do magazynu kluczy. Dotyczy to zarówno dostępu do płaszczyzny zarządzania, jak i płaszczyzny danych. W obu przypadkach aplikacja może uzyskiwać dostęp do magazynu kluczy na dwa sposoby:
 
 * **dostęp użytkownika i aplikacji** — zwykle stosowany dla aplikacji, które uzyskują dostęp do magazynu kluczy w imieniu zalogowanego użytkownika. Program Azure PowerShell i witryna Azure Portal to przykłady tego typu dostępu. Istnieją dwa sposoby udzielania dostępu użytkownikom: pierwszy to udzielenie dostępu użytkownikom w celu umożliwienia im uzyskiwania dostępu do magazynu kluczy z dowolnej aplikacji, a drugi to udzielenie użytkownikom dostępu do magazynu kluczy tylko wtedy, gdy korzystają oni z określonej aplikacji (ta metoda jest nazywana tożsamością złożoną). 
@@ -52,22 +56,22 @@ Jeden pojedynczy mechanizm uwierzytelniania dla płaszczyzn zarządzania i danyc
 * Jeśli użytkownik odejdzie z organizacji, natychmiast utraci dostęp do wszystkich magazynów kluczy w organizacji
 * Organizacje mogą dostosowywać uwierzytelnianie za pomocą opcji w usłudze Azure Active Directory (na przykład włączyć uwierzytelnianie wieloskładnikowe w celu zwiększenia bezpieczeństwa)
 
-## Płaszczyzna zarządzania i płaszczyzna danych
+## <a name="management-plane-and-data-plane"></a>Płaszczyzna zarządzania i płaszczyzna danych
 Usługa Azure Key Vault to usługa platformy Azure dostępna za pośrednictwem modelu wdrażania przy użyciu usługi Azure Resource Manager. Po utworzeniu magazynu kluczy uzyskujesz kontener wirtualny, wewnątrz którego możesz utworzyć inne obiekty, takie jak klucze, wpisy tajne i certyfikaty. Następnie można uzyskiwać dostęp do tego magazynu kluczy przy użyciu płaszczyzny zarządzania i płaszczyzny danych w celu wykonywania określonych operacji. Interfejs płaszczyzny zarządzania służy do zarządzania samym magazynem kluczy,w tym do tworzenia, usuwania i aktualizowania atrybutów magazynu kluczy oraz ustawiania zasad dostępu dla płaszczyzny danych. Interfejs płaszczyzny danych służy do dodawania, usuwania, modyfikowania i używania kluczy, wpisów tajnych i certyfikatów przechowywanych w magazynie kluczy.
 
 Dostęp do interfejsów płaszczyzny zarządzania i płaszczyzny danych jest uzyskiwany za pośrednictwem różnych punktów końcowych (patrz tabela). W drugiej kolumnie tabeli opisano nazwy DNS dla tych punktów końcowych w różnych środowiskach Azure. W trzeciej kolumnie opisano operacje, które można wykonywać na danej płaszczyźnie dostępu. Każda płaszczyzna dostępu ma również swój własny mechanizm kontroli dostępu: w przypadku płaszczyzny zarządzania kontrola dostępu jest ustawiana przy użyciu kontroli dostępu opartej na rolach (RBAC) w usłudze Azure Resource Manager, natomiast w przypadku płaszczyzny danych kontrola dostępu jest ustawiana za pomocą zasad dostępu magazynu kluczy.
 
 | Płaszczyzna dostępu | Punkty końcowe dostępu | Operacje | Mechanizm kontroli dostępu |
 | --- | --- | --- | --- |
-| Płaszczyzna zarządzania |**Globalny:**<br> management.azure.com:443<br><br> **Chińska wersja platformy Azure:**<br> management.chinacloudapi.cn:443<br><br> **Wersja platformy Azure dla administracji USA:**<br> management.usgovcloudapi.net:443<br><br> **Niemiecka wersja platformy Azure:**<br> management.microsoftazure.de:443 |Tworzenie /odczyt/aktualizowanie/usuwanie magazynu kluczy <br> Ustawianie zasad dostępu dla magazynu kluczy<br>Ustawianie tagów dla magazynu kluczy |Kontrola dostępu oparta na rolach (RBAC) przy użyciu usługi Azure Resource Manager |
-| Płaszczyzna danych |**Globalny:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Chińska wersja platformy Azure:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Wersja platformy Azure dla administracji USA:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Niemiecka wersja platformy Azure:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |Dla kluczy: Odszyfruj, Szyfruj, Opakuj klucz, Odpakuj klucz, Weryfikuj, Podpisz, Pobierz, Lista, Aktualizuj, Utwórz, Importuj, Usuń, Kopia zapasowa, Przywróć<br><br> Dla wpisów tajnych: Pobierz, Lista, Ustaw, Usuń |Zasady dostępu magazynu kluczy |
+| Płaszczyzna zarządzania |**Cały świat:**<br> management.azure.com:443<br><br> **Chińska wersja platformy Azure:**<br> management.chinacloudapi.cn:443<br><br> **Wersja platformy Azure dla administracji USA:**<br> management.usgovcloudapi.net:443<br><br> **Niemiecka wersja platformy Azure:**<br> management.microsoftazure.de:443 |Tworzenie /odczyt/aktualizowanie/usuwanie magazynu kluczy <br> Ustawianie zasad dostępu dla magazynu kluczy<br>Ustawianie tagów dla magazynu kluczy |Kontrola dostępu oparta na rolach (RBAC) przy użyciu usługi Azure Resource Manager |
+| Płaszczyzna danych |**Cały świat:**<br> &lt;nazwa_magazynu&gt;.vault.azure.net:443<br><br> **Chińska wersja platformy Azure:**<br> &lt;nazwa_magazynu&gt;.vault.azure.cn:443<br><br> **Wersja platformy Azure dla administracji USA:**<br> &lt;nazwa_magazynu&gt;.vault.usgovcloudapi.net:443<br><br> **Niemiecka wersja platformy Azure:**<br> &lt;nazwa_magazynu&gt;.vault.microsoftazure.de:443 |Dla kluczy: Odszyfruj, Szyfruj, Opakuj klucz, Odpakuj klucz, Weryfikuj, Podpisz, Pobierz, Lista, Aktualizuj, Utwórz, Importuj, Usuń, Kopia zapasowa, Przywróć<br><br> Dla wpisów tajnych: Pobierz, Lista, Ustaw, Usuń |Zasady dostępu magazynu kluczy |
 
 Mechanizmy kontroli dostępu do płaszczyzny zarządzania i płaszczyzny danych działają niezależnie. Aby na przykład udzielić aplikacji dostępu do używania kluczy przechowywanych w magazynie kluczy, należy tylko udzielić jej uprawnień dostępu do płaszczyzny danych przy użyciu zasad dostępu magazynu kluczy i nie trzeba udzielać tej aplikacji żadnego dostępu do płaszczyzny zarządzania. Z kolei aby umożliwić użytkownikowi odczyt właściwości i tagów magazynu, ale bez dostępu do kluczy, wpisów tajnych i certyfikatów, można udzielić temu użytkownikowi uprawnienie dostępu „odczyt” przy użyciu kontroli dostępu opartej na rolach (RBAC) i nie trzeba udzielać mu żadnego dostępu do płaszczyzny danych.
 
-## Kontrola dostępu do płaszczyzny zarządzania
+## <a name="management-plane-access-control"></a>Kontrola dostępu do płaszczyzny zarządzania
 Płaszczyzna zarządzania składa się z operacji, które wpływają na sam magazyn kluczy. Można na przykład utworzyć lub usunąć magazyn kluczy, a także pobrać listę magazynów w subskrypcji. Można również pobrać właściwości magazynu kluczy (takie jak SKU, znaczniki) i ustawić zasady dostępu magazynu kluczy kontrolujące użytkowników i aplikacje, które mogą uzyskiwać dostęp do kluczy i wpisów tajnych w magazynie. Kontrola dostępu do płaszczyzny zarządzania korzysta z funkcji RBAC. Pełna lista operacji magazynu kluczy, które mogą być wykonywane za pośrednictwem płaszczyzny zarządzania, znajduje się w tabeli w poprzedniej sekcji. 
 
-### Kontrola dostępu oparta na rolach (RBAC)
+### <a name="rolebased-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
 Każda subskrypcja platformy Azure zawiera usługę Azure Active Directory. Użytkownikom, grupom i aplikacjom z tego katalogu można udzielić dostępu do zarządzania zasobami w ramach subskrypcji platformy Azure, która używa modelu wdrażania przy użyciu usługi Azure Resource Manager. Ten typ kontroli dostępu jest określany jako kontrola dostępu oparta na rolach (RBAC). Do zarządzania tym dostępem można użyć witryny [Azure Portal](https://portal.azure.com/), [narzędzi interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md), [programu PowerShell](../powershell-install-configure.md) lub [interfejsów API REST usługi Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 W modelu usługi Azure Resource Manager można utworzyć magazyn kluczy w grupie zasobów i kontrolować dostęp do płaszczyzny zarządzania tego magazynu kluczy przy użyciu usługi Azure Active Directory. Na przykład można przyznać użytkownikom lub grupie możliwość zarządzania magazynami kluczy w określonej grupie zasobów.
@@ -79,12 +83,12 @@ Przypisując odpowiednie role RBAC, można udzielić użytkownikom, grupom i apl
 > 
 > 
 
-## Kontrola dostępu do płaszczyzny danych
+## <a name="data-plane-access-control"></a>Kontrola dostępu do płaszczyzny danych
 Płaszczyzna danych magazynu kluczy składa się z operacji, które wpływają na obiekty w magazynie kluczy, takie jak klucze, wpisy tajne i certyfikaty.  Obejmuje to operacje dotyczące kluczy, takie jak tworzenie, importowanie, aktualizowanie, wyświetlanie, wykonywanie kopii zapasowych i przywracanie kluczy, operacje kryptograficzne, takie jak podpisywanie, weryfikowanie, szyfrowanie, odszyfrowywanie, kodowanie i odkodowywanie, oraz ustawianie tagów i innych atrybutów kluczy. W przypadku wpisów tajnych obejmuje operacje pobierania, ustawiania, wyświetlania i usuwania.
 
 Dostęp do płaszczyzny danych jest udzielany przez ustawienie zasad dostępu magazynu kluczy. Użytkownik, grupa lub aplikacja muszą mieć uprawnienia współautora (RBAC) do płaszczyzny zarządzania dla magazynu kluczy, aby móc ustawić zasady dostępu dla tego magazynu kluczy. Użytkownikowi, grupie lub aplikacji można udzielić dostępu do wykonywania określonych operacji dotyczących kluczy lub wpisów tajnych w magazynie kluczy. Magazyn kluczy obsługuje maksymalnie 16 wpisów zasad dostępu dla magazynu kluczy. Utwórz grupę zabezpieczeń usługi Azure Active Directory i dodaj użytkowników do tej grupy, aby udzielić dostępu do płaszczyzny danych dla magazynu kluczy wielu użytkownikom.
 
-### Zasady dostępu magazynu kluczy
+### <a name="key-vault-access-policies"></a>Zasady dostępu magazynu kluczy
 Zasady dostępu magazynu kluczy przyznają oddzielnie uprawnienia do kluczy, wpisów tajnych i certyfikatów. Na przykład można udzielić użytkownikowi dostępu tylko do kluczy, ale żadnych uprawnień do wpisów tajnych. Uprawnienia dostępu do kluczy, wpisów tajnych lub certyfikatów są jednak przyznawane na poziomie magazynu. Innymi słowy, zasady dostępu magazynu kluczy nie obsługują uprawnień na poziomie obiektu. W celu ustawienia zasad dostępu dla magazynu kluczy można użyć witryny [Azure Portal](https://portal.azure.com/), [narzędzi interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md), [programu PowerShell](../powershell-install-configure.md) lub [interfejsów API REST usługi Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
@@ -92,7 +96,7 @@ Zasady dostępu magazynu kluczy przyznają oddzielnie uprawnienia do kluczy, wpi
 > 
 > 
 
-## Przykład
+## <a name="example"></a>Przykład
 Załóżmy, że tworzona jest aplikacja, która używa certyfikatu dla protokołu SSL, usługi Azure Storage do przechowywania danych oraz klucza RSA o długości 2048 bitów dla operacji podpisywania. Załóżmy, że ta aplikacja działa na maszynie wirtualnej (lub w zestawie skalowania maszyny wirtualnej). Możesz używać magazynu kluczy do przechowywania wszystkich wpisów tajnych aplikacji i do przechowywania certyfikatu uruchamiania, który jest używany przez aplikację do uwierzytelniania za pomocą usługi Azure Active Directory.
 
 Oto podsumowanie wszystkich kluczy i wpisów tajnych, które mają być przechowywane w magazynie kluczy.
@@ -119,7 +123,7 @@ Teraz zobaczmy, jakie akcje wykonują poszczególne role w kontekście tej aplik
   * Tworzenie kopii zapasowych kluczy na potrzeby odzyskiwania po awarii
   * Ustawianie zasad dostępu magazynu kluczy w celu udzielenia uprawnień użytkownikom i aplikacjom do wykonywania określonych operacji
   * Okresowe wycofywanie (ponowne tworzenie) kluczy/wpisów tajnych
-* **Deweloperzy/operatory**
+* **Deweloperzy/operatorzy**
   * Pobieranie odwołań do certyfikatów SSL i uruchamiania (odcisków palca), klucza magazynu (identyfikatora URI wpisu tajnego) i klucza podpisywania (identyfikatora URI klucza) od zespołu ds. zabezpieczeń
   * Opracowywanie i wdrażanie aplikacji, która programowo uzyskuje dostęp do kluczy i wpisów tajnych
 * **Audytorzy**
@@ -199,7 +203,7 @@ W tym przykładzie przedstawiono prosty scenariusz. Rzeczywiste scenariusze mog�
 > 
 > 
 
-## Zasoby
+## <a name="resources"></a>Zasoby
 * [Kontrola dostępu oparta na rolach w usłudze Azure Active Directory](../active-directory/role-based-access-control-configure.md)
   
   W tym artykule objaśniono funkcję kontroli dostępu opartej na rolach w usłudze Azure Active Directory i sposób jej działania.
@@ -230,14 +234,14 @@ W tym przykładzie przedstawiono prosty scenariusz. Rzeczywiste scenariusze mog�
 * [Kontrola dostępu do kluczy](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
   Link do dokumentacji referencyjnej dotyczącej kontroli dostępu do kluczy.
-* [Kontrola dostępu do wpisów tajnych](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+* [Kontrola dostępu do kluczy tajnych](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Link do dokumentacji referencyjnej dotyczącej kontroli dostępu do kluczy.
 * [Ustawianie](https://msdn.microsoft.com/library/mt603625.aspx) i [usuwanie](https://msdn.microsoft.com/library/mt619427.aspx) zasad dostępu magazynu kluczy przy użyciu programu PowerShell
   
   Linki do dokumentacji referencyjnej dotyczącej poleceń cmdlet programu PowerShell służących do zarządzania zasadami dostępu magazynu kluczy.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby zapoznać się z samouczkiem wprowadzającym dla administratora, zobacz [Wprowadzenie do usługi Azure Key Vault](key-vault-get-started.md).
 
 Aby uzyskać więcej informacji na temat rejestrowania użycia usługi Key Vault, zobacz [Funkcja rejestrowania usługi Azure Key Vault](key-vault-logging.md).
@@ -246,6 +250,9 @@ Aby uzyskać więcej informacji na temat używania kluczy i wpisów tajnych w us
 
 Jeśli masz pytania dotyczące usługi Key Vault, odwiedź [forum usługi Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis | Microsoft Docs
-description: Informacje na temat tworzenia aplikacji sieci Web za pomocą pamięci podręcznej Redis
+title: "Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis | Microsoft Docs"
+description: "Informacje na temat tworzenia aplikacji sieci Web za pomocą pamięci podręcznej Redis"
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+
 
 ---
-# Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis
+# <a name="how-to-create-a-web-app-with-redis-cache"></a>Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -37,19 +41,19 @@ Dowiesz się:
 * Jak wykonać aprowizację zasobów platformy Azure dla aplikacji przy użyciu szablonu usługi Resource Manager.
 * Jak opublikować aplikację na platformie Azure przy użyciu programu Visual Studio.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tego samouczka niezbędne są następujące wstępnie wymagane elementy.
 
 * [Konto platformy Azure](#azure-account)
 * [Program Visual Studio 2015 z zestawem Azure SDK dla platformy .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
 
-### Konto platformy Azure
+### <a name="azure-account"></a>Konto platformy Azure
 Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Możesz:
 
 * [Utworzyć bezpłatne konto platformy Azure ](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Otrzymasz środki, które możesz wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu tych środków możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure.
 * [Aktywować korzyści subskrybenta programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). W ramach subskrypcji MSDN co miesiąc otrzymasz środki, które możesz przeznaczyć na płatne usługi platformy Azure.
 
-### Program Visual Studio 2015 z zestawem Azure SDK dla platformy .NET
+### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Program Visual Studio 2015 z zestawem Azure SDK dla platformy .NET
 Samouczek jest przeznaczony dla programu Visual Studio 2015 z [zestawem Azure SDK dla platformy .NET](../dotnet-sdk.md) w wersji 2.8.2 lub nowszej. [Pobierz najnowszy zestaw Azure SDK dla programu Visual Studio 2015 tutaj](http://go.microsoft.com/fwlink/?linkid=518003). Program Visual Studio jest automatycznie instalowany z zestawem SDK, jeśli nie był on zainstalowany wcześniej.
 
 Jeśli masz program Visual Studio 2013, możesz [pobrać najnowszy zestaw Azure SDK dla programu Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Niektóre ekrany mogą różnić się od przedstawionych na ilustracjach w tym samouczku.
@@ -59,7 +63,7 @@ Jeśli masz program Visual Studio 2013, możesz [pobrać najnowszy zestaw Azure 
 > 
 > 
 
-## Tworzenie projektu programu Visual Studio
+## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 1. Otwórz program Visual Studio i kliknij kolejno opcje **Plik**, **Nowy**, **Projekt**.
 2. Rozwiń węzeł **Visual C#** na liście **Szablony**, wybierz pozycję **Chmura** i kliknij pozycję **Aplikacja sieci Web ASP.NET**. Upewnij się, że została wybrana pozycja **.NET Framework 4.5.2**.  Wpisz **ContosoTeamStats** w polu tekstowym **Nazwa** i kliknij przycisk **OK**.
    
@@ -69,14 +73,14 @@ Jeśli masz program Visual Studio 2013, możesz [pobrać najnowszy zestaw Azure 
     ![Wybieranie szablonu projektu][cache-select-template]
 4. Kliknij przycisk **OK**, aby utworzyć projekt.
 
-## Tworzenie aplikacji platformy ASP.NET MVC
+## <a name="create-the-aspnet-mvc-application"></a>Tworzenie aplikacji platformy ASP.NET MVC
 W tej części samouczka opisano tworzenie podstawowej aplikacji, która odczytuje i wyświetla statystyki zespołu z bazy danych.
 
 * [Dodawanie modelu](#add-the-model)
 * [Dodawanie kontrolera](#add-the-controller)
 * [Konfigurowanie widoków](#configure-the-views)
 
-### Dodawanie modelu
+### <a name="add-the-model"></a>Dodawanie modelu
 1. Kliknij prawym przyciskiem myszy pozycję **Modele** w **Eksploratorze rozwiązań**, a następnie wybierz kolejno pozycje **Dodaj**, **Klasa**. 
    
     ![Dodawanie modelu][cache-model-add-class]
@@ -174,10 +178,10 @@ W tej części samouczka opisano tworzenie podstawowej aplikacji, która odczytu
         <connectionStrings>
             <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
                 providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"  providerName="System.Data.SqlClient" />
+            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
         </connectionStrings>
 
-### Dodawanie kontrolera
+### <a name="add-the-controller"></a>Dodawanie kontrolera
 1. Naciśnij klawisz **F6**, aby utworzyć projekt. 
 2. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy folder **Kontrolery** i wybierz kolejno pozycje **Dodaj**, **Kontroler**.
    
@@ -214,7 +218,7 @@ W tej części samouczka opisano tworzenie podstawowej aplikacji, która odczytu
         );
 
 
-### Konfigurowanie widoków
+### <a name="configure-the-views"></a>Konfigurowanie widoków
 1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, a następnie folder **Współużytkowane**, a następnie kliknij dwukrotnie pozycję **_Layout.cshtml**. 
    
     ![_Layout.cshtml][cache-layout-cshtml]
@@ -233,7 +237,7 @@ W tej części samouczka opisano tworzenie podstawowej aplikacji, która odczytu
 
 ![Aplikacja startowa][cache-starter-application]
 
-## Konfigurowanie aplikacji do korzystania z pamięci podręcznej Redis
+## <a name="configure-the-application-to-use-redis-cache"></a>Konfigurowanie aplikacji do korzystania z pamięci podręcznej Redis
 W tej sekcji samouczka opisano konfigurowanie przykładowej aplikacji do przechowywania i pobierania statystyk zespołu Contoso z wystąpienia usługi Azure Redis Cache za pomocą klienta pamięci podręcznej [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).
 
 * [Konfigurowanie aplikacji do korzystania z programu StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
@@ -241,7 +245,7 @@ W tej sekcji samouczka opisano konfigurowanie przykładowej aplikacji do przecho
 * [Aktualizacja metod Utwórz, Edytuj i Usuń w celu pracy z pamięcią podręczną](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
 * [Aktualizacja widoku Indeks zespołów w celu pracy z pamięcią podręczną](#update-the-teams-index-view-to-work-with-the-cache)
 
-### Konfigurowanie aplikacji do korzystania z programu StackExchange.Redis
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>Konfigurowanie aplikacji do korzystania z programu StackExchange.Redis
 1. Aby skonfigurować aplikację klienta w programie Visual Studio przy użyciu pakietu NuGet StackExchange.Redis, kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Zarządzaj pakietami NuGet**. 
    
     ![Zarządzanie pakietami NuGet][redis-cache-manage-nuget-menu]
@@ -292,7 +296,7 @@ W tej sekcji samouczka opisano konfigurowanie przykładowej aplikacji do przecho
      
      Środowisko uruchomieniowe ASP.NET scala zawartość pliku zewnętrznego ze znacznikami w elemencie `<appSettings>`. Środowisko uruchomieniowe ignoruje atrybut pliku, jeśli nie można odnaleźć określonego pliku. Klucze tajne (parametry połączenia do pamięci podręcznej) nie są dołączone jako część kodu źródłowego dla aplikacji. Podczas wdrażania aplikacji sieci Web na platformie Azure plik `WebAppPlusCacheAppSecrests.config` nie zostanie wdrożony (jest to zamierzone). Istnieje kilka sposobów na określenie tych kluczy tajnych na platformie Azure, a w tym samouczku są one konfigurowane automatycznie podczas [aprowizacji zasobów Azure](#provision-the-azure-resources) w kolejnym kroku samouczka. Więcej informacji na temat pracy z kluczami tajnymi na platformie Azure znajduje się w artykule [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Najlepsze praktyki dotyczące wdrażania haseł i innych poufnych danych w programie ASP.NET i Usłudze aplikacji Azure).
 
-### Aktualizacja klasy TeamsController w celu zwracania wyników z pamięci podręcznej lub bazy danych
+### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>Aktualizacja klasy TeamsController w celu zwracania wyników z pamięci podręcznej lub bazy danych
 W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamięci podręcznej. Statystyki zespołu są przechowywane w pamięci podręcznej jako zserializowany obiekt `List<Team>`, a także jako posortowany zestaw korzystający z typów danych Redis. Podczas pobierania elementów z zestawu posortowanego możesz pobrać część z nich, wszystkie lub przesłać zapytanie o określone elementy. W tym przykładzie prześlesz do zestawu posortowanego zapytanie dotyczące najlepszych 5 zespołów uporządkowanych według liczby zwycięstw.
 
 > [!NOTE]
@@ -513,7 +517,7 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
         }
 
 
-### Aktualizacja metod Utwórz, Edytuj i Usuń w celu pracy z pamięcią podręczną
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Aktualizacja metod Utwórz, Edytuj i Usuń w celu pracy z pamięcią podręczną
 Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, zawiera metody dodawania, edytowania i usuwania zespołów. Za każdym razem, gdy zespół jest dodawany, edytowany lub usuwany, dane w pamięci podręcznej stają się nieaktualne. W tej sekcji zmodyfikujesz te trzy metody w celu czyszczenia buforowanych zespołów w taki sposób, aby pamięć podręczna była zsynchronizowana z bazą danych.
 
 1. Przejdź do metody `Create(Team team)` w klasie `TeamsController`. Dodaj wywołanie metody `ClearCachedTeams`, jak pokazano w poniższym przykładzie.
@@ -578,7 +582,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
         }
 
 
-### Aktualizacja widoku Indeks zespołów w celu pracy z pamięcią podręczną
+### <a name="update-the-teams-index-view-to-work-with-the-cache"></a>Aktualizacja widoku Indeks zespołów w celu pracy z pamięcią podręczną
 1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, a następnie folder **Zespoły** i kliknij dwukrotnie plik **Index.cshtml**.
    
     ![Index.cshtml][cache-views-teams-index-cshtml]
@@ -627,7 +631,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
     ![Komunikat o stanie][cache-status-message]
 2. Naciśnij klawisz **F6**, aby utworzyć projekt.
 
-## Aprowizacja zasobów Azure
+## <a name="provision-the-azure-resources"></a>Aprowizacja zasobów Azure
 Aby hostować aplikację na platformie Azure, musisz najpierw aprowizować usługi Azure, których wymaga dana aplikacja. Przykładowa aplikacja w tym samouczku korzysta z poniższych usług Azure.
 
 * Azure Redis Cache
@@ -674,7 +678,7 @@ Po ukończeniu aprowizacji możesz opublikować aplikację na platformie Azure z
 > 
 > 
 
-## Publikowanie aplikacji na platformie Azure
+## <a name="publish-the-application-to-azure"></a>Publikowanie aplikacji na platformie Azure
 W tym kroku samouczka opublikujesz aplikację na platformie Azure i uruchomisz ją w chmurze.
 
 1. Kliknij prawym przyciskiem myszy projekt **ContosoTeamStats** w programie Visual Studio i wybierz polecenie **Publikuj**.
@@ -710,7 +714,7 @@ W poniższej tabeli opisano każdy link akcji z przykładowej aplikacji.
 
 Klikaj różne akcje i eksperymentuj z pobieraniem danych z różnych źródeł. Zwróć uwagę na różnice czasu, który jest potrzebny do realizacji różnych sposobów pobierania danych z bazy danych i pamięci podręcznej.
 
-## Usuwanie zasobów po zakończeniu pracy z aplikacją
+## <a name="delete-the-resources-when-you-are-finished-with-the-application"></a>Usuwanie zasobów po zakończeniu pracy z aplikacją
 Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć używane zasoby platformy Azure w celu oszczędności kosztów i zasobów. Jeśli w sekcji [Aprowizacja obsługi zasobów Azure](#provision-the-azure-resources) użyto przycisku **Wdróż na platformie Azure** i wszystkie zasoby znajdują się w tej samej grupie zasobów, możesz usunąć je razem w ramach jednej operacji przez usunięcie grupy zasobów.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów**.
@@ -730,7 +734,7 @@ Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usu
 > 
 > 
 
-## Uruchamianie przykładowej aplikacji na komputerze lokalnym
+## <a name="run-the-sample-application-on-your-local-machine"></a>Uruchamianie przykładowej aplikacji na komputerze lokalnym
 Do uruchomienia aplikacji lokalnie na komputerze potrzebne jest wystąpienie usługi Azure Redis Cache, w ramach którego będą buforowane dane. 
 
 * Jeśli aplikacja została opublikowana na platformie Azure, jak opisano w poprzedniej sekcji, możesz użyć wystąpienia usługi Azure Redis Cache, które zostało zaaprowizowane w tamtym kroku.
@@ -754,7 +758,7 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 > 
 > 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [rozpoczęcia pracy z platformą ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) w witrynie [ASP.NET](http://asp.net/).
 * Więcej przykładów dotyczących tworzenia aplikacji sieci Web platformy ASP.NET w usłudze App Service, zobacz [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Tworzenie i wdrażanie aplikacji sieci web ASP.NET w usłudze Azure App Service) w [pokazie](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) 2015 Connect witryny [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz).
   * Aby uzyskać więcej materiałów szybkiego startu z w wersji demonstracyjnej witryny HealthClinic.biz, zobacz [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Materiały szybkiego startu narzędzi deweloperskich platformy Azure).
@@ -804,6 +808,6 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

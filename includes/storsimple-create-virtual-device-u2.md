@@ -1,4 +1,4 @@
-#### Aby utworzyć urządzenie wirtualne
+#### <a name="to-create-a-virtual-device"></a>Aby utworzyć urządzenie wirtualne
 1. W witrynie Azure Portal przejdź do usługi **StorSimple Manager**.
 2. Przejdź do strony **Urządzenia**. Kliknij opcję **Utwórz urządzenie wirtualne** u dołu strony **Urządzenia**.
 3. W **oknie dialogowym Tworzenie urządzenia wirtualnego** określ następujące informacje.
@@ -26,6 +26,8 @@
       
       ![Etap tworzenia urządzenia wirtualnego StorSimple](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Przegląd witryny Microsoft Azure Portal
-description: Dowiedz się, jak korzystać z witryny Microsoft Azure Portal.
-services: ''
-documentationcenter: ''
+title: "Przegląd witryny Microsoft Azure Portal"
+description: "Dowiedz się, jak korzystać z witryny Microsoft Azure Portal."
+services: 
+documentationcenter: 
 author: davidwrede
 manager: dwrede
 editor: jimbe
-
+ms.assetid: 53cb9df1-c96a-4f4e-b022-18336cd3d697
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31bea465db1afb5efc22b2280d83d3b50bced329
+
 
 ---
-# Przegląd witryny Microsoft Azure Portal
+# <a name="microsoft-azure-portal-overview"></a>Przegląd witryny Microsoft Azure Portal
 Microsoft Azure Portal to centralne miejsce, w którym możliwe jest aprowizowanie zasobów platformy Azure i zarządzanie nimi.  Dzięki temu samouczkowi zapoznasz się z portalem i dowiesz się, jak korzystać z niektórych z następujących kluczowych możliwości:
 
 * **Kompleksowy portal Marketplace** umożliwiający przeglądanie tysięcy elementów od firmy Microsoft i innych dostawców, które mogą zostać zakupione i/lub których możliwa jest aprowizacja.
@@ -26,10 +30,10 @@ Microsoft Azure Portal to centralne miejsce, w którym możliwe jest aprowizowan
   
   ![Orientacja interfejsu użytkownika witryny Azure Portal][UIOrientation]
 
-## Przed rozpoczęciem
+## <a name="before-you-get-started"></a>Przed rozpoczęciem
 Konieczne będzie posiadanie ważnej subskrypcji platformy Azure, aby móc skorzystać z tego samouczka.  Jeśli nie masz ważnej subskrypcji, [utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) już dzisiaj.  Po utworzeniu subskrypcji dostęp do portalu można uzyskać pod adresem [https://portal.azure.com].
 
-## Tworzenie zasobu
+## <a name="how-to-create-a-resource"></a>Tworzenie zasobu
 Platforma Azure zawiera portal Marketplace z tysiącami elementów, które można utworzyć w jednym miejscu.  Załóżmy, że chcesz utworzyć nową maszynę wirtualną systemu Windows Server 2012.  Nowe centrum jest punktem wejścia do nadzorowanego zestawu polecanych kategorii z portalu Marketplace.  Każda kategoria ma niewielki zestaw polecanych elementów wraz z linkiem do pełnego portalu Marketplace, w którym są wyświetlane wszystkie kategorie i jest możliwe wyszukiwanie. Aby utworzyć tę nową maszynę wirtualną systemu Windows Server 2012, wykonaj następujące czynności:  
 
 1. System Windows Server 2012 jest polecany, więc możesz wybrać go z kategorii Obliczenia.  
@@ -40,12 +44,12 @@ Po utworzeniu zasobu w centrum powiadomień zostanie wygenerowany alert oraz zos
 
 ![Kategorie portalu][PortalCategories]
 
-## Znajdowanie zasobów
+## <a name="how-to-find-your-resources"></a>Znajdowanie zasobów
 Często używane zasoby zawsze można przypiąć do tablicy startowej, ale konieczne może być przejście do zasobu, który nie jest często używany.  Za pomocą wyświetlonego poniżej centrum przeglądania można uzyskać dostęp do wszystkich zasobów.  Możliwe jest filtrowanie według subskrypcji, wybieranie i zmienianie rozmiarów kolumn oraz przechodzenie do bloków zarządzania. W tym celu wystarczy kliknąć odpowiednie elementy.
 
 ![Centrum przeglądania][BrowseHub]
 
-## Zarządzanie dostępem do zasobu i delegowanie go
+## <a name="how-to-manage-and-delegate-access-to-a-resource"></a>Zarządzanie dostępem do zasobu i delegowanie go
 Z poziomu tego bloku można nawiązać połączenie z maszyną wirtualną za pomocą pulpitu zdalnego, monitorować kluczowe metryki wydajności, kontrolować dostęp do tej maszyny wirtualnej przy użyciu dostępu opartego na rolach (RBAC), konfigurować maszynę wirtualną i wykonywać inne istotne zadania zarządzania.  Delegowanie dostępu na podstawie roli ma kluczowe znaczenie dla zarządzania w odpowiedniej skali.  Aby uzyskać więcej informacji, kliknij [tutaj](active-directory/role-based-access-control-configure.md). Aby delegować dostęp do zasobu, należy wykonać następujące czynności:
 
 1. Przejdź do zasobu.
@@ -56,7 +60,7 @@ Z poziomu tego bloku można nawiązać połączenie z maszyną wirtualną za pom
 
 ![Zarządzanie zasobem][ManageResource]
 
-## Dostosowywanie bloku zasobów
+## <a name="how-to-customize-a-resource-blade"></a>Dostosowywanie bloku zasobów
 Na platformie Azure bloki są wstępnie konfigurowane dla zasobów, ale kafelki w tych blokach są kontrolowane przez użytkownika.  Możesz łatwo przejść do trybu dostosowania, w którym możesz dodawać, usuwać, zmieniać rozmiar lub ponownie rozmieszczać kafelki. Aby dostosować blok, wykonaj następujące czynności:
 
 1. Przejdź do zasobu.
@@ -66,12 +70,12 @@ Na platformie Azure bloki są wstępnie konfigurowane dla zasobów, ale kafelki 
 
 ![Dostosowywanie bloków][CustomizeBlades]
 
-## Uzyskiwanie pomocy
+## <a name="how-to-get-help"></a>Uzyskiwanie pomocy
 Jeśli masz jakikolwiek problem, zawsze Ci pomożemy.  Portal ma stronę pomocy i obsługi technicznej, która może pomóc w znalezieniu odpowiedniego rozwiązania.  W zależności od Twojego [planu pomocy technicznej](https://azure.microsoft.com/support/plans/) możesz również tworzyć bilety pomocy technicznej bezpośrednio w portalu.  Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z poziomu portalu. Aby wyświetlić stronę pomocy i obsługi technicznej, przejdź do obszaru Przeglądaj -> Pomoc i obsługa techniczna.  
 
 ![Pomoc i obsługa techniczna][HelpSupport]
 
-## Podsumowanie
+## <a name="summary"></a>Podsumowanie
 Informacje zawarte w tym samouczku ułatwiają wykonywanie następujących czynności:
 
 * Zakładanie konta, uzyskiwanie subskrypcji i przeglądanie portalu.
@@ -93,6 +97,6 @@ Witryna Microsoft Azure Portal znacząco ułatwia tworzenie aplikacji w chmurze 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

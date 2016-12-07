@@ -1,34 +1,38 @@
 ---
-title: Tworzenie aplikacji sieci Web Java w usłudze Azure App Service | Microsoft Docs
-description: Ten samouczek pokazuje, jak wdrożyć aplikację sieci Web Java w usłudze Azure App Service.
+title: "Tworzenie aplikacji sieci Web Java w usłudze Azure App Service | Microsoft Docs"
+description: "Ten samouczek pokazuje, jak wdrożyć aplikację sieci Web Java w usłudze Azure App Service."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d6e73cc3-8b71-4742-a197-3edeabc6a289
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+
 
 ---
-# Tworzenie aplikacji sieci Web Java w usłudze Azure App Service
+# <a name="create-a-java-web-app-in-azure-app-service"></a>Tworzenie aplikacji sieci Web Java w usłudze Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Ten samouczek pokazuje, jak utworzyć [Aplikacja sieci Web w usłudze Azure App Service] przy użyciu witryny [Azure Portal]. Portal Azure jest interfejsem sieci Web, którego można użyć do zarządzania zasobami platformy Azure.
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [Aktywuj swoje korzyści subskrybenta programu Visual Studio] lub [utworzyć konto bezpłatnej wersji próbnej].
+> Do wykonania kroków tego samouczka potrzebne jest konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów programu Visual Studio] lub [utworzyć konto bezpłatnej wersji próbnej].
 > 
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service]. W tej lokalizacji możesz od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service; bez karty kredytowej i bez zobowiązań.
 > 
 > 
 
-## Opcje aplikacji Java
+## <a name="java-application-options"></a>Opcje aplikacji Java
 Istnieje kilka metod konfigurowania aplikacji Java w aplikacji sieci Web usługa App Service. 
 
 1. Utwórz aplikację, a następnie skonfiguruj **Ustawienia aplikacji**.
@@ -46,9 +50,9 @@ Istnieje kilka metod konfigurowania aplikacji Java w aplikacji sieci Web usługa
    * Chcesz samodzielnie skonfigurować kontener sieci Web od podstaw. 
    * Chcesz użyć wersji programu Java, która nie jest obsługiwana w usłudze App Service, i chcesz przekazać ją samodzielnie.
      
-     W takich przypadkach możesz utworzyć aplikację przy użyciu Portalu Azure, a następnie ręcznie zapewnić odpowiednie pliki wykonywalne. W takim przypadku pliki będą przeliczane względem przydziałów miejsca w magazynie dla Twojego planu usługi App Service. Aby uzyskać więcej informacji, zobacz [Upload a custom Java web app to Azure (Przekazywanie niestandardowej aplikacji sieci Web Java do portalu Azure)] .
+     W takich przypadkach możesz utworzyć aplikację przy użyciu Portalu Azure, a następnie ręcznie zapewnić odpowiednie pliki wykonywalne. W takim przypadku pliki będą przeliczane względem przydziałów miejsca w magazynie dla Twojego planu usługi App Service. Aby uzyskać więcej informacji, zobacz [Przekazywanie niestandardowej aplikacji sieci Web Java na platformę Azure] .
 
-## <a name="portal"></a> Tworzenie i konfigurowanie aplikacji sieci Web Java
+## <a name="a-nameportala-create-and-configure-a-java-web-app"></a><a name="portal"></a> Tworzenie i konfigurowanie aplikacji sieci Web Java
 W tej sekcji przedstawiono sposób tworzenia aplikacji sieci Web i konfigurowania jej pod kątem języka Java przy użyciu bloku **Ustawienia aplikacji** w portalu.
 
 1. Zaloguj się do [Azure Portal].
@@ -85,7 +89,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji sieci Web i konfigurowani
     
     Ta strona sieci Web potwierdza, że utworzono aplikację sieci Web opartą na języku Java.
 
-## <a name="marketplace"></a> Używanie szablonu Java z portalu Azure Marketplace
+## <a name="a-namemarketplacea-use-a-java-template-from-the-azure-marketplace"></a><a name="marketplace"></a> Używanie szablonu Java z portalu Azure Marketplace
 W tej sekcji przedstawiono sposób użycia portalu Azure Marketplace do utworzenia aplikacji sieci Web Java. Tego samego ogólnego przepływu pracy można użyć do utworzenia aplikacji mobilnej opartej na języku Java lub aplikacji interfejsu API. 
 
 1. Zaloguj się w witrynie [Azure Portal]
@@ -131,23 +135,23 @@ W tej sekcji przedstawiono sposób użycia portalu Azure Marketplace do utworzen
 
 Teraz, po utworzeniu aplikacji sieci Web z kontenerem aplikacji, zobacz sekcję [Następne kroki](#next-steps), aby uzyskać informacje o sposobach przekazywania aplikacji do aplikacji sieci Web.
 
-## Następne kroki
-Na tym etapie masz serwer aplikacji Java działający w aplikacji sieci Web w usłudze Azure App Service. Aby wdrożyć własny kod do aplikacji sieci Web, zobacz temat [Add an application or webpage to your Java web app (Dodawanie aplikacji lub strony sieci Web do aplikacji sieci Web Java)].
+## <a name="next-steps"></a>Następne kroki
+Na tym etapie masz serwer aplikacji Java działający w aplikacji sieci Web w usłudze Azure App Service. Aby wdrożyć własny kod do aplikacji sieci Web, zobacz temat [Dodawanie aplikacji lub strony sieci Web do aplikacji sieci Web Java].
 
 Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, zobacz [Centrum deweloperów języka Java].
 
 <!-- URL List -->
 
-[Add an application or webpage to your Java web app (Dodawanie aplikacji lub strony sieci Web do aplikacji sieci Web Java)]: ./web-sites-java-add-app.md
+[Dodawanie aplikacji lub strony sieci Web do aplikacji sieci Web Java]: ./web-sites-java-add-app.md
 [Omówienie planów usługi Azure App Service]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [Azure Portal]: https://portal.azure.com/
-[Aktywuj swoje korzyści subskrybenta programu Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[aktywować korzyści dla subskrybentów programu Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [utworzyć konto bezpłatnej wersji próbnej]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Wypróbuj usługę App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [Aplikacja sieci Web w usłudze Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centrum deweloperów języka Java]: /develop/java/
 [Korzystanie z Portalu Azure do zarządzania zasobami Azure]: ../azure-portal/resource-group-portal.md
-[Upload a custom Java web app to Azure (Przekazywanie niestandardowej aplikacji sieci Web Java do portalu Azure)]: ./web-sites-java-custom-upload.md
+[Przekazywanie niestandardowej aplikacji sieci Web Java na platformę Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
 
@@ -165,6 +169,6 @@ Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

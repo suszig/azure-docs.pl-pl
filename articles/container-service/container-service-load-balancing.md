@@ -1,14 +1,14 @@
 ---
-title: Kontenery równoważenia obciążenia klastra usługi Azure Container Service | Microsoft Docs
-description: Równoważenie obciążenia w wielu kontenerach w klastrze usługi Azure Container Service.
+title: "Kontenery równoważenia obciążenia klastra usługi Azure Container Service | Microsoft Docs"
+description: "Równoważenie obciążenia w wielu kontenerach w klastrze usługi Azure Container Service."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Kontenery, mikrousługi, DC/OS, Azure
-
+keywords: "Kontenery, mikrousługi, DC/OS, Azure"
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Równoważenie obciążenia w klastrze usługi Azure Container Service
@@ -35,14 +39,14 @@ Moduł Marathon Load Balancer dynamicznie zmienia konfigurację na podstawie wdr
 
 Do instalacji modułu Marathon Load Balancer można użyć interfejsu użytkownika w sieci Web lub wiersza polecenia rozwiązania DC/OS.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Instalacja modułu Marathon-LB przy użyciu interfejsu użytkownika w sieci Web rozwiązania DC/OS
+### <a name="install-marathonlb-using-dcos-web-ui"></a>Instalacja modułu Marathon-LB przy użyciu interfejsu użytkownika w sieci Web rozwiązania DC/OS
 1. Kliknij pozycję „Universe” (Wszechświat)
 2. Wyszukaj pozycję „Marathon-LB”
 3. Kliknij pozycję „Install” (Zainstaluj)
 
 ![Instalacja modułu marathon-lb przy użyciu interfejsu użytkownika w sieci Web rozwiązania DC/OS](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Instalacja modułu Marathon-LB przy użyciu interfejsu wiersza polecenia rozwiązania DC/OS
+### <a name="install-marathonlb-using-the-dcos-cli"></a>Instalacja modułu Marathon-LB przy użyciu interfejsu wiersza polecenia rozwiązania DC/OS
 Po zainstalowaniu interfejsu wiersza polecenia rozwiązania DC/OS i upewnieniu się co do możliwości połączenia z klastrem, uruchom następujące polecenie z klienta:
 
 ```bash
@@ -90,20 +94,20 @@ Teraz po przygotowaniu pakietu marathon-lb możemy wdrożyć kontener aplikacji,
 ```
 
 * Ustaw wartość `HAProxy_0_VHOST` na nazwę FQDN modułu równoważenia obciążenia dla agentów. Ma ona postać `<acsName>agents.<region>.cloudapp.azure.com`. Jeśli na przykład utworzono klaster usługi Container Service o nazwie `myacs` w regionie `West US`, nazwa FQDN będzie następująca: `myacsagents.westus.cloudapp.azure.com`. Możesz również znaleźć tę wartość, wyszukując moduł równoważenia obciążenia z wyrazem „agent” w nazwie podczas przeszukiwania zasobów w grupie zasobów utworzonej dla usługi Container Service w [witrynie Azure Portal](https://portal.azure.com).
-* Ustaw wartość servicePort na port > = 10 000. W ten sposób można zidentyfikować usługę uruchamianą w tym kontenerze. Moduł marathon-lb używa tej wartości w celu identyfikowania usług do zrównoważenia.
+* Ustaw wartość servicePort na port > = 10 000. W ten sposób można zidentyfikować usługę uruchamianą w tym kontenerze. Moduł marathon-lb używa tej wartości w celu identyfikowania usług do zrównoważenia.
 * Ustaw etykietę `HAPROXY_GROUP` na wartość „external”.
 * Ustaw parametr `hostPort` na wartość 0. Ten sposób oznacza, że rozwiązanie Marathon będzie arbitralnie przypisywać dostępny port.
 * Ustaw parametr `instances` na liczbę wystąpień, które chcesz utworzyć. W późniejszym czasie możesz zawsze zmienić tę wartość.
 
 Warto zauważyć, że domyślnie narzędzie Marathon będzie wdrażać rozwiązania do klastra prywatnego. Oznacza to, że powyższe wdrożenie będzie dostępne tylko poprzez moduł równoważenia obciążenia, co jest zazwyczaj pożądanym zachowaniem.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>Wdrażanie przy użyciu interfejsu użytkownika w sieci Web rozwiązania DC/OS
+### <a name="deploy-using-the-dcos-web-ui"></a>Wdrażanie przy użyciu interfejsu użytkownika w sieci Web rozwiązania DC/OS
 1. Odwiedź stronę Marathon pod adresem http://localhost/marathon (po skonfigurowaniu [tunelu SSH](container-service-connect.md)) i kliknij pozycję `Create Appliction`.
 2. W oknie dialogowym `New Application` kliknij pozycję `JSON Mode` w prawym górnym rogu.
 3. Wklej powyższy kod JSON do edytora.
 4. Kliknij pozycję `Create Appliction`.
 
-### <a name="deploy-using-the-dc/os-cli"></a>Wdrażanie przy użyciu interfejsu wiersza polecenia rozwiązania DC/OS
+### <a name="deploy-using-the-dcos-cli"></a>Wdrażanie przy użyciu interfejsu wiersza polecenia rozwiązania DC/OS
 Aby wdrożyć tę aplikację przy użyciu interfejsu wiersza polecenia rozwiązania DC/OS, po prostu skopiuj powyższy kod JSON do pliku o nazwie `hello-web.json` i uruchom polecenie:
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mój_kontener2:33432
 ## <a name="next-steps"></a>Następne kroki
 Więcej informacji na temat warstwy [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/) można znaleźć w dokumentacji rozwiązania DC/OS.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

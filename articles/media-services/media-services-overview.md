@@ -1,12 +1,12 @@
 ---
-title: Przegląd usługi Azure Media Services i typowe scenariusze | Microsoft Docs
-description: Ten temat zawiera omówienie usługi Azure Media Services
+title: "Przegląd usługi Azure Media Services i typowe scenariusze | Microsoft Docs"
+description: "Ten temat zawiera omówienie usługi Azure Media Services"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2a4395385ab0e6e71e5139883a544add0a081cf2
+
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Przegląd usługi Azure Media Services i typowe scenariusze
@@ -58,12 +62,12 @@ Pojęcia związane z usługą Azure Media Services zostały przedstawione w tema
 
 Serię poradników ułatwiających rozpoczęcie pracy z wszystkimi głównymi składnikami usługi Azure Media Services można znaleźć na stronie [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) (Usługa Azure Media Services — samouczki krok po kroku). Seria zawiera wszechstronne omówienie pojęć i przedstawia zadania AMS przy użyciu narzędzia AMSE. Należy pamiętać, że narzędzie AMSE to narzędzie systemu Windows. To narzędzie obsługuje większość zadań, które można wykonać programowo przy użyciu zestawów [AMS SDK dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java) lub [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="<a-id="vod_scenarios"></a>delivering-media-on-demand-with-azure-media-services:-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Dostarczanie multimediów na żądanie za pomocą usługi Azure Media Services: typowe scenariusze i zadania
+## <a name="a-idvodscenariosadelivering-media-ondemand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Dostarczanie multimediów na żądanie za pomocą usługi Azure Media Services: typowe scenariusze i zadania
 W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych tematów. Na poniższym diagramie przedstawiono główne elementy platformy Media Services, które biorą udział w dostarczaniu zawartości na żądanie. 
 
 ![Wideo na żądanie — przepływ pracy](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
-### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-(non-encrypted)"></a>Ochrona zawartości w magazynie i dostarczanie multimediów strumieniowych w formie niezaszyfrowanej
+### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-nonencrypted"></a>Ochrona zawartości w magazynie i dostarczanie multimediów strumieniowych w formie niezaszyfrowanej
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości.
    
     Zaleca się stosowanie opcji szyfrowania magazynu w odniesieniu do elementu zawartości, aby chronić zawartość podczas przekazywania oraz przechowywania w magazynie.
@@ -78,7 +82,7 @@ W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych
     Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 5. Prześlij strumieniowo opublikowaną zawartość.
 
-### <a name="protect-content-in-storage,-deliver-dynamically-encrypted-streaming-media"></a>Ochrona zawartości w magazynie i dostarczanie dynamicznie szyfrowanych multimediów strumieniowych
+### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Ochrona zawartości w magazynie i dostarczanie dynamicznie szyfrowanych multimediów strumieniowych
 Aby można było korzystać z dynamicznego szyfrowania, należy najpierw pobrać co najmniej jedną jednostkę zarezerwowanego przesyłania strumieniowego w punkcie końcowym przesyłania strumieniowego, z którego ma być przesyłana strumieniowo zaszyfrowana zawartość.
 
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości. Zastosuj opcję szyfrowania magazynu w odniesieniu do elementu zawartości.
@@ -112,7 +116,7 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
     W przypadku użycia lokalizatora SAS zawartość zostanie pobrana z magazynu Azure Blob Storage. W takim przypadku jednostki zarezerwowanego przesyłania strumieniowego nie są konieczne.
 4. Pobierz progresywnie zawartość.
 
-## <a name="<a-id="live_scenarios"></a>delivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Dostarczanie wydarzeń transmisji strumieniowej na żywo za pośrednictwem usługi Azure Media Services
+## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Dostarczanie wydarzeń transmisji strumieniowej na żywo za pośrednictwem usługi Azure Media Services
 W przypadku realizowania transmisji strumieniowej na żywo zwykle wymagane są następujące elementy:
 
 * Kamera, która umożliwia emisję wydarzenia.
@@ -144,7 +148,7 @@ W usłudze Azure Media Services **kanały**, **programy**, i **punkty końcowe p
 
 * Lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do kanału obsługującego kodowanie na żywo za pomocą usługi Media Services w jednym z następujących formatów: RTP (MPEG TS), RTMP lub Smooth Streaming (pofragmentowany plik MP4). Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-(pass-through)"></a>Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)
+### <a name="working-with-channels-that-receive-multibitrate-live-stream-from-onpremises-encoders-passthrough"></a>Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)
 Na poniższym diagramie przedstawiono główne elementy platformy AMS, które są zaangażowane w przepływ pracy **przekazywania**.
 
 ![Przepływ pracy na żywo][live-overview2]
@@ -179,7 +183,7 @@ Możliwe jest także skalowanie konta usługi Media Services przez dodanie do ni
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="service-level-agreement-(sla)"></a>Umowa dotycząca poziomu usług (SLA)
+## <a name="service-level-agreement-sla"></a>Umowa dotycząca poziomu usług (SLA)
 * W przypadku usługi Media Services Encoding gwarantujemy dostępność transakcji interfejsu API REST na poziomie 99,9%.
 * W zakresie transmisji strumieniowej zapewniamy pomyślną obsługę żądań z gwarancją dostępności na poziomie 99,9% dla istniejącej zawartości multimedialnej w przypadku zakupu co najmniej jednej jednostki przesyłania strumieniowego.
 * W odniesieniu do kanałów na żywo gwarantujemy, że uruchomione kanały będą utrzymywać łączność zewnętrzną przez co najmniej 99,9% czasu.
@@ -197,6 +201,6 @@ Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług p
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

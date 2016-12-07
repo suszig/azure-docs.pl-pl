@@ -1,13 +1,13 @@
 ---
-title: Dowiedz się, jak tworzyć kopie zapasowe plików i folderów z systemu Windows na platformie Azure za pomocą usługi Azure Backup przy użyciu modelu wdrażania usługi Resource Manager | Microsoft Docs
-description: Dowiedz się, jak utworzyć kopię zapasową danych systemu Windows Server przez utworzenie magazynu, zainstalowanie agenta Usług odzyskiwania i wykonanie kopii zapasowej plików i folderów na platformie Azure.
+title: "Dowiedz się, jak tworzyć kopie zapasowe plików i folderów z systemu Windows na platformie Azure za pomocą usługi Azure Backup przy użyciu modelu wdrażania usługi Resource Manager | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć kopię zapasową danych systemu Windows Server przez utworzenie magazynu, zainstalowanie agenta Usług odzyskiwania i wykonanie kopii zapasowej plików i folderów na platformie Azure."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: ''
-keywords: jak tworzyć kopie zapasowe; tworzenie kopii zapasowych
-
+editor: 
+keywords: "jak tworzyć kopie zapasowe; tworzenie kopii zapasowych"
+ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -15,30 +15,34 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+
 
 ---
-# Pierwsze spojrzenie: tworzenie kopii zapasowych plików i folderów za pomocą usługi Azure Backup przy użyciu modelu wdrażania usługi Resource Manager
+# <a name="first-look-back-up-files-and-folders-with-azure-backup-using-the-resource-manager-deployment-model"></a>Pierwsze spojrzenie: tworzenie kopii zapasowych plików i folderów za pomocą usługi Azure Backup przy użyciu modelu wdrażania usługi Resource Manager
 W tym artykule opisano sposób wykonywania kopii zapasowej plików i folderów systemu Windows Server (lub klienta systemu Windows) na platformie Azure za pomocą usługi Azure Backup przy użyciu usługi Resource Manager. Ten samouczek zawiera podstawowe informacje. Jeśli chcesz rozpocząć korzystanie z usługi Azure Backup, to jesteś w odpowiednim miejscu.
 
 Jeśli chcesz dowiedzieć się więcej o usłudze Azure Backup, przeczytaj to [omówienie](backup-introduction-to-azure-backup.md).
 
 Do utworzenia kopii zapasowej plików i folderów na platformie Azure wymagane jest wykonanie następujących działań:
 
-![Krok 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Uzyskiwanie subskrypcji platformy Azure (jeśli jeszcze jej nie masz)<br>
-![Krok 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Tworzenie magazynu Usług odzyskiwania<br>
-![Krok 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Pobieranie niezbędnych plików<br>
-![Krok 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Instalowanie i rejestrowanie agenta Usług odzyskiwania<br>
-![Krok 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Tworzenie kopii zapasowej plików i folderów
+![Krok 1](./media/backup-try-azure-backup-in-10-mins/step-1.png). Uzyskiwanie subskrypcji platformy Azure (jeśli jeszcze jej nie masz)<br>
+![Krok 2](./media/backup-try-azure-backup-in-10-mins/step-2.png). Tworzenie magazynu usługi Recovery Services<br>
+![Krok 3](./media/backup-try-azure-backup-in-10-mins/step-3.png). Pobieranie niezbędnych plików<br>
+![Krok 4](./media/backup-try-azure-backup-in-10-mins/step-4.png). Instalowanie i rejestrowanie agenta usługi Recovery Services<br>
+![Krok 5](./media/backup-try-azure-backup-in-10-mins/step-5.png). Tworzenie kopii zapasowej plików i folderów
 
 ![Tworzenie kopii zapasowej komputera z systemem Windows za pomocą usługi Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
-## Krok 1. Uzyskiwanie subskrypcji platformy Azure
+## <a name="step-1-get-an-azure-subscription"></a>Krok 1. Uzyskiwanie subskrypcji platformy Azure
 Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) umożliwiające dostęp do dowolnej usługi Azure.
 
-## Krok 2. Tworzenie magazynu Usług odzyskiwania
+## <a name="step-2-create-a-recovery-services-vault"></a>Krok 2. Tworzenie magazynu Usług odzyskiwania
 Aby utworzyć kopię zapasową plików i folderów, należy utworzyć magazyn Usług odzyskiwania w regionie, w którym chcesz przechowywać dane. Należy również określić sposób replikowania magazynu.
 
-### Aby utworzyć magazyn Usług odzyskiwania
+### <a name="to-create-a-recovery-services-vault"></a>Aby utworzyć magazyn Usług odzyskiwania
 1. Jeśli nie zostało to wcześniej zrobione, zaloguj się do [Portalu Azure](https://portal.azure.com/) przy użyciu subskrypcji platformy Azure.
 2. W menu Centrum kliknij pozycję **Przeglądaj**, na liście zasobów wpisz łańcuch **Usługi odzyskiwania**, a następnie kliknij pozycję **Magazyny Usług odzyskiwania**.
    
@@ -58,7 +62,7 @@ Aby utworzyć kopię zapasową plików i folderów, należy utworzyć magazyn Us
    
     Jeśli nie widzisz swojego magazynu po zakończeniu jego tworzenia, kliknij pozycję **Odśwież**. Po odświeżeniu listy kliknij nazwę magazynu.
 
-### Aby określić nadmiarowość magazynu
+### <a name="to-determine-storage-redundancy"></a>Aby określić nadmiarowość magazynu
 Podczas tworzenia magazynu Usług odzyskiwania określany jest sposób replikowania magazynu.
 
 1. Kliknij nowy magazyn, aby otworzyć pulpit nawigacyjny.
@@ -74,7 +78,7 @@ Podczas tworzenia magazynu Usług odzyskiwania określany jest sposób replikowa
 
 Po utworzeniu magazynu należy przygotować infrastrukturę do utworzenia kopii zapasowej plików i folderów, pobierając poświadczenia magazynu i agenta Usług odzyskiwania Microsoft Azure.
 
-## Krok 3. Pobieranie plików
+## <a name="step-3-download-files"></a>Krok 3. Pobieranie plików
 1. Kliknij pozycję **Ustawienia** na pulpicie nawigacyjnym magazynu Usług odzyskiwania.
    
     ![Otwieranie bloku celu kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -87,18 +91,18 @@ Po utworzeniu magazynu należy przygotować infrastrukturę do utworzenia kopii 
 4. Wybierz pozycję **Lokalnie** z menu „Gdzie działa Twoje obciążenie?”.
 5. Wybierz pozycję **Pliki i foldery** z menu „Dla jakich elementów chcesz utworzyć kopię zapasową?”, a następnie kliknij przycisk **OK**.
 
-### Pobieranie agenta Usług odzyskiwania
+### <a name="download-the-recovery-services-agent"></a>Pobieranie agenta Usług odzyskiwania
 1. Kliknij pozycję **Pobierz agenta dla systemu Windows Server lub klienta systemu Windows** w bloku **Przygotowywanie infrastruktury**.
    
     ![Przygotowywanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 2. Kliknij pozycję **Zapisz** w oknie podręcznym pobierania. Domyślnie plik **MARSagentinstaller.exe** jest zapisywany w folderze Pobrane.
 
-### Pobieranie poświadczeń magazynu
+### <a name="download-vault-credentials"></a>Pobieranie poświadczeń magazynu
 1. Kliknij pozycję **Pobierz > Zapisz** w bloku Przygotowywanie infrastruktury.
    
     ![Przygotowywanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## Krok 4. Instalowanie i rejestrowanie agenta
+## <a name="step-4-install-and-register-the-agent"></a>Krok 4. Instalowanie i rejestrowanie agenta
 > [!NOTE]
 > Możliwość włączenia tworzenia kopii zapasowej za pośrednictwem Portalu Azure będzie dostępna wkrótce. Obecnie do tworzenia kopii zapasowej plików i folderów używany jest lokalny agent Usług odzyskiwania Microsoft Azure.
 > 
@@ -120,7 +124,7 @@ Po utworzeniu magazynu należy przygotować infrastrukturę do utworzenia kopii 
 
 Agent jest teraz zainstalowany, a maszyna zarejestrowana w magazynie. Wszystko jest gotowe do skonfigurowania kopii zapasowej i zaplanowania jej tworzenia.
 
-## Krok 5: Tworzenie kopii zapasowej plików i folderów
+## <a name="step-5-back-up-your-files-and-folders"></a>Krok 5: Tworzenie kopii zapasowej plików i folderów
 Tworzenie początkowej kopii zapasowej obejmuje dwa kluczowe zadania:
 
 * Planowanie tworzenia kopii zapasowej
@@ -128,7 +132,7 @@ Tworzenie początkowej kopii zapasowej obejmuje dwa kluczowe zadania:
 
 Aby utworzyć początkową kopię zapasową, użyj agenta Usług odzyskiwania Microsoft Azure.
 
-### Aby zaplanować tworzenie kopii zapasowej
+### <a name="to-schedule-the-backup"></a>Aby zaplanować tworzenie kopii zapasowej
 1. Otwórz agenta Usług odzyskiwania Microsoft Azure. Aby go znaleźć, wyszukaj na maszynie łańcuch **Microsoft Azure Backup**.
    
     ![Uruchamianie agenta Usług odzyskiwania Microsoft Azure](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
@@ -158,7 +162,7 @@ Aby utworzyć początkową kopię zapasową, użyj agenta Usług odzyskiwania Mi
 10. Przejrzyj informacje na stronie Potwierdzenie, a następnie kliknij przycisk **Zakończ**.
 11. Po ukończeniu harmonogramu tworzenia kopii zapasowej przez kreatora kliknij przycisk **Zamknij**.
 
-### Aby utworzyć kopię zapasową plików i folderów po raz pierwszy
+### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Aby utworzyć kopię zapasową plików i folderów po raz pierwszy
 1. W agencie Usług odzyskiwania kliknij pozycję **Wykonaj kopię zapasową teraz**, aby zakończyć początkowe umieszczanie za pośrednictwem sieci.
    
     ![Natychmiastowe tworzenie kopii zapasowej systemu Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
@@ -169,14 +173,17 @@ Po zakończeniu tworzenia początkowej kopii zapasowej w konsoli usługi Backup 
 
 ![Początkowa replikacja została zakończona](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## Pytania?
+## <a name="questions"></a>Pytania?
 Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opinię](http://aka.ms/azurebackup_feedback).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [tworzeniu kopii zapasowej maszyn z systemem Windows](backup-configure-vault.md).
 * Teraz, gdy utworzono kopię zapasową plików i folderów, możesz [zarządzać swoimi magazynami i serwerami](backup-azure-manage-windows-server.md).
 * Jeśli chcesz przywrócić kopię zapasową, w tym artykule znajdziesz informacje dotyczące [przywracania plików na maszynę z systemem Windows](backup-azure-restore-windows-server.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

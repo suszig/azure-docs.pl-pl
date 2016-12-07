@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d6f53d51a2ceb6d499209b874c79d3d3ccb1758f
-ms.openlocfilehash: b36299b17809bafb0956818d346063e89b86b7c6
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
 
 ---
-# <a name="automation-documentation"></a>Automation Documentation
+# <a name="automation-documentation"></a>Dokumentacja usługi Automation
 
-Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
+Usługa Azure Automation umożliwia użytkownikom automatyzowanie wykonywanych ręcznie, czasochłonnych, podatnych na błędy i często powtarzanych zadań, które najczęściej są wykonywane w środowisku chmury. Można dzięki niej zaoszczędzić czas i zwiększyć niezawodność regularnie wykonywanych zadań administracyjnych, a nawet zaplanować ich wykonywanie w regularnych odstępach czasu.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -21,7 +21,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Automation</h3>
+                        <h3>Dowiedz się więcej o usłudze Azure Automation</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Automation Video Library</h3>
+                        <h3>Biblioteka wideo dotycząca usługi Automation</h3>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Automation using Runbooks</h3>
+                        <h3>Wprowadzenie do usługi Automation przy użyciu elementów Runbook</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Automation using PowerShell</h3>
+                        <h3>Wprowadzenie do usługi Automation przy użyciu programu PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first PowerShell Workflow Runbook</h3>
+                        <h3>Tworzenie pierwszego elementu Runbook przepływu pracy programu PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Automation using PowerShell Workflow</h3>
+                        <h3>Wprowadzenie do usługi Automation przy użyciu przepływu pracy programu PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -123,28 +123,64 @@ Azure Automation provides a way for users to automate the manual, long-running, 
 
 ---
 
-## <a name="reference"></a>Reference
+## <a name="reference"></a>Dokumentacja
 
-### <a name="powershell"></a>PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-### <a name="net"></a>.NET
-[Azure Managed Reference API](/dotnet/api)
-
-### <a name="rest"></a>REST
-[Automation REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt662285)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Dokumentacja programu Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Dokumentacja zarządzana interfejsu API programu Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Dokumentacja interfejsu REST API usługi Automation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
         <div class="img"></div>
         <div class="text">
-Download Automation Documentation </div>
+Pobierz dokumentację usługi Automation </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

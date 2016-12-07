@@ -1,45 +1,45 @@
-# Overview
+# Omówienie
 
-## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Event Hubs overview](event-hubs-overview.md)
-## [Event Hubs API overview](event-hubs-api-overview.md)
-## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
+## [Co to jest usługa Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Omówienie usługi Event Hubs](event-hubs-overview.md)
+## [Omówienie interfejsu API usługi Event Hubs](event-hubs-api-overview.md)
+## [Omówienie modelu uwierzytelniania i zabezpieczeń](event-hubs-authentication-and-security-model-overview.md)
 
 
-# Get Started
-## [Get started with Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-## [Event Hubs programming guide](event-hubs-programming-guide.md)
-## [Event Hubs FAQ](event-hubs-faq.md)
+# Wprowadzenie
+## [Rozpoczynanie pracy z usługą Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
+## [Przewodnik programowania w usłudze Event Hubs](event-hubs-programming-guide.md)
+## [Event Hubs — często zadawane pytania](event-hubs-faq.md)
 
-# How to
-## Run the samples
-### [Notify users of data received from sensors](event-hubs-sensors-notify-users.md)
-### [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
-### [Scale out Event Processing with Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
-## Manage
-### [Event Hubs Archive](event-hubs-archive-overview.md)
-### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
-### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
-### [Create and deploy an Event Hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
-### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
+# Instrukcje
+## Uruchamianie przykładów
+### [Powiadamianie użytkowników o danych odebranych z czujników](event-hubs-sensors-notify-users.md)
+### [Przykładowa aplikacja usługi Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
+### [Skalowanie przetwarzania zdarzeń w poziomie przy użyciu przykładowej aplikacji usługi Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+## Zarządzanie
+### [Archiwum usługi Event Hubs](event-hubs-archive-overview.md)
+### [Włączanie archiwum usługi Event Hubs za pomocą szablonu](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+### [Strumieniowe przesyłanie danych usługi Azure Diagnostics przy użyciu usługi Event Hubs](event-hubs-streaming-azure-diags-data.md)
+### [Tworzenie i wdrażanie centrum zdarzeń przy użyciu szablonu usługi Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
+### [Korzystanie z języka Python w celu włączenia archiwum usługi Event Hubs](event-hubs-archive-python.md)
 
-# Reference
-## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Event Hubs REST API reference](https://msdn.microsoft.com/library/azure/dn790674)
-## [Event Hubs .NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
-## [Event Processor Host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
-## [Quotas and limits](event-hubs-quotas.md)
-## [Event Hubs messaging exceptions](event-hubs-messaging-exceptions.md)
+# Dokumentacja
+## [Limity przydziału i ograniczenia](event-hubs-quotas.md)
+## [Wyjątki obsługi komunikatów](event-hubs-messaging-exceptions.md)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [Przewodnik po protokole AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [REST](/rest/api/eventhub)
 
-# Resources
+# Zasoby
+## [Cennik](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Eksplorator usługi Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Manage Service Bus and Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Event Hubs learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

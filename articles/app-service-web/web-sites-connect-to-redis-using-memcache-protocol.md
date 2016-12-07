@@ -1,12 +1,12 @@
 ---
-title: Łączenie aplikacji sieci Web w usłudze Azure App Service z usługą Redis Cache za pośrednictwem protokołu Memcache | Microsoft Docs
-description: Łączenie aplikacji sieci Web w usłudze Azure App z usługą Redis Cache przy użyciu protokołu Memcache
+title: "Łączenie aplikacji sieci Web w usłudze Azure App Service z usługą Redis Cache za pośrednictwem protokołu Memcache | Microsoft Docs"
+description: "Łączenie aplikacji sieci Web w usłudze Azure App z usługą Redis Cache przy użyciu protokołu Memcache"
 services: app-service\web
 documentationcenter: php
 author: SyntaxC4
 manager: wpickett
 editor: riande
-
+ms.assetid: 0fcdf9fa-2995-4839-ba4d-cfa389c4ba06
 ms.service: app-service-web
 ms.devlang: php
 ms.topic: get-started-article
@@ -14,31 +14,35 @@ ms.tgt_pltfrm: windows
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
+
 
 ---
-# Łączenie aplikacji sieci Web w usłudze Azure App Service z usługą Redis Cache za pośrednictwem protokołu Memcache
+# <a name="connect-a-web-app-in-azure-app-service-to-redis-cache-via-the-memcache-protocol"></a>Łączenie aplikacji sieci Web w usłudze Azure App Service z usługą Redis Cache za pośrednictwem protokołu Memcache
 W tym artykule dowiesz się, jak połączyć aplikację sieci Web WordPress w [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) z [usKugą Azure Redis Cache][12] przy użyciu protokołu [Memcache][13]. Jeśli masz istniejącą aplikację sieci Web, która korzysta z serwera Memcached do buforowania w pamięci, możesz przeprowadzić jej migrację do usługi Azure App Service i użyć naszego rozwiązania do obsługi pamięci podręcznej na platformie Microsoft Azure z niewielkimi zmianami w kodzie aplikacji lub nawet bez wprowadzania żadnych zmian. Ponadto możesz skorzystać ze swojego doświadczenia z używaniem protokołu Memcache do tworzenia wysoce skalowalnych, rozproszonych aplikacji w usłudze Azure App Service przy użyciu usługi Azure Redis Cache do buforowania w pamięci, jednocześnie korzystając z popularnych struktur aplikacji, takich jak .NET, PHP, Node.js, Java i Python.  
 
 Funkcja App Service Web App umożliwia wykorzystanie tego scenariusza aplikacji z podkładką Web Apps Memcache, która jest lokalnym serwerem Memcached działającym jako serwer proxy Memcache do buforowania wywołań w usłudze Azure Redis Cache. Dzięki temu dowolna aplikacja komunikująca się za pośrednictwem protokołu Memcache może buforować dane w pamięci podręcznej Redis. Ta podkładka Memcache działa na poziomie protokołu, dlatego może być użyta przez dowolną aplikację lub strukturę aplikacji, jeśli tylko nawiązuje ona komunikację za pośrednictwem protokołu Memcache.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Podkładki Memcache aplikacji Web Apps można użyć z dowolną aplikacją, jeśli aplikacja komunikuje się przy użyciu protokołu Memcache. W tym przykładzie aplikacja referencyjna jest skalowalną witryną WordPress, którą można uzyskać z platformy Azure Marketplace.
 
 Wykonaj kroki opisane w tych artykułach:
 
-* [Provision an instance of the Azure Redis Cache Service](Aprowizowanie wystąpienia usługi Azure Redis Cache.md)[0]
-* [Deploy a Scalable WordPress site in Azure](Wdrażanie skalowalnej witryny WordPress na platformie Azure.md)[1]
+* [Provision an instance of the Azure Redis Cache Service] (Aprowizowanie wystąpienia usługi Azure Redis Cache)[0]
+* [Deploy a Scalable WordPress site in Azure] (Wdrażanie skalowalnej witryny WordPress na platformie Azure)[1]
 
 Po wdrożeniu skalowalnej witryny WordPress i aprowizowaniu wystąpienia usługi Redis Cache można przejść do włączenia podkładki Memcache w funkcji Azure App Service Web Apps.
 
-## Włączenie podkładki Memcache usługi Web Apps
+## <a name="enable-the-web-apps-memcache-shim"></a>Włączenie podkładki Memcache usługi Web Apps
 Aby skonfigurować podkładkę Memcache, musisz utworzyć trzy ustawienia aplikacji. Możesz to zrobić przy użyciu różnych metod, w tym za pomocą witryny [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), [klasycznego portalu][3], [poleceń cmdlet Azure PowerShell][5] lub [interfejsu wiersza polecenia platformy Azure][5]. Na potrzeby tego wpisu do skonfigurowania ustawień aplikacji użyjemy witryny [Azure Portal][4]. Następujące wartości można pobierać z bloku **Ustawienia** wystąpienia pamięci podręcznej Redis.
 
 ![Blok ustawień usługi Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### Dodawanie ustawienia aplikacji REDIS_HOST
+### <a name="add-redishost-app-setting"></a>Dodawanie ustawienia aplikacji REDIS_HOST
 Pierwsze ustawienie aplikacji, które należy utworzyć, to ustawienie **REDIS\_HOST**. To ustawienie określa miejsce docelowe, do którego podkładka przekierowuje informacje o pamięci podręcznej. Wartość wymaganą dla ustawienia aplikacji REDIS_HOST można pobrać z bloku **Właściwości** wystąpienia pamięci podręcznej Redis.
 
 ![Nazwa hosta usługi Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
@@ -47,7 +51,7 @@ Ustaw klucz ustawienia aplikacji na **REDIS\_HOST** i wartość ustawienia aplik
 
 ![Ustawienie aplikacji sieci Web REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### Dodawanie ustawienia aplikacji REDIS_KEY
+### <a name="add-rediskey-app-setting"></a>Dodawanie ustawienia aplikacji REDIS_KEY
 Drugie ustawienie aplikacji, które należy utworzyć, to ustawienie **REDIS\_KEY**. To ustawienie zapewnia token uwierzytelniania wymagany do bezpiecznego dostępu do wystąpienia pamięci podręcznej Redis. Możesz pobrać wartość wymaganą dla ustawienia aplikacji REDIS_KEY z bloku **Klucze dostępu** wystąpienia pamięci podręcznej Redis.
 
 ![Klucz podstawowy usługi Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
@@ -56,17 +60,17 @@ Ustaw klucz ustawienia aplikacji na **REDIS\_KEY** i wartość ustawienia aplika
 
 ![Ustawienie aplikacji witryny sieci Web Azure REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### Dodawanie ustawienia aplikacji MEMCACHESHIM_REDIS_ENABLE
+### <a name="add-memcacheshimredisenable-app-setting"></a>Dodawanie ustawienia aplikacji MEMCACHESHIM_REDIS_ENABLE
 Ostatnie ustawienie aplikacji umożliwia wykorzystanie podkładki Memcache w aplikacjach Web Apps, która używa kluczy REDIS_HOST i REDIS_KEY do łączenia się z usługi Azure Redis Cache i przekierowywania wywołań pamięci podręcznej. Ustaw klucz ustawienia aplikacji na **MEMCACHESHIM\_REDIS\_ENABLE** i wartość na **true**.
 
 ![Ustawienie aplikacji sieci Web MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
 Po zakończeniu dodawania trzech (3) ustawień aplikacji kliknij przycisk **Zapisz**.
 
-## Włączanie rozszerzenia Memcache dla języka PHP
+## <a name="enable-memcache-extension-for-php"></a>Włączanie rozszerzenia Memcache dla języka PHP
 Aby aplikacja mogła komunikować się z protokołem Memcache, wymaga się zainstalowania rozszerzenia Memcache dla języka PHP — struktury języka dla witryny WordPress.
 
-### Pobieranie rozszerzenia php_memcache
+### <a name="download-the-phpmemcache-extension"></a>Pobieranie rozszerzenia php_memcache
 Przejdź do [PECL][6]. W kategorii buforowania kliknij pozycję [memcache][7]. W kolumnie materiałów do pobrania kliknij link biblioteki DLL.
 
 ![Witryna sieci Web PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
@@ -75,7 +79,7 @@ Pobierz plik Non-Thread Safe (NTS) x86 dla wersji PHP włączonej w usłudze Web
 
 ![Pakiet Memcache dla witryny sieci Web PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### Włączanie rozszerzenia php_memcache
+### <a name="enable-the-phpmemcache-extension"></a>Włączanie rozszerzenia php_memcache
 Po pobraniu pliku wyodrębnij i przekaż plik **php\_memcache.dll** do katalogu **d:\\home\\site\\wwwroot\\bin\\ext\\**. Po przekazaniu pliku php_memcache.dll do aplikacji sieci Web należy włączyć rozszerzenie do środowiska uruchomieniowego języka PHP. Aby włączyć rozszerzenie Memcache w witrynie Azure Portal, otwórz blok **Ustawienia aplikacji** dla aplikacji sieci Web, a następnie dodaj nowe ustawienie aplikacji z kluczem **PHP\_EXTENSIONS** i wartością **bin\\ext\\php_memcache.dll**.
 
 > [!NOTE]
@@ -87,7 +91,7 @@ Po pobraniu pliku wyodrębnij i przekaż plik **php\_memcache.dll** do katalogu 
 
 Po skończeniu kliknij przycisk **Zapisz**.
 
-## Instalowanie wtyczki Memcache WordPress
+## <a name="install-memcache-wordpress-plugin"></a>Instalowanie wtyczki Memcache WordPress
 > [!NOTE]
 > Możesz również pobrać [wtyczkę Memcached Object Cache](https://wordpress.org/plugins/memcached/) z witryny WordPress.org.
 > 
@@ -105,9 +109,9 @@ Znajdź wtyczkę **Memcached Object Cache** na liście i kliknij przycisk **Inst
 
 ![WordPress — instalowanie wtyczki Memcache](./media/web-sites-connect-to-redis-using-memcache-protocol/12-wordpress-install-memcache-plugin.png)
 
-### Włączanie wtyczki Memcache WordPress
+### <a name="enable-the-memcache-wordpress-plugin"></a>Włączanie wtyczki Memcache WordPress
 > [!NOTE]
-> Postępuj zgodnie z instrukcjami na tym blogu w sekcji [How to enable a Site Extension in Web Apps](Sposób włączania rozszerzeń witryny w aplikacjach sieci Web.md)[8], aby zainstalować usługę Visual Studio Team Services.
+> Postępuj zgodnie z instrukcjami na tym blogu w sekcji [How to enable a Site Extension in Web Apps] (Sposób włączania rozszerzeń witryny w aplikacjach sieci Web)[8], aby zainstalować usługę Visual Studio Team Services.
 > 
 > 
 
@@ -129,10 +133,10 @@ Teraz, gdy plik **object-cache.php** znajduje się w folderze **wp-content**, fu
 
 ![Włączanie wtyczki memcache object-cache.php](./media/web-sites-connect-to-redis-using-memcache-protocol/14-enable-memcache-object-cache-plugin.png)
 
-## Sprawdzanie funkcjonowania wtyczki Memcache Object Cache
+## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>Sprawdzanie funkcjonowania wtyczki Memcache Object Cache
 Wszystkie kroki związane z włączaniem podkładki Memcache aplikacji Web Apps są teraz zakończone. Pozostało już tylko sprawdzenie, czy dane wypełniają wystąpienie pamięci podręcznej Redis.
 
-### Włączanie wsparcia portu bez protokołu SSL w usłudze Azure Redis Cache
+### <a name="enable-the-nonssl-port-support-in-azure-redis-cache"></a>Włączanie wsparcia portu bez protokołu SSL w usłudze Azure Redis Cache
 > [!NOTE]
 > W momencie pisania tego artykułu interfejs wiersza polecenia usługi Redis nie obsługuje łączności SSL, dlatego też należy wykonać następujące czynności.
 > 
@@ -154,7 +158,7 @@ Zobaczysz, że został ustawiony port bez protokołu SSL. Kliknij pozycję **Zap
 
 ![Dostęp do portalu bez użycia protokołu SSL — Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### Nawiązywanie połączenia z usługą Azure Redis Cache za pośrednictwem interfejsu wiersza polecenia usługi Redis
+### <a name="connect-to-azure-redis-cache-from-rediscli"></a>Nawiązywanie połączenia z usługą Azure Redis Cache za pośrednictwem interfejsu wiersza polecenia usługi Redis
 > [!NOTE]
 > W tym kroku przyjęto założenie, że na komputerze deweloperskim zainstalowano lokalnie usługę Redis. [Zainstaluj usługę Redis lokalnie, korzystając z tych instrukcji][9].
 > 
@@ -172,7 +176,7 @@ Zastąp wpis **&lt;hostname-for-redis-cache&gt;** faktyczną nazwą hosta xxxxx.
 
 Wywołanie listy kluczy powinno zwrócić wartość. Jeśli tak nie jest, spróbuj przejść do aplikacji sieci Web i ponowić próbę.
 
-## Podsumowanie
+## <a name="conclusion"></a>Podsumowanie
 Gratulacje! Aplikacja WordPress ma teraz scentralizowaną pamięć podręczną w pamięci, która pomaga zwiększyć przepustowość. Pamiętaj, że podkładki Memcache aplikacji Web Apps można użyć z dowolnym klientem Memcache, niezależnie od języka programowania lub struktury aplikacji. Aby przekazać opinię lub zadać pytania dotyczące podkładki Memcache aplikacji Web Apps, opublikuj post na [forach dyskusyjnych MSDN][10] lub na stronie [Stackoverflow][11].
 
 > [!NOTE]
@@ -180,7 +184,7 @@ Gratulacje! Aplikacja WordPress ma teraz scentralizowaną pamięć podręczną w
 > 
 > 
 
-## Co zostało zmienione
+## <a name="whats-changed"></a>Co zostało zmienione
 * Przewodnik dotyczący przejścia od usługi Websites do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
 
 [0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
@@ -200,6 +204,6 @@ Gratulacje! Aplikacja WordPress ma teraz scentralizowaną pamięć podręczną w
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

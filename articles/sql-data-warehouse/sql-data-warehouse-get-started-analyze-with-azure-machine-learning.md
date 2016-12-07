@@ -1,27 +1,32 @@
 ---
-title: Analizowanie danych przy użyciu usługi Azure Machine Learning | Microsoft Docs
-description: Używając usługi Azure Machine Learning, można utworzyć predykcyjny model uczenia maszynowego korzystający z danych przechowywanych w usłudze Azure SQL Data Warehouse.
+title: "Analizowanie danych przy użyciu usługi Azure Machine Learning | Microsoft Docs"
+description: "Używając usługi Azure Machine Learning, można utworzyć predykcyjny model uczenia maszynowego korzystający z danych przechowywanych w usłudze Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/14/2016
-ms.author: kevin;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+
 
 ---
-# Analizowanie danych przy użyciu usługi Azure Machine Learning
+# <a name="analyze-data-with-azure-machine-learning"></a>Analizowanie danych przy użyciu usługi Azure Machine Learning
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,15 +36,15 @@ Ten samouczek przedstawia sposób tworzenia predykcyjnego modelu uczenia maszyno
 > 
 > 
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
-* Baza danych usługi SQL Data Warehouse. ze wstępnie załadowanymi danymi z bazy danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][Tworzenie bazy danych w usłudze SQL Data Warehouse]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][ręcznie załadować przykładowe dane].
+* Baza danych usługi SQL Data Warehouse. ze wstępnie załadowanymi danymi z bazy danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][Tworzenie bazy danych w usłudze SQL Data Warehouse]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][ręczne ładowanie przykładowych danych].
 
-## 1. Pobieranie danych
+## <a name="1-get-data"></a>1. Pobieranie danych
 Dane znajdują się w widoku dbo.vTargetMail w bazie danych AdventureWorksDW. Aby odczytać te dane:
 
-1. Zaloguj się do programu [Studio uczenia maszynowego Azure][Studio uczenia maszynowego Azure] i kliknij eksperymenty.
+1. Zaloguj się do usługi [Azure Machine Learning Studio][Azure Machine Learning Studio] i kliknij eksperymenty.
 2. Kliknij przycisk **+ NOWE** i wybierz pozycję **Blank Experiment** (Pusty eksperyment).
 3. Wprowadź nazwę swojego eksperymentu: Targeted Marketing (Marketing docelowy).
 4. Przeciągnij moduł **Reader** (Czytnik) z okienka modułów do kanwy.
@@ -72,16 +77,16 @@ Aby uruchomić eksperyment, kliknij pozycję **Run** (Uruchom) na kanwie ekspery
 Po pomyślnym wykonaniu eksperymentu kliknij port wyjściowy na dole modułu Reader (Czytnik) i wybierz opcję **Visualize** (Wizualizacja), aby wyświetlić zaimportowane danych.
 ![Wyświetlanie zaimportowanych danych][3]
 
-## 2. Czyszczenie danych
+## <a name="2-clean-the-data"></a>2. Czyszczenie danych
 Aby wyczyścić dane, usuń kilka kolumn, które nie są istotne dla modelu. W tym celu:
 
 1. Przeciągnij moduł **Project Columns** (Kolumny projektu) na kanwę.
 2. Kliknij pozycję **Launch column selector** (Uruchom selektor kolumn) w okienku Properties (Właściwości), aby wskazać kolumny do usunięcia.
    ![Kolumny projektu][4]
 3. Wyklucz dwie kolumny: CustomerAlternateKey i GeographyKey.
-   ![Usuń zbędne kolumny][5]
+   ![Usuwanie zbędnych kolumn][5]
 
-## 3. Tworzenie modelu
+## <a name="3-build-the-model"></a>3. Tworzenie modelu
 Podzielimy dane w proporcji 80–20: 80% do trenowania tworzenia modelu uczenia maszynowego i 20% do testowania modelu. Użyjemy algorytmów „dwuklasowych” do rozwiązania tego problemu klasyfikacji binarnej.
 
 1. Przeciągnij moduł **Split** (Podział) na kanwę.
@@ -95,7 +100,7 @@ Podzielimy dane w proporcji 80–20: 80% do trenowania tworzenia modelu uczenia 
 5. Wybierz kolumnę **BikeBuyer** (Nabywca roweru) jako kolumnę do prognozowania.
    ![Wybór kolumny do prognozowania][8]
 
-## 4. Ocena modelu
+## <a name="4-score-the-model"></a>4. Ocena modelu
 Teraz przetestujemy działanie modelu na danych testowych. Porównamy wybrany algorytm z innym algorytmem, aby zobaczyć, który działa lepiej.
 
 1. Przeciągnij moduł **Score model** (Model klasyfikacyjny) na kanwę.
@@ -118,7 +123,7 @@ Zostaną wyświetlone dwie kolumny dodane do zestawu danych testowych.
 
 Porównując wartości w kolumnach BikeBuyer (Nabywca roweru) (rzeczywiste) oraz Scored Labels (Sklasyfikowane etykiety) (prognozowane), można określić prawidłowość działania modelu. W kolejnych krokach można użyć tego modelu w celu tworzenia prognoz dotyczących nowych klientów i opublikować ten model jako usługę sieci Web lub zapisać wyniki z powrotem w bazie danych usługi SQL Data Warehouse.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej o tworzeniu predykcyjnych modeli uczenia maszynowego, zapoznaj się z artykułem [Wprowadzenie do usługi Machine Learning na platformie Azure][Wprowadzenie do usługi Machine Learning na platformie Azure].
 
 <!--Image references-->
@@ -137,13 +142,13 @@ Aby dowiedzieć się więcej o tworzeniu predykcyjnych modeli uczenia maszynoweg
 
 
 <!--Article references-->
-[Studio uczenia maszynowego Azure]:https://studio.azureml.net/
+[Azure Machine Learning Studio]:https://studio.azureml.net/
 [Wprowadzenie do usługi Machine Learning na platformie Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[ręcznie załadować przykładowe dane]: sql-data-warehouse-load-sample-databases.md
+[ręczne ładowanie przykładowych danych]: sql-data-warehouse-load-sample-databases.md
 [Tworzenie bazy danych w usłudze SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -15,6 +15,8 @@
 
 W programie Xcode zostanie utworzona aplikacja w wersji demonstracyjnej, z którą zostanie zintegrowana usługa Mobile Engagement.
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

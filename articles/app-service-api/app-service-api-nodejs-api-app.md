@@ -1,12 +1,12 @@
 ---
-title: Aplikacja interfejsu API środowiska Node.js w usłudze Azure App Service | Microsoft Docs
-description: Dowiedz się, jak utworzyć interfejs API RESTful środowiska Node.js, a następnie wdrożyć go w aplikacji interfejsu API w usłudze Azure App Service.
+title: "Aplikacja interfejsu API środowiska Node.js w usłudze Azure App Service | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć interfejs API RESTful środowiska Node.js, a następnie wdrożyć go w aplikacji interfejsu API w usłudze Azure App Service."
 services: app-service\api
 documentationcenter: node
 author: bradygaster
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: node
 ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+
 
 ---
-# Kompilowanie interfejsu API RESTful środowiska Node.js i wdrażanie go w aplikacji interfejsu API na platformie Azure
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Kompilowanie interfejsu API RESTful środowiska Node.js i wdrażanie go w aplikacji interfejsu API na platformie Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 Ten samouczek przedstawia sposób tworzenia prostego interfejsu API środowiska [Node.js](http://nodejs.org) i wdrażania go w [aplikacji interfejsu API](app-service-api-apps-why-best-platform.md) w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md) za pomocą usługi [Git](http://git-scm.com). Możesz użyć dowolnego systemu operacyjnego obsługującego środowisko Node.js. Wszystkie czynności zostaną wykonane przy użyciu narzędzi wiersza polecenia, takich jak cmd.exe lub bash.
 
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 1. Konto platformy Microsoft Azure ([załóż bezpłatne konto tutaj](https://azure.microsoft.com/pricing/free-trial/))
 2. Zainstalowane środowisko [Node.js](http://nodejs.org) (w tym przykładzie założono użycie środowiska Node.js w wersji 4.2.2)
 3. Zainstalowana usługa [Git](https://git-scm.com/)
@@ -29,7 +33,7 @@ Ten samouczek przedstawia sposób tworzenia prostego interfejsu API środowiska 
 
 Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji interfejsu API. W tym samouczku przedstawiono metodę Git i przyjęto założenie, że dysponujesz podstawową wiedzą z zakresu pracy z usługą Git. Aby uzyskać informacje na temat innych metod wdrażania, zobacz temat [Wdrażanie aplikacji w usłudze Azure App Service](../app-service-web/web-sites-deploy.md).
 
-## Pobieranie przykładowego kodu
+## <a name="get-the-sample-code"></a>Pobieranie przykładowego kodu
 1. Otwórz interfejs wiersza polecenia obsługujący polecenia języka Node.js i usługi Git.
 2. Przejdź do folderu, którego można używać na potrzeby lokalnego repozytorium Git, i sklonuj [repozytorium GitHub zawierające przykładowy kod](https://github.com/Azure-Samples/app-service-api-node-contact-list).
    
@@ -37,7 +41,7 @@ Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji inter
    
     Przykładowy interfejs API zawiera dwa punkty końcowe: żądanie Get dotyczące elementu `/contacts` zwraca listę nazw i adresów e-mail w formacie JSON, natomiast element `/contacts/{id}` zwraca tylko wybrany kontakt.
 
-## Tworzenie szkieletu (automatyczne generowanie) kodu Node.js na podstawie metadanych struktury Swagger
+## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Tworzenie szkieletu (automatyczne generowanie) kodu Node.js na podstawie metadanych struktury Swagger
 [Swagger](http://swagger.io/) to format pliku metadanych, który opisuje interfejs API RESTful. Usługa Azure App Service zapewnia [wbudowaną obsługę metadanych struktury Swagger](app-service-api-metadata.md). W tej sekcji samouczka przedstawiono sposób modelowania przepływu pracy programowania, w którym najpierw następuje utworzenie metadanych struktury Swagger, a następnie użycie ich do tworzenia szkieletu (automatycznego generowania) kodu serwera dla interfejsu API. 
 
 > [!NOTE]
@@ -45,14 +49,14 @@ Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji inter
 > 
 > 
 
-### Instalowanie i wykonywanie narzędzia Swaggerize
+### <a name="install-and-execute-swaggerize"></a>Instalowanie i wykonywanie narzędzia Swaggerize
 1. Wykonaj następujące polecenia, aby globalnie zainstalować moduły NPM **yo** i **generator-swaggerize**.
    
         npm install -g yo
         npm install -g generator-swaggerize
    
     Swaggerize jest narzędziem, które generuje kod serwera dla interfejsu API opisanego przez plik metadanych struktury Swagger. Plik Swagger, który będzie używany, nosi nazwę *api.json* i znajduje się w folderze *start* sklonowanego repozytorium.
-2. Przejdź do folderu *start*, a następnie wykonaj polecenie `yo swaggerize`. Narzędzie Swaggerize zada serię pytań.  W odpowiedzi na pytanie **what to call this project** (jak chcesz nazwać ten projekt), wpisz „contactlist”, w wierszu **path to swagger document** (ścieżka do dokumentu Swagger) wpisz „api.json”, a w wierszu **Express, Hapi, or Restify** (Express, Hapi lub Restify) — „express”.
+2. Przejdź do folderu *start*, a następnie wykonaj polecenie `yo swaggerize`. Narzędzie Swaggerize zada serię pytań.  W odpowiedzi na pytanie **what to call this project** (jak chcesz nazwać ten projekt), wpisz „ContactList”, w wierszu **path to swagger document** (ścieżka do dokumentu Swagger) wpisz „api.json”, a w wierszu **Express, Hapi, or Restify** (Express, Hapi lub Restify) — „express”.
    
         yo swaggerize
    
@@ -63,8 +67,8 @@ Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji inter
     Narzędzie Swaggerize tworzy folder aplikacji oraz szkielety mechanizmów obsługi i plików konfiguracji, a także generuje plik **package.json**. Aparat widoku ekspresowego jest używany do generowania strony pomocy programu Swagger.  
 3. Jeśli nie można wykonać polecenia `swaggerize` i wystąpi błąd „unexpected token” (nieoczekiwany token) lub „invalid escape sequence” (nieprawidłowa sekwencja ucieczki), usuń przyczynę błędu, edytując wygenerowany plik *package.json*. W wierszu `regenerate` w obszarze `scripts` zmień ukośnik odwrócony poprzedzający element *api.json* na ukośnik, tak aby wiersz wyglądał w następujący sposób:
    
-        "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
-4. Przejdź do folderu, który zawiera utworzony szkielet kodu (w tym przypadku podfolderu *ContactList*).
+         "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
+4. Przejdź do folderu, który zawiera utworzony szkielet kodu (w tym przypadku podfolderu */start/ContactList*).
 5. Uruchom polecenie `npm install`.
    
         npm install
@@ -79,7 +83,7 @@ Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji inter
    
     ![Instalowanie interfejsu użytkownika narzędzia Swaggerize](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-### Dostosowywanie utworzonego szkieletu kodu
+### <a name="customize-the-scaffolded-code"></a>Dostosowywanie utworzonego szkieletu kodu
 1. Skopiuj folder **lib** z folderu **start** do folderu **ContactList** utworzonego w procesie tworzenia szkieletu. 
 2. Zastąp kod w pliku **handlers/contacts.js** poniższym kodem. 
    
@@ -140,7 +144,7 @@ Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji inter
         server.listen(port, function () { // fifth and final change
         });
 
-### Testowanie przy użyciu interfejsu API uruchomionego lokalnie
+### <a name="test-with-the-api-running-locally"></a>Testowanie przy użyciu interfejsu API uruchomionego lokalnie
 1. Aktywuj serwer przy użyciu pliku wykonywalnego wiersza polecenia Node.js. 
    
         node server.js
@@ -157,7 +161,7 @@ Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji inter
    
     ![Interfejs użytkownika struktury Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a> Tworzenie nowej aplikacji interfejsu API
+## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Tworzenie nowej aplikacji interfejsu API
 W tej sekcji opisano sposób tworzenia nowej aplikacji interfejsu API na platformie Azure za pośrednictwem portalu Azure. Ta aplikacja interfejsu API reprezentuje zasoby obliczeniowe udostępniane na platformie Azure w celu uruchomienia kodu. W kolejnych sekcjach zostanie przedstawiony sposób wdrażania kodu w nowej aplikacji interfejsu API.
 
 1. Przejdź do [Portalu Azure](https://portal.azure.com/). 
@@ -171,7 +175,7 @@ W tej sekcji opisano sposób tworzenia nowej aplikacji interfejsu API na platfor
     Jeśli wprowadzona nazwa została już użyta przez inną osobę, z prawej strony będzie widoczny czerwony wykrzyknik.
 4. Na liście **Grupa zasobów** kliknij pozycję **Nowa**, a następnie w polu **Nazwa nowej grupy zasobów** wprowadź ciąg „NodejsAPIAppGroup” lub inną wybraną nazwę. 
    
-    [Grupa zasobów](../resource-group-overview.md) to kolekcja zasobów platformy Azure, takich jak Aplikacje interfejsu API, bazy danych i maszyny wirtualne. Do celów tego samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku wszystkich zasobów platformy Azure utworzonych na potrzeby samouczka.
+    [Grupa zasobów](../azure-resource-manager/resource-group-overview.md) to kolekcja zasobów platformy Azure, takich jak Aplikacje interfejsu API, bazy danych i maszyny wirtualne. Do celów tego samouczka najlepiej utworzyć nową grupę zasobów, ponieważ ułatwi to usunięcie w jednym kroku wszystkich zasobów platformy Azure utworzonych na potrzeby samouczka.
 5. Kliknij pozycję **Plan/lokalizacja usługi App Service**, a następnie kliknij pozycję **Utwórz nowe**.
    
     ![Tworzenie planu usługi App Service](./media/app-service-api-nodejs-api-app/newappserviceplan.png)
@@ -189,7 +193,7 @@ W tej sekcji opisano sposób tworzenia nowej aplikacji interfejsu API na platfor
 9. W bloku **Plan usługi App Service** kliknij przycisk **OK**.
 10. W bloku **Aplikacja interfejsu API** kliknij pozycję **Utwórz**.
 
-## Konfigurowanie nowej aplikacji interfejsu API w celu wdrożenia usługi Git
+## <a name="set-up-your-new-api-app-for-git-deployment"></a>Konfigurowanie nowej aplikacji interfejsu API w celu wdrożenia usługi Git
 Wdrażanie kodu w aplikacji interfejsu API odbywa się przez wypychanie zatwierdzeń do repozytorium Git w usłudze Azure App Service. W tej części samouczka utworzysz na platformie Azure poświadczenia i repozytorium Git, które będą używane podczas wdrażania.  
 
 1. Po utworzeniu aplikacji interfejsu API kliknij kolejno pozycje **Usługi App Service > {aplikacja interfejsu API}** na stronie głównej portalu. 
@@ -217,7 +221,7 @@ Wdrażanie kodu w aplikacji interfejsu API odbywa się przez wypychanie zatwierd
 
 Posiadając aplikację interfejsu API z wspierającym ją repozytorium Git, możesz wypchnąć kod do repozytorium w celu wdrożenia go w aplikacji interfejsu API. 
 
-## Wdrażanie kodu interfejsu API na platformie Azure
+## <a name="deploy-your-api-code-to-azure"></a>Wdrażanie kodu interfejsu API na platformie Azure
 W tej sekcji utworzysz lokalne repozytorium Git zawierające kod serwera dla interfejsu API, a następnie wypchniesz kod z tego repozytorium do wcześniej utworzonego repozytorium na platformie Azure.
 
 1. Skopiuj folder `ContactList` do lokalizacji, której możesz użyć dla nowego lokalnego repozytorium Git. Jeśli kroki opisane w pierwszej części samouczka zostały wykonane, skopiuj element `ContactList` z folderu `start`. W przeciwnym razie skopiuj element `ContactList` z folderu `end`.
@@ -252,11 +256,11 @@ W tej sekcji utworzysz lokalne repozytorium Git zawierające kod serwera dla int
    
     Po zakończeniu wdrożenia blok **Wdrożenia** odzwierciedla pomyślne wdrożenie zmian kodu w aplikacji interfejsu API. 
 
-## Testowanie przy użyciu interfejsu API uruchomionego na platformie Azure
+## <a name="test-with-the-api-running-in-azure"></a>Testowanie przy użyciu interfejsu API uruchomionego na platformie Azure
 1. Skopiuj wartość pola **Adres URL** w sekcji **Podstawy** bloku aplikacji interfejsu API. 
    
     ![Zakończone wdrożenie](media/app-service-api-nodejs-api-app/deployment-completed.png)
-2. Korzystając z klienta interfejsu API REST, takiego jak Postman lub Fiddler (albo przeglądarka sieci Web), podaj adres URL wywołania interfejsu API kontaktów, który stanowi punkt końcowy `/contacts` aplikacji interfejsu API. Adres URL będzie mieć postać: `https://{your API app name}.azurewebsites.net/contacts`
+2. Korzystając z klienta interfejsu API REST, takiego jak Postman lub Fiddler (albo przeglądarka sieci Web), podaj adres URL wywołania interfejsu API kontaktów, który stanowi punkt końcowy `/contacts` aplikacji interfejsu API. Adres URL będzie mieć postać `https://{your API app name}.azurewebsites.net/contacts`
    
     W przypadku wysyłania żądania GET do tego punktu końcowego otrzymasz dane wyjściowe JSON aplikacji interfejsu API.
    
@@ -265,9 +269,12 @@ W tej sekcji utworzysz lokalne repozytorium Git zawierające kod serwera dla int
 
 Po skonfigurowaniu ciągłego dostarczania możesz wprowadzać zmiany kodu i wdrażać je na platformie Azure przez wypychanie zatwierdzeń do repozytorium Git platformy Azure.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Na tym etapie pomyślnie zakończono tworzenie aplikacji interfejsu API i wdrażanie w niej kodu interfejsu API środowiska Node.js. W następnym samouczku przedstawiono sposób [korzystania z Aplikacji interfejsu API z poziomu klientów JavaScript przy użyciu specyfikacji CORS](app-service-api-cors-consume-javascript.md).
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

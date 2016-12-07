@@ -1,12 +1,12 @@
 ---
-title: Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji sieci Web | Microsoft Docs
-description: Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji sieci Web.
+title: "Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji sieci Web | Microsoft Docs"
+description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji sieci Web."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
+
 
 ---
-# Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji sieci Web
+# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji sieci Web
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 W tym temacie pokazano, jak używać usługi Azure Mobile Engagement, aby zrozumieć Twój sposób użycia aplikacji sieci Web.
@@ -33,15 +37,15 @@ Ten zestaw SDK sieci Web jest w wersji Preview i w tej chwili obsługuje tylko a
 > 
 > 
 
-## Konfigurowanie usługi Mobile Engagement dla aplikacji sieci Web
+## <a name="setup-mobile-engagement-for-your-web-app"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji sieci Web
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych.
 
 Utworzymy podstawową aplikację sieci Web w programie Visual Studio, aby zademonstrować integrację, ale kolejne czynności można również wykonać za pomocą dowolnej aplikacji sieci Web utworzonej poza programem Visual Studio. 
 
-### Tworzenie nowej aplikacji sieci Web
+### <a name="create-a-new-web-app"></a>Tworzenie nowej aplikacji sieci Web
 W następujących krokach założono korzystanie z programu Visual Studio 2015, chociaż kroki są podobne także w przypadku wcześniejszych wersji programu Visual Studio. 
 
 1. Uruchom program Visual Studio i na ekranie **Strona główna** wybierz pozycję **Nowy projekt**.
@@ -50,7 +54,7 @@ W następujących krokach założono korzystanie z programu Visual Studio 2015, 
 
 Został utworzony nowy pusty projekt aplikacji sieci Web, z którym zostanie zintegrowany zestaw SDK sieci Web usługi Azure Mobile Engagement.
 
-### Łączenie aplikacji z zapleczem usługi Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement 
 1. Utwórz w swoim rozwiązaniu nowy folder o nazwie **javascript** i dodaj do niego plik JS zestawu SDK sieci Web **azure-engagement.js**. 
 2. Do tego folderu javascript dodaj nowy plik o nazwie **main.js** zawierający poniższy kod. Nie zapomnij zaktualizować parametrów połączenia. Ten obiekt `azureEngagement` umożliwi uzyskiwanie dostępu do metod zestawu SDK sieci Web. 
    
@@ -61,7 +65,7 @@ Został utworzony nowy pusty projekt aplikacji sieci Web, z którym zostanie zin
    
     ![Program Visual Studio z plikami js][1]
 
-## Włączanie monitorowania w czasie rzeczywistym
+## <a name="enable-real-time-monitoring"></a>Włączanie monitorowania w czasie rzeczywistym
 Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni, konieczne jest wysłanie co najmniej jednego działania do zaplecza usługi Mobile Engagement. Działanie w kontekście aplikacji sieci Web to strona sieci Web. 
 
 1. Utwórz w swoim rozwiązaniu nową stronę o nazwie **home.html** i ustaw ją jako stronę początkową dla aplikacji sieci Web. 
@@ -84,12 +88,12 @@ Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni,
         </body>
         </html>
 
-## Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a name="connect-app-with-real-time-monitoring"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-![][2]
+  ![][2]
 
-## Poszerzanie analizy
+## <a name="extend-analytics"></a>Poszerzanie analizy
 Oto wszystkie metody dostępne obecnie w zestawie SDK sieci Web, których można używać do analizy:
 
 1. Działania/strony sieci Web:
@@ -114,6 +118,6 @@ Oto wszystkie metody dostępne obecnie w zestawie SDK sieci Web, których można
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

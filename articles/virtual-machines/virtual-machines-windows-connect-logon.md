@@ -1,13 +1,13 @@
 ---
-title: Nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server | Microsoft Docs
-description: Dowiedz się, jak nawiązać połączenie z maszyną wirtualną z systemem Windows oraz zalogować się do niej za pomocą witryny Azure Portal i modelu wdrażania przy użyciu usługi Azure Resource Manager.
+title: "Nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server | Microsoft Docs"
+description: "Dowiedz się, jak nawiązać połączenie z maszyną wirtualną z systemem Windows oraz zalogować się do niej za pomocą witryny Azure Portal i modelu wdrażania przy użyciu usługi Azure Resource Manager."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: ef62b02e-bf35-468d-b4c3-71b63fe7f409
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db417fb72442ea8a5cd4ef882eb657b08bebaa0a
+
 
 ---
-# Sposób nawiązywania połączenia z maszyną wirtualną platformy Azure z systemem Windows oraz logowania się do niej
+# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Sposób nawiązywania połączenia z maszyną wirtualną platformy Azure z systemem Windows oraz logowania się do niej
 Korzystając z przycisku **Połącz** w witrynie Azure Portal, uruchomisz sesję pulpitu zdalnego. Najpierw nawiążesz połączenie z maszyną wirtualną, a następnie zalogujesz się.
 
-## Nawiązywanie połączenia z maszyną wirtualną
+## <a name="connect-to-the-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. W menu Centrum kliknij pozycję **Virtual Machines**.
 3. Wybierz maszynę wirtualną z listy.
@@ -33,12 +37,15 @@ Korzystając z przycisku **Połącz** w witrynie Azure Portal, uruchomisz sesję
    > 
    > 
 
-## Logowanie do maszyny wirtualnej
+## <a name="log-on-to-the-virtual-machine"></a>Logowanie do maszyny wirtualnej
 [!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Jeśli podczas próby połączenia wystąpiły problemy, zobacz [Troubleshoot Remote Desktop connections](virtual-machines-windows-troubleshoot-rdp-connection.md) (Rozwiązywanie problemów z połączeniami pulpitu zdalnego). W tym artykule przedstawiono sposób diagnozowania i rozwiązywania typowych problemów.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

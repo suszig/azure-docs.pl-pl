@@ -1,25 +1,29 @@
 ---
-title: Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory | Microsoft Docs
-description: Logowanie do platformy Microsoft Azure i powiązane zagadnienia, takie jak relacja między subskrypcją platformy Azure i usługą Azure Active Directory.
+title: "Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory | Microsoft Docs"
+description: "Logowanie do platformy Microsoft Azure i powiązane zagadnienia, takie jak relacja między subskrypcją platformy Azure i usługą Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 73d58df13d3265312b371a02e12fbb9342fb3980
+
 
 ---
-# Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory
-Ten temat opisuje logowanie do platformy Microsoft Azure i powiązane zagadnienia, takie jak relacja między subskrypcją platformy Azure i usługą Azure Active Directory (Azure AD).
+# <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory
+W tym artykule opisano logowanie do platformy Microsoft Azure i powiązane zagadnienia, takie jak relacja między subskrypcją platformy Azure i usługą Azure Active Directory (Azure AD).
 
-## Konta, których można użyć do logowania
+## <a name="accounts-that-you-can-use-to-sign-in"></a>Konta, których można użyć do logowania
 Zacznijmy od kont, których można użyć do logowania. Istnieją dwa typy: konto Microsoft (wcześniej znane jako Microsoft Live ID) i konto służbowe, które jest kontem zapisanym w usłudze Azure AD.
 
 | Konto Microsoft | Konto Azure AD |
@@ -34,7 +38,7 @@ Mimo że platforma Azure pierwotnie zezwalała na dostęp użytkowników wyłąc
 Na przykład tutaj użytkownik z kontem Microsoft loguje się do klasycznego portalu Azure.
 
 > [!NOTE]
-> Aby zalogować się do klasycznego portalu Azure, użytkownik msmith@hotmail.com musi mieć subskrypcję platformy Azure. Konto musi być kontem administratora usługi lub współadministratora subskrypcji.
+> Aby zalogować się do klasycznej witryny Azure Portal, użytkownik msmith@hotmail.com musi mieć subskrypcję platformy Azure. Konto musi być kontem administratora usługi lub współadministratora subskrypcji.
 > 
 > 
 
@@ -42,7 +46,7 @@ Na przykład tutaj użytkownik z kontem Microsoft loguje się do klasycznego por
 
 Ponieważ ten adres w usłudze Hotmail to konto konsumenta, logowanie jest uwierzytelniane przez system obsługi tożsamości konsumentów używający kont firmy Microsoft. System obsługi tożsamości usługi Azure AD ufa uwierzytelnieniu wykonanemu przez system obsługi kont Microsoft i wystawia token dostępu do usług platformy Azure.
 
-## Jak subskrypcja platformy Azure jest powiązana z usługą Azure AD
+## <a name="how-an-azure-subscription-is-related-to-azure-ad"></a>Jak subskrypcja platformy Azure jest powiązana z usługą Azure AD
 Każda subskrypcja platformy Azure jest połączona relacją zaufania z wystąpieniem usługi Azure AD. Oznacza to, że subskrypcja ufa katalogowi na potrzeby uwierzytelniania użytkowników, usług i urządzeń. Wiele subskrypcji może ufać temu samemu katalogowi, ale dana subskrypcja może ufać tylko jednemu katalogowi. Zaufany katalog można zobaczyć na karcie Ustawienia subskrypcji. Możesz [zmodyfikować ustawienia subskrypcji](active-directory-understanding-resource-access.md), aby zmienić zaufany katalog.
 
 Relacja zaufania między subskrypcją a katalogiem różni się od relacji subskrypcji z wszystkimi innymi zasobami na platformie Azure (witrynami sieci Web, bazami danych itd.), które przypominają bardziej podrzędne zasoby subskrypcji. Jeśli subskrypcja wygaśnie, dostęp do innych zasobów skojarzonych z subskrypcją również nie będzie możliwy. Lecz katalog pozostanie na platformie Azure i będzie można skojarzyć z nim inną subskrypcję oraz kontynuować zarządzanie użytkownikami w katalogu.
@@ -55,7 +59,7 @@ Diagram przedstawia subskrypcję użytkownika Michael Smith po utworzeniu konta 
 
 ![][2]
 
-## Jak zarządzać subskrypcją i katalogiem
+## <a name="how-to-manage-a-subscription-and-a-directory"></a>Jak zarządzać subskrypcją i katalogiem
 Role administracyjne dla subskrypcji platformy Azure zarządzają zasobami powiązanymi z subskrypcją platformy Azure. Te role i najlepsze rozwiązania dotyczące zarządzania subskrypcją są opisane w artykule [Przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles.md).
 
 Domyślnie po utworzeniu konta do użytkownika jest przypisywana rola administratora usługi. Jeśli inni użytkownicy potrzebują logować się i uzyskiwać dostęp do usług za pomocą tej samej subskrypcji, możesz dodać ich jako współadministratorów. Administrator usługi i współadministratorzy mogą używać kont Microsoft lub kont służbowych z katalogu, z którym jest skojarzona subskrypcja platformy Azure.
@@ -68,32 +72,32 @@ Należy koniecznie zwrócić uwagę na to, że administratorzy subskrypcji platf
 
 Osoba może mieć obie te role, lecz nie jest to wymagane. Użytkownika można przypisać do roli administratora globalnego katalogu, ale nie musi być on administratorem usługi ani współadministratorem subskrypcji platformy Azure. Ten użytkownik nie może zalogować się do klasycznego portalu Azure, ponieważ nie jest administratorem subskrypcji. Może jednak wykonywać zadania administracyjne katalogu przy użyciu innych narzędzi, takich jak program PowerShell usługi Azure AD lub centrum administracyjne usługi Office 365.
 
-## Dlaczego nie mogę zarządzać katalogiem za pomocą mojego bieżącego konta użytkownika?
+## <a name="why-cant-i-manage-the-directory-with-my-current-user-account"></a>Dlaczego nie mogę zarządzać katalogiem za pomocą mojego bieżącego konta użytkownika?
 Czasami użytkownik może próbować zalogować się do klasycznego portalu Azure przy użyciu konta służbowego przed utworzeniem konta subskrypcji platformy Azure. W takim przypadku zostanie wyświetlony komunikat, że nie istnieje subskrypcja dla tego konta. Komunikat zawiera link umożliwiający rozpoczęcie bezpłatnej subskrypcji próbnej.
 
 Po utworzeniu konta w ramach bezpłatnej wersji próbnej użytkownik będzie widział katalog organizacji w klasycznym portalu Azure, lecz nie będzie mógł nim zarządzać (to znaczy dodawać użytkowników ani edytować żadnych istniejących właściwości użytkowników), ponieważ nie jest administratorem globalnym katalogu. Subskrypcja pozwala użytkownikowi na używanie klasycznego portalu Azure i zobaczenie rozszerzenia usługi Azure Active Directory, ale do zarządzania katalogiem są wymagane dodatkowe uprawnienia administratora globalnego.
 
-## Użycie konta służbowego do zarządzania subskrypcją platformy Azure utworzoną za pomocą konta Microsoft
+## <a name="using-your-work-or-school-account-to-manage-an-azure-subscription-that-was-created-by-using-a-microsoft-account"></a>Użycie konta służbowego do zarządzania subskrypcją platformy Azure utworzoną za pomocą konta Microsoft
 Najlepszym rozwiązaniem jest [utworzenie konta platformy Azure jako organizacja](sign-up-organization.md) i używanie konta służbowego do zarządzania zasobami na platformie Azure. Konta służbowe są preferowane, ponieważ organizacja, która je wystawiła, może nimi zarządzać centralnie oraz obsługują więcej funkcji niż konta Microsoft i są bezpośrednio uwierzytelniane przez usługę Azure AD. To samo konto zapewnia dostęp do innych usług online firmy Microsoft, które są dostępne dla firm i organizacji, takich jak Office 365 lub Microsoft Intune. Jeśli używasz już konta z innymi właściwościami, prawdopodobnie zechcesz użyć tego samego konta na platformie Azure. Będzie także dostępne dla Ciebie wystąpienie usługi Active Directory wspierające te właściwości, którym ma ufać subskrypcja platformy Azure.
 
 Kontami służbowymi można zarządzać na więcej sposobów niż kontami Microsoft. Na przykład administrator może zresetować hasło konta służbowego lub wymusić stosowanie dla niego uwierzytelniania wieloskładnikowego.
 
 W niektórych przypadkach może być przydatne umożliwienie użytkownikowi z organizacji zarządzania zasobami skojarzonymi z subskrypcją platformy Azure w ramach konta Microsoft konsumenta. Aby uzyskać więcej informacji o sposobie przejścia do konfiguracji, w której różne konta zarządzają subskrypcjami lub katalogami, zobacz [Zarządzanie katalogiem dla subskrypcji usługi Office 365 na platformie Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
 
-## Logowanie w przypadku użycia służbowego adresu e-mail dla konta Microsoft
+## <a name="signing-in-when-you-used-your-work-email-for-your-microsoft-account"></a>Logowanie w przypadku użycia służbowego adresu e-mail dla konta Microsoft
 Jeśli w przeszłości utworzono konto Microsoft konsumenta za pomocą służbowego adresu e-mail jako identyfikatora użytkownika, może zostać wyświetlona strona z żądaniem wybrania systemu kont Microsoft Azure lub systemu kont Microsoft.
 
 ![][3]
 
 To oznacza, że istnieją konta o tej samej nazwie — jedno w usłudze Azure AD i drugie w systemie obsługi kont Microsoft konsumenta. Należy wybrać konto skojarzone z subskrypcją platformy Azure, której chcesz użyć. Jeśli zostanie wyświetlony błąd informujący, że subskrypcja nie istnieje dla użytkownika, prawdopodobnie została wybrana nieprawidłowa opcja. Wyloguj się i spróbuj ponownie. Aby uzyskać więcej informacji o błędach, które mogą uniemożliwić logowanie, zobacz [Troubleshooting "We were unable to find any subscriptions associated with your account" errors](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement) (Rozwiązywanie problemów z błędami „Nie możemy znaleźć żadnych subskrypcji skojarzonych z Twoim kontem”).
 
-## Zarządzanie katalogiem dla subskrypcji usługi Office 365 na platformie Azure
+## <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Zarządzanie katalogiem dla subskrypcji usługi Office 365 na platformie Azure
 Przykładowa sytuacja: użytkownik utworzył konto w ramach usługi Office 365 przed zarejestrowaniem się na platformie Azure. Teraz chce zarządzać katalogiem subskrypcji usługi Office 365 w klasycznym portalu Azure. Są dwa sposoby, na które można to zrobić, w zależności od tego, czy użytkownik utworzył konto na platformie Azure.
 
-### Użytkownik nie ma subskrypcji platformy Azure
+### <a name="i-do-not-have-a-subscription-for-azure"></a>Użytkownik nie ma subskrypcji platformy Azure
 W takim przypadku należy po prostu [utworzyć konto na platformie Azure](sign-up-organization.md) przy użyciu tego samego konta służbowego co użyte do logowania do usługi Office 365. Odpowiednie informacje z konta usługi Office 365 zostaną wstępnie wprowadzone w formularzu tworzenia konta na platformie Azure. Konto zostanie przypisane do roli administratora usługi dla subskrypcji.  
 
-### Użytkownik nie ma subskrypcji platformy Azure używającej konta Microsoft
+### <a name="i-do-have-a-subscription-for-azure-using-my-microsoft-account"></a>Użytkownik nie ma subskrypcji platformy Azure używającej konta Microsoft
 Jeśli użytkownik utworzył konto w usłudze Office 365 za pomocą konta służbowego, następnie utworzył konto na platformie Azure za pomocą konta Microsoft, będą istniały dwa katalogi: jeden dla konta służbowego i domyślny katalog utworzony podczas tworzenia konta na platformie Azure.
 
 Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następujące kroki.
@@ -111,7 +115,7 @@ Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następu
 6. Kliknij pozycję **Wyloguj się teraz**.
 7. Zaloguj się ponownie do klasycznego portalu Azure za pomocą konta Microsoft. Oba katalogi będą wyświetlane w rozszerzeniu usługi Active Directory.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Aby dowiedzieć się więcej o modyfikowaniu administratorów subskrypcji platformy Azure, zobacz [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) (Jak dodać lub zmienić role administratora platformy Azure).
 * Aby dowiedzieć się więcej o kontrolowaniu dostępu do zasobów na platformie Microsoft Azure, zobacz [Understanding resource access in Azure](active-directory-understanding-resource-access.md) (Opis dostępu do zasobów na platformie Azure).
 * Aby uzyskać więcej informacji na temat sposobu przypisywania ról w usłudze Azure AD, zobacz [Przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles.md).
@@ -124,6 +128,6 @@ Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następu
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

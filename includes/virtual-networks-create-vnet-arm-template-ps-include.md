@@ -1,8 +1,8 @@
-## Wdrażanie szablonu ARM przy użyciu programu PowerShell
+## <a name="deploy-the-arm-template-by-using-powershell"></a>Wdrażanie szablonu ARM przy użyciu programu PowerShell
 Aby wdrożyć pobrany szablon ARM przy użyciu programu PowerShell, wykonaj poniższe kroki.
 
 1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](../articles/powershell-install-configure.md) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
-2. W razie potrzeby uruchom polecenie **`New-AzureRmResourceGroup`**, aby utworzyć nową grupę zasobów. Poniższe polecenie tworzy grupę zasobów o nazwie *TestRG* w regionie *Środkowe stany USA* platformy Azure. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../articles/resource-group-overview.md).
+2. W razie potrzeby uruchom polecenie **`New-AzureRmResourceGroup`**, aby utworzyć nową grupę zasobów. Poniższe polecenie tworzy grupę zasobów o nazwie *TestRG* w regionie *Środkowe stany USA* platformy Azure. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
    
@@ -87,7 +87,6 @@ Aby wdrożyć pobrany szablon ARM przy użyciu programu PowerShell, wykonaj poni
                               }
                             ]
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

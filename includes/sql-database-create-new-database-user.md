@@ -1,6 +1,6 @@
 
 
-## Tworzenie nowego użytkownika bazy danych przy użyciu narzędzia SSMS
+## <a name="create-new-database-user-using-ssms"></a>Tworzenie nowego użytkownika bazy danych przy użyciu narzędzia SSMS
 W następujących krokach opisano tworzenie nowego użytkownika bazy danych w istniejącej bazie danych przy użyciu narzędzia SSMS. 
 
 W tych krokach przyjęto założenie, że użytkownik jest połączony z bazą danych SQL w Eksploratorze obiektów przy użyciu narzędzia SSMS, a także z serwerem logicznym bazy danych SQL jako podstawowy administrator na poziomie serwera lub za pomocą konta użytkownika z uprawnieniami do tworzenia nowego użytkownika. 
@@ -18,6 +18,8 @@ W tych krokach przyjęto założenie, że użytkownik jest połączony z bazą d
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 
