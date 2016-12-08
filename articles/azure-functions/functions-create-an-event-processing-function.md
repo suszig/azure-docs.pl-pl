@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
+ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
 
 
 ---
@@ -29,7 +29,7 @@ W tym temacie opisano tworzenie nowej funkcji w języku C#, która służy do do
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby utworzyć funkcję, musisz mieć aktywne konto platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, [dostępne są konta bezpłatne](https://azure.microsoft.com/free/).
 
-## <a name="create-a-timertriggered-function-from-the-template"></a>Tworzenie funkcji wyzwalanej przez czasomierz przy użyciu szablonu
+## <a name="create-a-timer-triggered-function-from-the-template"></a>Tworzenie funkcji wyzwalanej przez czasomierz przy użyciu szablonu
 Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Aby utworzyć funkcję, musisz mieć aktywne konto platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, [dostępne są konta bezpłatne](https://azure.microsoft.com/free/). 
 
 1. Przejdź do [portalu Azure Functions](https://functions.azure.com/signin) i zaloguj się przy użyciu konta platformy Azure.
@@ -72,13 +72,13 @@ Poniższe tematy umożliwiają uzyskanie dodatkowych informacji na temat usługi
 * [Testowanie usługi Azure Functions](functions-test-a-function.md)  
   Opis różnych narzędzi i technik testowania funkcji.
 * [Jak skalować usługę Azure Functions](functions-scale.md)  
-  Omówienie planów usług dostępnych w środowisku Azure Functions, w tym dynamicznego planu usług, oraz sposobu wybierania właściwego planu.  
+  Omówienie planów usług dostępnych w środowisku Azure Functions, w tym planu hostingowego zużycia, oraz sposobu wybierania właściwego planu.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
+ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 
 
 ---
@@ -114,7 +114,7 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    Aby wyświetlić listę dostępnych rozmiarów maszyny wirtualnej, zobacz [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) (Rozmiary maszyn wirtualnych na platformie Azure).
+    Aby wyświetlić listę dostępnych rozmiarów maszyny wirtualnej, zobacz [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozmiary maszyn wirtualnych na platformie Azure).
 3. Skonfiguruj ustawienia systemu operacyjnego dla maszyny wirtualnej. To polecenie ustawia nazwę komputera, typ systemu operacyjnego oraz poświadczenia konta dla maszyny wirtualnej.
    
     ```powershell
@@ -128,13 +128,13 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    Aby uzyskać więcej informacji na temat wybierania obrazów do użycia, zobacz [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md) (Przechodzenie do obrazów maszyn wirtualnych systemu Windows na platformie Azure przy użyciu programu PowerShell lub interfejsu wiersza polecenia oraz wybieranie ich).
+    Aby uzyskać więcej informacji na temat wybierania obrazów do użycia, zobacz [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Przechodzenie do obrazów maszyn wirtualnych systemu Windows na platformie Azure przy użyciu programu PowerShell lub interfejsu wiersza polecenia oraz wybieranie ich).
 5. Dodaj do konfiguracji utworzony interfejs sieciowy.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Zdefiniuj nazwę i lokalizację dysku twardego maszyny wirtualnej. Plik wirtualnego dysku twardego jest przechowywany w kontenerze. To polecenie tworzy dysk w kontenerze o nazwie **vhds/WindowsVMosDisk.vhd** w utworzonym koncie magazynu.
+6. Zdefiniuj nazwę i lokalizację dysku twardego maszyny wirtualnej. Plik wirtualnego dysku twardego jest przechowywany w kontenerze. To polecenie tworzy dysk w kontenerze o nazwie **vhds/myOsDisk1.vhd** w utworzonym koncie magazynu.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
 7. Dodaj do konfiguracji maszyny wirtualnej informacje dotyczące systemu operacyjnego. Zastąp wartość **$diskName** nazwą dysku systemu operacyjnego. Utwórz zmienną i dodaj do konfiguracji informacje dotyczące dysku.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Na zakończenie utwórz maszynę wirtualną.
    
@@ -153,12 +153,12 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
 
 ## <a name="next-steps"></a>Następne kroki
 * Jeśli wystąpiły problemy dotyczące wdrożenia, następnym krokiem powinno być zapoznanie się z artykułem [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md) (Rozwiązywanie problemów z wdrożeniami grup zasobów za pomocą witryny Azure Portal).
-* Aby dowiedzieć się, jak zarządzać utworzoną maszyną wirtualną, zobacz [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md) (Zarządzanie maszynami wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell).
-* Aby utworzyć maszynę wirtualną przy użyciu szablonu, skorzystaj z informacji podanych w artykule [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md) (Tworzenie maszyny wirtualnej systemu Windows przy użyciu szablonu usługi Resource Manager).
+* Aby dowiedzieć się, jak zarządzać utworzoną maszyną wirtualną, zobacz [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie maszynami wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell).
+* Aby utworzyć maszynę wirtualną przy użyciu szablonu, skorzystaj z informacji podanych w artykule [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Tworzenie maszyny wirtualnej systemu Windows przy użyciu szablonu usługi Resource Manager).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

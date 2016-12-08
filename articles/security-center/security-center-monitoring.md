@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 5852808ad0f5cf02908df7ff969ab2106d9f5abd
 
 
 ---
@@ -192,7 +192,7 @@ Po kliknięciu bazy danych w celu zastosowania tego zalecenia zostanie otwarty b
 Aby włączyć funkcję inspekcji, zaznacz pole wyboru **WŁĄCZONE** poniżej opcji **Inspekcja**.
 
 ### <a name="monitor-applications"></a>Monitorowanie aplikacji
-Jeśli obciążenie platformy Azure obejmuje aplikacje znajdujące się na [maszynach wirtualnych (utworzonych za pomocą usługi Azure Resource Manager)](../resource-manager-deployment-model.md) z uwidocznionymi portami sieci Web (porty TCP 80 i 443), usługa Security Center może je monitorować w celu identyfikowania potencjalnych problemów z zabezpieczeniami oraz rekomendowania czynności naprawczych. Po kliknięciu kafelka **Aplikacje** zostanie otwarty blok **Aplikacje** zawierający serię zaleceń w sekcji dotyczącej **czynności prewencyjnych**. Widoczny będzie również podział aplikacji według hosta/wirtualnego adresu IP, jak pokazano na poniższym zrzucie ekranu.
+Jeśli obciążenie platformy Azure obejmuje aplikacje znajdujące się na [maszynach wirtualnych (utworzonych za pomocą usługi Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) z uwidocznionymi portami sieci Web (porty TCP 80 i 443), usługa Security Center może je monitorować w celu identyfikowania potencjalnych problemów z zabezpieczeniami oraz rekomendowania czynności naprawczych. Po kliknięciu kafelka **Aplikacje** zostanie otwarty blok **Aplikacje** zawierający serię zaleceń w sekcji dotyczącej **czynności prewencyjnych**. Widoczny będzie również podział aplikacji według hosta/wirtualnego adresu IP, jak pokazano na poniższym zrzucie ekranu.
 
 ![Kondycja zabezpieczeń aplikacji](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +216,6 @@ W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

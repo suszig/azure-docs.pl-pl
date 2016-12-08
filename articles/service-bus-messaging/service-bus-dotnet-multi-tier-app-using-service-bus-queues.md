@@ -1,13 +1,13 @@
 ---
 title: Wielowarstwowa aplikacja platformy .NET | Microsoft Docs
 description: "Samouczek platformy .NET umożliwia utworzenie na platformie Azure aplikacji wielowarstwowej, która używa kolejek usługi Service Bus do komunikacji między warstwami."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 
 
 ---
-# <a name="net-multitier-application-using-azure-service-bus-queues"></a>Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
+# <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
 ## <a name="introduction"></a>Wprowadzenie
 Tworzenie aplikacji dla platformy Microsoft Azure przy użyciu programu Visual Studio oraz bezpłatnego zestawu Azure SDK dla platformy .NET jest proste. Ten samouczek przeprowadzi Cię przez etapy tworzenia aplikacji, która używa wielu zasobów platformy Azure działających w środowisku lokalnym. Założono w nim, że nie masz wcześniejszego doświadczenia w używaniu platformy Azure.
 
@@ -39,7 +39,7 @@ Poniższy zrzut ekranu przedstawia gotową aplikację.
 
 ![][0]
 
-## <a name="scenario-overview-interrole-communication"></a>Omówienie scenariusza: komunikacja między rolami
+## <a name="scenario-overview-inter-role-communication"></a>Omówienie scenariusza: komunikacja między rolami
 Aby przesłać zamówienie do przetworzenia, składnik interfejsu użytkownika frontonu działający w roli sieci Web musi współdziałać z logiką warstwy środkowej uruchomionej w roli procesu roboczego. W tym przykładzie do komunikacji między warstwami użyto komunikatów usługi Service Bus obsługiwanych przez brokera.
 
 Korzystanie z komunikatów obsługiwanych przez brokera między warstwą sieci Web i warstwą środkową oddziela dwa składniki. W przeciwieństwie do komunikatów bezpośrednich (czyli TCP lub HTTP), warstwa sieci Web nie łączy się bezpośrednio z warstwą środkową. Zamiast tego wypycha jednostki pracy jako komunikaty do usługi Service Bus, która w niezawodny sposób je przechowuje do momentu, aż środkowa warstwa będzie gotowa na ich użycie i przetworzenie.
@@ -410,6 +410,6 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -30,7 +30,7 @@ Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niez
 * mogą wymagać używania zastrzeżonych, niestandardowych lub branżowych protokołów aplikacji;
 * mogą być tworzone przy użyciu szerokiej gamy popularnych platform sprzętowych i programowych.
 
-Oprócz powyższych wymagań każde rozwiązanie IoT musi również zapewniać skalowalność, bezpieczeństwo i niezawodność. Ustalony zbiór wymogów dotyczących łączności jest trudny i czasochłonny we wdrażaniu przy użyciu tradycyjnych technologii, takich jak kontenery sieci Web i brokery obsługujące komunikaty. Usługa Azure IoT Hub i zestawy SDK urządzenia IoT ułatwiają wdrażanie rozwiązań, które spełniają te wymagania.
+Oprócz powyższych wymagań każde rozwiązanie IoT musi również zapewniać skalowalność, bezpieczeństwo i niezawodność. Ustalony zbiór wymogów dotyczących łączności jest trudny i czasochłonny we wdrażaniu przy użyciu tradycyjnych technologii, takich jak kontenery sieci Web i brokery obsługujące komunikaty. Usługa Azure IoT Hub i zestawy SDK urządzeń Azure IoT ułatwiają wdrażanie rozwiązań, które spełniają te wymagania.
 
 Urządzenie może komunikować się bezpośrednio z punktem końcowym bramy chmury. Jeśli urządzenie nie może używać żadnych protokołów komunikacyjnych obsługiwanych przez bramę chmury, może nawiązać połączenie za pośrednictwem bramy pośredniej. Na przykład [brama protokołu IoT Azure][lnk-protocol-gateway] może wykonać translację protokołu, jeśli urządzenia nie mogą używać żadnych protokołów obsługiwanych przez usługę IoT Hub.
 
@@ -55,11 +55,11 @@ Warstwa prezentacji i łączności biznesowej umożliwia użytkownikom końcowym
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Pakiet IoT Azure]: http://azure.microsoft.com/solutions/iot
+[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

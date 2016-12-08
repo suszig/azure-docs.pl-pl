@@ -53,14 +53,46 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
-Plik ustawień JSON zawiera listę modułów do załadowania. W każdym module muszą być określone następujące elementy:
+Plik ustawień JSON zawiera listę modułów do załadowania i połączeń między modułami.
+W każdym module muszą być określone następujące elementy:
 
-* **module_name**: unikatowa nazwa modułu.
-* **module_path**: ścieżka do biblioteki zawierającej moduł. W systemie Linux jest to plik so, a w systemie Windows jest to plik dll.
+* **name**: unikatowa nazwa modułu.
+* **loader**: moduł ładujący będący w stanie załadować odpowiedni moduł.  Moduły ładujące to punkt rozszerzenia służący do ładowania różnych typów modułów. Udostępniamy moduły ładujące przeznaczone do używania z modułami napisanymi w natywnych językach C, Node.js, Java i .Net. W przykładzie Hello World użyto „natywnego” modułu ładującego, ponieważ wszystkie moduły w tym przykładzie są bibliotekami dynamicznymi napisanymi w języku C. Aby uzyskać więcej informacji na temat używania modułów napisanych w innych językach, zapoznaj się z przykładami [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) lub [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample).
+    * **name**: nazwa modułu ładującego służącego do ładowania modułu.  
+    * **entrypoint**: ścieżka do biblioteki zawierającej moduł. W systemie Linux jest to plik so, a w systemie Windows jest to plik dll. Należy pamiętać, że ten punkt wejścia jest specyficzny dla typu używanego modułu ładującego. Na przykład punkt wejścia modułu ładującego Node.js to plik js, punkt wejścia modułu ładującego Java to ścieżka klasy + nazwa klasy, a punkt wejścia modułu ładującego .Net to nazwa zestawu + nazwa klasy.
+
 * **args**: wszystkie informacje o konfiguracji wymaganej przez moduł.
+
+Następujący kod pokazuje zadeklarowanie wszystkich modułów dla przykładu Hello World w systemie Linux za pomocą pliku JSON. To, czy moduł wymaga jakichś argumentów, zależy od projektu modułu. W tym przykładzie moduł rejestratora przyjmuje argument, który jest ścieżką do pliku wyjściowego, natomiast moduł Hello World nie ma żadnych argumentów.
+
+```
+"modules" :
+[
+    {
+        "name" : "logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/logger/liblogger.so"
+        }
+        },
+        "args" : {"filename":"log.txt"}
+    },
+    {
+        "name" : "hello_world",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/hello_world/libhello_world.so"
+        }
+        },
+        "args" : null
+    }
+]
+```
 
 Plik JSON zawiera również linki między modułami, które zostaną przekazane do brokera. Link ma dwie właściwości:
 
@@ -69,35 +101,16 @@ Plik JSON zawiera również linki między modułami, które zostaną przekazane 
 
 Każdy link definiuje trasę i kierunek komunikatów. Komunikaty z modułu `source` będą dostarczane do modułu `sink`. Dla właściwości `source` można ustawić wartość „\*”, co oznacza, że komunikaty z wszystkich modułów będę odbierane przez moduł `sink`.
 
-Poniższy przykład pokazuje plik ustawień JSON używany do konfigurowania próbki kodu Hello World w systemie Linux. Każdy komunikat generowany przez moduł `hello_world` będzie używany przez moduł `logger`. To, czy moduł wymaga argumentu, zależy od projektu modułu. W tym przykładzie moduł rejestratora przyjmuje argument, który jest ścieżką do pliku wyjściowego, natomiast moduł Hello World nie ma żadnych argumentów:
+Następujący kod pokazuje konfigurowanie połączeń między modułami użytymi w przykładzie Hello World w systemie Linux za pomocą pliku JSON. Każdy komunikat generowany przez moduł `hello_world` będzie używany przez moduł `logger`.
 
 ```
-{
-    "modules" :
-    [ 
-        {
-            "module name" : "logger",
-            "loading args": {
-              "module path" : "./modules/logger/liblogger_hl.so"
-            },
-            "args" : {"filename":"log.txt"}
-        },
-        {
-            "module name" : "hello_world",
-            "loading args": {
-              "module path" : "./modules/hello_world/libhello_world_hl.so"
-            },
-            "args" : null
-        }
-    ],
-    "links" :
-    [
-        {
-            "source" : "hello_world",
-            "sink" : "logger"
-        }
-    ]
-}
+"links": 
+[
+    {
+        "source": "hello_world",
+        "sink": "logger"
+    }
+]
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Publikowanie komunikatów w module Hello World
@@ -216,6 +229,6 @@ Aby dowiedzieć się więcej na temat używania zestawu SDK usługi IoT Gateway,
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

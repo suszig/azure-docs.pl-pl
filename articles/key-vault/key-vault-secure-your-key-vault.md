@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 5557dbef45d8599010a909635eebf399a5bcd2c8
 
 
 ---
@@ -71,7 +71,7 @@ Mechanizmy kontroli dostępu do płaszczyzny zarządzania i płaszczyzny danych 
 ## <a name="management-plane-access-control"></a>Kontrola dostępu do płaszczyzny zarządzania
 Płaszczyzna zarządzania składa się z operacji, które wpływają na sam magazyn kluczy. Można na przykład utworzyć lub usunąć magazyn kluczy, a także pobrać listę magazynów w subskrypcji. Można również pobrać właściwości magazynu kluczy (takie jak SKU, znaczniki) i ustawić zasady dostępu magazynu kluczy kontrolujące użytkowników i aplikacje, które mogą uzyskiwać dostęp do kluczy i wpisów tajnych w magazynie. Kontrola dostępu do płaszczyzny zarządzania korzysta z funkcji RBAC. Pełna lista operacji magazynu kluczy, które mogą być wykonywane za pośrednictwem płaszczyzny zarządzania, znajduje się w tabeli w poprzedniej sekcji. 
 
-### <a name="rolebased-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
+### <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
 Każda subskrypcja platformy Azure zawiera usługę Azure Active Directory. Użytkownikom, grupom i aplikacjom z tego katalogu można udzielić dostępu do zarządzania zasobami w ramach subskrypcji platformy Azure, która używa modelu wdrażania przy użyciu usługi Azure Resource Manager. Ten typ kontroli dostępu jest określany jako kontrola dostępu oparta na rolach (RBAC). Do zarządzania tym dostępem można użyć witryny [Azure Portal](https://portal.azure.com/), [narzędzi interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md), [programu PowerShell](../powershell-install-configure.md) lub [interfejsów API REST usługi Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 W modelu usługi Azure Resource Manager można utworzyć magazyn kluczy w grupie zasobów i kontrolować dostęp do płaszczyzny zarządzania tego magazynu kluczy przy użyciu usługi Azure Active Directory. Na przykład można przyznać użytkownikom lub grupie możliwość zarządzania magazynami kluczy w określonej grupie zasobów.
@@ -210,7 +210,7 @@ W tym przykładzie przedstawiono prosty scenariusz. Rzeczywiste scenariusze mog�
 * [Kontrola dostępu oparta na rolach (RBAC): wbudowane role](../active-directory/role-based-access-built-in-roles.md)
   
   W tym artykule omówiono szczegółowo wszystkie wbudowane role dostępne w RBAC.
-* [Omówienie wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego](../resource-manager-deployment-model.md)
+* [Omówienie wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego](../azure-resource-manager/resource-manager-deployment-model.md)
   
   W tym artykule opisano model wdrażania przy użyciu usługi Azure Resource Manager i klasyczny model wdrażania oraz wyjaśniono zalety korzystania z usługi Resource Manager i grup zasobów.
 * [Zarządzanie kontrolą dostępu opartą na rolach za pomocą programu Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -253,6 +253,6 @@ Jeśli masz pytania dotyczące usługi Key Vault, odwiedź [forum usługi Azure 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

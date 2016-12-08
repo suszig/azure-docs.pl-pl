@@ -3,8 +3,8 @@ title: "Tworzenie wewnętrznego modułu równoważenia obciążenia w klasycznym
 description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia w klasycznym modelu wdrażania przy użyciu interfejsu wiersza polecenia Azure"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 5d1d0f59080827bde2ba9cdd825ba8c498f33751
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: b65d386af78847b7994f7df0b379e30d3e35618c
 
 ---
 
@@ -31,7 +31,7 @@ ms.openlocfilehash: 5d1d0f59080827bde2ba9cdd825ba8c498f33751
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md).  Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak [wykonać te kroki przy użyciu modelu usługi Resource Manager](load-balancer-get-started-ilb-arm-cli.md).
+> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../azure-resource-manager/resource-manager-deployment-model.md).  Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak [wykonać te kroki przy użyciu modelu usługi Resource Manager](load-balancer-get-started-ilb-arm-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -89,7 +89,7 @@ Przykładowe dane wyjściowe:
     info:    service internal-load-balancer list command OK
 
 
-## <a name="step-2"></a>Krok 2
+### <a name="step-2"></a>Krok 2
 
 Konfiguracja zestawu wewnętrznego modułu równoważenia obciążenia zachodzi podczas dodawania pierwszego punktu końcowego. W tym kroku punkt końcowy, maszyna wirtualna i port sondy zostaną skojarzone z zestawem wewnętrznego modułu równoważenia obciążenia.
 
@@ -97,7 +97,7 @@ Konfiguracja zestawu wewnętrznego modułu równoważenia obciążenia zachodzi 
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
 ```
 
-## <a name="step-3"></a>Krok 3
+### <a name="step-3"></a>Krok 3
 
 Sprawdź konfigurację modułu równoważenia obciążenia za pomocą polecenia `azure vm show` *nazwa maszyny wirtualnej*
 
@@ -182,6 +182,6 @@ Użyj polecenia `azure vm endpoint --help`, aby uzyskać więcej informacji.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

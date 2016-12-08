@@ -1,6 +1,6 @@
 ---
 title: "Zarządzanie zabezpieczeniami na platformie Azure | Microsoft Docs"
-description: " W tym artykule opisano kroki związane z poprawianiem zabezpieczeń zdalnego zarządzania podczas administrowania środowiskami Microsoft Azure, w tym usługami w chmurze, usługą Virtual Machines i aplikacjami niestandardowymi."
+description: "W tym artykule opisano kroki związane z poprawianiem zabezpieczeń zdalnego zarządzania podczas administrowania środowiskami Microsoft Azure, w tym usługami w chmurze, usługą Virtual Machines i aplikacjami niestandardowymi."
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 83d13b9b104ae19c6d49103d6a2ffdc6e57dd956
+ms.sourcegitcommit: f44ecd49d034ef6ec82baa402e613308a5b3e1a9
+ms.openlocfilehash: 5cee18e58bcf505547315e14dd378b36c0b3f651
 
 
 ---
@@ -70,12 +70,12 @@ Platforma Azure zapewnia mechanizmy zabezpieczeń ułatwiające administratorom 
 * Portal zarządzania w sieci Web.
 * Filtrowanie pakietów sieciowych.
 
-W połączeniu z konfiguracją zabezpieczeń po stronie klienta i wdrożeniem centrum danych bramy zarządzania można ograniczyć i monitorować dostęp administratorów do aplikacji i danych w chmurze.
+Dzięki konfiguracji zabezpieczeń po stronie klienta i wdrożeniu centrum danych bramy zarządzania można ograniczyć i monitorować dostęp administratorów do aplikacji i danych w chmurze.
 
 > [!NOTE]
 > Zastosowanie niektórych zaleceń zamieszczonych w tym artykule może spowodować zwiększenie użycia danych, sieci lub zasobów obliczeniowych i podwyższenie kosztów licencji lub subskrypcji.
-> 
-> 
+>
+>
 
 ## <a name="hardened-workstation-for-management"></a>Stacja robocza do zarządzania ze wzmocnionymi zabezpieczeniami
 Celem wzmocnienia zabezpieczeń stacji roboczej jest wyeliminowanie wszystkich funkcji poza niezbędnymi do działania w celu minimalizacji możliwości ataku. Wzmocnienie zabezpieczeń systemu obejmuje minimalizację liczby zainstalowanych usług i aplikacji, ograniczenie uruchamiania aplikacji i dostępu do sieci do niezbędnego poziomu oraz nieustanne aktualizowanie systemu. Ponadto wzmocnienie zabezpieczeń stacji roboczej do zarządzania powoduje oddzielenie działań i narzędzi administracyjnych od innych zadań użytkowników końcowych.
@@ -106,23 +106,23 @@ Aby scentralizować cały dostęp administracyjny oraz uprościć monitorowanie 
 
 Brama usług pulpitu zdalnego jest opartą na zasadach usługą serwera proxy RDP wymuszającą wymagania dotyczące zabezpieczeń. Zaimplementowanie bramy usług pulpitu zdalnego wraz z ochroną dostępu do sieci (NAP, Network Access Protection) systemu Windows Server gwarantuje, że połączenia mogą ustanawiać tylko klienci spełniający określone kryteria kondycji zabezpieczeń określone przez obiekty zasad grupy w usłudze Active Directory Domain Services. Ponadto:
 
-* Dla bramy usług pulpitu zdalnego aprowizuj [certyfikat zarządzania Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx), aby był to jedyny host uprawniony do dostępu do portalu zarządzania Azure.
+* Dla bramy usług pulpitu zdalnego aprowizuj [certyfikat zarządzania Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx), aby był to jedyny host uprawniony do dostępu do witryny Azure Portal.
 * Bramę usług pulpitu zdalnego przyłącz do tej samej [domeny zarządzania](http://technet.microsoft.com/library/bb727085.aspx), do której są przyłączone stacje robocze administratorów. Jest to konieczne, gdy jest używana sieć VPN między lokacjami z zabezpieczeniami IPsec lub usługa ExpressRoute w domenie z jednokierunkową relacją zaufania do usługi Azure AD, albo w przypadku federacji poświadczeń między lokalnym wystąpieniem usług AD DS a usługą Azure AD.
-* Skonfiguruj [zasady autoryzacji połączeń klientów](http://technet.microsoft.com/library/cc753324.aspx), aby umożliwić bramie usług pulpitu zdalnego sprawdzanie, czy maszyna kliencka ma prawidłową nazwę (jest przyłączona do domeny) i jest uprawniona do dostępu do Portalu zarządzania Azure.
+* Skonfiguruj [zasady autoryzacji połączeń klientów](http://technet.microsoft.com/library/cc753324.aspx), aby umożliwić bramie usług pulpitu zdalnego sprawdzanie, czy maszyna kliencka ma prawidłową nazwę (jest przyłączona do domeny) i jest uprawniona do dostępu do witryny Azure Portal.
 * Aby zapewnić lepszą ochronę ruchu związanego z zarządzaniem przed podsłuchem i kradzieżą tokenów, używaj zabezpieczeń IPsec dla [Sieci VPN Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) albo rozważ możliwość utworzenia izolowanego łącza internetowego za pośrednictwem usługi [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Zapewnij uwierzytelnianie wieloskładnikowe (za pomocą usługi [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) lub uwierzytelnianie przy użyciu kart inteligentnych dla administratorów logujących się przy użyciu bramy usług pulpitu zdalnego.
 * Skonfiguruj [ograniczenia źródłowych adresów IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) lub [sieciowe grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md) na platformie Azure, aby zminimalizować liczbę punktów końcowych uprawnionych do zarządzania.
 
 ## <a name="security-guidelines"></a>Zalecenia dotyczące zabezpieczeń
-Ogólnie rzecz biorąc, ulepszanie zabezpieczeń stacji roboczych administratorów używanych do pracy z chmurą jest bardzo podobne do rozwiązań stosowanych w przypadku dowolnych lokalnych stacji roboczych (na przykład minimalizacja funkcjonalności i ograniczanie uprawnień). Niektóre unikatowe aspekty zarządzania chmurą są bardziej zbliżone do zdalnego zarządzania lub zarządzania poza pasmem w przedsiębiorstwach. Przykładem może być użycie i inspekcja poświadczeń, rozszerzone zabezpieczenia dostępu zdalnego oraz wykrywanie zagrożeń i podejmowanie działań zaradczych.
+Ogólnie rzecz biorąc, ulepszanie zabezpieczeń stacji roboczych administratorów używanych do pracy z chmurą jest podobne do rozwiązań stosowanych w przypadku dowolnych lokalnych stacji roboczych (na przykład minimalizacja funkcjonalności i ograniczanie uprawnień). Niektóre unikatowe aspekty zarządzania chmurą są bardziej zbliżone do zdalnego zarządzania lub zarządzania poza pasmem w przedsiębiorstwach. Przykładem może być użycie i inspekcja poświadczeń, rozszerzone zabezpieczenia dostępu zdalnego oraz wykrywanie zagrożeń i podejmowanie działań zaradczych.
 
 ### <a name="authentication"></a>Authentication
-Korzystając z ograniczeń logowania platformy Azure, można zmniejszyć liczbę źródłowych adresów IP używanych do uzyskiwania dostępu do narzędzi administracyjnych i prowadzić inspekcję żądań dostępu. W celu ułatwienia platformie Azure identyfikowania klientów (stacji roboczych i/lub aplikacji) używanych do zarządzania, można skonfigurować zarówno interfejs SMAPI (przy użyciu narzędzi opracowanych przez klienta takich jak polecenia cmdlet programu Windows PowerShell), jak i portal zarządzania Azure tak, aby oprócz certyfikatów SSL było wymagane instalowanie certyfikatów zarządzania po stronie klienta. Zalecamy również stosowanie uwierzytelniania wieloskładnikowego w przypadku dostępu administratorów.
+Korzystając z ograniczeń logowania platformy Azure, można zmniejszyć liczbę źródłowych adresów IP używanych do uzyskiwania dostępu do narzędzi administracyjnych i prowadzić inspekcję żądań dostępu. W celu ułatwienia platformie Azure identyfikowania klientów (stacji roboczych i/lub aplikacji) używanych do zarządzania, można skonfigurować zarówno interfejs SMAPI (przy użyciu narzędzi opracowanych przez klienta, takich jak polecenia cmdlet programu Windows PowerShell), jak i witrynę Azure Portal tak, aby oprócz certyfikatów SSL było wymagane instalowanie certyfikatów zarządzania po stronie klienta. Zalecamy również stosowanie uwierzytelniania wieloskładnikowego w przypadku dostępu administratorów.
 
 Niektóre aplikacje lub usługi wdrażane na platformie Azure mogą mieć własne mechanizmy uwierzytelniania zarówno użytkowników końcowych, jak i administratorów, podczas gdy inne wykorzystują w pełnym zakresie usługę Azure AD. W zależności od tego, czy jest dokonywana federacja poświadczeń za pośrednictwem usługi Active Directory Federation Services (AD FS), używana synchronizacja katalogów, czy obsługa kont użytkowników jedynie w chmurze, użycie usługi [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (część usługi Azure AD Premium) ułatwia zarządzanie cyklami życia tożsamości między zasobami.
 
 ### <a name="connectivity"></a>Łączność
-Dostępnych jest kilka mechanizmów ułatwiających zabezpieczanie połączeń klientów z sieciami wirtualnymi platformy Azure. Dwa z tych mechanizmów — [sieć VPN między lokacjami](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S, site-to-site) i [sieć VPN między punktem a lokacją](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S, point-to-site) — umożliwiają użycie zabezpieczeń IPsec (S2S) będących standardem branżowym lub protokołu [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) do szyfrowania i tunelowania. Gdy ustanawiane jest połączenie platformy Azure z publicznymi zasobami do zarządzania usługami Azure, takimi jak Portal zarządzania Azure, platforma Azure wymaga protokołu Hypertext Transfer Protocol Secure (HTTPS).
+Dostępnych jest kilka mechanizmów ułatwiających zabezpieczanie połączeń klientów z sieciami wirtualnymi platformy Azure. Dwa z tych mechanizmów — [sieć VPN między lokacjami](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S, site-to-site) i [sieć VPN między punktem a lokacją](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S, point-to-site) — umożliwiają użycie zabezpieczeń IPsec (S2S) będących standardem branżowym lub protokołu [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) do szyfrowania i tunelowania. Gdy ustanawiane jest połączenie platformy Azure z publicznymi zasobami do zarządzania usługami Azure, takimi jak witryna Azure Portal, platforma Azure wymaga protokołu Hypertext Transfer Protocol Secure (HTTPS).
 
 Autonomiczna stacja robocza ze wzmocnionymi zabezpieczeniami, która nie łączy się z platformą Azure za pośrednictwem bramy usług pulpitu zdalnego, powinna używać sieci VPN między punktem a lokacją korzystającej z protokołu SSTP do utworzenia początkowego połączenia z usługą Azure Virtual Network, a następnie ustanawiać połączenie RDP z poszczególnymi maszynami wirtualnymi z poziomu tunelu VPN.
 
@@ -139,13 +139,13 @@ Zalecamy trzy podstawowe konfiguracje stacji roboczych ze wzmocnionymi zabezpiec
 | Konfiguracja | Korzyści | Wady |
 | --- | --- | --- |
 | Autonomiczna stacja robocza ze wzmocnionymi zabezpieczeniami |Ściśle kontrolowana stacja robocza |Wyższy koszt dla dedykowanych komputerów stacjonarnych |
-| Mniejsze ryzyko wykorzystania luk w zabezpieczeniach aplikacji |Większa ilość zasobów wymaganych do zarządzania | |
-| Przejrzysty podział obowiązków | | |
-| Komputer firmowy jako maszyna wirtualna |Niższe koszty sprzętu | |
-| Podział ról i aplikacji | | |
+| - | Mniejsze ryzyko wykorzystania luk w zabezpieczeniach aplikacji |Większa ilość zasobów wymaganych do zarządzania |
+| - | Przejrzysty podział obowiązków | - |
+| Komputer firmowy jako maszyna wirtualna |Niższe koszty sprzętu | - |
+| - | Podział ról i aplikacji | - |
 | Windows To Go z szyfrowaniem dysków przy użyciu funkcji BitLocker |Zgodność z większością komputerów |Śledzenie zasobów |
-| Efektywność kosztowa i przenośność | | |
-| Izolowane środowisko zarządzania | | |
+| - | Efektywność kosztowa i przenośność | - |
+| - | Izolowane środowisko zarządzania |- |
 
 Stacja robocza ze wzmocnionymi zabezpieczeniami musi być hostem, a nie gościem, bez żadnych składników między systemem operacyjnym hosta a sprzętem. Zgodnie z „zasadą czystego źródła” (zwaną również „bezpiecznym pochodzeniem”) host musi mieć najlepsze zabezpieczenia. W przeciwnym razie stacja robocza ze wzmocnionymi zabezpieczeniami (gość) jest podatna na ataki na system, w którym jest hostowana.
 
@@ -153,7 +153,7 @@ Dodatkowo można oddzielić funkcje administracyjne za pomocą dedykowanych obra
 
 W przypadku środowisk IT bez infrastruktury lokalnej (na przykład brak dostępu do lokalnego wystąpienia usług AD DS dla obiektów zasad grupy, ponieważ wszystkie serwery są w chmurze) usługa taka jak [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) może uprościć wdrażanie i konserwację konfiguracji stacji roboczych.
 
-### <a name="standalone-hardened-workstation-for-management"></a>Autonomiczna stacja robocza do zarządzania ze wzmocnionymi zabezpieczeniami
+### <a name="stand-alone-hardened-workstation-for-management"></a>Autonomiczna stacja robocza do zarządzania ze wzmocnionymi zabezpieczeniami
 W przypadku autonomicznej stacji roboczej ze wzmocnionymi zabezpieczeniami administratorzy mają komputer lub laptop, używany do wykonywania zadań administracyjnych, i oddzielny komputer lub laptop do wykonywania innych zadań. Na stacji roboczej dedykowanej do zarządzania usługami Azure nie trzeba instalować innych aplikacji. Ponadto korzystanie ze stacji roboczych obsługujących moduł [Trusted Platform Module](https://technet.microsoft.com/library/cc766159) (TPM) lub podobną sprzętową technologię kryptograficzną ułatwia uwierzytelnianie urządzeń i zapobieganie niektórym atakom. Moduł TPM może również obsługiwać pełną ochronę woluminów dysku systemowego przy użyciu [szyfrowania dysków funkcją BitLocker](https://technet.microsoft.com/library/cc732774.aspx).
 
 W scenariuszu autonomicznej stacji roboczej ze wzmocnionymi zabezpieczeniami (przedstawionym poniżej) lokalne wystąpienie zapory systemu Windows (lub zapory klienta firmy innej niż Microsoft) jest skonfigurowane do blokowania połączeń przychodzących, takich jak połączenia RDP. Administrator może zalogować się do stacji roboczej ze wzmocnionymi zabezpieczeniami i uruchomić sesję RDP, która nawiązuje połączenie z platformą Azure po ustanowieniu połączenia sieci VPN z usługą Azure Virtual Network, ale nie może zalogować się na komputerze firmowym i użyć protokołu RDP do połączenia się z tą stacją roboczą.
@@ -176,7 +176,7 @@ Przenośny obraz przedstawiony na poniższej ilustracji jest systemem przyłącz
 
 ![][4]
 
-Pamiętaj, że prawdopodobieństwo utraty dysku flash USB jest wyższe niż prawdopodobieństwo utraty przeciętnego komputera stacjonarnego. Zaszyfrowanie całego woluminu przy użyciu funkcji BitLocker i silnego hasła utrudni osobie atakującej wykorzystanie obrazu dysku do szkodliwych celów. Ponadto jeśli dysk flash USB zostanie utracony, odwołanie i [wystawienie nowego certyfikatu zarządzania](https://technet.microsoft.com/library/hh831574.aspx) oraz szybkie zresetowanie hasła może ograniczyć zagrożenie. Dzienniki inspekcji administracyjnej znajdują się na platformie Azure, a nie na kliencie, co dodatkowo ogranicza ryzyko utraty danych.
+Pamiętaj, że prawdopodobieństwo utraty dysku flash USB jest wyższe niż prawdopodobieństwo utraty przeciętnego komputera stacjonarnego. Zaszyfrowanie całego woluminu przy użyciu funkcji BitLocker i silnego hasła utrudnia osobie atakującej wykorzystanie obrazu dysku do szkodliwych celów. Ponadto jeśli dysk flash USB zostanie utracony, odwołanie i [wystawienie nowego certyfikatu zarządzania](https://technet.microsoft.com/library/hh831574.aspx) oraz szybkie zresetowanie hasła może ograniczyć zagrożenie. Dzienniki inspekcji administracyjnej znajdują się na platformie Azure, a nie na kliencie, co dodatkowo ogranicza ryzyko utraty danych.
 
 ## <a name="best-practices"></a>Najlepsze praktyki
 Podczas zarządzania aplikacjami i danymi na platformie Azure należy uwzględnić poniższe dodatkowe zalecenia.
@@ -187,14 +187,14 @@ Nie wolno zakładać, że zabezpieczenie stacji roboczej zwalnia z obowiązku sp
 | Zakazy | Zalecenia |
 | --- | --- |
 | Nie wysyłaj pocztą e-mail poświadczeń umożliwiających dostęp z uprawnieniami administratora ani innych informacji poufnych (na przykład certyfikatów SSL lub certyfikatów zarządzania) |Zachowaj poufność, przekazując nazwy kont i hasła werbalnie (ale nie nagrywaj ich na poczcie głosowej), wykonując zdalną instalację certyfikatów klienta/serwera (za pośrednictwem sesji zaszyfrowanej), pobierając je z chronionego udziału sieciowego lub przekazując osobiście na nośniku wymiennym. |
-| Aktywnie zarządzaj cyklami życia certyfikatów zarządzania. | |
+| - | Aktywnie zarządzaj cyklami życia certyfikatów zarządzania. |
 | Nie przechowuj haseł nieszyfrowanych lub nieprzetworzonych za pomocą funkcji skrótu w magazynie aplikacji (takim jak arkusze kalkulacyjne, witryny programu SharePoint lub udziały plików). |Ustanów zasady zarządzania zabezpieczeniami i zwiększania bezpieczeństwa systemu oraz stosuj je w środowisku deweloperskim. |
-| Używaj reguł przypinania certyfikatów z zestawu narzędzi [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751), aby zapewnić prawidłowy dostęp do witryn Azure z obsługą protokołów SSL/TLS. | |
+| - | Używaj reguł przypinania certyfikatów z zestawu narzędzi [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751), aby zapewnić prawidłowy dostęp do witryn Azure z obsługą protokołów SSL/TLS. |
 | Nie udostępniaj kont i haseł innym administratorom ani nie używaj ponownie tych samych haseł dla wielu kont użytkowników lub usług, zwłaszcza związanych z mediami społecznościowymi lub innymi działaniami niezwiązanymi z administrowaniem. |Utwórz dedykowane konto Microsoft do zarządzania subskrypcją Azure — konto, które nie jest używane na potrzeby osobistej poczty e-mail. |
 | Nie przesyłaj plików konfiguracji pocztą e-mail. |Profile i pliki konfiguracji należy instalować z zaufanego źródła (na przykład zaszyfrowanego dysku flash USB), a nie przy użyciu mechanizmu, którego zabezpieczenia można łatwo złamać, takiego jak poczta e-mail. |
 | Nie używaj słabych lub prostych haseł do logowania. |Wymuszaj zasady silnych haseł, cykle wygaśnięcia (zmiana po pierwszym użyciu), limity czasu konsoli i automatyczne blokowanie kont. Używaj systemu zarządzania hasłami klientów z uwierzytelnianiem wieloskładnikowym do uzyskiwania dostępu do magazynu haseł. |
 | Nie zezwalaj na połączenia z Internetu na portach używanych do zarządzania. |Zablokuj porty i adresy IP platformy Azure, aby ograniczyć dostęp do zarządzania. Aby uzyskać więcej informacji, zobacz oficjalny dokument [Azure Network Security](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) (Zabezpieczenia sieci platformy Azure). |
-| Używaj zapór, sieci VPN i ochrony dostępu do sieci dla wszystkich połączeń związanych z zarządzaniem. | |
+| - | Używaj zapór, sieci VPN i ochrony dostępu do sieci dla wszystkich połączeń związanych z zarządzaniem. |
 
 ## <a name="azure-operations"></a>Operacje platformy Azure
 W związku z obsługą platformy Azure przez firmę Microsoft inżynierowie operacyjni i personel pomocy technicznej, uzyskujący dostęp do systemów produkcyjnych Azure, używają [stacji roboczych ze wzmocnionymi zabezpieczeniami z maszynami wirtualnymi](#stand-alone-hardened-workstation-for-management) aprowizowanymi na nich na potrzeby dostępu do wewnętrznej sieci firmy i aplikacji (takich jak poczta e-mail, intranet itp.). Wszystkie stacje robocze używane do zarządzania są wyposażone w moduł TPM, mają dysk rozruchowy hosta zaszyfrowany za pomocą funkcji BitLocker i są przyłączone do specjalnej jednostki organizacyjnej w podstawowej domenie firmy Microsoft.
@@ -210,7 +210,7 @@ Minimalizacja liczby zadań, które administratorzy mogą wykonywać na stacji r
 * Użytkownik standardowy. Uruchamianie jako użytkownik standardowy jest związane z kilkoma korzyściami, z których największą jest utrudnienie kradzieży poświadczeń administratora przy użyciu złośliwego oprogramowania. Ponadto konto użytkownika standardowego nie ma podwyższonych uprawnień w głównym systemie operacyjnym, a wiele opcji konfiguracji i interfejsów API jest domyślnie zablokowanych.
 * Funkcja AppLocker. Korzystając z funkcji [AppLocker](http://technet.microsoft.com/library/ee619725.aspx), można ograniczyć programy i skrypty, które użytkownicy mogą uruchamiać. Funkcję AppLocker można uruchomić w trybie inspekcji lub wymuszania. Domyślnie funkcja AppLocker ma regułę zezwalającą użytkownikom, którzy otrzymali token administratora, na uruchamianie całego kodu na kliencie. Tę regułę wprowadzono, aby zapobiec blokowaniu własnych kont przez administratorów. Dotyczy ona tylko tokenów z podwyższonym poziomem uprawnień. Zobacz też integralność kodu w ramach [podstawowych zabezpieczeń](http://technet.microsoft.com/library/dd348705.aspx) systemu Windows Server.
 * Podpisywanie kodu. Podpisywanie kodu wszystkich narzędzi i skryptów używanych przez administratorów zapewnia mechanizm wdrażania zasad blokowania aplikacji, którym można zarządzać. Skróty nie skalują się przy szybkich zmianach kodu, a ścieżki plików nie zapewniają wysokiego poziomu bezpieczeństwa. Połącz reguły funkcji AppLocker z [zasadami wykonywania](http://technet.microsoft.com/library/ee176961.aspx) programu PowerShell, które zezwalają na [wykonywanie](http://technet.microsoft.com/library/hh849812.aspx) tylko określonego podpisanego kodu i określonych podpisanych skryptów.
-* Zasady grupy. Utwórz globalne zasady administracyjne stosowane do każdej stacji roboczej w domenie, używanej do zarządzania (i zablokuj dostęp ze wszystkich pozostałych), a także do kont użytkowników uwierzytelnionych na tych stacjach roboczych.
+* Zasady grupy. Utwórz globalne zasady administracyjne stosowane do każdej stacji roboczej w domenie używanej do zarządzania (i zablokuj dostęp ze wszystkich pozostałych) oraz do kont użytkowników uwierzytelnionych na tych stacjach roboczych.
 * Bezpieczna aprowizacja. Chroń podstawowy obraz stacji roboczej ze wzmocnionymi zabezpieczeniami przed nieautoryzowaną modyfikacją. Do przechowywania obrazów, maszyn wirtualnych i skryptów stosuj środki ochrony, takie jak szyfrowanie i izolacja, oraz ogranicz dostęp (można użyć procesu zaewidencjonowania/wyewidencjonowania podlegającego inspekcji).
 * Stosowanie poprawek. Zachowaj spójną konfigurację (lub utwórz oddzielne obrazy dla projektowania, działań operacyjnych i innych zadań administracyjnych), regularnie skanuj w celu wykrycia zmian i złośliwego oprogramowania, aktualizuj konfigurację i uaktywniaj komputery tylko wtedy, gdy są potrzebne.
 * Szyfrowanie. Upewnij się, że stacje robocze używane do zarządzania są wyposażone w moduł TPM umożliwiający bardziej bezpieczne korzystanie z [systemu szyfrowania plików](https://technet.microsoft.com/library/cc700811.aspx) (EFS, Encrypting File System) i funkcji BitLocker. Jeśli jest używana funkcja Windows To Go, korzystaj wyłącznie z zaszyfrowanych dysków USB wraz z funkcją BitLocker.
@@ -235,6 +235,6 @@ Dostępne są następujące zasoby zawierające bardziej ogólne informacje doty
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

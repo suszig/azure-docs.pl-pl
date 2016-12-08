@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e94b11ab62afbea9381772a2bdb668fdc514d609
-ms.openlocfilehash: 2da23d881a23cc0fc23b63a7b9e06d9af9a755eb
+ms.sourcegitcommit: 5618650671badfc54860c3ad8af5d1e727d3d8c9
+ms.openlocfilehash: 40ccfc59cccd86a7634ec89656571b3cd23566b4
 
 
 ---
@@ -41,11 +41,12 @@ Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku musisz mi
 
 Aby móc pracować z usługą Data Lake Store przy użyciu języka Python, musisz zainstalować trzy moduły.
 
-Moduł azure obejmuje operacje zarządzania kontem usługi Azure Data Lake Store oraz inne moduły platformy Azure dla usługi Active Directory itd. Moduł azure-datalake-store obejmuje operacje systemu plików usługi Azure Data Lake Store. Moduł azure-datalake-analytics obejmuje operacje usługi Azure Data Lake Analytics. Użyj następujących poleceń, aby zainstalować moduły.
+Moduł azure-mgmt-datalake-store obejmuje operacje zarządzania kontem usługi Azure Data Lake Store. Moduł azure-mgmt-resource obejmuje inne moduły platformy Azure dla usługi Active Directory itd. Moduł azure-datalake-store obejmuje operacje systemu plików usługi Azure Data Lake Store. Moduł azure-datalake-analytics obejmuje operacje usługi Azure Data Lake Analytics. Użyj następujących poleceń, aby zainstalować moduły.
 
-    pip install azure
+    pip install azure-mgmt-resource
+    pip install azure-mgmt-datalake-store
+    pip install azure-mgmt-datalake-analytics
     pip install azure-datalake-store
-    pip install azure-datalake-analytics
 
 ## <a name="create-a-python-application"></a>Tworzenie aplikacji w języku Python
 
@@ -208,6 +209,6 @@ Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzie�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,10 +16,10 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 * Użycie portalu Azure do utworzenia centrum IoT.
 * Utworzenie tożsamości urządzenia w centrum IoT.
-* Utworzenie symulowanego urządzenia, które wysyła telemetrię do zaplecza chmury i odbiera z niego polecenia.
+* Utworzenie aplikacji symulowanego urządzenia, która wysyła telemetrię do zaplecza chmury i odbiera z niego polecenia.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 
