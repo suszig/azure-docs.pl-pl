@@ -71,7 +71,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Zastosuj filtr na indeks, aby znaleźć hotele, w których koszt noclegu jest niższy niż 150 USD, i zwróć pola `hotelId` i `description`:
+Zastosuj filtr na indeks, aby znaleźć hotele, w których koszt noclegu jest niższy niż 150 USD, i zwróć pola `hotelId` i `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
