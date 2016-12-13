@@ -5,7 +5,7 @@ ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
 ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
 
 ---
-#<a name="dns-documentation"></a>Dokumentacja usługi DNS
+# <a name="dns-documentation"></a>Dokumentacja usługi DNS
 
 Azure DNS (Domain Name System) to usługa przeznaczona dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury platformy Microsoft Azure.  Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure.
 
@@ -89,7 +89,7 @@ Azure DNS (Domain Name System) to usługa przeznaczona dla domen DNS, która umo
 <h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">

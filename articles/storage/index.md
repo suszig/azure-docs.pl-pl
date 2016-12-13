@@ -5,7 +5,8 @@ ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
 ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
 
 ---
-#<a name="storage-documentation"></a>Dokumentacja usługi Storage
+
+# <a name="storage-documentation"></a>Dokumentacja usługi Storage
 
 Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplikacji, które polegają na trwałości, dostępności i skalowalności, aby spełniać potrzeby klientów.  Jest wysoce skalowalne, elastyczne, globalnie dostępne, a przy tym automatycznie równoważy obciążenia na podstawie ruchu danych.  Usługa Azure Storage obejmuje pięć następujących usług udostępnianych aplikacjom: Blob Storage, Table Storage, Queue Storage, Disk Storage i File Storage.
 
@@ -102,7 +103,7 @@ Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplika
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -123,7 +124,7 @@ Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplika
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

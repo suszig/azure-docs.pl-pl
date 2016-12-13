@@ -120,7 +120,7 @@ Usługa Azure Virtual Machines (VM) to jeden z wielu skalowalnych zasobów oblic
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -135,7 +135,7 @@ Usługa Azure Virtual Machines (VM) to jeden z wielu skalowalnych zasobów oblic
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
