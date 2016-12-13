@@ -2,13 +2,13 @@
 layout: LandingPage
 +toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f03b3e68dd62cdf429162d3fe7d2342bbf254b52
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: c3607bf6699b83fb3fedf7cb7ccf9f1d97ad4c56
 
 ---
 #<a name="virtual-network-documentation"></a>Dokumentacja usługi Virtual Network
 
-Usługa Azure Virtual Network (VNet) jest logicznym odzwierciedleniem Twojej sieci w chmurze.  Dzięki sieci wirtualnej VNet możesz w pełni kontrolować elementy sieci i segmentować sieć VNet na podsieci, a także używać jej do uruchamiania maszyn wirtualnych lub usług w chmurze platformy Azure.  Ponadto możesz połączyć sieć VNet z siecią lokalna przy użyciu jednej z opcji łączności dostępnej na platformie Azure, aby rozszerzyć sieć do chmury przy jednoczesnym zachowaniu kontroli nad zasobami.
+Usługa Azure Virtual Network (VNet) jest logicznym odzwierciedleniem Twojej sieci w chmurze.  Dzięki sieci wirtualnej VNet możesz w pełni kontrolować elementy sieci i segmentować sieć VNet na podsieci, a także używać jej do uruchamiania usług Azure Virtual Machines lub Cloud Services.  Ponadto możesz połączyć sieć VNet z siecią lokalną przy użyciu jednej z opcji łączności dostępnej na platformie Azure, aby rozszerzyć sieć do chmury przy jednoczesnym zachowaniu kontroli nad zasobami.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -171,7 +171,7 @@ Usługa Azure Virtual Network (VNet) jest logicznym odzwierciedleniem Twojej sie
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Dokumentacja interfejsu API REST usługi Virtual Network</p>
+                        <p>Interfejs API REST usługi Virtual Network</p>
                     </div>
                 </div>
             </div>
@@ -191,6 +191,6 @@ Pobierz dokumentację usługi Virtual Network </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
 
 ---
 # <a name="api-management-documentation"></a>Dokumentacja usługi API Management
@@ -86,36 +86,46 @@ Usługa API Management pomaga organizacjom publikować interfejsy API dla dewelo
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Polecenie cmdlet programu PowerShell usługi Resource Manager dla usługi API Management</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Klasyczny program PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Dokumentacja interfejsu API REST usługi API Management</p>
+                        <p><a href="/rest/api/apimanagement/">Interfejs API REST</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">Interfejs API REST (oryginalny)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Inne</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">Zasady</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Szablony</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
@@ -131,6 +141,6 @@ Pobierz dokumentację usługi API Management </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

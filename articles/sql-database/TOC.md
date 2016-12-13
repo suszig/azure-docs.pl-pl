@@ -22,6 +22,7 @@
 ## Bezpieczeństwo
 ### [Usługa Azure Security Center dla usługi Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [Centrum zabezpieczeń SQL](https://msdn.microsoft.com/library/azure/bb510589)
+
 # Wprowadzenie
 ## Bazy danych i serwery
 ### Pojedyncze bazy danych
@@ -189,6 +190,7 @@
 #### [Uaktualnianie za pomocą witryny Azure Portal](sql-database-upgrade-server-portal.md)
 #### [Uaktualnianie za pomocą programu PowerShell](sql-database-upgrade-server-powershell.md)
 #### [Zalecenia dotyczące warstw cenowych](sql-database-service-tier-advisor.md)
+
 # Instrukcje
 ## Tworzenie i zarządzanie
 ### Serwery i bazy danych
@@ -315,7 +317,6 @@
 #### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 #### [Program PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## Rozwiązywanie problemów
 ### [Problemy z połączeniem](sql-database-troubleshoot-common-connection-issues.md)
 ### [Przejściowy błąd połączenia](sql-database-troubleshoot-connection.md)
@@ -325,26 +326,26 @@
 
 
 # Dokumentacja
-## [Program PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell — model klasyczny](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell (elastyczna baza danych)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https://docs.microsoft.com)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Polecenia cmdlet usługi Azure SQL Database](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [Polecenia cmdlet programu SQL Server](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
+# Powiązane
 ## Biblioteka zarządzania usługi SQL Database
-### [Dokumentacja biblioteki zarządzania usługi SQL Database](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Pobieranie pakietu biblioteki zarządzania usługi SQL Database](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [Sterowniki programu SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/sql-database/)
@@ -360,6 +361,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -43,33 +43,25 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
-
-
 # Instrukcje
-
 ## [Tworzenie konta magazynu](storage-create-storage-account.md)
-
 ## Zastosowania obiektów blob
 ### [Omówienie usługi](https://msdn.microsoft.com/library/dd179376.aspx)
 ### [Gorące i chłodne warstwy](storage-blob-storage-tiers.md)
 ### [Niestandardowe domeny](storage-custom-domain-name.md)
 ### [Anonimowy dostęp do obiektów blob](storage-manage-access-to-resources.md)
 ### [Przykłady](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
-
 ## Korzystanie z kolejek
 ### [Pojęcia](https://msdn.microsoft.com/library/dd179353.aspx)
 ### [Przykłady](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
-
 ## Korzystanie z tabel
 ### [Omówienie](https://msdn.microsoft.com/library/dd179463.aspx)
 ### [Przewodnik po projektowaniu tabel](storage-table-design-guide.md)
 ### [Przykłady](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
-
 ## Korzystanie z plików
 ### [Omówienie](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
 ### [Rozwiązywanie problemów z plikami platformy Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Przykłady](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-
 ## Korzystanie z dysków maszyny wirtualnej
 ### Premium Storage
 #### [Magazyn o dużej wydajności dla obciążeń maszyny wirtualnej](storage-premium-storage.md)
@@ -77,24 +69,20 @@
 #### [Projektowanie pod kątem wysokiej wydajności](storage-premium-storage-performance.md)
 ### Konto magazynu w warstwie Standardowa
 #### [Wykonywanie kopii zapasowych dysków maszyny wirtualnej przy użyciu migawek przyrostowych](storage-incremental-snapshots.md)
-
 ## Planowanie i projektowanie
 ### [Replikacja](storage-redundancy.md)
 ### [Cele dotyczące skalowalności i wydajności](storage-scalability-targets.md)
 ### [Lista kontrolna wydajności i skalowalności](storage-performance-checklist.md)
 ### [Współbieżność](storage-concurrency.md)
-
 ## Programowanie
 ### [Przykłady](storage-samples.md)
 ### [Konfigurowanie parametrów połączenia](storage-configure-connection-string.md)
 ### [Korzystanie z emulatora magazynu](storage-use-emulator.md)
 ### [Ustawianie i pobieranie właściwości oraz metadanych](storage-properties-metadata.md)
-
 ## Zarządzanie
 ### [Program PowerShell](storage-powershell-guide-full.md)
 ### [Interfejs wiersza polecenia platformy Azure](storage-azure-cli.md)
 ### [Azure Automation](automation-manage-storage.md)
-
 ## Bezpieczeństwo
 ### [Przewodnik dotyczący zabezpieczeń](storage-security-guide.md)
 ### [Szyfrowanie nieużywanych danych](storage-service-encryption.md)
@@ -105,7 +93,6 @@
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
-
 ## Monitorowanie i rozwiązywanie problemów
 ### Metryki i rejestrowanie
 #### [Analityka magazynu](storage-analytics.md)
@@ -117,29 +104,29 @@
 #### [We wdrożeniu klasycznym](storage-cannot-delete-storage-account-container-vhd.md)
 ### [Rozwiązywanie problemów z usługą File Storage](storage-troubleshoot-file-connection-problems.md)
 ### [Wskazówki dotyczące odzyskiwania po awarii](storage-disaster-recovery-guidance.md)
-
 ## Transfer danych
 ### [Przenoszenie danych do magazynu i poza magazyn](storage-moving-data.md)
 ### [Narzędzie wiersza polecenia AzCopy](storage-use-azcopy.md)
 ### [Usługa Import/Export dla usługi Blob Storage](storage-import-export-service.md)
 
-
-
 # Dokumentacja
-## [PowerShell](/powershell/storage/)
+## [PowerShell](/powershell/storage)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/storage)
-## [Java](/java/api/)
-
 ## .NET
-### [Obiekt blob, kolejka, tabela i plik](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-### [Dostawca zasobów](/dotnet/api/)
-### [Przenoszenie danych](/dotnet/api/)
-
-## REST
-### [Obiekt blob, kolejka, tabela i plik](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
-### [Dostawca zasobów](/rest/api/storagerp/)
+### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
+### [Przenoszenie danych](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Obiekty blob, kolejki, tabele i pliki](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+## [Java](/java/api/)
+## [Node.js](http://azure.github.io/azure-storage-node)
+## [Ruby](http://azure.github.io/azure-storage-ruby)
+## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
+## [C++](http://azure.github.io/azure-storage-cpp)
+## [iOS](https://github.com/Azure/azure-storage-ios)
+## [Android](http://azure.github.io/azure-storage-android)
+## [REST]
+### [Obiekty blob, kolejki, tabele i pliki](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Dostawca zasobów](/rest/api/storagerp)
 ### [Import/eksport](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
-
 
 # Powiązane
 ## Klasyczny portal
@@ -147,8 +134,6 @@
 ### [Włączanie i wyświetlanie metryk](storage-enable-and-view-metrics-classic-portal.md)
 ### [Monitorowanie, diagnozowanie i rozwiązywanie problemów](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
 ### [Samouczek dotyczący rozwiązywania problemów](storage-e2e-troubleshooting-classic-portal.md)
-
-
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/)
@@ -181,6 +166,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

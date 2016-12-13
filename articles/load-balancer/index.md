@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3c37b481761af546060e36b4a51e7d96dd4646
-ms.openlocfilehash: 7814791b5308152fa2b7d6d640401079b1a46107
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 4c909a151ec60d62ae472e24617b28fc71342eae
 
 ---
 #<a name="load-balancer-documentation"></a>Dokumentacja usługi Load Balancer
@@ -156,7 +156,7 @@ Usługa Azure Load Balancer zapewnia Twoim aplikacjom wysoką dostępność i wy
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Dokumentacja interfejsu REST API usługi Load Balancer</p>
+                        <p>Interfejs API REST usługi Load Balancer</p>
                     </div>
                 </div>
             </div>
@@ -175,6 +175,6 @@ Pobierz dokumentację usługi Load Balancer </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

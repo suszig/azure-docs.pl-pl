@@ -45,21 +45,21 @@
 ###[Aktualizowanie do innego rozmiaru i innej warstwy](cache-how-to-scale.md)
 ###[Używanie klastra pamięci podręcznej Redis do skalowania w pionie i w poziomie](cache-how-to-premium-clustering.md)
 
-#Dokumentacja
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Dokumentacja
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Klienci Redis](http://redis.io/clients)
 ## [Polecenia Redis](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Zasoby
 ## [Przykłady użycia pamięci podręcznej Redis](cache-redis-samples.md)
-
-#Zasoby
-##[Cennik](https://azure.microsoft.com/pricing/details/cache/)
+## [Cennik](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

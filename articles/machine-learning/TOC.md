@@ -26,6 +26,10 @@
 ### [3: Ask the right question](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) (3. Zadawanie prawidłowych pytań)
 ### [4: Predict an answer](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (4. Przewidywanie odpowiedzi)
 ### [5: Copy other people's work](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) (5. Kopiowanie pracy innych osób)
+
+## [R quick start](machine-learning-r-quickstart.md) (Język R — Szybki start)
+
+
 # Instrukcje
 ## Konfigurowanie narzędzi i programów narzędziowych
 ### [Konfigurowanie środowisk](machine-learning-data-science-environment-setup.md)
@@ -167,14 +171,15 @@
 #### [Pakiet zwykłego rozkładu](machine-learning-r-csharp-normal-distribution.md)
 #### [Pakiet rozkładu dwumianowego](machine-learning-r-csharp-binomial-distribution.md)
 #### [Marketplace FAQ](machine-learning-marketplace-faq.md) (Często zadawane pytania dotyczące witryny Marketplace)
+
 # Dokumentacja
-## [Program PowerShell](/powershell/azureps-cmdlets-docs)
+## [Program PowerShell](/azure/machine-learning/machine-learning-powershell-module)
 ## [Moduł programu PowerShell dla usługi Machine Learning](machine-learning-powershell-module.md)
-## [Algorithm reference](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Dokumentacja algorytmów)
-## [R quick start](machine-learning-r-quickstart.md) (Język R — Szybki start)
-## [Język programowania sieci neuronowych Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [Interfejsy API REST zarządzania](/rest/api/machinelearning/index)
+## [Dokumentacja algorytmów i modułu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # Powiązane
+
 ## Cortana Intelligence Gallery
 ### [Omówienie](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Branże](machine-learning-gallery-industries.md)
@@ -205,7 +210,10 @@
 ##### [Omówienie](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md) (Podręcznik)
 ##### [Konfigurowanie](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # Zasoby
+## [Kody błędów interfejsu REST usługi Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+## [Język programowania sieci neuronowych Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +222,7 @@
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Get help from live chat](machine-learning-live-chat.md) (Uzyskaj pomoc przez czat na żywo)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

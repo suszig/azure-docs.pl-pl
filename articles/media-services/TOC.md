@@ -195,16 +195,18 @@
 ### [Logika ponowień](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Dokumentacja
-## [Informacje o wersji](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (zarządzanie usługami)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Zasoby
+## [Informacje o wersji](media-services-release-notes.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Społeczność usługi Azure Media Services](media-services-community.md)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

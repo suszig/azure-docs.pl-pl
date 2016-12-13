@@ -61,12 +61,15 @@
 ### [Interfejs API wyszukiwania w dzienniku](log-analytics-log-search-api.md)
 ### [Interfejs API alertów](log-analytics-api-alerts.md)
 
+# Dokumentacja
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # Zasoby
 ## [Uaktualnienie programu Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Cennik](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

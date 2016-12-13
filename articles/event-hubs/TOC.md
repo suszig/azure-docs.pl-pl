@@ -24,14 +24,14 @@
 ### [Korzystanie z języka Python w celu włączenia archiwum usługi Event Hubs](event-hubs-archive-python.md)
 
 # Dokumentacja
-## [Limity przydziału i ograniczenia](event-hubs-quotas.md)
-## [Wyjątki obsługi komunikatów](event-hubs-messaging-exceptions.md)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
-## [Przewodnik po protokole AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [.NET](/dotnet/api/microsoft.azure.eventhubs)
+## [Java](/java/api/com.microsoft.azure.eventhubs)
 ## [REST](/rest/api/eventhub)
 
 # Zasoby
+## [Limity przydziału i ograniczenia](event-hubs-quotas.md)
+## [Wyjątki obsługi komunikatów](event-hubs-messaging-exceptions.md)
+## [Przewodnik po protokole AMQP1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## [Cennik](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Eksplorator usługi Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
@@ -40,6 +40,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

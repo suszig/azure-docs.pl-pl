@@ -181,12 +181,12 @@
 #### [Wydajność zapytań technologii Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Dokumentacja
-## [Polecenia cmdlet programu PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
-## [Zestaw SDK dla platformy .NET usługi Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
-## [Zestaw SDK platformy .NET dla bazy danych HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [Biblioteka .NET dla systemu Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [Dokumentacja interfejsu API REST](/rest/api/hdinsight/)
-## [Interfejs API REST platformy Spark na potrzeby zdalnej obsługi zadań](/rest/api/hdinsightspark/)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # Powiązane
 ## Klastry systemu Windows
@@ -224,6 +224,6 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

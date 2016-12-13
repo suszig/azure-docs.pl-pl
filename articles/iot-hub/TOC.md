@@ -8,6 +8,10 @@
 ### [Wprowadzenie do usługi IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Wprowadzenie do usługi IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Wprowadzenie do usługi IoT Hub (Node)](iot-hub-node-node-getstarted.md)
+## Rozpoczynanie pracy z zestawem SDK urządzeń IoT
+### [Wprowadzenie do zestawu SDK urządzeń Azure IoT dla języka C](iot-hub-device-sdk-c-intro.md)
+### [Zestaw SDK urządzeń IoT dla języka C: więcej informacji na temat usługi IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [Zestaw SDK urządzeń IoT dla języka C: więcej informacji na temat serializatora](iot-hub-device-sdk-c-serializer.md)
 ## Rozpoczynanie pracy z urządzeniem Raspberry Pi
 ### [Rozpoczynanie pracy z urządzeniem Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Lekcja 1. Konfigurowanie urządzenia
@@ -32,6 +36,7 @@
 ## [Wprowadzenie do zestawu SDK bramy (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Wprowadzenie do zestawu SDK bramy (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 # Instrukcje
 ## [Samouczek przetwarzania komunikatów przesyłanych z urządzeń do chmury (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Samouczek przetwarzania komunikatów przesyłanych z urządzeń do chmury (Java)](iot-hub-java-java-process-d2c.md)
@@ -51,7 +56,7 @@
 ## [Używanie zadań urządzeń do aktualizacji oprogramowania układowego urządzenia dla platformy .NET/Node](iot-hub-csharp-node-firmware-update.md)
 ## [Planowanie i emitowanie zadań dla platformy Node.js](iot-hub-node-node-schedule-jobs.md)
 ## [Planowanie i emitowanie zadań dla platformy .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
-## Planowanie wdrożenia
+## Planowanie
 ### [Porównanie usług IoT Hub i Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Skalowanie rozwiązania](iot-hub-scaling.md)
 ### [Wysoka dostępność i odzyskiwanie po awarii](iot-hub-ha-dr.md)
@@ -74,9 +79,10 @@
 ### [Zestawy SDK urządzeń i usługi](iot-hub-devguide-sdks.md)
 ### [Obsługa protokołu MQTT](iot-hub-mqtt-support.md)
 ### [Słownik](iot-hub-devguide-glossary.md)
-## Zarządzanie usługą
+## Zarządzanie
 ### [Tworzenie centrum IoT Hub przy użyciu portalu](iot-hub-create-through-portal.md)
-### [Tworzenie centrum IoT Hub przy użyciu interfejsu wiersza polecenia](iot-hub-create-using-cli.md)
+### [Tworzenie centrum IoT Hub przy użyciu interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza)](iot-hub-create-using-cli.md)
+### [Tworzenie centrum IoT Hub przy użyciu interfejsu wiersza polecenia](iot-hub-create-using-cli-nodejs.md)
 ### [Tworzenie centrum IoT Hub przy użyciu interfejsu REST](iot-hub-rm-rest.md)
 ### [Tworzenie centrum IoT Hub przy użyciu programu PowerShell](iot-hub-rm-template-powershell.md)
 ### [Tworzenie centrum IoT Hub przy użyciu szablonu](iot-hub-rm-template.md)
@@ -96,22 +102,21 @@
 ### [Zabezpieczanie wdrożenia IoT](iot-hub-security-deployment.md)
 
 # Dokumentacja
-## [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [Interfejs API .NET](https://docs.microsoft.com/dotnet/api)
+## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/iot)
+## [.NET (usługa)](/dotnet/api/microsoft.azure.devices)
+## [.NET (urządzenia)](/dotnet/api/microsoft.azure.devices.client)
+## [Java (usługa)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (urządzenia)](/java/api/com.microsoft.azure.iothub)
 ## [Zestawy SDK usługi Azure IoT](http://azure.github.io/azure-iot-sdks/)
-## [Interfejs API zestawu SDK bramy](http://azure.github.io/azure-iot-gateway-sdk)
-## [Interfejs API REST dostawcy zasobów](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [Interfejs API REST tożsamości urządzeń](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [Interfejs API REST komunikatów urządzenia](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [Wprowadzenie do zestawu SDK urządzeń Azure IoT dla języka C](iot-hub-device-sdk-c-intro.md)
-## [Zestaw SDK urządzeń IoT dla języka C: więcej informacji na temat usługi IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-## [Zestaw SDK urządzeń IoT dla języka C: więcej informacji na temat serializatora](iot-hub-device-sdk-c-serializer.md)
+## [Zestaw SDK bramy](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST (dostawca zasobów)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST (tożsamości urządzeń)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST (komunikaty urządzenia) — interfejs API REST](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Powiązane
 ## [Pakiet IoT Azure](https://azure.microsoft.com/documentation/suites/iot-suite/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Analiza strumienia](https://azure.microsoft.com/documentation/services/stream-analytics/)
+## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Zasoby
@@ -125,6 +130,6 @@
 ## [Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

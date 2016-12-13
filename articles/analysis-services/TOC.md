@@ -12,8 +12,12 @@
 ###[Brama danych lokalnych](analysis-services-gateway.md)
 
 # Dokumentacja
+##[Program PowerShell](/powershell/resourcemanager)
+##[REST](/rest/api/analysisservices/)
+
+# Powiązane
 ##[Połączenia źródła danych](analysis-services-datasource.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

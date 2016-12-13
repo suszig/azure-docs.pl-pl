@@ -12,6 +12,7 @@
 ## [Korzystanie z interfejsu API REST](data-lake-store-get-started-rest-api.md)
 ## [Korzystanie z interfejsu wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
 ## [Korzystanie ze środowiska Node.js](data-lake-store-manage-use-nodejs.md)
+## [Korzystanie z języka Python](data-lake-store-get-started-python.md)
 
 # Instrukcje
 ## Kopiowanie danych
@@ -21,14 +22,6 @@
 ### [Korzystanie z narzędzia Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Przekazywanie danych ze źródeł offline](data-lake-store-offline-bulk-data-upload.md)
 
-## Programowanie
-### [Korzystanie z programu PowerShell](data-lake-store-get-started-powershell.md)
-### [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-get-started-net-sdk.md)
-### [Korzystanie z zestawu SDK dla języka Java](data-lake-store-get-started-java-sdk.md)
-### [Korzystanie z interfejsu API REST](data-lake-store-get-started-rest-api.md)
-### [Korzystanie z interfejsu wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
-### [Korzystanie ze środowiska Node.js](data-lake-store-manage-use-nodejs.md)
-
 ## Zabezpieczanie danych
 ### [Omówienie zabezpieczeń](data-lake-store-security-overview.md)
 ### [Kontrola dostępu w usłudze Data Lake Store](data-lake-store-access-control.md)
@@ -37,6 +30,7 @@
 ### [Uwierzytelnianie użytkowników końcowych](data-lake-store-end-user-authenticate-using-active-directory.md)
 
 ## Integracja z usługami Azure Services
+### [Uzyskiwanie dostępu z poziomu maszyn wirtualnych w sieci wirtualnej platformy Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Używanie z usługą Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Tworzenie klastra HDInsight z usługą Data Lake Store za pomocą portalu](data-lake-store-hdinsight-hadoop-use-portal.md)
 ### [Tworzenie klastra HDInsight z usługą Data Lake Store za pomocą programu PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
@@ -49,13 +43,16 @@
 
 ## Zarządzanie
 ### [Uzyskiwanie dostępu do dzienników diagnostycznych](data-lake-store-diagnostic-logs.md)
+### [Planowanie na potrzeby wysokiej dostępności](data-lake-store-troubleshooting-guidance.md)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/azureps-cmdlets-docs)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](/rest/api/datalakestore/)
+## [Python (zarządzanie kontem)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python (zarządzanie systemem plików)](http://azure-datalake-store.readthedocs.io/en/latest)
+## [REST](/rest/api/datalakestore)
 
 # Zasoby
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-lake-store)
@@ -67,6 +64,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
