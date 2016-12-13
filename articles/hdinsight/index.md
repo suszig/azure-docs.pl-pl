@@ -138,7 +138,7 @@ Usługa Azure HDInsight to dystrybucja usługi Apache Hadoop obsługiwana przez 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -152,7 +152,7 @@ Usługa Azure HDInsight to dystrybucja usługi Apache Hadoop obsługiwana przez 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

@@ -173,7 +173,7 @@ Usługa Azure Data Lake Store zapewnia repozytorium w hiperskali przeznaczone dl
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -189,7 +189,7 @@ Usługa Azure Data Lake Store zapewnia repozytorium w hiperskali przeznaczone dl
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

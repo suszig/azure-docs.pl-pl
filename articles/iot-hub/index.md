@@ -119,7 +119,7 @@ Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i n
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -136,7 +136,7 @@ Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i n
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

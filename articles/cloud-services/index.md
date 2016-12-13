@@ -5,7 +5,7 @@ ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
 ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
 
 ---
-#<a name="cloud-services-documentation"></a>Dokumentacja usług Cloud Services
+# <a name="cloud-services-documentation"></a>Dokumentacja usług Cloud Services
 
 Usługi Cloud Services są przykładem wdrożenia platformy jako usługi (PaaS, Platform as a Service). Jest to rozwiązanie przeznaczone do obsługi aplikacji, które są skalowalne, niezawodne i ekonomiczne w działaniu. Dzięki usługom Cloud Services zyskujesz korzyści wirtualizacji, a jednocześnie masz kontrolę nad maszyną wirtualną w zakresie konfigurowania oraz instalowania poprawek i oprogramowania.  
 
@@ -89,8 +89,7 @@ Usługi Cloud Services są przykładem wdrożenia platformy jako usługi (PaaS, 
 <h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-    <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -103,7 +102,7 @@ Usługi Cloud Services są przykładem wdrożenia platformy jako usługi (PaaS, 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
