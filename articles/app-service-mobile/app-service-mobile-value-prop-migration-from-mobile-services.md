@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 
 
 ---
@@ -44,7 +44,7 @@ W *usłudze Azure App Service* kod zaplecza *plikacji mobilnej* działa w tym sa
 * (.NET) Korzystanie z dowolnej funkcji programu ASP.NET, w tym MVC.
 * (Node.js) Korzystanie z dowolnej czystej biblioteki języka JavaScript ekosystemu języka Node, w tym wspólnych bibliotek MVC.
 
-## <a name="access-onpremises-data-using-vnet"></a>Dostęp do danych lokalnych przy użyciu sieci wirtualnej
+## <a name="access-on-premises-data-using-vnet"></a>Dostęp do danych lokalnych przy użyciu sieci wirtualnej
 Obecnie w usłudze Mobile Services można już uzyskiwać dostęp do zasobów lokalnych za pomocą połączeń hybrydowych. W niektórych sytuacjach preferowane jest jednak użycie rozwiązania VPN. *Usługa Azure App Service* umożliwia korzystanie z sieci wirtualnej platformy Azure na potrzeby kodu zaplecza aplikacji mobilnej.
 
 ## <a name="use-your-favorite-backend-language"></a>Korzystanie z ulubionego języka zaplecza
@@ -67,6 +67,6 @@ Aby rozpocząć korzystanie z zalet *usługi App Service* dla istniejącej Usłu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

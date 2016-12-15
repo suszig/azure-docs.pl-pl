@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/20/2016
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 31d7a8d1abb59e096a657c4a74743adfc0d137b6
-ms.openlocfilehash: 01c1e7b58a7dce3c640ac151b3ac708ce2b7d913
+ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
+ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
 
 
 ---
@@ -70,10 +70,10 @@ Usługę Azure Functions można integrować z różnymi usługami platformy Azur
 ## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Ile kosztuje usługa Azure Functions?
 Usługa Azure Functions oferuje dwa rodzaje planów cenowych. Wybierz ten, który najlepiej zaspokaja Twoje potrzeby: 
 
-* **Plan zużycia** — po uruchomieniu funkcji platforma Azure udostępnia wszystkie niezbędne zasoby obliczeniowe. Nie musisz martwić się o zarządzanie zasobami i płacisz tylko za czas działania kodu. Szczegółowe informacje są dostępne na [stronie cennika usługi Functions](/pricing/details/functions). 
-* **Plan usługi App Service** — uruchamianie funkcji tak samo jak aplikacji sieci Web, mobilnych i interfejsu API. Jeśli już używasz usługi App Service dla innych aplikacji, możesz uruchamiać swoje funkcje w ramach tego samego planu bez dodatkowych kosztów. Szczegółowe informacje są dostępne na [stronie cennika usługi App Service](/pricing/details/app-service/).
+* **Plan zużycia** — po uruchomieniu funkcji platforma Azure udostępnia wszystkie niezbędne zasoby obliczeniowe. Nie musisz martwić się o zarządzanie zasobami i płacisz tylko za czas działania kodu. 
+* **Plan usługi App Service** — uruchamianie funkcji tak samo jak aplikacji sieci Web, mobilnych i interfejsu API. Jeśli już używasz usługi App Service dla innych aplikacji, możesz uruchamiać swoje funkcje w ramach tego samego planu bez dodatkowych kosztów. 
 
-Aby uzyskać więcej informacji na temat skalowania funkcji, zobacz artykuł [Jak skalować usługę Azure Functions](functions-scale.md).
+Szczegółowe informacje są dostępne na [stronie cennika usługi Functions](https://azure.microsoft.com/pricing/details/functions/). Aby uzyskać więcej informacji na temat skalowania funkcji, zobacz artykuł [Jak skalować usługę Azure Functions](functions-scale.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pierwszej funkcji platformy Azure](functions-create-first-azure-function.md)  
@@ -90,6 +90,6 @@ Aby uzyskać więcej informacji na temat skalowania funkcji, zobacz artykuł [Ja
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

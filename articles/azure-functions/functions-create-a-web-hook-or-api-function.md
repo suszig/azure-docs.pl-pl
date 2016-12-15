@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 11/29/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 47a89987b65b442c7b489984a4fc139eb1b82758
-ms.openlocfilehash: 8efde94c5771212b4549f10882a4e55739231d61
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: a74fc30480068788f33df092594119253df9487b
 
 
 ---
@@ -34,7 +34,7 @@ W poniższym wideo pokazano, jak wykonać podstawowe czynności opisane w tym sa
 >
 
 ## <a name="create-a-webhook-triggered-function-from-the-template"></a>Tworzenie funkcji wyzwalanej przez element webhook przy użyciu szablonu
-Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Aby utworzyć funkcję, musisz mieć aktywne konto platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, [dostępne są konta bezpłatne](https://azure.microsoft.com/free/). 
+Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Jeśli nie masz jeszcze konta platformy Azure, zapoznaj się ze środowiskiem [Wypróbuj funkcje](https://functions.azure.com/try) lub [utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/). 
 
 1. Przejdź do [portalu Azure Functions](https://functions.azure.com/signin) i zaloguj się przy użyciu konta platformy Azure.
 
@@ -50,9 +50,12 @@ Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Aby utworz
 
 1. Skopiuj wartości zawarte w polach **Adres URL funkcji** i **Klucz tajny usługi GitHub**. Wartości będą potrzebne podczas tworzenia elementu webhook w usłudze GitHub. 
 
-2. Przewiń w dół do obszaru **Uruchamianie**, zwróć uwagę na wstępnie zdefiniowany kod JSON w treści żądania komentarza i kliknij pozycję **Uruchom**. 
+2. Kliknij pozycję **Testowanie**, zwróć uwagę na wstępnie zdefiniowany kod JSON komentarza problemu w **treści żądania**, a następnie kliknij przycisk **Uruchom**. 
+
+    ![Testowanie funkcji elementu webhook w portalu](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    Na karcie **Tworzenie** możesz w dowolnym momencie przetestować nową funkcję opartą na szablonie, podając oczekiwane dane kodu JSON i klikając przycisk **Uruchom**. W tym przypadku szablon zawiera wstępnie zdefiniowaną treść komentarza dotyczącego problemu. 
+    > [!NOTE]
+    > Na karcie **Tworzenie** możesz w dowolnym momencie przetestować nową funkcję opartą na szablonie, podając oczekiwane dane kodu JSON i klikając przycisk **Uruchom**. W tym przypadku szablon zawiera wstępnie zdefiniowaną treść komentarza dotyczącego problemu. 
 
 W następnym kroku zostanie utworzony rzeczywisty element webhook w repozytorium GitHub.
 
@@ -91,6 +94,6 @@ Poniższe tematy umożliwiają uzyskanie dodatkowych informacji na temat usługi
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
 
 
 ---
@@ -56,7 +56,7 @@ Następny samouczek z tej serii dotyczy wdrożenia frontonu aplikacji jednostron
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Interfejs API sieci Web platformy ASP.NET — w instrukcjach samouczka założono, że masz podstawową wiedzę z zakresu korzystania z [interfejsu API sieci Web 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) platformy ASP.NET w programie Visual Studio.
-* Konto platformy Azure — możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Konto platformy Azure — możesz [utworzyć konto bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
     Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751). W tej lokalizacji możesz od razu utworzyć początkową aplikację o krótkim okresie istnienia w usłudze App Service — **bez karty kredytowej** i bez zobowiązań.
 * Program Visual Studio 2015 z [zestawem Azure SDK dla platformy .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) — jeśli nie masz jeszcze programu Visual Studio 2015, zostanie on automatycznie zainstalowany podczas instalacji tego zestawu SDK.
@@ -442,6 +442,6 @@ Użycie szablonu projektu **aplikacji interfejsu API na platformie Azure** jest 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

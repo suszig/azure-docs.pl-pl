@@ -14,175 +14,189 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/06/2016
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: a0a46708645be91f89b0a6ae9059468bc84aeb11
-ms.openlocfilehash: c6905452951910d3c62bc5152741a8ead26196ef
+ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
+ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
 
 
 ---
-# <a name="create-an-azure-function-which-binds-to-an-azure-service"></a>Tworzenie funkcji platformy Azure powiązanej z usługą platformy Azure
-[!INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Tworzenie funkcji platformy Azure połączonej z usługą platformy Azure
 
-Ten krótki film wideo zawiera informacje na temat tworzenia funkcji platformy Azure, która nasłuchuje komunikatów za pomocą kolejki platformy Azure i kopiuje je do obiektu Blob platformy Azure.
+W tym temacie opisano sposób tworzenia funkcji platformy Azure, która nasłuchuje komunikatów w kolejce usługi Azure Storage i kopiuje je do wierszy w tabeli usługi Azure Storage. Funkcja wyzwalana przez czasomierz służy do ładowania komunikatów do kolejki. Druga funkcja odczytuje komunikaty z kolejki i zapisuje je do tabeli. Zarówno kolejka, jak i tabela są tworzone przez usługę Azure Functions na podstawie definicji powiązania. 
+
+Aby było ciekawiej, jedna funkcja została napisana w języku JavaScript, a druga w języku C#. To pokazuje, w jaki sposób aplikacja funkcji może mieć funkcje w różnych językach.
 
 ## <a name="watch-the-video"></a>Obejrzyj film
 >[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
 >
 >
 
-## <a name="create-an-input-queue-trigger-function"></a>Tworzenie funkcji wyzwalacza danych wejściowych w kolejce
-Celem tej funkcji jest pisanie komunikatu do kolejki co 10 sekund. W tym celu należy utworzyć kolejki komunikatów i funkcji, a następnie dodać kod, aby zapisywać komunikaty w nowo tworzonych kolejkach.
+## <a name="create-a-function-that-writes-to-the-queue"></a>Tworzenie funkcji, która zapisuje do kolejki
 
-1. Przejdź do witryny Azure Portal i wyszukaj aplikację funkcji platformy Azure.
-2. Kliknij pozycję **Nowa funkcja** > **TimerTrigger — Node**. Nadaj funkcji nazwę **FunctionsBindingsDemo1**.
-3. Wprowadź wartość „0/10 * * * * *” zgodnie z harmonogramem. Ta wartość jest podawana w postaci wyrażenia cron. Spowoduje to zaplanowanie uruchamiania czasomierza co 10 sekund.
-4. Kliknij przycisk **Utwórz**, aby utworzyć funkcję.
-   
-    ![Dodawanie funkcji czasomierza wyzwalacza](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
-5. Sprawdź, czy funkcja działa, wyświetlając działanie w dzienniku. Być może trzeba będzie kliknąć link **Dzienniki** w prawym górnym rogu, aby wyświetlić okienko dziennika.
-   
-   ![Sprawdzanie, czy funkcja działa przez wyświetlenie działania w dzienniku](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+Przed połączeniem się z kolejką magazynu należy utworzyć funkcję, która ładuje kolejkę komunikatów. Ta funkcja JavaScript korzysta z wyzwalacza czasomierza, który zapisuje komunikat do kolejki co 10 sekund. Jeśli nie masz jeszcze konta platformy Azure, zapoznaj się ze środowiskiem [Wypróbuj funkcje Azure](https://functions.azure.com/try) lub [utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/).
 
-### <a name="add-a-message-queue"></a>Dodawanie kolejki komunikatów
-1. Przejdź na kartę **Integracja**.
-2. Wybierz kolejno pozycje **Nowe dane wyjściowe** > **Kolejka usługi Azure Storage** > **Wybierz**.
-3. Wprowadź wartość **myQueueItem** w polu tekstowym **Nazwa parametru komunikatu**.
-4. Wybierz konto magazynu lub kliknij pozycję **Nowe** w celu utworzenia konta magazynu, jeśli jeszcze go nie masz.
-5. Wprowadź wartość **functions-bindings** w polu tekstowym **Nazwa kolejki**.
-6. Kliknij pozycję **Zapisz**.  
-   
-   ![Dodawanie funkcji czasomierza wyzwalacza](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+1. Przejdź do witryny Azure Portal i wyszukaj aplikację funkcji.
 
-### <a name="write-to-the-message-queue"></a>Zapisywanie w kolejce komunikatów
-1. Wróć na kartę **Opracowywanie**, a następnie dodaj następujący kod do funkcji po istniejącym kodzie:
+2. Kliknij pozycje **Nowa funkcja** > **TimerTrigger-JavaScript**. 
+
+3. Nadaj funkcji nazwę **FunctionsBindingsDemo1**, wprowadź wartość wyrażenia cron `0/10 * * * * *` w polu **Harmonogram**, a następnie kliknij przycisk **Utwórz**.
+   
+    ![Dodawanie funkcji wyzwalanej czasomierzem](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
+
+    W ten sposób została utworzona funkcja wyzwalana czasomierzem, uruchamiana co 10 sekund.
+
+5. Na karcie **Programowanie** kliknij przycisk **Dzienniki**, aby wyświetlić aktywność w dzienniku. Zobaczysz wpisy dziennika zapisywane co 10 sekund.
+   
+    ![Wyświetlanie dziennika w celu sprawdzenia, czy funkcja działa](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+
+## <a name="add-a-message-queue-output-binding"></a>Dodawanie powiązania wyjściowego kolejki komunikatów
+
+1. Na karcie **Integracja** wybierz elementy **Nowe dane wyjściowe** > **Azure Queue Storage** > **Wybierz**.
+
+    ![Dodawanie funkcji czasomierza wyzwalacza](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+
+2. Wprowadź wartość `myQueueItem` w polu **Nazwa parametru komunikatu** i `functions-bindings` w polu **Nazwa kolejki**, wybierz istniejące **Połączenie konta magazynu** lub kliknij pozycję **nowe**, aby utworzyć nowe połączenie konta magazynu, a następnie kliknij przycisk **Zapisz**.  
+
+    ![Tworzenie powiązania wyjściowego do kolejki magazynu](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
+
+1. Po powrocie na kartę **Programowanie** dołącz następujący kod do funkcji:
    
     ```javascript
    
     function myQueueItem() 
-      {
+    {
         return {
-        msg: "some message goes here",
-        time: "time goes here"
-      }
+            msg: "some message goes here",
+            time: "time goes here"
+        }
     }
    
     ```
-2. Modyfikowanie istniejącego kodu funkcji w celu wywołania kodu dodanego w kroku 1 Wstaw następujący kod około wiersza 9 funkcji po instrukcji *if*.
+2. Znajdź instrukcję *if* około wiersza 9 funkcji i wstaw następujący kod po tej instrukcji.
    
     ```javascript
    
     var toBeQed = myQueueItem();
     toBeQed.time = timeStamp;
-    context.bindings.myQueue = toBeQed;
+    context.bindings.myQueueItem = toBeQed;
    
-    ```
+    ```  
    
-    Ten kod powoduje utworzenie elementu **myQueueItem** i ustawienie jego właściwości **time** na bieżącą sygnaturę czasową. Następnie nowy element jest dodawany do powiązania myQueue kontekstu.
+    Ten kod powoduje utworzenie elementu **myQueueItem** i ustawienie jego właściwości **time** na bieżącą sygnaturę czasową. Następnie nowy element kolejki jest dodawany do powiązania **myQueueItem** kontekstu.
+
 3. Kliknij pozycję **Zapisz i uruchom**.
-4. Sprawdź, czy kod działa, wyświetlając kolejkę w programie Visual Studio.
-   
-   * Otwórz program Visual Studio, a następnie przejdź do pozycji **Widok** > **Cloud** **Explorer**.
-   * Znajdź konto magazynu i kolejkę **functions-bindings** używaną podczas tworzenia kolejki myQueue. Powinny być widoczne wiersze danych dziennika. Być może konieczne będzie zalogowanie do platformy Azure za pośrednictwem programu Visual Studio.  
 
-## <a name="create-an-output-queue-trigger-function"></a>Tworzenie funkcji wyzwalacza danych wyjściowych w kolejce
-1. Kliknij kolejno pozycje **Nowa funkcja** > **QueueTrigger — C#**. Nadaj funkcji nazwę **FunctionsBindingsDemo2**. Zwróć uwagę, że w aplikacji funkcji można łączyć różne języki (w tym przypadku Node i C#).
-2. Wprowadź wartość **functions-bindings** w polu **Nazwa kolejki**.
-3. Wybierz konto magazynu do użycia lub utwórz nowe.
-4. Kliknij przycisk **Utwórz**
-5. Sprawdź, czy nowa funkcja działa, wyświetlając dziennik funkcji i program Visual Studio w celu wyszukania aktualizacji. Dziennik funkcji pokazuje, że funkcja działa i elementy są usuwane z kolejki. Ponieważ funkcja jest powiązana z kolejką danych wyjściowych **functions-bindings** jako wyzwalacz danych wejściowych, odświeżenie kolejki **functions-bindings** w programie Visual Studio powinno ujawnić, czy elementy zostały usunięte. Elementy zostały usunięte z kolejki.   
-   
-   ![Dodawanie funkcji czasomierza kolejki danych wyjściowych](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+## <a name="view-storage-updates-by-using-storage-explorer"></a>Wyświetlanie aktualizacji magazynu za pomocą programu Storage Explorer
+Aby sprawdzić, czy funkcja działa, wyświetl komunikaty w utworzonej kolejce.  Z kolejką magazynu można połączyć się za pomocą programu Cloud Explorer w programie Visual Studio. Jednak portal ułatwia łączenie się z kontem magazynu za pomocą programu Microsoft Azure Storage Explorer.
 
-### <a name="modify-the-queue-item-type-from-json-to-object"></a>Modyfikowanie typu elementu kolejki z formatu JSON na obiekt
-1. Zastąp kod funkcji **FunctionsBindingsDemo2** następującym kodem:    
+1. Na karcie **Integracja** kliknij powiązanie wyjściowe kolejki i pozycję **Dokumentacja**, a następnie wyświetl parametry połączenia dla konta magazynu i skopiuj tę wartość. Ta wartość służy do łączenia się z kontem magazynu.
+
+    ![Pobieranie programu Azure Storage Explorer](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab3.png)
+
+
+2. Jeśli jeszcze tego nie zrobiono, pobierz i zainstaluj program [Microsoft Azure Storage Explorer](http://storageexplorer.com). 
+ 
+3. W programie Storage Explorer kliknij ikonę Połącz z usługą Azure Storage, wklej parametry połączenia w polu i zakończ pracę kreatora.
+
+    ![Program Storage Explorer dodaje połączenie](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-storage-explorer.png)
+
+4. W obszarze **Local and attached** (Lokalne i dołączone) rozwiń pozycje **Konta magazynu** > Twoje konto magazynu > **Kolejki** > **functions-bindings** i sprawdź, czy komunikaty są zapisywane do kolejki.
+
+    ![Wyświetlanie komunikatów w kolejce](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
+
+    Jeśli kolejka nie istnieje lub jest pusta, prawdopodobnie występuje problem z powiązaniem lub kodem funkcji.
+
+## <a name="create-a-function-that-reads-from-the-queue"></a>Tworzenie funkcji, która odczytuje z kolejki
+
+Teraz, gdy komunikaty są dodawane do kolejki, możesz utworzyć inną funkcję, która odczytuje z kolejki i zapisuje komunikaty trwale do tabeli usługi Azure Storage.
+
+1. Kliknij pozycje **Nowa funkcja** > **QueueTrigger-CSharp**. 
+ 
+2. Nadaj funkcji nazwę `FunctionsBindingsDemo2`, wprowadź wartość **functions-bindings** w polu **Nazwa kolejki**, wybierz istniejące konto magazynu lub utwórz nowe, a następnie kliknij przycisk **Utwórz**.
+
+    ![Dodawanie funkcji czasomierza kolejki danych wyjściowych](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
+
+3. (Opcjonalnie) Możesz sprawdzić, czy nowa funkcja działa, poprzez wyświetlenie nowej kolejki w programie Storage Explorer, tak jak poprzednio. Możesz także użyć programu Cloud Explorer w programie Visual Studio.  
+
+4. (Opcjonalnie) Odśwież kolejkę **functions-bindings** i zwróć uwagę, że elementy zostały usunięte z kolejki. Usuwanie występuje, ponieważ funkcja jest powiązana z kolejką **functions-bindings** jako wyzwalacz wejściowy i funkcja odczytuje kolejkę. 
+ 
+## <a name="add-a-table-output-binding"></a>Dodawanie powiązania wyjściowego tabeli
+
+1. W obszarze FunctionsBindingsDemo2 kliknij pozycje **Integracja** > **Nowe dane wyjściowe** > **Azure Table Storage** > **Wybierz**.
+
+    ![Dodawanie powiązania do tabeli usługi Azure Storage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
+
+2. Wprowadź wartość `TableItem` w polu **Nazwa tabeli** i `functionbindings` w polu **Nazwa parametru tabeli**, wybierz **Połączenie konta magazynu** lub utwórz nowe, a następnie kliknij przycisk **Zapisz**.
+
+    ![Konfigurowanie powiązania tabeli magazynu](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
+   
+3. Na karcie **Programowanie** zastąp istniejący kod funkcji następującym:
    
     ```cs
-   
+    
     using System;
-   
-    public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
-    {
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.Msg} | {myQueueItem.Time}");
-    }
-   
-    public class TableItem
-    {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
-    }
-   
-    public class QItem
-    {
-      public string Msg { get; set;}
-      public string Time { get; set;}
-    }
-   
-    ```
-   
-    Ten kod powoduje dodanie dwóch klas, **TableItem** i **QItem**, które służą do odczytu i zapisu w kolejkach. Dodatkowo funkcja **Run** została zmodyfikowana, aby akceptować parametry **QItem** i **TraceWriter** parametru, zamiast elementów **string** i **TraceWriter**. 
-2. Kliknij przycisk **Zapisz**.
-3. Sprawdź, czy kod działa, sprawdzając dziennik. Zauważ, że funkcje platformy Azure automatycznie przeprowadzają serializację i deserializację obiektu, aby ułatwić dostęp do kolejki w sposób skoncentrowany na obiekcie w celu przejścia wokół danych. 
-
-## <a name="store-messages-in-an-azure-table"></a>Przechowywanie komunikatów w tabeli platformy Azure
-Gdy kolejki już działają razem, należy dodać tabelę platformy Azure w celu stałego przechowywania danych kolejki.
-
-1. Przejdź na kartę **Integracja**.
-2. Utwórz tabelę usługi Azure Storage dla danych wyjściowych i nadaj jej nazwę **myTable**.
-3. Udziel odpowiedzi **functionsbindings** na pytanie o tabele, w których powinny być zapisywane dane.
-4. Zmień ustawienie **PartitionKey** z **{project-id}** na **{partition}**.
-5. Wybierz konto magazynu lub utwórz nowe.
-6. Kliknij pozycję **Zapisz**.
-7. Przejdź do karty **Opracowywanie**.
-8. Utwórz klasę **TableItem**, która będzie reprezentować tabelę platformy Azure, i zmodyfikuj funkcję Run, aby akceptowała nowo utworzony obiekt TableItem. Pamiętaj, że aby funkcja działała, należy użyć właściwości **PartitionKey** i **RowKey**.
-   
-    ```cs
-   
+    
     public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {    
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-   
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.RowKey} | {myQueueItem.Msg} | {myQueueItem.Time}");
+        TableItem myItem = new TableItem
+        {
+            PartitionKey = "key",
+            RowKey = Guid.NewGuid().ToString(),
+            Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
+            Msg = myQueueItem.Msg,
+            OriginalTime = myQueueItem.Time    
+        };
+        
+        // Add the item to the table binding collection.
+        myTable.Add(myItem);
+    
+        log.Verbose($"C# Queue trigger function processed: {myItem.RowKey} | {myItem.Msg} | {myItem.Time}");
     }
-   
+    
     public class TableItem
     {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
+        public string PartitionKey {get; set;}
+        public string RowKey {get; set;}
+        public string Time {get; set;}
+        public string Msg {get; set;}
+        public string OriginalTime {get; set;}
+    }
+    
+    public class QItem
+    {
+        public string Msg { get; set;}
+        public string Time { get; set;}
     }
     ```
-9. Kliknij pozycję **Zapisz**.
-10. Sprawdź, czy kod działa, wyświetlając dzienniki funkcji i w programie Visual Studio. Aby sprawdzić w programie Visual Studio, przy użyciu programu **Cloud Explorer** przejdź do tabeli platformy Azure **functionbindings** i sprawdź, czy zawiera ona wiersze.
+    Klasa **TableItem** reprezentuje wiersz w tabeli magazynu i element jest dodawany do kolekcji `myTable` obiektów **TableItem**. Należy ustawić właściwości **PartitionKey** i **RowKey**, aby umożliwić wstawienie do tabeli.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+4. Kliknij pozycję **Zapisz**.  Na koniec można sprawdzić działanie funkcji, wyświetlając tabelę w programie Storage Explorer lub programie Cloud Explorer programu Visual Studio.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+5. (Opcjonalnie) W swoim koncie magazynu w programie Storage Explorer rozwiń pozycje **Tabele** > **functionsbindings** i sprawdź, czy wiersze są dodawane do tabeli. To samo można zrobić w programie Cloud Explorer programu Visual Studio.
+
+    ![Widok wierszy w tabeli](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
+
+    Jeśli tabela nie istnieje lub jest pusta, prawdopodobnie występuje problem z powiązaniem lub kodem funkcji. 
+ 
+[!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
+
+## <a name="next-steps"></a>Następne kroki
+Poniższe tematy umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Functions.
+
+* [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)  
+  Dokumentacja dla programistów dotycząca kodowania funkcji oraz definiowania wyzwalaczy i powiązań.
+* [Testowanie usługi Azure Functions](functions-test-a-function.md)  
+  Opis różnych narzędzi i technik testowania funkcji.
+* [Jak skalować usługę Azure Functions](functions-scale.md)  
+  Omówienie planów usług dostępnych w środowisku Azure Functions, w tym planu hostingowego zużycia, oraz sposobu wybierania właściwego planu. 
+
+[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

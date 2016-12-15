@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Dodawanie znakowania firmowego do stron logowania i panelu dostępu
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Dodawanie znakowania firmowego do stron logowania i panelu dostępu
 Aby uniknąć nieporozumień, wiele firm chce zastosować spójny wygląd i zachowanie we wszystkich witrynach sieci Web i usługach, którymi zarządzają. Usługa Azure Active Directory zapewnia tę funkcję, umożliwiając dostosowanie wyglądu następujących stron sieci Web przez dodanie logo firmy i niestandardowych schematów kolorów:
 
 * **Strona logowania** — jest to strona wyświetlana podczas logowania się do usługi Office 365 lub innych aplikacji sieci Web, które używają usługi Azure AD jako dostawcy tożsamości. W interakcję z tą stroną wchodzisz podczas wykrywania obszaru głównego lub wprowadzania poświadczeń. Wykrywanie obszaru głównego umożliwia systemowi przekierowanie użytkowników federacyjnych do ich lokalnej usługi STS (takiej jak usługi AD FS).
@@ -34,7 +34,7 @@ W tym temacie wyjaśniono, jak można dostosować stronę logowania i stronę pa
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>Dostosowywanie strony logowania
+## <a name="customizing-the-sign-in-page"></a>Dostosowywanie strony logowania
 Zwykle na potrzeby dostępu opartego na przeglądarce do aplikacji i usług w chmurze subskrybowanych przez organizację używana jest strona logowania.
 
 W przypadku zastosowania zmian do strony logowania uwzględnienie ich może zająć godzinę.
@@ -224,6 +224,6 @@ Niektóre elementy dostosowywalne w usłudze Azure AD mają wiele zastosowań. M
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

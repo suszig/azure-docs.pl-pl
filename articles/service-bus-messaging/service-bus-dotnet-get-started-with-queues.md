@@ -12,11 +12,11 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Jeśli kolejka usługi Service Bus została już utworzona, przejdź do sekcji [
 Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w języku C# za pomocą programu Visual Studio.
 
 ### <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
-1. Otwórz program Visual Studio i utwórz nową aplikację konsolową.
+
+- Otwórz program Visual Studio i utwórz nową aplikację konsolową.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Dodawanie pakietu NuGet usługi Service Bus
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
@@ -62,12 +63,12 @@ Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w ję
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Pisanie kodu służącego do wysyłania komunikatów do kolejki
 1. Dodaj następującą instrukcję using na początku pliku Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Dodaj następujący kod do metody `Main`, ustaw zmienną **connectionString** jako parametry połączenia, które zostały uzyskane podczas tworzenia przestrzeni nazw, a następnie ustaw zmienną **queueName** jako nazwę kolejki użytą podczas tworzenia kolejki.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w ję
    
     Oto jak powinien wyglądać plik Program.cs.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w ję
 1. Utwórz nową aplikację konsolową i dodaj odwołanie do pakietu NuGet usługi Service Bus, podobnie jak w przypadku poprzedniej aplikacji wysyłającej.
 2. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Dodaj następujący kod do metody `Main`, ustaw zmienną **connectionString** jako parametry połączenia, które zostały uzyskane podczas tworzenia przestrzeni nazw, a następnie ustaw zmienną **queueName** jako nazwę kolejki użytą podczas tworzenia kolejki.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w ję
    
     Oto jak powinien wyglądać plik Program.cs:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -177,6 +178,6 @@ Zapoznaj się z naszym [repozytorium GitHub zawierającym przykłady](https://gi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

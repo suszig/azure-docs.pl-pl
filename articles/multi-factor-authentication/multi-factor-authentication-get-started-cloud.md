@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Wprowadzenie do usługi Azure Multi-Factor Authentication w chmurze
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Wprowadzenie do usługi Azure Multi-Factor Authentication w chmurze
 W tym artykule opisano, jak rozpocząć korzystanie z usługi Azure Multi-Factor Authentication w chmurze.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ Aby umożliwić użytkownikom korzystanie z usługi Azure Multi-Factor Authentic
 > 
 > 
 
-## <a name="turn-on-twostep-verification-for-users"></a>Włączanie weryfikacji dwuetapowej dla użytkowników
+## <a name="turn-on-two-step-verification-for-users"></a>Włączanie weryfikacji dwuetapowej dla użytkowników
 Aby zacząć wymagać od użytkownika weryfikacji dwuetapowej, należy zmienić jego stan z wyłączonego na włączony.  Więcej informacji na temat stanów użytkowników można znaleźć w artykule [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md) (Stany użytkowników w usłudze Azure Multi-Factor Authentication)
 
 Aby włączyć usługę MFA dla użytkowników, postępuj zgodnie z poniższą procedurą.
 
-### <a name="to-turn-on-multifactor-authentication"></a>Aby włączyć uwierzytelnianie wieloskładnikowe
+### <a name="to-turn-on-multi-factor-authentication"></a>Aby włączyć uwierzytelnianie wieloskładnikowe
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
 2. W obszarze po lewej stronie kliknij pozycję **Active Directory**.
 3. W obszarze Katalog wybierz katalog użytkownika, któremu chcesz umożliwić korzystanie z usługi.
@@ -66,8 +66,8 @@ Aby włączyć usługę MFA dla użytkowników, postępuj zgodnie z poniższą p
 
 Po włączeniu użytkowników należy ich o tym powiadomić za pośrednictwem poczty e-mail. Przy następnej próbie logowania zostaną poproszeni o zarejestrowanie swojego konta w celu korzystania z weryfikacji dwuetapowej. Po rozpoczęciu używania weryfikacji dwuetapowej będą również musieli skonfigurować hasła aplikacji, aby uniknąć zablokowania dostępu do aplikacji niekorzystających z przeglądarki.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>Automatyczne włączanie weryfikacji dwuetapowej za pomocą programu PowerShell
-Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [programu PowerShell usługi Azure AD](../powershell-install-configure.md), skorzystaj z następującej metody.  Możesz zmienić właściwość `$st.State`, przypisując jej jeden z następujących stanów:
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Automatyczne włączanie weryfikacji dwuetapowej za pomocą programu PowerShell
+Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [programu PowerShell usługi Azure AD](/powershell/azureps-cmdlets-docs), skorzystaj z następującej metody.  Możesz zmienić właściwość `$st.State`, przypisując jej jeden z następujących stanów:
 
 * Enabled (Włączony)
 * Enforced (Wymuszony)
@@ -107,6 +107,6 @@ Po skonfigurowaniu usługi Azure Multi-Factor Authentication w chmurze można pr
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

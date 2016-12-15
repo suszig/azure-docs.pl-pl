@@ -19,7 +19,7 @@ Utwórz centrum IoT, z którym połączy się symulowana aplikacja urządzenia. 
 5. Po pomyślnym utworzeniu centrum IoT kliknij nowy kafelek centrum IoT w witrynie Azure Portal, aby otworzyć blok dotyczący nowego centrum IoT. Zanotuj wartość z pola **Nazwa hosta**, a następnie kliknij polecenie **Zasady dostępu współużytkowanego**.
    
     ![Blok nowego centrum IoT][4]
-6. W bloku **Zasady dostępu współużytkowanego** kliknij zasady **iothubowner**, a następnie skopiuj i zanotuj parametry połączenia w bloku **iothubowner**. Aby uzyskać więcej informacji, zobacz sekcję [Access control][lnk-access-control] (Kontrola dostępu) w temacie „Azure IoT Hub developer guide” (Przewodnik deweloperów usługi Azure IoT Hub).
+6. W bloku **Zasady dostępu współużytkowanego** kliknij zasady **iothubowner**, a następnie skopiuj i zanotuj parametry połączenia usługi IoT Hub w bloku **iothubowner**. Aby uzyskać więcej informacji, zobacz sekcję [Access control][lnk-access-control] (Kontrola dostępu) w temacie „IoT Hub developer guide” (Przewodnik deweloperów usługi IoT Hub).
    
     ![Blok Zasady dostępu współużytkowanego][5]
 
@@ -37,6 +37,6 @@ Utwórz centrum IoT, z którym połączy się symulowana aplikacja urządzenia. 
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

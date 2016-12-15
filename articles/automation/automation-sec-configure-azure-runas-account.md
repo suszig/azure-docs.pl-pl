@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
 
 
 ---
@@ -137,7 +137,7 @@ Przed kontynuowaniem sprawdź, czy następujące czynności zostały wykonane:
 
 1. Został pobrany i zainstalowany program [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855), jeśli korzystasz z systemu Windows 7.   
     Jeśli używasz systemu Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 lub Windows 7 z dodatkiem SP1, program [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) jest dostępny do zainstalowania.
-2. Azure PowerShell 1.0. Informacje o tej wersji i sposobie jej instalowania można znaleźć w temacie [Sposób instalowania i konfigurowania programu PowerShell Azure](../powershell-install-configure.md).
+2. Azure PowerShell 1.0. Informacje o tej wersji i sposobie jej instalowania można znaleźć w temacie [Sposób instalowania i konfigurowania programu PowerShell Azure](/powershell/azureps-cmdlets-docs).
 3. Utworzono konto automatyzacji.  To konto zostanie użyte jako wartości parametrów -AutomationAccountName i -ApplicationDisplayName w obu poniższych skryptach.
 
 Aby uzyskać wartości dla parametrów *SubscriptionID*, *ResourceGroup* i *AutomationAccountName*, które są wymagane w skryptach, w portalu Azure wybierz konto usługi Automation z bloku **Konto usługi Automation**, a następnie wybierz pozycję **Wszystkie ustawienia**.  W bloku **Wszystkie ustawienia** w obszarze **Ustawienia konta** wybierz pozycję **Właściwości**.  W bloku **Właściwości** możesz zauważyć poniższe wartości.<br> ![Konto usługi Automation — właściwości](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
@@ -394,6 +394,6 @@ Możesz skorzystać z podanego poniżej zaktualizowanego przykładowego kodu, po
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

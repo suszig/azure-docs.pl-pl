@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c90fe9e9f088e8af80b5d9dcf7ab5b970034122f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
 
 
 ---
@@ -42,10 +42,10 @@ Dane przechowywane w usłudze Data Lake Store można łatwo analizować za pomoc
 ### <a name="unlimited-storage-petabyte-files"></a>Nieograniczony magazyn, petabajtowe pliki
 Usługa Azure Data Lake Store zapewnia nieograniczony magazyn i nadaje się do przechowywania różnorodnych danych na potrzeby analiz. Nie nakłada żadnych limitów dotyczących rozmiarów kont, rozmiarów plików lub ilości danych, które mogą być przechowywane w usłudze Data Lake. Pojedyncze pliki mogą mieć rozmiar od kilobajta do petabajtów, co czyni usługę doskonałym wyborem do przechowywania danych dowolnego typu. Dane są przechowywane trwale dzięki tworzeniu wielu kopii i nie ma żadnego limitu czasu przechowywania danych w usłudze Data Lake.
 
-### <a name="performancetuned-for-big-data-analytics"></a>Wydajność dostosowana na potrzeby analizy danych big data
+### <a name="performance-tuned-for-big-data-analytics"></a>Wydajność dostosowana na potrzeby analizy danych big data
 Usługa Azure Data Lake Store została stworzona z myślą o obsłudze działania dużych systemów analitycznych, które wymagają ogromnej przepływności w celu odpytywania i analizowania dużych ilości danych. Usługa Data Lake rozmieszcza części pliku na wielu serwerach magazynu. Zwiększa to przepływność odczytu podczas odczytywania pliku równolegle w celu wykonywania analizy danych.
 
-### <a name="enterpriseready-highlyavailable-and-secure"></a>Gotowa do użycia w przedsiębiorstwie: wysoce dostępna i bezpieczna
+### <a name="enterprise-ready-highly-available-and-secure"></a>Gotowa do użycia w przedsiębiorstwie: wysoce dostępna i bezpieczna
 Usługa Azure Data Lake Store zapewnia dostępność i niezawodność zgodne ze standardami branżowymi. Dane są przechowywane trwale dzięki wykonywaniu nadmiarowych kopii, aby zapewnić ochronę danych na wypadek nieoczekiwanych awarii. Przedsiębiorstwa mogą wykorzystywać usługę Azure Data Lake w swoich rozwiązaniach jako istotny element istniejącej platformy danych.
 
 Usługa Data Lake Store zapewnia również zabezpieczenia klasy korporacyjnej dla przechowywanych danych. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie danych w usłudze Azure Data Lake Store](#DataLakeStoreSecurity).
@@ -105,6 +105,6 @@ Jeśli wolisz obejrzeć filmy wideo, aby nauczyć się korzystać z usługi, us�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

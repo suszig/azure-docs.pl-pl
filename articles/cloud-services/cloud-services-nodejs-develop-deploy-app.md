@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: d8108368a157ed05c4fe0defbcef8372e205f6f8
 
 
 ---
@@ -28,8 +28,6 @@ Dalsze informacje na temat usług Cloud Services oraz ich porównanie z usługam
 
 > [!TIP]
 > Chcesz utworzyć prostą witrynę sieci Web? Jeśli scenariusz obejmuje tylko prosty fronton witryny sieci Web, rozważ użycie [korzystanie z lekkiej aplikacji sieci web]. Możesz łatwo przeprowadzić uaktualnienie do Usługi w chmurze w przypadku rozwoju witryny sieci Web lub zmiany wymagań.
->
->
 
 Wykonując czynności opisane w tym samouczku, utworzysz prostą aplikację sieci Web hostowaną wewnątrz roli sieci Web. Będziesz testować aplikację w środowisku lokalnym przy użyciu emulatora obliczeń, a następnie wdrażać ją za pomocą narzędzi wiersza polecenia programu PowerShell.
 
@@ -40,8 +38,6 @@ Będzie to prosta aplikacja „hello world”:
 ## <a name="prerequisites"></a>Wymagania wstępne
 > [!NOTE]
 > W tym samouczku jest używany program Azure PowerShell, który wymaga systemu Windows.
->
->
 
 * Zainstalowanie i skonfigurowanie programu [Azure PowerShell].
 * Pobranie i zainstalowanie zestawu [Azure SDK for .NET 2.7]. Podczas instalacji wybierz następujące opcje:
@@ -75,8 +71,6 @@ Wykonaj poniższe zadania w celu utworzenia nowego projektu Usługi w chmurze Az
 
    > [!NOTE]
    > Jeśli nie określisz nazwy roli, będzie używana nazwa domyślna. Nazwa może być pierwszym parametrem polecenia cmdlet: `Add-AzureNodeWebRole MyRole`
-   >
-   >
 
 Aplikacja Node.js jest definiowana w pliku **server.js**, który znajduje się w katalogu dla roli sieci Web (domyślnie **WebRole1**). Oto kod:
 
@@ -90,7 +84,9 @@ Aplikacja Node.js jest definiowana w pliku **server.js**, który znajduje się w
 Ten kod jest zasadniczo taki sam jak przykładowy kod „Hello World” w witrynie sieci Web [nodejs.org], z wyjątkiem tego, że używa numeru portu przypisanego przez środowisko chmury.
 
 ## <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+> [!NOTE]
+> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) lub [zarejestrować się w celu uzyskania bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Pobieranie ustawień publikowania na platformie Azure
 Aby wdrożyć aplikację na platformie Azure, należy najpierw pobrać ustawienia publikowania dla subskrypcji platformy Azure.
@@ -106,12 +102,13 @@ Aby wdrożyć aplikację na platformie Azure, należy najpierw pobrać ustawieni
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] Po zaimportowaniu ustawień publikowania rozważ usunięcie pobranego pliku .publishSettings, ponieważ zawiera on informacje, które mogłyby umożliwić innym osobom uzyskanie dostępu do Twojego konta.
+    > [!NOTE]
+    > Po zaimportowaniu ustawień publikowania rozważ usunięcie pobranego pliku .publishSettings, ponieważ zawiera on informacje, które mogłyby umożliwić innym osobom uzyskanie dostępu do Twojego konta.
 
 ### <a name="publish-the-application"></a>Publikowanie aplikacji
 Aby opublikować aplikację, uruchom następujące polecenie:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName** — określa nazwę wdrożenia. Musi być to nazwa unikatowa. W przeciwnym razie proces publikowania zakończy się niepowodzeniem. Polecenie **Get-Date** uwzględnia ciąg daty i godziny, który powinien zapewnić unikatowość nazwy.
@@ -124,8 +121,6 @@ Po pomyślnym zakończeniu publikowania zostanie wyświetlona odpowiedź podobna
 
 > [!NOTE]
 > W przypadku publikowania aplikacji po raz pierwszy jej wdrożenie i udostępnienie może potrwać kilka minut.
->
->
 
 Po zakończeniu wdrożenia zostanie otwarte okno przeglądarki i nastąpi przejście do usługi w chmurze.
 
@@ -162,8 +157,6 @@ Po wdrożeniu aplikacji można ją wyłączyć, aby uniknąć dodatkowych koszt�
 
    > [!NOTE]
    > Usunięcie usługi nie powoduje usunięcia konta magazynu, które zostało utworzone po początkowym opublikowaniu usługi, a opłaty za użycie magazynu będą nadal naliczane. Jeśli nic innego nie korzysta z magazynu, możesz go usunąć.
-   >
-   >
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowiska Node.js].
@@ -172,25 +165,25 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 
 [Porównanie usług Azure: Witryny sieci Web, Cloud Services i Virtual Machines]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [korzystanie z lekkiej aplikacji sieci web]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Azure PowerShell]: ../powershell-install-configure.md
+[Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connect PowerShell]: ../powershell-install-configure.md#step-3-connect
+[Connect PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Tworzenie hostowanej usługi platformy Azure — omówienie]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centrum deweloperów środowiska Node.js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
-[Wynik użycia polecenia New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Dane wyjściowe polecenia Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Przeglądarka wyświetlająca stronę sieci Web „Hello World”]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Dane wyjściowe polecenia Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Okno przeglądarki ze stroną „hello world”; adres URL wskazuje, że strona jest obsługiwana na platformie Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Stan polecenia Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Stan polecenia Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

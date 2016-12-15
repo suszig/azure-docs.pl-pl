@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2537b0c4dcc71d02d25959a0b21d96bce7deaac6
 
 
 ---
@@ -186,7 +186,7 @@ Aplikacja Node.js została wdrożona do aplikacji sieci Web w usłudze Azure App
 
 Jeśli wystąpią problemy z aplikacją po wdrożeniu jej na platformie Azure, zobacz [Debugowanie aplikacji Node.js w usłudze Azure App Service](web-sites-nodejs-debug.md), aby uzyskać informacje na temat diagnozowania problemu.
 
-W tym artykule do utworzenia aplikacji sieci Web użyto Portalu Azure. Można również użyć [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) lub [programu Azure PowerShell](../powershell-install-configure.md) w celu wykonania tych samych operacji.
+W tym artykule do utworzenia aplikacji sieci Web użyto Portalu Azure. Można również użyć [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) lub [programu Azure PowerShell](/powershell/azureps-cmdlets-docs) w celu wykonania tych samych operacji.
 
 Informacje dotyczące sposobu tworzenia aplikacji Node.js na platformie Azure można znaleźć w [Centrum deweloperów Node.js](/develop/nodejs/).
 
@@ -202,6 +202,6 @@ Informacje dotyczące sposobu tworzenia aplikacji Node.js na platformie Azure mo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

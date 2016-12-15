@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
+ms.openlocfilehash: 87f5ac490f113a7c0144b20563a4f8f4bbcc6b21
 
 
 ---
@@ -28,13 +28,16 @@ ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
 > 
 > 
 
-Usługa Service Fabric udostępnia zestawy SDK do kompilowania usług w systemie Linux przy użyciu platform .NET Core i Java. W tym samouczku przedstawiony zostanie sposób kompilowania aplikacji dla systemu Linux i tworzenia usługi przy użyciu platformy Java.
+Usługa Service Fabric udostępnia zestawy SDK do kompilowania usług w systemie Linux przy użyciu platform .NET Core i Java. W tym samouczku utworzymy aplikację dla systemu Linux i skompilujemy usługę przy użyciu języka Java.  Poniższe wideo z witryny Microsoft Virtual Academy zawiera również szczegółowe omówienie procesu tworzenia aplikacji Java w systemie Linux:  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programowania systemu Linux](service-fabric-get-started-linux.md). Jeśli używasz systemu Mac OS X, możesz [skonfigurować jednopunktowe środowisko systemu Linux na maszynie wirtualnej za pomocą narzędzia Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>Tworzenie aplikacji
-Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Zestaw SDK usługi Service Fabric dla systemu Linux zawiera generator [Yeoman](http://yeoman.io/), który ułatwia tworzenie pierwszej usługi i dodawanie kolejnych w przyszłości. Utwórzmy zatem nową aplikację z jedną usługą za pomocą generatora Yeoman.
+Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Zestaw SDK usługi Service Fabric dla systemu Linux zawiera generator [Yeoman](http://yeoman.io/), który ułatwia tworzenie pierwszej usługi i dodawanie kolejnych w przyszłości. Utwórzmy zatem aplikację z jedną usługą za pomocą generatora Yeoman.
 
 1. W terminalu wpisz polecenie **yo azuresfjava**.
 2. Nadaj nazwę aplikacji.
@@ -86,7 +89,7 @@ Projekty aktora nie działają samodzielnie. Wymagają one wysyłania im komunik
 3. Kliknij węzeł znaleziony w poprzednim kroku, a następnie wybierz pozycję **Dezaktywuj (uruchom ponownie)** z menu Akcje. Spowoduje to ponowne uruchomienie jednego z pięciu węzłów w klastrze lokalnym i wymuszenie przejścia w tryb failover do jednej z replik pomocniczych uruchomionych w innym węźle. Podczas wykonywania tej czynności należy zwrócić uwagę na dane wyjściowe z klienta testowego oraz to, że licznik będzie nadal się zwiększać niezależnie od trybu failover.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Kompilowanie i wdrażanie aplikacji za pomocą wtyczki środowiska Eclipse Neon
-Jeśli została zainstalowana wtyczka usługi dla środowiska Eclipse Neon, można używać jej do tworzenia, kompilowania i wdrażania aplikacji usługi Service Fabric skompilowanych przy użyciu platformy Java.  Podczas instalowania środowiska Eclipse wybierz opcję **Eclipse IDE dla deweloperów Java**.
+Jeśli została zainstalowana [wtyczka usługi Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) dla środowiska Eclipse Neon, można używać jej do tworzenia, kompilowania i wdrażania aplikacji usługi Service Fabric skompilowanych przy użyciu języka Java.  Podczas instalowania środowiska Eclipse wybierz opcję **Eclipse IDE dla deweloperów Java**.
 
 ### <a name="create-the-application"></a>Tworzenie aplikacji
 Wtyczka usługi Service Fabric jest dostępna za pośrednictwem funkcji rozszerzalności środowiska Eclipse.
@@ -98,13 +101,22 @@ Wtyczka usługi Service Fabric jest dostępna za pośrednictwem funkcji rozszerz
 3. Zostanie wyświetlony monit o potwierdzenie użycia perspektywy Service Fabric, która optymalizuje środowisko Eclipse pod kątem użycia projektów usługi Service Fabric. Wybierz pozycję „Yes” (Tak).
 
 ### <a name="deploy-the-application"></a>Wdrażanie aplikacji
-Szablony usługi Service Fabric zawierają zestaw zadań narzędzia Gradle służący do kompilowania i wdrażania aplikacji, który można wywoływać za pośrednictwem środowiska Eclipse.
+Szablony usługi Service Fabric zawierają zestaw zadań narzędzia Gradle służący do kompilowania i wdrażania aplikacji, który można wywoływać za pośrednictwem środowiska Eclipse. 
 
 1. Wybierz pozycję **Run > Run Configurations** (Uruchom > Konfiguracje uruchamiania).
-2. Rozwiń węzeł **Gradle Project** (Projekt narzędzia Gradle) i wybierz pozycję **ServiceFabricDeployer**.
-3. Kliknij pozycję **Run** (Uruchom).
+2. Wybierz opcję **local** (lokalna) lub **cloud** (w chmurze). Domyślna konfiguracja to **local** (lokalna). W przypadku wdrażania w klastrze zdalnym wybierz opcję **cloud** (w chmurze).
+3. Dopilnuj, aby w profilach publikowania zostały umieszczone odpowiednie informacje, edytując plik `local.json` lub `cloud.json` zgodnie z wymaganiami.
+4. Kliknij pozycję **Run** (Uruchom).
 
 Twoja aplikacja zostanie skompilowana i wdrożona w ciągu kilku minut. Możesz monitorować jej stan z poziomu narzędzia Service Fabric Explorer.
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Dodawanie kolejnych usług do istniejącej aplikacji
+
+Aby dodać kolejną usługę do aplikacji utworzonej już przy użyciu polecenia `yo`, wykonaj następujące czynności: 
+1. Zmień katalog na katalog główny istniejącej aplikacji.  Na przykład wpisz polecenie `cd ~/YeomanSamples/MyApplication`, jeśli aplikacja `MyApplication` to aplikacja utworzona przez narzędzie Yeoman.
+2. Uruchom polecenie `yo azuresfjava:AddService`
+
 
 ## <a name="next-steps"></a>Następne kroki
 * [Dowiedz się więcej o usłudze Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -117,6 +129,6 @@ Twoja aplikacja zostanie skompilowana i wdrożona w ciągu kilku minut. Możesz 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -9,6 +9,7 @@ manager: jhubbard
 editor: CarlRabeler
 ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
+ms.sourcegitcommit: 4edae4ef772dc68b1f0efa9e758f26277dd35c44
+ms.openlocfilehash: bbc9bef4039b5c898c44a0e39b78b7b28c225c32
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
 W tym artykule wyjaśniono jednostki DTU (Database Transaction Unit) i jednostki eDTU (elastic Database Transaction Unit) oraz skutki osiągnięcia maksymalnej liczby jednostek DTU lub eDTU.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Co to są jednostki DTU (Database Transaction Unit)
-Jednostka DTU jest jednostką miary zasobów o gwarantowanej dostępności dla autonomicznej bazy danych SQL platformy Azure na określonym poziomie wydajności w [warstwie usługi autonomicznych baz danych](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). Jednostka DTU stanowi wskaźnik wydajności będący połączeniem mocy procesora CPU, pamięci i wydajności operacji we/wy na danych określany na podstawie porównawczego obciążenia OLTP zaprojektowanego w taki sposób, aby odpowiadało ono typowym, rzeczywistym obciążeniom OLTP. Podwojenie liczby jednostek DTU przez zwiększenie poziomu wydajności bazy danych odpowiada dwukrotnemu zwiększeniu zestawu zasobów dostępnych dla tej bazy danych. Na przykład baza danych Premium P11 z 1750 jednostkami DTU zapewnia 350 razy więcej mocy obliczeniowej DTU niż podstawowa baza danych z 5 jednostkami DTU. Aby zrozumieć metodologię obciążenia porównawczego OLTP używanego w celu określenia połączonego wskaźnika w postaci jednostek DTU, zobacz [Omówienie testu porównawczego usługi SQL Database](sql-database-benchmark-overview.md).
+Jednostka DTU jest jednostką miary zasobów o gwarantowanej dostępności dla autonomicznej bazy danych SQL platformy Azure na określonym poziomie wydajności w [warstwie usługi autonomicznych baz danych](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Jednostka DTU stanowi wskaźnik wydajności będący połączeniem mocy procesora CPU, pamięci i wydajności operacji we/wy na danych określany na podstawie porównawczego obciążenia OLTP zaprojektowanego w taki sposób, aby odpowiadało ono typowym, rzeczywistym obciążeniom OLTP. Podwojenie liczby jednostek DTU przez zwiększenie poziomu wydajności bazy danych odpowiada dwukrotnemu zwiększeniu zestawu zasobów dostępnych dla tej bazy danych. Na przykład baza danych Premium P11 z 1750 jednostkami DTU zapewnia 350 razy więcej mocy obliczeniowej DTU niż podstawowa baza danych z 5 jednostkami DTU. Aby zrozumieć metodologię obciążenia porównawczego OLTP używanego w celu określenia połączonego wskaźnika w postaci jednostek DTU, zobacz [Omówienie testu porównawczego usługi SQL Database](sql-database-benchmark-overview.md).
 
 ![Wprowadzenie do usługi SQL Database: jednostki DTU z jedną bazą danych według warstwy i poziomu.](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Możesz [zmienić warstwy usług](sql-database-scale-up.md) w dowolnym momencie przy minimalnych przestojach w działaniu aplikacji (zwykle poniżej czterech sekund). W przypadku wielu firm i aplikacji możliwość tworzenia baz danych i dostosowywania wydajności pojedynczej aplikacji na żądanie jest wystarczająca, zwłaszcza jeśli wzorce użycia są względnie przewidywalne. Jednak w przypadku nieprzewidywalnych wzorców zarządzanie kosztami i modelem biznesowym może być trudne. W tym scenariuszu należy użyć puli elastycznej z określoną liczbą jednostek eDTU.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Co to są jednostki eDTU (elastic Database Transaction Unit)
-Jednostka eDTU jest jednostką miary zestawu zasobów (DTU), które mogą być współdzielone między bazami danych na serwerze SQL platformy Azure, nazywanego [pulą elastyczną](sql-database-elastic-pool.png). Pule elastyczne zapewniają proste i ekonomiczne rozwiązanie umożliwiające zarządzanie celami wydajności dla wielu baz danych o znacznie zróżnicowanych i nieprzewidywalnych wzorcach użycia. Aby uzyskać więcej informacji, zobacz [pule elastyczne i warstwy usług](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus).
+Jednostka eDTU jest jednostką miary zestawu zasobów (DTU), które mogą być współdzielone między bazami danych na serwerze SQL platformy Azure, nazywanego [pulą elastyczną](sql-database-elastic-pool.md). Pule elastyczne zapewniają proste i ekonomiczne rozwiązanie umożliwiające zarządzanie celami wydajności dla wielu baz danych o znacznie zróżnicowanych i nieprzewidywalnych wzorcach użycia. Aby uzyskać więcej informacji, zobacz [pule elastyczne i warstwy usług](sql-database-service-tiers.md#elastic-database-pool-service-tiers-and-performance-in-edtus).
 
 ![Wprowadzenie do usługi SQL Database: jednostki eDTU według warstwy i poziomu](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -57,7 +58,6 @@ Poziomy wydajności są kalibrowane i określane w celu zapewnienia zasobów wym
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

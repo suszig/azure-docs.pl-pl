@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Raporty usługi Azure Active Directory — podgląd
+# <a name="azure-active-directory-reporting---preview"></a>Raporty usługi Azure Active Directory — podgląd
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](active-directory-reporting-azure-portal.md)
 > * [Klasyczna witryna Azure Portal](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ Istnieją dwa główne obszary raportowania:
 
 W zależności od szukanego zakresu danych dostęp do tych raportów można uzyskać na dwa sposoby: klikając pozycję **Użytkownicy i grupy** lub **Aplikacje dla przedsiębiorstw** na liście usług w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="signin-activities"></a>Działania związane z logowaniem
-### <a name="user-signin-activities"></a>Działania użytkownika związane z logowaniem
+## <a name="sign-in-activities"></a>Działania związane z logowaniem
+### <a name="user-sign-in-activities"></a>Działania użytkownika związane z logowaniem
 Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać odpowiedzi na pytania, takie jak:
 
 * Co to jest wzorzec logowania użytkownika?
@@ -97,7 +97,7 @@ Za pomocą selektora kolumny można wybrać pola danych, które mają być wyśw
 
 ![Raportowanie](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Filtrowanie logowań
+### <a name="filtering-sign-ins"></a>Filtrowanie logowań
 Logowania można filtrować, aby ograniczyć ilość wyświetlanych danych, przy użyciu następujących pól:
 
 * Data i godzina 
@@ -203,6 +203,6 @@ Zobacz temat [Azure Active Directory Reporting Guide](active-directory-reporting
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

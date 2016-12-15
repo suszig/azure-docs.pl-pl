@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 10/24/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
 
 
 ---
@@ -33,17 +33,17 @@ Jako platforma typu zarządzanie tożsamością jako usługa (IDMaaS), usługa A
 ## <a name="getting-started"></a>Wprowadzenie
 Te samouczki są dostosowane do wielu platform i mogą pomóc w szybkim rozpoczęciu tworzenia przy użyciu usługi Azure Active Directory. Warunkiem wstępnym jest [uzyskanie dzierżawy usługi Azure Active Directory](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quickstart-guides"></a>Poradniki Szybki start dotyczące aplikacji mobilnych i komputerowych
+### <a name="mobile-and-pc-application-quick-start-guides"></a>Poradniki Szybki start dotyczące aplikacji mobilnych i komputerowych
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Aplikacje uniwersalne systemu Windows](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Aplikacje uniwersalne systemu Windows](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Integracja bezpośrednia z uwierzytelnianiem OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quickstart-guides"></a>Poradniki Szybki start dotyczące aplikacji sieci Web
+### <a name="web-application-quick-start-guides"></a>Poradniki Szybki start dotyczące aplikacji sieci Web
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Integracja bezpośrednia z protokołem OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quickstart-guides"></a>Przewodniki Szybki start dotyczące interfejsu API sieci Web
+### <a name="web-api-quick-start-guides"></a>Przewodniki Szybki start dotyczące interfejsu API sieci Web
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -53,7 +53,7 @@ Te samouczki są dostosowane do wielu platform i mogą pomóc w szybkim rozpocz�
 |:---:|
 | [Interfejs API programu Graph](active-directory-graph-api-quickstart.md) |
 
-## <a name="howtos"></a>Poradniki
+## <a name="how-tos"></a>Poradniki
 Te artykuły zawierają opis wykonywania określonych zadań przy użyciu usługi Azure Active Directory:
 
 * [Uzyskiwanie dzierżawy usługi Azure AD](active-directory-howto-tenant.md)
@@ -116,7 +116,7 @@ Te prezentacje przedstawiające tworzenie aplikacji przy użyciu usługi Azure A
 * [Tożsamość w chmurze](http://www.cloudidentity.net): przemyślenia dotyczące rozwiązania „zarządzanie tożsamością jako usługa” pochodzące od głównego menedżera projektów usługi Azure Active Directory.  
 * [Usługa Azure Active Directory w serwisie Twitter](https://twitter.com/azuread): ogłoszenia dotyczące usługi Azure Active Directory o długości maksymalnie 140 znaków.
 
-## <a name="windows-server-onpremises-development"></a>Lokalne programowanie systemu Windows Server
+## <a name="windows-server-on-premises-development"></a>Lokalne programowanie systemu Windows Server
 Aby uzyskać wskazówki dotyczące używania funkcji programowania systemu Windows Server i usług Active Directory Federation Services (AD FS), zobacz:
 
 * [Scenariusze usług AD FS dla deweloperów](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): zawiera omówienie składników usług AD FS i sposobu ich działania, ze szczegółami dotyczącymi obsługiwanych scenariuszy uwierzytelniania/autoryzacji.
@@ -125,6 +125,6 @@ Aby uzyskać wskazówki dotyczące używania funkcji programowania systemu Windo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

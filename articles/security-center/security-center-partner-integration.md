@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 0c946ce6a96f2e3644b9890dad5d60a35ad4bcb7
-ms.openlocfilehash: 10184c52d532eb56e66212fafdea3d059b0c43e3
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
 
 
 ---
@@ -45,23 +45,19 @@ W miarę upływu czasu w usłudze Security Center będzie zwiększana liczba par
 
 ## <a name="how-to-deploy-a-partner-solution"></a>Jak wdrożyć rozwiązanie partnerskie?
 
-Do rozwiązań partnerskich już wdrożonych do usługi Security Center można łatwo uzyskać dostęp za pomocą kafelka rozwiązania partnerskiego na głównym pulpicie nawigacyjnym usługi Security Center:
+W zależności od konfiguracji środowiska platformy Azure i zdefiniowanych przez Ciebie zasad zabezpieczeń usługa Security Center może zalecić wdrożenie rozwiązania partnerskiego. W ramach zalecenia przejdziesz przez proces wyboru i instalacji rozwiązania partnerskiego. Na tym etapie ogólne środowisko wdrażania może się różnić w zależności od typu rozwiązania i partnera. Więcej informacji można znaleźć, korzystając z poniższych linków:
+
+- [Dodawanie zapory aplikacji sieci Web](security-center-add-web-application-firewall.md)
+- [Dodawanie zapory nowej generacji](security-center-add-next-generation-firewall.md)
+- [Zainstaluj punkt końcowy](security-center-install-endpoint-protection.md)
+- [Funkcja oceny luk w zabezpieczeniach nie jest zainstalowana](security-center-vulnerability-assessment-recommendations.md)
+
+## <a name="how-to-manage-partner-solutions"></a>Jak zarządzać rozwiązaniami partnerskimi?
+
+Po wdrożeniu rozwiązania partnerskiego można wyświetlić informacje o kondycji rozwiązania i wykonywać podstawowe zadania w zakresie zarządzania na kafelku rozwiązania partnerskiego na głównym pulpicie nawigacyjnym usługi Security Center. Aby uzyskać więcej informacji na temat zarządzania rozwiązaniami partnerskimi w usłudze Security Center, przeczytaj artykuł [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md).
 
 ![Integracja z partnerami](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
 
-Aby wdrożyć nowe rozwiązanie partnerskie na podstawie zalecenia usługi Security Center, wykonaj następujące kroki:
-
-> [!NOTE]
-> W krokach podanych w poniższym przykładzie założono, że masz obciążenie, które chcesz chronić za pomocą zapory aplikacji sieci Web.
-
-1. Na pulpicie nawigacyjnym usługi Security Center kliknij kafelek **Zalecenia**.
-2. W bloku **Zalecenia** kliknij pozycję **Dodaj zaporę aplikacji sieci Web**.
-3. Kliknij nazwę aplikacji w bloku **Dodawanie zapory aplikacji sieci Web**.
-4. W bloku **Dodawanie zapory aplikacji sieci Web** kliknij pozycję **Utwórz nową**.
-5. W bloku **Tworzenie nowej zapory aplikacji sieci Web** zostanie wyświetlona lista obecnych partnerów oferujących funkcję zapory aplikacji sieci Web.
-6. Wybierz odpowiednie rozwiązanie partnerskie i postępuj zgodnie instrukcjami (mogą się one różnić w zależności od partnera).
-
-Na tym etapie ogólne środowisko wdrażania może się różnić w zależności od partnera. Aby uzyskać więcej informacji na temat zarządzania rozwiązaniami partnerskimi w usłudze Security Center, przeczytaj artykuł dotyczący [monitorowania rozwiązań partnerskich](security-center-partner-solutions.md) w usłudze Azure Security Center.
 
 ## <a name="see-also"></a>Zobacz też
 W tym dokumencie przedstawiono integrowanie rozwiązania partnerskiego w usłudze Azure Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
@@ -76,6 +72,6 @@ W tym dokumencie przedstawiono integrowanie rozwiązania partnerskiego w usłudz
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

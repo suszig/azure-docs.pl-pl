@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 
 ---
@@ -42,7 +42,7 @@ Kompletny kod dla tego samouczka można znaleźć [w witrynie GitHub](https://gi
 ## <a name="prerequisites"></a>Wymagania wstępne
 Dla tego samouczka wymagane są następujące elementy:
 
-* [Zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]
+* [zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]
 * Najnowsza wersja środowiska [Xcode]
 * Urządzenie zgodne z systemem iOS 8 (lub nowszą wersją)
 * Członkostwo w [programie dla deweloperów firmy Apple](https://developer.apple.com/programs/)
@@ -70,32 +70,34 @@ W tej sekcji opisano kroki tworzenia nowego centrum powiadomień i konfigurowani
 <p>Upewnij się, że wybrano tryb <b>Piaskownica</b> na potrzeby tworzenia aplikacji. Tryb <b>Produkcja</b> należy wybrać wyłącznie wówczas, gdy chcesz wysyłać powiadomienia wypychane do użytkowników, którzy kupili Twoją aplikację w sklepie.</p>
 </li>
 </ol>
-&emsp;&emsp;![Konfigurowanie usługi APNS w witrynie Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Konfigurowanie usługi APNs w witrynie Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![Konfigurowanie certyfikacji APNs w witrynie Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Konfigurowanie certyfikacji APNs w witrynie Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą APNs i uzyskano parametry połączenia służące do rejestrowania aplikacji w celu wysyłania powiadomień wypychanych.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Łączenie aplikacji dla systemu iOS z usługą Notification Hubs
 1. W środowisku Xcode utwórz nowy projekt dla systemu iOS i wybierz szablon **Single View Application** (Aplikacja z jednym widokiem).
    
-       ![Xcode - Single View Application][8]
+    ![Xcode — aplikacja z jednym widokiem][8]
+    
 2. Podczas określania opcji dla nowego projektu upewnij się, że użyto tych samych wartości **Product Name** (Nazwa produktu) i **Organization Identifier** (Identyfikator organizacji), które zostały użyte podczas wcześniejszego ustawiania identyfikatora pakietu w portalu dla deweloperów firmy Apple.
    
     ![Xcode — opcje projektu][11]
+    
 3. W obszarze **Targets** (Elementy docelowe) kliknij nazwę projektu, kliknij kartę **Build Settings** (Ustawienia kompilacji) i rozwiń węzeł **Code Signing Identity** (Tożsamość podpisywania kodu), a następnie w obszarze **Debug** (Debugowanie) ustaw tożsamość podpisywania kodu. Zmień ustawienie opcji **Levels** (Poziomy) z **Basic** (Podstawowe) na **All** (Wszystkie) i jako **Provisioning Profile** (Profil aprowizowania) ustaw wcześniej utworzony profil aprowizowania.
    
     Jeśli nowy profil aprowizowania utworzony w programie Xcode nie jest widoczny, odśwież profile dla Twojej tożsamości podpisywania. Kliknij pozycję **Xcode** na pasku menu, kliknij pozycję **Preferences** (Preferencje), kliknij kartę **Account** (Konto), kliknij przycisk **View Details** (Pokaż szczegóły), kliknij tożsamość podpisywania, a następnie kliknij przycisk odświeżania w prawym dolnym rogu.
    
-       ![Xcode - provisioning profile][9]
-4. Pobierz [Zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4] i rozpakuj plik. W programie Xcode kliknij prawym przyciskiem myszy projekt i kliknij opcję **Add Files to** (Dodaj pliki do), aby dodać folder **WindowsAzureMessaging.framework** do projektu Xcode. Wybierz pozycję **Copy items if needed** (Skopiuj elementy w razie potrzeby), a następnie kliknij pozycję **Add** (Dodaj).
+    ![Xcode — profil aprowizowania][9]
+4. Pobierz [zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4] i rozpakuj plik. W programie Xcode kliknij prawym przyciskiem myszy projekt i kliknij opcję **Add Files to** (Dodaj pliki do), aby dodać folder **WindowsAzureMessaging.framework** do projektu Xcode. Wybierz pozycję **Copy items if needed** (Skopiuj elementy w razie potrzeby), a następnie kliknij pozycję **Add** (Dodaj).
    
    > [!NOTE]
    > Zestaw SDK usługi Notification Hubs nie obsługuje obecnie kodu bitowego w programie Xcode 7.  Dla ustawienia **Enable Bitcode** (Włącz kod bitowy) należy wybrać opcję **No** (Nie) w obszarze **Build Options** (Opcje kompilacji) projektu.
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Rozpakowywanie zestawu SDK platformy Azure][10]
 5. Dodaj nowy plik nagłówka do projektu o nazwie `HubInfo.h`. Ten plik będzie zawierać stałe dla centrum powiadomień.  Dodaj następujące definicje i zastąp symbole zastępcze literału ciągu przy użyciu *nazwy centrum* i wartości *DefaultListenSharedAccessSignature* zanotowanej wcześniej.
    
         #ifndef HubInfo_h
@@ -462,19 +464,19 @@ Ogólne informacje o usłudze Notification Hubs zawiera temat [Wskazówki dotycz
 
 
 <!-- URLs. -->
-[Zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]: http://aka.ms/kymw2g
-[Zestaw SDK usług Mobile Services systemu iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Strona przesyłania aplikacji]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Moje aplikacje]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Zestaw Live SDK dla systemu Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Wprowadzenie do usług Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Klasyczny portal Azure]: https://manage.windowsazure.com/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portal aprowizowania dla systemu iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Wprowadzenie do powiadomień wypychanych w usłudze Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET)
 [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
@@ -483,6 +485,6 @@ Ogólne informacje o usłudze Notification Hubs zawiera temat [Wskazówki dotycz
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,17 +16,17 @@ ms.topic: hero-article
 ms.date: 11/21/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 60e47e8fd0933ecd25b3bca6085edcd5785dc580
-ms.openlocfilehash: 69561ef82ce6d63bd8a90c871b5bc0cfe03e86ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
 
 
 ---
 
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Samouczek dotyczący uczenia maszynowego: tworzenie pierwszego eksperymentu związanego z przetwarzaniem danych w usłudze Azure Machine Learning Studio
 
-Ten samouczek jest przeznaczony dla osób, które nie korzystały jeszcze z usługi **Azure Machine Learning Studio**,
+Ten samouczek jest przeznaczony dla osób, którym nie zdarzyło się korzystać z usługi **Azure Machine Learning Studio**.
 
-i zawiera opis kroków tworzenia pierwszego eksperymentu uczenia maszynowego przy użyciu usługi Studio. Eksperyment ten polega na przetestowaniu modelu analitycznego, który prognozuje cenę samochodów na podstawie różnych zmiennych, takich jak marka i specyfikacja techniczna.
+Ten samouczek zawiera opis kroków tworzenia eksperymentu uczenia maszynowego po raz pierwszy przy użyciu usługi Studio. Eksperyment ten polega na przetestowaniu modelu analitycznego, który prognozuje cenę samochodów na podstawie różnych zmiennych, takich jak marka i specyfikacja techniczna.
 
 > [!NOTE]
 > Podstawowe informacje przedstawione w tym samouczku obejmują przeciąganie modułów i upuszczanie ich w obszarze eksperymentu, łączenie modułów ze sobą, uruchamianie eksperymentu oraz przeglądanie wyników. Samouczek nie zawiera ogólnego omówienia uczenia maszynowego ani instrukcji dotyczących wybierania oraz używania ponad 100 wbudowanych algorytmów i modułów manipulowania danymi dostępnych w usłudze Studio.
@@ -131,7 +131,7 @@ Zestawy danych zwykle wymagają przetworzenia wstępnego przed rozpoczęciem ana
 
 Najpierw dodamy moduł, który całkowicie usunie kolumnę **normalized-losses** (znormalizowane straty), a następnie inny moduł, który usunie wszystkie wiersze z brakującymi danymi.
 
-1. Wpisz **select columns** (wybieranie kolumn) w polu wyszukiwania w górnej części palety modułów, aby znaleźć moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych), a następnie przeciągnij go do obszaru roboczego eksperymentu. Ten moduł pozwala wybierać kolumny danych, które mają zostać dołączone do modelu lub wykluczone z niego.
+1. Wpisz ciąg **select columns** (wybieranie kolumn) w polu wyszukiwania w górnej części palety modułów, aby znaleźć moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych), a następnie przeciągnij go do obszaru roboczego eksperymentu. Ten moduł pozwala wybierać kolumny danych, które mają zostać dołączone do modelu lub wykluczone z niego.
 
 2. Połącz port wyjściowy zestawu danych **Automobile price data (Raw)** (Nieprzetworzone dane z cenami samochodów) z portem wejściowym modułu [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych).
 
@@ -287,7 +287,7 @@ Gdy udało się nauczyć model przy użyciu 75% danych, można wygenerować wyni
     <br/>
     ***Dane wyjściowe modułu „Score model” (Generowanie wyników przez model)***
 
-3. Na koniec przetestujemy jakość wyników. Wybierz moduł [Evaluate Model][evaluate-model] (Ocena modelu) i przeciągnij go do obszaru roboczego eksperymentu, a następnie połącz wyjście modułu [Score Model][score-model] (Generowanie wyników przez model) z lewym wejściem modułu [Evaluate Model][evaluate-model].
+3. Na koniec przetestujemy jakość wyników. Wybierz moduł [Evaluate Model][evaluate-model] (Ocena modelu) i przeciągnij go do obszaru roboczego eksperymentu, a następnie połącz wyjście modułu [Score Model][score-model] (Generowanie wyników przez model) z lewym wejściem modułu [Evaluate Model][evaluate-model] (Ocena modelu).
 
     > [!TIP]
     > Moduł [Evaluate Model][evaluate-model] (Ocena modelu) ma dwa porty wejściowe, ponieważ może służyć do porównywania dwóch modeli. Można później dodać do eksperymentu inny algorytm, a następnie sprawdzić, czy daje on lepsze wyniki za pomocą modułu [Evaluate Model][evaluate-model] (Ocena modelu).
@@ -377,6 +377,6 @@ Chcesz dowiedzieć się więcej? Aby zapoznać się z bardziej rozbudowanym i sz
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

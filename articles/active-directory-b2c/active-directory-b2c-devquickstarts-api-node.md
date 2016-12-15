@@ -3,7 +3,7 @@ title: "Usługa Azure AD B2C: zabezpieczanie interfejsu API sieci Web przy użyc
 description: "Jak tworzyć interfejs API sieci Web w środowisku Node.js, który akceptuje tokeny od dzierżawcy usługi B2C"
 services: active-directory-b2c
 documentationcenter: 
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/30/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 833ba11df57e27cf1f5e4045d144550bb14ca1c2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
 
 
 ---
@@ -27,8 +27,8 @@ Usługa Azure Active Directory (Azure AD) B2C umożliwia zabezpieczanie interfej
 
 > [!NOTE]
 > Ta próbka została zapisana w taki sposób, aby podłączanie do niej odbywało się przy użyciu [przykładowej aplikacji B2C systemu iOS](active-directory-b2c-devquickstarts-ios.md). Należy najpierw zapoznać się z bieżącym przewodnikiem, a następnie kontynuować pracę z próbką.
-> 
-> 
+>
+>
 
 **Passport** to uwierzytelniające oprogramowanie pośredniczące dla środowiska Node.js. Jest to elastyczne i modułowe oprogramowanie, które można dyskretnie zainstalować w dowolnej aplikacji sieci Web opartej na module Express lub Restify. Kompleksowy zestaw strategii obsługuje uwierzytelnianie przy użyciu m.in. nazwy użytkownika i hasła lub kont w serwisach Facebook i Twitter. Opracowaliśmy strategię dla usługi Azure Active Directory (Azure AD). Polega ona na zainstalowaniu tego modułu, a następnie dodaniu wtyczki `passport-azure-ad` usługi Azure AD.
 
@@ -52,7 +52,7 @@ Następnie należy utworzyć aplikację w katalogu B2C, która dostarcza do usł
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Tworzenie zasad
-W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Ta aplikacja zawiera dwa elementy dotyczące tożsamości: rejestracja i logowanie. Dla każdego typu należy utworzyć jeden zbiór zasad zgodnie z opisem w [artykule o zasadach](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  Podczas tworzenia trzech zbiorów zasad należy koniecznie:
+W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Ta aplikacja zawiera dwa elementy dotyczące tożsamości: rejestracja i logowanie. Dla każdego typu należy utworzyć jeden zbiór zasad zgodnie z opisem w [artykule o zasadach](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Podczas tworzenia trzech zbiorów zasad należy koniecznie:
 
 * Wybrać wartość **Nazwa wyświetlana** i inne atrybuty rejestracji w ramach zasad rejestracji.
 * Wybrać oświadczenia aplikacji **Nazwa wyświetlana** oraz **Identyfikator obiektu** we wszystkich zasadach.  Można również wybrać inne oświadczenia.
@@ -74,7 +74,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Nod
 Ukończona aplikacja jest również [dostępna jako plik ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) lub w gałęzi `complete` tego samego repozytorium.
 
 ## <a name="download-nodejs-for-your-platform"></a>Pobieranie środowiska Node.js dla platformy
-Aby pomyślnie korzystać z tej próbki, potrzebna jest działająca instalacja środowiska Node.js. 
+Aby pomyślnie korzystać z tej próbki, potrzebna jest działająca instalacja środowiska Node.js.
 
 Zainstaluj środowisko Node.js z witryny [nodejs.org](http://nodejs.org).
 
@@ -85,8 +85,8 @@ Zainstaluj bazę danych MongoDB z witryny [mongodb.org](http://www.mongodb.org).
 
 > [!NOTE]
 > W tym przewodniku założono, że używasz domyślnej instalacji i domyślnych punktów końcowych serwera dla bazy danych MongoDB, które aktualnie mają wartość `mongodb://localhost`.
-> 
-> 
+>
+>
 
 ## <a name="install-the-restify-modules-in-your-web-api"></a>Instalowanie modułów Restify w interfejsie API sieci Web
 Moduł Restify służy do tworzenia interfejsu API REST. Restify jest minimalną i elastyczną strukturą aplikacji w środowisku Node.js, która pochodzi z modułu Express. Oferuje rozbudowany zestaw funkcji do tworzenia interfejsów API REST na bazie usługi Connect.
@@ -163,13 +163,13 @@ Dane wyjściowe polecenia powinny wyglądać podobnie jak poniższy tekst:
     ├── pause@0.0.1
     └── pkginfo@0.2.3
 
-## <a name="add-passportazuread-to-your-web-api"></a>Dodawanie biblioteki passport-azuread do interfejsu API interfejsu sieci Web
+## <a name="add-passport-azuread-to-your-web-api"></a>Dodawanie biblioteki passport-azuread do interfejsu API interfejsu sieci Web
 Dodaj strategię OAuth przy użyciu biblioteki `passport-azuread` — zestawu strategii łączących usługę Azure AD z oprogramowaniem Passport. Użyj tej strategii w odniesieniu do tokenów elementów nośnych w próbce interfejsu API REST.
 
 > [!NOTE]
 > Chociaż protokół OAuth2 zapewnia platformę umożliwiającą wystawienie dowolnego znanego typu tokenu, tylko niektóre typy tokenów weszły do powszechnego użycia. Tokeny zabezpieczające punkty końcowe są tokenami elementów nośnych. Jest to najczęściej wystawiany typ tokenu protokołu OAuth2. W wielu wdrożeniach zakłada się, że tokeny elementów nośnych są jedynym typem wystawianych tokenów.
-> 
-> 
+>
+>
 
 W wierszu polecenia zmień katalog na `azuread`, jeśli nie jest jeszcze określony.
 
@@ -215,7 +215,7 @@ Odpowiednie moduły zainstaluj w katalogu `node_modules`:
 * `npm install bunyan`
 
 ## <a name="create-a-serverjs-file-with-your-dependencies"></a>Tworzenie pliku server.js z własnymi zależnościami
-Plik `server.js` zapewnia obsługę większości funkcji serwera interfejsu API sieci Web. 
+Plik `server.js` zapewnia obsługę większości funkcji serwera interfejsu API sieci Web.
 
 W wierszu polecenia zmień katalog na `azuread`, jeśli nie jest jeszcze określony:
 
@@ -258,7 +258,7 @@ clientID: <your client ID for this Web API you created in the portal>
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>', // the Client ID of the application that is calling your API, usually a web API or native client
 identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add the B2C tenant name in the <tenant name> area
-tenantName:'<tenant name>', 
+tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>' // This is the policy you'll want to validate against in B2C. Usually this is your Sign-in policy (as users sign in to this API)
 passReqToCallback: false // This is a node.js construct that lets you pass the req all the way back to any upstream caller. We turn this off as there is no upstream caller.
 };
@@ -270,9 +270,9 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 ### <a name="required-values"></a>Wymagane wartości
 `clientID`: identyfikator klienta aplikacji interfejsu API sieci Web.
 
-`IdentityMetadata`: w tym miejscu moduł `passport-azure-ad` szuka danych konfiguracji dostawcy tożsamości. Wyszukuje również klucze do weryfikacji tokenów sieci Web JSON. 
+`IdentityMetadata`: w tym miejscu moduł `passport-azure-ad` szuka danych konfiguracji dostawcy tożsamości. Wyszukuje również klucze do weryfikacji tokenów sieci Web JSON.
 
-`audience`: jednolity identyfikator zasobów (URI, Uniform Resource Identifier) z portalu, który identyfikuje aplikację wywołującą. 
+`audience`: jednolity identyfikator zasobów (URI, Uniform Resource Identifier) z portalu, który identyfikuje aplikację wywołującą.
 
 `tenantName`: nazwa dzierżawy (na przykład **contoso.onmicrosoft.com**).
 
@@ -280,8 +280,8 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 
 > [!NOTE]
 > W wersji zapoznawczej usługi B2C należy używać tych samych zasad w konfiguracji klienta i serwera. Jeśli zasady zostały już utworzone w ramach tego przewodnika, nie trzeba tego robić ponownie. Ponieważ zadania w tym przewodniku zostały wykonane, nie ma potrzeby konfigurowania nowych zasad w ramach przewodników klienta w witrynie.
-> 
-> 
+>
+>
 
 ## <a name="add-configuration-to-your-serverjs-file"></a>Dodawanie konfiguracji do pliku server.js
 Aby odczytać wartości z utworzonego pliku `config.js`, dodaj plik `.config` jako wymagany zasób w aplikacji, a następnie ustaw zmienne globalne na zmienne z dokumentu `config.js`.
@@ -386,7 +386,7 @@ Najpierw tworzony jest schemat, a następnie obiekt modelu używany do przechowy
 Dysponując modelem bazy danych, możesz dodać trasy, które są używane na potrzeby serwera interfejsu API REST.
 
 ### <a name="about-routes-in-restify"></a>Informacje o trasach w module Restify
-Trasy działają w module Restify w taki sam sposób, jak podczas korzystania ze stosu modułu Express. Trasy są definiowane za pomocą identyfikatora URI, który ma być wywoływany przez aplikacje klienta. 
+Trasy działają w module Restify w taki sam sposób, jak podczas korzystania ze stosu modułu Express. Trasy są definiowane za pomocą identyfikatora URI, który ma być wywoływany przez aplikacje klienta.
 
 Oto typowy wzorzec trasy modułu Restify:
 
@@ -544,7 +544,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ## <a name="create-your-server"></a>Tworzenie serwera
 Baza danych została zdefiniowana, a trasy — określone. Ostatnim zadaniem, które należy wykonać, jest dodanie wystąpienia serwera, które zarządza wywołaniami.
 
-Moduły Restify i Express oferują możliwość głębokiego dostosowania do serwera interfejsu API REST, ale w tym przypadku stosujemy najbardziej podstawową konfigurację. 
+Moduły Restify i Express oferują możliwość głębokiego dostosowania do serwera interfejsu API REST, ale w tym przypadku stosujemy najbardziej podstawową konfigurację.
 
 ```Javascript
 
@@ -664,7 +664,7 @@ server.listen(serverPort, function() {
 
 });
 
-``` 
+```
 
 ## <a name="add-authentication-to-your-rest-api-server"></a>Dodawanie uwierzytelniania do serwera interfejsu API REST
 Działający serwer interfejsu API REST można wykorzystać do celów usługi Azure AD.
@@ -673,11 +673,11 @@ W wierszu polecenia zmień katalog na `azuread`, jeśli nie jest jeszcze określ
 
 `cd azuread`
 
-### <a name="use-the-oidcbearerstrategy-that-is-included-with-passportazuread"></a>Korzystanie ze strategii OIDCBearerStrategy dołączonej do modułu passport-azure-ad
+### <a name="use-the-oidcbearerstrategy-that-is-included-with-passport-azure-ad"></a>Korzystanie ze strategii OIDCBearerStrategy dołączonej do modułu passport-azure-ad
 > [!TIP]
 > Podczas pisania interfejsów API należy zawsze połączyć dane z unikatowym elementem tokenu, pod który użytkownik nie może się podszyć. Jeśli serwer przechowuje elementy listy zadań do wykonania, odbywa się to w oparciu o **identyfikator obiektu** użytkownika w tokenie (wywoływanym za pośrednictwem token.oid), który znajduje się w polu „właściciela”. Ta wartość zapewnia, że tylko ten użytkownik może uzyskać dostęp do własnych zadań do wykonania. W interfejsie API nie ma ekspozycji „właściciela” umożliwiającej użytkownikowi zewnętrznemu zażądanie zadań do wykonania innych osób, nawet po dokonaniu uwierzytelnienia.
-> 
-> 
+>
+>
 
 Następnie użyj strategii elementu nośnego dołączonej do modułu `passport-azure-ad`.
 
@@ -722,8 +722,8 @@ Oprogramowanie Passport używa tego samego wzorca dla wszystkich swoich strategi
 
 > [!IMPORTANT]
 > Powyższy kod obejmuje wszystkich użytkowników, którzy są uwierzytelniani na serwerze. Ten proces jest nazywany autorejestracją. W przypadku serwerów produkcyjnych nie zezwalaj żadnemu użytkownikowi na dostęp do interfejsu API, jeśli nie przejdzie on najpierw przez proces rejestracji. Ten proces to zazwyczaj wzorzec występujący w aplikacjach komercyjnych, który zezwala na rejestrację przy użyciu konta w serwisie Facebook, po czym wyświetlony zostaje monit o podanie dodatkowych informacji. Gdyby ten program nie był programem wiersza polecenia, moglibyśmy wyodrębnić wiadomość e-mail z obiektu tokena, który został zwrócony, a następnie poprosić użytkowników o podanie dodatkowych informacji. Ze względu na to, że to jest próbka, dodamy ich do bazy danych w pamięci.
-> 
-> 
+>
+>
 
 ## <a name="run-your-server-application-to-verify-that-it-rejects-you"></a>Uruchamianie aplikacji serwera w celu sprawdzenia, czy użytkownik jest odrzucany
 Możesz użyć polecenia `curl`, aby sprawdzić, czy ochrona punktów końcowych przy użyciu protokołu OAuth2 jest aktualnie włączona. Zwrócone nagłówki powinny wystarczyć do ustalenia, czy działanie zostało wykonane prawidłowo.
@@ -763,7 +763,6 @@ Możesz teraz przejść do bardziej zaawansowanych tematów, takich jak:
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

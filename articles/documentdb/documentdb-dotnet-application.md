@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a896240331d901ae839c2489c6266daac2780899
 
 
 ---
@@ -44,14 +44,18 @@ Ten przewodnik przedstawia, w jaki sposób należy korzystać z usługi Document
 ## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Wymagania wstępne dotyczące tego samouczka bazy danych
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące elementy:
 
-* Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/) 
+
+    LUB
+
+    Lokalna instalacja [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) albo Visual Studio 2013 Update 4 lub nowszy. W przypadku korzystania z pakietu Visual Studio 2013 należy zainstalować [pakiet NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/), aby zapewnić obsługę języka C# 6.0. 
-* Zestaw Azure SDK dla platformy .NET w wersji 2.5.1 lub nowszej, który jest dostępny za pośrednictwem [Instalatora platformy Microsoft Web][Instalator platformy Microsoft Web].
+* Zestaw Azure SDK dla platformy .NET w wersji 2.5.1 lub nowszej, który jest dostępny za pośrednictwem [Instalatora platformy Microsoft Web][Microsoft Web Platform Installer].
 
 Wszystkie zrzuty ekranu w tym artykule wykonano za pomocą programu Visual Studio 2013 z aktualizacją Update 4 i zestawu Azure SDK dla platformy .NET w wersji 2.5.1. Jeśli w Twoim systemie są skonfigurowane inne wersje, możliwe, że Twoje ekrany i opcje nie będą całkiem zgodne, lecz jeśli spełniasz powyższe wymagania wstępne, to rozwiązanie powinno działać.
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
-Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możesz przejść do kroku [Tworzenie nowej aplikacji platformy ASP.NET MVC](#_Toc395637762).
+Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi DocumentDB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Tworzenie nowej aplikacji platformy ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -78,6 +82,9 @@ Teraz, gdy masz konto, utwórzmy nowy projekt platformy ASP.NET.
 5. W okienku szablonów wybierz pozycję **MVC**.
 6. Jeśli planujesz hostowanie aplikacji na platformie Azure, wybierz pozycję **Hostuj w chmurze** u dołu po prawej, co spowoduje, że aplikacja będzie hostowana na platformie Azure. Wybraliśmy hostowanie w chmurze i uruchamianie hostowanej aplikacji w witrynie sieci Web platformy Azure. Wybranie tej opcji spowoduje wstępne aprowizowanie witryny sieci Web platformy Azure, co znacznie ułatwi pracę podczas wdrażania ostatecznej, działającej wersji aplikacji. Jeśli chcesz hostować aplikację w innym miejscu lub nie chcesz konfigurować platformy Azure z wyprzedzeniem, po prostu usuń zaznaczenie pola **Hostuj w chmurze**.
 7. Kliknij przycisk **OK**, aby umożliwić programowi Visual Studio przygotowanie szkieletu na podstawie pustego szablonu platformy ASP.NET MVC. 
+
+    Jeśli pojawi się komunikat o błędzie „Podczas przetwarzania żądania wystąpił błąd”, zobacz [Rozwiązywanie problemów](#troubleshooting).
+
 8. W przypadku wybrania hostowania w chmurze zostanie wyświetlone co najmniej jedno dodatkowe okno z monitem o zalogowanie na konto Azure i podanie kilku wartości dotyczących nowej witryny sieci Web. Podaj wszystkie dodatkowe wartości i kontynuuj. 
    
       Pozycja „Serwer bazy danych” nie została tu wybrana, ponieważ nie używamy serwera bazy danych SQL Azure. Zamierzamy utworzyć nowe konto usługi Azure DocumentDB później w witrynie Azure Portal.
@@ -536,6 +543,25 @@ Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożym
 
 W ciągu kilku sekund program Visual Studio zakończy publikowanie aplikacji sieci Web i uruchomi przeglądarkę, w której będzie można zobaczyć swoje dzieło działające na platformie Azure.
 
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli podczas próby wdrożenia aplikacji sieci Web pojawi się komunikat „Podczas przetwarzania żądania wystąpił błąd”, wykonaj następujące czynności: 
+
+1. Anuluj komunikat o błędzie, a następnie ponownie wybierz pozycję **Microsoft Azure Web Apps**. 
+2. Zaloguj się, a następnie wybierz pozycję **Nowy**, aby utworzyć nową aplikację sieci Web. 
+3. Na ekranie **Tworzenie aplikacji sieci Web na platformie Microsoft Azure** wykonaj następujące czynności: 
+    
+    - Nazwa aplikacji sieci Web: „todo-net-app”
+    - Plan usługi App Service: utwórz nowy o nazwie „todo-net-app”
+    - Grupa zasobów: utwórz nową o nazwie „todo-net-app”
+    - Region: wybierz region najbliższy użytkownikom aplikacji
+    - Serwer bazy danych: kliknij pozycję „Brak bazy danych”, a następnie kliknij przycisk **Utwórz**. 
+
+4. Na ekranie „todo-net-app * screen” kliknij przycisk **Waliduj połączenie**. Po zweryfikowaniu połączenia kliknij pozycję **Publikuj**. 
+    
+    Aplikacja zostanie następnie wyświetlona w przeglądarce.
+
+
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Następne kroki
 Gratulacje! Udało Ci się utworzyć Twoją pierwszą aplikację sieci Web dla platformy ASP.NET MVC używającą usługi Azure DocumentDB i opublikować ją w usłudze Azure Websites. Kod źródłowy kompletnej aplikacji, w tym funkcji szczegółów i usuwania, które nie zostały uwzględnione w tym samouczku, można pobrać lub sklonować z usługi [GitHub][GitHub]. Jeśli chcesz dodać go do swojej aplikacji, wystarczy pobrać kod i to zrobić.
 
@@ -543,13 +569,13 @@ Aby dodać kolejne funkcje do aplikacji, zapoznaj się z interfejsami API dostę
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Instalator platformy Microsoft Web]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254 (Zapobieganie fałszerstwom żądania międzywitrynowego)
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598 (Podstawowe operacje CRUD na platformie ASP.NET MVC)
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

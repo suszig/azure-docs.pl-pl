@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
+ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
+ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 ---
@@ -70,8 +70,9 @@ Po zaktualizowaniu źródeł można zainstalować zestaw SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
+
 ## <a name="set-up-the-azure-cross-platform-cli"></a>Konfigurowanie wieloplatformowego interfejsu wiersza polecenia Azure
-[Wieloplatformowy interfejs wiersza polecenia Azure][azure-xplat-cli-github] zawiera polecenia służące do interakcji z jednostkami usługi Service Fabric, w tym klastrami i aplikacjami. Jest on oparty na języku Node.js, więc [należy upewnić się, że zainstalowano środowisko Node][install-node] przed dalszym wykonywaniem poniższych instrukcji.
+[Wieloplatformowy interfejs wiersza polecenia platformy Azure][azure-xplat-cli-github] zawiera polecenia służące do interakcji z jednostkami usługi Service Fabric, w tym klastrami i aplikacjami. Jest on oparty na języku Node.js, więc [należy upewnić się, że zainstalowano środowisko Node][install-node] przed dalszym wykonywaniem poniższych instrukcji.
 
 1. Sklonuj repozytorium Github na maszynie deweloperskiej.
    
@@ -149,6 +150,16 @@ Zestaw SDK platformy .NET Core udostępnia biblioteki i szablony wymagane do kom
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## <a name="updating-the-sdk-and-runtime"></a>Aktualizowanie zestawu SDK i środowiska uruchomieniowego
+
+Aby zaktualizować zestaw SDK i środowisko uruchomieniowe do najnowszej wersji, wykonaj następujące czynności (usuń z listy zestawy SDK, których nie chcesz aktualizować ani instalować):
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+Aby zaktualizować interfejs wiersza polecenia, przejdź do katalogu, w którym sklonowano interfejs wiersza polecenia, i uruchom polecenie `git pull` w celu rozpoczęcia aktualizacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pierwszej aplikacji Java w systemie Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -167,6 +178,6 @@ Zestaw SDK platformy .NET Core udostępnia biblioteki i szablony wymagane do kom
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

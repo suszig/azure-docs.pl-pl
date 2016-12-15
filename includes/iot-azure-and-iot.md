@@ -18,7 +18,7 @@ Poniższy schemat przedstawia typową architekturę rozwiązania IoT. Diagram ni
 > 
 
 ### <a name="device-connectivity"></a>Łączność urządzeń
-W ramach tej architektury rozwiązania IoT urządzenia wysyłają dane telemetryczne, np. odczyty czujników z przepompowni, do punktu końcowego w chmurze w celu przechowywania i przetwarzania. W scenariuszu konserwacji predykcyjnej zaplecze może używać strumienia danych z czujnika do określenia, kiedy określona pompa wymaga konserwacji. Urządzenia mogą również odbierać polecenia przesyłane z chmury do urządzenia oraz odpowiadać na nie, odczytując komunikaty z punktu końcowego w chmurze. W scenariuszu konserwacji predykcyjnej zaplecze rozwiązania może na przykład wysyłać polecenia do innych pomp w przepompowni w celu zainicjowania zmiany trasy przepływów przed samym rozpoczęciem zaplanowanej konserwacji, aby zapewnić inżynierowi serwisu możliwość rozpoczęcia pracy po przybyciu.
+W ramach tej architektury rozwiązania IoT urządzenia wysyłają dane telemetryczne, np. odczyty czujników z przepompowni, do punktu końcowego w chmurze w celu przechowywania i przetwarzania. W scenariuszu konserwacji predykcyjnej zaplecze rozwiązania może używać strumienia danych z czujnika do określenia, kiedy dana pompa wymaga konserwacji. Urządzenia mogą również odbierać komunikaty przesyłane z chmury do urządzenia oraz odpowiadać na nie, odczytując komunikaty z punktu końcowego w chmurze. W scenariuszu konserwacji predykcyjnej zaplecze rozwiązania może na przykład wysyłać komunikaty do innych pomp w przepompowni w celu zainicjowania zmiany trasy przepływów przed samym rozpoczęciem zaplanowanej konserwacji, aby zapewnić inżynierowi serwisu możliwość rozpoczęcia pracy po przybyciu.
 
 Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niezawodny i bezpieczny połączyć urządzenia z zapleczem rozwiązania. Urządzenia IoT charakteryzują się innymi cechami niż pozostałe rozwiązania klienckie, takie jak przeglądarki i aplikacje mobilne. Urządzenia IoT:
 
@@ -42,9 +42,9 @@ W chmurze większość operacji przetwarzania danych jest realizowana na poziomi
 * zapewnia funkcje rejestracji urządzeń, które pozwalają na inicjowanie ich obsługi administracyjnej oraz kontrolowanie możliwości łączenia się urządzeń z infrastrukturą;
 * umożliwia śledzenie stanu urządzeń i monitorowanie ich działania.
 
-W scenariuszu konserwacji predykcyjnej zaplecze rozwiązania przechowuje historyczne dane telemetryczne. Zaplecze może użyć tych danych w celu zidentyfikowania wzorców, które wskazują na konieczność przeprowadzenia konserwacji w danej przepompowni.
+W scenariuszu konserwacji predykcyjnej zaplecze rozwiązania przechowuje historyczne dane telemetryczne. Zaplecze rozwiązania może użyć tych danych w celu zidentyfikowania wzorców, które wskazują na konieczność przeprowadzenia konserwacji danej pompy.
 
-Rozwiązania IoT mogą obejmować automatyczne pętle sprzężenia zwrotnego. Na przykład moduł analityczny zaplecza może rozpoznać na podstawie telemetrii, że temperatura określonego urządzenia przekracza normalne poziomy działania. Następnie rozwiązanie może wysłać do urządzenia polecenie podjęcia akcji naprawczej.
+Rozwiązania IoT mogą obejmować automatyczne pętle sprzężenia zwrotnego. Na przykład moduł analityczny zaplecza rozwiązania może rozpoznać na podstawie telemetrii, że temperatura określonego urządzenia przekracza normalne poziomy działania. Następnie rozwiązanie może wysłać do urządzenia polecenie podjęcia akcji naprawczej.
 
 ### <a name="presentation-and-business-connectivity"></a>Prezentacja i łączność biznesowa
 Warstwa prezentacji i łączności biznesowej umożliwia użytkownikom końcowym interakcję z rozwiązaniem IoT i urządzeniami. Pozwala użytkownikom wyświetlać i analizować dane zbierane z urządzeń. Widoki te mogą mieć formę pulpitów nawigacyjnych i raportów analizy biznesowej, które zawierają zarówno dane historyczne, jak i dane uzyskiwane niemal w czasie rzeczywistym. Na przykład operator może sprawdzić stan określonej przepompowni i wyświetlić wszystkie alerty wygenerowane przez system. Ta warstwa umożliwia także integrację zaplecza rozwiązania IoT z istniejącymi aplikacjami branżowymi w celu ich powiązania w ramach procesów biznesowych i przepływów pracy przedsiębiorstwa. Na przykład rozwiązanie do konserwacji predykcyjnej można zintegrować z systemem planowania, w którym zostanie zarezerwowana wizyta serwisanta w przepompowni, gdy rozwiązanie zidentyfikuje pompę wymagającą konserwacji.
@@ -60,6 +60,6 @@ Warstwa prezentacji i łączności biznesowej umożliwia użytkownikom końcowym
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
@@ -47,7 +47,7 @@ Istnieje wiele metod konfigurowania wymagań wstępnych i konfigurowania szyfrow
 > 
 
 ## <a name="install-and-configure-azure-powershell"></a>Instalowanie i konfigurowanie programu Azure PowerShell
-Na komputerze musi być zainstalowany program Azure PowerShell w wersji 1.2.1 lub nowszej. Artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](../powershell-install-configure.md) zawiera opis wszystkich kroków aprowizacji komputera do pracy z programem Azure PowerShell. Najprostszym rozwiązaniem jest użycie Instalatora platformy sieci Web wspomnianego w tym artykule. Nawet jeśli program Azure PowerShell jest już zainstalowany, zainstaluj go ponownie przy użyciu Instalatora platformy sieci Web, aby dysponować najnowszą wersją programu Azure PowerShell.
+Na komputerze musi być zainstalowany program Azure PowerShell w wersji 1.2.1 lub nowszej. Artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs) zawiera opis wszystkich kroków aprowizacji komputera do pracy z programem Azure PowerShell. Najprostszym rozwiązaniem jest użycie Instalatora platformy sieci Web wspomnianego w tym artykule. Nawet jeśli program Azure PowerShell jest już zainstalowany, zainstaluj go ponownie przy użyciu Instalatora platformy sieci Web, aby dysponować najnowszą wersją programu Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Uzyskanie i uruchomienie skryptu konfiguracji wymagań wstępnych szyfrowania dysków Azure
 Skrypt konfiguracji wymagań wstępnych szyfrowania dysków Azure umożliwia skonfigurowanie wszystkich wymagań wstępnych dotyczących szyfrowania maszyn wirtualnych platformy Azure.
@@ -182,6 +182,6 @@ W tym dokumencie opisano sposób szyfrowania maszyny wirtualnej platformy Azure.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

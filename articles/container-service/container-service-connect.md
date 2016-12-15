@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
-ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
+ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
+ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
 
 
 ---
@@ -51,13 +51,19 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 
 Jeśli pracujesz w systemie Windows, musisz użyć narzędzia Bash on Ubuntu on Windows lub Putty „pscp”.
 
-Po skonfigurowaniu elementu `kubectl` możesz przetestować rozwiązanie za pomocą:
+Po skonfigurowaniu narzędzia `kubectl` można je przetestować, wyświetlając listę węzłów w klastrze:
 
 ```console
 kubectl get nodes
 ```
 
-— powinny zostać wyświetlone węzły w Twoim klastrze.
+Na koniec można wyświetlić pulpit nawigacyjny platformy Kubernetes. Najpierw wykonaj polecenie:
+
+```console
+kubectl proxy
+```
+
+Interfejs użytkownika platformy Kubernetes jest obecnie dostępny pod adresem: http://localhost:8001/ui
 
 Więcej informacji można znaleźć w temacie [Kubernetes quick start](http://kubernetes.io/docs/user-guide/quick-start/) (Kubernetes — szybki start)
 
@@ -166,6 +172,6 @@ Wdrażanie kontenerów i zarządzanie nimi przy użyciu rozwiązania DC/OS lub S
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

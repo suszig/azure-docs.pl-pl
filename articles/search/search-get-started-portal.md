@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ To niekorzystające z kodu wprowadzenie pozwala rozpocząć pracę z usługą Mi
 W samouczku założono, że istnieje [przykładowa baza danych DocumentDB platformy Azure](#apdx-sampledata), którą możesz łatwo utworzyć, korzystając z naszych danych i instrukcji, ale możesz też dostosować te kroki do swoich danych istniejących w bazie danych zarówno DocumentDB, jak i SQL.
 
 > [!NOTE]
-> Ten samouczek wprowadzający wymaga [subskrypcji platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F) i [usługi Azure Search](search-create-service-portal.md). 
+> Ten samouczek wprowadzający wymaga [subskrypcji platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) i [usługi Azure Search](search-create-service-portal.md). 
 > 
 > 
 
@@ -181,6 +181,6 @@ Powinny zostać wyświetlone dane wyjściowe JSON, począwszy od dokumentu numer
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

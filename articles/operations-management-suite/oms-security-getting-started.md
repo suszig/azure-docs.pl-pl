@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
 
 
 ---
@@ -148,7 +149,7 @@ Ta opcja służy przede wszystkim do szybkiego identyfikowania potencjalnych zag
 
 ![Analiza zagrożeń](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Z tej opcji można również skorzystać podczas analizy reakcji na zdarzenia w celu przeprowadzenia oceny i uzyskania dalszych informacji o ataku.
+Z tej opcji można również skorzystać podczas [analizy reakcji na zdarzenia](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) w celu przeprowadzenia oceny i uzyskania dalszych informacji o ataku.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat reagowania na zdarzenia przy użyciu pakietu OMS, obejrzyj prezentację [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagować na zdarzenia przy użyciu rozwiązania Azure Security Center i pakietu Microsoft Operations Management Suite).
@@ -186,6 +187,6 @@ Ten dokument przedstawia wprowadzenie do rozwiązania Zabezpieczenia i inspekcja
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

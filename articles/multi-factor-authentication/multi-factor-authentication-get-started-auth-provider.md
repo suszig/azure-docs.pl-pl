@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Wprowadzenie do dostawcy usługi Azure Multi-Factor Authentication
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Wprowadzenie do dostawcy usługi Azure Multi-Factor Authentication
 Weryfikacja dwuetapowa jest domyślnie dostępna dla administratorów globalnych, którzy zarządzają użytkownikami usług Azure Active Directory i Office 365. Jeśli jednak chcesz korzystać z [funkcji zaawansowanych](multi-factor-authentication-whats-next.md), musisz kupić pełną wersję usługi Azure Multi-Factor Authentication (MFA).
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Dostawca usługi Azure Multi-Factor Authentication jest wymagany do pobrania zes
 > 
 > 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Aby utworzyć dostawcę usługi Multi-Factor Authentication
+## <a name="to-create-a-multi-factor-auth-provider"></a>Aby utworzyć dostawcę usługi Multi-Factor Authentication
 Aby utworzyć dostawcę usługi Azure Multi-Factor Authentication, postępuj zgodnie z poniższymi instrukcjami.
 
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
@@ -64,6 +64,6 @@ Aby utworzyć dostawcę usługi Azure Multi-Factor Authentication, postępuj zgo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

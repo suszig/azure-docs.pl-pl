@@ -4,7 +4,7 @@ description: "Utwórz nowe konto magazynu, zarządzaj kluczami dostępu do konta
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
 
 
 ---
@@ -99,7 +99,7 @@ Adres URL dostępu do obiektu w koncie magazynu jest tworzony przez dodanie loka
 
 Możesz również skonfigurować niestandardową nazwę domeny do użycia ze swoim kontem magazynu. Zobacz temat [Configure a custom domain name for your blob storage endpoint](storage-custom-domain-name.md) (Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego magazynu obiektów Blob), aby uzyskać więcej szczegółów.
 
-### <a name="service-colocation-with-an-affinity-group"></a>Wspólna lokalizacja usługi z grupą koligacji
+### <a name="service-co-location-with-an-affinity-group"></a>Wspólna lokalizacja usługi z grupą koligacji
 *Grupa koligacji* to sposób geograficznego grupowania usług i maszyn wirtualnych platformy Azure z kontem usługi Azure Storage. Grupa koligacji może poprawić wydajność usługi poprzez przydzielenie obciążeń komputerowych w tym samym centrum danych lub w pobliżu docelowych odbiorców użytkownika. Ponadto, jeśli do danych na koncie magazynu uzyskuje się dostęp z innej usługi, która jest częścią tej samej grupy koligacji, nie są naliczane opłaty za wyjście danych.
 
 > [!NOTE]
@@ -175,6 +175,6 @@ Aby usunąć konto magazynu, którego już nie używasz, użyj polecenia **Usuń
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

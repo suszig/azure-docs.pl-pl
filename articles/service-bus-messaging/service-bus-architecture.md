@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 09ad9bb1fee50d6063b9a179377cbe4f1c3c7ab2
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Architektura usługi Service Bus
-Ten artykuł zawiera opis architektury przetwarzania komunikatów i przekaźników usługi Azure Service Bus.
+W tym artykule opisano architekturę przetwarzania komunikatów usługi Azure Service Bus.
 
 ## <a name="service-bus-scale-units"></a>Jednostki skalowania usługi Service Bus
 Usługa Service Bus jest zorganizowana według *jednostek skalowania*. Jednostka skalowania jest jednostką wdrożenia i zawiera wszystkie składniki wymagane do uruchomienia usługi. Każdy region wdraża co najmniej jedną jednostkę skalowania usługi Service Bus.
@@ -49,7 +49,7 @@ Po nawiązaniu połączenia przekaźnika klienci mogą wymieniać komunikaty za 
 ![Przetwarzanie przychodzących żądań przekaźnika WCF](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, po zapoznaniu się z architekturą usługi Service Bus, skorzystaj z następujących linków, aby rozpocząć pracę z usługą:
+Teraz, po zapoznaniu się z architekturą usługi Service Bus, skorzystaj z następujących linków, aby uzyskać więcej informacji:
 
 * [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
 * [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Teraz, po zapoznaniu się z architekturą usługi Service Bus, skorzystaj z nast
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

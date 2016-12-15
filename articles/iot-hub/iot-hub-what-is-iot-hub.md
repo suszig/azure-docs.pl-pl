@@ -1,6 +1,6 @@
 ---
 title: "Omówienie usługi Azure IoT Hub | Microsoft Docs"
-description: "Omówienie usługi Azure IoT Hub: czym jest centrum IoT, łączność urządzeń, wzorce komunikacji w Internecie rzeczy oraz wzorzec komunikacji korzystającej z usług"
+description: "Omówienie usługi Azure IoT Hub: co to jest centrum IoT Hub, łączność urządzeń, wzorce komunikacji w Internecie rzeczy, bramy oraz wzorzec komunikacji korzystającej z usług"
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: b00aab7ea1eac8d34b9b535db2056c7b0ec41354
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
 
 
 ---
@@ -77,7 +77,7 @@ Rozwiązanie może zawierać zarówno bramę protokołu, jak i bramę w terenie.
 W usłudze Azure IoT Hub zaimplementowano wzorzec [komunikacji korzystającej z usług][lnk-service-assisted-pattern], aby zapewnić obsługę interakcji między urządzeniami a zapleczem rozwiązania. Celem komunikacji korzystającej z usług jest zapewnienie zaufanych ścieżek komunikacji dwukierunkowej między system sterującym, takim jak usługa IoT Hub, a specjalnymi urządzeniami, które są wdrożone w niezaufanych lokalizacjach fizycznych. W ramach tego wzorca określono następujące zasady:
 
 * Bezpieczeństwo jest nadrzędne w stosunku do wszystkich innych funkcji.
-* Urządzenia nie akceptują niechcianej komunikacji z sieci. Urządzenie ustanawia wszystkie połączenia i trasy tylko w oparciu o reguły ruchu wychodzącego. Aby urządzenie mogło odebrać polecenie z zaplecza, musi regularnie inicjować połączenie w celu sprawdzenia, czy istnieją oczekujące polecenia do przetworzenia.
+* Urządzenia nie akceptują niechcianej komunikacji z sieci. Urządzenie ustanawia wszystkie połączenia i trasy tylko w oparciu o reguły ruchu wychodzącego. Aby urządzenie mogło odebrać polecenie z zaplecza rozwiązania, musi regularnie inicjować połączenie w celu sprawdzenia, czy istnieją oczekujące polecenia do przetworzenia.
 * Urządzenia powinny łączyć się tylko ze znanymi, skojarzonymi usługami, takimi jak IoT Hub.
 * Ścieżka komunikacji między urządzeniem i usługą lub między urządzeniem i bramą jest zabezpieczona na poziomie warstwy protokołu aplikacji.
 * Autoryzacja i uwierzytelnianie na poziomie systemu są oparte na tożsamościach poszczególnych urządzeń. Dzięki temu uprawnienia i poświadczenia dostępu mogą być niemal natychmiast odwoływane.
@@ -91,7 +91,7 @@ Usługa IoT Hub jest obsługiwana przy użyciu ścieżki publicznej komunikacji 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się, jak usługa Azure IoT Hub umożliwia oparte na standardach zarządzanie urządzeniami pozwalające na zdalne konfigurowanie i aktualizowanie urządzeń oraz zarządzanie nimi, zobacz [Omówienie zarządzania urządzeniami za pomocą usługi IoT Hub][lnk-device-management].
 
-W celu wdrożenia aplikacji klienckich na wielu różnych platformach sprzętowych i w różnych systemach operacyjnych można użyć zestawów SDK urządzeń Azure IoT. Te zestawy SDK urządzeń zawierają biblioteki, które ułatwiają wysyłanie danych telemetrycznych do centrum IoT i odbieranie poleceń wysyłanych z chmury do urządzeń. Zestawy SDK urządzeń udostępniają możliwość wyboru różnych protokołów sieciowych służących do komunikowania się z usługą IoT Hub. Aby dowiedzieć się więcej, zobacz [informacje dotyczące zestawów SDK urządzeń][lnk-device-sdks].
+W celu wdrożenia aplikacji klienckich na wielu różnych platformach sprzętowych i w różnych systemach operacyjnych można użyć zestawów SDK urządzeń Azure IoT. Te zestawy SDK urządzeń zawierają biblioteki, które ułatwiają wysyłanie danych telemetrycznych do centrum IoT Hub i odbieranie komunikatów wysyłanych z chmury do urządzeń. Zestawy SDK urządzeń udostępniają możliwość wyboru różnych protokołów sieciowych służących do komunikowania się z usługą IoT Hub. Aby dowiedzieć się więcej, zobacz [informacje dotyczące zestawów SDK urządzeń][lnk-device-sdks].
 
 Aby rozpocząć pisanie kodu i uruchomić kilka przykładów, zobacz samouczek [Wprowadzenie do usługi IoT Hub][lnk-get-started].
 
@@ -121,6 +121,6 @@ Aby rozpocząć pisanie kodu i uruchomić kilka przykładów, zobacz samouczek [
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

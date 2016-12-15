@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 09/27/2016
+ms.date: 11/30/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
+ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
+ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> 
-> 
+>
+>
 
 Artykuł zawiera podstawowe informacje dotyczące usługi [Azure Batch][azure_batch] i klienta usługi [Batch dla środowiska Python][py_azure_sdk] w oparciu o omówienie małej aplikacji usługi Batch napisanej w języku Python. Pokazano, jak dwa przykładowe skrypty używają usługi Batch do przetwarzania równoległego obciążenia na maszynach wirtualnych z systemem Linux w chmurze, a także jak wchodzą w interakcję z usługą [Azure Storage](../storage/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
 
@@ -40,7 +40,7 @@ W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Pyth
 * **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
 
 ### <a name="code-sample"></a>Przykład kodu
-[Przykład kodu][github_article_samples] z samouczka dotyczącego języka Python jest jednym z wielu przykładów kodu znajdujących się w repozytorium [azure-batch-samples][github_samples] w witrynie GitHub. Możesz pobrać wszystkie przykłady, klikając przycisk **Clone or download > Download ZIP** (Sklonuj lub pobierz > Pobierz plik ZIP) na stronie głównej repozytorium lub klikając bezpośredni link pobierania pliku [azure-batch-samples-master.zip][github_samples_zip]. Po wyodrębnieniu zawartości pliku ZIP dwa skrypty do tego samouczka znajdują się w katalogu `article_samples`:
+[Przykład kodu][github_article_samples] z samouczka dotyczącego środowiska Python jest jednym z wielu przykładów kodów znajdujących się w repozytorium [azure-batch-samples][github_samples] w witrynie GitHub. Możesz pobrać wszystkie przykłady, klikając przycisk **Clone or download > Download ZIP** (Sklonuj lub pobierz > Pobierz plik ZIP) na stronie głównej repozytorium lub klikając bezpośredni link pobierania pliku [azure-batch-samples-master.zip][github_samples_zip]. Po wyodrębnieniu zawartości pliku ZIP dwa skrypty do tego samouczka znajdują się w katalogu `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
@@ -49,28 +49,28 @@ W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Pyth
 Do uruchomienia przykładowego skryptu *python_tutorial_client.py* na lokalnej stacji roboczej potrzebny jest **interpreter języka Python** zgodny z wersją **2.7** lub **3.3+**. Skrypt przetestowano w systemach Windows i Linux.
 
 ### <a name="cryptography-dependencies"></a>Zależności kryptograficzne
-Musisz zainstalować zależności dla biblioteki [kryptograficznej][crypto], wymagane przez pakiety języka Python `azure-batch` i `azure-storage`. Wykonaj jedną z następujących czynności odpowiednio do używanej platformy lub zapoznaj się z artykułem [cryptography installation][crypto_install] (Instalacja kryptografii) w celu uzyskania szczegółowych informacji:
+Musisz zainstalować zależności dla biblioteki [kryptograficznej][crypto], wymagane przez pakiety języka Python `azure-batch` i `azure-storage`. Wykonaj jedną z następujących czynności odpowiednio do używanej platformy lub zapoznaj się ze szczegółowymi informacjami na temat [instalowania kryptografii][crypto_install]:
 
 * Ubuntu
-  
+
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
-  
+
     `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
 * SLES/OpenSUSE
-  
+
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
 * Windows
-  
+
     `pip install cryptography`
 
 > [!NOTE]
 > W przypadku instalowania języka Python 3.3 + w systemie Linux, użyj odpowiedników środowiska python3 jako zależności języka Python. Na przykład na platformie Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
-> 
-> 
+>
+>
 
 ### <a name="azure-packages"></a>Pakiety platformy Azure
-Następnie zainstaluj pakiety **Azure Batch** i **Azure Storage** dla środowiska Python. Umożliwiają to polecenie **pip** i plik *requirements.txt* dostępne tutaj:
+Następnie zainstaluj pakiety **Azure Batch** i **Azure Storage** dla środowiska Python. Oba pakiety można zainstalować za pomocą narzędzia **pip** i pliku *requirements.txt* dostępnych tutaj:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -84,9 +84,9 @@ Możesz także ręcznie zainstalować pakiety [azure-batch][pypi_batch] i [azure
 `pip install azure-storage`
 
 > [!TIP]
-> Może być konieczne umieszczenie na początku poleceń prefiksu `sudo`, jeśli używasz konta nieuprzywilejowanego. Na przykład `sudo pip install -r requirements.txt`. Więcej informacji na temat instalowania pakietów dla środowiska Python znajduje się w temacie [Installing Packages] (Instalowanie pakietów) [pypi_install] w witrynie readthedocs.io.
-> 
-> 
+> Jeśli używasz konta nieuprzywilejowanego, może być konieczne umieszczenie prefiksu `sudo` na początku poleceń. Na przykład `sudo pip install -r requirements.txt`. Więcej informacji na temat instalowania pakietów dla środowiska Python znajduje się w temacie [Installing Packages] (Instalowanie pakietów)[pypi_install] w witrynie python.org.
+>
+>
 
 ## <a name="batch-python-tutorial-code-sample"></a>Przykład kodu z samouczka dotyczącego usługi Batch dla środowiska Python
 Przykład kodu z samouczka dotyczącego usługi Batch dla środowiska Python zawiera dwa skrypty w języku Python oraz kilka plików danych.
@@ -131,7 +131,7 @@ storage_account_name = "";
 storage_account_key  = "";
 ```
 
-Poświadczenia konta usług Batch i Storage znajdziesz w blokach konta poszczególnych usług w [portalu Azure][azure_portal]:
+Poświadczenia konta usług Batch i Storage znajdziesz w blokach konta poszczególnych usług w witrynie [Azure Portal][azure_portal]:
 
 ![Poświadczenia usługi Batch w portalu][9]
 ![Poświadczenia usługi Storage w portalu][10]<br/>
@@ -152,7 +152,7 @@ Usługa Batch ma wbudowaną funkcję obsługi interakcji z usługą Azure Storag
 
 * **aplikacja**: ten kontener będzie przechowywać skrypt języka Python uruchamiany przez podzadania *python_tutorial_task.py*.
 * **dane wejściowe**: podzadania będą pobierać pliki danych do przetwarzania z kontenera *dane wejściowe*.
-* **dane wyjściowe**: gdy podzadania ukończą przetwarzanie plików wejściowych, przekażą wyniki do kontenera *dane wyjściowe*.
+* **dane wyjściowe**: gdy podzadania ukończą przetwarzanie plików wejściowych, przekażą wyniki do kontenera *wyjściowego*.
 
 Aby nawiązać interakcję z kontem usługi Storage i utworzyć kontenery, należy użyć pakietu [azure-storage][pypi_storage] do utworzenia obiektu [BlockBlobService][py_blockblobservice] — „klienta obiektu blob”. Następnie należy utworzyć trzy kontenery na koncie usługi Storage przy użyciu klienta obiektu blob.
 
@@ -177,8 +177,8 @@ Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą 
 
 > [!TIP]
 > Artykuł [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) (Jak korzystać z usługi Azure Blob Storage w środowisku Python) zawiera szczegółowe omówienie pracy z kontenerami i obiektami blob w usłudze Azure Storage. Powinna to być jedna z najważniejszych pozycji do przeczytania po rozpoczęciu pracy z usługą Batch.
-> 
-> 
+>
+>
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Krok 2: przekazywanie skryptu podzadań i plików danych
 ![Przekazywanie aplikacji podzadań i plików danych wejściowych do kontenerów][2]
@@ -249,7 +249,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 ```
 
 ### <a name="resourcefiles"></a>ResourceFiles
-Parametr [ResourceFile][py_resource_file] dostarcza podzadaniom w usłudze Batch adres URL do pliku w usłudze Azure Storage, który jest pobierany do węzła obliczeniowego przed uruchomieniem tego podzadania. Właściwość [ResourceFile][py_resource_file].**blob_source** określa pełny adres URL pliku przechowywanego w usłudze Azure Storage. Adres URL może także zawierać sygnaturę dostępu współdzielonego (SAS), która zapewnia bezpieczny dostęp do pliku. Większość typów podzadań w ramach usługi Batch obejmuje właściwość *ResourceFiles*, m.in.:
+Klasa [ResourceFile][py_resource_file] zawiera podzadania w usłudze Batch z adresem URL do pliku w usłudze Azure Storage, które są pobierane do węzła obliczeniowego przed uruchomieniem tego podzadania. Właściwość [ResourceFile][py_resource_file].**blob_source** określa pełny adres URL pliku przechowywanego w usłudze Azure Storage. Adres URL może także zawierać sygnaturę dostępu współdzielonego (SAS), która zapewnia bezpieczny dostęp do pliku. Większość typów podzadań w ramach usługi Batch obejmuje właściwość *ResourceFiles*, m.in.:
 
 * [CloudTask][py_task]
 * [StartTask][py_starttask]
@@ -266,8 +266,8 @@ Sygnatury dostępu współdzielonego to ciągi, które zapewniają bezpieczny do
 
 > [!TIP]
 > Aby dowiedzieć się więcej o zapewnieniu bezpiecznego dostępu do danych na koncie usługi Storage, zapoznaj się z dwuczęściową serią dotyczącą sygnatur dostępu współdzielonego: [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Część 1: Opis modelu SAS) i [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md) (Część 2: Tworzenie i korzystanie z modelu SAS za pomocą usługi Blob). 
-> 
-> 
+>
+>
 
 ## <a name="step-3-create-batch-pool"></a>Krok 3: tworzenie puli usługi Batch
 ![Tworzenie puli usługi Batch][3]
@@ -361,18 +361,18 @@ Podczas tworzenia puli należy zdefiniować parametr [PoolAddParameter][py_poola
 
 * **Identyfikator** puli (element *id* — wymagany)<p/>Podobnie jak w przypadku większości obiektów w usłudze Batch nowa pula musi mieć unikatowy identyfikator w ramach konta usługi Batch. Tworzony kod odnosi się do tej puli przez użycie jej identyfikatora. Identyfikator ten służy także do identyfikacji puli w witrynie [Azure Portal][azure_portal].
 * **Liczba węzłów obliczeniowych** (element *target_dedicated* — wymagany)<p/>Ta właściwość określa, ile maszyn wirtualnych należy wdrożyć w puli. Należy pamiętać, że wszystkie konta usługi Batch mają domyślny **przydział**, który ogranicza liczbę **rdzeni** (a tym samym węzłów obliczeniowych) na koncie usługi Batch. Domyślne limity przydziału oraz instrukcje [zwiększania limitów przydziału](batch-quota-limit.md#increase-a-quota) (np. maksymalnej liczby rdzeni na koncie usługi Batch) znajdują się w artykule [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Limity przydziału i limity dla usługi Azure Batch). Jeśli zaczniesz zastanawiać się: „Dlaczego moja pula nie może przekroczyć X rdzeni?”, przyczyną może być ten podstawowy przydział.
-* **System operacyjny** dla węzłów (element *virtual_machine_configuration* **lub** *cloud_service_configuration* — wymagany)<p/>W skrypcie *python_tutorial_client.py* zostanie utworzona pula węzłów systemu Linux przy użyciu polecenia [VirtualMachineConfiguration][py_vm_config]. Funkcja `select_latest_verified_vm_image_with_node_agent_sku` pakietu `common.helpers` upraszcza pracę z obrazami dostępnymi na [rynku maszyn wirtualnych platformy Azure][vm_marketplace]. Więcej informacji o używaniu obrazów z rynku znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
-* **Rozmiar węzłów obliczeniowych** (element *vm_size* — wymagany)<p/>Ponieważ należy określać węzły obliczeniowe systemu Linux dla parametru [VirtualMachineConfiguration][py_vm_config], określamy rozmiar maszyny wirtualnej (`STANDARD_A1` w tym przykładzie) na podstawie artykułu [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Rozmiary maszyn wirtualnych na platformie Azure). Więcej informacji znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
-* **Podzadanie uruchamiania** (element *start_task* — niewymagany)<p/>Wraz z powyższymi fizycznymi właściwościami węzłów można też określić podzadanie [StartTask][py_starttask] dla puli (nie jest to wymagane). Funkcja StartTask jest wykonywana w każdym węźle, gdy tylko ten węzeł zostanie dołączony do puli, oraz za każdym razem, gdy węzeł będzie uruchamiany ponownie. Podzadanie StartTask jest szczególnie przydatne w przypadku przygotowywania węzłów obliczeniowych do wykonywania podzadań, takich jak instalowanie aplikacji, które są uruchamiane przez podzadania.<p/>W tej przykładowej aplikacji podzadanie StartTask kopiuje pliki, które pobiera z usługi Storage (określone za pomocą właściwości **resource_files** podzadania StartTask) z *katalogu roboczego* podzadania StartTask do *współdzielonego* katalogu, do którego mają dostęp wszystkie podzadania uruchomione w węźle. Zasadniczo powoduje to skopiowanie pliku `python_tutorial_task.py` do współdzielonego katalogu w każdym węźle, gdy węzeł dołącza do puli, by miały do niego dostęp wszystkie podzadania uruchomione w węźle.
+* **System operacyjny** dla węzłów (element *virtual_machine_configuration* **lub** *cloud_service_configuration* — wymagany)<p/>W skrypcie *python_tutorial_client.py* zostanie utworzona pula węzłów systemu Linux przy użyciu polecenia [VirtualMachineConfiguration][py_vm_config]. Funkcja `select_latest_verified_vm_image_with_node_agent_sku` pakietu `common.helpers` upraszcza pracę z obrazami dostępnymi w portalu [Marketplace usługi Azure Virtual Machines][vm_marketplace]. Więcej informacji o używaniu obrazów z rynku znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
+* **Rozmiar węzłów obliczeniowych** (element *vm_size* — wymagany)<p/>Ponieważ należy określać węzły obliczeniowe systemu Linux dla parametru [VirtualMachineConfiguration][py_vm_config], określamy rozmiar maszyny wirtualnej (`STANDARD_A1` w tym przykładzie) na podstawie artykułu [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Rozmiary maszyn wirtualnych na platformie Azure). Więcej informacji znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
+* **Podzadanie uruchamiania** (element *start_task* — niewymagany)<p/>Wraz z powyższymi fizycznymi właściwościami węzłów można też określić funkcję [StartTask][py_starttask] dla puli (nie jest to wymagane). Funkcja StartTask jest wykonywana w każdym węźle, gdy tylko ten węzeł zostanie dołączony do puli, oraz za każdym razem, gdy węzeł będzie uruchamiany ponownie. Podzadanie StartTask jest szczególnie przydatne w przypadku przygotowywania węzłów obliczeniowych do wykonywania podzadań, takich jak instalowanie aplikacji, które są uruchamiane przez podzadania.<p/>W tej przykładowej aplikacji podzadanie StartTask kopiuje pliki, które pobiera z usługi Storage (określone za pomocą właściwości **resource_files** podzadania StartTask) z *katalogu roboczego* podzadania StartTask do *współdzielonego* katalogu, do którego mają dostęp wszystkie podzadania uruchomione w węźle. Zasadniczo powoduje to skopiowanie pliku `python_tutorial_task.py` do współdzielonego katalogu w każdym węźle, gdy węzeł dołącza do puli, by miały do niego dostęp wszystkie podzadania uruchomione w węźle.
 
-Zwróć uwagę na wywołanie do funkcji pomocnika `wrap_commands_in_shell`. Funkcja ta z kolekcji oddzielnych poleceń tworzy jeden wiersz polecenia odpowiedni dla właściwości wiesza polecenia podzadania.
+Zwróć uwagę na wywołanie do funkcji pomocnika `wrap_commands_in_shell`. Funkcja ta z kolekcji oddzielnych poleceń tworzy jeden wiersz polecenia odpowiedni dla właściwości wiersza polecenia podzadania.
 
 W powyższym fragmencie kodu warto również zwrócić uwagę na użycie dwóch zmiennych środowiskowych we właściwości **command_line** podzadania StartTask: `AZ_BATCH_TASK_WORKING_DIR` i `AZ_BATCH_NODE_SHARED_DIR`. Każdy węzeł obliczeniowy w puli usługi Batch jest automatycznie konfigurowany za pomocą kilku zmiennych środowiskowych właściwych dla usługi Batch. Wszystkie procesy wykonywane przez zadanie mają dostęp do tych zmiennych środowiskowych.
 
 > [!TIP]
 > Informacje na temat zmiennych środowiskowych dostępnych dla węzłów obliczeniowych w puli usługi Batch oraz na temat katalogów roboczych podzadań znajdują się w sekcjach **Environment settings for tasks** (Ustawienia środowiska dla podzadań) i **Files and directories** (Pliki i katalogi) w [omówieniu dotyczącym funkcji usługi Azure Batch](batch-api-basics.md).
-> 
-> 
+>
+>
 
 ## <a name="step-4-create-batch-job"></a>Krok 4: tworzenie zadania w usłudze Batch
 ![Tworzenie zadania w usłudze Batch][4]<br/>
@@ -414,7 +414,7 @@ Teraz, kiedy zadanie zostało utworzone, są dodawane podzadania, aby wykonać p
 
 **Podzadania** usługi Batch to pojedyncze jednostki robocze, które są wykonywane w węzłach obliczeniowych. Podzadanie ma wiersz polecenia i uruchamia skrypty lub pliki wykonywalne określone w tym wierszu polecenia.
 
-Aby praca została rzeczywiście wykonana, należy dodać podzadania do zadania. Każde podzadanie typu [CloudTask][py_task] jest konfigurowane za pomocą właściwości wiersza polecenia i właściwości [ResourceFiles][py_resource_file] (tak jak w przypadku podzadania StartTask w puli), którą podzadanie pobiera do węzła, zanim zostanie wykonany automatycznie jego wiersz polecenia. W przykładzie każde podzadanie przetwarza tylko jeden plik. W związku z tym jego kolekcja ResourceFiles zawiera jeden element.
+Aby praca została rzeczywiście wykonana, należy dodać podzadania do zadania. Każde podzadanie typu [CloudTask][py_task] jest konfigurowane za pomocą właściwości wiersza polecenia i właściwości [ResourceFiles][py_resource_file] (tak jak w przypadku podzadania StartTask w puli), które podzadanie pobiera do węzła, zanim zostanie automatycznie wykonany jego wiersz polecenia. W przykładzie każde podzadanie przetwarza tylko jeden plik. W związku z tym jego kolekcja ResourceFiles zawiera jeden element.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
@@ -460,8 +460,8 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 > [!IMPORTANT]
 > Podczas uzyskiwania dostępu do zmiennych środowiskowych (takich jak `$AZ_BATCH_NODE_SHARED_DIR`) lub wykonywania aplikacji nieznajdującej się w parametrze `PATH` węzła wiersze poleceń podzadań muszą wywoływać powłokę bezpośrednio, jak w przypadku polecenia `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. To wymaganie nie jest konieczne, jeśli podzadania wykonują aplikację w elemencie `PATH` węzła i nie odnoszą się do żadnych zmiennych środowiskowych.
-> 
-> 
+>
+>
 
 W pętli `for` w powyższym fragmencie kodu widać, że wiersz polecenia dla podzadania jest zbudowany z pięciu argumentów wiersza polecenia, które zostają przekazane do skryptu *python_tutorial_task.py*:
 
@@ -487,7 +487,7 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 
 Gdy podzadania są dodawane do zadania, zostają automatycznie dodane do kolejki i zaplanowane do wykonania w węzłach obliczeniowych w puli skojarzonej z zadaniem. Na podstawie określonych przez użytkownika ustawień usługa Batch samodzielnie obsługuje dodawanie podzadań do kolejki, ich planowanie, ponawianie prób ich wykonania oraz inne czynności administracyjne.
 
-Istnieje wiele podejść do wykonywania monitorowania podzadań. Funkcja `wait_for_tasks_to_complete` w skrypcie *python_tutorial_client.py* stanowi prosty przykład monitorowania podzadań pod kątem pewnego stanu, w tym przypadku stanu [ukończone][py_taskstate].
+Istnieje wiele sposobów, w jakie można monitorować wykonanie podzadań. Funkcja `wait_for_tasks_to_complete` w skrypcie *python_tutorial_client.py* stanowi prosty przykład monitorowania podzadań pod kątem pewnego stanu, w tym przypadku stanu [ukończone][py_taskstate].
 
 ```python
 def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
@@ -524,7 +524,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
                        "timeout period of " + str(timeout))
 ```
 
-## <a name="step-7-download-task-output"></a>Krok 7: pobieranie danych wyjściowych podzadania
+## <a name="step-7-download-task-output"></a>Krok 7: pobranie danych wyjściowych podzadań
 ![Pobieranie danych wyjściowych podzadań z usługi Storage][7]<br/>
 
 Po ukończeniu zadania można pobrać dane wyjściowe podzadań przy użyciu usługi Azure Storage. Odbywa się to przy użyciu wywołania funkcji `download_blobs_from_container` w skrypcie *python_tutorial_client.py*:
@@ -563,8 +563,8 @@ def download_blobs_from_container(block_blob_client,
 
 > [!NOTE]
 > Wywołanie funkcji `download_blobs_from_container` w skrypcie *python_tutorial_client.py* określa, że pliki powinny być pobierane do Twojego katalogu głównego. Można także swobodnie modyfikować tę lokalizację danych wyjściowych.
-> 
-> 
+>
+>
 
 ## <a name="step-8-delete-containers"></a>Krok 8: usuwanie kontenerów
 Ponieważ użytkownik jest rozliczany za dane przechowywane w usłudze Azure Storage, zawsze dobrym rozwiązaniem jest usunięcie wszystkich obiektów blob, które nie są już potrzebne do zadań w ramach usługi Batch. W skrypcie *python_tutorial_client.py* odbywa się to przy użyciu trzech wywołań funkcji [BlockBlobService.delete_container][py_delete_container]:
@@ -593,16 +593,16 @@ if query_yes_no('Delete pool?') == 'yes':
 
 > [!IMPORTANT]
 > Należy pamiętać, że opłaty są naliczane za zasoby obliczeniowe — usunięcie nieużywanych pul zminimalizuje koszty. Ponadto należy pamiętać, że usunięcie puli spowoduje usunięcie wszystkich węzłów obliczeniowych w tej puli i że po usunięciu puli danych z węzłów nie da się odzyskać.
-> 
-> 
+>
+>
 
 ## <a name="run-the-sample-script"></a>Uruchamianie przykładowego skryptu
 Po uruchomieniu skryptu *python_tutorial_client.py* z [przykładu kodu][github_article_samples] samouczka, dane wyjściowe konsoli przypominają poniższe. Zostanie wyświetlony przycisk wstrzymania po pojawieniu się komunikatu `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` podczas tworzenia i uruchamiania węzłów obliczeniowych puli oraz wykonywania poleceń w podzadaniu startowym puli. Użyj witryny [Azure Portal][azure_portal] do monitorowania puli, węzłów obliczeniowych, zadania i podzadań w trakcie wykonywania i po nim. Użyj witryny [Azure Portal][azure_portal] lub programu [Microsoft Azure Storage Explorer][storage_explorer] do wyświetlania zasobów usługi Storage (kontenerów i obiektów blob) tworzonych przez aplikację.
 
 > [!TIP]
 > Uruchom skrypt *python_tutorial_client.py* z katalogu `azure-batch-samples/Python/Batch/article_samples`. Skrypt ten używa ścieżki względnej w celu zaimportowania modułu `common.helpers`, dlatego w przypadku uruchomienia skryptu w innym katalogu może pojawić się komunikat o błędzie `ImportError: No module named 'common'`.
-> 
-> 
+>
+>
 
 Typowy czas wykonywania wynosi **około 5–7 minut** w przypadku uruchomienia przykładu w konfiguracji domyślnej.
 
@@ -689,8 +689,7 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch na
 [py_vm_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.VirtualMachineConfiguration
 [pypi_batch]: https://pypi.python.org/pypi/azure-batch
 [pypi_storage]: https://pypi.python.org/pypi/azure-storage
-
-[pypi_install]: http://python-packaging-user-guide.readthedocs.io/en/latest/installing/
+[pypi_install]: https://packaging.python.org/installing/
 [storage_explorer]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
@@ -703,12 +702,12 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch na
 [6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Monitorowanie podzadań"
 [7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Pobieranie danych wyjściowych podzadań z usługi Storage"
 [8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Przepływ pracy w rozwiązaniu usługi Batch (pełny diagram)"
-[9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Poświadczenia usługi Batch w Portalu"
-[10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Poświadczenia usługi Storage w Portalu"
+[9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Poświadczenia usługi Batch w portalu"
+[10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Poświadczenia usługi Storage w portalu"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Przepływ pracy rozwiązania w usłudze Batch (diagram minimalny)"
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
