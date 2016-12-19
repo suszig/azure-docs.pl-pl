@@ -457,7 +457,7 @@ Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego i
             }
         }
 3. Potrzebujemy interfejsu użytkownika sieci Web do wyświetlania użytkownikowi informacji. Napiszmy od nowa utworzony wcześniej plik index.jsp:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego i
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. I na koniec napiszmy kod Javascript po stronie klienta, aby powiązać serwlet z interfejsem użytkownika sieci Web:
    
         var todoApp = {
