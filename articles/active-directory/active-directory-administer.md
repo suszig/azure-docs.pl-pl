@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +66,7 @@ Jeśli jeszcze nie masz subskrypcji usługi w chmurze firmy Microsoft, użyj lin
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Zarządzanie domyślnym katalogiem aprowizowanym przez platformę Azure
+### <a name="manage-an-azure-provisioned-default-directory"></a>Zarządzanie domyślnym katalogiem aprowizowanym przez platformę Azure
 Obecnie katalog jest tworzony automatycznie podczas tworzenia konta na platformie Azure. Twoja subskrypcja jest z nim kojarzona. Jednak jeśli konto na platformie Azure zostało utworzone przed październikiem 2013 r., katalog nie został automatycznie utworzony. W takim przypadku platforma Azure mogła „uzupełnić” Twoje konto, aprowizując dla niego domyślny katalog. Twoja subskrypcja została następnie skojarzona z domyślnym katalogiem.
 
 Uzupełnianie katalogów zostało wykonane w październiku 2013 r. w ramach ogólnej poprawy modelu zabezpieczeń platformy Azure. Katalog udostępnia funkcje obsługi tożsamości w organizacji dla wszystkich klientów platformy Azure oraz zapewnia, że wszystkie zasoby platformy Azure są dostępne w kontekście użytkownika w katalogu. Nie można używać platformy Azure bez katalogu. Aby to osiągnąć, każdy użytkownik, który utworzył konto przed 7 lipca 2013 r., ale nie miał katalogu, musiał go utworzyć. Jeśli katalog został już utworzony, Twoja subskrypcja została z nim skojarzona.
@@ -150,6 +150,6 @@ Są sprawdzane następujące warunki:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

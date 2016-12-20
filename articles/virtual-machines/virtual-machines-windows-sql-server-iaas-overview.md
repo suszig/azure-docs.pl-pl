@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 12/01/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc2883ae52bb3d4be098ce741bbf5f5047777d2
+ms.sourcegitcommit: bef7de37e358b49c77a4774e3e90a5e1de273310
+ms.openlocfilehash: 5c9cbe96b92546e802190879919602da8687542f
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: fcc2883ae52bb3d4be098ce741bbf5f5047777d2
 W tym temacie opisano opcje uruchamiania programu SQL Server na maszynach wirtualnych Azure oraz zamieszczono [linki do obrazów portalu](#option-1-create-a-sql-vm-with-per-minute-licensing) i przegląd [typowych zadań](#manage-your-sql-vm).
 
 > [!NOTE]
-> Jeśli znasz już program SQL Server i chcesz tylko zobaczyć, jak wdrożyć maszynę wirtualną programu SQL Server, zobacz temat [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+> Jeśli znasz już program SQL Server i chcesz tylko zobaczyć, jak wdrożyć maszynę wirtualną programu SQL Server, zobacz temat [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -66,9 +66,9 @@ Program SQL Server uruchomiony na maszynach wirtualnych platformy Azure stanowi 
 ## <a name="create-a-new-sql-vm"></a>Tworzenie nowej maszyny wirtualnej SQL
 Poniższe sekcje zawierają bezpośrednie linki do obrazów maszyn wirtualnych programu SQL Server w galerii witryny Azure Portal. Zależnie od wybranego obrazu można płacić za koszty licencji programu SQL Server naliczane proporcjonalnie do liczby minut lub skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL).
 
-Samouczek [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md) zawiera wskazówki krok po krok dotyczące tego procesu. Sprawdź również temat [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności maszyn wirtualnych z programem SQL Server), który wyjaśnia, w jaki sposób wybrać odpowiedni rozmiar maszyny i inne funkcje dostępne podczas aprowizacji.
+Samouczek [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) zawiera wskazówki krok po krok dotyczące tego procesu. Sprawdź również temat [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności maszyn wirtualnych z programem SQL Server), który wyjaśnia, w jaki sposób wybrać odpowiedni rozmiar maszyny i inne funkcje dostępne podczas aprowizacji.
 
-## <a name="option-1-create-a-sql-vm-with-perminute-licensing"></a>Opcja 1. Tworzenie maszyny wirtualnej SQL z licencją płatną według stawki minutowej
+## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>Opcja 1. Tworzenie maszyny wirtualnej SQL z licencją płatną według stawki minutowej
 Poniższa tabela zawiera macierz dostępnych obrazów programu SQL Server w galerii maszyn wirtualnych. Kliknij dowolny link, aby rozpocząć tworzenie nowej maszyny wirtualnej z programem SQL o określonej wersji, wybranym wydaniu i z danym systemem operacyjnym.
 
 | Wersja | System operacyjny | Wersja |
@@ -82,7 +82,7 @@ Poniższa tabela zawiera macierz dostępnych obrazów programu SQL Server w gale
 | **SQL 2008 R2 SP3** |Windows Server 2008 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2) |
 | **SQL 2008 R2 SP3** |Windows Server 2012 |[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012) |
 
-## <a name="option-2-create-a-sql-vm-with-an-existing-license"></a>Opcja 2. Tworzenie maszyny wirtualnej SQL przy użyciu istniejącej licencji
+## <a name="a-idbyola-option-2-create-a-sql-vm-with-an-existing-license"></a><a id="BYOL"></a>Opcja 2. Tworzenie maszyny wirtualnej SQL przy użyciu istniejącej licencji
 Możesz również skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server. Aby użyć własnej licencji, skorzystaj z macierzy wersji i wydań programu SQL Server oraz systemów operacyjnych. W portalu takie nazwy obrazów mają prefiks **{BYOL}**.
 
 | Wersja | System operacyjny | Wersja |
@@ -94,27 +94,29 @@ Możesz również skorzystać z modelu dostarczania własnej licencji (Bring You
 > [!IMPORTANT]
 > Aby używać obrazów maszyn wirtualnych w modelu BYOL, musisz mieć umowę Enterprise Agreement z opcją [Przenośność licencji za pośrednictwem programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/). Musisz również mieć ważną licencję dla wersji/wydania programu SQL Server, którego chcesz użyć. W ciągu **10** dni od aprowizacji maszyny wirtualnej musisz [przekazać firmie Microsoft informacje niezbędne do korzystania z modelu BYOL](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf).
 > 
-> 
+
+> [!NOTE]
+> Nie można zmienić modelu licencjonowania maszyny wirtualnej z programem SQL Server opłacanej za minuty użycia na własną licencję. W takim przypadku należy utworzyć nową maszynę wirtualną w modelu BYOL i zmigrować bazy danych do tej nowej maszyny wirtualnej. 
 
 ## <a name="manage-your-sql-vm"></a>Zarządzanie maszyną wirtualną z programem SQL
 Po aprowizacji maszyny wirtualnej z programem SQL Server możesz wykonać kilka opcjonalnych zadań związanych z zarządzaniem. Pod wieloma względami możesz konfigurować program SQL Server i zarządzać nim dokładnie tak, jak w przypadku lokalnej instalacji programu SQL Server. Jednak niektóre zadania są specyficzne dla platformy Azure. W poniższych sekcjach omówiono niektóre z tych obszarów i podano linki do dalszych informacji.
 
 ### <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
-Jedną z podstawowych czynności niezbędnych w celu zarządzania jest połączenie się z maszyną wirtualną z programem SQL Server za pomocą narzędzi takich jak SQL Server Management Studio (SSMS). Aby uzyskać instrukcje dotyczące łączenia się z nową maszyną wirtualną z programem SQL Server, zobacz sekcję [Nawiązywanie połączenia z maszyną wirtualną programu SQL Server w usłudze Azure VM](virtual-machines-windows-sql-connect.md).
+Jedną z podstawowych czynności niezbędnych w celu zarządzania jest połączenie się z maszyną wirtualną z programem SQL Server za pomocą narzędzi takich jak SQL Server Management Studio (SSMS). Aby uzyskać instrukcje dotyczące łączenia się z nową maszyną wirtualną z programem SQL Server, zobacz sekcję [Nawiązywanie połączenia z maszyną wirtualną programu SQL Server w usłudze Azure VM](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="migrate-your-data"></a>Migrowanie danych
-Jeśli masz istniejącą bazę danych, najprawdopodobniej będziesz ją przenosić do nowo aprowizowanej maszyny wirtualnej z programem SQL. Aby uzyskać listę opcji migracji i wskazówki, zobacz [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md) (Migrowanie bazy danych do programu SQL Server na maszynie wirtualnej portalu Azure).
+Jeśli masz istniejącą bazę danych, najprawdopodobniej będziesz ją przenosić do nowo aprowizowanej maszyny wirtualnej z programem SQL. Aby uzyskać listę opcji migracji i wskazówki, zobacz [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Migrowanie bazy danych do programu SQL Server na maszynie wirtualnej portalu Azure).
 
 ### <a name="configure-high-availability"></a>Konfigurowanie wysokiej dostępności
-Jeśli potrzebujesz wysokiej dostępności, rozważ skonfigurowanie grup dostępności programu SQL Server. Obejmuje to wiele maszyn wirtualnych Azure w sieci wirtualnej. W Portalu Azure znajduje się szablon, który przeprowadzi konfigurację za Ciebie. Aby uzyskać więcej informacji, zobacz [Configure an AlwaysOn availability group in Azure Resource Manager virtual machines](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) (Konfigurowanie zawsze włączonej grupy dostępności na maszynach wirtualnych korzystających z usługi Azure Resource Manager). Jeśli chcesz ręcznie skonfigurować grupę dostępności i skojarzony odbiornik, zobacz [Configure AlwaysOn Availability Groups in Azure VM](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md) (Konfigurowanie zawsze włączonych grup dostępności na maszynie wirtualnej Azure).
+Jeśli potrzebujesz wysokiej dostępności, rozważ skonfigurowanie grup dostępności programu SQL Server. Obejmuje to wiele maszyn wirtualnych Azure w sieci wirtualnej. W Portalu Azure znajduje się szablon, który przeprowadzi konfigurację za Ciebie. Aby uzyskać więcej informacji, zobacz [Configure an AlwaysOn availability group in Azure Resource Manager virtual machines](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Konfigurowanie zawsze włączonej grupy dostępności na maszynach wirtualnych korzystających z usługi Azure Resource Manager). Jeśli chcesz ręcznie skonfigurować grupę dostępności i skojarzony odbiornik, zobacz [Configure AlwaysOn Availability Groups in Azure VM](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Konfigurowanie zawsze włączonych grup dostępności na maszynie wirtualnej Azure).
 
-Inne zagadnienia dotyczące wysokiej dostępności można znaleźć w temacie [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md) (Wysoka dostępność i odzyskiwanie po awarii dla programu SQL Server w usłudze Azure Virtual Machines).
+Inne zagadnienia dotyczące wysokiej dostępności można znaleźć w temacie [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Wysoka dostępność i odzyskiwanie po awarii dla programu SQL Server w usłudze Azure Virtual Machines).
 
 ### <a name="back-up-your-data"></a>Tworzenie kopii zapasowej danych
-Maszyny wirtualne Azure umożliwiają korzystanie z funkcji [Automatyczne kopie zapasowe](virtual-machines-windows-sql-automated-backup.md), która regularnie tworzy kopie zapasowe bazy danych w usłudze Blob Storage. Tej techniki można również używać ręcznie. Aby uzyskać więcej informacji, zobacz [Use Azure Storage for SQL Server Backup and Restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md) (Używanie usługi Azure Storage do tworzenia kopii zapasowych programu SQL Server i ich przywracania). Omówienie wszystkich opcji tworzenia i przywracania kopii zapasowych znajduje się w temacie [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md) (Tworzenie i przywracanie kopii zapasowych programu SQL Server w usłudze Azure Virtual Machines).
+Maszyny wirtualne Azure umożliwiają korzystanie z funkcji [Automatyczne kopie zapasowe](virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), która regularnie tworzy kopie zapasowe bazy danych w usłudze Blob Storage. Tej techniki można również używać ręcznie. Aby uzyskać więcej informacji, zobacz [Use Azure Storage for SQL Server Backup and Restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Używanie usługi Azure Storage do tworzenia kopii zapasowych programu SQL Server i ich przywracania). Omówienie wszystkich opcji tworzenia i przywracania kopii zapasowych znajduje się w temacie [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Tworzenie i przywracanie kopii zapasowych programu SQL Server w usłudze Azure Virtual Machines).
 
 ### <a name="automate-updates"></a>Automatyzowanie aktualizacji
-Maszyny wirtualne platformy Azure umożliwiają korzystanie z funkcji [Automatyczne stosowanie poprawek](virtual-machines-windows-sql-automated-patching.md) w celu zaplanowania okna obsługi, w którym mają być automatycznie instalowane ważne aktualizacje systemu Windows i programu SQL Server.
+Maszyny wirtualne platformy Azure umożliwiają korzystanie z funkcji [Automatyczne stosowanie poprawek](virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) w celu zaplanowania okna obsługi, w którym mają być automatycznie instalowane ważne aktualizacje systemu Windows i programu SQL Server.
 
 ### <a name="customer-experience-improvement-program-ceip"></a>Program poprawy jakości obsługi klienta
 Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on okresowo raporty do firmy Microsoft w celu umożliwienia doskonalenia programu SQL Server. Program poprawy jakości obsługi klienta nie wymaga przeprowadzenia żadnych czynności związanych z zarządzaniem. Wyjątek stanowi sytuacja, gdy ma on zostać wyłączony po ukończeniu aprowizacji. Program poprawy jakości obsługi klienta możesz dostosować lub wyłączyć, łącząc się z maszyną wirtualną za pomocą pulpitu zdalnego. Następnie uruchom narzędzie **SQL Server Error and Usage Reporting**. Postępuj zgodnie z instrukcjami, aby wyłączyć raportowanie. 
@@ -124,11 +126,11 @@ Aby uzyskać więcej informacji, zapoznaj się z poświęconą programowi popraw
 ## <a name="next-steps"></a>Następne kroki
 [Zbadaj ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) dla programu SQL Server na maszynach wirtualnych Azure.
 
-Masz więcej pytań? Najpierw zobacz [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md) (Często zadawane pytania dotyczące programu SQL Server w usłudze Azure Virtual Machines). Możesz też dodać pytania lub komentarze na końcu dowolnego tematu dotyczącego maszyn wirtualnych z programem SQL, aby porozmawiać z przedstawicielem firmy Microsoft i społecznością.
+Masz więcej pytań? Najpierw zobacz [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Często zadawane pytania dotyczące programu SQL Server w usłudze Azure Virtual Machines). Możesz też dodać pytania lub komentarze na końcu dowolnego tematu dotyczącego maszyn wirtualnych z programem SQL, aby porozmawiać z przedstawicielem firmy Microsoft i społecznością.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

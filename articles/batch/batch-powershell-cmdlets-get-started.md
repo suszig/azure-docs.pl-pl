@@ -3,7 +3,7 @@ title: "Rozpoczęcie pracy z programem PowerShell w usłudze Azure Batch | Micro
 description: "Krótkie wprowadzenie do poleceń cmdlet programu Azure PowerShell, których można użyć do zarządzania usługą Azure Batch"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 10/20/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1ea51f4053ba0d4e08628d29eca7cb7c82a26d61
 
 
 ---
@@ -30,7 +30,7 @@ Informacje w tym artykule dotyczą poleceń cmdlet programu Azure PowerShell w w
 ## <a name="prerequisites"></a>Wymagania wstępne
 Wykonaj poniższe operacje, aby używać programu Azure PowerShell do zarządzania zasobami usługi Batch.
 
-* [Zainstaluj i skonfiguruj program Azure PowerShell](../powershell-install-configure.md)
+* [Zainstaluj i skonfiguruj program Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Uruchom polecenie cmdlet **Login-AzureRmAccount**, aby podłączyć się do subskrypcji (polecenia cmdlet usługi Azure Batch są dostarczane w module usługi Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -240,6 +240,6 @@ Właściwości puli w usłudze Batch zostały zaktualizowane. Jednak aby rzeczyw
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

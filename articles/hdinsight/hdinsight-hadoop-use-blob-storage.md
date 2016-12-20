@@ -17,12 +17,12 @@ ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
 
 
 ---
-# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Użyj usługi Azure Blob Storage zgodnej z systemem plików HDFS w połączeniu z platformą Hadoop w usłudze HDInsight
+# <a name="use-hdfs-compatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Użyj usługi Azure Blob Storage zgodnej z systemem plików HDFS w połączeniu z platformą Hadoop w usłudze HDInsight
 Dowiedz się, jak używać niedrogiego magazynu obiektów blob platformy Azure z usługą HDInsight, tworzyć konto magazynu Azure i kontener magazynu obiektów blob, a następnie adresować zawarte w nim dane.
 
 Magazyn obiektów blob systemu Azure to niezawodne rozwiązanie ogólnego przeznaczenia, które bezproblemowo integruje się z usługą HDInsight. Korzystając z interfejsu rozproszonego systemu plików Hadoop (HDFS), pełny zestaw składników usługi HDInsight może operować bezpośrednio na danych strukturalnych lub bez struktury w magazynie obiektów blob.
@@ -34,7 +34,7 @@ Przechowywanie danych w usłudze Blob Storage pozwala bezpiecznie usuwać klastr
 > 
 > 
 
-Informacje dotyczące tworzenia klastra usługi HDInsight można znaleźć w tematach [Get Started with HDInsight][hdinsight-get-started] (Wprowadzenie do usługi HDInsight) lub [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów usługi HDInsight).
+Informacje dotyczące tworzenia klastra usługi HDInsight można znaleźć w tematach [Rozpoczynanie pracy z usługą HDInsight][hdinsight-get-started] lub [Tworzenie klastrów usługi HDInsight][hdinsight-creation].
 
 ## <a name="hdinsight-storage-architecture"></a>Architektura magazynu usługi HDInsight
 Na poniższym diagramie przedstawiono abstrakcyjny widok architektury magazynu usługi HDInsight:
@@ -56,7 +56,7 @@ Ponadto usługa HDInsight zapewnia możliwość dostępu do danych przechowywany
 
 Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. Podczas procesu tworzenia usługi HDInsight konto Azure Storage i określony na podstawie tego konta kontener magazynu obiektów blob platformy Azure wyznaczają domyślny system plików.
 
-Oprócz tego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania dodatkowych kont magazynu, zobacz [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów HDInsight).
+Oprócz tego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania dodatkowych kont magazynu, zobacz [Tworzenie klastrów usługi HDInsight][hdinsight-creation].
 
 * **Kontenery w ramach kont magazynu, które są podłączone do klastra:** ponieważ nazwa konta i klucz są kojarzone z klastrem podczas tworzenia, masz pełny dostęp do obiektów blob w tych kontenerach.
 * **Publiczne kontenery lub publiczne obiekty blob na kontach magazynu, które NIE są podłączone do klastra:** masz uprawnienia tylko do odczytu obiektów blob w kontenerach.
@@ -92,11 +92,11 @@ Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, których
 > 
 
 ## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów blob
-Aby użyć obiektów blob, należy najpierw utworzyć [konto Azure Storage][azure-storage-create]. W ramach tego działania można określić region platformy Azure, w którym będą przechowywanie obiekty utworzone za pomocą tego konta. Klaster i konto magazynu muszą być hostowane w tym samym regionie. Baza danych SQL Server na potrzeby magazynu metadanych Hive i baza danych SQL Server na potrzeby magazynu metadanych Oozie również muszą znajdować się w tym samym regionie.
+Aby użyć obiektów blob, należy najpierw utworzyć [konto usługi Azure Storage][azure-storage-create]. W ramach tego działania można określić region platformy Azure, w którym będą przechowywanie obiekty utworzone za pomocą tego konta. Klaster i konto magazynu muszą być hostowane w tym samym regionie. Baza danych SQL Server na potrzeby magazynu metadanych Hive i baza danych SQL Server na potrzeby magazynu metadanych Oozie również muszą znajdować się w tym samym regionie.
 
 Wszędzie tam, gdzie go umieszczono, każdy utworzony obiekt blob należy do kontenera na koncie usługi Azure Storage. Ten kontener może być istniejącym obiektem blob utworzonym poza usługą HDInsight lub może być kontenerem, który jest tworzony dla klastra usługi HDInsight.
 
-Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historię zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Mogłoby to spowodować uszkodzenie historii zadań i błędne działanie klastra. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania kont magazynu połączone, zobacz artykuł [Create HDInsight clusters][hdinsight-creation] (Tworzenie klastrów usługi HDInsight). Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase faktycznie można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera magazynu obiektów blob, używanego przez klaster HBase, który został usunięty.
+Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historię zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Mogłoby to spowodować uszkodzenie historii zadań i błędne działanie klastra. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania połączonych kont magazynu, zobacz artykuł [Tworzenie klastrów usługi HDInsight][hdinsight-creation]. Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase faktycznie można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera magazynu obiektów blob, używanego przez klaster HBase, który został usunięty.
 
 ### <a name="using-the-azure-portal"></a>Korzystanie z portalu Azure
 Podczas tworzenia klastra usługi HDInsight za pomocą portalu masz do wyboru opcje użycia istniejącego konta magazynu lub utworzenie nowego konta magazynu:
@@ -216,7 +216,7 @@ Użyj następującego polecenia, aby wyświetlić listę poleceń cmdlet związa
 ![Lista poleceń cmdlet programu PowerShell związanych z obiektami blob.][img-hdi-powershell-blobcommands]
 
 ### <a name="upload-files"></a>Przekazywanie plików
-Zobacz [Upload data to HDInsight][hdinsight-upload-data] (Przekazywanie danych do usługi HDInsight).
+Zobacz [Przekazywanie danych do usługi HDInsight][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Pobieranie plików
 Następujący skrypt służy do pobierania blokowego obiektu blob do bieżącego folderu. Przed uruchomieniem skryptu zmień katalog na folder, w którym masz uprawnienia do zapisu.
@@ -282,14 +282,14 @@ W tym artykule przedstawiono sposób używania magazynu obiektów blob platformy
 
 Aby uzyskać więcej informacji, zobacz:
 
-* [Get Started with Azure HDInsight][hdinsight-get-started] (Wprowadzenie do usługi Azure HDInsight)
-* [Upload data to HDInsight][hdinsight-upload-data] (Przekazywanie danych do usługi HDInsight)
+* [Rozpoczynanie pracy z usługą Azure HDInsight][hdinsight-get-started]
+* [Przekazywanie danych do usługi HDInsight][hdinsight-upload-data]
 * [Korzystanie z programu Hive z usługą HDInsight][hdinsight-use-hive]
 * [Korzystanie z języka Pig z usługą HDInsight][hdinsight-use-pig]
 * [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight][hdinsight-use-sas] (Używanie sygnatur dostępu współdzielonego do usługi Azure Storage, aby ograniczyć dostęp do danych za pomocą usługi HDInsight)
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -305,6 +305,6 @@ Aby uzyskać więcej informacji, zobacz:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

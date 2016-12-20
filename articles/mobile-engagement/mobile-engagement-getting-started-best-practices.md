@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
 
 
 ---
-# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Wprowadzenie do usługi Azure Mobile Engagement — przewodnik z najlepszymi rozwiązaniami
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Wprowadzenie do usługi Azure Mobile Engagement — przewodnik z najlepszymi rozwiązaniami
 ## <a name="overview"></a>Omówienie
 **Ekrany urządzeń przenośnych stają się coraz bardziej zatłoczone —** badanie przeprowadzone w 2013 r. ujawniło, że na urządzeniach przenośnych jest zainstalowanych średnio po 27 aplikacji. Na ich używanie użytkownicy zazwyczaj poświęcają 30 godzin w miesiącu. Większość tego czasu zajmuje korzystanie z sieci społecznościowych i gier (około 20 godzin). Na początku 2014 r. rynek aplikacji dla systemu Android obejmował około 1,5 miliona pozycji. W sklepie Apple Store dostępnych było mniej więcej 1,2 miliona aplikacji. Aplikacje mobilne wciąż zyskują na popularności, a ich deweloperzy konkurują ze sobą na tym rosnącym rynku. 
 
@@ -105,7 +105,7 @@ Utworzony pulpit nawigacyjny wskaźników KPI będzie zawierał następujące in
 3. Gdzie znajdują się dane dla aplikacji (np. na ekranie, w ustawieniach lub w systemie)?
 4. Czy można odtworzyć sekwencję angażowania dla poszczególnych wskaźników KPI?
 
-Przykłady i wskazówki można znaleźć w arkuszu służącym do **konstruowania wskaźników KPI**, który jest dostępny w [podręcznikowym szablonie dotyczącym multimediów][link do podręcznika dotyczącego multimediów].
+Przykłady i wskazówki można znaleźć w arkuszu służącym do **konstruowania wskaźników KPI**, który jest dostępny w [podręcznikowym szablonie dotyczącym multimediów][Media Playbook link].
 
 ## <a name="step-2-your-engagement-program"></a>Krok 2. Program zaangażowania
 Jednym z kluczowych składników aplikacji powinien być dobry marketing na urządzeniach przenośnych. Absolutnie krytycznym wymogiem jest doskonały program powitalny, uruchamiany przez kilka pierwszych dni używania aplikacji. Zwykle ma on bardzo pozytywny wpływ na zaangażowanie użytkownika i poziom przechowywania aplikacji. Badania wykazały, że większość użytkowników przestaje korzystać z aplikacji po kilku dniach od jej zainstalowania. Celem dewelopera jest spełnienie lub przekroczenie oczekiwań klientów i wczesne pobudzenie ich zaangażowania, gdy są oni wciąż zainteresowani aplikacją. Należy zadbać o przedstawienie klientom najważniejszych zalet aplikacji i korzyści płynących z jej używania. 
@@ -209,13 +209,13 @@ W usłudze Azure Mobile Engagement są dostępne dwie metody, które pozwalają 
 #### <a name="playbook-exercise-2-create-your-engagement-program"></a>Ćwiczenie 2. Tworzenie programu zaangażowania
 Należy poświęcić trochę czasu na podsumowanie celów i określenie spodziewanych kampanii prowadzonych przy użyciu specyficznych sekwencji. Należy pamiętać, aby powiadomienia w ramach kampanii uwzględniały metodę „Kto, co i kiedy”. 
 
-Przykłady i wskazówki można znaleźć w arkuszu **programu zaangażowania**, który jest dostępny w [podręcznikowym szablonie dotyczącym multimediów][link do podręcznika dotyczącego multimediów].
+Przykłady i wskazówki można znaleźć w arkuszu **programu zaangażowania**, który jest dostępny w [podręcznikowym szablonie dotyczącym multimediów][Media Playbook link].
 
 ## <a name="step-3-app-integration"></a>Krok 3. Integracja aplikacji
 #### <a name="create-a-tag-plan"></a>Tworzenie planu dodawania tagów
 W celu zintegrowania aplikacji z usługą Azure Mobile Engagement należy utworzyć plan dodawania tagów, który stanowi podstawę projektu. Definiuje on relacje między specyfikacjami marketingowymi, przepływem pracy w aplikacji oraz rzeczywistymi danymi tagów zebranymi przez aplikację w celu mierzenia wskaźników KPI. Plan dodawania tagów określa, jakie analizy można wyświetlić w portalu. Pomaga również w wyznaczeniu segmentów użytkowników i wysyłaniu ukierunkowanych powiadomień wypychanych, których celem jest angażowanie użytkowników końcowych. Po zdefiniowaniu planu dodawania tagów można za pomocą kodu łatwo zintegrować go z aplikacją, używając zestawu SDK usługi Azure Mobile Engagement.
 
-W ramach planu dodawania tagów nie należy oznaczać wszystkich elementów aplikacji. Powinien on obejmować tylko dane tagów, które są częścią strategii marketingowej na urządzeniach przenośnych W przypadku różnych aplikacji te dane prawdopodobnie będą inne. [Szablon zawarty w podręczniku dotyczącym multimediów][link do podręcznika dotyczącego multimediów] udostępniany przez usługę Azure Mobile Engagement ułatwia utworzenie planu dodawania tagów za pomocą danej metody. Arkusz **planu dodawania tagów** służy jako przewodnik dotyczący tworzenia planu dodawania tagów.
+W ramach planu dodawania tagów nie należy oznaczać wszystkich elementów aplikacji. Powinien on obejmować tylko dane tagów, które są częścią strategii marketingowej na urządzeniach przenośnych W przypadku różnych aplikacji te dane prawdopodobnie będą inne. [Szablon zawarty w podręczniku dotyczącym multimediów][Media Playbook link] udostępniany przez usługę Azure Mobile Engagement ułatwia utworzenie planu dodawania tagów za pomocą danej metody. Arkusz **planu dodawania tagów** służy jako przewodnik dotyczący tworzenia planu dodawania tagów.
 
 Ważne jest, aby bardzo dokładnie zdefiniować sekcję tagów w arkuszu. Pozwoli to uniknąć pomyłek. Należy szczegółowo określić wszystkie oczekiwane scenariusze, w których będą wysyłane poszczególne tagi, dodając nazwy działań z osadzonymi tagami. Wszystkie te informacje należy uwzględnić w **informacyjnej** części arkusza. Arkusz planu dodawania tagów powinien stanowić główny punkt odniesienia dla testów weryfikacyjnych. 
 
@@ -322,10 +322,10 @@ Po zdobyciu pewnego doświadczenia można rozważyć dodanie do programu zaanga�
 
 
 <!--Link references-->
-[link do podręcznika dotyczącego multimediów]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

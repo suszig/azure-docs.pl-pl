@@ -1,9 +1,9 @@
 ## <a name="receive-messages-with-eventprocessorhost"></a>Odbieranie komunikatów za pomocą klasy EventProcessorHost
-[EventProcessorHost][EventProcessorHost] jest klasą .NET, która upraszcza odbieranie zdarzeń z usługi Event Hubs przez zarządzanie trwałymi punktami kontrolnymi i równoległymi odbiorami z tych usług. Za pomocą klasy [EventProcessorHost][EventProcessorHost] można podzielić zdarzenia między wieloma odbiornikami, nawet w przypadku hostowania w różnych węzłach. W tym przykładzie przedstawiono, jak używać klasy [EventProcessorHost][EventProcessorHost] dla jednego odbiornika. W przykładzie [Skalowanie przetwarzania zdarzeń][Skalowanie przetwarzania zdarzeń] przedstawiono instrukcje korzystania z klasy [EventProcessorHost][EventProcessorHost] z wieloma odbiornikami.
+[EventProcessorHost][EventProcessorHost] jest klasą .NET, która upraszcza odbieranie zdarzeń z usługi Event Hubs przez zarządzanie trwałymi punktami kontrolnymi i równoległymi odbiorami z tej usługi. Za pomocą klasy [EventProcessorHost][EventProcessorHost] można podzielić zdarzenia między wieloma odbiornikami, nawet w przypadku hostowania w różnych węzłach. W tym przykładzie przedstawiono, jak używać klasy [EventProcessorHost][EventProcessorHost] dla jednego odbiornika. W przykładzie [Skalowane do wewnątrz przetwarzanie zdarzeń][Scaled out event processing] przedstawiono instrukcje korzystania z klasy [EventProcessorHost][EventProcessorHost] z wieloma odbiornikami.
 
-Aby używać klasy [EventProcessorHost][EventProcessorHost], trzeba mieć [konto usługi Azure Storage][konto usługi Azure Storage]:
+Aby móc korzystać z klasy [EventProcessorHost][EventProcessorHost], trzeba mieć [konto usługi Azure Storage][Azure Storage account]:
 
-1. Zaloguj się do witryny [Azure Portal][Azure Portal], a następnie kliknij pozycję **Nowy** w lewym górnym rogu ekranu.
+1. Zaloguj się do witryny [Azure Portal][Azure portal], a następnie kliknij pozycję **Nowy** w lewym górnym rogu ekranu.
 2. Kliknij pozycję **Dane i magazyn**, a następnie pozycję **Konto magazynu**.
    
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
@@ -28,14 +28,14 @@ Aby używać klasy [EventProcessorHost][EventProcessorHost], trzeba mieć [konto
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 10. W górnej części pliku SimpleEventProcessor.cs dodaj następujące instrukcje:
     
-     ```
+     ```csharp
      using Microsoft.ServiceBus.Messaging;
      using System.Diagnostics;
      ```
     
      Następnie zastąp następujący kod treścią klasy:
     
-     ```
+     ```csharp
      class SimpleEventProcessor : IEventProcessor
      {
          Stopwatch checkpointStopWatch;
@@ -80,13 +80,13 @@ Aby używać klasy [EventProcessorHost][EventProcessorHost], trzeba mieć [konto
      Klasa ta zostanie wywołana przez klasę **EventProcessorHost** do przetwarzania zdarzeń odebranych z Centrum zdarzeń. Należy pamiętać, że klasa `SimpleEventProcessor` używa stopera, aby okresowo wywoływać metodę punktu kontrolnego w kontekście klasy **EventProcessorHost**. Daje to gwarancję, że jeśli odbiornik zostanie ponownie uruchomiony, nie straci więcej niż pięć minut operacji przetwarzania.
 11. W klasie **Program** dodaj następującą instrukcję `using` w górnej części pliku:
     
-     ```
+     ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
      Następnie zastąp metodę `Main` w klasie `Program` następującym kodem, zastępując nazwę Centrum zdarzeń i parametry połączenia na poziomie przestrzeni nazw, które zostały zapisane wcześniej, oraz konto magazynu i klucz skopiowane we wcześniejszych sekcjach. 
     
-     ```
+     ```csharp
      static void Main(string[] args)
      {
        string eventHubConnectionString = "{Event Hub connection string}";
@@ -109,18 +109,18 @@ Aby używać klasy [EventProcessorHost][EventProcessorHost], trzeba mieć [konto
      ```
 
 > [!NOTE]
-> Instrukcje w tym samouczku obejmują użycie pojedynczego wystąpienia hosta [EventProcessorHost][EventProcessorHost]. W celu zwiększenia przepływności zaleca się uruchomienie wielu wystąpień klasy [EventProcessorHost][EventProcessorHost], jak przedstawiono w przykładzie [Skalowanie przetwarzania zdarzeń][Skalowanie przetwarzania zdarzeń]. W tych przypadkach różne wystąpienia automatycznie koordynują się ze sobą w celu równoważenia obciążenia odebranych zdarzeń. Jeśli chcesz, aby wiele odbiorników przetwarzało *wszystkie* zdarzenia, musisz użyć koncepcji **ConsumerGroup**. W przypadku odbierania zdarzeń z różnych komputerów dobrym rozwiązaniem może być określenie nazw wystąpień hosta [EventProcessorHost][EventProcessorHost] w oparciu o komputery (lub role), w których są one wdrażane. Więcej informacji można znaleźć w tematach [Omówienie usługi Event Hubs][Omówienie usługi Event Hubs] i [Przewodnik programowania w usłudze Event Hubs][Przewodnik programowania w usłudze Event Hubs].
+> Instrukcje w tym samouczku obejmują użycie pojedynczego wystąpienia klasy [EventProcessorHost][EventProcessorHost]. W celu zwiększenia przepływności zaleca się uruchomienie wielu wystąpień klasy [EventProcessorHost][EventProcessorHost], jak przedstawiono w przykładzie [Skalowane do wewnątrz przetwarzanie zdarzeń][Scaled out event processing]. W tych przypadkach różne wystąpienia automatycznie koordynują się ze sobą w celu równoważenia obciążenia odebranych zdarzeń. Jeśli chcesz, aby wiele odbiorników przetwarzało *wszystkie* zdarzenia, musisz użyć koncepcji **ConsumerGroup**. W przypadku odbierania zdarzeń z różnych maszyn dobrym rozwiązaniem może być określenie nazw wystąpień klasy [EventProcessorHost][EventProcessorHost] w oparciu o maszyny (lub role), w których są one wdrażane. Więcej informacji można znaleźć w tematach [Omówienie usługi Event Hubs][Event Hubs Overview] i [Przewodnik programowania w usłudze Event Hubs][Event Hubs Programming Guide].
 > 
 > 
 
 <!-- Links -->
-[Omówienie usługi Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
-[Przewodnik programowania w usłudze Event Hubs]: ../articles/event-hubs/event-hubs-programming-guide.md
-[Skalowanie przetwarzania zdarzeń]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[konto usługi Azure Storage]: ../articles/storage/storage-create-storage-account.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure Portal]: https://portal.azure.com
+[Event Hubs Overview]: ../articles/event-hubs/event-hubs-overview.md
+[Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
+[Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure Storage account]: ../articles/storage/storage-create-storage-account.md
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

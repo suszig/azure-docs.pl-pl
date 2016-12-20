@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>Wdrażanie lokalnego urządzenia StorSimple z aktualizacją Update 1
+# <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Wdrażanie lokalnego urządzenia StorSimple z aktualizacją Update 1
 > [!div class="op_single_selector"]
 > * [Aktualizacja 2](storsimple-deployment-walkthrough-u2.md)
 > * [Aktualizacja 1](storsimple-deployment-walkthrough-u1.md)
@@ -131,7 +131,7 @@ Przed rozpoczęciem upewnij się, że:
 
 * Porty w zaporze centrum danych zostały otwarte w celu zezwolenia na ruch związany z interfejsem iSCSI i chmurą, zgodnie z opisem w temacie [Networking requirements for your StorSimple device](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device) (Wymagania dotyczące pracy w sieci dla urządzenia StorSimple).
 
-## <a name="stepbystep-deployment"></a>Wdrożenie krok po kroku
+## <a name="step-by-step-deployment"></a>Wdrożenie krok po kroku
 Poniższe instrukcje krok po kroku dotyczą wdrażania urządzenia StorSimple w centrum danych.
 
 ## <a name="step-1-create-a-new-service"></a>Krok 1. Tworzenie nowej usługi
@@ -270,6 +270,6 @@ Instrukcje dotyczące instalowania wielościeżkowego wejścia/wyjścia (MPIO) d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

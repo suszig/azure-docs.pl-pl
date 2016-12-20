@@ -12,20 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/10/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: a3fc284a436173f1a1debc205a83d55cc1869b32
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
-> [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [.NET](cloud-services-dotnet-get-started.md)
->
->
 
 ## <a name="overview"></a>Omówienie
 W tym samouczku wyjaśniono, jak utworzyć wielowarstwową aplikację .NET z frontonem ASP.NET MVC i wdrożyć ją w [usłudze w chmurze Azure](cloud-services-choose-me.md). Aplikacja używa [bazy danych Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [usługi obiektów blob platformy Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) i [usługi kolejek platformy Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). [Projekt programu Visual Studio można pobrać](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) z Galerii kodu MSDN.
@@ -53,7 +48,7 @@ Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W samouczku przyjęto założenie, że znasz [podstawowe pojęcia dotyczące usług w chmurze Azure](cloud-services-choose-me.md), takie jak terminologia związana z *rolą Sieć Web* i *rolą Proces roboczy*.  Założono również, że wiesz, jak pracować z projektami [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) lub [formularzami sieci Web](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) w programie Visual Studio. Przykładowa aplikacja korzysta z kontrolera MVC, jednak większość treści samouczka odnosi się również do formularzy sieci Web.
 
-Aplikację można uruchomić lokalnie bez subskrypcji platformy Azure, ale będzie ona potrzebna w przypadku wdrażania aplikacji w chmurze. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) lub [utworzyć konto bezpłatnej wersji próbnej](/pricing/free-trial/?WT.mc_id=A55E3C668).
+Aplikację można uruchomić lokalnie bez subskrypcji platformy Azure, ale będzie ona potrzebna w przypadku wdrażania aplikacji w chmurze. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) lub [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 Instrukcje w samouczku dotyczą pracy z jednym z następujących produktów:
 
@@ -415,7 +410,7 @@ W poniższych sekcjach opisano kod powiązany z pracą z kolejkami, obiektami bl
 * [Wprowadzenie do programów EF 6 i MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Wprowadzenie do programowania asynchronicznego w programie .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-### <a name="contosoadscommon-adcs"></a>ContosoAdsCommon — Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon — Ad.cs
 Plik Ad.cs definiuje wyliczenia związane z kategoriami reklam i klasą jednostki POCO dla informacji o reklamach.
 
 ```csharp
@@ -459,7 +454,7 @@ public class Ad
 }
 ```
 
-### <a name="contosoadscommon-contosoadscontextcs"></a>ContosoAdsCommon — ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon — ContosoAdsContext.cs
 Klasa ContosoAdsContext określa, czy klasa Ad jest używana w kolekcji DbSet przechowywanej przez platformę Entity Framework w bazie danych SQL.
 
 ```csharp
@@ -478,7 +473,7 @@ public class ContosoAdsContext : DbContext
 
 Klasa ma dwa konstruktory. Pierwszy z nich jest używany w projekcie sieci Web i określa nazwę parametrów połączenia, które są przechowywane w pliku Web.config. Drugi konstruktor umożliwia przekazywanie rzeczywistych parametrów połączenia. Są one wymagane dla projektu roli Proces roboczy, ponieważ nie ma on pliku Web.config. Wcześniej przedstawiono lokalizację przechowywania tych parametrów połączenia. Dalej pokażemy, jak kod pobiera parametry połączenia podczas tworzenia wystąpień klasy DbContext.
 
-### <a name="contosoadsweb-globalasaxcs"></a>ContosoAdsWeb — Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb — Global.asax.cs
 Kod wywoływany z metody `Application_Start` umożliwia tworzenie kontenera obiektów blob *obrazów* i kolejki *obrazów*, jeśli jeszcze nie istnieją. Daje to gwarancję, że za każdym razem w przypadku rozpoczęcia pracy z nowym kontem magazynu lub przy użyciu emulatora magazynu na nowym komputerze wymagana kolejka i kontener obiektów blob zostaną utworzone automatycznie.
 
 Kod uzyskuje dostęp do konta magazynu przy użyciu parametrów połączenia magazynu z pliku *.cscfg*.
@@ -511,10 +506,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb-layoutcshtml"></a>ContosoAdsWeb — \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb — \_Layout.cshtml
 Plik *_Layout.cshtml* umożliwia ustawienie nazwy aplikacji w nagłówku i stopce oraz utworzenie wpisu menu „Ads”.
 
-### <a name="contosoadsweb-viewshomeindexcshtml"></a>ContosoAdsWeb — Views\Home\Index.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb — Views\Home\Index.cshtml
 Plik *Views\Home\Index.cshtml* umożliwia wyświetlanie linków kategorii na stronie głównej. Linki przekazują wartość całkowitą typu wyliczeniowego `Category` w zmiennej querystring na stronie indeksu reklam.
 
 ```razor
@@ -524,7 +519,7 @@ Plik *Views\Home\Index.cshtml* umożliwia wyświetlanie linków kategorii na str
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-### <a name="contosoadsweb-adcontrollercs"></a>ContosoAdsWeb — AdController.cs
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb — AdController.cs
 W pliku *AdController.cs* konstruktor wywołuje metodę `InitializeStorage` w celu utworzenia obiektów biblioteki klienta usługi Azure Storage, które będą dostarczać interfejs API do pracy z kolejkami i obiektami blob.
 
 Następnie kod pobiera odwołanie do kontenera obiektów blob *obrazów*, jak było to widać wcześniej w pliku *Global.asax.cs*. W tym czasie ustawiane są domyślne [zasady ponawiania](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) odpowiednie dla aplikacji sieci Web. Domyślne zasady ponawiania wykładniczego wycofywania mogą powodować zawieszanie aplikacji sieci Web na czas dłuższy niż minuta w przypadku kolejnych prób i wystąpienia błędu przejściowego. Zasady ponawiania określone w tym miejscu powodują oczekiwanie przez 3 sekundy po każdej próbie. Maksymalna liczba prób to 3.
@@ -621,7 +616,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-### <a name="contosoadsweb-viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb — Views\Ad\Index.cshtml i Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb — Views\Ad\Index.cshtml i Details.cshtml
 Plik *Index.cshtml* służy do wyświetlania miniatury z innymi danymi reklamy.
 
 ```razor
@@ -634,7 +629,7 @@ Plik *Details.cshtml* służy do wyświetlania obrazu w pełnym rozmiarze.
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-### <a name="contosoadsweb-viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb — Views\Ad\Create.cshtml i Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb — Views\Ad\Create.cshtml i Edit.cshtml
 Pliki *Create.cshtml* i *Edit.cshtml* określają kodowanie formularzy, które umożliwia kontrolerowi pobieranie obiektu `HttpPostedFileBase`.
 
 ```razor
@@ -647,7 +642,7 @@ Element `<input>` informuje przeglądarkę o konieczności udostępnienia okna d
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-### <a name="contosoadsworker-workerrolecs-onstart-method"></a>ContosoAdsWorker — WorkerRole.cs — metoda OnStart
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker — WorkerRole.cs — metoda OnStart
 Środowisko roli procesu roboczego platformy Azure wywołuje metodę `OnStart` w klasie `WorkerRole` podczas uruchamiania roli Proces roboczy. Metoda `Run` jest wywoływana po zakończeniu działania metody `OnStart`.
 
 Metoda `OnStart` pobiera parametry połączenia bazy danych z pliku *.cscfg* i przekazuje je do klasy Entity Framework DbContext. Nie trzeba określać dostawcy, ponieważ domyślnie jest wybierany SQLClient.
@@ -659,7 +654,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Następnie metoda pobiera odwołanie do konta magazynu i tworzy kolejkę oraz kontener obiektów blob i kolejki, jeśli nie istnieją. Kod tej czynności działa podobnie do metody `Application_Start` roli Sieć Web.
 
-### <a name="contosoadsworker-workerrolecs-run-method"></a>ContosoAdsWorker — WorkerRole.cs — metoda Run
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker — WorkerRole.cs — metoda Run
 Metoda `Run` jest wywoływana, gdy zakończy się inicjowanie przy użyciu metody `OnStart`. Metoda wykonuje nieskończoną pętlę, która oczekuje na nowe komunikaty w kolejce i przetwarza je po nadejściu.
 
 ```csharp
@@ -777,6 +772,6 @@ Więcej informacji zawierają następujące zasoby:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

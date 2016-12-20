@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/02/2016
+ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 
 
 ---
@@ -47,7 +47,11 @@ W tym samouczku aplikacji w języku Java pokazano, jak utworzyć aplikację do z
 ## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Wymagania wstępne dotyczące tego samouczka aplikacji sieci Web w języku Java
 Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dysponować następującymi elementami:
 
-* Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
+
+    LUB
+
+    Lokalna instalacja [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Zestaw Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Środowisko Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Witryna sieci Web platformy Azure z włączonym środowiskiem uruchomieniowym języka Java (np. Tomcat lub Jetty).](../app-service-web/web-sites-java-get-started.md)
@@ -55,7 +59,7 @@ Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dys
 Jeśli instalujesz te narzędzia po raz pierwszy, witryna coreservlets.com zawiera omówienie procesu instalacji w artykule [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Samouczek: Instalacja środowiska TomCat7 i używanie go ze środowiskiem Eclipse) w sekcji Quick Start (Szybki start).
 
 ## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
-Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możesz przejść do kroku [Krok 2. Tworzenie aplikacji Java JSP](#CreateJSP).
+Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi DocumentDB na potrzeby tego samouczka, możesz od razu przejść do etapu [Krok 2. Tworzenie aplikacji Java JSP](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -453,7 +457,7 @@ Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego i
             }
         }
 3. Potrzebujemy interfejsu użytkownika sieci Web do wyświetlania użytkownikowi informacji. Napiszmy od nowa utworzony wcześniej plik index.jsp:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -540,6 +544,7 @@ Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego i
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. I na koniec napiszmy kod Javascript po stronie klienta, aby powiązać serwlet z interfejsem użytkownika sieci Web:
    
         var todoApp = {
@@ -759,6 +764,6 @@ Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://gith
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

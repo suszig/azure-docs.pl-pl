@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
 
 
 ---
@@ -38,7 +38,7 @@ Poniższy klucz ma zastosowanie do wszystkich tabel.
 PW = w przyszłym wydaniu  
 PZ = publiczna wersja zapoznawcza  
 
-## <a name="onpremises-to-cloud-synchronization"></a>Synchronizacja danych lokalnych z chmurą
+## <a name="on-premises-to-cloud-synchronization"></a>Synchronizacja danych lokalnych z chmurą
 | Funkcja | Azure Active Directory Connect | Usługi synchronizacji usługi Azure Active Directory (AAD Sync) | Narzędzie do synchronizacji z usługą Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Połączenie z pojedynczym lokalnym lasem usługi AD |● |● |● |● |● |
@@ -52,7 +52,7 @@ PZ = publiczna wersja zapoznawcza
 | Połączenie z lokalnymi systemami kadr (np. SAP, Oracle eBusiness, PeopleSoft) |PW | | |● |● |
 | Obsługuje reguły synchronizacji programu FIM i łączniki do aprowizowania dla systemów lokalnych | | | |● |● |
 
-## <a name="cloud-to-onpremises-synchronization"></a>Synchronizacja chmury z danymi lokalnymi
+## <a name="cloud-to-on-premises-synchronization"></a>Synchronizacja chmury z danymi lokalnymi
 | Funkcja | Azure Active Directory Connect | Usługi synchronizacji usługi Azure Active Directory | Narzędzie do synchronizacji z usługą Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Zapisywanie zwrotne urządzeń |● | |● | | |
@@ -68,7 +68,7 @@ PZ = publiczna wersja zapoznawcza
 | Logowanie jednokrotne z federacją |● |● |● |● |● |
 | Zapisywanie zwrotne haseł (z funkcji samoobsługowego resetowania hasła i zmiany hasła) |● |● | | | |
 
-## <a name="setup-and-installation"></a>Konfiguracja i instalacja
+## <a name="set-up-and-installation"></a>Konfiguracja i instalacja
 | Funkcja | Azure Active Directory Connect | Usługi synchronizacji usługi Azure Active Directory | Narzędzie do synchronizacji z usługą Azure Active Directory (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Obsługuje instalację na kontrolerze domeny |● |● |● | |
@@ -95,6 +95,6 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

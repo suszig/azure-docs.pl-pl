@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 79c9f2d8c683be493160fffe40992006b039f60f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 
 
 ---
@@ -112,7 +112,7 @@ Poniższe kroki pokazują, jak dodać symulowane urządzenie do rozwiązania:
     ![Wyświetlanie telemetrii z nowego urządzenia][img-runningnew-2]
 
 ## <a name="edit-the-device-metadata"></a>Edytowanie metadanych urządzenia
-Kiedy urządzenie po raz pierwszy łączy się z rozwiązaniem, wysyła do rozwiązania swoje metadane. Gdy metadane urządzenia zostaną zmienione za pośrednictwem pulpitu nawigacyjnego rozwiązania, pulpit wysyła nowe wartości metadanych do urządzenia i zapisuje je w bazie danych DocumentDB rozwiązania. Aby uzyskać więcej informacji, zobacz [Rejestr tożsamości urządzeń i baza danych DocumentDB][lnk-devicemetadata].
+Kiedy urządzenie po raz pierwszy łączy się z rozwiązaniem, wysyła do rozwiązania swoje metadane. Gdy metadane urządzenia zostaną zmienione za pośrednictwem pulpitu nawigacyjnego rozwiązania, pulpit wysyła nowe wartości metadanych do urządzenia i zapisuje je w bazie danych DocumentDB rozwiązania. Aby uzyskać więcej informacji, zobacz artykuł [Rejestr tożsamości urządzeń i baza danych DocumentDB][lnk-devicemetadata].
 
 1. Wróć do listy urządzeń.
 2. Wybierz nowe urządzenie na **liście urządzeń**, a następnie kliknij pozycję **Edytuj**, aby zmodyfikować **właściwości urządzenia**:
@@ -165,7 +165,7 @@ Można wyłączyć urządzenie, a następnie je usunąć:
 ![Wyłączanie i usuwanie urządzenia][img-disable]
 
 ## <a name="behind-the-scenes"></a>Za kulisami
-Podczas wdrażania wstępnie skonfigurowanego rozwiązania jest tworzonych wiele zasobów w ramach wybranej subskrypcji platformy Azure. Można je wyświetlić w [portalu][lnk-portal] Azure. W procesie wdrażania jest tworzona **grupa zasobów** o nazwie odpowiadającej nazwie wstępnie skonfigurowanego rozwiązania:
+Podczas wdrażania wstępnie skonfigurowanego rozwiązania jest tworzonych wiele zasobów w ramach wybranej subskrypcji platformy Azure. Można je wyświetlić w witrynie Azure [Portal][lnk-portal]. W procesie wdrażania jest tworzona **grupa zasobów** o nazwie odpowiadającej nazwie wstępnie skonfigurowanego rozwiązania:
 
 ![Wstępnie skonfigurowane rozwiązanie w portalu Azure][img-portal]
 
@@ -180,14 +180,14 @@ Można również wyświetlić kod źródłowy wstępnie skonfigurowanego rozwią
 Gdy wszystko będzie gotowe, możesz usunąć wstępnie skonfigurowane rozwiązanie z subskrypcji platformy Azure w witrynie [azureiotsuite.com][lnk-azureiotsuite]. Ta witryna umożliwia łatwe usunięcie wszystkich zasobów, które zostały aprowizowane po utworzeniu wstępnie skonfigurowanego rozwiązania.
 
 > [!NOTE]
-> Aby mieć pewność, że zostaną usunięte wszystkie elementy powiązane ze wstępnie skonfigurowanym rozwiązaniem, nie usuwaj grupy zasobów w portalu, lecz usuń rozwiązanie w witrynie [azureiotsuite.com][lnk-azureiotsuite].
+> Aby mieć pewność, że zostaną usunięte wszystkie elementy powiązane ze wstępnie skonfigurowanym rozwiązaniem, nie usuwaj grupy zasobów w portalu, ale usuń rozwiązanie w witrynie [azureiotsuite.com][lnk-azureiotsuite].
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, kiedy zostało wdrożone wstępnie skonfigurowane rozwiązanie, które działa, możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
 
-* [Przewodnik po wstępnie skonfigurowanym rozwiązaniu do monitorowania zdalnego][lnk-rm-walkthrough]
+* [Przewodnik po wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego][lnk-rm-walkthrough]
 * [Łączenie urządzenia ze wstępnie skonfigurowanym rozwiązaniem do monitorowania zdalnego][lnk-connect-rm]
 * [Uprawnienia w witrynie azureiotsuite.com][lnk-permissions]
 
@@ -229,6 +229,6 @@ Teraz, kiedy zostało wdrożone wstępnie skonfigurowane rozwiązanie, które dz
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

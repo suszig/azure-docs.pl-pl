@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 9c9b36f380064ceb07802dde768725ac5870049b
-ms.openlocfilehash: fe0e4e2d1884df89a6608faecfa35696ead6c11f
+ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
+ms.openlocfilehash: 21ebc8083113238ef70f57dae2381ebcf102c39d
 
 
 ---
@@ -43,7 +43,7 @@ Usługa Resource Manager zapewnia kilka korzyści:
 * Możliwość dodawania tagów do zasobów w celu logicznego uporządkowania wszystkich zasobów w ramach subskrypcji.
 * Możliwość wyjaśniania rozliczeń w organizacji przez wyświetlanie kosztów dla grupy zasobów korzystających z tego samego tagu.  
 
-Usługa Resource Manager udostępnia nową metodę wdrażania rozwiązań i zarządzania nimi. Jeśli znasz wcześniejszy model wdrażania i chcesz dowiedzieć się więcej o zmianach, zobacz artykuł [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md) (Opis wdrażania za pomocą usługi Resource Manager oraz wdrażania klasycznego).
+Usługa Resource Manager udostępnia nową metodę wdrażania rozwiązań i zarządzania nimi. Jeśli znasz wcześniejszy model wdrażania i chcesz dowiedzieć się więcej o zmianach, zobacz artykuł [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md) (Opis wdrażania za pomocą usługi Resource Manager oraz wdrażania klasycznego).
 
 ## <a name="consistent-management-layer"></a>Spójna warstwa zarządzania
 Usługa Resource Manager zapewnia spójną warstwę zarządzania dla zadań wykonywanych za pomocą programu Azure PowerShell, interfejsu wiersza polecenia Azure, witryny Azure Portal, interfejsu API REST oraz narzędzi programistycznych. Wszystkie narzędzia korzystają ze wspólnego zestawu operacji. Możesz używać najwygodniejszych dla siebie narzędzi i stosować je zamiennie, bez jakichkolwiek problemów. 
@@ -60,9 +60,9 @@ Poniższe sugestie pomogą Ci w pełni wykorzystać możliwości usługi Resourc
 3. Korzystaj z poleceń imperatywnych do zarządzania zasobami, np. do uruchamiania i zatrzymywania aplikacji lub maszyny.
 4. Rozmieść zasoby z tym samym cyklem życia w grupie zasobów. We wszystkich pozostałych operacjach związanych z organizacją zasobów używaj tagów.
 
-Aby uzyskać zalecenia dotyczące szablonów, zobacz [Best practices for creating Azure Resource Manager templates](../resource-manager-template-best-practices.md) (Najlepsze rozwiązania dotyczące tworzenia szablonów usługi Azure Resource Manager).
+Aby uzyskać zalecenia dotyczące szablonów, zobacz [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md) (Najlepsze rozwiązania dotyczące tworzenia szablonów usługi Azure Resource Manager).
 
-Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](../resource-manager-subscription-governance.md) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
+Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
 
 ## <a name="resource-groups"></a>Grupy zasobów
 Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
@@ -70,7 +70,7 @@ Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 1. Wszystkie zasoby w grupie powinny mieć ten sam cykl życia. Są one wdrażane, aktualizowane i usuwane razem. Jeśli jakiś zasób, na przykład serwer bazy danych, ma mieć inny cykl wdrażania, powinien zostać umieszczony w innej grupie zasobów.
 2. Każdy zasób może znajdować się tylko w jednej grupie zasobów.
 3. Zasoby w grupie można dodawać i usuwać w dowolnym momencie.
-4. Zasoby można przenosić między poszczególnymi grupami. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](../resource-group-move-resources.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).
+4. Zasoby można przenosić między poszczególnymi grupami. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](resource-group-move-resources.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).
 5. Grupa zasobów może zawierać zasoby, które znajdują się w różnych regionach.
 6. Grupa zasobów może służyć do określania zakresu kontroli dostępu na potrzeby działań administracyjnych.
 7. Zasób może wchodzić w interakcję z zasobami znajdującymi się w innych grupach zasobów. Ta interakcja jest typowa, gdy dwa zasoby są ze sobą powiązane, ale nie mają tego samego cyklu życia (na przykład aplikacje sieci Web łączące się z bazą danych).
@@ -100,12 +100,12 @@ Alternatywnie obsługiwane typy zasobów, lokalizacje i wersje interfejsu API dl
 
     azure provider show Microsoft.Compute --json > c:\Azure\compute.json
 
-Aby uzyskać więcej informacji, zobacz [Resource Manager providers, regions, API versions, and schemas](../resource-manager-supported-services.md) (Dostawcy, regiony, wersje interfejsów API i schematy usługi Resource Manager).
+Aby uzyskać więcej informacji, zobacz [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md) (Dostawcy, regiony, wersje interfejsów API i schematy usługi Resource Manager).
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
-Usługa Resource Manager umożliwia utworzenie szablonu (w formacie JSON) do definiowania infrastruktury i konfiguracji rozwiązania platformy Azure. Dzięki szablonowi można wielokrotnie wdrażać rozwiązanie w całym jego cyklu życia z gwarancją spójnego stanu zasobów po każdym wdrożeniu. W przypadku tworzenia rozwiązania z portalu rozwiązanie automatycznie zawiera szablon wdrożenia. Nie trzeba tworzyć szablonu od początku — można zacząć od szablonu istniejącego rozwiązania i dostosować go do konkretnych potrzeb. Aby uzyskać szablon dla istniejącej grupy zasobów, można wyeksportować bieżący stan grupy lub skorzystać z szablonu użytego do określonego wdrożenia. Przeglądając [wyeksportowany szablon](../resource-manager-export-template.md), można poznać jego składnię.
+Usługa Resource Manager umożliwia utworzenie szablonu (w formacie JSON) do definiowania infrastruktury i konfiguracji rozwiązania platformy Azure. Dzięki szablonowi można wielokrotnie wdrażać rozwiązanie w całym jego cyklu życia z gwarancją spójnego stanu zasobów po każdym wdrożeniu. W przypadku tworzenia rozwiązania z portalu rozwiązanie automatycznie zawiera szablon wdrożenia. Nie trzeba tworzyć szablonu od początku — można zacząć od szablonu istniejącego rozwiązania i dostosować go do konkretnych potrzeb. Aby uzyskać szablon dla istniejącej grupy zasobów, można wyeksportować bieżący stan grupy lub skorzystać z szablonu użytego do określonego wdrożenia. Przeglądając [wyeksportowany szablon](resource-manager-export-template.md), można poznać jego składnię.
 
-Aby dowiedzieć się więcej o formacie szablonu i sposobie jego konstruowania, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md) i [Przewodnik po szablonie usługi Resource Manager](../resource-manager-template-walkthrough.md).
+Aby dowiedzieć się więcej o formacie szablonu i sposobie jego konstruowania, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md) i [Przewodnik po szablonie usługi Resource Manager](resource-manager-template-walkthrough.md).
 
 W usłudze Resource Manager szablon jest przetwarzany jak wszystkie pozostałe żądania (zobacz ilustrację przedstawiającą [Spójną warstwę zarządzania](#consistent-management-layer)). Szablon jest analizowany, a jego składnia zostaje poddana konwersji do operacji interfejsu API REST dla odpowiednich dostawców zasobów. Na przykład, gdy usługa Resource Manager odbiera szablon o następującej definicji zasobu:
 
@@ -151,11 +151,11 @@ Jeśli przewidujesz, że warstwy będą miały osobne cykle, możesz wdrożyć t
 
 ![szablon warstwowy](./media/resource-group-overview/tier-templates.png)
 
-Więcej rozwiązań dotyczących projektowania szablonów można znaleźć w temacie [Patterns for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md) (Wzorce projektowania szablonów usługi Azure Resource Manager). Informacje dotyczące szablonów zagnieżdżonych można znaleźć w temacie [Using linked templates with Azure Resource Manager](../resource-group-linked-templates.md) (Używanie szablonów połączonych w usłudze Azure Resource Manager).
+Więcej rozwiązań dotyczących projektowania szablonów można znaleźć w temacie [Patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) (Wzorce projektowania szablonów usługi Azure Resource Manager). Informacje dotyczące szablonów zagnieżdżonych można znaleźć w temacie [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md) (Używanie szablonów połączonych w usłudze Azure Resource Manager).
 
 Aby zapoznać się z czteroczęściową serią poświęconą automatyzowaniu wdrożeń, zobacz [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Automatyzowanie wdrożeń aplikacji w usłudze Azure Virtual Machines). Omówiono w niej architekturę aplikacji, dostęp i zabezpieczenia, dostępność i skalowanie oraz wdrażanie aplikacji.
 
-Usługa Azure Resource Manager analizuje zależności i sprawdza, czy zasoby są tworzone we właściwej kolejności. Jeśli jeden zasób opiera się na wartości z innego zasobu (na przykład maszyna wirtualna wymagająca konta magazynu na potrzeby dysków), ustawiana jest zależność. Aby uzyskać więcej informacji, zobacz [Defining dependencies in Azure Resource Manager templates](../resource-group-define-dependencies.md) (Definiowanie zależności w szablonach usługi Azure Resource Manager).
+Usługa Azure Resource Manager analizuje zależności i sprawdza, czy zasoby są tworzone we właściwej kolejności. Jeśli jeden zasób opiera się na wartości z innego zasobu (na przykład maszyna wirtualna wymagająca konta magazynu na potrzeby dysków), ustawiana jest zależność. Aby uzyskać więcej informacji, zobacz [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md) (Definiowanie zależności w szablonach usługi Azure Resource Manager).
 
 Szablonu można także używać w celu aktualizacji infrastruktury. Można na przykład dodać zasób do rozwiązania lub dodać reguły konfiguracji dla już wdrożonych zasobów. Jeśli szablon służy do utworzenia zasobu, ale ten zasób już istnieje, usługa Azure Resource Manager przeprowadzi aktualizację, zamiast tworzyć nowy element zawartości. Usługa Azure Resource Manager zaktualizuje istniejący zasób do stanu określonego dla nowego zasobu.  
 
@@ -165,10 +165,10 @@ Ponadto szablon staje się częścią kodu źródłowego aplikacji. Można go za
 
 Po zdefiniowaniu szablonu można przystąpić do wdrażania zasobów na platformie Azure. Aby poznać polecenia służące do wdrażania zasobów, zobacz:
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and Azure CLI (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure)](../resource-group-template-deploy-cli.md)
-* [Deploy resources with Resource Manager templates and Azure portal (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i witryny Azure Portal)](../resource-group-template-deploy-portal.md)
-* [Deploy resources with Resource Manager templates and Resource Manager REST API (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu API REST usługi Resource Manager)](../resource-group-template-deploy-rest.md)
+* [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](resource-group-template-deploy.md)
+* [Deploy resources with Resource Manager templates and Azure CLI (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure)](resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and Azure portal (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i witryny Azure Portal)](resource-group-template-deploy-portal.md)
+* [Deploy resources with Resource Manager templates and Resource Manager REST API (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu API REST usługi Resource Manager)](resource-group-template-deploy-rest.md)
 
 ## <a name="tags"></a>Tagi
 Usługa Resource Manager udostępnia funkcję tagowania umożliwiającą dzielenie zasobów na kategorie zgodnie z wymaganiami zarządzania lub rozliczeń. Tagi są przydatne w przypadku złożonych kolekcji grup zasobów i zasobów, które trzeba uporządkować wizualnie w możliwie logicznej formie. Można na przykład oznaczyć tagami zasoby, które pełnią podobną rolę w organizacji lub należą do tego samego działu. Bez użycia tagów użytkownicy w organizacji mogą tworzyć wiele zasobów, które będą później bardzo trudne do znalezienia i zarządzania. Na przykład możesz chcieć usunąć wszystkie zasoby dla określonego projektu. Jeśli te zasoby nie są opatrzone tagiem dla projektu, trzeba je znaleźć ręcznie. Tagowanie może być istotnym sposobem na zredukowanie niepotrzebnych kosztów w ramach subskrypcji. 
@@ -200,7 +200,7 @@ Innym rozwiązaniem jest użycie następującego polecenia interfejsu wiersza po
 
 Oznakowane zasoby można również wyświetlić za pośrednictwem witryny Azure Portal.
 
-[Raport użycia](../billing/billing-understand-your-bill.md) dla subskrypcji obejmuje nazwy i wartości tagów, co pozwala na rozbicie kosztów według tagów. Aby uzyskać więcej informacji na temat tagów, zobacz [Porządkowanie zasobów na platformie Azure za pomocą tagów](../resource-group-using-tags.md).
+[Raport użycia](../billing/billing-understand-your-bill.md) dla subskrypcji obejmuje nazwy i wartości tagów, co pozwala na rozbicie kosztów według tagów. Aby uzyskać więcej informacji na temat tagów, zobacz [Porządkowanie zasobów na platformie Azure za pomocą tagów](resource-group-using-tags.md).
 
 ## <a name="access-control"></a>Kontrola dostępu
 Usługa Resource Manager pozwala kontrolować, kto może wykonywać określone czynności w organizacji. Zapewnia ona natywną integrację kontroli dostępu opartej na rolach (RBAC, role-based access control) z platformą zarządzania, umożliwiając stosowanie kontroli dostępu do wszystkich usług w grupie zasobów. 
@@ -231,14 +231,14 @@ Aby uzyskać pełną listę ról i dozwolonych akcji, zobacz [Kontrola dostępu 
 
 W niektórych przypadkach istnieje potrzeba uruchomienia kodu lub skryptu, który uzyskuje dostęp do zasobów, ale nie ma zostać uruchomiony w ramach poświadczeń użytkownika. Zamiast tego ma zostać utworzona jednostka usługi dla aplikacji. Do tej jednostki usługi ma następnie zostać przypisana odpowiednia rola. Usługa Resource Manager umożliwia tworzenie poświadczeń dla aplikacji i programowe uwierzytelnianie aplikacji. Aby dowiedzieć się więcej o tworzeniu jednostek usług, zobacz jeden z następujących tematów:
 
-* [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](../resource-group-authenticate-service-principal.md)
-* [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](../resource-group-authenticate-service-principal-cli.md)
-* [Use portal to create Active Directory application and service principal that can access resources (Używanie portalu do tworzenia aplikacji usługi Active Directory i jednostki usługi używanej do uzyskiwania dostępu do zasobów)](../resource-group-create-service-principal-portal.md)
+* [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](resource-group-authenticate-service-principal.md)
+* [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](resource-group-authenticate-service-principal-cli.md)
+* [Use portal to create Active Directory application and service principal that can access resources (Używanie portalu do tworzenia aplikacji usługi Active Directory i jednostki usługi używanej do uzyskiwania dostępu do zasobów)](resource-group-create-service-principal-portal.md)
 
-Można również jawnie zablokować dostęp do kluczowych zasobów, aby uniemożliwić użytkownikom ich usuwanie i modyfikowanie. Aby uzyskać więcej informacji, zobacz [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md) (Blokowanie zasobów w usłudze Azure Resource Manager).
+Można również jawnie zablokować dostęp do kluczowych zasobów, aby uniemożliwić użytkownikom ich usuwanie i modyfikowanie. Aby uzyskać więcej informacji, zobacz [Lock resources with Azure Resource Manager](resource-group-lock-resources.md) (Blokowanie zasobów w usłudze Azure Resource Manager).
 
 ## <a name="activity-logs"></a>Dzienniki aktywności
-Usługa Resource Manager rejestruje wszystkie operacje służące do tworzenia, modyfikowania lub usuwania zasobu. Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji. Aby wyświetlić dzienniki, wybierz pozycję **Dzienniki aktywności** w bloku **Ustawienia** dla grupy zasobów. Dzienniki można filtrować według wielu różnych wartości, w tym według użytkownika, który zainicjował operację. Aby uzyskać informacje dotyczące pracy z dziennikami aktywności, zobacz [Audit operations with Resource Manager](../resource-group-audit.md) (Operacje inspekcji w usłudze Resource Manager).
+Usługa Resource Manager rejestruje wszystkie operacje służące do tworzenia, modyfikowania lub usuwania zasobu. Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji. Aby wyświetlić dzienniki, wybierz pozycję **Dzienniki aktywności** w bloku **Ustawienia** dla grupy zasobów. Dzienniki można filtrować według wielu różnych wartości, w tym według użytkownika, który zainicjował operację. Aby uzyskać informacje dotyczące pracy z dziennikami aktywności, zobacz [Audit operations with Resource Manager](resource-group-audit.md) (Operacje inspekcji w usłudze Resource Manager).
 
 ## <a name="customized-policies"></a>Zasady niestandardowe
 Usługa Resource Manager umożliwia tworzenie zasad niestandardowych na potrzeby zarządzania zasobami. Typy tworzonych zasad mogą obejmować różne scenariusze. Można wymusić konwencję nazewnictwa zasobów, ograniczyć typy i wystąpienia zasobów, które można wdrożyć, lub wprowadzić ograniczenia dotyczące regionów, które mogą hostować dany typ zasobu. Można wymagać wartości tagu dla zasobów w celu organizowania rozliczania według działów. Tworzenie zasad umożliwia obniżenie kosztów i zachowanie spójności w ramach subskrypcji. 
@@ -259,7 +259,7 @@ W poniższym przykładzie przedstawiono zasady, które zapewniają spójność t
       }
     }
 
-Można utworzyć o wiele więcej typów zasad. Aby uzyskać więcej informacji, zobacz [Use Policy to manage resources and control access](../resource-manager-policy.md) (Zarządzanie zasobami i kontrola dostępu przy użyciu zasad).
+Można utworzyć o wiele więcej typów zasad. Aby uzyskać więcej informacji, zobacz [Use Policy to manage resources and control access](resource-manager-policy.md) (Zarządzanie zasobami i kontrola dostępu przy użyciu zasad).
 
 ## <a name="sdks"></a>Zestawy SDK
 Zestawy Azure SDK są dostępne dla wielu języków i platform.
@@ -307,11 +307,11 @@ Dodatkowe przykłady możesz wyszukać w galerii.
 [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## <a name="next-steps"></a>Następne kroki
-* Artykuł [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](../resource-manager-export-template.md) zawiera proste instrukcje dotyczące pracy z szablonami.
-* Bardziej szczegółowe instrukcje dotyczące tworzenia szablonu zawiera artykuł [Przewodnik po szablonie usługi Resource Manager](../resource-manager-template-walkthrough.md).
-* Aby poznać funkcje, których można użyć w szablonie, zobacz [Template functions](../resource-group-template-functions.md) (Funkcje szablonu).
-* Aby uzyskać informacje dotyczące korzystania z programu Visual Studio w połączeniu z usługą Resource Manager, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-* Aby uzyskać informacje dotyczące korzystania z programu VS Code w połączeniu z usługą Resource Manager, zobacz [Praca z szablonami usługi Azure Resource Manager w programie Visual Studio Code](../resource-manager-vs-code.md).
+* Artykuł [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md) zawiera proste instrukcje dotyczące pracy z szablonami.
+* Bardziej szczegółowe instrukcje dotyczące tworzenia szablonu zawiera artykuł [Przewodnik po szablonie usługi Resource Manager](resource-manager-template-walkthrough.md).
+* Aby poznać funkcje, których można użyć w szablonie, zobacz [Template functions](resource-group-template-functions.md) (Funkcje szablonu).
+* Aby uzyskać informacje dotyczące korzystania z programu Visual Studio w połączeniu z usługą Resource Manager, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* Aby uzyskać informacje dotyczące korzystania z programu VS Code w połączeniu z usługą Resource Manager, zobacz [Praca z szablonami usługi Azure Resource Manager w programie Visual Studio Code](resource-manager-vs-code.md).
 
 Oto film z omówieniem tego zagadnienia:
 

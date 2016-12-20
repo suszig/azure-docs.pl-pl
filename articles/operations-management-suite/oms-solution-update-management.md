@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 12/06/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
+ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 
 
 ---
-# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Rozwiązanie do zarządzania aktualizacjami w usłudze OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
-Rozwiązanie do zarządzania aktualizacjami w usłudze OMS pozwala na zarządzanie aktualizacjami dla komputerów z systemami Windows i Linux.  Pozwala szybko ocenić stan dostępnych aktualizacji na wszystkich komputerach z agentami i inicjuje proces instalacji wymaganych aktualizacji serwerów. 
+# <a name="update-management-solution-in-oms"></a>Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
+Rozwiązanie do zarządzania aktualizacjami w usłudze OMS pozwala na zarządzanie aktualizacjami dla komputerów z systemami Windows i Linux.  Umożliwia ono szybką ocenę stanu dostępnych aktualizacji na wszystkich komputerach z agentami i zainicjowanie procesu instalacji wymaganych aktualizacji serwerów. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Agenci dla systemu Windows muszą być skonfigurowani do komunikowania się z serwerem Windows Server Update Services (WSUS) albo mieć dostęp do usługi Microsoft Update.  
@@ -33,7 +33,10 @@ Rozwiązanie do zarządzania aktualizacjami w usłudze OMS pozwala na zarządzan
 * Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.  Agenta usługi OMS dla systemu Linux można pobrać z witryny [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## <a name="configuration"></a>Konfiguracja
-Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS, a także dodać agentów systemu Linux.  Agenci systemu Windows są dodawani automatycznie bez dodatkowej konfiguracji.
+Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS, a także dodać agentów systemu Linux. Agenci systemu Windows są dodawani automatycznie bez dodatkowej konfiguracji.
+
+> [!NOTE]
+> Obecnie włączenie tego rozwiązania powoduje automatyczne skonfigurowanie każdego komputera z systemem Windows połączonego z obszarem roboczym pakietu OMS jako hybrydowego procesu roboczego elementu Runbook w celu obsługi elementów Runbook należących do tego rozwiązania.  Nie jest on jednak zarejestrowany w żadnej grupie hybrydowych procesów roboczych utworzonej na koncie usługi Automation i nie można dodać go do grupy hybrydowych procesów roboczych w celu uruchamiania własnych elementów Runbook.  Jeśli komputer z systemem Windows jest już wyznaczony jako hybrydowy proces roboczy elementu Runbook i połączony z obszarem roboczym pakietu OMS, musisz usunąć go z obszaru roboczego pakietu OMS przed dodaniem rozwiązania, aby zapobiec niezgodnemu z oczekiwaniami działaniu elementów Runbook.  
 
 1. Dodaj rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS przy użyciu procesu opisanego w artykule [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) (Dodawanie rozwiązań OMS) z galerii rozwiązań.  
 2. W portalu usługi OMS wybierz pozycję **Ustawienia**, a następnie pozycję **Połączone źródła**.  Zanotuj **identyfikator obszaru roboczego** i **klucz podstawowy** albo **klucz pomocniczy**.
@@ -41,11 +44,13 @@ Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami 
    
    a.    Zainstaluj najnowszą wersję agenta usługi OMS dla systemu Linux, uruchamiając następujące polecenia.  Zastąp parametr <Workspace ID> identyfikatorem obszaru roboczego, a parametr <Key> kluczem podstawowym lub pomocniczym.
    
-     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
-   
+        cd ~
+        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+
    b. Aby usunąć agenta, uruchom następujące polecenie:
    
-     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 Jeśli grupa zarządzania programu System Center Operations Manager jest połączona z obszarem roboczym usługi OMS, to następujące pakiety administracyjne zostaną zainstalowane w programie Operations Manager po dodaniu tego rozwiązania. Nie jest wymagana żadna konfiguracja ani obsługa tych pakietów administracyjnych. 
@@ -73,7 +78,7 @@ Skanowanie każdego zarządzanego komputera z systemem Windows odbywa się dwa r
 Skanowanie każdego zarządzanego komputera z systemem Linux odbywa się co 3 godziny.  
 
 ## <a name="using-the-solution"></a>Użycie rozwiązania
-Po dodaniu do obszaru roboczego OMS rozwiązania do zarządzania aktualizacjami kafelek **Zarządzanie aktualizacjami** zostanie dodany do pulpitu nawigacyjnego usługi OMS. Ten kafelek zawiera liczbę oraz graficzną reprezentację liczby komputerów w środowisku, które obecnie wymagają aktualizacji systemu.<br><br>
+Po dodaniu do obszaru roboczego OMS rozwiązania do zarządzania aktualizacjami na pulpicie nawigacyjnym usługi OMS pojawi się kafelek **Zarządzanie aktualizacjami**. Ten kafelek zawiera liczbę oraz graficzną reprezentację liczby komputerów w środowisku, które obecnie wymagają aktualizacji systemu.<br><br>
 ![Kafelek podsumowujący zarządzanie aktualizacjami](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 ## <a name="viewing-update-assessments"></a>Wyświetlanie ocen aktualizacji
@@ -128,7 +133,7 @@ Kliknij wdrożenie aktualizacji, aby wyświetlić ekran szczegółów, który za
 <br><br> ![Przegląd wyników wdrożenia aktualizacji](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
 
 ### <a name="creating-an-update-deployment"></a>Tworzenie wdrożenia aktualizacji
-Utwórz nowe wdrożenie aktualizacji, klikając przycisk **Dodaj** na górze ekranu, aby otworzyć stronę **New Update Deployment** (Nowe wdrożenie aktualizacji).  Należy podać wartości właściwości zawartych w poniższej tabeli.
+Aby utworzyć nowe wdrożenie aktualizacji, kliknij przycisk **Dodaj** na górze ekranu. Zostanie otwarta strona **Nowe wdrożenie aktualizacji**.  Należy podać wartości właściwości zawartych w poniższej tabeli.
 
 | Właściwość | Opis |
 | --- | --- |
@@ -242,6 +247,6 @@ Poniższa tabela zawiera przykładowe wyszukiwania w dzienniku dotyczące rekord
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

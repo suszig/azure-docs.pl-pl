@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
 
 
 ---
@@ -50,8 +50,8 @@ Do ukończenia tego samouczka niezbędne są następujące wstępnie wymagane el
 ### <a name="azure-account"></a>Konto platformy Azure
 Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Możesz:
 
-* [Utworzyć bezpłatne konto platformy Azure ](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Otrzymasz środki, które możesz wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu tych środków możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure.
-* [Aktywować korzyści subskrybenta programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). W ramach subskrypcji MSDN co miesiąc otrzymasz środki, które możesz przeznaczyć na płatne usługi platformy Azure.
+* [Utworzyć bezpłatne konto platformy Azure ](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Otrzymasz środki, które możesz wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu tych środków możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure.
+* [Aktywować korzyści subskrybenta programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). W ramach subskrypcji MSDN co miesiąc otrzymasz środki, które możesz przeznaczyć na płatne usługi platformy Azure.
 
 ### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Program Visual Studio 2015 z zestawem Azure SDK dla platformy .NET
 Samouczek jest przeznaczony dla programu Visual Studio 2015 z [zestawem Azure SDK dla platformy .NET](../dotnet-sdk.md) w wersji 2.8.2 lub nowszej. [Pobierz najnowszy zestaw Azure SDK dla programu Visual Studio 2015 tutaj](http://go.microsoft.com/fwlink/?linkid=518003). Program Visual Studio jest automatycznie instalowany z zestawem SDK, jeśli nie był on zainstalowany wcześniej.
@@ -808,6 +808,6 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

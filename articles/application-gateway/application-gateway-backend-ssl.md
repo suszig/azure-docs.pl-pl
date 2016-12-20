@@ -15,13 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 11/10/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9642ea16bff4b0cd4bf3e88d7530765d4c7bfbc5
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: f5f3e76711a93b9b8b0fadd08b051758a7c71619
 
 
 ---
 # <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Włączanie zasad SSL i kompleksowej usługi SSL w usłudze Application Gateway
+
 ## <a name="overview"></a>Omówienie
+
 Usługa Application Gateway obsługuje przerywanie połączenia SSL na bramie, po którym ruch na ogół płynie niezaszyfrowany do serwerów zaplecza. Umożliwia to odciążenie serwerów sieci Web z nadmiaru kosztownych operacji szyfrowania i odszyfrowywania. Jednak dla niektórych klientów nieszyfrowana komunikacja z serwerami zaplecza jest opcją niemożliwą do zaakceptowania. Może to być spowodowane wymaganiami dotyczącymi zabezpieczeń lub zgodności lub aplikacja może akceptować jedynie bezpieczne połączenia. Na potrzeby takich aplikacji usługa Application Gateway obsługuje teraz kompleksowe szyfrowanie SSL.
 
 Kompleksowa usługa SSL pozwala na bezpieczne przesyłanie zaszyfrowanych danych poufnych na zaplecze, umożliwiając jednocześnie korzystanie z funkcji równoważenia obciążenia warstwy 7, które oferuje usługa Application Gateway, takich jak koligacja plików cookie, routing oparty na adresach URL, obsługa routingu opartego na witrynach lub możliwość iniekcji nagłówków X-Forwarded-*.
@@ -33,16 +35,19 @@ Po skonfigurowaniu kompleksowego trybu komunikacji SSL usługa Application Gatew
 W tym przykładzie żądania używające protokołu TLS 1.2 są kierowane do serwerów zaplecza w puli Pula1 za pomocą kompleksowej usługi SSL.
 
 ## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>Kompleksowa usługa SSL i lista dozwolonych certyfikatów
+
 Usługa Application Gateway komunikuje się tylko ze znanymi wystąpieniami zaplecza, których certyfikaty znajdują się na liście dozwolonych certyfikatów tej usługi. Aby włączyć listę dozwolonych certyfikatów, należy przekazać klucz publiczny certyfikatów serwera zaplecza do usługi Application Gateway (nie certyfikat główny). W takim przypadku możliwe będą tylko połączenia do znanych zapleczy, które znajdują się na liście dozwolonych. Połączenia do pozostałych zapleczy zakończą się błędem bramy. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty także muszą zostać umieszczone na liście dozwolonych usługi Application Gateway, jak opisano w poprzednich krokach, zanim będzie można ich użyć.
 
 ## <a name="application-gateway-ssl-policy"></a>Zasady SSL usługi Application Gateway
+
 Usługa Application Gateway obsługuje zasady negocjacji protokołu SSL konfigurowane przez użytkownika, które umożliwiają większą kontrolę klienta nad połączeniami SSL na bramie aplikacji.
 
 1. Protokoły SSL 2.0 i 3.0 są domyślnie wyłączane dla wszystkich bram aplikacji. Nie są one w ogóle konfigurowane.
-2. Definicja zasad SSL udostępnia opcję wyłączenia każdego z następujących trzech protokołów: TLS 1\_0, TLS 1\_1, TLS 1\_2.
+2. Definicja zasad SSL udostępnia opcję wyłączenia każdego z następujących trzech protokołów: **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
 3. Jeśli żadna zasada SSL nie zostanie zdefiniowana, wszystkie trzy protokoły (TLS 1\_0, TLS 1\_1, TLS 1_2) będą włączone.
 
 ## <a name="next-steps"></a>Następne kroki
+
 Po zapoznaniu się z kompleksową usługą SSL i zasadami SSL zapoznaj się z informacjami dotyczącymi [włączania kompleksowej usługi SSL na bramie aplikacji](application-gateway-end-to-end-ssl-powershell.md), aby utworzyć bramę aplikacji z funkcją wysyłania ruchu do serwerów zaplecza w postaci zaszyfrowanej.
 
 <!--Image references-->
@@ -51,6 +56,6 @@ Po zapoznaniu się z kompleksową usługą SSL i zasadami SSL zapoznaj się z in
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

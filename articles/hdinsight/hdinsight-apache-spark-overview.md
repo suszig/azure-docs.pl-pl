@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/25/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7dafd3808b688cf1a7aff43ab996fb8e3d48cb9
+ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
+ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 
 ---
@@ -41,7 +41,7 @@ Usługa Azure HDInsight oferuje w pełni zarządzaną usługę platformy Spark. 
 | Cecha | Opis |
 | --- | --- |
 | Łatwość tworzenia klastrów |Nowy klaster Spark w usłudze HDInsight można utworzyć w kilka minut przy użyciu Portalu zarządzania Azure, programu Azure PowerShell lub zestawu .NET SDK usługi HDInsight. Zobacz temat [Wprowadzenie do klastra Spark w usłudze HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
-| Łatwość obsługi |Platforma Spark w klastrach HDInsight obejmuje wstępnie skonfigurowane notesy Jupyter. Można ich używać do interakcyjnego przetwarzania danych i wizualizacji. Adresy URL to https://CLUSTERNAME.azurehdinsight.net/jupyter. Zastąp ciąg **CLUSTERNAME** nazwą klastra Spark w usłudze HDInsight: |
+| Łatwość obsługi |Platforma Spark w klastrach HDInsight obejmuje wstępnie skonfigurowane notesy Jupyter. Można ich używać do interakcyjnego przetwarzania danych i wizualizacji. Adres URL dla lokalnego notesu Jupyter to https://CLUSTERNAME.azurehdinsight.net/jupyter. Zastąp ciąg **CLUSTERNAME** nazwą klastra Spark w usłudze HDInsight: |
 | Interfejsy API REST |Platforma Spark w usłudze HDInsight obejmuje [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), czyli serwer zadań Spark oparty na interfejsach API REST do zdalnego przesyłania i monitorowania uruchomionych zadań. |
 | Obsługa usługi Azure Data Lake Store |Platformę Spark w usłudze HDInsight można skonfigurować do korzystania z usługi Azure Data Lake Store jako dodatkowego magazynu. Aby uzyskać więcej informacji o usłudze Data Lake — magazyn, zobacz temat [Przegląd usługi Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). |
 | Integracja z usługami Azure |Platforma Spark w usłudze HDInsight zawiera łącznik usługi Azure Event Hubs. Klienci mogą tworzyć aplikacje do przesyłania strumieniowego przy użyciu usługi Event Hubs w uzupełnieniu do oprogramowania [Kafka](http://kafka.apache.org/), które jest już dostępne w ramach platformy Spark. |
@@ -69,12 +69,12 @@ Platforma Apache Spark w usłudze HDInsight przechowuje dane w obiektach blob Az
 
 Platforma Apache Spark jest dostarczana z biblioteką [MLlib](http://spark.apache.org/mllib/) do uczenia maszynowego opartą na platformie Spark. Oprócz tego platforma Spark w usłudze HDInsight obejmuje platformę Anaconda — dystrybucję oprogramowania Python z szeregiem różnych pakietów do uczenia maszynowego. Połączenie z wbudowaną obsługą notesów Jupyter zapewnia najwyższej jakości środowisko do tworzenia aplikacji do uczenia maszynowego.  
 
-### <a name="streaming-and-realtime-data-analysis"></a>Przesyłanie strumieniowe i analiza danych w czasie rzeczywistym
+### <a name="streaming-and-real-time-data-analysis"></a>Przesyłanie strumieniowe i analiza danych w czasie rzeczywistym
 [Zobacz samouczek](hdinsight-apache-spark-eventhub-streaming.md)
 
 Analiza danych w czasie rzeczywistym znajduje zastosowanie w różnych scenariuszach: od skracania czasu uzyskiwania wglądu w dane przez przetwarzanie spływających danych po opracowywanie rozwiązań do przesyłania strumieniowego. Platforma Spark w usłudze HDInsight zapewnia szeroką obsługę tworzenia rozwiązań do analizy w czasie rzeczywistym. Platforma Spark jest już wyposażona w łączniki do przyjmowania danych z wielu źródeł, takich jak Kafka, Flume, Twitter, ZeroMQ lub gniazda TCP, a ponadto platforma Spark w usłudze HDInsight oferuje wysokiej klasy obsługę pobierania danych z usługi Azure Event Hubs. Event Hubs to najczęściej używana usługa kolejkowania w systemie Azure. Dostępność wbudowanej obsługi usługi Event Hubs sprawia, że platforma Spark w usłudze HDInsight idealnie nadaje się do tworzenia potoku analizy w czasie rzeczywistym.
 
-## <a name="a-namenextstepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Jakie składniki wchodzą w skład klastra Spark?
+## <a name="a-namenext-stepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Jakie składniki wchodzą w skład klastra Spark?
 Platforma Spark w usłudze HDInsight obejmuje następujące składniki, które są domyślnie dostępne w klastrach.
 
 * [Spark Core](https://spark.apache.org/docs/1.5.1/). Obejmuje takie składniki, jak Spark Core, Spark SQL, interfejsy API przesyłania strumieniowego Spark, GraphX oraz MLlib.
@@ -115,6 +115,6 @@ Rozpocznij od utworzenia klastra Spark w usłudze HDInsight w systemie Linux. Zo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

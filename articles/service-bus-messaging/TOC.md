@@ -51,18 +51,20 @@
 ### [Aprowizacja jednostek za pomocą programu PowerShell](service-bus-powershell-how-to-provision.md)
 
 # Dokumentacja
-## [Szczegóły cennika](service-bus-pricing-billing.md)
-## [Przykłady](service-bus-samples.md)
-## [Wyjątki](service-bus-messaging-exceptions.md)
-## [Przydziały](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# Zasoby
 ## [Składnia elementu SQLFilter](service-bus-messaging-sql-filter.md)
 ## [Składnia elementu SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 ## [Przewodnik po protokole AMQP1.0](service-bus-amqp-protocol-guide.md)
 ### [AMQP 1.0 request-response-based operations](service-bus-amqp-request-response.md) (Operacje protokołu AMQP 1.0 na podstawie żądań i odpowiedzi)
-
-# Zasoby
+## [Szczegóły cennika](service-bus-pricing-billing.md)
+## [Przykłady](service-bus-samples.md)
+## [Wyjątki](service-bus-messaging-exceptions.md)
+## [Przydziały](service-bus-quotas.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Fora MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +75,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

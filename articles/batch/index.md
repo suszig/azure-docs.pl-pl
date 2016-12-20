@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 5b9948f59fad542ce488f7682aef2cc57b1a0b55
-ms.openlocfilehash: 20bf594172ade3277455aae59469181162b4238a
+ms.sourcegitcommit: e48fea077e09518ab5005518c8e8a413df458b93
+ms.openlocfilehash: a661fc1e3946709058e0d2f32122732ba8a32b41
 
 ---
 #<a name="batch-documentation"></a>Dokumentacja usługi Batch
@@ -104,112 +104,46 @@ Usługa Azure Batch umożliwia wydajne uruchamianie aplikacji równoległych ora
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Dokumentacja programu Azure PowerShell</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">Polecenia cmdlet programu PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/azure/batch/batch-cli-get-started">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
-                        <p>Usługa Batch z użyciem interfejsu wiersza polecenia platformy Azure</p>
+                        <h3>Języki</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.batch">Interfejs API .NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Zestaw SDK dla języka Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Dokumentacja zarządzana usługi Batch</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Dokumentacja zestawu Java SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p>Dokumentacja środowiska Node.js</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Python</h3>
-                        <p>Dokumentacja zestawu Python SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/batchservice">
-        <div class="cardSize">
+    <li>
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informacje o interfejsie API REST usługi Batch</p>
+                        <p><a href="/rest/api/batchservice">Interfejs API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -223,6 +157,6 @@ Pobierz dokumentację usługi Azure Batch </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

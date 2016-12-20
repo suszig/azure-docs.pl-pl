@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6d80f266730701dc4e678f4365a2166be72c9143
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Przewodnik po wstępnie skonfigurowanym rozwiązaniu konserwacji predykcyjnej
 ## <a name="introduction"></a>Wprowadzenie
-Wstępnie skonfigurowane, kompleksowe rozwiązanie konserwacji predykcyjnej, dostępne w Pakiecie IoT, dotyczy scenariusza biznesowego, w którym przewidywany jest moment prawdopodobnego wystąpienia awarii. To wstępnie skonfigurowane rozwiązanie można aktywnie wykorzystać w celu zoptymalizowania konserwacji. Rozwiązanie łączy kluczowe usługi Pakietu IoT Azure, w tym obszar roboczy [Azure Machine Learning][lnk_machine_learning]. Ten obszar roboczy zawiera eksperymenty oparte na publicznym zestawie danych przykładowych, które umożliwiają prognozowanie pozostałego czasu eksploatacji (RUL, Remaining Useful Life) silnika samolotu. Ponadto w rozwiązaniu w pełni zaimplementowano scenariusz biznesowy IoT jako punkt wyjściowy planowania i wdrażania rozwiązania zgodnego z potrzebami firmy.
+Wstępnie skonfigurowane, kompleksowe rozwiązanie konserwacji predykcyjnej, dostępne w Pakiecie IoT, dotyczy scenariusza biznesowego, w którym przewidywany jest moment prawdopodobnego wystąpienia awarii. To wstępnie skonfigurowane rozwiązanie można aktywnie wykorzystać w celu zoptymalizowania konserwacji. Rozwiązanie łączy kluczowe usługi Pakietu IoT Azure, w tym obszar roboczy usługi [Azure Machine Learning][lnk_machine_learning]. Ten obszar roboczy zawiera eksperymenty oparte na publicznym zestawie danych przykładowych, które umożliwiają prognozowanie pozostałego czasu eksploatacji (RUL, Remaining Useful Life) silnika samolotu. Ponadto w rozwiązaniu w pełni zaimplementowano scenariusz biznesowy IoT jako punkt wyjściowy planowania i wdrażania rozwiązania zgodnego z potrzebami firmy.
 
 ## <a name="logical-architecture"></a>Architektura logiczna
 Poniższy diagram przedstawia składniki logiczne wstępnie skonfigurowanego rozwiązania:
@@ -43,7 +43,7 @@ W tym wstępnie skonfigurowanym rozwiązaniu symulowane urządzenie odpowiada si
 
 *Liczba cykli*. Cykl oznacza ukończony lot o zmiennym czasie trwania (od 2 do 10 godzin), podczas którego co pół godziny są przechwytywane dane telemetryczne.
 
-*Dane telemetryczne*. Są cztery czujniki, które reprezentują parametry silnika. Czujniki te mają ogólne etykiety: czujnik 9, czujnik 11, czujnik 14 i czujnik 15. Czujniki reprezentują dane telemetryczne, które są wystarczające do uzyskania przydatnych wyników dotyczących pozostałego czasu eksploatacji silnika za pośrednictwem modelu usługi Machine Learning. Model ten został utworzony na podstawie publicznego zestawu danych zawierającego dane z czujników w rzeczywistych silnikach. Aby uzyskać więcej informacji dotyczących tworzenia modelu na podstawie oryginalnego zestawu danych, zobacz artykuł [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics] (Szablon konserwacji predykcyjnej w witrynie Cortana Intelligence Gallery).
+*Dane telemetryczne*. Są cztery czujniki, które reprezentują parametry silnika. Czujniki te mają ogólne etykiety: czujnik 9, czujnik 11, czujnik 14 i czujnik 15. Czujniki reprezentują dane telemetryczne, które są wystarczające do uzyskania przydatnych wyników dotyczących pozostałego czasu eksploatacji silnika za pośrednictwem modelu usługi Machine Learning. Model ten został utworzony na podstawie publicznego zestawu danych zawierającego dane z czujników w rzeczywistych silnikach. Aby uzyskać więcej informacji dotyczących tworzenia modelu na podstawie oryginalnego zestawu danych, zobacz [szablon konserwacji predykcyjnej w witrynie Cortana Intelligence Gallery][lnk-cortana-analytics].
 
 Symulowane urządzenia obsługują następujące polecenia wysyłane z usługi IoT Hub:
 
@@ -61,7 +61,7 @@ Usługa IoT Hub udostępnia potwierdzenia poleceń wysyłanych do urządzeń.
 **Procesor zdarzeń** przyjmuje średnie wartości z czujników dla ukończonego cyklu. Przekazuje te wartości do interfejsu API, który dostarcza je uczonemu modelowi usługi Machine Learning w celu obliczenia pozostałego czasu eksploatacji silnika.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-Aby uzyskać więcej informacji dotyczących tworzenia modelu na podstawie oryginalnego zestawu danych, zobacz artykuł [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics] (Szablon konserwacji predykcyjnej w witrynie Cortana Intelligence Gallery).
+Aby uzyskać więcej informacji dotyczących tworzenia modelu na podstawie oryginalnego zestawu danych, zobacz [szablon konserwacji predykcyjnej w witrynie Cortana Intelligence Gallery][lnk-cortana-analytics].
 
 ## <a name="lets-start-walking"></a>Praktyczny przewodnik
 W tej sekcji przedstawiono składniki rozwiązania i opisano jego zamierzone zastosowanie oraz podano przykłady użycia.
@@ -77,7 +77,7 @@ W portalu Azure przejdź do grupy zasobów z nazwą wybranego rozwiązania, aby 
 
 ![][img-resource-group]
 
-Po przeprowadzeniu aprowizacji wstępnie skonfigurowanego rozwiązania otrzymasz wiadomość e-mail z linkiem do obszaru roboczego usługi Machine Learning. Do obszaru roboczego Machine Learning możesz także przejść ze strony [azureiotsuite.com][lnk-azureiotsuite] swojego aprowizowanego rozwiązania, gdy jego stan zmieni się na **Gotowe**.
+Po przeprowadzeniu aprowizacji wstępnie skonfigurowanego rozwiązania otrzymasz wiadomość e-mail z linkiem do obszaru roboczego usługi Machine Learning. Do obszaru roboczego usługi Machine Learning możesz także przejść ze strony [azureiotsuite.com][lnk-azureiotsuite] swojego aprowizowanego rozwiązania, gdy jego stan zmieni się na **Gotowe**.
 
 ![][img-machine-learning]
 
@@ -100,7 +100,7 @@ W trakcie symulacji obejmującej 148 cykli jest przetwarzany pełny zestaw danyc
 Symulację można zatrzymać w dowolnym momencie, ale kliknięcie przycisku **Rozpocznij symulację** powoduje ponowne uruchomienie symulacji od początku zestawu danych.
 
 ## <a name="next-steps"></a>Następne kroki
-Po uruchomieniu wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej można je zmodyfikować. Informacje na ten temat znajdziesz w artykule [Guidance on customizing preconfigured solutions][lnk-customize] (Wskazówki dotyczące dostosowywania wstępnie skonfigurowanych rozwiązań).
+Po uruchomieniu wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej można je zmodyfikować. Informacje na ten temat znajdziesz w [Przewodniku dostosowywania wstępnie skonfigurowanych rozwiązań][lnk-customize].
 
 Wpis na blogu [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (Za kulisami pakietu IoT — konserwacja predykcyjna) w witrynie TechNet zawiera więcej szczegółów dotyczących wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej.
 
@@ -127,6 +127,6 @@ Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skon
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

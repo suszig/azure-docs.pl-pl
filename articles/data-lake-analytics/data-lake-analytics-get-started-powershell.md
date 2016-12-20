@@ -1,6 +1,6 @@
 ---
 title: "Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell | Microsoft Docs"
-description: "Dowiedz się, jak wykorzystać program Azure PowerShell do utworzenia konta usługi Data Lake Store, utworzenia zadania usługi Data Lake Analytics za pomocą języka U-SQL i przesłania zadania. "
+description: "Dowiedz się, jak utworzyć konto usługi Data Lake Analytics przy użyciu programu Azure PowerShell oraz utworzyć zadanie usługi Data Lake Analytics przy użyciu języka U-SQL i przesłać je. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 59efa050944059c737654a3f039a058c50865ea6
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
 
 
 ---
@@ -31,7 +31,7 @@ W ramach tego samouczka utworzysz zadanie, które odczytuje zawartość pliku z 
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz artykuł [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Stacja robocza z programem Azure PowerShell**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](../powershell-install-configure.md).
+* **Stacja robocza z programem Azure PowerShell**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-data-lake-analytics-account"></a>Tworzenie konta usługi Data Lake Analytics
 Aby można było uruchomić jakiekolwiek zadanie, musisz mieć konto usługi Data Lake Analytics. Aby utworzyć takie konto, należy określić następujące elementy:
@@ -209,6 +209,6 @@ Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyśw
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

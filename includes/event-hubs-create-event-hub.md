@@ -1,6 +1,6 @@
 ## <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 1. Zaloguj się do witryny [Azure Portal][Azure Portal], a następnie kliknij pozycję **Nowy** w lewym górnym rogu ekranu.
-2. Kliknij pozycję **Dane i analiza**, a następnie pozycję **Centra zdarzeń**.
+2. Kliknij pozycję **Internet rzeczy**, a następnie kliknij pozycję **Event Hubs**.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 3. W bloku **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
@@ -34,6 +34,6 @@ Utworzono centrum zdarzeń i uzyskano parametry połączenia potrzebne do wysył
 
 [Azure Portal]: https://portal.azure.com/
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

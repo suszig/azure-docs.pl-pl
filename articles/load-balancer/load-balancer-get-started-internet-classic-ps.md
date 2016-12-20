@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 16ebe82b866565f676fb33bfa915465c08a5ea89
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 3855b32c8ff13f73cf91ea8973ed40a34a062224
 
 ---
 
@@ -39,7 +39,7 @@ ms.openlocfilehash: 16ebe82b866565f676fb33bfa915465c08a5ea89
 
 Aby skonfigurować moduł równoważenia obciążenia za pomocą programu PowerShell, wykonaj poniższe kroki:
 
-1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](../powershell-install-configure.md) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
+1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
 2. Po utworzeniu maszyny wirtualnej możesz użyć poleceń cmdlet programu PowerShell, aby dodać moduł równoważenia obciążenia do maszyny wirtualnej w ramach tej samej usługi w chmurze.
 
 W poniższym przykładzie opisano sposób dodania zestawu modułu równoważenia obciążenia o nazwie „webfarm” do usługi w chmurze „mytestcloud” (lub myctestcloud.cloudapp.net), przy jednoczesnym dodaniu punktów końcowych modułu równoważenia obciążenia do maszyn wirtualnych o nazwach „web1” i „web2”. Moduł równoważenia obciążenia odbiera ruch sieciowy przez port 80, a równoważenie obciążenia między maszynami wirtualnymi jest definiowane przez lokalny punkt końcowy (w tym przypadku port 80) przy użyciu protokołu TCP.
@@ -76,6 +76,6 @@ Jeśli zastosowanie wymaga zachowania działających połączeń z serwerami za 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

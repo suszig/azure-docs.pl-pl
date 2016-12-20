@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d9e5f3b177f6b91abe48d3bb6d49a2d3195e6f79
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device"></a>Wdrażanie lokalnego urządzenia StorSimple
+# <a name="deploy-your-on-premises-storsimple-device"></a>Wdrażanie lokalnego urządzenia StorSimple
 > [!div class="op_single_selector"]
 > * [Aktualizacja 2](storsimple-deployment-walkthrough-u2.md)
 > * [Aktualizacja 1](storsimple-deployment-walkthrough-u1.md)
@@ -146,7 +146,7 @@ Przed rozpoczęciem upewnij się, że:
 |  | | |
 | **Rejestracja** |Sprawdź, czy porty TCP ruchu wychodzącego 443, 80 i 9354 zostały otwarte. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Więcej informacji na temat polecenia cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
 
-## <a name="stepbystep-deployment"></a>Wdrożenie krok po kroku
+## <a name="step-by-step-deployment"></a>Wdrożenie krok po kroku
 Poniższe instrukcje krok po kroku dotyczą wdrażania urządzenia StorSimple w centrum danych.
 
 ## <a name="step-1-create-a-new-service"></a>Krok 1. Tworzenie nowej usługi
@@ -286,6 +286,6 @@ Wykonaj poniższe kroki w klasycznym portalu Azure, aby na żądanie ręcznie ut
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

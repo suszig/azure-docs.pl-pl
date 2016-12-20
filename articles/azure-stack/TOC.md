@@ -72,10 +72,10 @@
 ### [Wdrażanie karty dostawcy zasobów serwera SQL w usłudze Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
 ## Planowanie i wdrażanie usługi App Service
-### [Omówienie usługi Azure Stack Web Apps](azure-stack-app-service-overview.md)
-### [Przed rozpoczęciem pracy z aplikacji sieci Web usługi Azure Stack](azure-stack-app-service-before-you-get-started.md)
-### [Aplikacje sieci Web: dodawanie większej liczby ról procesów roboczych w sieci Web](azure-stack-webapps-add-worker-roles.md)
-### [Dodawanie dostawcy zasobów funkcji Web Apps do usługi Azure Stack](azure-stack-app-service-deploy.md)
+### [App Service on Azure Stack overview](azure-stack-app-service-overview.md) (Omówienie usługi App Service w usłudze Azure Stack)
+### [Przed rozpoczęciem](azure-stack-app-service-before-you-get-started.md)
+### [Dodawanie większej liczby ról procesów roboczych w sieci Web](azure-stack-app-service-add-worker-roles.md)
+### [Add an App Service resource provider to Azure Stack](azure-stack-app-service-deploy.md) (Dodawanie dostawcy zasobów usługi App Service do usługi Azure Stack)
 
 # Rozwiązywanie problemów
 ## [Rozwiązywanie problemów z usługą Azure Stack](azure-stack-troubleshooting.md)
@@ -86,6 +86,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

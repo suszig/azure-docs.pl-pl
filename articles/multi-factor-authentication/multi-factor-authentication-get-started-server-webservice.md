@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Przed zainstalowaniem usługi sieci Web aplikacji mobilnej należy pamiętać o 
 
 <li>Otwórz przeglądarkę sieci Web z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano usługę sieci Web aplikacji mobilnej (np. https://www.publicznawitrynasieciweb.com/PA). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Skonfigurowanie ustawień aplikacji mobilnej na serwerze usługi Azure Multi-Factor Authentication
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Skonfigurowanie ustawień aplikacji mobilnej na serwerze usługi Azure Multi-Factor Authentication
 Po zainstalowaniu usługi sieci Web aplikacji mobilnej należy skonfigurować serwer usługi Azure Multi-Factor Authentication do pracy z portalem.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Konfiguracja ustawień portalu użytkowników na serwerze usługi Azure Multi-Factor Authentication
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Konfiguracja ustawień portalu użytkowników na serwerze usługi Azure Multi-Factor Authentication
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę portalu użytkowników. Jeśli użytkownicy mogą kontrolować metody ich uwierzytelniania, na karcie Ustawienia w obszarze Zezwalaj użytkownikom na wybór metody, zaznacz opcję Aplikacja mobilna. W przeciwnym razie użytkownicy końcowi będą musieli skontaktować się z działem pomocy technicznej w celu ukończenia procesu aktywacji aplikacji mobilnej.
 2. Zaznacz pole Zezwalaj użytkownikom na uaktywnienie aplikacji mobilnej.
 3. Zaznacz pole Zezwalaj na rejestrację użytkownika.
@@ -89,6 +89,6 @@ Po zainstalowaniu usługi sieci Web aplikacji mobilnej należy skonfigurować se
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

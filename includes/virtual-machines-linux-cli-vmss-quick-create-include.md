@@ -1,16 +1,23 @@
-Osoby, które nie skorzystały jeszcze z [bezpłatnej wersji próbnej subskrypcji Azure](https://azure.microsoft.com/pricing/free-trial/) i [interfejsu wiersza polecenia Azure](../articles/xplat-cli-install.md) [powiązanych z kontem usługi Azure](../articles/xplat-cli-connect.md), mogą je zarejestrować. Po wykonaniu tej czynności można uruchomić następujące polecenia w celu szybkiego utworzenia zestawu skali:
+Osoby, które nie skorzystały jeszcze z [bezpłatnej wersji próbnej subskrypcji Azure](https://azure.microsoft.com/pricing/free-trial/) i [interfejsu wiersza polecenia Azure](../articles/xplat-cli-install.md) [powiązanych z kontem usługi Azure](../articles/xplat-cli-connect.md), mogą je zarejestrować. Upewnij się, że interfejs wiersza polecenia platformy Azure działa w trybie usługi Resource Manager, w następujący sposób:
 
-```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+```azurecli
 azure config mode arm
+```
 
-# quick-create a scale set
-#
-# generic syntax:
-# azure vmss quick-create -n SCALE-SET-NAME -g RESOURCE-GROUP-NAME -l LOCATION -u USERNAME -p PASSWORD -C INSTANCE-COUNT -Q IMAGE-URN
-#
-# example:
-azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+Teraz utwórz zestaw skalowania za pomocą polecenia `azure vmss quick-create`. Poniższy przykład tworzy zestaw skalowania systemu Linux o nazwie `myVMSS` z 5 wystąpieniami maszyny wirtualnej w grupie zasobów o nazwie `myResourceGroup`:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+Poniższy przykład tworzy zestaw skalowania systemu Windows z taką samą konfiguracją:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Aby dostosować lokalizację lub wartość image-urn, należy zapoznać się z poleceniami `azure location list` i `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -30,7 +37,8 @@ line=$(azure network lb list -g negatvmssrg | grep negatvmssrg)
 split_line=( $line )
 lb_name=${split_line[1]}
 
-# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is associated to it
+# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is 
+# associated to it
 #
 # generic syntax:
 # azure network lb show -g RESOURCE-GROUP-NAME -n LOAD-BALANCER-NAME
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

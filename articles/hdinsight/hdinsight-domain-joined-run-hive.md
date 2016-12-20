@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff3eaafc38aef16ffe00bbd943d74cbeeac228b1
+ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
+ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
 
 
 ---
-# <a name="configure-hive-policies-in-domainjoined-hdinsight-preview"></a>Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight (wersja zapoznawcza)
+# <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight (wersja zapoznawcza)
 Dowiedz się, jak skonfigurować zasady platformy Apache Ranger dla usługi Hive. Korzystając z tego artykułu, utworzysz dwie zasady platformy Ranger, aby ograniczyć dostęp do tabeli hivesampletable. Tabela hivesampletable jest dołączana do klastrów usługi HDInsight. Po skonfigurowaniu zasad łączysz się z tabelami usługi Hive w usłudze HDInsight przy użyciu sterownika ODBC i programu Excel.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -31,16 +31,16 @@ Dowiedz się, jak skonfigurować zasady platformy Apache Ranger dla usługi Hive
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Łączenie z interfejsem użytkownika administratora platformy Apache Ranger
 **Aby połączyć się z interfejsem użytkownika administratora platformy Ranger**
 
-1. W przeglądarce połącz się z interfejsem użytkownika administratora platformy Ranger. Adres URL: https://&lt;nazwa_klastra>.azurehdinsight.net/Ranger/. 
-   
+1. W przeglądarce połącz się z interfejsem użytkownika administratora platformy Ranger. Adres URL: https://&lt;nazwa_klastra>.azurehdinsight.net/Ranger/.
+
    > [!NOTE]
    > Poświadczenia używane na platformie Ranger są inne niż w klastrze usługi Hadoop. Aby zapobiec używaniu w przeglądarce buforowanych poświadczeń usługi Hadoop, należy połączyć się z interfejsem użytkownika administratora platformy Ranger w nowym oknie przeglądarki InPrivate.
-   > 
-   > 
+   >
+   >
 2. Zaloguj się za pomocą nazwy i hasła użytkownika domeny administratora klastra:
-   
+
     ![Strona główna platformy Ranger z przyłączonym do domeny klastrem usługi HDInsight](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
-   
+
     Obecnie platforma Ranger współpracuje tylko z usługami Yarn i Hive.
 
 ## <a name="create-domain-users"></a>Tworzenie użytkowników domeny
@@ -54,23 +54,23 @@ W tej sekcji utworzysz dwie zasady platformy Ranger umożliwiające uzyskiwanie 
 1. Otwórz interfejs użytkownika administratora platformy Ranger. Zobacz sekcję [Łączenie z interfejsem użytkownika administratora platformy Apache Ranger](#connect-to-apache-ranager-admin-ui).
 2. Kliknij pozycję **&lt;nazwa_klastra>_hive** w obszarze **Hive**. Zostaną wyświetlone dwie wstępnie skonfigurowane zasady.
 3. Kliknij pozycję **Add New Policy** (Dodaj nowe zasady), a następnie wprowadź następujące wartości:
-   
+
    * Policy Name (Nazwa zasad): read-hivesampletable-all
    * Hive Database (Baza danych Hive): default
    * table (tabela): hivesampletable
    * Hive Column (Kolumna usługi Hive): *
    * Select User (Wybierz użytkownika): hiveuser1
    * Permissions (Uprawnienia): select
-     
+
      ![Konfigurowanie zasad usługi Hive na platformie Ranger z przyłączonym do domeny klastrem usługi HDInsight](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
-     
+
      > [!NOTE]
      > Jeśli pole Select User (Wybierz użytkownika) nie zostało wypełnione przy użyciu danych użytkownika domeny, zaczekaj kilka minut na zsynchronizowanie platformy Ranger z usługą AAD.
-     > 
-     > 
+     >
+     >
 4. Kliknij pozycję **Add** (Dodaj), aby zapisać zasady.
 5. Powtórz dwa ostatnie kroki, aby utworzyć inne zasady o następujących właściwościach:
-   
+
    * Policy Name (Nazwa zasad): read-hivesampletable-devicemake
    * Hive Database (Baza danych Hive): default
    * table (tabela): hivesampletable
@@ -101,20 +101,20 @@ W ostatniej sekcji zostały skonfigurowane dwie zasady.  Użytkownik hiveuser1 m
 
 1. Otwórz nowy lub istniejący skoroszyt w programie Excel.
 2. Na karcie **Dane** kliknij pozycję **Z innych źródeł danych**, a następnie kliknij pozycję **Z Kreatora połączenia danych**, aby uruchomić **Kreatora połączenia danych**.
-   
+
     ![Otwieranie Kreatora połączenia danych][img-hdi-simbahiveodbc.excel.dataconnection]
 3. Wybierz źródło danych **ODBC DSN**, a następnie kliknij przycisk **Dalej**.
 4. Spośród źródeł danych ODBC wybierz nazwę źródła danych utworzonego w poprzednim kroku, a następnie kliknij przycisk **Dalej**.
 5. W kreatorze wprowadź ponownie hasło klastra, a następnie kliknij przycisk **OK**. Zaczekaj na otwarcie okna dialogowego **Wybieranie bazy danych i tabeli**. Może to potrwać kilka sekund.
-6. Wybierz pozycję **hivesampletable**, a następnie kliknij przycisk **Dalej**. 
+6. Wybierz pozycję **hivesampletable**, a następnie kliknij przycisk **Dalej**.
 7. Kliknij przycisk **Finish** (Zakończ).
-8. W oknie dialogowym **Importowanie danych** możesz zmienić lub określić zapytanie. W tym celu kliknij pozycję **Właściwości**. Może to potrwać kilka sekund. 
+8. W oknie dialogowym **Importowanie danych** możesz zmienić lub określić zapytanie. W tym celu kliknij pozycję **Właściwości**. Może to potrwać kilka sekund.
 9. Kliknij kartę **Definicje**. Tekst polecenia to:
-   
+
        SELECT * FROM "HIVE"."default"."hivesampletable"
-   
+
    Zgodnie ze zdefiniowanymi zasadami platformy Ranger użytkownik hiveuser1 ma uprawnienia select (wybór) we wszystkich kolumnach.  To zapytanie działa z poświadczeniami użytkownika hiveuser1, ale nie z poświadczeniami użytkownika hiveuser2.
-   
+
    ![Właściwości połączenia][img-hdi-simbahiveodbc-excel-connectionproperties]
 10. Kliknij przycisk **OK**, aby zamknąć okno dialogowe Właściwości połączenia.
 11. Kliknij przycisk **OK**, aby zamknąć okno dialogowe **Importowanie danych**.  
@@ -124,29 +124,28 @@ Aby przetestować drugie zasady (read-hivesampletable-devicemake) utworzone w po
 
 1. Dodaj nowy arkusz w programie Excel.
 2. Wykonaj kroki ostatniej procedury, aby zaimportować dane.  Jedyna zmiana to użycie poświadczeń użytkownika hiveuser2 zamiast użytkownika hiveuser1. Ta czynność zakończy się niepowodzeniem, ponieważ użytkownik hiveuser2 ma uprawnienia tylko do wyświetlania dwóch kolumn. Wystąpi następujący błąd:
-   
+
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. Wykonaj kroki tej samej procedury, aby zaimportować dane. Tym razem użyj poświadczeń użytkownika hiveuser2 i zmień instrukcję select z:
-   
+
         SELECT * FROM "HIVE"."default"."hivesampletable"
-   
+
     na:
-   
+
         SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
-   
+
     Po zakończeniu zobaczysz dwie kolumny zaimportowanych danych.
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby skonfigurować przyłączony do domeny klaster usługi HDInsight, zobacz [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Konfigurowanie przyłączonych do domeny klastrów usługi HDInsight).
 * Aby zarządzać przyłączonymi do domeny klastrami usługi HDInsight, zobacz [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Zarządzanie przyłączonymi do domeny klastrami usługi HDInsight).
-* Aby uruchamiać zapytania usługi Hive przy użyciu protokołu SSH w przyłączonych do domeny klastrach usługi HDInsight, zobacz [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Aby uruchamiać zapytania usługi Hive przy użyciu protokołu SSH w przyłączonych do domeny klastrach usługi HDInsight, zobacz [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Aby połączyć się z usługą Hive za pomocą interfejsu JDBC usługi Hive, zobacz [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) (Łączenie z usługą Hive w usłudze Azure HDInsight przy użyciu sterownika JDBC usługi Hive).
 * Aby połączyć program Excel z usługą Hadoop przy użyciu interfejsu ODBC usługi Hive, zobacz [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](hdinsight-connect-excel-hive-odbc-driver.md) (Łączenie programu Excel z usługą Hadoop przy użyciu sterownika Microsoft Hive ODBC).
 * Aby połączyć program Excel z usługą Hadoop przy użyciu dodatku Power Query, zobacz [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) (Łączenie programu Excel z usługą Hadoop przy użyciu dodatku Power Query).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

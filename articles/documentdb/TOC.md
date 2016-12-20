@@ -70,7 +70,7 @@
 
 
 ## Integracja
-### [Wdrażanie witryny sieci Web za pomocą usługi aplikacji Azure](documentdb-create-documentdb-website.md)
+### [Wdrażanie witryny sieci Web za pomocą Azure App Service](documentdb-create-documentdb-website.md)
 ### [Rejestrowanie aplikacji za pomocą usługi Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
 ### [Powiązanie z funkcją Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Analizowanie danych przy użyciu usługi Hadoop](documentdb-run-hadoop-with-hdinsight.md)
@@ -83,18 +83,20 @@
 
 
 # Dokumentacja
-## [Zestaw SDK Java](documentdb-sdk-java.md)
-## [Zestaw SDK platformy .NET](documentdb-sdk-dotnet.md)
-## [Zestaw SDK dla platformy .NET Core](documentdb-sdk-dotnet-core.md)
-## [Przykłady dla platformy .NET](documentdb-dotnet-samples.md)
-## [Zestaw SDK dla platformy Node.js](documentdb-sdk-node.md)
-## [Przykłady dla platformy Node.js](documentdb-nodejs-samples.md)
-## [Zestaw SDK dla języka Python](documentdb-sdk-python.md)
-## [Przykłady w języku Python](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Gramatyka języka SQL — ściągawka](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [Dostawca zasobów REST](/rest/api/documentdbresourceprovider/)
+
+# Powiązane
+## [Przykłady dla platformy .NET](documentdb-dotnet-samples.md)
+## [Przykłady dla platformy Node.js](documentdb-nodejs-samples.md)
+## [Przykłady w języku Python](documentdb-python-samples.md)
+## [Składnia języka SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Gramatyka języka SQL — ściągawka](documentdb-sql-query-cheat-sheet.md)
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +112,6 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

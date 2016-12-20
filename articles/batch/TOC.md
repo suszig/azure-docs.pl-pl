@@ -25,12 +25,12 @@
 ### [Dzienniki diagnostyczne usługi Batch](batch-diagnostics.md)
 
 # Dokumentacja
-## [Polecenia cmdlet programu PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
-## [Java](https://docs.microsoft.com/java/api)
-## [Interfejs API .NET](https://docs.microsoft.com/dotnet/api)
-## [Zestaw SDK dla języka Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [.NET](/dotnet/api/microsoft.azure.batch)
+## [Java](/java/api/com.microsoft.azure.batch)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Zestaw SDK dla języka Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
+## [REST](/rest/api/batchservice)
 
 # Powiązane
 ## [Usługa Batch Shipyard](https://github.com/Azure/batch-shipyard)
@@ -48,6 +48,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

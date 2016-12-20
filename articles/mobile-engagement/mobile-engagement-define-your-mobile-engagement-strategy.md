@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Po zdefiniowaniu przypadków użycia i segmentów przechodzimy do wskazówek zwi
 
 W oparciu o integrację, po opublikowaniu aplikacji, jako marketingowiec będziesz w stanie wyświetlać analizy w czasie rzeczywistym, segmentować odbiorców i wysyłać inteligentne, nakierowane powiadomienia wypychane, aby angażować użytkowników końcowych w aplikacji lub poza nią.
 
-### <a name="usecases-to-get-started"></a>Przypadki użycia — wprowadzenie
+### <a name="use-cases-to-get-started"></a>Przypadki użycia — wprowadzenie
 1. Strategia powitalna: utwórz kilka kampanii z wykorzystaniem powiadomień wypychanych opartych na zachowaniu użytkownika końcowego w momencie uruchomienia aplikacji, aby ponownie zaangażować użytkowników w D+2/5/10/15 po pierwszej sesji i zwiększyć przechowywanie po pierwszym uruchomieniu aplikacji.
 2. Promuj nową zawartość (funkcję, artykuł/wideo lub produkt) w oparciu o zachowanie użytkownika końcowego, aby wysyłać informacje tylko do tych użytkowników końcowych, którzy najprawdopodobniej zareagują na komunikat.
 3. Oceń aplikację: nakieruj komunikat na mniej niż 1 procent użytkowników w bazie, którzy najprawdopodobniej ocenią aplikację na 5 gwiazdek w sklepie.
@@ -66,13 +66,13 @@ Aby działać w możliwie najlepszym kontekście podczas angażowania swoich odb
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Przypadki użycia i najlepsze praktyki
+### <a name="use-cases-and-best-practices"></a>Przypadki użycia i najlepsze praktyki
 W poniższych sekcjach omówiono pokrótce niektóre kluczowe przypadki użycia nadsyłane przez naszych klientów, dzięki którym łatwiej będzie rozpocząć pracę.
 
 #### <a name="media"></a>Multimedia
 Zbieraj dane o typie zawartości, którą wykorzystują użytkownicy końcowi, a następnie segmentuj odbiorców w oparciu o te zachowania, aby nakierowywać wybrane typy zawartości na odbiorców, którzy najprawdopodobniej z nich skorzystają. Takie rozwiązanie pomaga uniknąć spamowania całej bazy użytkowników i zapewnia lepsze przechowywanie.
 
-#### <a name="mcommerce"></a>M-commerce
+#### <a name="m-commerce"></a>M-commerce
 Zbieraj dane o kategoriach produktów najczęściej odwiedzanych w aplikacji i nakieruj działania na odbiorców, aby promować oferty lub nowe produkty w danej kategorii, co zwiększa szansę na dokonanie zakupu przez użytkownika końcowego. Staraj się zwiększyć przychody. Celem nie jest spamowanie użytkowników!
 
 #### <a name="gaming"></a>Gry
@@ -134,6 +134,6 @@ Wszystkie te typy danych można rozszerzyć za pomocą parametrów (*extra-infor
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

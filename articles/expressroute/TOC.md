@@ -50,8 +50,8 @@
 
 
 # Dokumentacja
-## [Program PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Powiązane
@@ -80,6 +80,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

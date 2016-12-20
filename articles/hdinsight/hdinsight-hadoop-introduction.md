@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cefda0778fed4ab8d502955dd8eae4bdac70a48e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
 
 
 ---
@@ -148,7 +148,7 @@ Te języki działające w oparciu o JVM są obsługiwane w klastrach usługi HDI
 * Jython (Python dla platformy Java)
 * Scala
 
-### <a name="hadoopspecific-languages"></a>Języki specyficzne dla platformy Hadoop
+### <a name="hadoop-specific-languages"></a>Języki specyficzne dla platformy Hadoop
 Klastry HDInsight obsługują następujące języki specyficzne dla ekosystemu Hadoop:
 
 * Pig Latin do zadań Pig
@@ -172,7 +172,7 @@ Aby dowiedzieć się więcej o zaletach korzystania z platformy Hadoop w usłudz
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard i HDInsight Premium
 Usługa HDInsight zapewnia oferty danych big data w chmurze w dwóch różnych kategoriach, Standard i Premium. HDInsight Standard zapewnia klaster w skali przedsiębiorstwa, który może być używany przez organizacje do uruchamiania obciążeń typu big data. HDInsight Premium również zapewnia tę funkcję oraz zaawansowane możliwości analityczne i zabezpieczenia dla klastra usługi HDInsight. Więcej informacji można znaleźć w temacie [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
-## <a name="a-idresourcesaresources-for-learning-more-about-bigdata-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Zasoby zawierające więcej informacji na temat analizy danych big data, platformy Hadoop oraz usługi HDInsight
+## <a name="a-idresourcesaresources-for-learning-more-about-big-data-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Zasoby zawierające więcej informacji na temat analizy danych big data, platformy Hadoop oraz usługi HDInsight
 Warto skorzystać z wprowadzenia do platformy Hadoop w chmurze oraz analizy danych big data oraz zasobów podanych poniżej.
 
 ### <a name="hadoop-documentation-for-hdinsight"></a>Dokumentacja dotycząca platformy Hadoop dla usługi HDInsight
@@ -204,6 +204,6 @@ Te narzędzia analizy biznesowej mogą ułatwić analizę danych big data:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

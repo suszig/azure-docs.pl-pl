@@ -1,11 +1,11 @@
 ---
 title: Co to jest Azure Backup? | Microsoft Docs
-description: "Za pomocą usług Azure Backup oraz Recovery Services można tworzyć kopie zapasowe oraz przywracać dane i aplikacje z serwerów systemu Windows, komputerów klienckich systemu Windows, serwerów System Center DPM i maszyn wirtualnych platformy Azure."
+description: "Za pomocą usług Azure Backup oraz Recovery Services można tworzyć kopie zapasowe oraz przywracać dane i aplikacje z serwerów z systemem Windows, komputerów klienckich z systemem Windows, serwerów programu System Center DPM i maszyn wirtualnych platformy Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: tysonn
+editor: 
 keywords: "tworzenie i przywracanie kopii zapasowej; recovery services; rozwiązania kopii zapasowych"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 12/6/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: cf3930f209e84ee9b14b56566ca19d31382946aa
-ms.openlocfilehash: cefb405b4f30ca5fe20f6acfaee5ebba2690990b
+ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
+ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
 
 
 ---
@@ -52,8 +52,8 @@ Jeśli nie masz pewności, które składniki usługi Azure Backup odpowiadają T
 | Składnik | Korzyści | Limity | Co jest chronione? | Gdzie są przechowywane kopie zapasowe? |
 | --- | --- | --- | --- | --- |
 | Agent usługi Azure Backup (MARS) |<li>Tworzy kopię zapasową plików i folderów w fizycznym lub wirtualnym systemie operacyjnym Windows (maszyny wirtualne mogą być lokalne lub na platformie Azure)<li>Nie jest wymagany oddzielny serwer kopii zapasowych. |<li>Tworzenie kopii zapasowej 3 razy dziennie <li>Brak zależności od aplikacji; przywracanie tylko na poziomie plików, folderów i woluminów, <li>  Brak obsługi systemu Linux. |<li>Pliki, <li>Foldery |Magazyn usługi Azure Backup |
-| System Center DPM |<li>Migawki z uwzględnieniem aplikacji (usługa VSS)<li>Pełna elastyczność w odniesieniu do terminów wykonywania kopii zapasowych<li>Poziom szczegółowości odzyskiwania (wszystkie)<li>Można użyć magazynu usługi Azure Backup<li>Obsługa systemu Linux (jeśli jest hostowany na funkcji Hyper-V) <li>Ochrona maszyn wirtualnych VMware za pomocą programu DPM 2012 R2 |Nie obsługuje kopii zapasowych obciążeń Oracle. |<li>Pliki, <li>Foldery,<li> Woluminy, <li>Maszyny wirtualne,<li> Aplikacje,<li> Obciążenia |<li>magazyn kopii zapasowych Azure,<li> Dysk dołączony lokalnie,<li>  Taśmy (tylko lokalnie) |
-| Azure Backup Server |<li>Migawki z uwzględnieniem aplikacji (usługa VSS)<li>Pełna elastyczność w odniesieniu do terminów wykonywania kopii zapasowych<li>Poziom szczegółowości odzyskiwania (wszystkie)<li>Można użyć magazynu usługi Azure Backup<li>Obsługa systemu Linux (jeśli jest hostowany na funkcji Hyper-V)<li>Nie wymaga licencji programu System Center |<li>Brak obsługi heterogenicznej (tworzenie kopii zapasowej maszyny wirtualnej VMware, tworzenie kopii zapasowej obciążenia Oracle).<li>Zawsze wymaga aktywnej subskrypcji platformy Azure<li>Brak obsługi tworzenia kopii zapasowej na taśmie |<li>Pliki, <li>Foldery,<li> Woluminy, <li>Maszyny wirtualne,<li> Aplikacje,<li> Obciążenia |<li>magazyn kopii zapasowych Azure,<li> Dysk dołączony lokalnie |
+| System Center DPM |<li>Migawki z uwzględnieniem aplikacji (usługa VSS)<li>Pełna elastyczność w odniesieniu do terminów wykonywania kopii zapasowych<li>Poziom szczegółowości odzyskiwania (wszystkie)<li>Można użyć magazynu usługi Azure Backup<li>Obsługa systemu Linux na maszynach wirtualnych programu VMware i funkcji Hyper-V <li>Ochrona maszyn wirtualnych VMware za pomocą programu DPM 2012 R2 |Nie można tworzyć kopii zapasowych obciążeń Oracle.|<li>Pliki, <li>Foldery,<li> Woluminy, <li>Maszyny wirtualne,<li> Aplikacje,<li> Obciążenia |<li>magazyn kopii zapasowych Azure,<li> Dysk dołączony lokalnie,<li>  Taśmy (tylko lokalnie) |
+| Azure Backup Server |<li>Migawki z uwzględnieniem aplikacji (usługa VSS)<li>Pełna elastyczność w odniesieniu do terminów wykonywania kopii zapasowych<li>Poziom szczegółowości odzyskiwania (wszystkie)<li>Można użyć magazynu usługi Azure Backup<li>Obsługa systemu Linux (jeśli jest hostowany na funkcji Hyper-V)<li>Ochrona maszyn wirtualnych VMware za pomocą programu DPM 2012 R2<li>Nie wymaga licencji programu System Center |<li>Nie można tworzyć kopii zapasowych obciążeń Oracle.<li>Zawsze wymaga aktywnej subskrypcji platformy Azure<li>Brak obsługi tworzenia kopii zapasowej na taśmie |<li>Pliki, <li>Foldery,<li> Woluminy, <li>Maszyny wirtualne,<li> Aplikacje,<li> Obciążenia |<li>magazyn kopii zapasowych Azure,<li> Dysk dołączony lokalnie |
 | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |<li>Natywne kopie zapasowe w systemach Windows/Linux<li>Nie ma konieczności instalowania określonego agenta<li>Tworzenie kopii zapasowych na poziomie sieci szkieletowej nie wymaga infrastruktury kopii zapasowej |<li>Tworzenie kopii zapasowych maszyn wirtualnych raz dziennie <li>Przywracanie maszyn wirtualnych tylko na poziomie dysku<li>Nie można utworzyć kopii zapasowych lokalnie |<li>Maszyny wirtualne, <li>Wszystkie dyski (przy użyciu programu PowerShell) |<p>Magazyn usługi Azure Backup</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Jakie są scenariusze wdrażania dla każdego składnika?
@@ -95,7 +95,7 @@ W poniższej tabeli przedstawiono składniki usługi Azure Backup, które obsłu
 Usługa Azure Backup chroni maszyny wirtualne usługi Premium Storage. Azure Premium Storage to magazyn oparty na dyskach SSD i zaprojektowany z myślą o obsłudze dużych obciążeń wejścia/wyjścia. Usługa Premium Storage jest atrakcyjna dla obciążeń maszyn wirtualnych. Aby uzyskać więcej informacji o usłudze Premium Storage, zobacz artykuł [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure)
 
 ### <a name="back-up-premium-storage-vms"></a>Tworzenie kopii zapasowej maszyn wirtualnych usługi Premium Storage
-Podczas wykonywania kopii zapasowych maszyn wirtualnych usługi Premium Storage usługa Backup tworzy tymczasową lokalizację na koncie usługi Premium Storage. Ta tymczasowa lokalizacja o nazwie „AzureBackup-” ma wielkość równą łącznemu rozmiarowi danych dysków w warstwie Premium dołączonych do maszyny wirtualnej.
+Podczas wykonywania kopii zapasowych maszyn wirtualnych usługi Premium Storage usługa Backup tworzy tymczasową lokalizację na koncie usługi Premium Storage. Ta tymczasowa lokalizacja o nazwie „AzureBackup-” ma wielkość równą łącznemu rozmiarowi danych dysków w warstwie Premium dołączonych do maszyny wirtualnej. Sprawdź, czy na koncie magazynu jest wystarczająca ilość wolnego miejsca na tymczasową lokalizację przejściową. Aby uzyskać dodatkowe informacje, zobacz [Premium Storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) (Ograniczenia usługi Premium Storage).
 
 > [!NOTE]
 > Nie wolno modyfikować ani edytować tej lokalizacji tymczasowej.
@@ -175,13 +175,16 @@ W przypadku tworzenia kopii zapasowej danych w programie System Center DPM lub n
 Agent usługi Azure Backup umożliwia ograniczanie użycia sieci, co pozwala na sterowanie wykorzystaniem przepustowości sieci w trakcie transferu danych. Ograniczanie może być przydatne, gdy kopie zapasowe danych mają być tworzone podczas godzin pracy, ale proces tworzenia kopii zapasowej nie może kolidować z innym ruchem internetowym. Ograniczanie transferu danych ma zastosowanie do operacji tworzenia kopii zapasowej i przywracania.
 
 ### <a name="backup-and-retention"></a>Tworzenie kopii zapasowej i przechowywanie
+
+W usłudze Azure Backup obowiązuje limit wynoszący 9999 punktów odzyskiwania, znanych także jako kopie zapasowe lub migawki, na magazyn kopii zapasowych. W poniższej tabeli przedstawiono maksymalną częstotliwość wykonywania kopii zapasowych (do magazynu) dla każdego składnika. Konfiguracja zasad kopii zapasowych określa, jak szybko są zużywane punkty odzyskiwania. Jeśli na przykład tworzysz punkt odzyskiwania codziennie, to możesz zachować punkty odzyskiwania przez 27 lat, zanim wyczerpie się ich liczba. Jeśli natomiast używasz jednego punktu odzyskiwania na miesiąc, to punkty odzyskiwania wyczerpią się po upływie 833 lat i do tego czasu będzie je można przechowywać. W usłudze Backup punktom odzyskiwania nie jest przypisywany limit czasu wygaśnięcia.
+
 |  | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
 | --- | --- | --- | --- | --- |
 | Częstotliwość wykonywania kopii zapasowych<br/> (do magazynu kopii zapasowych) |Trzy kopie zapasowe dziennie |Dwie kopie zapasowe dziennie |Dwie kopie zapasowe dziennie |Jedna kopia zapasowa dziennie |
 | Częstotliwość wykonywania kopii zapasowych<br/> (na dysku) |Nie dotyczy |<li>Co 15 minut dla programu SQL Server <li>Co godzinę dla innych obciążeń |<li>Co 15 minut dla programu SQL Server <li>Co godzinę dla innych obciążeń</p> |Nie dotyczy |
 | Opcje przechowywania |Codziennie, co tydzień, co miesiąc, co rok |Codziennie, co tydzień, co miesiąc, co rok |Codziennie, co tydzień, co miesiąc, co rok |Codziennie, co tydzień, co miesiąc, co rok |
-| Okres przechowywania |Do 99 lat |Do 99 lat |Do 99 lat |Do 99 lat |
-| Punkty odzyskiwania w magazynie usługi Backup |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
+| Maksymalna liczba punktów odzyskiwania na serwer |9999|9999|9999|9999|
+| Maksymalny okres przechowywania |Zależnie od częstotliwości wykonywania kopii zapasowych |Zależnie od częstotliwości wykonywania kopii zapasowych |Zależnie od częstotliwości wykonywania kopii zapasowych |Zależnie od częstotliwości wykonywania kopii zapasowych |
 | Punkty odzyskiwania na dysku lokalnym |Nie dotyczy |<li>64 dla serwerów plików,<li>448 dla serwerów aplikacji |<li>64 dla serwerów plików,<li>448 dla serwerów aplikacji |Nie dotyczy |
 | Punkty odzyskiwania na taśmie |Nie dotyczy |Nieograniczona liczba |Nie dotyczy |Nie dotyczy |
 
@@ -215,12 +218,12 @@ Szczegółowe informacje na temat ochrony innych obciążeń możesz uzyskać w 
 * [Tworzenie kopii zapasowej obciążeń aplikacji](backup-azure-microsoft-azure-backup.md)
 * [Tworzenie kopii zapasowej maszyn wirtualnych IaaS platformy Azure](backup-azure-vms-prepare.md)
 
-[zielony]: ./media/backup-introduction-to-azure-backup/green.png
-[żółty]: ./media/backup-introduction-to-azure-backup/yellow.png
-[czerwony]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -3,7 +3,7 @@ title: "Azure Active Directory B2C: wywoływanie interfejsu API sieci Web z apli
 description: "W tym artykule opisano, jak utworzyć aplikację z listą zadań do wykonania dla systemu iOS, która wywołuje interfejs API sieci Web w środowisku Node.js za pomocą tokenów elementu nośnego OAuth 2.0 przy użyciu biblioteki innej firmy."
 services: active-directory-b2c
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/26/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
@@ -28,9 +28,9 @@ Platforma Microsoft Identity korzysta z otwartych standardów, takich jak OAuth2
 Jeśli dopiero rozpoczynasz korzystanie ze standardu OAuth2 lub OpenID Connect, spora część tej przykładowej konfiguracji może być dla Ciebie niezrozumiała. Zalecamy zapoznanie się z [krótkim omówieniem protokołu w tej dokumentacji](active-directory-b2c-reference-protocols.md).
 
 > [!NOTE]
-> Niektóre funkcje naszej platformy, które mają wyrażenie w tych standardach, na przykład dostęp warunkowy i zarządzanie zasadami usługi Intune, wymagają użycia naszych bibliotek usługi Microsoft Azure Identity typu open source. 
-> 
-> 
+> Niektóre funkcje naszej platformy, które mają wyrażenie w tych standardach, na przykład dostęp warunkowy i zarządzanie zasadami usługi Intune, wymagają użycia naszych bibliotek usługi Microsoft Azure Identity typu open source.
+>
+>
 
 Nie wszystkie scenariusze i funkcje usługi Azure Active Directory są obsługiwane przez platformę B2C.  Aby ustalić, czy należy użyć platformy B2C, zapoznaj się z [jej ograniczeniami](active-directory-b2c-limitations.md).
 
@@ -46,7 +46,7 @@ Następnie musisz utworzyć aplikację w katalogu usługi B2C. Dzięki temu do u
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Tworzenie zasad
-W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Ta aplikacja zawiera jedno rozwiązanie tożsamości: rejestracja połączona z logowaniem. Te zasady musisz utworzyć dla każdego typu zgodnie z opisem w [artykule dotyczącym struktury zasad](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Podczas tworzenia zasad należy:
+W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Ta aplikacja zawiera jedno rozwiązanie tożsamości: rejestracja połączona z logowaniem. Te zasady musisz utworzyć dla każdego typu zgodnie z opisem w [artykule dotyczącym struktury zasad](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Podczas tworzenia zasad należy:
 
 * Wybrać **Nazwę wyświetlaną** i atrybuty rejestracji w zasadach.
 * Wybrać oświadczenia aplikacji **Nazwa wyświetlana** oraz **Identyfikator obiektu** we wszystkich zasadach. Można również wybrać inne oświadczenia.
@@ -63,7 +63,7 @@ Kod używany w tym samouczku jest przechowywany [ w serwisie GitHub](https://git
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Możesz też pobrać cały kod i rozpocząć od razu: 
+Możesz też pobrać cały kod i rozpocząć od razu:
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -240,7 +240,7 @@ Musisz utworzyć element AccountStore i przekazać do niego dane odczytane z pli
 
 Należy pamiętać o niektórych kwestiach związanych z usługą B2C, dzięki którym ten kod będzie bardziej zrozumiały:
 
-1. Usługa Azure AD B2C używa *zasad* udostępnionych przy użyciu parametrów zapytania na potrzeby obsługi żądania. Dzięki temu usługa Azure Active Directory może działać jako niezależna usługa tylko dla Twojej aplikacji. W celu zapewnienia dodatkowych parametrów zapytania do metody `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` należy przekazać niestandardowe parametry zasad. 
+1. Usługa Azure AD B2C używa *zasad* udostępnionych przy użyciu parametrów zapytania na potrzeby obsługi żądania. Dzięki temu usługa Azure Active Directory może działać jako niezależna usługa tylko dla Twojej aplikacji. W celu zapewnienia dodatkowych parametrów zapytania do metody `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` należy przekazać niestandardowe parametry zasad.
 2. Usługa Azure AD B2C używa zakresów w taki sam sposób jak inne serwery OAuth2. Jednak używanie usługi B2C wiąże się w taki sam sposób z uwierzytelnianiem użytkownika i uzyskiwaniem dostępu do zasobów, dlatego niektóre zakresy są niezbędne do prawidłowego działania przepływu. Jest to zakres `openid`. Zestawy SDK usługi Microsoft Identity automatycznie udostępniają zakres `openid`, dlatego nie ma go w naszej konfiguracji zestawu SDK. Jednak ze względu na używanie biblioteki innej firmy trzeba określić ten zakres.
 
 ```objc
@@ -274,7 +274,7 @@ Należy pamiętać o niektórych kwestiach związanych z usługą B2C, dzięki k
                                         forAccountType:data.accountIdentifier];
 }
 ```
-Następnie upewnij się, że ten zakres jest wywoływany w elemencie AppDelegate w metodzie `didFinishLaunchingWithOptions:`. 
+Następnie upewnij się, że ten zakres jest wywoływany w elemencie AppDelegate w metodzie `didFinishLaunchingWithOptions:`.
 
 ```
 [self setupOAuth2AccountStore];
@@ -299,16 +299,16 @@ Każda z tych metod zostanie utworzona poniżej.
 
 > [!NOTE]
 > Należy upewnić się, że powiązano element `loginView` z elementem webview znajdującym się w scenorysie. W przeciwnym razie nie będzie istnieć wyskakujący element webview, który może zostać wyświetlony, gdy będzie konieczne uwierzytelnianie.
-> 
-> 
+>
+>
 
 * Utwórz klasę `LoginViewController.m`
 * Dodaj zmienne przekazujące informacje o stanie podczas uwierzytelniania
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -387,7 +387,7 @@ Musimy wskazać elementowi webview działanie, które będzie pożądane, gdy u�
 
 * Napisz kod obsługujący wynik żądania OAuth2
 
-Będziemy potrzebować kodu obsługującego element redirectURL zwracany z elementu WebView. W przypadku niepowodzenia zostanie podjęta kolejna próba. W międzyczasie biblioteka zgłosi błąd, który może zostać wyświetlony w konsoli lub obsłużony asynchronicznie. 
+Będziemy potrzebować kodu obsługującego element redirectURL zwracany z elementu WebView. W przypadku niepowodzenia zostanie podjęta kolejna próba. W międzyczasie biblioteka zgłosi błąd, który może zostać wyświetlony w konsoli lub obsłużony asynchronicznie.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -487,7 +487,7 @@ Utwórzmy metodę, która będzie wywoływana w przypadku każdego żądania uwi
 Po wykonaniu powyższych czynności zostanie utworzony główny sposób interakcji z aplikacją podczas logowania. Po zalogowaniu musimy użyć otrzymanych tokenów. W tym celu utworzymy kod pomocniczy, który będzie dla nas wywoływać interfejsy API REST przy użyciu tej biblioteki.
 
 ## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>Tworzenie klasy `GraphAPICaller` do obsługi żądań do interfejsu API REST
-Konfiguracja jest ładowana zawsze podczas ładowania aplikacji. Ładowanie aplikacji wraz z konfiguracją oraz uzyskanie tokenu umożliwia wykonanie kolejnych kroków. 
+Konfiguracja jest ładowana zawsze podczas ładowania aplikacji. Ładowanie aplikacji wraz z konfiguracją oraz uzyskanie tokenu umożliwia wykonanie kolejnych kroków.
 
 * Utwórz plik `GraphAPICaller.h`
 
@@ -511,7 +511,7 @@ Po skonfigurowaniu interfejsu należy dodać rzeczywistą implementację:
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -564,7 +564,7 @@ Po skonfigurowaniu interfejsu należy dodać rzeczywistą implementację:
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -631,7 +631,6 @@ Możesz teraz przejść do bardziej zaawansowanych tematów dotyczących usługi
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

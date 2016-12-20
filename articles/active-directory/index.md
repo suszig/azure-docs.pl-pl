@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 8f90dd518c6147df884ca9fd61ff8ee3b47dd179
-ms.openlocfilehash: 0fa4f3f5d5f07dcd0ec7dfdea7a0bec67900288e
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Dokumentacja usługi Azure Active Directory
 
-Azure Active Directory (Azure AD) to wielodostępna, oparta na chmurze usługa firmy Microsoft do katalogowania i zarządzania tożsamością.  Usługa Azure AD zapewnia funkcje związane z tożsamością i dostępem dla aplikacji uruchomionych zarówno na platformie Azure, jak i lokalnie.  
+Azure Active Directory — wersja Premium to rozwiązanie w chmurze służące do zarządzania tożsamościami i dostępem, które zapewnia możliwość logowania jednokrotnego do tysięcy aplikacji w chmurze (SaaS) i uzyskiwania dostępu do aplikacji sieci Web uruchamianych lokalnie. Dzięki usłudze Azure Active Directory możesz korzystać z funkcji współpracy i mobilności w przedsiębiorstwie. Zapewnia ona również zaawansowaną ochronę tożsamości za pośrednictwem uwierzytelniania wieloskładnikowego (MFA, Multi-Factor Authentication), raportów dotyczących zabezpieczeń, inspekcji, alertów i adaptacyjnych zasad dostępu warunkowego na podstawie kondycji urządzenia, lokalizacji użytkownika i poziomu ryzyka.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) to wielodostępna, oparta na chmurze usługa f
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,68 +87,46 @@ Azure Active Directory (Azure AD) to wielodostępna, oparta na chmurze usługa f
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Dokumentacja programu Azure PowerShell</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/ad">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
-                        <p>Usługa Azure Active Directory używająca interfejsu wiersza polecenia platformy Azure</p>
-                    </div>
+                        <h3>Języki</h3>
+                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Dokumentacja usługi Azure Active Directory w środowisku .NET</p>
+                        <h3>Inne</h3>
+                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Ograniczenia i limity usługi</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Dokumentacja interfejsu API języka Java na platformie Azure</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-   </ul>
-
----
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
@@ -160,6 +138,6 @@ Pobierz dokumentację usługi Active Directory </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

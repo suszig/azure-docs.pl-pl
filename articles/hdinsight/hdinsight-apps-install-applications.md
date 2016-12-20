@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
+ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
 
 
 ---
 # <a name="install-hdinsight-applications"></a>Instalowanie aplikacji usługi HDInsight
 Aplikacja usługi HDInsight to aplikacja, którą użytkownicy mogą zainstalować w klastrze usługi HDInsight opartym na systemie Linux. Te aplikacje mogą być opracowane przez firmę Microsoft, niezależnych dostawców oprogramowania (ISV) lub samodzielnie. W tym artykule opisano instalację opublikowanej aplikacji. Informacje na temat instalowania własnych aplikacji można znaleźć w artykule [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md). 
 
-Obecnie dostępna jest jedna opublikowana aplikacja:
+Obecnie dostępne są trzy opublikowane aplikacje:
 
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) oferuje analitykom interaktywny sposób odnajdywania, analizowania i wizualizowania wyników danych big data. Łatwe pobieranie dodatkowych źródeł danych w celu odkrywania nowych relacji i szybkiego uzyskiwania potrzebnych odpowiedzi.
+* **Streamsets Data Collector for HDnsight** zapewnia kompleksowe zintegrowane środowisko projektowe (IDE) umożliwiające projektowanie, testowanie i wdrażanie potoków pozyskiwania typu dowolny-dowolny (które łączą dane strumieniowe i dane partii oraz obejmują różne przekształcenia strumienia) oraz zarządzanie tymi potokami — wszystko to bez konieczności pisania niestandardowego kodu. 
+* **Cask CDAP 3.5 for HDInsight** zapewnia pierwszą ujednoliconą platformę integracji dla danych big data, która skraca czas produkcji dla aplikacji danych i usług data lake o 80%. Ta aplikacja obsługuje tylko standardowe klastry bazy danych HBase 3.4.
 
-> [!NOTE]
-> Aplikacja Datameer jest obecnie obsługiwana tylko w przypadku klastrów Azure HDInsight w wersji 3.2.
-> 
-> 
 
 W instrukcjach podanych w tym artykule jest używana witryna Azure Portal. Można również wyeksportować szablon usługi Azure Resource Manager z portalu lub uzyskać kopię szablonu usługi Resource Manager od dostawców i użyć programu Azure PowerShell oraz interfejsu wiersza polecenia platformy Azure do wdrożenia szablonu.  Zobacz [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager).
 
@@ -46,7 +44,7 @@ Poniższa procedura pokazuje sposób instalacji aplikacji usługi HDInsight w is
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Klastry usługi HDInsight** w lewym menu.  Jeśli jej nie widzisz, kliknij przycisk **Przeglądaj**, a następnie kliknij pozycję **Klastry usługi HDInsight**.
 3. Kliknij klaster usługi HDInsight.  Jeśli nie masz klastra, musisz go najpierw utworzyć.  Zobacz [Tworzenie klastrów](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. W bloku **Ustawienia** kliknij opcję **Aplikacje** w obszarze **Ogólne**. Blok **Zainstalowane aplikacje** zawiera listę wszystkich zainstalowanych aplikacji. 
+4. Kliknij pozycję **Aplikacje** w kategorii **Konfiguracje**. Zostanie wyświetlona lista zainstalowanych aplikacji, o ile jakieś istnieją.
    
     ![Aplikacje usługi HDInsight — menu portalu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Kliknij przycisk **Dodaj** w menu bloku. 
@@ -120,6 +118,6 @@ Zobacz [Troubleshoot the installation](hdinsight-apps-install-custom-application
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

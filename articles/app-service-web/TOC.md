@@ -74,9 +74,9 @@
 ### Aplikacje PHP
 #### [Wdrażanie pierwszej aplikacji sieci Web w języku PHP na platformie Azure w ciągu pięciu minut](app-service-web-get-started-php.md)
 #### [Tworzenie aplikacji sieci Web PHP-SQL i wdrażanie jej za pomocą narzędzia Git](web-sites-php-sql-database-deploy-use-git.md)
-#### [Tworzenie aplikacji sieci Web WordPress w usłudze aplikacji Azure](web-sites-php-web-site-gallery.md)
+#### [Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Tworzenie bazy danych MySQL na platformie Azure i łączenie się z nią](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Oprogramowanie WordPress klasy korporacyjnej w usłudze aplikacji Azure](web-sites-php-enterprise-wordpress.md)
+#### [Oprogramowanie WordPress klasy korporacyjnej w usłudze Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Aplikacje Java
 #### [Wdrażanie pierwszej aplikacji sieci Web Java na platformie Azure w ciągu pięciu minut](web-sites-java-get-started.md)
@@ -234,7 +234,7 @@
 ### [Wysyłanie poczty e-mail za pomocą usługi SendGrid](sendgrid-dotnet-how-to-send-email.md)
 ### [Integrowanie aplikacji z siecią wirtualną](web-sites-integrate-with-vnet.md)
 ### [Aplikacja sieci Web w technologii Node.js wykorzystująca usługę Azure Table Service](storage-nodejs-use-table-storage-web-site.md)
-### [Korzystanie z usługi Azure CDN w usłudze aplikacji Azure](cdn-websites-with-cdn.md)
+### [Korzystanie z usługi Azure CDN w usłudze Azure App Service](cdn-websites-with-cdn.md)
 
 
 ## Rozwiązywanie problemów
@@ -247,9 +247,9 @@
 ### [Rozwiązywanie problemów z wydajnością aplikacji sieci Web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Dokumentacja
-## [Interfejs wiersza polecenia platformy Azure](/cli/azure/)
-## [Java](/java/api/)
+## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Powiązane
@@ -266,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

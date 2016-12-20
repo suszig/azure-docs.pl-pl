@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d271e43c369e2aa6d716fc24a78cc9f4045c7c
 
 
 ---
@@ -291,7 +291,7 @@ Wdrożenie poniższych reguł (w przedstawionej kolejności) stanowi podstawę s
 > 
 > 
 
-### <a name="10-test-the-ad-fs-signin"></a>10.    Testowanie logowania za pomocą usług AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10.    Testowanie logowania za pomocą usług AD FS
 Najprostszym sposobem przetestowania działania usług AD FS jest użycie strony IdpInitiatedSignon.aspx. Przede wszystkim trzeba ją włączyć we właściwościach usług AD FS. Wykonaj poniższe kroki, aby zweryfikować konfigurację usług AD FS.
 
 1. Aby włączyć tę stronę, uruchom poniższe polecenie cmdlet na serwerze usług AD FS przy użyciu programu PowerShell.
@@ -357,6 +357,6 @@ Podczas wdrażania tego szablonu możesz użyć istniejącej sieci wirtualnej lu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

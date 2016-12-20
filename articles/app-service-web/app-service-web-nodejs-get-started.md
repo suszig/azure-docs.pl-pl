@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -91,6 +91,7 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js] i wd
 8. Zapisz zmiany, a następnie użyj narzędzia git, aby wdrożyć aplikację na platformie Azure:
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    
@@ -186,7 +187,7 @@ Aby odczytać dzienniki programu iisnode, wykonaj następujące czynności.
    
     ![Sprawdzanie pliku dziennika programu iisnode][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-nodeinspector"></a>Debugowanie aplikacji przy użyciu narzędzia Node-Inspector
+## <a name="debug-your-app-with-node-inspector"></a>Debugowanie aplikacji przy użyciu narzędzia Node-Inspector
 Jeśli do debugowania aplikacji Node.js używasz narzędzia Node-Inspector, możesz go użyć, aby debugować aplikację usługi App Service. Narzędzie Node-Inspector jest wstępnie zainstalowane w instalacji programu iisnode dla usługi App Service. W przypadku wdrożenia przy użyciu programu Git plik Web.config automatycznie wygenerowany przez aparat Kudu zawiera już całą konfigurację niezbędną do włączenia narzędzia Node-Inspector.
 
 Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
@@ -235,7 +236,7 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [utworzyć konto bezpłatnej wersji próbnej]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Aplikacja sieci Web]: ./app-service-web-overview.md
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -247,6 +248,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

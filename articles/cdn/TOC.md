@@ -44,12 +44,13 @@
 ### [Kompresja plików](cdn-troubleshoot-compression.md)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
 # Zasoby
+## [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cdn)
 ## [Cennik](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +58,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

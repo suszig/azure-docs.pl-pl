@@ -2,13 +2,13 @@
 layout: LandingPage
 +toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f03b3e68dd62cdf429162d3fe7d2342bbf254b52
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: c285a2be335bed0adada1877f94c7999d7c8b7e5
 
 ---
-#<a name="virtual-network-documentation"></a>Dokumentacja usługi Virtual Network
+# <a name="virtual-network-documentation"></a>Dokumentacja usługi Virtual Network
 
-Usługa Azure Virtual Network (VNet) jest logicznym odzwierciedleniem Twojej sieci w chmurze.  Dzięki sieci wirtualnej VNet możesz w pełni kontrolować elementy sieci i segmentować sieć VNet na podsieci, a także używać jej do uruchamiania maszyn wirtualnych lub usług w chmurze platformy Azure.  Ponadto możesz połączyć sieć VNet z siecią lokalna przy użyciu jednej z opcji łączności dostępnej na platformie Azure, aby rozszerzyć sieć do chmury przy jednoczesnym zachowaniu kontroli nad zasobami.
+Usługa Azure Virtual Network (VNet) jest logicznym odzwierciedleniem Twojej sieci w chmurze.  Dzięki sieci wirtualnej VNet możesz w pełni kontrolować elementy sieci i segmentować sieć VNet na podsieci, a także używać jej do uruchamiania usług Azure Virtual Machines lub Cloud Services.  Ponadto możesz połączyć sieć VNet z siecią lokalną przy użyciu jednej z opcji łączności dostępnej na platformie Azure, aby rozszerzyć sieć do chmury przy jednoczesnym zachowaniu kontroli nad zasobami.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -105,81 +105,48 @@ Usługa Azure Virtual Network (VNet) jest logicznym odzwierciedleniem Twojej sie
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-doc">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Dokumentacja programu Azure PowerShell</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource Manager)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (klasyczny)</a></p>
+                        <p><a href="/cli/azure">Interfejs wiersza polecenia platformy Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
-                        <p>Interfejs wiersza polecenia platformy Azure dla usługi Virtual Network</p>
-                    </div>
+                        <h3>Języki</h3>
+                        <p><a href="/java/api/">Java</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Dokumentacja interfejsu API platformy .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Dokumentacja interfejsu API języka Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt163658">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Dokumentacja interfejsu API REST usługi Virtual Network</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (klasyczny)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
@@ -191,6 +158,6 @@ Pobierz dokumentację usługi Virtual Network </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
 
 
 ---
@@ -59,7 +60,7 @@ Aby utworzyć bazę danych SQL w języku C#, załaduj wymagane biblioteki zarzą
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool-c-example"></a>Tworzenie elastycznej puli baz danych SQL — przykład w języku C#
+## <a name="create-a-sql-elastic-database-pool---c-example"></a>Tworzenie elastycznej puli baz danych SQL — przykład w języku C#
 W poniższym przykładzie tworzone są: grupa zasobów, serwer, reguła zapory, pula elastyczna, a następnie baza danych SQL w tej puli. Zobacz [Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów](#create-a-service-principal-to-access-resources), aby uzyskać zmienne `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Zastąp zawartość pliku **Program.cs** poniższym kodem i zaktualizuj elementy `{variables}` wartościami aplikacji (bez znaków `{}`).
@@ -314,6 +315,6 @@ Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

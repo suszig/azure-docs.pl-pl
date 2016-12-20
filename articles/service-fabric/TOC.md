@@ -3,6 +3,7 @@
 ## [Opis mikrousług](service-fabric-overview-microservices.md)
 ## [Scenariusze aplikacji](service-fabric-application-scenarios.md)
 ## [Architektura](service-fabric-architecture.md)
+## [Terminologia](service-fabric-technical-overview.md)
 
 # Wprowadzenie
 ## Konfigurowanie środowiska projektowego
@@ -176,21 +177,13 @@
 ### [Testowanie obciążenia aplikacji](service-fabric-vso-load-test.md)
 
 # Dokumentacja
-## [Terminologia](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Platforma WCF usługi Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Usługi Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Platforma WCF usługi Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Dane](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Interfejsy danych](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [System](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Przykładowy kod](http://aka.ms/servicefabricsamples)
-## [Program PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [Interfejs API języka Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [Interfejs API języka Java](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # Zasoby
+## [Przykładowy kod](http://aka.ms/servicefabricsamples)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-fabric)
@@ -198,6 +191,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

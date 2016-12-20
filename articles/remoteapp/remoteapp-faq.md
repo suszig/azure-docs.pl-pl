@@ -3,7 +3,7 @@ title: "Często zadawane pytania dotyczące usługi Azure RemoteApp | Microsoft 
 description: "Poznaj odpowiedzi na najczęściej zadawane pytania dotyczące usługi Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Jeśli nie możesz znaleźć potrzebnych informacji lub masz dodatkowe pytanie, 
 * **Jaki jest koszt usługi RemoteApp?** Zapoznaj się z tematem [Szczegółowe informacje o cenach usługi Azure RemoteApp](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **Czy kolekcje różnych typów różnią się ceną?** Tak, w zależności od wymagań kolekcji. Kolekcja hybrydowa wymaga połączenia usługi Azure RemoteApp z siecią lokalną. Jeśli używana jest sieć wirtualna lub usługa Express Route, nie ma żadnych dodatkowych kosztów. Jednak w przypadku korzystania z nowej sieci wirtualnej platformy Azure oraz bramy lub usługi Express Route zostanie naliczona opłata za usługę [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) lub [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). Ten koszt (szczegóły dostępne w linkach) jest dodawany do miesięcznej opłaty za usługę Azure RemoteApp.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Kolekcje — co jest obsługiwane, czego należy używać i inne informacje
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Kolekcje — co jest obsługiwane, czego należy używać i inne informacje
 * **Czy są obsługiwane niestandardowe aplikacje LOB (biznesowe)?** Tak. Aby użyć aplikacji niestandardowej w usłudze Azure RemoteApp, utwórz [obraz niestandardowego szablonu](remoteapp-create-custom-image.md) i przekaż go do kolekcji RemoteApp.
 * **Czy moja niestandardowa aplikacja LOB będzie działać w usłudze Azure RemoteApp?** Najlepszym sposobem, aby to sprawdzić, jest przetestowanie. Zobacz [Centrum zgodności pulpitu zdalnego](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **Która metoda wdrażania (w chmurze czy hybrydowa) jest najlepsza dla mojej organizacji?** Kolekcje hybrydowe zawierają najbardziej kompleksowe środowisko w przypadku pełnej integracji z logowaniem jednokrotnym (SSO) i bezpieczną lokalną łącznością sieciową. Kolekcje w chmurze umożliwiają elastyczne i łatwe izolowanie wdrożenia przy użyciu wielu metod uwierzytelniania. Dowiedz się więcej na temat [opcji wdrażania](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ Jeśli nie możesz znaleźć potrzebnych informacji lub masz dodatkowe pytanie, 
 
 * **Dlaczego nie można przekazać dostępu do konta usługi Azure Active Directory?** Użytkownicy usługi Azure Active Directory muszą należeć do katalogu, który jest skojarzony z subskrypcją. Ten katalog można wyświetlać lub modyfikować na karcie ustawień w portalu. Aby uzyskać więcej informacji, zobacz temat [Zmiana dzierżawy usługi Azure Active Directory używanej przez usługę RemoteApp](remoteapp-changetenant.md).
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Klienci — jakiego urządzenia można używać do uzyskiwania dostępu do usługi Azure RemoteApp?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Klienci — jakiego urządzenia można używać do uzyskiwania dostępu do usługi Azure RemoteApp?
 Informacje o klientach, w tym kroki instalacji różnych klientów, można znaleźć w temacie [Uzyskiwanie dostępu do aplikacji w usłudze Azure RemoteApp](remoteapp-clients.md).
 
 * **Które urządzenia i systemy operacyjne są obsługiwane przez aplikacje klienckie?**
@@ -126,6 +126,6 @@ Czy wiesz, że możesz nie tylko ocenić ten artykuł i dodać komentarze poniż
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 35b0d0e7dd73852900384c34b8b842754434cc93
-ms.openlocfilehash: 4fbdb64918a642dbe899ab8b606fbf58e1fb94d3
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 40ae0d242968db83c4d4d04452fbfd93559af31e
 
 
 ---
@@ -33,7 +33,7 @@ Dostępne są dwa modele urządzenia wirtualnego StorSimple: standardowy — 801
 | **Maszyna wirtualna platformy Azure** |Standard_A3 (4 rdzenie, 7 GB pamięci) |Standard_DS3 (4 rdzenie, 14 GB pamięci) |
 | **Zgodność wersji** |Wersje przed wprowadzeniem aktualizacji Update 2 lub nowsze |Wersje z aktualizacją Update 2 lub nowsze |
 | **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Regiony platformy Azure obsługujące usługę Premium Storage<br></br>Aby wyświetlić listę regionów, zobacz [obsługiwane regiony dla serii 8020](#supported-regions-for-8020) |
-| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Wskazówki dotyczące obciążenia** |Pobieranie plików z kopii zapasowych na poziomie elementu |Tworzenie chmur i scenariusze testowania, krótki czas oczekiwania, bardziej wydajne obciążenia <br></br>Urządzenie pomocnicze do odzyskiwania po awarii |
 
 <sup>1</sup> *Poprzednia nazwa: 1100*.
@@ -41,7 +41,7 @@ Dostępne są dwa modele urządzenia wirtualnego StorSimple: standardowy — 801
 <sup>2</sup> *Urządzenia 8010 i 8020 korzystają z usługi Azure Standard Storage dla warstwy chmury. Różnica istnieje tylko w warstwie lokalnej urządzenia*.
 
 #### <a name="supported-regions-for-8020"></a>Obsługiwane regiony dla urządzenia 8020
-Regiony usługi Premium Storage obsługiwane obecnie przez urządzenie 8020 wyszczególniono w poniższej tabeli. Lista ta będzie cały czas uaktualniania, w miarę jak usługa Premium Storage będzie udostępniana w kolejnych regionach. 
+Regiony usługi Premium Storage obsługiwane obecnie przez urządzenie 8020 wyszczególniono w poniższej tabeli. Lista ta będzie cały czas uaktualniania, w miarę jak usługa Premium Storage będzie udostępniana w kolejnych regionach.
 
 | Mag. nr | Obecnie obsługiwany w regionach |
 | --- | --- |
@@ -68,7 +68,7 @@ W tym artykule opisano krok po kroku proces wdrażania urządzenia wirtualnego S
 * Nawiązywanie połączenia z urządzeniem wirtualnym.
 * Obsługę urządzenia wirtualnego.
 
-Ten samouczek dotyczy wszystkich urządzeń wirtualnych StorSimple z aktualizacją Update 2 i nowszą. 
+Ten samouczek dotyczy wszystkich urządzeń wirtualnych StorSimple z aktualizacją Update 2 i nowszą.
 
 ## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>Czym urządzenie wirtualne różni się od urządzenia fizycznego
 Urządzenie wirtualne StorSimple jest wersją urządzenia StorSimple istniejącą tylko w formie oprogramowania, która działa w jednym węźle maszyny wirtualnej w programie Microsoft Azure. Urządzenie wirtualne obsługuje scenariusze odzyskiwania po awarii, w których urządzenie fizyczne nie jest dostępne, i jest przeznaczone do użycia podczas pobierania z kopii zapasowych na poziomie elementu, lokalnego odzyskiwania po awarii, a także scenariuszy tworzenia i testowania chmury.
@@ -91,9 +91,9 @@ Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować nast�
 
 * [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) dla urządzenia wirtualnego. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Więcej informacji na temat [regionów, które są obecnie obsługiwane przez urządzenia 8020](#supported-regions-for-8020).
 * Zaleca się używanie domyślnego serwera DNS zapewnionego w systemie Azure zamiast określania własnej nazwy serwera DNS. Jeśli nazwa serwera DNS jest nieprawidłowa lub jeśli serwer DNS nie jest w stanie poprawnie rozpoznać adresów IP, tworzenie urządzenia wirtualnego zakończy się niepowodzeniem.
-* Sieci typu punkt do lokacji i lokacja do lokacji są opcjonalne. W razie potrzeby można skonfigurować te opcje dla bardziej zaawansowanych scenariuszy. 
+* Sieci typu punkt do lokacji i lokacja do lokacji są opcjonalne. W razie potrzeby można skonfigurować te opcje dla bardziej zaawansowanych scenariuszy.
 * Można utworzyć [maszyny wirtualne Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (serwery hosta) w sieci wirtualnej, która może korzystać z woluminów udostępnionych przez urządzenie wirtualne. Serwery te muszą spełniać następujące wymagania:                             
-  
+
   * Muszą być maszynami wirtualnymi z systemem Windows lub Linux z zainstalowanym oprogramowaniem iSCSI Initiator.
   * Muszą działać w tej samej sieci wirtualnej co urządzenie wirtualne.
   * Muszą mieć możliwość połączenia z obiektem docelowym iSCSI urządzenia wirtualnego za pośrednictwem wewnętrznego adresu IP urządzenia wirtualnego.
@@ -103,7 +103,7 @@ Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować nast�
 Przed utworzeniem urządzenia wirtualnego pobierz następujące aktualizacje usługi Azure StorSimple:
 
 * Dodaj [rekordy kontroli dostępu](storsimple-manage-acrs.md) do maszyn wirtualnych, które będą serwerami hosta dla urządzenia wirtualnego.
-* Użyj [konta magazynu](storsimple-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym znajduje się urządzenie wirtualne. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. Na urządzeniu wirtualnym można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage]((../storage/storage-create-storage-account.md) lub [konta Premium Storage](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Użyj [konta magazynu](storsimple-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym znajduje się urządzenie wirtualne. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. Na urządzeniu wirtualnym można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage]((../storage/storage-create-storage-account.md) lub [konta Premium Storage](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 * Do utworzenia urządzenia wirtualnego użyj innego konta magazynu niż to używane do danych. Użycie tego samego konta magazynu może spowodować obniżenie wydajności.
 
 Upewnij się, że przed rozpoczęciem masz przygotowane następujące informacje:
@@ -112,9 +112,9 @@ Upewnij się, że przed rozpoczęciem masz przygotowane następujące informacje
 * Kopia klucza szyfrowania danych usługi z urządzenia fizycznego.
 
 ## <a name="create-and-configure-the-virtual-device"></a>Tworzenie i konfigurowanie urządzenia wirtualnego
-Przed wykonaniem tych procedur upewnij się, że spełniono [wymagania wstępne dotyczące urządzeń wirtualnych](#prerequisites-for-the-virtual-device). 
+Przed wykonaniem tych procedur upewnij się, że spełniono [wymagania wstępne dotyczące urządzeń wirtualnych](#prerequisites-for-the-virtual-device).
 
-Po utworzeniu sieci wirtualnej, skonfigurowaniu usługi Menedżer StorSimple i zarejestrowaniu urządzenia fizycznego StorSimple w usłudze możesz wykonać następujące kroki, aby utworzyć i skonfigurować urządzenie wirtualne StorSimple. 
+Po utworzeniu sieci wirtualnej, skonfigurowaniu usługi Menedżer StorSimple i zarejestrowaniu urządzenia fizycznego StorSimple w usłudze możesz wykonać następujące kroki, aby utworzyć i skonfigurować urządzenie wirtualne StorSimple.
 
 ### <a name="step-1-create-a-virtual-device"></a>Krok 1. Tworzenie urządzenia wirtualnego
 Wykonaj poniższe kroki, aby utworzyć urządzenie wirtualne StorSimple.
@@ -144,8 +144,8 @@ Oprogramowanie StorSimple Snapshot Manager jest zainstalowane na hoście z syste
 
 > [!NOTE]
 > Dla urządzenia wirtualnego host z systemem Windows jest maszyną wirtualną na platformie Azure.
-> 
-> 
+>
+>
 
 Podczas konfigurowania urządzenia w programie StorSimple Snapshot Manager zostanie wyświetlony monit o podanie adresu IP i hasła urządzenia StorSimple w celu uwierzytelnienia urządzenia magazynu. Aby uzyskać szczegółowy opis kroków, przejdź do tematu [Configure StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password) (Konfigurowanie hasła do programu StorSimple Snapshot Manager).
 
@@ -167,13 +167,13 @@ Po włączeniu zdalnego zarządzania na stronie konfiguracji urządzenia StorSim
 
 > [!WARNING]
 > **Zdecydowanie zalecamy, aby w celu zwiększenia bezpieczeństwa używać protokołu HTTPS podczas nawiązywania połączenia z punktami końcowymi, a następnie usunąć punkty końcowe po zakończeniu sesji zdalnej programu PowerShell.**
-> 
-> 
+>
+>
 
 Aby skonfigurować komunikację zdalną dla urządzenia wirtualnego, należy wykonać procedury opisane w temacie [Connecting remotely to your StorSimple device](storsimple-remote-connect.md) (Nawiązywanie połączenia zdalnego z urządzeniem StorSimple).
 
 ## <a name="connect-directly-to-the-virtual-device"></a>Nawiązywanie bezpośredniego połączenia z urządzeniem wirtualnym
-Można również nawiązać bezpośrednie połączenie z urządzeniem wirtualnym. Jeśli chcesz nawiązać bezpośrednie połączenie z urządzeniem wirtualnym z innego komputera spoza sieci wirtualnej lub znajdującego się poza środowiskiem Microsoft Azure, musisz utworzyć dodatkowe punkty końcowe, zgodnie z opisem w procedurze poniżej. 
+Można również nawiązać bezpośrednie połączenie z urządzeniem wirtualnym. Jeśli chcesz nawiązać bezpośrednie połączenie z urządzeniem wirtualnym z innego komputera spoza sieci wirtualnej lub znajdującego się poza środowiskiem Microsoft Azure, musisz utworzyć dodatkowe punkty końcowe, zgodnie z opisem w procedurze poniżej.
 
 Wykonaj poniższe kroki, aby utworzyć publiczny punkt końcowy na urządzeniu wirtualnym.
 
@@ -227,8 +227,8 @@ Odzyskiwanie po awarii jest jednym z kluczowych scenariuszy, do którego został
 > [!NOTE]
 > * W przypadku korzystania z urządzenia wirtualnego jako urządzenia pomocniczego do odzyskiwania po awarii należy pamiętać, że urządzenie 8010 ma magazyn o pojemności 30 TB w usłudze Standard Storage, a urządzenie 8020 ma 64 TB w usłudze Premium Storage. Urządzenie wirtualne 8020 o większej pojemności może być bardziej odpowiednie do scenariusza odzyskiwania po awarii.
 > * Nie można przejść w tryb failover ani klonować z poziomu urządzenia z aktualizacją Update 2 na urządzenie z oprogramowaniem przed wprowadzeniem aktualizacji Update 1. Można jednak przejść w tryb failover z poziomu urządzenia z aktualizacją Update 2 na urządzenie z aktualizacją Update 1 (1.1 lub 1.2)
-> 
-> 
+>
+>
 
 Aby zapoznać się z procedurą krok po kroku, przejdź do tematu dotyczącego [przechodzenia w tryb failover na urządzenie wirtualne](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
 
@@ -245,21 +245,20 @@ W przypadku usunięcia lub wyłączenia urządzenia wirtualnego będzie ono wyś
 Jeśli podczas tworzenia urządzenia wirtualnego nie ma łączności z Internetem, krok związany z tworzeniem zakończy się niepowodzeniem. Aby rozwiązać problemy w przypadku awarii wynikającej z łączności z Internetem, wykonaj poniższe czynności w klasycznym portalu Azure:
 
 1. Utwórz maszynę wirtualną systemu Windows Server 2012 na platformie Azure. Ta maszyna wirtualna powinna używać tego samego konta magazynu, sieci wirtualnej i podsieci, które są używane przez urządzenie wirtualne. Jeśli masz już istniejący host systemu Windows Server na platformie Azure używający tego samego konta magazynu, sieci wirtualnej i podsieci, możesz również użyć go, aby rozwiązywać problemy z łącznością z Internetem.
-2. Zdalnie zaloguj się do maszyny wirtualnej utworzonej w poprzednim kroku. 
+2. Zdalnie zaloguj się do maszyny wirtualnej utworzonej w poprzednim kroku.
 3. Otwórz okno poleceń w ramach maszyny wirtualnej (naciśnij klawisze Win + R, a następnie wpisz polecenie `cmd`).
 4. W wierszu polecenia wpisz następujące polecenie.
-   
+
     `nslookup windows.net`
-5. Jeśli narzędzie `nslookup` ulegnie awarii, oznacza to, że błąd łączności z Internetem uniemożliwia zarejestrowanie urządzenia wirtualnego w usłudze StorSimple Manager. 
+5. Jeśli narzędzie `nslookup` ulegnie awarii, oznacza to, że błąd łączności z Internetem uniemożliwia zarejestrowanie urządzenia wirtualnego w usłudze StorSimple Manager.
 6. Wprowadź wymagane zmiany w sieci wirtualnej, aby zapewnić, że urządzenie wirtualne może uzyskać dostęp do witryn platformy Azure, na przykład „windows.net”.
 
 ## <a name="next-steps"></a>Następne kroki
 * Informacje na temat [używania usługi StorSimple Manager do zarządzania urządzeniem wirtualnym](storsimple-manager-service-administration.md).
-* Zapoznanie się ze sposobem [przywracania woluminu StorSimple z zestawu kopii zapasowych](storsimple-restore-from-backup-set.md). 
+* Zapoznanie się ze sposobem [przywracania woluminu StorSimple z zestawu kopii zapasowych](storsimple-restore-from-backup-set.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

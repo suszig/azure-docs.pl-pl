@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [Interfejs API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Z tego artykułu dowiesz się, jak używać interfejsów API REST WebHDFS i interfejsów API REST usługi Data Lake Store w celu zarządzania kontem oraz wykonywania operacji systemu plików w usłudze Azure Data Lake Store. Usługa Azure Data Lake Store ujawnia swoje interfejsy API REST w celu wykonywania operacji zarządzania kontem. Jednak usługa Data Lake Store jest zgodna z systemem plików HDFS i ekosystemem Hadoop, dlatego umożliwia korzystanie z interfejsów API REST WebHDFS w celu wykonywania operacji systemu plików.
@@ -47,7 +48,7 @@ Z tego artykułu dowiesz się, jak używać interfejsów API REST WebHDFS i inte
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>W jaki sposób uwierzytelniać za pomocą usługi Azure Active Directory?
 Dostępne są dwa podejścia do uwierzytelniania za pomocą usługi Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Uwierzytelnianie użytkowników końcowych (interakcyjne)
+### <a name="end-user-authentication-interactive"></a>Uwierzytelnianie użytkowników końcowych (interakcyjne)
 W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszystkie operacje są wykonywane w kontekście zalogowanego użytkownika. Wykonaj następujące kroki, aby przeprowadzić uwierzytelnianie interakcyjne.
 
 1. Za pomocą aplikacji przekieruj użytkownika pod następujący adres URL:
@@ -88,7 +89,7 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
 
 Więcej informacji na temat interakcyjnego uwierzytelniania użytkownika zawiera temat [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) (Przepływ udzielania kodu autoryzacji).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Uwierzytelnianie między usługami (nieinterakcyjne)
+### <a name="service-to-service-authentication-non-interactive"></a>Uwierzytelnianie między usługami (nieinterakcyjne)
 W tym scenariuszu aplikacja udostępnia własne poświadczenia, aby wykonywać operacje. W tym celu należy wygenerować żądanie POST, tak jak pokazano poniżej. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ Powinny pojawić się dane wyjściowe podobne do następujących:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a8f90f07a4402c0d2fb9ffc3bd35de18e2a39927
 
 
 ---
@@ -47,10 +47,9 @@ Jeśli masz już konto, możesz utworzyć prostą aplikację usługi Azure Stora
 3. W oknie dialogowym **Nowy projekt** kliknij kolejno pozycje **Zainstalowane** > **Szablony** > **Visual C#** > **Chmura** > **Poradniki Szybki start** > **Data Services**.
     a. Wybierz jeden z następujących szablonów: **Azure Storage: obiekty Blob**, **Azure Storage: pliki**, **Azure Storage: kolejki** lub **Azure Storage: tabele**.
     b. Upewnij się, że program **.NET Framework 4.5** jest wybrany jako platforma docelowa.
-   
-   * 3.c. Określ nazwę projektu i utwórz nowe rozwiązanie Visual Studio, jak pokazano poniżej:
+    c. Określ nazwę projektu i utwórz nowe rozwiązanie Visual Studio, jak pokazano poniżej:
      
-     ![Szybki start Azure][Image1]
+    ![Szybki start Azure][Image1]
 
 Warto przejrzeć kod źródłowy przed uruchomieniem aplikacji. Aby przejrzeć kod, wybierz pozycję **Eksplorator rozwiązań** w menu **Widok** w programie Visual Studio. Następnie kliknij dwukrotnie plik Program.cs.
 
@@ -59,7 +58,10 @@ Uruchom przykładową aplikację:
 1. W programie Visual Studio wybierz pozycję **Eksplorator rozwiązań** w menu **Widok**. Otwórz plik App.config i oznacz jako komentarz parametry połączenia dla emulatora usługi Azure Storage:
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
-2. Usuń znaczniki komentarza z parametrów połączenia dla usługi Azure Storage i podaj nazwę oraz klucz dostępu konta magazynu w pliku App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+
+2. Usuń znaczniki komentarza z parametrów połączenia dla usługi Azure Storage i podaj nazwę oraz klucz dostępu konta magazynu w pliku App.config:
+   
+   `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Aby pobrać klucz dostępu do konta magazynu, zobacz [Zarządzanie kluczami dostępu do magazynu](storage-create-storage-account.md#manage-your-storage-access-keys).
 3. Po podaniu nazwy i klucza dostępu konta magazynu w pliku App.config, przejdź do menu **Plik** i kliknij pozycję **Zapisz wszystko**, aby zapisać wszystkie pliki projektu.
@@ -79,6 +81,7 @@ Aby wypróbować ten scenariusz, utwórz prostą aplikację usługi Azure Storag
     c. Określ nazwę projektu i utwórz nowe rozwiązanie Visual Studio, jak pokazano poniżej:
    
     ![Szybki start Azure][Image1]
+
 4. W programie Visual Studio wybierz pozycję **Eksplorator rozwiązań** w menu **Widok**. Otwórz plik App.config i oznacz jako komentarz parametry połączenia dla swojego konta usługi Azure Storage, jeśli konto zostało już dodane. Następnie usuń znaczniki komentarza z parametrów połączenia dla emulatora usługi Azure Storage:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
@@ -109,6 +112,6 @@ Zobacz następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

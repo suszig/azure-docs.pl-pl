@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>Uruchamianie sesji programu PowerShell
-Najpierw należy zainstalować i uruchomić najnowszą wersję programu [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx). Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](../articles/powershell-install-configure.md).
+Najpierw należy zainstalować i uruchomić najnowszą wersję programu [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx). Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Wiele nowych funkcji bazy danych SQL jest obsługiwanych tylko przy zastosowaniu [modelu wdrażania usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), dlatego w przykładach użyto [poleceń cmdlet programu PowerShell dla usługi Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx). [Polecenia cmdlet usługi Azure SQL Database](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) używane w modelu wdrażania zarządzania usługami (klasycznym) są obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami, ale zalecamy użycie poleceń cmdlet usługi Resource Manager.
@@ -16,6 +16,6 @@ Jeśli masz wiele subskrypcji, użyj polecenia cmdlet [**Set-AzureRmContext**](h
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

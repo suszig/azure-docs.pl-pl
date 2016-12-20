@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
+ms.sourcegitcommit: ad50c6c12bc3b328d776f37fc31f44d90a0915a3
+ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
 > * [Interfejs API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Dowiedz się, jak używać [zestawu SDK .NET usługi Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx), aby wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych itp. Aby uzyskać więcej informacji o usłudze Data Lake, zobacz temat [Usługa Azure Data Lake Store](data-lake-store-overview.md).
@@ -103,7 +104,7 @@ Dowiedz się, jak używać [zestawu SDK .NET usługi Azure Data Lake Store](http
 Z pozostałych akapitów tego artykułu możesz dowiedzieć się, w jaki sposób używać dostępnych metod .NET w celu wykonywania operacji, takich jak uwierzytelnianie, przekazywanie plików itp.
 
 ## <a name="authentication"></a>Authentication
-### <a name="if-you-are-using-enduser-authentication-recommended-for-this-tutorial"></a>Jeśli używasz uwierzytelniania użytkowników końcowych (zalecane w przypadku tego samouczka)
+### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Jeśli używasz uwierzytelniania użytkowników końcowych (zalecane w przypadku tego samouczka)
 Tej metody należy użyć w przypadku „natywnej aplikacji klienckiej” usługi Azure AD. Odpowiedni fragment kodu podano poniżej. Zalecamy użycie tej metody, aby szybciej zakończyć korzystanie z tego samouczka.
 
     // User login via interactive popup
@@ -117,14 +118,14 @@ Tej metody należy użyć w przypadku „natywnej aplikacji klienckiej” usług
 Należy wiedzieć o kilku kwestiach związanych z powyższym fragmentem.
 
 * Aby ułatwić szybsze zakończenie korzystania z tego samouczka, w tym fragmencie jest używana domena usługi Azure AD oraz identyfikator klienta, który jest domyślnie dostępny dla wszystkich subskrypcji platformy Azure. Dzięki temu można **użyć tego fragmentu w aplikacji w niezmienionej formie**.
-* Jeśli jednak chcesz użyć własnej domeny usługi Azure AD i własnego identyfikatora klienta aplikacji, musisz utworzyć natywną aplikację usługi Azure AD, a następnie użyć domeny usługi Azure AD, identyfikatora klienta i identyfikatora URI przekierowania utworzonej aplikacji. Odpowiednie instrukcje można znaleźć w artykule [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) (Tworzenie aplikacji usługi Active Directory).
+* Jeśli jednak chcesz użyć własnej domeny usługi Azure AD i własnego identyfikatora klienta aplikacji, musisz utworzyć natywną aplikację usługi Azure AD, a następnie użyć domeny usługi Azure AD, identyfikatora klienta i identyfikatora URI przekierowania utworzonej aplikacji. Odpowiednie instrukcje można znaleźć w artykule [Create an Active Directory Application](data-lake-store-end-user-authenticate-using-active-directory.md) (Tworzenie aplikacji usługi Active Directory).
 
 > [!NOTE]
 > Powyższe linki prowadzą do instrukcji dotyczących aplikacji sieci Web usługi Azure AD. Jednak te same instrukcje można zastosować w przypadku utworzenia natywnej aplikacji klienckiej. 
 > 
 > 
 
-### <a name="if-you-are-using-servicetoservice-authentication-with-client-secret"></a>Jeśli używasz uwierzytelniania między usługami z kluczem tajnym klienta
+### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Jeśli używasz uwierzytelniania między usługami z kluczem tajnym klienta
 Poniższego fragmentu kodu można użyć do uwierzytelniania aplikacji w sposób nieinterakcyjny za pomocą klucza tajnego klienta / klucza dla aplikacji / nazwy głównej usługi. Tej metody należy użyć w przypadku istniejącej [„aplikacji sieci Web” usługi Azure AD](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
@@ -136,7 +137,7 @@ Poniższego fragmentu kodu można użyć do uwierzytelniania aplikacji w sposób
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-### <a name="if-you-are-using-servicetoservice-authentication-with-certificate"></a>Jeśli używasz uwierzytelniania między usługami z certyfikatem
+### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Jeśli używasz uwierzytelniania między usługami z certyfikatem
 Trzecią możliwością jest użycie poniższego fragmentu kodu do uwierzytelniania aplikacji w sposób nieinterakcyjny przy użyciu certyfikatu dla aplikacji / jednostki usługi. Tej metody należy użyć w przypadku istniejącej [„aplikacji sieci Web” usługi Azure AD](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
@@ -260,6 +261,6 @@ Poniższy fragment kodu przedstawia metodę `DownloadFile`, której można uży�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

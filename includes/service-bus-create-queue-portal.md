@@ -1,7 +1,7 @@
 Upewnij się, że masz już utworzoną przestrzeń nazw usługi Service Bus, jak opisano [tutaj][namespace-how-to].
 
 1. Zaloguj się w witrynie [Azure Portal][azure-portal].
-2. W lewym okienku nawigacji portalu kliknij pozycję **Service Bus**.
+2. W lewym okienku nawigacji portalu kliknij pozycję **Service Bus** (jeśli pozycja **Service Bus** nie jest widoczna, kliknij pozycję **Więcej usług**).
 3. Wybierz przestrzeń nazw, w której chcesz utworzyć kolejkę. W tym przypadku jest to **nstest1**.
    
     ![Tworzenie kolejki][createqueue1]
@@ -21,6 +21,6 @@ Upewnij się, że masz już utworzoną przestrzeń nazw usługi Service Bus, jak
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Rozpoczynanie pracy z usługą Event Hubs w języku C# | Microsoft Docs"
-description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Azure Event Hubs w języku C# z wykorzystaniem klasy EventProcessorHost."
+description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Azure Event Hubs w języku C# z użyciem hosta procesora zdarzeń."
 services: event-hubs
 documentationcenter: 
 author: jtaubensee
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/02/2016
+ms.date: 12/07/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+ms.sourcegitcommit: 015dbab81f807cd05d1fedb97f5fc62a012f2084
+ms.openlocfilehash: 54aaf68864fc83501b860ecc3daef1c0216c0140
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
 ## <a name="introduction"></a>Wprowadzenie
 Event Hubs to usługa, która przetwarza duże ilości danych zdarzeń (danych telemetrycznych) z podłączonych urządzeń i aplikacji. Po zebraniu danych w usłudze Event Hubs można przechowywać dane przy użyciu klastra magazynu lub przekształcać je za pomocą dostawcy analiz w czasie rzeczywistym. Ta możliwość zbierania i przetwarzania zdarzeń na wielką skalę jest kluczowym składnikiem architektur nowoczesnych aplikacji, w tym Internetu rzeczy (IoT).
 
-W tym samouczku pokazano, jak utworzyć centrum zdarzeń za pomocą klasycznej witryny Azure Portal. Pokazano także, jak zbierać komunikaty w centrum zdarzeń za pomocą aplikacji konsolowej napisanej w języku C# oraz jak pobierać je równolegle przy użyciu biblioteki [hosta procesora zdarzeń][hosta procesora zdarzeń] języka C#.
+W tym samouczku pokazano, jak utworzyć centrum zdarzeń za pomocą witryny Azure Portal. Pokazano także, jak zbierać komunikaty w centrum zdarzeń za pomocą aplikacji konsolowej napisanej w języku C# oraz jak pobierać je równolegle przy użyciu biblioteki [hosta procesora zdarzeń][Event Processor Host] języka C#.
 
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
@@ -65,9 +65,10 @@ Naciśnij klawisze **Ctrl + C** w oknie **Sender**, aby zakończyć aplikację S
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarzeń oraz wysyła i odbiera dane, możesz przejść do następujących scenariuszy:
 
-* Kompletna [przykładowa aplikacja korzystająca z usługi Event Hubs][przykładowa aplikacja korzystająca z usługi Event Hubs].
-* Przykład [skalowania przetwarzania zdarzeń w poziomie za pomocą usługi Event Hubs][skalowania przetwarzania zdarzeń w poziomie za pomocą usługi Event Hubs].
-* [Omówienie usługi Event Hubs][Omówienie usługi Event Hubs]
+* Kompletna [przykładowa aplikacja korzystająca z usługi Event Hubs][sample application that uses Event Hubs].
+* [hosta procesora zdarzeń](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* Przykład [skalowania w poziomie dotyczącego przetwarzania zdarzeń za pomocą usługi Event Hubs][Scale out Event Processing with Event Hubs].
+* [Przegląd usługi Event Hubs][Event Hubs overview]
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
@@ -76,16 +77,15 @@ Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarz
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Klasyczny portal Azure]: https://manage.windowsazure.com/
-[hosta procesora zdarzeń]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Omówienie usługi Event Hubs]: event-hubs-overview.md
-[przykładowa aplikacja korzystająca z usługi Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[skalowania przetwarzania zdarzeń w poziomie za pomocą usługi Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[rozwiązanie do obsługi komunikatów kolejek]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
