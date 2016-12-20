@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fd0e8f5bd41fcf105571f76aab2f192c2f6dd21d
 
 
 ---
@@ -101,7 +101,7 @@ W przypadku zestawów danych o rozmiarach większych niż kilka GB dane należy 
 
 **Czy mogę odczytywać dane z usługi Amazon S3?**
 
-Jeśli masz niewielką ilość danych i chcesz je ujawnić za pośrednictwem adresu URL http, możesz użyć modułu [Import danych][import-data]. W przypadku większych ilości danych należy najpierw przenieść dane do magazynu Azure, a następnie użyć modułu [Import danych][import-data], aby wprowadzić dane do eksperymentu.
+Jeśli masz niewielką ilość danych i chcesz je ujawnić za pośrednictwem adresu URL http, możesz użyć modułu [Import danych][import-data]. W przypadku większych ilości danych należy najpierw przenieść dane do magazynu Azure Storage, a następnie użyć modułu [Import danych][import-data], aby wprowadzić dane do eksperymentu.
 <!--
 
 <SEE CLOUD DS PROCESS>
@@ -185,7 +185,7 @@ Nie. W studio nie ma środowiska REPL dla języka R.
 ### <a name="python-module"></a>Moduł Python
 **Czy jest możliwe utworzenie niestandardowego modułu Python?**
 
-Aktualnie nie, ale można użyć dowolnej liczby modułów [Wykonanie skryptu Python][python] w celu uzyskania tego samego rezultatu.
+Obecnie nie jest to możliwe, ale można użyć dowolnej liczby modułów [Wykonanie skryptu Python][python] w celu uzyskania tego samego wyniku.
 
 **Czy dostępne jest środowisko REPL dla języka Python?**
 
@@ -224,7 +224,7 @@ Po wdrożeniu modelu predykcyjnego można go monitorować z poziomu klasycznego 
 
 **Czy jest jakieś miejsce, w którym mogę zobaczyć dane wyjściowe moich usług RRS/BES?**
 
-W przypadku usługi RRS wynik jest zwykle widoczny w odpowiedzi usługi sieci Web. Można go także zapisać do magazynu obiektów blob platformy Azure. W przypadku usługi BES dane wyjściowe są domyślnie zapisywane do obiektu blob. Dane wyjściowe można również zapisać do bazy danych lub tabeli, używając modułu [Eksport danych][export-data].
+W przypadku usługi RRS wynik jest zwykle widoczny w odpowiedzi usługi sieci Web. Można go także zapisać do magazynu obiektów blob platformy Azure. W przypadku usługi BES dane wyjściowe są domyślnie zapisywane do obiektu blob. Dane wyjściowe można również zapisać w bazie danych lub tabeli, używając modułu [Eksport danych][export-data].
 
 **Czy usługi sieci Web można tworzyć tylko z modeli utworzonych w usłudze Machine Learning Studio?**
 
@@ -332,7 +332,7 @@ Dodatkowe informacje o rozliczeniach i cenach zawiera temat [Machine Learning �
 
  Z usługi Azure Machine Learning można korzystać w ramach bezpłatnej subskrypcji (szczegółowe informacje można znaleźć w temacie [Machine Learning — cennik](https://azure.microsoft.com/pricing/details/machine-learning/)). Usługa Machine Learning Studio udostępnia 8-godzinny okres próbny umożliwiający szybką ocenę. Aby z niego skorzystać, musisz zalogować się do usługi [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2).
 
- Ponadto gdy utworzysz konto umożliwiające uzyskanie bezpłatnej wersji próbnej platformy Azure, możesz przez miesiąc korzystać z dowolnych usług Azure. Aby dowiedzieć się więcej na temat bezpłatnej wersji próbnej platformy Azure, odwiedź stronę [Bezpłatna wersja próbna platformy Azure — często zadawane pytania](/pricing/free-trial-faq/).
+ Ponadto gdy utworzysz konto umożliwiające uzyskanie bezpłatnej wersji próbnej platformy Azure, możesz przez miesiąc korzystać z dowolnych usług Azure. Aby dowiedzieć się więcej na temat bezpłatnej wersji próbnej platformy Azure, odwiedź stronę [Bezpłatna wersja próbna platformy Azure — często zadawane pytania](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 **Co to jest transakcja?**
 
@@ -432,7 +432,7 @@ Nowe plany rozliczeniowe są dostępne w trzech regionach produkcyjnych, w któr
 
 Tak. Ceny planów zależą od regionu. Gdy wdrażasz usługę sieci Web w innym regionie, musisz przypisać do niej plan obsługiwany w tym regionie.
 
-### <a name="new-web-services-overages"></a>Nowe usługi sieci Web — użycie nadwyżkowe
+### <a name="new-web-services---overages"></a>Nowe usługi sieci Web — użycie nadwyżkowe
 **Jak sprawdzić, czy przekroczono limit użycia usługi sieci Web?**
 
 W portalu usług sieci Web Azure Machine Learning na stronie Plany można wyświetlić użycie usługi we wszystkich planach. Zaloguj się do portalu i kliknij opcję Plany w menu.
@@ -545,6 +545,6 @@ Dostęp gościa zapewnia ograniczoną wersję próbną interfejsu, która umożl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 07/27/2016
+ms.date: 11/17/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a91c56d774ea81e175fa170e09b39548c6ae4d2
+ms.sourcegitcommit: 088d3d55a437165607e73ac2d6a3abe27e9b2639
+ms.openlocfilehash: 755fafcbc01e1da89d7ef3fa99b92da60c95bf8c
 
 
 ---
@@ -65,7 +65,7 @@ Uruchamianie aplikacji usługi Batch i HPC często wiąże się z zastosowaniem 
 * **Menedżer klastra** — aprowizuje i zwalnia zasoby obliczeniowe (lub węzły obliczeniowe) oraz nimi zarządza. Menedżer klastra może zautomatyzować instalowanie obrazów systemu operacyjnego i aplikacji w węzłach obliczeniowych, skalować zasoby obliczeniowe zgodnie z żądaniami i monitorować wydajność węzłów.
 * **Harmonogram zadań** — określa zasoby (na przykład procesory lub pamięć), których potrzebuje aplikacja, oraz warunki uruchamiania aplikacji. Harmonogram zadań obejmuje kolejki zadań i przydziela do nich zasoby w oparciu o przypisane priorytety lub inne właściwości.
 
-Narzędzia do klastrowania i planowania zadań dla klastrów opartych na systemach Windows i Linux można łatwo migrować na platformę Azure. Na przykład [zestaw Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), bezpłatne rozwiązanie klastra obliczeniowego firmy Microsoft dla obciążeń HPC w systemach Windows i Linux, oferuje kilka opcji uruchamiania na platformie Azure. Można również utworzyć klastry systemu Linux do uruchamiania narzędzi typu open-source, takich jak Torque i SLURM. Na platformie Azure można też uruchamiać narzędzia komercyjne, np. [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) czy [Univa Grid Engine](http://www.univa.com/products/grid-engine).
+Narzędzia do klastrowania i planowania zadań dla klastrów opartych na systemach Windows i Linux można łatwo migrować na platformę Azure. Na przykład [zestaw Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), bezpłatne rozwiązanie klastra obliczeniowego firmy Microsoft dla obciążeń HPC w systemach Windows i Linux, oferuje kilka opcji uruchamiania na platformie Azure. Można również utworzyć klastry systemu Linux do uruchamiania narzędzi typu open-source, takich jak Torque i SLURM. Na platformie Azure można też uruchamiać narzędzia komercyjne, takie jak [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/), [IBM Spectrum Symphony i Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/) czy [Univa Grid Engine](http://www.univa.com/products/grid-engine).
 
 Jak opisano w poniższych sekcjach, można także korzystać z usług Azure do zarządzania zasobami obliczeniowymi i zadaniami harmonogramu bez tradycyjnych narzędzi do zarządzania klastrami (lub oprócz nich).
 
@@ -87,10 +87,10 @@ W tej sekcji znajdziesz więcej informacji na temat obliczeń, danych, sieci i p
 > 
 
 ### <a name="compute-services"></a>Usługi obliczeniowe
-Usługi obliczeniowe Azure stanowią podstawę rozwiązania do obsługi dużych obliczeń. Różne usługi obliczeniowe zapewniają korzyści w różnych scenariuszach. Na poziomie podstawowym usługi te oferują różne tryby uruchamiania aplikacji w wystąpieniach obliczeniowych opartych na maszynach wirtualnych udostępnianych przez platformę Azure przy użyciu technologii Windows Server Hyper-V. W tych wystąpieniach można uruchamiać standardowe i niestandardowe systemy operacyjne Linux i Windows oraz obsługiwane w nich narzędzia. Platforma Azure umożliwia wybór [rozmiarów wystąpień](../virtual-machines/virtual-machines-windows-sizes.md) z różnymi konfiguracjami rdzeni procesora CPU, pamięci, pojemności dysku i innych właściwościach. Zależnie od potrzeb wystąpienia można skalować do tysięcy rdzeni, a następnie skalować w dół, jeśli potrzebnych będzie mniej zasobów.
+Usługi obliczeniowe Azure stanowią podstawę rozwiązania do obsługi dużych obliczeń. Różne usługi obliczeniowe zapewniają korzyści w różnych scenariuszach. Na poziomie podstawowym usługi te oferują różne tryby uruchamiania aplikacji w wystąpieniach obliczeniowych opartych na maszynach wirtualnych udostępnianych przez platformę Azure przy użyciu technologii Windows Server Hyper-V. W tych wystąpieniach można uruchamiać standardowe i niestandardowe systemy operacyjne Linux i Windows oraz obsługiwane w nich narzędzia. Platforma Azure umożliwia wybór [rozmiarów wystąpień](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) z różnymi konfiguracjami rdzeni procesora CPU, pamięci, pojemności dysku i innych właściwościach. Zależnie od potrzeb wystąpienia można skalować do tysięcy rdzeni, a następnie skalować w dół, jeśli potrzebnych będzie mniej zasobów.
 
 > [!NOTE]
-> Użyj wystąpień platformy Azure intensywnie korzystających z obliczeń, aby poprawić wydajność i skalowalność obciążeń HPC, m.in. równoległych zastosowań MPI, które wymagają małego opóźnienia, oraz sieci aplikacji o wysokiej wydajności. Zobacz artykuł [About H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) (Informacje o maszynach wirtualnych serii H i intensywnie korzystających z obliczeń maszynach wirtualnych serii A).  
+> Skorzystaj z [wystąpień platformy Azure intensywnie korzystających z mocy obliczeniowej, takich jak seria H](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), aby zwiększyć wydajność i skalowalność obciążeń HPC. Te wystąpienia obsługują także równoległe aplikacje MPI, które wymagają sieci aplikacji o wysokiej wydajności i małym opóźnieniu. Dostępne są również maszyny wirtualne [serii N](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) z procesorami GPU firmy NVIDIA na potrzeby rozszerzenia zakresu scenariuszy operacji obliczeniowych i wizualizacji na platformie Azure.  
 > 
 > 
 
@@ -124,7 +124,7 @@ Rozwiązanie funkcji dużych obliczeń może wymagać innych usług Azure do po�
 
 ## <a name="next-steps"></a>Następne kroki
 * Wskazówki techniczne dotyczące tworzenia rozwiązania znajdują się w temacie [Technical Resources for Batch and HPC](big-compute-resources.md) (Zasoby techniczne dotyczące usługi Batch i HPC).
-* Omów opcje Azure (takie jak Cycle Computing czy UberCloud) z partnerami.
+* Omów opcje Azure (takie jak Cycle Computing, Rescale czy UberCloud) z partnerami.
 * Przeczytaj informacje o rozwiązaniach funkcji dużych obliczeń Azure oferowanych przez firmy [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) oraz [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
 * Najnowsze informacje można znaleźć na [blogu zespołu Microsoft HPC i usługi Batch](http://blogs.technet.com/b/windowshpc/) oraz [blogu platformy Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
@@ -137,6 +137,6 @@ Rozwiązanie funkcji dużych obliczeń może wymagać innych usług Azure do po�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

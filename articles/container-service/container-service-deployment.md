@@ -7,7 +7,7 @@ author: rgardler
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Docker, kontenery, mikrousługi, Mesos, Azure"
+keywords: Docker, Containers, Micro-services, Mesos, Azure, dcos, swarm, kubernetes, azure container service, acs
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
+ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
+ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Wdrażanie klastra usługi kontenera platformy Azure
-Usługa kontenera platformy Azure zapewnia szybkie wdrażanie popularnych rozwiązań typu open source służących do aranżowania i klastrowania kontenerów. Za pomocą usługi kontenera platformy Azure można wdrażać klastry DC/OS i Docker Swarm przy użyciu szablonów usługi Azure Resource Manager i portalu Azure. Te klastry są wdrażane za pomocą zestawów skali maszyny wirtualnej Azure, a podczas pracy korzystają z ofert magazynu i pracy w sieci na platformie Azure. Do uzyskania dostępu do usługi kontenera platformy Azure niezbędna jest subskrypcja platformy Azure. Jeśli jej nie masz, możesz [utworzyć konto bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Usługa kontenera platformy Azure zapewnia szybkie wdrażanie popularnych rozwiązań typu open source służących do aranżowania i klastrowania kontenerów. Za pomocą usługi Azure Container Service można wdrażać klastry DC/OS, Kubernetes i Docker Swarm przy użyciu szablonów usługi Azure Resource Manager i witryny Azure Portal. Te klastry są wdrażane za pomocą zestawów skali maszyny wirtualnej Azure, a podczas pracy korzystają z ofert magazynu i pracy w sieci na platformie Azure. Do uzyskania dostępu do usługi kontenera platformy Azure niezbędna jest subskrypcja platformy Azure. Jeśli jej nie masz, możesz [utworzyć konto bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Ten dokument zawiera opis kroków wdrażania klastra usługi kontenera platformy Azure przy użyciu [portalu Azure](#creating-a-service-using-the-azure-portal), [interfejsu wiersza polecenia platformy Azure](#creating-a-service-using-the-azure-cli) i [modułu Azure PowerShell](#creating-a-service-using-powershell).  
 
@@ -52,15 +52,21 @@ Wybierz typ aranżacji. Dostępne opcje to:
 
 * **DC/OS**: wdraża klaster DC/OS.
 * **Swarm**: wdraża klaster Docker Swarm.
+* **Kubernetes**: wdraża klaster Kubernetes.
 
 Aby kontynuować, kliknij przycisk **OK**.
 
-![Tworzenie wdrożenia 4](media/acs-portal4.png)  <br />
+![Tworzenie wdrożenia 4](media/acs-portal4-new.png)  <br />
+
+Jeśli na liście rozwijanej wybrano **Kubernetes**, należy wprowadzić identyfikator klienta jednostki usługi oraz wpis tajny klienta jednostki usługi.
+Aby dowiedzieć się więcej o sposobie tworzenia jednostki usługi, odwiedź [tę](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) stronę 
+
+![Tworzenie wdrożenia 4.5](media/acs-portal10.PNG)  <br />
 
 Wprowadź następujące informacje:
 
-* **Liczba serwerów głównych**: liczba serwerów głównych w klastrze.
-* **Liczba agentów**: w przypadku opcji Docker Swarm jest to początkowa liczba agentów w zestawie skali agenta. W przypadku opcji DC/OS jest to początkowa liczba agentów w prywatnym zestawie skali. Ponadto jest tworzony publiczny zestaw skali, zawierający wstępnie określoną liczbę agentów. Liczba agentów w tym publicznym zestawie skali zależy od liczby serwerów głównych utworzonych w klastrze: jeden agent publiczny dla jednego serwera głównego i dwóch agentów publicznych dla trzech lub pięciu serwerów głównych.
+* **Liczba serwerów głównych**: liczba serwerów głównych w klastrze. Jeśli wybrano opcję „Kubernetes”, liczba wzorców jest ustawiona domyślnie na 1
+* **Liczba agentów**: w przypadku opcji Docker Swarm lub Kubernetes jest to początkowa liczba agentów w zestawie skalowania agenta. W przypadku opcji DC/OS jest to początkowa liczba agentów w prywatnym zestawie skalowania. Ponadto jest tworzony publiczny zestaw skalowania zawierający wstępnie określoną liczbę agentów. Liczba agentów w tym publicznym zestawie skalowania zależy od liczby serwerów głównych utworzonych w klastrze: jeden agent publiczny dla jednego serwera głównego i dwóch agentów publicznych dla trzech lub pięciu serwerów głównych.
 * **Rozmiar maszyny wirtualnej agenta**: rozmiar maszyn wirtualnych agenta.
 * **Prefiks DNS**: unikatowa w zakresie globalnym nazwa, która będzie służyć jako prefiks kluczowych części w pełni kwalifikowanych nazw domen dla usługi.
 
@@ -85,10 +91,11 @@ Po zakończeniu wdrażania klaster usługi kontenera platformy Azure jest gotowy
 ## <a name="create-a-service-by-using-the-azure-cli"></a>Tworzenie usługi przy użyciu interfejsu wiersza polecenia platformy Azure
 Do utworzenia wystąpienia usługi kontenera platformy Azure przy użyciu wiersza polecenia niezbędna jest subskrypcja platformy Azure. Jeśli jej nie masz, możesz [utworzyć konto bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Musisz również [zainstalować](../xplat-cli-install.md) i [skonfigurować](../xplat-cli-connect.md) interfejs wiersza polecenia platformy Azure.
 
-Aby wdrożyć klaster DC/OS lub Docker Swarm, wybierz jeden z poniższych szablonów usługi GitHub. Zwróć uwagę na to, że oba te szablony są takie same — różnią się tylko domyślnie wybraną aranżacją.
+Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z poniższych szablonów usługi GitHub. 
 
 * [Szablon DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Szablon Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Szablon Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Następnie upewnij się, że interfejs wiersza polecenia platformy Azure został połączony z subskrypcją platformy Azure. Możesz to zrobić za pomocą następującego polecenia:
 
@@ -140,10 +147,11 @@ Aby wyświetlić przykładowy plik parametrów o nazwie `azuredeploy.parameters.
 ## <a name="create-a-service-by-using-powershell"></a>Tworzenie usługi przy użyciu programu PowerShell
 Klaster usługi kontenera platformy Azure można również wdrożyć przy użyciu programu PowerShell. Ten dokument jest oparty na wersji 1.0 [modułu Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
-Aby wdrożyć klaster DC/OS lub Docker Swarm, wybierz jeden z poniższych szablonów. Zwróć uwagę na to, że oba te szablony są takie same — różnią się tylko domyślnie wybraną aranżacją.
+Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z poniższych szablonów. Zwróć uwagę na to, że oba te szablony są takie same — różnią się tylko domyślnie wybraną aranżacją.
 
 * [Szablon DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Szablon Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Szablon Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Przed utworzeniem klastra w ramach subskrypcji platformy Azure sprawdź, czy nastąpiło zalogowanie do platformy Azure z poziomu sesji programu PowerShell. W tym celu możesz użyć polecenia `Get-AzureRMSubscription`:
 
@@ -184,10 +192,11 @@ Teraz, gdy masz działający klaster, możesz zapoznać się z tymi dokumentami,
 * [Łączenie z klastrem usługi Azure Container Service](container-service-connect.md)
 * [Współpraca z usługą Azure Container Service i rozwiązaniem DC/OS](container-service-mesos-marathon-rest.md)
 * [Współpraca z usługą Azure Container Service i rozwiązaniem Docker Swarm](container-service-docker-swarm.md)
+* [Współpraca z usługą Azure Container Service i rozwiązaniem Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

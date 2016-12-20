@@ -12,19 +12,19 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
     Program Visual Studio pobierze, zainstaluje i doda odniesienia do [pakietu NuGet biblioteki usługi Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Dodaj następujące instrukcje `using` w górnej części pliku **Program.cs**:
    
-    ```
+    ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
 5. Dodaj następujące pola do klasy **Program**, zastępując symbole zastępcze nazwą Centrum zdarzeń utworzonego w poprzedniej sekcji oraz zapisanymi wcześniej parametrami połączenia na poziomie przestrzeni nazw.
    
-    ```
+    ```csharp
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
 6. Dodaj następującą metodę do klasy **Program**:
    
-    ```
+    ```csharp
     static void SendingRandomMessages()
     {
         var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
@@ -51,7 +51,7 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
     Ta metoda stale wysyła zdarzenia do centrum zdarzeń z opóźnieniem 200 ms.
 7. Na koniec dodaj następujące wiersze do metody **Główne**:
    
-    ```
+    ```csharp
     Console.WriteLine("Press Ctrl-C to stop the sender process");
     Console.WriteLine("Press Enter to start now");
     Console.ReadLine();
@@ -60,6 +60,6 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

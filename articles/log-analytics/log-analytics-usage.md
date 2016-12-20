@@ -1,6 +1,6 @@
 ---
 title: "Analizowanie użycia danych w usłudze Log Analytics | Microsoft Docs"
-description: "Za pomocą strony Użycie w usłudze Log Analytics możesz wyświetlić informacje o tym, ile danych jest wysyłanych do usługi OMS."
+description: "Za pomocą pozycji pulpitu nawigacyjnego Użycie usługi Log Analytics możesz wyświetlić informacje o tym, ile danych jest wysyłanych do usługi OMS."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,66 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/14/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4c1d0319e768eec69718d8b49db30069ec1331d9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
 
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizowanie użycia danych w usłudze Log Analytics
-Usługa Log Analytics w pakiecie Operations Management Suite (OMS) gromadzi dane i okresowo wysyła je do usługi OMS.  Za pomocą strony **Użycie** możesz wyświetlić informacje o tym, ile danych jest wysyłanych do usługi OMS. Na stronie **Użycie** są również wyświetlane informacje o tym, ile danych jest wysyłanych dziennie przez rozwiązania i jak często Twoje serwery wysyłają dane.
+Usługa Log Analytics gromadzi dane i okresowo wysyła je do usługi OMS.  Pulpitu nawigacyjnego **Użycie usługi Log Analytics** możesz użyć do wyświetlenia ilości danych wysyłanych do usługi OMS. Pulpit nawigacyjny wyświetla również informacje o tym, ile danych jest wysyłanych przez rozwiązania i jak często Twoje serwery wysyłają dane.
 
 > [!NOTE]
-> Jeśli masz bezpłatne konto utworzone za pomocą [witryny internetowej usługi OMS](http://www.microsoft.com/oms), dziennie możesz wysłać do usługi OMS maksymalnie 500 MB danych. Jeśli przekroczysz dzienny limit, analiza danych zostanie zatrzymana, a następnie zostanie wznowiona na początku następnego dnia. Ponadto konieczne będzie ponowne przesłanie wszystkich danych, które nie zostały przyjęte lub przetworzone przez usługę OMS.
-> 
-> 
+> Jeśli masz bezpłatne konto, dziennie możesz wysłać do usługi OMS maksymalnie 500 MB danych. Jeśli przekroczysz dzienny limit, analiza danych zostanie zatrzymana, a następnie zostanie wznowiona na początku następnego dnia. W takim przypadku konieczne będzie ponowne przesłanie wszelkich danych, które nie zostały przyjęte lub przetworzone przez usługę OMS.
 
-Możesz wyświetlić swoje użycie za pomocą kafelka **Użycie** na pulpicie nawigacyjnym **Przegląd** w usłudze OMS.
+W przypadku przekroczenia dziennego limitu użycia lub zbliżenia się do niego możesz opcjonalnie usunąć rozwiązanie, aby ograniczyć ilość danych do przesłania do usługi OMS. Aby uzyskać więcej informacji o usuwaniu rozwiązań, zobacz [Dodawanie rozwiązań usługi Log Analytics z galerii rozwiązań](log-analytics-add-solutions.md).
 
-![kafelek Użycie](./media/log-analytics-usage/usage-tile.png)
+![pulpit nawigacyjny Użycie](./media/log-analytics-usage/usage-dashboard01.png)
 
-W przypadku przekroczenia dziennego limitu użycia lub zbliżenia się do niego możesz opcjonalnie usunąć rozwiązanie, aby ograniczyć ilość danych przesyłanych do usługi OMS. Aby uzyskać więcej informacji o usuwaniu rozwiązań, zobacz [Dodawanie rozwiązań usługi Log Analytics z galerii rozwiązań](log-analytics-add-solutions.md).
+Pulpit nawigacyjny **Użycie usługi Log Analytics** udostępnia następujące informacje:
 
-![pulpit nawigacyjny Użycie](./media/log-analytics-usage/usage-dashboard.png)
-
-Na stronie **Użycie** są wyświetlane następujące informacje:
-
-* Średnie użycie na dzień
-* Użycie danych dla poszczególnych rozwiązań w ciągu ostatnich 30 dni
-* Ile danych przesłały serwery w Twoim środowisku do usługi OMS w ciągu ostatnich 30 dni
-* Warstwa cenowa i szacowany koszt Twojego planu danych
-* Informacje o Twojej umowie dotyczącej poziomu usług (SLA), w tym informacje o tym, ile czasu potrzebuje usługa OMS na przetworzenie Twoich danych
+- Ilość danych
+    - Ilość danych w czasie (na podstawie bieżącego zakresu czasu)
+    - Ilość danych wg rozwiązania
+    - Dane nieskojarzone z komputerem
+- Komputery
+    - Komputery wysyłające dane
+    - Komputery bez danych w ostatnich 24 godzinach
+- Oferty
+    - Węzły wglądu w dane i analizy
+    - Węzły automatyzacji i kontroli
+    - Węzły zabezpieczeń
+- Wydajność
+    - Ilość czasu zbierania i indeksowania danych
+- Lista zapytań
 
 ## <a name="to-work-with-usage-data"></a>Aby pracować z danymi użycia
-1. Na stronie **Przegląd** kliknij kafelek **Użycie**.
-2. Na stronie **Użycie** przejrzyj kategorie użycia zawierające interesujące Cię obszary.
-3. Jeśli masz rozwiązanie, która zużywa zbyt dużo dziennego przydziału przekazywania, możesz rozważyć usunięcie tego rozwiązania.
+1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
+2. W menu **Centrum** kliknij pozycję **Więcej usług** i na liście zasobów wpisz ciąg **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
+    ![Centrum platformy Azure](./media/log-analytics-usage/hub.png)
+3. Pulpit nawigacyjny **Log Analytics** wyświetla listę obszarów roboczych. Wybierz obszar roboczy.
+4. Na pulpicie nawigacyjnym *obszar roboczy* kliknij pozycję **Użycie usługi Log Analytics**.
+5. Na pulpicie nawigacyjnym **Użycie usługi Log Analytics** kliknij pozycję **Czas: ostatnie 24 godziny**, aby zmienić przedział czasu.  
+    ![przedział czasu](./media/log-analytics-usage/time.png)
+6. Wyświetl bloki kategorii użycia pokazujące obszary, które Cię interesują. Wybierz blok, a następnie kliknij w nim pozycję, aby wyświetlić więcej szczegółów w obszarze [Wyszukiwanie w dzienniku](log-analytics-log-searches.md).  
+    ![przykładowy blok użycia danych](./media/log-analytics-usage/blade.png)
+7. Na pulpicie nawigacyjnym wyszukiwania w dzienniku przejrzyj wyniki zwrócone w wyniku wyszukiwania.  
+    ![przykład wyszukiwania w dzienniku użycia](./media/log-analytics-usage/usage-log-search.png)
 
-## <a name="to-view-your-estimated-cost-and-billing-information"></a>Aby wyświetlić szacowany koszt i informacje rozliczeniowe
-1. Na stronie **Przegląd** kliknij kafelek **Użycie**.
-2. Na stronie **Użycie** w obszarze **Użycie** kliknij cudzysłów ostrokątny (**>**) obok pozycji **Szacowany koszt**.
-3. W rozwiniętym okienku szczegółów **Twój plan danych** możesz sprawdzić szacowany koszt miesięczny.  
-    ![Okienko szczegółów Twój plan danych](./media/log-analytics-usage/usage-data-plan.png)
-4. Aby wyświetlić informacje rozliczeniowe, kliknij pozycję **Wyświetl mój rachunek**. Spowoduje to wyświetlenie informacji o Twojej subskrypcji.
-   * Na stronie Subskrypcje kliknij swoją subskrypcję, aby wyświetlić szczegóły użycia i listę wierszy z jego pozycjami.  
-       ![subskrypcja](./media/log-analytics-usage/usage-sub01.png)
-   * Na stronie Podsumowanie dla Twojej subskrypcji możesz wykonywać różne zadania związane z zarządzaniem i wyświetlaniem dodatkowych szczegółów dotyczących Twojej subskrypcji.  
-       ![szczegóły subskrypcji](./media/log-analytics-usage/usage-sub02.png)
-
-## <a name="to-view-data-batches-for-your-sla"></a>Aby wyświetlić partie danych dla Twojej umowy dotyczącej poziomu usług (SLA)
-1. Na stronie **Przegląd** kliknij kafelek **Użycie**.
-2. W obszarze **Umowa SLA** kliknij pozycję **Pobierz szczegóły umowy SLA**.
-3. Zostanie pobrany plik XLSX programu Excel, który możesz przejrzeć.  
-    ![Szczegóły umowy SLA](./media/log-analytics-usage/usage-sla-details.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Zobacz [Wyszukiwania w dziennikach w usłudze Log Analytics](log-analytics-log-searches.md), aby dowiedzieć się, jak przeglądać szczegółowe informacje zebrane przez rozwiązania.
+* Aby wyświetlić szczegółowe informacje, które są zbierane i przesyłane do usługi OMS przez funkcje i rozwiązania, zobacz [Wyszukiwanie w dzienniku w usłudze Log Analytics](log-analytics-log-searches.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

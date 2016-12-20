@@ -64,6 +64,13 @@
 #### [Portal klasyczny](cloud-services-how-to-scale.md)
 ### [Zarządzanie zasobami platformy Azure przy użyciu języka Python](cloud-services-python-how-to-use-service-management.md)
 
+### [Poprawki systemu operacyjnego gościa](cloud-services-guestos-msrc-releases.md)
+### Wycofanie systemu operacyjnego gościa
+#### [Zasady wycofywania](cloud-services-guestos-retirement-policy.md)
+#### [Powiadomienie o wycofaniu rodziny 1](cloud-services-guestos-family1-retirement.md)
+### [Informacje o nowych wersjach systemu operacyjnego gościa](cloud-services-guestos-update-matrix.md)
+### [Konfiguracja roli usług Cloud Services (XPath) — ściągawka](cloud-services-role-config-xpath.md)
+
 ## Zarządzanie certyfikatami
 ### [Certyfikaty usług w chmurze i zarządzania](cloud-services-certs-create.md)
 ### Konfigurowanie protokołu SSL 
@@ -101,12 +108,6 @@
 ## [Schemat XML .csdef](https://msdn.microsoft.com/library/azure/ee758711)
 ## [Schemat XML .cscfg](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Poprawki systemu operacyjnego gościa](cloud-services-guestos-msrc-releases.md)
-## Wycofanie systemu operacyjnego gościa
-### [Zasady wycofywania](cloud-services-guestos-retirement-policy.md)
-### [Powiadomienie o wycofaniu rodziny 1](cloud-services-guestos-family1-retirement.md)
-## [Informacje o nowych wersjach systemu operacyjnego gościa](cloud-services-guestos-update-matrix.md)
-## [Konfiguracja roli usług Cloud Services (XPath) — ściągawka](cloud-services-role-config-xpath.md)
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -116,6 +117,6 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

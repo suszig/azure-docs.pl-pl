@@ -59,9 +59,9 @@
 ### [Wytyczne dotyczące diagnostyki](notification-hubs-push-notification-fixer.md)
 
 # Dokumentacja
-## [Polecenia cmdlet programu PowerShell](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/notificationhubs/)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
+## [REST](/rest/api/notificationhubs)
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/notification-hubs/)
@@ -71,6 +71,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure przy użyciu witryny Azure Portal | Microsoft Docs"
-description: "Opisuje sposób wdrożenia usługi Azure Site Recovery w celu organizowania replikacji, pracy w trybie failover i odzyskiwania maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure przy użyciu witryny Azure Portal"
+description: "Opisuje sposób wdrożenia usługi Site Recovery w celu organizowania replikacji, pracy w trybie failover i odzyskiwania maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,16 +12,15 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/31/2016
+ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 9968ac8e139b3f08fe0d59180e51fe9c19241dd5
+ms.sourcegitcommit: f5e9d1a7f26ed3cac5767034661739169968a44e
+ms.openlocfilehash: ba0c710a0c28e9d52021ec966905a007b06f125e
 
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure przy użyciu witryny Azure Portal
-> [!div class="op_single_selector"]
 > * [Witryna Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Klasyczny portal Azure](site-recovery-vmm-to-azure-classic.md)
 > * [Program PowerShell — model usługi Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
@@ -35,10 +34,10 @@ Usługa Site Recovery na platformie Azure ułatwia realizację strategii zachowa
 
 W tym artykule opisano sposób replikowania lokalnych maszyn wirtualnych funkcji Hyper-V zarządzanych w chmurach programu System Center VMM do platformy Azure przy użyciu usługi Azure Site Recovery w witrynie Azure Portal.
 
-Po przeczytaniu tego artykułu możesz opublikować komentarze przy użyciu usługi Disqus w dolnej części strony. Zadawaj pytania techniczne na [Forum Usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Po przeczytaniu tego artykułu możesz zamieścić komentarze w dolnej części strony. Zadawaj pytania techniczne na [Forum Usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="quick-reference"></a>Krótki przewodnik
-Jeśli chcesz przeprowadzić pełne wdrożenie, zdecydowanie zalecamy wykonanie wszystkich kroków opisanych w artykule. Ale jeśli masz ograniczony czas, skorzystaj z krótkiego podsumowania zawierającego linki do dalszych informacji.
+Jeśli chcesz przeprowadzić pełne wdrożenie, zdecydowanie zalecamy wykonanie wszystkich kroków opisanych w artykule. Ale jeśli masz ograniczony czas, skorzystaj z tego krótkiego podsumowania.
 
 | **Obszar** | **Szczegóły** |
 | --- | --- |
@@ -47,26 +46,21 @@ Jeśli chcesz przeprowadzić pełne wdrożenie, zdecydowanie zalecamy wykonanie 
 | **Ograniczenia środowiska lokalnego** |Serwer proxy oparty na protokole HTTPS nie jest obsługiwany |
 | **Dostawca/agent** |Replikowanie maszyny wirtualnej wymagają dostawcy usługi Azure Site Recovery.<br/><br/> Hosty funkcji Hyper-V wymagają agenta usługi Recovery Services.<br/><br/> Te składniki są instalowanie podczas wdrażania. |
 |  **Wymagania platformy Azure** |Konto platformy Azure<br/><br/> Magazyn usługi Recovery Services<br/><br/> Konto magazynu LRS lub GRS w regionie magazynu<br/><br/> Konto usługi Storage w warstwie Standardowa<br/><br/> Sieć wirtualna platformy Azure w regionie magazynu. [Wszystkie szczegóły](#azure-prerequisites). |
-|  **Ograniczenia platformy Azure** |Jeśli używasz magazynu GRS, musisz mieć inne konto magazynu LRS na potrzeby rejestrowania.<br/><br/> Kont usługi Storage utworzonych w witrynie Azure Portal nie można przenosić między grupami zasobów.<br/><br/> Magazyn w warstwie Premium nie jest obecnie obsługiwany. |
-|  **Replikacja maszyny wirtualnej** |Maszyny wirtualne muszą spełniać wymagania wstępne platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
+|  **Ograniczenia platformy Azure** |Jeśli używasz magazynu GRS, musisz mieć inne konto magazynu LRS na potrzeby rejestrowania.<br/><br/> Kont magazynu utworzonych w witrynie Azure Portal nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. <br/><br/> Magazyn w warstwie Premium nie jest obecnie obsługiwany.<br/><br/> Sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. |
+|  **Replikacja maszyny wirtualnej** |[Maszyny wirtualne muszą spełniać wymagania wstępne platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
 |  **Ograniczenia replikacji** |Nie można replikować maszyn wirtualnych z systemem Linux i statycznym adresem IP.<br/><br/> Z replikacji nie można wykluczyć określonych dysków. |
 | **Kroki wdrażania** |1) Przygotowanie platformy Azure (subskrypcja, magazyn, sieć) -> 2) Przygotowanie środowiska lokalnego (mapowanie programu VMM i sieci) -> 3) Utworzenie magazynu usługi Recovery Services -> 4) Skonfigurowanie hostów programu VMM i funkcji Hyper-V -> 5) Skonfigurowanie ustawień replikacji -> 6) Włączenie replikacji -> 7) Testowanie replikacji i pracy w trybie failover. |
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Usługa Site Recovery w portalu Azure
-Platforma Azure ma dwa różne [modele wdrażania](../resource-manager-deployment-model
 
-> ) związane z tworzeniem zasobów i pracą z nimi: Resource Manager i model klasyczny. Platforma Azure ma również dwa portale: klasyczną witrynę Azure Portal i witrynę Azure Portal. W tym artykule opisano sposób wdrażania w witrynie Azure Portal.
->
->
+Platforma Azure ma dwa różne [modele wdrażania](../resource-manager-deployment-model.md) związane z tworzeniem zasobów i pracą z nimi — model usługi Azure Resource Manager i model klasyczny. Platforma Azure ma również dwa portale: klasyczną witrynę Azure Portal i witrynę Azure Portal. W tym artykule opisano sposób wdrażania w witrynie Azure Portal.
 
-Usługa Site Recovery w witrynie Azure Portal oferuje następujące nowe funkcje:
 
-* Usługi Azure Backup i Azure Site Recovery są połączone w jednym magazynie usług Recovery Services, dzięki czemu możesz skonfigurować strategię zachowania ciągłości działania i odzyskiwania danych po awarii (BCDR) oraz zarządzać nią z jednej lokalizacji. Jednolity pulpit nawigacyjny umożliwia monitorowanie i zarządzanie operacjami w lokacjach lokalnych i chmurze publicznej platformy Azure.
-* Użytkownicy z subskrypcjami Azure udostępnianymi z programem Cloud Solution Provider (CSP) mogą teraz zarządzać operacjami usługi Site Recovery w portalu Azure.
-* W witrynie Azure Portal można replikować maszyny do kont magazynu usługi Azure Resource Manager. W trybie failover usługa Site Recovery tworzy maszyny wirtualne oparte na modelu Resource Manager na platformie Azure.
-* Usługa Site Recovery nadal obsługuje replikację do klasycznych kont magazynu. W trybie failover usługa Site Recovery tworzy maszyny wirtualne przy użyciu modelu klasycznego.
+W tym artykule opisano sposób wdrażania w witrynie Azure Portal, która zapewnia usprawnione środowisko wdrażania. Klasyczny portal może służyć do obsługi istniejących magazynów. Nowe magazyny nie mogą być tworzone za pomocą klasycznego portalu.
+
 
 ## <a name="site-recovery-in-your-business"></a>Usługa Site Recovery w Twojej firmie
+
 Organizacje wymagają strategii BCDR, która określa, w jaki sposób aplikacje i dane pozostają uruchomione i dostępne podczas planowanych lub nieplanowanych przerw w pracy oraz są przywracane do normalnych warunków roboczych z możliwie dużą prędkością. Usługa Site Recovery ma następujące możliwości:
 
 * Ochrona poza siedzibą w przypadku aplikacji biznesowych działających na maszynach wirtualnych funkcji Hyper-V.
@@ -100,12 +94,12 @@ Oto, co należy zapewnić lokalnie
 | --- | --- |
 | **VMM** |Co najmniej jeden serwer programu VMM uruchomiony w programie System Center 2012 R2. Każdy serwer programu VMM powinien mieć co najmniej jedną skonfigurowaną chmurę. Chmura powinna zawierać:<br/><br/> Co najmniej jedną grupę hostów programu VMM.<br/><br/> Co najmniej jeden serwer hosta lub klaster funkcji Hyper-V w każdej grupie hostów.<br/><br/>[Dowiedz się więcej](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx) o konfigurowaniu chmur VMM. |
 | **Funkcja Hyper-V** |Serwery hostów funkcji Hyper-V muszą być uruchomione w **systemie Windows Server 2012 R2** z rolą Hyper-V lub w **systemie Microsoft Hyper-V Server 2012 R2** i muszą mieć zainstalowane najnowsze aktualizacje.<br/><br/> Serwer funkcji Hyper-V powinien zawierać co najmniej jedną maszynę wirtualną.<br/><br/> Serwer hosta lub klaster funkcji Hyper-V, który zawiera maszyny wirtualne do replikacji, musi być zarządzany w chmurze programu VMM.<br/><br/>Serwery funkcji Hyper-V powinny być podłączone do Internetu, bezpośrednio lub za pośrednictwem serwera proxy.<br/><br/>Serwery funkcji Hyper-V powinny mieć zainstalowane poprawki wymienione w artykule [2961977](https://support.microsoft.com/kb/2961977).<br/><br/>Serwery hostów funkcji Hyper-V wymagają dostępu do Internetu w celu przeprowadzenia replikacji danych do platformy Azure. |
-| **Dostawca i agent** |Podczas wdrażania usługi Azure Site Recovery instalujesz dostawcę usługi Azure Site Recovery na serwerze programu VMM oraz agenta usługi Recovery Services na hostach funkcji Hyper-V. Dostawca i agent muszą nawiązywać połączenie z platformą Azure za pośrednictwem Internetu, bezpośrednio lub przez serwer proxy. Serwer proxy oparty na protokole HTTPS nie jest obsługiwany. Serwer proxy na serwerze programu VMM i hostach funkcji Hyper-V powinien zezwalać na dostęp do: <br/><br/> ``*.hypervrecoverymanager.windowsazure.com`` <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``*.store.core.windows.net``<br/><br/> Jeśli masz reguły zapory oparte na adresie IP na serwerze VMM, sprawdź, czy reguły zezwalają na komunikację z platformą Azure. Musisz zezwolić na użycie [zakresów adresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) oraz portu 443 protokołu HTTPS.<br/><br/> Zezwól na użycie zakresów adresów IP dla regionu platformy Azure Twojej subskrypcji oraz regionu Zachodnie stany USA.<br/><br/> Ponadto: serwer proxy na serwerze programu VMM musi mieć dostęp do lokalizacji ``https://www.msftncsi.com/ncsi.txt`` |
+| **Dostawca i agent** |Podczas wdrażania usługi Azure Site Recovery instalujesz dostawcę usługi Azure Site Recovery na serwerze programu VMM oraz agenta usługi Recovery Services na hostach funkcji Hyper-V. Dostawca i agent muszą nawiązywać połączenie z platformą Azure za pośrednictwem Internetu, bezpośrednio lub przez serwer proxy. Serwer proxy oparty na protokole HTTPS nie jest obsługiwany. Serwer proxy na serwerze programu VMM i hostach funkcji Hyper-V powinien zezwalać na dostęp do: <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> Jeśli masz reguły zapory oparte na adresie IP na serwerze VMM, sprawdź, czy reguły zezwalają na komunikację z platformą Azure.<br/><br/> Zezwól na użycie [zakresów adresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) oraz portu 443 protokołu HTTPS.<br/><br/> Zezwól na użycie zakresów adresów IP dla regionu platformy Azure Twojej subskrypcji oraz regionu Zachodnie stany USA.<br/><br/> |
 
 ## <a name="protected-machine-prerequisites"></a>Wymagania wstępne dotyczące chronionej maszyny
 | **Wymagania wstępne** | **Szczegóły** |
 | --- | --- |
-| **Chronione maszyny wirtualne** |Zanim skorzystasz z trybu failover dla maszyny wirtualnej, upewnij się, że nazwa, która została przypisana do maszyny wirtualnej Azure, jest zgodna z [wymaganiami wstępnymi dotyczącymi platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Nazwę można zmodyfikować po włączeniu replikacji dla maszyny wirtualnej. <br/><br/> Pojemności poszczególnych dysków na chronionych komputerach nie powinny przekraczać 1023 GB. Maszyna wirtualna może mieć maksymalnie 16 dysków (w związku z tym maksymalnie 16 TB pojemności).<br/><br/> Klastry udostępnionych dysków gościa nie są obsługiwane.<br/><br/> Rozruch typu Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI) nie jest obsługiwany.<br/><br/> Jeśli źródło maszyny wirtualnej ma wiele kart sieciowych, zostanie przekonwertowane na jedną kartę sieciową w przypadku przejścia do trybu failover na platformie Azure.<br/><br/>Ochrona maszyn wirtualnych z systemem Linux ze statycznym adresem IP nie jest obsługiwana. |
+| **Chronione maszyny wirtualne** |Zanim skorzystasz z trybu failover dla maszyny wirtualnej, upewnij się, że nazwa, która została przypisana do maszyny wirtualnej Azure, jest zgodna z [wymaganiami wstępnymi dotyczącymi platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Nazwę można zmodyfikować po włączeniu replikacji dla maszyny wirtualnej. <br/><br/> Pojemności poszczególnych dysków na chronionych komputerach nie powinny przekraczać 1023 GB. Maszyna wirtualna może mieć maksymalnie 64 dyski (w związku z tym maksymalnie 64 TB pojemności).<br/><br/> Klastry udostępnionych dysków gościa nie są obsługiwane.<br/><br/> Rozruch typu Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI) nie jest obsługiwany.<br/><br/> Jeśli źródło maszyny wirtualnej ma wiele kart sieciowych, zostanie przekonwertowane na jedną kartę sieciową w przypadku przejścia do trybu failover na platformie Azure.<br/><br/>Ochrona maszyn wirtualnych funkcji Hyper-V z systemem Linux i statycznym adresem IP nie jest obsługiwana. |
 
 ## <a name="prepare-for-deployment"></a>Przygotowanie do wdrożenia
 Aby przygotować się do wdrożenia, należy wykonać następujące czynności:
@@ -121,21 +115,13 @@ Potrzebujesz sieci platformy Azure, z którą będą się łączyć maszyny wirt
 * Sieć powinna znajdować się w tym samym regionie co magazyn usługi Recovery Services.
 * W zależności od modelu zasobu, który chcesz wykorzystać dla maszyn wirtualnych platformy Azure w trybie failover, musisz skonfigurować sieć platformy Azure w [modelu usługi Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) lub [modelu klasycznym](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * Zaleca się skonfigurowanie sieci przed rozpoczęciem dalszych działań. Jeśli tego nie zrobisz, konfigurację będzie trzeba przeprowadzić podczas wdrażania usługi Site Recovery.
-
-> [!NOTE]
-> [Migracja sieci](../resource-group-move-resources.md) w grupach zasobów w ramach tej samej subskrypcji lub w różnych subskrypcjach nie jest obsługiwana dla sieci używanych do wdrażania usługi Site Recovery.
->
->
+Należy pamiętać, że sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można [przenosić](../resource-group-move-resources.md) w ramach tej samej lub różnych subskrypcji.
 
 ### <a name="set-up-an-azure-storage-account"></a>Konfigurowanie konta usługi Azure Storage
 * Potrzebujesz standardowego konta usługi Azure Storage do przechowywania danych replikowanych do platformy Azure. Konto musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania.
 * W zależności od modelu zasobu, który chcesz wykorzystać dla maszyn wirtualnych Azure w trybie failover, należy skonfigurować konto w [modelu Resource Manager](../storage/storage-create-storage-account.md) lub [modelu klasycznym](../storage/storage-create-storage-account-classic-portal.md).
 * Zalecamy skonfigurowanie konta przed rozpoczęciem dalszych działań. Jeśli tego nie zrobisz, konfigurację będzie trzeba przeprowadzić podczas wdrażania usługi Site Recovery.
-
-> [!NOTE]
-> [Migracja kont magazynu](../resource-group-move-resources.md) w grupach zasobów w ramach tej samej subskrypcji lub w różnych subskrypcjach nie jest obsługiwana dla kont magazynu używanych do wdrażania usługi Site Recovery.
->
->
+- Należy pamiętać, że kont magazynu używanych przez usługę Site Recovery nie można [przenosić](../resource-group-move-resources.md) w ramach tej samej lub różnych subskrypcji.
 
 ### <a name="prepare-the-vmm-server"></a>Przygotowanie serwera programu VMM
 * Upewnij się, że serwer programu VMM jest zgodny z [wymaganiami wstępnymi](#on-premises-prerequisites).
@@ -165,10 +151,11 @@ Podczas wdrażania usługi Site Recovery musisz skonfigurować mapowanie sieci. 
 
 Nowy magazyn będzie wyświetlany w sekcji **Pulpit nawigacyjny** > **Wszystkie zasoby** oraz w głównym bloku **magazynów usług Recovery Services**.
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
+
 Usługa Site Recovery zawiera środowisko dla rozpoczynających pracę (Wprowadzenie), które pomaga wdrożyć usługę tak szybko, jak to możliwe. Wprowadzenie sprawdza warunki wstępne i przeprowadza użytkownika przez kroki wdrożenia usługi Site Recovery w odpowiedniej kolejności.
 
-W środowisku Wprowadzenie wybiera się typ maszyn do replikacji oraz miejsce, do którego chcesz je replikować. Przeprowadza się konfigurację serwerów lokalnych, kont usługi Azure Storage oraz sieci. Tworzy się zasady replikacji i przeprowadza planowanie pojemności. Po przygotowaniu infrastruktury włącza się replikację maszyn wirtualnych. Można uruchomić tryb failover dla wybranych maszyn lub utworzyć plany odzyskiwania, aby przenosić wiele maszyn wirtualnych w tryb failover.
+Wybiera się typ maszyn do replikacji oraz miejsce, do którego mają zostać replikowane. Przeprowadza się konfigurację serwerów lokalnych, kont usługi Azure Storage oraz sieci. Tworzy się zasady replikacji i przeprowadza planowanie pojemności. Po przygotowaniu infrastruktury włącza się replikację maszyn wirtualnych. Można uruchomić tryb failover dla wybranych maszyn lub utworzyć plany odzyskiwania, aby przenosić wiele maszyn wirtualnych w tryb failover.
 
 Rozpocznij proces Wprowadzenie, wybierając sposób wdrożenia usługi Site Recovery. Przepływ Wprowadzenie zmienia się w niewielkim zakresie w zależności od wymagań dotyczących replikacji.
 
@@ -281,11 +268,13 @@ Agent Usług odzyskiwania uruchomiony na hostach funkcji Hyper-V wymaga internet
 ## <a name="step-3-set-up-the-target-environment"></a>Krok 3. Konfigurowanie środowiska docelowego
 Określ konto magazynu Azure do wykorzystania podczas replikacji i sieć platformy Azure, z którą maszyny wirtualne Azure będą się łączyć po przejściu w tryb failover.
 
-1. Kliknij kolejno pozycje **Przygotowywanie infrastruktury** > **Docelowa** i wybierz subskrypcję platformy Azure do użycia.
-2. Określ model wdrożenia, którego chcesz użyć dla maszyn wirtualnych po przejściu w tryb failover.
-3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
+1. Kliknij pozycję **Przygotowywanie infrastruktury** > **Cel**, a następnie wybierz subskrypcję i grupę zasobów, w której chcesz utworzyć maszyny wirtualne w trybie failover. Wybierz model wdrażania, którego chcesz użyć na platformie Azure (model usługi Resource Manager lub model klasyczny) dla maszyn wirtualnych w trybie failover.
 
-   ![Magazyn](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+    ![Magazyn](./media/site-recovery-vmm-to-azure/enablerep3.png)
+
+2. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
+    ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+
 4. Jeśli nie utworzono konta magazynu, a chcesz je utworzyć przy użyciu usługi Resource Manager, kliknij pozycję **+ Konto magazynu**, aby zrobić to w tym miejscu.  W bloku **Utwórz konto magazynu** określ nazwę konta, jego typ, subskrypcję i lokalizację. Konto powinno znajdować się w tej samej lokalizacji co magazyn Usług odzyskiwania.
 
    ![Magazyn](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
@@ -507,6 +496,6 @@ Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](site-recover
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

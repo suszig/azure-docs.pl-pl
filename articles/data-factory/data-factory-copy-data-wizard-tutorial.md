@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
    2. Wybierz swoją **subskrypcję** platformy Azure.
    3. Wykonaj jedną z następujących czynności dotyczącą grupy zasobów: 
       
-      1. Wybierz pozycję **Użyj istniejącej**, aby wybrać istniejącą grupę zasobów.
-      2. Wybierz pozycję **Utwórz nowy**, aby wprowadzić nazwę grupy zasobów.
+      - Wybierz pozycję **Użyj istniejącej**, aby wybrać istniejącą grupę zasobów.
+      - Wybierz pozycję **Utwórz nowy**, aby wprowadzić nazwę grupy zasobów.
          
           W niektórych krokach w tym samouczku zakłada się, że nazwa grupy zasobów to **ADFTutorialResourceGroup**. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).
    4. Wybierz **lokalizację** fabryki danych.
@@ -163,6 +163,6 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

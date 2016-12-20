@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do zestawu SDK bramy usługi IoT Hub | Microsoft Docs"
-description: "W tym przewodniku po zestawie SDK bramy usługi Azure IoT użyto systemu Linux, aby zilustrować kluczowe założenia, które należy rozumieć w przypadku używania zestawu SDK bramy usługi Azure IoT."
+title: "Wprowadzenie do zestawu SDK bramy usługi Azure IoT (Linux) | Microsoft Docs"
+description: "Informacje o sposobie tworzenia bramy na komputerze z systemem Linux oraz o najważniejszych pojęciach dotyczących zestawu SDK bramy usługi Azure IoT, takich jak moduły i pliki konfiguracji JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: fb085ca229beba1757efa100ffca1e42089aedfa
-ms.openlocfilehash: 827ecc587dabfba58e87d192001c2714a1d7ce4a
+ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
+ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta---get-started-using-linux"></a>Zestaw SDK bramy usługi Azure IoT (wersja beta) — wprowadzenie przy użyciu systemu Linux
+# <a name="get-started-with-the-azure-iot-gateway-sdk-linux"></a>Wprowadzenie do zestawu SDK bramy usługi Azure IoT (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Jak skompilować przykład
@@ -28,7 +28,7 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 
 1. Otwórz powłokę.
 2. Przejdź do folderu głównego w lokalnej kopii repozytorium **azure-iot-gateway-sdk**.
-3. Uruchom skrypt **tools/build.sh**. Ten skrypt używa narzędzia **cmake** do utworzenia folderu o nazwie **build** w folderze głównym lokalnej kopii repozytorium **azure-iot-gateway-sdk** i wygenerowania pliku reguł programu make. Skrypt następnie kompiluje rozwiązania i uruchamia testy.
+3. Uruchom skrypt **tools/build.sh --skip-unittests**. Ten skrypt używa narzędzia **cmake** do utworzenia folderu o nazwie **build** w folderze głównym lokalnej kopii repozytorium **azure-iot-gateway-sdk** i wygenerowania pliku reguł programu make. Skrypt następnie kompiluje rozwiązanie, pomijając testy jednostkowe. Usuń parametr **--skip-unittests**, jeśli chcesz skompilować rozwiązanie i uruchomić testy jednostkowe.
 
 > [!NOTE]
 > Za każdym razem, gdy zostanie uruchomiony skrypt **build.sh**, folder **build** jest usuwany i tworzony ponownie w folderze głównym lokalnej kopii repozytorium **azure-iot-gateway-sdk**.
@@ -46,40 +46,43 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger.so"
-          },
-          "args" : 
-          {
-            "filename":"log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
-3. Przejdź do folderu **azure-iot-gateway-sdk**.
+3. Przejdź do folderu **azure-iot-gateway-sdk/build**.
 4. Uruchom następujące polecenie:
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
@@ -89,6 +92,6 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

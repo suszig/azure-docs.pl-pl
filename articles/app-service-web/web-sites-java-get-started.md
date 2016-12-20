@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
 
 
 ---
@@ -37,7 +37,7 @@ Istnieje kilka metod konfigurowania aplikacji Java w aplikacji sieci Web usługa
 
 1. Utwórz aplikację, a następnie skonfiguruj **Ustawienia aplikacji**.
    
-    Usługa App Service zapewnia kilka wersji kontenerów Tomcat i Jetty o domyślnych konfiguracjach. Jeśli aplikacja, którą będziesz hostować, będzie działać z jedną z wbudowanych wersji, ta metoda konfigurowania kontenera sieci Web jest najprostsza. Jest to doskonałe rozwiązanie, jeśli wszystko, co chcesz zrobić, to przesłać plik war do kontenera sieci Web. W przypadku tej metody utwórz aplikację w witrynie Azure Portal, a następnie przejdź do bloku **Ustawienia aplikacji** dla swojej aplikacji, aby wybrać wersję środowiska Java oraz żądany kontener sieci Web Java. Przy użyciu tej metody zarówno program Java, jak i kontener sieci Web są uruchamiane z poziomu plików programu. W przypadku innych metod kontener sieci Web i potencjalnie maszyna JVM są umieszczane w Twojej przestrzeni dyskowej. Jeśli używasz tego modelu, nie masz dostępu do edycji plików w tej części systemu plików. Oznacza to, że nie możesz wykonywać różnych czynności, np. konfigurować pliku *server.xml* ani umieszczać plików biblioteki w folderze */lib*. Aby uzyskać więcej informacji, zobacz sekcję [Tworzenie i konfigurowanie aplikacji sieci Web Java](#appsettings) poniżej w tym samouczku.
+    Usługa App Service zapewnia kilka wersji kontenerów Tomcat i Jetty o domyślnych konfiguracjach. Jeśli aplikacja, którą będziesz hostować, będzie działać z jedną z wbudowanych wersji, ta metoda konfigurowania kontenera sieci Web jest najprostsza. Jest to doskonałe rozwiązanie, jeśli wszystko, co chcesz zrobić, to przesłać plik war do kontenera sieci Web. W przypadku tej metody utwórz aplikację w witrynie Azure Portal, a następnie przejdź do bloku **Ustawienia aplikacji** dla swojej aplikacji, aby wybrać wersję środowiska Java oraz żądany kontener sieci Web Java. Przy użyciu tej metody zarówno program Java, jak i kontener sieci Web są uruchamiane z poziomu plików programu. W przypadku innych metod kontener sieci Web i potencjalnie maszyna JVM są umieszczane w Twojej przestrzeni dyskowej. Jeśli używasz tego modelu, nie masz dostępu do edycji plików w tej części systemu plików. Oznacza to, że nie możesz wykonywać różnych czynności, np. konfigurować pliku *server.xml* ani umieszczać plików biblioteki w folderze */lib*. Aby uzyskać więcej informacji, zobacz sekcję [Tworzenie i konfigurowanie aplikacji sieci Web Java](#portal) poniżej w tym samouczku.
 2. Użyj szablonu z portalu Azure Marketplace.
    
     Portal Azure Marketplace zawiera szablony, które automatycznie tworzą i konfigurują aplikacje sieci Web Java za pomocą kontenerów sieci Web Tomcat lub Jetty. Kontenery sieci Web tworzone przez szablony są konfigurowalne. Aby uzyskać więcej informacji, zobacz sekcję [Używanie szablonu Java z portalu Azure Marketplace](#marketplace) tego samouczka.
@@ -64,7 +64,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji sieci Web i konfigurowani
     Ta nazwa musi być unikatowa w domenie azurewebsites.net, ponieważ adres URL aplikacji sieci Web będzie miał format {nazwa}.azurewebsites.net. Jeśli wprowadzona nazwa nie jest unikatowa, w polu tekstowym jest wyświetlany czerwony wykrzyknik.
 4. Wybierz **grupę zasobów** lub utwórz nową.
    
-    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Korzystanie z Portalu Azure do zarządzania zasobami Azure].
+    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Resource Manager].
 5. Wybierz pozycję **Plan usługi App Service/Lokalizacja** lub utwórz nowy plan.
    
     Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [Omówienie planów usługi Azure App Service].
@@ -111,7 +111,7 @@ W tej sekcji przedstawiono sposób użycia portalu Azure Marketplace do utworzen
     Ta nazwa musi być unikatowa w domenie azurewebsites.net, ponieważ adres URL aplikacji sieci Web będzie miał format {nazwa}.azurewebsites.net. Jeśli wprowadzona nazwa nie jest unikatowa, w polu tekstowym jest wyświetlany czerwony wykrzyknik.
 8. Wybierz **grupę zasobów** lub utwórz nową.
    
-    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Korzystanie z Portalu Azure do zarządzania zasobami Azure].
+    Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Resource Manager].
 9. Wybierz pozycję **Plan usługi App Service/Lokalizacja** lub utwórz nowy plan.
    
     Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [Omówienie planów usługi Azure App Service].
@@ -150,7 +150,7 @@ Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, 
 [Wypróbuj usługę App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [Aplikacja sieci Web w usłudze Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centrum deweloperów języka Java]: /develop/java/
-[Korzystanie z Portalu Azure do zarządzania zasobami Azure]: ../azure-portal/resource-group-portal.md
+[Omówienie usługi Resource Manager]: ../azure-resource-manager/resource-group-overview.md
 [Przekazywanie niestandardowej aplikacji sieci Web Java na platformę Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -169,6 +169,6 @@ Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 69dd0b2d33c93edfa3073ce297d9a3ff948a037e
+ms.sourcegitcommit: 928a93793b0b5e346fc02427c670a4c5c6ad80cc
+ms.openlocfilehash: 5d0609b826d489eb789cc86612b495bbd05afbe0
 
 
 ---
 # <a name="application-gateway-web-application-firewall-preview"></a>Zapora aplikacji sieci Web w usłudze Application Gateway (wersja zapoznawcza)
+
 Zapora aplikacji sieci Web (WAF) to funkcja usługi Azure Application Gateway zapewniająca ochronę aplikacjom sieci Web, które używają usługi Application Gateway na potrzeby standardowych funkcji kontroli dostarczania aplikacji (ADC). Zapora aplikacji sieci Web realizuje ten cel, chroniąc je przed większością z 10 najpopularniejszych luk w zabezpieczeniach sieci Web OWASP. Aplikacje sieci Web coraz częściej stają się obiektami złośliwych ataków wykorzystujących znane luki w zabezpieczeniach. Wśród nich często zdarzają się np. ataki polegające na iniekcji SQL i ataki z użyciem skryptów wykorzystywanych w wielu witrynach. Zapobieganie takim atakom z poziomu kodu aplikacji może być trudne. Może też wymagać rygorystycznego przestrzegania harmonogramu konserwacji, poprawek i monitorowania na poziomie wielu warstw topologii aplikacji. Scentralizowana zapora aplikacji sieci Web chroniąca przed atakami w sieci Web sprawia, że zarządzanie zabezpieczeniami jest znacznie prostsze oraz zapewnia lepszą ochronę aplikacji przed intruzami. Zapora aplikacji sieci Web może reagować na zagrożenia bezpieczeństwa szybciej — poprzez wdrażanie poprawek zapobiegających wykorzystaniu znanych luk w zabezpieczeniach w centralnej lokalizacji zamiast w poszczególnych aplikacjach sieci Web. Istniejące bramy aplikacji można łatwo przekonwertować na bramę aplikacji z zaporą aplikacji sieci Web.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
@@ -35,6 +36,7 @@ Konfiguracja zapory aplikacji sieci Web w obrębie bramy aplikacji zapewnia nast
 * Niektóre środki kontrolne mające na celu zapewnienie zgodności wymagają, aby wszystkie punkty końcowe umożliwiające dostęp do Internetu były chronione z użyciem zapory aplikacji sieci Web. Korzystając z bramy aplikacji z zaporą aplikacji sieci Web, można spełnić te wymagania zgodności.
 
 ## <a name="overview"></a>Omówienie
+
 Zapora aplikacji sieci Web w usłudze Application Gateway jest oferowana w ramach nowej jednostki SKU (WAF SKU) i ma wstępnie skonfigurowaną funkcję ModSecurity oraz zestaw reguł podstawowych OWASP. Dzięki temu zapewnia podstawową ochronę przed większością ataków związanych z 10 najczęściej wykorzystywanymi lukami w zabezpieczeniach wskazanymi przez społeczność OWASP.
 
 * Ochrona przed atakami polegającymi na iniekcji SQL
@@ -42,17 +44,18 @@ Zapora aplikacji sieci Web w usłudze Application Gateway jest oferowana w ramac
 * Częste ataki w ramach sieci Web polegające na iniekcji poleceń, przemycaniu żądań HTTP, rozdzielaniu odpowiedzi HTTP i zdalnym dołączaniu plików
 * Ochrona przed naruszeniami protokołu HTTP
 * Ochrona przed nieprawidłowościami protokołu HTTP, takimi jak brakujące powiązania agenta i użytkownika hosta oraz akceptowanie nagłówków
-* Ochrona przed atakami typu „odmowa usługi” w ramach protokołu HTTP, w tym atakami polegającymi na przesyłaniu dużej liczby pakietów, oraz zapobieganie powolnym atakom typu „odmowa usługi”
 * Zapobieganie atakom z użyciem robotów, przeszukiwarek i skanerów
 * Wykrywanie typowych błędów konfiguracji aplikacji (np. Apache, usługi IIS itp.)
 
 ## <a name="waf-modes"></a>Tryby zapory aplikacji sieci Web
+
 Zapora aplikacji sieci Web bramy aplikacji może zostać skonfigurowana pod kątem jej uruchamiania w następujących dwóch trybach:
 
 * **Tryb wykrywania** — kiedy zapora jest skonfigurowana do działania w trybie wykrywania, monitoruje i zapisuje w dziennikach wszelkie ostrzeżenia o zagrożeniach. Należy upewnić się, że rejestrowanie danych diagnostycznych usługi Application Gateway jest włączone w obszarze Diagnostyka. Należy również upewnić się, że opcja dziennika zapory aplikacji sieci Web jest zaznaczona i włączona.
 * **Tryb zapobiegania** — kiedy zapora jest skonfigurowana do działania w tym trybie, usługa Application Gateway aktywnie blokuje próby włamań i ataki wykryte na podstawie reguł. Osoba atakująca odbiera wyjątek 403 odnoszący się do nieautoryzowanego dostępu, a jej połączenie zostaje zakończone. W trybie zapobiegania tego rodzaju ataki są rejestrowane w dziennikach zapory aplikacji sieci Web w sposób ciągły.
 
 ## <a name="application-gateway-waf-reports"></a>Raporty zapory aplikacji sieci Web w usłudze Application Gateway
+
 Zapora aplikacji sieci Web w usłudze Application Gateway dostarcza szczegółowe raporty w zakresie każdego wykrytego zagrożenia. Rejestrowanie jest zintegrowane z Dziennikami diagnostycznymi platformy Azure, a alerty są zapisywane w formacie json.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
@@ -78,14 +81,16 @@ Zapora aplikacji sieci Web w usłudze Application Gateway dostarcza szczegółow
 ```
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Cena jednostki SKU zapory aplikacji sieci Web w usłudze Application Gateway
+
 W okresie korzystania z wersji zapoznawczej nie są naliczane żadne dodatkowe opłaty za korzystanie z zapory aplikacji sieci Web w usłudze Application Gateway. Opłaty są w dalszym ciągu naliczane w oparciu o istniejącą podstawową jednostkę SKU. Firma Microsoft przekaże informacje o wysokości opłat za jednostkę SKU zapory aplikacji sieci Web z chwilą jej przekazania do ogólnego użytku. Klienci, którzy zdecydują się wdrożyć usługę Application Gateway z zastosowaniem zapory aplikacji sieci Web zaczną płacić za jednostkę SKU zapory dopiero po przekazaniu jednostki do ogólnego użytku.
 
 ## <a name="next-steps"></a>Następne kroki
+
 Więcej informacji na temat możliwości oferowanych przez zaporę aplikacji sieci Web można znaleźć w artykule [How to configure Web Application Firewall on Application Gateway](application-gateway-web-application-firewall-portal.md) (Jak skonfigurować zaporę aplikacji sieci Web w usłudze Application Gateway).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

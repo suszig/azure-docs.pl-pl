@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2fcea994b3de924f1170dae2d7a0a3b6d4786538
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
 
 
 ---
@@ -28,13 +28,13 @@ Jeśli chcesz od razu rozpocząć pracę z bazą danych Stretch, zobacz artykuł
 ## <a name="what-are-the-benefits-of-stretch-database"></a>Jakie są zalety bazy danych Stretch?
 Baza danych Stretch zapewnia następujące korzyści:
 
-### <a name="provides-costeffective-availability-for-cold-data"></a>Zapewnia efektywną kosztowo dostępność zimnych danych
+### <a name="provides-cost-effective-availability-for-cold-data"></a>Zapewnia efektywną kosztowo dostępność zimnych danych
 Przy pomocy usługi SQL Server Stretch Database możesz dynamicznie rozciągnąć ciepłe i zimne dane transakcyjne z programu SQL Server na platformę Microsoft Azure. W odróżnieniu od typowych magazynów zimnych danych dane są zawsze online i dostępne dla zapytań. Można tanim kosztem zapewnić przechowywanie przez dłuższy danych z dużych tabel, np. historii zamówień klienta. Skorzystaj z taniej platformy Azure, zamiast skalować drogi magazyn lokalny. Aby zachować kontrolę nad kosztami, należy wybrać warstwę cenową i skonfigurować ustawienia w witrynie Azure Portal. Skaluj w górę lub w dół w zależności od potrzeb. Więcej szczegółów znajduje się na stronie [SQL Server Stretch Database — cennik](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 
 ### <a name="doesnt-require-changes-to-queries-or-applications"></a>Nie wymaga zmian w zapytaniach ani aplikacjach
 Uzyskuj bezproblemowy dostęp do danych programu SQL Server niezależnie od tego, czy są to dane lokalne, czy rozciągnięte do chmury.  Ustaw zasady określające, gdzie są przechowywane dane, a program SQL Server będzie obsługiwać ruch danych w tle. Cała tabela jest zawsze online oraz umożliwia zadawanie zapytań. Baza danych Stretch nie wymaga żadnych zmian w istniejących zapytaniach ani aplikacjach — lokalizacja danych jest całkowicie niewidoczna dla aplikacji.
 
-### <a name="streamlines-onpremises-data-maintenance"></a>Usprawnienie konserwacji lokalnych danych
+### <a name="streamlines-on-premises-data-maintenance"></a>Usprawnienie konserwacji lokalnych danych
 Ogranicz lokalne czynności konserwacyjne i wymagania dotyczące magazynowania danych. Tworzenie kopii zapasowych danych lokalnych jest szybsze i nie trwa dłużej niż czynności konserwacyjne. Kopie zapasowe porcji danych w chmurze są tworzone automatycznie. Wymagania magazynu lokalnego zostają znacznie ograniczone. Usługa Azure Storage może być o 80% tańsza niż dodawanie lokalnych dysków SSD.
 
 ### <a name="keeps-your-data-secure-even-during-migration"></a>Zapewnia bezpieczeństwo danych nawet podczas migracji
@@ -84,6 +84,6 @@ Użyj Doradcy w zakresie bazy danych Stretch, funkcji Doradcy uaktualnienia do p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

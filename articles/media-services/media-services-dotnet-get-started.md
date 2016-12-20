@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0d9d87d0dc26d2fcaa3886a9f8c0849b71b26847
-ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 645fa2574efb9501da173f8ac8aea146d1e79ff8
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
 > 
 > 
 
@@ -50,7 +50,7 @@ Następujące elementy są wymagane do wykonania czynności przedstawionych w sa
 
 * Do ukończenia tego samouczka jest potrzebne konto platformy Azure. 
   
-    Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak funkcja Web Apps w usłudze Azure App Service.
+    Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak funkcja Web Apps w usłudze Azure App Service.
 * Systemy operacyjne: Windows 8 lub nowszy, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 lub nowszy
 * Visual Studio 2010 z dodatkiem SP1 (Professional, Premium, Ultimate lub Express) lub nowszy.
@@ -440,11 +440,11 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 <!-- URLs. -->
-[Instalator platformy sieci Web]: http://go.microsoft.com/fwlink/?linkid=255386
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 [Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

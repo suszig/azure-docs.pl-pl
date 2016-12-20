@@ -55,19 +55,20 @@
 
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Interfejs wiersza polecenia platformy Azure](/cli/azure)
-## [Java](/java/api)
+## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [Java](/java/api/com.microsoft.azure.management.resources)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [Schematy szablonów](https://github.com/Azure/azure-resource-manager-schemas)
-## [Ograniczanie żądań](resource-manager-request-limits.md)
 ## [REST](/rest/api/resources/)
 
 # Zasoby
+## [Ograniczanie żądań](resource-manager-request-limits.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

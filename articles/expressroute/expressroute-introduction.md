@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
 
 
 ---
@@ -40,13 +40,13 @@ Szczegółowe informacje znajdują się w artykule [ExpressRoute FAQ](expressrou
 ## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Jak połączyć sieć z firmą Microsoft przy użyciu usługi ExpressRoute?
 Połączenie między siecią lokalną i chmurą Microsoft można utworzyć na trzy sposoby:
 
-### <a name="colocated-at-a-cloud-exchange"></a>Kolokowanie w ramach wymiany w chmurze
+### <a name="co-located-at-a-cloud-exchange"></a>Kolokowanie w ramach wymiany w chmurze
 Jeśli użytkownik jest kolokowany w ramach infrastruktury z wymianą w chmurze, może zamówić łączność obejmującą wiele połączeń wirtualnych z chmurą Microsoft za pośrednictwem wymiany sieci Ethernet dostawy kolokacji. Dostawcy kolokacji mogą zaoferować łączność obejmującą wiele połączeń w warstwie 2 lub wiele zarządzanych połączeń w warstwie 3 między infrastrukturą w strukturze kolokacji i chmurą Microsoft.
 
-### <a name="pointtopoint-ethernet-connections"></a>Połączenia Ethernet typu punkt-punkt
+### <a name="point-to-point-ethernet-connections"></a>Połączenia Ethernet typu punkt-punkt
 Lokalne centra danych/biura można połączyć z chmurą Microsoft za pośrednictwem łączy Ethernet typu punkt-punkt. Dostawcy sieci Ethernet typu punkt-punkt oferują połączenia w warstwie 2 lub zarządzane połączenia w warstwie 3 między witryną użytkownika i chmurą Microsoft.
 
-### <a name="anytoany-ipvpn-networks"></a>Sieci typu dowolna-dowolna (IPVPN)
+### <a name="any-to-any-ipvpn-networks"></a>Sieci typu dowolna-dowolna (IPVPN)
 Sieć WAN można zintegrować z chmurą Microsoft. Dostawcy sieci IPVPN (zwykle MPLS VPN) oferują łączność typu dowolna-dowolna między biurami oddziałów i centrami danych. Chmurę Microsoft można połączyć z siecią WAN w taki sposób, aby wyglądało to tak jak każde inne biuro oddziału. Dostawcy sieci WAN oferują zazwyczaj łączność zarządzaną w warstwie 3. Wszystkie możliwości i funkcje usługi ExpressRoute są identyczne we wszystkich powyższych modelach łączności. 
 
 Dostawcy połączenia oferują po jednym modelu łączności lub większą ich liczbę. Można współpracować z dostawcą połączenia w celu wybrania najlepszego dla siebie modelu.
@@ -78,7 +78,7 @@ Możesz połączyć się z firmą Microsoft w jednej z naszych [lokalizacji komu
 
 Na przykład po połączeniu się z firmą Microsoft w Amsterdamie za pośrednictwem usługi ExpressRoute będziesz mieć dostęp do wszystkich usług w chmurze Microsoft obsługiwanych w Europie Północnej i Europie Zachodniej. Zapoznaj się z artykułem [ExpressRoute partners and peering locations](expressroute-locations.md) (Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute), który zawiera omówienie regionów geopolitycznych, powiązanych regionów chmury Microsoft i odpowiadających im lokalizacji komunikacji równorzędnej usługi ExpressRoute.
 
-### <a name="global-connectivity-with-expressroute-premium-addon"></a>Globalna łączność dzięki dodatkowi ExpressRoute Premium
+### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Globalna łączność dzięki dodatkowi ExpressRoute Premium
 Możesz włączyć funkcję dodatku ExpressRoute Premium, aby rozszerzyć łączność w ramach granic geopolitycznych. Na przykład po połączeniu się z firmą Microsoft w Amsterdamie za pośrednictwem usługi ExpressRoute będziesz mieć dostęp do wszystkich usług w chmurze Microsoft obsługiwanych we wszystkich regionach na świecie (z wyjątkiem chmur krajowych). Możesz uzyskać dostęp do usług wdrożonych w Ameryce Południowej lub Australii w taki sam sposób, w jaki uzyskujesz dostęp do regionów Europy Północnej i Zachodniej.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Bogaty ekosystem partnerów łączności
@@ -125,6 +125,6 @@ Możesz wybrać najlepszy dla siebie model rozliczeń. Wybierz z modeli rozlicze
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

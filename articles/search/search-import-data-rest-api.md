@@ -124,7 +124,7 @@ W tym przypadku jako akcje wyszukiwania są używane akcje `upload`, `mergeOrUpl
 
 Załóżmy, że przedstawiony w przykładzie indeks „hotels” jest już wypełniony różnymi dokumentami. Zwróć uwagę na to, że w przypadku akcji `mergeOrUpload` nie było konieczne określenie wszystkich możliwych pól dokumentu. Klucz dokumentu (`hotelId`) został określony tylko w przypadku akcji `delete`.
 
-Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksymalnie 1000 dokumentów (lub 16 MB danych).
+Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksymalnie 1000 dokumentów (lub 16 MB danych).
 
 ## <a name="iv-understand-your-http-response-code"></a>IV. Opisy kodów odpowiedzi HTTP
 #### <a name="200"></a>200

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/22/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 
 
 ---
@@ -45,7 +45,7 @@ Oprócz czasu wymaganego do zainstalowania zestawu Azure SDK dla programu .NET w
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Samouczek jest przeznaczony dla użytkowników, którzy pracowali już z aplikacją ASP.NET MVC i programem Visual Studio. Jeśli potrzebujesz wprowadzenia, zobacz [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) (Wprowadzenie do aplikacji ASP.NET MVC 5).
-* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751). W tej lokalizacji możesz utworzyć początkową aplikację o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
 
@@ -219,6 +219,6 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji sieci Web i wd
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

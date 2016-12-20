@@ -41,11 +41,17 @@
 ## Zarządzaj
 ### [Diagnostyka](application-gateway-diagnostics.md)
 ### [Rozwiązywanie problemów](application-gateway-troubleshooting-502.md)
-# Dokumentacja
-## [Polecenia cmdlet programu PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
-## [REST](https://msdn.microsoft.com/library/mt684941)
-## [Klasyczny interfejs REST](https://msdn.microsoft.com/library/azure/mt299393)
 
+# Dokumentacja
+## [Program PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/network/application-gateway)
+## [.NET](/dotnet/api)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST (klasyczny)](https://msdn.microsoft.com/library/azure/mt299393)
 # Powiązane
 ## [ExpressRoute](/azure/expressroute/)
 ## [Sieć wirtualna](/azure/virtual-network/)
@@ -61,6 +67,6 @@
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

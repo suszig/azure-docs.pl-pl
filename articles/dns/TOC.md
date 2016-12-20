@@ -35,8 +35,14 @@
 ## [Automatyzowanie operacji systemu DNS przy użyciu zestawu .NET SDK](dns-sdk.md)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/azureps-cmdlets-docs)
-## [Interfejsy API REST](/rest/api/dns/)
+## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/network/dns)
+## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
+## [Java](/java/api/com.microsoft.azure.management.dns)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html)
+## [REST](/rest/api/dns/)
 
 # Powiązane
 ## [Application Gateway](/azure/application-gateway/)
@@ -53,6 +59,6 @@
 ## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Omówienie wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej
-Rozwiązanie *konserwacji predykcyjnej* jest jednym z [wstępnie skonfigurowanych rozwiązań][lnk_preconfigured_solutions] udostępnianych w ramach [Pakietu IoT Azure firmy Microsoft][lnk_iot_suite]. Rozwiązanie to obejmuje zbieranie danych telemetrycznych z urządzeń w czasie rzeczywistym i model predykcyjny utworzony za pomocą usługi [Azure Machine Learning][lnk_machine_learning].
+Rozwiązanie *konserwacji predykcyjnej* jest jednym z [wstępnie skonfigurowanych rozwiązań][lnk_preconfigured_solutions] udostępnianych w ramach [Pakietu IoT Azure firmy Microsoft][lnk_iot_suite]. To rozwiązanie obejmuje zbieranie danych telemetrycznych z urządzeń w czasie rzeczywistym i model predykcyjny utworzony za pomocą usługi [Azure Machine Learning][lnk_machine_learning].
 
 Pakiet IoT Azure pozwala przedsiębiorstwom szybko i łatwo łączyć się z zasobami i monitorować je oraz analizować dane w czasie rzeczywistym. Dane te są przetwarzane przez wstępnie skonfigurowane rozwiązanie konserwacji predykcyjnej, które przy użyciu rozbudowanych pulpitów nawigacyjnych i zaawansowanych wizualizacji dostarcza nowe informacje analityczne. Pozwalają one firmom zwiększyć wydajność i wygenerować dodatkowe źródła przychodów.
 
@@ -38,7 +38,7 @@ Silniki samolotów linii Fabrikam są wyposażone w czujniki, które monitorują
 
 Dzięki możliwości przewidywania terminu wymaganej obsługi technicznej firma Fabrikam może zoptymalizować swoje operacje, aby obniżyć koszty. Współpraca koordynatorów ds. konserwacji i personelu odpowiedzialnego za rozkład lotów przekłada się na opracowanie harmonogramu, który umożliwia przeprowadzanie prac technicznych podczas zaplanowanego postoju samolotu w danej lokalizacji. Czas serwisowania samolotu nie powoduje występowania zakłóceń w rozkładzie. Pracę personelu technicznego można odpowiednio zaplanować, co pozwala na efektywne serwisowanie bez przestojów. Menedżerowie odpowiedzialni za magazyny podzespołów mają dostęp do planów konserwacji, dzięki czemu mogą zoptymalizować zapasy części zamiennych i proces ich zamawiania. Wszystko to umożliwia firmie Fabrikam zminimalizowanie czasu obsługi naziemnej samolotów i zmniejszenie kosztów operacyjnych przy jednoczesnym zapewnieniu bezpieczeństwa pasażerów i załóg.
 
-Aby dowiedzieć się, jakie funkcje dostępne w [Pakiecie IoT Azure][lnk_iot_suite] umożliwiają klientom wykorzystanie potencjalnych możliwości konserwacji predykcyjnej, zapoznaj się z [grafiką informacyjną][lnk_infographic].
+Aby dowiedzieć się, jakie funkcje dostępne w [Pakiecie IoT Azure][lnk_iot_suite] umożliwiają klientom wykorzystanie potencjalnych możliwości konserwacji predykcyjnej, zapoznaj się z tą [grafiką informacyjną][lnk_infographic].
 
 ## <a name="how-the-predictive-maintenance-solution-is-built"></a>Jak zbudowane jest rozwiązanie konserwacji predykcyjnej
 Rozwiązanie korzysta z istniejącego modelu usługi Azure Machine Learning dostępnego w postaci szablonu, który pozwala na demonstrację działania funkcji przy użyciu danych telemetrycznych pochodzących z urządzeń i zebranych za pomocą usług Pakietu IoT. Firma Microsoft opracowała [model regresji][lnk_regression_model] silnika samolotu i opublikowała dane<sup>\[1\]</sup>, kompletny szablon oraz szczegółowe wskazówki dotyczące używania tego modelu.
@@ -50,7 +50,7 @@ Wstępnie skonfigurowane rozwiązanie Azure IoT do konserwacji predykcyjnej uży
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej o obsłudze scenariuszy konserwacji predykcyjnej w Pakiecie IoT Azure, zapoznaj się z dokumentem[Capture value from the Internet of Things][lnk_capture_value] (Korzyści z Internetu rzeczy).
 
-Zapoznaj się z [przewodnikiem][lnk-predictive-walkthrough] po wstępnie skonfigurowanym rozwiązaniu konserwacji predykcyjnej.
+Skorzystaj z [przewodnika][lnk-predictive-walkthrough] po wstępnie skonfigurowanym rozwiązaniu do konserwacji predykcyjnej.
 
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -70,6 +70,6 @@ Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skon
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

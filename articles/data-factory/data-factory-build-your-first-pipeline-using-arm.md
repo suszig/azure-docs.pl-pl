@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6e29f5b26a06a83bd7f996169f2e53815e24a8e5
 
 
 ---
@@ -35,7 +35,7 @@ W tym artykule opisano użycie szablonu usługi Azure Resource Manager do tworze
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Przeczytanie artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków **wymagań wstępnych**.
-* Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze.
+* Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze.
 * Artykuł [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager) zawiera informacje dotyczące szablonów usługi Azure Resource Manager. 
 
 ## <a name="in-this-tutorial"></a>Informacje o tym samouczku
@@ -379,7 +379,7 @@ W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure. Szczeg
 
 Parametr **connectionString** używa parametrów storageAccountName i storageAccountKey. Wartości tych parametrów są przekazywane przy użyciu pliku konfiguracji. Definicja używa także zmiennych azureStorageLinkedService i dataFactoryName zdefiniowanych w szablonie. 
 
-#### <a name="hdinsight-ondemand-linked-service"></a>Połączona usługa HDInsight na żądanie
+#### <a name="hdinsight-on-demand-linked-service"></a>Połączona usługa HDInsight na żądanie
 Szczegółowe informacje o właściwościach JSON używanych do definiowania połączonej usługi HDInsight na żądanie zawiera temat [Usługi połączone usługi Compute](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).  
 
       {
@@ -591,6 +591,6 @@ Ten szablon służy do tworzenia fabryki danych o nazwie GatewayUsingArmDF z bra
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

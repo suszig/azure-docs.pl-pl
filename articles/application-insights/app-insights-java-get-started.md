@@ -1,9 +1,9 @@
 ---
 title: "Analiza aplikacji sieci Web w języku Java za pomocą usługi Application Insights | Microsoft Docs"
-description: "Monitorowanie wydajności i użycia witryny sieci Web w języku Java za pomocą usługi Application Insights. "
+description: "Monitorowanie wydajności aplikacji sieci Web w języku Java za pomocą usługi Application Insights. "
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc0167ef78eb3ca84e959599473af5935e5da0d0
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Wprowadzenie do usługi Application Insights w projekcie sieci Web w języku Java
-*Usługa Application Insights jest dostępna w wersji zapoznawczej.*
+
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) jest rozszerzalną usługą analizy dla deweloperów sieci Web, która ułatwia zrozumienie wydajności i użycia aktywnej aplikacji. Służy do [wykrywania i diagnozowania problemów z wydajnością i wyjątków](app-insights-detect-triage-diagnose.md) oraz [pisania kodu][api] do śledzenia korzystania z aplikacji przez użytkowników.
 
@@ -31,7 +31,7 @@ Usługa Application Insights obsługuje aplikacje w języku Java działające w 
 Potrzebne elementy:
 
 * Środowisko Oracle JRE 1.6 lub nowsze albo Zulu JRE 1.6 lub nowsze
-* Subskrypcja platformy [Microsoft Azure](https://azure.microsoft.com/). (Możesz rozpocząć od [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/)).
+* Subskrypcja platformy [Microsoft Azure](https://azure.microsoft.com/).
 
 *Jeśli masz aplikację sieci Web, która już działa, możesz wykonać alternatywną procedurę, aby [dodać zestaw SDK w czasie wykonywania na serwerze sieci Web](app-insights-java-live.md). Ta alternatywa pozwala uniknąć ponownego kompilowania kodu, ale nie udostępnia opcji pisania kodu w celu śledzenia działań użytkownika.*
 
@@ -148,7 +148,7 @@ Zastąp klucz instrumentacji kluczem pobranym z portalu Azure.
 
 * Klucz instrumentacji jest wysyłany wraz z każdym elementem telemetrii i dzięki temu te elementy mogą być wyświetlane dla odpowiedniego zasobu usługi Application Insights.
 * Składnik żądań HTTP jest opcjonalny. Powoduje automatyczne wysyłanie telemetrii dotyczącej żądań i czasów odpowiedzi do portalu.
-* Korelacja zdarzeń jest dodatkiem do składnika żądań HTTP. Przypisuje identyfikator do każdego żądania odebranego przez serwer i dodaje go do każdego elementu telemetrii jako właściwość „Operation.Id”. Umożliwia korelowanie telemetrii skojarzonej z każdym żądaniem przez ustawienie filtru w [wyszukiwaniu diagnostycznym][diagnostyka].
+* Korelacja zdarzeń jest dodatkiem do składnika żądań HTTP. Przypisuje identyfikator do każdego żądania odebranego przez serwer i dodaje go do każdego elementu telemetrii jako właściwość „Operation.Id”. Umożliwia korelowanie telemetrii skojarzonej z każdym żądaniem przez ustawienie filtru w [wyszukiwaniu diagnostycznym][diagnostic].
 * Klucz usługi Application Insights może zostać przekazany dynamicznie z witryny Azure Portal jako właściwość systemu (-DAPPLICATION_INSIGHTS_IKEY=Twój_klucz_ikey). Jeśli nie zdefiniowano żadnej właściwości, sprawdzana jest zmienna środowiskowa (APPLICATION_INSIGHTS_IKEY) w ustawieniach aplikacji platformy Azure. Jeśli obie właściwości nie są zdefiniowane, używana jest domyślna właściwość InstrumentationKey z pliku ApplicationInsights.xml. Ta sekwencja ułatwia dynamiczne zarządzanie elementami InstrumentationKey dla różnych środowisk.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Alternatywne sposoby ustawienia klucza instrumentacji
@@ -182,7 +182,7 @@ Aby uzyskać najbardziej dokładne wyniki, ten filtr powinien być mapowany prze
     </filter-mapping>
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Jeśli używasz środowiska Spring Web MVC 3.1 lub nowszego
-Edytuj te elementy, aby załączyć pakiet Application Insights:
+Edytuj te elementy w pliku *-servlet.xml, aby uwzględnić pakiet usługi Application Insights:
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -244,11 +244,15 @@ Teraz opublikuj aplikację na serwerze, pozwól z niej korzystać innym osobom, 
   
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
+
+* Jeśli ruch wychodzący ma być kierowany przez zaporę, zdefiniuj właściwości systemu `http.proxyHost` i `http.proxyPort`. 
+
 * Na serwerach systemu Windows zainstaluj:
   
   * [Pakiet Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
     
     Ten składnik umożliwia działanie liczników wydajności.
+
 
 ## <a name="exceptions-and-request-failures"></a>Wyjątki i błędy żądań
 Nieobsługiwane wyjątki są zbierane automatycznie:
@@ -257,7 +261,7 @@ Nieobsługiwane wyjątki są zbierane automatycznie:
 
 Istnieją dwie opcje zbierania danych o innych wyjątkach:
 
-* [Wstawianie wywołań metody trackException() w kodzie][wyjątki_api]. 
+* [Wstawianie wywołań metody trackException() w kodzie][apiexceptions]. 
 * [Instalacja agenta Java na serwerze](app-insights-java-agent.md). Trzeba określić metody, które chcesz śledzić.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Monitorowanie wywołań metod i zależności zewnętrznych
@@ -319,20 +323,20 @@ Liczniki wydajności są widoczne jako metryki niestandardowe w [Eksploratorze m
 ## <a name="get-user-and-session-data"></a>Pobieranie danych użytkownika i sesji
 Wysyłasz już telemetrię z serwera sieci Web. Teraz, aby zyskać pełny wgląd w dane aplikacji, możesz dodać więcej opcji monitorowania:
 
-* [Dodaj telemetrię do stron sieci Web][użycie], aby monitorować wyświetlenia stron i metryki użytkowników.
+* [Dodaj telemetrię do stron sieci Web][usage], aby monitorować wyświetlenia stron i metryki użytkowników.
 * [Konfigurowanie testów sieci Web][availability], aby upewnić się, że aplikacja stale działa i odpowiada.
 
 ## <a name="capture-log-traces"></a>Przechwytywanie danych dziennika śledzenia
-Usługi Application Insights mogą służyć do analizowania pod różnymi kątami danych z dzienników Log4J, Logback lub innych platform rejestrowania. Dzienniki można skorelować z żądaniami HTTP i inną telemetrią. [Naucz się][dzienniki_java].
+Usługi Application Insights mogą służyć do analizowania pod różnymi kątami danych z dzienników Log4J, Logback lub innych platform rejestrowania. Dzienniki można skorelować z żądaniami HTTP i inną telemetrią. [Dowiedz się, jak to zrobić][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Wysyłanie własnej telemetrii
 Teraz, po zainstalowaniu zestawu SDK, możesz użyć interfejsu API do wysyłania własnej telemetrii.
 
 * [Śledź niestandardowe zdarzenia i metryki][api], aby dowiedzieć się, jak użytkownicy korzystają z aplikacji.
-* [Wyszukuj zdarzenia i dzienniki][diagnostyka], aby łatwiej diagnozować problemy.
+* [Wyszukiwanie zdarzeń i dzienników][diagnostic], aby łatwiej diagnozować problemy.
 
 ## <a name="availability-web-tests"></a>Testy dostępności sieci Web
-Usługa Application Insights może służyć do testowania witryny sieci Web w regularnych odstępach czasu, aby sprawdzić, czy witryna działa i odpowiada poprawnie. [Aby skonfigurować][availability], kliknij pozycję Testy sieci Web.
+Usługa Application Insights może służyć do testowania witryny sieci Web w regularnych odstępach czasu, aby sprawdzić, czy witryna działa i odpowiada poprawnie. [Aby skonfigurować tę funkcję][availability], kliknij pozycję Testy sieci Web.
 
 ![Kliknij pozycję Testy sieci Web, a następnie kliknij pozycję Dodaj test sieci Web](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -357,16 +361,16 @@ Uzyskasz wykresy czasów odpowiedzi oraz powiadomienia e-mail w razie wyłączen
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[wyjątki_api]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostyka]: app-insights-diagnostic-search.md
+[diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[dzienniki_java]: app-insights-java-trace-logs.md
+[javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[użycie]: app-insights-web-track-usage.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

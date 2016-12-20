@@ -27,16 +27,12 @@
 ### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia](key-vault-manage-with-cli.md)
 
 # Dokumentacja
-## [Informacje o kluczach i wpisach tajnych](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Przykłady kodu](https://www.microsoft.com/download/details.aspx?id=45343)
-
-## [Usługa Key Vault Resource Manager — polecenia cmdlet programu PowerShell](/powershell/resourcemanager/)
-## [Usługa Key Vault — klasyczne polecenia cmdlet programu PowerShell](/powershell/servicemanagement/)
-## [Usługa Key Vault używająca interfejsu wiersza polecenia platformy Azure](/cli/azure/)
-## [Dokumentacja usługi Key Vault w środowisku Java](/java/api/)
-## [Interfejs API dokumentacji zarządzanej usługi Key Vault](/dotnet/api/) 
-## [Dokumentacja interfejsu API REST usługi Key Vault](/rest/api/keyvault) 
-## [Node.js dla usługi Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Java](/java/api/com.microsoft.azure.keyvault)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## [REST](/rest/api/keyvault)
 
 # Powiązane
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -45,11 +41,13 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Zasoby
+## [Informacje o kluczach i wpisach tajnych](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Przykłady kodu](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Cennik](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Fora](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

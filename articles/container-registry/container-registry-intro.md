@@ -1,0 +1,76 @@
+---
+title: "Wprowadzenie do usługi Azure Container Registry | Microsoft Docs"
+description: "Wprowadzenie do usługi Azure Container Registry dostarczającej oparte na chmurze, zarządzane rejestry prywatne platformy Docker."
+services: container-registry
+documentationcenter: 
+author: stevelas
+manager: balans
+editor: dlepow
+tags: 
+keywords: 
+ms.assetid: ee2b652b-fb7c-455b-8275-b8d4d08ffeb3
+ms.service: container-registry
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/14/2016
+ms.author: stevelas
+translationtype: Human Translation
+ms.sourcegitcommit: 806ffa8ce0c434d2a6cc1c7ec3a6e89be9145679
+ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
+
+---
+# <a name="what-is-azure-container-registry"></a>Co to jest usługa Azure Container Registry?
+> [!NOTE]
+> Usługa Container Registry jest obecnie w wersji zapoznawczej.
+
+
+Usługa Azure Container Registry to zarządzana usługa [rejestru platformy Docker](https://docs.docker.com/registry/) oparta na oprogramowaniu typu open-source Docker Registry 2. Twórz i obsługuj rejestry kontenerów platformy Azure w celu przechowywania prywatnych obrazów [kontenerów platformy Docker](https://www.docker.com/what-docker) i zarządzania nimi. Używaj rejestrów kontenerów na platformie Azure przy użyciu istniejących potoków programowania i wdrażania kontenerów oraz korzystaj z wiedzy społeczności platformy Docker.
+
+Aby uzyskać ogólne informacje o platformie Docker i kontenerach, zobacz:
+
+* [Docker user guide](https://docs.docker.com/engine/userguide/) (Podręcznik użytkownika platformy Docker)
+* [Azure Container Registry preview announcement](https://azure.microsoft.com/blog/azure-container-registry-preview/) (Zapowiedź wersji zapoznawczej usługi Azure Container Registry) 
+
+## <a name="key-concepts"></a>Kluczowe pojęcia
+* **Rejestr** — utwórz przynajmniej jeden rejestr kontenerów w subskrypcji platformy Azure. Każdy rejestr jest wspierany przez standardowe [konto magazynu](../storage/storage-introduction.md) platformy Azure w tej samej lokalizacji. Utwórz rejestr w tej samej lokalizacji platformy Azure, w której znajdują się wdrożenia, aby korzystać z lokalnego, bliskiego sieciowo magazynu obrazów kontenerów. 
+
+  Rejestry są nazywane w domenie głównej w oparciu o [dzierżawę usługi Azure Active Directory](../active-directory/active-directory-howto-tenant.md) dla tej subskrypcji. Jeśli na przykład konto organizacji znajduje się w domenie Contoso, w pełni kwalifikowana nazwa rejestru ma postać `myregistry-contoso.azurecr.io`. 
+  
+  Możesz [kontrolować dostęp](container-registry-authentication.md) do rejestru kontenerów za pomocą [nazwy głównej usługi](../active-directory/active-directory-application-objects.md) wspieranej przez usługę Azure Active Directory lub podanego konta administratora. Uruchom standardowe polecenie `docker login` w celu uwierzytelnienia za pomocą rejestru. 
+
+* **Repozytorium** — rejestr zawiera przynajmniej jedno repozytorium stanowiące grupę obrazów kontenerów. Usługa Azure Container Registry obsługuje wielopoziomowe przestrzenie nazw repozytoriów. Ta funkcja pozwala na grupowanie kolekcji obrazów związanych z określoną aplikacją lub kolekcji aplikacji związanych z określonymi zespołami programistycznymi lub operacyjnymi. Na przykład:
+  
+  * `myregistry-contoso.azurecr.io/aspnetcore:1.0.1` reprezentuje obraz całej firmy
+  * `myregistry-contoso.azurecr.io/warrantydept/dotnet-build` reprezentuje obraz używany do tworzenia aplikacji platformy .NET współdzielony przez dział gwarancji
+  * `myregistry-contoso.azrecr.io/warrantydept/customersubmissions/web` reprezentuje obraz sieci Web zgrupowany w aplikacji customersubmissions, należący do działu gwarancji
+
+* **Obraz** — każdy obraz jest przechowywany w repozytorium i jest migawką tylko do odczytu kontenera platformy Docker. Rejestry kontenerów platformy Azure mogą obejmować zarówno obrazy systemu Windows, jak i Linux. Możesz kontrolować nazwy obrazów wszystkich wdrożeń kontenera. Użyj standardowych [poleceń platformy Docker](https://docs.docker.com/engine/reference/commandline/), aby wypchnąć obrazy do repozytorium lub aby ściągnąć je z repozytorium. 
+
+* **Kontener** — mianem kontenera określa się aplikację wraz z jej zależnościami, opakowaną w kompletny system plików, włączając w to kod, środowisko uruchomieniowe, narzędzia systemowe i biblioteki. Uruchom kontenery platformy Docker w oparciu o obrazy systemu Windows lub Linux, które zostały ściągnięte z rejestru kontenerów. Kontenery uruchomione na jednym komputerze współdzielą jądro systemu operacyjnego. Kontenery platformy Docker są całkowicie przenośne na wszystkie główne dystrybucje systemu Linux, Mac i Windows.
+
+## <a name="use-cases"></a>Przypadki zastosowań
+Ściąganie obrazów z rejestru kontenerów platformy Azure do różnych celów wdrażania:
+
+* **Skalowalne systemy organizowania** zarządzające konteneryzowanymi aplikacjami w klastrach hostów, włączając w to rozwiązania [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) i [Kubernetes](http://kubernetes.io/docs/).
+* **Usługi Azure** obsługujące kompilowanie i uruchamianie aplikacji na dużą skalę, włączając w to usługi [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) i [Service Fabric](../service-fabric/index.md). 
+
+Deweloperzy mogą również przeprowadzać wypychanie do rejestru kontenerów w ramach przepływu pracy opracowywania kontenera. Na przykład mogą kierować dane do rejestru kontenerów z poziomu narzędzia integracji ciągłej lub narzędzia do wdrażania, takiego jak usługa [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) lub [Jenkins](https://jenkins.io/).
+
+
+
+
+
+## <a name="next-steps"></a>Następne kroki
+* [Create a container registry using the Azure portal](container-registry-get-started-portal.md) (Tworzenie rejestru kontenerów za pomocą witryny Azure Portal)
+* [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Tworzenie rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure)
+* [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md) (Wypychanie pierwszego obrazu za pomocą interfejsu wiersza polecenia platformy Docker)
+* Aby skompilować przepływ pracy integracji ciągłej i wdrożenia przy użyciu usług Visual Studio Team Services, Azure Container Service i Azure Container Registry, zobacz [ten samouczek](../container-service/container-service-setup-ci-cd.md).
+* Jeśli chcesz skonfigurować rejestr prywatny platformy Docker na platformie Azure (bez publicznego punktu końcowego), zobacz [Deploying Your Own Private Docker Registry on Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md) (Wdrażanie rejestru prywatnego platformy Docker na platformie Azure).
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

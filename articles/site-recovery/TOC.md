@@ -49,8 +49,9 @@
 ## [Monitorowanie i rozwiązywanie problemów](site-recovery-monitoring-and-troubleshooting.md)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell — model klasyczny](/powershell/servicemanagement/)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell — model klasyczny](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Powiązane
 ## [Azure Automation](/azure/automation/)
@@ -63,6 +64,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

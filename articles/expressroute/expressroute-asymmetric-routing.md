@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
 
 
 ---
@@ -64,7 +64,7 @@ Należy upewnić się, że Twoje publiczne adresy IP są anonsowane odpowiednim 
 
 Jeśli chcesz użyć usługi ExpressRoute do uwierzytelniania, musisz upewnić się, że publiczne adresy IP usługi AD FS są anonsowane przez usługę ExpressRoute bez translatora adresów sieciowych (NAT). W ten sposób ruch, który pochodzi od firmy Microsoft i przechodzi do lokalnego serwera usług AD FS, korzysta z usługi ExpressRoute. Powrotny ruch danych od klienta do firmy Microsoft korzysta z usługi ExpressRoute, ponieważ jest ona trasą preferowaną.
 
-### <a name="sourcebased-nat"></a>Translator adresów sieciowych oparty na źródle
+### <a name="source-based-nat"></a>Translator adresów sieciowych oparty na źródle
 Innym sposobem rozwiązania problemów z routingiem asymetrycznym jest translator adresów sieciowych oparty na źródle (SNAT). Na przykład na lokalnym serwerze SMTP możesz mieć nieanonsowane za pośrednictwem usługi ExpressRoute publiczne adresy IP, ponieważ zamierzasz używać Internetu dla tego typu komunikacji. Żądanie pochodzące z firmy Microsoft i przychodzące do lokalnego serwera SMTP jest przesyłane za pośrednictwem Internetu. Translator adresów sieciowych oparty na źródle przetwarza żądanie przychodzące i przekazuje do wewnętrznego adresu IP. Ruch odwrotny z serwera SMTP przechodzi do zapory na krawędzi (która jest używana do translacji adresów sieciowych) zamiast za pośrednictwem usługi ExpressRoute. Powrotny ruch danych jest przesyłany za pośrednictwem Internetu.
 
 ![Konfiguracja translatora adresów sieciowych opartych na źródle](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -75,6 +75,6 @@ Polecenie traceroute jest najlepszym sposobem zapewnienia, że ruch sieciowy jes
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

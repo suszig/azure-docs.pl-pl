@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cdbf4b164af4a8077b8f9a166d6c4ad752b25ff4
 
 
 ---
-# <a name="deploying-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Wdrażanie portalu użytkowników serwera usługi Azure Multi-Factor Authentication
+# <a name="deploying-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Wdrażanie portalu użytkowników serwera usługi Azure Multi-Factor Authentication
 Witryna Portal użytkowników umożliwia administratorowi zainstalowanie i skonfigurowanie portalu użytkownika usługi Azure Multi-Factor Authentication. Portal użytkowników to witryna sieci Web usług IIS, dzięki której użytkownicy mogą zarejestrować się w usłudze Azure Multi-Factor Authentication i obsługiwać swoje konta. Użytkownik może zmienić swój numer telefonu i numer PIN lub pominąć uwierzytelnianie wieloskładnikowe Azure podczas następnego logowania.
 
 Użytkownik loguje się do portalu użytkowników przy użyciu swojej zwykłej nazwy użytkownika oraz hasła i wykonuje połączenie uwierzytelniające z usługą Azure Multi-Factor Authentication lub udziela odpowiedzi na pytanie zabezpieczające, aby ukończyć proces uwierzytelniania. Jeśli rejestracja przebiegnie pomyślnie, użytkownik może skonfigurować swój numer telefonu i numer PIN podczas pierwszego logowania do portalu użytkowników.
@@ -29,13 +29,13 @@ Można skonfigurować administratorów portalu użytkowników oraz przyznać im 
 
 <center>![Konfiguracja](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multifactor-authentication-server"></a>Wdrażanie portalu użytkowników na tym samym serwerze, na którym jest uruchomiony serwer usługi Azure Multi-Factor Authentication
+## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Wdrażanie portalu użytkowników na tym samym serwerze, na którym jest uruchomiony serwer usługi Azure Multi-Factor Authentication
 W celu zainstalowania portalu użytkowników na tym samym serwerze, na którym jest uruchomiony serwer usługi Azure Multi-Factor Authentication, wymagane jest spełnienie następujących wymagań wstępnych:
 
 * Niezbędna jest instalacja usług IIS, w tym usług asp.net i usługi zgodności metabazy IIS 6 (dla usług IIS 7 lub nowszych)
 * Zalogowany użytkownik musi mieć prawa administratora na danym komputerze i w danej domenie (jeśli ma zastosowanie).  Jest to konieczne, ponieważ konto wymaga uprawnień do tworzenia grup zabezpieczeń usługi Active Directory.
 
-### <a name="to-deploy-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Aby wdrożyć portal użytkowników serwera usługi Azure Multi-Factor Authentication
+### <a name="to-deploy-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Aby wdrożyć portal użytkowników serwera usługi Azure Multi-Factor Authentication
 1. Na serwerze usługi Azure Multi-Factor Authentication: kliknij ikonę portalu użytkowników w menu po lewej stronie i kliknij przycisk Zainstaluj portal użytkowników.
 2. Kliknij przycisk Dalej.
 3. Kliknij przycisk Dalej.
@@ -47,7 +47,7 @@ W celu zainstalowania portalu użytkowników na tym samym serwerze, na którym j
 
 <center>![Konfiguracja](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## <a name="deploying-the-azure-multifactor-authentication-server-user-portal-on-a-separate-server"></a>Wdrażanie portalu użytkowników serwera usługi Azure Multi-Factor Authentication na oddzielnym serwerze
+## <a name="deploying-the-azure-multi-factor-authentication-server-user-portal-on-a-separate-server"></a>Wdrażanie portalu użytkowników serwera usługi Azure Multi-Factor Authentication na oddzielnym serwerze
 Aby było możliwe korzystanie z aplikacji Azure Multi-Factor Authentication, należy spełnić następujące warunki w celu umożliwienia skutecznej komunikacji aplikacji z portalem użytkowników:
 
 Zapoznaj się z wymaganiami dotyczącymi sprzętu i oprogramowania:
@@ -89,7 +89,7 @@ Przed zainstalowaniem portalu użytkowników na oddzielnym serwerze należy pami
 7. Jeśli witryna sieci Web, na której został zainstalowany portal użytkowników (np. domyślna witryna sieci Web) nie została jeszcze powiązana z certyfikatem z podpisem publicznym, należy zainstalować certyfikat na serwerze (jeśli nie został on jeszcze zainstalowany), otworzyć Menedżera usług IIS i powiązać certyfikat z witryną sieci Web.
 8. Otwórz przeglądarkę sieci Web z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano portal użytkowników (np. https://www.publicznawitrynasieciweb.com/MultiFactorAuth). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
 
-## <a name="configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Konfigurowanie ustawień portalu użytkowników na serwerze usługi Azure Multi-Factor Authentication
+## <a name="configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurowanie ustawień portalu użytkowników na serwerze usługi Azure Multi-Factor Authentication
 Po zainstalowaniu portalu należy skonfigurować serwer usługi Azure Multi-Factor Authentication do pracy z portalem.
 
 Serwer usługi Azure Multi-Factor Authentication zapewnia kilka opcji związanych z portalem użytkowników.  Poniższa tabela zawiera listę tych opcji wraz z opisem ich działania.
@@ -113,7 +113,7 @@ Większość tych ustawień jest widoczna dla użytkownika po ich włączeniu or
 
 ![Ustawienia portalu użytkowników](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### <a name="to-configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Aby skonfigurować ustawienia portalu użytkowników na serwerze usługi Azure Multi-Factor Authentication
+### <a name="to-configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Aby skonfigurować ustawienia portalu użytkowników na serwerze usługi Azure Multi-Factor Authentication
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę portalu użytkowników. Na karcie Ustawienia wprowadź adres URL portalu użytkowników w polu tekstowym Adres URL portalu użytkowników. Podany adres URL zostanie ujęty w wiadomości e-mail wysyłanej do użytkowników po ich zaimportowaniu na serwer usługi Azure Multi-Factor Authentication, jeśli włączono funkcję e-mail.
 2. Wybierz ustawienia, których chcesz użyć w portalu użytkowników. Jeśli na przykład użytkownicy mogą kontrolować swoje metody uwierzytelniania, upewnij się, że jest zaznaczona opcja Zezwalaj użytkownikom na wybór metody oraz poszczególne metody uwierzytelniania, spośród których mogą wybierać użytkownicy.
 3. Kliknij łącze Pomoc w prawym górnym rogu, aby uzyskać pomoc dotyczącą dowolnego z wyświetlanych ustawień.
@@ -142,7 +142,7 @@ Na tej karcie można określić pojedynczy adres IP lub zakres adresów IP do do
 
 ![Zaufane adresy IP portalu użytkowników](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## <a name="selfservice-user-enrollment"></a>Samodzielna rejestracja użytkownika
+## <a name="self-service-user-enrollment"></a>Samodzielna rejestracja użytkownika
 Jeśli chcesz, aby użytkownicy mogli się logować i rejestrować, musisz wybrać opcje Zezwalaj użytkownikom na logowanie i Zezwalaj na rejestrację użytkownika. Pamiętaj, że wybrane ustawienia wpłyną na środowisko logowania użytkowników.
 
 Na przykład logujący się do portalu użytkownik, który kliknie przycisk Zaloguj, zostanie przeniesiony na stronę konfiguracji Azure Multi-Factor Authentication — konfiguracja użytkownika.  W zależności od konfiguracji usługi Azure Multi-Factor Authentication użytkownik może być w stanie wybrać metodę uwierzytelniania.  
@@ -177,6 +177,6 @@ Proces samodzielnej rejestracji użytkownika zostaje zakończony, a użytkownik 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

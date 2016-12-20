@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/11/2016
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 7c712cb20d9e008c74436fc602326afa00250c63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
 
 
 ---
@@ -42,8 +42,8 @@ Aby przeglądać wszystkie eksperymenty:
 2. W obszarze **Refine by** (Uściślij według) wybierz pozycję **Experiment** (Eksperyment), aby zobaczyć wszystkie eksperymenty w galerii.
 3. Eksperymenty spełniające wymagania możesz znaleźć na kilka różnych sposobów:
    * **Zaznacz filtry po lewej stronie.** Na przykład aby przeglądać eksperymenty, w których jest używany algorytm wykrywania anomalii oparty na analizie PCA, wybierz pozycję **Experiment** (Eksperyment) w obszarze **Categories** (Kategorie), a następnie pozycję **PCA-Based Anomaly Detection** (Wykrywanie anomalii oparte na analizie PCA) w obszarze **Algorithms Used** (Używane algorytmy). (Jeśli nie widzisz tego algorytmu, kliknij pozycję **Show all** (Pokaż wszystkie) u dołu listy).<br></br>
-     ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Użyj pola wyszukiwania.** Na przykład aby znaleźć eksperymenty zamieszczone przez firmę Microsoft, które są związane z rozpoznawaniem cyfr z użyciem algorytmu SVM dla problemu dwuklasowego, w polu wyszukiwania wprowadź ciąg „digit recognition” (rozpoznawanie cyfr). Następnie zaznacz filtry **Experiment** (Eksperyment), **Microsoft content only** (Tylko zawartość firmy Microsoft) i **Two-Class Support Vector Machine** (SVM dla problemu dwuklasowego): ![](./media/machine-learning-sample-experiments/search-for-experiments.png)
+     ![Wybierz filtry](./media/machine-learning-sample-experiments/refine-the-view.png)
+   * **Użyj pola wyszukiwania.** Na przykład aby znaleźć eksperymenty zamieszczone przez firmę Microsoft, które są związane z rozpoznawaniem cyfr z użyciem algorytmu SVM dla problemu dwuklasowego, w polu wyszukiwania wprowadź ciąg „digit recognition” (rozpoznawanie cyfr). Następnie zaznacz filtry **Experiment** (Eksperyment), **Microsoft content only** (Tylko zawartość firmy Microsoft) i **Two-Class Support Vector Machine** (SVM dla problemu dwuklasowego): ![Używanie pola wyszukiwania](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Kliknij eksperyment, aby uzyskać więcej informacji.
 5. Aby uruchomić i/lub zmodyfikować eksperyment, kliknij pozycję **Open in Studio** (Otwórz w Studio) na stronie eksperymentu.
 
@@ -52,7 +52,7 @@ Aby przeglądać wszystkie eksperymenty:
    >
    >
 
-    ![](./media/machine-learning-sample-experiments/example-experiment.png)
+    ![Przykładowy eksperyment](./media/machine-learning-sample-experiments/example-experiment.png)
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Korzystanie z szablonu w usłudze Machine Learning Studio
 Nowy eksperyment można również utworzyć w usłudze Machine Learning Studio, używając przykładu z galerii jako szablonu.
@@ -70,6 +70,6 @@ W obszarze roboczym zostanie utworzony nowy eksperyment z użyciem eksperymentu 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

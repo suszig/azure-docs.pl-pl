@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Wdrażanie geograficznie rozproszonych usług AD FS o wysokiej dostępności na platformie Azure przy użyciu usługi Azure Traffic Manager
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Wdrażanie geograficznie rozproszonych usług AD FS o wysokiej dostępności na platformie Azure przy użyciu usługi Azure Traffic Manager
 Artykuł [Wdrożenie usług AD FS na platformie Azure](active-directory-aadconnect-azure-adfs.md) zawiera instrukcje krok po kroku dotyczące wdrażania prostej infrastruktury usług AD FS dla organizacji na platformie Azure. W tym artykule opisano następne kroki tworzenia geograficznie rozproszonego wdrożenia usług AD FS na platformie Azure przy użyciu usługi [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Usługa Azure Traffic Manager pomaga przy tworzeniu geograficznie rozproszonej infrastruktury usług AD FS o wysokiej dostępności i wydajności dla organizacji poprzez korzystanie z wielu dostępnych metod routingu dopasowanych do zróżnicowanych potrzeb infrastruktury.
 
 Geograficznie rozproszona infrastruktura usług AD FS o wysokiej dostępności umożliwia wykonywanie następujących czynności:
@@ -76,7 +76,7 @@ Wykonaj poniższe kroki, aby utworzyć profil usługi Traffic Manager. Aby uzysk
    
    **Typ zasobu docelowego:** Wybierz pozycję Publiczny adres IP jako wartość tej właściwości. 
    
-   **Zasób docelowy:** Możesz wybrać spośród różnych etykiet DNS dostępnych w subskrypcji. Wybierz etykietę DNS.
+   **Zasób docelowy:** Możesz wybrać spośród różnych etykiet DNS dostępnych w subskrypcji. Wybierz etykietę DNS odpowiadającą konfigurowanemu punktowi końcowemu.
    
    Dodaj punkt końcowy dla każdego regionu geograficznego, do którego usługa Azure Traffic Manager ma kierować ruch.
    Aby uzyskać więcej informacji oraz szczegółowy opis kroków dotyczących dodawania/konfigurowania punktów końcowych w usłudze Traffic Manager, zobacz [Dodawanie, usuwanie, włączanie i wyłączanie punktów końcowych](../traffic-manager/traffic-manager-endpoints.md)
@@ -94,13 +94,13 @@ Wykonaj poniższe kroki, aby utworzyć profil usługi Traffic Manager. Aby uzysk
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>Testowanie routingu i logowania za pomocą usług AD FS
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>Testowanie routingu i logowania za pomocą usług AD FS
 ### <a name="routing-test"></a>Test routingu
 Aby wykonać bardzo prosty test routingu, spróbuj wysłać polecenie ping do nazwy DNS usługi federacyjnej z maszyny w każdym z regionów geograficznych. W zależności od wybranej metody routingu punkt końcowy, do którego wysłano polecenie ping, zostanie odzwierciedlony w wyświetlaczu ping. Jeśli na przykład wybrano metodę Wydajność, zostanie nawiązane połączenie z punktem końcowym znajdującym się najbliżej regionu klienta. Poniżej znajduje się migawka dwóch poleceń ping z maszyn w dwóch różnych regionach, jedna w regionie Azja Wschodnia i jedna w regionie Zachodnie stany USA. 
 
 ![Test routingu](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>Test logowania za pomocą usług AD FS
+### <a name="ad-fs-sign-in-test"></a>Test logowania za pomocą usług AD FS
 Najprostszym sposobem przetestowania działania usług AD FS jest użycie strony IdpInitiatedSignon.aspx. Przede wszystkim trzeba ją włączyć we właściwościach usług AD FS. Wykonaj poniższe kroki, aby zweryfikować konfigurację usług AD FS.
 
 1. Aby włączyć tę stronę, uruchom poniższe polecenie cmdlet na serwerze usług AD FS przy użyciu programu PowerShell. 
@@ -126,6 +126,6 @@ Najprostszym sposobem przetestowania działania usług AD FS jest użycie strony
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

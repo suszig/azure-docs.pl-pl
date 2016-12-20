@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 > 
 > 
 
-W tym artykule opisano sposób publikowania aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp. To jest nowa funkcja usługi Azure RemoteApp, która jest dostępna w „prywatnej wersji zapoznawczej” wyłącznie dla wybranych pierwszych użytkowników do celów oceny.
+W tym artykule opisano sposób publikowania aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp. To jest nowa funkcja usługi Azure RemoteApp, która jest dostępna w prywatnej wersji zapoznawczej wyłącznie dla wybranych pierwszych użytkowników do celów oceny.
 
-Pierwotnie usługa Azure RemoteApp obsługiwała tylko jeden sposób „publikowania” aplikacji: administrator publikował aplikacje na podstawie obrazu, które były następnie widoczne dla wszystkich użytkowników w kolekcji.
+Pierwotnie usługa Azure RemoteApp obsługiwała tylko jeden sposób publikowania aplikacji: administrator publikował aplikacje na podstawie obrazu, które były następnie widoczne dla wszystkich użytkowników w kolekcji.
 
 Typowy scenariusz obejmuje uwzględnienie wielu aplikacji w jednym obrazie i wdrożenie jednej kolekcji w celu ograniczenia kosztów zarządzania. Często nie wszystkie aplikacje są odpowiednie dla wszystkich użytkowników — administratorzy woleliby publikować aplikacje dla poszczególnych użytkowników, tak aby zbędne aplikacje nie były widoczne w źródle aplikacji.
 
@@ -36,8 +36,8 @@ Ta funkcja jest już dostępna w usłudze Azure RemoteApp, obecnie jako ogranicz
 
 1. Kolekcję można ustawić w jeden z dwóch trybów:
    
-   * Oryginalny „tryb kolekcji”, w którym wszyscy użytkownicy kolekcji widzą wszystkie opublikowane aplikacje. Jest to tryb domyślny.
-   * Nowy „tryb aplikacji”, w którym użytkownicy widzą tylko te aplikacje, które zostały im jawnie przypisane.
+   * Oryginalny tryb kolekcji, w którym wszyscy użytkownicy kolekcji widzą wszystkie opublikowane aplikacje. Jest to tryb domyślny.
+   * Nowy tryb aplikacji, w którym użytkownicy widzą tylko te aplikacje, które zostały im jawnie przypisane.
 2. Obecnie tryb aplikacji można włączać jedynie przy użyciu poleceń cmdlet środowiska PowerShell usługi Azure RemoteApp.
    
    * Po ustawieniu trybu aplikacji nie można zarządzać przypisaniami użytkownika w kolekcji za pośrednictwem witryny Azure Portal. Przypisanie użytkownika musi być zarządzane za pomocą poleceń cmdlet programu PowerShell.
@@ -49,7 +49,7 @@ Ta funkcja jest już dostępna w usłudze Azure RemoteApp, obecnie jako ogranicz
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Jak uzyskać polecenia cmdlet środowiska PowerShell usługi Azure RemoteApp
 Aby wypróbować nową funkcję w wersji zapoznawczej, należy użyć poleceń cmdlet programu Azure PowerShell. Obecnie nie można włączać nowego trybu publikowania aplikacji przy użyciu portalu zarządzania Azure.
 
-Najpierw upewnij się, że [moduł Azure PowerShell](../powershell-install-configure.md) jest zainstalowany.
+Najpierw upewnij się, że [moduł Azure PowerShell](/powershell/azureps-cmdlets-docs) jest zainstalowany.
 
 Następnie uruchom konsolę programu PowerShell w trybie administratora i uruchom następujące polecenie cmdlet:
 
@@ -106,6 +106,6 @@ Jeśli nie korzystasz jeszcze z wersji zapoznawczej, użyj tej [ankiety](http://
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

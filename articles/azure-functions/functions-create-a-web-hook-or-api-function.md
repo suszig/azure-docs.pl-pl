@@ -13,60 +13,70 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 11/29/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9484a637a1876f2cae644e43986bd5ef3201da1e
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: a74fc30480068788f33df092594119253df9487b
 
 
 ---
 # <a name="create-a-webhook-or-api-azure-function"></a>Tworzenie elementu webhook lub interfejsu API usługi Azure Function
 Usługa Azure Functions to oparte na zdarzeniach środowisko umożliwiające przeprowadzanie obliczeń na żądanie, które pozwala tworzyć zaplanowane lub wyzwalane jednostki kodu implementowane w różnych językach programowania. Aby dowiedzieć się więcej o usłudze Azure Functions, zobacz [Azure Functions — omówienie](functions-overview.md).
 
-W tym temacie opisano tworzenie nowej funkcji platformy Node.js wywoływanej przez element webhook GitHub. Nowa funkcja jest oparta na wstępnie zdefiniowanym szablonie dostępnym w portalu usług Azure Functions. Można również obejrzeć krótki film, aby sprawdzić, jak kroki te są wykonywane w portalu.
+W tym temacie opisano tworzenie funkcji platformy Node.js wywoływanej przez element webhook GitHub. Nowa funkcja jest oparta na wstępnie zdefiniowanym szablonie dostępnym w portalu usług Azure Functions. Można również obejrzeć krótki film, aby sprawdzić, jak kroki te są wykonywane w portalu.
 
 ## <a name="watch-the-video"></a>Obejrzyj film
-W poniższym filmie wideo pokazano, jak wykonać podstawowe czynności opisane w tym samouczku. 
+W poniższym wideo pokazano, jak wykonać podstawowe czynności opisane w tym samouczku 
 
 >[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
 >
 >
 
-## <a name="create-a-webhooktriggered-function-from-the-template"></a>Tworzenie funkcji wyzwalanej przez element webhook przy użyciu szablonu
-Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Aby utworzyć funkcję, musisz mieć aktywne konto platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, [dostępne są konta bezpłatne](https://azure.microsoft.com/free/). 
+## <a name="create-a-webhook-triggered-function-from-the-template"></a>Tworzenie funkcji wyzwalanej przez element webhook przy użyciu szablonu
+Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Jeśli nie masz jeszcze konta platformy Azure, zapoznaj się ze środowiskiem [Wypróbuj funkcje](https://functions.azure.com/try) lub [utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/). 
 
 1. Przejdź do [portalu Azure Functions](https://functions.azure.com/signin) i zaloguj się przy użyciu konta platformy Azure.
-2. Jeśli masz aplikację funkcji, której możesz użyć, wybierz ją w obszarze **Twoje aplikacje funkcji** i kliknij pozycję **Otwórz**. Aby utworzyć nową aplikację funkcji, wpisz unikatową **nazwę** nowej aplikacji funkcji lub zaakceptuj wygenerowaną nazwę, wybierz preferowany **region**, a następnie kliknij pozycję **Utwórz i rozpocznij**. 
-3. W aplikacji funkcji kliknij kolejno pozycje **+ Nowa funkcja** > **Element webhook usługi GitHub — węzeł** > **Utwórz**. Na podstawie określonego szablonu zostanie utworzona funkcja o domyślnej nazwie. 
+
+2. Jeśli masz aplikację funkcji, której możesz użyć, wybierz ją w obszarze **Twoje aplikacje funkcji** i kliknij pozycję **Otwórz**. Aby utworzyć aplikację funkcji, wpisz unikatową **nazwę** nowej aplikacji funkcji lub zaakceptuj wygenerowaną nazwę, wybierz preferowany **region**, a następnie kliknij pozycję **Utwórz i rozpocznij**. 
+
+3. W aplikacji funkcji kliknij kolejno pozycje **+ Nowa funkcja** > **Element webhook usługi GitHub — węzeł** > **Utwórz**. W tym kroku na podstawie określonego szablonu zostanie utworzona funkcja o domyślnej nazwie. 
    
-    ![Tworzenie nowej funkcji elementu webhook usługi GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
+    ![Tworzenie funkcji wyzwalanej przez element webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
+
 4. Na karcie **Tworzenie** w oknie **Kod** jest wyświetlany kod przykładowej funkcji express.js. Funkcja ta odbiera żądanie GitHub od elementu webhook komentarza dotyczącego pewnego problemu, rejestruje opis problemu i wysyła odpowiedź w postaci `New GitHub comment: <Your issue comment text>` do elementu webhook.
 
-    ![Tworzenie nowej funkcji elementu webhook usługi GitHub](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
+    ![Sprawdzanie kodu funkcji](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
 
-1. Skopiuj wartości zawarte w polach **Adres URL funkcji** i **Klucz tajny usługi GitHub**. Będą one potrzebne podczas tworzenia elementu webhook w usłudze GitHub. 
-2. Przewiń w dół do obszaru **Uruchamianie**, zwróć uwagę na wstępnie zdefiniowany kod JSON w treści żądania komentarza i kliknij pozycję **Uruchom**. 
+1. Skopiuj wartości zawarte w polach **Adres URL funkcji** i **Klucz tajny usługi GitHub**. Wartości będą potrzebne podczas tworzenia elementu webhook w usłudze GitHub. 
+
+2. Kliknij pozycję **Testowanie**, zwróć uwagę na wstępnie zdefiniowany kod JSON komentarza problemu w **treści żądania**, a następnie kliknij przycisk **Uruchom**. 
+
+    ![Testowanie funkcji elementu webhook w portalu](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    Na karcie **Tworzenie** możesz w dowolnym momencie przetestować nową funkcję opartą na szablonie, podając oczekiwane dane kodu JSON i klikając przycisk **Uruchom**. W tym przypadku szablon zawiera wstępnie zdefiniowaną treść komentarza dotyczącego problemu. 
+    > [!NOTE]
+    > Na karcie **Tworzenie** możesz w dowolnym momencie przetestować nową funkcję opartą na szablonie, podając oczekiwane dane kodu JSON i klikając przycisk **Uruchom**. W tym przypadku szablon zawiera wstępnie zdefiniowaną treść komentarza dotyczącego problemu. 
 
 W następnym kroku zostanie utworzony rzeczywisty element webhook w repozytorium GitHub.
 
 ## <a name="configure-the-webhook"></a>Konfigurowanie elementu webhook
-1. W usłudze GitHub przejdź do swojego repozytorium (może to być dowolne rozgałęzione repozytorium).
+1. W usłudze GitHub przejdź do repozytorium, którego jesteś właścicielem. Możesz też użyć dowolnego rozwidlonego repozytorium.
+ 
 2. Kliknij kolejno pozycje **Ustawienia** > **Elementy webhook i usługi** > **Dodaj element webhook**.
    
-    ![Tworzenie nowej funkcji elementu webhook usługi GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-2.png)   
+    ![Dodawanie elementu webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-2.png)   
 3. Wklej adres URL i klucz tajny funkcji w polach **Adres URL ładunku** i **Klucz tajny**, kliknij pozycję **Pozwól mi wybrać pojedyncze zdarzenia**, wybierz pozycję **Komentarz dotyczący problemu** i kliknij pozycję **Dodaj element webhook**.
    
-    ![Tworzenie nowej funkcji elementu webhook usługi GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png) 
+    ![Ustawianie adresu URL i wpisu tajnego elementu webhook](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png) 
 
 Element webhook usługi GitHub został skonfigurowany w celu wyzwolenia funkcji po dodaniu nowego komentarza dotyczącego problemu.  
 Przetestujemy teraz działanie tej funkcji.
 
 ## <a name="test-the-function"></a>Testowanie funkcji
 1. W repozytorium GitHub otwórz kartę **Problemy** w nowym oknie przeglądarki, kliknij pozycję **Nowy problem**, wpisz tytuł, a następnie kliknij pozycję **Prześlij nowy problem**. Możesz również otworzyć istniejący problem.
+
 2. W obszarze problemu wpisz komentarz i kliknij pozycję **Komentarz**. Wróć do nowego elementu webhook w usłudze GitHub i w obszarze **Ostatnie dostarczenia** sprawdź, czy wysłano żądanie elementu webhook i czy treść odpowiedzi zawiera tekst `New GitHub comment: <Your issue comment text>`.
+
 3. W portalu usługi Functions przejdź do dzienników i upewnij się, że funkcja została wyzwolona, a wartość `New GitHub comment: <Your issue comment text>` została zapisana w dziennikach przesyłania strumieniowego.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -77,13 +87,13 @@ Poniższe tematy umożliwiają uzyskanie dodatkowych informacji na temat usługi
 * [Testowanie usługi Azure Functions](functions-test-a-function.md)  
   Opis różnych narzędzi i technik testowania funkcji.
 * [Jak skalować usługę Azure Functions](functions-scale.md)  
-  Omówienie planów usług dostępnych w środowisku Azure Functions, w tym dynamicznego planu usług, oraz sposobu wybierania właściwego planu.  
+  Omówienie planów usług dostępnych w środowisku Azure Functions, w tym planu hostingowego zużycia, oraz sposobu wybierania właściwego planu.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

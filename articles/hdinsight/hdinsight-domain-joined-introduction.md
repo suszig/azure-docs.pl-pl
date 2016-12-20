@@ -16,18 +16,18 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 40b0d0660f4693d5ebedf847734ffe037c4ec7ca
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
 
 
 ---
-# <a name="an-introduction-to-domainjoined-hdinsight-clusters-preview"></a>Wprowadzenie do przyłączonych do domeny klastrów usługi HDInsight (wersja zapoznawcza)
+# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Wprowadzenie do przyłączonych do domeny klastrów usługi HDInsight (wersja zapoznawcza)
 Do tej pory usługa Azure HDInsight obsługiwała tylko jednego użytkownika z uprawnieniami lokalnego administratora. Bardzo dobrze funkcjonowało to dla mniejszych zespołów aplikacji lub działów. W miarę zwiększania popularności obciążeń opartych na usłudze Hadoop w sektorze przedsiębiorstw potrzeba dysponowania funkcjami klasy korporacyjnej, takimi jak uwierzytelnianie w oparciu o usługę Active Directory, obsługa wielu użytkowników oraz kontrola dostępu oparta na rolach, staje się coraz ważniejsza. Za pomocą przyłączonych do domeny klastrów usługi HDInsight można utworzyć klaster usługi HDInsight przyłączony do domeny usługi Active Directory i skonfigurować listę pracowników przedsiębiorstwa, którzy mogą uwierzytelniać się za pomocą usługi Azure Active Directory podczas logowania się do klastra usługi HDInsight. Żadna osoba spoza przedsiębiorstwa nie może zalogować się lub uzyskać dostępu do klastra usługi HDInsight. Administrator w przedsiębiorstwie może skonfigurować kontrolę dostępu opartą na rolach dla zabezpieczeń Hive przy użyciu środowiska [Apache Ranger](http://hortonworks.com/apache/ranger/), ograniczając w ten sposób dostęp do danych tylko do niezbędnego zakresu. Poza tym administrator może przeprowadzać inspekcje dostępu do danych przez pracowników oraz wszystkich zmian w zasadach kontroli dostępu, osiągając w ten sposób wysoki poziom nadzoru nad zasobami firmy.
 
 > [!NOTE]
-> Nowe funkcje opisane w tej wersji zapoznawczej są dostępne tylko w klastrach usługi HDInsight opartych na systemie Linux w odniesieniu do obciążenia Hive. Inne obciążenia, takie jak HBase, Spark, Storm i Kafka, zostaną włączone w przyszłych wersjach. 
-> 
-> 
+> Nowe funkcje opisane w tej wersji zapoznawczej są dostępne tylko w klastrach usługi HDInsight opartych na systemie Linux w odniesieniu do obciążenia Hive. Inne obciążenia, takie jak HBase, Spark, Storm i Kafka, zostaną włączone w przyszłych wersjach.
+>
+>
 
 ## <a name="benefits"></a>Korzyści
 Na zabezpieczenia przedsiębiorstwa składają się cztery wielkie filary — zabezpieczenia brzegowe, uwierzytelnianie, autoryzacja i szyfrowanie.
@@ -53,11 +53,10 @@ Ochrona danych ma duże znaczenie dla spełniania wymagań organizacyjnych w zak
 * Aby skonfigurować przyłączony do domeny klaster usługi HDInsight, zobacz [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Konfigurowanie przyłączonych do domeny klastrów usługi HDInsight).
 * Aby zarządzać przyłączonymi do domeny klastrami usługi HDInsight, zobacz [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Zarządzanie przyłączonymi do domeny klastrami usługi HDInsight).
 * Aby znaleźć informacje na temat konfigurowania zasad Hive i uruchamiania kwerend Hive, zobacz [Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight](hdinsight-domain-joined-run-hive.md).
-* Aby uruchamiać zapytania usługi Hive przy użyciu protokołu SSH w przyłączonych do domeny klastrach usługi HDInsight, zobacz [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Aby uruchamiać zapytania usługi Hive przy użyciu protokołu SSH w przyłączonych do domeny klastrach usługi HDInsight, zobacz [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure IoT Hub dla środowiska C# — wprowadzenie | Microsoft Docs"
-description: "Samouczek z wprowadzeniem do usługi Azure IoT Hub dla środowiska C#. Użycie usługi Azure IoT Hub i środowiska C# z zestawami SDK IoT Microsoft Azure w celu wdrożenia rozwiązania Internetu rzeczy. "
+title: "Rozpoczynanie pracy z usługą Azure IoT Hub (.NET) | Microsoft Docs"
+description: "Informacje o sposobie wysyłania komunikatów urządzenie-chmura z urządzenia do usługi Azure IoT Hub za pomocą zestawów SDK usługi Azure IoT dla programu .NET. Polega to na utworzeniu symulowanej aplikacji urządzenia, która będzie wysyłać komunikaty, aplikacji usługi, która umożliwi zarejestrowanie danego urządzenia w rejestrze tożsamości, oraz aplikacji usługi, która będzie odczytywać komunikaty urządzenie-chmura z centrum IoT."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,49 +15,49 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97c5d3c3e78ce6ec23f260bd26a0b41dc7c7197a
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 128e3607829d3838cdbb285fa95a1f7cd2112229
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-net"></a>Usługa Azure IoT Hub dla środowiska .NET — wprowadzenie
+# <a name="get-started-with-azure-iot-hub-net"></a>Rozpoczynanie pracy z usługą Azure IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-Po ukończeniu tego samouczka będziesz mieć trzy aplikacje konsolowe środowiska Windows:
+Na końcu tego samouczka będziesz mieć trzy aplikacje konsolowe .NET:
 
-* **CreateDeviceIdentity** tworzy tożsamość urządzenia i skojarzony klucz zabezpieczeń w celu podłączenia urządzenia symulowanego.
-* **ReadDeviceToCloudMessages** powoduje wyświetlenie telemetrii wysyłanej przez urządzenie symulowane.
+* **CreateDeviceIdentity** tworzy tożsamość urządzenia i skojarzony klucz zabezpieczeń w celu podłączenia symulowanej aplikacji urządzenia.
+* **ReadDeviceToCloudMessages** powoduje wyświetlenie telemetrii wysyłanej przez symulowaną aplikację urządzenia.
 * **SimulatedDevice** łączy się z centrum IoT przy użyciu utworzonej wcześniej tożsamości urządzenia i wysyła komunikat telemetrii co sekundę przy użyciu protokołu AMQP.
 
 > [!NOTE]
-> Informacje dotyczące różnych zestawów SDK, których można użyć do utworzenia aplikacji — zarówno do uruchamiania na urządzeniach jak i w zapleczu rozwiązania —znajdują się w artykule [IoT Hub SDKs] (Zestawy SDK usługi IoT Hub) [lnk-hub-sdks].
+> Artykuł [Azure IoT SDKs][lnk-hub-sdks] (Zestawy SDK usługi Azure IoT) zawiera informacje dotyczące zestawów SDK usługi Azure IoT, przy użyciu których można tworzyć aplikacje zarówno do uruchamiania na urządzaniach, jak i w zapleczu rozwiązania.
 > 
 > 
 
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 * Microsoft Visual Studio 2015.
-* Aktywne konto platformy Azure. (Jeśli go nie masz, możesz utworzyć [bezpłatne konto][lnk-free-trial] w zaledwie kilka minut).
+* Aktywne konto platformy Azure. (Jeśli go nie masz, możesz utworzyć [bezpłatne konto próbne][lnk-free-trial] w zaledwie kilka minut).
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Centrum IoT zostało już utworzone i masz nazwę hosta oraz parametry połączenia potrzebne do ukończenia pozostałej części tego samouczka.
+Centrum IoT zostało już utworzone i masz nazwę hosta oraz parametry połączenia usługi IoT Hub potrzebne do ukończenia pozostałej części tego samouczka.
 
 ## <a name="create-a-device-identity"></a>Tworzenie tożsamości urządzenia
-W tej sekcji opisano tworzenie aplikacji konsolowej środowiska Windows, która tworzy tożsamość urządzenia w rejestrze tożsamości w centrum IoT. Urządzenie nie może połączyć się z centrum IoT, jeśli nie ma wpisu w rejestrze tożsamości urządzeń. Więcej informacji znajduje się w sekcji „Device identity registry” (Rejestr tożsamości urządzenia) artykułu [IoT Hub Developer Guide] (Usługa IoT Hub — przewodnik dewelopera)[lnk-devguide-identity]. Po uruchomieniu ta aplikacja konsoli generuje unikatowy identyfikator urządzenia i klucz, których urządzenie może użyć do zidentyfikowania się podczas wysyłania komunikatów do chmury do usługi IoT Hub.
+W tej sekcji utworzysz aplikację konsolową programu .NET, która tworzy tożsamość urządzenia w rejestrze tożsamości w centrum IoT. Urządzenie nie może połączyć się z centrum IoT, jeśli nie ma wpisu w rejestrze tożsamości. Więcej informacji znajduje się w sekcji „Identity registry” (Rejestr tożsamości) artykułu [IoT Hub Developer Guide][lnk-devguide-identity] (Usługa IoT Hub — przewodnik dewelopera). Po uruchomieniu ta aplikacja konsoli generuje unikatowy identyfikator urządzenia i klucz, których urządzenie może użyć do zidentyfikowania się podczas wysyłania komunikatów do chmury do usługi IoT Hub.
 
 1. W programie Visual Studio dodaj projekt Visual C# Windows Classic Desktop do bieżącego rozwiązania przy użyciu szablonu projektu **Aplikacja konsolowa**. Upewnij się, że program .NET Framework jest w wersji 4.5.1 lub nowszej. Nazwij projekt **CreateDeviceIdentity**.
    
     ![Nowy projekt Visual C# Windows Classic Desktop][10]
-2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CreateDeviceIdentity**, a następnie kliknij pozycję **Zarządzaj pakietami Nuget**.
-3. W oknie **Menedżer pakietów Nuget** wybierz opcję **Przeglądaj**, wyszukaj pozycję **microsoft.azure.devices**, wybierz opcję **Zainstaluj**, aby zainstalować pakiet **Microsoft.Azure.Devices**, i zaakceptuj warunki użytkowania. Ta procedura spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu Nuget [zestawu SDK usługi Microsoft Azure IoT][lnk-nuget-service-sdk] oraz jego zależności.
+2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CreateDeviceIdentity**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
+3. W oknie **Menedżer pakietów NuGet** wybierz opcję **Przeglądaj**, wyszukaj pozycję **microsoft.azure.devices**, wybierz opcję **Zainstaluj**, aby zainstalować pakiet **Microsoft.Azure.Devices**, i zaakceptuj warunki użytkowania. Ta procedura spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet [zestawu SDK usługi Azure IoT][lnk-nuget-service-sdk] oraz jego zależności.
    
-    ![Okno Menedżer pakietów Nuget][11]
+    ![Okno Menedżera pakietów NuGet][11]
 4. Dodaj następujące instrukcje `using` w górnej części pliku **Program.cs**:
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Common.Exceptions;
-5. Dodaj następujące pola do klasy **Program**: Zastąp wartość symbolu zastępczego parametrami połączenia dla centrum IoT utworzonego w poprzedniej sekcji.
+5. Dodaj następujące pola do klasy **Program**: Zastąp wartość symbolu zastępczego parametrami połączenia usługi IoT Hub dla centrum IoT utworzonego w poprzedniej sekcji.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
@@ -78,7 +78,7 @@ W tej sekcji opisano tworzenie aplikacji konsolowej środowiska Windows, która 
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
    
-    Ta metoda służy do tworzenia tożsamości urządzenia o identyfikatorze **myFirstDevice**. (Jeśli ten identyfikator urządzenia już istnieje w rejestrze, kod po prostu pobiera informacje o istniejącym urządzeniu). Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Tego klucza używa się w symulowanym urządzeniu, aby nawiązać połączenie z centrum IoT.
+    Ta metoda służy do tworzenia tożsamości urządzenia o identyfikatorze **myFirstDevice**. (Jeśli ten identyfikator urządzenia już istnieje w rejestrze tożsamości, kod po prostu pobiera informacje o istniejącym urządzeniu). Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Tego klucza używa się w symulowanej aplikacji urządzenia, aby nawiązać połączenie z centrum IoT Hub.
 7. Na koniec dodaj następujące wiersze do metody **Główne**:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -89,12 +89,12 @@ W tej sekcji opisano tworzenie aplikacji konsolowej środowiska Windows, która 
     ![Klucz urządzenia generowany przez aplikację][12]
 
 > [!NOTE]
-> Rejestr tożsamości usługi IoT Hub przechowuje tożsamości urządzenia tylko po to, aby umożliwić bezpieczny dostęp do centrum. Przechowuje identyfikatory urządzeń i klucze, które będą używane jako poświadczenia zabezpieczeń, oraz flagę włączone/wyłączone, która umożliwia wyłączenie dostępu do poszczególnych urządzeń. Jeśli aplikacja wymaga przechowywania innych metadanych dla określonego urządzenia, powinna korzystać z magazynu określonego dla aplikacji. Więcej informacji znajduje się w temacie [IoT Hub Developer Guide] (Usługa IoT Hub — przewodnik dewelopera)[lnk-devguide-identity].
+> Rejestr tożsamości usługi IoT Hub przechowuje tożsamości urządzenia tylko po to, aby umożliwić bezpieczny dostęp do centrum IoT. Przechowuje identyfikatory urządzeń i klucze, które będą używane jako poświadczenia zabezpieczeń, oraz flagę włączone/wyłączone, która umożliwia wyłączenie dostępu do poszczególnych urządzeń. Jeśli aplikacja wymaga przechowywania innych metadanych dla określonego urządzenia, powinna korzystać z magazynu określonego dla aplikacji. Więcej informacji znajduje się w temacie [IoT Hub Developer Guide][lnk-devguide-identity] (Usługa IoT Hub — przewodnik dewelopera).
 > 
 > 
 
-## <a name="receive-devicetocloud-messages"></a>Odbieranie komunikatów z urządzenia do chmury
-W tej sekcji opisano tworzenie aplikacji konsolowej środowiska Windows, która odczytuje komunikaty z urządzenia do chmury z usługi IoT Hub. Usługa IoT Hub udostępnia punkt końcowy zgodny z usługą [Azure Event Hubs][lnk-event-hubs-overview], aby umożliwić odczytywanie komunikatów z urządzenia do chmury. W celu uproszczenia informacji instrukcje w samouczku dotyczą tworzenia czytnika podstawowego, który nie jest odpowiedni do wdrożenia z użyciem dużej przepustowości. W samouczku [Process device-to-cloud messages] (Przetwarzanie komunikatów z urządzenia do chmury)[lnk-process-d2c-tutorial] przedstawiono, jak przetwarzać komunikaty z urządzenia do chmury na dużą skalę. Więcej informacji na temat przetwarzania komunikatów z usługi Event Hubs znajduje się w samouczku [Get Started with Event Hubs] (Usługa Event Hubs — wprowadzenie)[lnk-eventhubs-tutorial]. (Ten samouczek dotyczy punktów końcowych usługi IoT Hub zgodnych z centrum zdarzeń).
+## <a name="receive-device-to-cloud-messages"></a>Odbieranie komunikatów z urządzenia do chmury
+W tej sekcji opisano tworzenie aplikacji konsolowej .NET, która odczytuje komunikaty z urządzenia do chmury z usługi IoT Hub. Usługa IoT Hub udostępnia punkt końcowy zgodny z usługą [Azure Event Hubs][lnk-event-hubs-overview], aby umożliwić odczytywanie komunikatów z urządzenia do chmury. W celu uproszczenia informacji instrukcje w samouczku dotyczą tworzenia czytnika podstawowego, który nie jest odpowiedni do wdrożenia z użyciem dużej przepustowości. W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetwarzanie komunikatów przesyłanych z urządzeń do chmury) przedstawiono sposób przetwarzania komunikatów z urządzenia do chmury na dużą skalę. Więcej informacji na temat przetwarzania komunikatów z usługi Event Hubs znajduje się w samouczku [Get Started with Event Hubs (Usługa Event Hubs — wprowadzenie)][lnk-eventhubs-tutorial]. (Ten samouczek dotyczy punktów końcowych usługi IoT Hub zgodnych z centrum zdarzeń).
 
 > [!NOTE]
 > Punkt końcowy zgodny z centrum zdarzeń przeznaczony do odczytywania komunikatów z urządzenia do chmury zawsze korzysta z protokołu AMQP.
@@ -104,13 +104,13 @@ W tej sekcji opisano tworzenie aplikacji konsolowej środowiska Windows, która 
 1. W programie Visual Studio dodaj projekt Visual C# Windows Classic Desktop do bieżącego rozwiązania, używając szablonu projektu **Aplikacja konsolowa**. Upewnij się, że program .NET Framework jest w wersji 4.5.1 lub nowszej. Nazwij projekt **ReadDeviceToCloudMessages**.
    
     ![Nowy projekt Visual C# Windows Classic Desktop][10]
-2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **ReadDeviceToCloudMessages**, a następnie kliknij pozycję **Zarządzaj pakietami Nuget**.
-3. W oknie **Menedżer pakietów Nuget** wyszukaj pozycję **WindowsAzure.ServiceBus**, wybierz opcję **Zainstaluj** i zaakceptuj warunki użytkowania. Ta procedura spowoduje pobranie, zainstalowanie i dodanie odniesienia do usługi [Azure Service Bus][lnk-servicebus-nuget] ze wszystkimi jej zależnościami. Ten pakiet umożliwia aplikacji połączenie się z punktem końcowym zgodnym z centrum zdarzeń w centrum IoT.
+2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **ReadDeviceToCloudMessages**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
+3. W oknie **Menedżer pakietów NuGet** wyszukaj **WindowsAzure.ServiceBus**, wybierz opcję **Zainstaluj** i zaakceptuj warunki użytkowania. Ta procedura spowoduje pobranie, zainstalowanie i dodanie odniesienia do usługi [Azure Service Bus][lnk-servicebus-nuget] ze wszystkimi jej zależnościami. Ten pakiet umożliwia aplikacji połączenie się z punktem końcowym zgodnym z centrum zdarzeń w centrum IoT.
 4. Dodaj następujące instrukcje `using` w górnej części pliku **Program.cs**:
    
         using Microsoft.ServiceBus.Messaging;
         using System.Threading;
-5. Dodaj następujące pola do klasy **Program**: Zastąp wartość symbolu zastępczego parametrami połączenia dla centrum IoT utworzonego w sekcji „Tworzenie centrum IoT”.
+5. Dodaj następujące pola do klasy **Program**: Zastąp wartość symbolu zastępczego parametrami połączenia usługi IoT Hub dla centrum utworzonego w sekcji „Tworzenie centrum IoT”.
    
         static string connectionString = "{iothub connection string}";
         static string iotHubD2cEndpoint = "messages/events";
@@ -131,7 +131,7 @@ W tej sekcji opisano tworzenie aplikacji konsolowej środowiska Windows, która 
             }
         }
    
-    W metodzie tej używane jest wystąpienie **EventHubReceiver** do odbierania komunikatów ze wszystkich partycji odbioru z urządzenia do chmury centrum IoT. Zwróć uwagę na sposób przekazywania parametru `DateTime.Now` podczas tworzenia obiektu **EventHubReceiver** w taki sposób, aby odbierał komunikaty wysłane tylko po jego uruchomieniu. Ten filtr jest przydatny w środowisku testowym, gdyż umożliwia wyświetlenie bieżącego zestawu komunikatów. W środowisku produkcyjnym kod powinien sprawdzać, czy przetwarzane są wszystkie komunikaty. Więcej informacji znajduje się w samouczku [How to process IoT Hub device-to-cloud messages] (Jak przetwarzać komunikaty z urządzenia do chmury w usłudze IoT Hub)[lnk-process-d2c-tutorial].
+    W metodzie tej używane jest wystąpienie **EventHubReceiver** do odbierania komunikatów ze wszystkich partycji odbioru z urządzenia do chmury centrum IoT. Zwróć uwagę na sposób przekazywania parametru `DateTime.Now` podczas tworzenia obiektu **EventHubReceiver** w taki sposób, aby odbierał komunikaty wysłane tylko po jego uruchomieniu. Ten filtr jest przydatny w środowisku testowym, gdyż umożliwia wyświetlenie bieżącego zestawu komunikatów. W środowisku produkcyjnym kod powinien sprawdzać, czy przetwarzane są wszystkie komunikaty. Więcej informacji znajduje się w samouczku [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] (Jak przetwarzać komunikaty z urządzenia do chmury w usłudze IoT Hub).
 7. Na koniec dodaj następujące wiersze do metody **Główne**:
    
         Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
@@ -156,13 +156,13 @@ W tej sekcji opisano tworzenie aplikacji konsolowej środowiska Windows, która 
         Task.WaitAll(tasks.ToArray());
 
 ## <a name="create-a-simulated-device-app"></a>Tworzenie aplikacji symulowanego urządzenia
-Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej środowiska Windows, która symuluje urządzenie wysyłające komunikaty z urządzenia do chmury do centrum IoT.
+Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej .NET, która symuluje urządzenie wysyłające komunikaty z urządzenia do chmury do usługi IoT Hub.
 
 1. W programie Visual Studio dodaj projekt Visual C# Windows Classic Desktop do bieżącego rozwiązania, używając szablonu projektu **Aplikacja konsolowa**. Upewnij się, że program .NET Framework jest w wersji 4.5.1 lub nowszej. Nazwij projekt **SimulatedDevice**.
    
     ![Nowy projekt Visual C# Windows Classic Desktop][10]
-2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **SimulatedDevice**, a następnie kliknij pozycję **Zarządzaj pakietami Nuget**.
-3. W oknie **Menedżer pakietów Nuget** wybierz pozycję **Przeglądaj**, wyszukaj pozycję **Microsoft.Azure.Devices.Client**, wybierz pozycję **Zainstaluj**, aby zainstalować pakiet **Microsoft.Azure.Devices.Client**, i zaakceptuj warunki użytkowania. Ta procedura spowoduje pobranie, zainstalowanie i dodanie odwołania do [pakietu Nuget zestawu SDK urządzenia w usłudze Azure IoT Hub][lnk-device-nuget] oraz jego zależności.
+2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **SimulatedDevice**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
+3. W oknie **Menedżera pakietów NuGet** wybierz opcję **Przeglądaj**, wyszukaj pozycję **Microsoft.Azure.Devices.Client**, wybierz opcję **Zainstaluj**, aby zainstalować pakiet **Microsoft.Azure.Devices.Client**, i zaakceptuj warunki użytkowania. Ta procedura spowoduje pobranie, zainstalowanie i dodanie odwołania do [pakietu NuGet zestawu SDK urządzenia w usłudze Azure IoT][lnk-device-nuget] oraz jego zależności.
 4. Dodaj następującą instrukcję `using` w górnej części pliku **Program.cs**:
    
         using Microsoft.Azure.Devices.Client;
@@ -207,30 +207,30 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej środowis
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
    
-   Domyślnie metoda **Utwórz** tworzy wystąpienie **DeviceClient**, które używa protokołu AMQP do komunikowania się z usługą IoT Hub. Aby skorzystać z protokołu HTTP, użyj zastępowania metody **Create**, które pozwala na określenie protokołu. Jeśli używasz protokołu HTTP, dodaj również do projektu pakiet Nuget **Microsoft.AspNet.WebApi.Client**, aby dołączyć przestrzeń nazw **System.Net.Http.Formatting**.
+   Domyślnie metoda **Utwórz** tworzy wystąpienie **DeviceClient**, które używa protokołu AMQP do komunikowania się z usługą IoT Hub. Aby skorzystać z protokołu HTTP, użyj zastępowania metody **Create**, które pozwala na określenie protokołu. Jeśli używasz protokołu HTTP, dodaj również do projektu pakiet NuGet **Microsoft.AspNet.WebApi.Client**, aby dołączyć przestrzeń nazw **System.Net.Http.Formatting**.
 
-Ten samouczek zawiera instrukcje tworzenia klienta urządzenia usługi IoT Hub. Możesz również użyć rozszerzenia programu Visual Studio [Connected Service for Azure IoT Hub][lnk-connected-service], aby dodać niezbędny kod do aplikacji klienta urządzenia.
+Ten samouczek zawiera instrukcje tworzenia aplikacji symulowanego urządzenia w usłudze IoT Hub. Możesz również użyć rozszerzenia programu Visual Studio [Connected Service for Azure IoT Hub][lnk-connected-service], aby dodać niezbędny kod do aplikacji urządzenia.
 
 > [!NOTE]
-> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy wdrożyć zasady ponawiania (np. wycofywanie wykładnicze) zgodnie z sugestią w artykule z witryny MSDN [Transient Fault Handling] (Obsługa przejściowego błędu)[lnk-transient-faults].
+> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy wdrożyć zasady ponawiania (np. wycofywanie wykładnicze) zgodnie z sugestią w artykule z witryny MSDN [Transient Fault Handling][lnk-transient-faults] (Obsługa przejściowych błędów).
 > 
 > 
 
-## <a name="run-the-applications"></a>Uruchamianie aplikacji
-Teraz można uruchomić aplikacje.
+## <a name="run-the-apps"></a>Uruchamianie aplikacji
+Teraz można przystąpić do uruchomienia aplikacji.
 
 1. W programie Visual Studio w Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij przycisk **Ustaw projekty startowe**. Wybierz opcję **Wiele projektów startowych**, a następnie wybierz opcję **Uruchom** jako akcję dla projektów **ReadDeviceToCloudMessages** i **SimulatedDevice**.
    
     ![Właściwości projektu startowego][41]
-2. Naciśnij klawisz **F5**, aby uruchomić obie aplikacje. Dane wyjściowe konsoli z aplikacji **SimulatedDevice** zawierają komunikaty, które symulowane urządzenie wysyła do centrum IoT. Dane wyjściowe konsoli z aplikacji **ReadDeviceToCloudMessages** zawierają komunikaty odbierane przez centrum IoT.
+2. Naciśnij klawisz **F5**, aby uruchomić obie aplikacje. Dane wyjściowe konsoli z aplikacji **SimulatedDevice** zawierają komunikaty, które symulowana aplikacja urządzenia wysyła do centrum IoT Hub. Dane wyjściowe konsoli z aplikacji **ReadDeviceToCloudMessages** zawierają komunikaty odbierane przez centrum IoT.
    
     ![Dane wyjściowe konsoli z aplikacji][42]
-3. Na kafelku **Użycie** w [portalu Azure][lnk-portal] wyświetlana jest liczba komunikatów wysłanych do centrum:
+3. Na kafelku **Użycie** w [witrynie Azure Portal][lnk-portal] wyświetlana jest liczba komunikatów wysłanych do centrum IoT:
    
     ![Kafelek Użycie portalu Azure][43]
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku opisano konfigurowanie centrum IoT w witrynie Azure Portal, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Tożsamość urządzenia została użyta, aby włączyć w aplikacji symulowanego urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum. 
+W tym samouczku opisano konfigurowanie centrum IoT Hub w witrynie Azure Portal, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum IoT Hub. Tożsamość urządzenia została użyta, aby włączyć w aplikacji symulowanego urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum IoT Hub. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum IoT Hub. 
 
 Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scenariuszami IoT, zobacz:
 
@@ -238,7 +238,7 @@ Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scena
 * [Wprowadzenie do zarządzania urządzeniami][lnk-device-management]
 * [Wprowadzenie do zestawu SDK bramy usługi IoT][lnk-gateway-SDK]
 
-W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetwarzanie komunikatów z urządzenia do chmury) przedstawiono, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty z urządzenia do chmury na dużą skalę.
+Aby dowiedzieć się, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty z urządzenia do chmury na dużą skalę, zobacz samouczek [Przetwarzanie komunikatów przesyłanych z urządzeń do chmury][lnk-process-d2c-tutorial].
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -264,12 +264,12 @@ W samouczku [Process device-to-cloud messages][lnk-process-d2c-tutorial] (Przetw
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
-[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
+ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
+ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-using-the-azure-portal"></a>Konfigurowanie połączenia między sieciami wirtualnymi przy użyciu witryny Azure Portal
+# <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Konfigurowanie połączenia między sieciami wirtualnymi przy użyciu witryny Azure Portal
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -35,17 +35,18 @@ W przypadku używania witryny Azure Portal do łączenia sieci wirtualnych sieci
 
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Modele wdrażania i metody połączeń między sieciami wirtualnymi
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modele wdrażania i metody połączeń między sieciami wirtualnymi
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 W poniższej tabeli przedstawiono aktualnie dostępne modele wdrażania i metody konfiguracji między sieciami wirtualnymi. Jeśli dostępny jest artykuł zawierający kroki konfiguracji, można do niego przejść bezpośrednio z tabeli.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Komunikacja równorzędna sieci wirtualnych
+**Komunikacja równorzędna sieci wirtualnych**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>Informacje o połączeniach między sieciami wirtualnymi
+## <a name="about-vnet-to-vnet-connections"></a>Informacje o połączeniach między sieciami wirtualnymi
 Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN na platformie Azure, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Sieci wirtualne, które mają zostać połączone, mogą być zlokalizowane w różnych regionach lub należeć do różnych subskrypcji.
 
 Można także łączyć połączenia między sieciami wirtualnymi z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi, jak pokazano na poniższym diagramie.
@@ -122,6 +123,7 @@ Jeśli masz już sieć wirtualną, sprawdź, czy ustawienia są zgodne z projekt
 
 ## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Dodawanie dodatkowej przestrzeni adresowej i tworzenie podsieci
 Po utworzeniu sieci wirtualnej można dodać do niej dodatkową przestrzeń adresową oraz utworzyć podsieci.
+
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Tworzenie podsieci bramy
@@ -187,17 +189,16 @@ Możesz kliknąć dwukrotnie każde połączenie, aby wyświetlić więcej infor
 
 ![Podstawy](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnettovnet-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 Ta sekcja zawiera odpowiedzi na często zadawane pytań dotyczące połączeń między sieciami wirtualnymi.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Zobacz [dokumentację dotyczącą maszyn wirtualnych](https://docs.microsoft.com/azure/#pivot=services&panel=Compute), aby uzyskać więcej informacji.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

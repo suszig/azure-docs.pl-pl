@@ -3,8 +3,8 @@ title: "Tworzenie modułu równoważenia obciążenia mającego połączenie z I
 description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w usłudze Resource Manager za pomocą interfejsu wiersza polecenia Azure"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
@@ -14,15 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
+ms.sourcegitcommit: f3e06e802e8a5b98afc96747dee0db4173da40f0
+ms.openlocfilehash: 9129a1941b138e6f3e9b2d0359015a20fd819565
 
 ---
-# <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia Azure
+# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Tworzenie internetowego modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia platformy Azure
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Szablon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -59,7 +63,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Azure Resource Manager support
 
         info:    New mode is arm
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>Tworzenie sieci wirtualnej oraz publicznego adresu IP dla puli adresów IP frontonu
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Tworzenie sieci wirtualnej oraz publicznego adresu IP dla puli adresów IP frontonu
 
 1. Utwórz sieć wirtualną (VNet) o nazwie *NRPVnet* w lokalizacji Wschodnie stany USA za pomocą grupy zasobów o nazwie *NRPRG*.
 
@@ -91,7 +95,7 @@ Następujące polecenie spowoduje utworzenie modułu równoważenia obciążenia
     azure network lb create NRPRG NRPlb eastus
     ```
 
-## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>Tworzenie puli adresów IP frontonu i puli adresów zaplecza
+## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Tworzenie puli adresów IP frontonu i puli adresów zaplecza
 W tym przykładzie opisano sposób utworzenia puli adresów IP frontonu, która odbiera ruch sieciowy przychodzący do modułu równoważenia obciążenia, oraz puli adresów zaplecza, do której pula adresów IP frontonu przesyła ruch sieciowy o zrównoważonym obciążeniu.
 
 1. Utwórz pulę adresów IP frontonu skojarzoną z publicznym adresem IP utworzonym w poprzednim kroku oraz moduł równoważenia obciążenia.
@@ -307,6 +311,6 @@ azure network lb delete --resource-group nrprg --name nrplb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

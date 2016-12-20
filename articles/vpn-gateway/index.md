@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: dca0fb0b2de4943b9a031d2759756654a0c7280f
-ms.openlocfilehash: 6a72b28f95338ebe04e764d7f83e8db3e3e91b78
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 844a2bb0bc702cf8e81684267677db8a8803208f
 
 ---
-#<a name="vpn-gateway-documentation"></a>Dokumentacja bramy sieci VPN
+#<a name="vpn-gateway-documentation"></a>Dokumentacja usługi VPN Gateway
 
 Usługa Azure VPN Gateway jest bramą wirtualnej sieci prywatnej (VPN, virtual private network) i służy do przesyłania ruchu sieciowego między sieciami wirtualnymi platformy Azure i lokalizacjami lokalnymi, a także między sieciami wirtualnymi na platformie Azure (połączenia między sieciami wirtualnymi).  
 
@@ -188,7 +188,7 @@ Usługa Azure VPN Gateway jest bramą wirtualnej sieci prywatnej (VPN, virtual p
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Dokumentacja interfejsu API REST usługi VPN Gateway</p>
+                        <p>Interfejs API REST usługi VPN Gateway</p>
                     </div>
                 </div>
             </div>
@@ -207,6 +207,6 @@ Pobierz dokumentację usługi Azure VPN Gateway </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

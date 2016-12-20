@@ -22,11 +22,11 @@
 
    Domyślna spójność konta usługi DocumentDB jest ustawiona na wartość **Sesja**.  Można ją dostosować, klikając pozycję **Domyślna spójność** w menu zasobów. Aby dowiedzieć się więcej na temat poziomów spójności oferowanych przez usługę DocumentDB, zobacz temat [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md) (Poziomy spójności w usłudze DocumentDB).
 
-[Porady: tworzenie konta usługi DocumentDB]: #Howto
-[Następne kroki]: #NextSteps
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

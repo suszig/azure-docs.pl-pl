@@ -1,6 +1,6 @@
 # Omówienie
-## [Co to jest analiza strumienia?](stream-analytics-introduction.md)
-## [Porównanie usługi Storm i analizy strumienia](stream-analytics-comparison-storm.md)
+## [Co to jest usługa Stream Analytics?](stream-analytics-introduction.md)
+## [Porównanie usługi Storm i Stream Analytics](stream-analytics-comparison-storm.md)
 
 # Rozpoczęcie pracy
 ## [Przetwarzanie danych strumienia IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -40,13 +40,14 @@
 ### [Dostęp do programu PowerShell jednym kliknięciem](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
 ## [Język zapytań](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST](/rest/api/streamanalytics/)
-## [Informacje o wersji](stream-analytics-release-notes.md)
+## [REST](/rest/api/streamanalytics)
+
 
 # Zasoby
+## [Informacje o wersji](stream-analytics-release-notes.md)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
@@ -57,6 +58,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

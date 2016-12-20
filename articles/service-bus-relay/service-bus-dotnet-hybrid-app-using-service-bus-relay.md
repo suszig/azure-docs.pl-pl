@@ -1,13 +1,13 @@
 ---
 title: Hybrydowa aplikacja lokalna/w chmurze (platforma .NET) | Microsoft Docs
-description: "Dowiedz się, jak utworzyć hybrydową aplikację lokalną/w chmurze platformy .NET przy użyciu przekaźnika usługi Azure Service Bus."
-services: service-bus
+description: "Dowiedz się, jak utworzyć hybrydową aplikację lokalną/w chmurze platformy .NET przy użyciu przekaźnika WCF platformy Azure."
+services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,35 +15,35 @@ ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+ms.sourcegitcommit: 29ede770e6e63a50ba398cfb0bc8035cacdea392
+ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 
 
 ---
-# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>Tworzenie hybrydowej aplikacji lokalnej/w chmurze platformy .NET przy użyciu usługi Azure Service Bus WCF Relay
+# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Tworzenie hybrydowej aplikacji lokalnej/w chmurze platformy .NET przy użyciu przekaźnika WCF platformy Azure
 ## <a name="introduction"></a>Wprowadzenie
 Ten artykuł opisuje sposób tworzenia hybrydowej aplikacji w chmurze przy użyciu platformy Microsoft Azure i programu Visual Studio. W tym samouczku założono, że nie masz wcześniejszego doświadczenia w używaniu platformy Azure. W mniej niż 30 minut utworzysz aplikację korzystającą z wielu zasobów platformy Azure i działającą w chmurze.
 
 Dowiesz się:
 
 * Jak utworzyć lub przystosować istniejącą usługę sieci Web do użytku przez rozwiązanie sieci Web.
-* Jak używać usługi Azure Service Bus WCF Relay do udostępniania danych między aplikacją platformy Azure a usługą sieci Web hostowaną w innym miejscu.
+* Jak za pomocą usługi Azure WCF Relay udostępniać dane między aplikacją platformy Azure a usługą sieci Web hostowaną w innym miejscu.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="how-the-service-bus-relay-helps-with-hybrid-solutions"></a>Jak przekaźnik usługi Service Bus pomaga w tworzeniu rozwiązań hybrydowych
+## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Jak usługa Azure Relay pomaga w tworzeniu rozwiązań hybrydowych
 Rozwiązania biznesowe zwykle składają się z kombinacji niestandardowego kodu napisanego w celu spełnienia nowych i unikatowych wymagań biznesowych oraz istniejących funkcjonalności dostarczonych przez już stosowane rozwiązania i systemy.
 
 Architekci rozwiązań zaczynają stosować usługi w chmurze w celu łatwiejszej obsługi wymagań skali i obniżenia kosztów operacyjnych. W ten sposób dowiadują się, że istniejące elementy zawartości usług, których chcieliby użyć jako bloków konstrukcyjnych dla swoich rozwiązań, znajdują się za firmową zaporą i są trudno dostępne dla rozwiązania w chmurze. Wiele wewnętrznych usług nie jest zbudowanych lub hostowanych w sposób umożliwiający ich łatwe uwidocznienie na krawędzi sieci firmowej.
 
-Przekaźnik usługi Service Bus został zaprojektowany w celu bezpiecznego zapewniania dostępu do istniejących usług sieci Web Windows Communication Foundation (WCF) rozwiązaniom, które znajdują się poza firmą, bez konieczności wprowadzania istotnych zmian w infrastrukturze sieci firmowej. Takie usługi przekaźnika usługi Service Bus wciąż są hostowane wewnątrz istniejącego środowiska, ale delegują one nasłuchiwanie sesji i żądań przychodzących do usługi Service Bus hostowanej w chmurze. Usługa Service Bus chroni także te usługi przed nieautoryzowanym dostępem przy użyciu uwierzytelniania za pomocą [sygnatury dostępu współdzielonego](../service-bus-messaging/service-bus-sas-overview.md) (SAS, Shared Access Signature).
+Usługa Azure Relay została zaprojektowana w celu bezpiecznego zapewniania dostępu do istniejących usług sieci Web Windows Communication Foundation (WCF) rozwiązaniom, które znajdują się poza firmą, bez konieczności wprowadzania istotnych zmian w infrastrukturze sieci firmowej. Takie usługi przekazywania wciąż są hostowane wewnątrz istniejącego środowiska, ale delegują one nasłuchiwanie sesji i żądań przychodzących do usługi przekazywania hostowanej w chmurze. Usługa Azure Relay chroni także te usługi przed nieautoryzowanym dostępem przy użyciu uwierzytelniania za pomocą [sygnatury dostępu współdzielonego](../service-bus-messaging/service-bus-sas-overview.md) (SAS, Shared Access Signature).
 
 ## <a name="solution-scenario"></a>Scenariusz rozwiązania
 W tym samouczku utworzysz witrynę sieci Web ASP.NET, która umożliwi wyświetlanie listy produktów na stronie spisu produktów.
 
 ![][0]
 
-W samouczku założono, że informacje o produktach znajdują się w istniejącym systemie lokalnym i używasz przekaźnika usługi Service Bus, aby uzyskać dostęp do tego systemu. Jest to symulowane przez usługę sieci Web, która działa w prostej aplikacji konsolowej i jest uzupełniana przez zestaw produktów w pamięci. Będziesz w stanie uruchomić tę aplikację konsolową na własnym komputerze i wdrożyć rolę sieci Web na platformie Azure. W ten sposób przekonasz się, że rola sieci Web działająca w centrum danych Azure rzeczywiście wywoła Twój komputer, mimo że prawie na pewno znajduje się on za przynajmniej jedną zaporą i warstwą translatora adresów sieciowych (NAT, network address translation).
+W samouczku założono, że informacje o produktach znajdują się w istniejącym systemie lokalnym i uzyskujesz dostęp do tego systemu za pomocą usługi Azure Relay. Jest to symulowane przez usługę sieci Web, która działa w prostej aplikacji konsolowej i jest uzupełniana przez zestaw produktów w pamięci. Będziesz w stanie uruchomić tę aplikację konsolową na własnym komputerze i wdrożyć rolę sieci Web na platformie Azure. W ten sposób przekonasz się, że rola sieci Web działająca w centrum danych Azure rzeczywiście wywoła Twój komputer, mimo że prawie na pewno znajduje się on za przynajmniej jedną zaporą i warstwą translatora adresów sieciowych (NAT, network address translation).
 
 Poniżej przedstawiono zrzut ekranu strony startowej ukończonej aplikacji sieci Web.
 
@@ -59,11 +59,11 @@ Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne na
 5. Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio. Jeśli nie masz zainstalowanego programu Visual Studio, zestaw SDK zainstaluje również bezpłatny program Visual Studio Express.
 
 ## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
-Aby rozpocząć korzystanie z funkcji usługi Service Bus na platformie Azure, musisz najpierw utworzyć przestrzeń nazw usługi. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
+Aby rozpocząć korzystanie z funkcji przekazywania na platformie Azure, należy najpierw utworzyć przestrzeń nazw usługi. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów platformy Azure w aplikacji.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-onpremises-server"></a>Tworzenie serwera lokalnego
+## <a name="create-an-on-premises-server"></a>Tworzenie serwera lokalnego
 Najpierw utworzysz lokalny (pozorny) system katalogu produktów. Będzie to dość proste. Możesz go traktować jako rzeczywisty lokalny system katalogu produktów z kompletną powierzchnią usług, którą próbujemy zintegrować.
 
 Ten projekt jest aplikacją konsolową programu Visual Studio i używa [pakietu NuGet usługi Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) w celu uwzględnienia bibliotek i ustawień konfiguracji usługi Service Bus.
@@ -434,10 +434,10 @@ Przed uruchomieniem aplikacji w chmurze musisz się upewnić, że aplikacja **Pr
     ![][38]
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące zasoby:  
+Aby dowiedzieć się więcej na temat usługi Azure Relay, zobacz następujące zasoby:  
 
-* [Azure Service Bus][sbwacom]  
-* [Jak używać kolejek usługi Service Bus][sbwacomqhowto]  
+* [Co to jest usługa Azure Relay?](relay-what-is-it.md)  
+* [Jak używać usługi Relay](service-bus-dotnet-how-to-use-relay.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
@@ -467,12 +467,8 @@ Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące 
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
 
 
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

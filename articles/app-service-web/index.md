@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 38ae37f4892fb32422ca8d7880a7b38674f29610
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: d6fc4fe4f47571cbb8114b3de5ed9bc9466123fe
 
 ---
 # <a name="azure-web-apps-documentation"></a>Dokumentacja usługi Web Apps
@@ -29,7 +29,7 @@ Azure App Service Web Apps to w pełni zarządzana platforma obliczeniowa zoptym
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/get-started/">
+        <a href="https://azure.microsoft.com/get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +47,7 @@ Azure App Service Web Apps to w pełni zarządzana platforma obliczeniowa zoptym
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=web-sites">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=web-sites">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -178,67 +178,46 @@ Azure App Service Web Apps to w pełni zarządzana platforma obliczeniowa zoptym
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/appservice/web">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
-                        <p>Dokumentacja interfejsu wiersza polecenia platformy Azure usługi Web Apps</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/cli/azure/appservice">Azure CLI 2.0 (wersja zapoznawcza)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Dokumentacja interfejsu API języka Java</p>
+                        <h3>Języki</h3>
+                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/java/api/">Java</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Zarządzana dokumentacja dotycząca platformy .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/rest/api/appservice">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Dokumentacja interfejsu API REST usługi Web Apps</p>
+                        <p><a href="/rest/api/appservice">Interfejs API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    </ul>
-    
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
@@ -250,6 +229,6 @@ Pobierz dokumentację usługi Web Apps </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

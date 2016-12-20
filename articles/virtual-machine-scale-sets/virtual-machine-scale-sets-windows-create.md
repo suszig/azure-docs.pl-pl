@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ Te kroki są stosowane w przypadku metody uzupełniania podczas tworzenia zestaw
 Wykonanie kroków opisanych w tym artykule powinno zająć około 30 minut.
 
 ## <a name="step-1-install-azure-powershell"></a>Krok 1. Instalowanie programu Azure PowerShell
-Zobacz [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
+Zobacz [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
 
 ## <a name="step-2-create-resources"></a>Krok 2: Tworzenie zasobów
 Utwórz zasoby wymagane dla nowego zestawu skalowania.
@@ -130,7 +130,7 @@ Masz wszystkie zasoby potrzebne do konfiguracji zestawu skalowania, więc utwór
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    Ten przykład przedstawia zestaw skalowania tworzony z trzema maszynami wirtualnymi. Zobacz [Omówienie zestawów skalowania maszyn wirtualnych](virtual-machine-scale-sets-overview.md), aby uzyskać więcej informacji o pojemności zestawów skalowania. Ten krok obejmuje również ustawienie rozmiaru (nazywanego SkuName, nazwą jednostki SKU) maszyn wirtualnych w zestawie. Aby znaleźć rozmiar spełniający wymagania, zobacz [Rozmiary maszyn wirtualnych](../virtual-machines/virtual-machines-windows-sizes.md).
+    Ten przykład przedstawia zestaw skalowania tworzony z trzema maszynami wirtualnymi. Zobacz [Omówienie zestawów skalowania maszyn wirtualnych](virtual-machine-scale-sets-overview.md), aby uzyskać więcej informacji o pojemności zestawów skalowania. Ten krok obejmuje również ustawienie rozmiaru (nazywanego SkuName, nazwą jednostki SKU) maszyn wirtualnych w zestawie. Aby znaleźć rozmiar spełniający wymagania, zobacz [Rozmiary maszyn wirtualnych](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Dodaj konfigurację interfejsu sieciowego do konfiguracji zestawu skalowania:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ Masz wszystkie zasoby potrzebne do konfiguracji zestawu skalowania, więc utwór
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    Aby znaleźć informacje o innych używanych obrazach, zobacz temat [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) (Nawigacja i wybieranie obrazów maszyn wirtualnych platformy Azure za pomocą programu Windows PowerShell i interfejsu wiersza polecenia platformy Azure).
+    Aby znaleźć informacje o innych używanych obrazach, zobacz temat [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Nawigacja i wybieranie obrazów maszyn wirtualnych platformy Azure za pomocą programu Windows PowerShell i interfejsu wiersza polecenia platformy Azure).
 3. Zastąp wartość **$vhdContainers** listą zawierającą ścieżki, w których są przechowywane wirtualne dyski twarde, na przykład „https://mystorage.blob.core.windows.net/vhds”, a następnie utwórz zmienną:
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
@@ -225,6 +225,6 @@ Użyj tych zasobów, aby eksplorować zestaw skalowania maszyn wirtualnych, któ
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

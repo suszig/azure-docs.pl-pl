@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 
 
 ---
@@ -51,7 +51,7 @@ Mechanizm CORS można skonfigurować w witrynie Azure Portal lub za pomocą narz
    Po kliknięciu pozycji **Zapisz** aplikacja interfejsu API będzie akceptować wywołania języka JavaScript pochodzące z określonych adresów URL.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Konfigurowanie mechanizmu CORS za pomocą narzędzi usługi Azure Resource Manager
-Mechanizm CORS dla aplikacji interfejsu API można również skonfigurować za pomocą [szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md) i narzędzi wiersza polecenia, takich jak [program Azure PowerShell](../powershell-install-configure.md) i [interfejs wiersza polecenia Azure](../xplat-cli-install.md). 
+Mechanizm CORS dla aplikacji interfejsu API można również skonfigurować za pomocą [szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md) i narzędzi wiersza polecenia, takich jak [program Azure PowerShell](/powershell/azureps-cmdlets-docs) i [interfejs wiersza polecenia Azure](../xplat-cli-install.md). 
 
 Aby zobaczyć przykładowy szablon usługi Azure Resource Manager, który umożliwia ustawienie właściwości CORS, otwórz [plik azuredeploy.json znajdujący się w repozytorium przykładowej aplikacji opisanej w tym samouczku ](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Znajdź sekcję szablonu, który wygląda następująco:
 
@@ -61,7 +61,7 @@ Aby zobaczyć przykładowy szablon usługi Azure Resource Manager, który umożl
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> Kolejne kroki samouczka ułatwiającego rozpoczęcie pracy z platformą .NET
+## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> Kolejne kroki samouczka ułatwiającego rozpoczęcie pracy z platformą .NET
 Jeśli korzystasz z serii szkoleń wprowadzających do Aplikacji interfejsu API dotyczących platform Node.js lub Java, to w tym momencie kończysz tę serię. Sekcja [Następne kroki](#next-steps) zawiera propozycje materiałów, które umożliwiają kontynuowanie poznawania usługi API Apps.
 
 W dalszej części tego artykułu, która stanowi kontynuację serii wprowadzającej do platformy .NET, założono, że udało Ci się ukończyć [pierwszy samouczek](app-service-api-dotnet-get-started.md).
@@ -252,6 +252,6 @@ W tym artykule pokazano, jak włączyć obsługę mechanizmu CORS usługi App Se
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

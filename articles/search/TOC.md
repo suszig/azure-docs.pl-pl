@@ -25,6 +25,8 @@
 ### [Limity usługi](search-limits-quotas-capacity.md)
 ### [Skalowalność usługi](search-capacity-planning.md)
 ### [Wzorce projektowe aplikacji wielodostępnych](search-modeling-multitenant-saas-applications.md)
+
+
 ## Programowanie
 ### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
 ### [Uaktualnianie interfejsu API REST](search-api-migration.md)
@@ -58,17 +60,17 @@
 ### [Wyszukiwanie wielojęzyczne](search-language-support.md)
 
 # Dokumentacja
-## [Wersje interfejsu API](search-api-versions.md)
-## [.NET — usługa](/dotnet/api/microsoft.azure.search)
+## [.NET](/dotnet/api/microsoft.azure.search)
 ## [.NET — zarządzanie](/dotnet/api/microsoft.azure.management.search)
-## [REST usługi](/rest/api/searchservice/)
-## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
-## [REST zarządzania](/rest/api/searchmanagement/)
-## [Składnia zapytań Lucene](https://msdn.microsoft.com/library/azure/mt589323)
-## [Prosta składnia zapytań](https://msdn.microsoft.com/library/azure/dn798920)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST](/rest/api/searchservice)
+## [REST (zarządzanie)](/rest/api/searchmanagement)
 
 # Zasoby
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=search)
+## Korzystanie z interfejsów API wyszukiwania
+##X [Wersje interfejsu API](search-api-versions.md)
+## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/search/)
 ## Witryny demonstracyjne
 ### [Aplikacja prezentująca listę zadań](http://aka.ms/azjobsdemo)
@@ -85,6 +87,6 @@
 ### [Repozytorium Github usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

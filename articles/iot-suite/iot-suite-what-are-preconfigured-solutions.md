@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
+ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
 
 
 ---
@@ -32,7 +32,7 @@ Każde wstępnie skonfigurowane rozwiązanie stanowi kompletną implementację, 
 Oprócz wdrażania i uruchamiania rozwiązań na platformie Azure można pobrać pełny kod źródłowy, a następnie dostosować i rozbudować dane rozwiązanie pod kątem własnych wymagań dotyczących urządzeń IoT.
 
 > [!NOTE]
-> Aby wdrożyć wstępnie skonfigurowane rozwiązanie, odwiedź witrynę [Pakietu IoT Azure firmy Microsoft][lnk-azureiotsuite]. Więcej informacji dotyczących wdrażania i uruchamiania przykładowego rozwiązania można znaleźć w artykule [Wprowadzenie do wstępnie skonfigurowanych rozwiązań IoT][lnk-getstarted-preconfigured].
+> Aby wdrożyć wstępnie skonfigurowane rozwiązanie, odwiedź witrynę [Pakiet IoT Azure firmy Microsoft][lnk-azureiotsuite]. Więcej informacji dotyczących wdrażania i uruchamiania przykładowego rozwiązania można znaleźć w artykule [Wprowadzenie do wstępnie skonfigurowanych rozwiązań IoT][lnk-getstarted-preconfigured].
 > 
 > 
 
@@ -40,8 +40,8 @@ W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje
 
 | Rozwiązanie | Wprowadzanie danych | Tożsamość urządzenia | Sterowanie i kontrola | Reguły i akcje | Analiza predykcyjna |
 | --- | --- | --- | --- | --- | --- |
-| [Monitorowanie zdalne][lnk-getstarted-preconfigured] |Tak |Tak |Tak |Tak |- |
-| [Konserwacja predykcyjna][lnk-predictive-maintenance] |Tak |Tak |Tak |Tak |Tak |
+| [Zdalne monitorowanie][lnk-getstarted-preconfigured] |Tak |Tak |Tak |Tak |- |
+| [Konserwacja zapobiegawcza][lnk-predictive-maintenance] |Tak |Tak |Tak |Tak |Tak |
 
 * *Wprowadzanie danych*: transfer danych do chmury na dużą skalę.
 * *Tożsamość urządzenia*: zarządzanie unikatowymi tożsamościami wszystkich połączonych urządzeń.
@@ -66,7 +66,7 @@ Gdy dane urządzenie pierwszy raz łączy się z usługą IoT Hub we wstępnie s
 * *Stop Telemetry*: nakazuje urządzeniu zaprzestanie wysyłania danych telemetrycznych.
 * *Change Set Point Temperature*: umożliwia sterowanie symulowanymi wartościami telemetrycznymi temperatury wysyłanymi przez urządzenie. Jest to przydatne w przypadku testowania logiki wewnętrznej.
 * *Diagnostic Telemetry*: umożliwia określenie, czy informacje o temperaturze zewnętrznej mają być wysyłane przez urządzenie w postaci danych telemetrycznych.
-* *Change Device State*: ustawia właściwość metadanych stanu urządzenia zgłaszanego przez urządzenie. Jest to przydatne w przypadku testowania logiki wewnętrznej.
+* *Change Device State*: określa właściwość metadanych stanu urządzenia zgłaszaną przez urządzenie. Jest to przydatne w przypadku testowania logiki wewnętrznej.
 
 Do rozwiązania można dodać kolejne symulowane urządzenia, które emitują te same dane telemetryczne i obsługują te same polecenia. 
 
@@ -80,7 +80,7 @@ Usługa IoT Hub udostępnia odebrane dane telemetryczne za pośrednictwem punktu
 ## <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 Filtrowanie strumienia danych telemetrycznych pochodzących z urządzeń we wstępnie skonfigurowanym rozwiązaniu odbywa się za pomocą trzech zadań usługi [Azure Stream Analytics][lnk-asa] (ASA).
 
-* *Zadanie dotyczące informacji o urządzeniach* — wysyła dane do centrum zdarzeń, które przekazuje specyficzne komunikaty dotyczące rejestracji urządzeń, wysyłane przy pierwszym połączeniu urządzenia lub w odpowiedzi na polecenie **Change device state**, do rejestru urządzeń rozwiązania (bazy danych DocumentDB). 
+* *Zadanie dotyczące informacji o urządzeniach* — wysyła dane do centrum zdarzeń, które przekazuje komunikaty dotyczące rejestracji urządzeń, wysyłane przy pierwszym połączeniu z urządzeniem lub w odpowiedzi na polecenie **Change device state**, do rejestru urządzeń rozwiązania (bazy danych DocumentDB). 
 * *Zadanie dotyczące telemetrii* — wysyła wszystkie nieprzetworzone dane telemetryczne do magazynu obiektów blob Azure w celu przechowania i oblicza zagregowane wartości danych telemetrycznych wyświetlane na pulpicie nawigacyjnym rozwiązania.
 * *Zadanie dotyczące reguł* — filtruje strumień danych telemetrycznych w poszukiwaniu danych przekraczających wartości progowe reguł i przesyła dane do centrum zdarzeń. W przypadku wykrycia przekroczenia zdarzenie jest wyświetlane jako nowy wiersz w tabeli historii alarmów w widoku pulpitu nawigacyjnego portalu rozwiązania i jest wywoływana akcja określona w ustawieniach widoków reguł i akcji w portalu rozwiązania.
 
@@ -114,7 +114,7 @@ W tym wstępnie skonfigurowanym rozwiązaniu portal rozwiązania stanowi częś�
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat architektury rozwiązań IoT, zobacz dokument [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Usługi Microsoft Azure IoT: architektura referencyjna).
 
-Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możesz rozpocząć wdrażanie wstępnie skonfigurowanego rozwiązania *monitorowania zdalnego* : [Wprowadzenie do wstępnie skonfigurowanych rozwiązań][lnk-getstarted-preconfigured].
+Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możesz rozpocząć wdrażanie wstępnie skonfigurowanego rozwiązania *monitorowania zdalnego*: [Wprowadzenie do wstępnie skonfigurowanych rozwiązań][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -130,6 +130,6 @@ Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możes
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

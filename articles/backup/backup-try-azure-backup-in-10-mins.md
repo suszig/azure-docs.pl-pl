@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -78,7 +78,7 @@ Podczas tworzenia magazynu Usług odzyskiwania określany jest sposób replikowa
 
 Po utworzeniu magazynu należy przygotować infrastrukturę do utworzenia kopii zapasowej plików i folderów, pobierając poświadczenia magazynu i agenta Usług odzyskiwania Microsoft Azure.
 
-## <a name="step-3-download-files"></a>Krok 3. Pobieranie plików
+## <a name="step-3---download-files"></a>Krok 3. Pobieranie plików
 1. Kliknij pozycję **Ustawienia** na pulpicie nawigacyjnym magazynu Usług odzyskiwania.
    
     ![Otwieranie bloku celu kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -102,7 +102,7 @@ Po utworzeniu magazynu należy przygotować infrastrukturę do utworzenia kopii 
    
     ![Przygotowywanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>Krok 4. Instalowanie i rejestrowanie agenta
+## <a name="step-4--install-and-register-the-agent"></a>Krok 4. Instalowanie i rejestrowanie agenta
 > [!NOTE]
 > Możliwość włączenia tworzenia kopii zapasowej za pośrednictwem Portalu Azure będzie dostępna wkrótce. Obecnie do tworzenia kopii zapasowej plików i folderów używany jest lokalny agent Usług odzyskiwania Microsoft Azure.
 > 
@@ -184,6 +184,6 @@ Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opini
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -46,7 +46,11 @@ Wykonując poszczególne kroki tego samouczka, utworzysz prostą aplikację do g
 ## <a name="database-tutorial-prerequisites"></a>Wymagania wstępne dotyczące samouczka
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące elementy:
 
-* Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+ 
+    LUB 
+
+    Lokalna instalacja [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * Program [Visual Studio 2013](http://www.visualstudio.com/) lub nowszy albo [Visual Studio Express](), który jest bezpłatną wersją. Instrukcje w tym samouczku zostały napisane specjalnie dla programu Visual Studio 2015. 
 * Narzędzia Python Tools for Visual Studio pobrane z witryny [GitHub](http://microsoft.github.io/PTVS/). W tym samouczku są używane narzędzia Python Tools for VS 2015. 
 * Zestaw SDK Python platformy Azure dla programu Visual Studio w wersji 2.4 lub wyższej, dostępny w witrynie [azure.com](https://azure.microsoft.com/downloads/). My używamy zestawu SDK platformy Microsoft Azure dla języka Python w wersji 2.7.
@@ -62,7 +66,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 * Kompilator Microsoft Visual C++ dla języka Python 2.7 z [Centrum pobierania Microsoft][3].
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
-Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto, możesz od razu przejść do następnego etapu [Krok 2. Tworzenie nowej aplikacji sieci Web platformy Python Flask](#step-2:-create-a-new-python-flask-web-application).
+Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi DocumentDB na potrzeby tego samouczka, możesz od razu przejść do następnego etapu [Krok 2. Tworzenie nowej aplikacji sieci Web platformy Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -404,11 +408,11 @@ Dodatkowe samouczki dotyczące platformy Python Flask znajdziesz na stronie [The
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Instalator platformy Microsoft Web]: http://www.microsoft.com/web/downloads/platform.aspx
-[Witryna Azure Portal]: http://portal.azure.com
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

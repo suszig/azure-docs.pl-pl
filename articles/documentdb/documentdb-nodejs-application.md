@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 82da4d7324db83d71b21741f51ebe4e364c5a8f7
-ms.openlocfilehash: bde5635ddb43271920e6258c5df46d6ae6b41985
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 
 ---
@@ -546,6 +546,6 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

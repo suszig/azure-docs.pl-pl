@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 
 
 ---
@@ -38,17 +38,17 @@ Usługa Microsoft Azure Redis Cache jest dostępna w następujących warstwach:
 * **Standardowa** — dwa węzły (węzeł podstawowy i węzeł repliki). Wiele rozmiarów do 53 GB. Umowa SLA na poziomie 99,9%.
 * **Premium** — dwa węzły (węzeł podstawowy i węzeł repliki) zawierające do 10 fragmentów. Różne rozmiary od 6 GB do 530 GB (skontaktuj się z nami, aby uzyskać więcej informacji). Wszystkie funkcje warstwy Standardowej i dodatkowe funkcje, m.in. obsługa [klastra Redis](cache-how-to-premium-clustering.md), [stanu trwałego pamięci podręcznej Redis](cache-how-to-premium-persistence.md) oraz usługi [Azure Virtual Network](cache-how-to-premium-vnet.md). Umowa SLA na poziomie 99,9%.
 
-Poszczególne warstwy różnią się od siebie pod względem funkcji i cen. Informacje dotyczące cen można znaleźć w artykule [Redis Cache — cennik][Redis Cache — cennik].
+Poszczególne warstwy różnią się od siebie pod względem funkcji i cen. Informacje dotyczące cen można znaleźć w artykule [Pamięć podręczna Redis — cennik][Cache Pricing Details].
 
-W tym przewodniku przedstawiono, jak korzystać z klienta [StackExchange.Redis][StackExchange.Redis] przy użyciu kodu C\#. Opisane scenariusze obejmują **tworzenie i konfigurowanie pamięci podręcznej**, **konfigurowanie klientów pamięci podręcznej** oraz **dodawanie i usuwanie obiektów z pamięci podręcznej**. Więcej informacji na temat korzystania z usługi Azure Redis Cache znajduje się w sekcji [Następne kroki][Następne kroki]. Samouczek krok po kroku dotyczący tworzenia aplikacji sieci Web ASP.NET MVC z użyciem pamięci podręcznej Redis znajduje się w artykule [Tworzenie aplikacji sieci Web z użyciem pamięci podręcznej Redis](cache-web-app-howto.md).
+W tym przewodniku przedstawiono, jak korzystać z klienta [StackExchange.Redis][StackExchange.Redis] przy użyciu kodu C\#. Opisane scenariusze obejmują **tworzenie i konfigurowanie pamięci podręcznej**, **konfigurowanie klientów pamięci podręcznej** oraz **dodawanie i usuwanie obiektów z pamięci podręcznej**. Więcej informacji na temat korzystania z usługi Azure Redis Cache znajduje się w sekcji [Następne kroki][Next Steps]. Samouczek krok po kroku dotyczący tworzenia aplikacji sieci Web ASP.NET MVC z użyciem pamięci podręcznej Redis znajduje się w artykule [Tworzenie aplikacji sieci Web z użyciem pamięci podręcznej Redis](cache-web-app-howto.md).
 
 <a name="getting-started-cache-service"></a>
 
 ## <a name="get-started-with-azure-redis-cache"></a>Rozpoczęcie pracy z usługą Azure Redis Cache
 Rozpoczęcie pracy z usługą Azure Redis Cache jest proste. Aby rozpocząć, należy aprowizować i skonfigurować pamięć podręczną. Następnie należy skonfigurować klientów pamięci podręcznej, aby mogli uzyskać dostęp do pamięci podręcznej. Po skonfigurowaniu klientów pamięci podręcznej można rozpocząć pracę.
 
-* [Tworzenie pamięci podręcznej][Tworzenie pamięci podręcznej]
-* [Konfigurowanie klientów pamięci podręcznej][Konfigurowanie klientów pamięci podręcznej]
+* [Tworzenie pamięci podręcznej][Create the cache]
+* [Konfigurowanie klientów pamięci podręcznej][Configure the cache clients]
 
 <a name="create-cache"></a>
 
@@ -72,8 +72,8 @@ Po skonfigurowaniu projektu klienta do buforowania będzie można pracować z pa
 ## <a name="working-with-caches"></a>Praca z pamięciami podręcznymi
 W tej sekcji opisano sposób wykonywania typowych zadań z pamięcią podręczną.
 
-* [Łączenie z pamięcią podręczną][Łączenie z pamięcią podręczną]
-* [Dodawanie i pobieranie obiektów z pamięci podręcznej][Dodawanie i pobieranie obiektów z pamięci podręcznej]
+* [Łączenie z pamięcią podręczną][Connect to the cache]
+* [Dodawanie i pobieranie obiektów z pamięci podręcznej][Add and retrieve objects from the cache]
 * [Praca z obiektami platformy .NET w pamięci podręcznej](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
@@ -121,7 +121,7 @@ Jednym z rozwiązań w zakresie udostępniania wystąpienia klasy `ConnectionMul
         }
     }
 
-Więcej informacji na temat opcji zaawansowanej konfiguracji połączenia znajduje się w opisie [modelu konfiguracji StackExchange.Redis][modelu konfiguracji StackExchange.Redis].
+Więcej informacji na temat opcji zaawansowanej konfiguracji połączenia znajduje się w opisie [modelu konfiguracji StackExchange.Redis][StackExchange.Redis configuration model].
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -202,30 +202,30 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
   * [Dostawca stanu sesji usługi Azure Redis](cache-aspnet-session-state-provider.md)
   * [Dostawca wyjściowej pamięci podręcznej programu ASP.NET w usłudze Azure Redis Cache](cache-aspnet-output-cache-provider.md)
 * [Włącz diagnostykę pamięci podręcznej](cache-how-to-monitor.md#enable-cache-diagnostics), aby móc [monitorować](cache-how-to-monitor.md) jej kondycję. Możesz wyświetlać metryki w witrynie Azure Portal oraz [pobierać i przeglądać](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) je przy użyciu wybranych przez siebie narzędzi.
-* Zapoznaj się z [dokumentacją dotyczącą klienta pamięci podręcznej StackExchange.Redis][dokumentacją dotyczącą klienta pamięci podręcznej StackExchange.Redis].
+* Zapoznaj się z [dokumentacją dotyczącą klienta pamięci podręcznej StackExchange.Redis][StackExchange.Redis cache client documentation].
   * Dostęp do usługi Azure Redis Cache można uzyskać z wielu klientów Redis i przy użyciu wielu języków programowania. Więcej informacji znajduje się na stronie [http://redis.io/clients][http://redis.io/clients].
 * Usługi Azure Redis Cache można również używać z usługami i narzędziami innych firm, takimi jak Redsmin i Redis Desktop Manager.
   * Więcej informacji na temat usługi Redsmin znajduje się w artykule [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Jak pobrać parametry połączenia usługi Azure Redis Cache i używać ich w usłudze Redsmin).
   * Dostęp do danych w usłudze Azure Redis Cache oraz możliwość ich inspekcji można uzyskać za pomocą graficznego interfejsu użytkownika, używając usługi [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
-* Zapoznaj się z dokumentacją dotyczącą usługi [redis][redis], przeczytaj o [typach danych usługi redis][typach danych usługi redis] oraz poznaj [piętnastominutowe wprowadzenie do typów danych usługi Redis][piętnastominutowe wprowadzenie do typów danych usługi Redis].
+* Zapoznaj się z dokumentacją dotyczącą usługi [Redis][redis], przeczytaj o [typach danych usługi Redis][redis data types] oraz poznaj [piętnastominutowe wprowadzenie do typów danych usługi Redis][a fifteen minute introduction to Redis data types].
 
 <!-- INTRA-TOPIC LINKS -->
-[Następne kroki]: #next-steps
-[Wprowadzenie do usługi Azure Redis Cache (film wideo)]: #video
-[Co to jest usługa Azure Redis Cache?]: #what-is
-[Tworzenie pamięci podręcznej Azure]: #create-cache
-[Który rodzaj buforowania jest odpowiedni dla mnie?]: #choosing-cache
-[Przygotowanie projektu programu Visual Studio do używania buforowania Azure]: #prepare-vs
-[Konfigurowanie aplikacji do użycia buforowania]: #configure-app
-[Rozpoczęcie pracy z usługą Azure Redis Cache]: #getting-started-cache-service
-[Tworzenie pamięci podręcznej]: #create-cache
-[Konfigurowanie pamięci podręcznej]: #enable-caching
-[Konfigurowanie klientów pamięci podręcznej]: #NuGet
-[Praca z pamięciami podręcznymi]: #working-with-caches
-[Łączenie z pamięcią podręczną]: #connect-to-cache
-[Dodawanie i pobieranie obiektów z pamięci podręcznej]: #add-object
-[Określania daty wygaśnięcia obiektu w pamięci podręcznej]: #specify-expiration
-[Przechowywanie stanu sesji programu ASP.NET w pamięci podręcznej]: #store-session
+[Next Steps]: #next-steps
+[Introduction to Azure Redis Cache (Video)]: #video
+[What is Azure Redis Cache?]: #what-is
+[Create an Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Get Started with Azure Redis Cache]: #getting-started-cache-service
+[Create the cache]: #create-cache
+[Configure the cache]: #enable-caching
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[Connect to the cache]: #connect-to-cache
+[Add and retrieve objects from the cache]: #add-object
+[Specify the expiration of an object in the cache]: #specify-expiration
+[Store ASP.NET session state in the cache]: #store-session
 
 
 <!-- IMAGES -->
@@ -237,13 +237,13 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 
 [CacheProperties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
 
-[Zarządzanie kluczami]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
+[ManageKeys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
 
 [SessionStateNuGet]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
 
 [BrowseCaches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
 
-[Pamięci podręczne]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png
+[Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png
 
 
 
@@ -253,45 +253,45 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[Programowanie w innych językach dla usługi Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Dostawca stanu sesji usługi Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=398249
-[Porady: konfigurowanie programowe klienta pamięci podręcznej]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Dostawca stanu sesji dla pamięci podręcznej Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Pamięć podręczna Azure AppFabric: stan sesji buforowania]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Dostawca wyjściowej pamięci podręcznej dla pamięci podręcznej Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[Blog zespołu]: http://blogs.msdn.com/b/windowsazure/
-[Buforowanie Azure]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[Jak skonfigurować rozmiary maszyn wirtualnych]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Kwestie dotyczące planowania pojemności pamięci podręcznej Azure]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Buforowanie Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Porady: deklaratywne ustawianie buforowania strony programu ASP.NET]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[Porady: programowe ustawianie buforowania strony]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Konfigurowanie pamięci podręcznej w usłudze Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
+[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
-[modelu konfiguracji StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[Praca z obiektami platformy .NET w pamięci podręcznej]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
-[Instalacja Menedżera pakietów NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Redis Cache — cennik]: http://www.windowsazure.com/pricing/details/cache/
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
 [Azure Portal]: https://portal.azure.com/
 
-[Omówienie usługi Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
-[Migracja do usługi Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Przykłady użycia usługi Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Używanie grup zasobów do zarządzania zasobami platformy Azure]: ../azure-resource-manager/resource-group-overview.md
+[Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
+[Using Resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
-[dokumentacją dotyczącą klienta pamięci podręcznej StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
+[StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
-[typach danych usługi redis]: http://redis.io/topics/data-types
-[piętnastominutowe wprowadzenie do typów danych usługi Redis]: http://redis.io/topics/data-types-intro
+[Redis data types]: http://redis.io/topics/data-types
+[a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
@@ -299,6 +299,6 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

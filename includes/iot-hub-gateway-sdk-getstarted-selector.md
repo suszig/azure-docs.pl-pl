@@ -4,7 +4,7 @@
 > 
 > 
 
-Ten artykuł zawiera szczegółowy przewodnik dotyczący [przykładowego kodu Witaj, świecie][lnk-helloworld-sample] w celu zilustrowania podstawowych składników architektury [zestawu SDK usługi Azure Gateway][lnk-gateway-sdk]. W przykładzie użyto zestawu SDK usługi IoT Hub Gateway do utworzenia prostej bramy, która co pięć sekund rejestruje w pliku komunikat „witaj, świecie”.
+Ten artykuł zawiera szczegółowy przewodnik dotyczący [przykładowego kodu Witaj, świecie][lnk-helloworld-sample] w celu zilustrowania podstawowych składników architektury [zestawu SDK usługi Azure Gateway][lnk-gateway-sdk]. W przykładzie użyto zestawu SDK usługi Azure IoT Gateway do utworzenia prostej bramy, która co pięć sekund rejestruje w pliku komunikat „witaj, świecie”.
 
 Przewodnik składa się z następujących elementów:
 
@@ -72,6 +72,6 @@ Powyższy rysunek przedstawia architekturę przykładu Witaj, świecie i ścież
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

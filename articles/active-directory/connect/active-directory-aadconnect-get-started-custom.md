@@ -4,20 +4,19 @@ description: "Ten dokument zawiera szczegółowe informacje dotyczące opcji nie
 services: active-directory
 keywords: "co to jest program Azure AD Connect, instalowanie usługi Active Directory, wymagane składniki usługi Azure AD"
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: femila
-editor: curtand
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 12/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53bc8d8f2093955afaf25007e10be230b3eb94db
+ms.sourcegitcommit: d0e596aed6ae784e4c48b3ddacbf946c4849614f
+ms.openlocfilehash: 397ed8977c35dc18e92239ae4b62bddba2ade8a7
 
 
 ---
@@ -43,16 +42,20 @@ Podczas instalowania usług synchronizacji sekcja konfiguracji opcjonalnej może
 | Użyj istniejącego konta usługi |Domyślnie program Azure AD Connect tworzy lokalne konto usługi, które będzie używane przez usługi synchronizacji. Hasło jest generowane automatycznie i nieznane osobie, która instaluje program Azure AD Connect. Jeśli używany jest zdalny serwer SQL lub serwer proxy, który wymaga uwierzytelnienia, potrzebne jest konto usługi w domenie i hasło. W takich przypadkach wprowadź konto usługi, które będzie używane. Upewnij się, że użytkownik wykonujący instalację jest administratorem systemu na serwerze SQL, aby można było utworzyć identyfikator logowania dla konta usługi. Zobacz temat [Konta i uprawnienia w programie Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Określ niestandardowe grupy synchronizacji |Domyślnie program Azure AD Connect tworzy cztery grupy lokalne na serwerze podczas instalowania usług synchronizacji. Są to: grupa administratorów, grupa operatorów, grupa przeglądania i grupa resetowanie hasła. Możesz tu określić własne grupy. Grupy muszą być lokalne na serwerze i nie mogą znajdować się w domenie. |
 
-### <a name="user-signin"></a>Logowanie użytkowników
+### <a name="user-sign-in"></a>Logowanie użytkowników
 Po zainstalowaniu wymaganych składników zostanie wyświetlony monit o wybranie metody logowania jednokrotnego dla użytkowników. Poniższa tabela zawiera krótki opis dostępnych opcji. Pełny opis metod logowania znajduje się w temacie [Logowanie użytkowników](../active-directory-aadconnect-user-signin.md).
 
-![Logowanie użytkownika](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+![Logowanie użytkownika](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
 
 | Opcja logowania jednokrotnego | Opis |
 | --- | --- |
 | Synchronizacja haseł |Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej. Hasła użytkowników są synchronizowane z usługą Azure AD jako skrót hasła, a uwierzytelnianie odbywa się w chmurze. Więcej informacji znajduje się w temacie [Synchronizacja haseł](../active-directory-aadconnectsync-implement-password-synchronization.md). |
+|Uwierzytelnianie przekazywane (wersja zapoznawcza)|Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej.  Hasło użytkowników jest przekazywane do lokalnego kontrolera usługi Active Directory w celu sprawdzenia poprawności. 
 | Federacja z usługami AD FS |Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej.  Użytkownicy są przekierowywani do wystąpienia lokalnych usług AD FS w celu zalogowania, a uwierzytelnianie odbywa się lokalnie. |
 | Nie konfiguruj |Żadna z funkcji nie jest zainstalowana ani skonfigurowana. Wybierz tę opcję, jeśli masz już serwer federacyjny innej firmy lub korzystasz z innego rozwiązania. |
+|Włącz logowanie jednokrotne|Ta opcja jest dostępna w przypadku synchronizacji haseł i uwierzytelniania przekazywanego. Udostępnia ona funkcję logowania jednokrotnego użytkownikom pulpitu w sieci firmowej.  Aby uzyskać więcej informacji, zobacz [Logowanie jednokrotne](../active-directory-aadconnect-sso.md). </br>W przypadku klientów usług AD FS ta opcja jest niedostępna, ponieważ usługi AD FS umożliwiają logowanie jednokrotne na tym samym poziomie.</br>(Jeśli w tym samym czasie nie jest używane uwierzytelnianie przekazywane).
+|Opcja logowania|Ta opcja jest dostępna w przypadku klientów korzystających z synchronizacji haseł i udostępnia funkcję logowania jednokrotnego użytkownikom pulpitu w sieci firmowej.  </br>Aby uzyskać więcej informacji, zobacz [Logowanie jednokrotne](../active-directory-aadconnect-sso.md). </br>W przypadku klientów usług AD FS ta opcja jest niedostępna, ponieważ usługi AD FS umożliwiają logowanie jednokrotne na tym samym poziomie.
+
 
 ### <a name="connect-to-azure-ad"></a>Łączenie z usługą Azure AD
 Na ekranie Łączenie z usługą Azure AD wprowadź konto administratora globalnego i hasło. W przypadku wybrania opcji **Federacja z usługami AD FS** na poprzedniej stronie nie loguj się na koncie w domenie, którą planujesz włączyć dla federacji. Zaleca się użycie konta w domyślnej domenie **onmicrosoft.com**, która jest dołączona do katalogu usługi Azure AD.
@@ -68,12 +71,13 @@ Na koncie administratora globalnego może być również włączona opcja [Privi
 Jeśli wystąpi błąd lub problemy z łącznością, zobacz [Rozwiązywanie problemów z łącznością](../active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## <a name="pages-under-the-section-sync"></a>Strony w sekcji Synchronizacja
+
 ### <a name="connect-your-directories"></a>Podłączanie katalogów
 Aby połączyć się z usługą domeny usługi Active Directory, program Azure AD Connect potrzebuje poświadczeń konta z wystarczającymi uprawnieniami. Możesz wprowadzić domenę w formacie NetBios lub FQDN, tj. FABRIKAM\syncuser lub fabrikam.com\syncuser. To konto może być kontem zwykłego użytkownika, ponieważ wymaga tylko domyślnych uprawnień odczytu. Jednak w zależności od scenariusza, mogą być potrzebne większe uprawnienia. Więcej informacji znajduje się w temacie [Konta i uprawnienia w programie Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![Podłączanie katalogu](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
-### <a name="azure-ad-signin-configuration"></a>Konfiguracja logowania się w usłudze Azure AD
+### <a name="azure-ad-sign-in-configuration"></a>Konfiguracja logowania się w usłudze Azure AD
 Ta strona umożliwia przeglądanie domen UPN obecnych w lokalnych usługach AD DS oraz tych, które zostały zweryfikowane w usłudze Azure AD. Umożliwia również skonfigurowanie atrybutu dla właściwości userPrincipalName.
 
 ![Niezweryfikowane domeny](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
@@ -81,10 +85,13 @@ Sprawdź wszystkie domeny z oznaczeniem **Nie dodano** lub **Nie zweryfikowano**
 
 **UserPrincipalName** — atrybut userPrincipalName jest używany podczas logowania się w usługach Azure AD i Office 365. Używane domeny, zwane również sufiksem głównej nazwy użytkownika, należy zweryfikować w usłudze Azure AD przed zsynchronizowaniem użytkowników. Firma Microsoft zaleca zachowanie domyślnego atrybutu userPrincipalName. Jeśli atrybut ten jest nierutowalny i nie można go zweryfikować, możliwe jest wybranie innego atrybutu. Można na przykład wybrać adres e-mail jako atrybut zawierający identyfikator logowania. Użycie atrybutu innego niż userPrincipalName jest określane jako **alternatywny identyfikator**. Wartość atrybutu alternatywnego identyfikatora musi być zgodna ze standardem RFC822. Alternatywny identyfikator może być używany w przypadku synchronizacji haseł i federacji.
 
+>[!NOTE]
+> Po włączeniu funkcji uwierzytelniania przekazywanego trzeba mieć co najmniej jedną zweryfikowaną domenę, aby można było kontynuować pracę w kreatorze.
+
 > [!WARNING]
 > Korzystanie z alternatywnego identyfikatora nie jest zgodne ze wszystkimi zadaniami usługi Office 365. Więcej informacji można znaleźć w temacie [Konfigurowanie alternatywnego identyfikatora logowania](https://technet.microsoft.com/library/dn659436.aspx).
-> 
-> 
+>
+>
 
 ### <a name="domain-and-ou-filtering"></a>Filtrowanie domen i jednostek organizacyjnych
 Domyślnie wszystkie domeny i jednostki organizacyjne są zsynchronizowane. Jeśli istnieją jakieś domeny lub jednostki organizacyjne, których nie chcesz synchronizować z usługą Azure AD, możesz usunąć zaznaczenie tych domen i jednostek organizacyjnych.  
@@ -101,13 +108,13 @@ Funkcja dopasowywania w lasach umożliwia określenie, jak użytkownicy z lasów
 
 | Ustawienie | Opis |
 | --- | --- |
-| [Obsługiwani użytkownicy są reprezentowani jednokrotnie we wszystkich lasach](../active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) |Wszyscy użytkownicy są utworzeni jako pojedyncze obiekty w usłudze Azure AD. Obiekty nie są łączone w magazynie metaverse. |
-| [Atrybut poczty](../active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) |Ta opcja łączy użytkowników i kontakty, jeśli atrybut poczty ma taką samą wartość w różnych lasach. Tej opcji należy użyć w przypadku, gdy kontakty zostały utworzone przy użyciu usługi GALSync. |
-| [Atrybuty ObjectSID i msExchangeMasterAccountSID/msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest) |Ta opcja łączy włączonego użytkownika w lesie konta z wyłączonym użytkownikiem w lesie zasobów. W programie Exchange ta konfiguracja jest określana jako połączona skrzynka pocztowa. Ta opcja może być również używana, jeśli używany jest tylko program Lync, a program Exchange nie jest obecny w lesie zasobów. |
+| [Obsługiwani użytkownicy są reprezentowani jednokrotnie we wszystkich lasach](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Wszyscy użytkownicy są utworzeni jako pojedyncze obiekty w usłudze Azure AD. Obiekty nie są łączone w magazynie metaverse. |
+| [Atrybut poczty](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Ta opcja łączy użytkowników i kontakty, jeśli atrybut poczty ma taką samą wartość w różnych lasach. Tej opcji należy użyć w przypadku, gdy kontakty zostały utworzone przy użyciu usługi GALSync. |
+| [Atrybuty ObjectSID i msExchangeMasterAccountSID/msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Ta opcja łączy włączonego użytkownika w lesie konta z wyłączonym użytkownikiem w lesie zasobów. W programie Exchange ta konfiguracja jest określana jako połączona skrzynka pocztowa. Ta opcja może być również używana, jeśli używany jest tylko program Lync, a program Exchange nie jest obecny w lesie zasobów. |
 | Atrybuty sAMAccountName i MailNickName |Ta opcja łączy atrybuty w przypadku, gdy oczekiwane jest znalezienie identyfikatora logowania dla użytkownika. |
 | Określony atrybut |Ta opcja umożliwia wybranie własnego atrybutu. **Ograniczenie:** należy pamiętać, aby wybrać atrybut, który znajduje się już w magazynie metaverse. W przypadku wybrania atrybutu niestandardowego (który nie znajduje się w magazynie metaverse) nie można ukończyć działania kreatora. |
 
-**Zakotwiczenie źródła** — atrybut sourceAnchor jest niezmienialny w okresie istnienia obiektu użytkownika. Jest kluczem podstawowym łączącym użytkownika lokalnego z użytkownikiem w usłudze Azure AD. Ze względu na to, że atrybutu nie można zmienić należy zaplanować użycie właściwego atrybutu. Dobrym wyborem jest atrybut objectGUID. Tego atrybutu nie można zmienić, chyba że konto użytkownika jest przenoszone między lasami/domenami. W środowisku wielu lasów, w którym konta są przenoszone między lasami, należy użyć innego atrybutu, np. atrybutu z identyfikatorem employeeID. Należy unikać atrybutów, które mogą ulec zmianie po zmianie stanu cywilnego lub zmianie zadań. Nie można używać atrybutów ze znakiem @-sign,, więc nie można używać adresu e-mail ani atrybutu userPrincipalName. W tym atrybucie uwzględniana jest również wielkość liter, więc w przypadku przenoszenia obiektu między lasami należy pamiętać o zachowaniu wielkich/małych liter. Atrybuty binarne są zakodowane przy użyciu standardu base64, ale inne typy atrybutów pozostają w stanie niezakodowanym. W scenariuszach federacji i niektórych interfejsach usługi Azure AD ten atrybut nosi również nazwę immutableID. Więcej informacji na temat zakotwiczenia źródła znajduje się w temacie, w którym opisano [zagadnienia dotyczące projektowania](../active-directory-aadconnect-design-concepts.md#sourceAnchor).
+**Zakotwiczenie źródła** — atrybut sourceAnchor jest niezmienialny w okresie istnienia obiektu użytkownika. Jest kluczem podstawowym łączącym użytkownika lokalnego z użytkownikiem w usłudze Azure AD. Ze względu na to, że atrybutu nie można zmienić należy zaplanować użycie właściwego atrybutu. Dobrym wyborem jest atrybut objectGUID. Tego atrybutu nie można zmienić, chyba że konto użytkownika jest przenoszone między lasami/domenami. W środowisku wielu lasów, w którym konta są przenoszone między lasami, należy użyć innego atrybutu, np. atrybutu z identyfikatorem employeeID. Należy unikać atrybutów, które mogą ulec zmianie po zmianie stanu cywilnego lub zmianie zadań. Nie można używać atrybutów ze znakiem @-sign,, więc nie można używać adresu e-mail ani atrybutu userPrincipalName. W tym atrybucie uwzględniana jest również wielkość liter, więc w przypadku przenoszenia obiektu między lasami należy pamiętać o zachowaniu wielkich/małych liter. Atrybuty binarne są zakodowane przy użyciu standardu base64, ale inne typy atrybutów pozostają w stanie niezakodowanym. W scenariuszach federacji i niektórych interfejsach usługi Azure AD ten atrybut nosi również nazwę immutableID. Więcej informacji na temat zakotwiczenia źródła znajduje się w temacie, w którym opisano [zagadnienia dotyczące projektowania](../active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtrowanie synchronizacji na podstawie grup
 Funkcja filtrowania grup umożliwia synchronizowanie tylko małego podzbioru obiektów do celów wdrożenia pilotażowego. Aby użyć tej funkcji, należy utworzyć w tym celu grupę w lokalnej usłudze Active Directory. Następnie należy dodać użytkowników i grupy, którzy mają zostać zsynchronizowani z usługą Azure AD jako bezpośrednie elementy członkowskie. Później można dodawać i usuwać użytkowników tej grupy, aby opracować listę obiektów, które powinny znajdować się w usłudze Azure AD. Wszystkie obiekty przeznaczone do synchronizacji powinny być bezpośrednimi elementami członkowskimi grupy. Wszyscy użytkownicy i wszystkie grupy, kontakty, komputery/urządzenia muszą być bezpośrednimi elementami członkowskimi. Członkostwo grup zagnieżdżonych nie jest rozpoznawane. W przypadku dodania grupy jako elementu członkowskiego dodawana jest tylko sama grupa, a nie jej elementy członkowskie.
@@ -116,8 +123,8 @@ Funkcja filtrowania grup umożliwia synchronizowanie tylko małego podzbioru obi
 
 > [!WARNING]
 > Ta funkcja służy tylko do obsługi wdrożenia pilotażowego. Nie należy jej używać w pełnej wersji środowiska produkcyjnego.
-> 
-> 
+>
+>
 
 W pełnej wersji środowiska produkcyjnego bardzo trudno będzie utrzymać jedną grupę ze wszystkimi obiektami do synchronizacji. Zamiast tego należy użyć jednej z metod opisanych w temacie [Konfigurowanie filtrowania](../active-directory-aadconnectsync-configure-filtering.md).
 
@@ -128,18 +135,51 @@ Na tym ekranie można wybrać funkcje opcjonalne dla określonych scenariuszy.
 
 > [!WARNING]
 > Jeśli narzędzie DirSync lub program Azure AD Sync są obecnie aktywne, nie należy aktywować żadnych funkcji zapisywania zwrotnego w programie Azure AD Connect.
-> 
-> 
+>
+>
 
 | Funkcje opcjonalne | Opis |
 | --- | --- |
 | Wdrożenie hybrydowe programu Exchange |Funkcja wdrożenia hybrydowego programu Exchange umożliwia jednoczesne istnienie skrzynek pocztowych programu Exchange lokalnie i w usłudze Office 365. Program Azure AD Connect synchronizuje określony zbiór [atrybutów](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) z usługi Azure AD z katalogiem lokalnym. |
 | Filtrowanie atrybutów i aplikacji usługi Azure AD |Przez włączenie filtrowania atrybutów i aplikacji usługi Azure AD można dostosować zestaw synchronizowanych atrybutów. Ta opcja dodaje do kreatora dwie dodatkowe strony konfiguracji. Więcej informacji znajduje się w temacie [Filtrowanie atrybutów i aplikacji usługi Azure AD](#azure-ad-app-and-attribute-filtering). |
-| Synchronizacja haseł |Te opcję można włączyć, jeśli jako metodę logowania wybrano federację. Synchronizacja haseł może być następnie użyta jako opcja tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja haseł](../active-directory-aadconnectsync-implement-password-synchronization.md). |
+| Synchronizacja haseł |Te opcję można włączyć, jeśli jako metodę logowania wybrano federację. Synchronizacja haseł może być następnie użyta jako opcja tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja haseł](../active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>W przypadku wybrania uwierzytelniania przekazywanego ta opcja jest domyślnie włączona, aby zapewnić obsługę starszych klientów i opcję tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja haseł](../active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Zapisywanie zwrotne haseł |Po włączeniu zapisywania zwrotnego haseł zmiany hasła, które pochodzą z usługi Azure AD, są ponownie zapisywane w katalogu lokalnym. Więcej informacji można znaleźć w temacie [Wprowadzenie do zarządzania hasłami](../active-directory-passwords-getting-started.md) |
 | Zapisywanie zwrotne grup |Jeśli używana jest funkcja **Grupy usługi Office 365**, grupy te mogą być reprezentowane w lokalnej usłudze Active Directory. Ta opcja jest dostępna tylko, jeśli w lokalnej usłudze Active Directory jest dostępny program Exchange. Więcej informacji znajduje się w temacie [Zapisywanie zwrotne grup](../active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Zapisywanie zwrotne urządzeń |Umożliwia zapisywanie zwrotne obiektów urządzeń w usłudze Azure AD do lokalnej usługi Active Directory dla scenariuszy dostępu warunkowego. Więcej informacji znajduje się w temacie [Włączanie zapisywania zwrotnego urządzeń w programie Azure AD Connect](../active-directory-aadconnect-feature-device-writeback.md). |
 | Synchronizacja atrybutów rozszerzeń katalogów |Po włączeniu synchronizacji atrybutów rozszerzeń katalogów określone atrybuty są synchronizowane z usługą Azure AD. Więcej informacji znajduje się w temacie [Rozszerzenia katalogów](../active-directory-aadconnectsync-feature-directory-extensions.md). |
+
+### <a name="enabling-single-sign-on-sso"></a>Włączanie logowania jednokrotnego
+Konfigurowanie logowania jednokrotnego na użytek synchronizacji haseł lub uwierzytelniania przekazywanego to prosty proces, który trzeba wykonać tylko raz dla każdego lasu synchronizowanego w usłudze Azure AD.  Konfiguracja obejmuje następujące dwa kroki:
+
+1.  Utworzenie konta komputera niezbędnego w lokalnej usłudze Active Directory.
+2.  Skonfigurowanie obsługi logowania jednokrotnego w strefie intranetowej na komputerach klienckich.
+
+#### <a name="creating-the-computer-account-in-active-directory"></a>Tworzenie konta komputera w usłudze Active Directory
+Dla każdego lasu dodanego za pomocą narzędzia AAD Connect trzeba podać poświadczenia administratora domeny, aby konto komputera mogło zostać utworzone w każdym lesie.  Poświadczenia są używane tylko w celu utworzenia konta i nie są przechowywane ani używane w kontekście innych operacji.  Wystarczy dodać poświadczenia na stronie Włącz logowanie jednokrotne kreatora AAD Connect, jak pokazano poniżej:
+
+![Włączanie logowania jednokrotnego](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>Jeśli w określonym lesie nie chcesz włączać logowania jednokrotnego, możesz pominąć ten las.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurowanie strefy intranetowej dla komputerów klienckich
+Aby klient logował się automatycznie w strefie intranetowej, upewnij się, że adresy URL są częścią strefy intranetowej.  Dzięki temu komputer stacjonarny przyłączony do domeny automatycznie wyśle bilet protokołu Kerberos po połączeniu z siecią firmową.
+Na komputerze, na którym są zainstalowane narzędzia do zarządzania zasadami grupy:
+
+1.  Otwórz narzędzia do zarządzania zasadami grupy.
+2.  Poddaj edycji zasady grupy, które zostaną zastosowane do wszystkich użytkowników.  Mogą to być na przykład domyślne zasady domeny.
+3.  Przejdź do folderu Bieżący użytkownik\Szablony administracyjne\Składniki systemu Windows\Internet Explorer\Internetowy panel sterowania\Strona zabezpieczeń i wybierz pozycję Lista przypisywanie witryn do stref (jak na poniższym obrazie).
+4.  Włącz zasady, a następnie wprowadź dwa poniższe elementy w oknie dialogowym.
+   
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net 
+        Data: 1
+
+5.  Zawartość okna powinna wyglądać mniej więcej tak: ![Strefy intranetowe](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  Dwa razy kliknij przycisk OK.
+
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Filtrowanie atrybutów i aplikacji usługi Azure AD
 W celu ograniczenia liczby atrybutów, które mają być synchronizowane z usługą Azure AD, należy najpierw wybrać usługi, które są używane. W przypadku wprowadzania na tej stronie zmian konfiguracji nową usługę należy wybrać jawnie przez ponowne uruchomienie kreatora instalacji.
@@ -152,8 +192,8 @@ W oparciu o usługi wybrane w poprzednim kroku na tej stronie wyświetlane są w
 
 > [!WARNING]
 > Usuwanie atrybutów może mieć wpływ na funkcjonalność. Aby poznać najlepsze rozwiązania i zalecenia, zobacz temat [Synchronizowane atrybuty](../active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
-> 
-> 
+>
+>
 
 ### <a name="directory-extension-attribute-sync"></a>Synchronizacja atrybutów rozszerzeń katalogów
 Można rozszerzyć schemat w usłudze Azure AD o atrybuty niestandardowe dodane przez organizację użytkownika lub inne atrybuty w usłudze Active Directory. Aby użyć tej funkcji, wybierz opcję **Synchronizacja atrybutów rozszerzeń katalogu** na stronie **Funkcje opcjonalne**. Na tej stronie można wybrać więcej atrybutów do synchronizacji.
@@ -169,8 +209,8 @@ Konfigurowanie usług AD FS przy użyciu programu Azure AD Connect jest proste �
 * Serwer Windows Server 2012 R2 dla serwera proxy aplikacji sieci Web z włączonym zarządzaniem zdalnym
 * Certyfikat SSL dla nazwy usługi federacyjnej, która ma być używana (na przykład sts.contoso.com)
 
-### <a name="ad-fs-configuration-prerequisites"></a>Wymagania wstępne konfiguracji usług AD FS
-Aby skonfigurować farmę usług AD FS przy użyciu programu Azure AD Connect, należy upewnić się, że na serwerach zdalnych jest włączona usługa WinRM. Ponadto należy zapoznać się z wymaganiami dotyczącymi portów wymienionymi w sekcji [Tabela 3 — program Azure AD Connect i serwery federacyjne/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
+### <a name="ad-fs-configuration-pre-requisites"></a>Wymagania wstępne konfiguracji usług AD FS
+Aby skonfigurować farmę usług AD FS przy użyciu programu Azure AD Connect, należy upewnić się, że na serwerach zdalnych jest włączona usługa WinRM. Ponadto należy zapoznać się z wymaganiami dotyczącymi portów wymienionymi w sekcji [Tabela 3 — program Azure AD Connect i serwery federacyjne/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Tworzenie nowej famy usług AD FS lub korzystanie z istniejącej farmy usług AD FS
 Można użyć istniejącej farmy usług AD FS lub zdecydować się na utworzenie nowej farmy usług AD FS. W przypadku tworzenia nowej wymagane jest podanie certyfikatu SSL. Jeśli certyfikat SSL jest chroniony hasłem, zostanie wyświetlony monit o podanie hasła.
@@ -184,8 +224,8 @@ Należy wprowadzić serwery, na których mają być zainstalowane usługi AD FS.
 
 > [!NOTE]
 > Przed wykonaniem tej konfiguracji należy upewnić się, że wszystkie serwery zostały dołączone do domeny AD.
-> 
-> 
+>
+>
 
 ![Serwery usług AD FS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -195,7 +235,8 @@ Należy wprowadzić serwery, które mają służyć jako serwery proxy aplikacji
 > [!NOTE]
 > <li> Jeśli używane konto nie jest lokalnym kontem administratora na serwerach usług AD FS, zostanie wyświetlony monit o podanie poświadczeń administratora.</li>
 > <li> Przed wykonaniem tego kroku upewnij się, że istnieje połączenie HTTP/HTTPS między serwerem programu Azure AD Connect a serwerem proxy aplikacji sieci Web.</li>
-> <li> Upewnij się, że istnieje połączenie HTTP/HTTPS między serwerem aplikacji sieci Web a serwerem usług AD FS, które umożliwi przepływ żądań uwierzytelniania.</li>> 
+> <li> Upewnij się, że istnieje połączenie HTTP/HTTPS między serwerem aplikacji sieci Web a serwerem usług AD FS, które umożliwi przepływ żądań uwierzytelniania.</li>
+>
 
 ![Aplikacja sieci Web](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -225,16 +266,16 @@ Po wybraniu domeny do sfederowania program Azure AD Connect dostarcza niezbędne
 
 > [!NOTE]
 > Program AD Connect podejmuje próbę weryfikacji domeny w fazie konfiguracji. W przypadku kontynuowania konfigurowania bez dodania niezbędnych rekordów DNS kreator nie będzie mógł ukończyć konfiguracji.
-> 
-> 
+>
+>
 
 ## <a name="configure-and-verify-pages"></a>Konfigurowanie i weryfikowanie stron
 Na tej stronie wykonywane jest konfigurowanie.
 
 > [!NOTE]
 > Przed kontynuowaniem instalacji po skonfigurowaniu federacji należy upewnić się, że skonfigurowano [rozpoznawanie nazw dla serwerów federacyjnych](../active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
-> 
-> 
+>
+>
 
 ![Wszystko gotowe do skonfigurowania](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -281,7 +322,6 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

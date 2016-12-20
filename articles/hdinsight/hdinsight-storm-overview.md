@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Wprowadzenie do systemu Apache Storm w usłudze HDInsight: analiza w czasie rzeczywistym dla usługi Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Wprowadzenie do systemu Apache Storm w usłudze HDInsight: analiza w czasie rzeczywistym dla usługi Hadoop
 System Apache Storm w usłudze HDInsight służy do tworzenia rozproszonych rozwiązań analitycznych działających w czasie rzeczywistym w środowisku platformy Azure przy użyciu oprogramowania [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>Co to jest Apache Storm?
@@ -47,13 +47,13 @@ Apache Storm w usłudze HDInsight to klaster zarządzany zintegrowany ze środow
 
 Listę firm używających systemu Apache Storm w rozwiązaniach analitycznych działających w czasie rzeczywistym podano w części [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) (Firmy używające systemu Apache Storm).
 
-Aby rozpocząć korzystanie z systemu Storm, zobacz [Get started with Storm on HDInsight][gettingstarted] (Rozpoczynanie pracy z systemem Storm w usłudze HDInsight).
+Aby rozpocząć korzystanie z systemu Storm, zobacz [Rozpoczynanie pracy z systemem Storm w usłudze HDInsight][gettingstarted].
 
 ### <a name="ease-of-provisioning"></a>Łatwość aprowizacji
 Nowy system Storm w usłudze HDInsight można udostępnić w ciągu kilku minut. Wystarczy podać nazwę klastra, jego wielkość, konto administratora i konto magazynu. Platforma Azure utworzy klaster z przykładowymi topologiami i przeglądarkowy pulpit nawigacyjny.
 
 > [!NOTE]
-> Klastry Storm można również udostępniać za pomocą [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) lub [Azure PowerShell](../powershell-install-configure.md).
+> Klastry Storm można również udostępniać za pomocą [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) lub [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +107,7 @@ Chociaż można określić liczbę węzłów w klastrze podczas tworzenia, przyd
 ### <a name="support"></a>Pomoc techniczna
 System Storm w usłudze HDInsight jest dostarczany z pełną całodobową pomocą techniczną 24/7 na poziomie korporacyjnym. System Storm w usłudze HDInsight gwarantuje również dostępność na poziomie 99,9% zgodnie z umową SLA. Oznacza to, że gwarantujemy, iż klaster będzie utrzymywać łączność zewnętrzną przez nie mniej niż 99,9% czasu.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Typowe przypadki użycia analityki w czasie rzeczywistym
+## <a name="common-use-cases-for-real-time-analytics"></a>Typowe przypadki użycia analityki w czasie rzeczywistym
 Poniżej przedstawiono kilka typowych scenariuszy, w których można skorzystać z systemu Apache Storm w usłudze HDInsight. Informacje o praktycznych scenariuszach podano na stronie [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) (Zastosowania systemu Storm w firmach).
 
 * Internet rzeczy (IoT)
@@ -206,6 +206,6 @@ Dowiedz się więcej na temat rozwiązań analitycznych w czasie rzeczywistym z 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

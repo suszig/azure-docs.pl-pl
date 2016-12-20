@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 12/06/2016
 ms.author: osamazia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d7516dd2fa2ddc23d381ade52c53115a8af7231
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
 
 
 ---
@@ -101,7 +101,7 @@ Firma Microsoft obsługuje do 4000 prefiksów anonsowanych nam za pośrednictwem
 
 Sesja protokołu BGP zostanie przerwana, jeśli liczba prefiksów przekroczy limit. Będziemy akceptować domyślne trasy tylko dla linku prywatnej komunikacji równorzędnej. Dostawca musi odfiltrować trasę domyślną i prywatne adresy IP (RFC 1918) ze ścieżek publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Routing tranzytowy i routing obejmujący wiele regionów
+## <a name="transit-routing-and-cross-region-routing"></a>Routing tranzytowy i routing obejmujący wiele regionów
 Usługi ExpressRoute nie można skonfigurować jako routera tranzytowego. W kwestii usług routingu tranzytowego trzeba polegać na dostawcy połączenia.
 
 ## <a name="advertising-default-routes"></a>Anonsowanie tras domyślnych
@@ -130,37 +130,39 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 
 Firma Microsoft będzie oznaczać prefiksy anonsowane za pośrednictwem publicznej komunikacji równorzędnej oraz komunikacji równorzędnej Microsoft odpowiednimi wartościami protokołu BGP społeczności wskazującymi region, w którym są hostowane prefiksy. Wartości społeczności gwarantują, że zostaną podjęte odpowiednie decyzje w kwestii routingu i klienci będą mieli zapewniony [optymalny routing](expressroute-optimize-routing.md).
 
-| **Region geopolityczny** | **Region platformy Microsoft Azure** | **Wartość społeczności BGP** |
-| --- | --- | --- |
-| **Ameryka Północna** | | |
-| Wschodnie stany USA |12076:51004 | |
-| Wschodnie stany USA 2 |12076:51005 | |
-| Zachodnie stany USA |12076:51006 | |
-| Zachodnie stany USA 2 |12076:51026 | |
-| Środkowo-zachodnie stany USA |12076:51027 | |
-| Środkowo-północne stany USA |12076:51007 | |
-| Środkowo-południowe stany USA |12076:51008 | |
-| Środkowe stany USA |12076:51009 | |
-| Kanada Środkowa |12076:51020 | |
-| Kanada Wschodnia |12076:51021 | |
-| **Ameryka Południowa** | | |
-| Brazylia Południowa |12076:51014 | |
-| **Europa** | | |
-| Europa Północna |12076:51003 | |
-| Europa Zachodnia |12076:51002 | |
-| **Azja i Pacyfik** | | |
-| Azja Wschodnia |12076:51010 | |
-| Azja Południowo-Wschodnia |12076:51011 | |
-| **Japonia** | | |
-| Japonia Wschodnia |12076:51012 | |
-| Japonia Zachodnia |12076:51013 | |
-| **Australia** | | |
-| Australia Wschodnia |12076:51015 | |
-| Australia Południowo-Wschodnia |12076:51016 | |
-| **Indie** | | |
-| Indie Południowe |12076:51019 | |
-| Indie Zachodnie |12076:51018 | |
-| Indie Środkowe |12076:51017 | |
+| **Region platformy Microsoft Azure** | **Wartość społeczności BGP** |
+| --- | --- |
+| **Ameryka Północna** | |
+| Wschodnie stany USA |12076:51004 |
+| Wschodnie stany USA 2 |12076:51005 |
+| Zachodnie stany USA |12076:51006 |
+| Zachodnie stany USA 2 |12076:51026 |
+| Środkowo-zachodnie stany USA |12076:51027 |
+| Środkowo-północne stany USA |12076:51007 |
+| Środkowo-południowe stany USA |12076:51008 |
+| Środkowe stany USA |12076:51009 |
+| Kanada Środkowa |12076:51020 |
+| Kanada Wschodnia |12076:51021 |
+| **Ameryka Południowa** | |
+| Brazylia Południowa |12076:51014 |
+| **Europa** | |
+| Europa Północna |12076:51003 |
+| Europa Zachodnia |12076:51002 |
+| Południowe Zjednoczone Królestwo | 12076:51024 |
+| Zachodnie Zjednoczone Królestwo | 12076:51025 |
+| **Azja i Pacyfik** | |
+| Azja Wschodnia |12076:51010 |
+| Azja Południowo-Wschodnia |12076:51011 |
+| **Japonia** | |
+| Japonia Wschodnia |12076:51012 |
+| Japonia Zachodnia |12076:51013 |
+| **Australia** | |
+| Australia Wschodnia |12076:51015 |
+| Australia Południowo-Wschodnia |12076:51016 |
+| **Indie** | |
+| Indie Południowe |12076:51019 |
+| Indie Zachodnie |12076:51018 |
+| Indie Środkowe |12076:51017 |
 
 Wszystkie trasy anonsowane przez firmę Microsoft zostaną oznaczone odpowiednią wartością społeczności. 
 
@@ -173,16 +175,32 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 
 | **Usługa** | **Wartość społeczności BGP** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype dla firm** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Inne usługi Office 365** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype dla firm Online |12076:5030 |
+| CRM Online |12076:5040 |
+| Inne usługi online Office 365 |12076:5100 |
 
 > [!NOTE]
 > Firma Microsoft nie uznaje żadnych wartości społeczności BGP ustawionych na trasach anonsowanych do firmy Microsoft.
 > 
 > 
+
+| **Region chmur krajowych platformy Azure**| **Wartość społeczności BGP** |
+| --- | --- |
+| **Administracja USA** |  |
+| Administracja USA — Iowa | 12076:51109 |
+| Administracja USA — Wirginia | 12076:51105 |
+
+
+| **Usługa w chmurach krajowych** | **Wartość społeczności BGP** |
+| --- | --- |
+| **Administracja USA** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype dla firm Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Inne usługi online Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Następne kroki
 * Skonfiguruj połączenie usługi ExpressRoute.
@@ -194,6 +212,6 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -52,6 +52,10 @@
 ### [Niepowodzenie tworzenia kopii zapasowej maszyny wirtualnej platformy Azure: Nie można nawiązać komunikacji z agentem maszyny wirtualnej w celu uzyskania stanu migawki — Upłynął limit czasu zadania podrzędnego migawki maszyny wirtualnej](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Powolne tworzenie kopii zapasowych plików i folderów w usłudze Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Dokumentacja
+## [Program PowerShell](/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.backupservices)
+
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/backup/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
@@ -59,6 +63,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f48aab02e0229c440848dc8e4a3d26d0d43d96aa
 
 
 ---
@@ -40,7 +40,7 @@ Portal Azure Marketplace udostępnia szeroką gamę popularnych aplikacji sieci 
 Witryna WordPress wdrażana w tym samouczku korzysta z bazy danych MySQL. Jeśli chcesz zamiast tego użyć usługi SQL Database, zobacz stronę rozwiązania [Project Nami](http://projectnami.org/). Rozwiązanie **Project Nami** jest również dostępne za pośrednictwem portalu Marketplace.
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) lub [utworzyć konto bezpłatnej wersji próbnej](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+> Do wykonania kroków tego samouczka potrzebne jest konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) lub [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751). W tej lokalizacji możesz od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
 > 
@@ -113,10 +113,10 @@ Aby uzyskać więcej informacji na temat sposobu pracy z aplikacjami Web Apps w 
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
-[przeglądaj]: ./media/web-sites-php-web-site-gallery/browse-web.png
+[browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

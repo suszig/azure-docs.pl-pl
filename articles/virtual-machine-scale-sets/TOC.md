@@ -2,15 +2,17 @@
 ## [Co to są zestawy skalowania maszyn wirtualnych?](virtual-machine-scale-sets-overview.md)
 
 # Wprowadzenie
-## [Tworzenie zestawu skalowania systemu Windows](virtual-machine-scale-sets-windows-create.md)
-## [Tworzenie zestawu skalowania systemu Linux](virtual-machine-scale-sets-linux-create-cli.md)
+## [Tworzenie zestawu skalowania w portalu](virtual-machine-scale-sets-portal-create.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
 ### [Zagadnienia dotyczące projektowania](virtual-machine-scale-sets-design-overview.md)
+
 ## Wdrożenie
 ### [Skalowanie zestawu przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)
 ### [Skalowanie zestawu przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Zestaw skalowania przy użyciu programu PowerShell](virtual-machine-scale-sets-windows-create.md)
+### [Zestaw skalowania przy użyciu interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Zestaw skalowania systemu Linux z funkcją automatycznego skalowania](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Zestaw skalowania systemu Windows z funkcją automatycznego skalowania](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplikacje w zestawach skalowania](virtual-machine-scale-sets-deploy-app.md)
@@ -38,6 +40,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

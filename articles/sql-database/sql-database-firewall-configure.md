@@ -1,143 +1,155 @@
 ---
-title: Configure a SQL server firewall overview | Microsoft Docs
-description: Learn how to configure a SQL database firewall with server-level and database-level firewall rules to manage access.
-keywords: database firewall
+title: "Omówienie reguł zapory usługi SQL Database | Microsoft Docs"
+description: "Informacje o sposobie konfigurowania zapory bazy danych SQL do zarządzania dostępem za pomocą reguł zapory na poziomie serwera i bazy danych."
+keywords: zapora bazy danych
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: BYHAM
 manager: jhubbard
 editor: cgronlun
-tags: ''
-
+tags: 
+ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/14/2016
-ms.author: rickbyh
+ms.date: 11/23/2016
+ms.author: rickbyh;carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: b5417e02f2c4e50c89afcfa007ccdd208775f374
+
 
 ---
-# Configure Azure SQL Database firewall rules \- overview
+# <a name="overview-of-azure-sql-database-firewall-rules"></a>Omówienie reguł zapory usługi Azure SQL Database 
 > [!div class="op_single_selector"]
-> * [Overview](sql-database-firewall-configure.md)
+> * [Omówienie](sql-database-firewall-configure.md)
 > * [Azure Portal](sql-database-configure-firewall-settings.md)
 > * [TSQL](sql-database-configure-firewall-settings-tsql.md)
 > * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST API](sql-database-configure-firewall-settings-rest.md)
+> * [Interfejs API REST](sql-database-configure-firewall-settings-rest.md)
 > 
 > 
 
-Microsoft Azure SQL Database provides a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request.
+Usługa Microsoft Azure SQL Database udostępnia usługę relacyjnej bazy danych dla platformy Azure i innych aplikacji internetowych. Aby chronić dane, zapora uniemożliwia wszelki dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora udziela dostępu do bazy danych na podstawie źródłowego adresu IP każdego żądania.
 
-To configure your firewall, you create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server and database levels.
+Aby skonfigurować zaporę, należy utworzyć reguły zapory określające zakresy dopuszczalnych adresów IP. Można utworzyć reguły zapory na poziomach serwera i bazy danych.
 
-* **Server-level firewall rules:** These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same logical server. These rules are stored in the **master** database. Server-level firewall rules can be configured by using the portal or by using Transact-SQL statements.
-* **Database-level firewall rules:** These rules enable clients to access individual databases within your Azure SQL Database server. You can create these rules for each database and they are stored in the individual databases. (You can create database-level firewall rules for the **master** database.) These rules can be helpful in restricting access to certain (secure) databases within the same logical server. Database-level firewall rules can only be configured by using Transact-SQL statements.
+* **Reguły zapory na poziomie serwera:** te reguły umożliwiają klientom dostęp do całego serwera Azure SQL, to znaczy do wszystkich baz danych na tym samym serwerze logicznym. Reguły te są przechowywane w **głównej** bazie danych. Reguły zapory na poziomie serwera można skonfigurować za pomocą portalu lub za pomocą instrukcji języka Transact-SQL.
+* **Reguły zapory na poziomie bazy danych:** reguły te umożliwiają klientom dostęp do poszczególnych baz danych w ramach serwera usługi Azure SQL Database. Te reguły można utworzyć dla każdej bazy danych i są one przechowywane w poszczególnych bazach danych. (Można utworzyć reguły zapory na poziomie bazy danych dla **głównej** bazy danych). Reguły te mogą być pomocne w ograniczaniu dostępu do niektórych (bezpiecznych) baz danych na tym samym serwerze logicznym. Reguły zapory na poziomie bazy danych można skonfigurować tylko za pomocą instrukcji języka Transact-SQL.
 
-**Recommendation:** Microsoft recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements and you don't want to spend time configuring each database individually.
+**Zalecenie:** firma Microsoft zaleca korzystanie z reguł zapory na poziomie bazy danych zawsze wtedy, gdy jest to możliwe, aby zwiększyć poziom bezpieczeństwa i uczynić bazę danych bardziej przenośną. Reguły zapory na poziomie serwera powinny być używane dla administratorów i w przypadku, gdy wiele baz danych ma takie same wymagania dotyczące dostępu, a użytkownik nie chce poświęcać czasu na oddzielne konfigurowanie każdej bazy danych.
 
-## Firewall overview
-Initially, all Transact-SQL access to your Azure SQL server is blocked by the firewall. To begin using your Azure SQL server, you must go to the Azure portal and specify one or more server-level firewall rules that enable access to your Azure SQL server. Use the firewall rules to specify which IP address ranges from the Internet are allowed, and whether Azure applications can attempt to connect to your Azure SQL server.
+> [!Note]
+> Aby uzyskać informacje o przenośnych bazach danych w kontekście ciągłości działalności biznesowej, zobacz [Wymagania dotyczące uwierzytelniania dla odzyskiwania po awarii](sql-database-geo-replication-security-config.md).
+>
 
-To selectively grant access to just one of the databases in your Azure SQL server, you must create a database-level rule for the required database. Specify an IP address range for the database firewall rule that is beyond the IP address range specified in the server-level firewall rule, and ensure that the IP address of the client falls in the range specified in the database-level rule.
+## <a name="firewall-overview"></a>Omówienie zapory
+Początkowo cały dostęp języka Transact-SQL do serwera Azure SQL jest blokowany przez zaporę. Aby rozpocząć korzystanie z serwera Azure SQL, należy przejść do witryny Azure Portal i określić reguły zapory na poziomie serwera, które umożliwią dostęp do serwera Azure SQL. Użyj reguł zapory do określenia zakresu dozwolonych adresów IP pochodzących z Internetu oraz możliwości podejmowania przez aplikacje platformy Azure prób połączenia się z serwerem Azure SQL.
 
-Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your Azure SQL server or SQL Database, as shown in the following diagram.
+Aby selektywnie udzielić dostępu do tylko jednej z baz danych na serwerze Azure SQL, należy utworzyć regułę na poziomie bazy danych dla wymaganej bazy danych. Określ zakres adresów IP dla reguły zapory bazy danych, który wykracza poza zakres adresów IP określony w regule zapory na poziomie serwera, i upewnij się, że adres IP klienta znajduje się w zakresie określonym w regule na poziomie bazy danych.
 
-   ![Diagram describing firewall configuration.][1]
+Próby połączenia z Internetu i platformy Azure muszą najpierw przejść przez zaporę, zanim dotrą do serwera Azure SQL lub usługi SQL Database, jak pokazano na poniższym diagramie:
 
-## Connecting from the Internet
-When a computer attempts to connect to your database server from the Internet, the firewall first checks the originating IP address of the request against the full set of firewall rules:
+   ![Diagram opisujący konfigurację zapory.][1]
 
-* If the IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted to your Azure SQL Database server.
-* If the IP address of the request is not within one of the ranges specified in the server-level firewall rule, the database-level firewall rules are checked. If the IP address of the request is within one of the ranges specified in the database-level firewall rules, the connection is granted only to the database that has a matching database-level rule.
-* If the IP address of the request is not within the ranges specified in any of the server-level or database-level firewall rules, the connection request fails.
+## <a name="connecting-from-the-internet"></a>Łączenie się z Internetu
+Gdy komputer próbuje połączyć się w Internecie z serwerem bazy danych, zapora najpierw sprawdza źródłowy adres IP żądania i porównuje go z pełnym zestawem reguł zapory:
+
+* Jeśli adres IP żądania należy do jednego z zakresów określonych w regułach zapory na poziomie serwera, zostanie ustanowione połączenie z serwerem usługi Azure SQL Database.
+* Jeśli adres IP żądania nie należy do jednego z zakresów określonych w regułach zapory na poziomie serwera, sprawdzane są reguły zapory na poziomie bazy danych. Jeśli adres IP żądania należy do jednego z zakresów określonych w regułach zapory na poziomie bazy danych, zostanie ustanowione połączenie tylko z bazą danych, która ma pasujące reguły zapory.
+* Jeśli adres IP żądania nie należy do żadnego z zakresów określonych w regułach zapory na poziomie serwera lub na poziomie bazy danych, żądanie połączenia zakończy się niepowodzeniem.
 
 > [!NOTE]
-> To access Azure SQL Database from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.
-> 
+> Aby uzyskać dostęp do usługi Azure SQL Database z komputera lokalnego, upewnij się, że zapora w sieci i na komputerze lokalnym zezwala na komunikację wychodzącą na porcie TCP 1433.
 > 
 
-## Connecting from Azure
-When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure SQL Database server.
+## <a name="connecting-from-azure"></a>Łączenie z platformy Azure
+Aby umożliwić aplikacjom z platformy Azure łączenie się z serwerem Azure SQL, należy włączyć połączenia platformy Azure. Gdy aplikacja platformy Azure próbuje połączyć się z serwerem bazy danych, zapora sprawdza, czy połączenia platformy Azure są dozwolone. Ustawienie zapory z początkowym i końcowym adresem równym 0.0.0.0 wskazuje, że te połączenia są dozwolone. Jeśli próba połączenia nie jest dozwolona, żądanie nie dociera do serwera usługi Azure SQL Database.
 
 > [!IMPORTANT]
-> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> Ta opcja konfiguruje zaporę w celu zezwalania na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
 > 
-> 
-
-You can enable connections from Azure in two ways:
-
-* In the [Microsoft Azure portal](https://portal.azure.com/), select the checkbox **Allow azure services to access server** when creating a new server.
-* In the [Classic portal](http://go.microsoft.com/fwlink/p/?LinkID=161793), from the **Configure** tab on a server, under the **Allowed Services** section, click **Yes** for **Microsoft Azure Services**.
-
-## Creating the first server-level firewall rule
-The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using the REST API or Azure PowerShell. Subsequent server-level firewall rules can be created and managed using these methods, as well as through Transact-SQL. To improve performance, server-level firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). For more information on server-level firewall rules, see [How to: Configure an Azure SQL server firewall using the Azure portal](sql-database-configure-firewall-settings.md).
-
-## Creating database-level firewall rules
-After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information on configuring database-level firewall rules, see [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
-
-## Programmatically managing firewall rules
-In addition to the Azure portal, firewall rules can be managed programmatically using Transact-SQL, REST API, and Azure PowerShell. The following tables describe the set of commands available for each method.
-
-### Transact-SQL
-| Catalog View or Stored Procedure | Level | Description |
-| --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Displays the current server-level firewall rules |
-| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Creates or updates server-level firewall rules |
-| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Server |Removes server-level firewall rules |
-| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Database |Displays the current database-level firewall rules |
-| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Database |Creates or updates the database-level firewall rules |
-| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Databases |Removes database-level firewall rules |
-
-### REST API
-| API | Level | Description |
-| --- | --- | --- |
-| [List Firewall Rules](https://msdn.microsoft.com/library/azure/dn505715.aspx) |Server |Displays the current server-level firewall rules |
-| [Create Firewall Rule](https://msdn.microsoft.com/library/azure/dn505712.aspx) |Server |Creates or updates server-level firewall rules |
-| [Set Firewall Rule](https://msdn.microsoft.com/library/azure/dn505707.aspx) |Server |Updates the properties of an existing server-level firewall rule |
-| [Delete Firewall Rule](https://msdn.microsoft.com/library/azure/dn505706.aspx) |Server |Removes server-level firewall rules |
-
-### Azure PowerShell
-| Cmdlet | Level | Description |
-| --- | --- | --- |
-| [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx) |Server |Returns the current server-level firewall rules |
-| [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx) |Server |Creates a new server-level firewall rule |
-| [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) |Server |Updates the properties of an existing server-level firewall rule |
-| [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) |Server |Removes server-level firewall rules |
 
 > [!NOTE]
-> There can be up as much as a five-minute delay for changes to the firewall settings to take effect.
+>  Aby uzyskać więcej informacji, zobacz sekcję **SQL Database: Outside vs inside** (SQL Database: na zewnątrz i wewnątrz) tematu [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md) (Porty inne niż 1433 dla ADO.NET 4.5 i usługi SQL Database)
+>  
+
+## <a name="creating-the-first-server-level-firewall-rule"></a>Tworzenie pierwszej reguły zapory na poziomie serwera
+Pierwsze ustawienie zapory na poziomie serwera można utworzyć za pomocą [witryny Azure Portal](https://portal.azure.com/) lub programowo przy użyciu interfejsu API REST lub programu Azure PowerShell. Kolejne reguły zapory na poziomie serwera mogą być tworzone i zarządzane przy użyciu tych metod oraz za pomocą języka Transact-SQL. Aby poprawić wydajność, reguły zapory na poziomie serwera są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną, zobacz [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). Aby uzyskać więcej informacji dotyczących reguł zapory na poziomie serwera, zobacz [Instrukcje: konfigurowanie zapory serwera Azure SQL za pomocą witryny Azure Portal](sql-database-configure-firewall-settings.md).
+
+## <a name="creating-database-level-firewall-rules"></a>Tworzenie reguł zapory na poziomie bazy danych
+Po skonfigurowaniu pierwszej zapory na poziomie serwera można ograniczyć dostęp do niektórych baz danych. Jeśli zakres adresów IP określony w regule zapory na poziomie bazy danych znajduje się poza zakresem określonym w regule zapory na poziomie serwera, dostęp do bazy danych mogą uzyskać tylko ci klienci, którzy mają adresy IP z zakresu ustalonego na poziomie bazy danych. Dla bazy danych można określić maksymalnie 128 reguł zapory na poziomie bazy danych. Reguły zapory na poziomie bazy danych dla głównej bazy danych i baz danych użytkownika można tworzyć i zarządzać nimi za pomocą języka Transact-SQL. Aby uzyskać więcej informacji na temat konfigurowania reguł zapory na poziomie bazy danych, zobacz [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
+
+## <a name="programmatically-managing-firewall-rules"></a>Programowe zarządzanie regułami zapory
+Oprócz użycia witryny Azure Portal regułami zapory można zarządzać programowo przy użyciu języka Transact-SQL, interfejsu API REST i programu Azure PowerShell. W poniższych tabelach opisano zestaw poleceń dostępnych dla każdej metody.
+
+### <a name="transact-sql"></a>Język Transact-SQL
+| Widok wykazu lub procedura składowana | Poziom | Opis |
+| --- | --- | --- |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Serwer |Wyświetla bieżące reguły zapory na poziomie serwera |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Serwer |Tworzy lub aktualizuje reguły zapory na poziomie serwera |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Serwer |Usuwa reguły zapory na poziomie serwera |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Database (Baza danych) |Wyświetla bieżące reguły zapory na poziomie bazy danych |
+| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Database (Baza danych) |Tworzy lub aktualizuje reguły zapory na poziomie bazy danych |
+| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Bazy danych |Usuwa reguły zapory na poziomie bazy danych |
+
+### <a name="rest-api"></a>Interfejs API REST
+| Interfejs API | Poziom | Opis |
+| --- | --- | --- |
+| [List Firewall Rules](https://msdn.microsoft.com/library/azure/dn505715.aspx) (Lista reguł zapory) |Serwer |Wyświetla bieżące reguły zapory na poziomie serwera |
+| [Create Firewall Rule](https://msdn.microsoft.com/library/azure/dn505712.aspx) (Tworzenie reguły zapory) |Serwer |Tworzy lub aktualizuje reguły zapory na poziomie serwera |
+| [Set Firewall Rule](https://msdn.microsoft.com/library/azure/dn505707.aspx) (Ustawianie reguły zapory) |Serwer |Aktualizuje właściwości istniejącej reguły zapory na poziomie serwera |
+| [Delete Firewall Rule](https://msdn.microsoft.com/library/azure/dn505706.aspx) (Usuwanie reguły zapory) |Serwer |Usuwa reguły zapory na poziomie serwera |
+
+### <a name="azure-powershell"></a>Azure PowerShell
+| Polecenie cmdlet | Poziom | Opis |
+| --- | --- | --- |
+| [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx) |Serwer |Zwraca bieżące reguły zapory na poziomie serwera |
+| [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx) |Serwer |Tworzy nową regułę zapory na poziomie serwera |
+| [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) |Serwer |Aktualizuje właściwości istniejącej reguły zapory na poziomie serwera |
+| [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) |Serwer |Usuwa reguły zapory na poziomie serwera |
+
+> [!NOTE]
+> Może wystąpić do pięciu minut opóźnienia, zanim zmiany w ustawieniach zapory zaczną obowiązywać.
 > 
 > 
 
-## Troubleshooting the database firewall
-Consider the following points when access to the Microsoft Azure SQL Database service does not behave as you expect:
+## <a name="troubleshooting-the-database-firewall"></a>Rozwiązywanie problemów z zaporą bazy danych
+Jeśli dostęp do usługi Microsoft Azure SQL Database nie działa zgodnie z oczekiwaniami, należy rozważyć następujące kwestie:
 
-* **Local firewall configuration:** Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. If you are making connections inside the Azure cloud boundary, you may have to open additional ports. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
-* **Network address translation (NAT):** Due to NAT, the IP address used by your computer to connect to Azure SQL Database may be different than the IP address shown in your computer IP configuration settings. To view the IP address your computer is using to connect to Azure, log in to the portal and navigate to the **Configure** tab on the server that hosts your database. Under the **Allowed IP Addresses** section, the **Current Client IP Address** is displayed. Click **Add** to the **Allowed IP Addresses** to allow this computer to access the server.
-* **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure SQL Database firewall configuration to take effect.
-* **The login is not authorized or an incorrect password was used:** If a login does not have permissions on the Azure SQL Database server or the password used is incorrect, the connection to the Azure SQL Database server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must provide the necessary security credentials. For more information about preparing logins, see Managing Databases, Logins, and Users in Azure SQL Database.
-* **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you are having trouble getting through the firewall, you could try one of the following solutions:
+* **Konfiguracja lokalnej zapory:** aby komputer mógł uzyskać dostęp do usługi Azure SQL Database, może być konieczne utworzenie wyjątku zapory na komputerze dla portu TCP 1433. W przypadku nawiązywania połączeń wewnątrz granic chmury Azure może być konieczne otwarcie dodatkowych portów. Aby uzyskać więcej informacji, zobacz sekcję **V12 of SQL Database: Outside vs inside** (SQL Database V12: na zewnątrz i wewnątrz) tematu [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md) (Porty inne niż 1433 dla ADO.NET 4.5 i usługi SQL Database V12).
+* **Translator adresów sieciowych (NAT):** z powodu translatora adresów sieciowych (NAT), adres IP używany przez komputer do połączenia z usługą Azure SQL Database może być inny niż adres IP wyświetlany w ustawieniach konfiguracji adresu IP komputera. Aby wyświetlić adres IP używany przez komputer do łączenia się z platformą Azure, zaloguj się do portalu i przejdź na kartę **Konfigurowanie** na serwerze, który hostuje bazę danych. W sekcji **Dozwolone adresy IP** wyświetlany jest **bieżący adres IP klienta**. Kliknij przycisk **Dodaj** do listy **Dozwolone adresy IP**, aby zezwolić temu komputerowi na dostęp do serwera.
+* **Zmiany na liście dozwolonych jeszcze nie zaczęły obowiązywać:** może wystąpić do pięciu minut opóźnienia, zanim zmiany konfiguracji zapory usługi Azure SQL Database zostaną zastosowane.
+* **Logowanie nie ma autoryzacji lub użyto nieprawidłowego hasła:** jeśli logowanie nie ma uprawnień na serwerze usługi Azure SQL Database lub użyte hasło jest nieprawidłowe, nastąpi odmowa połączenia z serwerem usługi Azure SQL Database. Utworzenie ustawień zapory zapewnia klientom jedynie możliwość próby nawiązania połączenia z serwerem, ale każdy klient musi podać niezbędne poświadczenia zabezpieczeń. Aby uzyskać więcej informacji na temat przygotowywania logowań, zobacz sekcję Zarządzanie bazami danych, logowaniami i użytkownikami w usłudze Azure SQL Database.
+* **Dynamiczny adres IP:** jeśli używane jest połączenie internetowe za pomocą dynamicznego adresowania IP i występują problemy z przejściem przez zaporę, można wypróbować jedno z poniższych rozwiązań:
   
-  * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure SQL Database server, and then add the IP address range as a firewall rule.
-  * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
+  * Poproś usługodawcę internetowego (ISP) o zakres adresów IP przypisany do komputerów klienckich uzyskujących dostęp do serwera usługi Azure SQL Database, a następnie dodaj ten zakres adresów IP jako regułę zapory.
+  * Pobierz statyczne adresy IP dla komputerów klienckich, a następnie dodaj te adresy IP jako reguły zapory.
 
-## Next steps
-For how to articles on creating server-level and database-level firewall rules, see:
+## <a name="next-steps"></a>Następne kroki
+Aby przejrzeć artykuły zawierające wskazówki na temat tworzenia reguł zapory na poziomie serwera i na poziomie bazy danych, zobacz:
 
-* [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
-* [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md)
-* [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
-* [Configure Azure SQL Database server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md)
+* [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md) (Konfigurowanie reguł zapory na poziomie serwera usługi Azure SQL Database za pomocą witryny Azure Portal)
+* [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md) (Konfigurowanie reguł zapory na poziomie serwera i na poziomie bazy danych usługi Azure SQL Database z użyciem języka T-SQL)
+* [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md) (Konfigurowanie reguł zapory na poziomie serwera usługi Azure SQL Database przy użyciu programu PowerShell)
+* [Configure Azure SQL Database server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md) (Konfigurowanie reguł zapory na poziomie serwera usługi Azure SQL Database przy użyciu interfejsu API REST)
 
-For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
-For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Aby uzyskać samouczek tworzenia bazy danych, zobacz [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md) (Tworzenie bazy danych SQL w ciągu kilku minut za pomocą witryny Azure Portal).
+Aby uzyskać pomoc podczas łączenia się z bazą danych Azure SQL z aplikacji innych firm lub aplikacji typu open source, zobacz [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Przykłady kodu umożliwiające szybki start dla klienta usługi SQL Database).
+Aby dowiedzieć się, jak przechodzić do baz danych, zobacz [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Zarządzanie zabezpieczeniami dostępu i logowania do bazy danych).
 
-## Additional resources
-* [Securing your database](sql-database-security.md)
-* [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
+## <a name="additional-resources"></a>Dodatkowe zasoby
+* [Zabezpieczanie bazy danych](sql-database-security.md)
+* [Usługa Security Center aparatu bazy danych programu SQL Server i bazy danych Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

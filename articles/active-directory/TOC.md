@@ -66,7 +66,6 @@
 
 #### [Inspekcja zdarzeń](active-directory-reporting-audit-events.md)
 #### [Przechowywanie](active-directory-reporting-retention.md)
-#### [Przysypanie](active-directory-reporting-backfill.md)
 #### [Czasy oczekiwania](active-directory-reporting-latencies.md)
 #### [Powiadomienia](active-directory-reporting-notifications.md)
 ### Objaśnienie raportów
@@ -297,6 +296,6 @@
 ## [Forum z opiniami na temat platformy Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

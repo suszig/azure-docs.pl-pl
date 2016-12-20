@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00c4336bd5cef4ddc0b92127d0945d39291b9c7f
 
 
 ---
@@ -40,9 +40,9 @@ W tym samouczku przedstawiono, jak wdrożyć witrynę blogu WordPress z poziomu 
 Witryna WordPress, wdrażana w tym samouczku, korzysta z bazy danych MySQL. Jeśli zamiast tego chcesz użyć usługi SQL Database, zobacz program [Project Nami], który jest również dostępny za pośrednictwem portalu Azure Marketplace.
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów programu Visual Studio][aktywuj] lub [utworzyć konto bezpłatnej wersji próbnej][bezpłatna wersja próbna].
+> Do wykonania kroków tego samouczka potrzebne jest konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów programu Visual Studio][activate] lub [utworzyć konto bezpłatnej wersji próbnej][free trial].
 > 
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service]. W tym miejscu możesz od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
+> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service]. W tym miejscu możesz od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
 > 
 > 
 
@@ -136,8 +136,8 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci Web WordPress
 [Node.js]: https://azure.microsoft.com/develop/nodejs/
 [Java]: https://azure.microsoft.com/develop/java/
 [Python]: https://azure.microsoft.com/develop/python/
-[aktywuj]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[bezpłatna wersja próbna]: https://azure.microsoft.com/pricing/free-trial/
+[activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Wypróbuj usługę App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
@@ -168,6 +168,6 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci Web WordPress
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

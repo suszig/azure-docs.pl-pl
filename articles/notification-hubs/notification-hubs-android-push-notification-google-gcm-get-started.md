@@ -59,7 +59,7 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
 
 Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i uzyskano parametry połączenia do rejestrowania aplikacji w celu odbierania i wysyłania powiadomień wypychanych.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Łączenie aplikacji z centrum powiadomień
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Łączenie aplikacji z centrum powiadomień
 ### <a name="create-a-new-android-project"></a>Tworzenie nowego projektu dla systemu Android
 1. W programie Android Studio utwórz nowy projekt programu Android Studio.
    

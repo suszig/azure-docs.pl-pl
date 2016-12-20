@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23d68a523fa9a79d2b5154eef04a5f6e706bdeb2
+ms.sourcegitcommit: 1c603d37735bbbfdfaaf4a191e2ad1ce6ff5b2b7
+ms.openlocfilehash: 67f3e923680a9a2f399c0839d2ec11ef4615da00
 
 
 ---
@@ -37,12 +38,12 @@ W przypadku wielu firm i aplikacji możliwość tworzenia baz danych i dostosowy
 
 [Elastyczne pule](sql-database-elastic-pool.md) w usłudze SQL Database rozwiązują ten problem. Koncepcja jest prosta. Przydzielasz wydajność do puli, dzięki czemu płacisz za łączną wydajność puli, a nie za wydajność pojedynczej bazy danych. Nie potrzebujesz zwiększać ani zmniejszać wydajności bazy danych. Bazy danych w puli, czyli *elastyczne bazy danych*, są skalowane w górę i w dół zgodnie z potrzebami w sposób automatyczny. Elastyczne bazy danych zużywają zasoby, ale nie przekraczają limitów puli, więc koszt pozostaje przewidywalny nawet wtedy, gdy nie można przewidzieć użycia bazy danych. Ponadto możliwe jest [dodawanie i usuwanie baz danych w puli](sql-database-elastic-pool-manage-portal.md) i skalowanie aplikacji od kilku do tysięcy baz danych — wszystko w ramach kontrolowanego budżetu. Aby dowiedzieć się więcej na temat wzorców projektowych dla aplikacji SaaS wykorzystujących pule elastyczne, zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
 
-Wybrane rozwiązanie — pojedyncze lub elastyczne — nie stanowi dla użytkownika ograniczenia. Możesz łączyć pojedyncze bazy danych z elastycznymi pulami baz danych i zmieniać warstwy usług pojedynczych baz danych oraz pul, aby tworzyć innowacyjne projekty. Ponadto, korzystając z siły i zasięgu platformy Azure, możesz łączyć usługi Azure z usługą SQL Database i dopasowywać je do niej, aby zaspokoić potrzeby unikatowego projektu nowoczesnej aplikacji, zwiększyć efektywność kosztową i poprawić wykorzystanie zasobów oraz otworzyć się na nowe możliwości biznesowe.
+Wybrane rozwiązanie — pojedyncze lub elastyczne — nie stanowi dla użytkownika ograniczenia. Możesz w łatwy i szybki sposób łączyć pojedyncze bazy danych z elastycznymi pulami baz danych i zmieniać warstwy usług pojedynczych baz danych oraz pul, aby dostosować je do swojej sytuacji. Ponadto, korzystając z siły i zasięgu platformy Azure, możesz łączyć inne usługi Azure z usługą SQL Database i dopasowywać je do niej, aby zaspokoić potrzeby unikatowego projektu aplikacji, zwiększyć efektywność kosztową i poprawić wykorzystanie zasobów oraz otworzyć się na nowe możliwości biznesowe.
 
-Jednak jak porównać względną wydajność baz danych i pul baz danych? Skąd wiadomo, kiedy kliknąć, aby zatrzymać regulowanie w górę i w dół we właściwym miejscu? Odpowiedzią jest jednostka transakcji bazy danych (DTU) dla pojedynczej bazy danych i elastyczna jednostka DTU (eDTU) dla elastycznych baz danych i pul baz danych. Zobacz artykuł [Opcje i wydajność usługi SQL Database: poznaj, co jest dostępne w poszczególnych warstwach usług](sql-database-service-tiers.md), aby uzyskać szczegółowe informacje.
+Jednak jak porównać względną wydajność baz danych i pul baz danych? Skąd wiadomo, kiedy kliknąć, aby zatrzymać regulowanie w górę i w dół we właściwym miejscu? Odpowiedzią jest wbudowane monitorowanie wydajności i narzędzia wysyłające alerty w połączeniu z klasyfikacjami wydajności na podstawie jednostek transakcji bazy danych (DTU, Database Transaction Unit) dla pojedynczych baz danych i elastycznych jednostek DTU (eDTU, elastic DTU) dla elastycznych baz danych i pul baz danych, które umożliwiają szybką ocenę wpływu skalowania w górę lub w dół na podstawie bieżącego lub projektowego zapotrzebowania w zakresie wydajności. Zobacz artykuł [Opcje i wydajność usługi SQL Database: poznaj, co jest dostępne w poszczególnych warstwach usług](sql-database-service-tiers.md), aby uzyskać szczegółowe informacje.
 
 ## <a name="keep-your-app-and-business-running"></a>Zapewnienie działania aplikacji i firmy
-Umowa dotycząca poziomu usług [(SLA)](http://azure.microsoft.com/support/legal/sla/) o czołowej w branży dostępności 99,99% dla platformy Azure, która jest obsługiwana przez globalną sieć centrów danych zarządzanych przez firmę Microsoft, pomaga zapewnić działanie aplikacji przez 24 godziny na dobę, 7 dni w tygodniu. W każdej bazie danych SQL korzystasz z wbudowanych rozwiązań odporności na uszkodzenia i ochrony danych, które w przeciwnym razie trzeba byłoby zaprojektować, kupić, zrealizować, a także nimi zarządzać. Ponadto, w zależności od wymagań firmy, możesz zażądać dodatkowych warstw ochrony w celu zapewnienia, że działanie aplikacji i firmy można szybko przywrócić w razie awarii, błędu lub innego zdarzenia. W usłudze SQL Database każda warstwa usług oferuje inne menu funkcji, których można użyć, aby rozpocząć i kontynuować pracę. Możesz użyć przywracania do punktu w czasie, aby przywrócić bazę danych do wcześniejszego stanu, nawet sprzed 35 dni. Ponadto, jeśli centrum danych hostujące bazy danych ulegnie awarii, możesz przełączyć działanie baz danych na ich repliki w innym regionie. Możesz też użyć replik do rozwoju lub relokacji do innych regionów.
+Umowa dotycząca poziomu usług [(SLA)](http://azure.microsoft.com/support/legal/sla/) o czołowej w branży dostępności 99,99% dla platformy Azure, która jest obsługiwana przez globalną sieć centrów danych zarządzanych przez firmę Microsoft, pomaga zapewnić działanie aplikacji przez 24 godziny na dobę, 7 dni w tygodniu. W każdej bazie danych SQL korzystasz z wbudowanych rozwiązań zabezpieczeń, odporności na uszkodzenia i ochrony danych, które w przeciwnym razie trzeba byłoby kupić lub zaprojektować, zrealizować, a także nimi zarządzać. Mimo to, w zależności od wymagań firmy, możesz potrzebować dodatkowych warstw ochrony w celu zapewnienia, że działanie aplikacji i firmy można szybko przywrócić w razie awarii, błędu lub innych zakłóceń. W usłudze SQL Database każda warstwa usług oferuje kompleksowy zestaw funkcji i opcji ciągłości działania, których można użyć, aby rozpocząć i kontynuować pracę. Możesz użyć przywracania do punktu w czasie, aby przywrócić bazę danych do wcześniejszego stanu, nawet sprzed 35 dni. Ponadto, jeśli centrum danych hostujące bazy danych ulegnie awarii, możesz przywrócić bazy danych z geograficznie nadmiarowych kopii zapasowych lub przełączyć do trybu failover na repliki bazy danych w innym regionie. Replik możesz też użyć w celu uaktualniania lub relokacji do innych regionów.
 
 ![Replikacja geograficzna usługi SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,11 +60,9 @@ Po przeczytaniu wprowadzenia do usługi SQL Database i zapoznaniu się z nią mo
 * Rozpocząć [tworzenie pierwszej bazy danych](sql-database-get-started.md).
 * [Nawiązywać połączenia i wykonywać zapytania za pomocą programu SSMS](sql-database-connect-query-ssms.md).
 * Utworzyć pierwszą aplikację w języku C#, Java, Node.js, PHP, Python lub Ruby, korzystając z [bibliotek połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md)
-* Wyświetlić indeks tytułów i opisy [wszystkich tematów dotyczących usługi SQL Database w systemie Azure](sql-database-index-all-articles.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

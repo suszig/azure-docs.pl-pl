@@ -9,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
 
 
 ---
@@ -43,18 +44,17 @@ Jeśli na przykład spodziewasz się, że obciążenie bazy danych wzrośnie, mo
 Metryki wydajności mogą także pomóc określić, czy można obniżyć poziom wydajności. Załóżmy, że używasz bazy danych, której warstwa i poziom to Standardowa S2, a wszystkie metryki wydajności pokazują, że baza danych wykorzystuje średnio nie więcej niż 10% w określonym czasie. Istnieje prawdopodobieństwo, że baza danych będzie działać równie dobrze na poziomie Standardowa S1. Przed podjęciem decyzji o przeniesieniu na poziom o mniejszej wydajności należy jednak pamiętać o obciążeniach, które chwilowo wzrastają lub zmieniają się w czasie.
 
 ## <a name="monitor-databases-using-dmvs"></a>Monitorowanie baz danych przy użyciu widoków DMV
-Te same metryki, które są przedstawiane w portalu, są również dostępne za pośrednictwem widoków systemowych: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) w logicznej bazie danych **master** na serwerze oraz [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) w bazie danych użytkownika. Użyj widoku **sys.resource_stats**, jeśli chcesz monitorować mniej szczegółowe dane przez dłuższy okres. Użyj widoku **sys.dm_db_resource_stats**, jeśli chcesz monitorować bardziej szczegółowe dane w mniejszych odcinkach czasu. Aby uzyskać więcej informacji, zobacz [wytyczne dotyczące wydajności usługi Azure SQL Database](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats)
+Te same metryki, które są przedstawiane w portalu, są również dostępne za pośrednictwem widoków systemowych: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) w logicznej bazie danych **master** na serwerze oraz [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) w bazie danych użytkownika. Użyj widoku **sys.resource_stats**, jeśli chcesz monitorować mniej szczegółowe dane przez dłuższy okres. Użyj widoku **sys.dm_db_resource_stats**, jeśli chcesz monitorować bardziej szczegółowe dane w mniejszych odcinkach czasu. Aby uzyskać więcej informacji, zobacz [wytyczne dotyczące wydajności usługi Azure SQL Database](sql-database-performance-guidance.md#monitor-resource-use)
 
 > [!NOTE]
 > Widok **sys.dm_db_resource_stats** zwraca pusty zestaw wyników w przypadku używania baz danych w wersjach Web i Business, które zostały wycofane.
-> 
-> 
+>
+>
 
 W przypadku elastycznych pul baz danych można monitorować pojedyncze bazy danych w puli za pomocą metod opisanych w tej części. Można jednak również monitorować pulę jako całość. Informacje na ten temat znajdziesz w artykule [Monitorowanie elastycznej puli baz danych i zarządzanie nią](sql-database-elastic-pool-manage-portal.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

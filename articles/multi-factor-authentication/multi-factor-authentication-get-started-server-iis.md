@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35f58e8664c47c4e7a86c27e90813ad7be3cea04
 
 
 ---
@@ -25,7 +25,7 @@ Sekcja Uwierzytelnianie usług IIS dostępna w ramach serwera usługi Azure Mult
 
 ![Uwierzytelnianie usług IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>Używanie uwierzytelniania usług IIS opartego na formularzach z serwerem usługi Azure Multi-Factor Authentication
+## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Używanie uwierzytelniania usług IIS opartego na formularzach z serwerem usługi Azure Multi-Factor Authentication
 Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta z uwierzytelniania opartego na formularzach, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze sieci Web usług IIS i skonfiguruj go zgodnie z poniższą procedurą.
 
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania usług IIS w menu po lewej stronie.
@@ -43,7 +43,7 @@ Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta z uwierzyteln
 13. Po wykryciu lub wprowadzeniu adresu URL i zmiennych na stronie dane witryny sieci Web pojawią się w panelu Oparte na formularzach.
 14. Aby uzyskać informacje umożliwiające ukończenie konfiguracji uwierzytelniania usług IIS, przejdź do sekcji Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication znajdującej się w dalszej części tego artykułu.
 
-## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Używanie zintegrowanego uwierzytelniania systemu Windows z serwerem usługi Azure Multi-Factor Authentication
+## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Używanie zintegrowanego uwierzytelniania systemu Windows z serwerem usługi Azure Multi-Factor Authentication
 Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta ze zintegrowanego uwierzytelniania HTTP systemu Windows, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze sieci Web usług IIS i skonfiguruj go zgodnie z poniższą procedurą.
 
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelniania usług IIS w menu po lewej stronie.
@@ -56,7 +56,7 @@ Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta ze zintegrowa
 8. Kliknij przycisk OK.
 9. Aby uzyskać informacje umożliwiające ukończenie konfiguracji uwierzytelniania usług IIS, przejdź do sekcji [Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) znajdującej się w dalszej części tego artykułu.
 
-## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication
+## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication
 Po skonfigurowaniu adresów URL i ustawień dla uwierzytelniania opartego na formularzach lub uwierzytelniania HTTP musisz wybrać lokalizacje w usługach IIS, w których zostaną załadowane i włączone wtyczki IIS usługi Azure Multi-Factor Authentication. Postępuj zgodnie z następującą procedurą:
 
 1. W przypadku korzystania z usług IIS 6 kliknij kartę ISAPI i wybierz witrynę sieci Web, w ramach której działa aplikacja sieci Web (np. Domyślna witryna sieci Web), aby włączyć wtyczkę filtru ISAPI usługi Azure Multi-Factor Authentication dla tej witryny.
@@ -74,6 +74,6 @@ Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
