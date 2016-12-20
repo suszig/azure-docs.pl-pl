@@ -14,92 +14,71 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
-ms.author: carlrab
+ms.date: 12/09/2016
+ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 7bbdbe345bd468c01e2a790610bcf6c063c11f9b
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: ed598cfdaf5bebc1cf92894ba1f6c79f268ef3c3
 
 
 ---
-# <a name="sql-database-service-tiers-for-single-databases-and-elastic-database-pools"></a>Warstwy usług w usłudze SQL Database dla pojedynczych baz danych i elastycznych pul baz danych
-Usługa [Azure SQL Database](sql-database-technical-overview.md) oferuje trzy warstwy usługi o różnych poziomach wydajności do obsługi różnych obciążeń. Wyższe poziomy wydajności zapewniają coraz większy zestaw zasobów przeznaczonych do dostarczenia coraz wyższej przepustowości. Możesz dynamicznie zmieniać warstwy usług i poziomy wydajności. Szczegółowe informacje znajdziesz w artykule [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) (Zmiana warstw usług i poziomów wydajności bazy danych).
+# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opcje i wydajność usługi SQL Database: poznaj, co jest dostępne w poszczególnych warstwach usług
+Usługa [Azure SQL Database](sql-database-technical-overview.md) oferuje trzy warstwy usług, **Podstawowa**, **Standardowa** i **Premium**, o różnych poziomach wydajności do obsługi różnych obciążeń. Wyższe poziomy wydajności zapewniają coraz więcej zasobów przeznaczonych do dostarczenia coraz wyższej przepustowości. [Warstwy usług i poziomy wydajności możesz zmieniać dynamicznie](sql-database-scale-up.md) bez przestojów. Wszystkie warstwy usług (Podstawowa, Standardowa i Premium) są objęte umową SLA zapewniającą czas działania 99,99% i oferują elastyczne opcje ciągłości działania, funkcje zabezpieczeń i rozliczenia godzinowe. 
 
-Poszczególnymi bazami można zarządzać w ramach ich własnej [warstwy usługi](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) o określonym poziomie wydajności. Dodatkowo można zarządzać wieloma bazami danych w [elastycznej puli baz danych](sql-database-service-tiers.md#elastic-database-pool-service-tiers-and-performance-in-edtus) z współdzielonym zestawem zasobów. Zasoby dostępne dla pojedynczych baz danych są wyrażane jako liczba jednostek transakcji bazy danych (DTU, Database Transaction Unit), a dla elastycznych pul baz danych w postaci elastycznych jednostek DTU (eDTU, elastic DTU). Aby uzyskać więcej informacji na temat jednostek DTU i eDTU, zobacz [Co to jest jednostka DTU](sql-database-what-is-a-dtu.md). 
+Na wybranym [poziomie wydajności](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) możesz utworzyć autonomiczne bazy danych z dedykowanymi zasobami. Wieloma bazami danych możesz także zarządzać w [puli elastycznej](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus), w której zasoby są współdzielone przez bazy danych. Zasoby dostępne dla autonomicznych baz danych są wyrażane jako liczba jednostek DTU (Database Transaction Unit), a dla pul elastycznych w postaci jednostek eDTU (elastic Database Transaction Unit). Aby uzyskać więcej informacji na temat jednostek DTU i eDTU, zobacz [Co to jest jednostka DTU?](sql-database-what-is-a-dtu.md). 
 
 W obu przypadkach do wyboru są następujące warstwy usługi: **Podstawowa**, **Standardowa** i **Premium**. 
 
-## <a name="service-tiers"></a>Warstwy usług
-Wszystkie warstwy usług (Podstawowa, Standardowa i Premium) są objęte umową SLA zapewniającą czas działania 99,99% i oferują przewidywalną wydajność, elastyczne opcje ciągłości działania, funkcje zabezpieczeń i rozliczenia godzinowe. Tabela poniżej zawiera przykłady warstw najlepiej dopasowane do różnych obciążeń aplikacji.
+## <a name="choosing-a-service-tier"></a>Wybieranie warstwy usług
+Tabela poniżej zawiera przykłady warstw najlepiej dopasowane do różnych obciążeń aplikacji.
 
 | Warstwa usług | Docelowe obciążenia |
 | :--- | --- |
-| **Podstawowa** |Najodpowiedniejsza dla małych baz danych. Standardowo zapewnia obsługę jednej aktywnej operacji w danym momencie. Przykłady zastosowania to bazy danych używane do tworzenia i testowania oprogramowania lub niewielkie, rzadko używane aplikacje. |
-| **Standardowa** |Odpowiednia dla większości aplikacji w chmurze. Zapewnia obsługę wielu równoczesnych zapytań. Przykładowe zastosowania to aplikacje grupy roboczej lub sieci Web. |
-| **Premium** |Przeznaczona do obsługi dużej ilości danych transakcyjnych. Obsługuje wielu równoczesnych użytkowników i spełnia wymagania ciągłości działalności biznesowej na najwyższym poziomie. Przykładem zastosowania mogą być bazy danych dla aplikacji o znaczeniu krytycznym. |
+| **Podstawowa** | Najodpowiedniejsza dla małych baz danych. Standardowo zapewnia obsługę jednej aktywnej operacji w danym momencie. Przykłady zastosowania to bazy danych używane do tworzenia i testowania oprogramowania lub niewielkie, rzadko używane aplikacje. |
+| **Standardowa** |Najczęściej wybierana opcja dla aplikacji w chmurze z niewielkimi lub średnimi wymaganiami odnośnie wydajności operacji we/wy i obsługą wielu równoczesnych zapytań. Przykładowe zastosowania to aplikacje grupy roboczej lub sieci Web. |
+| **Premium** | Przeznaczona dla dużych ilości transakcji z wysokimi wymaganiami dotyczącymi wydajności operacji we/wy przy obsłudze wielu równoczesnych użytkowników. Przykładem zastosowania mogą być bazy danych dla aplikacji o znaczeniu krytycznym. |
 
-> [!NOTE]
-> Wersje Sieć Web i Business zostały wycofane. Jeśli zamierzasz nadal korzystać z wersji Sieć Web i Business, przeczytaj [Często zadawane pytania na temat wycofywanych wersji](https://azure.microsoft.com/pricing/details/sql-database/web-business/).
-> 
-> 
+Najpierw zdecyduj, czy chcesz korzystać z autonomicznej bazy danych, czy chcesz utworzyć grupę baz danych, które współdzielą zasoby. Przejrzyj [zagadnienia dotyczące puli elastycznej](sql-database-elastic-pool-guidance.md). Wybierając warstwę usług, rozpocznij od ustalenia minimalnego potrzebnego zakresu funkcji bazy danych:
 
-## <a name="single-database-service-tiers-and-performance-levels"></a>Warstwy usług i poziomy wydajności pojedynczej bazy danych
-Istnieje wiele poziomów wydajności dla pojedynczej bazy danych w poszczególnych warstwach usług. Możesz swobodnie wybrać poziom, który najlepiej spełnia wymagania danego obciążenia. W razie potrzeby skalowania w górę lub w dół możesz szybko zmienić poziom wydajności bazy danych. Szczegółowe informacje znajdziesz w artykule [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) (Zmiana warstw usług i poziomów wydajności bazy danych).
+* Maksymalny rozmiar pojedynczej bazy danych (maksymalnie 2 GB dla warstwy Podstawowa, maksymalnie 250 GB dla warstwy Standardowa i od 500 GB do 1 TB dla warstwy Premium przy najwyższych poziomach wydajności)
+* Maksymalna całkowita ilość miejsca w magazynie w przypadku puli elastycznej (117 GB dla warstwy Podstawowa, 1200 GB dla warstwy Standardowa i 750 GB dla warstwy Premium)
+* Maksymalna liczba baz danych w jednej puli (400 dla warstwy Podstawowa, 400 dla warstwy Standardowa i 50 dla warstwy Premium)
+* Okres przechowywania kopii zapasowej bazy danych (7 dni dla warstwy Podstawowa oraz 35 dni dla warstw Standardowa i Premium)
 
-Charakterystyki wydajności wymienione poniżej dotyczą baz danych utworzonych przy użyciu [usługi SQL Database V12](sql-database-technical-overview.md). Niezależnie od liczby hostowanych baz danych każda z nich ma zagwarantowany zestaw zasobów, a ich oczekiwane charakterystyki nie ulegają zmianom.
+Po określeniu minimalnej warstwy usług możesz określić poziom wydajności bazy danych (liczbę jednostek DTU). W wielu przypadkach na początek odpowiednie są standardowe poziomy wydajności S2 i S3. W przypadku baz danych mających wysokie wymagania dotyczące procesora CPU lub operacji we/wy warto rozpocząć od poziomów wydajności Premium. Warstwa Premium oferuje więcej mocy procesora i rozpoczyna się od dziesięciokrotnie większej liczby operacji we/wy w porównaniu do najwyższego poziomu wydajności warstwy Standardowa.
+
+Po wybraniu początkowego poziomu wydajności możesz następnie dynamicznie skalować [poszczególne bazy danych](sql-database-scale-up.md) lub [pulę elastyczną](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) w górę lub w dół na podstawie rzeczywistego użycia. Na potrzeby scenariuszy migracji możesz również obliczyć przybliżoną liczbę potrzebnych jednostek DTU za pomocą [Kalkulatora DTU](http://dtucalculator.azurewebsites.net/). 
+
+## <a name="standalone-database-service-tiers-and-performance-levels"></a>Warstwy usług i poziomy wydajności autonomicznej bazy danych
+Istnieje wiele poziomów wydajności dla autonomicznej bazy danych w poszczególnych warstwach usług. Możesz swobodnie wybrać poziom, który najlepiej spełnia wymagania danego obciążenia. W razie potrzeby skalowania w górę lub w dół możesz łatwo zmienić warstwy bazy danych. Szczegółowe informacje znajdziesz w artykule [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) (Zmiana warstw usług i poziomów wydajności bazy danych).
+
+Charakterystyki wydajności wymienione poniżej dotyczą baz danych utworzonych przy użyciu [usługi SQL Database V12](sql-database-v12-whats-new.md). Niezależnie od liczby hostowanych baz danych każda z nich ma zagwarantowany zestaw zasobów, a ich oczekiwane charakterystyki nie ulegają zmianom.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!NOTE]
 > Szczegółowy opis wszystkich innych wierszy w tej tabeli warstw usług można znaleźć w [zestawieniu możliwości i ograniczeń warstw usług](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 > 
-> 
 
-## <a name="elastic-database-pool-service-tiers-and-performance-in-edtus"></a>Warstwy usług elastycznej puli baz danych oraz wydajność w jednostkach eDTU
-W ramach [elastycznej puli baz danych](sql-database-elastic-pool.md) możesz także zarządzać wieloma bazami danych. Wszystkie bazy danych w elastycznej puli baz danych korzystają ze wspólnego zestawu zasobów. Charakterystyki wydajności są mierzone w *elastycznych jednostkach transakcji bazy danych* (eDTU). Podobnie jak pojedyncze bazy danych, pule są realizowane w trzech warstwach usług: **Podstawowej**, **Standardowej** i **Premium**. Te trzy warstwy usług również w przypadku pul definiują limity ogólnej wydajności i zakres funkcji.
+## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Warstwy usług puli elastycznej oraz wydajność w jednostkach eDTU
 
-Pule umożliwiają bazom danych współdzielenie i używanie zasobów jednostek DTU bez konieczności przypisywania konkretnego poziomu wydajności do każdej bazy danych w puli. Na przykład baza danych w puli Standardowej może przejść od używania 0 jednostek eDTU do maksymalnej liczby jednostek eDTU ustalonej dla bazy danych podczas konfigurowania puli. Dzięki pulom wiele baz danych z różnymi obciążeniami wydajnie korzysta z zasobów eDTU dostępnych w całej puli. Aby uzyskać szczegółowe informacje, zobacz [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md) (Zagadnienia dotyczące cen i wydajności elastycznej puli baz danych).
+Pule umożliwiają bazom danych współdzielenie i używanie zasobów jednostek eDTU bez konieczności przypisywania konkretnego poziomu wydajności do każdej bazy danych w puli. Na przykład autonomiczna baza danych w puli Standardowej może przejść od używania 0 jednostek eDTU do maksymalnej liczby jednostek eDTU ustalonej dla bazy danych podczas konfigurowania puli. Dzięki pulom wiele baz danych z różnymi obciążeniami wydajnie korzysta z zasobów eDTU dostępnych w całej puli. Zobacz szczegółowe [zagadnienia dotyczące cen i wydajności puli elastycznej](sql-database-elastic-pool-guidance.md).
 
-W poniższej tabeli przedstawiono charakterystykę elastycznych pul baz danych w warstwie Podstawowa, Standardowa i Premium.
+W poniższej tabeli opisano charakterystyki warstw usług dotyczących puli.
 
-[!INCLUDE [SQL DB service tiers table for elastic database pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Każda baza danych w puli podlega również charakterystykom pojedynczej bazy danych w danej warstwie. Na przykład pula Podstawowa ma limit sesji dla jednej puli z zakresu 4800–28800, ale poszczególne bazy danych w puli Podstawowej mają limit bazy danych równy 300 sesji.
-
-## <a name="choosing-a-service-tier"></a>Wybieranie warstwy usług
-Aby wybrać warstwę usług, określ, czy baza danych ma być bazą pojedynczą, czy ma być częścią elastycznej puli baz danych. 
-
-### <a name="choosing-a-service-tier-for-a-single-database"></a>Wybieranie warstwy usług dla pojedynczej bazy danych
-Aby wybrać warstwę usług dla pojedynczej bazy danych, określ funkcje bazy danych potrzebne do wybrania wersji usługi SQL Database:
-
-* Rozmiar bazy danych (maksymalnie 2 GB dla warstwy Podstawowej, maksymalnie 250 GB dla warstwy Standardowej i od 500 GB do 1 TB dla warstwy Premium — w zależności od poziomu wydajności)
-* Okres przechowywania kopii zapasowej bazy danych (7 dni dla warstwy Podstawowej, 35 dni dla warstwy Standardowej i 35 dni dla warstwy Premium)
-
-Po określeniu wersji usługi SQL Database możesz określić poziom wydajności bazy danych (liczbę jednostek DTU). Możesz wybrać dowolny poziom, a następnie [dynamicznie skalować w górę lub dół](sql-database-scale-up.md) w zależności od rzeczywistej wydajności. Możesz również obliczyć przybliżoną liczbę potrzebnych jednostek DTU za pomocą [Kalkulatora DTU](http://dtucalculator.azurewebsites.net/). 
-
-### <a name="choosing-a-service-tier-for-an-elastic-database-pool"></a>Wybieranie warstwy usług dla elastycznej puli baz danych
-Aby wybrać warstwę usług dla elastycznej bazy danych, określ funkcje bazy danych potrzebne do wybrania warstwy usług dla puli.
-
-* Rozmiar bazy danych (2 GB dla warstwy Podstawowej, 250 GB dla warstwy Standardowej i 500 GB dla warstwy Premium)
-* Okres przechowywania kopii zapasowej bazy danych (7 dni dla warstwy Podstawowej, 35 dni dla warstwy Standardowej i 35 dni dla warstwy Premium)
-* Liczba baz danych w jednej puli (400 dla warstwy Podstawowej, 400 dla warstwy Standardowej i 50 dla warstwy Premium)
-* Maksymalna pojemność jednej puli (117 GB dla warstwy Podstawowej, 1200 dla warstwy Standardowej i 750 dla warstwy Premium)
-
-Po określeniu warstwy usług dla puli możesz przystąpić do określenia poziomu wydajności dla puli (jednostki eDTU). Możesz wybrać dowolny poziom, a następnie [dynamicznie skalować w górę lub dół](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) w zależności od rzeczywistej wydajności. Aby ułatwić określenie górnego limitu dla puli, możesz obliczyć przybliżoną liczbę potrzebnych jednostek DTU dla każdej bazy danych w puli za pomocą [Kalkulatora DTU](http://dtucalculator.azurewebsites.net/).
+Każda baza danych w puli podlega również charakterystykom autonomicznej bazy danych w danej warstwie. Na przykład pula Podstawowa ma limit sesji dla jednej puli z zakresu 4800–28800, ale poszczególne bazy danych w puli Podstawowej mają limit bazy danych równy 300 sesji.
 
 ## <a name="next-steps"></a>Następne kroki
-* Sprawdź ceny warstw na stronie [Cennik usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
-* Poznaj lepiej [elastyczne pule baz danych](sql-database-elastic-pool-guidance.md) oraz [zagadnienia dotyczące cen i wydajności elastycznych pul baz danych](sql-database-elastic-pool-guidance.md).
-* Naucz się [monitorować pule elastyczne, zarządzać nimi i zmieniać ich rozmiar](sql-database-elastic-pool-manage-portal.md) oraz [monitorować wydajność pojedynczych baz danych](sql-database-single-database-monitor.md).
+
+* Poznaj lepiej [pule elastyczne](sql-database-elastic-pool-guidance.md) oraz [zagadnienia dotyczące cen i wydajności pul elastycznych](sql-database-elastic-pool-guidance.md).
+* Naucz się [monitorować pule elastyczne, zarządzać nimi i zmieniać ich rozmiar](sql-database-elastic-pool-manage-portal.md) oraz [monitorować wydajność autonomicznych baz danych](sql-database-single-database-monitor.md).
 * Teraz, kiedy znasz warstwy usługi SQL Database, wypróbuj je, korzystając z [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/) i dowiedz się, jak [utworzyć pierwszą bazę danych SQL](sql-database-get-started.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Wzorce projektowe dla wielodostępnych aplikacji SaaS wykorzystujących usługę Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* [Kurs wideo w serwisie Microsoft Virtual Academy poświęcony możliwościom elastycznych baz danych w usłudze Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

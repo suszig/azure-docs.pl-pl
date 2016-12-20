@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d513f059bdf85bd727e9ec3e712a6a83698795bb
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: d6fc4fe4f47571cbb8114b3de5ed9bc9466123fe
 
 ---
 # <a name="azure-web-apps-documentation"></a>Dokumentacja usługi Web Apps
@@ -29,7 +29,7 @@ Azure App Service Web Apps to w pełni zarządzana platforma obliczeniowa zoptym
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/get-started/">
+        <a href="https://azure.microsoft.com/get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +47,7 @@ Azure App Service Web Apps to w pełni zarządzana platforma obliczeniowa zoptym
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=web-sites">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=web-sites">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -186,14 +186,14 @@ Azure App Service Web Apps to w pełni zarządzana platforma obliczeniowa zoptym
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/cli/azure/">Interfejs wiersza polecenia platformy Azure</a></p>
+                        <p><a href="/cli/azure/appservice">Azure CLI 2.0 (wersja zapoznawcza)</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -206,7 +206,7 @@ Azure App Service Web Apps to w pełni zarządzana platforma obliczeniowa zoptym
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -229,6 +229,6 @@ Pobierz dokumentację usługi Web Apps </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

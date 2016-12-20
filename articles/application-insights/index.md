@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c627e7f936557eb6c4b1f4125a4a5f4e9a0e0b6a
+ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
+ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
 
 ---
 # <a name="application-insights-documentation"></a>Dokumentacja usługi Application Insights
@@ -132,8 +132,6 @@ Usługa Application Insights jest rozszerzalną usługą zarządzania wydajnośc
                         <h3>Języki</h3>
                         <p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p>
-                        <p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p>
-                        <p><a href="/azure/application-insights/app-insights-analytics-reference">Dokumentacja usługi analizy</a></p>
                     </div>
                 </div>
             </div>
@@ -163,6 +161,6 @@ Pobierz dokumentację usługi Application Insights </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

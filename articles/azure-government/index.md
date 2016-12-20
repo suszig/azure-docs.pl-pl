@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d166ca607b89d0da24d42d4f6f70f97e2c9e7f81
+ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
+ms.openlocfilehash: 93a2c8da64000d03538f73befc167368915c3dbb
 
 ---
 #<a name="azure-government-documentation"></a>Dokumentacja platformy Azure dla instytucji rządowych
@@ -51,38 +51,26 @@ Platforma Microsoft Azure dla instytucji rządowych jest platformą w chmurze zb
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Interfejs API REST platformy Azure dla instytucji rządowych</p>
+                        <h3>Usługi</h3>
+                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-compute">Wystąpienia obliczeniowe</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-storage">Magazyn</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-database">Baza danych</a></p>
+                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-networking">Sieć</a></p>
+                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity">Bezpieczeństwo i obsługa tożsamości</a></p>
+                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement">Monitorowanie i zarządzanie</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Dokumentacja zarządzana platformy Azure dla instytucji rządowych</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    </ul>
+</ul>
     
 
 <div class="downloadHolder">
@@ -95,6 +83,6 @@ Pobierz dokumentację platformy Azure dla instytucji rządowych </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

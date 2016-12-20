@@ -4,8 +4,8 @@ hide_bc: true
 title: Dokumentacja platformy Microsoft Azure | Microsoft Docs
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 translationtype: Human Translation
-ms.sourcegitcommit: b6c08febd8c95c1aa6a2af4563ed4fdee8ee022f
-ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
+ms.sourcegitcommit: cee95b80d3e4360d68e6f37ad3c61e15d7d2a42e
+ms.openlocfilehash: 656048594dd18c9c39e67a2ec8136cc6e827fccf
 
 ---
 <div id="main" class="v2">
@@ -264,12 +264,12 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                                 <p>CDN</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
+                                        <li>
                                         <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
-                                        </li> -->
+                                        </li>
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
@@ -499,12 +499,6 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                                 <p>Scheduler</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
-                                            <a href="/azure/traffic-manager/">
-                                                <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Traffic Manager</p>
-                                            </a>
-                                        </li> -->
                                         <li>
                                             <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
@@ -956,7 +950,7 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li>
+                            <li>
                                 <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -968,13 +962,13 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Traffic Manager</h3>
-                                                    <p>Route incoming traffic for high performance and availability</p>
+                                                    <p>Kierowanie ruchem przychodzącym w celu uzyskania wysokiej wydajności i dostępności</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a href="/azure/expressroute/">
                                     <div class="cardSize">
@@ -1628,7 +1622,7 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                         <a href="#iot">Internet rzeczy</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/iot/">
+                                <a href="https://azure.microsoft.com/develop/iot/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2042,7 +2036,7 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                         <a href="#devtools">Narzędzia programistyczne</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/en-us/docs/overview">
+                                <a href="https://www.visualstudio.com/docs/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2255,25 +2249,6 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="/azure/traffic-manager/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/TrafficManager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Traffic Manager</h3>
-                                                    <p>Route incoming traffic for high performance and availability</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> -->
                             <li>
                                 <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">
@@ -2716,7 +2691,7 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
                                                     <a href="http://storageexplorer.com/">Eksplorator magazynu</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Wprowadzenie</a>
+                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Wprowadzenie</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Pobierz dla systemu Linux</a>
@@ -2876,6 +2851,6 @@ ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
