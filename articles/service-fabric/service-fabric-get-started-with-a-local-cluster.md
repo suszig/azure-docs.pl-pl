@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/09/2016
+ms.date: 12/14/2016
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+ms.sourcegitcommit: efe9845280de3bcd882a7c879b53576600aae0a7
+ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
 
 
 ---
@@ -56,7 +56,7 @@ Zestaw SDK udostępnia dwa sposoby instalacji klastra lokalnego: skrypt programu
 ## <a name="deploy-an-application"></a>Wdrażanie aplikacji
 Zestaw SDK usługi Service Fabric zawiera bogaty zestaw struktur i narzędzi programistycznych przeznaczonych do tworzenia aplikacji. Jeśli chcesz się dowiedzieć, jak tworzyć aplikacje w programie Visual Studio, zobacz [Tworzenie pierwszej aplikacji usługi Service Fabric w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-W tym samouczku używamy istniejącej aplikacji przykładowej (o nazwie WordCount), dzięki czemu możemy skupić się na aspektach zarządzania na platformie, takich jak wdrażanie, monitorowanie i uaktualnianie.
+W tym samouczku użyto istniejącej aplikacji przykładowej (o nazwie WordCount), dzięki czemu można skupić się na kwestiach związanych zarządzaniem na platformie, takich jak wdrażanie, monitorowanie i uaktualnianie.
 
 1. Uruchom nowe okno programu PowerShell jako administrator.
 2. Zaimportuj moduł programu PowerShell zestawu SDK usługi Service Fabric.
@@ -82,14 +82,14 @@ W tym samouczku używamy istniejącej aplikacji przykładowej (o nazwie WordCoun
    Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
     ```
    
-    Jeśli wszystko przebiegnie poprawnie, powinny pojawić się dane wyjściowe podobne do następujących:
+    Jeśli wszystko przebiegnie poprawnie, powinny pojawić się następujące dane wyjściowe:
    
     ![Wdrażanie aplikacji w klastrze lokalnym][deploy-app-to-local-cluster]
 7. Aby zobaczyć aplikację w akcji, uruchom przeglądarkę i przejdź pod adres [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Powinien zostać wyświetlony następujący ekran:
    
     ![Interfejs użytkownika wdrożonej aplikacji][deployed-app-ui]
    
-    Aplikacja WordCount jest bardzo prosta. Zawiera kliencki kod JavaScript generujący losowe pięcioznakowe „słowa”, które są następnie przekazywane do aplikacji za pośrednictwem interfejsu API ASP.NET Web. Usługa stanowa śledzi liczbę zliczonych słów. Są one przydzielane do partycji na podstawie pierwszego znaku słowa. Kod źródłowy aplikacji WordCount można znaleźć w [przykładach wprowadzających](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    Aplikacja WordCount jest prosta. Zawiera kliencki kod JavaScript generujący losowe pięcioznakowe „słowa”, które są następnie przekazywane do aplikacji za pośrednictwem interfejsu API ASP.NET Web. Usługa stanowa śledzi liczbę zliczonych słów. Są one przydzielane do partycji na podstawie pierwszego znaku słowa. Kod źródłowy aplikacji WordCount można znaleźć w [przykładach wprowadzających](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
    
     Aplikacja, którą wdrożyliśmy, zawiera cztery partycje. Słowa zaczynające się na litery od A do G są przechowywane w pierwszej partycji, słowa zaczynające się na litery od H do N są przechowywane w drugiej partycji i tak dalej.
 
@@ -114,7 +114,7 @@ Po wdrożeniu aplikacji przyjrzymy się części jej szczegółów w programie P
     ![Lista usług dla aplikacji w programie PowerShell][ps-getsfsvc]
    
     Aplikacja składa się z dwóch usług — frontonu sieci Web i usługi stanowej, która zarządza słowami.
-3. Na koniec przyjrzyjmy się liście partycji dla usługi WordCountService:
+3. Na koniec przyjrzyj się liście partycji dla usługi WordCountService:
    
     ```powershell
     Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
@@ -134,26 +134,26 @@ Po wdrożeniu aplikacji przyjrzymy się części jej szczegółów w programie P
    > 
 
 ## <a name="upgrade-an-application"></a>Uaktualnianie aplikacji
-Usługa Service Fabric realizuje uaktualnienia bez przestojów, ponieważ monitoruje stan aplikacji wdrażanej w klastrze. Przeprowadźmy proste uaktualnienie aplikacji WordCount.
+Usługa Service Fabric realizuje uaktualnienia bez przestojów, ponieważ monitoruje stan aplikacji wdrażanej w klastrze. Przeprowadź uaktualnienie aplikacji WordCount.
 
 Nowa wersja aplikacji zlicza teraz tylko słowa zaczynające się od samogłosek. Podczas wdrażania tego uaktualnienia będzie można zaobserwować dwie zmiany w zachowaniu aplikacji. Po pierwsze szybkości narastania licznika powinna być mniejsza, ponieważ liczba zliczanych słów będzie mniejsza. Po drugie w pierwszej partycji znajdują się dwie samogłoski (A i E), a wszystkie pozostałe partycje zawierają po jednej sylabie, dlatego licznik pierwszej partycji powinien po pewnym czasie narastać szybciej niż pozostałych.
 
-1. [Pobierz pakiet WordCount v2](http://aka.ms/servicefabric-wordcountappv2) do tej samej lokalizacji, do której pobrano pakiet w wersji 1.
+1. [Pobierz pakiet WordCount w wersji 2](http://aka.ms/servicefabric-wordcountappv2) do tej samej lokalizacji, do której pobrano pakiet w wersji 1.
 2. Wróć do okna programu PowerShell i użyj w zestawie SDK polecenia uaktualniania, aby zarejestrować nową wersję w klastrze. Następnie rozpocznij uaktualnianie aplikacji fabric:/WordCount.
    
     ```powershell
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
    
-    Po rozpoczęciu uaktualnienia dane wyjściowe w programie PowerShell powinny przypominać dane widoczne poniżej.
+    Po rozpoczęciu uaktualnienia w programie PowerShell powinny zostać wyświetlone poniższe dane wyjściowe.
    
     ![Postęp uaktualniania w programie PowerShell][ps-appupgradeprogress]
-3. Podczas uaktualniania łatwiejsze może być monitorowanie stanu tego procesu z narzędzia Service Fabric Explorer. Uruchom okno przeglądarki i przejdź pod adres [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Rozwiń węzeł **Aplikacje** w drzewie po lewej stronie, wybierz pozycję **WordCount**, a na koniec wybierz pozycję **fabric:/WordCount**. Na karcie danych podstawowych będzie widoczny stan uaktualnienia obejmującego domeny uaktualnienia klastra.
+3. Podczas uaktualniania łatwiejsze może być monitorowanie stanu tego procesu z narzędzia Service Fabric Explorer. Uruchom okno przeglądarki i przejdź pod adres [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Rozwiń węzeł **Aplikacje** w drzewie po lewej stronie, wybierz pozycję **WordCount**, a na koniec wybierz pozycję **fabric:/WordCount**. Na karcie danych podstawowych jest widoczny stan uaktualnienia obejmującego domeny uaktualnienia klastra.
    
     ![Postęp uaktualniania w narzędziu Service Fabric Explorer][sfx-upgradeprogress]
    
     W trakcie uaktualnienia w poszczególnych domenach wykonywane jest sprawdzanie kondycji w celu zapewnienia, że aplikacja zachowuje się prawidłowo.
-4. Jeśli uruchomisz ponownie wcześniejsze zapytanie względem zestawu usług zawartych w aplikacji fabric:/WordCount, zwróć uwagę, że wersja usługi WordCountService uległa zmianie, ale wersja usługi WordCountWebService nie zmieniła się:
+4. Jeśli uruchomisz ponownie wcześniejsze zapytanie względem zestawu usług zawartych w aplikacji fabric:/WordCount, zauważysz, że wersja usługi WordCountService uległa zmianie, ale wersja usługi WordCountWebService nie zmieniła się:
    
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -161,7 +161,7 @@ Nowa wersja aplikacji zlicza teraz tylko słowa zaczynające się od samogłosek
    
     ![Zapytanie dotyczące usług aplikacji po uaktualnieniu][ps-getsfsvc-postupgrade]
    
-    Ten rezultat podkreśla sposób, w jaki usługa Service Fabric zarządza uaktualnieniami aplikacji. Działania związane z uaktualnieniami są realizowane tylko względem zestawu usług (albo pakietów kodu/konfiguracji w tych usługach), które uległy zmianie, co sprawia, że proces uaktualniania przebiega szybciej i bardziej niezawodnie.
+    W tym przykładzie podkreślono sposób, w jaki usługa Service Fabric zarządza uaktualnieniami aplikacji. Działania związane z uaktualnieniami są realizowane tylko względem zestawu usług (albo pakietów kodu/konfiguracji w tych usługach), które uległy zmianie, co sprawia, że proces uaktualniania przebiega szybciej i bardziej niezawodnie.
 5. Na koniec wróć do przeglądarki, aby przyjrzeć się zachowaniu nowej wersji aplikacji. Zgodnie z oczekiwaniami liczniki narastają wolniej, a ilość w pierwszej partycji jest nieznacznie większa.
    
     ![Widok nowej wersji aplikacji w przeglądarce][deployed-app-ui-v2]
@@ -175,10 +175,10 @@ Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Apli
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
    
-    Można również usunąć aplikację z poziomu menu **AKCJE** narzędzia Service Fabric Explorer lub menu kontekstowego w widoku listy aplikacji w okienku po lewej stronie.
+    Możesz również usunąć aplikację z poziomu menu **AKCJE** narzędzia Service Fabric Explorer lub menu kontekstowego w widoku listy aplikacji po lewej stronie.
    
     ![Usuwanie aplikacji w narzędziu Service Fabric Explorer][sfe-delete-application]
-2. Po usunięciu aplikacji z klastra można wyrejestrować wersję 1.0.0 i 2.0.0 typu aplikacji WordCount. Spowoduje to usunięcie z magazynu obrazów klastra pakietów aplikacji, w tym kodu i konfiguracji.
+2. Po usunięciu aplikacji z klastra wyrejestruj wersje 1.0.0 i 2.0.0 typu aplikacji WordCount. Spowoduje to usunięcie z magazynu obrazów klastra pakietów aplikacji, w tym kodu i konfiguracji.
    
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -189,19 +189,21 @@ Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Apli
 3. Aby zamknąć klaster, zachowując dane i ślady aplikacji, kliknij opcję **Zatrzymaj klaster lokalny** na pasku zadań systemu.
 4. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Klaster lokalny należy usuwać tylko wtedy, gdy nie będzie planowane używanie klastra lokalnego przez pewien czas lub konieczne jest odzyskanie zasobów.
 
-## <a name="1-node-and-5-node-cluster-mode"></a>Tryb klastra z 1 węzłem lub 5 węzłami
-Podczas pracy z lokalnym klastrem w celu opracowania aplikacji często wykonywane są szybkie iteracje podczas pisania kodu, debugowania, zmiany kodu, debugowania itd. Aby pomóc zoptymalizować ten proces, klaster lokalny można uruchomić w dwóch trybach: z 1 węzłem lub z 5 węzłami. Oba tryby klastra mają swoje zalety.
-Tryb klastra z 5 węzłami umożliwia pracę z rzeczywistym klastrem. Można przetestować scenariusze pracy awaryjnej i pracować z większą liczbą wystąpień i replik usług.
-Tryb klastra z 1 węzłem jest zoptymalizowany do szybkiego wdrażania i rejestrowania usług, co ułatwia szybkie sprawdzanie poprawności kodu za pomocą środowiska uruchomieniowego usługi Service Fabric.
+## <a name="one-node-and-five-node-cluster-mode"></a>Tryb klastra z jednym węzłem i pięcioma węzłami
+Podczas opracowywania aplikacji często są wykonywane szybkie iteracje podczas pisania kodu, debugowania, zmiany kodu i debugowania. Aby pomóc zoptymalizować ten proces, klaster lokalny można uruchomić w dwóch trybach: z jednym węzłem lub z pięcioma węzłami. Oba tryby klastra mają swoje zalety. Tryb klastra z pięcioma węzłami umożliwia pracę z rzeczywistym klastrem. Można przetestować scenariusze pracy awaryjnej i pracować z większą liczbą wystąpień i replik usług. Tryb klastra z jednym węzłem jest zoptymalizowany do szybkiego wdrażania i rejestrowania usług, co ułatwia szybkie weryfikowanie kodu za pomocą środowiska uruchomieniowego usługi Service Fabric.
 
-Tryb klastra z 1 węzłem i tryb klastra z 5 węzłami nie jest emulatorem ani symulatorem. Jest na nim wykonywany ten sam kod platformy, który można znaleźć w klastrach obejmujących wiele maszyn.
+Tryby klastra z jednym węzłem i z pięcioma węzłami nie są emulatorami ani symulatorami. W lokalnym klastrze projektowy jest wykonywany ten sam kod platformy, który można znaleźć w klastrach obejmujących wiele maszyn.
 
-> [!NOTE]
-> Ta funkcja jest dostępna tylko w zestawie SDK w wersji 5.2 i nowszych.
+> [!WARNING]
+> Zmiana trybu klastra polega na usunięciu bieżącego klastra z systemu i utworzeniu nowego klastra. Dane przechowywane w klastrze są usuwane podczas zmiany trybu klastra.
 > 
 > 
 
-Aby przełączyć do trybu klastra z 1 węzłem, użyj menedżera klastra lokalnego usługi Service Fabric lub użyj programu PowerShell w następujący sposób:
+Aby zmienić tryb na klaster z jednym węzłem, wybierz pozycję **Przełącz tryb klastra** w menedżerze klastra lokalnego usługi Service Fabric.
+
+![Przełączanie trybu klastra][switch-cluster-mode]
+
+Możesz też zmienić tryb klastra przy użyciu programu PowerShell:
 
 1. Uruchom nowe okno programu PowerShell jako administrator.
 2. Uruchom skrypt instalacji klastra z folderu zestawu SDK:
@@ -213,15 +215,6 @@ Aby przełączyć do trybu klastra z 1 węzłem, użyj menedżera klastra lokaln
     Instalacja klastra trwa kilka chwil. Po zakończeniu instalacji powinny być widoczne dane wyjściowe podobne do poniższych:
    
     ![Dane wyjściowe instalacji klastra][cluster-setup-success-1-node]
-
-Jeśli używasz menedżera klastra lokalnego usługi Service Fabric:
-
-![Przełączanie trybu klastra][switch-cluster-mode]
-
-> [!WARNING]
-> Podczas zmiany trybu klastra bieżący klaster jest usuwany z systemu i tworzony jest nowy klaster. Dane, które były przechowywane w klastrze, zostaną usunięte podczas zmiany trybu klastra.
-> 
-> 
 
 ## <a name="next-steps"></a>Następne kroki
 * Po wdrożeniu i uaktualnieniu wstępnie przygotowanych aplikacji możesz [spróbować utworzyć własne aplikacje w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -250,6 +243,6 @@ Jeśli używasz menedżera klastra lokalnego usługi Service Fabric:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

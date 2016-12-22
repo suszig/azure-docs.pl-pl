@@ -1,22 +1,25 @@
-
 ---
-title: Jak wypróbować usługę Azure RemoteApp na swoim urządzeniu w nie więcej niż trzy minuty | Microsoft Docs
-description: Przetestuj usługę Azure RemoteApp bez jej instalowania.
+title: "Jak wypróbować usługę Azure RemoteApp na swoim urządzeniu w nie więcej niż trzy minuty | Microsoft Docs"
+description: "Przetestuj usługę Azure RemoteApp bez jej instalowania."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 95e9fb49-78bb-4797-8d66-aeb42d00f208
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+
 
 ---
-# Jak wypróbować usługę Azure RemoteApp na swoim urządzeniu w nie więcej niż trzy minuty
+# <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Jak wypróbować usługę Azure RemoteApp na swoim urządzeniu w nie więcej niż trzy minuty
 > [!IMPORTANT]
 > Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -40,6 +43,9 @@ Zależy nam na Twojej opinii. Po zakończeniu każdej sesji pojawi się okno dia
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

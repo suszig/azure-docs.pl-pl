@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorowanie dostępności i czasu odpowiedzi dowolnej witryny sieci Web
-Po wdrożeniu aplikacji sieci Web lub witryny sieci Web na dowolnym serwerze można skonfigurować testy sieci Web, aby monitorować jej dostępność i czas odpowiedzi. Usługa [Application Insights w programie Visual Studio](app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa powiadomi Cię o tym za pomocą alertu.
+Po wdrożeniu aplikacji sieci Web lub witryny sieci Web na dowolnym serwerze można skonfigurować testy sieci Web, aby monitorować jej dostępność i czas odpowiedzi. Usługa [Azure Application Insights](app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa powiadomi Cię o tym za pomocą alertu.
 
 ![Przykład testu sieci Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Testy sieci Web można skonfigurować dla dowolnego punktu końcowego protokołów HTTP lub HTTPS, który jest dostępny za pośrednictwem publicznej sieci Internet.
+Testy sieci Web można skonfigurować dla dowolnego punktu końcowego protokołów HTTP lub HTTPS, który jest dostępny za pośrednictwem publicznej sieci Internet. Do testowanej witryny sieci Web nie trzeba niczego dodawać. Nie musi być to nawet Twoja witryna: możesz testować usługę interfejsu API REST, od której zależy Twoja praca.
 
 Istnieją dwa typy testów sieci Web:
 
@@ -58,7 +58,7 @@ W zasobie usługi Application Insights poszukaj kafelka Dostępność. Kliknij g
 
     **Odpowiedź HTTP**: zwrócony kod stanu, który będzie uznawany za sukces. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.
 
-    **Zgodność zawartości**: ciąg znaków, np. „Witaj!” Będziemy testować występowanie tego ciągu w każdej odpowiedzi. Musi to być zwykły ciąg znaków bez symboli wieloznacznych. Pamiętaj, że w razie zmiany zawartości strony może być konieczne zaktualizowanie tego ciągu.
+    **Zgodność zawartości**: ciąg znaków, np. „Witaj!” Sprawdzamy, czy w każdej odpowiedzi występuje dokładna zgodność pod względem wielkości liter. Musi to być zwykły ciąg znaków bez symboli wieloznacznych. Pamiętaj, że w razie zmiany zawartości strony może być konieczne zaktualizowanie tego ciągu.
 * **Alerty** są domyślnie wysyłane, jeśli błędy występują w trzech lokalizacjach przez ponad pięć minut. Błąd w jednej lokalizacji prawdopodobnie wynika z problemu z siecią, a nie z witryną. Próg błędu można jednak zmienić na mniej lub bardziej wrażliwy. Zmienić można też adresata wiadomości e-mail z alertami.
 
     Skonfigurować można również [element webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), który jest wywoływany w momencie zgłoszenia alertu. Należy jednak pamiętać, że obecnie parametry zapytania nie są przekazywane jako właściwości.
@@ -102,8 +102,20 @@ Alternatywnie możesz pobrać plik wynikowy i przejrzeć go w programie Visual S
 
 *Test wygląda dobrze, ale jest raportowany jako błąd?* Sprawdź wszystkie obrazy, skrypty, arkusze stylów i inne pliki ładowane przez stronę. Jeśli pobranie dowolnego z nich nie powiedzie się, test zostanie zgłoszony jako nieudany — nawet wtedy, gdy główna strona HTML ładuje się poprawnie.
 
-## <a name="multistep-web-tests"></a>Wieloetapowe testy sieci Web
+### <a name="open-the-server-request-and-exceptions"></a>Otwieranie żądania serwera i wyjątki
+
+W obszarze szczegółowych właściwości określonego testu można otworzyć raport po stronie serwera dotyczący żądania i inne zdarzenia, takie jak wyjątki.
+
+![Wynik działania testu sieci Web](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+Jeśli nie widzisz powiązanych pozycji, może to być spowodowane [próbkowaniem](app-insights-sampling.md) w operacji.
+
+## <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
 Możliwe jest monitorowanie scenariusza, który obejmuje sekwencję adresów URL. Jeśli na przykład monitorujesz witrynę sklepu, możesz sprawdzić, czy dodawanie towarów do koszyka działa prawidłowo.
+
+> [!NOTE] 
+> Za wieloetapowe testy sieci Web są naliczane opłaty. [Schemat cennika](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Aby utworzyć test wieloetapowy, nagraj scenariusz przy użyciu programu Visual Studio, a następnie przekaż nagranie do usługi Application Insights. Usługa Application Insights odtwarza ten scenariusz w określonych odstępach czasu i weryfikuje odpowiedzi.
 
@@ -153,7 +165,7 @@ Pamiętaj, że wszystkie zasoby strony (skrypty, arkusze stylów, obrazy itd.) m
 
 Test sieci Web musi być całkowicie zawarty w pliku .webtest — w teście nie można użyć funkcji zakodowanych.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Dodawanie wtyczek czasu i liczb losowych do testu wieloetapowego
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Dodawanie wtyczek czasu i liczb losowych do testu wieloetapowego
 Załóżmy, że testujesz narzędzie, które pobiera dane zależne od czasu (np. ceny akcji) z zewnętrznego źródła. Podczas rejestrowania testu sieci Web należy używać określonych godzin, ale ustawionych jako parametry testu: StartTime (Godzina rozpoczęcia) i EndTime (Godzina zakończenia).
 
 ![Test sieci Web z parametrami.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ Wtyczki testu sieci Web umożliwiają parametryzowanie czasu.
 
 Teraz przekaż test do portalu. Wartości dynamiczne zostaną zastosowane w każdym przebiegu testu.
 
-## <a name="dealing-with-signin"></a>Obsługa logowania
+## <a name="dealing-with-sign-in"></a>Obsługa logowania
 Jeśli użytkownicy logują się do aplikacji, dostępne są różne opcje symulowania logowania, które pozwolą przetestować strony dostępne po zalogowaniu. Zastosowane podejście zależy od typu zabezpieczeń zapewnianych przez aplikację.
 
 We wszystkich przypadkach należy utworzyć konto w ramach aplikacji tylko na potrzeby testowania. Jeśli to możliwe, należy ograniczyć uprawnienia tego konta testowego, aby nie było możliwości, że testy sieci Web będą miały wpływ na rzeczywistych użytkowników.
@@ -267,21 +279,21 @@ Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzeni
 >
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Następne kroki
-[Wyszukiwanie dzienników diagnostycznych][diagnostyka]
+[Dzienniki diagnostyczne usługi Search][diagnostic]
 
-[Rozwiązywanie problemów][qna].
+[Rozwiązywanie problemów][qna]
 
 [Adresy IP agentów testów sieci Web](app-insights-ip-addresses.md)
 
 <!--Link references-->
 
-[dostępność platformy Azure]: ../insights-create-web-tests.md
-[diagnostyka]: app-insights-diagnostic-search.md
+[azure-availability]: ../insights-create-web-tests.md
+[diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
