@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak opracowywać aplikacje logiki, które automatyzują i upraszczają biznesowe przepływy pracy w środowisku lokalnym i w chmurze. Samouczki, szablony i dokumentacja interfejsu API."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: ba5941d636a605059d981ddda8ea66288a682451
+ms.sourcegitcommit: 09066e463fe42bb845ccadc98cd79ed1c5881462
+ms.openlocfilehash: e8ab6aecb3d614a7b42e0524382022eabf66ea36
 
 ---
 # <a name="logic-apps-documentation"></a>Dokumentacja usługi Logic Apps
 
-Usługa Logic Apps stanowi narzędzie projektowania służące do modelowania i automatyzacji procesów w formie przepływów pracy. Istnieje wiele łączników dla rozwiązań w chmurze i lokalnych, które umożliwiają szybką integrację usług i protokołów. Aplikacja logiki rozpoczyna się od wyzwalacza (na przykład „Gdy konto zostanie dodane do oprogramowania Dynamics CRM”), po uruchomieniu którego można użyć wielu akcji łączenia, konwersji i logiki warunkowej.
+Dowiedz się, jak opracowywać aplikacje Logic Apps, które upraszczają i integrują skalowalne przepływy pracy w chmurze. Samouczki, szablony i dokumentacja interfejsu API pomogą Ci w projektowaniu i wdrażaniu automatycznych biznesowych przepływów pracy w środowisku lokalnym i w chmurze.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Usługa Logic Apps stanowi narzędzie projektowania służące do modelowania i 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -104,52 +105,44 @@ Usługa Logic Apps stanowi narzędzie projektowania służące do modelowania i 
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Polecenia cmdlet programu PowerShell w usłudze Logic Apps</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Dokumentacja zarządzana usługi Logic Apps</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
     <li>
-        <a href="/rest/api/logic/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Historia schematu</h3>
+                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2016-04-01?toc=%2fazure%2flogic-apps%2ftoc.json">Ogólna dostępność</a></p>
+                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2015-08-01?toc=%2fazure%2flogic-apps%2ftoc.json">Wersja zapoznawcza</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Interfejs API REST usługi Logic Apps</p>
+                        <p><a href="/rest/api/logic/">Dokumentacja interfejsu API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -162,6 +155,7 @@ Pobierz dokumentację usługi Logic Apps </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

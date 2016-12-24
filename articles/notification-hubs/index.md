@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak wysyłać powiadomienia wypychane z dowolnego zaplecza na dowolne urządzenie mobilne za pomocą usługi Notification Hubs. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 54bebbed74b344ff854a83b2b6c4abdb5ba68321
+ms.sourcegitcommit: 0d46d0e04550578a81c636aa118dc02c08428838
+ms.openlocfilehash: 8a4712af44c474cea93f04bf598e6595ba0dadee
 
 ---
 #<a name="notification-hubs-documentation"></a>Dokumentacja usługi Notification Hubs
 
-Usługa Azure Notification Hubs zapewnia łatwą w użyciu, wieloplatformową infrastrukturę skalowaną w poziomie, która umożliwia wysyłanie powiadomień wypychanych do urządzeń przenośnych z dowolnego zaplecza (lokalnego lub w chmurze) na dowolną platformę mobilną.
-
-Usługa Notification Hubs umożliwia łatwe wysyłanie spersonalizowanych powiadomień wypychanych na różne platformy, zapewniając abstrakcyjność szczegółów różnych systemów powiadomień platformy (PNS, platform notification system). Przy użyciu jednego wywołania interfejsu API można wysyłać powiadomienia do poszczególnych użytkowników lub całych segmentów odbiorców zawierających miliony użytkowników na ich wszystkie urządzenia.
+Dowiedz się, jak używać usługi Notification Hubs, skalowalnego aparatu obsługującego powiadomienia wypychane na wielu platformach, aby szybko wysyłać miliony wiadomości. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować i wysyłać powiadomienia wypychane z dowolnego zaplecza na dowolne urządzenie mobilne. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -31,7 +30,7 @@ Usługa Notification Hubs umożliwia łatwe wysyłanie spersonalizowanych powiad
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -160,52 +159,45 @@ Usługa Notification Hubs umożliwia łatwe wysyłanie spersonalizowanych powiad
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Polecenia cmdlet programu PowerShell w usłudze Notification Hubs</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Dokumentacja interfejsu API .NET usługi Notification Hubs</p>
-                    </div>
+                        <h3>Języki</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/notificationhubs/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Interfejs API REST usługi Notification Hubs</p>
+                        <p><a href="/rest/api/notificationhubs">Dokumentacja interfejsu API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 ---
 
@@ -219,6 +211,6 @@ Pobierz dokumentację usługi Notification Hubs </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

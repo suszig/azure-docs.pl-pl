@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak przy użyciu usługi Application Insights — rozszerzalnego rozwiązania do zarządzania wydajnością aplikacji — wykrywać i diagnozować problemy oraz oceniać ich istotność w aplikacjach sieci Web i w usługach."
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: f0fdb938519737e67849831a0751542f69c269d9
+ms.openlocfilehash: e5425bc1f39c9ca71b6eaf2c928b0d8397319d85
 
 ---
 # <a name="application-insights-documentation"></a>Dokumentacja usługi Application Insights
 
-Usługa Application Insights jest rozszerzalną usługą zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web. Użyj tej usługi do monitorowania aplikacji sieci Web na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Obejmuje ona zaawansowane narzędzia analityczne, dzięki którym możesz diagnozować problemy i zrozumieć sposób korzystania z aplikacji przez użytkowników. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i J2EE, hostowanych lokalnie lub w chmurze. Ponadto integruje proces devOps i ma punkty połączenia z szeroką gamą innych narzędzi.
+Dowiedz się, jak używać rozwiązania Application Insights, rozszerzalnej usługi zarządzania wydajnością aplikacji dla deweloperów sieci Web. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak wykrywać i diagnozować problemy oraz oceniać ich istotność w aplikacjach sieci Web i w usługach.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -161,6 +162,6 @@ Pobierz dokumentację usługi Application Insights </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

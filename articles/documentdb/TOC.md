@@ -18,6 +18,7 @@
 ### [Aplikacje sieci Web w języku Java](documentdb-java-application.md)
 ### [Aplikacje sieci Web w języku Python Flask](documentdb-python-application.md)
 ## [Opracowywanie w środowisku lokalnym](documentdb-nosql-local-emulator.md)
+### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md) (Eksportowanie certyfikatów emulatora)
 ## [Często zadawane pytania](documentdb-faq.md)
 
 # Instrukcje
@@ -41,21 +42,28 @@
 ### [Limity przydziałów zasobów](documentdb-limits.md)
 ### [Zwiększanie limitów](documentdb-increase-limits.md)
 ### [Jednostki żądania](documentdb-request-units.md)
-### [Interfejs wiersza polecenia platformy Azure i usługa Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Interfejs wiersza polecenia platformy Azure
+#### [Create an account](documentdb-automation-resource-manager-cli.md) (Tworzenie konta)
+#### [Add or remove regions](documentdb-automation-region-management.md) (Dodawanie lub usuwanie regionów)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Obsługa zapory](documentdb-firewall-support.md)
 ### [Zwiększanie możliwości konta](documentdb-supercharge-your-account.md)
 
 ## Programowanie
 ### [Zapytanie SQL](documentdb-sql-query.md)
 ### [Procedury składowane, wyzwalacze i funkcje definiowane przez użytkownika (UDF)](documentdb-programming.md)
+### [Track changes with Change feed](documentdb-change-feed.md) (Śledzenie zmian za pomocą kanału informacyjnego zmian)
 ### [Testowanie wydajności](documentdb-performance-testing.md)
 ### [Porady dotyczące wydajności](documentdb-performance-tips.md)
-### Baza danych DocumentDB dla deweloperów programu MongoDB
-#### [Obsługa protokołów dla programu MongoDB](documentdb-protocol-mongodb.md)
-#### [Tworzenie konta](documentdb-create-mongodb-account.md)
-#### [Łączenie ze swoim kontem](documentdb-connect-mongodb-account.md)
-#### [Korzystanie z programu MongoChef](documentdb-mongodb-mongochef.md)
-#### [Przykłady obsługi protokołów](documentdb-mongodb-samples.md)
+
+## Korzystanie z obsługi bazy danych MongoDB w usłudze DocumentDB
+### [Obsługa protokołów dla programu MongoDB](documentdb-protocol-mongodb.md)
+### [Tworzenie konta](documentdb-create-mongodb-account.md)
+### [Łączenie ze swoim kontem](documentdb-connect-mongodb-account.md)
+### [Migrowanie danych](documentdb-mongodb-migrate.md)
+### [Korzystanie z narzędzia Robomongo](documentdb-mongodb-robomongo.md)
+### [Korzystanie z programu MongoChef](documentdb-mongodb-mongochef.md)
+### [Przykłady obsługi protokołów](documentdb-mongodb-samples.md)
 
 ## Używanie portalu
 ### [Tworzenie konta bazy danych](documentdb-create-account.md)
@@ -112,6 +120,6 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

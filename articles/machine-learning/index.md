@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dokumentacja, filmy wideo i przykładowe modele usługi Machine Learning — usługi w chmurze przeznaczonej dla naukowców i deweloperów pracujących z danymi i używających analizy predykcyjnej w aplikacjach."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2328b831e3d04b2d974dbc1520f79dcbdcd80128
+ms.sourcegitcommit: 12f9d75f252d8b05fdcded9d3fb6c12e4c2a304e
+ms.openlocfilehash: d51cb36ce676ac6d2e7c7b3313db75308d4cca3b
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Dokumentacja usługi Azure Machine Learning
 
-Usługa Azure Machine Learning udostępnia narzędzia do modelowania analizy predykcyjnej, a także zapewnia w pełni zarządzaną usługę, z której można korzystać w celu wdrażania modeli predykcyjnych w postaci gotowych do użycia usług sieci Web.
+Dowiedz się, jak analitycy danych i deweloperzy mogą osadzać analizę predykcyjną w aplikacjach przy użyciu usługi Machine Learning. Samouczki, klipy wideo i przykładowe modele przedstawiające sposób tworzenia i wdrażania modeli uczenia maszynowego.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,52 +87,46 @@ Usługa Azure Machine Learning udostępnia narzędzia do modelowania analizy pre
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Dokumentacja programu Azure PowerShell</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">Moduł programu PowerShell dla usługi Machine Learning</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/machinelearning">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Języki</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Dokumentacja algorytmów i modułu</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Interfejs API REST usługi Machine Learning</p>
+                        <p><a href="/rest/api/machinelearning">Dokumentacja interfejsu API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Algorytmy</h3>
-                        <p>Dokumentacja algorytmów i modułu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
@@ -143,6 +138,6 @@ Pobierz dokumentację usługi Machine Learning </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

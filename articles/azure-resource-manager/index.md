@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak za pomocą usługi Resource Manager wdrażać zasoby rozwiązań i zarządzać nimi jako grupą oraz jak tworzyć szablony na potrzeby spójnego i powtarzalnego wdrażania zasobów."
 translationtype: Human Translation
-ms.sourcegitcommit: e48fea077e09518ab5005518c8e8a413df458b93
-ms.openlocfilehash: a7b6655d2314b198706177f1adaf1b88eb135307
+ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
+ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Dokumentacja usługi Azure Resource Manager
 
-Infrastruktura aplikacji zwykle obejmuje wiele składników — może to być maszyna wirtualna, konto magazynu i sieć wirtualna albo aplikacja sieci Web, baza danych, serwer bazy danych i usługi zewnętrzne. Te składniki nie są widoczne jako osobne jednostki, tylko jako powiązane i zależne od siebie nawzajem części jednej całości. Dlatego najlepiej wdrażać i monitorować je oraz zarządzać nimi grupowo. Usługa Azure Resource Manager umożliwia pracę z zasobami tworzącymi rozwiązanie w formie grupy. Wszystkie zasoby danego rozwiązania można wdrożyć, zaktualizować lub usunąć w ramach jednej skoordynowanej operacji. Wdrażanie wykonuje się przy użyciu szablonu, którego można następnie używać w różnych środowiskach (testowanie, etap przejściowy i produkcja). Usługa Resource Manager zapewnia funkcje zabezpieczeń, inspekcji i tagowania ułatwiające zarządzanie zasobami po wdrożeniu
+Dowiedz się, jak używać usługi Resource Manager w celu wdrażania i monitorowania zasobów rozwiązań oraz zarządzania nimi jako grupą. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób konfigurowania grup zasobów i tworzenia szablonów na potrzeby spójnego i powtarzalnego wdrażania.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,7 @@ Pobierz dokumentację usługi Azure Resource Manager </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

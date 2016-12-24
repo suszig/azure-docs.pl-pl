@@ -31,7 +31,7 @@ sql-database-service-tiers.md
 | Maksymalna liczba jednostek eDTU na bazę danych | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued-"></a>Limity pul elastycznych Standardowa (ciąg dalszy) **
+### <a name="standard-elastic-pool-limits-continued"></a>Limity standardowych pul elastycznych (ciąg dalszy) 
 
 | Rozmiar puli (jednostki eDTU)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -57,7 +57,7 @@ sql-database-service-tiers.md
 | Maksymalna liczba jednostek eDTU na bazę danych | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |  
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued-"></a>Limity pul elastycznych Premium (ciąg dalszy) **
+### <a name="premium-elastic-pool-limits-continued"></a>Limity pul elastycznych Premium (ciąg dalszy) 
 
 | Rozmiar puli (jednostki eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -72,9 +72,8 @@ sql-database-service-tiers.md
 
 \* Elastyczna baza danych współużytkuje magazyn w puli, dzięki czemu magazyn bazy danych jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych
 
-\** Rozmiary pul wynoszące 3000 eDTU dla puli elastycznej Standardowa i 4000 eDTU dla puli elastycznej Premium są obecnie dostępne wyłącznie za pośrednictwem programu PowerShell oraz interfejsu API REST. Wkrótce te rozmiary pul zostaną udostępnione w witrynie Azure Portal. 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

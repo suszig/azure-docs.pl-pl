@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak wdrożyć kontrolera dostarczania aplikacji w chmurze. W dokumentacji pokazano, jak skonfigurować routing na poziomie aplikacji i równoważenie obciążenia dla frontonu sieci Web."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 3bf27e3ba3e53aa2f06a078b81fff18fc449bc1c
+ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
+ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
 
 ---
 #<a name="application-gateway-documentation"></a>Dokumentacja usługi Application Gateway
 
-Usługa Azure Application Gateway zapewnia kontroler dostarczania aplikacji (ADC, Application Deliver Controller) jako usługę.  Dzięki temu klienci mogą optymalizować wydajność kolektywu serwerów sieci Web przez przenoszenie dużego obciążenia związanego z przerywaniem połączeń SSL z procesora CPU do usługi Application Gateway.  Jest to dedykowane urządzenie wirtualne dla aplikacji zapewniające skalowalność i wysoką dostępność, a także bogaty zestaw funkcji diagnostyki i rejestrowania usprawniających zarządzanie.
+Dowiedz się, jak wdrożyć usługę Application Gateway, kontrolera dostarczania aplikacji (ADC, Application Deliver Controller), jako usługę. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować usługi routingu i równoważenia obciążenia na poziomie aplikacji, które pozwalają tworzyć skalowalne frontony sieci Web o wysokiej dostępności.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Usługa Azure Application Gateway zapewnia kontroler dostarczania aplikacji (ADC
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=application-gateway">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-gateway">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -112,15 +113,15 @@ Usługa Azure Application Gateway zapewnia kontroler dostarczania aplikacji (ADC
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/resourcemanager">Polecenia cmdlet programu PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Interfejs wiersza polecenia platformy Azure</a></p>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0 (wersja zapoznawcza)</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -136,13 +137,13 @@ Usługa Azure Application Gateway zapewnia kontroler dostarczania aplikacji (ADC
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt684941">Interfejs API REST</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Klasyczny interfejs API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">Dokumentacja interfejsu API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Dokumentacja klasycznego interfejsu API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -160,6 +161,6 @@ Pobierz dokumentację usługi Application Gateway </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak używać usługi DocumentDB, bazy danych dokumentów NoSQL bez schematu. W samouczkach pokazano, jak przeprowadzić integrację z aplikacjami i używać zapytań SQL w dokumentach JSON."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c0911518e954131f1c8de783d71fb17a9eea1945
+ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
+ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
 
 ---
 #<a name="documentdb-documentation"></a>Dokumentacja usługi DocumentDB
 
-Azure DocumentDB to w pełni zarządzana usługa bazy danych NoSQL oferująca szybkie przetwarzanie, przewidywalną wydajność, wysoką dostępność, elastyczne skalowanie, globalną dystrybucję i łatwość programowania. Jako bezschematowa baza danych NoSQL usługa DocumentDB zapewnia szerokie i powszechnie znane możliwości zapytań SQL w połączeniu ze stale niskimi czasami oczekiwania na dane JSON.
+Dowiedz się, jak używać usługi DocumentDB w wysoce wydajnych aplikacjach sieci Web, mobilnych, gier i IoT. W samouczkach i innej dokumentacji pokazano, jak przechowywać dane JSON i uruchamiać zapytania SQL dla elastycznego schematu w tej usłudze bazy danych NoSQL.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -221,6 +222,6 @@ Pobierz dokumentację usługi DocumentDB </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak uzyskać wgląd w dane dotyczące użycia aplikacji mobilnych i segmentowania użytkowników w czasie rzeczywistym oraz jak włączyć kontekstowe powiadomienia wypychane i komunikaty w aplikacjach."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c9f8493eb39f0c519825cdaa1c06bbb24b0f478f
+ms.sourcegitcommit: 2dbe8c3bf665249af4a1626e38f6465d2db32a0b
+ms.openlocfilehash: fed0048ab3a7101c4461ffa14511a26ecd7a36eb
 
 ---
 # <a name="mobile-engagement-documentation"></a>Dokumentacja usługi Mobile Engagement
 
-Usługa Azure Mobile Engagement to platforma zwiększająca zaangażowanie użytkowników typu „oprogramowanie jako usługa” (Software-as-a-Service, SaaS), która zapewnia analizę opartą na danych dotyczącą użycia aplikacji i segmentację użytkowników oraz umożliwia użycie powiadomień wypychanych i wiadomości w aplikacji.
+Dowiedz się, jak zwiększyć użycie aplikacji, utrzymanie użytkowników oraz zyski z aplikacji mobilnych za pomocą usługi Mobile Engagement. W samouczkach, zestawach SDK i innej dokumentacji pokazano, jak uzyskać wgląd w dane dotyczące użycia aplikacji i segmentowania użytkowników w czasie rzeczywistym oraz jak włączyć kontekstowe powiadomienia wypychane i komunikaty w aplikacjach.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -205,6 +206,6 @@ Pobierz dokumentację usługi Azure Mobile Engagement </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

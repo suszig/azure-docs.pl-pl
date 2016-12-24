@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Uzyskaj informacje na temat usługi SQL Database — bazy danych oferowanej w formie usługi w chmurze. W samouczkach, klipach wideo i innych dokumentach pokazano, jak skonfigurować i połączyć relacyjną bazę danych oraz jak nią zarządzać."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 64e7a12fea6e6ae837d7ae0aacf3ac7426605707
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 4c148d62e435f063810c096069c4020ef78568d8
 
 ---
-#<a name="sql-database-documentation"></a>Dokumentacja usługi SQL Database
 
-Azure SQL Database jest usługą relacyjnych baz danych w chmurze, oferującą oparte na aparacie programu Microsoft SQL Server możliwości o kluczowym znaczeniu. Usługa zapewnia przewidywalną wydajność, skalowalność bez przestojów, ciągłość prowadzenia działalności biznesowej i ochronę danych — wszystko przy bliskich zeru nakładach na administrację. Ponieważ usługa SQL Database jest oparta na aparacie oprogramowania SQL Server, współpracuje z istniejącymi narzędziami programu SQL Server, bibliotekami i interfejsami API, dzięki czemu możesz łatwiej przenosić rozwiązania i rozszerzać je, korzystając z chmury.
+# <a name="sql-database-documentation"></a>Dokumentacja usługi SQL Database
+
+Dowiedz się, jak korzystać z usługi SQL Database — relacyjnej bazy danych oferowanej w formie usługi w chmurze, która korzysta z aparatu programu Microsoft SQL Server. W samouczkach, klipach wideo i innych dokumentach pokazano, jak skonfigurować i połączyć bazę danych SQL oraz jak nią zarządzać.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -104,78 +106,50 @@ Azure SQL Database jest usługą relacyjnych baz danych w chmurze, oferującą o
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Dokumentacja programu Azure PowerShell</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (elastyczna baza danych)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Zarządzana dokumentacja dotycząca platformy .NET</p>
+                        <h3>Języki</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Dokumentacja zestawu Java SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/sql">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Interfejs API REST usługi SQL Database</p>
+                        <p><a href="/rest/api/sql/">Dokumentacja interfejsu API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>Dokumentacja języka T-SQL</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -189,6 +163,6 @@ Pobierz dokumentację usługi SQL Database </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

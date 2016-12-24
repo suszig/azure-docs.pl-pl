@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak przy użyciu usług Cloud Services hostować i uruchamiać wysoce dostępne i skalowalne aplikacje w chmurze oraz interfejsy API."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
 # <a name="cloud-services-documentation"></a>Dokumentacja usług Cloud Services
 
-Usługi Cloud Services są przykładem wdrożenia platformy jako usługi (PaaS, Platform as a Service). Jest to rozwiązanie przeznaczone do obsługi aplikacji, które są skalowalne, niezawodne i ekonomiczne w działaniu. Dzięki usługom Cloud Services zyskujesz korzyści wirtualizacji, a jednocześnie masz kontrolę nad maszyną wirtualną w zakresie konfigurowania oraz instalowania poprawek i oprogramowania.  
+Dowiedz się, jak przy użyciu usług Cloud Services hostować i uruchamiać wysoce dostępne, skalowalne aplikacje w chmurze i interfejsy API.  W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak zarządzać hostami maszyn wirtualnych oraz jak konfigurować i instalować oprogramowanie, a także stosować do niego poprawki.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,6 +126,6 @@ Pobierz dokumentację usług Cloud Services </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

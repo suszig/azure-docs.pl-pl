@@ -10,11 +10,11 @@
 
 # Wprowadzenie
 ## [Rozpoczynanie pracy z usługą Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Rozpoczynanie pracy z interaktywną technologią Hive w wersji zapoznawczej](hdinsight-hadoop-use-interactive-hive.md)
 ## [Rozpoczynanie pracy z programem R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Rozpoczynanie pracy z platformą Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Rozpoczynanie pracy z bazą danych HBase i językiem NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Rozpoczynanie pracy z systemem Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Rozpoczynanie pracy z interaktywną technologią Hive w wersji zapoznawczej](hdinsight-hadoop-use-interactive-hive.md)
 ## [Rozpoczynanie pracy z oprogramowaniem Kafka w wersji zapoznawczej](hdinsight-apache-kafka-get-started.md)
 ## [Piaskownica usługi Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Narzędzia Data Lake Tools z piaskownicą Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
@@ -224,6 +224,6 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

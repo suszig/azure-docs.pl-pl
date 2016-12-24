@@ -69,7 +69,7 @@
 # Zasoby
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=search)
 ## Korzystanie z interfejsów API wyszukiwania
-##X [Wersje interfejsu API](search-api-versions.md)
+## [Wersje interfejsu API](search-api-versions.md)
 ## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/search/)
 ## Witryny demonstracyjne
@@ -87,6 +87,6 @@
 ### [Repozytorium Github usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
