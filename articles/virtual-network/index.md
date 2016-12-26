@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: "Dowiedz się, jak używać sieci wirtualnej w chmurze. W dokumentacji pokazano, jak wdrożyć sieć wirtualną, użyć jej w celu uruchomienia zasobów i przeprowadzić integrację z siecią lokalną."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c285a2be335bed0adada1877f94c7999d7c8b7e5
+ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
+ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
 
 ---
 # <a name="virtual-network-documentation"></a>Dokumentacja usługi Virtual Network
 
-Usługa Azure Virtual Network (VNet) jest logicznym odzwierciedleniem Twojej sieci w chmurze.  Dzięki sieci wirtualnej VNet możesz w pełni kontrolować elementy sieci i segmentować sieć VNet na podsieci, a także używać jej do uruchamiania usług Azure Virtual Machines lub Cloud Services.  Ponadto możesz połączyć sieć VNet z siecią lokalną przy użyciu jednej z opcji łączności dostępnej na platformie Azure, aby rozszerzyć sieć do chmury przy jednoczesnym zachowaniu kontroli nad zasobami.
+Dowiedz się, jak używać sieci wirtualnej, która jest logicznym odzwierciedleniem Twojej sieci w chmurze. W dokumentacji pokazano , jak skonfigurować sieć wirtualną i zarządzać nią, użyć jej w celu uruchomienia usług Virtual Machines lub Cloud Services, połączyć sieć wirtualną z siecią lokalną oraz rozwinąć sieć w chmurze, zachowując kontrolę nad zasobami.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,6 @@ Pobierz dokumentację usługi Virtual Network </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

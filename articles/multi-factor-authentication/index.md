@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informacje o sposobie wdrażania uwierzytelniania wieloskładnikowego przy użyciu szeregu metod weryfikacji, które zapewniają prostotę procesu logowania. Samouczki, zestaw SDK i inne materiały."
 translationtype: Human Translation
-ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
-ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
+ms.sourcegitcommit: d3e822f16a48f5c144ce2634325591eb69dc0e33
+ms.openlocfilehash: 087b71266ad1f4b1be0acd1eaa465903c32c1fd2
 
 ---
 # <a name="multi-factor-authentication-documentation"></a>Dokumentacja usługi Multi-factor Authentication
 
-Azure Multi-Factor Authentication (MFA) to rozwiązanie firmy Microsoft służące do przeprowadzania weryfikacji dwuetapowej. Usługa Azure MFA zabezpiecza dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostoty procesu logowania. Oferuje ona silne uwierzytelnianie za pośrednictwem różnych metod weryfikacji, w tym weryfikacji w trakcie rozmowy telefonicznej albo przy użyciu wiadomości SMS lub aplikacji mobilnej.
+Informacje o sposobie wdrażania usługi Azure Multi-Factor Authentication — systemu dwuetapowej weryfikacji tożsamości — i zarządzania nią. Samouczki, zestaw SDK i inne dokumenty przedstawiające sposób zapewnienia silnego uwierzytelniania przy użyciu szeregu metod weryfikacji, które zapewniają prostotę procesu logowania.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,6 +114,7 @@ Pobierz dokumentację usługi Multi-Factor Authentication </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

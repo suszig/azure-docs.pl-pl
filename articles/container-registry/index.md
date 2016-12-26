@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak tworzyć i obsługiwać rejestry kontenerów w celu przechowywania obrazów wdrażania za pomocą zarządzanej usługi rejestru aparatu Docker. Samouczki, dokumentacja interfejsu API i inne materiały."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
+ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
+ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Dokumentacja usługi Azure Container Registry
 
-Usługa Azure Container Registry (wersja zapoznawcza) to prywatny rejestr obrazów kontenera hostowania. Korzystając z usługi Azure Container Registry, można przechowywać obrazy w formacie platformy Docker dla wszystkich typów wdrożeń kontenera. Usługa Azure Container Registry zapewnia dobre możliwości integracji z koordynatorami hostowanymi w usłudze Azure Container Service, takimi jak Docker Swarm DC/OS i Kubernetes. 
+Dowiedz się, jak przy użyciu usługi Container Registry przechowywać obrazy dowolnego typu wdrożeń kontenerów i zarządzać nimi. W samouczkach, dokumentacji interfejsów API REST i innych dokumentach pokazano, jak tworzyć i obsługiwać rejestry kontenerów za pomocą tej zarządzanej usługi rejestru aparatu Docker.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,6 +99,7 @@ Usługa Azure Container Registry (wersja zapoznawcza) to prywatny rejestr obraz�
 </ul>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

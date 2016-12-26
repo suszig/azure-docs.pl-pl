@@ -19,6 +19,7 @@
 ## [Łączenie aplikacji logiki z rozwiązaniem do zdalnego monitorowania](iot-suite-logic-apps-tutorial.md)
 ## [Dostosowanie wstępnie skonfigurowanego rozwiązania](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Korzystanie z telemetrii dynamicznej z rozwiązaniem do zdalnego monitorowania](iot-suite-dynamic-telemetry.md)
+## [Tworzenie reguły niestandardowej w rozwiązaniu do zdalnego monitorowania](iot-suite-custom-rule.md)
 ## [Informacje o urządzeniu w rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-device-info.md)
 
 # Dokumentacja
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

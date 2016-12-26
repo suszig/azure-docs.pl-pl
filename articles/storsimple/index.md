@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak używać usługi Azure StorSimple, zintegrowanego rozwiązania, które pozwala zarządzać zadaniami dotyczącymi przesyłania danych między urządzeniami lokalnymi i magazynem w chmurze Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: 24d70182b209126a71c6a9846136d4d31ab3b7ce
+ms.openlocfilehash: 4eb0e15f1030b4b1e987edc4fc2fa64e302b5851
 
 ---
 #<a name="storsimple-documentation"></a>Dokumentacja usługi StorSimple
 
-Rozwiązanie StorSimple i platforma Microsoft Azure oferują unikatowe i zintegrowane podstawowe archiwum magazynu oraz rozwiązanie do odzyskiwania po awarii, w którym platforma Azure stanowi rozszerzenie magazynu lokalnego. Dowiedz się, jak wdrażać rozwiązanie StorSimple i zarządzać nim.
+Dowiedz się, jak używać usługi Azure StorSimple, zintegrowanego rozwiązania, które pozwala zarządzać zadaniami dotyczącymi przesyłania danych między urządzeniami lokalnymi i magazynem w chmurze Azure. Samouczki i inne dokumenty przedstawiające sposób konfigurowania odzyskiwania po awarii, tworzenia kopii zapasowych niezależnych od lokalizacji i zarządzania magazynem.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -147,6 +148,6 @@ Pobierz dokumentację usługi StorSimple </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak skonfigurować obsługę komunikatów łączących aplikacje i usługi w środowiskach lokalnych i chmurowych.  Samouczki, klipy wideo, dokumentacja interfejsu API i inne materiały."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
+ms.sourcegitcommit: 37d0de5343692516cc9644d817384ad31f58fb40
+ms.openlocfilehash: a0b419acc990e3973432540fb9907e31ddedf41c
 
 ---
 #<a name="service-bus-documentation"></a>Dokumentacja usługi Service Bus
 
-Usługa Service Bus zapewnia komunikację w chmurze z obsługą komunikatów w przedsiębiorstwie i przekazywaniem komunikacji, co ułatwia połączenie rozwiązań lokalnych z chmurą. 
+Informacje o sposobie używania usługi Service Bus w celu połączenia środowisk lokalnych i chmurowych. Samouczki, klipy wideo, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób konfigurowania obsługi komunikatów wysyłanych między aplikacjami i usługami w chmurze.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -244,6 +245,6 @@ Pobierz dokumentację usługi Service Bus </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

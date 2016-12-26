@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak za pomocą usługi Content Delivery Network (CDN) dostarczać zawartość z globalnych centrów danych na dowolne urządzenie. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
+ms.sourcegitcommit: 565971021beec4afde15c17737ee82b812ba894d
+ms.openlocfilehash: fe5c35945f14c5023f070f25fd76e47d7952ce54
 
 ---
 # <a name="cdn-documentation"></a>Dokumentacja usługi CDN
 
-Usługa Azure Content Delivery Network (CDN) oferuje deweloperom globalne rozwiązanie dostarczania zawartości o wysokiej przepustowości, które jest hostowane na platformie Azure lub w dowolnej innej lokalizacji.  Korzystając z usługi CDN, można buforować publicznie dostępne obiekty załadowane z magazynu obiektów blob platformy Azure, aplikacji sieci Web, maszyny wirtualnej, folderu aplikacji lub innej lokalizacji HTTP/HTTPS.  Usługa CDN jest zwykle używana do dostarczania zawartości statycznej, takiej jak obrazy, arkusze stylów, dokumenty, pliki, skrypty po stronie klienta i strony HTML.
+Dowiedz się, jak za pomocą usługi Content Delivery Network (CDN) dostarczać zawartość o wysokiej przepustowości, która jest hostowana na platformie Azure lub w innej lokalizacji. W samouczkach, dokumentacji interfejsu API i w pozostałych dokumentach pokazano, jak przy użyciu usługi CDN dostarczać zawartość z globalnych centrów danych na dowolne urządzenie.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -119,6 +120,6 @@ Pobierz dokumentację usługi Azure CDN </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

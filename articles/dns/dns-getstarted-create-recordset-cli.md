@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/09/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: f15333cde5304579ff0d0ba9571a870ddde19163
+ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
+ms.openlocfilehash: e377f176fe24a8e7e42d409f86d6b0093ce5e7c4
 
 ---
 
@@ -26,9 +26,13 @@ ms.openlocfilehash: f15333cde5304579ff0d0ba9571a870ddde19163
 > * [Program PowerShell](dns-getstarted-create-recordset.md)
 > * [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-recordset-cli.md)
 
-W tym artykule szczegółowo omówiono tworzenie rekordów i zestawów rekordów przy użyciu interfejsu wiersza polecenia. Po utworzeniu strefy DNS należy dodać rekordy DNS dla domeny. Aby to zrobić, musisz najpierw zrozumieć rekordy DNS i zestawy rekordów.
+W tym artykule szczegółowo omówiono tworzenie rekordów i zestawów rekordów przy użyciu interfejsu wiersza polecenia. Aby to zrobić, musisz najpierw zrozumieć rekordy DNS i zestawy rekordów.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
+
+W tej sekcji opisano sposób tworzenia rekordów DNS w usłudze Azure DNS. W przykładach założono, że już [zainstalowano interfejs wiersza polecenia platformy Azure, zalogowano się i utworzono strefę DNS](dns-getstarted-create-dnszone-cli.md).
+
+We wszystkich przykładach na tej stronie użyto typu rekordu DNS „A”. Aby uzyskać informacje o innych typach rekordów oraz dodatkowe informacje na temat zarządzania rekordami i zestawami rekordów DNS, zobacz [Manage DNS records and record sets by using the Azure CLI](dns-operations-recordsets-cli.md) (Zarządzanie rekordami i zestawami rekordów DNS przy użyciu interfejsu wiersza polecenia platformy Azure).
 
 ## <a name="create-a-record-set-and-record"></a>Tworzenie zestawu rekordów i rekordu
 
@@ -38,43 +42,58 @@ Aby utworzyć zestaw rekordów w wierzchołku strefy (w tym przypadku „contoso
 
 ### <a name="1-create-a-record-set"></a>1. Tworzenie zestawu rekordów
 
-Aby utworzyć zestaw rekordów, użyj polecenia `azure network dns record-set create`. Określ grupę zasobów, nazwę strefy, nazwę względną zestawu rekordów, typ rekordu i czas TTL. Jeśli nie zdefiniowano parametru `--ttl`, domyślnie przyjmowana jest wartość 4 (w sekundach). Po ukończeniu tego kroku zostanie utworzony pusty zestaw rekordów „www”.
+Jeśli nowy rekord ma tę samą nazwę i ten sam typ co istniejący rekord, musisz go dodać do istniejącego zestawu rekordów. Możesz pominąć ten krok i przejść do kroku [Dodawanie rekordów](#add-records) poniżej. Jeśli nowy rekord ma inną nazwę i inny typ niż wszystkie istniejące rekordy, musisz utworzyć nowy zestaw rekordów.
 
-*Składnia: network dns record-set create \<grupa zasobów\> \<nazwa strefy dns\> \<nazwa\> \<typ\> \<czas wygaśnięcia\>*
+Do tworzenia zestawów rekordów służy polecenie `azure network dns record-set create`. Aby uzyskać pomoc, zobacz `azure network dns record-set create -h`.  
+
+Podczas tworzenia zestawu rekordów musisz określić nazwę zestawu rekordów, strefę, czas wygaśnięcia (TTL, time to live) i typ rekordu. 
 
 ```azurecli
-azure network dns record-set create myresourcegroup  contoso.com  www A  60
+azure network dns record-set create myresourcegroup contoso.com www A 60
 ```
+
+Po ukończeniu tego kroku zostanie utworzony pusty zestaw rekordów „www”. Aby móc użyć nowo utworzonego zestawu rekordów „www”, musisz dodać do niego rekordy.
 
 ### <a name="2-add-records"></a>2. Dodawanie rekordów
 
-Aby użyć nowo utworzonego zestawu rekordów „www”, należy dodać do niego rekordy. Do dodawania rekordów do zestawów rekordów służy polecenie `azure network dns record-set add-record`.
+Do dodawania rekordów do zestawów rekordów służy polecenie `azure network dns record-set add-record`. Aby uzyskać pomoc, zobacz `azure network dns record-set add-record -h`.
 
-Parametry używane do dodawania rekordów do zestawu rekordów różnią się w zależności od typu zestawu rekordów. Na przykład w przypadku zestawu rekordów typu „A” można będzie określić rekordy tylko przy użyciu parametru `-a <IPv4 address>`.
+Parametry używane do dodawania rekordów do zestawu rekordów różnią się w zależności od typu zestawu rekordów. Na przykład w przypadku zestawu rekordów typu „A” można określić rekordy tylko przy użyciu parametru `-a <IPv4 address>`. Aby uzyskać listę parametrów dla innych typów rekordów, zobacz `azure network dns record-set add-record -h`.
 
-Możesz dodać rekordy *A* IPv4 do zestawu rekordów „www” za pomocą następującego polecenia:
-
-*Składnia: network dns record-set add-record \<grupa zasobów\> \<nazwa strefy dns\> \<nazwa zestawu rekordów\> \<typ\>*
+Możesz dodać rekord A do utworzonego powyżej zestawu rekordów „www” za pomocą następującego polecenia:
 
 ```azurecli
-azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 1.2.3.4
 ```
 
-## <a name="additional-record-type-examples"></a>Dodatkowe przykłady dla poszczególnych typów rekordów
+### <a name="verify-name-resolution"></a>Sprawdzanie rozpoznawania nazw
 
-Poniższe przykłady pokazują, jak utworzyć zestaw rekordów dla poszczególnych typów rekordów. Każdy zestaw rekordów zawiera jeden rekord.
+Możesz sprawdzić, czy rekordy DNS znajdują się na serwerach nazw usługi Azure DNS przy użyciu narzędzi, takich jak nslookup lub dig, albo [polecenia cmdlet Resolve-DnsName programu PowerShell](https://technet.microsoft.com/library/jj590781.aspx).
 
-[!INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
+Jeśli domena nie została jeszcze delegowana do używania nowej strefy w usłudze Azure DNS, musisz [skierować zapytanie DNS bezpośrednio do jednego z serwerów nazw dla bieżącej strefy](dns-getstarted-create-dnszone.md#test-name-servers). Podstaw w poniższym poleceniu poprawne wartości dla swojej strefy rekordów.
+
+    nslookup
+    > set type=A
+    > server ns1-01.azure-dns.com
+    > www.contoso.com
+
+    Server:  ns1-01.azure-dns.com
+    Address:  40.90.4.1
+
+    Name:    www.contoso.com
+    Address:  1.2.3.4
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zarządzać zestawem rekordów i rekordami, zobacz [Zarządzanie zestawami rekordów i rekordami DNS przy użyciu interfejsu wiersza polecenia](dns-operations-recordsets-portal.md).
+Dowiedz się, jak [delegować nazwę domeny do serwerów nazw usługi Azure DNS](dns-domain-delegation.md)
 
-Aby uzyskać więcej informacji o usłudze Azure DNS, zobacz [Omówienie usługi Azure DNS](dns-overview.md).
+Dowiedz się, jak [zarządzać strefami DNS przy użyciu interfejsu wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md).
+
+Dowiedz się, jak [zarządzać rekordami i zestawami rekordów DNS przy użyciu interfejsu wiersza polecenia platformy Azure](dns-operations-recordsets-cli.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

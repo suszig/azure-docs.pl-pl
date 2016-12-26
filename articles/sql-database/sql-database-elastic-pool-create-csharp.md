@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie elastycznej puli baz danych w języku C# | Microsoft Docs"
-description: "Techniki tworzenia bazy danych w języku C# umożliwiają tworzenie elastycznej puli baz danych w bazie danych Azure SQL Database i udostępnianie w ten sposób zasobów przez wiele baz danych."
+title: "Tworzenie puli elastycznej w języku C# | Microsoft Docs"
+description: "Techniki tworzenia baz danych w języku C# umożliwiają tworzenie skalowalnej puli elastycznej w bazie danych Azure SQL Database i udostępnianie w ten sposób zasobów w wielu bazach danych."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,28 +8,28 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: b905aa65f46f601121b6774a633e72152e8ef80a
 
 
 ---
-# <a name="create-an-elastic-database-pool-with-cx23"></a>Tworzenie elastycznej puli baz danych w języku C&#x23;
+# <a name="create-an-elastic-pool-with-cx23"></a>Tworzenie puli elastycznej w języku C&#x23;
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
 > 
 
-W tym artykule opisano, jak przy użyciu poleceń języka C# utworzyć elastyczną pulę baz danych Azure SQL z zastosowaniem biblioteki [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Aby utworzyć autonomiczną bazę danych SQL, zobacz [Używanie języka C# do tworzenia bazy danych SQL z zastosowaniem biblioteki SQL Database Library for .NET](sql-database-get-started-csharp.md).
+W tym artykule opisano, jak przy użyciu poleceń języka C# utworzyć elastyczną pulę Azure SQL z zastosowaniem biblioteki [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Aby utworzyć autonomiczną bazę danych SQL, zobacz [Używanie języka C# do tworzenia bazy danych SQL z zastosowaniem biblioteki SQL Database Library for .NET](sql-database-get-started-csharp.md).
 
 Biblioteka Azure SQL Database Library for .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -60,7 +60,7 @@ Aby utworzyć bazę danych SQL w języku C#, załaduj wymagane biblioteki zarzą
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c-example"></a>Tworzenie elastycznej puli baz danych SQL — przykład w języku C#
+## <a name="create-a-sql-elastic-pool---c-example"></a>Tworzenie elastycznej puli SQL — przykład w języku C#
 W poniższym przykładzie tworzone są: grupa zasobów, serwer, reguła zapory, pula elastyczna, a następnie baza danych SQL w tej puli. Zobacz [Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów](#create-a-service-principal-to-access-resources), aby uzyskać zmienne `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Zastąp zawartość pliku **Program.cs** poniższym kodem i zaktualizuj elementy `{variables}` wartościami aplikacji (bez znaków `{}`).
@@ -315,6 +315,6 @@ Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directo
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

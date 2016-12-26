@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak uruchamiać analizę IoT w chmurze za pomocą w pełni zarządzanego przetwarzania zdarzeń. Analizuj w czasie rzeczywistym dane z aplikacji, czujników, urządzeń i innych źródeł."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
+ms.sourcegitcommit: 5fbbb4ad21bbc4c4206d051e9585cd5d9888a545
+ms.openlocfilehash: 7d19b3b972bf5fdd9545f87f48eb924da8333ff7
 
 ---
 
 # <a name="stream-analytics-documentation"></a>Dokumentacja usługi Stream Analytics
 
-Usługa Azure Stream Analytics to w pełni zarządzany aparat przetwarzania zdarzeń w czasie rzeczywistym, który ułatwia uzyskiwanie szczegółowych informacji na podstawie danych.  Usługa Stream Analytics umożliwia łatwe skonfigurowanie obliczeń analitycznych wykonywanych w czasie rzeczywistym na danych przesyłanych strumieniowo z urządzeń, czujników, witryn sieci Web, mediów społecznościowych, aplikacji, systemów infrastruktury i innych źródeł.
+Dowiedz się, jak uruchamiać analizę Internetu rzeczy (IoT, Internet of Things) w chmurze za pomocą usługi Stream Analytics — w pełni zarządzanego aparatu przetwarzania zdarzeń. W samouczkach i w pozostałej dokumentacji przedstawiono, jak w czasie rzeczywistym analizować dane z aplikacji, czujników, urządzeń, mediów społecznościowych i innych źródeł. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -171,6 +172,6 @@ Pobierz dokumentację usługi Stream Analytics </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

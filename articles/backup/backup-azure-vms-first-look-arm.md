@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 11/10/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: 3fe4d985c62b8476bd3b3f923fa17e7f364f9352
+ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
+ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
 
 
 ---
@@ -45,6 +45,37 @@ Dodatkowe informacje na temat ochrony maszyn wirtualnych usługi Premium Storage
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
+W oparciu o liczbę maszyn wirtualnych do objęcia ochroną możesz rozpocząć w różnych punktach— jeśli chcesz tworzyć kopie zapasowe wielu maszyn wirtualnych w ramach jednej operacji, przejdź do magazynu usług Recovery Services i uruchom tworzenie kopii zapasowej na pulpicie nawigacyjnym magazynu. Jeśli masz pojedynczą maszynę wirtualną, dla której chcesz utworzyć kopię zapasową, możesz ją utworzyć bezpośrednio z bloku zarządzania maszyną wirtualną.
+
+## <a name="configure-backup-from-vm-management-blade"></a>Tworzenie kopii zapasowej z bloku zarządzania maszyną wirtualną
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. W menu Centrum kliknij opcję **Więcej usług** i na liście zasobów wpisz ciąg **Maszyny wirtualne**.  Zostanie wyświetlona lista maszyn wirtualnych. Z listy maszyn wirtualnych wybierz maszynę wirtualną, dla której chcesz utworzyć kopię zapasową. Spowoduje to otwarcie bloku zarządzania maszyną wirtualną.
+ ![Blok zarządzania maszyną wirtualną](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+
+3. W bloku zarządzania maszyną wirtualną kliknij pozycję „Kopia zapasowa” po lewej stronie w obszarze Ustawienia.
+![Opcja Kopia zapasowa w bloku zarządzania maszyny wirtualnej](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+
+4. Spowoduje to otwarcie bloku włączenia kopii zapasowej. W tym bloku są oczekiwane dwie wartości wejściowe. Są to: magazyn usług Recovery Services — zasób usługi Azure Backup używany do przechowywania kopii zapasowych maszyn wirtualnych — oraz zasady kopii zapasowych — zasady usługi Backup określające harmonogram tworzenia kopii zapasowych i czas ich przechowywania. Ten blok zawiera opcje domyślne. Można je dostosować zgodnie z wymaganiami kopii zapasowej.
+
+  ![Kreator włączania kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. W przypadku magazynu usług Recovery Services można istniejący magazyn lub utworzyć nowy. Nowo tworzony magazyn powstaje w tej samej grupie zasobów co maszyna wirtualna, a jego lokalizacja jest taka sama jak lokalizacja maszyny wirtualnej. Jeśli chcesz utworzyć magazyn usług Recovery Services z różnymi wartościami, [utwórz magazyn usług Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) przed kliknięciem opcji Kopia zapasowa w kroku 3, a następnie wybierz to ustawienie w tym bloku.
+
+6. W bloku zasad tworzenia kopii zapasowej wybierz zasady tworzenia kopii zapasowej, które mają zostać zastosowane do magazynu, i kliknij przycisk **OK**.
+    ![Wybieranie zasad kopii zapasowych](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+
+    Szczegóły domyślnych zasad znajdują się w obszarze szczegółów. Aby utworzyć zasady, wybierz opcję **Utwórz nowy** z menu rozwijanego. Menu rozwijane zawiera także opcję przełączenia godziny wykonywania migawki. Instrukcje dotyczące definiowania zasad tworzenia kopii zapasowych można znaleźć w sekcji [Definiowanie zasad tworzenia kopii zapasowej](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Po kliknięciu przycisku **OK** zasady kopii zapasowych zostaną skojarzone z maszyną wirtualną.
+
+7. Kliknij pozycję „Włącz wykonywanie kopii zapasowej”, aby skonfigurować kopię zapasową na maszynie wirtualnej. Spowoduje to wyzwolenie wdrożenia.
+![Przycisk Włącz wykonywanie kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+
+8. Postęp konfiguracji można śledzić za pośrednictwem powiadomień.
+![Powiadomienia dotyczące włączania kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
+
+9. Po ukończeniu wdrażania na potrzeby konfigurowania kopii zapasowej kliknięcie pozycji „Kopia zapasowa” w bloku zarządzania maszyną wirtualną spowoduje przejście do bloku Element kopii zapasowej odpowiadającemu kopii zapasowej maszyny wirtualnej.
+![Widok elementu kopii zapasowej maszyny wirtualnej](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+
+## <a name="configure-backup-from-recovery-services-vault-view"></a>Konfigurowanie kopii zapasowej w widoku magazynu usługi Recovery Services
 Poniżej ogólnie przedstawiono kroki, które zostaną wykonane.  
 
 1. Utwórz magazyn usługi Recovery Services dla maszyny wirtualnej.
@@ -187,16 +218,16 @@ Aby uruchomić akcję **Wykonaj kopię zapasową teraz**:
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalowanie agenta maszyny wirtualnej na maszynie wirtualnej
-Te informacje są dostarczane w przypadku, gdy są wymagane. Aby rozszerzenie usługi Backup mogło działać, na maszynie wirtualnej Azure musi być zainstalowany agent maszyny wirtualnej. Jeśli jednak maszyna wirtualna została utworzona z poziomu galerii Azure, agent maszyny wirtualnej znajduje się już na maszynie wirtualnej. Maszyny wirtualne migrowane z lokalnych centrów danych nie będą miały zainstalowanego agenta maszyny wirtualnej. W takim przypadku konieczne jest zainstalowanie agenta maszyny wirtualnej. Jeśli masz problemy z tworzeniem kopii zapasowej maszyny wirtualnej Azure, sprawdź, czy agent maszyny wirtualnej Azure został poprawnie zainstalowany na maszynie wirtualnej (patrz w tabeli poniżej). Jeśli tworzysz niestandardową maszynę wirtualną, przed jej udostępnieniem [upewnij się, że pole wyboru **Zainstaluj agenta maszyny wirtualnej** jest zaznaczone](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
+Te informacje są dostarczane w przypadku, gdy są wymagane. Aby rozszerzenie usługi Backup mogło działać, na maszynie wirtualnej Azure musi być zainstalowany agent maszyny wirtualnej. Jeśli jednak maszyna wirtualna została utworzona z poziomu galerii Azure, agent maszyny wirtualnej znajduje się już na maszynie wirtualnej. Maszyny wirtualne migrowane z lokalnych centrów danych nie będą miały zainstalowanego agenta maszyny wirtualnej. W takim przypadku konieczne jest zainstalowanie agenta maszyny wirtualnej. Jeśli masz problemy z tworzeniem kopii zapasowej maszyny wirtualnej Azure, sprawdź, czy agent maszyny wirtualnej Azure został poprawnie zainstalowany na maszynie wirtualnej (patrz w tabeli poniżej). Jeśli tworzysz niestandardową maszynę wirtualną, przed jej udostępnieniem [upewnij się, że pole wyboru **Zainstaluj agenta maszyny wirtualnej** jest zaznaczone](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Dowiedz się więcej o [agencie maszyny wirtualnej](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) i [sposobie jego instalowania](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+Dowiedz się więcej o [agencie maszyny wirtualnej](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) i [sposobie jego instalowania](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Poniższa tabela zawiera dodatkowe informacje na temat agenta maszyny wirtualnej dla maszyn wirtualnych systemów Windows i Linux.
 
 | **Operacja** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalowanie agenta maszyny wirtualnej |<li>Pobierz i zainstaluj [plik MSI agenta](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Do ukończenia procesu instalacji niezbędne są uprawnienia administratora. <li>[Zaktualizuj właściwości maszyny wirtualnej](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby wskazać, że agent jest zainstalowany. |<li> Zainstaluj najnowszą wersję [agenta systemu Linux](https://github.com/Azure/WALinuxAgent) z usługi GitHub. Do ukończenia procesu instalacji niezbędne są uprawnienia administratora. <li> [Zaktualizuj właściwości maszyny wirtualnej](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby wskazać, że agent jest zainstalowany. |
-| Aktualizowanie agenta maszyny wirtualnej |Aktualizowanie agenta maszyny wirtualnej jest równie proste, jak ponowne zainstalowanie [plików binarnych agenta maszyny wirtualnej](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Upewnij się, że żadna operacja tworzenia kopii zapasowej nie jest uruchomiona podczas aktualizowania agenta maszyny wirtualnej. |Postępuj zgodnie z instrukcjami dotyczącymi [aktualizowania agenta maszyny wirtualnej systemu Linux ](../virtual-machines/virtual-machines-linux-update-agent.md). <br>Upewnij się, że podczas aktualizowania agenta maszyny wirtualnej żadna operacja tworzenia kopii zapasowej nie jest uruchomiona. |
+| Aktualizowanie agenta maszyny wirtualnej |Aktualizowanie agenta maszyny wirtualnej jest równie proste, jak ponowne zainstalowanie [plików binarnych agenta maszyny wirtualnej](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Upewnij się, że żadna operacja tworzenia kopii zapasowej nie jest uruchomiona podczas aktualizowania agenta maszyny wirtualnej. |Postępuj zgodnie z instrukcjami dotyczącymi [aktualizowania agenta maszyny wirtualnej systemu Linux ](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Upewnij się, że podczas aktualizowania agenta maszyny wirtualnej żadna operacja tworzenia kopii zapasowej nie jest uruchomiona. |
 | Sprawdzanie poprawności instalacji agenta maszyny wirtualnej |<li>Przejdź do folderu *C:\WindowsAzure\Packages* w maszynie wirtualnej Azure. <li>Powinien znajdować się w nim plik WaAppAgent.exe.<li> Kliknij plik prawym przyciskiem myszy, przejdź do opcji **Właściwości**, a następnie wybierz kartę **Szczegóły**. W polu Wersja produktu powinna znajdować się wartość 2.6.1198.718 lub wyższa. |Nie dotyczy |
 
 ### <a name="backup-extension"></a>Rozszerzenie kopii zapasowej
@@ -215,6 +246,6 @@ Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opini
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

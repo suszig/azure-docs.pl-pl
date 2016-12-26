@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak można zautomatyzować procesy i zarządzanie konfiguracją przy użyciu usługi Automation, aby zaoszczędzić czas i zwiększyć niezawodność typowych zadań administracyjnych."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
+ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
 
 ---
 # <a name="automation-documentation"></a>Dokumentacja usługi Automation
 
-Usługa Azure Automation umożliwia użytkownikom automatyzowanie wykonywanych ręcznie, czasochłonnych, podatnych na błędy i często powtarzanych zadań, które najczęściej są wykonywane w środowisku chmury. Można dzięki niej zaoszczędzić czas i zwiększyć niezawodność regularnie wykonywanych zadań administracyjnych, a nawet zaplanować ich wykonywanie w regularnych odstępach czasu.
+Dowiedz się, jak używać usługi Automation, aby zaoszczędzić czas i zwiększyć niezawodność typowych zadań administracyjnych wykonywanych w środowisku chmury. Samouczki, dokumentacja interfejsu API oraz inne dokumenty przedstawiające sposób automatyzacji procesów za pomocą elementów Runbook lub automatyzacji zarządzania konfiguracją przy użyciu konfiguracji żądanego stanu.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,6 +176,6 @@ Pobierz dokumentację usługi Automation </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
