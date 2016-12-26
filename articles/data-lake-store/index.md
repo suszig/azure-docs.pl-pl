@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak skonfigurować zgodne z usługą Hadoop repozytorium usługi Data Lake o ogromnej skali na potrzeby przeprowadzania analiz danych o dowolnym rozmiarze, typie i szybkości wprowadzania, oraz jak nim zarządzać i uzyskiwać do niego dostęp."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d26d0f965ad1195ab41e04e870ead1b335ff513e
+ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
+ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
 
 ---
 # <a name="data-lake-store-documentation"></a>Dokumentacja usługi Data Lake Store
 
-Usługa Azure Data Lake Store zapewnia repozytorium w hiperskali przeznaczone dla obciążeń analitycznych obejmujących dane big data. Usługa Azure Data Lake umożliwia przechwytywanie danych dowolnego typu, o dowolnym rozmiarze i szybkości wprowadzania oraz przechowywanie ich w jednym miejscu na potrzeby analiz operacyjnych i poznawczych.  Dostęp do usługi Azure Data Lake Store można uzyskać z usługi Hadoop (dostępnej za pośrednictwem klastra usługi HDInsight) przy zastosowaniu scenariuszy zgodnych z WebHDFS. Usługa zapewnia wszystkie funkcje klasy korporacyjnej w zakresie zabezpieczeń, zarządzania, skalowalności, niezawodności i dostępności.
+Dowiedz się, jak przy użyciu usługi Data Lake Store utworzyć zgodne z usługą Hadoop repozytorium o ogromnej skali na potrzeby przeprowadzania analiz danych o dowolnym rozmiarze, typie i szybkości wprowadzania. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować repozytorium usługi Data Lake na potrzeby analiz operacyjnych i poznawczych, oraz jak nim zarządzać i uzyskiwać do niego dostęp.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -211,6 +212,6 @@ Pobierz dokumentację usługi Azure Data Lake Store </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

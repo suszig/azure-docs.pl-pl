@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak usługa API Apps w usłudze Azure App Service umożliwia tworzenie, hostowanie i używanie interfejsów API zarówno w chmurze, jak i lokalnie. Samouczki, klipy wideo i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ac7a22bd592cbb1e8cdee2e6d2896c0b8ad6ea26
-
+ms.sourcegitcommit: 410479b746b5911d1ebcb51c92a6de74686cffbe
+ms.openlocfilehash: e5b9d9322bcf5860debb93fe579665f778a41e7b
 
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service — dokumentacja usługi API Apps
 
-Funkcja API Apps należy do zestawu obejmującego cztery typy aplikacji udostępniane przez usługę Azure App Service. Aplikacje interfejsu API w usłudze Azure App Service udostępniają bogaty zestaw funkcji, który ułatwia tworzenie i obsługę interfejsów API oraz korzystanie z nich — zarówno w chmurze, jak i lokalnie. Usługa Azure App Service to w pełni zarządzana platforma obsługująca scenariusze dotyczące integracji, sieci Web oraz urządzeń przenośnych.
+Dowiedz się, jak usługa API Apps w usłudze Azure App Service umożliwia tworzenie, hostowanie i używanie interfejsów API zarówno w chmurze, jak i lokalnie. W samouczkach, klipach wideo i innych dokumentach pokazano, jak tworzyć i wdrażać aplikacje interfejsu API.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -121,28 +121,6 @@ Funkcja API Apps należy do zestawu obejmującego cztery typy aplikacji udostęp
     </li>     
 </ul>
 
----
-
-<h2>Dokumentacja</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Zasoby</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service-api%2ftoc.json">Portal Azure</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service-api%2ftoc.json">Informacje ogólne o usłudze App Service</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service-api%2ftoc.json">Zestaw SDK zadań WebJob</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>
@@ -153,6 +131,6 @@ Pobierz dokumentację usługi Mobile Apps </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

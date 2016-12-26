@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych tworzyć automatycznie skalowane maszyny wirtualne z systemem Windows lub Linux na potrzeby dużych wystąpień obliczeniowych, danych big data i obciążeń konteneryzowanych."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 693dcfd3c20ce373f093108b4d5f8b63aa30f8df
+ms.sourcegitcommit: 7fefef291643ba0c640ba3520e7e40d50391220a
+ms.openlocfilehash: a35dcbfa56c03ca264d4c7a7f779672dc6ae7526
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Dokumentacja zestawów skalowania maszyn wirtualnych
 
-Zestawy skalowania maszyn wirtualnych to zasób dostępny w ramach usługi Azure Compute, który umożliwia wdrożenie zestawu identycznych maszyn wirtualnych oraz zarządzanie nimi.  Ze wszystkimi maszynami wirtualnymi skonfigurowanymi tak samo, zestawy skalowania maszyn wirtualnych zostały zaprojektowane, aby wspierać prawdziwe automatyczne skalowanie — nie jest wymagana wstępna aprowizacja maszyn wirtualnych. Dzięki temu łatwiej jest tworzyć usługi w dużej skali nakierowane na duże wystąpienia obliczeniowe, dane big data i obciążenia konteneryzowane.
+Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych wdrożyć zestaw identycznych, automatycznie skalowanych maszyn wirtualnych z systemem Windows lub Linux oraz zarządzać nimi. W dokumentacji przedstawiono, jak przy użyciu zestawów skalowania obsługiwać usługi przeznaczone dla dużych wystąpień obliczeniowych, danych big data i obciążeń konteneryzowanych.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -69,53 +70,34 @@ Zestawy skalowania maszyn wirtualnych to zasób dostępny w ramach usługi Azure
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Zestawy skalowania maszyn wirtualnych programu PowerShell</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/azure/virtual-machines/azure-cli-arm-commands">Interfejs wiersza polecenia platformy Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/vmss">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
-                        <p>Zestawy skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Interfejs API REST zestawów skalowania maszyn wirtualnych</p>
+                        <p><a href="/rest/api/compute/">Dokumentacja interfejsu API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
@@ -127,6 +109,6 @@ Pobierz dokumentację zestawów skalowania maszyn wirtualnych Microsoft Azure </
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

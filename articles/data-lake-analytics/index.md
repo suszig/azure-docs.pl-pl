@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak przeprowadzać analizy danych big data za pomocą usługi Data Lake Analytics. W samouczkach pokazano, jak uruchomić analizę wsadową, w czasie rzeczywistym i interaktywną, oraz jak pisać zapytania U-SQL."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4a9b9a0aef993055e0c5400a15918a05491509eb
+ms.sourcegitcommit: 84b03eb578df1a4122b18a01c0ffba8558adc088
+ms.openlocfilehash: f36a830ede202a7519d46fa9f12299dcec4c8130
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Dokumentacja usługi Data Lake Analytics
 
-Azure Data Lake Analytics to nowa usługa zaprojektowana z myślą o upraszczaniu analizy danych big data. Ta usługa pozwala skoncentrować się pisaniu i uruchamianiu zadań oraz zarządzaniu nimi, a nie na działaniu rozproszonej infrastruktury. Zamiast wdrażać, konfigurować i dostosowywać sprzęt, możesz pisać zapytania umożliwiające przekształcanie danych i wyodrębniać wartościowe informacje. Usługa analizy może od razu rozpocząć obsługę zadań w dowolnej skali — wystarczy wybrać ustawienie wskazujące potrzebną moc. Płacisz tylko za uruchomione zadanie, dzięki czemu oszczędzasz pieniądze. Usługa analizy obsługuje usługę Azure Active Directory, dzięki czemu możesz w prosty sposób zarządzać dostępem i rolami zintegrowanymi z lokalnym systemem tożsamości. Obejmuje ona również język U-SQL, który łączy korzyści z użycia języka SQL z wszechstronnymi możliwościami kodu użytkownika. Skalowalne rozproszone środowisko uruchomieniowe języka U SQL umożliwia efektywne analizowanie danych w magazynie i na serwerach SQL Server na platformie Azure oraz w usługach Azure SQL Database i Azure SQL Data Warehouse.
+Dowiedz się, jak przy użyciu usługi Data Lake Analytics uruchamiać zadania analizy danych big data skalowane dla wielkich zestawów danych. W samouczkach i innej dokumentacji pokazano, jak tworzyć zadania analizy wsadowej, w czasie rzeczywistym i interaktywnej i zarządzać nimi, oraz jak pisać zapytania w języku U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -231,6 +232,6 @@ Pobierz dokumentację usługi Data Lake Analytics </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

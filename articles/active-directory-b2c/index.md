@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak wdrożyć kompleksowe rozwiązanie do zarządzania tożsamościami klientów w chmurze. W dokumentacji pokazano, jak chronić aplikacje sieci Web i aplikacje mobilne dla klientów."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cee8c74ed77a27c8a2006dcd28729f9c077aea9
-ms.openlocfilehash: 330f2c0efed16ae587c6f069d3feae1bb80f3097
+ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
+ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
 
 ---
 
 #<a name="active-directory-b2c-documentation"></a>Dokumentacja usługi Active Directory B2C
 
-Usługa Azure Active Directory B2C to kompleksowe rozwiązanie przeznaczone do zarządzania tożsamością w chmurze w aplikacjach internetowych i mobilnych użytkownika. Stanowi globalną usługę o wysokiej dostępności, która może obsłużyć setki milionów tożsamości użytkowników. Oparta na bezpiecznej platformie klasy korporacyjnej usługa Azure Active Directory B2C chroni Twoje aplikacje, procesy biznesowe i użytkowników.
+Dowiedz się, jak skonfigurować kompleksowe rozwiązanie do zarządzania tożsamościami klientów w chmurze i zarządzać nim za pomocą usługi Active Directory B2C. W samouczkach, dokumentacji i innych dokumentach pokazano, jak chronić aplikacje sieci Web i aplikacje mobilne dla klientów za pomocą bezpiecznego logowania.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -187,6 +188,6 @@ Pobierz dokumentację usługi Active Directory B2C </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

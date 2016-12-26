@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 50200648bcd2aed4cbc0c720d140f2ecb2c17934
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
 
 
 ---
@@ -27,8 +27,8 @@ Ten temat zawiera omówienie baz danych usługi Azure SQL Database. Aby uzyskać
 ## <a name="what-is-azure-sql-database"></a>Co to jest baza danych usługi Azure SQL Database?
 Każda baza danych w usłudze Azure SQL Database jest skojarzona z serwerem logicznym. Baza danych może być:
 
-- pojedynczą bazą danych z [własnym zestawem zasobów](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (jednostki DTU).
-- częścią [puli baz danych](sql-database-elastic-pool.md), która [współużytkuje zestaw zasobów](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (jednostki eDTU).
+- autonomiczną bazą danych z [własnym zestawem zasobów](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (jednostki DTU).
+- częścią [puli elastycznej](sql-database-elastic-pool.md), która [współużytkuje zestaw zasobów](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (jednostki eDTU).
 - częścią [skalowanego zestawu baz danych podzielonych na fragmenty](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), które mogą być pojedynczymi bazami danych lub pulami baz danych.
 - częścią zestawu baz danych uczestniczącego we [wzorcu projektowym wielodostępnych aplikacji SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md), którego bazy danych mogą być pojedynczymi bazami danych i/lub pulami baz danych. 
 
@@ -71,6 +71,6 @@ Serwerami logicznymi usługi Azure SQL Database można zarządzać przy użyciu 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

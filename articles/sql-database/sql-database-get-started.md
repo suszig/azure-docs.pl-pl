@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
+ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
+ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 
 ---
@@ -30,15 +30,15 @@ Z tego samouczka ułatwiającego rozpoczęcie pracy nauczysz się używać witry
 * Tworzenie serwera logicznego usługi Azure SQL
 * Wyświetlanie właściwości serwera logicznego usługi Azure SQL
 * Tworzenie reguły zapory na poziomie serwera
-* Tworzenie przykładowej bazy danych Adventure Works LT
+* Tworzenie przykładowej bazy danych Adventure Works LT jako pojedynczej bazy danych
 * Wyświetlanie właściwości przykładowej bazy danych Adventure Works LT na platformie Azure
 
 W tym samouczku używana jest również najnowsza wersja programu SQL Server Management Studio w celu wykonania następujących czynności:
 
 * Nawiązywanie połączenia z serwerem logicznym i jego bazą danych master
-* Wyświetlanie właściwości bazy danych master
+* Odpytywanie bazy danych master
 * Nawiązywanie połączenia z przykładową bazą danych
-* Wyświetlanie właściwości użytkownika bazy danych
+* Odpytywanie przykładowej bazy danych
 
 Po ukończeniu tego samouczka uzyskasz przykładową bazę danych i pustą bazę danych, uruchomione w grupie zasobów platformy Azure i dołączone do serwera logicznego. Ponadto będziesz mieć regułę zapory na poziomie serwera skonfigurowaną tak, aby umożliwić podmiotowi zabezpieczeń na poziomie serwera logowanie się do serwera z określonego adresu IP (lub zakresu adresów IP). 
 
@@ -208,7 +208,7 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
     ![poświadczenia serwera](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > Bazę danych można dodać do serwera jako pojedynczą bazę danych (jest to opcja domyślna) lub dodać ją do puli elastycznej SQL. Aby uzyskać więcej informacji o pulach elastycznych, zobacz artykuł [Pule elastyczne](sql-database-elastic-pool.md).
+    > Bazę danych można dodać do serwera jako pojedynczą bazę danych (jest to ustawienie domyślne) lub dodać ją do puli elastycznej. Aby uzyskać więcej informacji o pulach elastycznych, zobacz artykuł [Pule elastyczne](sql-database-elastic-pool.md).
     >
 
 7. W obszarze Warstwa cenowa zmień warstwę cenową na opcję **Podstawowa** (w razie potrzeby warstwę cenową można później zwiększyć, ale dla celów szkoleniowych zalecamy użycie najniższej warstwy).
@@ -299,11 +299,13 @@ Po ukończeniu tego samouczka możesz zapoznać się z kilkoma dodatkowymi samou
 * Jeśli chcesz zacząć tworzyć tabele i inne obiekty, zobacz temat „Aby utworzyć tabelę” w artykule [Tworzenie tabeli](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-[Co to jest SQL Database?](sql-database-technical-overview.md)
+
+- Omówienie techniczne można znaleźć w temacie [Co to jest usługa SQL Database?](sql-database-technical-overview.md).
+- Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

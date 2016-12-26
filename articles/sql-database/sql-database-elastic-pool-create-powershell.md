@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie nowej elastycznej puli baz danych przy użyciu programu PowerShell | Microsoft Docs"
-description: "Dowiedz się, jak skalować w poziomie zasoby usługi Azure SQL Database za pomocą programu PowerShell, tworząc skalowalne elastyczne pule baz danych do zarządzania wieloma bazami danych."
+title: "Tworzenie nowej puli elastycznej przy użyciu programu PowerShell | Microsoft Docs"
+description: "Dowiedz się, jak skalować w poziomie zasoby usługi Azure SQL Database za pomocą programu PowerShell, tworząc skalowalną pulę elastyczną do zarządzania wieloma bazami danych."
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -8,28 +8,28 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 8bf8f24db6b543ec1161cf499e6fc116514f85cb
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-powershell"></a>Tworzenie nowej elastycznej puli baz danych przy użyciu programu PowerShell
+# <a name="create-a-new-elastic-pool-with-powershell"></a>Tworzenie nowej puli elastycznej przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 >
 >
 
-Dowiedz się, jak utworzyć [elastyczną pulę baz danych](sql-database-elastic-pool.md) za pomocą poleceń cmdlet programu PowerShell.
+Dowiedz się, jak utworzyć [pulę elastyczną](sql-database-elastic-pool.md) za pomocą poleceń cmdlet programu PowerShell.
 
 Typowe kody błędów można znaleźć w artykule [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) (Kody błędów SQL dla aplikacji klienckich usługi SQL Database: błąd połączenia z bazą danych i inne problemy).
 
@@ -84,6 +84,6 @@ Ten skrypt tworzy nową grupę zasobów Azure i nowy serwer. Po wyświetleniu mo
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

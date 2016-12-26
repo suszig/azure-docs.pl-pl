@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak interpretować rozliczenia platformy Azure, a także jak monitorować użycie i koszty oraz zarządzać nimi. Samouczki, często zadawane pytania, dokumentacja interfejsu API i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2ea3999e6292de1f515f8d2fdd6cc0b79d306d16
+ms.sourcegitcommit: 640915b6305b2865b21937e19c324e8e7f1ba0a7
+ms.openlocfilehash: 401406bccbb6e6e7b92b431efe57e49d6745e8c2
 
 ---
 # <a name="azure-billing-documentation"></a>Dokumentacja rozliczeń platformy Azure
 
-Klienci i partnerzy wymagają możliwości dokładnego przewidywania kosztów związanych z platformą Azure oraz zarządzania nimi. Przenosząc infrastrukturę z obszaru kosztów kapitałowych do obszaru kosztów operacyjnych, potrzebują możliwości wykonania analizy porównawczej kosztów w ujęciu uwzględniającym obciążenia zwrotne oraz bez uwzględniania wzajemnych rozliczeń, jak również wierności trybu szacowania i rozliczeń, szczególnie w przypadku dużych wdrożeń w chmurze.
+Dowiedz się, jak interpretować rozliczenia platformy Azure, a także jak monitorować użycie i koszty. W samouczkach, często zadawanych pytaniach, dokumentacji interfejsu API i pozostałych dokumentach przedstawiono informacje na temat zarządzania kontem.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -68,22 +69,33 @@ Klienci i partnerzy wymagają możliwości dokładnego przewidywania kosztów zw
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Interfejs API REST</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">Dokumentacja interfejsu API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Inne</h3>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-overview">Przegląd interfejsu API</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Rozwiązanie partnera: Cloud Cruiser</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudyn">Rozwiązanie partnera: Cloudyn</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
@@ -98,6 +110,7 @@ Pobierz dokumentację rozliczeń platformy Azure </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

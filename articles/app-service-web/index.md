@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak przy użyciu usługi App Service Web Apps budować i hostować witryny oraz aplikacje sieci Web. Samouczki, klipy wideo, dokumentacja interfejsu API i inne materiały."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d6fc4fe4f47571cbb8114b3de5ed9bc9466123fe
+ms.sourcegitcommit: c25534b4e5cda07ffe124ad151a3093a40137a6f
+ms.openlocfilehash: 4fda1c1635159a0bf6a502c4197b8523cd77a5f8
 
 ---
 # <a name="azure-web-apps-documentation"></a>Dokumentacja usługi Web Apps
 
-Azure App Service Web Apps to w pełni zarządzana platforma obliczeniowa zoptymalizowana pod kątem hostowania witryn i aplikacji sieci Web. Oferta platformy Microsoft Azure jako usługi (PaaS) umożliwia użytkownikowi skupienie się na logice biznesowej, podczas gdy infrastruktura uruchamiania i skalowania aplikacji jest udostępniana w ramach platformy Azure.
+Dowiedz się, jak przy użyciu usługi App Service Web Apps budować i hostować witryny oraz aplikacje sieci Web. W samouczkach, klipach wideo, dokumentacji interfejsu API i innych dokumentach pokazano, jak tworzyć oprogramowanie na tej w pełni zarządzanej platformie obliczeniowej.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -229,6 +230,6 @@ Pobierz dokumentację usługi Web Apps </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 12/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
-ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
+ms.sourcegitcommit: cbbc9f29fc4dea49807f1093b673bebac628314b
+ms.openlocfilehash: e886f9c1984003d1bd1391012b26eea39d4a0b76
 
 
 ---
@@ -37,7 +37,7 @@ Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokaliza
 | --- | --- | --- |
 | **Ameryka Północna** |Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Kanada Środkowa, Kanada Wschodnia |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton, Montreal+, Miasto Quebec+, Toronto |
 | **Ameryka Południowa** |Brazylia Południowa |Sao Paulo |
-| **Europa** |Europa Północna, Europa Zachodnia, Zjednoczone Królestwo (zachód), Zjednoczone Królestwo (południe) |Amsterdam, Dublin, Londyn, Newport (Walia)+, Paryż |
+| **Europa** |Europa Północna, Europa Zachodnia, Zjednoczone Królestwo (zachód), Zjednoczone Królestwo (południe) |Amsterdam, Dublin, Londyn, Newport (Walia), Paryż |
 | **Azja** |Azja Wschodnia, Azja Południowo-Wschodnia |Hongkong, Singapur |
 | **Japonia** |Japońska Zachodnia, Japonia Wschodnia |Osaka, Tokio |
 | **Australia** |Australia Południowo-Wschodnia, Australia Wschodnia |Melbourne, Sydney |
@@ -134,11 +134,13 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 
 | **Lokalizacja** | **Exchange** | **Dostawcy połączeń** |
 | --- | --- | --- |
+| **Londyn** | Equinix | Exponential E |
 | **Nowy Jork** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Dolina Krzemowa** |Equinix |XO Communications |
 | **Singapur** |Equinix |1CLOUDSTAR |
-| **Waszyngton** |Equinix |Lightower |
+| **Sydney** | Megaport | Macquarie |
+| **Waszyngton** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Integratorzy systemu ExpressRoute
 Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w zależności od skali sieci. Możesz pracować z dowolnymi integratorami systemu wymienionymi w poniższej tabeli, którzy ułatwiają dołączanie do usługi ExpressRoute.
@@ -158,6 +160,6 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
