@@ -13,19 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/29/2016
+ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
+ms.sourcegitcommit: 414c41cbccb755e058fb76f10bba62bd1ffa1835
+ms.openlocfilehash: d2989a3292117ada029fb26536bfffbce83f5e1b
 
 
 ---
 # <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>Samouczek NoSQL: tworzenie aplikacji konsolowej w języku C# dla usługi DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Witamy w samouczku NoSQL dla zestawu SDK platformy .NET usługi Azure DocumentDB! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi DocumentDB i wykonuje dla nich zapytania.
@@ -42,7 +44,7 @@ Omówione zostaną następujące czynności:
 * Usuwanie dokumentu
 * Usuwanie bazy danych
 
-Nie masz czasu? Nie martw się! Kompletne rozwiązanie jest dostępne w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Przeskocz do sekcji [Pobieranie kompletnego rozwiązania](#GetSolution), aby uzyskać krótkie instrukcje.
+Nie masz czasu? Nie martw się! Kompletne rozwiązanie jest dostępne w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Przeskocz do sekcji [Pobieranie kompletnego rozwiązania samouczka NoSQL](#GetSolution), aby uzyskać krótkie instrukcje.
 
 Po wszystkim użyj przycisków głosowania u góry lub u dołu tej strony, aby wysłać nam swoją opinię. Jeśli chcesz, abyśmy skontaktowali się z Tobą bezpośrednio, możesz w komentarzach podać swój adres e-mail.
 
@@ -51,12 +53,13 @@ Teraz do dzieła!
 ## <a name="prerequisites"></a>Wymagania wstępne
 Upewnij się, że masz:
 
-* Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu [utworzenia bezpłatnego konta](https://azure.microsoft.com/free/).
+* Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu [utworzenia bezpłatnego konta](https://azure.microsoft.com/free/). 
+    * Na potrzeby tego samouczka możesz także użyć [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * Program [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 * Program .NET Framework 4.6
 
 ## <a name="step-1-create-a-documentdb-account"></a>Krok 1. Tworzenie konta usługi DocumentDB
-Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Konfigurowanie rozwiązania Visual Studio](#SetupVS).
+Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Konfigurowanie rozwiązania Visual Studio](#SetupVS). Jeśli używasz emulatora usługi DocumentDB, wykonaj czynności opisane w temacie [Emulator usługi Azure DocumentDB](documentdb-nosql-local-emulator.md), aby skonfigurować emulator, a następnie przejdź do sekcji [Konfigurowanie rozwiązania programu Visual Studio](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -65,13 +68,15 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 2. W menu **Plik** wybierz polecenie **Nowy**, a następnie wybierz pozycję **Projekt**.
 3. W oknie dialogowym **Nowy projekt** wybierz pozycję **Szablony** / **Visual C#** / **Aplikacja konsolowa**, podaj nazwę projektu, a następnie kliknij przycisk **OK**.
    ![Zrzut ekranu przedstawiający okno Nowy projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
-4. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy nową aplikację konsolową, która znajduje się w obrębie rozwiązania Visual Studio.
-5. Następnie bez opuszczania menu wybierz polecenie **Zarządzaj pakietami NuGet...**
-   ![Zrzut ekranu przedstawiający menu wywoływane po kliknięciu prawym przyciskiem myszy dla projektu](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. Na karcie **NuGet** kliknij pozycję **Przeglądaj** i wpisz ciąg **azure documentdb** w polu wyszukiwania.
-7. W wynikach znajdź pozycję **Microsoft.Azure.DocumentDB** i kliknij przycisk **Zainstaluj**.
-   Identyfikator pakietu dla biblioteki klienta usługi DocumentDB to [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
-   ![Zrzut ekranu przedstawiający menu NuGet do znajdowania zestawu SDK klienta usługi DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+4. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy nową aplikację konsolową, która znajduje się w ramach rozwiązania Visual Studio, a następnie kliknij pozycję **Zarządzaj pakietami NuGet...**
+    
+    ![Zrzut ekranu przedstawiający menu projektu kliknięte prawym przyciskiem myszy](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+5. Na karcie **NuGet** kliknij pozycję **Przeglądaj** i wpisz ciąg **azure documentdb** w polu wyszukiwania.
+6. W wynikach znajdź pozycję **Microsoft.Azure.DocumentDB** i kliknij przycisk **Zainstaluj**.
+   Identyfikator pakietu Biblioteka kliencka usługi DocumentDB to [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+   ![Zrzut ekranu przedstawiający menu NuGet służące do znajdowania zestawu SDK klienta usługi DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+
+    Jeśli wyświetlane są komunikaty dotyczące przejrzenia zmian wprowadzonych w rozwiązaniu, kliknij przycisk **OK**. Jeśli wyświetlany jest komunikat o akceptacji licencji, kliknij pozycję **Akceptuję**.
 
 Wspaniale! Teraz, po zakończeniu konfigurowania, zacznijmy pisanie kodu. Ukończony projekt kodu z tego samouczka można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -102,7 +107,7 @@ Dodaj teraz te dwie stałe i zmienną *client* poniżej klasy publicznej *Progra
         private const string PrimaryKey = "<your key>";
         private DocumentClient client;
 
-Następnie przejdź do [portalu Azure](https://portal.azure.com), aby pobrać identyfikator URI i klucz podstawowy. Identyfikator URI i klucz podstawowy usługi DocumentDB są niezbędne, aby aplikacja wiedziała, z jakim elementem ma się połączyć, i aby usługa DocumentDB ufała połączeniu aplikacji.
+Następnie wróć do witryny [Azure Portal](https://portal.azure.com), aby pobrać identyfikator URI i klucz podstawowy. Identyfikator URI i klucz podstawowy usługi DocumentDB są niezbędne, aby aplikacja wiedziała, z jakim elementem ma się połączyć, i aby usługa DocumentDB ufała połączeniu aplikacji.
 
 W witrynie Azure Portal przejdź do swojego konta usługi DocumentDB i kliknij przycisk **Klucze**.
 
@@ -110,7 +115,7 @@ Skopiuj identyfikator URI z portalu i wklej go w miejsce `<your endpoint URI>` w
 
 ![Zrzut ekranu przedstawiający portal Azure używany przez samouczek NoSQL do tworzenia aplikacji konsolowej C#. Przedstawia konto usługi DocumentDB z wyróżnionym AKTYWNYM centrum, przyciskiem KLUCZE wyróżnionym w bloku konta usługi DocumentDB oraz wartościami IDENTYFIKATOR URI, KLUCZ PODSTAWOWY i KLUCZ POMOCNICZY wyróżnionymi w bloku Klucze.][keys]
 
-Zaczniemy tworzenie aplikacji rozpoczynania pracy, tworząc nowe wystąpienie klasy **DocumentClient**.
+Następnie zaczniemy budowanie aplikacji, tworząc nowe wystąpienie klasy **DocumentClient**.
 
 Poniżej metody **Main** dodaj to nowe zadanie asynchroniczne o nazwie **GetStartedDemo**, które utworzy nowe wystąpienie klasy **DocumentClient**.
 
@@ -150,7 +155,7 @@ Dodaj następujący kod w celu uruchomienia zadania asynchronicznego z metody **
                     Console.ReadKey();
             }
 
-Naciśnij klawisz **F5**, aby uruchomić aplikację.
+Naciśnij klawisz **F5**, aby uruchomić aplikację. W danych wyjściowych okna konsoli wyświetlany jest komunikat `End of demo, press any key to exit.` potwierdzający, że połączenie zostało nawiązane.  Następnie można zamknąć okno konsoli. 
 
 Gratulacje! Pomyślnie nawiązano połączenie z kontem usługi DocumentDB. Teraz przyjrzyjmy się pracy z zasobami usługi DocumentDB.  
 
@@ -266,7 +271,7 @@ Naciśnij klawisz **F5**, aby uruchomić aplikację.
 Gratulacje! Pomyślnie utworzono kolekcję dokumentów usługi DocumentDB.  
 
 ## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Krok 6. Tworzenie dokumentów JSON
-[Dokument](documentdb-resources.md#documents) można utworzyć za pomocą metody [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) klasy **DocumentClient**. Dokumenty są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Można teraz wstawić jeden lub więcej dokumentów. Jeśli masz już dane, które chcesz przechowywać w bazie danych, możesz użyć [narzędzia migracji danych](documentdb-import-data.md) usługi DocumentDB.
+[Dokument](documentdb-resources.md#documents) można utworzyć za pomocą metody [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) klasy **DocumentClient**. Dokumenty są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Można teraz wstawić jeden lub więcej dokumentów. Jeśli masz już dane, które chcesz przechowywać w bazie danych, możesz użyć [narzędzia migracji danych](documentdb-import-data.md) usługi DocumentDB, aby zaimportować dane do bazy danych.
 
 Najpierw należy utworzyć klasę **Family**, która będzie reprezentowała obiekty przechowywane w usłudze DocumentDB w tym przykładzie. Zostaną również utworzone podklasy **Parent**, **Child**, **Pet** i **Address**, które są używane w ramach klasy **Family**. Należy pamiętać, że dokumenty muszą mieć właściwość **Id** serializowaną jako **id** w formacie JSON. Utwórz te klasy, dodając następujące podklasy wewnętrzne po metodzie **GetStartedDemo**.
 
@@ -472,6 +477,8 @@ Skopiuj i wklej następujący kod do metody **GetStartedDemo** poniżej kodu sł
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
+Przed uruchomieniem aplikacji w menu **Projekt** kliknij pozycję *Nazwa projektu* **Właściwości... **, a następnie kliknij pozycję **Kompiluj**. Wyczyść pole **Preferuj 32-bitowe**, ponieważ nie można wyodrębnić informacji o routingu partycji z zapytania w przypadku, gdy uruchomiony jest proces 32-bitowy.
+
 Naciśnij klawisz **F5**, aby uruchomić aplikację.
 
 Gratulacje! Pomyślnie wykonano zapytanie względem kolekcji usługi DocumentDB.
@@ -501,7 +508,7 @@ Skopiuj i wklej metodę **ReplaceFamilyDocument** poniżej metody **ExecuteSimpl
         }
     }
 
-Skopiuj i wklej następujący kod do metody **GetStartedDemo** poniżej kodu służącego do wykonywania zapytania. Po zastąpieniu dokumentu spowoduje to ponowne uruchomienie tego samego zapytania, aby wyświetlić zmieniony dokument.
+Skopiuj i wklej następujący kod do metody **GetStartedDemo** poniżej kodu służącego do wykonywania zapytania (na końcu metody). Po zastąpieniu dokumentu spowoduje to ponowne uruchomienie tego samego zapytania, aby wyświetlić zmieniony dokument.
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
@@ -538,7 +545,7 @@ Skopiuj i wklej metodę **DeleteFamilyDocument** poniżej metody **ReplaceFamily
         }
     }
 
-Skopiuj i wklej następujący kod do metody **GetStartedDemo** poniżej kodu służącego do drugiego wykonywania zapytania.
+Skopiuj i wklej następujący kod do metody **GetStartedDemo** poniżej kodu służącego do wykonywania drugiego zapytania (na końcu metody).
 
     await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
@@ -597,13 +604,20 @@ Powinny zostać wyświetlone dane wyjściowe aplikacji rozpoczynania pracy. Dane
 Gratulacje! Pomyślnie ukończono ten samouczek NoSQL i utworzono działającą aplikację konsolową C#.
 
 ## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> Pobieranie kompletnego rozwiązania samouczka NoSQL
-Do utworzenia rozwiązania GetStarted, które zawiera wszystkie przykłady w tym artykule, będą potrzebne następujące elementy:
+Jeśli nie masz czasu na ukończenie tych kroków w ramach tego samouczka lub po prostu chcesz pobrać przykłady kodu, możesz pobrać je z serwisu [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+
+Aby skompilować rozwiązanie GetStarted, niezbędne są następujące elementy:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu [utworzenia bezpłatnego konta](https://azure.microsoft.com/free/).
 * [Konto usługi DocumentDB][documentdb-create-account].
 * Rozwiązanie [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) dostępne w witrynie GitHub.
 
 Aby przywrócić odwołania do zestawu SDK dla platformy .NET usługi DocumentDB w programie Visual Studio, kliknij prawym przyciskiem myszy rozwiązanie **GetStarted** w Eksploratorze rozwiązań, a następnie kliknij polecenie **Włącz przywracanie pakietów NuGet**. Następnie w pliku App.config zaktualizuj wartości EndpointUrl i AuthorizationKey zgodnie z opisem w kroku [Łączenie z kontem usługi DocumentDB](#Connect).
+
+Przed uruchomieniem aplikacji w menu **Projekt** kliknij pozycję *Nazwa projektu* **Właściwości... **, a następnie kliknij pozycję **Kompiluj**. Wyczyść pole **Preferuj 32-bitowe**.
+
+To wszystko — skompiluj projekt i gotowe!
+
 
 ## <a name="next-steps"></a>Następne kroki
 * Potrzebujesz bardziej złożonego samouczka NoSQL platformy ASP.NET MVC? Zobacz [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md) (Tworzenie aplikacji sieci Web na platformie ASP.NET MVC przy użyciu usługi DocumentDB).
@@ -618,6 +632,6 @@ Aby przywrócić odwołania do zestawu SDK dla platformy .NET usługi DocumentDB
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
