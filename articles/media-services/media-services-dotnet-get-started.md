@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/07/2016
+ms.date: 12/11/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 645fa2574efb9501da173f8ac8aea146d1e79ff8
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
 
 
 ---
+
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -86,9 +87,9 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
     Do zarządzania kontem AMS (na przykład przekazywania plików wideo, kodowania elementów zawartości, monitorowania postępu zadania) używaj okna **Ustawienia**.
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Konfigurowanie punktów końcowych przesyłania strumieniowego przy użyciu witryny Azure Portal
-Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH i HDS (tylko dla posiadaczy licencji Adobe PrimeTime/Access).
+Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH.
 
-Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach transmisji strumieniowej obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
+Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach transmisji strumieniowej obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
 
 Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać następujące czynności:
 
@@ -246,7 +247,7 @@ Dodaj następującą metodę do klasy Program.
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów
 Po pozyskaniu elementów zawartości do usługi Media Services pliki multimedialne przed dostarczeniem do klientów mogą zostać zakodowane, poddane transmultipleksacji, oznaczone znakiem wodnym itp. Te działania są zaplanowane i uruchamiane w wielu wystąpieniach ról w tle, aby zapewnić wysoką wydajność oraz dostępność. Te działania są nazywane zadaniami, a każde zadanie składa się z niepodzielnych podzadań, które wykonują rzeczywistą pracę w pliku elementu zawartości.
 
-Jak wspomniano wcześniej, podczas pracy z usługą Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie do klientów transmisji strumieniowej z adaptacyjną szybkością transmisji bitów. Usługa Media Services, korzystając z funkcji dynamicznego tworzenia pakietów, może utworzyć pakiet zestawu plików MP4 z adaptacyjną szybkością transmisji bitów w jednym z następujących formatów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH i HDS (tylko dla licencjobiorców Adobe PrimeTime/Access).
+Jak wspomniano wcześniej, podczas pracy z usługą Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie do klientów transmisji strumieniowej z adaptacyjną szybkością transmisji bitów. Usługa Media Services, korzystając z funkcji dynamicznego tworzenia pakietów, może utworzyć pakiet zestawu plików MP4 z adaptacyjną szybkością transmisji bitów w jednym z następujących formatów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH.
 
 Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać następujące czynności:
 
@@ -445,6 +446,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

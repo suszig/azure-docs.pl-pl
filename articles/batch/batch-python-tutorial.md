@@ -3,7 +3,7 @@ title: "Samouczek — wprowadzenie do klienta usługi Azure Batch dla środowisk
 description: "Podstawowe informacje na temat usługi Azure Batch oraz rozwijania usługi Batch za pomocą prostego scenariusza"
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
-ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
 
 Artykuł zawiera podstawowe informacje dotyczące usługi [Azure Batch][azure_batch] i klienta usługi [Batch dla środowiska Python][py_azure_sdk] w oparciu o omówienie małej aplikacji usługi Batch napisanej w języku Python. Pokazano, jak dwa przykładowe skrypty używają usługi Batch do przetwarzania równoległego obciążenia na maszynach wirtualnych z systemem Linux w chmurze, a także jak wchodzą w interakcję z usługą [Azure Storage](../storage/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
 
-![Przepływ pracy w usłudze Batch (podstawowy)][11]<br/>
+![Przepływ pracy rozwiązania w usłudze Batch (podstawowy)][11]<br/>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Python oraz znasz system Linux. Przyjęto również założenie, że jesteś w stanie spełnić wymagania dotyczące tworzenia konta, które zostały wyszczególnione poniżej dla platformy Azure oraz usług Batch i Storage.
@@ -181,7 +181,7 @@ Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą 
 >
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Krok 2: przekazywanie skryptu podzadań i plików danych
-![Przekazywanie aplikacji podzadań i plików danych wejściowych do kontenerów][2]
+![Przekazywanie aplikacji zadania podrzędnego i plików danych wejściowych do kontenerów][2]
 <br/>
 
 Podczas operacji przekazywania plików skrypt *python_tutorial_client.py* najpierw definiuje kolekcje ścieżek plików **aplikacji** i **danych wejściowych** występujących na komputerze lokalnym. Następnie przekazuje te pliki do kontenerów, które zostały utworzone w poprzednim kroku.
@@ -525,7 +525,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ```
 
 ## <a name="step-7-download-task-output"></a>Krok 7: pobranie danych wyjściowych podzadań
-![Pobieranie danych wyjściowych podzadań z usługi Storage][7]<br/>
+![Pobieranie danych wyjściowych zadań podrzędnych z usługi Storage][7]<br/>
 
 Po ukończeniu zadania można pobrać dane wyjściowe podzadań przy użyciu usługi Azure Storage. Odbywa się to przy użyciu wywołania funkcji `download_blobs_from_container` w skrypcie *python_tutorial_client.py*:
 
@@ -708,6 +708,6 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch na
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

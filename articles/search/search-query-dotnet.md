@@ -11,11 +11,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 > 
 > 
 
-W tym artykule opisano tworzenie zapytań względem indeksu przy użyciu [zestawu .NET SDK usługi Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+W tym artykule opisano tworzenie zapytań względem indeksu przy użyciu [zestawu .NET SDK usługi Azure Search](https://aka.ms/search-sdk).
 
 Przed rozpoczęciem pracy z tym przewodnikiem należy [utworzyć indeks usługi Azure Search](search-what-is-an-index.md) i [wypełnić go danymi](search-what-is-data-import.md).
 
@@ -37,7 +37,7 @@ Należy zwrócić uwagę, że cały przykładowy kod przedstawiony w tym artykul
 ## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identyfikowanie klucza api-key zapytania usługi Azure Search
 Po utworzeniu indeksu usługi Azure Search wszystko jest już prawie gotowe do wysyłania zapytań przy użyciu zestawu .NET SDK. Najpierw musisz uzyskać jeden z kluczy api-key zapytania, który został wygenerowany dla aprowizowanej usługi wyszukiwania. Zestaw .NET SDK przesyła ten klucz przy każdorazowym wysłaniu żądania do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
+1. Aby znaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
 2. Przejdź do bloku usługi Azure Search
 3. Kliknij ikonę „Klucze”
 
@@ -162,7 +162,6 @@ Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 Search the entire index for the term 'motel':
 
 ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-
 ```
 
 W powyższym przykładowym kodzie użyto konsoli do wyświetlenia wyników wyszukiwania. W podobny sposób musisz wyświetlić wyniki wyszukiwania w swojej aplikacji. Zapoznaj się z [tym przykładem w witrynie GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample), aby zobaczyć, jak wyświetlić wyniki wyszukiwania w aplikacji sieci Web opartej na platformie ASP.NET MVC.
@@ -170,6 +169,6 @@ W powyższym przykładowym kodzie użyto konsoli do wyświetlenia wyników wyszu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 12/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: e4aa6b13e3f1060d97cfea70761ad2f1c109b0c0
-ms.openlocfilehash: 5a197d1444c75d9f6f8d7540ca3117d894d5836f
+ms.sourcegitcommit: 9095cf61feaed43ac194a990bb5e387bb54fc00c
+ms.openlocfilehash: 9431df5553666a8725bd840a5cea62b0b5e35653
 
 
 ---
@@ -37,7 +37,7 @@ Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokaliza
 | --- | --- | --- |
 | **Ameryka Północna** |Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Kanada Środkowa, Kanada Wschodnia |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton, Montreal+, Miasto Quebec+, Toronto |
 | **Ameryka Południowa** |Brazylia Południowa |Sao Paulo |
-| **Europa** |Europa Północna, Europa Zachodnia, Zjednoczone Królestwo (zachód), Zjednoczone Królestwo (południe) |Amsterdam, Dublin, Londyn, Newport (Walia)+, Paryż |
+| **Europa** |Europa Północna, Europa Zachodnia, Zjednoczone Królestwo (zachód), Zjednoczone Królestwo (południe) |Amsterdam, Dublin, Londyn, Newport (Walia), Paryż |
 | **Azja** |Azja Wschodnia, Azja Południowo-Wschodnia |Hongkong, Singapur |
 | **Japonia** |Japońska Zachodnia, Japonia Wschodnia |Osaka, Tokio |
 | **Australia** |Australia Południowo-Wschodnia, Australia Wschodnia |Melbourne, Sydney |
@@ -85,7 +85,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Obsługiwane |Obsługiwane |Amsterdam, Chicago, Dallas, Las Vegas+, Londyn, Seattle, Dolina Krzemowa, Waszyngton |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Obsługiwane |Obsługiwane |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, Nowy Jork, Seattle, Singapur, Sydney, Toronto, Waszyngton |
 | **MTN** |Obsługiwane |Obsługiwane |Londyn |
-| **Dane nowej generacji** |Obsługiwane |Wkrótce |Newport (Walia) |
+| **[Dane nowej generacji](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Obsługiwane |Wkrótce |Newport (Walia) |
 | **NEXTDC** |Obsługiwane |Obsługiwane |Melbourne, Sydney |
 | **NTT Communications** |Obsługiwane |Obsługiwane |Londyn, Los Angeles Osaka, Singapur, Tokio, Waszyngton |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Obsługiwane |Obsługiwane |Amsterdam, Hongkong, Londyn, Dolina Krzemowa, Singapur, Sydney, Waszyngton |
@@ -148,8 +148,11 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 | **Dostawca połączenia** | **Exchange** | **Lokalizacje** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapur |
-| **Alaska Communications** |Equinix |Seattle |
+| **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londyn |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |Nowy Jork, Waszyngton |
+| **[Macquarie](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
+| **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Waszyngton |
 | **[XO Communications](http://www.xo.com/)** |Equinix |Dolina Krzemowa |
 
 ## <a name="expressroute-system-integrators"></a>Integratorzy systemu ExpressRoute
@@ -164,6 +167,7 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |USA |
 | **[Project Leadership](http://www.projectleadership.net/azure)** |USA |
 
+
 ## <a name="next-steps"></a>Następne kroki
 * Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
 * Upewnij się, że zostały spełnione wszystkie wymagania wstępne. Zobacz artykuł [ExpressRoute prerequisites](expressroute-prerequisites.md) (Wymagania wstępne usługi ExpressRoute).
@@ -173,6 +177,6 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

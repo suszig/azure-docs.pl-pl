@@ -3,7 +3,7 @@ title: "Tworzenie konta usługi Azure Batch | Microsoft Docs"
 description: "Dowiedz się, jak utworzyć konto usługi Azure Batch w portalu Azure w celu równoległego uruchamiania dużych obciążeń w chmurze"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8875c5e91a2a1ae848ebf725ca00bd43ec667dce
 
 
 ---
@@ -27,10 +27,10 @@ ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
 > 
 > 
 
-Dowiedz się, jak utworzyć konto usługi Batch w witrynie [Azure Portal][azure_portal] i gdzie można znaleźć ważne właściwości konta, takie jak klucze dostępu i adresy URL konta. Omówimy również ceny usługi Batch oraz łączenie konta usługi Azure Storage z kotem usługi Batch w celu korzystania z [pakietów aplikacji](batch-application-packages.md) oraz [trwałych danych wyjściowych zadań](batch-task-output.md).
+Dowiedz się, jak utworzyć konto usługi Azure Batch w witrynie [Azure Portal][azure_portal] i gdzie można znaleźć ważne właściwości konta, takie jak klucze dostępu i adresy URL konta. Omówimy również ceny usługi Batch oraz łączenie konta usługi Azure Storage z kotem usługi Batch w celu korzystania z [pakietów aplikacji](batch-application-packages.md) oraz [trwałych danych wyjściowych zadań](batch-task-output.md).
 
 ## <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
-1. Zaloguj się do [portalu Azure][azure_portal].
+1. Zaloguj się w witrynie [Azure Portal][azure_portal].
 2. Kliknij kolejno opcje **Nowy** > **Obliczenia** > **Usługa Batch**.
    
     ![Usługa Batch w witrynie Marketplace][marketplace_portal]
@@ -124,6 +124,6 @@ Poza korzystaniem z witryny Azure Portal można również utworzyć konta usług
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

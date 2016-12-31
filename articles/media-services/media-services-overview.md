@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1a680f20bc9ceee8efd943cd71312372fe56a878
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
 
 
 ---
@@ -47,15 +47,16 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
 * [Przepływ pracy transmisji strumieniowej na żądanie usługi AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:
 
 1. Konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com).
 2. Konto usługi Azure Media Services. Aby utworzyć konto usługi Azure Media Services, użyj witryny Azure Portal, platformy .NET lub interfejsu API REST. Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).
 3. (Opcjonalnie) Konfigurowanie środowiska deweloperskiego. Wybierz platformę .NET lub interfejs API REST dla środowiska deweloperskiego. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie środowiska](media-services-dotnet-how-to-use.md).
 
-Poznaj także sposób programowego ustanawiania połączenia przedstawiony w temacie [Nawiązywanie połączenia](media-services-dotnet-connect-programmatically.md).
+    Poznaj także sposób programowego ustanawiania połączenia przedstawiony w temacie [Nawiązywanie połączenia](media-services-dotnet-connect-programmatically.md).
 
-1. (Zalecane) Przydziel co najmniej jedną jednostkę skalowania. Zalecane jest przydzielenie co najmniej jednej jednostki skalowania dla aplikacji w środowisku produkcyjnym.   Aby uzyskać więcej informacji, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-portal-manage-streaming-endpoints.md).
+4. (Zalecane) Przydziel co najmniej jedną jednostkę skalowania. Zalecane jest przydzielenie co najmniej jednej jednostki skalowania dla aplikacji w środowisku produkcyjnym.   Aby uzyskać więcej informacji, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a name="concepts-and-overview"></a>Pojęcia i omówienie
 Pojęcia związane z usługą Azure Media Services zostały przedstawione w temacie [Pojęcia](media-services-concepts.md).
@@ -129,11 +130,11 @@ Opcjonalnie wiele zsynchronizowanych czasowo koderów na żywo. W przypadku niek
 * (opcjonalnie) kodowanie strumienia do strumienia o adaptacyjnej szybkości transmisji bitów;
 * wyświetlanie podglądu transmisji strumieniowej na żywo;
 * rejestrowanie i przechowywanie pozyskiwanej zawartości w celu późniejszego przesłania jej strumieniowo (wideo na żądanie);
-* dostarczanie zawartości za pośrednictwem wspólnych protokołów przesyłania strumieniowego (np. MPEG DASH, Smooth, HLS, HDS) bezpośrednio do klientów lub do sieci dostarczania zawartości (CDN) w celu dalszej dystrybucji.
+* dostarczanie zawartości za pośrednictwem wspólnych protokołów przesyłania strumieniowego (np. MPEG DASH, Smooth, HLS) bezpośrednio do klientów lub do usługi Content Delivery Network (CDN) w celu dalszej dystrybucji.
 
 Usługa **Microsoft Azure Media Services** (AMS) zapewnia możliwość pozyskiwania, kodowania, podglądu, przechowywania i dostarczania transmisji strumieniowej zawartości na żywo.
 
-Podczas dostarczania zawartości do klientów głównym celem jest przekazywanie zawartości wideo wysokiej jakości do różnych urządzeń bez względu na warunki panujące w sieci. Aby zadbać o jakość i warunki sieciowe, należy korzystać z koderów na żywo w celu kodowania strumienia do strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów).  W celu obsługi przesyłania strumieniowego na różnych urządzeniach należy korzystać z funkcji [dynamicznego tworzenia pakietów](media-services-dynamic-packaging-overview.md) usługi Media Services, aby ponownie dynamicznie utworzyć pakiety na potrzeby transmisji strumieniowej do różnych protokołów. Usługa Media Services obsługuje dostarczanie następujących technologii przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH i HDS (tylko dla licencjobiorców Adobe PrimeTime/Access).
+Podczas dostarczania zawartości do klientów głównym celem jest przekazywanie zawartości wideo wysokiej jakości do różnych urządzeń bez względu na warunki panujące w sieci. Aby zadbać o jakość i warunki sieciowe, należy korzystać z koderów na żywo w celu kodowania strumienia do strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów).  W celu obsługi przesyłania strumieniowego na różnych urządzeniach należy korzystać z funkcji [dynamicznego tworzenia pakietów](media-services-dynamic-packaging-overview.md) usługi Media Services, aby ponownie dynamicznie utworzyć pakiety na potrzeby transmisji strumieniowej do różnych protokołów. Usługa Media Services obsługuje dostarczanie następujących technologii przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH.
 
 W usłudze Azure Media Services **kanały**, **programy**, i **punkty końcowe przesyłania strumieniowego** obsługują wszystkie funkcje transmisji strumieniowej na żywo, w tym pozyskiwanie, formatowanie, cyfrowy rejestrator wideo (DVR), zabezpieczenia, skalowalność i nadmiarowość.
 
@@ -201,6 +202,6 @@ Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług p
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

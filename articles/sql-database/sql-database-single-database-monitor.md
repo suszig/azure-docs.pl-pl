@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: c0c9d107ff1642d66e96de5409863e4e894d1b6b
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
 Monitorowanie wydajności bazy danych SQL na platformie Azure rozpoczyna się od monitorowania wykorzystania zasobów względem wybranego poziomu wydajności bazy danych. Monitorowanie pomaga ustalić, czy baza danych nie ma nadmiarowej pojemności lub czy nie występują problemy z powodu maksymalnego wykorzystania zasobów. Następnie na tej podstawie można zdecydować, czy nadszedł czas, aby dostosować poziom wydajności i [warstwę usług](sql-database-service-tiers.md) bazy danych. Bazę danych można monitorować za pomocą narzędzi graficznych w [witrynie Azure Portal](https://portal.azure.com) lub przy użyciu [dynamicznych widoków zarządzania](https://msdn.microsoft.com/library/ms188754.aspx) SQL.
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorowanie baz danych za pomocą witryny Azure Portal
-W witrynie [Azure Portal](https://portal.azure.com/) możesz wybrać bazę danych i kliknąć wykres **Monitorowanie**, aby monitorować wykorzystanie pojedynczej bazy danych. Spowoduje to wyświetlenie okna **Metryka**, które możesz zmienić, klikając przycisk **Edytuj wykres**. Dodaj następujące metryki:
+W witrynie [Azure Portal](https://portal.azure.com/) możesz wybrać bazę danych i kliknąć wykres **Monitorowanie**, aby monitorować wykorzystanie autonomicznej bazy danych. Spowoduje to wyświetlenie okna **Metryka**, które możesz zmienić, klikając przycisk **Edytuj wykres**. Dodaj następujące metryki:
 
 * Procent użycia procesora CPU
 * Procent użycia jednostek DTU
@@ -51,10 +51,10 @@ Te same metryki, które są przedstawiane w portalu, są również dostępne za 
 >
 >
 
-W przypadku elastycznych pul baz danych można monitorować pojedyncze bazy danych w puli za pomocą metod opisanych w tej części. Można jednak również monitorować pulę jako całość. Informacje na ten temat znajdziesz w artykule [Monitorowanie elastycznej puli baz danych i zarządzanie nią](sql-database-elastic-pool-manage-portal.md).
+W przypadku pul elastycznych można monitorować pojedyncze bazy danych w puli za pomocą metod opisanych w tej sekcji. Można jednak również monitorować pulę jako całość. Informacje na ten temat znajdziesz w artykule [Monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md) (Monitorowanie puli elastycznej i zarządzanie nią).
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
