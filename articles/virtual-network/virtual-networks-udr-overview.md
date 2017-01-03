@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ Taki przepływ komunikacji jest możliwy, ponieważ platforma Azure korzysta z s
 * Z jednej podsieci do drugiej w ramach sieci wirtualnej.
 * Z maszyny wirtualnej do sieci Internet.
 * Z sieci wirtualnej do innej sieci wirtualnej za pośrednictwem bramy sieci VPN.
+* Z sieci wirtualnej do innej sieci wirtualnej za pośrednictwem komunikacji równorzędnej sieci wirtualnych (tworzenia łańcucha usług).
 * Z sieci wirtualnej do sieci lokalnej za pośrednictwem bramy sieci VPN.
 
 Na poniższym rysunku przedstawiono prostą konfigurację obejmującą sieć wirtualną, dwie podsieci i kilka maszyn wirtualnych wraz trasami systemowymi, które umożliwiają ruch pakietów IP.
@@ -111,6 +112,6 @@ Ta maszyna wirtualna musi mieć zdolność odbierania ruchu przychodzącego, kt�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

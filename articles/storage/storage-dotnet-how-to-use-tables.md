@@ -3,8 +3,8 @@ title: "Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu programu
 description: "Przechowywanie danych strukturalnych w chmurze za pomocą Magazynu tabel Azure, magazyn danych NoSQL."
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: fe4b9c356e5f7d56cb7e1fa62344095353d0b699
-ms.openlocfilehash: c4a8e4eee864dab592baf1797d69778160ab456e
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 98307e924927655c8a7de0e8fc6a7c0c2b57af00
 
 
 ---
@@ -347,7 +347,7 @@ else
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
-Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich właściwości jednostki. Ta technika, zwana projekcją, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Zapytanie w poniższym kodzie zwraca wyłącznie adresy e-mail jednostek w tabeli. Operację tę przeprowadza się za pomocą zapytania **DynamicTableEntity** lub **EntityResolver**. Więcej o projekcji można dowiedzieć się z [Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)][Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)]. Należy zauważyć, że funkcja projekcji nie jest obsługiwana w lokalnym emulatorze magazynu, dlatego ten kod zadziała tylko w przypadku użycia konta w usłudze tabel.
+Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich właściwości jednostki. Ta technika, zwana projekcją, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Zapytanie w poniższym kodzie zwraca wyłącznie adresy e-mail jednostek w tabeli. Operację tę przeprowadza się za pomocą zapytania **DynamicTableEntity** lub **EntityResolver**. Użytkownik może dowiedzieć się więcej o projekcji z [wpisu na blogu Introducing Upsert and Query Projection][Introducing Upsert and Query Projection blog post] (Wprowadzenie operacji upsert i projekcji zapytań). Należy zauważyć, że funkcja projekcji nie jest obsługiwana w lokalnym emulatorze magazynu, dlatego ten kod zadziała tylko w przypadku użycia konta w usłudze tabel.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -467,8 +467,8 @@ Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych
   * Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
   * [Połącz się z usługą SQL Database przy użyciu platformy .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md), aby zapisać dane relacyjne.
 
-[Pobranie i zainstalowanie zestawu Azure SDK dla programu .NET]: /develop/net/
-[Tworzenie projektu platformy Azure w programie Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+[Download and install the Azure SDK for .NET]: /develop/net/
+[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
 [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
 [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
@@ -476,17 +476,17 @@ Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych
 [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
 [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-[Wpis na blogu Introducing Upsert and Query Projection (Wprowadzenie operacji upsert i projekcji zapytań)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[Dokumentacja biblioteki klienta platformy .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Blog zespołu odpowiedzialnego za usługę Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-[Konfiguracja parametrów połączenia usługi Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-[Poradnik: programistyczny dostęp do Magazynu tabel]: #tablestorage
+[How to: Programmatically access Table storage]: #tablestorage
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

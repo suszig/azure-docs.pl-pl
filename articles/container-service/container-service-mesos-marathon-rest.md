@@ -3,7 +3,7 @@ title: "Zarządzanie kontenerem usługi Azure Container Service przy użyciu int
 description: "Wdrażanie kontenerów do klastra Mesos usługi kontenera platformy Azure przy użyciu interfejsu API REST platformy Marathon."
 services: container-service
 documentationcenter: 
-author: neilpeterson
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: timlt
+ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e8f1ad596d2b64380876a501ebcf127afdda9ccf
+ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
+ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
 
 
 ---
@@ -33,7 +33,7 @@ Platformy są dostępne dla wielu popularnych zadań. W tym dokumencie opisano, 
 Po nawiązaniu połączeniu z klastrem usługi kontenera platformy Azure masz dostęp do platformy DC/OS i powiązanych interfejsów API REST pod adresem http://localhost:local-port. W przykładach przedstawionych w tym dokumencie założono, że tunelowanie korzysta z portu 80. Na przykład dostęp do punktu końcowego platformy Marathon można uzyskać pod adresem `http://localhost/marathon/v2/`. Aby uzyskać więcej informacji o różnych interfejsach API, zobacz dokumentację Mesosphere dotyczącą [interfejsu API platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) i [interfejsu API programu Chronos](https://mesos.github.io/chronos/docs/api.html) oraz dokumentację Apache dotyczącą [interfejsu API aplikacji Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Gromadzenie informacji z platform DC/OS i Marathon
-Przed wdrożeniem kontenerów do klastra DC/OS zbierz określone informacje o klastrze DC/OS, takie jak nazwy i bieżący stan agentów DC/OS. W tym celu wykonaj zapytanie w punkcie końcowym `master/slaves` interfejsu API REST platformy DC/OS. Jeśli operacja zostanie wykonana pomyślnie, wyświetlona zostanie lista agentów DC/OS i szereg właściwości każdego z nich.
+Przed wdrożeniem kontenerów do klastra DC/OS zbierz określone informacje o klastrze DC/OS, takie jak nazwy i bieżący stan agentów DC/OS. W tym celu wykonaj zapytanie w punkcie końcowym `master/slaves` interfejsu API REST platformy DC/OS. Jeśli operacja zostanie wykonana pomyślnie, zapytanie zwróci listę agentów DC/OS i szereg właściwości każdego z nich.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -48,7 +48,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Wdrażanie kontenera w formacie programu Docker
-Kontenery w formacie programu Docker można wdrażać za pośrednictwem platformy Marathon przy użyciu pliku JSON, który opisuje zamierzone wdrożenie. W poniższym przykładzie zostanie wdrożony kontener Nginx, który powiąże port 80 agenta DC/OS z portem 80 kontenera. Warto zauważyć, że właściwość „acceptedResourceRoles” jest ustawiona na wartość „slave_public”. Spowoduje to wdrożenie kontenera w agencie w zestawie skali agenta publicznego.
+Kontenery w formacie programu Docker można wdrażać za pośrednictwem platformy Marathon przy użyciu pliku JSON, który opisuje zamierzone wdrożenie. W poniższym przykładzie wdrożono kontener Nginx, który powiąże port 80 agenta DC/OS z portem 80 kontenera. Warto zauważyć, że właściwość „acceptedResourceRoles” jest ustawiona na wartość „slave_public”. Spowoduje to wdrożenie kontenera w agencie w zestawie skali agenta publicznego.
 
 ```json
 {
@@ -123,7 +123,7 @@ Aby zebrać informacje dotyczące klastra DC/OS, takie jak nazwy i stan agenta, 
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Kontenery w formacie programu Docker można wdrażać za pośrednictwem platformy Marathon przy użyciu pliku JSON, który opisuje zamierzone wdrożenie. W poniższym przykładzie zostanie wdrożony kontener Nginx, który powiąże port 80 agenta DC/OS z portem 80 kontenera.
+Kontenery w formacie programu Docker można wdrażać za pośrednictwem platformy Marathon przy użyciu pliku JSON, który opisuje zamierzone wdrożenie. W poniższym przykładzie wdrożono kontener Nginx, który powiąże port 80 agenta DC/OS z portem 80 kontenera.
 
 ```json
 {
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

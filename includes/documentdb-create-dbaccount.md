@@ -1,4 +1,4 @@
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. W nowym oknie zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Na pasku dostępu kliknij pozycje **Nowy** i **Bazy danych**, a następnie kliknij pozycję **NoSQL (DocumentDB)**.
    
    ![Zrzut ekranu przedstawiający witrynę Azure Portal z wyróżnionymi poleceniami Więcej usług i DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -16,17 +16,17 @@
    ![Szybkie tworzenie baz danych — zrzut ekranu przedstawiający centrum powiadomień z informacją o trwającym tworzeniu konta usługi DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![Zrzut ekranu przedstawiający centrum powiadomień z informacją o pomyślnym utworzeniu i wdrożeniu w grupie zasobów konta usługi DocumentDB — powiadomienie kreatora bazy danych w trybie online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. Utworzone konto usługi DocumentDB jest gotowe do użycia z ustawieniami domyślnymi. Aby przejrzeć ustawienia domyślne, kliknij ikonę **NoSQL (DocumentDB)** ikonę na pasku dostępu, kliknij nowe konto, a następnie w menu zasobów kliknij pozycję **Domyślna spójność**.
+5. Utworzone konto usługi DocumentDB jest gotowe do użycia z ustawieniami domyślnymi. Aby przejrzeć ustawienia domyślne, kliknij ikonę **NoSQL (DocumentDB)** na pasku dostępu, kliknij nowe konto, a następnie w menu zasobów kliknij pozycję **Domyślna spójność**.
 
    ![Zrzut ekranu przedstawiający sposób otwierania konta bazy danych Azure DocumentDB w witrynie Azure Portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   Domyślna spójność konta usługi DocumentDB jest ustawiona na wartość **Sesja**.  Można ją dostosować, klikając pozycję **Domyślna spójność** w menu zasobów. Aby dowiedzieć się więcej na temat poziomów spójności oferowanych przez usługę DocumentDB, zobacz temat [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md) (Poziomy spójności w usłudze DocumentDB).
+   Domyślna spójność konta usługi DocumentDB jest ustawiona na wartość **Sesja**.  Poziom domyślnej spójności można dostosować, wybierając jedną z innych opcji spójności. Aby dowiedzieć się więcej na temat poziomów spójności oferowanych przez usługę DocumentDB, zobacz temat [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md) (Poziomy spójności w usłudze DocumentDB).
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO5-->
 
 

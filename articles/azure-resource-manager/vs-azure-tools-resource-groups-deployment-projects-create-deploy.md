@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: dd1161f2b5cf717246391900a616e51c457f5280
+ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
+ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
 
 
 ---
@@ -189,7 +189,7 @@ Do tej pory wdrożono infrastrukturę aplikacji, ale z projektem nie został wdr
    
     Właściwości są następujące:
    
-   * Właściwość **Additional Properties** zawiera tymczasową lokalizację pakietu wdrażania w sieci Web, który zostanie przekazany do usługi Azure Storage. Zanotuj folder (ExampleApp) i plik (package.zip). Te właściwości należy podać jako parametry podczas wdrażania aplikacji. 
+   * Właściwość **Additional Properties** zawiera tymczasową lokalizację pakietu wdrażania w sieci Web, który zostanie przekazany do usługi Azure Storage. Zanotuj folder (ExampleApp) i plik (package.zip). Musisz znać te wartości, ponieważ są one podawane jako parametry podczas wdrażania aplikacji. 
    * Właściwość **Include File Path** zawiera ścieżkę, w której zostanie utworzony pakiet. Właściwość **Include Targets** zawiera polecenie, które zostanie wykonane podczas wdrażania. 
    * Wartość domyślna właściwości **Build;Package** umożliwia skompilowanie i utworzenie pakietu wdrażania w sieci Web (pakiet.zip) podczas wdrażania.  
      
@@ -219,6 +219,6 @@ Do tej pory wdrożono infrastrukturę aplikacji, ale z projektem nie został wdr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

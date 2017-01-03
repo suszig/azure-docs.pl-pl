@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
+ms.sourcegitcommit: 91aa9a15797620e985f44d2aad4ef207d3884672
+ms.openlocfilehash: f76b573737c6b38ffe61c344ac6eb70f71d6ca44
 
 
 ---
@@ -27,7 +27,7 @@ Na końcu tego samouczka będziesz mieć trzy aplikacje konsolowe Java:
 
 * **create-device-identity** tworzy tożsamość urządzenia i skojarzony klucz zabezpieczeń do podłączenia symulowanej aplikacji urządzenia.
 * **read-d2c-messages** powoduje wyświetlenie telemetrii wysyłanej przez symulowaną aplikację urządzenia.
-* **simulated-device** łączy się z centrum IoT przy użyciu tożsamości urządzenia utworzonej wcześniej i wysyła komunikat telemetrii co sekundę przy użyciu protokołu AMQP.
+* **simulated-device** łączy się z centrum IoT Hub przy użyciu utworzonej wcześniej tożsamości urządzenia i wysyła komunikat telemetrii co sekundę przy użyciu protokołu MQTT.
 
 > [!NOTE]
 > Artykuł [Azure IoT SDKs][lnk-hub-sdks] (Zestawy SDK Azure IoT) zawiera informacje dotyczące zestawów SDK Azure IoT, których można użyć do utworzenia aplikacji zarówno do uruchamiania na urządzaniach, jak i w zapleczu rozwiązania.
@@ -205,7 +205,7 @@ W tej sekcji opisano tworzenie aplikacji konsolowej Java, która odczytuje komun
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
-                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getSystemProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
@@ -313,12 +313,12 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej Java, kt�
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    Ta przykładowa aplikacja używa zmiennej **protocol** podczas tworzenia wystąpienia obiektu **DeviceClient**. Do komunikacji z usługą IoT Hub możesz użyć protokołu HTTP lub AMQP.
+    Ta przykładowa aplikacja używa zmiennej **protocol** podczas tworzenia wystąpienia obiektu **DeviceClient**. Do komunikacji z usługą IoT Hub możesz użyć protokołu MQTT, AMQP lub HTTP.
 8. Dodaj następującą zagnieżdżoną klasę **TelemetryDataPoint** do wnętrza klasy **App**, aby określić dane telemetryczne wysyłane przez urządzenie do centrum IoT:
    
     ```
@@ -474,6 +474,6 @@ Aby dowiedzieć się, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO5-->
 
 

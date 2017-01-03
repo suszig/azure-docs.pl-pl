@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
-ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
+ms.sourcegitcommit: 52f158fd50ee8427cf567889d584e342ea42abb3
+ms.openlocfilehash: b52f7b36a28a345e8693ecbafd3771c27c683a37
 
 
 ---
@@ -58,8 +58,7 @@ Aby kontynuować, kliknij przycisk **OK**.
 
 ![Tworzenie wdrożenia 4](media/acs-portal4-new.png)  <br />
 
-Jeśli na liście rozwijanej wybrano **Kubernetes**, należy wprowadzić identyfikator klienta jednostki usługi oraz wpis tajny klienta jednostki usługi.
-Aby dowiedzieć się więcej o sposobie tworzenia jednostki usługi, odwiedź [tę](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) stronę 
+Jeśli na liście rozwijanej wybrano wartość **Kubernetes**, należy wprowadzić identyfikator klienta jednostki usługi oraz klucz tajny klienta jednostki usługi. Aby uzyskać więcej informacji, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o jednostce usługi dla klastra Kubernetes). 
 
 ![Tworzenie wdrożenia 4.5](media/acs-portal10.PNG)  <br />
 
@@ -197,6 +196,6 @@ Teraz, gdy masz działający klaster, możesz zapoznać się z tymi dokumentami,
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

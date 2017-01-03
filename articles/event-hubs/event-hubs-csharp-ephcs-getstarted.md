@@ -86,6 +86,6 @@ Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarz
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO5-->
 
 
