@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie strefy DNS przy użyciu interfejsu wiersza polecenia| Microsoft Docs"
-description: "Dowiedz się, jak krok po kroku przy użyciu interfejsu wiersza polecenia utworzyć strefy DNS dla serwera usługi Azure DNS, aby rozpocząć hosting domeny DNS"
+description: "Dowiedz się, jak tworzyć strefy DNS w usłudze Azure DNS. W tym przewodniku krok po kroku pokazano, jak utworzyć pierwszą strefę DNS przy użyciu interfejsu wiersza polecenia platformy Azure oraz jak nią zarządzać."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 0dd7bc85776226b7f3a2ad75271a51c22d8205a5
+ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
+ms.openlocfilehash: 5bbd490925e5e25f10044af55af49daa494ee026
 
 ---
 
@@ -26,27 +26,21 @@ ms.openlocfilehash: 0dd7bc85776226b7f3a2ad75271a51c22d8205a5
 > * [Program PowerShell](dns-getstarted-create-dnszone.md)
 > * [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-dnszone-cli.md)
 
-W tym artykule opisano kroki tworzenia strefy DNS przy użyciu interfejsu wiersza polecenia. Można również utworzyć strefę DNS za pomocą programu PowerShell lub witryny Azure Portal.
+W tym artykule przedstawiono procedurę tworzenia strefy DNS przy użyciu interfejsu wiersza polecenia platformy Azure dla wielu platform, który jest dostępny dla systemów Windows, Mac i Linux. Można również utworzyć strefę DNS za pomocą programu PowerShell lub witryny Azure Portal.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
+
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Poniższe instrukcje korzystają z interfejsu wiersza polecenia platformy Microsoft Azure. Aby używać poleceń usługi Azure DNS, należy zaktualizować interfejs wiersza polecenia platformy Azure do najnowszej wersji (0.9.8 lub nowszej). Wpisz polecenie `azure -v` w celu sprawdzenia, która wersja interfejsu wiersza polecenia platformy Azure jest obecnie zainstalowana na komputerze.
+Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi elementami:
 
-## <a name="step-1---set-up-azure-cli"></a>Krok 1 — Konfigurowanie interfejsu wiersza polecenia platformy Azure
+* Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
+* Musisz zainstalować najnowszą wersję interfejsu wiersza polecenia platformy Azure, który jest dostępny dla systemów Windows, Linux i MAC. Więcej informacji znajduje się w temacie [Instalowanie interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md).
 
-### <a name="1-install-azure-cli"></a>1. Zainstaluj interfejs wiersza polecenia platformy Azure
+## <a name="step-1---sign-in-and-create-a-resource-group"></a>Krok 1. Logowanie się i tworzenie grupy zasobów
 
-Możesz zainstalować interfejs wiersza polecenia platformy Azure dla systemu Windows, Linux lub Mac. Poniższe kroki muszą zostać wykonane, zanim będzie można zarządzać usługą Azure DNS za pomocą interfejsu wiersza polecenia platformy Azure. Więcej informacji znajduje się w temacie [Instalowanie interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md). Polecenia DNS wymagają interfejsu wiersza polecenia platformy Azure w wersji 0.9.8 lub nowszej.
-
-Wszystkie polecenia dostawcy sieci w interfejsie wiersza polecenia można znaleźć przy użyciu następującego polecenia:
-
-```azurecli
-azure network
-```
-
-### <a name="2-switch-cli-mode"></a>2. Przełącz tryb interfejsu wiersza polecenia
+### <a name="switch-cli-mode"></a>Przełącz tryb interfejsu wiersza polecenia
 
 Usługa Azure DNS korzysta z usługi Azure Resource Manager. Pamiętaj, aby przełączyć tryb interfejsu wiersza polecenia w celu używania poleceń ARM.
 
@@ -54,15 +48,21 @@ Usługa Azure DNS korzysta z usługi Azure Resource Manager. Pamiętaj, aby prze
 azure config mode arm
 ```
 
-### <a name="3-sign-in-to-your-azure-account"></a>3. Zaloguj się do swojego konta platformy Azure
+### <a name="sign-in-to-your-azure-account"></a>Zaloguj się do swojego konta platformy Azure
 
 Otrzymasz monit o uwierzytelnienie się przy użyciu swoich poświadczeń. Należy pamiętać, że można używać tylko kont z identyfikatorem organizacji.
 
 ```azurecli
-azure login -u "username"
+azure login
 ```
 
-### <a name="4-select-the-subscription"></a>4. Wybierz subskrypcję
+### <a name="select-the-subscription"></a>Wybierz subskrypcję
+
+Sprawdź subskrypcje dostępne na koncie.
+
+```azurecli
+azure account list
+```
 
 Wybierz subskrypcję platformy Azure do użycia.
 
@@ -70,7 +70,7 @@ Wybierz subskrypcję platformy Azure do użycia.
 azure account set "subscription name"
 ```
 
-### <a name="5-create-a-resource-group"></a>5. Utwórz grupę zasobów
+### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Usługa Azure Resource Manager wymaga, aby wszystkie grupy zasobów określały lokalizację. Będzie ona używana jako domyślna lokalizacja dla zasobów w danej grupie zasobów. Ponieważ jednak wszystkie zasoby DNS są globalne, a nie regionalne, wybór lokalizacji grupy zasobów nie ma wpływu na usługę Azure DNS.
 
@@ -80,7 +80,7 @@ Ten krok można pominąć, jeśli używasz istniejącej grupy zasobów.
 azure group create -n myresourcegroup --location "West US"
 ```
 
-### <a name="6-register"></a>6. Zarejestruj subskrypcję
+### <a name="register-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
 Usługa Azure DNS jest zarządzana przez dostawcę zasobów Microsoft.Network. Aby można było korzystać z usługi Azure DNS, musisz zarejestrować swoją subskrypcję platformy Azure w celu używania tego dostawcy zasobów. Jest to jednorazowa operacja dla każdej subskrypcji.
 
@@ -90,90 +90,65 @@ azure provider register --namespace Microsoft.Network
 
 ## <a name="step-2---create-a-dns-zone"></a>Krok 2 — Tworzenie strefy DNS
 
-Do tworzenia strefy DNS służy polecenie `azure network dns zone create`. Można opcjonalnie utworzyć strefę DNS wraz z tagami. Tagi to pary nazw i wartości używane przez usługę Azure Resource Manager do oznaczania zasobów etykietami na potrzeby rozliczeń lub grupowania. Aby uzyskać więcej informacji na temat tagów, zobacz [Porządkowanie zasobów na platformie Azure za pomocą tagów](../resource-group-using-tags.md).
+Do tworzenia strefy DNS służy polecenie `azure network dns zone create`. Aby wyświetlić pomoc dla tego polecenia, wpisz `azure network dns zone create -h`.
 
-W usłudze Azure DNS nazwy stref powinny być określane bez znaku **„.”** na końcu. Na przykład jako „**contoso.com**” zamiast „**contoso.com.**”.
-
-### <a name="to-create-a-dns-zone"></a>Tworzenie strefy DNS
-
-Poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów o nazwie *MyResourceGroup*.
-
-Skorzystaj z tego przykładu, aby utworzyć własną strefę DNS, podstawiając własne wartości.
+Poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów o nazwie *MyResourceGroup*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
 
 ```azurecli
-azure network dns zone create myresourcegroup contoso.com
+azure network dns zone create MyResourceGroup contoso.com
 ```
 
-### <a name="to-create-a-dns-zone-and-tags"></a>Tworzenie strefy DNS i tagów
+## <a name="step-3---verify"></a>Krok 3. Weryfikowanie
 
-Interfejs wiersza polecenia platformy Azure obsługuje tagi stref DNS określone przy użyciu opcjonalnego parametru *-Tag*. Poniższy przykład pokazuje, jak utworzyć strefę DNS z dwoma tagami, project = demo i env = test.
-
-Skorzystaj z tego przykładu, aby utworzyć strefę DNS i tagi, podstawiając własne wartości.
-
-```azurecli
-azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
-```
-
-## <a name="view-records"></a>Wyświetlanie rekordów
+### <a name="view-records"></a>Wyświetlanie rekordów
 
 Utworzenie strefy DNS powoduje również utworzenie następujących rekordów DNS:
 
 * Rekord SOA. Jest obecny w katalogu głównym każdej strefy DNS.
 * Autorytatywne rekordy serwera nazw (rekordy NS). Pokazują, które serwery nazw hostują strefę. Usługa Azure DNS korzysta z puli serwerów nazw, a więc różne serwery nazw mogą być przypisane do różnych stref w usłudze Azure DNS. Więcej informacji można znaleźć w temacie [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md).
 
-Aby wyświetlić te rekordy, użyj polecenia `azure network dns-record-set show`.
+Aby wyświetlić te rekordy, użyj polecenia `azure network dns-record-set list`:
 
-*Składnia: network dns record-set show \<grupa zasobów\> \<nazwa strefy dns\> \<nazwa\> \<typ\>*
+```azurecli
+azure network dns record-set list MyResourceGroup contoso.com
 
-W poniższym przykładzie w przypadku uruchomienia polecenia z grupą zasobów *myresourcegroup*, nazwą zestawu rekordów *"@"* (dla rekordu głównego) i typem *SOA* wygeneruje ono następujące dane wyjściowe:
-
-    azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
-    info:    Executing command network dns-record-set show
-    + Looking up the DNS record set "@"
-    data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/SOA
-    data:    Location                        : global
-    data:    TTL                             : 3600
-    data:    SOA record:
-    data:      Email                         : msnhst.microsoft.com
-    data:      Expire time                   : 604800
-    data:      Host                          : edge1.azuredns-cloud.net
-    data:      Minimum TTL                   : 300
-    data:      Refresh time                  : 900
-    data:      Retry time                    : 300
-    data:                                    :
-
-Aby wyświetlić rekordy NS utworzone dla strefy, użyj następującego polecenia:
-
-    azure network dns record-set show myresourcegroup "contoso.com" "@" NS
-    info:    Executing command network dns-record-set show
-    + Looking up the DNS record set "@"
-    data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/NS
-    data:    Location                        : global
-    data:    TTL                             : 3600
-    data:    NS records
-    data:        Name server domain name     : ns1-05.azure-dns.com
-    data:        Name server domain name     : ns2-05.azure-dns.net
-    data:        Name server domain name     : ns3-05.azure-dns.org
-    data:        Name server domain name     : ns4-05.azure-dns.info
-    data:
-    info:    network dns-record-set show command OK
+info:    Executing command network dns record-set list
++ Looking up the DNS Record Sets
+data:    Name                            : @
+data:    Type                            : NS
+data:    TTL                             : 172800
+data:    Records:
+data:      ns1-01.azure-dns.com.
+data:      ns2-01.azure-dns.net.
+data:      ns3-01.azure-dns.org.
+data:      ns4-01.azure-dns.info.
+data:
+data:    Name                            : @
+data:    Type                            : SOA
+data:    TTL                             : 3600
+data:    Email                           : azuredns-hostmaster.microsoft.com
+data:    Host                            : ns1-01.azure-dns.com.
+data:    Serial Number                   : 2
+data:    Refresh Time                    : 3600
+data:    Retry Time                      : 300
+data:    Expire Time                     : 2419200
+data:    Minimum TTL                     : 300
+data:
+info:    network dns record-set list command OK
+```
 
 > [!NOTE]
 > Zestawy rekordów w katalogu głównym (*wierzchołku*) strefy DNS używają **@** jako nazwy zestawu rekordów.
 
-## <a name="test"></a>Test
+### <a name="test-name-servers"></a>Testowanie serwerów nazw
 
-Strefę DNS można przetestować przy użyciu narzędzi DNS, takich jak nslookup, DIG lub polecenie cmdlet `Resolve-DnsName` programu PowerShell.
+Możesz sprawdzić, czy strefa DNS znajduje się na serwerach nazw usługi Azure DNS przy użyciu narzędzi, takich jak nslookup lub dig, albo polecenia cmdlet `Resolve-DnsName` programu PowerShell.
 
 Jeśli domena nie została jeszcze delegowana do używania nowej strefy w usłudze Azure DNS, należy skierować zapytanie DNS bezpośrednio do jednego z serwerów nazw dla bieżącej strefy. Serwery nazw dla strefy są podane w rekordach NS, jak te wyświetlane przez polecenie „azure network dns record-set show” powyżej. Podstaw w poniższym poleceniu poprawne wartości dla swojej strefy.
 
-Poniższy przykład korzysta z narzędzia DIG do wykonania zapytania na domenie contoso.com, używając serwerów nazw przypisanych do strefy DNS. Zapytanie musi wskazać serwer nazw, dla którego użyto wartości *@\<serwer nazw dla strefy\>*, i nazwę strefy z użyciem narzędzia DIG.
+W poniższym przykładzie użyto narzędzia dig do wykonania zapytania dla domeny contoso.com za pomocą serwerów nazw przypisanych do strefy DNS. Zapytanie musi wskazywać serwer nazw, dla którego użyto wartości *@\<serwer nazw dla strefy\>*, i nazwę strefy z użyciem narzędzia dig.
 
-     <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
+     <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
     (1 server found)
     global options: +cmd
      Got answer:
@@ -187,8 +162,7 @@ Poniższy przykład korzysta z narzędzia DIG do wykonania zapytania na domenie 
     contoso.com.                        IN      A
 
      AUTHORITY SECTION:
-    contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
-    msnhst.microsoft.com. 6 900 300 604800 300
+    contoso.com.         3600     IN      SOA     ns1-01.azure-dns.com. azuredns-hostmaster.microsoft.com. 1 3600 300 2419200 300
 
     Query time: 93 msec
     SERVER: 208.76.47.5#53(208.76.47.5)
@@ -197,11 +171,11 @@ Poniższy przykład korzysta z narzędzia DIG do wykonania zapytania na domenie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzeniu strefy DNS utwórz [zestawy rekordów i rekordy](dns-getstarted-create-recordset-cli.md), aby uruchomić rozpoznawanie nazw dla swojej domeny internetowej.
+Po utworzeniu strefy DNS [utwórz zestawy rekordów i rekordy](dns-getstarted-create-recordset-cli.md), aby utworzyć rekordy DNS dla swojej domeny internetowej.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

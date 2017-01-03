@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,13 +31,13 @@ Ten przewodnik pokazuje, jak dodać buforowanie odpowiedzi do interfejsu API ora
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed wykonaniem kroków w tym przewodniku potrzebne jest wystąpienie usługi API Management ze skonfigurowanymi interfejsem API i produktem. Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz temat [Tworzenie wystąpienia usługi API Management][Tworzenie wystąpienia usługi API Management] w samouczku [Wprowadzenie do usługi Azure API Management][Wprowadzenie do usługi Azure API Management].
+Przed wykonaniem kroków w tym przewodniku potrzebne jest wystąpienie usługi API Management ze skonfigurowanymi interfejsem API i produktem. Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Konfigurowanie operacji do buforowania
 W tym kroku należy przejrzeć ustawienia buforowania operacji **GET Resource (cached)** (Buforowane pobieranie zasobu) przykładowego interfejsu Echo API.
 
 > [!NOTE]
-> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, który może służyć do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do usługi Azure API Management][Wprowadzenie do usługi Azure API Management].
+> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, który może służyć do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
 > 
 > 
 
@@ -80,20 +80,22 @@ Powoduje to wyświetlenie zasad dla tej operacji w edytorze zasad.
 
 Definicja zasad dla tej operacji obejmuje zasady definiujące konfigurację buforowania wyświetloną na karcie **Buforowanie** w poprzednim kroku.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > Zmiany wprowadzone w zasadach buforowania w edytorze zasad zostaną odzwierciedlone na karcie **Buforowanie** i na odwrót.
@@ -138,40 +140,40 @@ Wprowadź wartość **25** w polu **param2**, a następnie kliknij przycisk **HT
 Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2**. Ponieważ wyniki operacji są oznaczanie kluczami na podstawie ciągu zapytania, poprzednio zbuforowana odpowiedź nie została zwrócona.
 
 ## <a name="next-steps"> </a>Następne kroki
-* Więcej informacji na temat zasad buforowania, można znaleźć w temacie [Caching policies][Caching policies] (Zasady buforowania) w artykule [API Management policy reference][API Management policy reference] (Dokumentacja zasad usługi API Management).
+* Aby uzyskać więcej informacji na temat zasad buforowania, zobacz [Caching policies][Caching policies] (Zasady buforowania) w artykule [API Management policy reference][API Management policy reference] (Dokumentacja zasad usługi API Management).
 * Aby poznać informacje na temat buforowania elementów według kluczy przy użyciu wyrażeń zasad, zobacz artykuł [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Niestandardowe buforowanie w usłudze Azure API Management).
 
-[usługa API Management — konsola zarządzania]: ./media/api-management-howto-cache/api-management-management-console.png
-[usługa API Management — interfejs Echo API]: ./media/api-management-howto-cache/api-management-echo-api.png
-[usługa API Management — operacje interfejsu Echo Api]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
-[usługa API Management — karta Buforowanie]: ./media/api-management-howto-cache/api-management-caching-tab.png
-[usługa API Management — lista rozwijana operacji]: ./media/api-management-howto-cache/api-management-operation-dropdown.png
-[usługa API Management — edytor zasad]: ./media/api-management-howto-cache/api-management-policy-editor.png
-[usługa API Management — menu portalu dla deweloperów]: ./media/api-management-howto-cache/api-management-developer-portal-menu.png
-[usługa API Management — interfejsy API i Echo API]: ./media/api-management-howto-cache/api-management-apis-echo-api.png
-[usługa API Management — otwarta konsola]: ./media/api-management-howto-cache/api-management-open-console.png
-[usługa API Management — konsola]: ./media/api-management-howto-cache/api-management-console.png
+[api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
+[api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
+[api-management-echo-api-operations]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
+[api-management-caching-tab]: ./media/api-management-howto-cache/api-management-caching-tab.png
+[api-management-operation-dropdown]: ./media/api-management-howto-cache/api-management-operation-dropdown.png
+[api-management-policy-editor]: ./media/api-management-howto-cache/api-management-policy-editor.png
+[api-management-developer-portal-menu]: ./media/api-management-howto-cache/api-management-developer-portal-menu.png
+[api-management-apis-echo-api]: ./media/api-management-howto-cache/api-management-apis-echo-api.png
+[api-management-open-console]: ./media/api-management-howto-cache/api-management-open-console.png
+[api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[Jak dodać operacje do interfejsu API]: api-management-howto-add-operations.md
-[Jak dodać i opublikować produkt]: api-management-howto-add-products.md
-[Monitorowanie i analizowanie]: api-management-monitoring.md
-[Dodawanie interfejsów API do produktu]: api-management-howto-add-products.md#add-apis
-[Publikowanie produktu]: api-management-howto-add-products.md#publish-product
-[Wprowadzenie do usługi Azure API Management]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Tworzenie wystąpienia usługi API Management]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Konfigurowanie operacji do buforowania]: #configure-caching
-[Przeglądanie zasad buforowania]: #caching-policies
-[Wywoływanie operacji i testowanie buforowania]: #test-operation
-[Następne kroki]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

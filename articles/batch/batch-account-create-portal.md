@@ -3,7 +3,7 @@ title: "Tworzenie konta usługi Azure Batch | Microsoft Docs"
 description: "Dowiedz się, jak utworzyć konto usługi Azure Batch w portalu Azure w celu równoległego uruchamiania dużych obciążeń w chmurze"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/21/2016
-ms.author: marsma
+ms.date: 12/19/2016
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
+ms.sourcegitcommit: 6f05aa3f06c8ec86d58cafd406c2752ddb2eecc1
+ms.openlocfilehash: cf5b560028f3f80e3ba46ef96ae7a157dad7847d
 
 
 ---
@@ -27,10 +27,10 @@ ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
 > 
 > 
 
-Dowiedz się, jak utworzyć konto usługi Batch w witrynie [Azure Portal][azure_portal] i gdzie można znaleźć ważne właściwości konta, takie jak klucze dostępu i adresy URL konta. Omówimy również ceny usługi Batch oraz łączenie konta usługi Azure Storage z kotem usługi Batch w celu korzystania z [pakietów aplikacji](batch-application-packages.md) oraz [trwałych danych wyjściowych zadań](batch-task-output.md).
+Dowiedz się, jak utworzyć konto usługi Azure Batch w witrynie [Azure Portal][azure_portal] i gdzie można znaleźć ważne właściwości konta, takie jak klucze dostępu i adresy URL konta. Omówimy również ceny usługi Batch oraz łączenie konta usługi Azure Storage z kotem usługi Batch w celu korzystania z [pakietów aplikacji](batch-application-packages.md) oraz [trwałych danych wyjściowych zadań](batch-task-output.md).
 
 ## <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
-1. Zaloguj się do [portalu Azure][azure_portal].
+1. Zaloguj się w witrynie [Azure Portal][azure_portal].
 2. Kliknij kolejno opcje **Nowy** > **Obliczenia** > **Usługa Batch**.
    
     ![Usługa Batch w witrynie Marketplace][marketplace_portal]
@@ -38,15 +38,16 @@ Dowiedz się, jak utworzyć konto usługi Batch w witrynie [Azure Portal][azure_
    
     ![Tworzenie konta usługi Batch][account_portal]
    
-    a. **Nazwa konta**: unikatowa nazwa konta usługi Batch. Nazwa musi być niepowtarzalna w regionie usługi Azure, w którym konto zostanie utworzone (patrz punkt *Lokalizacja* poniżej). Może zawierać tylko małe litery i cyfry oraz mieć od 3 do 24 znaków.
+    a. **Nazwa konta**: nazwa konta usługi Batch. Wybrana nazwa musi być unikatowa w obrębie regionu świadczenia usługi Azure, w którym zostanie utworzone nowe konto (zobacz **Lokalizacja** poniżej). Nazwa konta może zawierać tylko małe litery lub cyfry i musi mieć od 3 do 24 znaków.
    
     b. **Subskrypcja**: subskrypcja, w której ma zostać utworzone konto usługi Batch. Jeśli masz tylko jedną subskrypcję, jest ona wybrana domyślnie.
    
-    c. **Grupa zasobów**: istniejąca grupa zasobów dla nowego konta usługi Batch. Opcjonalnie można utworzyć nową grupę zasobów.
+    c. **Grupa zasobów**: wybierz istniejącą grupę zasobów dla nowego konta usługi Batch. Opcjonalnie można utworzyć nową grupę zasobów.
    
-    d. **Lokalizacja**: region usługi Azure, w którym ma zostać utworzone konto usługi Batch. Tylko regiony obsługiwane przez subskrypcję i grupę zasobów są wyświetlane jako opcje.
+    d. **Lokalizacja**: region świadczenia usługi Azure, w którym ma zostać utworzone konto usługi Batch. Tylko regiony obsługiwane przez subskrypcję i grupę zasobów są wyświetlane jako opcje.
    
-    e. **Konto magazynu** (opcjonalne): konto magazynu **Ogólnego przeznaczenia** skojarzone (link) z nowym kontem usługi Batch. Więcej szczegółów zamieszczono w sekcji [Połączone konto usługi Azure Storage](#linked-azure-storage-account) poniżej.
+    e. **Konto magazynu** (opcjonalne): konto usługi Azure Storage ogólnego przeznaczenia skojarzone z nowym kontem usługi Batch. Więcej szczegółów zamieszczono w sekcji [Połączone konto usługi Azure Storage](#linked-azure-storage-account) poniżej.
+
 4. Kliknij przycisk **Utwórz**, aby utworzyć konto.
    
    W portalu pojawia się wskazanie, że konto jest **Wdrażane**, a po ukończeniu wdrażania jest wyświetlane powiadomienie **Wdrożenia zakończone pomyślnie** w obszarze *Powiadomienia*.
@@ -56,34 +57,37 @@ Po utworzeniu konta możesz otworzyć **Blok konta usługi Batch**, aby uzyskać
 
 ![Blok konta usługi Batch w witrynie Azure Portal][account_blade]
 
-* **Adres URL konta usługi Batch**: aplikacje tworzone przy użyciu [interfejsów API tworzenia usługi Batch](batch-technical-overview.md#batch-development-apis) wymagają adresu URL konta do zarządzania zasobami i uruchamiania zadań w ramach konta. Adres URL konta usługi Batch ma następujący format:
+* **Adres URL konta usługi Batch**: aby po utworzeniu aplikacji za pomocą [interfejsów API usługi Batch](batch-technical-overview.md#batch-development-apis) uzyskać dostęp do zasobów usługi Batch, potrzebny będzie adres URL konta. Adres URL konta usługi Batch ma następujący format:
   
     `https://<account_name>.<region>.batch.azure.com`
 
 ![Adres URL konta usługi Batch w portalu][account_url]
 
-* **Klucze dostępu**: aplikacje wymagają także klucza dostępu w przypadku pracy z zasobami w ramach konta usługi Batch. Aby wyświetlić lub ponownie wygenerować klucze dostępu konta usługi Batch, wprowadź wartość `keys` w polu **Wyszukaj** lewego menu w bloku konta usługi Batch, a następnie wybierz opcję **Klucze**.
+* **Klucz dostępu**: do uwierzytelniania dostępu do konta usługi Batch z aplikacji potrzebny będzie klucz dostępu do konta. Aby wyświetlić lub ponownie wygenerować klucze dostępu konta usługi Batch, wprowadź wartość `keys` w polu **Wyszukaj** lewego menu w bloku konta usługi Batch, a następnie wybierz opcję **Klucze**.
   
     ![Klucze konta usługi Batch w witrynie Azure Portal][account_keys]
 
-## <a name="pricing"></a>Cennik
-Konta usługi Batch są oferowane tylko w warstwie bezpłatnej, co oznacza brak opłat za samo konto usługi Batch. Opłaty są naliczane za podstawowe zasoby obliczeniowe platformy Azure używane przez rozwiązania usługi Batch oraz za zasoby używane przez inne usługi podczas działania Twoich obciążeń. Są na przykład naliczane opłaty za węzły obliczeniowe w pulach oraz za dane przechowywane w usłudze Azure Storage jako dane wejściowe i wyjściowe zadań. Podobnie jeśli używasz funkcji [pakietów aplikacji](batch-application-packages.md) usługi Batch, opłaty są naliczane za zasoby usługi Azure Storage wykorzystywane do przechowywania pakietów aplikacji. Więcej informacji można znaleźć w temacie [Ceny usługi Batch][batch_pricing].
+[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
 ## <a name="linked-azure-storage-account"></a>Połączone konto usługi Azure Storage
-Jak wspomniano wcześniej, możesz (opcjonalnie) połączyć konto usługi Storage **ogólnego przeznaczenia** z kontem usługi Batch. Funkcja [pakietów aplikacji](batch-application-packages.md) usługi Batch korzysta z magazynu obiektów blob w ramach połączonego konta usługi Storage ogólnego przeznaczenia, podobnie jak biblioteka [.NET Batch File Conventions](batch-task-output.md). Te opcjonalne funkcje pomagają we wdrażaniu aplikacji uruchamianych przez zadania usługi Batch oraz utrwalaniu wytwarzanych przez nich danych.
 
-Usługa Batch obsługuje obecnie *tylko* typ konta magazynu **ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [About Azure storage accounts](../storage/storage-create-storage-account.md) (Informacje o kontach magazynu Azure). Gdy łączysz konta usługi Azure Storage ze swoim kontem usługi Batch, pamiętaj o połączeniu *tylko* konta magazynu **ogólnego przeznaczenia**.
+Jak wspomniano wcześniej, możesz opcjonalnie połączyć konto usługi Azure Storage ogólnego przeznaczenia z kontem usługi Batch. Funkcja [pakietów aplikacji](batch-application-packages.md) usługi Batch korzysta z usługi Azure Blob Storage, podobnie jak biblioteka [.NET Batch File Conventions](batch-task-output.md). Te opcjonalne funkcje pomagają we wdrażaniu aplikacji uruchamianych przez zadania usługi Batch oraz utrwalaniu wytwarzanych przez nich danych.
+
+Zaleca się utworzenie nowego konta usługi Storage do wyłącznego użytku przez konto usługi Batch.
 
 ![Tworzenie konta magazynu „ogólnego przeznaczenia”][storage_account]
 
-Zaleca się utworzenie konta usługi Storage do wyłącznego użytku przez konto usługi Batch.
+> [!NOTE] 
+> Usługa Azure Batch obsługuje obecnie tylko konta usługi Storage ogólnego przeznaczenia. Ten typ konta opisano w kroku 5 sekcji [Tworzenie konta magazynu] (../storage/storage-create-storage-account.md#create-a-storage-account) w artykule [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
+>
+>
 
 > [!WARNING]
 > Należy zachować ostrożność przy ponownym generowaniu kluczy dostępu połączonego konta usługi Storage. Wygeneruj ponownie tylko jeden klucz konta usługi Storage i kliknij przycisk **Zsynchronizuj klucze** w bloku połączonego konta usługi Storage. Poczekaj 5 minut, aby umożliwić propagację kluczy do węzłów obliczeniowych w swoich pulach, a następnie w razie potrzeby ponownie wygeneruj i zsynchronizuj drugi klucz. Jeśli w tym samym czasie zostaną ponownie wygenerowane oba klucze, węzły obliczeniowe nie będą mogły zsynchronizować żadnego z nich i w ten sposób utracą dostęp do konta usługi Storage.
 > 
 > 
 
-  ![Ponowne generowanie kluczy konta magazynu][4]
+![Ponowne generowanie kluczy konta magazynu][4]
 
 ## <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 Należy pamiętać, że podobnie jak w przypadku subskrypcji i innych usług Azure, do kont usługi Batch mają zastosowanie określone [limity przydziału i limity](batch-quota-limit.md). Bieżące limity przydziału dla konta usługi Batch są wyświetlane w portalu w obszarze **Właściwości** konta.
@@ -92,9 +96,9 @@ Należy pamiętać, że podobnie jak w przypadku subskrypcji i innych usług Azu
 
 Pamiętaj o tych limitach przydziału podczas projektowania i skalowania obciążeń usługi Batch. Jeśli na przykład pula nie osiąga docelowej, określonej liczby węzłów obliczeniowych, być może osiągnięto limit przydziału rdzeni dla konta usługi Batch.
 
-Należy również pamiętać, że subskrypcja platformy Azure nie jest ograniczona do jednego konta usługi Batch. Wiele obciążeń usługi Batch można uruchomić na jednym koncie usługi Batch lub rozdzielić obciążenia pomiędzy konta tej usługi w jednej subskrypcji, ale różnych regionach usługi Azure.
+W przypadku kont usługi Batch obowiązuje limit przydziału na region na subskrypcję, więc domyślnie możesz mieć więcej niż jedno konto usługi Batch, o ile znajdują się one w różnych regionach. Można uruchomić wiele obciążeń usługi Batch na jednym koncie usługi Batch lub rozdzielić obciążenia pomiędzy konta tej usługi znajdujące się w jednej subskrypcji, ale różnych regionach świadczenia usługi Azure.
 
-Wiele z tych limitów przydziału można powiększyć po prostu przy użyciu bezpłatnego żądania pomocy technicznej przesłanego w witrynie Azure Portal. Szczegóły dotyczące żądań zwiększenia limitów przydziału zamieszczono w artykule [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Limity przydziału i limity dla usługi Azure Batch).
+Ponadto wiele z tych limitów przydziału można powiększyć po prostu przy użyciu bezpłatnego żądania pomocy technicznej przesłanego w witrynie Azure Portal. Szczegóły dotyczące żądań zwiększenia limitów przydziału zamieszczono w artykule [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Limity przydziału i limity dla usługi Azure Batch).
 
 ## <a name="other-batch-account-management-options"></a>Inne opcje zarządzania kontem usługi Batch
 Poza korzystaniem z witryny Azure Portal można również utworzyć konta usługi Batch i zarządzać nimi przy użyciu następujących opcji:
@@ -124,6 +128,6 @@ Poza korzystaniem z witryny Azure Portal można również utworzyć konta usług
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 
