@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/14/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
+ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
+ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
 
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Przegląd usługi Azure Media Services i typowe scenariusze
+
 Microsoft Azure Media Services to oparta na chmurze rozszerzona platforma, która umożliwia deweloperom tworzenie skalowalnych aplikacji do dostarczania multimediów i zarządzania nimi. Usługa Media Services są oparte na interfejsach API REST, które umożliwiają bezpieczne przekazywanie, przechowywanie, kodowanie i tworzenie pakietów zawartości wideo lub audio na potrzeby dostarczania transmisji strumieniowej na żądanie i na żywo do różnych klientów (np. odbiorników TV, komputerów PC i urządzeń przenośnych).
 
 Korzystając wyłącznie z usługi Media Services, można tworzyć kompleksowe przepływy pracy. W przypadku niektórych części przepływu pracy można użyć składników innych firm. Na przykład kodowanie można wykonać przy użyciu kodera innego producenta. Natomiast przekazywanie, zabezpieczanie, tworzenie pakietów i dostarczanie można realizować za pomocą usługi Media Services.
@@ -28,17 +29,28 @@ Korzystając wyłącznie z usługi Media Services, można tworzyć kompleksowe p
 Możliwe jest przesłanie strumieniowe zawartości na żywo lub dostarczanie zawartości na żądanie. W tym temacie przedstawiono typowe scenariusze dostarczania zawartości [na żywo](media-services-overview.md#live_scenarios) lub [na żądanie](media-services-overview.md#vod_scenarios). Temat zawiera także linki do innych powiązanych tematów.
 
 ## <a name="sdks-and-tools"></a>Zestawy SDK i narzędzia
+
 W celu tworzenia rozwiązań Media Services można użyć następujących elementów:
 
 * [Interfejs API REST usługi Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 * Jeden z dostępnych zestawów SDK klienta:
-* [Zestaw SDK usługi Azure Media Services dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services)
-* [Zestaw Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java)
-* [Zestaw Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-* [Azure Media Services dla środowiska Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jest to wersja zestawu Node.js SDK firmy innej niż Microsoft. Jest ona opracowywana przez społeczność i aktualnie nie obsługuje 100% interfejsów API usług AMS.)
+    * [Zestaw SDK usługi Azure Media Services dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services)
+    * [Zestaw Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java)
+    * [Zestaw Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+    * [Azure Media Services dla środowiska Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jest to wersja zestawu Node.js SDK firmy innej niż Microsoft. Jest ona opracowywana przez społeczność i aktualnie nie obsługuje 100% interfejsów API usług AMS.)
 * Istniejące narzędzia:
-* [Azure Portal](https://portal.azure.com/)
-* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
+    * [Azure Portal](https://portal.azure.com/)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
+
+Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiektów podczas tworzenia w modelu Media Services OData. 
+
+Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
+
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+
+
+Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.14).  
+
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 Ścieżki szkoleniowe dotyczące usługi AMS można zobaczyć tutaj:
@@ -202,6 +214,6 @@ Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług p
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

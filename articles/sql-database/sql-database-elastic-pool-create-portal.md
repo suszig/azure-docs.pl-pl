@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie nowej puli elastycznej za pomocą witryny Azure Portal | Microsoft Docs"
-description: "Dodawanie do konfiguracji bazy danych SQL skalowalnej elastycznej puli baz danych ułatwiającej administrowanie zasobami i ich udostępnianie między bazami danych."
+description: "Opis dodawania do konfiguracji bazy danych SQL skalowalnej puli elastycznej ułatwiającej administrowanie zasobami i ich udostępnianie między bazami danych."
 keywords: skalowalna baza danych, konfiguracja bazy danych
 services: sql-database
 documentationcenter: 
@@ -9,29 +9,29 @@ manager: jhubbard
 editor: 
 ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
 ms.workload: data-management
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 1a0b8609acd99ec188f92a32ed4cb44a68edc3b2
-ms.openlocfilehash: 54deca0518d82de59a58e02fc38693179c486b64
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 230a203cca2eaab197236557482cd4cedcfb9c53
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Tworzenie nowej elastycznej puli baz danych za pomocą witryny Azure Portal
+# <a name="create-a-new-elastic-pool-with-the-azure-portal"></a>Tworzenie nowej puli elastycznej za pomocą witryny Azure Portal
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 >
 
 W tym artykule opisano sposób tworzenia skalowalnej [puli elastycznej](sql-database-elastic-pool.md) za pomocą witryny [Azure Portal](https://portal.azure.com/). Pulę można utworzyć na dwa sposoby. Można utworzyć ją od podstaw, znając wymagane ustawienia puli, lub uruchomić zgodnie z zaleceniami usługi. Usługa SQL Database ma wbudowane narzędzie analizy, które po zbadaniu ostatnich danych telemetrii użycia baz danych zaleca utworzenie puli, jeśli może ono zapewnić użytkownikowi oszczędności.
 
-Można dodać wiele pul na serwerze, ale nie można dodać baz danych z różnych serwerów do tej samej puli. Do utworzenia puli konieczna jest co najmniej jedna baza danych na serwerze V12. Jeśli nie masz bazy danych, zobacz artykuł [Create your first Azure SQL database](sql-database-get-started.md) (Tworzenie pierwszej bazy danych Azure SQL). Można utworzyć pulę zawierającą tylko jedną bazę danych, ale wydajne są jedynie pule z wieloma bazami danych. Zobacz artykuł [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md) (Zagadnienia dotyczące cen i wydajności puli elastycznej).
+Można dodać wiele pul na serwerze, ale nie można dodać baz danych z różnych serwerów do tej samej puli. Do utworzenia puli konieczna jest co najmniej jedna baza danych na serwerze V12. Jeśli nie masz bazy danych, zobacz artykuł [Create your first Azure SQL database](sql-database-get-started.md) (Tworzenie pierwszej bazy danych Azure SQL). Można utworzyć pulę zawierającą tylko jedną bazę danych, ale wydajne są jedynie pule z wieloma bazami danych. Zobacz [Zagadnienia dotyczące cen i wydajności puli elastycznej](sql-database-elastic-pool-guidance.md).
 
 > [!NOTE]
 > Pule elastyczne są ogólnodostępne we wszystkich regionach platformy Azure oprócz Indii Zachodnich, gdzie są obecnie dostępne w wersji zapoznawczej.  Pule elastyczne zostaną udostępnione ogólnie w tych regionach tak szybko, jak to możliwe.
@@ -58,7 +58,7 @@ W tym artykule przedstawiono, jak utworzyć nową pulę z bloku istniejącego **
 
     ![zalecana pula](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
-3. Zostanie wyświetlony blok **Elastyczna pula baz danych**, w którym należy określić ustawienia dla puli. Jeśli w poprzednim kroku kliknięto pozycję **Nowa pula**, warstwa cenowa zostanie domyślnie ustawiona na warstwę **Standardowa** i nie będzie jeszcze żadnych wybranych baz danych. Możesz utworzyć pustą pulę lub określić zestaw istniejących baz danych z tego serwera w celu przeniesienia ich do puli. W przypadku tworzenia zalecanej puli zalecana warstwa cenowa, ustawienia wydajności i lista baz danych zostaną wstępnie wypełnione, ale nadal można je zmienić.
+3. Zostanie wyświetlony blok **Pula elastyczna**, w którym należy określić ustawienia puli. Jeśli w poprzednim kroku kliknięto pozycję **Nowa pula**, warstwa cenowa zostanie domyślnie ustawiona na warstwę **Standardowa** i nie będzie jeszcze żadnych wybranych baz danych. Możesz utworzyć pustą pulę lub określić zestaw istniejących baz danych z tego serwera w celu przeniesienia ich do puli. W przypadku tworzenia zalecanej puli zalecana warstwa cenowa, ustawienia wydajności i lista baz danych zostaną wstępnie wypełnione, ale nadal można je zmienić.
 
     ![Konfigurowanie puli elastycznej](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
@@ -89,7 +89,7 @@ Po ustawieniu warstwy cenowej kliknij przycisk Konfiguruj pulę, za pomocą któ
 
     Jeśli bazy danych, z którymi pracujesz, mają wystarczającą ilość historycznych danych telemetrycznych dotyczących użycia, aktualizacje wykresu **Szacowany poziom użycia jednostek eDTU i GB** oraz wykresu słupkowego **Rzeczywiste użycie jednostek eDTU** ułatwiają podejmowanie decyzji związanych z konfiguracją. Ponadto usługa może ułatwić wybranie odpowiedniego rozmiaru puli, wyświetlając komunikat z zaleceniami. Patrz sekcja [Zalecenia dynamiczne](#dynamic-recommendations).
 
-3. Użyj elementów sterujących na stronie **Konfigurowanie puli**, aby eksplorować ustawienia i skonfigurować pulę. Więcej szczegółów na temat limitów warstw usług zawiera sekcja [Limity pul elastycznych](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases), natomiast wskazówki dotyczące doboru wielkości puli zawiera artykuł [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md) (Zagadnienia dotyczące cen i wydajności puli elastycznej). Aby uzyskać więcej informacji na temat ustawień puli, zobacz [Właściwości puli elastycznej](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Użyj elementów sterujących na stronie **Konfigurowanie puli**, aby eksplorować ustawienia i skonfigurować pulę. Więcej szczegółów na temat limitów warstw usług zawiera sekcja [Limity pul elastycznych](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases), natomiast wskazówki dotyczące doboru wielkości puli zawiera temat [Zagadnienia dotyczące cen i wydajności puli elastycznej](sql-database-elastic-pool-guidance.md). Aby uzyskać więcej informacji na temat ustawień puli, zobacz [Właściwości puli elastycznej](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
 
     ![Konfigurowanie puli elastycznej](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -99,7 +99,7 @@ Po ustawieniu warstwy cenowej kliknij przycisk Konfiguruj pulę, za pomocą któ
 
 ## <a name="understand-pool-recommendations"></a>Omówienie zaleceń puli
 
-Usługa SQL Database ocenia historyczne dane użycia bazy danych i zaleca zastosowanie co najmniej jednej puli baz danych, jeśli okaże się, że jest to bardziej ekonomiczne rozwiązanie niż używanie pojedynczych baz danych. Każde zalecenie jest konfigurowane z unikatowym podzbiorem baz danych serwera, które są najlepiej dopasowane do puli.
+Usługa SQL Database ocenia historyczne dane użycia bazy danych i zaleca zastosowanie co najmniej jednej puli baz danych, jeśli okaże się, że jest to bardziej ekonomiczne rozwiązanie niż używanie autonomicznych baz danych. Każde zalecenie jest konfigurowane z unikatowym podzbiorem baz danych serwera, które są najlepiej dopasowane do puli.
 
 ![zalecana pula](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
@@ -110,9 +110,9 @@ Zalecenie puli obejmuje:
 - **Maks. wartość eDTU** i **Min. wartość eDTU** na bazę danych
 - Listę zalecanych baz danych dla puli
 
-Podczas rekomendowania pul usługa uwzględnia dane telemetryczne z ostatnich 30 dni. Aby baza danych była brana pod uwagę jako potencjalny element elastycznej puli baz danych, musi istnieć przez co najmniej 7 dni. Bazy, które znajdują się już w puli elastycznej, nie są brane pod uwagę podczas tworzenia zaleceń dla elastycznej puli baz danych.
+Podczas rekomendowania pul usługa uwzględnia dane telemetryczne z ostatnich 30 dni. Aby baza danych była brana pod uwagę jako potencjalny element puli elastycznej, musi istnieć przez co najmniej 7 dni. Bazy, które znajdują się już w puli elastycznej, nie są brane pod uwagę podczas tworzenia zaleceń dla puli elastycznej.
 
-Usługa oblicza zapotrzebowanie na zasoby oraz opłacalność przenoszenia pojedynczych baz danych w każdej warstwie usług do pul w tej samej warstwie. Na przykład wszystkie bazy danych w warstwie Standardowej na serwerze są oceniane pod względem dopasowania do Standardowej puli elastycznej. Oznacza to, że usługa nie tworzy zaleceń międzywarstwowych, takich jak przeniesienie bazy danych z warstwy Standardowej do puli Premium.
+Usługa oblicza zapotrzebowanie na zasoby oraz opłacalność przenoszenia autonomicznych baz danych w każdej warstwie usług do pul w tej samej warstwie. Na przykład wszystkie bazy danych w warstwie Standardowej na serwerze są oceniane pod względem dopasowania do Standardowej puli elastycznej. Oznacza to, że usługa nie tworzy zaleceń międzywarstwowych, takich jak przeniesienie bazy danych z warstwy Standardowej do puli Premium.
 
 ### <a name="dynamic-recommendations"></a>Zalecenia dynamiczne
 
@@ -129,6 +129,6 @@ Po dodaniu bazy danych do puli zalecenia są generowane dynamicznie na podstawie
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

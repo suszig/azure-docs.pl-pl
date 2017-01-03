@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/15/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
+ms.sourcegitcommit: e048e70714c260fcb13ec5ca53434173026eb8d8
+ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
 
 
 ---
@@ -34,7 +34,18 @@ Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości
 
 Samouczek przedstawia podstawowy przepływ pracy usług Media Services oraz najczęściej występujące obiekty i zadania programowania wymagane w celu projektowania usług Media Services. Po zakończeniu samouczka będziesz umieć przesłać strumieniowo lub pobrać progresywnie przykładowy plik multimedialny, który został wcześniej przekazany, zakodowany oraz pobrany.
 
+### <a name="ams-model"></a>Model AMS
+
+Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiektów podczas tworzenia aplikacji VoD w modelu Media Services OData. 
+
+Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
+
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+
+Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.14).  
+
 ## <a name="what-youll-learn"></a>Zawartość
+
 Ten samouczek przedstawia sposób wykonania następujących zadań:
 
 1. Tworzenie konta usługi Media Services (przy użyciu witryny Azure Portal).
@@ -55,9 +66,6 @@ Następujące elementy są wymagane do wykonania czynności przedstawionych w sa
 * Systemy operacyjne: Windows 8 lub nowszy, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 lub nowszy
 * Visual Studio 2010 z dodatkiem SP1 (Professional, Premium, Ultimate lub Express) lub nowszy.
-
-## <a name="download-sample"></a>Pobieranie przykładu
-Pobierz i uruchom próbkę [z tego miejsca](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal
 W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
@@ -146,7 +154,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
         using System.Threading;
         using System.IO;
         using Microsoft.WindowsAzure.MediaServices.Client;
-6. Utwórz nowy folder w katalogu projektów i skopiuj plik MP4 lub wmv, który ma zostać zakodowany i przesłany strumieniowo lub pobrany progresywnie. W tym przykładzie użyto ścieżki „C:\VideoFiles”.
+6. Utwórz nowy folder (może się on znajdować w dowolnym miejscu na dysku lokalnym) i skopiuj plik mp4, który ma zostać zakodowany i przesłany strumieniowo lub pobrany progresywnie. W tym przykładzie użyto ścieżki „C:\VideoFiles”.
 
 ## <a name="connect-to-the-media-services-account"></a>Nawiązywanie połączenia z kontem usługi Media Services
 
@@ -154,6 +162,7 @@ Podczas korzystania z usługi Media Services z użyciem platformy .NET należy u
 
 Zastąp domyślną klasę Program poniższym kodem. Kod przedstawia sposób odczytywania wartości połączenia z pliku App.config oraz sposób tworzenia obiektu **CloudMediaContext** na potrzeby połączenia z usługą Media Services. Aby uzyskać więcej informacji na temat nawiązywania połączenia z usługą Media Services, zobacz temat [Nawiązywanie połączenia z usługą Media Services przy użyciu zestawu SDK usługi Media Services dla programu .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+Pamiętaj o zaktualizowaniu nazwy pliku i ścieżki do lokalizacji pliku multimedialnego.
 
 Funkcja **Main** wywołuje metody, które będą zdefiniowane w dalszej części tej sekcji.
 
@@ -184,7 +193,7 @@ Funkcja **Main** wywołuje metody, które będą zdefiniowane w dalszej części
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Add calls to methods defined in this section.
-
+        // Make sure to update the file name and path to where you have your media file.
                 IAsset inputAsset =
                     UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -256,9 +265,8 @@ Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać nas
 
 Poniższy kod ilustruje sposób przesyłania zadania kodowania. Zadanie zawiera jedno zadanie podrzędne, która określa transkodowanie pliku mezzanine do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów przy użyciu **standardu kodera multimediów**. Kod przesyła zadanie i oczekuje na ukończenie działania.
 
-Po zakończeniu zadania użytkownik będzie mógł przesłać strumieniowo element zawartości lub pobrać progresywnie pliki MP4, które zostały utworzone w wyniku transkodowania.
-Należy pamiętać, że do pobierania progresywnego plików MP4 nie potrzeba więcej niż 0 jednostek przesyłania strumieniowego.
-
+Po zakończeniu zadania kodowania będzie możliwe opublikowanie elementów zawartości i następnie przesłanie strumieniowo lub pobranie progresywne plików MP4.
+ 
 Dodaj następującą metodę do klasy Program.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -299,23 +307,26 @@ Dodaj następującą metodę do klasy Program.
 
 Aby przesłać strumieniowo lub pobrać element zawartości, należy go najpierw opublikować, tworząc lokalizator. Lokalizatory zapewniają dostęp do plików znajdujących się w elemencie zawartości. Usługa Media Services obsługuje dwa typy lokalizatorów: lokalizatory OnDemandOrigin używane do strumieniowego przesyłania plików multimedialnych (na przykład w formacie MPEG DASH, HLS i Smooth Streaming) oraz lokalizatory sygnatury dostępu współdzielonego używane do pobierania plików multimedialnych (aby uzyskać więcej informacji o lokalizatorach sygnatury dostępu współdzielonego, zobacz [ten](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
 
-Po utworzeniu lokalizatorów można tworzyć adresy URL, które są używane do strumieniowego przesyłania lub pobierania plików.
+### <a name="some-details-about-url-formats"></a>Informacje na temat formatów adresów URL
 
-Adres URL dla protokołu Smooth Streaming ma następujący format:
+Po utworzeniu lokalizatorów można tworzyć adresy URL umożliwiające przesyłanie strumieniowe lub pobieranie plików. Przykład w tym samouczku spowoduje utworzenie adresów URL, które można wkleić w odpowiednich przeglądarkach. W tej sekcji przedstawiono jedynie krótkie przykłady różnych formatów. 
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Adres URL dla protokołu MPEG DASH ma następujący format:
 
-Adres URL dla protokołu HLS ma następujący format:
+{nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest**(format=mpd-time-csf)**
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Adres URL dla protokołu HLS ma następujący format:
 
-Adres URL dla protokołu MPEG DASH ma następujący format:
+{nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest**(format=m3u8-aapl)**
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Adres URL dla protokołu Smooth Streaming ma następujący format:
+
+{nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest
+
 
 Adres URL SAS używany do pobierania plików ma następujący format:
 
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+{nazwa kontenera obiektów blob}/{nazwa elementu zawartości}/{nazwa pliku}/{sygnatura dostępu współdzielonego}
 
 Rozszerzenia zestawu .NET SDK usługi Media Services zawierają wygodne metody pomocnicze, które zwracają sformatowane adresy URL dla opublikowanego elementu zawartości.
 
@@ -389,6 +400,7 @@ Dodaj następującą metodę do klasy Program.
     }
 
 ## <a name="test-by-playing-your-content"></a>Testowanie przez odtwarzanie zawartości
+
 Po uruchomieniu programu zdefiniowanego w poprzedniej sekcji w oknie konsoli zostanie wyświetlony adres URL podobny do poniższego.
 
 Adresy URL przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów:
@@ -424,9 +436,18 @@ Adresy URL pobierania progresywnego (audio i wideo):
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Do przesyłania strumieniowego zawartości wideo użyj [odtwarzacza usługi Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Aby przesyłać strumieniowo zawartość wideo, wklej adres URL w polu tekstowym adresu URL w odtwarzaczu [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Aby przetestować pobieranie progresywne, wklej adres URL do przeglądarki (np. Internet Explorer, Chrome lub Safari).
+
+Aby uzyskać więcej informacji, zobacz następujące tematy:
+
+- [Odtwarzanie zawartości w istniejących odtwarzaczach](media-services-playback-content-with-existing-players.md)
+- [Opracowywanie aplikacji odtwarzacza wideo](media-services-develop-video-players.md)
+- [Osadzanie plików wideo adaptacyjnego przesyłania strumieniowego MPEG-DASH w aplikacji HTML5 z implementacją DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+
+## <a name="download-sample"></a>Pobieranie przykładu
+Następujący przykład kodu zawiera kod utworzony w tym samouczku: [przykład](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="next-steps-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -446,6 +467,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2c7b46521c5da3290af244652b5ac20d4c309d5d
-ms.openlocfilehash: 5ec4b260ce82ec78b614ae442d3f14063ce590b5
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Samouczek HBase: rozpoczęcie korzystania z bazy danych Apache HBase na platformie Hadoop opartej na systemie Linux w usłudze HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-Dowiedz się, jak utworzyć klaster HBase w usłudze HDInsight i tabele bazy danych HBase oraz jak wykonywać zapytania dotyczące tabel za pomocą aplikacji Hive. Aby uzyskać ogólne informacje o bazie danych HBase, zobacz [Przegląd bazy danych HBase w usłudze HDInsight][hdinsight-hbase-overview].
+Dowiedz się, jak utworzyć klaster HBase w usłudze HDInsight i tabele bazy danych HBase oraz jak wykonywać zapytania dotyczące tabel za pomocą aplikacji Hive. Aby uzyskać ogólne informacje o bazie danych HBase, zobacz [Omówienie bazy danych HBase w usłudze HDInsight][hdinsight-hbase-overview].
 
 Informacje przedstawione w tym dokumencie dotyczą klastrów usługi HDInsight opartych na systemie Linux. Aby uzyskać informacje o klastrach opartych na systemie Windows, przełącz kartę za pomocą wyboru kart w górnej części strony.
 
@@ -45,7 +45,7 @@ W poniższej procedurze użyto szablonu usługi Azure Resource Manager do utworz
 
 1. Kliknij poniższy obraz, aby otworzyć szablon w usłudze Azure Portal. Szablon znajduje się w publicznym kontenerze obiektów blob. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. W bloku **Wdrożenie niestandardowe** wprowadź wartości następujących opcji:
    
    * **Subskrypcja**: wybierz subskrypcję platformy Azure, które zostanie użyta do utworzenia klastra.
@@ -102,7 +102,7 @@ Stanie się to bardziej zrozumiałe po zakończeniu następnej procedury.
    
     Wyświetlone zostaną te same wyniki, co w przypadku polecenia scan, ponieważ istnieje tylko jeden wiersz.
    
-    Aby uzyskać więcej informacji na temat schematu tabeli HBase, zobacz [Wprowadzenie do projektu schematu HBase][hbase-schema]. Więcej poleceń HBase można znaleźć w [Podręczniku bazy danych Apache HBase][hbase-quick-start].
+    Aby uzyskać więcej informacji na temat schematu tabeli bazy danych HBase, zobacz [Introduction to HBase Schema Design][hbase-schema] (Wprowadzenie do projektowania schematu bazy danych HBase). Więcej poleceń bazy danych HBase można znaleźć w [Podręczniku bazy danych Apache HBase][hbase-quick-start].
 5. Wyjdź z powłoki:
    
         exit
@@ -124,7 +124,7 @@ Przykładowy plik danych został przekazany do publicznego kontenera obiektów b
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzyskać instrukcje, zobacz temat [Przekazywanie danych dotyczących zadań Hadoop w usłudze HDInsight][hdinsight-upload-data].
+Możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzyskać instrukcje, zobacz [Przekazywanie danych dla zadań Hadoop w usłudze HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > W tej procedurze jest używana tabela kontaktów HBase utworzona w poprzedniej procedurze.
@@ -143,7 +143,7 @@ Możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzy
 Korzystając z programu Hive, można wykonywać zapytania dotyczące danych w tabelach HBase. W tej sekcji zostanie utworzona tabela programu Hive odwzorowująca dane w tabeli HBase, która będzie używana do wykonywania zapytań o dane w tabeli HBase.
 
 > [!NOTE]
-> Jeśli program Hive i baza danych HBase znajdują się na różnych klastrach w tej samej sieci wirtualnej, należy przekazać kworum dozorcy podczas wywoływania powłoki usługi Hive:
+> Jeśli program Hive i baza danych HBase znajdują się w różnych klastrach w tej samej sieci wirtualnej, należy przekazać kworum dozorcy podczas wywoływania powłoki usługi Hive:
 >
 >       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
 >
@@ -286,6 +286,6 @@ Aby dowiedzieć się więcej, zobacz:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO5-->
 
 

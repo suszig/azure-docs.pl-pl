@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -33,7 +33,7 @@ Ten samouczek zawiera opis kroków tworzenia eksperymentu uczenia maszynowego po
 >
 >Jeśli nie zdarzyło Ci się korzystać z uczenia maszynowego, najlepiej rozpocząć od serii filmów wideo [Przetwarzanie danych dla początkujących](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Seria ta stanowi znakomite wprowadzenie do uczenia maszynowego, przedstawione przy użyciu potocznego języka i codziennych pojęć.
 >
->Jeśli masz rozeznanie w temacie uczenia maszynowego, ale szukasz bardziej ogólnych informacji o usłudze Machine Learning Studio i udostępnianych przez nią algorytmach, oto kilka przydatnych zasobów:
+>Jeśli znasz uczenie maszynowe, ale szukasz bardziej ogólnych informacji o usłudze Machine Learning Studio i udostępnianych przez nią algorytmach, oto kilka przydatnych zasobów:
 >
 - [Co to jest Machine Learning Studio?](machine-learning-what-is-ml-studio.md) — ogólne omówienie usługi Studio.
 - [Podstawy uczenia maszynowego z przykładowymi algorytmami](machine-learning-basics-infographic-with-algorithm-examples.md) — ta grafika informacyjna ułatwia uzyskanie dodatkowych informacji o różnych typach algorytmów uczenia maszynowego dostępnych w usłudze Machine Learning Studio.
@@ -95,7 +95,9 @@ Poniżej przedstawiono procedurę dołączania zestawu danych do eksperymentu.
 
 1. Utwórz nowy eksperyment, klikając pozycję **+NEW** (+NOWY) u dołu okna Machine Learning Studio i wybierz kolejno pozycje **EXPERIMENT** (EKSPERYMENT), **Blank Experiment** (Pusty eksperyment).
 
-2. Eksperymentowi zostanie nadana domyślna nazwa, wyświetlana w górnej części obszaru roboczego. Zaznacz ten tekst i wpisz opisową nazwę, na przykład **Prognozowanie cen samochodów**.
+2. Eksperymentowi zostanie nadana domyślna nazwa, wyświetlana w górnej części obszaru roboczego. Zaznacz ten tekst i wpisz opisową nazwę, na przykład **Prognozowanie cen samochodów**. Nazwa nie musi być unikatowa.
+
+    ![Zmienianie nazwy eksperymentu][rename-experiment]
 
 2. Z lewej strony obszaru roboczego eksperymentu znajduje się paleta zawierająca zestawy danych i moduły. Wpisz **automobile** (samochód) w polu wyszukiwania w górnej części tej palety, aby znaleźć zestaw danych z etykietą **Automobile price data (Raw)** (Nieprzetworzone dane z cenami samochodów). Przeciągnij ten zestaw danych do obszaru roboczego eksperymentu.
 
@@ -111,7 +113,7 @@ Aby wyświetlić graficzną reprezentację danych, kliknij port wyjściowy w dol
 
 > [!TIP]
 > Zestawy danych i moduły mają porty wejściowe i wyjściowe oznaczone małymi kołami — porty wejściowe znajdują się u góry, a wyjściowe u dołu.
-Aby utworzyć przepływ danych w ramach eksperymentu, trzeba połączyć ze sobą te porty.
+Aby utworzyć przepływ danych w eksperymencie, połącz port wyjściowy danego modułu z portem wejściowym innego modułu.
 W dowolnym momencie można kliknąć port wyjściowy zestawu danych lub modułu, aby wyświetlić dane w określonym punkcie przepływu danych.
 
 W tym przykładowym zestawie danych poszczególne wystąpienia modeli samochodów są wyświetlane w postaci wierszy, a zmienne skojarzone z samochodami są wyświetlane jako kolumny. Na podstawie zmiennych dotyczących konkretnego samochodu spróbujemy przewidzieć cenę w skrajnej prawej kolumnie (kolumna 26 o nazwie „price” [cena]).
@@ -169,7 +171,7 @@ Najpierw dodamy moduł, który całkowicie usunie kolumnę **normalized-losses**
     <br/>
     ***Ustawianie trybu czyszczenia na wartość „Remove entire row” (Usuń cały wiersz) w module „Clean Missing Data” (Czyszczenie brakujących danych)***
 
-4. Uruchom eksperyment, klikając pozycję **RUN** (URUCHOM) pod obszarem roboczym.
+4. Uruchom eksperyment, klikając pozycję **URUCHOM** u dołu strony.
 
     Po zakończeniu eksperymentu na wszystkich modułach są widoczne zielone znaczniki wyboru. Oznacza to, że działanie modułów zakończyło się pomyślnie. Zwróć również uwagę na informację o **zakończeniu działania** wyświetlaną w prawym górnym rogu.
 
@@ -326,7 +328,7 @@ Po ukończeniu pierwszego samouczka dotyczącego uczenia maszynowego i skonfigur
 Przykładowe porównanie różnych modeli można znaleźć w eksperymencie [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Porównywanie regresorów) w witrynie [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
-    > Za pomocą przycisku **SAVE AS** (ZAPISZ JAKO) wyświetlanego pod obszarem roboczym można skopiować dowolną iterację eksperymentu. Aby wyświetlić wszystkie iteracje eksperymentu, kliknij pozycję **VIEW RUN HISTORY** (WYŚWIETL HISTORIĘ URUCHAMIANIA) pod obszarem roboczym. Aby uzyskać bardziej szczegółowe informacje, zobacz [Manage experiment iterations in Azure Machine Learning Studio][runhistory] (Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio).
+    > Aby skopiować dowolną iterację eksperymentu, użyj przycisku **SAVE AS** (ZAPISZ JAKO) wyświetlanego u dołu strony. Aby wyświetlić wszystkie iteracje eksperymentu, kliknij pozycję **VIEW RUN HISTORY** (WYŚWIETL HISTORIĘ PRZEBIEGÓW) u dołu strony. Aby uzyskać bardziej szczegółowe informacje, zobacz [Manage experiment iterations in Azure Machine Learning Studio][runhistory] (Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio).
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -340,6 +342,7 @@ Chcesz dowiedzieć się więcej? Aby zapoznać się z bardziej rozbudowanym i sz
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Chcesz dowiedzieć się więcej? Aby zapoznać się z bardziej rozbudowanym i sz
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO5-->
 
 
