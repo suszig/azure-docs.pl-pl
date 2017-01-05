@@ -12,7 +12,7 @@ Dowiedz się, jak interpretować rozliczenia platformy Azure, a także jak monit
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

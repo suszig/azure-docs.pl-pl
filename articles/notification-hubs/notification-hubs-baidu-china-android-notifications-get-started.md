@@ -43,16 +43,16 @@ Aby korzystać z usługi Baidu, musisz mieć konto Baidu. Jeśli masz już konto
 
 1. Przejdź do [portalu Baidu] i kliknij link **登录** (**Zaloguj się**). Kliknij pozycję **立即注册**, aby rozpocząć proces rejestracji konta.
    
-       ![][1]
+   ![][1]
 2. Wprowadź wymagane szczegóły (telefon lub adres e-mail, hasło i kod weryfikacyjny), a następnie kliknij przycisk **Zarejestruj się**.
    
-       ![][2]
+   ![][2]
 3. Na podany adres e-mail zostanie wysłana wiadomość e-mail zawierająca link umożliwiający aktywację konta usługi Baidu.
    
-       ![][3]
+   ![][3]
 4. Zaloguj się do konta e-mail, otwórz aktywacyjną wiadomość e-mail usługi Baidu, a następnie kliknij link aktywacyjny, aby aktywować konto usługi Baidu.
    
-       ![][4]
+   ![][4]
 
 Po aktywowaniu konta usługi Baidu zaloguj się do [portalu Baidu].
 
