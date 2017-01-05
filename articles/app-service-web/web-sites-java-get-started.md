@@ -169,6 +169,6 @@ Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

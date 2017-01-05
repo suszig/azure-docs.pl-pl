@@ -146,6 +146,6 @@ Za pomocą pakietu Operations Management Suite można szybko przeszukiwać dzien
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

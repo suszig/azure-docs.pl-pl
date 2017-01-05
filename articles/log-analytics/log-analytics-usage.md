@@ -66,6 +66,6 @@ Pulpit nawigacyjny **Użycie usługi Log Analytics** udostępnia następujące i
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

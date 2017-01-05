@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/14/2016
+ms.date: 01/04/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
 ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
@@ -73,6 +73,7 @@ W poniższej tabeli opisano charakterystyki warstw usług dotyczących puli.
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Każda baza danych w puli podlega również charakterystykom pojedynczej bazy danych w danej warstwie. Na przykład pula Podstawowa ma limit sesji dla jednej puli z zakresu 4800–28800, ale poszczególne bazy danych w puli Podstawowej mają limit bazy danych równy 300 sesji.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

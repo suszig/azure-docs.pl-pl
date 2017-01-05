@@ -168,6 +168,6 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci Web WordPress
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

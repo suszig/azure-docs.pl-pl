@@ -181,6 +181,6 @@ W tym dokumencie opisano sposób szyfrowania maszyny wirtualnej platformy Azure.
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
