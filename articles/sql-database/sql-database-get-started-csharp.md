@@ -17,14 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: d33128d8fa2bf0ba1025eff75378ccd42ce5aee0
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Używanie języka C# do tworzenia bazy danych SQL z zastosowaniem biblioteki SQL Database Library for .NET
 
-Dowiedz się, jak używać języka C# do tworzenia bazy danych Azure SQL z zastosowaniem [Biblioteki zarządzania usługą Microsoft Azure SQL dla programu .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). W tym artykule opisano sposób tworzenia autonomicznej bazy danych SQL w języku C#. Aby tworzyć pule elastyczne, zobacz temat [Tworzenie puli elastycznej](sql-database-elastic-pool-create-csharp.md).
+Dowiedz się, jak używać języka C# do tworzenia bazy danych Azure SQL z zastosowaniem [Biblioteki zarządzania usługą Microsoft Azure SQL dla programu .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). W tym artykule opisano sposób tworzenia jednej bazy danych SQL w języku C#. Aby tworzyć pule elastyczne, zobacz temat [Tworzenie puli elastycznej](sql-database-elastic-pool-create-csharp.md).
 
 Biblioteka zarządzania usługą Azure SQL Database dla programu .NET dostarcza interfejs API oparty na usłudze [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), który opakowuje [interfejs API REST usługi SQL Database oparty na usłudze Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -223,7 +223,7 @@ Zastąp zawartość pliku **Program.cs** poniższym kodem i zaktualizuj elementy
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów
-Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directory (AD) oraz jednostkę usługi wymaganą do uwierzytelnienia aplikacji w języku C#. Skrypt generuje wartości wyjściowe potrzebne w poprzednim przykładzie w języku C#. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell](../resource-group-authenticate-service-principal.md).
+Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directory (AD) oraz jednostkę usługi wymaganą do uwierzytelnienia aplikacji w języku C#. Skrypt generuje wartości wyjściowe potrzebne w poprzednim przykładzie w języku C#. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie usługi podmiotu używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -287,6 +287,6 @@ Po wypróbowaniu usługi SQL Database i skonfigurowaniu bazy danych przy użyciu
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/30/2016
+ms.date: 12/16/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 2863bfb48d0fed706fbd3c3f14dfb6a8d77eb9ea
 
 
 ---
@@ -42,13 +42,13 @@ Przed rozpoczęciem tego samouczka potrzebna będzie:
 
 ## <a name="create-cluster"></a>Tworzenie klastra
 
-Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, uruchamiasz pewne zadania, a następnie usuwasz klaster. W tej sekcji pokazano, jak utworzyć oparty na systemie Linux klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../resource-group-template-deploy.md). Szablon usługi Resource Manager jest w pełni dostosowywalny. Dzięki niemu tworzenie zasobów platformy Azure, takich jak usługa HDInsight, jest proste. Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Użyj selektora u góry strony, aby wybrać opcje tworzenia klastra.
+Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, uruchamiasz pewne zadania, a następnie usuwasz klaster. W tej sekcji pokazano, jak utworzyć oparty na systemie Linux klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Szablon usługi Resource Manager jest w pełni dostosowywalny. Dzięki niemu tworzenie zasobów platformy Azure, takich jak usługa HDInsight, jest proste. Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Użyj selektora u góry strony, aby wybrać opcje tworzenia klastra.
 
-Szablon usługi Resource Manager używany w tym samouczku znajduje się w publicznym kontenerze obiektu blob [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+Użyty w tym samouczku szablon usługi Resource Manager znajduje się w usłudze [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
 1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w witrynie Azure Portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Wprowadź lub wybierz poniższe wartości:
    
     ![HDInsight Linux wprowadzenie do używania szablonu usługi Resource Manager w portalu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
@@ -56,7 +56,8 @@ Szablon usługi Resource Manager używany w tym samouczku znajduje się w public
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
     * **Grupa zasobów**: utwórz nową grupę zasobów lub wybierz istniejącą.  Grupa zasobów jest kontenerem składników platformy Azure.  W tym przypadku grupa zasobów zawiera klaster usługi HDInsight i zależne konto usługi Azure Storage. 
     * **Lokalizacja**: wybierz lokalizację platformy Azure, w której chcesz utworzyć klaster.  Wybierz lokalizację znajdującą się blisko, aby zapewnić lepszą wydajność. 
-    * **ClusterName**: wprowadź nazwę tworzonego klastra Hadoop.
+    * **Typ klastra**: na potrzeby tego samouczka wybierz opcję **hadoop**.
+    * **Nazwa klastra**: wprowadź nazwę klastra usługi Hadoop, który utworzysz.
     * **Nazwa logowania i hasło klastra**: domyślna nazwa logowania to **admin**.
     * **Nazwa użytkownika i hasło SSH**: domyślna nazwa użytkownika to **sshuser**.  Tę nazwę można zmienić. 
      
@@ -65,7 +66,6 @@ Szablon usługi Resource Manager używany w tym samouczku znajduje się w public
     * **Lokalizacja**: lokalizacja klastra i zależne konto magazynu używają tej samej lokalizacji co grupa zasobów.
     * **Wersja klastra**: 3.4
     * **Typ systemu operacyjnego**: Linux
-    * **Typ klastra**: Hadoop
     * **Liczba węzłów procesu roboczego**: 2
 
      Każdy klaster zależy od konta Magazynu obiektów Blob platformy Azure. Zwykle jest ono określane jako domyślne konto magazynu. Klaster usługi HDInsight i jego domyślne konto magazynu muszą znajdować się wspólnie w tym samym regionie Azure. Usunięcie klastrów nie powoduje usunięcia konta magazynu. W tym szablonie domyślna nazwa konta magazynu to nazwa klastra z dołączonym członem „store”. 
@@ -175,6 +175,6 @@ Jeśli chcesz dowiedzieć się więcej o tworzeniu klastra usługi HDInsight i z
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

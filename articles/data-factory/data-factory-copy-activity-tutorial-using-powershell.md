@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 38d59a49abeabd0a517bb5bf275618126e908181
-ms.openlocfilehash: be51882b9b562c877ce00620ee9b357028095296
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 1ae89bc2b58df6bcc830ded940821ab2348f55cd
 
 
 ---
@@ -37,7 +37,7 @@ Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych platformy A
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Zapoznaj się z artykułem [Tutorial Overview and Prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Przegląd i wymagania wstępne) i wykonaj kroki **wymagań wstępnych**.
 * Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze. W tym samouczku program PowerShell służy do wdrażania jednostek usługi Data Factory.
-* (Opcjonalnie) Informacje na temat szablonów usługi Azure Resource Manager zawiera temat [Tworzenie szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md).
+* (Opcjonalnie) Informacje na temat szablonów usługi Azure Resource Manager zawiera temat [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a name="in-this-tutorial"></a>Informacje o tym samouczku
 W ramach tego samouczka jest tworzona fabryka danych za pomocą następujących jednostek usługi Data Factory:
@@ -557,6 +557,6 @@ Można także ponownie użyć szablonu do wykonywania powtarzających się zada�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

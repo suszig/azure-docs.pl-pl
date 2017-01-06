@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
 
 
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Program Azure AD Connect w usłudze Microsoft Cloud w Niemczech — publiczna wersja zapoznawcza
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Program Azure AD Connect w usłudze Microsoft Cloud w Niemczech — publiczna wersja zapoznawcza
 ## <a name="introduction"></a>Wprowadzenie
 Azure AD Connect zapewnia synchronizację między lokalną usługą Active Directory a usługą Azure Active Directory.
 Obecnie wiele scenariuszy w usłudze [Microsoft Cloud w Niemczech](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) musi być wykonywanych przez operatora. Korzystając z usługi Microsoft Cloud w Niemczech, należy pamiętać o następujących kwestiach:
@@ -49,7 +49,7 @@ Po zalogowaniu się do witryny Azure Portal wykonaj następujące czynności:
 
 Powinien zostać wyświetlony następujący ekran:
 
-![Blok programu Azure AD Connect](media\\active-directory-aadconnect-germany\\germany1.png)
+![Blok programu Azure AD Connect](media/active-directory-aadconnect-germany/germany1.png)
 
 W poniższej tabeli opisano funkcje wyświetlane w bloku.
 
@@ -68,6 +68,6 @@ Aby uzyskać dodatkowe informacje i wskazówki dotyczące ustawień niestandardo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

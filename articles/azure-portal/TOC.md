@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Wprowadzenie
-## [Wdrażanie przy użyciu szablonu usługi Resource Manager](../resource-group-template-deploy.md)
+## [Wdrażanie przy użyciu szablonu usługi Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Instrukcje
 ## Wdrażanie
-### [Tworzenie szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md)
+### [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Zarządzanie
-### [Zarządzanie zasobami w portalu w wersji zapoznawczej](resource-group-portal.md)
+### [Zarządzanie zasobami w portalu w wersji zapoznawczej](../azure-resource-manager/resource-group-portal.md)
 ### [Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md)
-### [Organizowanie zasobów przy użyciu tagów](../resource-group-using-tags.md)
+### [Organizowanie zasobów przy użyciu tagów](../azure-resource-manager/resource-group-using-tags.md)
 ### [Skalowanie zasobów](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Tworzenie nowej jednostki usługi platformy Azure](../resource-group-create-service-principal-portal.md)
+### [Tworzenie nowej jednostki usługi platformy Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Monitorowanie
 ### [Monitorowanie metryk usług](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Włączanie monitorowania i diagnostyki](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Otrzymywanie powiadomień o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Powiązane
-## [Funkcje szablonu usługi Azure Resource Manager](../resource-group-template-functions.md)
+## [Funkcje szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 ## [Najlepsze rozwiązania dotyczące automatycznego skalowania](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Typowe metryki automatycznego skalowania](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Elementy webhook dla powiadomień dotyczących automatycznego skalowania](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 12/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e048e70714c260fcb13ec5ca53434173026eb8d8
-ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
+ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
+ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 
 ---
@@ -25,9 +25,9 @@ ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
-> 
-> 
+> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+>
+>
 
 ## <a name="overview"></a>Omówienie
 Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości wideo na żądanie (VoD) przy użyciu zestawu SDK usług Azure Media Services (AMS) dla programu .NET.
@@ -36,11 +36,11 @@ Samouczek przedstawia podstawowy przepływ pracy usług Media Services oraz najc
 
 ### <a name="ams-model"></a>Model AMS
 
-Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiektów podczas tworzenia aplikacji VoD w modelu Media Services OData. 
+Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiektów podczas tworzenia aplikacji VoD w modelu Media Services OData.
 
 Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
-<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.14).  
 
@@ -60,8 +60,8 @@ Ten samouczek przedstawia sposób wykonania następujących zadań:
 ## <a name="prerequisites"></a>Wymagania wstępne
 Następujące elementy są wymagane do wykonania czynności przedstawionych w samouczku.
 
-* Do ukończenia tego samouczka jest potrzebne konto platformy Azure. 
-  
+* Do ukończenia tego samouczka jest potrzebne konto platformy Azure.
+
     Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak funkcja Web Apps w usłudze Azure App Service.
 * Systemy operacyjne: Windows 8 lub nowszy, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 lub nowszy
@@ -72,26 +72,26 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
 
 1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
 2. Kliknij kolejno pozycje **+Nowe** > **Media + CDN** > **Media Services**.
-   
+
     ![Tworzenie usługi Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. Na stronie **TWORZENIE KONTA USŁUGI MEDIA SERVICES** wprowadź wymagane wartości.
-   
+
     ![Tworzenie usługi Media Services](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
+
    1. W polu **Nazwa konta** wprowadź nazwę nowego konta usługi AMS. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.
    2. W subskrypcji wybierz jedną z różnych subskrypcji Azure, do których masz dostęp.
    3. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. W polu **Lokalizacja** wybierz region geograficzny używany do przechowywania nośników i rekordów metadanych dla konta usługi Media Services. Ten region służy do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services. 
+   4. W polu **Lokalizacja** wybierz region geograficzny używany do przechowywania nośników i rekordów metadanych dla konta usługi Media Services. Ten region służy do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services.
    5. W polu **Konto magazynu** wybierz konto magazynu, aby udostępnić magazyn obiektów Blob dla zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.
-      
+
        Więcej informacji o magazynie można znaleźć [tutaj](../storage/storage-introduction.md).
    6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**, aby wyświetlić postęp wdrażania konta.
 4. Kliknij opcję **Utwórz** w dolnej części formularza.
-   
-    Po pomyślnym utworzeniu konta stan zmieni się na **Uruchomiony**. 
-   
+
+    Po pomyślnym utworzeniu konta stan zmieni się na **Uruchomiony**.
+
     ![Ustawienia usługi Media Services](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
+
     Do zarządzania kontem AMS (na przykład przekazywania plików wideo, kodowania elementów zawartości, monitorowania postępu zadania) używaj okna **Ustawienia**.
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Konfigurowanie punktów końcowych przesyłania strumieniowego przy użyciu witryny Azure Portal
@@ -108,19 +108,19 @@ Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opła
 
 Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumieniowego, wykonaj następujące czynności:
 
-1. W oknie **Ustawienia** kliknij przycisk **Punkty końcowe przesyłania strumieniowego**. 
-2. Kliknij domyślny punkt końcowy przesyłania strumieniowego. 
-   
+1. W oknie **Ustawienia** kliknij przycisk **Punkty końcowe przesyłania strumieniowego**.
+2. Kliknij domyślny punkt końcowy przesyłania strumieniowego.
+
     Zostanie wyświetlone okno **SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO**.
 3. Aby określić liczbę jednostek przesyłania strumieniowego, przesuń suwak **Jednostki przesyłania strumieniowego**.
-   
+
     ![Jednostki przesyłania strumieniowego](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 4. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
-   
+
    > [!NOTE]
    > Alokacja nowych jednostek może zająć maksymalnie 20 minut.
-   > 
-   > 
+   >
+   >
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
@@ -131,20 +131,20 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
 
 3. Dodaj odwołanie do zestawu System.Configuration. Ten zestaw zawiera klasę **System.Configuration.ConfigurationManager**, która jest używana na potrzeby uzyskiwania dostępu do plików konfiguracyjnych, np. App.config.
 
-    Aby dodać odwołanie, wykonaj następujące czynności: w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz pozycję **Dodaj** > **Odwołanie...** i w polu wyszukiwania wpisz „konfiguracja”. 
+    Aby dodać odwołanie, wykonaj następujące czynności: w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz pozycję **Dodaj** > **Odwołanie...** i w polu wyszukiwania wpisz „konfiguracja”.
 
 4. Otwórz plik App.config (dodaj plik do projektu, jeśli nie został dodany domyślnie) i dodaj do pliku sekcję *appSettings*. Ustaw wartości dla nazwy i klucza konta usługi Azure Media Services, jak pokazano w poniższym przykładzie. Aby uzyskać informacje o kluczu i nazwie konta, przejdź do witryny [Azure Portal](https://portal.azure.com/) i wybierz swoje konto AMS. Następnie wybierz pozycję **Ustawienia** > **Klucze**. W oknie Zarządzanie kluczami widoczna jest nazwa konta oraz wyświetlane są klucze podstawowe i pomocnicze. Skopiuj wartości nazwy konta i klucza podstawowego.
-   
+
         <configuration>
         ...
           <appSettings>
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-   
+
         </configuration>
 5. Zastąp istniejące instrukcje **using** na początku pliku Program.cs następującym kodem.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Linq;
@@ -266,7 +266,7 @@ Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać nas
 Poniższy kod ilustruje sposób przesyłania zadania kodowania. Zadanie zawiera jedno zadanie podrzędne, która określa transkodowanie pliku mezzanine do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów przy użyciu **standardu kodera multimediów**. Kod przesyła zadanie i oczekuje na ukończenie działania.
 
 Po zakończeniu zadania kodowania będzie możliwe opublikowanie elementów zawartości i następnie przesłanie strumieniowo lub pobranie progresywne plików MP4.
- 
+
 Dodaj następującą metodę do klasy Program.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -309,7 +309,7 @@ Aby przesłać strumieniowo lub pobrać element zawartości, należy go najpierw
 
 ### <a name="some-details-about-url-formats"></a>Informacje na temat formatów adresów URL
 
-Po utworzeniu lokalizatorów można tworzyć adresy URL umożliwiające przesyłanie strumieniowe lub pobieranie plików. Przykład w tym samouczku spowoduje utworzenie adresów URL, które można wkleić w odpowiednich przeglądarkach. W tej sekcji przedstawiono jedynie krótkie przykłady różnych formatów. 
+Po utworzeniu lokalizatorów można tworzyć adresy URL umożliwiające przesyłanie strumieniowe lub pobieranie plików. Przykład w tym samouczku spowoduje utworzenie adresów URL, które można wkleić w odpowiednich przeglądarkach. W tej sekcji przedstawiono jedynie krótkie przykłady różnych formatów.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Adres URL dla protokołu MPEG DASH ma następujący format:
 
@@ -324,7 +324,7 @@ Po utworzeniu lokalizatorów można tworzyć adresy URL umożliwiające przesył
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest
 
 
-Adres URL SAS używany do pobierania plików ma następujący format:
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Adres URL SAS używany do pobierania plików ma następujący format:
 
 {nazwa kontenera obiektów blob}/{nazwa elementu zawartości}/{nazwa pliku}/{sygnatura dostępu współdzielonego}
 
@@ -449,14 +449,14 @@ Aby uzyskać więcej informacji, zobacz następujące tematy:
 ## <a name="download-sample"></a>Pobieranie przykładu
 Następujący przykład kodu zawiera kod utworzony w tym samouczku: [przykład](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
+## <a name="next-steps"></a>Następne kroki 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Szukasz czegoś innego?
-Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się z nami swoją opinią w wątku Disqus poniżej.
+
 
 <!-- Anchors. -->
 
@@ -467,6 +467,6 @@ Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

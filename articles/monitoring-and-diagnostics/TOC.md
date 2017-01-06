@@ -30,7 +30,7 @@
 ### [Konfigurowanie elementu webhook dla alertu dotyczącego dziennika aktywności](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archiwizowanie dziennika aktywności](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Strumieniowe przesyłanie dziennika aktywności do usługi Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Audit operations with Resource Manager](../resource-group-audit.md) (Operacje inspekcji w usłudze Resource Manager)
+### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operacje inspekcji w usłudze Resource Manager)
 ## Zarządzanie dziennikami diagnostycznymi
 ### [Archiwizowanie](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Przesyłanie strumieniowe do usługi Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -49,6 +49,6 @@
 ## [Przykłady interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista obsługiwanych metryk](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

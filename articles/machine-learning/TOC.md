@@ -36,7 +36,7 @@
 ### [Konfigurowanie maszyn wirtualnych](machine-learning-data-science-virtual-machines.md)
 ### [Customize Hadoop](machine-learning-data-science-customize-hadoop-cluster.md) (Dostosowywanie usługi Hadoop)
 ### Konfigurowanie maszyny wirtualnej
-#### [DS VM overview](machine-learning-data-science-virtual-machine-overview.md) (Omówienie maszyny wirtualnej DS)
+#### [Omówienie maszyny wirtualnej DS](machine-learning-data-science-virtual-machine-overview.md)
 #### [How to use the DS VM](machine-learning-data-science-vm-do-ten-things.md) (Jak korzystać z maszyny wirtualnej DS)
 #### [Provision the DS VM](machine-learning-data-science-provision-vm.md) (Aprowizowanie maszyny wirtualnej DS)
 #### [Konfigurowanie maszyny wirtualnej platformy Azure](machine-learning-data-science-setup-virtual-machine.md)
@@ -173,8 +173,7 @@
 #### [Marketplace FAQ](machine-learning-marketplace-faq.md) (Często zadawane pytania dotyczące witryny Marketplace)
 
 # Dokumentacja
-## [Program PowerShell](/azure/machine-learning/machine-learning-powershell-module)
-## [Moduł programu PowerShell dla usługi Machine Learning](machine-learning-powershell-module.md)
+## [Program PowerShell](machine-learning-powershell-module.md)
 ## [Dokumentacja algorytmów i modułu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
@@ -223,6 +222,6 @@
 ## [Get help from live chat](machine-learning-live-chat.md) (Uzyskaj pomoc przez czat na żywo)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

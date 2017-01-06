@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 8bf8f24db6b543ec1161cf499e6fc116514f85cb
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 679cdacc3782f667635a586df4cd77a9af7884d9
 
 
 ---
@@ -41,7 +41,7 @@ Typowe kody błędów można znaleźć w artykule [SQL error codes for SQL Datab
 Wymagany jest działający program Azure PowerShell w wersji 1.0 lub nowszej. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalowanie i konfigurowanie programu Azure PowerShell).
 
 ## <a name="create-a-new-pool"></a>Tworzenie nowej puli
-Polecenie cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) tworzy nową pulę. Wartości jednostek eDTU na pulę oraz minimalne i maksymalne liczby jednostek DTU są ograniczone przez wartość warstwy usługi (Podstawowa, Standardowa lub Premium). Zobacz [limity liczby jednostek eDTU i magazynu dla elastycznych pul i elastycznych baz danych](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Polecenie cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) tworzy nową pulę. Wartości jednostek eDTU na pulę oraz minimalne i maksymalne liczby jednostek DTU są ograniczone przez wartość warstwy usługi (Podstawowa, Standardowa lub Premium). Zobacz [limity liczby jednostek eDTU i magazynu dla elastycznych pul i elastycznych baz danych](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
@@ -84,6 +84,6 @@ Ten skrypt tworzy nową grupę zasobów Azure i nowy serwer. Po wyświetleniu mo
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
