@@ -4,7 +4,7 @@
 # Rozpoczynanie pracy
 ## [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adfs.md)
 ## [Używanie programu Azure AD Connect Health w celu synchronizacji](active-directory-aadconnect-health-sync.md)
-## [Używanie programu Azure AD Connect Health z usługami AD FS](active-directory-aadconnect-health-adds.md)
+## [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md)
 
 # Instrukcje
 ## [Instalowanie agenta programu Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
@@ -20,10 +20,10 @@
 ## [Podręcznik projektowania tożsamości hybrydowej](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Zasoby
-##[Azure AD Connect — Często zadawane pytania](active-directory-aadconnect-health-faq.md)
+##[Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

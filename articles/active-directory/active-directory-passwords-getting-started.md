@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -186,7 +186,7 @@ Aby włączyć funkcję zapisywania zwrotnego haseł i z niej korzystać, musisz
   > Jeśli używasz starszej wersji systemu Windows Server 2008 lub 2008 R2, nadal możesz użyć tej funkcji, ale musisz [pobrać i zainstalować aktualizację KB 2386717](https://support.microsoft.com/kb/2386717), która umożliwi wymuszenie stosowania w chmurze zasad dotyczących haseł dla lokalnej usługi AD.
   > 
   > 
-* Masz zainstalowane narzędzie Azure AD Connect, a Twoje środowisko usługi AD jest przygotowane do synchronizacji z chmurą.  Aby uzyskać więcej informacji, zobacz [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md) (Korzystanie z lokalnej infrastruktury do obsługi tożsamości w chmurze).
+* Masz zainstalowane narzędzie Azure AD Connect, a Twoje środowisko usługi AD jest przygotowane do synchronizacji z chmurą.  Aby uzyskać więcej informacji, zobacz [Use your on-premises identity infrastructure in the cloud](connect/active-directory-aadconnect.md) (Korzystanie z lokalnej infrastruktury do obsługi tożsamości w chmurze).
   
   > [!NOTE]
   > Przed przetestowaniem funkcji zapisywania zwrotnego haseł upewnij się, że zakończono pełne importowanie i pełną synchronizację z usług AD i Azure AD w narzędziu Azure AD Connect.
@@ -200,7 +200,7 @@ Aby włączyć funkcję zapisywania zwrotnego haseł i z niej korzystać, musisz
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Krok 1. Pobranie najnowszej wersji programu Azure AD Connect
-Zapisywanie zwrotne haseł jest dostępne w wydaniach narzędzi Azure AD Connect lub Azure AD Sync o numerach wersji **1.0.0419.0911** lub wyższych.  Zapisywanie zwrotne haseł z automatycznym odblokowywaniem konta jest dostępne w wydaniach narzędzi Azure AD Connect lub Azure AD Sync o numerach wersji **1.0.0485.0222** lub wyższych. Jeśli używasz starszej wersji narzędzia, przeprowadź uaktualnienie do co najmniej tej wersji przed kontynuowaniem. [Kliknij tutaj, aby pobrać najnowszą wersję programu Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
+Zapisywanie zwrotne haseł jest dostępne w wydaniach narzędzi Azure AD Connect lub Azure AD Sync o numerach wersji **1.0.0419.0911** lub wyższych.  Zapisywanie zwrotne haseł z automatycznym odblokowywaniem konta jest dostępne w wydaniach narzędzi Azure AD Connect lub Azure AD Sync o numerach wersji **1.0.0485.0222** lub wyższych. Jeśli używasz starszej wersji narzędzia, przeprowadź uaktualnienie do co najmniej tej wersji przed kontynuowaniem. [Kliknij tutaj, aby pobrać najnowszą wersję programu Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Aby sprawdzić wersję narzędzia Azure AD Sync
 1. Przejdź do katalogu **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -237,7 +237,7 @@ Po pobraniu narzędzia Azure AD Connect można przystąpić do włączania funkc
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Aby włączyć funkcję zapisywania zwrotnego haseł przy użyciu programu Windows PowerShell
 1. Na **komputerze synchronizacji katalogów** otwórz nowe **okno programu Windows PowerShell z podwyższonym poziomem uprawnień**.
 2. Jeśli moduł nie jest jeszcze załadowany, wpisz polecenie `import-module ADSync`, aby załadować polecenia cmdlet programu Azure AD Connect do bieżącej sesji.
-3. Pobierz listę łączników usługi Azure AD w systemie, uruchamiając polecenie cmdlet `Get-ADSyncConnector` i zapisując wyniki w parametrze `$aadConnectorName`, np. `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Pobierz listę łączników usługi Azure AD w systemie, uruchamiając polecenie cmdlet `Get-ADSyncConnector` i zapisując wyniki w parametrze `$aadConnectorName`, np. `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
 4. Aby wyświetlić bieżący stan zapisywania zwrotnego dla bieżącego łącznika poprzez uruchomienie następującego polecenia cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Włącz funkcję zapisywania zwrotnego haseł poprzez uruchomienie polecenia cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -257,12 +257,40 @@ Możesz również zweryfikować poprawne zainstalowanie usługi, otwierając Pod
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Krok 3. Skonfigurowanie zapory
-Po włączeniu funkcji zapisywania zwrotnego haseł w narzędziu Azure AD Connect musisz upewnić się, że usługa może połączyć się z chmurą.
+Po włączeniu funkcji zapisywania zwrotnego haseł musisz się upewnić, że komputer z programem Azure AD Connect może nawiązać połączenie z usługami w chmurze firmy Microsoft w celu odbierania żądań zapisania zwrotnego haseł. Ten krok obejmuje zaktualizowanie reguł połączenia w urządzeniach sieciowych (serwerach proxy, zaporach itd.), aby zezwolić na połączenia wychodzące z określonymi adresami URL i IP należącymi do firmy Microsoft za pośrednictwem konkretnych portów sieciowych. Te zmiany mogą się różnić w zależności od wersji narzędzia Azure AD Connect. Aby uzyskać dodatkowy kontekst, możesz przeczytać więcej na temat [działania funkcji zapisywania zwrotnego haseł](active-directory-passwords-learn-more.md#how-password-writeback-works) oraz o [modelu zabezpieczeń tej funkcji](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Po zakończeniu instalacji, jeśli blokujesz nieznane połączenia wychodzące w swoim środowisku, musisz również dodać następujące reguły do zapory. Upewnij się, że po wprowadzeniu następujących zmian ponownie uruchomisz komputer z narzędziem AAD Connect:
-   * Zezwolenie na połączenia wychodzące przez port 443 TCP
-   * Zezwolenie na połączenia wychodzące do adresu https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   * W przypadku zastosowania serwera proxy lub wystąpienia ogólnych problemów z łącznością zezwól na połączenia wychodzące przez porty 9350-9354 i 5671 TCP
+#### <a name="why-do-i-need-to-do-this"></a>Dlaczego należy to zrobić?
+
+Aby funkcja zapisywania zwrotnego haseł działała poprawnie, komputer z programem Azure AD Connect musi być w stanie nawiązywać wychodzące połączenia HTTPS z adresami **.servicebus.windows.net* i określonymi adresami IP używanymi przez usługę Azure, zgodnie z [listą zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+W przypadku narzędzia Azure AD Connect w wersji 1.0.8667.0 lub nowszej:
+
+- **Opcja 1.** Zezwolenie na wszystkie wychodzące połączenia HTTPS za pośrednictwem portu 443 (przy użyciu adresów URL lub IP).
+    - Kiedy ją zastosować:
+        - Użyj tej opcji, jeśli zależy Ci na najprostszej konfiguracji, której nie trzeba aktualizować wraz z okresową zmianą zakresów adresów IP centrum danych platformy Azure.
+    - Wymagane czynności:
+        - Zezwolenie na wszystkie wychodzące połączenia HTTPS za pośrednictwem portu 443 przy użyciu adresów URL lub IP.
+<br><br>
+- **Opcja 2.** Zezwolenie na wychodzące połączenia HTTPS z określonymi zakresami adresów IP i adresami URL
+    - Kiedy ją zastosować:
+        - Użyj tej opcji, jeśli pracujesz w ograniczonym środowisku sieciowym bądź z innego powodu nie chcesz zezwalać na połączenia wychodzące.
+        - Aby funkcja zapisywania zwrotnego haseł nadal działała w tej konfiguracji, urządzenia sieciowe muszą być co tydzień aktualizowane o najnowsze adresy IP z listy zakresów adresów IP centrum danych platformy Microsoft Azure. Te zakresy adresów IP są dostępne w postaci pliku XML, który jest aktualizowany co środę (czas pacyficzny) i zaczyna obowiązywać od następnego poniedziałku (czas pacyficzny).
+    - Wymagane czynności:
+        - Zezwolenie na wszystkie wychodzące połączenia HTTPS z adresami *.servicebus.windows.net
+        - Zezwolenie na wszystkie wychodzące połączenia HTTPS ze wszystkimi adresami IP z listy zakresów adresów IP centrum danych platformy Microsoft Azure i cotygodniowe aktualizowanie tej konfiguracji.
+
+> [!NOTE]
+> Jeśli po skonfigurowaniu funkcji zapisywania zwrotnego haseł przy użyciu powyższych instrukcji nie widzisz żadnych błędów w dzienniku zdarzeń programu Azure AD Connect, ale występują błędy łączności podczas testowania, być może urządzenie sieciowe w Twoim środowisku blokuje połączenia HTTPS z adresami IP. Przykładowo mimo iż połączenie z zakresem adresów *https://*.servicebus.windows.net* jest dozwolone, połączenie z konkretnym adresem IP w tym zakresie może być blokowane. Aby rozwiązać ten problem, musisz albo skonfigurować w swoim środowisku sieciowym zezwalanie na wszystkie wychodzące połączenia HTTPS za pośrednictwem portu 443 z dowolnym adresem URL lub IP (opcja 1 powyżej), albo we współpracy z zespołem ds. sieci jawnie zezwolić na połączenia HTTPS z konkretnymi adresami IP (opcja 2 powyżej).
+
+**W przypadku starszych wersji:**
+
+- Zezwolenie na połączenia wychodzące TCP za pośrednictwem portów 443, 9350–9354 oraz 5671 
+- Zezwolenie na połączenia wychodzące z adresem *https://ssprsbprodncu-sb.accesscontrol.windows.net/*
+
+> [!NOTE]
+> Jeśli korzystasz z programu Azure AD Connect w wersji starszej niż 1.0.8667.0, firma Microsoft zdecydowanie zaleca przeprowadzenie uaktualnienia do [najnowszej wersji narzędzia Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) zawierającej kilka ulepszeń sieciowych aspektów funkcji zapisywania zwrotnego, które ułatwiają konfigurację.
+
+Po skonfigurowaniu urządzeń sieciowych ponownie uruchom komputer z narzędziem Azure AD Connect.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Krok 4. Konfigurowanie odpowiednich uprawnień usługi Active Directory
 W każdym lesie zawierającym użytkowników, których hasła zostaną zresetowane, jeśli X jest kontem określonym dla tego lasu w kreatorze konfiguracji (podczas konfiguracji początkowej), to X musi mieć nadane uprawnienia **Resetuj hasło**, **Zmień hasło**, **Uprawnienia do zapisu** w pozycji `lockoutTime` oraz **Uprawnienia do zapisu** w pozycji `pwdLastSet`, a także rozszerzone prawa w głównym obiekcie każdej domeny w tym lesie. Uprawnienie powinno być oznaczone jako odziedziczone przez wszystkie obiekty użytkowników.  
@@ -366,6 +394,6 @@ Poniżej podano linki do wszystkich stron dokumentacji związanych z resetowanie
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

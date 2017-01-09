@@ -11,17 +11,17 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 310bf3656db6ae6e0a8d3c1cc13442e2aa4e7752
+ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
+ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Dodawanie funkcji do pierwszej aplikacji sieci Web
-W temacie [Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w pięć minut](app-service-web-get-started.md) wdrożono przykładową aplikację sieci Web do [usługi Azure App Service](../app-service/app-service-value-prop-what-is.md). Z tego artykułu dowiesz się, jak szybko dodać niektóre ciekawe funkcje do wdrożonej aplikacji sieci Web. W ciągu kilku minut:
+W temacie [Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w pięć minut](app-service-web-get-started-cli-nodejs.md) wdrożono przykładową aplikację sieci Web do [usługi Azure App Service](../app-service/app-service-value-prop-what-is.md). Z tego artykułu dowiesz się, jak szybko dodać niektóre ciekawe funkcje do wdrożonej aplikacji sieci Web. W ciągu kilku minut:
 
 * wymusisz uwierzytelnianie użytkowników,
 * przeprowadzisz automatyczne skalowanie aplikacji,
@@ -157,6 +157,6 @@ Dowiedz się, jak wykonać jeszcze więcej czynności związanych z wdrożoną a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

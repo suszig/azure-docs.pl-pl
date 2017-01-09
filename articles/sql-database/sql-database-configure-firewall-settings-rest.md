@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ Usługa Microsoft Azure SQL Database zezwala na połączenia z serwerami i bazam
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Zarządzanie regułami zapory na poziomie serwera za pośrednictwem interfejsu API REST
-1. Zarządzanie regułami zapory za pośrednictwem interfejsu API REST wymaga uwierzytelnienia. Aby uzyskać więcej informacji, zapoznaj się z [Przewodnikiem dewelopera dotyczącym uwierzytelniania za pomocą interfejsu API usługi Azure Resource Manager](../resource-manager-api-authentication.md).
+1. Zarządzanie regułami zapory za pośrednictwem interfejsu API REST wymaga uwierzytelnienia. Aby uzyskać więcej informacji, zapoznaj się z [Przewodnikiem dewelopera dotyczącym uwierzytelniania za pomocą interfejsu API usługi Azure Resource Manager](../azure-resource-manager/resource-manager-api-authentication.md).
 2. Przy użyciu interfejsu API REST można tworzyć, aktualizować i usuwać reguły na poziomie serwera
    
     Aby utworzyć lub zaktualizować regułę zapory na poziomie serwera, wykonaj metodę PUT przy użyciu następującego kodu:
@@ -79,7 +79,7 @@ Aby uzyskać pomoc podczas łączenia się z bazą danych Azure SQL z aplikacji 
 Aby dowiedzieć się, jak przechodzić do baz danych, zobacz artykuł [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Zarządzanie zabezpieczeniami dostępu i logowania do bazy danych).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Zabezpieczanie bazy danych](sql-database-security.md)
+* [Zabezpieczanie bazy danych](sql-database-security-overview.md)
 * [Usługa Security Center aparatu bazy danych programu SQL Server i bazy danych Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Aby dowiedzieć się, jak przechodzić do baz danych, zobacz artykuł [Manage da
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -17,6 +17,6 @@ Podczas wybierania jednostki SKU należy wziąć pod uwagę następujące zagadn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

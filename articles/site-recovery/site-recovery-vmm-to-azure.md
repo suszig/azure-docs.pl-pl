@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f5e9d1a7f26ed3cac5767034661739169968a44e
-ms.openlocfilehash: ba0c710a0c28e9d52021ec966905a007b06f125e
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
 
 
 ---
@@ -46,9 +46,9 @@ Jeśli chcesz przeprowadzić pełne wdrożenie, zdecydowanie zalecamy wykonanie 
 | **Ograniczenia środowiska lokalnego** |Serwer proxy oparty na protokole HTTPS nie jest obsługiwany |
 | **Dostawca/agent** |Replikowanie maszyny wirtualnej wymagają dostawcy usługi Azure Site Recovery.<br/><br/> Hosty funkcji Hyper-V wymagają agenta usługi Recovery Services.<br/><br/> Te składniki są instalowanie podczas wdrażania. |
 |  **Wymagania platformy Azure** |Konto platformy Azure<br/><br/> Magazyn usługi Recovery Services<br/><br/> Konto magazynu LRS lub GRS w regionie magazynu<br/><br/> Konto usługi Storage w warstwie Standardowa<br/><br/> Sieć wirtualna platformy Azure w regionie magazynu. [Wszystkie szczegóły](#azure-prerequisites). |
-|  **Ograniczenia platformy Azure** |Jeśli używasz magazynu GRS, musisz mieć inne konto magazynu LRS na potrzeby rejestrowania.<br/><br/> Kont magazynu utworzonych w witrynie Azure Portal nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. <br/><br/> Magazyn w warstwie Premium nie jest obecnie obsługiwany.<br/><br/> Sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. |
-|  **Replikacja maszyny wirtualnej** |[Maszyny wirtualne muszą spełniać wymagania wstępne platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
-|  **Ograniczenia replikacji** |Nie można replikować maszyn wirtualnych z systemem Linux i statycznym adresem IP.<br/><br/> Z replikacji nie można wykluczyć określonych dysków. |
+|  **Ograniczenia platformy Azure** |Jeśli używasz magazynu GRS, musisz mieć inne konto magazynu LRS na potrzeby rejestrowania.<br/><br/> Kont magazynu utworzonych w witrynie Azure Portal nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. <br/><br/> Magazyn w warstwie Premium nie jest obecnie obsługiwany.<br/><br/> Sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. 
+|  **Replikacja maszyny wirtualnej** |[Maszyny wirtualne muszą spełniać wymagania wstępne platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
+|  **Ograniczenia replikacji** |Nie można replikować maszyn wirtualnych z systemem Linux i statycznym adresem IP.<br/><br/> Z replikacji można wykluczyć określone dyski, ale nie dysk systemu operacyjnego.
 | **Kroki wdrażania** |1) Przygotowanie platformy Azure (subskrypcja, magazyn, sieć) -> 2) Przygotowanie środowiska lokalnego (mapowanie programu VMM i sieci) -> 3) Utworzenie magazynu usługi Recovery Services -> 4) Skonfigurowanie hostów programu VMM i funkcji Hyper-V -> 5) Skonfigurowanie ustawień replikacji -> 6) Włączenie replikacji -> 7) Testowanie replikacji i pracy w trybie failover. |
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Usługa Site Recovery w portalu Azure
@@ -115,13 +115,13 @@ Potrzebujesz sieci platformy Azure, z którą będą się łączyć maszyny wirt
 * Sieć powinna znajdować się w tym samym regionie co magazyn usługi Recovery Services.
 * W zależności od modelu zasobu, który chcesz wykorzystać dla maszyn wirtualnych platformy Azure w trybie failover, musisz skonfigurować sieć platformy Azure w [modelu usługi Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) lub [modelu klasycznym](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * Zaleca się skonfigurowanie sieci przed rozpoczęciem dalszych działań. Jeśli tego nie zrobisz, konfigurację będzie trzeba przeprowadzić podczas wdrażania usługi Site Recovery.
-Należy pamiętać, że sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można [przenosić](../resource-group-move-resources.md) w ramach tej samej lub różnych subskrypcji.
+Należy pamiętać, że sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można [przenosić](../azure-resource-manager/resource-group-move-resources.md) w ramach tej samej lub różnych subskrypcji.
 
 ### <a name="set-up-an-azure-storage-account"></a>Konfigurowanie konta usługi Azure Storage
 * Potrzebujesz standardowego konta usługi Azure Storage do przechowywania danych replikowanych do platformy Azure. Konto musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania.
 * W zależności od modelu zasobu, który chcesz wykorzystać dla maszyn wirtualnych Azure w trybie failover, należy skonfigurować konto w [modelu Resource Manager](../storage/storage-create-storage-account.md) lub [modelu klasycznym](../storage/storage-create-storage-account-classic-portal.md).
 * Zalecamy skonfigurowanie konta przed rozpoczęciem dalszych działań. Jeśli tego nie zrobisz, konfigurację będzie trzeba przeprowadzić podczas wdrażania usługi Site Recovery.
-- Należy pamiętać, że kont magazynu używanych przez usługę Site Recovery nie można [przenosić](../resource-group-move-resources.md) w ramach tej samej lub różnych subskrypcji.
+- Należy pamiętać, że kont magazynu używanych przez usługę Site Recovery nie można [przenosić](../azure-resource-manager/resource-group-move-resources.md) w ramach tej samej lub różnych subskrypcji.
 
 ### <a name="prepare-the-vmm-server"></a>Przygotowanie serwera programu VMM
 * Upewnij się, że serwer programu VMM jest zgodny z [wymaganiami wstępnymi](#on-premises-prerequisites).
@@ -144,7 +144,7 @@ Podczas wdrażania usługi Site Recovery musisz skonfigurować mapowanie sieci. 
 
     ![Nowy magazyn](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. W polu **Nazwa** wprowadź przyjazną nazwę identyfikującą magazyn. Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z nich.
-4. [Utwórz grupę zasobów](../resource-group-template-deploy-portal.md) lub wybierz istniejącą. Określ region platformy Azure. Maszyny będą replikowane do tego regionu. Aby sprawdzić obsługiwane regiony, zobacz sekcję dotyczącą dostępności geograficznej w temacie [Szczegóły cennika usługi Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Utwórz grupę zasobów](../azure-resource-manager/resource-group-template-deploy-portal.md) lub wybierz istniejącą. Określ region platformy Azure. Maszyny będą replikowane do tego regionu. Aby sprawdzić obsługiwane regiony, zobacz sekcję dotyczącą dostępności geograficznej w temacie [Szczegóły cennika usługi Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. Jeśli chcesz szybko uzyskać dostęp do magazynu z pulpitu nawigacyjnego, kliknij pozycję **Przypnij do pulpitu nawigacyjnego** > **Utwórz magazyn**.
 
     ![Nowy magazyn](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -372,6 +372,7 @@ Wartość rejestru **UploadThreadsPerVM** określa liczbę wątków, które są 
 2. Wartość domyślna to 4. W sieci „o nadmiarowych zasobach” należy zmienić wartości domyślne tych kluczy rejestru. Wartość maksymalna to 32. Monitoruj ruch, aby zoptymalizować tę wartość.
 
 ## <a name="step-6-enable-replication"></a>Krok 6. Włączanie replikacji
+
 Teraz włącz replikację w następujący sposób:
 
 1. Kliknij kolejno pozycje **Krok 2. Replikowanie aplikacji** > **Źródło**. Po włączeniu replikacji po raz pierwszy kliknij pozycję **+ Replikuj** w magazynie, aby włączyć replikację dla dodatkowych maszyn.
@@ -388,9 +389,20 @@ Teraz włącz replikację w następujący sposób:
 6. W pozycji **Maszyny wirtualne** > **Wybierz maszyny wirtualne** kliknij i zaznacz każdą maszynę, którą chcesz replikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie kliknij przycisk **OK**.
 
     ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. W pozycji **Właściwości** > **Konfiguracja właściwości** wybierz system operacyjny dla wybranych maszyn wirtualnych oraz dysk systemu operacyjnego. Następnie kliknij przycisk **OK**. Później możesz skonfigurować dodatkowe właściwości.
+7. W pozycji **Właściwości** > **Konfiguruj właściwości** wybierz system operacyjny dla wybranych maszyn wirtualnych oraz dysk systemu operacyjnego. Domyślnie do replikacji są wybierane wszystkie dyski maszyny wirtualnej. Możesz wykluczyć dyski z replikacji, aby zmniejszyć wykorzystanie przepustowości w przypadku replikacji zbędnych danych na platformie Azure. Możesz na przykład zrezygnować z replikacji dysków z danymi tymczasowymi lub danych odświeżanych podczas każdego ponownego uruchomienia maszyny lub aplikacji (na przykład pagefile.sys lub tempdb programu Microsoft SQL Server). Dysk można wykluczyć z replikacji, cofając jego zaznaczenie. Sprawdź, czy nazwa maszyny wirtualnej platformy Azure (nazwa docelowa) jest zgodna z [wymaganiami maszyny wirtualnej platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) i w razie potrzeby ją zmodyfikuj. Następnie kliknij przycisk **OK**. Później możesz ustawić dodatkowe właściwości.
 
-    ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication6.png)
+    ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
+    
+    >[!NOTE]
+    > 
+    > * Tylko dyski podstawowe można wyłączyć z replikacji. Nie można wykluczyć dysku systemu operacyjnego. Nie jest zalecane wykluczanie dysków dynamicznych. Usługa ASR nie może ustalić, który wirtualny dysk twardy jest podstawowym, a który dynamicznym dyskiem wewnątrz maszyny wirtualnej gościa.  Jeśli wszystkie zależne dyski woluminu dynamicznego nie zostaną wykluczone, chroniony dysk dynamiczny będzie uszkodzonym dyskiem maszyny wirtualnej w trybie failover, a dane na tym dysku mogą być niedostępne.   
+    > * Po włączeniu replikacji nie można dodawać ani usuwać dysków do replikacji. Jeśli chcesz dodać lub wykluczyć dysk, musisz wyłączyć ochronę maszyny wirtualnej, a następnie włączyć ją ponownie.
+    > * Jeśli wykluczasz dysk wymagany do działania aplikacji, po przejściu do trybu failover na platformie Azure musisz utworzyć go na tej platformie, aby można było uruchomić replikowaną aplikację. Można również zintegrować usługę Azure Automation w planie odzyskiwania, aby utworzyć dysk podczas pracy maszyny w trybie failover.
+    > * Dyski tworzone ręcznie na platformie Azure nie mają możliwości powrotu po awarii. Jeśli na przykład przeniesiesz trzy dyski do trybu failover i utworzysz dwa bezpośrednio na maszynie wirtualnej platformy Azure, tylko dla trzech dysków przeniesionych do trybu failover nastąpi powrót po awarii z platformy Azure do funkcji Hyper-V. Dysków tworzonych ręcznie nie można uwzględnić podczas powrotu po awarii ani replikacji odwrotnej z funkcji Hyper-V do platformy Azure.
+    >
+    >
+    
+
 8. W pozycji **Ustawienia replikacji** > **Konfigurowanie ustawień replikacji** wybierz zasady replikacji, które chcesz zastosować dla chronionych maszyn wirtualnych. Następnie kliknij przycisk **OK**. Możesz zmodyfikować zasady replikacji w pozycji **Ustawienia** > **Zasady replikacji** > nazwa_zasady > **Edytuj ustawienia**. Zastosowane zmiany są używane dla obecnie replikowanych i nowych maszyn.
 
    ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication7.png)
@@ -426,6 +438,7 @@ Aby przetestować wdrożenie, możesz uruchomić test trybu failover dla jednej 
 * Aby uruchomić test trybu failover, zalecamy utworzenie nowej sieci platformy Azure, która jest odizolowana od sieci platformy Azure środowiska produkcyjnego. Jest to domyślne zachowanie podczas tworzenia nowej sieci na platformie Azure. [Dowiedz się więcej](site-recovery-failover.md#run-a-test-failover) o uruchamianiu testowych trybów failover.
 * Aby uzyskać najlepszą wydajność przechodzenia w tryb failover, zainstaluj agenta platformy Azure na chronionej maszynie. Przyspiesza to rozruch i pomaga w rozwiązywaniu problemów. Zainstaluj agenta systemu [Linux](https://github.com/Azure/WALinuxAgent) lub [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
 * Aby w pełni przetestować wdrożenie, potrzebujesz infrastruktury dla replikowanej maszyny, aby mogła działać zgodnie z oczekiwaniami. Jeśli chcesz przetestować usługę Active Directory i DNS, możesz utworzyć maszynę wirtualną jako kontroler domeny z serwerem DNS i replikować ją do platformy Azure przy użyciu usługi Azure Site Recovery. Dowiedz się więcej w [zagadnieniach dotyczących testowania trybu failover dla usługi Active Directory](site-recovery-active-directory.md#test-failover-considerations).
+* Jeśli dyski zostały wykluczone z replikacji, być może trzeba będzie utworzyć je ręcznie na platformie Azure po przejściu do trybu failover, aby aplikacja działa w oczekiwany sposób.
 * Jeśli chcesz uruchomić nieplanowany tryb failover zamiast testowego trybu failover, pamiętaj, że:
 
   * Jeśli jest to możliwe, przed uruchomieniem nieplanowanego trybu failover należy wyłączyć maszyny główne. Dzięki temu maszyny źródłowe i replikowane nie będą uruchomione w tym samym czasie.
@@ -496,6 +509,6 @@ Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](site-recover
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

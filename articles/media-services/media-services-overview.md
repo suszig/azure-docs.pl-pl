@@ -42,12 +42,11 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
     * [Azure Portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
 
-Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiektów podczas tworzenia w modelu Media Services OData. 
+Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiektów podczas tworzenia w modelu Media Services OData.
 
 Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
-
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
 Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.14).  
 
@@ -76,22 +75,22 @@ Pojęcia związane z usługą Azure Media Services zostały przedstawione w tema
 Serię poradników ułatwiających rozpoczęcie pracy z wszystkimi głównymi składnikami usługi Azure Media Services można znaleźć na stronie [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) (Usługa Azure Media Services — samouczki krok po kroku). Seria zawiera wszechstronne omówienie pojęć i przedstawia zadania AMS przy użyciu narzędzia AMSE. Należy pamiętać, że narzędzie AMSE to narzędzie systemu Windows. To narzędzie obsługuje większość zadań, które można wykonać programowo przy użyciu zestawów [AMS SDK dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java) lub [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Dostarczanie multimediów na żądanie za pomocą usługi Azure Media Services: typowe scenariusze i zadania
-W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych tematów. Na poniższym diagramie przedstawiono główne elementy platformy Media Services, które biorą udział w dostarczaniu zawartości na żądanie. 
+W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych tematów. Na poniższym diagramie przedstawiono główne elementy platformy Media Services, które biorą udział w dostarczaniu zawartości na żądanie.
 
 ![Wideo na żądanie — przepływ pracy](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Ochrona zawartości w magazynie i dostarczanie multimediów strumieniowych w formie niezaszyfrowanej
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości.
-   
+
     Zaleca się stosowanie opcji szyfrowania magazynu w odniesieniu do elementu zawartości, aby chronić zawartość podczas przekazywania oraz przechowywania w magazynie.
-2. Wykonaj kodowanie do zestawu plików MP4 o adaptacyjnej szybkości transmisji bitów. 
-   
+2. Wykonaj kodowanie do zestawu plików MP4 o adaptacyjnej szybkości transmisji bitów.
+
     Zaleca się stosowanie opcji szyfrowania magazynu w odniesieniu do elementu zawartości wyjściowej, aby chronić przechowywaną zawartość.
-3. Skonfiguruj zasady dostarczania elementu zawartości (stosowane podczas dynamicznego tworzenia pakietów). 
-   
-    Jeśli element zawartości jest szyfrowany w magazynie, **musisz** skonfigurować zasady dostarczania elementu zawartości. 
+3. Skonfiguruj zasady dostarczania elementu zawartości (stosowane podczas dynamicznego tworzenia pakietów).
+
+    Jeśli element zawartości jest szyfrowany w magazynie, **musisz** skonfigurować zasady dostarczania elementu zawartości.
 4. Opublikuj element zawartości, tworząc lokalizator OnDemand.
-   
+
     Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 5. Prześlij strumieniowo opublikowaną zawartość.
 
@@ -104,28 +103,28 @@ Aby można było korzystać z dynamicznego szyfrowania, należy najpierw pobrać
 4. Skonfiguruj zasady autoryzacji klucza zawartości.
 5. Skonfiguruj zasady dostarczania elementu zawartości (używane podczas dynamicznego tworzenia pakietów i dynamicznego szyfrowania).
 6. Opublikuj element zawartości, tworząc lokalizator OnDemand.
-7. Prześlij strumieniowo opublikowaną zawartość. 
+7. Prześlij strumieniowo opublikowaną zawartość.
 
 ### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Korzystanie z Analizy multimediów w celu uzyskania przydatnych wyników analiz na podstawie danych wideo
 Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają organizacjom i przedsiębiorstwom uzyskiwanie przydatnych wyników analiz na podstawie posiadanych plików wideo. Aby uzyskać więcej informacji, zobacz temat [Przegląd analiz usługi Azure Media Services](media-services-analytics-overview.md).
 
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości.
 2. Użyj jednej z następujących usług Analizy multimediów, aby przetwarzać pliki wideo:
-   
+
    * **Indeksator** — [przetwarzanie plików wideo za pomocą procesora Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
    * **Przyspieszone ujęcia poklatkowe** — [tworzenie przyspieszonych ujęć poklatkowych w plikach multimedialnych za pomocą usługi Azure Media Hyperlapse](media-services-hyperlapse-content.md)
    * **Wykrywanie ruchu** — [wykrywanie ruchu na potrzeby Analizy multimediów Azure](media-services-motion-detection.md)
    * **Wykrywanie twarzy i emocji** — [wykrywanie twarzy i emocji na potrzeby Analizy multimediów Azure](media-services-face-and-emotion-detection.md)
    * **Podsumowanie wideo** — [tworzenie podsumowań wideo przy użyciu miniatur wideo multimediów Azure](media-services-video-summarization.md)
-3. Procesory multimediów usługi Analiza multimediów tworzą pliki MP4 lub JSON. Plik MP4 utworzony przez procesor multimediów można pobrać progresywnie. Plik JSON utworzony przez procesor multimediów można pobrać z magazynu Azure Blob Storage. 
+3. Procesory multimediów usługi Analiza multimediów tworzą pliki MP4 lub JSON. Plik MP4 utworzony przez procesor multimediów można pobrać progresywnie. Plik JSON utworzony przez procesor multimediów można pobrać z magazynu Azure Blob Storage.
 
 ### <a name="deliver-progressive-download"></a>Dostarczanie pobierania progresywnego
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości.
 2. Wykonaj kodowanie do pojedynczego pliku MP4.
 3. Opublikuj element zawartości, tworząc lokalizator OnDemand lub SAS.
-   
+
     W przypadku korzystania z lokalizatora OnDemand upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być pobierana progresywnie.
-   
+
     W przypadku użycia lokalizatora SAS zawartość zostanie pobrana z magazynu Azure Blob Storage. W takim przypadku jednostki zarezerwowanego przesyłania strumieniowego nie są konieczne.
 4. Pobierz progresywnie zawartość.
 
@@ -156,8 +155,8 @@ W usłudze Azure Media Services **kanały**, **programy**, i **punkty końcowe p
 
 > [!NOTE]
 > Metoda przekazywania to najbardziej ekonomiczne rozwiązanie transmisji strumieniowej na żywo w przypadku organizowania wielu wydarzeń w długim okresie oraz poczynionych inwestycji w kodery lokalne. Zobacz szczegółowe informacje o [cenach](https://azure.microsoft.com/pricing/details/media-services/).
-> 
-> 
+>
+>
 
 * Lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do kanału obsługującego kodowanie na żywo za pomocą usługi Media Services w jednym z następujących formatów: RTP (MPEG TS), RTMP lub Smooth Streaming (pofragmentowany plik MP4). Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
@@ -210,7 +209,6 @@ Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług p
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
-
 
 
 

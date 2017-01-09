@@ -10,6 +10,6 @@ Płatność dotyczy dwóch składników: kosztu godzin obliczeniowych bramy siec
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

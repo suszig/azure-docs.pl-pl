@@ -14,7 +14,7 @@ Aby rozpocząć korzystanie z tematów i subskrypcji usługi Service Bus na plat
 
 Aby utworzyć przestrzeń nazw:
 
-1. Zaloguj się w witrynie [Azure Portal][Azure Portal].
+1. Zaloguj się w witrynie [Azure Portal][Azure portal].
 2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Nowy**, **Integracja w przedsiębiorstwie** i **Service Bus**.
 3. W oknie dialogowym **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
 4. Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz warstwę cenową (Podstawowa, Standardowa lub Premium).
@@ -35,7 +35,7 @@ Aby utworzyć przestrzeń nazw:
    
     ![connection-string][connection-string]
 
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
@@ -43,6 +43,6 @@ Aby utworzyć przestrzeń nazw:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

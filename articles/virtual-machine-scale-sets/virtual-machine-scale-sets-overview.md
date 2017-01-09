@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ Aby dowiedzieć się więcej o zestawach skalowania maszyn wirtualnych, obejrzyj
 ## <a name="creating-and-managing-vm-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych i zarządzanie nimi
 Zestaw skalowania maszyn wirtualnych można utworzyć w witrynie [Azure Portal](https://portal.azure.com), wybierając pozycję *nowy* i wpisując na pasku wyszukiwania hasło „skalowanie”. Wśród wyników wyszukiwania pojawi się hasło „zestaw skalowania maszyn wirtualnych”. Z tego miejsca można wypełnić wymagane pola w celu dostosowania i wdrożenia zestawu skalowania. 
 
-Zestawy skalowania maszyn wirtualnych można także definiować i wdrażać za pomocą szablonów JSON oraz [interfejsów API REST](https://msdn.microsoft.com/library/mt589023.aspx) — tak jak poszczególne maszyny wirtualne w ramach usługi Azure Resource Manager. Można zatem użyć dowolnej standardowej metody wdrażania za pomocą usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../resource-group-authoring-templates.md).
+Zestawy skalowania maszyn wirtualnych można także definiować i wdrażać za pomocą szablonów JSON oraz [interfejsów API REST](https://msdn.microsoft.com/library/mt589023.aspx) — tak jak poszczególne maszyny wirtualne w ramach usługi Azure Resource Manager. Można zatem użyć dowolnej standardowej metody wdrażania za pomocą usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Zestaw przykładowych szablonów dla zestawów skalowania maszyn wirtualnych znajduje się w repozytorium szablonów z pakietu Azure Quickstart w witrynie GitHub ([tutaj](https://github.com/Azure/azure-quickstart-templates)). (Poszukaj szablonów z ciągiem *vmss* w nazwie).
 
@@ -50,9 +50,9 @@ W przypadku ponownego wdrażania szablonu w celu zmiany pojemności można zdefi
 Aby poznać procedurę tworzenia zestawu skalowania, który jest skalowany automatycznie, zobacz [Automatyczne skalowanie maszyn w zestawie skalowania maszyn wirtualnych](virtual-machine-scale-sets-windows-autoscale.md).
 
 ## <a name="monitoring-your-vm-scale-set"></a>Monitorowanie zestawu skalowania maszyn wirtualnych
-W witrynie [Azure Portal](https://portal.azure.com) można wyświetlić listę zestawów skalowania, podstawowe właściwości, a także maszyny wirtualne w poszczególnych zestawach. Aby uzyskać więcej szczegółów, można wyświetlić zestawy skalowania maszyn wirtualnych za pomocą [Eksploratora zasobów Azure](https://resources.azure.com). Zestawy skalowania maszyn wirtualnych są zasobami dostępnymi w ramach dostawcy zasobów Microsoft.Compute. Z poziomu tej witryny można je wyświetlić, rozwijając następujące linki:
+Witryna [Azure Portal](https://portal.azure.com) wyświetla zestawy skalowania i pokazuje podstawowe właściwości i operacje łącznie z wyświetleniem listy maszyn wirtualnych w zestawie i wykresem wykorzystania zasobu. Aby uzyskać więcej szczegółów, można wyświetlić zestawy skalowania maszyn wirtualnych za pomocą [Eksploratora zasobów Azure](https://resources.azure.com). Zestawy skalowania maszyn wirtualnych są zasobami dostępnymi w ramach dostawcy zasobów Microsoft.Compute. Z poziomu tej witryny można je wyświetlić, rozwijając następujące linki:
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+**Subskrypcje -> Twoja subskrypcja -> resourceGroups -> dostawcy -> Microsoft.Compute -> virtualMachineScaleSets -> zestaw skalowania maszyny wirtualnej -> itp.**
 
 ## <a name="vm-scale-set-scenarios"></a>Scenariusze dotyczące zestawów skalowania maszyn wirtualnych
 W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów skalowania maszyn wirtualnych. Scenariusze te mają zastosowanie w przypadku niektórych usług platformy Azure wyższego poziomu (np. Batch, Service Fabric, Azure Container Service).
@@ -71,15 +71,15 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
    Tu natomiast pokazano, jak wykonać powyższe działania przy użyciu połączenia RDP i systemu Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 * **Łączenie się z maszynami wirtualnymi za pomocą „rampy”** — jeśli utworzysz zestaw skalowania maszyn wirtualnych i autonomiczną maszynę wirtualną w tej samej sieci wirtualnej, autonomiczna maszyna wirtualna i maszyny wirtualne z zestawu skalowania mogą się łączyć ze sobą za pomocą wewnętrznych adresów IP zgodnie z definicją w sieci wirtualnej/podsieci. W przypadku utworzenia publicznego adresu IP i przypisania go do autonomicznej maszyny wirtualnej można nawiązać połączenie RDP lub SSH z autonomiczną maszyną wirtualną, a następnie z jej poziomu połączyć się z wystąpieniami danego zestawu skalowania maszyn wirtualnych. Można tutaj zauważyć, że prosty zestaw skalowania maszyn wirtualnych jest z natury bezpieczniejszy niż prosta autonomiczna maszyna wirtualna z publicznym adresem IP w konfiguracji domyślnej.
   
-   [Przykładem tego podejścia może być szablon tworzący prosty klaster Mesos obejmujący autonomiczną maszynę wirtualną Master, która zarządza klastrem maszyn wirtualnych bazującym na zestawie skalowania maszyn wirtualnych.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+   Na przykład ten szablon wdraża prosty zestaw skalowania z autonomiczną maszyną wirtualną: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)
 * **Równoważenie obciążenia wystąpień zestawów skalowania maszyn wirtualnych** — aby przekazywać zadania do klastra obliczeniowego maszyn wirtualnych w trybie okrężnym, można odpowiednio skonfigurować moduł równoważenia obciążenia platformy Azure za pomocą reguł równoważenia obciążenia. Definiując sondy do weryfikowania działania aplikacji, można wysyłać polecenia ping do portów przy użyciu określonego protokołu, interwału i ścieżki żądania. Usługa Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) obsługuje także zestawy skalowania oraz bardziej zaawansowane scenariusze równoważenia obciążenia.
   
-   [Oto przykład tworzenia zestawu skalowania maszyn wirtualnych z serwerem sieci Web usług IIS i równoważenia obciążenia poszczególnych maszyn wirtualnych za pomocą modułu równoważenia obciążenia. W przykładzie tym pokazano także, jak za pomocą protokołu HTTP wysyłać polecenia ping na określony adres URL na każdej maszynie wirtualnej.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Spójrz na typ zasobu Microsoft.Network/loadBalancers oraz elementy networkProfile i extensionProfile w obszarze virtualMachineScaleSet).
+   Oto przykład tworzenia zestawu skalowania maszyny wirtualnej z uruchomionymi serwerami sieci Web Apache, która używa modułu równoważenia obciążenia do zrównoważenia obciążenia każdej maszyny wirtualnej: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) (zapoznaj się z typem zasobu Microsoft.Network/loadBalancers oraz profilem networkProfile i extensionProfile w zestawie virtualMachineScaleSet)
 * **Wdrażanie zestawu skalowania maszyn wirtualnych jako klastra obliczeniowego w menedżerze klastra w środowisku PaaS** — zestawy skalowania maszyn wirtualnych są czasami określane jako rola procesu roboczego następnej generacji. Jest to trafny opis, ale niesie ryzyko pomylenia funkcji zestawu skalowania z funkcjami roli procesu roboczego usługi PaaS w wersji 1. Zestawy skalowania maszyn wirtualnych pełnią rolę procesu roboczego lub stanowią zasób procesu roboczego w tym sensie, że są ogólnym zasobem obliczeniowym, który jest niezależny od platformy/środowiska wykonawczego, możliwy do dostosowania i zintegrowania z infrastrukturą IaaS usługi Azure Resource Manager.
   
    Rola procesu roboczego usługi PaaS w wersji 1 ma wprawdzie ograniczenia w zakresie obsługi platform/środowiska wykonawczego (obsługuje wyłącznie obrazy platformy Windows), ale obejmuje usługi, takie jak wymiana wirtualnego adresu IP, konfigurowane ustawienia uaktualniania i określone ustawienia wdrażania środowiska wykonawczego/aplikacji, które nie są *jeszcze* dostępne w zestawach skalowania maszyn wirtualnych lub zostaną zapewnione przez inne usługi PaaS wyższego poziomu, takie jak Service Fabric. Uwzględniając powyższe informacje, można postrzegać zestawy skalowania maszyn wirtualnych jako infrastrukturę obsługującą usługę PaaS. A zatem rozwiązania PaaS (np. Service Fabric) lub menedżery klastrów (np. Mesos) mogą bazować na zestawach skalowania maszyn wirtualnych jako skalowalna warstwa obliczeniowa.
   
-   [Przykładem tego podejścia może być szablon tworzący prosty klaster Mesos obejmujący autonomiczną maszynę wirtualną Master, która zarządza klastrem maszyn wirtualnych bazującym na zestawie skalowania maszyn wirtualnych.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) W przyszłych wersjach usługi [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) zostaną wdrożone bardziej złożone/wzmocnione wersje tego scenariusza bazujące na zestawach skalowania maszyn wirtualnych.
+   Przykładem takiego podejścia jest wdrożenie klastra usługi Azure Container Service opartego na zestawach skalowania z koordynatorem kontenera: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>Wytyczne dotyczące wydajności i skalowania zestawów skalowania maszyn wirtualnych
 * Nie twórz jednocześnie więcej niż 500 maszyn wirtualnych w ramach wielu zestawów skalowania maszyn wirtualnych.
@@ -100,7 +100,7 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
 
 **PYTANIE** Czy zestawy skalowania maszyn wirtualnych obsługują dyski danych?
 
-**ODPOWIEDŹ** Nie w wersji początkowej. Dostępne opcje magazynowania danych obejmują:
+**ODPOWIEDŹ** Nie w wersji początkowej (chociaż dyski danych są obecnie dostępne w wersji zapoznawczej). Dostępne opcje magazynowania danych obejmują:
 
 * Pliki platformy Azure (dyski udostępnione za pośrednictwem protokołu SMB)
 * Dysk systemu operacyjnego
@@ -148,6 +148,6 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

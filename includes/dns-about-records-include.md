@@ -1,38 +1,28 @@
-## <a name="about-records"></a>Informacje o rekordach
+### <a name="record-names"></a>Nazwy rekordów
 
-Każdy rekord DNS ma nazwę i typ. Rekordy są pogrupowane w różne typy według danych, które zawierają. Najczęściej spotykanym typem jest rekord „A”, który mapuje nazwę na adres IPv4. Innym typem jest rekord „MX”, który mapuje nazwę na serwer poczty e-mail.
+W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. *W pełni kwalifikowana* nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa *względna*. Na przykład względna nazwa rekordu „www” w strefie „contoso.com” daje w pełni kwalifikowaną nazwę rekordu www.contoso.com.
 
-Usługa DNS platformy Azure obsługuje wszystkie popularne typy rekordów DNS, takie jak A, AAAA, CNAME, MX, NS, PTR, SOA, SRV i TXT. Należy pamiętać, że:
+Rekord *wierzchołka* to rekord DNS w katalogu głównym (*wierzchołku*) strefy DNS. Na przykład w strefie DNS „contoso.com” rekord wierzchołka ma także w pełni kwalifikowaną nazwę „contoso.com” (jest to czasami nazywane *samą* domeną).  Zgodnie z konwencją nazwa względna '@' jest używana do reprezentowania rekordów wierzchołków.
 
-* Zestawy rekordów SOA są tworzone automatycznie w każdej strefie i nie mogą być tworzone oddzielnie.
-* Rekordy SPF powinny być tworzone przy użyciu typu rekordu TXT. Więcej informacji znajduje się na [tej stronie](http://tools.ietf.org/html/rfc7208#section-3.1).
+### <a name="record-types"></a>Typy rekordów
 
-W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. „W pełni kwalifikowana” nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa „względna”. Na przykład względna nazwa rekordu „www” w strefie „contoso.com” daje w pełni kwalifikowaną nazwę rekordu www.contoso.com.
+Każdy rekord DNS ma nazwę i typ. Rekordy są pogrupowane w różne typy według danych, które zawierają. Najczęściej spotykanym typem jest rekord „A”, który mapuje nazwę na adres IPv4. Innym często spotykanym typem jest rekord „MX”, który mapuje nazwę na serwer poczty e-mail.
 
-## <a name="about-record-sets"></a>Informacje o zestawach rekordów
+Usługa DNS platformy Azure obsługuje wszystkie popularne typy rekordów DNS: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV i TXT. Należy pamiętać, że [rekordy SPF są reprezentowane przy użyciu rekordu TXT](../articles/dns/dns-zones-records.md#spf-records).
+
+### <a name="record-sets"></a>Zestawy rekordów
 
 Czasami trzeba utworzyć więcej niż jeden rekord DNS określonego typu o danej nazwie. Na przykład załóżmy, że witryna sieci Web „www.contoso.com” jest hostowana pod dwoma różnymi adresami IP. Witryna sieci Web wymaga dwóch różnych rekordów A, po jednym dla każdego adresu IP. Oto przykład zestawu rekordów:
 
     www.contoso.com.        3600    IN    A    134.170.185.46
     www.contoso.com.        3600    IN    A    134.170.188.221
 
-Usługa DNS platformy Azure zarządza rekordami DNS za pomocą zestawów rekordów. Zestaw rekordów jest kolekcją rekordów DNS w strefie, które mają taką samą nazwę i są tego samego typu. Większość zestawów rekordów zawiera jeden rekord, ale sytuacje, w których zestaw rekordów zawiera więcej niż jeden rekord, również często mają miejsce.
+System DNS platformy Azure zarządza wszystkimi rekordami DNS za pomocą *zestawów rekordów*. Zestaw rekordów (określany także jako zestaw rekordów *zasobów*) jest kolekcją rekordów DNS w strefie, które mają taką samą nazwę i są tego samego typu. Większość zestawów rekordów zawiera jeden rekord. Sytuacje taka jak powyższa, w których zestaw rekordów zawiera więcej niż jeden rekord, również mają często miejsce.
 
-Zestawy rekordów SOA i CNAME stanowią wyjątki. Standardy usługi DNS nie zezwalają na występowanie wielu rekordów tych typów o takiej samej nazwie.
+Na przykład załóżmy, że utworzono wcześniej rekord A „www” w strefie „contoso.com” wskazujący na adres IP „134.170.185.46” (pierwszy rekord powyżej).  W celu utworzenia drugiego rekordu ten rekord zostanie dodany do istniejącego zestawu rekordów zamiast tworzenia dodatkowego zestawu rekordów.
 
-Czas wygaśnięcia (TTL) określa, jak długo każdy rekord jest buforowany przez klientów przed ponownym uruchomieniem zapytania. W tym przykładzie czas wygaśnięcia wynosi 3600 sekund lub 1 godzinę. Czas wygaśnięcia jest określany dla zestawu rekordów, a nie dla każdego rekordu, więc dla wszystkich rekordów w danym zestawie rekordów jest używana taka sama wartość.
+Typy rekordów SOA i CNAME stanowią wyjątki. Standardy systemu DNS nie zezwalają na występowanie wielu rekordów tych typów o takiej samej nazwie, w związku z czym te zestawy rekordów mogą zawierać tylko jeden rekord.
 
-#### <a name="wildcard-record-sets"></a>Zestawy rekordów z użyciem symboli wieloznacznych
-
-Usługa DNS platformy Azure obsługuje [rekordy z użyciem symboli wieloznacznych](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Są one zwracane dla dowolnego zapytania o zgodnej nazwie (chyba że istnieje lepsze dopasowanie pochodzące z zestawu rekordów bez symboli wieloznacznych). Zestawy rekordów z użyciem symboli wieloznacznych są obsługiwane dla wszystkich typów rekordów z wyjątkiem NS i SOA.
-
-Aby utworzyć zestaw rekordów z użyciem symboli wieloznacznych, użyj nazwy zestawu rekordów „\*”. Można też użyć nazwy z etykietą „\*”, np. „\*.foo”.
-
-#### <a name="cname-record-sets"></a>Zestawy rekordów CNAME
-
-Zestawy rekordów CNAME nie mogą współistnieć z innymi zestawami rekordów o tej samej nazwie. Na przykład nie można utworzyć jednocześnie zestawu rekordów CNAME o nazwie względnej „www” oraz rekordu A o nazwie względnej „www”. Ponieważ wierzchołek strefy (nazwa = ‘@’) zawsze zawiera zestawy rekordów NS i SOA, które zostały utworzone podczas tworzenia strefy, nie można utworzyć zestawu rekordów CNAME w wierzchołku strefy. Te ograniczenia wynikają ze standardów dotyczących serwerów DNS i nie stanowią ograniczeń usługi DNS platformy Azure.
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
