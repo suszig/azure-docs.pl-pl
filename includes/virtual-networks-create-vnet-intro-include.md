@@ -2,6 +2,6 @@ Sieć wirtualna Azure odzwierciedla w chmurze Twoją sieć. Możesz kontrolować
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

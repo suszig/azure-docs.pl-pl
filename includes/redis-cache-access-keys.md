@@ -14,6 +14,6 @@ Aby pobrać klucze dostępu, kliknij opcję **Klucze dostępu**.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

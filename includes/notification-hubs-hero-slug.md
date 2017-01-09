@@ -7,6 +7,6 @@ Traktujemy opinie naszych użytkowników bardzo poważnie. Jeśli masz trudnośc
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
