@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 573d33bd3db103d741a1b1d47951ea33f61e2d06
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
 
 
 ---
@@ -88,12 +88,12 @@ Aby uzyskać pomoc podczas łączenia się z bazą danych Azure SQL z aplikacji 
 Aby dowiedzieć się, jak przechodzić do baz danych, zobacz artykuł [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Zarządzanie zabezpieczeniami dostępu i logowania do bazy danych).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Zabezpieczanie bazy danych](sql-database-security.md)
+* [Zabezpieczanie bazy danych](sql-database-security-overview.md)
 * [Usługa Security Center aparatu bazy danych programu SQL Server i bazy danych Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

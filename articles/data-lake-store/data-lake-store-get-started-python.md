@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/29/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8be210664540fc8294ea70271f037d168b328c9d
-ms.openlocfilehash: dc604f98eacec8d52c2849452bc3df34ef7634af
+ms.sourcegitcommit: f29f36effd858f164f7b6fee8e5dab18211528b3
+ms.openlocfilehash: 6f724576badb7cf3625a139c416860b7e43ed036
 
 
 ---
@@ -47,7 +47,7 @@ Dowiedz się, jak używać zestawu SDK języka Python dla usługi Azure Data Lak
 
 ## <a name="install-the-modules"></a>Instalacja modułów
 
-Aby móc pracować z usługą Data Lake Store przy użyciu języka Python, musisz zainstalować dwa moduły.
+Aby móc pracować z usługą Data Lake Store przy użyciu języka Python, musisz zainstalować trzy moduły.
 
 * Moduł `azure-mgmt-resource`. Obejmuje to moduły platformy Azure dla usługi Active Directory itp.
 * Moduł `azure-mgmt-datalake-store`. Obejmuje to operacje zarządzania kontem usługi Azure Data Lake Store. Aby uzyskać więcej informacji na temat tego modułu, zobacz [dokumentację modułu do zarządzania dla usługi Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
@@ -207,6 +207,6 @@ Poniższy fragment kodu najpierw tworzy klienta konta usługi Data Lake Store. U
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

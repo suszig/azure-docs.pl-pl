@@ -278,6 +278,6 @@ Zobacz [Przewodnik po programie PolyBase][Przewodnik po programie PolyBase] w ce
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

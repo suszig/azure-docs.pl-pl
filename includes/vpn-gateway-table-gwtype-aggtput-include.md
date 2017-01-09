@@ -16,6 +16,6 @@ Zwróć uwagę, że w tej tabeli nie przedstawiono jednostki SKU bramy UltraPerf
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

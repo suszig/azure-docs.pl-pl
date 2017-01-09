@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 28eddb52c33d9883219f146480b110574f728f89
 
 
 ---
@@ -26,18 +26,18 @@ Interfejs API języka JavaScript usługi Power BI umożliwia łatwe osadzanie ra
 
 Raport usługi Power BI osadza się w aplikacji przy użyciu elementu iframe, który jest obsługiwany w ramach aplikacji. Element iframe działa jak granica między aplikacją i raportem, co widać na poniższej ilustracji. 
 
-![Element iframe usługi Power BI Embedded bez interfejsu API języka Javascript](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-1.png)
+![Element iframe usługi Power BI Embedded bez interfejsu API języka Javascript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
 Element iframe znacznie ułatwia proces osadzania, ale bez interfejsu API języka JavaScript raport i aplikacja nie mogą ze sobą współdziałać. Ten brak interakcji może tworzyć wrażenie, że raport nie jest tak naprawdę częścią aplikacji. Raport i aplikacja muszą dwukierunkowo komunikować się ze sobą, jak na poniższej ilustracji.
 
-![Element iframe usługi Power BI Embedded z interfejsem API języka Javascript](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-2.png)
+![Element iframe usługi Power BI Embedded z interfejsem API języka Javascript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
 Interfejs API języka JavaScript usługi Power BI pozwala napisać kod, który może bezpiecznie przechodzić przez granicę elementu iframe. Dzięki temu aplikacja może programowo wykonywać akcje w raporcie oraz nasłuchiwać zdarzeń z akcji wykonywanych w raporcie przez użytkowników.
 
 ## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Co możesz zrobić z interfejsem API języka JavaScript usługi Power BI?
 Używając interfejsu API języka JavaScript, możesz zarządzać raportami, przechodzić do stron w raporcie, filtrować raport oraz obsługiwać zdarzenia osadzania. Poniższy diagram przedstawia strukturę interfejsu API.
 
-![Diagram interfejsu API języka JavaScript usługi Power BI](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
+![Diagram interfejsu API języka JavaScript usługi Power BI](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>Zarządzanie raportami
 Interfejs API języka Javascript pozwala na zarządzanie zachowaniem na poziomie raportu i strony:
@@ -139,6 +139,6 @@ Aby uzyskać więcej informacji o interfejsie API języka JavaScript usługi Pow
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

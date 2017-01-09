@@ -69,7 +69,7 @@
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/vm)
 ## [Java](/java/api)
-## [Tworzenie szablonów usługi Resource Manager](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Tworzenie szablonów usługi Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Szablony społeczności](https://azure.microsoft.com/documentation/templates)
 ## [Architektura REST — usługa Compute](/rest/api/compute)
 ## [Architektura REST — sieć](/rest/api)
@@ -83,6 +83,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

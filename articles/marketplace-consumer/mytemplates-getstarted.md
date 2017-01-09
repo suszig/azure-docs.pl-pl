@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
 
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Rozpoczynanie pracy z szablonami prywatnymi w portalu Azure
-Szablon usługi [Azure Resource Manager](../resource-group-authoring-templates.md) to deklaracyjny szablon używany do definiowania wdrożenia. Można zdefiniować zasoby w celu wdrożenia rozwiązania oraz określić parametry i zmienne, które umożliwią wprowadzanie wartości dla różnych środowisk. Szablon składa się z kodu JSON i wyrażeń, których można używać do tworzenia wartości na potrzeby wdrożenia.
+Szablon usługi [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) to deklaracyjny szablon używany do definiowania wdrożenia. Można zdefiniować zasoby w celu wdrożenia rozwiązania oraz określić parametry i zmienne, które umożliwią wprowadzanie wartości dla różnych środowisk. Szablon składa się z kodu JSON i wyrażeń, których można używać do tworzenia wartości na potrzeby wdrożenia.
 
 Aby umożliwić użytkownikom tworzenie i wdrażanie szablonów prywatnych oraz zarządzanie nimi z poziomu biblioteki osobistej, można użyć nowej funkcji **Szablony** w witrynie [Azure Portal](https://portal.azure.com) razem z dostawcą zasobów **Microsoft.Gallery** jako rozszerzenia portalu [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
@@ -35,16 +35,16 @@ Poniższe sugestie pomogą Ci w pełni wykorzystać możliwości **szablonów** 
 * **Szablon** to hermetyzowany zasób, który zawiera szablon usługi Resource Manager i dodatkowe metadane. Jego zachowanie jest bardzo podobne do zachowania elementu w witrynie Marketplace. Najważniejsza różnica polega na tym, że jest to element prywatny, a witryna Marketplace zawiera elementy publiczne.
 * Biblioteka **Szablony** jest dobrym rozwiązaniem, jeśli użytkownicy muszą dostosować swoje wdrożenia.
 * **Szablony** są dobrym rozwiązaniem dla użytkowników, którzy potrzebują prostego repozytorium na platformie Azure.
-* Rozpocznij pracę z istniejącym szablonem usługi Resource Manager. Wyszukaj szablony w witrynie [github](https://github.com/Azure/azure-quickstart-templates) lub [wyeksportuj szablon](../resource-manager-export-template.md) z istniejącej grupy zasobów.
+* Rozpocznij pracę z istniejącym szablonem usługi Resource Manager. Wyszukaj szablony w witrynie [github](https://github.com/Azure/azure-quickstart-templates) lub [wyeksportuj szablon](../azure-resource-manager/resource-manager-export-template.md) z istniejącej grupy zasobów.
 * **Szablony** są powiązane z użytkownikiem, który je opublikował. Nazwa wydawcy jest widoczna dla każdej osoby, która ma uprawnienia do odczytu szablonu.
 * **Szablony** to zasoby usługi Resource Manager. Po opublikowaniu nie można zmienić ich nazwy.
 
 ## <a name="add-a-template-resource"></a>Dodawanie zasobu Szablon
 Istnieją dwa sposoby tworzenia zasobu **Szablon** w witrynie Azure Portal.
 
-### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Metoda 1. Tworzenie nowego zasobu Szablon z poziomu uruchomionej grupy zasobów
+### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>Metoda 1. Tworzenie nowego zasobu Szablon z poziomu uruchomionej grupy zasobów
 1. Przejdź do istniejącej grupy zasobów w portalu Azure. Wybierz pozycję **Eksportuj szablon** w obszarze **Ustawienia**.
-2. Po wyeksportowaniu szablonu usługi Resource Manager użyj przycisku **Zapisz szablon** w celu zapisania go w repozytorium **Szablony**. Wszystkie szczegóły eksportowania szablonu możesz znaleźć [tutaj](../resource-manager-export-template.md).
+2. Po wyeksportowaniu szablonu usługi Resource Manager użyj przycisku **Zapisz szablon** w celu zapisania go w repozytorium **Szablony**. Wszystkie szczegóły eksportowania szablonu możesz znaleźć [tutaj](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
    ![Eksportowanie grupy zasobów](media/rg-export-portal1.PNG)  <br />
 3. Wybierz przycisk polecenia **Zapisz szablon**.
@@ -62,7 +62,7 @@ Istnieją dwa sposoby tworzenia zasobu **Szablon** w witrynie Azure Portal.
    > 
    > 
 
-### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. Metoda 2. Dodawanie nowego szablonu przy użyciu funkcji przeglądania
+### <a name="method-2--add-a-new-template-resource-from-browse"></a>Metoda 2. Dodawanie nowego szablonu przy użyciu funkcji przeglądania
 Możesz także dodać nowy **szablon** od początku, korzystając z przycisku polecenia +Dodaj, dostępnego po wybraniu pozycji **Przeglądaj > Szablony**. Musisz podać nazwę, opis i kod JSON szablonu usługi Resource Manager.
 
 ![Dodawanie szablonu](media/add-template-portal1.PNG)  <br />
@@ -129,13 +129,13 @@ Kliknij pozycję **Wybierz**, a następnie przycisk **OK**. Możesz teraz przegl
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać informacje na temat tworzenia szablonów usługi Resource Manager, zobacz artykuł [Authoring templates](../resource-group-authoring-templates.md) (Tworzenie szablonów).
-* Aby poznać funkcje, których można użyć w szablonie usługi Resource Manager, zobacz artykuł [Template functions](../resource-group-template-functions.md) (Funkcje szablonu).
-* Aby uzyskać wskazówki dotyczące projektowania szablonów, zobacz artykuł [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md) (Najlepsze rozwiązania dotyczące projektowania szablonów usługi Azure Resource Manager).
+* Aby uzyskać informacje na temat tworzenia szablonów usługi Resource Manager, zobacz artykuł [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md) (Tworzenie szablonów).
+* Aby poznać funkcje, których można użyć w szablonie usługi Resource Manager, zobacz artykuł [Template functions](../azure-resource-manager/resource-group-template-functions.md) (Funkcje szablonu).
+* Aby uzyskać wskazówki dotyczące projektowania szablonów, zobacz artykuł [Best practices for designing Azure Resource Manager templates](../azure-resource-manager/best-practices-resource-manager-design-templates.md) (Najlepsze rozwiązania dotyczące projektowania szablonów usługi Azure Resource Manager).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

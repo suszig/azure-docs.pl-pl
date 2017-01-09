@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 40ae0d242968db83c4d4d04452fbfd93559af31e
+ms.sourcegitcommit: ccf25aab4d6454e27a57f9a18305ef752421896f
+ms.openlocfilehash: 6e4af8f21a3ec9613d9dc36ebceb710c0d8c9906
 
 
 ---
@@ -103,7 +103,7 @@ Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować nast�
 Przed utworzeniem urządzenia wirtualnego pobierz następujące aktualizacje usługi Azure StorSimple:
 
 * Dodaj [rekordy kontroli dostępu](storsimple-manage-acrs.md) do maszyn wirtualnych, które będą serwerami hosta dla urządzenia wirtualnego.
-* Użyj [konta magazynu](storsimple-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym znajduje się urządzenie wirtualne. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. Na urządzeniu wirtualnym można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage]((../storage/storage-create-storage-account.md) lub [konta Premium Storage](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Użyj [konta magazynu](storsimple-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym znajduje się urządzenie wirtualne. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. Na urządzeniu wirtualnym można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage](../storage/storage-create-storage-account.md) lub [konta Premium Storage](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 * Do utworzenia urządzenia wirtualnego użyj innego konta magazynu niż to używane do danych. Użycie tego samego konta magazynu może spowodować obniżenie wydajności.
 
 Upewnij się, że przed rozpoczęciem masz przygotowane następujące informacje:
@@ -259,6 +259,6 @@ Jeśli podczas tworzenia urządzenia wirtualnego nie ma łączności z Internete
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

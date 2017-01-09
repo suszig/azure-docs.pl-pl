@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
 
 
 ---
@@ -36,7 +36,7 @@ Ten artykuł zawiera instrukcje korzystania z interfejsu API REST usługi Fabryk
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Przeczytaj artykuł [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonaj kroki **wymagań wstępnych**.
 * Zainstaluj na komputerze narzędzie [Curl](https://curl.haxx.se/dlwiz/). W połączeniu z poleceniami REST umożliwia ono utworzenie fabryki danych.
-* Postępuj zgodnie z instrukcjami zawartymi w [tym artykule](../resource-group-create-service-principal-portal.md), aby wykonać następujące czynności:
+* Postępuj zgodnie z instrukcjami zawartymi w [tym artykule](../azure-resource-manager/resource-group-create-service-principal-portal.md), aby wykonać następujące czynności:
   1. Utworzenie aplikacji sieci Web o nazwie **ADFGetStartedApp** w usłudze Azure Active Directory.
   2. Pobranie **identyfikatora klienta** i **klucza tajnego**.
   3. Uzyskanie **identyfikatora dzierżawy**.
@@ -487,6 +487,6 @@ W tym artykule opisano tworzenie potoku za pomocą działania przekształcania (
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

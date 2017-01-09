@@ -3,7 +3,7 @@
 2. Przejdź do strony **Urządzenia**. Kliknij opcję **Utwórz urządzenie wirtualne** u dołu strony **Urządzenia**.
 3. W **oknie dialogowym Tworzenie urządzenia wirtualnego** określ następujące informacje.
    
-     ![Tworzenie urządzenia wirtualnego StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![Tworzenie urządzenia wirtualnego StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **Nazwa** — unikatowa nazwa urządzenia wirtualnego.
    2. **Model** — wybierz model urządzenia wirtualnego. To pole jest widoczne tylko, jeśli używasz wersji Update 2 lub nowszej. Model urządzenia 8010 oferuje 30 TB pamięci standardowej, a 8020 ma 64 TB magazynu w usłudze Premium Storage. Wybierz 8010,
@@ -28,6 +28,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

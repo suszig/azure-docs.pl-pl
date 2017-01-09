@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,6 @@ W tym artykule opisano, jak rozpocząć korzystanie z usługi Azure Multi-Factor
 
 > [!NOTE]
 > Poniższa dokumentacja zawiera informacje dotyczące umożliwiania użytkownikom korzystania z **klasycznego portalu Azure**. Jeśli szukasz informacji na temat konfigurowania usługi Azure Multi-Factor Authentication dla użytkowników usługi O365, zobacz temat [Konfigurowanie usługi Multi-Factor Authentication dla usługi Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US).
-> 
-> 
 
 ![Usługa MFA w chmurze](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,8 +36,6 @@ Aby umożliwić użytkownikom korzystanie z usługi Azure Multi-Factor Authentic
 
 > [!NOTE]
 > Licencje są dostępne dla użytkowników, którzy mają usługę Azure MFA, usługę Azure AD w wersji Premium lub pakiet Enterprise Mobility Suite (EMS).  Usługa MFA jest zawarta w wersji Premium usługi Azure AD i pakiecie EMS. Jeśli masz wystarczającą liczbę licencji, nie musisz tworzyć dostawcy uwierzytelniania.
-> 
-> 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Włączanie weryfikacji dwuetapowej dla użytkowników
 Aby zacząć wymagać od użytkownika weryfikacji dwuetapowej, należy zmienić jego stan z wyłączonego na włączony.  Więcej informacji na temat stanów użytkowników można znaleźć w artykule [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md) (Stany użytkowników w usłudze Azure Multi-Factor Authentication)
@@ -75,13 +71,11 @@ Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [pro
 
 > [!IMPORTANT]
 > Nie zalecamy przenoszenia użytkowników bezpośrednio ze stanu Disabled do stanu Enforced. Aplikacje nieoparte na przeglądarce przestaną działać, ponieważ użytkownik nie przeszedł procesu rejestracji w usłudze MFA i nie uzyskał [hasła aplikacji](multi-factor-authentication-whats-next.md#app-passwords). W przypadku aplikacji niekorzystających z przeglądarki, które wymagają hasła, zalecamy przejście ze stanu Disabled do stanu Enabled. Pozwoli to użytkownikom na zarejestrowanie się i uzyskanie haseł aplikacji. Następnie będzie można zmienić ich stan na Enforced.
-> 
-> 
 
 Używanie programu PowerShell to dobra metoda na zbiorcze włączanie użytkowników. Obecnie portal Azure nie umożliwia zbiorczego włączania — trzeba wybierać pojedynczych użytkowników. W przypadku dużej liczby użytkowników może to być pracochłonne. Utworzenie skryptu programu PowerShell przy użyciu następujących instrukcji umożliwia jednoczesne włączenie wszystkich użytkowników z listy.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ Oto przykład:
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta

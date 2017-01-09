@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 
 
 ---
@@ -43,7 +43,7 @@ Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych Azure przy 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Zapoznaj się z artykułem [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) i wykonaj kroki **wymagań wstępnych**.
 * Zainstaluj na komputerze narzędzie [Curl](https://curl.haxx.se/dlwiz/). W połączeniu z poleceniami REST umożliwia ono utworzenie fabryki danych. 
-* Postępuj zgodnie z instrukcjami zawartymi w [tym artykule](../resource-group-create-service-principal-portal.md), aby wykonać następujące czynności: 
+* Postępuj zgodnie z instrukcjami zawartymi w [tym artykule](../azure-resource-manager/resource-group-create-service-principal-portal.md), aby wykonać następujące czynności: 
   1. Utworzenie aplikacji sieci Web o nazwie **ADFCopyTutorialApp** w usłudze Azure Active Directory.
   2. Pobranie **identyfikatora klienta** i **klucza tajnego**. 
   3. Uzyskanie **identyfikatora dzierżawy**. 
@@ -578,6 +578,6 @@ W tym samouczku opisano tworzenie fabryki danych Azure za pomocą interfejsu API
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -35,6 +35,6 @@ Po skonfigurowaniu opcji nowej pamięci podręcznej kliknij przycisk **Utwórz**
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

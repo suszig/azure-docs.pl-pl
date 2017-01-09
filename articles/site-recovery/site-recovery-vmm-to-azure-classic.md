@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 069a8619ccec30bb2a575ffd8faf3e6acf60da4a
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
 
 
 ---
@@ -184,7 +184,7 @@ gdzie parametry są następujące:
     ![Konto magazynu](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
 > [!NOTE]
-> [Migracja kont magazynu](../resource-group-move-resources.md) w grupach zasobów w ramach tej samej subskrypcji lub w różnych subskrypcjach nie jest obsługiwana dla kont magazynu używanych do wdrażania usługi Site Recovery.
+> [Migracja kont magazynu](../azure-resource-manager/resource-group-move-resources.md) w grupach zasobów w ramach tej samej subskrypcji lub w różnych subskrypcjach nie jest obsługiwana dla kont magazynu używanych do wdrażania usługi Site Recovery.
 >
 >
 
@@ -246,7 +246,7 @@ Po zapisaniu ustawień zadanie zacznie śledzić postęp mapowania i może być 
 Jeśli sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą nazwę jak podsieć, w której znajduje się źródłowa maszyna wirtualna, replika maszyny wirtualnej zostanie podłączona do tej docelowej podsieci po przejściu w tryb failover. Jeśli nie istnieje docelowa podsieć o takiej samej nazwie, maszyna wirtualna zostanie podłączona do pierwszej podsieci w sieci.
 
 > [!NOTE]
-> [Migracja sieci](../resource-group-move-resources.md) w grupach zasobów w ramach tej samej subskrypcji lub w różnych subskrypcjach nie jest obsługiwana dla sieci używanych do wdrażania usługi Site Recovery.
+> [Migracja sieci](../azure-resource-manager/resource-group-move-resources.md) w grupach zasobów w ramach tej samej subskrypcji lub w różnych subskrypcjach nie jest obsługiwana dla sieci używanych do wdrażania usługi Site Recovery.
 >
 >
 
@@ -345,13 +345,12 @@ Aby testować tryb failover, wykonaj następujące czynności:
    * Kliknij pozycję **Ukończono testowe przełączanie w tryb failover**. Wyczyść środowisko testowe, aby automatycznie wyłączyć i usunąć testową maszynę wirtualną.
    * Kliknij pozycję **Uwagi**, aby zarejestrować i zapisać wszelkie obserwacje związane z testowym trybem failover.
 
->
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat [konfigurowania planów odzyskiwania](site-recovery-create-recovery-plans.md) i [trybu failover](site-recovery-failover.md).
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 
