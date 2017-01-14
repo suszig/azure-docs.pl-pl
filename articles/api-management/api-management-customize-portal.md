@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -28,7 +28,7 @@ Jednym z kluczowych aspektów dostosowywania portalu jest zastąpienie tekstu w 
 
 Zawartość portalu dla deweloperów jest modyfikowana przy użyciu portalu wydawcy dostępnego za pośrednictwem klasycznej witryny Azure Portal. Aby przejść do niego, kliknij pozycję **Portal wydawcy** na pasku narzędzi wystąpienia usługi API Management.
 
-![Portal wydawcy][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 Portal dla deweloperów jest oparty na systemie zarządzania zawartością, czyli systemie CMS. Nagłówek, który pojawia się na każdej stronie, to specjalny typ zawartości, tzw. widżet. Aby edytować zawartość tego widżetu, kliknij pozycję **Widżety** w menu **Portal dla deweloperów**, a następnie wybierz z listy widżet **Nagłówek**.
 
@@ -55,7 +55,7 @@ W tej części chcemy zmienić tylko style nagłówków. Kliknij opcję **Wybier
 
 Każda reguła reprezentuje właściwość stylu wybranego elementu. Na przykład w wybranym powyżej tekście nagłówka rozmiar tekstu to @font-size-h1, a nazwa czcionki z alternatywami to @headings-font-family.
 
-> Jeśli znasz środowisko [bootstrap][bootstrap], zauważysz, że te reguły to w rzeczywistości [zmienne LESS][zmienne LESS] w motywie bootstrap używanym w portalu dla deweloperów.
+> Jeśli znasz środowisko [bootstrap][bootstrap], zauważysz, że te reguły są w rzeczywistości [zmiennymi LESS][LESS variables] w motywie bootstrap używanym w portalu dla deweloperów.
 > 
 > 
 
@@ -87,26 +87,26 @@ Kliknij stronę **Zapraszamy**, aby edytować zawartość strony głównej porta
 ## <a name="next-steps"> </a>Następne kroki
 * Dowiedz się, w jaki sposób dostosować zawartość portalu dla deweloperów przy użyciu [szablonów portalu dla deweloperów](api-management-developer-portal-templates.md).
 
-[Zmiana tekstu lub logo w nagłówkach stron]: #change-page-headers
-[Zmiana stylu nagłówków]: #change-headers-styling
-[Edytowanie zawartości strony]: #edit-page-contents
-[Następne kroki]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Klasyczny portal Azure]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
-[usługa API Management — konsola zarządzania]: ./media/api-management-customize-portal/api-management-management-console.png
-[usługa API Management — nagłówek Widżety]: ./media/api-management-customize-portal/api-management-widgets-header.png
-[dostosowywanie usługi API Management — pasek narzędzi]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
-[dostosowywanie usługi API Management — selektor kolorów paska narzędzi]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
-[dostosowywanie usługi API Management — formularz publikowania paska narzędzi]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
-[dostosowywanie usługi API Management — zarządzanie zawartością]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
+[api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
+[api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
+[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
+[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
+[api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
 [bootstrap]: http://getbootstrap.com/
-[zmienne LESS]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
