@@ -100,6 +100,6 @@ Dowiedz się, jak przy użyciu usługi Container Registry przechowywać obrazy d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

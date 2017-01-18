@@ -157,6 +157,6 @@ W poniższych tematach opisano sposób projektowania aplikacji odpornych na awar
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
