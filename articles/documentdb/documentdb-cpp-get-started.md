@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: hero-article
-ms.date: 11/02/2016
+ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31368661906bc8ca0f8ac1d3329bb053d41a94d7
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 
 
 ---
@@ -24,10 +24,12 @@ ms.openlocfilehash: 31368661906bc8ca0f8ac1d3329bb053d41a94d7
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
+>  
 > 
-> 
+ 
 
 Witamy w samouczku języka C++ dla zatwierdzonego dla usługi DocumentDB zestawu SDK języka C++! W ramach tego samouczka utworzysz aplikację konsolową, która tworzy zasoby usługi DocumentDB, w tym bazę danych w języku C++ oraz wykonuje względem nich zapytania.
 
@@ -286,13 +288,11 @@ Aby skompilować rozwiązanie GetStarted, które zawiera wszystkie przykłady z 
 * Dowiedz się więcej o modelu programowania w sekcji Dla deweloperów [strony dokumentacji usługi DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 
 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

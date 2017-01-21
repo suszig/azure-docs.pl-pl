@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
-ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Łączenie z klastrem usługi kontenera platformy Azure
 Klastry DC/OS, Kubernetes i Docker Swarm wdrażane przez usługę Azure Container Service uwidaczniają punkty końcowe REST.  W przypadku klastrów Kubernetes ten punkt końcowy jest bezpiecznie uwidaczniany w Internecie i można do niego uzyskać dostęp bezpośrednio z dowolnej maszyny podłączonej do Internetu. W przypadku kontenerów DC/OS i Docker Swarm musisz utworzyć tunel SSH, aby bezpiecznie połączyć się z punktem końcowym REST. Poniżej opisano każde z tych połączeń.
+
+> [!NOTE]
+> Obsługa klastra Kubernetes w usłudze Azure Container Service jest obecnie w wersji zapoznawczej.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Nawiązywanie połączenia z klastrem Kubernetes
 Aby połączyć się z klastrem Kubernetes, musisz mieć zainstalowane narzędzie wiersza polecenia `kubectl`.  Najłatwiejszym sposobem instalacji tego narzędzia jest użycie narzędzia wiersza polecenia Azure 2.0 `az`.
@@ -172,6 +176,6 @@ Wdrażanie kontenerów i zarządzanie nimi przy użyciu rozwiązania DC/OS lub S
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

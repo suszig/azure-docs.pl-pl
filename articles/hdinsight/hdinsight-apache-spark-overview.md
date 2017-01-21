@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
-ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe systemu Azure z zainstalowaną i skonfigurowaną platformą Spark. Utworzenie klastra Spark w usłudze HDInsight trwa tylko około 10 minut. Dane, które mają być przetwarzane, są przechowywane w usługi Azure Blob Storage. Zobacz temat [Korzystanie z usługi Azure Blob Storage z usługą HDInsight][hdinsight-storage].
 
-![Platforma Apache Spark w usłudze Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
+![Platforma Apache Spark w usłudze Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Platforma Apache Spark w usłudze Azure HDInsight")
 
 **Chcesz rozpocząć korzystanie z platformy Apache Spark w usłudze Azure HDInsight?** Zobacz temat [Szybki start: tworzenie klastra Spark w usłudze HDInsight w systemie Linux i uruchamianie przykładowych aplikacji przy użyciu oprogramowania Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -43,7 +43,7 @@ Usługa Azure HDInsight oferuje w pełni zarządzaną usługę platformy Spark. 
 | Łatwość tworzenia klastrów |Nowy klaster Spark w usłudze HDInsight można utworzyć w kilka minut przy użyciu Portalu zarządzania Azure, programu Azure PowerShell lub zestawu .NET SDK usługi HDInsight. Zobacz temat [Wprowadzenie do klastra Spark w usłudze HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | Łatwość obsługi |Platforma Spark w klastrach HDInsight obejmuje wstępnie skonfigurowane notesy Jupyter. Można ich używać do interakcyjnego przetwarzania danych i wizualizacji. Adres URL dla lokalnego notesu Jupyter to https://CLUSTERNAME.azurehdinsight.net/jupyter. Zastąp ciąg **CLUSTERNAME** nazwą klastra Spark w usłudze HDInsight: |
 | Interfejsy API REST |Platforma Spark w usłudze HDInsight obejmuje [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), czyli serwer zadań Spark oparty na interfejsach API REST do zdalnego przesyłania i monitorowania uruchomionych zadań. |
-| Obsługa usługi Azure Data Lake Store |Platformę Spark w usłudze HDInsight można skonfigurować do korzystania z usługi Azure Data Lake Store jako dodatkowego magazynu. Aby uzyskać więcej informacji o usłudze Data Lake — magazyn, zobacz temat [Przegląd usługi Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). |
+| Obsługa usługi Azure Data Lake Store |Platformę Spark w usłudze HDInsight można skonfigurować do korzystania z usługi Azure Data Lake Store jako dodatkowego magazynu, a także jako podstawowego magazynu (wyłącznie przy użyciu klastrów HDInsight 3.5). Aby uzyskać więcej informacji o usłudze Data Lake — magazyn, zobacz temat [Przegląd usługi Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). |
 | Integracja z usługami Azure |Platforma Spark w usłudze HDInsight zawiera łącznik usługi Azure Event Hubs. Klienci mogą tworzyć aplikacje do przesyłania strumieniowego przy użyciu usługi Event Hubs w uzupełnieniu do oprogramowania [Kafka](http://kafka.apache.org/), które jest już dostępne w ramach platformy Spark. |
 | Obsługa platformy R Server |Możesz skonfigurować platformę R Server w klastrze Spark w usłudze HDInsight, aby uruchamiać rozproszone obliczenia R z szybkością zapewnianą przez klaster Spark. Aby uzyskać więcej informacji, zobacz temat [Rozpoczęcie pracy z platformą R Server w usłudze HDInsight](hdinsight-hadoop-r-server-get-started.md). |
 | Integracja z rozwiązaniem IntelliJ IDEA |Dodatek HDInsight for IntelliJ umożliwia tworzenie i przesyłanie aplikacji do klastra Spark w usłudze HDInsight. Aby uzyskać więcej informacji, zobacz temat [Tworzenie aplikacji Spark dla klastra Spark w usłudze HDInsight w systemie Linux przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin.md). |
@@ -115,6 +115,6 @@ Rozpocznij od utworzenia klastra Spark w usłudze HDInsight w systemie Linux. Zo
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

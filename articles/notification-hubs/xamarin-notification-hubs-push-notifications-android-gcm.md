@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5137e0f33497dfe7ee815bb4bc30929364f6df72
+ms.sourcegitcommit: cafe4f2d9ae9a79fd2e27b8734bda43bb774eeb2
+ms.openlocfilehash: e0ef1b006a2b202c08a71caaff4ef4d763d50d0a
 
 
 ---
@@ -68,10 +68,11 @@ Centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i uzyskan
 ### <a name="create-a-new-project"></a>Tworzenie nowego projektu
 1. W programie Xamarin Studio kliknij kolejno pozycje **New Solution** (Nowe rozwiązanie), **Android App** (Aplikacja dla systemu Android) i **Next** (Dalej).
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+
 2. Wprowadź nazwę aplikacji w polu **App Name** i identyfikator w polu **Identifier**. W obszarze **Target Platforms** (Platformy docelowe) kliknij platformy, które mają być obsługiwane, a następnie kliknij kolejno pozycje **Next** (Dalej) i **Create** (Utwórz).
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
     Spowoduje to utworzenie nowego projektu dla systemu Android.
 
@@ -84,7 +85,7 @@ Centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i uzyskan
    > 
    > 
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 2. Opcjonalnie możesz ustawić wartość w polu **Minimum Android version** (Minimalna wersja systemu Android) na inny poziom interfejsu API.
 3. Opcjonalnie możesz ustawić wartość w polu **Target Android version** (Docelowa wersja systemu Android) na inną docelową wersję interfejsu API (wymagany poziom 8 lub wyższy).
 
@@ -343,10 +344,10 @@ W przypadku uruchamiania aplikacji w emulatorze upewnij się, że korzystasz z u
 
 1. W obszarze **Narzędzia** kliknij polecenie **Open Android Emulator Manager** (Otwórz menedżera emulatora systemu Android), zaznacz urządzenie, a następnie kliknij przycisk **Edit** (Edytuj).
    
-       ![][18]
+      ![][18]
 2. Wybierz pozycję **Google APIs** (Interfejsy API Google) w polu **Target** (Element docelowy), a następnie kliknij przycisk **OK**.
    
-       ![][19]
+      ![][19]
 3. Na górnym pasku narzędzi kliknij pozycję **Run** (Uruchom), a następnie wybierz aplikację. Spowoduje to uruchomienie emulatora i aplikacji.
    
    Aplikacja pobiera wartość *registrationId* z usługi GCM i rejestruje się w centrum powiadomień.
@@ -371,7 +372,7 @@ W tej sekcji wyślemy powiadomienia za pomocą aplikacji konsoli .NET.
 
 1. Utwórz nową aplikację konsoli języka Visual C#:
    
-       ![][20]
+      ![][20]
 2. W programie Visual Studio kliknij kolejno pozycje **Narzędzia**, **Menedżer pakietów NuGet**, **Konsola menedżera pakietów**.
    
     Spowoduje to wyświetlenie Konsoli menedżera pakietów w programie Visual Studio.
@@ -398,17 +399,17 @@ W tej sekcji wyślemy powiadomienia za pomocą aplikacji konsoli .NET.
          Console.ReadLine();
 7. Naciśnij klawisz F5, aby uruchomić aplikację. W aplikacji powinno zostać odebrane powiadomienie.
    
-       ![][21]
+      ![][21]
 
 #### <a name="optional-send-notifications-by-using-a-mobile-service"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych z poziomu usługi mobilnej
 1. Wykonaj czynności opisane w temacie [Wprowadzenie do usług Mobile Services].
 2. Zaloguj się do [klasyczny portal Azure] i wybierz usługę mobilną.
 3. Wybierz kartę **Harmonogram** na górnym pasku.
    
-       ![][22]
+      ![][22]
 4. Utwórz nowe zadanie zaplanowane, wstaw nazwę i wybierz opcję **Na żądanie**.
    
-       ![][23]
+      ![][23]
 5. Po utworzeniu zadania kliknij jego nazwę. Następnie kliknij kartę **Skrypt** na górnym pasku.
 6. Wstaw następujący skrypt w funkcji harmonogramu. Pamiętaj o zastąpieniu tekstu zastępczego uzyskanymi wcześniej wartościami: nazwą centrum powiadomień i parametrami połączenia *DefaultFullSharedAccessSignature*. Kliknij pozycję **Zapisz**.
    
@@ -432,12 +433,12 @@ W tej sekcji wyślemy powiadomienia za pomocą aplikacji konsoli .NET.
 W tym prostym przykładzie wysłano powiadomienia do wszystkich urządzeń z systemem Android. Aby skierować je do określonych użytkowników, zapoznaj się z samouczkiem [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]. Jeśli chcesz podzielić użytkowników na grupy zainteresowań, zobacz [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]. Aby uzyskać więcej informacji na temat korzystania z usługi Notification Hubs, zobacz [Wskazówki dotyczące usługi Notification Hubs] oraz [Poradnik dotyczący usługi Notification Hubs dla systemu Android].
 
 <!-- Anchors. -->
-[Włączanie usługi Google Cloud Messaging]: #register
-[Konfigurowanie centrum powiadomień]: #configure-hub
-[Łączenie aplikacji z centrum powiadomień]: #connecting-app
-[Uruchamianie aplikacji w emulatorze]: #run-app
-[Wysyłanie powiadomień z poziomu zaplecza]: #send
-[Następne kroki]:#next-steps
+[Enable Google Cloud Messaging]: #register
+[Configure your Notification Hub]: #configure-hub
+[Connecting your app to the Notification Hub]: #connecting-app
+[Run your app with the emulator]: #run-app
+[Send notifications from your back-end]: #send
+[Next steps]:#next-steps
 
 <!-- Images. -->
 
@@ -458,27 +459,27 @@ W tym prostym przykładzie wysłano powiadomienia do wszystkich urządzeń z sys
 
 
 <!-- URLs. -->
-[Strona przesyłania aplikacji]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Moje aplikacje]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Zestaw Live SDK dla systemu Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Wprowadzenie do usług Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
-[JavaScript i HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [klasyczny portal Azure]: https://manage.windowsazure.com/
-[Obiekt wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Poradnik dotyczący usługi Notification Hubs dla systemu Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
 [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: /manage/services/notification-hubs/breaking-news-dotnet
-[Strona składnika GCMClient]: http://components.xamarin.com/view/GCMClient
-[Strona projektu Xamarin.NotificationHub w witrynie GitHub]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
+[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
+[Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Składnik Google Cloud Messaging Client]: http://components.xamarin.com/view/GCMClient/
 [Składnik Azure Messaging]: http://components.xamarin.com/view/azure-messaging
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
