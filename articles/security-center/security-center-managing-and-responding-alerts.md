@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a1cf550c46810624d9eee7722409ff19b75369
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
 
 
 ---
@@ -42,20 +42,19 @@ Bieżące alerty można przeglądać przy użyciu kafelka **Alerty zabezpieczeń
 1. Na pulpicie nawigacyjnym Centrum zabezpieczeń widoczny jest kafelek **Alerty zabezpieczeń**.
    
     ![Kafelek Alerty zabezpieczeń w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Kliknij kafelek, aby otworzyć blok **Alerty zabezpieczeń** zawierający więcej szczegółowych informacji o alertach, jak pokazano poniżej.
    
    ![Blok kafelka Alerty zabezpieczeń w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 W dolnej części tego bloku znajdują się szczegółowe informacje o każdym alercie. Aby posortować dane, kliknij kolumnę, według której chcesz wykonać sortowanie. Poniżej znajdują się definicje poszczególnych kolumn:
 
-* **Alert**: krótki opis alertu.
+* **Opis**: krótki opis alertu.
 * **Liczba**: lista wszystkich alertów określonego typu, które zostały wykryte w określonym dniu.
 * **Wykryte przez**: usługa odpowiedzialna za wyzwolenie alertu.
 * **Data**: dzień, w którym wystąpiło zdarzenie.
 * **Stan**: bieżący stan alertu. Istnieją dwa typy stanów:
-  
   * **Aktywny**: alert zabezpieczeń został wykryty.
-  * **Odrzucony**: alert zabezpieczeń został odrzucony przez użytkownika. Ten stan jest zwykle używany w przypadku alertów, które zostały zbadane, ale ryzyko związane z nimi zostało zminimalizowane albo alert nie dotyczył rzeczywistego ataku.
 * **Ważność**: poziom ważności (wysoki, średni lub niski).
 
 ### <a name="filtering-alerts"></a>Filtrowanie alertów
@@ -63,10 +62,7 @@ Alerty można filtrować na podstawie daty, stanu i ważności. Filtrowanie aler
 
 1. Kliknij pozycję **Filtr** w bloku **Alerty zabezpieczeń**. Zostanie otwarty blok **Filtr**. Wybierz wartości daty, stanu i ważności, które chcesz wyświetlić.
    
-    ![Filtrowanie alertów w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. Po zbadaniu alertu zabezpieczeń może okazać się, że było to fałszywe ostrzeżenie związane ze środowiskiem lub że wskazuje on oczekiwane zachowanie określonego zasobu. Niezależnie od przyczyny wyświetlenia, jeśli uważasz, że alert zabezpieczeń nie ma zastosowania, możesz go odrzucić i odfiltrować z widoku. Istnieją dwa sposoby odrzucania alertu zabezpieczeń. Kliknij alert prawym przyciskiem myszy i wybierz pozycję **Odrzuć** lub umieść wskaźnik myszy nad elementem, kliknij przycisk z wielokropkiem po prawej stronie i wybierz pozycję **Odrzuć**. Odrzucone alerty zabezpieczeń możesz wyświetlić, klikając pozycję **Filtr** i wybierając opcję **Odrzucone**.
-   
-   ![Odrzucanie alertów w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Filtrowanie alertów w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Odpowiadanie na alerty zabezpieczeń
 Wybierz alert zabezpieczeń, aby dowiedzieć się więcej o zdarzeniach, które go wywołały, oraz o czynnościach, które należy wykonać w celu wyeliminowania skutków ataku (jeśli ma to zastosowanie). Alerty zabezpieczeń są grupowane według typu i daty. Kliknięcie alertu zabezpieczeń spowoduje otwarcie bloku zawierającego listę pogrupowanych alertów.
@@ -98,6 +94,6 @@ W tym dokumencie przedstawiono sposób konfigurowania zasad zabezpieczeń w Cent
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

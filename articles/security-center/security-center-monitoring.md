@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
-ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ Na kafelku **Kondycja zabezpieczeń zasobów** można monitorować stan zabezpie
 
 ![Kafelek Kondycja zabezpieczeń zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Jeśli w usłudze Security Center zostanie zidentyfikowana luka w zabezpieczeniach, którą trzeba usunąć, np. maszyna wirtualna z brakującymi aktualizacjami zabezpieczeń lub podsieć bez [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md), zostanie ona wyświetlona na tej liście.
+Jeśli w usłudze Security Center zostanie zidentyfikowana luka w zabezpieczeniach, którą trzeba usunąć, np. maszyna wirtualna z brakującymi aktualizacjami zabezpieczeń lub podsieć bez [sieciowej grupy zabezpieczeń](/virtual-network/virtual-networks-nsg.md), zostanie ona wyświetlona na tej liście.
 
 ### <a name="monitor-virtual-machines"></a>Monitorowanie maszyn wirtualnych
 Po kliknięciu opcji **Maszyny wirtualne** na kafelku **Kondycja zabezpieczeń zasobów** zostanie otwarty blok **Maszyny wirtualne** zawierający więcej szczegółów dotyczących dołączania i środków zapobiegawczych oraz listę wszystkich maszyn wirtualnych, które są monitorowane przy użyciu usługi Security Center, jak pokazano na poniższym zrzucie ekranu.
@@ -162,22 +162,22 @@ Informacje w tej tabeli (dotyczące maszyn wirtualnych i podsieci) zostały poso
 * Kolor pomarańczowy: średni priorytet, konieczne jest możliwie szybkie rozwiązanie problemu
 * Kolor zielony (ostatni): stan prawidłowy
 
-W tym widoku topologii pierwszy poziom obejmuje pozycje [sieci wirtualne](../virtual-network/virtual-networks-overview.md), [bramy sieci wirtualnej](../vpn-gateway/vpn-gateway-site-to-site-create.md) i [sieci wirtualne (klasyczne)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Drugi poziom obejmuje podsieci, natomiast trzeci poziom przedstawia maszyny wirtualne, które należą do tych podsieci. Prawa kolumna przedstawia bieżący stan sieciowej grupy zabezpieczeń dla tych zasobów, jak pokazano w poniższym przykładzie:
+W tym widoku topologii pierwszy poziom obejmuje pozycje [sieci wirtualne](../virtual-network/virtual-networks-overview.md), [bramy sieci wirtualnej](/vpn-gateway/vpn-gateway-site-to-site-create.md) i [sieci wirtualne (klasyczne)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). Drugi poziom obejmuje podsieci, natomiast trzeci poziom przedstawia maszyny wirtualne, które należą do tych podsieci. Prawa kolumna przedstawia bieżący stan sieciowej grupy zabezpieczeń dla tych zasobów, jak pokazano w poniższym przykładzie:
 
 ![Stan grupy zabezpieczeń sieci w sekcji Topologia sieci](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 W dolnej części tego bloku znajdują się zalecenia dotyczące tej maszyny wirtualnej, co jest podobne do powyższego opisu. Kliknij zalecenie, aby dowiedzieć się więcej i ewentualnie zastosować odpowiednie środki kontroli lub konfigurację zabezpieczeń.
 
 ### <a name="monitor-data"></a>Monitorowanie danych
-Po kliknięciu opcji **Dane** na kafelku **Kondycja zabezpieczeń zasobów** zostanie otwarty blok **SQL** zawierający zalecenia dotyczące problemów, takich jak brak włączonych funkcji inspekcji lub przezroczystego szyfrowania danych. Przedstawia on także [zalecenia](security-center-sql-service-recommendations.md) dotyczące ogólnej kondycji bazy danych.
+Po kliknięciu pozycji **Dane** na kafelku **Kondycja zabezpieczeń zasobów** zostanie otwarty blok **Zasoby danych** z zaleceniami dotyczącymi usług SQL i Storage. Przedstawia on także [zalecenia](security-center-sql-service-recommendations.md) dotyczące ogólnej kondycji bazy danych. Aby uzyskać więcej informacji dotyczących szyfrowania magazynu, przeczytaj artykuł Włączanie szyfrowania dla konta usługi Azure Storage w usłudze Azure Security Center.
 
-![Kondycja zasobów SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Zasoby danych](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-Można kliknąć dowolne zalecenie i uzyskać więcej szczegółów na temat dalszych działań w celu rozwiązania problemu. Poniższy przykład pokazuje rozszerzenie zalecenia **Inspekcja bazy danych nie jest włączona**.
+W obszarze **Zalecenia SQL** można kliknąć dowolne zalecenie i uzyskać więcej szczegółów na temat dalszych działań w celu rozwiązania problemu. Poniższy przykład pokazuje rozszerzenie zalecenia **Inspekcja bazy danych i wykrywanie zagrożeń w bazach danych SQL**.
 
-![Szczegółowe informacje o zaleceniach SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Szczegółowe informacje o zaleceniach SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-Blok **Włączanie inspekcji baz danych SQL** zawiera następujące informacje:
+Blok **Włączanie inspekcji i wykrywania zagrożeń w bazach danych SQL** zawiera następujące informacje:
 
 * Lista baz danych SQL
 * Serwer, na którym znajdują się bazy danych SQL
@@ -185,13 +185,14 @@ Blok **Włączanie inspekcji baz danych SQL** zawiera następujące informacje:
 * Bieżący stan
 * Ważność problemu
 
-Po kliknięciu bazy danych w celu zastosowania tego zalecenia zostanie otwarty blok **Inspekcja i wykrywanie zagrożeń**, jak pokazano na poniższym zrzucie ekranu.
+Po kliknięciu bazy danych w celu zastosowania tego zalecenia zostanie otwarty blok **Inspekcja i wykrywanie zagrożeń**, jak pokazano na poniższym ekranie.
 
 ![Blok Inspekcja i wykrywanie zagrożeń](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Aby włączyć funkcję inspekcji, zaznacz pole wyboru **WŁĄCZONE** poniżej opcji **Inspekcja**.
 
 ### <a name="monitor-applications"></a>Monitorowanie aplikacji
+
 Jeśli obciążenie platformy Azure obejmuje aplikacje znajdujące się na [maszynach wirtualnych (utworzonych za pomocą usługi Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) z uwidocznionymi portami sieci Web (porty TCP 80 i 443), usługa Security Center może je monitorować w celu identyfikowania potencjalnych problemów z zabezpieczeniami oraz rekomendowania czynności naprawczych. Po kliknięciu kafelka **Aplikacje** zostanie otwarty blok **Aplikacje** zawierający serię zaleceń w sekcji **Zalecenia dotyczące aplikacji**. Widoczny będzie również podział aplikacji według hosta/wirtualnego adresu IP, jak pokazano na poniższym zrzucie ekranu.
 
 ![Kondycja zabezpieczeń aplikacji](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
@@ -216,6 +217,6 @@ W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
