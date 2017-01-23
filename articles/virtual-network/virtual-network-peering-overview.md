@@ -1,23 +1,26 @@
-
 ---
-title: Komunikacja równorzędna w sieci wirtualnej platformy Azure | Microsoft Docs
-description: Dowiedz się więcej o komunikacji równorzędnej w sieci wirtualnej platformy Azure.
+title: "Komunikacja równorzędna w sieci wirtualnej platformy Azure | Microsoft Docs"
+description: "Dowiedz się więcej o komunikacji równorzędnej w sieci wirtualnej platformy Azure."
 services: virtual-network
 documentationcenter: na
 author: NarayanAnnamalai
 manager: jefco
 editor: tysonn
-
+ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/28/2016
+ms.date: 10/17/2016
 ms.author: narayan
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 0d4d13d44581f98ead7d65f3bb819e54b93a76b6
+
 
 ---
-# Komunikacja równorzędna sieci wirtualnych
+# <a name="vnet-peering"></a>Komunikacja równorzędna sieci wirtualnych
 Komunikacja równorzędna w sieci wirtualnej to mechanizm, który łączy dwie sieci wirtualne w tym samym regionie za pośrednictwem sieci szkieletowej platformy Azure. Po połączeniu za pomocą komunikacji równorzędnej dwie sieci wirtualne są traktowane jako jedna do wszystkich celów związanych z łącznością. Są one nadal zarządzane jako oddzielne zasoby, ale maszyny wirtualne w tych sieciach wirtualnych mogą komunikować się bezpośrednio przy użyciu prywatnych adresów IP.
 
 Ruch między maszynami wirtualnymi w wirtualnych sieciach równorzędnych odbywa się za pośrednictwem infrastruktury platformy Azure, tak jak ruch między maszynami wirtualnymi w tej samej sieci wirtualnej. Korzystanie z komunikacji równorzędnej w sieci wirtualnej zapewnia m.in. następujące korzyści:
@@ -32,12 +35,13 @@ Wymagania i kluczowe aspekty komunikacji równorzędnej w sieci wirtualnej:
 * Przestrzenie adresów IP wirtualnych sieci równorzędnych nie mogą się nakładać.
 * Komunikacja równorzędna w sieci wirtualnej odbywa się między dwiema sieciami wirtualnymi i nie istnieje żadna pochodna relacja przechodnia. Jeśli na przykład sieć wirtualna A jest połączona za pomocą komunikacji równorzędnej z siecią wirtualną B, a sieć wirtualna B jest połączona za pomocą komunikacji równorzędnej z siecią wirtualną C, nie oznacza to, że sieć wirtualna A jest połączona za pomocą komunikacji równorzędnej z siecią wirtualną C.
 * Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi w dwóch różnych subskrypcjach, o ile połączenie za pomocą komunikacji równorzędnej zostanie autoryzowane przez uprawnionego użytkownika w obu subskrypcjach, a subskrypcje są skojarzone z tą samą dzierżawą usługi Active Directory. 
+* Komunikacja równorzędna sieci wirtualnej w modelu menedżera zasobów i modelu wdrażania klasycznego wymaga, aby sieci wirtualne należały do tej samej subskrypcji.
 * Sieć wirtualna korzystająca z modelu wdrażania przy użyciu usługi Resource Manager może zostać połączona za pomocą komunikacji równorzędnej z inną siecią, która używa tego modelu, lub z siecią wirtualną korzystającą z klasycznego modelu wdrażania. Jednak sieci wirtualne korzystające z klasycznego modelu wdrażania nie mogą być połączone ze sobą za pomocą komunikacji równorzędnej.
 * Choć komunikacja między maszynami wirtualnymi w wirtualnych sieciach równorzędnych połączonych nie wiąże się z dodatkowymi ograniczeniami dotyczącymi przepustowości, nadal obowiązuje ograniczenie przepustowości zależne od rozmiaru maszyny wirtualnej.
 
 ![Podstawowa komunikacja równorzędna w sieci wirtualnej](./media/virtual-networks-peering-overview/figure01.png)
 
-## Łączność
+## <a name="connectivity"></a>Łączność
 Po połączeniu dwóch sieci wirtualnych za pomocą komunikacji równorzędnej maszyna wirtualna (o roli sieci Web / procesu roboczego) w sieci wirtualnej może łączyć się bezpośrednio z innymi maszynami wirtualnymi w sieci wirtualnej połączonej za pomocą komunikacji równorzędnej. Te dwie sieci mają pełną łączność na poziomie IP.
 
 Opóźnienie sieci podczas komunikacji dwustronnej między dwiema maszynami wirtualnymi w wirtualnych sieciach równorzędnych jest takie samo jak w przypadku komunikacji dwustronnej w lokalnej sieci wirtualnej. Przepływność sieci zależy od przepustowości dozwolonej dla maszyny wirtualnej proporcjonalnie do jej rozmiaru. Nie ma żadnych dodatkowych ograniczeń przepustowości.
@@ -50,12 +54,12 @@ Podczas konfiguracji komunikacji równorzędnej przez użytkowników można otwo
 
 Usługa rozpoznawania wewnętrznych nazw DNS na platformie Azure dla maszyn wirtualnych nie działa w sieciach wirtualnych połączonych za pomocą komunikacji równorzędnej. Maszyny wirtualne mają wewnętrzne nazwy DNS rozpoznawalne tylko w lokalnej sieci wirtualnej. Jednak użytkownicy mogą skonfigurować maszyny wirtualne w sieciach wirtualnych połączonych za pomocą komunikacji równorzędnej jako serwery DNS dla sieci wirtualnej.
 
-## Tworzenie łańcuchów usług
+## <a name="service-chaining"></a>Tworzenie łańcuchów usług
 Użytkownicy mogą konfigurować tabele tras zdefiniowane przez użytkownika prowadzące do maszyn wirtualnych w wirtualnych sieciach równorzędnych jako adresy IP „kolejnego przeskoku”, jak przedstawiono na diagramie w dalszej części tego artykułu. Dzięki temu użytkownicy mogą tworzyć łańcuchy usług, za pośrednictwem których mogą kierować ruch z jednej sieci wirtualnej do urządzenia wirtualnego działającego w równorzędnej sieci wirtualnej przy użyciu tabel tras zdefiniowanych przez użytkownika.
 
 Użytkownicy mogą również skutecznie tworzyć środowiska typu gwiazdy, w których serwer centralny może być hostem składników infrastruktury, takich jak sieciowe urządzenie wirtualne. Wszystkie wirtualne sieci-satelity mogą następnie łączyć się z nim za pomocą komunikacji równorzędnej oraz kierować część ruchu do urządzeń działających w sieci wirtualnej serwera centralnego. Krotko mówiąc, wirtualne sieci równorzędne umożliwiają użycie adresu IP kolejnego przeskoku w tabeli tras zdefiniowanej przez użytkownika jako adresu IP maszyny wirtualnej w wirtualnej sieci równorzędnej.
 
-## Bramy i łączność lokalna
+## <a name="gateways-and-on-premises-connectivity"></a>Bramy i łączność lokalna
 Każda sieć wirtualna, niezależnie od tego, czy jest połączona za pomocą komunikacji równorzędnej z inną siecią wirtualną, może mieć własną bramę i używać jej do łączenia się z lokalną infrastrukturą. Użytkownicy mogą również konfigurować [połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) przy użyciu bram, nawet jeśli te sieci wirtualne są połączone za pomocą komunikacji równorzędnej.
 
 Po skonfigurowaniu obu opcji łączności między sieciami wirtualnymi ruch między tymi sieciami wirtualnymi jest oparty na konfiguracji komunikacji równorzędnej (to znaczy odbywa się za pośrednictwem sieci szkieletowej platformy Azure).
@@ -68,24 +72,27 @@ W przypadku połączenia za pomocą komunikacji równorzędnej sieci wirtualnych
 
 ![Tranzyt w komunikacji równorzędnej w sieci wirtualnej](./media/virtual-networks-peering-overview/figure02.png)
 
-## Inicjowanie obsługi
+## <a name="provisioning"></a>Inicjowanie obsługi
 Komunikacja równorzędna w sieci wirtualnej jest operacją wymagającą odpowiednich uprawnień. Jest to oddzielna funkcja w przestrzeni nazw VirtualNetworks. Użytkownik może uzyskać określone uprawnienia do autoryzowania komunikacji równorzędnej. Użytkownik mający dostęp do odczytu i zapisu do sieci wirtualnej automatycznie dziedziczy te uprawnienia.
 
 Użytkownik będący administratorem lub użytkownikiem mającym uprawienia do komunikacji równorzędnej może zainicjować operację komunikacji równorzędnej w innej sieci wirtualnej. Jeśli po drugiej stronie istnieje zgodne żądanie komunikacji równorzędnej i spełnione są wymagania, zostanie nawiązane połączenie za pomocą komunikacji równorzędnej.
 
 Aby uzyskać więcej informacji na temat nawiązywania połączenia między dwiema sieciami wirtualnych za pomocą komunikacji równorzędnej w sieci wirtualnej, zapoznaj się z artykułami w sekcji „Następne kroki”.
 
-## Limity
+## <a name="limits"></a>Limity
 Istnieją limity liczby dozwolonych połączeń za pomocą komunikacji równorzędnej dla jednej sieci wirtualnej. Więcej informacji zawiera temat [Limity dotyczące sieci platformy Azure](../azure-subscription-service-limits.md#networking-limits).
 
-## Cennik
+## <a name="pricing"></a>Cennik
 Funkcja komunikacji równorzędnej w sieci wirtualnej będzie bezpłatna w okresie udostępniania wersji zapoznawczej. Po jej udostępnieniu będzie obowiązywać opłata nominalna za ruch przychodzący i wychodzący odbywający się przy użyciu funkcji komunikacji równorzędnej. Więcej informacji zawiera [strona cennika](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Konfigurowanie komunikacji równorzędnej między sieciami wirtualnymi](virtual-networks-create-vnetpeering-arm-portal.md).
 * Dowiedz się więcej o [grupach NSG](virtual-networks-nsg.md).
 * Dowiedz się więcej o [trasach zdefiniowanych przez użytkownika i przesyłaniu dalej IP](virtual-networks-udr-overview.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

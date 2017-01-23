@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 12/11/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3600f03c22805789b1f75f892962e0d054e84058
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
 
 
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -49,6 +50,7 @@ Ten temat powinien być przydatny dla deweloperów pracujących nad aplikacjami,
 Opisany w tym artykule przykład możesz pobrać [tutaj](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Konfigurowanie dynamicznego szyfrowania Common Encryption i usług dostarczania licencji DRM
+
 Poniżej przedstawiono ogólne kroki, które należy wykonać podczas ochrony swoich elementów zawartości przy użyciu usługi PlayReady, usługi dostarczania licencji Media Services, a także za pomocą szyfrowania dynamicznego.
 
 1. Utwórz element zawartości i przekaż do niego pliki.
@@ -56,13 +58,13 @@ Poniżej przedstawiono ogólne kroki, które należy wykonać podczas ochrony sw
 3. Utwórz klucz zawartości i skojarz go z zakodowanym elementem zawartości. W usłudze Media Services klucz zawartości zawiera klucz szyfrowania elementu zawartości.
 4. Skonfiguruj zasady autoryzacji klucza zawartości. Zasady autoryzacji klucza zawartości muszą zostać skonfigurowane przez użytkownika i muszą być spełnione przez klienta, aby klucz zawartości został dostarczony do klienta.
 
-Podczas tworzenia zasady autoryzacji klucza zawartości należy określić następujące elementy: metodę dostarczania (PlayReady lub Widevine), ograniczenia (otwarte lub tokenu) i informacje specyficzne dla typu klucza dostawy, które definiują sposób dostawy klucza do klienta (szablon licencji [PlayReady](media-services-playready-license-template-overview.md) lub [Widevine](media-services-widevine-license-template-overview.md)).
+    Podczas tworzenia zasady autoryzacji klucza zawartości należy określić następujące elementy: metodę dostarczania (PlayReady lub Widevine), ograniczenia (otwarte lub tokenu) i informacje specyficzne dla typu klucza dostawy, które definiują sposób dostawy klucza do klienta (szablon licencji [PlayReady](media-services-playready-license-template-overview.md) lub [Widevine](media-services-widevine-license-template-overview.md)).
 
-1. Skonfiguruj zasadę dostarczania elementu zawartości. Konfiguracja zasady dostarczania obejmuje: protokół dostarczania (na przykład MPEG-DASH, HLS, HDS, Smooth Streaming lub wszystkie z nich), typ szyfrowania dynamicznego (na przykład Common Encryption) oraz adres URL pozyskiwania licencji PlayReady lub Widevine.
+5. Skonfiguruj zasadę dostarczania elementu zawartości. Konfiguracja zasad dostarczania obejmuje: protokół dostarczenia (na przykład MPEG DASH, HLS, Smooth Streaming lub wszystkie z nich), typ szyfrowania dynamicznego (na przykład Common Encryption) oraz adres URL pozyskiwania licencji PlayReady lub Widevine.
 
-Dla każdego protokołu dotyczącego danego elementu zawartości można stosować inne zasady. Na przykład dla protokołu Smooth/DASH można zastosować szyfrowanie PlayReady, zaś dla protokołu HLS szyfrowanie AES Envelope. Protokoły, które nie są zdefiniowane w zasadzie dostarczania (można na przykład dodać jedną zasadę, która określa tylko protokół HLS), nie mogą korzystać z przesyłania strumieniowego. Wyjątkiem od tej reguły jest przypadek, w którym nie zdefiniowano żadnej zasady dostarczania elementów zawartości. Wówczas wszystkie protokoły mogą być przesyłane bez zabezpieczeń.
+    Dla każdego protokołu dotyczącego danego elementu zawartości można stosować inne zasady. Na przykład dla protokołu Smooth/DASH można zastosować szyfrowanie PlayReady, zaś dla protokołu HLS szyfrowanie AES Envelope. Protokoły, które nie są zdefiniowane w zasadzie dostarczania (można na przykład dodać jedną zasadę, która określa tylko protokół HLS), nie mogą korzystać z przesyłania strumieniowego. Wyjątkiem od tej reguły jest przypadek, w którym nie zdefiniowano żadnej zasady dostarczania elementów zawartości. Wówczas wszystkie protokoły mogą być przesyłane bez zabezpieczeń.
 
-1. Utwórz lokalizator OnDemand w celu pobrania adresu URL przesyłania strumieniowego.
+6. Utwórz lokalizator OnDemand w celu pobrania adresu URL przesyłania strumieniowego.
 
 Na końcu tego tematu znajduje się pełny przykład dla środowiska .NET.
 
@@ -101,7 +103,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Configure Content Key Authoriz
 Skonfiguruj zasady dostarczania dla swojego elementu zawartości. Niektóre elementy objęte konfiguracją zasad dostarczania elementów zawartości:
 
 * Adres URL pozyskiwania licencji DRM.
-* Protokół dostarczania elementów zawartości (na przykład MPEG DASH, HLS, HDS, Smooth Streaming lub wszystkie z nich).
+* Protokół dostarczenia elementów zawartości (na przykład MPEG DASH, HLS, Smooth Streaming lub wszystkie z nich).
 * Typ szyfrowania dynamicznego (w tym przypadku jest to Common Encryption).
 
 Aby uzyskać szczegółowe informacje, zobacz artykuł [Configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md) (Konfigurowanie zasad dostarczania elementów zawartości).
@@ -621,6 +623,6 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
