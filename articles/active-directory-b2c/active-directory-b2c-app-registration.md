@@ -63,6 +63,6 @@ Po zarejestrowaniu aplikacji w usłudze Azure AD B2C możesz wykonać czynności
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
