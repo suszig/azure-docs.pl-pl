@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 942638cfd670bc25804a7e2babeffda58fd38995
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 
 
 ---
@@ -79,12 +79,12 @@ Serwerami logicznymi usługi Azure SQL Database można zarządzać przy użyciu 
 - Omówienie baz danych usługi Azure SQL Database znajduje się w temacie [Omówienie usługi SQL Database](sql-database-overview.md)
 - Informacje o obsłudze i różnicach języka Transact-SQL można znaleźć w temacie [Różnice w języku Transact-SQL usługi Azure SQL Database](sql-database-transact-sql-information.md).
 - Informacje o konkretnych limitach przydziału i ograniczeniach zasobów na podstawie określonej **warstwy usługi**. Omówienie warstw usługi można znaleźć w temacie [Warstwy usługi w usłudze SQL Database](sql-database-service-tiers.md).
-- Aby uzyskać wytyczne dotyczące zabezpieczeń, zobacz [Wytyczne z zakresu bezpieczeństwa i ograniczenia dotyczące usługi Azure SQL Database](sql-database-security-guidelines.md).
+- Aby zapoznać się z przeglądem zabezpieczeń, zobacz [przegląd zabezpieczeń usługi Azure SQL Database](sql-database-security-overview.md).
 - Aby uzyskać informacje o dostępności sterowników i obsłudze usługi SQL Database, zobacz [biblioteki połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

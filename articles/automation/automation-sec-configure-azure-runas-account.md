@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Jednak wcześniej musisz zrozumieć i wziąć pod uwagę kilka rzeczy.
 W tej części wykonasz poniższe kroki, aby utworzyć nowe konto usługi Azure Automation z portalu Azure.  Spowoduje to utworzenie zarówno konta Uruchom jako, jak i klasycznego konta Uruchom jako.  
 
 > [!NOTE]
-> Użytkownik wykonujący te czynności *musi* być członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji, która udziela dostępu do subskrypcji użytkownikowi.  Użytkownik musi być również dodany jako użytkownik do subskrypcji domyślnych usługi Active Directory; konto nie musi być przypisane do roli uprzywilejowanej.
+> Użytkownik wykonujący te czynności musi być członkiem roli Administratorzy usługi i współadministratorem subskrypcji, która udziela użytkownikowi dostępu do subskrypcji. Użytkownik musi być również dodany jako użytkownik do subskrypcji domyślnych usługi Active Directory; konto nie musi być przypisane do roli uprzywilejowanej. Użytkownicy, którzy nie są członkami usługi Active Directory subskrypcji, przed dodaniem do roli Współadministrator subskrypcji zostaną dodani do usługi Active Directory jako Gość i zobaczą ostrzeżenie „Nie masz uprawnień do utworzenia...” w bloku **Dodaj konto automatyzacji**. Użytkownicy dodani do roli współadministratora najpierw mogą zostać usunięci z subskrypcji usługi Active Directory i ponownie dodani, aby zostali pełnymi użytkownikami w usłudze Active Directory. Ta sytuacja może zostać zweryfikowana w okienku **Azure Active Directory** w witrynie Azure Portal. Po wybraniu pozycji **Użytkownicy i grupy** wybierz pozycję **Wszyscy użytkownicy**, a po wybraniu określonego użytkownika wybierz pozycję **Profil**.  Wartość atrybutu **Typ użytkownika** na liście profilów użytkowników nie powinna być równa **Gość**.  
 > 
 > 
 
@@ -394,6 +394,6 @@ Możesz skorzystać z podanego poniżej zaktualizowanego przykładowego kodu, po
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

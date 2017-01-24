@@ -9,7 +9,7 @@
 # Rozpoczęcie pracy
 ## [Tworzenie maszyny wirtualnej przy użyciu portalu](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Logowanie do maszyny wirtualnej](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Instalowanie programu Azure PowerShell](../../../powershell-install-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Instalowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Instrukcje
@@ -28,19 +28,19 @@
 
 ## Wdrażanie
 ### [Tworzenie niestandardowej maszyny wirtualnej](../../virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Tworzenie i konfigurowanie maszyny wirtualnej przy użyciu programu Azure PowerShell](../../virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [Tworzenie i konfigurowanie maszyny wirtualnej przy użyciu programu Azure PowerShell](../../virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Przechwytywanie maszyny wirtualnej z systemem Windows](../../virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Tworzenie i przekazywanie wirtualnego dysku twardego przy użyciu programu PowerShell](../../virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Automatyzowanie wdrażania maszyn wirtualnych platformy Azure przy użyciu programu Chef](../../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Tworzenie maszyn wirtualnych i zarządzanie nimi w programie Visual Studio](../../virtual-machines-windows-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Tworzenie maszyny wirtualnej dla aplikacji sieci Web za pomocą programu Visual Studio](../../virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Uruchamianie zadania wymagającego wielu obliczeń w środowisku Java](../../virtual-machines-windows-classic-java-run-compute-intensive-task.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [Uruchamianie zadania wymagającego wielu obliczeń w środowisku Java](../../virtual-machines-windows-classic-java-run-compute-intensive-task.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Aplikacja sieci Web „Hello World” na platformie Django](../../virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Konfigurowanie
 ### [Resetowanie hasła lub usługi Pulpit zdalny](../../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Instalowanie i konfigurowanie rozwiązania Symantec Endpoint Protection](../../virtual-machines-windows-classic-install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Instalowanie i konfigurowanie rozwiązania Security as a Service o nazwie Trend Micro Deep](../../virtual-machines-windows-classic-install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [Instalowanie i konfigurowanie rozwiązania Symantec Endpoint Protection](../../virtual-machines-windows-classic-install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [Instalowanie i konfigurowanie rozwiązania Security as a Service o nazwie Trend Micro Deep](../../virtual-machines-windows-classic-install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Konfigurowanie zestawu dostępności](../../virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Resize a Windows VM created in the classic deployment model](../../virtual-machines-windows-classic-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Zmienianie rozmiaru maszyny wirtualnej z systemem Windows utworzonej w klasycznym modelu wdrażania)
 
@@ -51,8 +51,6 @@
 ### [Zarządzanie rozszerzeniami maszyn wirtualnych](../../virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Rozszerzenie niestandardowego skryptu dla maszyn wirtualnych](../../virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Wstawianie danych niestandardowych do maszyny wirtualnej platformy Azure](../../virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Zautomatyzowane tworzenie kopii zapasowej programu SQL Server](../../virtual-machines-windows-classic-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Zautomatyzowane poprawianie w programie SQL Server](../../virtual-machines-windows-classic-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Planowanie
 ### [Informacje o obrazach](../../virtual-machines-windows-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -78,20 +76,7 @@
 ####[Różne zagadnienia dotyczące obrazów](../../virtual-machines-windows-classic-oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ####[Lista obrazów maszyn wirtualnych firmy Oracle](../../virtual-machines-windows-classic-oracle-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [SAP](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Analizy biznesowe w programie SQL Server](../../virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Provision a SQL Server VM using Azure PowerShell (Classic)](../../virtual-machines-windows-classic-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Aprowizowanie maszyny wirtualnej z programem SQL Server przy użyciu programu Azure PowerShell (wersja klasyczna))
-####[Konfigurowanie zawsze włączonej grupy dostępności przy użyciu portalu klasycznego](../../virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Configure Always On availability group in Azure VM with PowerShell](../../virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Konfigurowanie zawsze włączonej grupy dostępności na maszynie wirtualnej platformy Azure przy użyciu programu PowerShell)
-####[Konfigurowanie odbiornika zewnętrznego dla zawsze włączonych grup dostępności na maszynie wirtualnej platformy Azure](../../virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Konfigurowanie odbiornika ILB dla zawsze włączonych grup dostępności na platformie Azure](../../virtual-machines-windows-classic-ps-sql-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Konfigurowanie integracji z usługą Azure Key Vault w programie SQL Server na maszynach wirtualnych platformy Azure (wersja klasyczna)](../../virtual-machines-windows-classic-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Korzystanie z programu PowerShell do tworzenia maszyny wirtualnej platformy Azure z serwerem raportów pracującym w trybie macierzystym](../../virtual-machines-windows-classic-ps-sql-report.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Łączenie z maszyną wirtualną programu SQL Server na platformie Azure (wdrażanie klasyczne)](../../virtual-machines-windows-classic-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Rozszerzanie lokalnych, zawsze dostępnych grup dostępności na platformę Azure](../../virtual-machines-windows-classic-sql-onprem-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[SQL Server Agent Extension for SQL Server VMs (Classic)](../../virtual-machines-windows-classic-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Rozszerzenie agenta programu SQL Server dla maszyn wirtualnych programu SQL Server (wersja klasyczna))
-####[Korzystanie z usługi Azure Premium Storage z programem SQL Server na maszynach wirtualnych](../../virtual-machines-windows-classic-sql-server-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-####[Korzystanie z narzędzia ReportViewer w witrynie internetowej hostowanej na platformie Azure](../../virtual-machines-windows-classic-sql-server-reportviewer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](../../virtual-machines-windows-classic-java-run-tomcat-app-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Rozwiązywanie problemów
@@ -119,6 +104,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

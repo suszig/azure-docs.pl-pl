@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
+ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
 
 
 ---
@@ -104,11 +104,10 @@ Z tego samouczka ułatwiającego rozpoczęcie pracy nauczysz się używać witry
 
 * Ukończono kroki samouczka [Wprowadzenie do serwerów, baz danych i reguł zapory usługi Azure SQL Database przy użyciu witryny Azure Portal i programu SQL Server Management Studio](sql-database-get-started.md) lub samouczka w odpowiedniej [wersji dla programu PowerShell](sql-database-get-started-powershell.md). W przeciwnym razie przed kontynuowaniem wykonaj kroki tego samouczka dotyczącego wymagań wstępnych lub uruchom skrypt PowerShell pod koniec pracy z tym samouczkiem w [wersji dla programu PowerShell](sql-database-get-started-powershell.md).
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> Te same czynności we wprowadzającym samouczku można wykonać przy użyciu programu [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+
 
 ## <a name="sign-in-by-using-your-existing-account"></a>Logowanie przy użyciu istniejącego konta
 Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Index) wykonaj poniższe kroki, aby połączyć się z witryną Azure Portal.
@@ -179,6 +178,11 @@ W tej części samouczka przywrócisz bazę danych do nowej bazy danych z okreś
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Konfigurowanie długoterminowego przechowywania automatycznych kopii zapasowych w magazynie usługi Azure Recovery Services 
 
 W tej części samouczka możesz [skonfigurować magazyn usługi Azure Recovery Services do przechowywania automatycznych kopii zapasowych](sql-database-long-term-retention.md) przez okres dłuższy niż okres przechowywania w warstwie usługi. 
+
+
+> [!TIP]
+> Aby usunąć kopie zapasowe, zobacz artykuł dotyczący [usuwania kopii zapasowych podlegających długoterminowemu przechowywaniu](sql-database-long-term-retention-delete.md).
+
 
 1. Otwórz blok **SQL Server** dla serwera **sqldbtutorialserver**.
 
@@ -299,12 +303,12 @@ W tej części samouczka przywrócisz bazę danych do nowej bazy danych z kopii 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o automatycznych kopiach zapasowych generowanych przez usługi, zobacz temat dotyczący [automatycznych kopii zapasowych](: https://azure.microsoft.com/en-us/documentation/articles/) (sql-database-automated-backups.MD)
+- Aby dowiedzieć się więcej o automatycznych kopiach zapasowych generowanych przez usługi, zobacz artykuł dotyczący [automatycznych kopii zapasowych](sql-database-automated-backups.md)
 - Aby dowiedzieć się więcej o długoterminowym przechowywaniu kopii zapasowych, zobacz temat dotyczący [długoterminowego przechowywania kopii zapasowych](sql-database-long-term-retention.md)
 - Aby dowiedzieć się więcej o przywracaniu z kopii zapasowych, zobacz temat dotyczący [przywracania z kopii zapasowej](sql-database-recovery-using-backups.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

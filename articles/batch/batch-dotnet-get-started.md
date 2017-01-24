@@ -3,7 +3,7 @@ title: "Samouczek — wprowadzenie do biblioteki usługi Azure Batch dla środow
 description: "Podstawowe informacje na temat usługi Azure Batch oraz tworzenia aplikacji dla usługi Batch w przykładowym scenariuszu."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/22/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ecf07295a2e56e1aae8fc8fce77ca219db1f371e
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8243e2304d846e02ecf0114b79be73c0016941df
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: ecf07295a2e56e1aae8fc8fce77ca219db1f371e
 
 W tym artykule omawiamy podstawy usługi [Azure Batch][azure_batch] i biblioteki [Batch .NET][net_api] na podstawie przykładowej aplikacji w języku C#. Wyjaśniamy, jak przykładowa aplikacja korzysta z usługi Batch do przetwarzania równoległego obciążenia w chmurze oraz współpracuje z usługą [Azure Storage](../storage/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
 
-![Przepływ pracy w usłudze Batch (podstawowy)][11]<br/>
+![Przepływ pracy rozwiązania w usłudze Batch (podstawowy)][11]<br/>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i programu Visual Studio. Przyjęto również założenie, że jesteś w stanie spełnić wymagania dotyczące tworzenia konta, które zostały wyszczególnione poniżej dla platformy Azure oraz usług Batch i Storage.
@@ -189,7 +189,7 @@ Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą 
 >
 
 ## <a name="step-2-upload-task-application-and-data-files"></a>Krok 2: przekazanie aplikacji podzadań i plików danych
-![Przekazywanie aplikacji podzadań i plików danych wejściowych do kontenerów][2]
+![Przekazywanie aplikacji zadania podrzędnego i plików danych wejściowych do kontenerów][2]
 <br/>
 
 Podczas przekazywania plików aplikacja *DotNetTutorial* najpierw definiuje kolekcje **aplikacji** i ścieżki plików **wejściowych** na komputerze lokalnym. Następnie przekazuje te pliki do kontenerów, które zostały utworzone w poprzednim kroku.
@@ -593,7 +593,7 @@ private static async Task<bool> MonitorTasks(
 ```
 
 ## <a name="step-7-download-task-output"></a>Krok 7: pobranie danych wyjściowych podzadań
-![Pobieranie danych wyjściowych podzadań z usługi Storage][7]<br/>
+![Pobieranie danych wyjściowych zadań podrzędnych z usługi Storage][7]<br/>
 
 Po ukończeniu zadania można pobrać dane wyjściowe podzadań przy użyciu usługi Azure Storage. Odbywa się to przy użyciu wywołania do funkcji `DownloadBlobsFromContainerAsync` w pliku `Program.cs` *DotNetTutorial*:
 
@@ -795,6 +795,6 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

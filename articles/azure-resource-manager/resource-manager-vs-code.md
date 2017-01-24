@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+ms.sourcegitcommit: 10c7051c9b1218081d95cb10403006bfd95126ba
+ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 
 
 ---
 # <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Praca z szablonami usługi Azure Resource Manager w programie Visual Studio Code
-Szablony usługi Azure Resource Manager to pliki w formacie JSON opisujące zasób i powiązane zależności. Czasami pliki te są duże i skomplikowane, dlatego ważne jest, aby były dostępne odpowiednie narzędzia. Visual Studio Code to nowy, lekki, międzyplatformowy edytor kodu typu open-source. Obsługuje tworzenie i edytowanie szablonów usługi Resource Manager za pomocą [nowego rozszerzenia](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Program VS Code można uruchomić wszędzie i wymaga on dostępu do Internetu tylko na potrzeby wdrażania szablonów usługi Resource Manager.
+Szablony usługi Azure Resource Manager to pliki w formacie JSON opisujące zasób i powiązane zależności. Czasami pliki te są duże i skomplikowane, dlatego ważne jest, aby były dostępne odpowiednie narzędzia. Visual Studio Code to nowy, lekki, międzyplatformowy edytor kodu typu open-source. Obsługuje tworzenie i edytowanie szablonów usługi Resource Manager za pomocą [nowego rozszerzenia](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Program VS Code można uruchomić wszędzie i wymaga on tylko dostępu do Internetu, gdy chcesz wdrożyć swoje szablony usługi Resource Manager w subskrypcji platformy Azure.
 
 Jeśli nie masz jeszcze programu VS Code, możesz go zainstalować z witryny [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
@@ -42,7 +42,7 @@ W poprzednich krokach zainstalowaliśmy potrzebne narzędzia. Teraz musimy skonf
 
 1. Skopiuj zawartość pliku z repozytorium [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) do schowka.
 2. Uruchom program VS Code 
-3. W programie VS Code możesz otworzyć plik JSON z fragmentami kodu, przechodząc do pozycji **File** (Plik) -> **Preferences** (Preferencje) -> **User Snippets** (Fragmenty kodu użytkownika) -> **JSON** bądź naciskając klawisz **F1** i wpisując ciąg **preferences** (preferencje), aż pojawi się do wyboru pozycja **Preferences: Snippets** (Preferencje: fragmenty kodu).
+3. W programie VS Code możesz otworzyć plik fragmentów kodu JSON, przechodząc do pozycji **Plik** -> **Preferencje** -> **Fragmenty kodu użytkownika** -> **JSON**. Możesz też wybrać klawisz **F1** i wpisać ciąg **preferencje**, aby można było wybrać pozycję **Preferencje: fragmenty kodu**.
    
     ![preferencje — fragmenty kodu](./media/resource-manager-vs-code/preferences-snippets.png)
    
@@ -61,16 +61,16 @@ Najprostszym sposobem na rozpoczęcie pracy z szablonem jest pobranie jednego z 
 1. Jeśli szablon został wyeksportowany na podstawie grupy zasobów, otwórz wyodrębnione pliki w programie VS Code.
    
     ![wyświetlone pliki](./media/resource-manager-vs-code/show-files.png)
-2. Otwórz plik template.json, aby można go było edytować i dodawać zasoby. Po ciągu **"resources": [** naciśnij klawisz Enter, aby rozpocząć nowy wiersz. Jeśli wpiszesz ciąg **arm**, zostanie wyświetlona lista opcji. Te opcje to zainstalowane fragmenty kodu szablonu. Powinny wyglądać następująco: 
+2. Otwórz plik template.json, aby można go było edytować i dodawać zasoby. Po ciągu `"resources": [` naciśnij klawisz Enter, aby rozpocząć nowy wiersz. Jeśli wpiszesz ciąg **arm**, zostanie wyświetlona lista opcji. Te opcje to zainstalowane fragmenty kodu szablonu. 
    
     ![wyświetlone fragmenty kodu](./media/resource-manager-vs-code/type-snippets.png)
-3. Wybierz odpowiedni fragment kodu. Na potrzeby tego artykułu wybiorę fragment **arm-ip**, aby utworzyć nowy publiczny adres IP. Po zamykającym nawiasie klamrowym „}” nowo utworzonego zasobu umieść przecinek, aby składnia szablonu była prawidłowa.
+3. Wybierz odpowiedni fragment kodu. Na potrzeby tego artykułu wybiorę fragment **arm-ip**, aby utworzyć nowy publiczny adres IP. Po zamykającym nawiasie klamrowym `}` nowo utworzonego zasobu umieść przecinek, aby składnia szablonu była prawidłowa.
    
      ![dodawanie przecinka](./media/resource-manager-vs-code/add-comma.png)
-4. W programie VS Code jest wbudowana funkcja IntelliSense. Podczas edytowania szablonów program VS Code podpowiada dostępne wartości. Na przykład aby dodać do szablonu sekcję zmiennych, wprowadź znaki **""** (dwa podwójne cudzysłowy) i naciśnij między nimi kombinację klawiszy **Ctrl+spacja**. Zostanie wyświetlona lista obejmująca opcje **variables** (zmienne).
+4. W programie VS Code jest wbudowana funkcja IntelliSense. Podczas edytowania szablonów program VS Code podpowiada dostępne wartości. Na przykład aby dodać do szablonu sekcję zmiennych, wprowadź znaki `""` (dwa podwójne cudzysłowy) i naciśnij między nimi kombinację klawiszy **Ctrl+spacja**. Zostanie wyświetlona lista obejmująca opcje **variables** (zmienne).
    
     ![dodawanie zmiennych](./media/resource-manager-vs-code/add-variables.png)
-5. Funkcja IntelliSense może także podpowiedzieć dostępne wartości lub funkcje. Aby przypisać właściwość jako wartość parametru, utwórz wyrażenie, wpisując znaki **"[]"**, i naciśnij klawisze **Ctrl+spacja**. Możesz zacząć wpisywać nazwę funkcji. Po znalezieniu odpowiedniej funkcji naciśnij klawisz **Tab**.
+5. Funkcja IntelliSense może także podpowiedzieć dostępne wartości lub funkcje. Aby przypisać właściwość jako wartość parametru, utwórz wyrażenie, wpisując znaki `"[]"`, i naciśnij klawisze **Ctrl+spacja**. Możesz zacząć wpisywać nazwę funkcji. Po znalezieniu odpowiedniej funkcji naciśnij klawisz **Tab**.
    
     ![dodawanie parametru](./media/resource-manager-vs-code/select-parameters.png)
 6. Ponownie naciśnij klawisze **Ctrl+spacja** w obrębie funkcji, aby wyświetlić listę parametrów dostępnych w ramach szablonu.
@@ -85,35 +85,51 @@ Najprostszym sposobem na rozpoczęcie pracy z szablonem jest pobranie jednego z 
     ![komunikat o błędzie](./media/resource-manager-vs-code/unrecognized-function.png)
 
 ## <a name="deploy-your-new-resources"></a>Wdrażanie nowych zasobów
-Gdy szablon będzie gotowy, możesz wdrożyć nowe zasoby, postępując zgodnie z poniższymi instrukcjami: 
+Gdy szablon będzie gotowy, możesz wdrożyć nowe zasoby za pomocą poniższych instrukcji: 
 
 ### <a name="windows"></a>Windows
 1. Otwórz wiersz polecenia programu PowerShell 
-2. Aby się zalogować, wpisz polecenie: 
+2. Aby zalogować się, wpisz: 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. Jeśli masz wiele subskrypcji, uzyskaj ich listę przy użyciu polecenia:
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     Wybierz subskrypcję, której chcesz użyć.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. Zaktualizuj parametry w pliku parameters.json
 5. Uruchom plik Deploy.ps1, aby wdrożyć szablon na platformie Azure
 
 ### <a name="osxlinux"></a>OSX/Linux
 1. Otwórz okno terminalu 
-2. Aby się zalogować, wpisz polecenie:
-   
-        azure login 
+2. Aby zalogować się, wpisz:
+
+  ```azurecli
+  azure login
+  ```
+
 3. Jeśli masz wiele subskrypcji, wybierz odpowiednią z nich za pomocą polecenia:
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. Zaktualizuj parametry w pliku parameters.json.
 5. Aby wdrożyć szablon, uruchom polecenie:
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby uzyskać więcej informacji o szablonach, zobacz [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager).
@@ -123,6 +139,6 @@ Gdy szablon będzie gotowy, możesz wdrożyć nowe zasoby, postępując zgodnie 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

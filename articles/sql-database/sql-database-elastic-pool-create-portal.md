@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 230a203cca2eaab197236557482cd4cedcfb9c53
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 4be8e4f81965fa4d872e29fdb9aaa45909d18c37
 
 
 ---
@@ -89,7 +89,7 @@ Po ustawieniu warstwy cenowej kliknij przycisk Konfiguruj pulę, za pomocą któ
 
     Jeśli bazy danych, z którymi pracujesz, mają wystarczającą ilość historycznych danych telemetrycznych dotyczących użycia, aktualizacje wykresu **Szacowany poziom użycia jednostek eDTU i GB** oraz wykresu słupkowego **Rzeczywiste użycie jednostek eDTU** ułatwiają podejmowanie decyzji związanych z konfiguracją. Ponadto usługa może ułatwić wybranie odpowiedniego rozmiaru puli, wyświetlając komunikat z zaleceniami. Patrz sekcja [Zalecenia dynamiczne](#dynamic-recommendations).
 
-3. Użyj elementów sterujących na stronie **Konfigurowanie puli**, aby eksplorować ustawienia i skonfigurować pulę. Więcej szczegółów na temat limitów warstw usług zawiera sekcja [Limity pul elastycznych](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases), natomiast wskazówki dotyczące doboru wielkości puli zawiera temat [Zagadnienia dotyczące cen i wydajności puli elastycznej](sql-database-elastic-pool-guidance.md). Aby uzyskać więcej informacji na temat ustawień puli, zobacz [Właściwości puli elastycznej](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Użyj elementów sterujących na stronie **Konfigurowanie puli**, aby eksplorować ustawienia i skonfigurować pulę. Więcej szczegółów na temat limitów warstw usług zawiera sekcja [Limity pul elastycznych](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools), natomiast wskazówki dotyczące doboru wielkości puli zawiera temat [Zagadnienia dotyczące cen i wydajności puli elastycznej](sql-database-elastic-pool-guidance.md). Aby uzyskać więcej informacji na temat ustawień puli, zobacz [Właściwości puli elastycznej](sql-database-elastic-pool.md#elastic-pool-properties).
 
     ![Konfigurowanie puli elastycznej](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -99,7 +99,7 @@ Po ustawieniu warstwy cenowej kliknij przycisk Konfiguruj pulę, za pomocą któ
 
 ## <a name="understand-pool-recommendations"></a>Omówienie zaleceń puli
 
-Usługa SQL Database ocenia historyczne dane użycia bazy danych i zaleca zastosowanie co najmniej jednej puli baz danych, jeśli okaże się, że jest to bardziej ekonomiczne rozwiązanie niż używanie autonomicznych baz danych. Każde zalecenie jest konfigurowane z unikatowym podzbiorem baz danych serwera, które są najlepiej dopasowane do puli.
+Usługa SQL Database ocenia historyczne dane użycia bazy danych i zaleca zastosowanie co najmniej jednej puli baz danych, jeśli okaże się, że jest to bardziej ekonomiczne rozwiązanie niż używanie pojedynczych baz danych. Każde zalecenie jest konfigurowane z unikatowym podzbiorem baz danych serwera, które są najlepiej dopasowane do puli.
 
 ![zalecana pula](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
@@ -112,7 +112,7 @@ Zalecenie puli obejmuje:
 
 Podczas rekomendowania pul usługa uwzględnia dane telemetryczne z ostatnich 30 dni. Aby baza danych była brana pod uwagę jako potencjalny element puli elastycznej, musi istnieć przez co najmniej 7 dni. Bazy, które znajdują się już w puli elastycznej, nie są brane pod uwagę podczas tworzenia zaleceń dla puli elastycznej.
 
-Usługa oblicza zapotrzebowanie na zasoby oraz opłacalność przenoszenia autonomicznych baz danych w każdej warstwie usług do pul w tej samej warstwie. Na przykład wszystkie bazy danych w warstwie Standardowej na serwerze są oceniane pod względem dopasowania do Standardowej puli elastycznej. Oznacza to, że usługa nie tworzy zaleceń międzywarstwowych, takich jak przeniesienie bazy danych z warstwy Standardowej do puli Premium.
+Usługa oblicza zapotrzebowanie na zasoby oraz opłacalność przenoszenia pojedynczych baz danych w każdej warstwie usług do pul w tej samej warstwie. Na przykład wszystkie bazy danych w warstwie Standardowej na serwerze są oceniane pod względem dopasowania do Standardowej puli elastycznej. Oznacza to, że usługa nie tworzy zaleceń międzywarstwowych, takich jak przeniesienie bazy danych z warstwy Standardowej do puli Premium.
 
 ### <a name="dynamic-recommendations"></a>Zalecenia dynamiczne
 
@@ -129,6 +129,6 @@ Po dodaniu bazy danych do puli zalecenia są generowane dynamicznie na podstawie
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

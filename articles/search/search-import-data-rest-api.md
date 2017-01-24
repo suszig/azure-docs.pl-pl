@@ -13,11 +13,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 02eebb8517183abbdbd500820d8c8beb57865ac5
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 ---
 
@@ -30,7 +30,7 @@ ms.openlocfilehash: 02eebb8517183abbdbd500820d8c8beb57865ac5
 >
 >
 
-W tym artykule opisano, jak używać [interfejsu API REST usługi Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) w celu importowania danych do indeksu usługi Azure Search.
+W tym artykule opisano, jak używać [interfejsu API REST usługi Azure Search](https://docs.microsoft.com/rest/api/searchservice/) w celu importowania danych do indeksu usługi Azure Search.
 
 Przed rozpoczęciem pracy z tym przewodnikiem powinien zostać [utworzony indeks usługi Azure Search](search-what-is-an-index.md).
 
@@ -39,7 +39,7 @@ Aby wypchnąć dokumenty do indeksu za pomocą interfejsu API REST, należy wys�
 ## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identyfikowanie klucza api-key administratora usługi Azure Search
 *Wszystkie* żądania HTTP wysyłane do usługi przy użyciu interfejsu API REST muszą zawierać klucz api-key wygenerowany dla aprowizowanej usługi wyszukiwania. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-1. Aby odnaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
+1. Aby znaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
 2. Przejdź do bloku usługi Azure Search
 3. Kliknij ikonę „Klucze”
 
@@ -124,7 +124,7 @@ W tym przypadku jako akcje wyszukiwania są używane akcje `upload`, `mergeOrUpl
 
 Załóżmy, że przedstawiony w przykładzie indeks „hotels” jest już wypełniony różnymi dokumentami. Zwróć uwagę na to, że w przypadku akcji `mergeOrUpload` nie było konieczne określenie wszystkich możliwych pól dokumentu. Klucz dokumentu (`hotelId`) został określony tylko w przypadku akcji `delete`.
 
-Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksymalnie 1000 dokumentów (lub 16 MB danych).
+Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksymalnie 1000 dokumentów (lub 16 MB danych).
 
 ## <a name="iv-understand-your-http-response-code"></a>IV. Opisy kodów odpowiedzi HTTP
 #### <a name="200"></a>200
@@ -175,13 +175,13 @@ Kod stanu `503` jest zwracany, jeśli żaden z elementów w żądaniu nie zosta�
 >
 >
 
-Aby uzyskać więcej informacji na temat akcji dla dokumentów oraz odpowiedzi oznaczających powodzenie lub błąd, zobacz [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) (Dodawanie, aktualizowanie lub usuwanie dokumentów). Aby uzyskać więcej informacji o innych kodach stanów HTTP, które mogą być zwracane w przypadku niepowodzenia, zobacz [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) (Usługa Azure Search — kody stanów HTTP).
+Aby uzyskać więcej informacji na temat akcji dla dokumentów oraz odpowiedzi oznaczających powodzenie lub błąd, zobacz [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) (Dodawanie, aktualizowanie lub usuwanie dokumentów). Aby uzyskać więcej informacji o innych kodach stanów HTTP, które mogą być zwracane w przypadku niepowodzenia, zobacz [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) (Usługa Azure Search — kody stanów HTTP).
 
 ## <a name="next"></a>Następne kroki
 Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zapytań w celu wyszukania dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

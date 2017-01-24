@@ -315,6 +315,6 @@ Poniższy skrypt środowiska PowerShell tworzy aplikację usługi Active Directo
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

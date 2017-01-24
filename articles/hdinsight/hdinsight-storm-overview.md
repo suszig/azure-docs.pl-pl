@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
+ms.sourcegitcommit: bccec1e4078c38e1cc9205a36d3a5df579df35b6
+ms.openlocfilehash: d5ff397e947a7edc8310da59ff9fe8896829e35d
 
 
 ---
@@ -36,8 +36,9 @@ Apache Storm w usłudze HDInsight to klaster zarządzany zintegrowany ze środow
   * Obsługuje łączenie języków programowania: odczytywanie danych przy użyciu języka Java, a następnie przetwarzanie za pomocą C#
     
     > [!NOTE]
-    > Topologie języka C# są obsługiwane tylko w klastrach HDInsight z systemem Windows.
+    > Aby użyć topologii C# z klastrem opartym na systemie Linux, należy zaktualizować pakiet NuGet Microsoft.SCP.Net.SDK używany w projekcie do wersji 0.10.0.6 lub nowszej. Wersja pakietu musi być również zgodna z wersją główną systemu Storm zainstalowanego w usłudze HDInsight. Na przykład system Storm występujący w usłudze HDInsight w wersjach 3.3 i 3.4 jest w wersji 0.10.x, a usługa HDInsight 3.5 używa systemu Storm 1.0.x.
     > 
+    > Topologie C# w klastrach opartych na systemie Linux muszą korzystać z platformy .NET 4.5 i używać platformy Mono, aby mogły działać w klastrze usługi HDInsight. Większości funkcji będzie działać, jednak należy zapoznać się z dokumentem dotyczącym [zgodności platformy Mono](http://www.mono-project.com/docs/about-mono/compatibility/), aby przewidzieć potencjalne niezgodności.
     > 
   * Używanie interfejsu Java **Trident** do tworzenia topologii Storm obsługujących „dokładnie jednokrotne” przetwarzanie komunikatów, „transakcyjną” trwałość magazynu danych i zestaw typowych operacji analizy strumienia
 * Zawiera wbudowane funkcje skalowania w górę i w dół: umożliwia skalowanie klastra usługi HDInsight bez wpływu na uruchomione topologie Storm
@@ -206,6 +207,6 @@ Dowiedz się więcej na temat rozwiązań analitycznych w czasie rzeczywistym z 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

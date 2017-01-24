@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/02/2016
+ms.date: 12/21/2016
 ms.author: darosa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: f75dcb6fd74ca2db7944ac76363801f5ee96650d
+ms.sourcegitcommit: d36b40444af4ba68b016351f9ff016351e9fe58c
+ms.openlocfilehash: a4ccfdbc079a989477a80af7ac701dc77dce5a4f
 
 
 ---
@@ -33,7 +33,7 @@ W poniższej tabeli wyróżniono pewne ogólne różnice.
 | Przewidywalna wydajność |Zmienne opóźnienie |
 | Przewidywalne ceny |Zmienne ceny i płatność zgodnie z rzeczywistym użyciem |
 | Możliwość skalowania obciążenia |Nie dotyczy |
-| Rozmiar komunikatu > 256 KB |Rozmiar komunikatu równy 256 KB |
+| Rozmiar komunikatu > 256 KB |Rozmiar komunikatu wynosi 256 KB |
 
 **Obsługa komunikatów usługi Service Bus Premium** zapewnia izolację zasobów w warstwie procesora i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany *jednostką obsługi komunikatów*. Każda przestrzeń nazw w warstwie Premium ma przydzieloną co najmniej jedną jednostkę obsługi komunikatów. Możesz kupić 1, 2 lub 4 jednostki obsługi komunikatów dla każdej przestrzeni nazw usługi Service Bus w warstwie Premium. Pojedyncze obciążenie lub jednostka może obejmować wiele jednostek obsługi komunikatów, a ich liczbę można dowolnie zmieniać, chociaż opłaty są naliczane w cyklu 24-godzinnym lub codziennie. Pozwala to uzyskać przewidywalną i powtarzalną wydajność dla rozwiązania opartego na usłudze Service Bus.
 
@@ -46,7 +46,7 @@ Poniżej przedstawiono niektóre różnice między komunikatami w warstwie Premi
 Partycjonowane kolejki i tematy są obsługiwane przez komunikaty w warstwie Premium, ale nie działają tak samo jak w przypadku komunikatów usługi Service Bus w warstwie Standardowa i Podstawowa. Komunikaty w warstwie Premium nie używają bazy danych SQL jako magazynu danych i nie występuje już potencjalne konkurowanie o zasoby typowe dla platformy współdzielonej. W związku z tym partycjonowanie nie jest konieczne. Ponadto liczba partycji została zmieniona z szesnastu partycji w przypadku komunikatów w warstwie Standardowa do dwóch partycji w warstwie Premium. Istnienie dwóch partycji gwarantuje dostępność i jest to bardziej odpowiednia liczba dla środowiska uruchomieniowego w warstwie Premium. Aby uzyskać więcej informacji na temat partycjonowania, zobacz [Partitioned queues and topics](service-bus-partitioning.md) (Partycjonowane kolejki i tematy).
 
 ### <a name="express-entities"></a>Jednostki ekspresowe
-Ze względu na fakt, że komunikaty warstwy Premium działają w całkowicie odizolowanym środowisku uruchomieniowym, jednostki ekspresowe nie są obsługiwane obszarach nazw w warstwie Premium. Aby uzyskać więcej informacji o funkcji jednostek ekspresowych, zobacz opis właściwości [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
+Ze względu na fakt, że komunikaty warstwy Premium działają w całkowicie odizolowanym środowisku uruchomieniowym, jednostki ekspresowe nie są obsługiwane obszarach nazw w warstwie Premium. Aby uzyskać więcej informacji o funkcji jednostek ekspresowych, zobacz opis właściwości [QueueDescription.EnableExpress](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus, zobacz następujące tematy.
@@ -59,6 +59,6 @@ Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
