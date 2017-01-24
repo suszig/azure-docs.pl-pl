@@ -4,7 +4,7 @@ description: "Ta strona zawiera instrukcje dotyczące tworzenia, konfigurowania,
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 866e9b5f-0222-4b6a-a95f-77bc3d31d17b
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: f4648ea78c07d501164b44389302cedf717b28bd
+ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
+ms.openlocfilehash: 5da4b087131b0adef49f7019297db834d7bb9416
 
 
 ---
@@ -28,8 +28,6 @@ ms.openlocfilehash: f4648ea78c07d501164b44389302cedf717b28bd
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-create-gateway.md)
 > * [Szablon usługi Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn. Aby uzyskać pełną listę obsługiwanych funkcji, odwiedź stronę [Application Gateway — omówienie](application-gateway-introduction.md)
 
@@ -37,8 +35,6 @@ W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, ur
 
 > [!IMPORTANT]
 > Przed rozpoczęciem pracy z zasobami platformy Azure należy pamiętać, że ma ona obecnie dwa modele wdrażania: za pomocą usługi Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem platformy Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-classic-rm.md). Dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty w górnej części artykułu. W tym dokumencie opisano tworzenie bramy aplikacji przy użyciu usługi Azure Resource Manager. Aby korzystać z modelu klasycznego, przejdź do artykułu [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md) (Tworzenie klasycznego wdrożenia bramy aplikacji przy użyciu programu PowerShell).
-> 
-> 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -106,8 +102,6 @@ W powyższym przykładzie utworzyliśmy grupę zasobów o nazwie **appgw-RG** i 
 
 > [!NOTE]
 > Jeśli musisz skonfigurować niestandardową sondę bramy aplikacji, zobacz artykuł [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Tworzenie bramy aplikacji z sondami niestandardowymi przy użyciu programu PowerShell). Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat [sond niestandardowych i monitorowania kondycji](application-gateway-probe-overview.md).
-> 
-> 
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Tworzenie sieci wirtualnej i podsieci dla bramy aplikacji
 
@@ -145,7 +139,7 @@ Utwórz zasób publicznego adresu IP **publicIP01** w grupie zasobów **appgw-rg
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway-configuration-object"></a>Tworzenie obiektu konfiguracji bramy aplikacji
+## <a name="create-the-application-gateway-configuration-objects"></a>Tworzenie obiektów konfiguracji bramy aplikacji
 
 Musisz skonfigurować wszystkie elementy konfiguracji przed utworzeniem bramy aplikacji. Poniższe kroki umożliwiają utworzenie elementów konfiguracji wymaganych w przypadku zasobu bramy aplikacji.
 
@@ -215,8 +209,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > Wartość domyślna parametru **InstanceCount** to 2, a wartość maksymalna — 10. Wartość domyślna parametru **GatewaySize** to Medium (Średnia). Możesz wybrać następujące wartości: **Standard_Small**, **Standard_Medium** i **Standard_Large**.
-> 
-> 
 
 ## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Tworzenie bramy aplikacji przy użyciu polecenia New-AzureRmApplicationGateway
 
@@ -225,8 +217,6 @@ Utwórz bramę aplikacji przy użyciu wszystkich elementów konfiguracji z powy�
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
-
-### <a name="step-9"></a>Krok 9
 
 Pobierz szczegóły adresów DNS i VIP bramy aplikacji z zasobu publicznego adresu IP zasobu dołączonego do bramy aplikacji.
 
@@ -262,8 +252,6 @@ Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -F
 
 > [!NOTE]
 > Przełącznik **-force** umożliwia pomijanie komunikatu potwierdzającego usunięcie.
-> 
-> 
 
 Aby sprawdzić, czy usługa została usunięta, możesz użyć polecenia cmdlet `Get-AzureRmApplicationGateway`. Ten krok nie jest wymagany.
 
@@ -315,6 +303,6 @@ Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

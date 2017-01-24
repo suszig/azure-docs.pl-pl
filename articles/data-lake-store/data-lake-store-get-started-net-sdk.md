@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ad50c6c12bc3b328d776f37fc31f44d90a0915a3
-ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
 
 
 ---
@@ -62,7 +62,7 @@ Dowiedz się, jak używać [zestawu SDK .NET usługi Azure Data Lake Store](http
       * `Microsoft.Azure.Management.DataLake.StoreUploader` — w tym samouczku jest używana wersja v0.10.6-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` — w tym samouczku jest używana wersja v2.2.8-preview.
         
-        ![Dodawanie źródła pakietów Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
+        ![Dodawanie źródła pakietów Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Tworzenie nowego konta usługi Azure Data Lake")
    4. Zamknij **Menedżera pakietów Nuget**.
 6. Otwórz plik **Program.cs**, usuń istniejący kod, a następnie dołącz poniższe instrukcje, aby dodać odwołania do przestrzeni nazw.
    
@@ -126,7 +126,7 @@ Należy wiedzieć o kilku kwestiach związanych z powyższym fragmentem.
 > 
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Jeśli używasz uwierzytelniania między usługami z kluczem tajnym klienta
-Poniższego fragmentu kodu można użyć do uwierzytelniania aplikacji w sposób nieinterakcyjny za pomocą klucza tajnego klienta / klucza dla aplikacji / nazwy głównej usługi. Tej metody należy użyć w przypadku istniejącej [„aplikacji sieci Web” usługi Azure AD](../resource-group-create-service-principal-portal.md).
+Poniższego fragmentu kodu można użyć do uwierzytelniania aplikacji w sposób nieinterakcyjny za pomocą klucza tajnego klienta / klucza dla aplikacji / nazwy głównej usługi. Tej metody należy użyć w przypadku istniejącej [„aplikacji sieci Web” usługi Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -138,7 +138,7 @@ Poniższego fragmentu kodu można użyć do uwierzytelniania aplikacji w sposób
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Jeśli używasz uwierzytelniania między usługami z certyfikatem
-Trzecią możliwością jest użycie poniższego fragmentu kodu do uwierzytelniania aplikacji w sposób nieinterakcyjny przy użyciu certyfikatu dla aplikacji / jednostki usługi. Tej metody należy użyć w przypadku istniejącej [„aplikacji sieci Web” usługi Azure AD](../resource-group-create-service-principal-portal.md).
+Trzecią możliwością jest użycie poniższego fragmentu kodu do uwierzytelniania aplikacji w sposób nieinterakcyjny przy użyciu certyfikatu dla aplikacji / jednostki usługi. Tej metody należy użyć w przypadku istniejącej [„aplikacji sieci Web” usługi Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -261,6 +261,6 @@ Poniższy fragment kodu przedstawia metodę `DownloadFile`, której można uży�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

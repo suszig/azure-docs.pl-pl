@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 6a652890260c21deb64826fb73920ba5d17f61da
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 
 
 ---
@@ -34,11 +34,11 @@ Z tego samouczka dowiesz się, jak za pomocą witryny Azure Portal utworzyć baz
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby rozpocząć pracę, potrzebne będą następujące elementy:
 
-* **Konto platformy Azure**: aby utworzyć konto, odwiedź witrynę [Bezpłatna wersja próbna platformy Azure][Bezpłatna wersja próbna platformy Azure] lub [Środki na korzystanie z platformy Azure w ramach usługi MSDN][Środki na korzystanie z platformy Azure w ramach usługi MSDN].
-* **Serwer Azure SQL**: aby uzyskać więcej informacji, zobacz temat [Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu witryny Azure Portal][Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu witryny Azure Portal].
+* **Konto platformy Azure**: aby utworzyć konto, odwiedź witrynę [Bezpłatna wersja próbna platformy Azure][Azure Free Trial] lub [Środki na korzystanie z systemu Azure w ramach usługi MSDN][MSDN Azure Credits].
+* **Serwer Azure SQL**: aby uzyskać więcej informacji, zobacz [Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu witryny Azure Portal][Create an Azure SQL Database logical server with the Azure portal].
 
 > [!NOTE]
-> Utworzenie bazy danych w usłudze SQL Data Warehouse może skutkować powstaniem nowej usługi płatnej.  Zobacz [Cennik usługi SQL Data Warehouse][Cennik usługi SQL Data Warehouse], aby uzyskać więcej szczegółowych informacji.
+> Utworzenie bazy danych w usłudze SQL Data Warehouse może skutkować powstaniem nowej usługi płatnej.  Aby uzyskać więcej informacji o cenach, zobacz [Cennik usługi SQL Data Warehouse][SQL Data Warehouse pricing].
 >
 >
 
@@ -53,15 +53,15 @@ Aby rozpocząć pracę, potrzebne będą następujące elementy:
 
    * **Serwer**: zalecamy, aby najpierw wybrać serwer.  
    * **Nazwa bazy danych**: Nazwa używana jako odwołanie do usługi SQL Data Warehouse.  Musi być unikatowa dla serwera.
-   * **Wydajność**: Zalecamy zacząć od 400 jednostek [DWU][DWU]. Możesz przesuwać suwak w lewo lub w prawo, aby dostosować wydajność magazynu danych albo skalować w górę lub w dół po utworzeniu.  Aby dowiedzieć się więcej o jednostkach DWU, zobacz dokumentację dotyczącą [skalowania](sql-data-warehouse-manage-compute-overview.md) lub nasz [cennik][Cennik usługi SQL Data Warehouse].
+   * **Wydajność**: zalecamy rozpoczynanie od 400 jednostek [DWU][DWU]. Możesz przesuwać suwak w lewo lub w prawo, aby dostosować wydajność magazynu danych albo skalować w górę lub w dół po utworzeniu.  Aby dowiedzieć się więcej o jednostkach DWU, zobacz dokumentację dotyczącą [skalowania](sql-data-warehouse-manage-compute-overview.md) lub [nasz cennik][SQL Data Warehouse pricing].
    * **Subskrypcja**: Wybierz [Subskrypcja], która będzie obciążana płatnościami za tę usługę SQL Data Warehouse.
-   * **Grupa zasobów**: [Grupy zasobów][Grupa zasobów] to kontenery, których zadaniem jest ułatwianie zarządzania kolekcją zasobów platformy Azure. Dowiedz się więcej o [grupach zasobów](../azure-resource-manager/resource-group-overview.md).
+   * **Grupa zasobów**: [grupy zasobów][Resource group] to kontenery, które mają ułatwiać zarządzanie kolekcją zasobów platformy Azure. Dowiedz się więcej o [grupach zasobów](../azure-resource-manager/resource-group-overview.md).
    * **Wybierz źródło**: kliknij kolejno **Wybierz źródło**  >  **Przykład**. Platforma Azure automatycznie wypełni opcję **Wybierz przykład** bazą danych AdventureWorksDW.
 
-> [!NOTE]
-> Sortowanie domyślne dla usługi SQL Data Warehouse to SQL_Latin1_General_CP1_CI_AS. Jeśli potrzebne jest inne sortowanie, za pomocą polecenia języka [T-SQL][T-SQL] można utworzyć bazę danych z innym sortowaniem.
->
->
+   > [!NOTE]
+   > Sortowanie domyślne dla usługi SQL Data Warehouse to SQL_Latin1_General_CP1_CI_AS. Jeśli jest potrzebne inne sortowanie, za pomocą polecenia języka [T-SQL][T-SQL] można utworzyć bazę danych z innym sortowaniem.
+   >
+   >
 
 1. Kliknij przycisk **Utwórz**, aby utworzyć usługę SQL Data Warehouse.
 2. Poczekaj kilka minut. Po utworzeniu magazynu danych powinien nastąpić powrót do witryny [Azure Portal](https://portal.azure.com). Usługę SQL Data Warehouse można znaleźć na pulpicie nawigacyjnym, na liście Bazy danych SQL lub w grupie zasobów użytej podczas tworzenia.
@@ -79,16 +79,16 @@ Jeśli próbujesz przeprowadzić migrację z istniejącej bazy danych do usługi
 
 Reguły zapory można również skonfigurować za pomocą języka Transact-SQL. Aby uzyskać więcej informacji, zobacz artykuły dotyczące poleceń [sp_set_firewall_rule][sp_set_firewall_rule] i [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
 
-Warto również zapoznać się z artykułem [Najlepsze praktyki][Najlepsze praktyki].
+Warto również zapoznać się z artykułem [Najlepsze praktyki][Best practices].
 
 <!--Article references-->
-[Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu witryny Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu programu PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[grupy zasobów]: ../resource-group-template-deploy-portal.md
-[Najlepsze praktyki]: sql-data-warehouse-best-practices.md
+[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
+[Best practices]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [Subskrypcja]: ../azure-glossary-cloud-terminology.md#subscription
-[grupa zasobów]: ../azure-glossary-cloud-terminology.md#resource-group
+[resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
 
 <!--MSDN references-->
@@ -96,12 +96,12 @@ Warto również zapoznać się z artykułem [Najlepsze praktyki][Najlepsze prakt
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
 <!--Other Web references-->
-[Cennik usługi SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Bezpłatna wersja próbna platformy Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[Środki na korzystanie z platformy Azure w ramach usługi MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

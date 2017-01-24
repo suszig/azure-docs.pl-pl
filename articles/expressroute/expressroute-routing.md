@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2016
-ms.author: osamazia
+ms.date: 01/03/2017
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
+ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
+ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
 
 
 ---
@@ -117,7 +117,7 @@ Trasy domyślne są dozwolone tylko w sesjach prywatnej komunikacji równorzędn
 > 
 > 
 
-## <a name="support-for-bgp-communities-preview"></a>Obsługa protokołu BGP społeczności (wersja zapoznawcza)
+## <a name="support-for-bgp-communities"></a>Obsługa społeczności BGP
 W tej sekcji przedstawiono sposób korzystania z protokołu BGP społeczności w usłudze ExpressRoute. Firma Microsoft będzie anonsować trasy w ścieżkach publicznej komunikacji równorzędnej oraz komunikacji równorzędnej firmy Microsoft za pomocą tras oznaczonych odpowiednimi wartościami społeczności. Uzasadnienie takiego postępowania oraz szczegółowe informacje dotyczące wartości społeczności zostały opisane poniżej. Firma Microsoft nie uzna jednak żadnych wartości społeczności oznaczonych do tras anonsowanych do firmy Microsoft.
 
 Jeśli łączysz się z firmą Microsoft za pośrednictwem usługi ExpressRoute w dowolnej lokalizacji komunikacji równorzędnej w regionie geopolitycznym, będziesz mieć dostęp do wszystkich usług w chmurze firmy Microsoft we wszystkich regionach w ramach granic geopolitycznych. 
@@ -126,9 +126,7 @@ Na przykład po połączeniu się z firmą Microsoft w Amsterdamie za pośrednic
 
 Zapoznaj się ze stroną [ExpressRoute partners and peering locations](expressroute-locations.md) (Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute), która zawiera szczegółową listę regionów geopolitycznych, powiązanych regionów świadczenia usługi Azure i odpowiadających im lokalizacji komunikacji równorzędnej usługi ExpressRoute.
 
-Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolityczny. Wiele ofert połączeń daje znaczące korzyści w zakresie wysokiej dostępności z powodu nadmiarowości geograficznej. Jeśli masz wiele obwodów usługi ExpressRoute, otrzymasz ten sam zestaw prefiksów anonsowanych z firmy Microsoft w publicznej komunikacji równorzędnej i w ścieżkach komunikacji równorzędnej Microsoft. Oznacza to, że będziesz mieć wiele ścieżek ze swojej sieci do firmy Microsoft. Może to teoretycznie spowodować podjęcie nieoptymalnych decyzji w zakresie routingu w ramach sieci. W efekcie połączenia z różnymi usługami mogą nie być optymalne. 
-
-Firma Microsoft będzie oznaczać prefiksy anonsowane za pośrednictwem publicznej komunikacji równorzędnej oraz komunikacji równorzędnej Microsoft odpowiednimi wartościami protokołu BGP społeczności wskazującymi region, w którym są hostowane prefiksy. Wartości społeczności gwarantują, że zostaną podjęte odpowiednie decyzje w kwestii routingu i klienci będą mieli zapewniony [optymalny routing](expressroute-optimize-routing.md).
+Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolityczny. Wiele ofert połączeń daje znaczące korzyści w zakresie wysokiej dostępności z powodu nadmiarowości geograficznej. Jeśli masz wiele obwodów usługi ExpressRoute, otrzymasz ten sam zestaw prefiksów anonsowanych z firmy Microsoft w publicznej komunikacji równorzędnej i w ścieżkach komunikacji równorzędnej Microsoft. Oznacza to, że będziesz mieć wiele ścieżek ze swojej sieci do firmy Microsoft. Może to teoretycznie spowodować podjęcie nieoptymalnych decyzji w zakresie routingu w ramach sieci. W efekcie połączenia z różnymi usługami mogą nie być optymalne. Wartości społeczności gwarantują, że zostaną podjęte odpowiednie decyzje w kwestii routingu i klienci będą mieli zapewniony [optymalny routing do użytkowników](expressroute-optimize-routing.md).
 
 | **Region platformy Microsoft Azure** | **Wartość społeczności BGP** |
 | --- | --- |
@@ -186,6 +184,8 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 > 
 > 
 
+### <a name="bgp-community-support-in-national-clouds-preview"></a>Obsługa społeczności BGP w chmurach krajowych (wersja zapoznawcza)
+
 | **Region chmur krajowych platformy Azure**| **Wartość społeczności BGP** |
 | --- | --- |
 | **Administracja USA** |  |
@@ -212,6 +212,6 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

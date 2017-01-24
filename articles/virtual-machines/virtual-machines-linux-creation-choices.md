@@ -1,5 +1,5 @@
 ---
-title: "Różne sposoby tworzenia maszyn wirtualnych z systemem Linux | Microsoft Docs"
+title: "Różne sposoby tworzenia maszyny wirtualnej z systemem Linux na platformie Azure | Microsoft Azure"
 description: "Informacje na temat różnych sposobów tworzenia maszyny wirtualnej z systemem Linux na platformie Azure oraz linki do narzędzi i samouczków dotyczących poszczególnych metod."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,46 +13,70 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/27/2016
+ms.date: 01/03/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
-ms.openlocfilehash: 8c7ea2e7131f69bc43f2e82b816efdfbda59e85d
+ms.sourcegitcommit: 44c46fff9ccf9c7dba9ee380faf5f8213b58e3c3
+ms.openlocfilehash: 4397d84ef4d97bdee387777a193ec0b969f2d5e1
 
 
 ---
-# <a name="different-ways-to-create-a-linux-virtual-machine-in-azure"></a>Różne sposoby tworzenia maszyny wirtualnej z systemem Linux na platformie Azure
+# <a name="different-ways-to-create-a-linux-vm-including-azure-cli-20-preview"></a>Różne sposoby tworzenia maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)
 Platforma Azure umożliwia elastyczne tworzenie maszyn wirtualnych z systemem Linux przy użyciu dowolnych narzędzi i przepływów pracy. Ten artykuł zawiera podsumowanie różnych sposobów oraz przykłady tworzenia maszyn wirtualnych z systemem Linux.
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Interfejs wiersza polecenia platformy Azure jest dostępny na wielu platformach przy użyciu pakietów menedżera npm, pakietów dostępnych dla określonych dystrybucji lub kontenera Docker. Jeśli chcesz, możesz uzyskać więcej informacji na temat [sposobu instalowania i konfigurowania interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md). Poniższe samouczki zawierają przykłady dotyczące używania interfejsu wiersza polecenia platformy Azure. Zapoznaj się z poszczególnymi artykułami, aby uzyskać więcej informacji na temat przedstawionych poleceń Szybki start interfejsu wiersza polecenia:
 
-* [Tworzenie maszyny wirtualnej systemu Linux z poziomu interfejsu wiersza polecenia platformy Azure w celach programistycznych i testowych](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
+
+- Interfejs wiersza polecenia platformy Azure w wersji 1.0 — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami
+- [Interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](../xplat-cli-install.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami
+
+Interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza) jest dostępny na wielu platformach przy użyciu pakietów menedżera npm, pakietów dostępnych dla określonych dystrybucji lub kontenera Docker. Pamiętaj, aby zalogować się przy użyciu **identyfikatora logowania az**.
+
+Poniższe samouczki zawierają przykłady dotyczące używania interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza). Zapoznaj się z poszczególnymi artykułami, aby uzyskać więcej informacji na temat przedstawionych poleceń:
+
+* [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * W poniższym przykładzie maszyna wirtualna z systemem CoreOS jest tworzona przy użyciu klucza publicznego o nazwie `azure_id_rsa.pub`:
+  * W tym przykładzie tworzona jest grupa zasobów o nazwie myResourceGroup: 
     
     ```azurecli
-    azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
-      --image-urn CoreOS
+    az group create -n myResourceGroup -l westus
     ```
+
+  * W tym przykładzie w nowej grupie zasobów tworzona jest maszyna wirtualna przy użyciu najnowszego obrazu systemu Debian z kluczem publicznym o nazwie `id_rsa.pub`:
+
+    ```azurecli
+    az vm create \
+    --image credativ:Debian:8:latest \
+    --admin-username ops \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --public-ip-address-dns-name mydns \
+    --resource-group myResourceGroup \
+    --location westus \
+    --name myVM
+    ```
+
 * [Tworzenie zabezpieczonej maszyny wirtualnej systemu Linux przy użyciu szablonu Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * W poniższym przykładzie maszyna wirtualna jest tworzona przy użyciu szablonu przechowywanego w witrynie GitHub:
     
     ```azurecli
-    azure group create --name myResourceGroup --location WestUS 
-      --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+    az group deployment create -g myResourceGroup \ 
+      --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
+      --parameters @myparameters.json
     ```
+    
 * [Tworzenie kompletnego środowiska systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Obejmuje tworzenie modułu równoważenia obciążenia i wielu maszyn wirtualnych w zestawie dostępności.
+
 * [Dodawanie dysku do maszyny wirtualnej z systemem Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * W poniższym przykładzie dodano dysk o rozmiarze 5 GB do istniejącej maszyny wirtualnej o nazwie `TestVM`:
+  * W poniższym przykładzie dodano dysk o rozmiarze 5 GB do istniejącej maszyny wirtualnej o nazwie `myVM`:
     
     ```azurecli
-    azure vm disk attach-new --resource-group myResourceGroup  --vm-name myVM \
-      --size-in-GB 5
+    az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
+      --disk-size 5 --vhd https://myStorage.blob.core.windows.net/vhds/myDataDisk1.vhd
     ```
 
 ## <a name="azure-portal"></a>Portal Azure
@@ -65,35 +89,35 @@ Witryna [Azure Portal](https://portal.azure.com) umożliwia szybkie tworzenie ma
 Podczas tworzenia maszyny wirtualnej możesz wybrać obraz w oparciu o system operacyjny, który chcesz uruchomić. Platforma Azure i jej partnerzy oferują wiele obrazów, z których część zawiera wstępnie zainstalowane aplikacje i narzędzia. Możesz również przekazać własny obraz (więcej informacji można znaleźć w [poniższej sekcji](#use-your-own-image)).
 
 ### <a name="azure-images"></a>Obrazy platformy Azure
-Użyj poleceń `azure vm image` interfejsu wiersza polecenia, aby wyświetlić dostępne obrazy według wydawcy, wersji dystrybucji i kompilacji.
+Użyj poleceń `az vm image` interfejsu wiersza polecenia, aby wyświetlić dostępne obrazy według wydawcy, wersji dystrybucji i kompilacji.
 
-Wyświetl dostępnych wydawców w następujący sposób:
+Aby wyświetlić dostępnych wydawców:
 
 ```azurecli
-azure vm image list-publishers --location WestUS
+az vm image list-publishers -l WestUS
 ```
 
-Wyświetl dostępne produkty (oferty) w następujący sposób:
+Aby wyświetlić dostępne produkty (oferty) dla wybranego wydawcy:
 
 ```azurecli
-azure vm image list-offers --location WestUS --publisher Canonical
+az vm image list-offers --publisher-name Canonical -l WestUS
 ```
 
-Wyświetl dostępne jednostki SKU (wersje dystrybucji) dla danej oferty w następujący sposób:
+Aby wyświetlić dostępne jednostki SKU (wersje dystrybucji) dla danej oferty:
 
 ```azurecli
-azure vm image list-skus --location WestUS --publisher Canonical --offer UbuntuServer
+az vm image list-skus --publisher-name Canonical --offer UbuntuServer -l WestUS
 ```
 
-Wyświetl dostępne obrazy dla danego wydania w następujący sposób:
+Aby wyświetlić dostępne obrazy dla danego wydania:
 
 ```azurecli
-azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
+az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS -l WestUS
 ```
 
 Aby uzyskać więcej przykładów związanych z przeglądaniem i wykorzystywaniem dostępnych obrazów, zobacz [Navigate and select Azure virtual machine images with the Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Nawigacja i wybieranie obrazów maszyn wirtualnych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure).
 
-Polecenia `azure vm quick-create` i `azure vm create` mają aliasy umożliwiające szybki dostęp do najpopularniejszych dystrybucji i ich najnowszych wersji. Użycie aliasów jest zwykle łatwiejsze niż określanie wydawcy, oferty, jednostki SKU i wersji za każdym razem podczas tworzenia maszyny wirtualnej:
+Polecenie `az vm create` ma aliasy umożliwiające szybki dostęp do najpopularniejszych dystrybucji i ich najnowszych wersji. Użycie aliasów jest zwykle łatwiejsze niż określanie wydawcy, oferty, jednostki SKU i wersji za każdym razem podczas tworzenia maszyny wirtualnej:
 
 | Alias | Wydawca | Oferta | SKU | Wersja |
 |:--- |:--- |:--- |:--- |:--- |
@@ -110,15 +134,14 @@ Jeśli potrzebujesz specjalnego dostosowania, możesz użyć obrazu opartego na 
 
 * [Dystrybucje zatwierdzone na platformie Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Informacje dotyczące niezatwierdzonych dystrybucji](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Przekazywanie i tworzenie maszyny wirtualnej z systemem Linux z niestandardowego obrazu dysku](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Jak przechwycić maszynę wirtualną systemu Linux jako szablon usługi Resource Manager).
   
   * Przykładowe polecenia Szybki start umożliwiające przechwycenie istniejącej maszyny wirtualnej:
     
     ```azurecli
-    azure vm deallocate --resource-group myResourceGroup --vm-name myVM
-    azure vm generalize --resource-group myResourceGroup --vm-name myVM
-    azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
+    az vm deallocate -g myResourceGroup -n myVM
+    az vm generalize -g myResourceGroup -n myVM
+    az vm capture -g myResourceGroup -n myVM --vhd-name-prefix myCapturedVM
     ```
 
 ## <a name="next-steps"></a>Następne kroki
@@ -129,6 +152,6 @@ Jeśli potrzebujesz specjalnego dostosowania, możesz użyć obrazu opartego na 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

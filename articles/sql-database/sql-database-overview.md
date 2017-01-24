@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 
 
 ---
@@ -27,7 +27,7 @@ Ten temat zawiera omówienie baz danych usługi Azure SQL Database. Aby uzyskać
 ## <a name="what-is-azure-sql-database"></a>Co to jest baza danych usługi Azure SQL Database?
 Każda baza danych w usłudze Azure SQL Database jest skojarzona z serwerem logicznym. Baza danych może być:
 
-- autonomiczną bazą danych z [własnym zestawem zasobów](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (jednostki DTU).
+- pojedynczą bazą danych z [własnym zestawem zasobów](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (jednostki DTU).
 - częścią [puli elastycznej](sql-database-elastic-pool.md), która [współużytkuje zestaw zasobów](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (jednostki eDTU).
 - częścią [skalowanego zestawu baz danych podzielonych na fragmenty](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), które mogą być pojedynczymi bazami danych lub pulami baz danych.
 - częścią zestawu baz danych uczestniczącego we [wzorcu projektowym wielodostępnych aplikacji SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md), którego bazy danych mogą być pojedynczymi bazami danych i/lub pulami baz danych. 
@@ -65,12 +65,12 @@ Serwerami logicznymi usługi Azure SQL Database można zarządzać przy użyciu 
 - Omówienie serwerów logicznych Azure SQL można znaleźć w temacie [Omówienie serwerów logicznych usługi SQL Database](sql-database-server-overview.md).
 - Informacje o obsłudze i różnicach języka Transact-SQL można znaleźć w temacie [Różnice w języku Transact-SQL usługi Azure SQL Database](sql-database-transact-sql-information.md).
 - Informacje o konkretnych limitach przydziału i ograniczeniach zasobów na podstawie określonej **warstwy usługi**. Omówienie warstw usługi można znaleźć w temacie [Warstwy usługi w usłudze SQL Database](sql-database-service-tiers.md).
-- Aby uzyskać wytyczne dotyczące zabezpieczeń, zobacz [Wytyczne z zakresu bezpieczeństwa i ograniczenia dotyczące usługi Azure SQL Database](sql-database-security-guidelines.md).
+- Aby zapoznać się z przeglądem zabezpieczeń, zobacz [przegląd zabezpieczeń usługi Azure SQL Database](sql-database-security-overview.md).
 - Aby uzyskać informacje o dostępności sterowników i obsłudze usługi SQL Database, zobacz [biblioteki połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
+ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
 
 
 ---
@@ -63,10 +63,10 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
 ### <a name="create-a-new-android-project"></a>Tworzenie nowego projektu dla systemu Android
 1. W programie Android Studio utwórz nowy projekt programu Android Studio.
    
-       ![Android Studio - new project][13]
+     ![Android Studio — nowy projekt][13]
 2. Wybierz kształt **Phone and Tablet** (Telefon i tablet) oraz odpowiednią wersję z listy **Minimum SDK** (Minimalna wersja zestawu SDK), która ma być obsługiwana. Następnie kliknij przycisk **Next** (Dalej).
    
-       ![Android Studio - project creation workflow][14]
+     ![Android Studio — przepływ pracy tworzenia projektu][14]
 3. Wybierz pozycję **Empty Activity** (Puste działanie) dla głównego działania i kliknij przycisk **Next** (Dalej), a następnie kliknij przycisk **Finish** (Zakończ).
 
 ### <a name="add-google-play-services-to-the-project"></a>Dodawanie usług Google Play do projektu
@@ -660,10 +660,10 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 
 
 <!-- URLs. -->
-[Wprowadzenie do powiadomień wypychanych w usłudze Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[Zestaw SDK usługi Mobile Services dla systemu Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Odwołanie do projektu biblioteki]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Klasyczny portal Azure]: https://manage.windowsazure.com/
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
@@ -671,6 +671,6 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

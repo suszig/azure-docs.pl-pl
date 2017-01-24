@@ -1,5 +1,5 @@
 ---
-title: Wprowadzenie do serwera Azure Multi-Factor Authentication
+title: Wprowadzenie do serwera Azure Multi-Factor Authentication | Microsoft Docs
 description: "Ta strona dotycząca usługi Azure Multi-Factor Authentication zawiera informacje umożliwiające rozpoczęcie korzystania z serwera Azure MFA."
 services: multi-factor-authentication
 keywords: serwer uwierzytelniania, strona aktywacji aplikacji azure multi factor authentication, pobieranie serwera uwierzytelniania
@@ -13,23 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.date: 01/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2e2d680a0f54830f6086a4d6ac98f4a550f4ee46
-ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
+ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
+ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Wprowadzenie do serwera Azure Multi-Factor Authentication
 <center>![Lokalna usługa MFA](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Po podjęciu decyzji o użyciu lokalnej usługi Multi-Factor Authentication można przejść do kolejnych kroków. Ta strona obejmuje nową instalację serwera oraz jego konfigurację z uwzględnieniem lokalnej usługi Active Directory. Aby uaktualnić zainstalowany wcześniej serwer PhoneFactor, zobacz artykuł [Uaktualnianie do serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md). Informacje na temat instalowania samych usług sieci Web znajdują się w artykule [Wdrażanie usług sieci Web aplikacji mobilnej serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
+Po podjęciu decyzji o użyciu lokalnego serwera Multi-Factor Authentication można przejść do kolejnych kroków. Ta strona obejmuje nową instalację serwera oraz jego konfigurację z uwzględnieniem lokalnej usługi Active Directory. Aby uaktualnić zainstalowany wcześniej serwer PhoneFactor, zobacz artykuł [Uaktualnianie do serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md). Informacje na temat instalowania samych usług sieci Web znajdują się w artykule [Wdrażanie usług sieci Web aplikacji mobilnej serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>Pobieranie serwera Azure Multi-Factor Authentication
 Istnieją dwa sposoby na pobranie serwera Azure Multi-Factor Authentication. Oba wymagają użycia witryny Azure Portal. Pierwszy sposób polega na pobraniu serwera bezpośrednio w ramach zarządzania dostawcą usługi Multi-Factor Authentication. Drugi sposób wymaga skorzystania z ustawień usługi. Druga opcja obejmuje skorzystanie z dostawcy usługi Multi-Factor Authentication lub z licencji usługi Azure MFA, usługi Azure AD w wersji Premium lub pakietu Enterprise Mobility Suite.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Aby pobrać serwer Azure Multi-Factor Authentication z klasycznej witryny Azure Portal
+> [!Important]
+> Te dwie opcje wydają się podobne, ale ważne jest rozróżnienie ich użycia. Jeśli użytkownicy korzystają z licencji dostarczonych z usługą MFA, nie należy tworzyć dostawcy usługi Multi-Factor Authentication na potrzeby uzyskania dostępu do pobierania serwera. Zamiast tego należy użyć opcji 2 w celu pobrania serwera ze strony ustawień usługi. 
+
+### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Opcja 1: pobieranie serwera Azure Multi-Factor Authentication z klasycznej witryny Azure Portal
+
+Użyj tej opcji pobierania, jeśli masz już dostawcę usługi Multi-Factor Authentication, ponieważ usługę MFA opłacono za włączonego użytkownika lub za uwierzytelnianie. 
 
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
 2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
@@ -41,7 +46,10 @@ Istnieją dwa sposoby na pobranie serwera Azure Multi-Factor Authentication. Oba
    ![Pobieranie](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Zapisz pobrany plik.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-service-settings"></a>Aby pobrać serwer Azure Multi-Factor Authentication przy użyciu ustawień usługi
+### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>Opcja 2: pobieranie serwera Azure Multi-Factor Authentication przy użyciu ustawień usługi
+
+Użyj tej opcji pobierania, jeśli masz licencje pakietu Enterprise Mobility Suite, usługi Azure AD w wersji Premium lub pakietu Enterprise Cloud Suite. 
+
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
 2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
 3. Kliknij dwukrotnie wystąpienie usługi Azure AD.
@@ -140,8 +148,8 @@ W przypadku lokalnego użycia serwera Multi-Factor Authentication (MFA) dane uż
 
 Oprócz powyższych pól wraz z danymi uwierzytelniania są przechowywane także wyniki weryfikacji (powodzenie/odmowa) oraz przyczyny odmów. Informacje te są potem dostępne w raportach dotyczących uwierzytelniania/użycia.
 
-## <a name="advanced-azure-multi-factor-authentication-server-configurations"></a>Zaawansowane konfiguracje serwera Azure Multi-Factor Authentication
-Dodatkowe informacje na temat zaawansowanej instalacji oraz informacje o konfiguracji można znaleźć w poniższej tabeli:
+## <a name="next-steps"></a>Następne kroki
+Aby uzyskać dodatkowe informacje na temat zaawansowanej instalacji oraz informacje o konfiguracji, użyj linków znajdujących się w poniższej tabeli:
 
 | Metoda | Opis |
 |:--- |:--- |
@@ -158,6 +166,6 @@ Dodatkowe informacje na temat zaawansowanej instalacji oraz informacje o konfigu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

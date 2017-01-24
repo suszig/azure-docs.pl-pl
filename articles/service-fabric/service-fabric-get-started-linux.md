@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
-ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
+ms.sourcegitcommit: 206b958b4c266b9977a9beb8ffb6a0576f068a9a
+ms.openlocfilehash: cc4fbb67baf14f4a104a5de6dbf11ad195a42d15
 
 
 ---
@@ -31,10 +31,11 @@ ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
  Aby wdrażać i uruchamiać [aplikacje usługi Azure Service Fabric](service-fabric-application-model.md) na maszynie deweloperskiej z systemem Linux, należy zainstalować środowisko uruchomieniowe i wspólny zestaw SDK. Można także zainstalować opcjonalne zestawy SDK dla platformy Java i .NET Core.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 ### <a name="supported-operating-system-versions"></a>Obsługiwane wersje systemu operacyjnego
 Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu operacyjnego:
 
-* Ubuntu 16.04 (Xenial Xerus)
+* Ubuntu 16.04 („Xenial Xerus”)
 
 ## <a name="update-your-apt-sources"></a>Aktualizowanie źródeł APT
 Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego przy użyciu polecenia apt-get, należy najpierw zaktualizować źródła APT.
@@ -72,7 +73,7 @@ Po zaktualizowaniu źródeł można zainstalować zestaw SDK.
 
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>Konfigurowanie wieloplatformowego interfejsu wiersza polecenia Azure
-[Wieloplatformowy interfejs wiersza polecenia platformy Azure][azure-xplat-cli-github] zawiera polecenia służące do interakcji z jednostkami usługi Service Fabric, w tym klastrami i aplikacjami. Jest on oparty na języku Node.js, więc [należy upewnić się, że zainstalowano środowisko Node][install-node] przed dalszym wykonywaniem poniższych instrukcji.
+[Wieloplatformowy interfejs wiersza polecenia platformy Azure][azure-xplat-cli-github] zawiera polecenia służące do interakcji z jednostkami usługi Service Fabric, w tym klastrami i aplikacjami. Jest on oparty na języku Node.js, więc [upewnij się, że zainstalowano środowisko Node][install-node] przed dalszym wykonywaniem następujących instrukcji:
 
 1. Sklonuj repozytorium Github na maszynie deweloperskiej.
    
@@ -110,7 +111,13 @@ Jeśli wszystko zostało zainstalowane pomyślnie, powinno być możliwe uruchom
    
     ![Narzędzie Service Fabric Explorer w systemie Linux][sfx-linux]
 
-W tym momencie możliwe jest wdrożenie wstępnie skompilowanych pakietów aplikacji usługi Service Fabric lub nowych pakietów opartych na kontenerach gościa lub plikach wykonywalnych gościa. Aby skompilować nowe usługi przy użyciu zestawów SDK platformy Java lub .NET Core, wykonaj poniższe opcjonalne kroki instalacji.
+W tym momencie możliwe jest wdrożenie wstępnie skompilowanych pakietów aplikacji usługi Service Fabric lub nowych pakietów opartych na kontenerach gościa lub plikach wykonywalnych gościa. Aby tworzyć nowe usługi przy użyciu zestawów SDK platformy Java lub .NET Core, wykonaj opcjonalne kroki instalacji opisane w kolejnych sekcjach.
+
+
+> [!NOTE]
+> Klastry autonomiczne nie są obsługiwane w systemie Linux — w wersji zapoznawczej są obsługiwane tylko pojedyncze maszyny i klastry obejmujące wiele maszyn platformy Azure z systemem Linux.
+> 
+> 
 
 ## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Instalowanie zestawu Java SDK i wtyczki środowiska Eclipse Neon (opcjonalnie)
 Zestaw Java SDK udostępnia biblioteki i szablony wymagane do kompilowania usług Service Fabric przy użyciu platformy Java.
@@ -142,28 +149,32 @@ Zestaw SDK platformy .NET Core udostępnia biblioteki i szablony wymagane do kom
 
 1. Zainstaluj zestaw SDK platformy .NET Core.
    
-    ```bash
-    sudo apt-get install servicefabricsdkcsharp
-    ```
+   ```bash
+   sudo apt-get install servicefabricsdkcsharp
+   ```
+
 2. Uruchom skrypt instalacji zestawu SDK.
    
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
-    ```
+   ```bash
+   sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
+   ```
+
 ## <a name="updating-the-sdk-and-runtime"></a>Aktualizowanie zestawu SDK i środowiska uruchomieniowego
 
 Aby zaktualizować zestaw SDK i środowisko uruchomieniowe do najnowszej wersji, wykonaj następujące czynności (usuń z listy zestawy SDK, których nie chcesz aktualizować ani instalować):
 
-    ```bash
-    sudo apt-get update
-    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
-    ```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   ```
 
 Aby zaktualizować interfejs wiersza polecenia, przejdź do katalogu, w którym sklonowano interfejs wiersza polecenia, i uruchom polecenie `git pull` w celu rozpoczęcia aktualizacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pierwszej aplikacji Java w systemie Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md) (Tworzenie pierwszej aplikacji CSharp w systemie Linux)
 * [Przygotowywanie środowiska projektowego w systemie OSX](service-fabric-get-started-mac.md)
+* [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md) (Używanie interfejsu wiersza polecenia platformy Azure do zarządzania aplikacjami usługi Service Fabric)
 
 <!-- Links -->
 
@@ -178,6 +189,6 @@ Aby zaktualizować interfejs wiersza polecenia, przejdź do katalogu, w którym 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

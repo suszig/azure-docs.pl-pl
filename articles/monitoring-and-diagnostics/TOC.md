@@ -49,6 +49,6 @@
 ## [Przykłady interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista obsługiwanych metryk](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

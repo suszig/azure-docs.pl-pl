@@ -1,6 +1,6 @@
 ---
 title: "Samouczek NoSQL środowiska Node.js dla usługi DocumentDB | Microsoft Docs"
-description: "Samouczek NoSQL środowiska Node.js, który pokazuje tworzenie bazy danych Node i aplikacji konsolowej przy użyciu zestawu SDK dla środowiska Node.js usługi DocumentDB. Usługa DocumentDB jest bazą danych NoSQL dla formatu JSON."
+description: "Samouczek NoSQL środowiska Node.js, w którym przedstawiono tworzenie bazy danych NoSQL i aplikacji konsolowej przy użyciu zestawu SDK dla środowiska Node.js usługi DocumentDB. Usługa DocumentDB jest bazą danych NoSQL dla formatu JSON."
 keywords: samouczek node.js, baza danych node
 services: documentdb
 documentationcenter: node.js
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
-ms.openlocfilehash: 9d4d49e1a05487a06e071c54008a333dc88c4a50
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
 
 
 ---
@@ -25,11 +25,13 @@ ms.openlocfilehash: 9d4d49e1a05487a06e071c54008a333dc88c4a50
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
-Witamy w samouczku środowiska Node.js dla zestawu SDK środowiska Node.js usługi Azure DocumentDB! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi DocumentDB, w tym bazę danych Node i wykonuje względem nich zapytania.
+Witamy w samouczku środowiska Node.js dla zestawu SDK środowiska Node.js usługi Azure DocumentDB! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi DocumentDB i wykonuje dla nich zapytania.
 
 Omówione zostaną następujące czynności:
 
@@ -67,10 +69,10 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 3. Utwórz dwa puste pliki JavaScript za pomocą następujących poleceń:
    * W systemie Windows:
      * ```fsutil file createnew app.js 0```
-       * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew config.js 0```
    * W systemie Linux/OS X:
      * ```touch app.js```
-       * ```touch config.js```
+     * ```touch config.js```
 4. Zainstaluj moduł documentdb za pomocą menedżera npm. Użyj następującego polecenia:
    * ```npm install documentdb --save```
 
@@ -265,7 +267,7 @@ Gratulacje! Pomyślnie utworzono bazę danych usługi DocumentDB.
 
 [Kolekcję](documentdb-resources.md#collections) można utworzyć za pomocą funkcji [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) klasy **DocumentClient**. Kolekcja jest kontenerem dokumentów JSON i skojarzonej logiki aplikacji JavaScript.
 
-Skopiuj i wklej funkcję **getCollection** poniżej funkcji **getDatabase** w celu utworzenia nowej kolekcji z właściwością ```id``` określoną w obiekcie ```config```. Znowu sprawdzimy w celu upewnienia się, że kolekcja o takim samym identyfikatorze ```FamilyCollection``` jeszcze nie istnieje. Jeśli istnieje, zostanie zwrócona ta kolekcja zamiast tworzenia nowej.
+Skopiuj i wklej funkcję **getCollection** poniżej funkcji **getDatabase** w pliku app.js w celu utworzenia nowej kolekcji z właściwością ```id``` określoną w obiekcie ```config```. Znowu sprawdzimy w celu upewnienia się, że kolekcja o takim samym identyfikatorze ```FamilyCollection``` jeszcze nie istnieje. Jeśli istnieje, zostanie zwrócona ta kolekcja zamiast tworzenia nowej.
 
                 } else {
                     resolve(result);
@@ -368,7 +370,7 @@ Gratulacje! Pomyślnie utworzono dokumenty usługi DocumentDB.
 ## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>Krok 8. Wykonywanie zapytań względem zasobów usługi DocumentDB
 Usługa DocumentDB obsługuje [zaawansowane zapytania](documentdb-sql-query.md) względem dokumentów JSON przechowywanych w każdej kolekcji. Następujący przykładowy kod przedstawia zapytanie, które można uruchomić dla dokumentów w kolekcji.
 
-Skopiuj i wklej funkcję **queryCollection** poniżej funkcji **getFamilyDocument**. Usługa DocumentDB obsługuje zapytania podobne do zapytań SQL, jak pokazano poniżej. Aby uzyskać więcej informacji na temat tworzenia złożonych zapytań, zobacz [plac zabaw dla zapytań](https://www.documentdb.com/sql/demo) i [dokumentację dotyczącą zapytań](documentdb-sql-query.md).
+Skopiuj i wklej funkcję **queryCollection** poniżej funkcji **getFamilyDocument** w pliku app.js. Usługa DocumentDB obsługuje zapytania podobne do zapytań SQL, jak pokazano poniżej. Aby uzyskać więcej informacji na temat tworzenia złożonych zapytań, zobacz [plac zabaw dla zapytań](https://www.documentdb.com/sql/demo) i [dokumentację dotyczącą zapytań](documentdb-sql-query.md).
 
                 } else {
                     resolve(result);
@@ -425,7 +427,7 @@ Gratulacje! Pomyślnie wykonano zapytanie dla dokumentów usługi DocumentDB.
 ## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>Krok 9. Zastępowanie dokumentu
 Usługa DocumentDB obsługuje zastępowanie dokumentów JSON.
 
-Skopiuj i wklej funkcję **replaceDocument** poniżej funkcji **queryCollection**.
+Skopiuj i wklej funkcję **replaceFamilyDocument** poniżej funkcji **queryCollection** w pliku app.js.
 
                     }
                     console.log();
@@ -472,7 +474,7 @@ Gratulacje! Pomyślnie zastąpiono dokument usługi DocumentDB.
 ## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>Krok 10. Usuwanie dokumentu
 Usługa DocumentDB obsługuje usuwanie dokumentów JSON.
 
-Skopiuj i wklej funkcję **deleteDocument** poniżej funkcji **replaceDocument**.
+Skopiuj i wklej funkcję **deleteFamilyDocument** poniżej funkcji **replaceFamilyDocument**.
 
                 else {
                     resolve(result);
@@ -516,7 +518,7 @@ Gratulacje! Pomyślnie usunięto dokument usługi DocumentDB.
 ## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>Krok 11. Usuwanie bazy danych Node
 Usunięcie utworzonej bazy danych spowoduje usunięcie bazy danych i wszystkich zasobów podrzędnych (kolekcji, dokumentów itd.).
 
-Skopiuj i wklej poniższy fragment kodu (funkcja **cleanup**), aby usunąć bazę danych i wszystkie zasoby podrzędne.
+Skopiuj poniższą funkcję **cleanup** i wklej ją poniżej funkcji **deleteFamilyDocument**, aby usunąć bazę danych i wszystkie zasoby podrzędne.
 
                 else {
                     resolve(result);
@@ -537,7 +539,7 @@ Skopiuj i wklej poniższy fragment kodu (funkcja **cleanup**), aby usunąć baz�
         });
     }
 
-Skopiuj i wklej kod poniżej wywołania funkcji **deleteDocument**, aby wykonać funkcję **cleanup**.
+Skopiuj i wklej kod poniżej wywołania funkcji **deleteFamilyDocument**, aby wykonać funkcję **cleanup**.
 
     .then(() => deleteFamilyDocument(config.documents.Andersen))
 
@@ -600,7 +602,9 @@ Powinny zostać wyświetlone dane wyjściowe aplikacji rozpoczynania pracy. Dane
 Gratulacje! Udało Ci się ukończyć samouczek środowiska Node.js i utworzyć swoją pierwszą aplikację konsolową usługi DocumentDB!
 
 ## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Pobieranie kompletnego rozwiązania samouczka środowiska Node.js
-Do utworzenia rozwiązania GetStarted, które zawiera wszystkie przykłady w tym artykule, będą potrzebne następujące elementy:
+Jeśli nie masz czasu na ukończenie tych kroków w ramach tego samouczka lub po prostu chcesz pobrać kod, możesz pobrać go z serwisu [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+
+Do uruchomienia rozwiązania GetStarted, które zawiera wszystkie przykłady znajdujące się w tym artykule, będą potrzebne następujące elementy:
 
 * [Konto usługi DocumentDB][documentdb-create-account].
 * Rozwiązanie [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) dostępne w witrynie GitHub.
@@ -609,7 +613,11 @@ Zainstaluj moduł **documentdb** za pomocą menedżera npm. Użyj następująceg
 
 * ```npm install documentdb --save```
 
-Następnie w pliku ```config.js``` zaktualizuj wartości config.endpoint i config.authKey, zgodnie z opisem w sekcji [Krok 3. Ustawianie konfiguracji aplikacji](#Config).
+Następnie w pliku ```config.js``` zaktualizuj wartości config.endpoint i config.authKey, zgodnie z opisem w sekcji [Krok 3. Ustawianie konfiguracji aplikacji](#Config). 
+
+W terminalu znajdź swój plik ```app.js```, a następnie uruchom polecenie: ```node app.js```.
+
+To wszystko — skompiluj projekt i gotowe! 
 
 ## <a name="next-steps"></a>Następne kroki
 * Potrzebujesz bardziej złożonego przykładu środowiska Node.js? Zobacz [Tworzenie aplikacji sieci Web Node.js za pomocą usługi DocumentDB](documentdb-nodejs-application.md).
@@ -618,12 +626,10 @@ Następnie w pliku ```config.js``` zaktualizuj wartości config.endpoint i confi
 * Dowiedz się więcej o modelu programowania w sekcji Dla deweloperów [strony dokumentacji usługi DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

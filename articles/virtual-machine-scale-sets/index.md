@@ -109,6 +109,6 @@ Pobierz dokumentację zestawów skalowania maszyn wirtualnych Microsoft Azure </
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

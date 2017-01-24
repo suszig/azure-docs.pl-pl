@@ -3,8 +3,8 @@ title: "Wprowadzenie do usługi Storage | Microsoft Docs"
 description: "Omówienie usługi Azure Storage — magazynu danych online w chmurze firmy Microsoft. Dowiedz się, jak używać najlepszego dostępnego rozwiązania magazynu w chmurze dla Twoich aplikacji."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
 
 
 ---
@@ -75,7 +75,7 @@ Dla użytkowników z dużymi ilościami danych bez struktury, które mają być 
 * Dane konfiguracji dla aplikacji w chmurze
 * Dane big data takie jak dzienniki i inne duże zestawy danych
 
-Każdy obiekt blob znajduje się w kontenerze. Kontenery to także wygodny sposób na przypisywanie zasad zabezpieczeń do grup obiektów. Konto magazynu może zawierać dowolną liczbę kontenerów, a kontener może zawierać dowolną liczbę obiektów blob w granicach limitu konta magazynu wynoszącego 500 TB.  
+Każdy obiekt blob znajduje się w kontenerze. Kontenery to także wygodny sposób na przypisywanie zasad zabezpieczeń do grup obiektów. Konto magazynu może zawierać dowolną liczbę kontenerów, a kontener może zawierać dowolną liczbę obiektów blob w granicach limitu konta magazynu wynoszącego 500 TB.
 
 Magazyn obiektów blob udostępnia trzy typy obiektów blob: blokowe obiekty blob, uzupełnialne obiekty blob i stronicowe obiekty blob (dyski).
 
@@ -104,7 +104,7 @@ Konto magazynu może zawierać dowolną liczbę kolejek. Kolejki mogą zawierać
 ## <a name="file-storage"></a>File Storage
 Magazyn plików Azure oferuje udziały plików w chmurze oparte na protokole SMB, dzięki czemu można zmigrować starsze aplikacje korzystające z udziałów plików na platformę Azure szybko i bez kosztownych modyfikacji oprogramowania. W przypadku usługi Azure File Storage aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure mogą zainstalować udziały plików w chmurze tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba składników aplikacji może następnie równocześnie zainstalować udział Magazynu plików i uzyskiwać do niego dostęp.
 
-Ponieważ udział Magazynu plików to standardowy udział plików SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy systemu plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure.
+Ponieważ udział usługi File Storage to standardowy udział plików SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy systemu plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure.
 
 Podobnie jak inne usługi magazynu platformy Azure, Magazyn plików uwidacznia interfejs API REST na potrzeby uzyskiwania dostępu do danych w udziale. Aplikacje lokalne mogą wywołać interfejs API REST Magazynu plików, aby uzyskać dostęp do danych w udziale plików. W ten sposób przedsiębiorstwo ma możliwość zmigrowania niektórych starszych aplikacji na platformę Azure i kontynuowania korzystania z pozostałych ze swojej organizacji. Należy pamiętać, że instalowanie udziału plików jest możliwe tylko dla aplikacji działających na platformie Azure. Aplikacja lokalna ma dostęp do udziału plików tylko za pomocą interfejsu API REST.
 
@@ -128,32 +128,32 @@ Zobacz [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signa
 ## <a name="replication-for-durability-and-high-availability"></a>Replikacja na potrzeby trwałości i wysokiej dostępności
 Dane konta usługi Microsoft Azure Storage są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności. W zależności od wybranej opcji replikacji dane są kopiowane w ramach tego samego centrum danych lub do innego centrum danych. Replikacja chroni dane i utrzymuje sprawne działanie aplikacji w wypadku przejściowych awarii sprzętu. Jeśli dane są replikowane do innego centrum danych, są one również chronione przed katastrofalnym błędem w lokalizacji podstawowej.
 
-Replikacja gwarantuje, że Twoje konto magazynu spełnia warunki [Umowy dotyczącej poziomu usług (SLA) dla Magazynu](https://azure.microsoft.com/support/legal/sla/storage/) nawet w przypadku wystąpienia błędów. Zobacz umowę SLA, aby uzyskać informacje o gwarancjach usługi Azure Storage dotyczących trwałości i dostępności. 
+Replikacja gwarantuje, że Twoje konto magazynu spełnia warunki [Umowy dotyczącej poziomu usług (SLA) dla Magazynu](https://azure.microsoft.com/support/legal/sla/storage/) nawet w przypadku wystąpienia błędów. Zobacz umowę SLA, aby uzyskać informacje o gwarancjach usługi Azure Storage dotyczących trwałości i dostępności.
 
-Podczas tworzenia konta magazynu można wybrać jedną z następujących opcji replikacji:  
+Podczas tworzenia konta magazynu można wybrać jedną z następujących opcji replikacji:
 
-* **Magazyn lokalnie nadmiarowy (LRS).** Magazyn lokalnie nadmiarowy przechowuje trzy kopie danych. Magazyn LRS jest replikowany trzy razy w jednym centrum danych w pojedynczym regionie. Magazyn LRS chroni dane przed zwykłymi awariami sprzętu, lecz nie przed awarią pojedynczego centrum danych.  
-  
+* **Magazyn lokalnie nadmiarowy (LRS).** Magazyn lokalnie nadmiarowy przechowuje trzy kopie danych. Magazyn LRS jest replikowany trzy razy w jednym centrum danych w pojedynczym regionie. Magazyn LRS chroni dane przed zwykłymi awariami sprzętu, lecz nie przed awarią pojedynczego centrum danych.
+
     Magazyn LRS jest oferowany z rabatem. Aby uzyskać maksymalną trwałość, zalecamy użycie magazynu geograficznie nadmiarowego opisanego poniżej.
-* **Magazyn strefowo nadmiarowy (ZRS).** Magazyn strefowo nadmiarowy przechowuje trzy kopie danych. Magazyn ZRS jest replikowany trzykrotnie w ramach dwóch lub trzech obiektów, w jednym lub dwóch regionach, zapewniając większą trwałość niż magazyn LRS. Magazyn ZRS zapewnia, że dane są trwałe w pojedynczym regionie.  
-  
-    Magazyn ZRS zapewnia wyższy poziom trwałości niż magazyn LRS, jednak w celu osiągnięcia maksymalnej trwałości zalecamy użycie magazynu geograficznie nadmiarowego opisanego poniżej.  
-  
+* **Magazyn strefowo nadmiarowy (ZRS).** Magazyn strefowo nadmiarowy przechowuje trzy kopie danych. Magazyn ZRS jest replikowany trzykrotnie w ramach dwóch lub trzech obiektów, w jednym lub dwóch regionach, zapewniając większą trwałość niż magazyn LRS. Magazyn ZRS zapewnia, że dane są trwałe w pojedynczym regionie.
+
+    Magazyn ZRS zapewnia wyższy poziom trwałości niż magazyn LRS, jednak w celu osiągnięcia maksymalnej trwałości zalecamy użycie magazynu geograficznie nadmiarowego opisanego poniżej.
+
   > [!NOTE]
   > Magazyn ZRS jest obecnie dostępny tylko dla blokowych obiektów blob i tylko dla wersji 2014-02-14 i nowszych.
-  > 
+  >
   > Po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go pod kątem użycia żadnego innego typu replikacji i odwrotnie.
-  > 
-  > 
+  >
+  >
 * **Magazyn geograficznie nadmiarowy (GRS)**. Magazyn GRS przechowuje sześć kopii danych. W wypadku magazynu GRS dane są replikowane trzy razy w regionie podstawowym i trzy razy w regionie dodatkowym oddalonym o setki kilometrów od podstawowego, co zapewnia najwyższy poziom trwałości. Jeśli wystąpi awaria w regionie podstawowym, usługa Azure Storage przejdzie w tryb failover w regionie dodatkowym. Magazyn GRS zapewnia, że dane są trwałe w dwóch oddzielnych regionach.
-  
+
     Informacje o parach podstawowych i dodatkowych według regionów można znaleźć w temacie [Regiony platformy Azure](https://azure.microsoft.com/regions/).
-* **Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)**. W ramach dostępu do odczytu dla magazynu geograficznie nadmiarowego dane są replikowane do dodatkowej lokalizacji geograficznej, gdzie są dostępne do odczytu. Dostęp do odczytu dla magazynu geograficznie nadmiarowego umożliwia dostęp do danych z lokalizacji podstawowej lub dodatkowej w sytuacji, gdy jedna z nich stanie się niedostępna. Dostęp do odczytu dla magazynu geograficznie nadmiarowego jest opcją domyślnie włączaną dla konta magazynu podczas jego tworzenia. 
-  
+* **Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)**. W ramach dostępu do odczytu dla magazynu geograficznie nadmiarowego dane są replikowane do dodatkowej lokalizacji geograficznej, gdzie są dostępne do odczytu. Dostęp do odczytu dla magazynu geograficznie nadmiarowego umożliwia dostęp do danych z lokalizacji podstawowej lub dodatkowej w sytuacji, gdy jedna z nich stanie się niedostępna. Dostęp do odczytu dla magazynu geograficznie nadmiarowego jest opcją domyślnie włączaną dla konta magazynu podczas jego tworzenia.
+
   > [!IMPORTANT]
   > Możesz zmienić sposób replikacji danych po utworzeniu konta magazynu, o ile jest on inny niż ZRS. Zwróć jednak uwagę, że w wypadku przejścia z replikacji LRS na GRS lub RA-GRS mogą zostać naliczone dodatkowo i jednorazowo koszty transferu danych.
-  > 
-  > 
+  >
+  >
 
 Aby uzyskać szczegółowe informacje na temat opcji replikacji magazynu, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).
 
@@ -252,6 +252,6 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 * [Szybkie wprowadzenie do usługi Azure Storage](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

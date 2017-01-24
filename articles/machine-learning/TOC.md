@@ -192,7 +192,7 @@
 ### [Custom Modules](machine-learning-gallery-custom-modules.md) (Moduły niestandardowe)
 ## Cortana Analytics
 ### Interfejsy API
-#### [Wykrywanie anomalii](machine-learning-apps-anomaly-detection.md)
+#### [Wykrywanie anomalii](machine-learning-apps-anomaly-detection-api.md)
 #### [Analiza tekstu](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Zalecenia
@@ -222,6 +222,6 @@
 ## [Get help from live chat](machine-learning-live-chat.md) (Uzyskaj pomoc przez czat na żywo)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

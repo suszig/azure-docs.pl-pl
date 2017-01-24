@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: objectivec
 ms.topic: hero-article
-ms.date: 07/26/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
 ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
@@ -20,7 +20,7 @@ ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
-# <a name="azure-ad-b2c-call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C: wywoływanie interfejsu API sieci Web z aplikacji dla systemu iOS przy użyciu biblioteki innej firmy
+# <a name="azure-ad-b2c--call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C: wywoływanie interfejsu API sieci Web z aplikacji dla systemu iOS przy użyciu biblioteki innej firmy
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Platforma Microsoft Identity korzysta z otwartych standardów, takich jak OAuth2 i OpenID Connect. Umożliwia to deweloperom korzystanie z każdej biblioteki, którą chcą zintegrować z naszymi usługami. Aby pomóc deweloperom w używaniu naszej platformy z innymi bibliotekami, utworzyliśmy kilka przewodników podobnych do tego. Przedstawiają one sposób konfigurowania bibliotek innych firm pod kątem nawiązywania połączenia z platformą Microsoft Identity. Z platformą Microsoft Identity może łączyć się większość bibliotek implementujących [specyfikację RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749).
@@ -631,6 +631,6 @@ Możesz teraz przejść do bardziej zaawansowanych tematów dotyczących usługi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 
