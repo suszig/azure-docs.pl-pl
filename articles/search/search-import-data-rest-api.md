@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
 
 ---
 
@@ -36,10 +36,10 @@ Przed rozpoczęciem pracy z tym przewodnikiem powinien zostać [utworzony indeks
 
 Aby wypchnąć dokumenty do indeksu za pomocą interfejsu API REST, należy wysłać żądanie HTTP POST do końcowego adresu URL indeksu. Treść żądania HTTP jest obiektem JSON, który zawiera dokumenty do dodania, zmodyfikowania lub usunięcia.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identyfikowanie klucza api-key administratora usługi Azure Search
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identyfikowanie klucza api-key administratora usługi Azure Search
 *Wszystkie* żądania HTTP wysyłane do usługi przy użyciu interfejsu API REST muszą zawierać klucz api-key wygenerowany dla aprowizowanej usługi wyszukiwania. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-1. Aby znaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
+1. Aby znaleźć klucze api-key dla usługi, możesz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
 2. Przejdź do bloku usługi Azure Search
 3. Kliknij ikonę „Klucze”
 
@@ -50,7 +50,7 @@ Usługa będzie dysponować *kluczami administratora* i *kluczami zapytań*.
 
 W celu zaimportowania danych do indeksu można użyć zarówno podstawowego, jak i pomocniczego klucza administratora.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Wybieranie akcji indeksowania do użycia
+## <a name="decide-which-indexing-action-to-use"></a>Wybieranie akcji indeksowania do użycia
 Korzystanie z interfejsu API REST wymaga wysyłania żądań HTTP POST zawierających treść żądań JSON do adresu URL punktu końcowego indeksu usługi Azure Search. Obiekt JSON w treści żądania HTTP będzie zawierał pojedynczą tablicę danych JSON o nazwie „wartość” z obiektami JSON reprezentującymi dokumenty, które mają zostać dodane do indeksu, zaktualizowane lub usunięte.
 
 Poszczególne obiekty JSON w tablicy „wartość” reprezentują dokumenty, które mają zostać umieszczone w indeksie. Każdy z tych obiektów zawiera klucz dokumentu i określa wymaganą akcję indeksowania (przekazanie, scalenie, usunięcie itp.). W zależności od tego, którą z poniższych akcji wybierzesz, tylko określone pola muszą być uwzględnione w danym dokumencie:
@@ -62,7 +62,7 @@ Poszczególne obiekty JSON w tablicy „wartość” reprezentują dokumenty, kt
 | `mergeOrUpload` |Ta akcja działa jak akcja `merge`, jeśli dokument o danym kluczu już istnieje w indeksie. Jeśli dokument nie istnieje, działa jak akcja `upload` dla nowego dokumentu. |pole klucza oraz inne pola, które chcesz zdefiniować |- |
 | `delete` |Usuwa określony dokument z indeksu. |tylko pole klucza |Wszystkie pola, które określisz oprócz pola klucza, zostaną zignorowane. Jeśli chcesz usunąć pojedyncze pole z dokumentu, zamiast tej akcji użyj akcji `merge` i po prostu jawnie ustaw dla pola wartość null. |
 
-## <a name="iii-construct-your-http-request-and-request-body"></a>III. Konstruowania żądania HTTP i treści żądania
+## <a name="construct-your-http-request-and-request-body"></a>Konstruowania żądania HTTP i treści żądania
 Po zebraniu wartości pól wymaganych dla akcji indeksu można przystąpić do konstruowania rzeczywistego żądania HTTP i treści żądania JSON w celu zaimportowania danych.
 
 #### <a name="request-and-request-headers"></a>Żądanie i nagłówki żądania
@@ -126,7 +126,7 @@ Załóżmy, że przedstawiony w przykładzie indeks „hotels” jest już wype�
 
 Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksymalnie 1000 dokumentów (lub 16 MB danych).
 
-## <a name="iv-understand-your-http-response-code"></a>IV. Opisy kodów odpowiedzi HTTP
+## <a name="understand-your-http-response-code"></a>Opisy kodów odpowiedzi HTTP
 #### <a name="200"></a>200
 Po pomyślnym przesłaniu żądania indeksowania zostanie zwrócona odpowiedź HTTP z kodem stanu `200 OK`. Treść kodu JSON odpowiedzi HTTP będzie wyglądać następująco:
 
@@ -177,11 +177,11 @@ Kod stanu `503` jest zwracany, jeśli żaden z elementów w żądaniu nie zosta�
 
 Aby uzyskać więcej informacji na temat akcji dla dokumentów oraz odpowiedzi oznaczających powodzenie lub błąd, zobacz [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) (Dodawanie, aktualizowanie lub usuwanie dokumentów). Aby uzyskać więcej informacji o innych kodach stanów HTTP, które mogą być zwracane w przypadku niepowodzenia, zobacz [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) (Usługa Azure Search — kody stanów HTTP).
 
-## <a name="next"></a>Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zapytań w celu wyszukania dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

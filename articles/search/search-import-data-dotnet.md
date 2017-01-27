@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 
 ---
@@ -41,7 +41,7 @@ Aby wypchnąć dokumenty do indeksu przy użyciu zestawu .NET SDK, konieczne jes
 2. Utworzenie obiektu `IndexBatch` zawierającego dokumenty przeznaczone do dodania, modyfikacji lub usunięcia.
 3. Wywołanie metody `Documents.Index` klasy `SearchIndexClient`, aby wysłać obiekt `IndexBatch` do indeksu wyszukiwania.
 
-## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Tworzenie wystąpienia klasy SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Tworzenie wystąpienia klasy SearchIndexClient
 Aby zaimportować dane do indeksu, używając zestawu .NET SDK usługi Azure Search, konieczne jest utworzenie wystąpienia klasy `SearchIndexClient`. Takie wystąpienie można utworzyć samodzielnie, ale, jeśli masz już wystąpienie klasy `SearchServiceClient`, łatwiej jest wywołać jej metodę `Indexes.GetClient`. W poniższym przykładzie przedstawiono, jak można uzyskać klasę `SearchIndexClient` dla indeksu o nazwie „hotels” z klasy `SearchServiceClient` o nazwie `serviceClient`:
 
 ```csharp
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` ma właściwość `Documents`. Ta właściwość zapewnia wszystkie metody, które są potrzebne, aby dodawać, modyfikować i usuwać dokumenty w indeksie oraz wykonywać zapytania o nie.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Wybieranie akcji indeksowania do użycia
+## <a name="decide-which-indexing-action-to-use"></a>Wybieranie akcji indeksowania do użycia
 Aby zaimportować dane przy użyciu zestawu .NET SDK, należy spakować dane do obiektu `IndexBatch`. Obiekt `IndexBatch` hermetyzuje kolekcję obiektów `IndexAction`, z których każdy zawiera dokument i właściwość, które informują usługę Azure Search, jaką akcję wykonać na tym dokumencie (przekazać, scalić, usunąć itp.). W zależności od tego, którą z poniższych akcji wybierzesz, tylko określone pola muszą być uwzględnione w danym dokumencie:
 
 | Akcja | Opis | Wymagane pola dla każdego dokumentu | Uwagi |
@@ -67,7 +67,7 @@ Aby zaimportować dane przy użyciu zestawu .NET SDK, należy spakować dane do 
 
 Akcję do użycia możesz określić za pomocą różnych metod statycznych klas `IndexBatch` i `IndexAction`. Pokazano to w następnej sekcji.
 
-## <a name="iii-construct-your-indexbatch"></a>III. Konstruowanie obiektu IndexBatch
+## <a name="construct-your-indexbatch"></a>Konstruowanie obiektu IndexBatch
 Teraz, kiedy już wiesz, które akcje wykonać na dokumentach, możesz przystąpić do konstruowania obiektu `IndexBatch`. Poniższy przykład przedstawia sposób tworzenia partii z kilkoma różnymi akcjami. Zauważ, że przedstawiony przykład używa niestandardowej klasy o nazwie `Hotel`, która jest mapowana na dokument w indeksie „hotels”.
 
 ```csharp
@@ -130,7 +130,7 @@ Zauważ również, że pojedyncze żądanie indeksowania może zawierać maksyma
 > 
 > 
 
-## <a name="iv-import-data-to-the-index"></a>IV. Importowanie danych do indeksu
+## <a name="import-data-to-the-index"></a>Importowanie danych do indeksu
 Po zainicjowaniu obiektu `IndexBatch` możesz go wysłać do indeksu przez wywołanie metody `Documents.Index` względem obiektu `SearchIndexClient`. Poniższy przykład pokazuje, jak wywołać metodę `Index` oraz inne dodatkowe kroki, które należy wykonać:
 
 ```csharp
@@ -215,7 +215,7 @@ Przede wszystkim należy zauważyć, że każda właściwość publiczna klasy `
 > 
 > 
 
-Drugą ważną kwestią dotyczącą klasy `Hotel` są typy danych właściwości publicznych. Typy .NET tych właściwości są mapowane na odpowiadające im typy pól w definicji indeksu. Na przykład właściwość ciągu `Category` jest mapowana na pole `category` mające typ `DataType.String`. Podobne mapowania typów występują między typami `bool?` i `DataType.Boolean`, `DateTimeOffset?` i `DataType.DateTimeOffset` itp. Dokładne zasady mapowania typów znajdują się w dokumentacji metody `Documents.Get` w [dokumentacji zestawu .NET SDK usługi Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
+Drugą ważną kwestią dotyczącą klasy `Hotel` są typy danych właściwości publicznych. Typy .NET tych właściwości są mapowane na odpowiadające im typy pól w definicji indeksu. Na przykład właściwość ciągu `Category` jest mapowana na pole `category` mające typ `DataType.String`. Podobne mapowania typów występują między typami `bool?` i `DataType.Boolean`, `DateTimeOffset?` i `DataType.DateTimeOffset` itd. Dokładne zasady mapowania typów znajdują się w dokumentacji metody `Documents.Get` w [dokumentacji zestawu .NET SDK usługi Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
 
 Ta możliwość używania własnych klas jako dokumentów działa w obu kierunkach. Możesz również pobrać wyniki wyszukiwania i za pomocą zestawu SDK dokonać ich automatycznej deserializacji do wybranego przez Ciebie typu, jak pokazano w [kolejnym artykule](search-query-dotnet.md).
 
@@ -234,12 +234,12 @@ Nie jest to czysto hipotetyczny problem: wyobraź sobie scenariusz, w którym do
 
 Z tego powodu najlepszym i zalecanym rozwiązaniem jest używanie w klasach modeli typów dopuszczających wartość null.
 
-## <a name="next"></a>Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zapytań w celu wyszukania dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

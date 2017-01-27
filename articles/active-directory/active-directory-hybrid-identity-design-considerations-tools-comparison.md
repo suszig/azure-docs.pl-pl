@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
+ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
+ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
 
 
 ---
@@ -57,7 +57,7 @@ PZ = publiczna wersja zapoznawcza
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Zapisywanie zwrotne urządzeń |● | |● | | |
 | Zapisywanie zwrotne atrybutów (dla wdrożenia hybrydowego programu Exchange) |● |● |● |● |● |
-| Zapisywanie zwrotne obiektów grup i użytkowników |● | | | | |
+| Zapisywanie zwrotne obiektów grup |● | | | | |
 | Zapisywanie zwrotne haseł (z funkcji samoobsługowego resetowania hasła i zmiany hasła) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Obsługa funkcji uwierzytelniania
@@ -95,6 +95,6 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

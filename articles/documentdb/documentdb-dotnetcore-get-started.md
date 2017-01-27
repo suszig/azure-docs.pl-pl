@@ -1,12 +1,11 @@
 ---
 title: "Samouczek NoSQL: zestaw SDK dla platformy .NET Core usługi DocumentDB | Microsoft Docs"
 description: "Samouczek NoSQL, który pokazuje tworzenie bazy danych w trybie online i aplikacji konsolowej C# przy użyciu zestawu SDK dla platformy .NET Core usługi DocumentDB. Usługa DocumentDB jest bazą danych NoSQL dla formatu JSON."
-keywords: samouczek nosql, baza danych online, aplikacja konsolowa c#
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
@@ -16,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: 3cbfe3c0ad08990d5c41630ebacc47432b2c6307
+ms.openlocfilehash: 31b4635c1350428f589b708543ffb64f2a456b0b
 
 
 ---
@@ -48,6 +47,9 @@ Omówione zostaną następujące czynności:
 Nie masz czasu? Nie martw się! Kompletne rozwiązanie jest dostępne w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Przeskocz do sekcji [Pobieranie kompletnego rozwiązania](#GetSolution), aby uzyskać krótkie instrukcje.
 
 Po wszystkim użyj przycisków głosowania u góry lub u dołu tej strony, aby wysłać nam swoją opinię. Jeśli chcesz, abyśmy skontaktowali się z Tobą bezpośrednio, możesz w komentarzach podać swój adres e-mail.
+
+> [!NOTE]
+> Użyty w tym samouczku zestaw SDK dla platformy .NET Core usługi DocumentDB nie jest jeszcze zgodny z aplikacjami platformy uniwersalnej systemu Windows (UWP, Universal Windows Platform). Aby uzyskać wersję zapoznawczą zestawu SDK dla platformy .NET Core obsługującą aplikacje platformy UWP, wyślij w wiadomość e-mail na adres [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 Teraz do dzieła!
 
@@ -556,11 +558,10 @@ Aby przywrócić odwołania do zestawu SDK dla platformy .NET Core usługi Docum
 * Dowiedz się więcej o modelu programowania w sekcji Dla deweloperów [strony dokumentacji usługi DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 
