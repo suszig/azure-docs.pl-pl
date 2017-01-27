@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 692a7e0e54dd8ba6b47f79228696b223123dfb9b
 
 
 ---
@@ -49,7 +49,7 @@ Usługa App Service oferuje kilka *typów aplikacji*, z których każdy jest prz
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) — do hostowania witryn sieci Web i aplikacji sieci Web.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) — do hostowania zaplecza aplikacji mobilnych.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) — do hostowania interfejsów API RESTful.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) — do automatyzacji procesów biznesowych oraz integrowania systemów i danych między chmurami bez pisania kodu.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) — do automatyzacji procesów biznesowych oraz integrowania systemów i danych między chmurami bez pisania kodu.
 
 Wyraz *aplikacja* odnosi się tutaj do zasobów hostowania przeznaczonych do obsługi obciążenia. Na przykład wyrażenie „aplikacja sieci Web” kojarzy się prawdopodobnie z zasobami obliczeniowymi i kodem aplikacji, które łącznie realizują funkcje używane w przeglądarce. W usłudze App Service *aplikacja sieci Web* oznacza zasoby obliczeniowe, które platforma Azure udostępnia na potrzeby hostowania kodu aplikacji. 
 
@@ -82,18 +82,18 @@ Jeśli potrzebujesz większej skalowalności i izolacji sieci, możesz uruchamia
 Informacje na temat cen usługi App Service można znaleźć w artykule [App Service — ceny](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>Testowanie usługi App Service
-[Utwórz przykładową aplikację sieci Web, aplikację mobilną lub aplikację logiki](http://go.microsoft.com/fwlink/?LinkId=523751) i testuj ją przez jedną godzinę bez konieczności podawania danych karty kredytowej, bez zobowiązań i bez problemu.
+[Utwórz przykładową aplikację sieci Web, aplikację mobilną lub aplikację logiki](https://azure.microsoft.com/try/app-service/) i testuj ją przez jedną godzinę bez konieczności podawania danych karty kredytowej, bez zobowiązań i bez problemu.
 
 Możesz też założyć [bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/) i wypróbować jeden z naszych samouczków ułatwiających rozpoczynanie pracy:
 
 * [Samouczek: tworzenie aplikacji sieci Web](../app-service-web/app-service-web-get-started.md)
 * [Samouczek: tworzenie aplikacji mobilnej](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Samouczek: tworzenie aplikacji interfejsu API](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Samouczek: tworzenie aplikacji logiki](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Samouczek: tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 3cbfe3c0ad08990d5c41630ebacc47432b2c6307
-ms.openlocfilehash: 31b4635c1350428f589b708543ffb64f2a456b0b
+ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
+ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
 
 
 ---
@@ -72,10 +72,10 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 1. Otwórz program **Visual Studio 2015** na komputerze.
 2. W menu **Plik** wybierz polecenie **Nowy**, a następnie wybierz pozycję **Projekt**.
 3. W oknie dialogowym **Nowy projekt** wybierz pozycję **Szablony** / **Visual C#** / **.NET Core**/**Aplikacja konsolowa (.NET Core)**, podaj nazwę projektu, a następnie kliknij przycisk **OK**.
-   ![Zrzut ekranu przedstawiający okno Nowy projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Zrzut ekranu przedstawiający okno Nowy projekt](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy nową aplikację konsolową, która znajduje się w obrębie rozwiązania Visual Studio.
 5. Następnie bez opuszczania menu wybierz polecenie **Zarządzaj pakietami NuGet...**
-   ![Zrzut ekranu przedstawiający menu wywoływane po kliknięciu prawym przyciskiem myszy dla projektu](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Zrzut ekranu przedstawiający menu wywoływane po kliknięciu prawym przyciskiem myszy dla projektu](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Na karcie **NuGet** kliknij pozycję **Przeglądaj** i wpisz ciąg **azure documentdb** w polu wyszukiwania.
 7. W wynikach znajdź pozycję **Microsoft.Azure.DocumentDB.Core** i kliknij przycisk **Zainstaluj**.
    Identyfikator pakietu Biblioteka kliencka usługi DocumentDB to [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
@@ -369,7 +369,7 @@ Naciśnij klawisz **F5**, aby uruchomić aplikację.
 
 Gratulacje! Pomyślnie utworzono dwa dokumenty usługi DocumentDB.  
 
-![Diagram pokazujący hierarchiczną relację między kontem, bazą danych w trybie online, kolekcją i dokumentami używanymi przez samouczek NoSQL do tworzenia aplikacji konsolowej C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram pokazujący hierarchiczną relację między kontem, bazą danych w trybie online, kolekcją i dokumentami używanymi przez samouczek NoSQL do tworzenia aplikacji konsolowej C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Krok 7. Wykonywanie zapytań względem zasobów usługi DocumentDB
 Usługa DocumentDB obsługuje zaawansowane [zapytania](documentdb-sql-query.md) względem dokumentów JSON przechowywanych w każdej kolekcji.  Następujący przykładowy kod przedstawia różne zapytania — przy użyciu składni SQL usługi DocumentDB oraz LINQ — które można uruchomić względem dokumentów wstawionych w poprzednim kroku.
@@ -423,7 +423,7 @@ Gratulacje! Pomyślnie wykonano zapytanie względem kolekcji usługi DocumentDB.
 
 Na poniższym diagramie przedstawiono sposób, w jaki składnia zapytania SQL usługi DocumentDB jest wywoływana względem utworzonej kolekcji. Ta sama logika dotyczy również zapytania LINQ.
 
-![Diagram pokazujący zakres i znaczenie zapytania używanego przez samouczek NoSQL do utworzenia aplikacji konsolowej C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagram pokazujący zakres i znaczenie zapytania używanego przez samouczek NoSQL do utworzenia aplikacji konsolowej C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 Słowo kluczowe [FROM](documentdb-sql-query.md#from-clause) jest opcjonalne w zapytaniu, ponieważ zapytania usługi DocumentDB mają już zakres określony jako jedna kolekcja. W związku z tym klauzula "FROM Families f" może być zamieniona na "FROM root r" lub dowolną inną wybraną nazwę zmiennej. Usługa DocumentDB będzie wnioskowała, że zmienne Families, root lub wybrana nazwa zmiennej domyślnie odwołują się do bieżącej kolekcji.
 
@@ -558,10 +558,10 @@ Aby przywrócić odwołania do zestawu SDK dla platformy .NET Core usługi Docum
 * Dowiedz się więcej o modelu programowania w sekcji Dla deweloperów [strony dokumentacji usługi DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c478b8ba6817dd110bb7bfe3a33b728e5f85cc11
 
 
 ---
@@ -180,7 +180,7 @@ Wywołanie listy kluczy powinno zwrócić wartość. Jeśli tak nie jest, sprób
 Gratulacje! Aplikacja WordPress ma teraz scentralizowaną pamięć podręczną w pamięci, która pomaga zwiększyć przepustowość. Pamiętaj, że podkładki Memcache aplikacji Web Apps można użyć z dowolnym klientem Memcache, niezależnie od języka programowania lub struktury aplikacji. Aby przekazać opinię lub zadać pytania dotyczące podkładki Memcache aplikacji Web Apps, opublikuj wpis na [forach MSDN][10] lub w witrynie [Stackoverflow][11].
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
@@ -204,6 +204,6 @@ Gratulacje! Aplikacja WordPress ma teraz scentralizowaną pamięć podręczną w
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
