@@ -116,12 +116,12 @@ Usługa SQL Database Threat Detection stanowi dodatkową warstwę zabezpieczeń 
 ## <a name="compliance"></a>Zgodność
 Oprócz powyższych funkcji i funkcjonalności, które mogą pomóc aplikacji spełnić rozmaite wymagania dotyczące zgodności zabezpieczeń, usługa Azure SQL Database uczestniczy w regularnych inspekcjach i posiada certyfikaty zgodności z wieloma standardami zgodności. Aby uzyskać więcej informacji, zobacz witrynę [Centrum zaufania Microsoft Azure](https://azure.microsoft.com/support/trust-center/), w której można znaleźć aktualną listę [certyfikatów zgodności usługi SQL Database](https://azure.microsoft.com/support/trust-center/services/).
 
+
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z przeglądem wszystkich funkcji zabezpieczeń usługi SQL Database, zobacz [omówienie zabezpieczeń usługi SQL](sql-database-security-overview.md).
 - Omówienie korzystania z funkcji kontroli dostępu w usłudze SQL Database zawiera artykuł dotyczący [kontroli dostępu](sql-database-control-access.md).
 - Omówienie aktywnego monitorowania zawierają artykuły z [wprowadzeniem do funkcji inspekcji usługi SQL Database](sql-database-auditing-get-started.md) i [wprowadzeniem do funkcji wykrywania zagrożeń usługi SQL Database](sql-database-threat-detection-get-started.md).
-
 
 
 
