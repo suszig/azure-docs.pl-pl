@@ -1,5 +1,5 @@
 ---
-title: "Używanie kluczy SSH z usługą Hadoop w klastrach opartych na systemie Linux w systemie Windows | Microsoft Docs"
+title: "Korzystanie z protokołu SSH z klastrami usługi HDInsight za pomocą programu PuTTY w systemie Windows | Microsoft Docs"
 description: "Poznaj sposoby tworzenia i używania kluczy SSH w celu uwierzytelniania w klastrach usługi HDInsight opartych na systemie Linux z komputerów klienckich opartych na systemie Windows przy użyciu klienta SSH PuTTY."
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/30/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
-ms.openlocfilehash: 5498cfa6b8bcf50b1f375daa2e9adea585ce0d75
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-windows-with-putty"></a>Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows przy użyciu klienta PuTTY
+# <a name="use-ssh-with-hdinsight-hadoop-from-putty-on-windows"></a>Korzystanie z protokołu SSH z klastrami usługi HDInsight (Hadoop) za pomocą programu PuTTY w systemie Windows
+
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix i OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) pozwala na zdalne wykonywanie operacji na klastrach opartej na systemie Linux usługi HDInsight przy użyciu interfejsu wiersza polecenia. Ten dokument zawiera informacje na temat łączenia się z usługą HDInsight z komputerów klienckich z systemem Windows przy użyciu klienta SSH o nazwie PuTTY.
 
@@ -241,6 +242,6 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

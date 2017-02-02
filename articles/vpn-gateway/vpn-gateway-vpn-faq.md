@@ -1,10 +1,10 @@
 ---
 title: "Brama sieci VPN sieci wirtualnej — często zadawane pytania | Microsoft Docs"
-description: "Brama sieci VPN — często zadawane pytania Często zadawane pytania dotyczące połączeń obejmujących wiele lokalizacji, połączeń w konfiguracji hybrydowej oraz bram sieci VPN usługi Microsoft Azure Virtual Network"
+description: "Brama sieci VPN — często zadawane pytania Często zadawane pytania dotyczące połączeń obejmujących wiele lokalizacji, połączeń w konfiguracji hybrydowej oraz bram usługi VPN Gateway w usłudze Microsoft Azure Virtual Network."
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
+ms.sourcegitcommit: 2dda1cd384cf365504811a260872703f2c5c484e
+ms.openlocfilehash: ccb0dc6172b234412558b9175f3872d690d4ea3a
 
 
 ---
@@ -102,7 +102,7 @@ Domyślnie komputer kliencki nie przywraca automatycznie połączenia z siecią 
 Automatyczne ponowne nawiązywanie połączenia i DDNS nie są obecnie obsługiwane w przypadku połączeń VPN typu punkt-lokacja.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Czy z konfiguracji typu lokacja-lokacja i punkt-lokacja można korzystać równolegle w ramach tej samej sieci wirtualnej?
-Tak. Oba te rozwiązania będą działać, o ile zastosowana zostanie brama sieci VPN typu RouteBased. W przypadku klasycznego modelu wdrażania należy użyć bramy dynamicznej. Połączenia typu punkt-lokacja nie są obsługiwane w przypadku bram sieci VPN o statycznym routingu ani bram, których wartość parametru -VpnType to PolicyBased.
+Tak. Oba te rozwiązania będą działać, o ile zastosowana zostanie brama sieci VPN typu RouteBased. W przypadku klasycznego modelu wdrażania należy użyć bramy dynamicznej. Połączenia typu punkt-lokacja nie są obsługiwane w przypadku bram sieci VPN o statycznym routingu ani bram korzystających z polecenia cmdlet `-VpnType PolicyBased`.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Czy można skonfigurować klienta typu punkt-lokacja pod kątem jednoczesnego nawiązywania połączenia z wieloma sieciami wirtualnymi?
 Tak, jest to możliwe. Sieci wirtualne nie mogą jednak mieć nakładających się prefiksów IP, a przestrzenie adresowe w przypadku połączenia punkt-lokacja nie mogą nakładać się między sieciami wirtualnymi.
@@ -129,7 +129,7 @@ Tak, interfejs API i polecenie cmdlet Set Pre-Shared Key programu PowerShell poz
 ### <a name="can-i-use-other-authentication-options"></a>Czy są dostępne inne opcje uwierzytelniania?
 Metody uwierzytelniania ograniczają się do stosowania kluczy wstępnych (PSK).
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>Co to jest „podsieć bramy” i do czego jest ona potrzebna?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>Co to jest element „GatewaySubent” i do czego jest potrzebny?
 Stosujemy usługę bramy, której działanie umożliwia nawiązywanie połączeń obejmujących wiele lokalizacji.
 
 Aby skonfigurować bramę sieci VPN, należy utworzyć podsieć bramy dla sieci wirtualnej. Aby podsieć bramy działała prawidłowo, musi nosić nazwę GatewaySubnet. Nie należy nadawać podsieci bramy innej nazwy. Nie należy także wdrażać maszyn wirtualnych ani innych elementów w ramach podsieci bramy.
@@ -140,7 +140,14 @@ Minimalny rozmiar podsieci bramy zależy tylko od konfiguracji, którą chcesz u
 Nie.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>Jak określić, który ruch danych przechodzi przez bramę sieci VPN?
-W przypadku użycia klasycznej witryny Azure Portal należy dodać każdy z zakresów, który ma zostać wysłany za pośrednictwem bramy sieci wirtualnej, na stronie Sieci w sekcji Sieci lokalne.
+
+####<a name="resource-manager-deployment-model"></a>Model wdrażania usługi Resource Manager
+* Środowisko PowerShell: użyj elementu „AddressPrefix”, aby określić ruch dla lokalnej bramy sieci.
+* Witryna Azure Portal: przejdź do bramy sieci lokalnej > Konfiguracja > Przestrzeń adresowa.
+
+####<a name="classic-deployment-model"></a>Klasyczny model wdrażania
+* Witryna Azure Portal: przejdź do klasycznej sieci wirtualnej > Połączenia sieci VPN > Połączenia sieci VPN typu lokacja-lokacja > Nazwy lokacji lokalnej > Lokacja lokalna > Przestrzeń adresowa klienta. 
+* Witryna klasyczna: dodaj każdy z zakresów, który ma zostać wysłany za pośrednictwem bramy sieci wirtualnej na stronie Sieci w sekcji Sieci lokalne. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>Czy można skonfigurować wymuszone tunelowanie?
 Tak. Zobacz artykuł [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md) (Konfiguracja wymuszonego tunelowania).
@@ -167,7 +174,7 @@ Nie, obie sieci wirtualne MUSZĄ korzystać z sieci VPN opartych na trasach (o r
 Tak, jest zabezpieczony z użyciem szyfrowania IPsec/IKE.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>Czy ruch sieciowy w ramach połączenia między sieciami wirtualnymi przechodzi przez sieć szkieletową platformy Azure?
-Tak.
+Tak, ten ruch przechodzi przez sieć szkieletową platformy Azure. Nie przechodzi on przez Internet.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>Z iloma lokacjami lokalnymi i sieciami wirtualnymi może połączyć się jedna sieć wirtualna?
 Maksymalnie z 10 w przypadku podstawowych i standardowych bram o routingu dynamicznym; 30 w przypadku bram sieci VPN o wysokiej wydajności.
@@ -176,7 +183,7 @@ Maksymalnie z 10 w przypadku podstawowych i standardowych bram o routingu dynami
 Tak, sieci VPN typu punkt-lokacja (P2S) można używać z bramami sieci VPN łączącymi się z wieloma lokacjami lokalnymi i innymi sieciami wirtualnymi.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Czy można skonfigurować wiele tuneli między siecią wirtualną i lokalną lokacją z użyciem sieci VPN obejmującej wiele lokalizacji?
-Nie, nadmiarowe tunele między siecią wirtualną platformy Azure i lokacją lokalną nie są obsługiwane.
+Tak, ale należy skonfigurować protokół BGP w obu tunelach do tej samej lokalizacji.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>Czy wśród połączonych sieci wirtualnych i lokacji lokalnych mogą występować nakładające się przestrzenie adresowe?
 Nie. Nakładające się przestrzenie adresowe spowodują, że przesłanie pliku konfiguracyjnego sieci lub „tworzenie sieci wirtualnej” nie powiedzie się.
@@ -185,10 +192,12 @@ Nie. Nakładające się przestrzenie adresowe spowodują, że przesłanie pliku 
 Nie, wszystkie tunele VPN, w tym połączenia VPN typu punkt-lokacja, współdzielą tę samą bramę sieci VPN platformy Azure i dostępną przepustowość.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Czy można używać bramy Azure VPN do przekazywania ruchu między lokacjami lokalnymi lub do innej sieci wirtualnej?
-**Klasyczny model wdrażania**<br>
+
+####<a name="resource-manager-deployment-model"></a>Model wdrażania usługi Resource Manager
+Tak. Więcej informacji zawiera sekcja [BGP](#bgp).
+
+####<a name="classic-deployment-model"></a>Klasyczny model wdrażania
 Przekazywanie ruchu za pośrednictwem bramy sieci VPN platformy Azure przy użyciu klasycznego modelu wdrażania jest możliwe, ale zależy od statycznie zdefiniowanych przestrzeni adresowych w pliku konfiguracyjnym sieci. Protokół BGP dla klasycznego modelu wdrażania nie jest jeszcze obsługiwany w połączeniu z sieciami wirtualnymi platformy Azure i bramami sieci VPN. Niezastosowanie protokołu BGP powoduje bardzo wysokie ryzyko błędów ręcznego definiowania przestrzeni adresowych przesyłania i nie jest zalecane.<br>
-**Model wdrażania usługi Resource Manager**<br>
-Jeśli używasz modelu wdrażania usługi Resource Manager, zobacz sekcję [protokołu BGP](#bgp), aby uzyskać więcej informacji.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Czy platforma Azure generuje taki sam klucz wstępny protokołu IPsec/IKE dla wszystkich połączeń sieci VPN dla danej sieci wirtualnej?
 Nie. Platforma Azure domyślnie generuje różne klucze wstępne dla różnych połączeń sieci VPN. Można jednak użyć interfejsu API REST lub polecenia cmdlet Set VPN Gateway Key programu PowerShell, aby ustawić preferowaną wartość klucza. Klucz MUSI mieć postać alfanumerycznego ciągu o długości od 1 do 128 znaków.
@@ -216,6 +225,6 @@ Dodatkowe informacje dotyczące sieci wirtualnej można znaleźć w artykule [Vi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

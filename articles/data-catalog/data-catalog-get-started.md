@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Za pomocą usługi Azure Data Catalog możesz teraz zarejestrować zasoby danych
 W tym ćwiczeniu zasoby danych z bazy danych firmy Adventure Works zostaną zarejestrowane w wykazie za pomocą narzędzia rejestracji. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych i zasobów, które się w nim znajdują, oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć.
 
 ### <a name="register-a-data-source"></a>Rejestrowanie źródła danych
-1. Przejdź do [strony głównej usługi Azure Data Catalog](https://azuredatacatalog.com) i kliknij pozycję **Publikuj dane**.
+1. Przejdź do [strony głównej usługi Azure Data Catalog](http://azuredatacatalog.com) i kliknij pozycję **Publikuj dane**.
    
    ![Usługa Azure Data Catalog — przycisk Publikuj dane](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Kliknij pozycję **Uruchom aplikację**, aby pobrać, zainstalować i uruchomić narzędzie rejestracji na komputerze.
@@ -366,6 +366,6 @@ W tym samouczku zostały przedstawione podstawowe funkcje usługi Azure Data Cat
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16f6285577294ff49f11a27f48daea090655a2b1
+ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
+ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
 
 
 ---
@@ -36,7 +36,7 @@ Elementy Runbook w usłudze Azure Automation są oparte na programie Windows Pow
 [Galeria elementów Runbook](automation-runbook-gallery.md#runbooks-in-runbook-gallery) zawiera elementy Runbook udostępniane przez firmę Microsoft oraz przez społeczność. Można je stosować bez zmian w środowisku lub dostosowywać do własnych celów. Są one również przydatne jako odwołania do informacji o sposobie tworzenia własnych elementów Runbook. Możesz nawet przekazywać własne elementy Runbook do galerii, jeśli uważasz, że mogą się przydać innym użytkownikom. 
 
 ## <a name="creating-runbooks-with-azure-automation"></a>Tworzenie elementów Runbook przy użyciu usługi Azure Automation
-Możesz [tworzyć własne elementy Runbook](automation-creating-importing-runbook.md) od początku lub modyfikować elementy z [galerii elementów Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) zgodnie z własnymi wymaganiami. Istnieją trzy [typy elementów Runbook](automation-runbook-types.md), które można wybierać w oparciu o własne wymagania oraz program PowerShell. Jeśli wolisz pracować bezpośrednio z kodem programu PowerShell, możesz użyć [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) lub [elementu Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) edytowanego w trybie offline lub w [edytorze tekstów](http://msdn.microsoft.com/library/azure/dn879137.aspx) w portalu Azure. Jeśli wolisz edytować element Runbook bez ujawniania w kodzie podstawowym, możesz utworzyć [graficzny element Runbook](automation-runbook-types.md#graphical-runbooks) przy użyciu [edytora graficznego](automation-graphical-authoring-intro.md) w portalu Azure. 
+Możesz [tworzyć własne elementy Runbook](automation-creating-importing-runbook.md) od początku lub modyfikować elementy z [galerii elementów Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) zgodnie z własnymi wymaganiami. Istnieją cztery [typy elementów Runbook](automation-runbook-types.md), które można wybierać w oparciu o własne wymagania oraz program PowerShell. Jeśli wolisz pracować bezpośrednio z kodem programu PowerShell, możesz użyć [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) lub [elementu Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) edytowanego w trybie offline lub w [edytorze tekstów](http://msdn.microsoft.com/library/azure/dn879137.aspx) w portalu Azure. Jeśli wolisz edytować element Runbook bez ujawniania w kodzie podstawowym, możesz utworzyć [graficzny element Runbook](automation-runbook-types.md#graphical-runbooks) przy użyciu [edytora graficznego](automation-graphical-authoring-intro.md) w portalu Azure. 
 
 Wolisz obejrzeć film niż przeczytać artykuł? Obejrzyj poniższy film z nagraniem sesji konferencji Microsoft Ignite, która odbyła się w maju 2015 r. Uwaga: pojęcia i funkcje omówione w tym filmie są poprawne, ale od momentu jego nagrania usługa Azure Automation znacznie się rozwinęła i ma teraz obszerniejszy interfejs użytkownika w portalu Azure oraz obsługuje dodatkowe funkcje.
 
@@ -87,6 +87,6 @@ Aby dowiedzieć się więcej na temat usługi Azure Automation i tworzenia włas
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

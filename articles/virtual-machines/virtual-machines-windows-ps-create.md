@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
-ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: 701a5515cd1d52f7ca8d3562dabcdf0e4d31183d
 
 
 ---
@@ -27,7 +27,7 @@ W tym artykule pokazano, jak szybko utworzyć maszynę wirtualną platformy Azur
 Wszystkie kroki przedstawione w tym artykule są wymagane do utworzenia maszyny wirtualnej, a ich wykonanie powinno zająć około 30 minut. Zamień przykładowe wartości parametrów w poleceniach nazwami odpowiednimi dla konkretnego środowiska.
 
 ## <a name="step-1-install-azure-powershell"></a>Krok 1. Instalowanie programu Azure PowerShell
-Zobacz [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
+Zobacz [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
 
 ## <a name="step-2-create-a-resource-group"></a>Krok 2. Tworzenie grupy zasobów
 Wszystkie zasoby muszą być zawarte w grupie zasobów, dlatego najpierw zajmiemy się jej tworzeniem.  
@@ -152,13 +152,13 @@ Teraz, gdy masz wszystkie elementy, możesz utworzyć maszynę wirtualną.
     ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Jeśli wystąpiły problemy dotyczące wdrożenia, następnym krokiem powinno być zapoznanie się z artykułem [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md) (Rozwiązywanie problemów z wdrożeniami grup zasobów za pomocą witryny Azure Portal).
+* Jeśli wystąpiły problemy dotyczące wdrożenia, następnym krokiem powinno być zapoznanie się z artykułem [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) (Rozwiązywanie typowych problemów dotyczących wdrażania za pomocą usługi Azure Resource Manager)
 * Aby dowiedzieć się, jak zarządzać utworzoną maszyną wirtualną, zobacz [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie maszynami wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell).
 * Aby utworzyć maszynę wirtualną przy użyciu szablonu, skorzystaj z informacji podanych w artykule [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Tworzenie maszyny wirtualnej systemu Windows przy użyciu szablonu usługi Resource Manager).
 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

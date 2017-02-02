@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/09/2016
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 9ebf3cd290151449c05c89307500fa5679de3b09
+ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
+ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
 
 
 ---
@@ -71,9 +71,14 @@ Usługa SQL Database zabezpiecza dane, udostępniając możliwości inspekcji i 
 ### <a name="auditing"></a>Inspekcja
 Funkcja inspekcji usługi SQL Database śledzi działania bazy danych i pozwala zachować zgodność z przepisami, rejestrując zdarzenia bazy danych w dzienniku inspekcji na koncie usługi Azure Storage. Inspekcja umożliwia zrozumienie trwających działań bazy danych, a także analizowanie i badanie działań historycznych w celu zidentyfikowania potencjalnych zagrożeń, podejrzanych nadużyć i naruszeń zabezpieczeń. Aby uzyskać więcej informacji, zobacz artykuł z [wprowadzeniem do funkcji inspekcji usługi SQL Database](sql-database-auditing-get-started.md).  
 
-### <a name="threat-detection"></a>Wykrywanie zagrożeń
+### <a name="auditing--threat-detection"></a>Inspekcja i wykrywanie zagrożeń 
+Funkcja inspekcji usługi SQL Database śledzi działania bazy danych i pozwala zachować zgodność z przepisami, rejestrując zdarzenia bazy danych w dzienniku inspekcji na koncie usługi Azure Storage. Inspekcja umożliwia zrozumienie trwających działań bazy danych, a także analizowanie i badanie działań historycznych w celu zidentyfikowania potencjalnych zagrożeń, podejrzanych nadużyć i naruszeń zabezpieczeń. Aby uzyskać więcej informacji, zobacz artykuł z [wprowadzeniem do funkcji inspekcji usługi SQL Database](sql-database-auditing-get-started.md).  
+ 
 Wykrywanie zagrożeń uzupełnia funkcję inspekcji, stanowiąc dodatkową warstwę inteligentnych zabezpieczeń wbudowaną w usługę Azure SQL Database. Działa ono przez cały czas, ucząc się, profilując i wykrywając anomalie działań bazy danych. Będziesz otrzymywać alerty o podejrzanych działaniach, potencjalnych lukach w zabezpieczeniach, atakach polegających na wstrzyknięciu kodu SQL i anomaliach we wzorcach dostępu do bazy danych. Na alerty możesz odpowiadać za pomocą dostarczanych instrukcji z działaniami do wykonania. Aby uzyskać więcej informacji, zobacz artykuł [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md) (Wprowadzenie do usługi SQL Database Threat Detection).  
-
+ 
+### <a name="data-masking"></a>Maskowanie danych 
+Funkcja dynamicznego maskowania danych usługi SQL Database ogranicza ujawnianie poufnych danych przez ich maskowanie dla nieuprzywilejowanych użytkowników. Dynamiczne maskowanie danych automatycznie wykrywa potencjalnie poufne dane w usłudze Azure SQL Database i udostępnia zalecenia z możliwością wykonania działania przy minimalnym wpływie na warstwę aplikacji. Jego działanie polega na zaciemnianiu poufnych danych w wyznaczonych polach bazy danych w zestawie wyników zapytania, przy czym dane w bazie danych pozostają bez zmian. Aby uzyskać więcej informacji, zobacz [Get started with SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) (Rozpoczynanie pracy z dynamicznym maskowaniem danych w usłudze SQL Database).
+ 
 ## <a name="compliance"></a>Zgodność
 Oprócz powyższych funkcji i funkcjonalności, które mogą pomóc aplikacji spełnić rozmaite wymagania dotyczące zgodności zabezpieczeń, usługa Azure SQL Database uczestniczy w regularnych inspekcjach i posiada certyfikaty zgodności z wieloma standardami zgodności. Aby uzyskać więcej informacji, zobacz witrynę [Centrum zaufania Microsoft Azure](https://azure.microsoft.com/support/trust-center/), w której można znaleźć aktualną listę [certyfikatów zgodności usługi SQL Database](https://azure.microsoft.com/support/trust-center/services/).
 
@@ -84,6 +89,7 @@ Oprócz powyższych funkcji i funkcjonalności, które mogą pomóc aplikacji sp
 - Omówienie aktywnego monitorowania zawierają artykuły z [wprowadzeniem do funkcji inspekcji usługi SQL Database](sql-database-auditing-get-started.md) i [wprowadzeniem do funkcji wykrywania zagrożeń usługi SQL Database](sql-database-threat-detection-get-started.md).
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO2-->
 
 

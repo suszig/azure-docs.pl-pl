@@ -1,5 +1,5 @@
 ---
-title: Wielowarstwowa aplikacja platformy .NET | Microsoft Docs
+title: "Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus | Microsoft Docs"
 description: "Samouczek platformy .NET umożliwia utworzenie na platformie Azure aplikacji wielowarstwowej, która używa kolejek usługi Service Bus do komunikacji między warstwami."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
+ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
 
 
 ---
@@ -33,7 +33,7 @@ Dowiesz się:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Dzięki temu samouczkowi będziesz w stanie utworzyć i uruchomić aplikację wielowarstwową w usłudze w chmurze platformy Azure. Fronton będzie miał przypisaną rolę sieci Web programu ASP.NET MVC, a zaplecze rolę procesu roboczego używającego kolejki usługi Service Bus. Taką samą aplikację wielowarstwową z frontonem możesz utworzyć jako projekt sieci Web, który jest wdrażany w witrynie sieci Web platformy Azure, a nie jako usługa w chmurze. Aby uzyskać instrukcje na temat różnic w postępowaniu w przypadku frontonu witryny sieci Web platformy Azure, zobacz sekcję [Następne kroki](#nextsteps). Możesz również wypróbować samouczek na temat [hybrydowych aplikacji lokalnych/w chmurze platformy .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+Dzięki temu samouczkowi będziesz w stanie utworzyć i uruchomić aplikację wielowarstwową w usłudze w chmurze platformy Azure. Fronton ma przypisaną rolę sieci Web programu ASP.NET MVC, a zaplecze rolę procesu roboczego używającego kolejki usługi Service Bus. Taką samą aplikację wielowarstwową z frontonem możesz utworzyć jako projekt sieci Web, który jest wdrażany w witrynie sieci Web platformy Azure, a nie jako usługa w chmurze. Aby uzyskać instrukcje na temat różnic w postępowaniu w przypadku frontonu witryny sieci Web platformy Azure, zobacz sekcję [Następne kroki](#nextsteps). Możesz również wypróbować samouczek na temat [hybrydowych aplikacji lokalnych/w chmurze platformy .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Poniższy zrzut ekranu przedstawia gotową aplikację.
 
@@ -61,8 +61,8 @@ W poniższych sekcjach omówiono kod, który implementuje tę architekturę.
 ## <a name="set-up-the-development-environment"></a>Konfigurowanie środowiska deweloperskiego
 Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne narzędzia i skonfiguruj swoje środowisko deweloperskie.
 
-1. Zainstaluj zestaw Azure SDK dla platformy .NET na stronie [Pobierz narzędzia i zestaw SDK][Pobierz narzędzia i zestaw SDK].
-2. Kliknij link **Instalowanie zestawu SDK** dla używanej wersji programu Visual Studio. W krokach tego samouczka używany jest program Visual Studio 2015.
+1. Zainstaluj zestaw Azure SDK dla platformy .NET, który znajduje się w sekcji [Pobierz narzędzia i zestaw SDK](https://azure.microsoft.com/downloads/).
+2. W kolumnie **.NET** kliknij używaną wersję programu Visual Studio. W krokach tego samouczka używany jest program Visual Studio 2015.
 3. Gdy zostanie wyświetlony monit o uruchomienie lub zapisanie instalatora, kliknij przycisk **Uruchom**.
 4. W **Instalatorze platformy sieci Web** kliknij przycisk **Zainstaluj** i kontynuuj instalację.
 5. Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio. Jeśli nie masz zainstalowanego programu Visual Studio, zestaw SDK zainstaluje również bezpłatny program Visual Studio Express.
@@ -109,7 +109,7 @@ W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją a
 
 1. W pliku OnlineOrder.cs w programie Visual Studio zastąp istniejącą definicję przestrzeni nazw następującym kodem:
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +121,14 @@ W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją a
    ```
 2. W **Eksploratorze rozwiązań** kliknij dwukrotnie pozycję **Controllers\HomeController.cs**. Dodaj następujące instrukcje **using** u góry pliku, aby uwzględnić przestrzenie nazw dla właśnie utworzonego modelu, a także usługę Service Bus.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. W pliku HomeController.cs w programie Visual Studio zastąp istniejącą definicję przestrzeni nazw następującym kodem. Ten kod zawiera metody obsługi przesyłania elementów do kolejki.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +193,7 @@ W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją a
     ![][28]
 11. Na koniec zmodyfikuj stronę przesyłania w celu uwzględnienia niektórych informacji o kolejce. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Views\Home\Submit.cshtml**, aby otworzyć go w edytorze programu Visual Studio. Dodaj następujący wiersz po pozycji `<h2>Submit</h2>`. Na razie pozycja `ViewBag.MessageCount` jest pusta. Wypełnisz ją później.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. Twój interfejs użytkownika został zaimplementowany. Naciśnij klawisz **F5**, aby uruchomić aplikację i upewnić się, że jej wygląd jest zgodny z oczekiwaniami.
@@ -207,7 +207,7 @@ Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, kt�
 2. Nadaj klasie nazwę **QueueConnector.cs**. Kliknij pozycję **Dodaj**, aby utworzyć klasę.
 3. Teraz dodaj kod, który zawiera informacje o połączeniu i inicjuje połączenie z kolejką usługi Service Bus. Zamień całą zawartość pliku QueueConnector.cs na następujący kod, a następnie wprowadź wartości dla pozycji `your Service Bus namespace` (nazwa przestrzeni nazw) oraz pozycji `yourKey` będącej **kluczem podstawowym** uzyskanym wcześniej z usługi Azure Portal.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +269,13 @@ Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, kt�
 4. Teraz upewnij się, że wywoływanie metody **Initialize** działa. W **Eksploratorze rozwiązań** kliknij dwukrotnie pozycję **Global.asax\Global.asax.cs**.
 5. Dodaj następujący wiersz kodu na końcu metody **Application_Start**.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Na koniec zaktualizuj kod sieci Web, który został utworzony wcześniej, aby przesyłać elementy do kolejki. W **Eksploratorze rozwiązań** kliknij dwukrotnie pozycję **Controllers\HomeController.cs**.
 7. Zaktualizuj metodę `Submit()` (przeciążenie, które nie przyjmuje żadnych parametrów), jak pokazano poniżej, aby uzyskać liczbę komunikatów dla kolejki.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +291,7 @@ Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, kt�
    ```
 8. Zaktualizuj metodę `Submit(OnlineOrder order)` (przeciążenie, które nie przyjmuje żadnych parametrów), jak pokazano poniżej, aby przesyłać informację o zamówieniu do kolejki.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +334,18 @@ Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówie�
 10. Przejdź do podfolderu **FrontendWebRole\Models**, a następnie kliknij dwukrotnie plik **OnlineOrder.cs**, aby dodać go do tego projektu.
 11. W pliku **WorkerRole.cs** zmień wartość zmiennej **QueueName** z `"ProcessingQueue"` na `"OrdersQueue"`, jak pokazano w poniższym kodzie.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. Dodaj następującą instrukcję using u góry pliku WorkerRole.cs.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. W funkcji `Run()` wewnątrz wywołania `OnMessage()` zastąp zawartość klauzuli `try` następującym kodem.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -361,30 +361,17 @@ Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówie�
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące zasoby:  
 
-* [Usługa Azure Service Bus][sbmsdn]  
-* [Strona usługi Service Bus][sbwacom]  
-* [Jak używać kolejek usługi Service Bus][sbwacomqhowto]  
+* [Azure Service Bus][sbmsdn]  
+* [Service Bus service page][sbacom] (Strona usługi Service Bus)  
+* [Jak używać kolejek usługi Service Bus][sbacomqhowto]  
 
 Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:  
 
-* [Aplikacje wielowarstwowe platformy .NET przy użyciu tabel magazynu, kolejek i obiektów blob][mutitierstorage]  
+* [Wielowarstwowa aplikacja platformy .NET korzystająca z tabel, kolejek i obiektów Blob magazynu][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Pobierz narzędzia i zestaw SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +391,12 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

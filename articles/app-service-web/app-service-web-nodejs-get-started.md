@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
+ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
+ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
 
 
 ---
@@ -114,13 +114,13 @@ Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu 
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Utwórz nową [grupę zasobów](../azure-resource-manager/resource-group-overview.md). Aby skorzystać z samouczka dla języka PHP, nie musisz nic jego temat wiedzieć.
+3. Utwórz nową [grupę zasobów](../azure-resource-manager/resource-group-overview.md). Aby skorzystać z samouczka dla języka node.js, nie musisz nic na jego temat wiedzieć.
 
         az group create --location "<location>" --name my-nodejs-app-group
 
     Aby sprawdzić, jakich wartości można użyć dla lokalizacji `<location>`, użyj polecenia interfejsu wiersza polecenia `az appservice list-locations`.
 
-3. Utwórz nowy, „BEZPŁATNY” [plan usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). W przypadku tego samouczka dla języka PHP nie będzie naliczana opłata za aplikacje sieci Web w ramach tego planu.
+3. Utwórz nowy, BEZPŁATNY [plan usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). W przypadku tego samouczka dla języka node.js nie będzie naliczana opłata za aplikacje sieci Web w ramach tego planu.
 
         az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
 
@@ -303,6 +303,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

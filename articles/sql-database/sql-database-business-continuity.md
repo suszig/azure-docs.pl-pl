@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab;sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 747f6ca642a33c4ce9bcaacad4976e8eaed8fa44
-ms.openlocfilehash: f642cfade2369f5c758ab45994c7cf3f37b6d4c5
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -38,7 +38,7 @@ W poniższej tabeli znajduje się porównanie wartości ERT i RPO dla trzech naj
 | Aktywna replikacja geograficzna |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Używanie kopii zapasowych bazy danych w celu odzyskania bazy danych
-Usługa SQL Database automatycznie przeprowadza kombinację cotygodniowego tworzenia pełnych kopii zapasowych, cogodzinnego tworzenia różnicowych kopii zapasowych bazy danych i tworzenia kopii zapasowych dziennika transakcji co pięć minut w celu ochrony Twojej firmy przed utratą danych. Te kopie zapasowe są przechowywane w lokalnie nadmiarowych magazynach przez 35 dni w przypadku baz danych w warstwach Standardowa i Premium oraz przez 7 dni w przypadku baz danych w warstwie Podstawowa. Aby uzyskać więcej informacji o warstwach usług, zobacz informacje o [warstwach usług](sql-database-service-tiers.md). Jeśli okres przechowywania w warstwie usług nie spełnia Twoich wymagań biznesowych, można go zwiększyć, [zmieniając warstwę usług](sql-database-scale-up.md). Pełne oraz różnicowe kopie zapasowe bazy danych są także replikowane do [sparowanego centrum danych](../best-practices-availability-paired-regions.md) w celu ochrony przed awarią centrum danych. Aby uzyskać więcej szczegółów, zobacz informacje o [automatycznych kopiach zapasowych](sql-database-automated-backups.md).
+Usługa SQL Database automatycznie przeprowadza kombinację cotygodniowego tworzenia pełnych kopii zapasowych, cogodzinnego tworzenia różnicowych kopii zapasowych bazy danych i tworzenia kopii zapasowych dziennika transakcji co pięć minut w celu ochrony Twojej firmy przed utratą danych. Te kopie zapasowe są przechowywane w magazynach geograficznie nadmiarowych przez 35 dni w przypadku baz danych w warstwach Standardowa i Premium oraz przez 7 dni w przypadku baz danych w warstwie Podstawowa. Aby uzyskać więcej informacji o warstwach usług, zobacz [Warstwy usług](sql-database-service-tiers.md). Jeśli okres przechowywania w warstwie usług nie spełnia Twoich wymagań biznesowych, można go zwiększyć, [zmieniając warstwę usług](sql-database-scale-up.md). Pełne oraz różnicowe kopie zapasowe bazy danych są także replikowane do [sparowanego centrum danych](../best-practices-availability-paired-regions.md) w celu ochrony przed awarią centrum danych. Aby uzyskać więcej szczegółów, zobacz informacje o [automatycznych kopiach zapasowych](sql-database-automated-backups.md).
 
 Jeśli wbudowany okres przechowywania nie jest wystarczający dla aplikacji, możesz go rozszerzyć, konfigurując długoterminowe zasady przechowywania na potrzeby baz danych. Aby uzyskać więcej informacji, zobacz [Długoterminowe przechowywanie](sql-database-long-term-retention.md). 
 
@@ -75,6 +75,10 @@ Użyj aktywnej replikacji geograficznej, jeśli Twoja aplikacja spełnia dowolne
 * Przestój spowoduje poniesienie odpowiedzialności finansowej.
 * Ma wysoki współczynnik zmian danych i utrata zmian z okresu jednej godziny jest niedopuszczalna.
 * Dodatkowy koszt związany z aktywną replikacją geograficzną jest niższy niż potencjalna odpowiedzialność finansowa i powiązane straty biznesowe.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Odzyskiwanie bazy danych po błędzie użytkownika lub aplikacji
 *Nikt nie jest doskonały! Użytkownik może przypadkowo usunąć pewne dane, nieodwracalnie usunąć ważną tabelę lub nawet usunąć całą bazę danych. Możliwe jest również przypadkowe zastąpienie przez aplikację poprawnych danych błędnymi danymi w wyniku wady aplikacji. 
@@ -154,6 +158,6 @@ Dyskusję na temat zagadnień dotyczących projektowania aplikacji na potrzeby a
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

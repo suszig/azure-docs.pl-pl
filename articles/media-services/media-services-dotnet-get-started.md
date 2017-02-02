@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
-ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
 
 
 ---
@@ -24,10 +24,26 @@ ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-> [!NOTE]
-> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz temat [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
->
->
+W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu zestawu Azure Media Services .NET SDK.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Do wykonania czynności przedstawionych w tym samouczku są niezbędne następujące elementy:
+
+* Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
+* .NET Framework 4.0 lub nowszy
+* Visual Studio 2010 z dodatkiem SP1 (Professional, Premium, Ultimate lub Express) lub nowszy.
+
+W tym samouczku opisano następujące zadania:
+
+1. Uruchamianie punktów końcowych przesyłania strumieniowego (przy użyciu witryny Azure Portal).
+2. Tworzenie i konfigurowanie projektu programu Visual Studio.
+3. Nawiązywanie połączenia z kontem usług Media Services.
+2. Ładowanie pliku wideo.
+3. Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów.
+4. Publikowanie elementu zawartości i uzyskiwanie adresów URL na potrzeby przesyłania strumieniowego i pobierania progresywnego.  
+5. Odtwarzanie zawartości.
 
 ## <a name="overview"></a>Omówienie
 Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości wideo na żądanie (VoD) przy użyciu zestawu SDK usług Azure Media Services (AMS) dla programu .NET.
@@ -40,87 +56,27 @@ Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiekt�
 
 Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.14).  
+Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-## <a name="what-youll-learn"></a>Zawartość
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Uruchamianie punktów końcowych przesyłania strumieniowego przy użyciu witryny Azure Portal
 
-Ten samouczek przedstawia sposób wykonania następujących zadań:
+Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach przesyłania strumieniowego obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
 
-1. Tworzenie konta usługi Media Services (przy użyciu witryny Azure Portal).
-2. Konfigurowanie punktu końcowego przesyłania strumieniowego (przy użyciu witryny Azure Portal).
-3. Tworzenie i konfigurowanie projektu programu Visual Studio.
-4. Nawiązywanie połączenia z kontem usług Media Services.
-5. Tworzenie nowego elementu zawartości i przekazywanie pliku wideo.
-6. Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów.
-7. Publikowanie elementu zawartości i uzyskiwanie adresów URL na potrzeby przesyłania strumieniowego i pobierania progresywnego.
-8. Testowanie przez odtwarzanie zawartości.
+>[!NOTE]
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-Następujące elementy są wymagane do wykonania czynności przedstawionych w samouczku.
-
-* Do ukończenia tego samouczka jest potrzebne konto platformy Azure.
-
-    Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Otrzymasz kredyt, który można wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure, takich jak funkcja Web Apps w usłudze Azure App Service.
-* Systemy operacyjne: Windows 8 lub nowszy, Windows 2008 R2, Windows 7.
-* .NET Framework 4.0 lub nowszy
-* Visual Studio 2010 z dodatkiem SP1 (Professional, Premium, Ultimate lub Express) lub nowszy.
-
-## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal
-W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
+Aby uruchomić punkt końcowy przesyłania strumieniowego, wykonaj następujące czynności:
 
 1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
-2. Kliknij kolejno pozycje **+Nowe** > **Media + CDN** > **Media Services**.
+2. W oknie Ustawienia kliknij pozycję Punkty końcowe przesyłania strumieniowego.
+3. Kliknij domyślny punkt końcowy przesyłania strumieniowego.
 
-    ![Tworzenie usługi Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. Na stronie **TWORZENIE KONTA USŁUGI MEDIA SERVICES** wprowadź wymagane wartości.
+    Zostanie wyświetlone okno SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO.
 
-    ![Tworzenie usługi Media Services](./media/media-services-portal-vod-get-started/media-services-new3.png)
-
-   1. W polu **Nazwa konta** wprowadź nazwę nowego konta usługi AMS. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.
-   2. W subskrypcji wybierz jedną z różnych subskrypcji Azure, do których masz dostęp.
-   3. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. W polu **Lokalizacja** wybierz region geograficzny używany do przechowywania nośników i rekordów metadanych dla konta usługi Media Services. Ten region służy do przetwarzania i przesyłania strumieniowego multimediów. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze Media Services.
-   5. W polu **Konto magazynu** wybierz konto magazynu, aby udostępnić magazyn obiektów Blob dla zawartości multimedialnej z konta usługi Media Services. Można wybrać istniejące konto magazynu w tym samym regionie geograficznym co konto usługi Media Services albo utworzyć konto magazynu. Nowe konto magazynu jest tworzone w tym samym regionie. Reguły dotyczące nazw kont magazynów są takie same, jak w przypadku kont usługi Media Services.
-
-       Więcej informacji o magazynie można znaleźć [tutaj](../storage/storage-introduction.md).
-   6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**, aby wyświetlić postęp wdrażania konta.
-4. Kliknij opcję **Utwórz** w dolnej części formularza.
-
-    Po pomyślnym utworzeniu konta stan zmieni się na **Uruchomiony**.
-
-    ![Ustawienia usługi Media Services](./media/media-services-portal-vod-get-started/media-services-settings.png)
-
-    Do zarządzania kontem AMS (na przykład przekazywania plików wideo, kodowania elementów zawartości, monitorowania postępu zadania) używaj okna **Ustawienia**.
-
-## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Konfigurowanie punktów końcowych przesyłania strumieniowego przy użyciu witryny Azure Portal
-Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH.
-
-Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach transmisji strumieniowej obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
-
-Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać następujące czynności:
-
-* Koduj plik (źródłowy) mezzanine do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów (kroki kodowania przedstawiono w dalszej części tego samouczka).  
-* Utwórz co najmniej jedną jednostkę przesyłania strumieniowego dla *punktu końcowego przesyłania strumieniowego*, z którego planujesz dostarczać zawartość. W poniższych krokach przedstawiono, jak zmienić liczbę jednostek przesyłania strumieniowego.
-
-Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
-
-Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumieniowego, wykonaj następujące czynności:
-
-1. W oknie **Ustawienia** kliknij przycisk **Punkty końcowe przesyłania strumieniowego**.
-2. Kliknij domyślny punkt końcowy przesyłania strumieniowego.
-
-    Zostanie wyświetlone okno **SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO**.
-3. Aby określić liczbę jednostek przesyłania strumieniowego, przesuń suwak **Jednostki przesyłania strumieniowego**.
-
-    ![Jednostki przesyłania strumieniowego](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
-
-   > [!NOTE]
-   > Alokacja nowych jednostek może zająć maksymalnie 20 minut.
-   >
-   >
+4. Kliknij ikonę Uruchom.
+5. Kliknij przycisk Zapisz, aby zapisać zmiany.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
@@ -160,7 +116,7 @@ Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumien
 
 Podczas korzystania z usługi Media Services z użyciem platformy .NET należy użyć klasy **CloudMediaContext** do większości zadań programowania usługi Media Services, takich jak nawiązywanie połączenia z kontem usługi Media Services oraz tworzenie, aktualizowanie, usuwanie i uzyskiwanie dostępu do następujących obiektów: elementów zawartości, plików elementów zawartości, zadań, zasad dostępu, lokalizatorów itp.
 
-Zastąp domyślną klasę Program poniższym kodem. Kod przedstawia sposób odczytywania wartości połączenia z pliku App.config oraz sposób tworzenia obiektu **CloudMediaContext** na potrzeby połączenia z usługą Media Services. Aby uzyskać więcej informacji na temat nawiązywania połączenia z usługą Media Services, zobacz temat [Nawiązywanie połączenia z usługą Media Services przy użyciu zestawu SDK usługi Media Services dla programu .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Zastąp domyślną klasę Program poniższym kodem. Kod przedstawia sposób odczytywania wartości połączenia z pliku App.config oraz sposób tworzenia obiektu **CloudMediaContext** na potrzeby połączenia z usługą Media Services. Aby uzyskać więcej informacji na temat nawiązywania połączenia z usługą Media Services, zobacz temat [Nawiązywanie połączenia z usługą Media Services przy użyciu zestawu SDK usługi Media Services dla programu .NET](media-services-dotnet-connect-programmatically.md).
 
 Pamiętaj o zaktualizowaniu nazwy pliku i ścieżki do lokalizacji pliku multimedialnego.
 
@@ -258,14 +214,11 @@ Po pozyskaniu elementów zawartości do usługi Media Services pliki multimedial
 
 Jak wspomniano wcześniej, podczas pracy z usługą Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie do klientów transmisji strumieniowej z adaptacyjną szybkością transmisji bitów. Usługa Media Services, korzystając z funkcji dynamicznego tworzenia pakietów, może utworzyć pakiet zestawu plików MP4 z adaptacyjną szybkością transmisji bitów w jednym z następujących formatów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH.
 
-Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać następujące czynności:
-
-* Zakoduj lub transkoduj plik (źródłowy) mezzanine do zestawu plików MP4 lub Smooth Streaming z adaptacyjną szybkością transmisji bitów.  
-* Pobierz co najmniej jedną jednostkę przesyłania strumieniowego dla punktu końcowego przesyłania strumieniowego, z którego planujesz dostarczać zawartość.
+Aby korzystać z dynamicznego tworzenia pakietów, zakoduj lub transkoduj plik (źródłowy) mezzanine do zestawu plików MP4 lub Smooth Streaming z adaptacyjną szybkością transmisji bitów.  
 
 Poniższy kod ilustruje sposób przesyłania zadania kodowania. Zadanie zawiera jedno zadanie podrzędne, która określa transkodowanie pliku mezzanine do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów przy użyciu **standardu kodera multimediów**. Kod przesyła zadanie i oczekuje na ukończenie działania.
 
-Po zakończeniu zadania kodowania będzie możliwe opublikowanie elementów zawartości i następnie przesłanie strumieniowo lub pobranie progresywne plików MP4.
+Po zakończeniu zadania użytkownik będzie mógł przesłać strumieniowo element zawartości lub pobrać progresywnie pliki MP4, które zostały utworzone w wyniku transkodowania.
 
 Dodaj następującą metodę do klasy Program.
 
@@ -449,7 +402,7 @@ Aby uzyskać więcej informacji, zobacz następujące tematy:
 ## <a name="download-sample"></a>Pobieranie przykładu
 Następujący przykład kodu zawiera kod utworzony w tym samouczku: [przykład](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Następne kroki
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -467,6 +420,6 @@ Następujący przykład kodu zawiera kod utworzony w tym samouczku: [przykład](
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 
