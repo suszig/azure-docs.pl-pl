@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 69f3bd4759e879c6f3b55d8126f34e8ebf4be52d
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 18959934c53e2e1c719cc627ffa286acbdcaa967
 
 
 ---
@@ -58,13 +58,25 @@ Ponadto aplikacja sieci Web może korzystać z funkcji oferowanych przez usługi
 Oprócz usługi Web Apps w usłudze App Service platforma Azure oferuje inne usługi, które mogą służyć do hostowania witryn i aplikacji sieci Web. W przypadku większości scenariuszy najlepszym wyborem jest usługa Web Apps.  W przypadku architektury mikrousługi należy wziąć pod uwagę usługę [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) i w razie konieczności sprawowania większej kontroli nad maszynami wirtualnymi, na których działa kod, należy wziąć pod uwagę usługę [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Aby uzyskać więcej informacji o tym, jak dokonać wyboru między usługami Azure, zobacz [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
 
 ## <a name="getting-started"></a>Wprowadzenie
-Aby rozpocząć od wdrożenia przykładowego kodu w nowej aplikacji sieci Web w usłudze App Service, postępuj zgodnie z informacjami znajdującymi się w samouczku [Deploy your first web app to Azure in 5 minutes](app-service-web-get-started.md) (Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w ciągu 5 minut). Konieczne będzie posiadanie bezpłatnego konta platformy Azure.
+Aby rozpocząć od wdrożenia przykładowego kodu w nowej aplikacji sieci Web w usłudze App Service, postępuj zgodnie z informacjami znajdującymi się w jednym z samouczków w poniższym polu listy rozwijanej. Konieczne będzie posiadanie bezpłatnego konta platformy Azure.
 
-Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> [!div class="op_single_selector"]
+> * [Wdrażanie pierwszej witryny HTML na platformie Azure w ciągu 5 minut](app-service-web-get-started-html-cli-nodejs.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web platformy ASP.NET na platformie Azure w ciągu 5 minut](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web w języku PHP na platformie Azure w ciągu 5 minut](app-service-web-get-started-php-cli-nodejs.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web w języku Node.js na platformie Azure w ciągu 5 minut](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web w języku Python na platformie Azure w ciągu 5 minut](app-service-web-get-started-python-cli-nodejs.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web w języku Java na platformie Azure w ciągu 5 minut](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> Usługę [App Service](https://azure.microsoft.com/try/app-service/) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
+> 
+> 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2cddd262f912efff029bb05f0f3f3551409167ed
-ms.openlocfilehash: 4c969499f562d8cef9c09ebd909508b1c0542c57
+ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
+ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 
 ---
 
@@ -27,7 +27,7 @@ ms.openlocfilehash: 4c969499f562d8cef9c09ebd909508b1c0542c57
 > * [Omówienie](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](../documentdb/documentdb-search-indexer.md)
+> * [DocumentDB](search-howto-index-documentdb.md)
 > * [Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md)
 > * [Table Storage (wersja zapoznawcza)](search-howto-indexing-azure-tables.md)
 >
@@ -56,7 +56,7 @@ Indeksator będzie automatyzować niektóre zadania związane z wprowadzaniem da
 Indeksator pobiera dane ze **źródła danych**, które zawiera na przykład parametry połączenia. Obecnie są obsługiwane następujące źródła danych:
 
 * [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md)
+* [DocumentDB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) używany do wyodrębniania tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
@@ -69,7 +69,7 @@ Definicja indeksatora to konstrukcja określająca indeks, źródło danych i ha
 Teraz, gdy masz już podstawowe informacje, następnym krokiem jest przegląd wymagań i zadań specyficznych dla poszczególnych typów źródeł danych.
 
 * [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md)
+* [DocumentDB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) używany do wyodrębniania tekstu z plików PDF, dokumentów pakietu Office oraz plików HTML i XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indeksowanie obiektów blob plików CSV za pomocą indeksatora obiektów blob usługi Azure Search (wersja zapoznawcza)](search-howto-index-csv-blobs.md)
@@ -77,6 +77,6 @@ Teraz, gdy masz już podstawowe informacje, następnym krokiem jest przegląd wy
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

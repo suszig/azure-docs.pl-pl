@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a48181c6c22e6042dd8ef39c12415979e384f8b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 6b8c5c2ac2e721c4d6f73c7c17f34eadc041e0c9
 
 
 ---
@@ -36,7 +36,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 * Komputer Mac z zainstalowanym środowiskiem Xcode v7.0 lub nowszym i rozwiązaniem Xamarin Studio Community. Zobacz tematy [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin) oraz [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Konfigurowanie, instalowanie oraz weryfikacje dla użytkowników komputerów Mac) (MSDN).
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację mobilną o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/mobile/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację mobilną o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
@@ -161,9 +161,9 @@ Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, któ
   Dowiedz się, jak pracować z zestawem SDK zarządzanego klienta w aplikacji platformy Xamarin. 
 
 <!-- Anchors. -->
-[Wprowadzenie do zapleczy aplikacji mobilnych]:#getting-started
-[Tworzenie zaplecza nowej aplikacji mobilnej]:#create-new-service
-[Następne kroki]:#next-steps
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
+[Next Steps]:#next-steps
 
 
 <!-- Images. -->
@@ -177,12 +177,12 @@ Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, któ
 
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Zestaw SDK aplikacji mobilnych]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

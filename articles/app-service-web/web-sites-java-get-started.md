@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 3451e6d13119bacc66e9ccd861862edea5a5b4fe
 
 
 ---
@@ -147,7 +147,7 @@ Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, 
 [Azure Portal]: https://portal.azure.com/
 [aktywować korzyści dla subskrybentów programu Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [utworzyć konto bezpłatnej wersji próbnej]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Wypróbuj usługę App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Wypróbuj usługę App Service]: https://azure.microsoft.com/try/app-service/
 [Aplikacja sieci Web w usłudze Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centrum deweloperów języka Java]: /develop/java/
 [Omówienie usługi Resource Manager]: ../azure-resource-manager/resource-group-overview.md
@@ -169,6 +169,6 @@ Aby uzyskać więcej informacji o tworzeniu aplikacji Java na platformie Azure, 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

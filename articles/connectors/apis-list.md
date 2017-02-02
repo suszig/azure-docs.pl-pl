@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/07/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
-ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
+ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
+ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
 
 
 ---
@@ -65,7 +65,7 @@ Wybierz łącznik, aby dowiedzieć się, jak użyć go do szybkiego tworzenia pr
 
 | łączniki dla<br/>przedsiębiorstw |  |
 | --- | --- |
-|![Ikona interfejsu API][MQicon]<br/>**MQ**|![Ikona interfejsu API][SAPicon]<br/>**SAP**|
+|![Ikona interfejsu API][MQicon]<br/>**MQ**|![Ikona interfejsu API][SAPicon]<br/>**SAP**<br/>[sapconnector]|
 
 
 
@@ -151,6 +151,7 @@ Istnieją dwa typy wyzwalaczy:
 [youtubedoc]: ./connectors-create-api-youtube.md "Nawiązuje połączenie z usługą YouTube i może wchodzić w interakcje z filmami i kanałami."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Nawiązuje połączenie z usługą SparkPost i może być używany do komunikacji."
 [filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Łącznik systemu plików umożliwia komunikowanie się z lokalnym systemem plików."
+[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Dowiedz się więcej na temat łącznika SAP"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -248,6 +249,6 @@ Istnieją dwa typy wyzwalaczy:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

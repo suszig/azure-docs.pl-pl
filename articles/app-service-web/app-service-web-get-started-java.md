@@ -1,5 +1,5 @@
 ---
-title: "Wdrażanie pierwszej aplikacji sieci Web Java na platformie Azure w ciągu pięciu minut | Microsoft Docs"
+title: "Wdrażanie pierwszej aplikacji sieci Web w języku Java na platformie Azure w ciągu pięciu minut (interfejs wiersza polecenia 2.0 w wersji zapoznawczej) | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w usłudze App Service, wdrażając przykładową aplikację. Szybko rozpocznij rzeczywiste tworzenie aplikacji i od razu zobacz wyniki."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 90c1099f7970fc490ca01f2d815679f967c46187
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Wdrażanie pierwszej aplikacji sieci Web Java na platformie Azure w ciągu pięciu minut
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Wdrażanie pierwszej aplikacji sieci Web w języku Java na platformie Azure w ciągu pięciu minut (interfejs wiersza polecenia 2.0 w wersji zapoznawczej)
+
+> [!div class="op_single_selector"]
+> * [Pierwsza witryna HTML](app-service-web-get-started-html-cli-nodejs.md)
+> * [Pierwsza aplikacja platformy .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Pierwsza aplikacja PHP](app-service-web-get-started-php-cli-nodejs.md)
+> * [Pierwsza aplikacja Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Pierwsza aplikacja w języku Python](app-service-web-get-started-python-cli-nodejs.md)
+> * [Pierwsza aplikacja w języku Java](app-service-web-get-started-java.md)
+> 
+> 
+
 Ten samouczek ułatwia wdrażanie prostej aplikacji sieci Web Java w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Za pomocą usługi App Service można tworzyć aplikacje sieci Web, [zaplecza aplikacji mobilnych](/documentation/learning-paths/appservice-mobileapps/) oraz [aplikacje interfejsu API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -35,7 +46,7 @@ Wykonasz następujące zadania:
 * Utwórz konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Usługę [App Service](http://go.microsoft.com/fwlink/?LinkId=523751) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
+> Usługę [App Service](https://azure.microsoft.com/try/app-service/) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
@@ -73,7 +84,7 @@ Wdrożymy teraz aplikację Java na platformie Azure przy użyciu protokołu FTPS
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. W obszarze **Wersja języka Java** wybierz pozycję **Java 8** i kliknij przycisk **Zapisz**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     Po wyświetleniu powiadomienia **Pomyślnie zaktualizowano ustawienia aplikacji sieci Web** przejdź do strony http://*&lt;nazwa_aplikacji>*.azurewebsites.net, aby zobaczyć domyślny serwlet JSP w działaniu.
 3. Wróć do bloku aplikacji sieci Web, przewiń w dół do pozycji **Poświadczenia wdrożenia** lub ją wyszukaj, a następnie kliknij tę pozycję.
@@ -120,6 +131,6 @@ Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją si
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

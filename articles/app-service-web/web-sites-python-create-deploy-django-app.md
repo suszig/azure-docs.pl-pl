@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
 
 
 ---
@@ -29,7 +29,7 @@ Aplikacja zostanie utworzona przy użyciu platformy sieci Web Django (zobacz alt
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
@@ -112,10 +112,10 @@ Pakiety zewnętrzne wymagane przez tę aplikację. Skrypt wdrożenia będzie ins
 
 Pliki konfiguracji programu IIS. Skrypt wdrożenia użyje odpowiedniego pliku web.x.y.config i skopiuje go jako plik web.config.
 
-### <a name="optional-files-customizing-deployment"></a>Pliki opcjonalne — dostosowywanie wdrożenia
+### <a name="optional-files---customizing-deployment"></a>Pliki opcjonalne — dostosowywanie wdrożenia
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### <a name="optional-files-python-runtime"></a>Pliki opcjonalne — środowisko uruchomieniowe języka Python
+### <a name="optional-files---python-runtime"></a>Pliki opcjonalne — środowisko uruchomieniowe języka Python
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Dodatkowe pliki na serwerze
@@ -135,7 +135,7 @@ W 3 następnych sekcjach opisano procedury wdrażania aplikacji sieci Web w 3 r�
 * System Windows — przy użyciu wiersza polecenia
 * System Mac/Linux — przy użyciu wiersza polecenia
 
-## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>Wdrażanie aplikacji sieci Web — system Windows — narzędzia Python Tools for Visual Studio
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Wdrażanie aplikacji sieci Web — system Windows — narzędzia Python Tools for Visual Studio
 ### <a name="clone-the-repository"></a>Klonowanie repozytorium
 Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
@@ -201,7 +201,7 @@ Program Visual Studio nie wyświetla postępu wdrożenia. Jeśli chcesz przejrze
 
 Przejdź do adresu URL platformy Azure, aby przejrzeć wprowadzone zmiany.
 
-## <a name="web-app-development-windows-command-line"></a>Wdrażanie aplikacji sieci Web — system Windows — wiersz polecenia
+## <a name="web-app-development---windows---command-line"></a>Wdrażanie aplikacji sieci Web — system Windows — wiersz polecenia
 ### <a name="clone-the-repository"></a>Klonowanie repozytorium
 Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w witrynie Azure Portal i dodaj repozytorium Azure jako repozytorium zdalne. Aby uzyskać więcej informacji, zobacz [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
@@ -281,7 +281,7 @@ Zostaną wyświetlone dane wyjściowe skryptu wdrożenia, łącznie z tworzeniem
 
 Przejdź do adresu URL platformy Azure, aby przejrzeć wprowadzone zmiany.
 
-## <a name="web-app-development-maclinux-command-line"></a>Wdrażanie aplikacji sieci Web — system Mac/Linux — wiersz polecenia
+## <a name="web-app-development---maclinux---command-line"></a>Wdrażanie aplikacji sieci Web — system Mac/Linux — wiersz polecenia
 ### <a name="clone-the-repository"></a>Klonowanie repozytorium
 Najpierw sklonuj repozytorium przy użyciu adresu URL podanego w witrynie Azure Portal i dodaj repozytorium Azure jako repozytorium zdalne. Aby uzyskać więcej informacji, zobacz [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
 
@@ -365,13 +365,13 @@ Zostaną wyświetlone dane wyjściowe skryptu wdrożenia, łącznie z tworzeniem
 
 Przejdź do adresu URL platformy Azure, aby przejrzeć wprowadzone zmiany.
 
-## <a name="troubleshooting-package-installation"></a>Rozwiązywanie problemów — instalowanie pakietów
+## <a name="troubleshooting---package-installation"></a>Rozwiązywanie problemów — instalowanie pakietów
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting-virtual-environment"></a>Rozwiązywanie problemów — środowisko wirtualne
+## <a name="troubleshooting---virtual-environment"></a>Rozwiązywanie problemów — środowisko wirtualne
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="troubleshooting-static-files"></a>Rozwiązywanie problemów — pliki statyczne
+## <a name="troubleshooting---static-files"></a>Rozwiązywanie problemów — pliki statyczne
 Platforma Django korzysta z koncepcji zbierania plików statycznych. Polega to na skopiowaniu wszystkich plików statycznych z oryginalnej lokalizacji do pojedynczego folderu. W przypadku tej aplikacji są one kopiowane do folderu `/static`.
 
 Ta operacja jest wykonywana, ponieważ pliki statyczne mogą pochodzić z różnych „aplikacji” Django. Na przykład pliki statyczne z interfejsów administracyjnych Django znajdują się w podfolderze biblioteki Django w środowisku wirtualnym. Pliki statyczne zdefiniowane przez tę aplikację znajdują się w folderze `/app/static`. W przypadku użycia dodatkowych „aplikacji” Django pliki statyczne będą znajdować się w kilku miejscach.
@@ -392,7 +392,7 @@ Musisz zebrać pliki ręcznie na komputerze lokalnym:
 
 Następnie usuń folder `\static` z pliku `.gitignore` i dodaj go do repozytorium Git.
 
-## <a name="troubleshooting-settings"></a>Rozwiązywanie problemów — ustawienia
+## <a name="troubleshooting---settings"></a>Rozwiązywanie problemów — ustawienia
 Różne ustawienia dla aplikacji można zmienić w pliku `DjangoWebProject/settings.py`.
 
 Dla wygody deweloperów tryb debugowania jest włączony. Jedną z zalet tego rozwiązania jest możliwość wyświetlania obrazów i innej zawartości statycznej podczas uruchamiania lokalnego bez konieczności zbierania plików statycznych.
@@ -467,6 +467,6 @@ Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](/de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,23 +1,22 @@
 ---
 title: "Samouczek NoSQL: zestaw SDK dla platformy .NET Core usługi DocumentDB | Microsoft Docs"
 description: "Samouczek NoSQL, który pokazuje tworzenie bazy danych w trybie online i aplikacji konsolowej C# przy użyciu zestawu SDK dla platformy .NET Core usługi DocumentDB. Usługa DocumentDB jest bazą danych NoSQL dla formatu JSON."
-keywords: samouczek nosql, baza danych online, aplikacja konsolowa c#
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
+ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
 
 
 ---
@@ -49,6 +48,9 @@ Nie masz czasu? Nie martw się! Kompletne rozwiązanie jest dostępne w witrynie
 
 Po wszystkim użyj przycisków głosowania u góry lub u dołu tej strony, aby wysłać nam swoją opinię. Jeśli chcesz, abyśmy skontaktowali się z Tobą bezpośrednio, możesz w komentarzach podać swój adres e-mail.
 
+> [!NOTE]
+> Użyty w tym samouczku zestaw SDK dla platformy .NET Core usługi DocumentDB nie jest jeszcze zgodny z aplikacjami platformy uniwersalnej systemu Windows (UWP, Universal Windows Platform). Aby uzyskać wersję zapoznawczą zestawu SDK dla platformy .NET Core obsługującą aplikacje platformy UWP, wyślij w wiadomość e-mail na adres [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
 Teraz do dzieła!
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -70,10 +72,10 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 1. Otwórz program **Visual Studio 2015** na komputerze.
 2. W menu **Plik** wybierz polecenie **Nowy**, a następnie wybierz pozycję **Projekt**.
 3. W oknie dialogowym **Nowy projekt** wybierz pozycję **Szablony** / **Visual C#** / **.NET Core**/**Aplikacja konsolowa (.NET Core)**, podaj nazwę projektu, a następnie kliknij przycisk **OK**.
-   ![Zrzut ekranu przedstawiający okno Nowy projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Zrzut ekranu przedstawiający okno Nowy projekt](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy nową aplikację konsolową, która znajduje się w obrębie rozwiązania Visual Studio.
 5. Następnie bez opuszczania menu wybierz polecenie **Zarządzaj pakietami NuGet...**
-   ![Zrzut ekranu przedstawiający menu wywoływane po kliknięciu prawym przyciskiem myszy dla projektu](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Zrzut ekranu przedstawiający menu wywoływane po kliknięciu prawym przyciskiem myszy dla projektu](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Na karcie **NuGet** kliknij pozycję **Przeglądaj** i wpisz ciąg **azure documentdb** w polu wyszukiwania.
 7. W wynikach znajdź pozycję **Microsoft.Azure.DocumentDB.Core** i kliknij przycisk **Zainstaluj**.
    Identyfikator pakietu Biblioteka kliencka usługi DocumentDB to [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
@@ -367,7 +369,7 @@ Naciśnij klawisz **F5**, aby uruchomić aplikację.
 
 Gratulacje! Pomyślnie utworzono dwa dokumenty usługi DocumentDB.  
 
-![Diagram pokazujący hierarchiczną relację między kontem, bazą danych w trybie online, kolekcją i dokumentami używanymi przez samouczek NoSQL do tworzenia aplikacji konsolowej C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram pokazujący hierarchiczną relację między kontem, bazą danych w trybie online, kolekcją i dokumentami używanymi przez samouczek NoSQL do tworzenia aplikacji konsolowej C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Krok 7. Wykonywanie zapytań względem zasobów usługi DocumentDB
 Usługa DocumentDB obsługuje zaawansowane [zapytania](documentdb-sql-query.md) względem dokumentów JSON przechowywanych w każdej kolekcji.  Następujący przykładowy kod przedstawia różne zapytania — przy użyciu składni SQL usługi DocumentDB oraz LINQ — które można uruchomić względem dokumentów wstawionych w poprzednim kroku.
@@ -421,7 +423,7 @@ Gratulacje! Pomyślnie wykonano zapytanie względem kolekcji usługi DocumentDB.
 
 Na poniższym diagramie przedstawiono sposób, w jaki składnia zapytania SQL usługi DocumentDB jest wywoływana względem utworzonej kolekcji. Ta sama logika dotyczy również zapytania LINQ.
 
-![Diagram pokazujący zakres i znaczenie zapytania używanego przez samouczek NoSQL do utworzenia aplikacji konsolowej C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagram pokazujący zakres i znaczenie zapytania używanego przez samouczek NoSQL do utworzenia aplikacji konsolowej C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 Słowo kluczowe [FROM](documentdb-sql-query.md#from-clause) jest opcjonalne w zapytaniu, ponieważ zapytania usługi DocumentDB mają już zakres określony jako jedna kolekcja. W związku z tym klauzula "FROM Families f" może być zamieniona na "FROM root r" lub dowolną inną wybraną nazwę zmiennej. Usługa DocumentDB będzie wnioskowała, że zmienne Families, root lub wybrana nazwa zmiennej domyślnie odwołują się do bieżącej kolekcji.
 
@@ -556,11 +558,10 @@ Aby przywrócić odwołania do zestawu SDK dla platformy .NET Core usługi Docum
 * Dowiedz się więcej o modelu programowania w sekcji Dla deweloperów [strony dokumentacji usługi DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: 21ebc8083113238ef70f57dae2381ebcf102c39d
+ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
+ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
 
 
 ---
@@ -82,23 +82,35 @@ Każdy dostawca zasobów udostępnia zestaw zasobów i operacji do pracy z usłu
 
 Przed rozpoczęciem wdrażania zasobów należy uzyskać wiedzę na temat dostępnych dostawców zasobów. Znajomość nazw zasobów i ich dostawców pomaga określić zasoby, które mają zostać wdrożone na platformie Azure.
 
+Wszystkich dostawców zasobów można wyświetlić za pośrednictwem portalu. W bloku subskrypcji wybierz pozycję **Dostawcy zasobów**:
+
+![wyświetlanie dostawców zasobów](./media/resource-group-overview/view-resource-providers.png)
+
 Wszystkich dostawców zasobów można pobrać za pomocą następującego polecenia cmdlet programu PowerShell:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Alternatywnie wszystkich dostawców zasobów można pobrać za pomocą następującego polecenia interfejsu wiersza polecenia platformy Azure:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Zwróconą listę dostawców zasobów można przeszukać w celu znalezienia dostawców zasobów, których należy użyć.
 
 Aby uzyskać szczegółowe informacje o dostawcy zasobów, do polecenia należy dodać przestrzeń nazw dostawcy. Polecenie zwraca obsługiwane typy zasobów dla dostawcy zasobów oraz obsługiwane lokalizacje i wersje interfejsu API dla każdego typu zasobu. Następujące polecenie cmdlet programu PowerShell służy do pobierania szczegółowych informacji o dostawcy Microsoft.Compute:
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 Alternatywnie obsługiwane typy zasobów, lokalizacje i wersje interfejsu API dla dostawcy Microsoft.Compute można pobrać za pomocą następującego polecenia interfejsu wiersza polecenia platformy Azure:
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 Aby uzyskać więcej informacji, zobacz [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md) (Dostawcy, regiony, wersje interfejsów API i schematy usługi Resource Manager).
 
@@ -109,35 +121,39 @@ Aby dowiedzieć się więcej o formacie szablonu i sposobie jego konstruowania, 
 
 W usłudze Resource Manager szablon jest przetwarzany jak wszystkie pozostałe żądania (zobacz ilustrację przedstawiającą [Spójną warstwę zarządzania](#consistent-management-layer)). Szablon jest analizowany, a jego składnia zostaje poddana konwersji do operacji interfejsu API REST dla odpowiednich dostawców zasobów. Na przykład, gdy usługa Resource Manager odbiera szablon o następującej definicji zasobu:
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 Konwertuje definicję do następującej operacji interfejsu API REST, która zostaje wysłana do dostawcy zasobów Microsoft.Storage:
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
 Sposób definiowania szablonów i grup zasobów zależy wyłącznie od użytkownika, podobnie jak sposób zarządzania rozwiązaniem. Można na przykład wdrożyć aplikację trójwarstwową za pomocą jednego szablonu do pojedynczej grupy zasobów.
 
@@ -177,26 +193,32 @@ Zasoby mogą być oznaczone tym samym tagiem, nawet jeśli nie znajdują się w 
 
 W poniższym przykładzie przedstawiono tag zastosowany względem maszyny wirtualnej.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 Aby pobrać wszystkie zasoby z wartością tagu, użyj następującego polecenia cmdlet programu PowerShell:
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 Innym rozwiązaniem jest użycie następującego polecenia interfejsu wiersza polecenia platformy Azure:
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 Oznakowane zasoby można również wyświetlić za pośrednictwem witryny Azure Portal.
 
@@ -238,7 +260,7 @@ W niektórych przypadkach istnieje potrzeba uruchomienia kodu lub skryptu, któr
 Można również jawnie zablokować dostęp do kluczowych zasobów, aby uniemożliwić użytkownikom ich usuwanie i modyfikowanie. Aby uzyskać więcej informacji, zobacz [Lock resources with Azure Resource Manager](resource-group-lock-resources.md) (Blokowanie zasobów w usłudze Azure Resource Manager).
 
 ## <a name="activity-logs"></a>Dzienniki aktywności
-Usługa Resource Manager rejestruje wszystkie operacje służące do tworzenia, modyfikowania lub usuwania zasobu. Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji. Aby wyświetlić dzienniki, wybierz pozycję **Dzienniki aktywności** w bloku **Ustawienia** dla grupy zasobów. Dzienniki można filtrować według wielu różnych wartości, w tym według użytkownika, który zainicjował operację. Aby uzyskać informacje dotyczące pracy z dziennikami aktywności, zobacz [Audit operations with Resource Manager](resource-group-audit.md) (Operacje inspekcji w usłudze Resource Manager).
+Usługa Resource Manager rejestruje wszystkie operacje służące do tworzenia, modyfikowania lub usuwania zasobu. Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji. Aby wyświetlić dzienniki, wybierz pozycję **Dzienniki aktywności** w bloku **Ustawienia** dla grupy zasobów. Dzienniki można filtrować według wielu różnych wartości, w tym według użytkownika, który zainicjował operację. Aby uzyskać informacje dotyczące pracy z dziennikami aktywności, zobacz [View activity logs to manage Azure resources](resource-group-audit.md) (Wyświetlanie dzienników aktywności w celu zarządzania zasobami platformy Azure).
 
 ## <a name="customized-policies"></a>Zasady niestandardowe
 Usługa Resource Manager umożliwia tworzenie zasad niestandardowych na potrzeby zarządzania zasobami. Typy tworzonych zasad mogą obejmować różne scenariusze. Można wymusić konwencję nazewnictwa zasobów, ograniczyć typy i wystąpienia zasobów, które można wdrożyć, lub wprowadzić ograniczenia dotyczące regionów, które mogą hostować dany typ zasobu. Można wymagać wartości tagu dla zasobów w celu organizowania rozliczania według działów. Tworzenie zasad umożliwia obniżenie kosztów i zachowanie spójności w ramach subskrypcji. 
@@ -247,17 +269,19 @@ Zasady są definiowane za pomocą pliku JSON, a następnie stosowane w ramach su
 
 W poniższym przykładzie przedstawiono zasady, które zapewniają spójność tagów dzięki określeniu, że wszystkie zasoby zawierają tag costCenter.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 Można utworzyć o wiele więcej typów zasad. Aby uzyskać więcej informacji, zobacz [Use Policy to manage resources and control access](resource-manager-policy.md) (Zarządzanie zasobami i kontrola dostępu przy użyciu zasad).
 
@@ -322,6 +346,6 @@ Oto film z omówieniem tego zagadnienia:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

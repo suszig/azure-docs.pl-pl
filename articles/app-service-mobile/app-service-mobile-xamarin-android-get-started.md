@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
 
 
 ---
@@ -39,7 +39,7 @@ Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących 
 * Visual Studio z programem Xamarin. Instrukcje można znaleźć w temacie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin).
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service](https://tryappservice.azure.com/?appServiceName=mobile).  Możesz od razu utworzyć krótkotrwałą wersję początkową aplikacji mobilnej w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/mobile/).  Możesz od razu utworzyć krótkotrwałą wersję początkową aplikacji mobilnej w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
@@ -88,6 +88,6 @@ W ten sposób zainicjowano obsługę zaplecza Aplikacji mobilnej Azure, które m
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

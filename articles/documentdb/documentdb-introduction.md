@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: cb1fd606fa03650980a02325b82774ce9ef8cf77
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
 
 
 ---
@@ -44,7 +44,7 @@ Usługa Azure DocumentDB oferuje następujące kluczowe funkcje i korzyści:
 * **Możliwość dostosowania poziomu spójności**: możliwość wyboru spośród czterech dobrze zdefiniowanych poziomów spójności w celu osiągnięcia optymalnego kompromisu między wydajnością a spójnością. Dla zapytań i operacji odczytu usługa DocumentDB oferuje cztery różne poziomy spójności: „silna”, „powiązana nieaktualność”, „sesja” i „ostateczna”. Te szczegółowe, dokładnie zdefiniowane poziomy spójności umożliwiają ustalanie optymalnych kompromisów między spójnością, dostępnością i opóźnieniem. Aby dowiedzieć się więcej, zobacz [Maksymalizowanie dostępności i wydajności za pomocą poziomów spójności w usłudze DocumentDB](documentdb-consistency-levels.md).
 * **W pełni zarządzana**: eliminuje konieczność zarządzania zasobami maszyn i bazy danych. Ponieważ jest to w pełni zarządzana usługa platformy Microsoft Azure, nie musisz zarządzać maszynami wirtualnymi, wdrażać i konfigurować oprogramowania, zarządzać skalowaniem ani obsługiwać złożonych aktualizacji warstwy danych. Dla każdej bazy danych jest automatycznie tworzona kopia zapasowa i jest ona chroniona przed regionalnymi awariami. Możesz łatwo dodać konto usługi DocumentDB i aprowizować pojemność odpowiednio do potrzeb, co pozwala skupić się na aplikacji zamiast zajmować się obsługą bazy danych i zarządzaniem nią. 
 * **Celowa ogólnodostępność**: można szybko rozpocząć pracę, wykorzystując posiadane umiejętności i narzędzia. Programowanie bazy danych DocumentDB jest łatwe, przystępne i nie wymaga wdrażania nowych narzędzi ani niestandardowych rozszerzeń formatu JSON czy języka JavaScript. Możesz uzyskać dostęp do wszystkich funkcji bazy danych, w tym operacji CRUD, zapytań i przetwarzania języka JavaScript przy użyciu prostego interfejsu RESTful protokołu HTTP. Usługa DocumentDB wykorzystuje istniejące formaty, języki i standardy, jednocześnie oferując oparte na nich i zapewniające wysoką wartość możliwości bazy danych.
-* **Automatyczne indeksowanie:** domyślnie usługa DocumentDB [automatycznie indeksuje](documentdb-indexing.md) wszystkie dokumenty w bazie danych i nie oczekuje ani nie wymaga żadnego schematu lub tworzenia indeksów pomocniczych. Nie chcesz indeksować wszystkiego? Nie martw się, możesz również [zrezygnować ze ścieżki plików JSON](documentdb-indexing-policies.md).
+* **Automatyczne indeksowanie:** domyślnie usługa DocumentDB automatycznie indeksuje wszystkie dokumenty w bazie danych i nie oczekuje ani nie wymaga żadnego schematu lub tworzenia indeksów pomocniczych. Nie chcesz indeksować wszystkiego? Nie martw się, możesz również [zrezygnować ze ścieżki plików JSON](documentdb-indexing-policies.md).
 
 ## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Jak usługa DocumentDB zarządza danymi?
 Usługa Azure DocumentDB zarządza danymi JSON za pomocą dobrze zdefiniowanych zasobów bazy danych. Te zasoby są replikowane w celu zapewnienia wysokiej dostępności i unikatowo adresowane przez ich logiczny identyfikator URI. Usługa DocumentDB oferuje prosty model programowania RESTful oparty na protokole HTTP dla wszystkich zasobów. 
@@ -103,6 +103,6 @@ Następnie, kiedy zechcesz dowiedzieć się więcej, odwiedź naszą [ścieżkę
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
