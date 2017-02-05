@@ -2,7 +2,7 @@
 Utwórz centrum IoT, z którym połączy się symulowana aplikacja urządzenia. Poniższe kroki przedstawiają sposób wykonania tego zadania przy użyciu witryny Azure Portal.
 
 1. Zaloguj się w witrynie [Azure Portal][lnk-portal].
-2. Na pasku dostępu kliknij pozycję **Nowe** > **Internet rzeczy** > ** IoT Hub**.
+2. Na pasku dostępu kliknij kolejno pozycje **Nowe** > **Internet rzeczy** > ** Azure IoT Hub**.
    
     ![Pasek dostępu witryny Azure Portal][1]
 3. W bloku **Centrum IoT** wybierz konfigurację centrum IoT.
@@ -11,7 +11,7 @@ Utwórz centrum IoT, z którym połączy się symulowana aplikacja urządzenia. 
    
    * W polu **Nazwa** wprowadź nazwę centrum IoT. Jeśli **nazwa** jest prawidłowa i dostępna, w polu **Nazwa** widoczny jest zielony znacznik.
    * Wybierz pozycję [Warstwa cenowa i warstwa skali][lnk-pricing]. W tym samouczku nie jest wymagane użycie określonej warstwy. Do celów tego samouczka użyj bezpłatnej warstwy F1.
-   * W obszarze **Grupa zasobów** utwórz grupę zasobów lub wybierz istniejącą. Więcej informacji można znaleźć w temacie [Using resource groups to manage your Azure resources][lnk-resource-groups] (Używanie grup zasobów do zarządzania zasobami platformy Azure).
+   * W obszarze **Grupa zasobów** utwórz nową grupę zasobów lub wybierz istniejącą. Więcej informacji można znaleźć w temacie [Using resource groups to manage your Azure resources][lnk-resource-groups] (Używanie grup zasobów do zarządzania zasobami platformy Azure).
    * W obszarze **Lokalizacja** wybierz lokalizację hostowania centrum IoT. Do celów tego samouczka wybierz najbliższą lokalizację.
 4. Po wybraniu opcji konfiguracji centrum IoT kliknij pozycję **Utwórz**.  Utworzenie centrum IoT na platformie Azure może potrwać kilka minut. Stan operacji można sprawdzić, monitorując postęp na tablicy startowej lub w panelu Powiadomienia.
    
@@ -31,12 +31,12 @@ Utwórz centrum IoT, z którym połączy się symulowana aplikacja urządzenia. 
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
 <!-- Links -->
-[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
+[lnk-resource-groups]: ../articles/azure-portal/resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
