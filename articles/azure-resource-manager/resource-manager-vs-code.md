@@ -32,7 +32,7 @@ Aby pracować z szablonami JSON w programie VS Code, należy zainstalować rozsz
 2. Otwórz opcję Quick Open (Szybkie otwieranie, Ctrl+P) 
 3. Uruchom następujące polecenie: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Uruchom ponownie program VS Code po wyświetleniu monitu, aby włączyć rozszerzenie. 
    
    Gotowe!
