@@ -20,7 +20,7 @@ ms.openlocfilehash: b7e47a469127d2a06aa1be07f46ef04a2c23d351
 
 
 ---
-# <a name="expressroute-prerequisites-checklist"></a>Wymagania wstępne usługi ExpressRoute i lista kontrolna
+# <a name="expressroute-prerequisites--checklist"></a>Wymagania wstępne usługi ExpressRoute i lista kontrolna
 Aby połączyć się z usługami w chmurze firmy Microsoft za pomocą usługi ExpressRoute, należy sprawdzić, czy zostały spełnione wymagania wymienione w poniższych sekcjach.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

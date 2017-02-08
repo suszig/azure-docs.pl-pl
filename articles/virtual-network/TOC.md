@@ -76,7 +76,9 @@
 
 #### Wiele adresów IP
 ##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
-##### [Program PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [Interfejs wiersza polecenia](virtual-network-multiple-ip-addresses-cli.md)
+##### [Szablon](virtual-network-multiple-ip-addresses-template.md)
 
 ### Scenariusze łączności
 #### [Z sieci wirtualnej do sieci wirtualnej](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -143,6 +145,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

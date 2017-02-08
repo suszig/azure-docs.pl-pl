@@ -4,7 +4,7 @@ description: "Ten dokument ułatwia zrozumienie typów alertów zabezpieczeń do
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,8 @@ Ten dokument ułatwia zrozumienie różnych typów alertów zabezpieczeń dostę
 
 > [!NOTE]
 > Aby włączyć wykrywanie zaawansowane, przeprowadź uaktualnienie usługi Azure Security Center do wersji Standard. Dostępna jest bezpłatna 90-dniowa wersja próbna. W celu uaktualnienia wybierz warstwę cenową w [Zasadach zabezpieczeń](security-center-policies.md). Aby dowiedzieć się więcej, zobacz [stronę cen](https://azure.microsoft.com/pricing/details/security-center/).
-> 
-> 
+>
+>
 
 ## <a name="what-type-of-alerts-are-available"></a>Jakie typy alertów są dostępne?
 Azure Security Center oferuje szereg alertów zharmonizowanych z etapami zwalczania cyberataków. Na poniższym rysunku przedstawiono kilka przykładów różnych alertów odnoszących się do niektórych z tych etapów.
@@ -65,8 +65,8 @@ Usługa Azure Security Center może użyć analizy behawioralnej w celu identyfi
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat sposobu działania funkcji wykrywania usługi Security Center, przeczytaj [Funkcje wykrywania usługi Azure Security Center](security-center-detection-capabilities.md).
-> 
-> 
+>
+>
 
 ### <a name="crash-analysis"></a>Analiza awarii
 Analiza awaryjnego zrzutu pamięci jest metodą używaną do wykrywania zaawansowanego złośliwego oprogramowania, które jest w stanie ominąć tradycyjne rozwiązania w zakresie zabezpieczeń. Różne rodzaje złośliwego oprogramowania próbują zmniejszyć prawdopodobieństwo wykrycia przez programy antywirusowe, rezygnując z zapisu na dysku lub szyfrując składniki oprogramowania zapisywane na dysku. Dzięki temu złośliwe oprogramowanie jest trudne do wykrycia przy użyciu tradycyjnych metod ochrony. Może ono jednak zostać wykryte za pomocą analizy pamięci, ponieważ aby takie oprogramowanie mogło działać, musi zostawiać ślady w pamięci maszyny.
@@ -88,7 +88,7 @@ Ten alert zawiera następujące pole dodatkowe:
 
 Oto przykład tego typu alertu:
 
-![Alert kodu powłoki](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
+![Alert kodu powłoki](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
 ### <a name="module-hijacking-discovered"></a>Wykryto przejęcie modułu
 System Windows używa bibliotek dołączanych dynamicznie (DLL, Dynamic Link Library), aby umożliwić oprogramowaniu korzystanie z typowych funkcji systemu Windows. Przejęcie biblioteki DLL ma miejsce, gdy złośliwe oprogramowanie zmienia kolejność ładowania bibliotek DLL, aby załadować złośliwy ładunek do pamięci, w której może zostać wykonany dowolny kod. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła ładowanie modułu o podobnej nazwie z dwóch różnych ścieżek, z których jedna pochodzi z typowej lokalizacji plików binarnych systemu Windows.
@@ -104,7 +104,7 @@ Oprócz typowych pól opisanych powyżej w sekcji „Wykryto kod powłoki” ten
 
 Oto przykład tego typu alertu:
 
-![Alert o przejęciu modułu](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
+![Alert o przejęciu modułu](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
 ### <a name="masquerading-windows-module-detected"></a>Wykryto zamaskowany moduł systemu Windows
 Złośliwe oprogramowanie może używać typowych nazw plików binarnych systemu Windows (np. SVCHOST.EXE) lub modułów (np. NTDLL.DLL) w celu zamaskowania charakteru złośliwego oprogramowania przed administratorami systemu. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła w pliku zrzutu awaryjnego moduły używające nazw modułów systemu Windows, które nie spełniają innych kryteriów typowych dla tego rodzaju modułów. Analiza kopii dyskowej zamaskowanego modułu może dostarczyć dodatkowych informacji na temat wiarygodności lub złośliwości tego modułu. Analiza może obejmować:
@@ -123,7 +123,7 @@ Ten alert wyodrębnia i wyświetla także niektóre pola z nagłówka PE modułu
 
 Oto przykład tego typu alertu:
 
-![Alert o zamaskowanym elemencie systemu Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
+![Alert o zamaskowanym elemencie systemu Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
 ### <a name="modified-system-binary-discovered"></a>Wykryto zmodyfikowany plik binarny systemu
 Złośliwe oprogramowanie może modyfikować podstawowe pliki binarne systemu, aby potajemnie uzyskać dostęp do danych lub niezauważenie przetrwać w zaatakowanym systemie. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła modyfikację podstawowych plików binarnych systemu operacyjnego Windows w pamięci lub na dysku.
@@ -136,7 +136,7 @@ Oprócz typowych pól opisanych powyżej w sekcji „Wykryto kod powłoki” ten
 
 Oto przykład tego typu alertu:
 
-![Alert o zmodyfikowanym pliku binarnym systemu](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
+![Alert o zmodyfikowanym pliku binarnym systemu](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Wykonanie podejrzanego procesu
 Usługa Security Center identyfikuje wykonywanie podejrzanego procesu na docelowej maszynie wirtualnej i wyzwala alert. Mechanizm wykrywania nie poszukuje określonej nazwy, ale działa z uwzględnieniem parametru, w związku z tym nawet jeśli osoba atakująca zmieni nazwę pliku wykonywalnego, usługa Security Center będzie w stanie wykryć zagrożenie.
@@ -158,7 +158,7 @@ Wykrywanie zagrożeń sieci za pomocą usługi Security Center polega na automat
 ### <a name="suspicious-outgoing-traffic-detected"></a>Wykryto podejrzany ruch wychodzący
 Urządzenia sieciowe mogą być wykrywane i profilowane w podobny sposób jak innego rodzaju systemy. Osoby atakujące zazwyczaj zaczynają od skanowania portów. W poniższym przykładzie mamy podejrzany ruch SSH z maszyny wirtualnej, który może przeprowadzać siłowy atak SSH lub atak polegający na sprawdzaniu, czy dany port jest otwarty w zasobie zewnętrznym.
 
-![Alert o podejrzanym ruchu wychodzącym](./media/security-center-alerts-type/security-center-alerts-type-fig8.png) 
+![Alert o podejrzanym ruchu wychodzącym](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 Ten alert zawiera informacje, które umożliwiają zidentyfikowanie zasobu użytego do zainicjowania tego ataku, zagrożonej maszyny, czasu wykrycia, protokołu i użytego portu. Ten blok zawiera także listę środków zaradczych, które można zastosować, aby zminimalizować problem.
 
@@ -169,7 +169,10 @@ Wykorzystując źródła analizy zagrożeń firmy Microsoft, usługa Azure Secur
 
 Ten alert zawiera informacje, które umożliwiają zidentyfikowanie zasobu użytego do zainicjowania tego ataku, zaatakowanego zasobu, adresu IP ofiary, adresu IP osoby atakującej oraz czasu wykrycia.
 
-[AZURE.NOTE] W celu zachowania poufności informacji prawdziwe adresy IP zostały usunięte z tego zrzutu ekranu.
+> [!NOTE]
+> W celu zachowania poufności informacji prawdziwe adresy IP zostały usunięte z tego zrzutu ekranu.
+>
+>
 
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Możliwy wychodzący atak typu „odmowa usługi”
 Nienormalny ruch sieciowy pochodzący z jednej maszyny wirtualnej może spowodować zasygnalizowanie przez usługę Security Center możliwości ataku typu „odmowa usługi”.
@@ -184,8 +187,8 @@ Analiza zasobów usługi Security Center koncentruje się na usługach PaaS, tak
 ### <a name="potential-sql-injection"></a>Potencjalna iniekcja SQL
 Iniekcja SQL to atak polegający na wstawieniu złośliwego kodu do ciągów, które są następnie przekazywane do wystąpienia programu SQL Server w celu ich przeanalizowania i wykonania. Każda procedura tworząca instrukcje SQL powinna zostać przejrzana pod kątem zagrożenia iniekcją, ponieważ oprogramowanie SQL Server wykonuje wszystkie otrzymane zapytania, które mają poprawną składnię. Wykrywanie zagrożenia SQL wykorzystuje maszynowe uczenie się, analizę behawioralną i wykrywanie anomalii w celu określenia podejrzanych zdarzeń, które mogą mieć miejsce w bazach danych SQL Azure. Na przykład:
 
-* Próba dostępu do bazy danych przez byłego pracownika 
-* Ataki polegające na iniekcji SQL 
+* Próba dostępu do bazy danych przez byłego pracownika
+* Ataki polegające na iniekcji SQL
 * Nieoczekiwany dostęp do produkcyjnej bazy danych przez użytkownika w domu
 
 ![Alert o potencjalnej iniekcji SQL](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
@@ -210,7 +213,6 @@ W tym artykule opisano różne typy alertów zabezpieczeń w usłudze Security C
 * [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
-
 
 
 

@@ -259,6 +259,6 @@ Jeśli podczas tworzenia urządzenia wirtualnego nie ma łączności z Internete
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

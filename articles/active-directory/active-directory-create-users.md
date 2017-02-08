@@ -20,7 +20,7 @@ ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Dodawanie nowych użytkowników lub użytkowników z kontami Microsoft do usługi Azure Active Directory
+# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Dodawanie nowych użytkowników lub użytkowników z kontami Microsoft do usługi Azure Active Directory
 Dodaj użytkowników, aby wypełnić katalog. W tym artykule opisano sposób dodawania nowych użytkowników do organizacji oraz sposób dodawania użytkowników, którzy mają konta Microsoft. Aby uzyskać więcej informacji na temat dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich, zobacz [Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory](active-directory-create-users-external.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
 
 ## <a name="add-a-user"></a>Dodawanie użytkownika

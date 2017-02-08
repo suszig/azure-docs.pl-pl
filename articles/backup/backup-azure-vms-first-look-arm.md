@@ -59,7 +59,7 @@ W oparciu o liczbę maszyn wirtualnych do objęcia ochroną możesz rozpocząć 
 
   ![Kreator włączania kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. W przypadku magazynu usług Recovery Services można istniejący magazyn lub utworzyć nowy. Nowo tworzony magazyn powstaje w tej samej grupie zasobów co maszyna wirtualna, a jego lokalizacja jest taka sama jak lokalizacja maszyny wirtualnej. Jeśli chcesz utworzyć magazyn usług Recovery Services z różnymi wartościami, [utwórz magazyn usług Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) przed kliknięciem opcji Kopia zapasowa w kroku 3, a następnie wybierz to ustawienie w tym bloku.
+5. W przypadku magazynu usług Recovery Services można istniejący magazyn lub utworzyć nowy. Nowo tworzony magazyn powstaje w tej samej grupie zasobów co maszyna wirtualna, a jego lokalizacja jest taka sama jak lokalizacja maszyny wirtualnej. Jeśli chcesz utworzyć magazyn usług Recovery Services z różnymi wartościami, [utwórz magazyn usług Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) przed kliknięciem opcji Kopia zapasowa w kroku&3;, a następnie wybierz to ustawienie w tym bloku.
 
 6. W bloku zasad tworzenia kopii zapasowej wybierz zasady tworzenia kopii zapasowej, które mają zostać zastosowane do magazynu, i kliknij przycisk **OK**.
     ![Wybieranie zasad kopii zapasowych](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
