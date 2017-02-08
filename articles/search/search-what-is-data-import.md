@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/09/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2ebe71b3456420f29ffe06bc15471d3fd2121f8c
+ms.sourcegitcommit: 72cc0d9ff35ff656a6134b52812b64c39a295a6f
+ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
 
 
 ---
@@ -34,23 +34,23 @@ Istnieją dwa sposoby wypełniania indeksu usługi Azure Search danymi. Pierwsza
 
 Ten przewodnik obejmuje tylko instrukcje dotyczące używania modelu przekazywania danych polegającym na wypychaniu (który jest obsługiwany tylko przez interfejs [API REST](search-import-data-rest-api.md) i zestaw [.NET SDK](search-import-data-dotnet.md)), ale poniżej możesz także dowiedzieć się więcej na temat modelu polegającego na ściąganiu.
 
-### <a name="push-data-to-an-index"></a>Wypychanie danych do indeksu
+## <a name="push-data-to-an-index"></a>Wypychanie danych do indeksu
 Ta metoda obejmuje programowe wysyłanie danych do usługi Azure Search w celu udostępnienia ich do wyszukiwania. W przypadku aplikacji wymagających bardzo niskich opóźnień (np. konieczności synchronizowania operacji wyszukiwania z dynamicznymi bazami danych zapasów), model wypychania jest jedynym rozwiązaniem.
 
-W celu wypychania danych do indeksu możesz użyć interfejsu [API REST](https://msdn.microsoft.com/library/azure/dn798930.aspx) lub zestawu [.NET SDK](search-import-data-dotnet.md). Obecnie nie istnieje wsparcie narzędziowe wypychania danych za pośrednictwem portalu.
+W celu wypychania danych do indeksu możesz użyć interfejsu [API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) lub zestawu [.NET SDK](search-import-data-dotnet.md). Obecnie nie istnieje wsparcie narzędziowe wypychania danych za pośrednictwem portalu.
 
 To podejście jest bardziej elastyczne niż model polegający na ściąganiu, ponieważ możesz przekazywać dokumenty pojedynczo lub w partiach (maksymalnie 1000 dokumentów na partię lub 16 MB zależnie od tego, który limit zostanie osiągnięty jako pierwszy). Model polegający na wypychaniu umożliwia również przekazywanie dokumentów do usługi Azure Search niezależnie od tego, gdzie znajdują się dane.
 
-### <a name="pull-data-into-an-index"></a>Ściąganie danych do indeksu
+## <a name="pull-data-into-an-index"></a>Ściąganie danych do indeksu
 Model polegający na ściąganiu obejmuje przeszukiwanie obsługiwanego źródła danych i automatyczne przekazywanie danych do indeksu usługi Azure Search. Dzięki śledzeniu zmian i usuwania istniejących dokumentów oraz rozpoznawaniu nowych dokumentów indeksatory eliminują konieczność aktywnego zarządzania danymi w indeksie.
 
 W usłudze Azure Search ta możliwość jest wdrożona za pomocą *indeksatorów*, które obecnie są dostępne dla [usługi Blob Storage (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md), usługi [DocumentDB](http://aka.ms/documentdb-search-indexer), [usługi Azure SQL Database oraz programu SQL Server na maszynach wirtualnych Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
 
-Funkcja indeksatora jest widoczna w witrynie [Azure Portal](search-import-data-portal.md) oraz w interfejsie [API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
+Funkcja indeksatora jest widoczna w witrynie [Azure Portal](search-import-data-portal.md) oraz w interfejsie [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

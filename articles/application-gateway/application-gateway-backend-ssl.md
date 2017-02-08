@@ -32,7 +32,7 @@ Po skonfigurowaniu kompleksowego trybu komunikacji SSL usługa Application Gatew
 
 ![Scenariusz kompleksowej usługi SSL][1]
 
-W tym przykładzie żądania używające protokołu TLS 1.2 są kierowane do serwerów zaplecza w puli Pula1 za pomocą kompleksowej usługi SSL.
+W tym przykładzie żądania używające protokołu TLS&1;.2 są kierowane do serwerów zaplecza w puli Pula1 za pomocą kompleksowej usługi SSL.
 
 ## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>Kompleksowa usługa SSL i lista dozwolonych certyfikatów
 
@@ -44,7 +44,7 @@ Usługa Application Gateway obsługuje zasady negocjacji protokołu SSL konfigur
 
 1. Protokoły SSL 2.0 i 3.0 są domyślnie wyłączane dla wszystkich bram aplikacji. Nie są one w ogóle konfigurowane.
 2. Definicja zasad SSL umożliwia wyłączenie każdego z następujących trzech protokołów: **TLSv1\_0**, **TLSv1\_1** i **TLSv1\_2**.
-3. Jeśli żadna zasada SSL nie zostanie zdefiniowana, wszystkie trzy protokoły (TLS 1\_0, TLS 1\_1, TLS 1_2) będą włączone.
+3. Jeśli żadna zasada SSL nie zostanie zdefiniowana, wszystkie trzy protokoły (TLS&1;\_0, TLS&1;\_1, TLS&1;_2) będą włączone.
 
 ## <a name="next-steps"></a>Następne kroki
 

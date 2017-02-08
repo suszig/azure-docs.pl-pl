@@ -346,7 +346,7 @@ W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsigh
 >
 >
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>Monitorowanie potoku przy użyciu aplikacji Monitorowanie i zarządzanie
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorowanie potoku przy użyciu aplikacji Monitorowanie i zarządzanie
 Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i zarządzanie. Szczegółowe informacje dotyczące korzystania z aplikacji znajdują się w artykule [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md) (Monitorowanie potoków usługi Azure Data Factory oraz zarządzanie nimi za pomocą aplikacji Monitorowanie i zarządzanie).
 
 1. Kliknij kafelek **Monitorowanie i zarządzanie** na stronie głównej fabryki danych.

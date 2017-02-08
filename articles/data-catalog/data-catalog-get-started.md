@@ -366,6 +366,6 @@ W tym samouczku zostały przedstawione podstawowe funkcje usługi Azure Data Cat
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

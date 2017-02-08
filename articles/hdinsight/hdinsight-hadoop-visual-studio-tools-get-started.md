@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -232,7 +232,7 @@ Widok wykonywania zadania dla zadań Hive w aplikacji Tez może służyć do uzy
 ## <a name="run-pig-scripts"></a>Uruchamianie skryptów usługi Pig
 Narzędzia Data Lake Tools for Visual Studio obsługują tworzenie i przesyłanie skryptów usługi Pig do klastrów usługi HDInsight. Użytkownicy mogą utworzyć projekt usługi Pig na podstawie szablonu i przesłać skrypt do klastrów usługi HDInsight.
 
-## <a name="feedbacks-known-issues"></a>Opinie i znane problemy
+## <a name="feedbacks--known-issues"></a>Opinie i znane problemy
 * Obecnie wyniki serwera HiveServer2 są wyświetlane w formie czystego tekstu, co nie jest idealnym rozwiązaniem. Pracujemy nad rozwiązaniem tego problemu.
 * Obecnie wyniki rozpoczynające się od wartości NULL nie są wyświetlane. Wyeliminowaliśmy ten problem. Jeśli mimo tego napotkasz jakiekolwiek przeszkody w pracy wynikające z tego problemu, wyślij do nas wiadomość e-mail lub skontaktuj się z zespołem pomocy technicznej.
 * Skrypt HQL utworzony w programie Visual Studio jest zakodowany w zależności od ustawienia lokalnego regionu użytkownika. Skrypt może nie zostać prawidłowo wykonany, jeśli użytkownik prześle skrypt do klastra w postaci binarnej.

@@ -94,6 +94,6 @@ Możesz też założyć [bezpłatne konto platformy Azure](https://azure.microso
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
