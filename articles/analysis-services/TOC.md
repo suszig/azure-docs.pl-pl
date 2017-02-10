@@ -4,20 +4,20 @@
 ##[Tworzenie serwera](analysis-services-create-server.md)
 
 # Instrukcje 
-## [Wdrażanie](analysis-services-deploy.md)
-## Zarządzanie
-###[Łączenie z serwerem](analysis-services-connect.md)
-###[Zarządzanie serwerem](analysis-services-manage.md)
-## Integracja
-###[Brama danych lokalnych](analysis-services-gateway.md)
+##[Wdrażanie na serwerze](analysis-services-deploy.md)
+##[Łączenie z klienta](analysis-services-connect.md)
+
+##[Zarządzanie serwerem](analysis-services-manage.md)
+##[Integrowanie bramy danych lokalnych](analysis-services-gateway.md)
 
 # Dokumentacja
 ##[Program PowerShell](/powershell/resourcemanager)
-##[REST](/rest/api/analysisservices/)
+##[REST](/rest/api/analysisservices)
 
-# Powiązane
+# Zasoby
 ##[Połączenia źródła danych](analysis-services-datasource.md)
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO1-->
 
 

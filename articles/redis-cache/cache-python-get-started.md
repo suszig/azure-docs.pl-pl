@@ -1,6 +1,6 @@
 ---
 title: "Jak korzystać z usługi Azure Redis Cache za pomocą języka Python | Microsoft Docs"
-description: "Rozpoczęcie pracy z pamięcią podręczną Redis Azure za pomocą języka Python"
+description: "Rozpoczęcie pracy z usługą Azure Redis Cache za pomocą języka Python"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/16/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: ac73ab86ba17df9b71a4f07776fef0f4c6e687e8
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
 > 
 > 
 
-W tym temacie opisano sposób rozpoczęcia pracy z pamięcią podręczną Redis Azure za pomocą języka Python.
+W tym temacie opisano sposób rozpoczęcia pracy z usługą Azure Redis Cache za pomocą języka Python.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Zainstaluj klienta [redis-py](https://github.com/andymccurdy/redis-py).
@@ -41,7 +41,7 @@ Zainstaluj klienta [redis-py](https://github.com/andymccurdy/redis-py).
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Pobieranie nazwy hosta i kluczy dostępu
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-nonssl-endpoint"></a>Włączanie punktu końcowego bez obsługi protokołu SSL
+## <a name="enable-the-non-ssl-endpoint"></a>Włączanie punktu końcowego bez obsługi protokołu SSL
 Niektórzy klienci Redis nie obsługują protokołu SSL, a domyślnie [port nieobsługujący protokołu SSL jest wyłączony dla nowych wystąpień pamięci podręcznej Redis Azure](cache-configure.md#access-ports). Obecnie klient [redis-py](https://github.com/andymccurdy/redis-py) nie obsługuje protokołu SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
@@ -64,6 +64,6 @@ Zastąp element `<name>` swoją nazwą pamięci podręcznej i element `key` swoi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

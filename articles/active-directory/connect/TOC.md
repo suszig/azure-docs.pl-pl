@@ -80,6 +80,7 @@
 
 
 # Powiązane
+## [Monitorowanie lokalnej infrastruktury do obsługi tożsamości i usług synchronizacji w chmurze](../connect-health/active-directory-aadconnect-health.md)
 ## [Podręcznik projektowania tożsamości hybrydowej](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[Zakończenie świadczenia usługi DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

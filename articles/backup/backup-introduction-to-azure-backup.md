@@ -1,10 +1,10 @@
 ---
 title: Co to jest Azure Backup? | Microsoft Docs
-description: "Za pomocą usług Azure Backup oraz Recovery Services można tworzyć kopie zapasowe oraz przywracać dane i aplikacje z serwerów z systemem Windows, komputerów klienckich z systemem Windows, serwerów programu System Center DPM i maszyn wirtualnych platformy Azure."
+description: "Za pomocą usług Azure Backup oraz Recovery Services można wykonywać kopie zapasowe oraz przywracać dane i aplikacje z serwerów z systemem Windows, komputerów z systemem Windows, serwerów programu System Center DPM i maszyn wirtualnych platformy Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "tworzenie i przywracanie kopii zapasowej; recovery services; rozwiązania kopii zapasowych"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/6/2016
+ms.date: 1/4/2017
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
-ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
+ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
+ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
 
 
 ---
@@ -33,10 +33,11 @@ Tradycyjne rozwiązania do tworzenia kopii zapasowych rozwinęły się w kierunk
 
 **Nieograniczone skalowanie** — usługa Azure Backup używa dostępnej mocy i nieograniczonej skali chmury Azure do zapewniania wysokiej dostępności — bez narzutu na konserwację lub monitorowanie. Możesz skonfigurować alerty, aby udostępniać informacje o zdarzeniach, ale nie musisz obawiać się o wysoką dostępność danych w chmurze.
 
-**Wiele opcji magazynowania** — aspektem wysokiej dostępności jest replikacja magazynu. Usługa Azure Backup oferuje dwa typy replikacji: [magazyn lokalnie nadmiarowy](../storage/storage-redundancy.md#locally-redundant-storage) i [magazyn z replikacją geograficzną](../storage/storage-redundancy.md#geo-redundant-storage). Wybierz opcję magazynu kopii zapasowych na podstawie potrzeb:
+**Wiele opcji magazynowania** — aspektem wysokiej dostępności jest replikacja magazynu. Usługa Azure Backup oferuje dwa typy replikacji: [magazyn lokalnie nadmiarowy](../storage/storage-redundancy.md#locally-redundant-storage) i [magazyn geograficznie nadmiarowy](../storage/storage-redundancy.md#geo-redundant-storage). Wybierz opcję magazynu kopii zapasowych na podstawie potrzeb:
 
-* Magazyn lokalnie nadmiarowy (LRS) replikuje dane trzy razy (tworzy trzy kopie danych) w sparowanym centrum danych w tym samym regionie. LRS to niskokosztowa opcja i idealnie nadaje się dla klientów zwracających uwagę na cenę, ponieważ chroni dane przed lokalnymi awariami sprzętowymi.
-* Replikacja geograficzna magazynu (GRS) replikuje dane do regionu pomocniczego (setki kilometrów od lokalizacji głównej źródła danych). GRS kosztuje więcej niż LRS, ale zapewnia wyższy poziom trwałości danych, nawet jeśli występuje awaria regionalna.
+* Magazyn lokalnie nadmiarowy (LRS) replikuje dane trzy razy (tworzy trzy kopie danych) w sparowanym centrum danych w tym samym regionie. Magazyn LRS to ekonomiczna opcja ochrony danych przed awariami sprzętu lokalnego.
+
+* Magazyn geograficznie nadmiarowy (GRS, geo-redundant storage) replikuje dane do regionu pomocniczego (setki kilometrów od lokalizacji głównej danych źródłowych). Magazyn GRS kosztuje więcej niż LRS, ale zapewnia wyższy poziom trwałości danych nawet w przypadku wystąpienia awarii regionalnej.
 
 **Nieograniczony transfer danych** — usługa Azure Backup nie ogranicza ilości przesyłanych danych przychodzących i wychodzących. W usłudze Azure Backup nie są również naliczane opłaty za przesyłane dane. Jeśli jednak używasz usługi Azure Import/Export do importowania dużych ilości danych, istnieje koszt związany z danymi przychodzącymi. Aby uzyskać więcej informacji o tym koszcie, zobacz [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md) (Przepływ pracy tworzenia kopii zapasowej offline w usłudze Azure Backup). Dane wychodzące dotyczą danych przesyłanych z magazynu kopii zapasowych podczas operacji przywracania.
 
@@ -52,8 +53,8 @@ Jeśli nie masz pewności, które składniki usługi Azure Backup odpowiadają T
 | Składnik | Korzyści | Limity | Co jest chronione? | Gdzie są przechowywane kopie zapasowe? |
 | --- | --- | --- | --- | --- |
 | Agent usługi Azure Backup (MARS) |<li>Tworzy kopię zapasową plików i folderów w fizycznym lub wirtualnym systemie operacyjnym Windows (maszyny wirtualne mogą być lokalne lub na platformie Azure)<li>Nie jest wymagany oddzielny serwer kopii zapasowych. |<li>Tworzenie kopii zapasowej 3 razy dziennie <li>Brak zależności od aplikacji; przywracanie tylko na poziomie plików, folderów i woluminów, <li>  Brak obsługi systemu Linux. |<li>Pliki, <li>Foldery |Magazyn usługi Azure Backup |
-| System Center DPM |<li>Migawki z uwzględnieniem aplikacji (usługa VSS)<li>Pełna elastyczność w odniesieniu do terminów wykonywania kopii zapasowych<li>Poziom szczegółowości odzyskiwania (wszystkie)<li>Można użyć magazynu usługi Azure Backup<li>Obsługa systemu Linux na maszynach wirtualnych programu VMware i funkcji Hyper-V <li>Ochrona maszyn wirtualnych VMware za pomocą programu DPM 2012 R2 |Nie można tworzyć kopii zapasowych obciążeń Oracle.|<li>Pliki, <li>Foldery,<li> Woluminy, <li>Maszyny wirtualne,<li> Aplikacje,<li> Obciążenia |<li>magazyn kopii zapasowych Azure,<li> Dysk dołączony lokalnie,<li>  Taśmy (tylko lokalnie) |
-| Azure Backup Server |<li>Migawki z uwzględnieniem aplikacji (usługa VSS)<li>Pełna elastyczność w odniesieniu do terminów wykonywania kopii zapasowych<li>Poziom szczegółowości odzyskiwania (wszystkie)<li>Można użyć magazynu usługi Azure Backup<li>Obsługa systemu Linux (jeśli jest hostowany na funkcji Hyper-V)<li>Ochrona maszyn wirtualnych VMware za pomocą programu DPM 2012 R2<li>Nie wymaga licencji programu System Center |<li>Nie można tworzyć kopii zapasowych obciążeń Oracle.<li>Zawsze wymaga aktywnej subskrypcji platformy Azure<li>Brak obsługi tworzenia kopii zapasowej na taśmie |<li>Pliki, <li>Foldery,<li> Woluminy, <li>Maszyny wirtualne,<li> Aplikacje,<li> Obciążenia |<li>magazyn kopii zapasowych Azure,<li> Dysk dołączony lokalnie |
+| System Center DPM |<li>Migawki z uwzględnieniem aplikacji (usługa VSS)<li>Pełna elastyczność w odniesieniu do terminów wykonywania kopii zapasowych<li>Poziom szczegółowości odzyskiwania (wszystkie)<li>Można użyć magazynu usługi Azure Backup<li>Obsługa systemu Linux na maszynach wirtualnych programu VMware i funkcji Hyper-V <li>Wykonywanie kopii zapasowych i przywracanie maszyn wirtualnych VMware za pomocą programu DPM 2012 R2 |Nie można tworzyć kopii zapasowych obciążeń Oracle.|<li>Pliki, <li>Foldery,<li> Woluminy, <li>Maszyny wirtualne,<li> Aplikacje,<li> Obciążenia |<li>magazyn kopii zapasowych Azure,<li> Dysk dołączony lokalnie,<li>  Taśmy (tylko lokalnie) |
+| Azure Backup Server |<li>Migawki z uwzględnieniem aplikacji (usługa VSS)<li>Pełna elastyczność w odniesieniu do terminów wykonywania kopii zapasowych<li>Poziom szczegółowości odzyskiwania (wszystkie)<li>Można użyć magazynu usługi Azure Backup<li>Obsługa systemu Linux na maszynach wirtualnych programu VMware i funkcji Hyper-V<li>Wykonywanie kopii zapasowych i przywracanie maszyn wirtualnych VMware <li>Nie wymaga licencji programu System Center |<li>Nie można tworzyć kopii zapasowych obciążeń Oracle.<li>Zawsze wymaga aktywnej subskrypcji platformy Azure<li>Brak obsługi tworzenia kopii zapasowej na taśmie |<li>Pliki, <li>Foldery,<li> Woluminy, <li>Maszyny wirtualne,<li> Aplikacje,<li> Obciążenia |<li>magazyn kopii zapasowych Azure,<li> Dysk dołączony lokalnie |
 | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |<li>Natywne kopie zapasowe w systemach Windows/Linux<li>Nie ma konieczności instalowania określonego agenta<li>Tworzenie kopii zapasowych na poziomie sieci szkieletowej nie wymaga infrastruktury kopii zapasowej |<li>Tworzenie kopii zapasowych maszyn wirtualnych raz dziennie <li>Przywracanie maszyn wirtualnych tylko na poziomie dysku<li>Nie można utworzyć kopii zapasowych lokalnie |<li>Maszyny wirtualne, <li>Wszystkie dyski (przy użyciu programu PowerShell) |<p>Magazyn usługi Azure Backup</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Jakie są scenariusze wdrażania dla każdego składnika?
@@ -176,17 +177,26 @@ Agent usługi Azure Backup umożliwia ograniczanie użycia sieci, co pozwala na 
 
 ### <a name="backup-and-retention"></a>Tworzenie kopii zapasowej i przechowywanie
 
-W usłudze Azure Backup obowiązuje limit wynoszący 9999 punktów odzyskiwania, znanych także jako kopie zapasowe lub migawki, na magazyn kopii zapasowych. W poniższej tabeli przedstawiono maksymalną częstotliwość wykonywania kopii zapasowych (do magazynu) dla każdego składnika. Konfiguracja zasad kopii zapasowych określa, jak szybko są zużywane punkty odzyskiwania. Jeśli na przykład tworzysz punkt odzyskiwania codziennie, to możesz zachować punkty odzyskiwania przez 27 lat, zanim wyczerpie się ich liczba. Jeśli natomiast używasz jednego punktu odzyskiwania na miesiąc, to punkty odzyskiwania wyczerpią się po upływie 833 lat i do tego czasu będzie je można przechowywać. W usłudze Backup punktom odzyskiwania nie jest przypisywany limit czasu wygaśnięcia.
+W usłudze Azure Backup obowiązuje limit wynoszący 9999 punktów odzyskiwania, znanych także jako kopie zapasowe lub migawki, na *chronione wystąpienie*. Chronione wystąpienie to komputer, serwer (fizyczny lub wirtualny) albo obciążenie, które skonfigurowano do tworzenia kopii zapasowych na platformie Azure. Aby uzyskać więcej informacji, zobacz [Co to jest chronione wystąpienie?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Wystąpienie jest chronione po zapisaniu kopii zapasowej danych. Kopia zapasowa danych stanowi ochronę. Jeśli dane źródłowe zostaną utracone lub uszkodzone, za pomocą kopii zapasowej możesz je przywrócić. W poniższej tabeli przedstawiono maksymalną częstotliwość wykonywania kopii zapasowych dla każdego składnika. Konfiguracja zasad kopii zapasowych określa, jak szybko są zużywane punkty odzyskiwania. Jeśli na przykład tworzysz punkt odzyskiwania codziennie, to możesz zachować punkty odzyskiwania przez 27 lat, zanim wyczerpie się ich liczba. Jeśli natomiast używasz jednego punktu odzyskiwania na miesiąc, to punkty odzyskiwania wyczerpią się po upływie 833 lat i do tego czasu będzie je można przechowywać. W usłudze Backup punktom odzyskiwania nie jest przypisywany limit czasu wygaśnięcia.
 
 |  | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
 | --- | --- | --- | --- | --- |
 | Częstotliwość wykonywania kopii zapasowych<br/> (do magazynu kopii zapasowych) |Trzy kopie zapasowe dziennie |Dwie kopie zapasowe dziennie |Dwie kopie zapasowe dziennie |Jedna kopia zapasowa dziennie |
 | Częstotliwość wykonywania kopii zapasowych<br/> (na dysku) |Nie dotyczy |<li>Co 15 minut dla programu SQL Server <li>Co godzinę dla innych obciążeń |<li>Co 15 minut dla programu SQL Server <li>Co godzinę dla innych obciążeń</p> |Nie dotyczy |
 | Opcje przechowywania |Codziennie, co tydzień, co miesiąc, co rok |Codziennie, co tydzień, co miesiąc, co rok |Codziennie, co tydzień, co miesiąc, co rok |Codziennie, co tydzień, co miesiąc, co rok |
-| Maksymalna liczba punktów odzyskiwania na serwer |9999|9999|9999|9999|
+| Maksymalna liczba punktów odzyskiwania na chronione wystąpienie |9999|9999|9999|9999|
 | Maksymalny okres przechowywania |Zależnie od częstotliwości wykonywania kopii zapasowych |Zależnie od częstotliwości wykonywania kopii zapasowych |Zależnie od częstotliwości wykonywania kopii zapasowych |Zależnie od częstotliwości wykonywania kopii zapasowych |
 | Punkty odzyskiwania na dysku lokalnym |Nie dotyczy |<li>64 dla serwerów plików,<li>448 dla serwerów aplikacji |<li>64 dla serwerów plików,<li>448 dla serwerów aplikacji |Nie dotyczy |
 | Punkty odzyskiwania na taśmie |Nie dotyczy |Nieograniczona liczba |Nie dotyczy |Nie dotyczy |
+
+## <a name="what-is-a-protected-instance"></a>Co to jest chronione wystąpienie
+Chronione wystąpienie to ogólna nazwa komputera z systemem Windows, serwera (fizycznego lub wirtualnego) albo bazy danych SQL, które skonfigurowano w celu tworzenia kopii zapasowych na platformie Azure. Wystąpienie jest chronione po skonfigurowaniu zasad kopii zapasowych dla komputera, serwera lub bazy danych i utworzeniu kopii zapasowej danych. Kolejne kopie zapasowe danych dla tego chronionego wystąpienia (są one nazywane punktami odzyskiwania) zwiększają ilość miejsca używanego w magazynie. Dla pojedynczego chronionego wystąpienia możesz utworzyć maksymalnie 9999 punktów odzyskiwania. Po usunięciu punktu odzyskiwania z magazynu nie jest on wliczany do limitu 9999 punktów odzyskiwania.
+Typowe przykłady chronionych wystąpień to maszyny wirtualne, serwery aplikacji, bazy danych i komputery osobiste z systemem operacyjnym Windows. Na przykład:
+
+* Maszyna wirtualna, na której działa funkcja Hyper-V lub sieć szkieletowa funkcji hypervisor Azure IaaS. Systemem operacyjnym gościa maszyny wirtualnej może być system Windows Server lub Linux.
+* Serwer aplikacji, który może być maszyną fizyczną lub wirtualną z systemem Windows Server, obsługujący obciążenia korzystające z danych wymagających tworzenia kopii zapasowych. Typowe obciążenia to: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server, Microsoft Dynamics i rola serwera plików w systemie Windows Server. Aby tworzyć kopie zapasowe tych obciążeń, należy korzystać z programu System Center Data Protection Manager (DPM) lub usługi Azure Backup Server.
+* Komputer osobisty lub przenośny z systemem operacyjnym Windows.
+
 
 ## <a name="what-is-the-vault-credential-file"></a>Co to jest plik poświadczeń magazynu?
 Plik poświadczeń magazynu jest to certyfikat wygenerowany przez portal dla każdego magazynu kopii zapasowych. Portal przekazuje następnie klucz publiczny do usługi Access Control Service (ACS). Klucz prywatny jest udostępniany podczas pobierania poświadczeń. Służy on do rejestrowania chronionych komputerów. Klucz prywatny jest tym, co pozwala uwierzytelniać serwery lub komputery do wysyłania danych kopii zapasowej do określonego magazynu kopii zapasowych.
@@ -224,6 +234,6 @@ Szczegółowe informacje na temat ochrony innych obciążeń możesz uzyskać w 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

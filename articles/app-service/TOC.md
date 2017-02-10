@@ -45,15 +45,15 @@
 ### Zadania WebJob
 #### [Co to jest zestaw SDK Zadań WebJob Azure](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Tworzenie zadania WebJob .NET w usłudze Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Jak używać usługi Azure Blob Storage z zestawem SDK zadań WebJob](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Jak używać usługi Azure Queue Storage z zestawem SDK zadań WebJob](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Jak używać usługi Azure Service Bus z zestawem SDK zadań WebJob](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Jak używać usługi Azure Table Storage z zestawem SDK zadań WebJob](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Używanie usługi Azure Blob Storage z zestawem SDK zadań WebJob](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Jak używać usługi Azure Queue Storage z zestawem SDK usługi WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Jak używać usługi Azure Service Bus z zestawem SDK usługi WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Jak używać usługi Azure Table Storage z zestawem SDK usługi WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### Środowisko usługi App Service
 #### [Tworzenie aplikacji sieci Web w środowisku usługi App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Jak tworzyć środowisko ASE wewnętrznego modułu równoważenia przy użyciu szablonów usługi Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Korzystanie z wewnętrznego modułu równoważenia obciążenia](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Using an Internal Load Balancer](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service%2ftoc.json) (Korzystanie z wewnętrznego modułu równoważenia obciążenia)
 
 ## [Wdrażanie](app-service-deployment-readme.md)
 ### [Wdrażanie do usługi App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -66,7 +66,7 @@
 ## [Skalowanie](app-service-scale-readme.md)
 ### [Skalowanie aplikacji w górę](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Środowisko usługi App Service](app-service-app-service-environments-readme.md)
-#### [Skalowanie rozproszone geograficznie przy użyciu środowisk usługi App Service](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Rozproszona geograficznie skala przy użyciu środowisk usługi App Service](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Skalowanie aplikacji w środowisku usługi App Service](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Skalowanie automatyczne w środowisku usługi App Service](app-service-environment-auto-scale.md)
 
@@ -84,7 +84,7 @@
 ### [Konfiguracja zaawansowana](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Grupy zasobów](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Zadania WebJob](app-service-webjobs-readme.md)
-#### [Uruchamianie zadań w tle za pomocą zadań Web Job](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Uruchamianie zadań w tle za pomocą usługi WebJobs](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Środowisko usługi App Service](app-service-app-service-environments-readme.md)
 #### [Konfigurowanie](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -105,7 +105,7 @@
 ### [Uwierzytelnianie za pomocą lokalnej usługi Active Directory](../app-service-web/web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### HTTPS
-#### [Konfigurowanie wzajemnego uwierzytelniania protokołu TLS](../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Konfigurowanie wzajemnego uwierzytelniania protokołu TLS ](../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Zakup certyfikatu SSL na platformie Azure](../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Używanie certyfikatu SSL uzyskanego w innym miejscu](../app-service-web/web-sites-configure-ssl-certificate.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
@@ -117,23 +117,23 @@
 ## Tworzenie kopii zapasowych
 ### [Tworzenie kopii zapasowej aplikacji na platformie Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Przywracanie aplikacji na platformie Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Korzystanie z interfejsu REST do tworzenia kopii zapasowych aplikacji w usłudze App Service i ich przywracania](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Korzystanie z interfejsu REST do tworzenia kopii zapasowych aplikacji w usłudze App Service i przywracania ich](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Monitorowanie](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Włączanie rejestrowania diagnostycznego](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Włączanie rejestrowania diagnostycznego ](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Rozwiązywanie problemów za pomocą programu Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Automatyzacja
 ### [Zwinne wytwarzanie oprogramowania](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Wdrożenie usługi Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Sieć Web i repozytorium GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Sieć Web i repozytorium GitHub ](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Sieć Web i SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Program MSDeploy z niestandardową nazwą hosta i certyfikatem SSL](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### PowerShell
 #### [Zautomatyzowane tworzenie kopii zapasowej i przywracanie](app-service-powershell-backup.md)
 #### [Klonowanie aplikacji](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Powiązanie certyfikatów SSL](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Używanie usługi Azure Resource Manager z programem PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Użycie usługi Azure Resource Manager z programem PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Zarządzanie aplikacjami za pomocą usługi Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Integracja
@@ -145,20 +145,19 @@
 ### [Dzienniki przesyłania strumieniowego i konsola](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Rozwiązywanie problemów za pomocą programu Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Dokumentacja
+# Zasoby
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Informacje ogólne o usłudze App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Najlepsze rozwiązania](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Zasoby zadań WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Zestaw SDK zadań WebJob](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
-
-# Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/app-service/)  
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=app-service) 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO2-->
 
 

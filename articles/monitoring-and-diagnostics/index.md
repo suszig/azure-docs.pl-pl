@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Informacje o sposobie korzystania z usług monitorowania i diagnostyki do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Dokumentacja interfejsu API, najlepsze rozwiązania i inne materiały."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: f5cf41dc2362afa365c491e47fb7708d8a9667ba
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>Dokumentacja monitorowania i diagnostyki
 
-Monitorowanie i diagnostyka to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi, pozwalająca też sprostać istotnym wyzwaniom związanym z opracowywaniem aplikacji w chmurze i zarządzaniem nimi.  Monitorowanie i diagnostyka to platforma oprogramowania pośredniczącego następnej generacji do tworzenia aplikacji w skali chmury warstwy pierwszej dla przedsiębiorstw i zarządzania nimi.
+Informacje o sposobie korzystania z usług monitorowania i diagnostyki platformy Azure do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Samouczki, dokumentacja interfejsu API, najlepsze rozwiązania oraz inne dokumenty, które ułatwiają zapoznanie się z zastosowaniami monitorowania i diagnostyki oraz planowanie i wdrażanie skalowalnych i niezawodnych rozwiązań.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -105,76 +106,50 @@ Monitorowanie i diagnostyka to platforma systemów rozproszonych ułatwiająca p
 
 ---
 
-## <a name="reference"></a>Dokumentacja
-
+<h2>Dokumentacja</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Polecenie cmdlet programu PowerShell dotyczące monitorowania i diagnostyki</p>
+                        <h3>Wiersz polecenia</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.20041">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interfejs wiersza polecenia platformy Azure</h3>
-                        <p>Interfejs wiersza polecenia platformy Azure dotyczący monitorowania i diagnostyki</p>
+                        <h3>Języki</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn802153">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Dokumentacja zarządzana monitorowania i diagnostyki</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn931943">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Interfejs API REST monitorowania i diagnostyki</p>
+                        <p><a href="/rest/api/monitor/">Dokumentacja interfejsu API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację monitorowania i diagnostyki </div>
-    </a>
-</div>
+</ul>
 
 
-<!--HONumber=Dec16_HO1-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
-ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
+ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
+ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
 
 
 ---
@@ -41,7 +41,7 @@ Poniższe wideo przedstawia kroki omówione w niniejszym samouczku:
 > 
 
 ## <a name="create-the-application"></a>Tworzenie aplikacji
-Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Za pomocą kreatora nowego projektu można utworzyć projekt aplikacji wraz z projektem pierwszej usługi. Później można dodać więcej usług.
+Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Za pomocą kreatora nowego projektu można utworzyć projekt aplikacji wraz z projektem pierwszej usługi. Możesz też dodać później więcej usług.
 
 1. Uruchom program Visual Studio jako administrator.
 2. Kliknij pozycję **Plik > Nowy Projekt > Chmura > Aplikacja usługi Service Fabric**.
@@ -100,13 +100,13 @@ Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
 4. Znajdź w projekcie usługi klasę pochodzącą z klasy StatefulService (np. MyStatefulService) i ustaw punkt przerwania w pierwszym wierszu metody `RunAsync`.
    
     ![Punkt przerwania w metodzie RunAsync usługi stanowej][7]
-5. Kliknij prawym przyciskiem myszy aplikację na pasku zadań menedżera klastra lokalnego i wybierz polecenie **Zarządzaj klastrem lokalnym**, aby uruchomić narzędzie Service Fabric Explorer.
+5. Aby uruchomić narzędzie Service Fabric Explorer, kliknij prawym przyciskiem myszy aplikację na pasku zadań menedżera klastra lokalnego i wybierz polecenie **Zarządzaj klastrem lokalnym**.
    
     ![Uruchamianie narzędzia Service Fabric Explorer z menedżera klastra lokalnego][systray-launch-sfx]
    
     Narzędzie Service Fabric Explorer oferuje wizualną reprezentację klastra — w tym zestaw wdrożonych w nim aplikacji, a także zestaw węzłów fizycznych, które go tworzą. Aby uzyskać więcej informacji na temat narzędzia Service Fabric Explorer, zobacz [Wizualizacja klastra](service-fabric-visualizing-your-cluster.md).
 6. W lewym okienku rozwiń opcje **Klaster > Węzły** i znajdź węzeł, w którym wykonywany jest kod.
-7. Kliknij pozycje **Akcje > Dezaktywuj (ponowne uruchomienie)**, aby zasymulować ponowne uruchomienie maszyny. Zauważ, że dezaktywację można również przeprowadzić z poziomu menu kontekstowego w widoku listy węzłów w okienku po lewej stronie.
+7. Kliknij pozycje **Akcje > Dezaktywuj (ponowne uruchomienie)**, aby zasymulować ponowne uruchomienie maszyny. Możesz też dezaktywować węzeł w widoku listy węzłów w okienku po lewej stronie.
    
     ![Zatrzymanie węzła w narzędziu Service Fabric Explorer][sfx-stop-node]
    
@@ -116,14 +116,14 @@ Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
     ![Szczegóły w podglądzie zdarzeń diagnostycznych po przełączeniu do trybu failover][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>Przełączanie trybu klastra
-Domyślnie lokalny klaster projektowy jest skonfigurowany do uruchamiania jako klaster z 5 węzłami, co ułatwia debugowanie usług wdrożonych w wielu węzłach. Wdrożenie aplikacji w klastrze projektowym z 5 węzłami może być jednak czasochłonne. Jeśli chcesz szybko iterować zmiany kodu, bez uruchamiania aplikacji w 5 węzłach, możesz przełączyć klaster projektowy do trybu 1 węzła. Aby uruchomić kod w klastrze z jednym węzłem, kliknij prawym przyciskiem myszy ikonę Menedżer klastra lokalnego na pasku zadań i wybierz polecenie **Przełącz tryb klastra -> 1 węzeł**.  
+Domyślnie lokalny klaster projektowy jest skonfigurowany do uruchamiania jako klaster z pięcioma węzłami, co ułatwia debugowanie usług wdrożonych w wielu węzłach. Wdrożenie aplikacji w klastrze projektowym z pięcioma węzłami może być jednak czasochłonne. Jeśli chcesz szybko iterować zmiany kodu bez uruchamiania aplikacji w pięciu węzłach, przełącz klaster projektowy do trybu jednego węzła. Aby uruchomić kod w klastrze z jednym węzłem, kliknij prawym przyciskiem myszy ikonę Menedżer klastra lokalnego na pasku zadań i wybierz polecenie **Przełącz tryb klastra -> 1 węzeł**.  
 
 ![Przełączanie trybu klastra][switch-cluster-mode]
 
 Po zmianie trybu klastra klaster projektowy jest resetowany i wszystkie aplikacje zaprowizowane lub działające w klastrze są usuwane.
 
 ## <a name="cleaning-up"></a>Czyszczenie
-  Przed zakończeniem należy zapamiętać, że klaster lokalny jest bardzo prawdziwy. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Istnieje kilka możliwości zarządzania klastrem:
+Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Istnieje kilka możliwości zarządzania klastrem:
 
 1. Aby zamknąć klaster, zachowując dane i ślady aplikacji, kliknij opcję **Zatrzymaj klaster lokalny** na pasku zadań systemu.
 2. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Klaster lokalny należy usunąć tylko wtedy, gdy nie będziesz go używać przez pewien czas lub gdy chcesz odzyskać zasoby.
@@ -131,8 +131,10 @@ Po zmianie trybu klastra klaster projektowy jest resetowany i wszystkie aplikacj
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak utworzyć [klaster na platformie Azure](service-fabric-cluster-creation-via-portal.md) lub [autonomiczny klaster w systemie Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Spróbuj utworzyć usługę za pomocą usług [Reliable Services](service-fabric-reliable-services-quick-start.md) lub modelu programowania [Reliable Actors](service-fabric-reliable-actors-get-started.md).
-* Dowiedz się, jak można udostępnić swoje usługi w Internecie za pomocą [frontonu usługi sieci Web](service-fabric-add-a-web-frontend.md).
+* Spróbuj wdrożyć [kontener systemu Windows](service-fabric-deploy-container.md) lub istniejącą aplikację jako [aplikację wykonywalną gościa](service-fabric-deploy-existing-app.md).
+* Dowiedz się, jak udostępnić swoje usługi w Internecie za pomocą [frontonu usługi sieci Web](service-fabric-add-a-web-frontend.md).
 * Zapoznaj się z [warsztatem](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) i utwórz usługę bezstanową, skonfiguruj raporty dotyczące monitorowania i kondycji oraz wykonaj uaktualnienie aplikacji.
+* Uzyskaj informacje o [opcjach pomocy technicznej usługi Service Fabric](service-fabric-support.md)
 
 <!-- Image References -->
 
@@ -151,6 +153,6 @@ Po zmianie trybu klastra klaster projektowy jest resetowany i wszystkie aplikacj
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

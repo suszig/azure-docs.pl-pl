@@ -24,7 +24,9 @@
 ### Połączenie programowe
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Zarządzanie punktami końcowymi przesyłania strumieniowego w portalu](media-services-portal-manage-streaming-endpoints.md)
+### [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Instrukcje: aktualizowanie usługi Media Services po stopniowym uaktualnieniu kluczy dostępu do magazynu](media-services-roll-storage-access-keys.md)
 ### [Limity przydziału i ograniczenia](media-services-quotas-and-limitations.md)
 
@@ -44,7 +46,7 @@
 ##### [Schemat usługi Media Encoder Standard](media-services-mes-schema.md)
 ##### [Metadane wejściowe](media-services-input-metadata-schema.md)
 ##### [Metadane wyjściowe](media-services-output-metadata-schema.md)
-#### Ustawienia wstępne usługi MES 
+#### [Ustawienia wstępne usługi MES](media-services-mes-presets-overview.md) 
 ##### [Wielokrotna szybkość transmisji bitów H264 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [Wielokrotna szybkość transmisji bitów H264 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [Wielokrotna szybkość transmisji bitów H264 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -92,6 +94,9 @@
 
 ## [Przesyłanie strumieniowe na żywo](media-services-manage-channels-overview.md)
 ### [Kodery lokalne](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Transmisja strumieniowa na żywo z użyciem kodera w chmurze](media-services-manage-live-encoder-enabled-channels.md)
 ### Samouczki dotyczące kodera w chmurze
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -134,8 +139,8 @@
 ### [Przetwarzanie za pomocą usługi Hyperlapse](media-services-hyperlapse-content.md)
 ### [Przetwarzanie za pomocą usługi Face Detector](media-services-face-and-emotion-detection.md)
 ### [Przetwarzanie za pomocą usługi Motion Detector](media-services-motion-detection.md)
-### [Przetwarzanie za pomocą redakcji twarzy](media-services-face-redaction.md)
-#### [Przewodnik po redakcji twarzy](media-services-redactor-walkthrough.md)
+### [Przetwarzanie za pomocą usługi Face Redactor](media-services-face-redaction.md)
+#### [Przewodnik po usłudze Face Redactor](media-services-redactor-walkthrough.md)
 ### [Przetwarzanie za pomocą miniatur wideo](media-services-video-summarization.md)
 ### [Przetwarzanie za pomocą oprogramowania OCR](media-services-video-optical-character-recognition.md)
 
@@ -207,6 +212,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Reguły zapory na poziomie serwera i na poziomie bazy danych usługi Azure SQL Database przy użyciu języka T-SQL| Microsoft Docs"
-description: "Informacje o konfigurowaniu zapory dla adresów IP uzyskujących dostęp do baz danych Azure SQL Database."
+title: "T-SQL: reguły zapory usługi Azure SQL Database | Microsoft Docs"
+description: "Informacje o konfigurowaniu reguł zapory na poziomie serwera i na poziomie bazy danych dla adresów IP uzyskujących dostęp do baz danych Azure SQL Database przy użyciu języka Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 
 ---
@@ -94,6 +94,6 @@ Aby dowiedzieć się, jak przechodzić do baz danych, zobacz artykuł [Manage da
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

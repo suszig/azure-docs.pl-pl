@@ -15,32 +15,48 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/14/2016
+ms.date: 01/06/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: a3c3aabc6b1817df3bacb98a769ff167036ef3e6
-ms.openlocfilehash: d54c7c6160e3c51f34bf2c7ba2661ab1e8a51bfa
+ms.sourcegitcommit: 6949e07622f229616f950a9aed07c7b58a5b63fc
+ms.openlocfilehash: 9de26e09cb41ef415d0535db35d7d5d0cd8784a5
 
 
 ---
 # <a name="controlling-and-granting-database-access"></a>Kontrolowanie i udzielanie dostępu do bazy danych
 
-Uwierzytelnionym użytkownikom można udzielić dostępu przy użyciu szeregu różnych mechanizmów. 
+Po skonfigurowaniu reguł zapory można łączyć się z bazą danych SQL Database przy użyciu jednego z kont administratora, jako właściciel bazy danych lub jako użytkownik w danej bazie danych.  
+
+>  [!NOTE]  
+>  Ten temat dotyczy serwera Azure SQL oraz baz danych zarówno usługi SQL Database, jak i SQL Data Warehouse utworzonych na serwerze Azure SQL. Dla uproszczenia usługi SQL Database i SQL Data Warehouse są łącznie nazywane usługą SQL Database. 
 
 ## <a name="unrestricted-administrative-accounts"></a>Konta z uprawnieniami administracyjnymi bez ograniczeń
-Możliwe są dwa rodzaje kont administracyjnych z nieograniczonymi uprawnieniami dostępu do wirtualnej głównej bazy danych i baz danych wszystkich użytkowników. Te konta noszą nazwę kont głównych poziomu serwera.
+Istnieją dwa konta z uprawnieniami administracyjnymi (**Administrator serwera** i **Administrator usługi Active Directory**), które funkcjonują jako administratorzy. Aby zidentyfikować te konta administratora dla używanego serwera SQL, otwórz witrynę Azure Portal i przejdź do właściwości serwera SQL.
 
-### <a name="azure-sql-database-subscriber-account"></a>Konto subskrybenta usługi Azure SQL Database
-Usługa SQL Database tworzy pojedyncze konto logowania w bazie danych master przy tworzeniu logicznego wystąpienia usługi SQL. To konto jest czasami nazywane kontem subskrybenta usługi SQL Database. To konto używa do połączenia uwierzytelnienia programu SQL Server (nazwy użytkownika i hasła). To konto jest administratorem wystąpienia serwera logicznego i wszystkich baz danych użytkownika dołączonych do tego wystąpienia. Uprawnień konta subskrybenta nie można ograniczać. Może istnieć tylko jedno z tych kont.
+![Administratorzy serwera SQL](./media/sql-database-manage-logins/sql-admins.png)
 
-### <a name="azure-active-directory-administrator"></a>Administrator usługi Azure Active Directory
-Jedno konto usługi Azure Active Directory (indywidualne lub grupowe) można skonfigurować również jako konto administratora. Skonfigurowanie administratora usługi Azure AD jest opcjonalne, ale aby można było połączyć się z usługą SQL Database za pomocą kont usługi Azure AD, musi być on skonfigurowany. Aby uzyskać więcej informacji na temat konfigurowania dostępu do usługi Azure Active Directory, zobacz artykuły [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) (Łączenie się z usługą SQL Database lub SQL Data Warehouse przy użyciu uwierzytelnienia usługi Azure Active Directory) i [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md) (Obsługa programu SSMS w usłudze Azure AD MFA przy użyciu usługi SQL Database i SQL Data Warehouse).
+- **Administrator serwera**   
+Podczas tworzenia serwera Azure SQL musi zostać podany **identyfikator logowania administratora serwera**. Serwer SQL tworzy to konto jako identyfikator logowania w bazie danych master. To konto używa do połączenia uwierzytelnienia programu SQL Server (nazwy użytkownika i hasła). Może istnieć tylko jedno z tych kont.   
+- **Administrator usługi Azure Active Directory**   
+Jako konto administratora można również skonfigurować jedno konto usługi Azure Active Directory (indywidualne lub grupy zabezpieczeń). Skonfigurowanie administratora usługi Azure AD jest opcjonalne, ale aby można było połączyć się z usługą SQL Database za pomocą kont usługi Azure AD, musi być on skonfigurowany. Aby uzyskać więcej informacji na temat konfigurowania dostępu do usługi Azure Active Directory, zobacz artykuły [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) (Łączenie się z usługą SQL Database lub SQL Data Warehouse przy użyciu uwierzytelnienia usługi Azure Active Directory) i [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md) (Obsługa programu SSMS w usłudze Azure AD MFA przy użyciu usługi SQL Database i SQL Data Warehouse).
+ 
+
+Konta **Administrator serwera** i **Administrator usługi Azure AD** mają następujące cechy:
+- Są to jedyne konta, które mogą się automatycznie łączyć z dowolną bazą danych SQL Database na serwerze. (Aby połączyć się z bazą danych użytkownika, inne konta muszą być właścicielem bazy danych lub mieć konto użytkownika w bazie danych użytkownika).
+- Te konta korzystają z baz danych użytkowników jako użytkownik `dbo` i mają wszystkie uprawnienia w bazach danych użytkowników. (Właściciel bazy danych użytkownika również korzysta z bazy danych jako użytkownik `dbo`). 
+- Te konta nie korzystają z bazy danych `master` jako użytkownik `dbo` i mają ograniczone uprawnienia w tej bazie danych. 
+- Te konta nie są członkami standardowej stałej roli `sysadmin` programu SQL Server, która nie jest dostępna w bazie danych SQL.  
+- Te konta mogą tworzyć, modyfikować i usuwać bazy danych, identyfikatory logowania, użytkowników w bazie master oraz reguły zapory na poziomie serwera.
+- Te konta mogą dodawać członków do ról `dbmanager` i `loginmanager` oraz usuwać ich z nich.
+- Te konta mogą wyświetlać tabelę systemową `sys.sql_logins`.
+
+
 
 ### <a name="configuring-the-firewall"></a>Konfigurowanie zapory
-W przypadku skonfigurowania zapory za pomocą pojedynczego adresu IP lub zakresu adresów na poziomie serwera konto subskrybenta usługi Azure SQL Database i konto usługi Azure Active Directory mogą łączyć się z bazą danych master i wszystkimi bazami danych użytkownika. Początkowo zaporę na poziomie serwera można skonfigurować za pomocą [witryny Azure Portal](sql-database-configure-firewall-settings.md), programu [PowerShell](sql-database-configure-firewall-settings-powershell.md) lub [interfejsu API REST](sql-database-configure-firewall-settings-rest.md). Po nawiązaniu połączenia można również skonfigurować dodatkowe reguły zapory na poziomie serwera za pomocą [języka Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
+W przypadku skonfigurowania zapory na poziomie serwera za pomocą pojedynczego adresu IP lub zakresu adresów konta **Administrator serwera SQL** i **Administrator usługi Azure Active Directory** mogą łączyć się z bazą danych master i wszystkimi bazami danych użytkowników. Początkowo zaporę na poziomie serwera można skonfigurować za pomocą [witryny Azure Portal](sql-database-configure-firewall-settings.md), programu [PowerShell](sql-database-configure-firewall-settings-powershell.md) lub [interfejsu API REST](sql-database-configure-firewall-settings-rest.md). Po nawiązaniu połączenia można również skonfigurować dodatkowe reguły zapory na poziomie serwera za pomocą [języka Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
 
 ### <a name="administrator-access-path"></a>Ścieżka dostępu administratora
-Po poprawnym skonfigurowaniu zapory na poziomie serwera konto subskrybenta usługi SQL Database i administratorzy programu SQL Server usługi Azure Active Directory mogą łączyć się przy użyciu narzędzi klienckich, takich jak SQL Server Management Studio lub SQL Server Data Tools. Tylko najnowsze narzędzia oferują wszystkie funkcje i możliwości. Na poniższym diagramie przedstawiono typową konfigurację dla tych dwóch kont administracyjnych.
+Po poprawnym skonfigurowaniu zapory na poziomie serwera konta **Administrator serwera SQL** i **Administrator usługi Azure Active Directory** mogą łączyć się przy użyciu narzędzi klienckich, takich jak SQL Server Management Studio lub SQL Server Data Tools. Tylko najnowsze narzędzia oferują wszystkie funkcje i możliwości. Na poniższym diagramie przedstawiono typową konfigurację dla tych dwóch kont administracyjnych.
 
 ![Ścieżka dostępu administratora](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
@@ -51,16 +67,15 @@ Aby zapoznać się z omówieniem tworzenia serwera, bazy danych i reguł zapory 
 
 > [!IMPORTANT]
 > Zalecane jest używanie najnowszej wersji programu Management Studio, aby zachować synchronizację z aktualizacjami platformy Microsoft Azure i usługi SQL Database. [Zaktualizuj program SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
+
 
 ## <a name="additional-server-level-administrative-roles"></a>Dodatkowe role administracyjne na poziomie serwera
-Oprócz ról administracyjnych na poziomie serwera omówionych wcześniej usługa SQL Database zawiera dwie ograniczone role administracyjne w wirtualnej bazie danych master. Można udzielić do nich uprawnień dla kont użytkownika, co pozwala na tworzenie baz danych i zarządzanie logowaniem.
+Oprócz ról administracyjnych na poziomie serwera omówionych wcześniej usługa SQL Database zawiera dwie ograniczone role administracyjne w bazie danych master, do których można dodać konta użytkowników, aby udzielić im uprawnień do tworzenia baz danych lub zarządzania identyfikatorami logowania.
 
 ### <a name="database-creators"></a>Kreatory bazy danych
-Jedna z tych ról administracyjnych to rola dbmanager. Członkowie tej roli mogą tworzyć nowe bazy danych. Aby użyć tej roli, należy utworzyć użytkownika w bazie danych master i następnie dodać go do roli bazy danych **dbmanager**. Użytkownik może być użytkownikiem zawartej bazy danych lub użytkownikiem opartym na nazwie logowania programu SQL Server w wirtualnej głównej bazie danych.
+Jedna z tych ról administracyjnych to rola **dbmanager**. Członkowie tej roli mogą tworzyć nowe bazy danych. Aby użyć tej roli, należy utworzyć użytkownika w bazie danych `master` i dodać go do roli bazy danych **dbmanager**. Użytkownik może być użytkownikiem zawartej bazy danych lub użytkownikiem opartym na identyfikatorze logowania programu SQL Server w bazie danych master.
 
-1. Połącz się z wirtualną główną bazą danych przy użyciu konta administracyjnego.
+1. Połącz się z bazą danych master przy użyciu konta administratora.
 2. Krok opcjonalny: Utwórz nazwę logowania do uwierzytelniania w programie SQL Server przy użyciu instrukcji [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Przykładowa instrukcja:
    
    ```
@@ -69,17 +84,17 @@ Jedna z tych ról administracyjnych to rola dbmanager. Członkowie tej roli mog�
    
    > [!NOTE]
    > Podczas tworzenia nazwy logowania lub użytkownika zawartej bazy danych należy używać silnego hasła. Aby uzyskać więcej informacji, zobacz artykuł [Silne hasła](https://msdn.microsoft.com/library/ms161962.aspx).
-   > 
-   > 
-   
+    
    W celu poprawy wydajności nazwy logowania (nazwy główne na poziomie serwera) są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną uwierzytelniania, zobacz artykuł [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
-3. W wirtualnej głównej bazie danych utwórz użytkownika za pomocą instrukcji [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). Użytkownik może być użytkownikiem uwierzytelnienia zawartej bazy danych usługi Azure Active Directory (jeśli skonfigurowano środowisko dla uwierzytelniania usługi Azure AD), użytkownikiem uwierzytelnienia zawartej bazy danych programu SQL Server lub użytkownikiem uwierzytelniania programu SQL Server w oparciu o nazwę logowania uwierzytelniania programu SQL Server (utworzonym w poprzednim kroku). Przykładowe instrukcje:
+
+3. W bazie danych master utwórz użytkownika za pomocą instrukcji [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). Użytkownik może być użytkownikiem uwierzytelnienia zawartej bazy danych usługi Azure Active Directory (jeśli skonfigurowano środowisko dla uwierzytelniania usługi Azure AD), użytkownikiem uwierzytelnienia zawartej bazy danych programu SQL Server lub użytkownikiem uwierzytelniania programu SQL Server w oparciu o nazwę logowania uwierzytelniania programu SQL Server (utworzonym w poprzednim kroku). Przykładowe instrukcje:
    
    ```
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
    CREATE USER Tran WITH PASSWORD = '<strong_password>';
    CREATE USER Mary FROM LOGIN Mary; 
    ```
+
 4. Dodaj nowego użytkownika do roli bazy danych **dbmanager** przy użyciu instrukcji [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Przykładowe instrukcje:
    
    ```
@@ -88,18 +103,17 @@ Jedna z tych ról administracyjnych to rola dbmanager. Członkowie tej roli mog�
    ```
    
    > [!NOTE]
-   > Dbmanager jest rolą bazy danych w wirtualnej głównej bazie danych, więc do roli dbmanager można dodać tylko użytkownika. Do roli na poziomie bazy danych nie można dodać nazwy logowania na poziomie serwera.
-   > 
-   > 
-5. W razie potrzeby należy skonfigurować zaporę na poziomie serwera, aby umożliwić połączenie się nowemu użytkownikowi.
+   > Dbmanager jest rolą bazy danych w bazie danych master, więc do roli dbmanager można dodać tylko użytkownika bazy danych. Do roli na poziomie bazy danych nie można dodać nazwy logowania na poziomie serwera.
+    
+5. W razie potrzeby skonfiguruj regułę zapory, aby umożliwić połączenie się nowemu użytkownikowi. (Nowy użytkownik może być objęty istniejącą regułą zapory).
 
-Teraz użytkownik może nawiązać połączenie z wirtualną główną bazą danych i tworzyć nowe bazy danych. Konto tworzące bazę danych staje się właścicielem bazy danych.
+Teraz użytkownik może łączyć się z bazą danych master i tworzyć nowe bazy danych. Konto tworzące bazę danych staje się właścicielem bazy danych.
 
 ### <a name="login-managers"></a>Menedżerowie logowania
-Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (tworzenie nazwy logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager**), aby umożliwić użytkownikowi tworzenie nowych nazw logowania w wirtualnej głównej bazie danych. Zazwyczaj nie jest to konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy przeprowadzają uwierzytelnianie na poziomie bazy danych zamiast użytkowników przeprowadzających uwierzytelnianie w oparciu o nazwę logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
+Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (utworzenie identyfikatora logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager**), aby umożliwić użytkownikowi tworzenie nowych identyfikatorów logowania w bazie danych master. Zazwyczaj identyfikatory logowania nie są konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy przeprowadzają uwierzytelnianie na poziomie bazy danych zamiast użytkowników przeprowadzających uwierzytelnianie w oparciu o identyfikator logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
 
 ## <a name="non-administrator-users"></a>Użytkownicy niebędący administratorami
-Ogólnie rzecz biorąc, konta inne niż administracyjne nie potrzebują dostępu do wirtualnej głównej bazy danych. Tworzenie użytkowników zawartej bazy danych na poziomie bazy danych przy użyciu instrukcji [CREATE USER (język Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). Użytkownik może być użytkownikiem uwierzytelnienia zawartej bazy danych usługi Azure Active Directory (jeśli skonfigurowano środowisko dla uwierzytelniania usługi Azure AD), użytkownikiem uwierzytelnienia zawartej bazy danych programu SQL Server lub użytkownikiem uwierzytelniania programu SQL Server w oparciu o nazwę logowania uwierzytelniania programu SQL Server (utworzonym w poprzednim kroku). Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych). 
+Ogólnie rzecz biorąc, konta inne niż administracyjne nie potrzebują dostępu do bazy danych master. Tworzenie użytkowników zawartej bazy danych na poziomie bazy danych przy użyciu instrukcji [CREATE USER (język Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). Użytkownik może być użytkownikiem uwierzytelnienia zawartej bazy danych usługi Azure Active Directory (jeśli skonfigurowano środowisko dla uwierzytelniania usługi Azure AD), użytkownikiem uwierzytelnienia zawartej bazy danych programu SQL Server lub użytkownikiem uwierzytelniania programu SQL Server w oparciu o nazwę logowania uwierzytelniania programu SQL Server (utworzonym w poprzednim kroku). Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych). 
 
 Aby utworzyć użytkowników, połącz się z bazą danych i wykonaj instrukcje podobne do następujących:
 
@@ -117,9 +131,8 @@ GRANT ALTER ANY USER TO Mary;
 Aby przydzielić dodatkowym użytkownikom pełną kontrolę nad bazą danych, należy uczynić ich członkami ustalonej roli bazy danych **db_owner** za pomocą instrukcji `ALTER ROLE`.
 
 > [!NOTE]
-> Głównym powodem tworzenia użytkowników bazy danych opartych na nazwach logowania jest istnienie użytkowników uwierzytelniania programu SQL Server, którzy muszą mieć dostęp do wielu baz danych. Użytkownicy oparci na nazwach logowania są powiązani z nazwą logowania i tylko z jednym hasłem, które jest obsługiwane dla tej nazwy logowania. Użytkownicy zawartej bazy danych w poszczególnych bazach danych są poszczególnymi jednostkami i każdy z nich zachowuje własne hasło. Może to prowadzić do mylenia użytkowników zawartej bazy danych, jeśli nie zachowują oni identycznych haseł.
-> 
-> 
+> Najczęstszym powodem tworzenia użytkowników bazy danych opartych na identyfikatorach logowania jest istnienie użytkowników uwierzytelniania programu SQL Server, którzy muszą mieć dostęp do wielu baz danych. Użytkownicy oparci na nazwach logowania są powiązani z nazwą logowania i tylko z jednym hasłem, które jest obsługiwane dla tej nazwy logowania. Użytkownicy zawartej bazy danych w poszczególnych bazach danych są poszczególnymi jednostkami i każdy z nich zachowuje własne hasło. Może to prowadzić do mylenia użytkowników zawartej bazy danych, jeśli nie zachowują oni identycznych haseł.
+ 
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurowanie zapory na poziomie bazy danych
 Najlepszym rozwiązaniem jest sytuacja, gdy użytkownicy niebędący administratorami mają dostęp do używanych baz danych tylko poprzez zaporę. Zamiast autoryzowania ich adresów IP poprzez zaporę na poziomie serwera i przydzielania dostępu do wszystkich baz danych użyj instrukcji [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx), aby skonfigurować zaporę na poziomie bazy danych. Nie można skonfigurować zapory na poziomie bazy danych za pomocą portalu.
@@ -145,33 +158,33 @@ Istnieje ponad 100 uprawnień, których można indywidualnie udzielić lub odmó
 ### <a name="considerations-and-restrictions"></a>Uwagi i ograniczenia
 Podczas zarządzania nazwami logowania i użytkownikami w usłudze SQL Database należy uwzględnić następujące fakty:
 
-* Podczas wykonywania instrukcji ``CREATE/ALTER/DROP DATABASE`` musisz mieć połączenie z bazą danych **master**. — Użytkownik bazy danych w bazie danych master odpowiadający głównej nazwie logowania na poziomie serwera nie może być zmieniony ani porzucony. 
-* Domyślnym językiem logowania głównej nazwy logowania na poziomie serwera jest angielski (US).
-* Tylko administratorzy (główna nazwa logowania na poziomie serwera lub administrator usługi Azure AD) i członkowie roli bazy danych **dbmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji ``CREATE DATABASE`` i ``DROP DATABASE``.
-* Podczas wykonywania instrukcji ``CREATE/ALTER/DROP LOGIN`` musisz mieć połączenie z bazą danych master. Nie zaleca się jednak używania nazw logowania. Zamiast tego korzystaj z użytkowników zawartej bazy danych.
+* Podczas wykonywania instrukcji `CREATE/ALTER/DROP DATABASE` musisz mieć połączenie z bazą danych **master**. Użytkownik bazy danych w bazie danych master odpowiadający identyfikatorowi logowania **Administrator serwera** nie może być zmieniony ani usunięty. 
+* Domyślnym językiem identyfikatora logowania **Administrator serwera** jest angielski (Stany Zjednoczone).
+* Tylko administratorzy (identyfikator logowania **Administrator serwera** lub Administrator usługi Azure AD) i członkowie roli bazy danych **dbmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji `CREATE DATABASE` i `DROP DATABASE`.
+* Podczas wykonywania instrukcji `CREATE/ALTER/DROP LOGIN` musisz mieć połączenie z bazą danych master. Nie zaleca się jednak używania nazw logowania. Zamiast tego korzystaj z użytkowników zawartej bazy danych.
 * Aby połączyć się z bazą danych użytkownika, podaj nazwę bazy danych w parametrach połączenia.
-* Tylko główna nazwa logowania na poziomie serwera i członkowie roli bazy danych **loginmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji ``CREATE LOGIN``, ``ALTER LOGIN`` i ``DROP LOGIN``.
-* Podczas wykonywania instrukcji ``CREATE/ALTER/DROP LOGIN`` i ``CREATE/ALTER/DROP DATABASE`` w aplikacji ADO.NET niedozwolone jest używanie poleceń sparametryzowanych. Aby uzyskać więcej informacji, zobacz artykuł [Polecenia i parametry](https://msdn.microsoft.com/library/ms254953.aspx).
-* Podczas wykonywania instrukcji ``CREATE/ALTER/DROP DATABASE`` i ``CREATE/ALTER/DROP LOGIN`` każda z tych instrukcji musi być jedyną instrukcją w zadaniu wsadowym języka Transact-SQL. W przeciwnym razie wystąpi błąd. Na przykład następująca instrukcja języka Transact-SQL sprawdza, czy baza danych istnieje. Jeśli baza istnieje, jest wywoływana instrukcja ``DROP DATABASE`` w celu jej usunięcia. Ponieważ instrukcja ``DROP DATABASE`` nie jest jedyną instrukcją w zadaniu wsadowym, wykonywanie następującej instrukcji języka Transact-SQL spowoduje błąd.
+* Tylko główna nazwa logowania na poziomie serwera i członkowie roli bazy danych **loginmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji `CREATE LOGIN`, `ALTER LOGIN` i `DROP LOGIN`.
+* Podczas wykonywania instrukcji `CREATE/ALTER/DROP LOGIN` i `CREATE/ALTER/DROP DATABASE` w aplikacji ADO.NET niedozwolone jest używanie poleceń sparametryzowanych. Aby uzyskać więcej informacji, zobacz artykuł [Polecenia i parametry](https://msdn.microsoft.com/library/ms254953.aspx).
+* Podczas wykonywania instrukcji `CREATE/ALTER/DROP DATABASE` i `CREATE/ALTER/DROP LOGIN` każda z tych instrukcji musi być jedyną instrukcją w zadaniu wsadowym języka Transact-SQL. W przeciwnym razie wystąpi błąd. Na przykład następująca instrukcja języka Transact-SQL sprawdza, czy baza danych istnieje. Jeśli baza istnieje, jest wywoływana instrukcja `DROP DATABASE` w celu jej usunięcia. Ponieważ instrukcja `DROP DATABASE` nie jest jedyną instrukcją w zadaniu wsadowym, wykonywanie następującej instrukcji języka Transact-SQL spowoduje błąd.
 
-```
-IF EXISTS (SELECT [name]
+  ```
+  IF EXISTS (SELECT [name]
            FROM   [sys].[databases]
            WHERE  [name] = N'database_name')
-     DROP DATABASE [database_name];
-GO
-```
+  DROP DATABASE [database_name];
+  GO
+  ```
 
-* Podczas wykonywania instrukcji ``CREATE USER`` z opcją ``FOR/FROM LOGIN`` musi to być jedyna instrukcja w zadaniu wsadowym języka Transact-SQL.
-* Podczas wykonywania instrukcji ``ALTER USER`` z opcją ``WITH LOGIN`` musi to być jedyna instrukcja w zadaniu wsadowym języka Transact-SQL.
-* Aby wykonać instrukcję ``CREATE/ALTER/DROP``, użytkownik musi mieć uprawnienia ``ALTER ANY USER`` dla bazy danych.
-* Gdy właściciel roli database próbuje dodać lub usunąć innego użytkownik bazy danych z roli database, może wystąpić następujący błąd: **User or role 'Name' does not exist in this database** (Użytkownik lub rola „Nazwa” nie istnieje w tej bazie danych). Ten błąd występuje, ponieważ użytkownik nie jest widoczny dla właściciela. Aby rozwiązać ten problem, należy udzielić właścicielowi roli uprawnień ``VIEW DEFINITION`` do użytkownika. 
+* Podczas wykonywania instrukcji `CREATE USER` z opcją `FOR/FROM LOGIN` musi to być jedyna instrukcja w zadaniu wsadowym języka Transact-SQL.
+* Podczas wykonywania instrukcji `ALTER USER` z opcją `WITH LOGIN` musi to być jedyna instrukcja w zadaniu wsadowym języka Transact-SQL.
+* Aby wykonać instrukcję `CREATE/ALTER/DROP`, użytkownik musi mieć uprawnienia `ALTER ANY USER` dla bazy danych.
+* Gdy właściciel roli database próbuje dodać lub usunąć innego użytkownik bazy danych z roli database, może wystąpić następujący błąd: **User or role 'Name' does not exist in this database** (Użytkownik lub rola „Nazwa” nie istnieje w tej bazie danych). Ten błąd występuje, ponieważ użytkownik nie jest widoczny dla właściciela. Aby rozwiązać ten problem, należy udzielić właścicielowi roli uprawnień `VIEW DEFINITION` do użytkownika. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej o regułach zapory, zobacz artykuł dotyczący [zapory usługi Azure SQL Database](sql-database-firewall-configure.md).
-- Aby zapoznać się z przeglądem wszystkich funkcji zabezpieczeń usługi SQL Database, zobacz [omówienie zabezpieczeń usługi SQL](sql-database-security-overview.md).
+- Aby zobaczyć przegląd wszystkich funkcji zabezpieczeń usługi SQL Database, zobacz [omówienie zabezpieczeń usługi SQL](sql-database-security-overview.md).
 - Samouczek znajduje się w artykule [Rozpocznij pracę z usługą SQL Database](sql-database-get-started-security.md)
 - Aby uzyskać informacje o widokach i procedurach składowanych, zobacz artykuł dotyczący [tworzenia widoków i procedur składowanych](https://msdn.microsoft.com/library/ms365311.aspx)
 - Aby uzyskać informacje o udzielaniu dostępu do obiektu bazy danych, zobacz artykuł dotyczący [udzielania dostępu do obiektu bazy danych](https://msdn.microsoft.com/library/ms365327.aspx)

@@ -148,7 +148,7 @@ W poniższej tabeli przedstawiono oferty szyfrowania i uwierzytelniania skojarze
 | 17 |- |AH SHA, brak okresów istnienia |
 | 18 |- |AH MD5, brak okresów istnienia |
 
-* Można określić wartość NULL szyfrowania ESP protokołu IPsec z bramami sieci VPN typu RouteBased i bramami sieci VPN o wysokiej wydajności. Szyfrowanie oparte na wartości null nie zapewnia ochrony danych w trakcie ich przesyłania i powinno być używane wyłącznie w przypadku, gdy wymagana jest maksymalna przepustowość i minimalne opóźnienia.  Klienci mogą skorzystać z tej możliwości w kontekście scenariuszy komunikacji między sieciami wirtualnymi lub w przypadku, gdy szyfrowanie jest stosowane w innym obszarze rozwiązania.
+* Można określić wartość NULL szyfrowania ESP protokołu IPsec z bramami sieci VPN typu RouteBased i bramami sieci VPN o wysokiej wydajności. Szyfrowanie oparte na wartości null nie zapewnia ochrony danych w trakcie ich przesyłania i powinno być używane wyłącznie w przypadku, gdy wymagana jest maksymalna przepływność i minimalne opóźnienia.  Klienci mogą skorzystać z tej możliwości w kontekście scenariuszy komunikacji między sieciami wirtualnymi lub w przypadku, gdy szyfrowanie jest stosowane w innym obszarze rozwiązania.
 * Chcąc korzystać z łączności przez Internet obejmującej wiele lokalizacji, należy użyć ustawień domyślnych usługi Azure VPN Gateway z szyfrowaniem i algorytmami skrótu wymienionymi w tabelach powyżej w celu zapewnienia bezpieczeństwa komunikacji o krytycznym znaczeniu.
 
 

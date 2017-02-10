@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
 
 
 ---
@@ -41,10 +41,8 @@ Aby móc skorzystać z szyfrowania dynamicznego, należy posiadać element zawar
 
 Ten temat powinien być przydatny dla deweloperów pracujących nad aplikacjami, które dostarczają zawartość chronioną przy użyciu wielu protokołów DRM, takich jak PlayReady i Widevine. W tym temacie opisano sposób konfigurowania usługi dostarczania licencji PlayReady przy użyciu zasad autoryzacji, tak aby tylko autoryzowani klienci mogli odbierać licencje PlayReady lub Widevine. Przedstawiono także sposób korzystania z szyfrowania przy użyciu usług PlayReady lub Widevine DRM dla strumienia DASH.
 
-> [!NOTE]
-> Aby rozpocząć korzystanie z szyfrowania dynamicznego, należy pobrać co najmniej jedną jednostkę skali (znaną także jako jednostka przesyłania strumieniowego). Aby uzyskać więcej informacji, zobacz artykuł [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md) (Zmienianie skali usługi multimediów).
->
->
+>[!NOTE]
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
 
 ## <a name="download-sample"></a>Pobieranie przykładu
 Opisany w tym artykule przykład możesz pobrać [tutaj](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
@@ -160,8 +158,7 @@ W poniższym przykładzie pokazano funkcje wprowadzone w programie Azure Media S
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Pobierz co najmniej jedną jednostkę przesyłania strumieniowego dla punktu końcowego przesyłania strumieniowego, z którego planujesz dostarczać zawartość. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [konfigurowania punktów końcowych przesyłania strumieniowego](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
+7. Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
 
     Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w których znajdują się pliki danych wejściowych.
 
@@ -623,6 +620,6 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

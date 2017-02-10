@@ -50,13 +50,13 @@ W zasobie usługi Application Insights poszukaj kafelka Dostępność. Kliknij g
 * **Adres URL** musi być widoczny z publicznej sieci Internet. Może zawierać ciąg zapytania &#151; umożliwi to np. szybkie sprawdzenie działania bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.
 * **Analizuj zależne żądania**: obrazy, skrypty, pliki stylów i inne zasoby strony są żądane w ramach testu, a zarejestrowany czas odpowiedzi uwzględnia te czasy. Test zakończy się niepowodzeniem, jeśli nie uda się pobrać tych zasobów w ramach limitu czasu dla całego testu.
 * **Włącz ponawianie próby**: jeśli test nie powiedzie się, zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. (To ustawienie jest zalecane. Średnio około 80% błędów znika po ponowieniu testu).
-* **Częstotliwość testu**: określa, jak często wykonywane są testy w poszczególnych lokalizacjach testowych. Przy częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.
+* **Częstotliwość testu**: określa, jak często wykonywane są testy w poszczególnych lokalizacjach testowych. Przy częstotliwości równej&5; minut i&5; lokalizacjach testu witryna będzie testowana średnio co minutę.
 * **Lokalizacje testu** są to miejsca, z których nasze serwery wysyłają żądania sieci Web do Twojego adresu URL. Wybierz więcej niż jedną lokalizację, aby móc odróżnić problemy z witryną od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
 * **Kryteria powodzenia**:
 
     **Limit czasu testu**: zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.
 
-    **Odpowiedź HTTP**: zwrócony kod stanu, który będzie uznawany za sukces. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.
+    **Odpowiedź HTTP**: zwrócony kod stanu, który będzie uznawany za sukces. Kod&200; oznacza, że została zwrócona normalna strona sieci Web.
 
     **Zgodność zawartości**: ciąg znaków, np. „Witaj!” Sprawdzamy, czy w każdej odpowiedzi występuje dokładna zgodność pod względem wielkości liter. Musi to być zwykły ciąg znaków bez symboli wieloznacznych. Pamiętaj, że w razie zmiany zawartości strony może być konieczne zaktualizowanie tego ciągu.
 * **Alerty** są domyślnie wysyłane, jeśli błędy występują w trzech lokalizacjach przez ponad pięć minut. Błąd w jednej lokalizacji prawdopodobnie wynika z problemu z siecią, a nie z witryną. Próg błędu można jednak zmienić na mniej lub bardziej wrażliwy. Zmienić można też adresata wiadomości e-mail z alertami.

@@ -16,6 +16,7 @@
 ## [Tworzenie konta magazynu](azure-stack-provision-storage-account.md)
 ## [Łączenie się z interfejsem wiersza polecenia](azure-stack-connect-cli.md)
 ## [Łączenie się z programem PowerShell](azure-stack-connect-powershell.md)
+## [Instalacja programu Visual Studio](azure-stack-install-visual-studio.md)
 ## [Często zadawane pytania](azure-stack-faq.md)
 
 # Oferowanie usług dzierżawcom
@@ -28,6 +29,7 @@
 # Korzystanie z szablonów
 ## [Omówienie szablonu](azure-stack-arm-templates.md)
 ## [Tworzenie szablonów](azure-stack-develop-templates.md)
+## [Sprawdzanie szablonów](azure-stack-validate-templates.md)
 ## [Wdrażanie szablonów za pomocą portalu](azure-stack-deploy-template-portal.md)
 ## [Wdrażanie szablonów za pomocą programu PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Wdrażanie szablonów za pomocą programu Visual Studio](azure-stack-deploy-template-visual-studio.md)
@@ -86,6 +88,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

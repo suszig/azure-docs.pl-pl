@@ -34,6 +34,9 @@
 ## [Ochrona stref i rekordów DNS](dns-protect-zones-recordsets.md)
 ## [Automatyzowanie operacji systemu DNS przy użyciu zestawu .NET SDK](dns-sdk.md)
 
+## Rozwiązywanie problemów
+### [Przewodnik rozwiązywania problemów](dns-troubleshoot.md)
+
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
 ## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/network/dns)

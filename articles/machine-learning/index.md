@@ -1,9 +1,12 @@
 ---
 layout: LandingPage
 description: "Dokumentacja, filmy wideo i przykładowe modele usługi Machine Learning — usługi w chmurze przeznaczonej dla naukowców i deweloperów pracujących z danymi i używających analizy predykcyjnej w aplikacjach."
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 12f9d75f252d8b05fdcded9d3fb6c12e4c2a304e
-ms.openlocfilehash: d51cb36ce676ac6d2e7c7b3313db75308d4cca3b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Dokumentacja usługi Azure Machine Learning
@@ -95,8 +98,8 @@ Dowiedz się, jak analitycy danych i deweloperzy mogą osadzać analizę predykc
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">Moduł programu PowerShell dla usługi Machine Learning</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (nowy)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (klasyczny)</a></p>
                     </div>
                 </div>
             </div>
@@ -128,13 +131,7 @@ Dowiedz się, jak analitycy danych i deweloperzy mogą osadzać analizę predykc
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Machine Learning </div>
-    </a>
-</div>
+
 
 
 

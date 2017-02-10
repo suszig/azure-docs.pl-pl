@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 
 
 ---
@@ -27,7 +27,7 @@ Na końcu tego samouczka będziesz mieć trzy aplikacje konsolowe Java:
 
 * **create-device-identity** tworzy tożsamość urządzenia i skojarzony klucz zabezpieczeń do podłączenia symulowanej aplikacji urządzenia.
 * **read-d2c-messages** powoduje wyświetlenie telemetrii wysyłanej przez symulowaną aplikację urządzenia.
-* **simulated-device** łączy się z centrum IoT przy użyciu tożsamości urządzenia utworzonej wcześniej i wysyła komunikat telemetrii co sekundę przy użyciu protokołu AMQP.
+* **simulated-device** łączy się z centrum IoT Hub przy użyciu utworzonej wcześniej tożsamości urządzenia i wysyła komunikat telemetrii co sekundę przy użyciu protokołu MQTT.
 
 > [!NOTE]
 > Artykuł [Azure IoT SDKs][lnk-hub-sdks] (Zestawy SDK Azure IoT) zawiera informacje dotyczące zestawów SDK Azure IoT, których można użyć do utworzenia aplikacji zarówno do uruchamiania na urządzaniach, jak i w zapleczu rozwiązania.
@@ -42,11 +42,11 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-W ostatnim kroku zanotuj wartość **Klucz podstawowy**, a następnie kliknij przycisk **Komunikaty**. W bloku **Obsługa wiadomości** zanotuj **nazwę zgodną z centrum zdarzeń** oraz **punkt końcowy zgodny z centrum zdarzeń**. Te trzy wartości będą potrzebne podczas tworzenia aplikacji **read-d2c-messages**.
+Na koniec zanotuj wartość **Klucz podstawowy**. Następnie kliknij pozycję **Punkty końcowe** i wbudowany punkt końcowy **Zdarzenia**. W bloku **Właściwości** zanotuj **nazwę zgodną z centrum zdarzeń** oraz adres **punktu końcowego zgodnego z centrum zdarzeń**. Te trzy wartości będą potrzebne podczas tworzenia aplikacji **read-d2c-messages**.
 
 ![Blok komunikatów usługi IoT Hub witrynie Azure Portal][6]
 
-Masz utworzone centrum IoT i nazwę hosta centrum IoT Hub, jego parametry połączenia, klucz podstawowy, nazwę zgodną z centrum zdarzeń i punkt końcowy zgodny z centrum zdarzeń potrzebne do ukończenia tego samouczka.
+Utworzono centrum IoT. Masz nazwę hosta centrum IoT Hub, jego parametry połączenia, klucz podstawowy, nazwę zgodną z centrum zdarzeń i punkt końcowy zgodny z centrum zdarzeń potrzebne do ukończenia tego samouczka.
 
 ## <a name="create-a-device-identity"></a>Tworzenie tożsamości urządzenia
 W tej sekcji utworzysz aplikację konsolową Java, tworzącą tożsamość urządzenia w rejestrze tożsamości w centrum IoT Hub. Urządzenie nie może połączyć się z centrum IoT, jeśli nie ma wpisu w rejestrze tożsamości. Więcej informacji znajduje się w sekcji **Identity registry** (Rejestr tożsamości) artykułu [IoT Hub developer guide][lnk-devguide-identity] (Usługa IoT Hub — przewodnik dewelopera). Po uruchomieniu ta aplikacja konsoli generuje unikatowy identyfikator urządzenia i klucz, których urządzenie może użyć do zidentyfikowania się podczas wysyłania komunikatów do chmury do usługi IoT Hub.
@@ -205,7 +205,7 @@ W tej sekcji opisano tworzenie aplikacji konsolowej Java, która odczytuje komun
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
-                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getSystemProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
@@ -313,12 +313,12 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej Java, kt�
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    Ta przykładowa aplikacja używa zmiennej **protocol** podczas tworzenia wystąpienia obiektu **DeviceClient**. Do komunikacji z usługą IoT Hub możesz użyć protokołu HTTP lub AMQP.
+    Ta przykładowa aplikacja używa zmiennej **protocol** podczas tworzenia wystąpienia obiektu **DeviceClient**. Do komunikacji z usługą IoT Hub możesz użyć protokołu MQTT, AMQP lub HTTP.
 8. Dodaj następującą zagnieżdżoną klasę **TelemetryDataPoint** do wnętrza klasy **App**, aby określić dane telemetryczne wysyłane przez urządzenie do centrum IoT:
    
     ```
@@ -440,7 +440,7 @@ Teraz można przystąpić do uruchomienia aplikacji.
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku opisano konfigurowanie nowego centrum IoT Hub w witrynie Azure Portal, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Tożsamość urządzenia została użyta, aby włączyć w aplikacji symulowanego urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum IoT Hub. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum IoT Hub. 
 
-Aby kontynuować wprowadzenie do usługi IoT Hub i eksplorowanie innych scenariuszy IoT, zobacz:
+Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scenariuszami IoT, zobacz:
 
 * [Łączenie urządzenia][lnk-connect-device]
 * [Wprowadzenie do zarządzania urządzeniami][lnk-device-management]
@@ -461,7 +461,7 @@ Aby dowiedzieć się, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -474,6 +474,6 @@ Aby dowiedzieć się, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

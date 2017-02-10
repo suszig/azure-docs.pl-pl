@@ -59,7 +59,7 @@
 ### [Przewodnik po projektowaniu tabel](storage-table-design-guide.md)
 ### [Przykłady](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Korzystanie z plików
-### [Omówienie](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [Omówienie](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Rozwiązywanie problemów z plikami platformy Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Przykłady](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Korzystanie z dysków maszyny wirtualnej
@@ -75,13 +75,17 @@
 ### [Lista kontrolna wydajności i skalowalności](storage-performance-checklist.md)
 ### [Współbieżność](storage-concurrency.md)
 ## Programowanie
-### [Przykłady](storage-samples.md)
+### Przykłady
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [Projektowanie aplikacji HA przy użyciu magazynu RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 ### [Konfigurowanie parametrów połączenia](storage-configure-connection-string.md)
 ### [Korzystanie z emulatora magazynu](storage-use-emulator.md)
 ### [Ustawianie i pobieranie właściwości oraz metadanych](storage-properties-metadata.md)
 ## Zarządzanie
-### [Program PowerShell](storage-powershell-guide-full.md)
-### [Interfejs wiersza polecenia platformy Azure](storage-azure-cli.md)
+### [PowerShell](storage-powershell-guide-full.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](storage-azure-cli.md)
+### [Interfejs wiersza polecenia platformy Azure 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Bezpieczeństwo
 ### [Przewodnik dotyczący zabezpieczeń](storage-security-guide.md)
@@ -122,7 +126,7 @@
 #### [Format pliku manifestu usługi Import-Export](storage-import-export-file-format-manifest.md)
 #### [Format pliku właściwości i metadanych usługi Import-Export](storage-import-export-file-format-metadata-and-properties.md)
 #### [Format pliku dziennika usługi Import-Export](storage-import-export-file-format-log.md)
-### [Korzystanie z narzędzia Import-Export (wersja 1)](storage-import-export-tool-how-to-v1.md)
+### [Korzystanie z narzędzia Import-Export (wersja&1;)](storage-import-export-tool-how-to-v1.md)
 #### [Konfigurowanie narzędzia Import-Export](storage-import-export-tool-setup-v1.md)
 #### [Przygotowywanie dysków twardych do zadania importu](storage-import-export-tool-preparing-hard-drives-import-v1.md)
 ##### [Ustawianie właściwości i metadanych podczas procesu importowania](storage-import-export-tool-setting-properties-metadata-import-v1.md)
@@ -149,7 +153,7 @@
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
-### [Przenoszenie danych](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Przenoszenie danych](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Obiekty blob, kolejki, tabele i pliki](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
@@ -159,7 +163,7 @@
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Obiekty blob, kolejki, tabele i pliki](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Obiekty blob, kolejki, tabele i pliki](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Dostawca zasobów](/rest/api/storagerp)
 ### [Import/eksport](/rest/api/storageimportexport)
 
@@ -201,6 +205,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

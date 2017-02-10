@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak za pomocą usługi Key Vault tworzyć i obsługiwać klucze, które umożliwiają uzyskiwanie dostępu do zasobów, aplikacji i rozwiązań przechowywanych w chmurze oraz ich szyfrowanie. Samouczki, dokumentacja interfejsu API i inne materiały."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 09d20c4c035a072d78118cb0e2184773f4642c81
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
 
 ---
 # <a name="key-vault-documentation"></a>Dokumentacja usługi Key Vault
 
-Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą usługi Key Vault możesz szyfrować klucze i klucze tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych, pliki PFX oraz hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM, hardware security module). W celu zapewnienia dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w modułach HSM.
+Dowiedz się, jak za pomocą usługi Key Vault chronić klucze kryptograficzne i klucze tajne używane przez aplikacje i usługi w chmurze oraz zarządzać tymi kluczami. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób tworzenia i obsługi kluczy, które umożliwiają uzyskiwanie dostępu do zasobów i rozwiązań oraz ich szyfrowanie.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -150,16 +151,9 @@ Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajn
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Key Vault </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

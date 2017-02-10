@@ -45,12 +45,12 @@
 ### [Routing asymetryczny](expressroute-asymmetric-routing.md)
 
 ## Rozwiązywanie problemów
+### [Weryfikowanie połączenia usługi ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 ### [Pobieranie tabel ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Pobieranie tabel ARP (wersja klasyczna)](expressroute-troubleshooting-arp-classic.md)
 
-
 # Dokumentacja
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [Program PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -80,6 +80,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

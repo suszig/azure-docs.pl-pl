@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0 w wersji zapoznawczej (az.py)
 Ten artykuł pokazuje, jak szybko wdrożyć maszynę wirtualną systemu Linux na platformie Azure przy użyciu polecenia [az vm create](/cli/azure/vm#create) za pomocą interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza). 
 
 > [!NOTE] 
-> Interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza) to nasza następna generacja wieloplatformowego interfejsu wiersza polecenia. Wypróbuj go i daj nam znać, co myślisz na [stronie projektu GitHub](https://github.com/Azure/azure-cli).
+> Interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza) to nasza następna generacja wieloplatformowego interfejsu wiersza polecenia. [Wypróbuj ten produkt.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> W pozostałych naszych dokumentach jest używany istniejący interfejs wiersza polecenia platformy Azure. Aby utworzyć maszynę wirtualną przy użyciu istniejącego interfejsu wiersza polecenia platformy Azure, a nie interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza), zobacz [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Tworzenie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure).
+> W pozostałych naszych dokumentach jest używany istniejący interfejs wiersza polecenia platformy Azure. Aby utworzyć maszynę wirtualną przy użyciu istniejącego interfejsu wiersza polecenia platformy Azure 1.0, a nie interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza), zobacz [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Tworzenie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure).
 
 Aby utworzyć maszynę wirtualną, potrzebne są: 
 
 * konto platformy Azure ([skorzystaj z bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/))
-* zainstalowany [interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](https://github.com/Azure/azure-cli#installation)
+* zainstalowany [interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](/cli/azure/install-az-cli2)
 * zalogowanie się do swojego konta platformy Azure (wpisz [az login](/cli/azure/#login))
 
 (Szybkie wdrożenie maszyny wirtualnej z systemem Linux jest możliwe również przy użyciu witryny [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
@@ -41,10 +41,10 @@ Poniższy przykład pokazuje, jak wdrożyć maszynę wirtualną Debian i dołąc
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Najpierw wpisz polecenie [az resource group create](/cli/azure/resource/group#create), aby utworzyć grupę zasobów zawierającą wszystkie wdrożone zasoby:
+Najpierw wpisz polecenie [az group create](/cli/azure/group#create), aby utworzyć grupę zasobów zawierającą wszystkie wdrożone zasoby:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 Dane wyjściowe wyglądają następująco (możesz wybrać inną opcję `--output`, jeśli chcesz):
@@ -127,6 +127,6 @@ Możesz również [użyć sterownika platformy Azure `docker-machine` z różnym
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

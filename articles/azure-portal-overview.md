@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7383380ee07f9ee52858038bd4d623be4689a31a
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -60,16 +60,6 @@ Z poziomu tego bloku można nawiązać połączenie z maszyną wirtualną za pom
 
 ![Zarządzanie zasobem][ManageResource]
 
-## <a name="how-to-customize-a-resource-blade"></a>Dostosowywanie bloku zasobów
-Na platformie Azure bloki są wstępnie konfigurowane dla zasobów, ale kafelki w tych blokach są kontrolowane przez użytkownika.  Możesz łatwo przejść do trybu dostosowania, w którym możesz dodawać, usuwać, zmieniać rozmiar lub ponownie rozmieszczać kafelki. Aby dostosować blok, wykonaj następujące czynności:
-
-1. Przejdź do zasobu.
-2. Kliknij pozycję ... w górnej części bloku, który chcesz dostosować.
-3. Kliknij pozycję Dodaj części.
-4. Rozpocznij przeciąganie i upuszczanie części.  
-
-![Dostosowywanie bloków][CustomizeBlades]
-
 ## <a name="how-to-get-help"></a>Uzyskiwanie pomocy
 Jeśli masz jakikolwiek problem, zawsze Ci pomożemy.  Portal ma stronę pomocy i obsługi technicznej, która może pomóc w znalezieniu odpowiedniego rozwiązania.  W zależności od Twojego [planu pomocy technicznej](https://azure.microsoft.com/support/plans/) możesz również tworzyć bilety pomocy technicznej bezpośrednio w portalu.  Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z poziomu portalu. Aby wyświetlić stronę pomocy i obsługi technicznej, przejdź do obszaru Przeglądaj -> Pomoc i obsługa techniczna.  
 
@@ -97,6 +87,6 @@ Witryna Microsoft Azure Portal znacząco ułatwia tworzenie aplikacji w chmurze 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

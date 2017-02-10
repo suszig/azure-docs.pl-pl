@@ -3,7 +3,7 @@ title: "Rozpoczęcie pracy z interfejsem wiersza polecenia w usłudze Azure Batc
 description: "Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w interfejsie wiersza polecenia platformy Azure, aby zarządzać zasobami usługi Azure Batch"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 09/30/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 
 
 ---
@@ -129,7 +129,7 @@ Podczas tworzenia zasobów usługi Batch, np. puli i zadań, możesz określić 
 
 Możesz wykonać wiele operacji tworzenia zasobów, korzystając wyłącznie z opcji wiersza polecenia, niemniej niektóre funkcje wymagają pliku w formacie JSON zawierającego szczegółowe informacje o zasobie. Przykładowo musisz użyć pliku JSON, jeśli chcesz określić pliki zasobu dla zadania rozpoczęcia.
 
-Aby znaleźć plik JSON wymagany do utworzenia zasobu, odnieś się do dokumentacji [referencyjnej interfejsu API REST usługi Batch][rest_api] w witrynie MSDN. Każdy temat „Dodawanie *typu zasobu*” zawiera przykładowy plik JSON do tworzenia zasobu, którego możesz użyć jako szablonu dla Twoich plików JSON. Przykładowo plik JSON do tworzenia puli można znaleźć w temacie [Dodawanie puli do konta][rest_add_pool].
+Aby znaleźć plik JSON wymagany do utworzenia zasobu, zapoznaj się z [dokumentacją interfejsu API REST usługi Batch][rest_api] w witrynie MSDN. Każdy temat „Dodawanie *typu zasobu*” zawiera przykładowy plik JSON do tworzenia zasobu, którego możesz użyć jako szablonu dla Twoich plików JSON. Na przykład plik JSON do tworzenia puli można znaleźć w temacie [Dodawanie puli do konta][rest_add_pool].
 
 > [!NOTE]
 > Jeśli określisz plik JSON podczas tworzenia zasobu, wszystkie inne parametry określone dla tego zasobu w wierszu polecenia zostaną zignorowane.
@@ -258,7 +258,7 @@ Ta sekcja ma na celu zapewnienie zasobów do użycia w przypadku rozwiązywania 
 
 * Użyj polecenia `-h`, aby uzyskać **tekst pomocy** dla dowolnego polecenia interfejsu wiersza polecenia
 * Użyj opcji `-v` i `-vv`, aby wyświetlić **pełne** dane wyjściowe polecenia; `-vv` jest „dodatkową” formą pełnych informacji i wyświetla faktyczne żądania i odpowiedzi REST. Te przełączniki są przydatne do wyświetlania pełnych danych wyjściowych błędu.
-* Możesz wyświetlić **dane wyjściowe polecenia w formie pliku JSON** przy użyciu opcji `--json`. Przykładowo polecenie `azure batch pool show "pool001" --json` wyświetla właściwości puli 001 w formacie JSON. Następnie możesz skopiować i zmodyfikować te dane wyjściowe, aby użyć ich w pliku `--json-file` (zobacz sekcję [Pliki JSON](#json-files) wcześniej w tym artykule).
+* Możesz wyświetlić **dane wyjściowe polecenia w formie pliku JSON** przy użyciu opcji `--json`. Przykładowo polecenie `azure batch pool show "pool001" --json` wyświetla właściwości puli&001; w formacie JSON. Następnie możesz skopiować i zmodyfikować te dane wyjściowe, aby użyć ich w pliku `--json-file` (zobacz sekcję [Pliki JSON](#json-files) wcześniej w tym artykule).
 * [Forum usługi Batch w witrynie MSDN][batch_forum] jest doskonałym zasobem pomocy i jest uważnie monitorowane przez członków zespołu usługi Batch. Upewnij się, że zamieszczasz tam pytania w przypadku napotkania problemów lub w sytuacji, w której potrzebujesz pomocy z konkretną operacją.
 * Nie każda operacja na zasobach usługi Batch jest obecnie obsługiwana przez interfejs wiersza polecenia platformy Azure. Przykładowo nie możesz obecnie określić *wersji* pakietu aplikacji dla puli. Możesz określić tylko identyfikator pakietu. W takich przypadkach konieczne będzie dostarczenie pliku `--json-file` dla polecenia zamiast używania opcji wiersza polecenia. Upewnij się, że jesteś na bieżąco, korzystając z najnowszej wersji interfejsu wiersza polecenia, aby pozyskiwać przyszłe ulepszenia.
 
@@ -273,6 +273,6 @@ Ta sekcja ma na celu zapewnienie zasobów do użycia w przypadku rozwiązywania 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

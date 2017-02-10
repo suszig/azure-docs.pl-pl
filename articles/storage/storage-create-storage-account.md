@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
+ms.sourcegitcommit: a762a0e4753b73b11b2c903fa97c67176199b8d9
+ms.openlocfilehash: 5a1845ac32d2e7454a94d6678521b5e74561933a
 
 
 ---
@@ -59,7 +59,7 @@ Możesz również skonfigurować niestandardową nazwę domeny do użycia ze swo
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu Centrum wybierz kolejno pozycje **Nowe** -> **Dane i usługa Storage** -> **Konto usługi Storage**.
+2. W menu Centrum wybierz kolejno pozycje **Nowy** -> **Magazyn** -> **Konto magazynu**.
 3. Wprowadź nazwę konta magazynu. Zobacz [Punkty końcowe konta usługi Storage](#storage-account-endpoints), aby uzyskać szczegółowe informacje o tym, w jaki sposób nazwa konta magazynu będzie wykorzystywana do adresowania obiektów w usłudze Azure Storage.
    
    > [!NOTE]
@@ -162,6 +162,6 @@ Zobacz [dokumentację maszyn wirtualnych Azure](http://azure.microsoft.com/docum
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

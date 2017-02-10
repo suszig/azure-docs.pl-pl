@@ -1,5 +1,5 @@
 ---
-title: "Migracja bazy danych programu SQL Server do usługi SQL Database | Dokumentacja firmy Microsoft"
+title: "Migracja bazy danych programu SQL Server do usługi Azure SQL Database | Microsoft Docs"
 description: "Dowiedz się więcej na temat migracji lokalnej bazy danych serwera SQL Server do bazy danych Azure SQL Database w chmurze. Narzędzia migracji bazy danych umożliwiają przetestowanie zgodności przed wykonaniem migracji bazy danych."
 keywords: "migracja bazy danych,migracja bazy danych programu sql server,narzędzia migracji bazy danych,migracja bazy danych,migracja bazy danych sql"
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d9052bd10693c0b7942c0d90fdf89be37b44842d
-ms.openlocfilehash: b0093e48266aedda2b6c88b862c0056ebe3b3114
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
 
 
 ---
@@ -118,6 +118,6 @@ Aby wykonać migrację z minimalnym przestojem, wykonaj [replikację transakcji 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

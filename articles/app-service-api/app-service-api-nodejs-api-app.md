@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -41,7 +41,7 @@ Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji inter
    
     Przykładowy interfejs API zawiera dwa punkty końcowe: żądanie Get dotyczące elementu `/contacts` zwraca listę nazw i adresów e-mail w formacie JSON, natomiast element `/contacts/{id}` zwraca tylko wybrany kontakt.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Tworzenie szkieletu (automatyczne generowanie) kodu Node.js na podstawie metadanych struktury Swagger
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Tworzenie szkieletu (automatyczne generowanie) kodu Node.js na podstawie metadanych struktury Swagger
 [Swagger](http://swagger.io/) to format pliku metadanych, który opisuje interfejs API RESTful. Usługa Azure App Service zapewnia [wbudowaną obsługę metadanych struktury Swagger](app-service-api-metadata.md). W tej sekcji samouczka przedstawiono sposób modelowania przepływu pracy programowania, w którym najpierw następuje utworzenie metadanych struktury Swagger, a następnie użycie ich do tworzenia szkieletu (automatycznego generowania) kodu serwera dla interfejsu API. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Usługa App Service obsługuje wiele sposobów wdrażania kodu w aplikacji inter
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ Na tym etapie pomyślnie zakończono tworzenie aplikacji interfejsu API i wdraż
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

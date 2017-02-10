@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak skonfigurować monitorowanie zabezpieczeń i zarządzanie zasadami dla zasobów platformy Azure. Samouczki, dokumentacja interfejsu API REST i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8091c1c7cbf6617725bf7620fe0c2232e4e47cec
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
 
 ---
 # <a name="security-center-documentation"></a>Dokumentacja usługi Security Center
 
-Usługa Security Center ułatwia zapobieganie zagrożeniom, ich wykrywanie i reagowanie na nie, a przy tym zapewnia lepszy wgląd i większą kontrolę w zakresie bezpieczeństwa zasobów na platformie Azure. Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby pozostać niezauważone, a także współpracuje z szerokim ekosystemem rozwiązań z zakresu zabezpieczeń.
+Dowiedz się, jak używać usługi Security Center, aby uzyskać wgląd w zabezpieczenia zasobów platformy Azure i kontrolę nad nimi.  Samouczki, dokumentacja interfejsu API REST oraz inne dokumenty przedstawiające sposób konfigurowania monitorowania zabezpieczeń i zarządzania zasadami pod kątem współdziałania z szerokim ekosystemem rozwiązań zabezpieczeń.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -84,15 +85,10 @@ Usługa Security Center ułatwia zapobieganie zagrożeniom, ich wykrywanie i rea
     </li>
 </ul>   
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Security Center </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

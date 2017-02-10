@@ -23,6 +23,7 @@
 ### [Planowanie elementu Runbook](automation-scheduling-a-runbook.md)
 ### [Uruchamianie elementów Runbook w centrum danych](automation-hybrid-runbook-worker.md)
 ### [Konfigurowanie parametrów wejściowych elementu Runbook](automation-runbook-input-parameters.md)
+### [Obsługa błędów w graficznych elementach Runbook](automation-runbook-graphical-error-handling.md)
 ### [Śledzenie zadania elementu Runbook](automation-runbook-execution.md)
 ### [Zmienianie ustawień elementu Runbook](automation-runbook-settings.md)
 ### [Zarządzanie danymi usługi Azure Automation](automation-managing-data.md)
@@ -78,6 +79,6 @@
 ## [Usługa Automation — film z wprowadzeniem](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

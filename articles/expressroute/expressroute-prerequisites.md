@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7e47a469127d2a06aa1be07f46ef04a2c23d351
+ms.sourcegitcommit: f408e65abcb92308a19a37816c206d822e932f24
+ms.openlocfilehash: 18fccf1ce6b4d2a6fa46e6db9e1a38eb998b9d64
 
 
 ---
@@ -26,8 +26,8 @@ Aby połączyć się z usługami w chmurze firmy Microsoft za pomocą usługi Ex
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Konto platformy Azure
-* Prawidłowe i aktywne konto platformy Microsoft Azure. Jest ono wymagane do instalacji obwodu usługi ExpressRoute. Obwody usługi ExpressRoute to zasoby w ramach subskrypcji platformy Azure. Subskrypcja platformy Azure jest wymagana, nawet jeśli łączność jest ograniczona do usług w chmurze firmy Microsoft poza platformą Azure, takich jak usługi Office 365 i CRM online.
-* Aktywna subskrypcja usługi Office 365 (w przypadku korzystania z usług Office 365). Więcej informacji znajduje się w sekcji w tym artykule dotyczącej [określonych wymagań dotyczących usługi Office 365](#office-365-specific-requirements).
+* Prawidłowe i aktywne konto platformy Microsoft Azure. To konto jest wymagane do skonfigurowania obwodu usługi ExpressRoute. Obwody usługi ExpressRoute to zasoby w ramach subskrypcji platformy Azure. Subskrypcja platformy Azure jest wymagana, nawet jeśli łączność jest ograniczona do usług w chmurze firmy Microsoft poza platformą Azure, takich jak usługi Office 365 i CRM online.
+* Aktywna subskrypcja usługi Office 365 (w przypadku korzystania z usług Office 365). Więcej informacji znajduje się w tym artykule w sekcji dotyczącej [określonych wymagań dotyczących usługi Office 365](#office-365-specific-requirements).
 
 ## <a name="connectivity-provider"></a>Dostawca połączenia
 * W celu połączenia z chmurą firmy Microsoft można współpracować z [partnerem połączenia usługi ExpressRoute](expressroute-locations.md#partners). Połączenie między siecią lokalną a firmą Microsoft można skonfigurować na [trzy sposoby](expressroute-introduction.md#howtoconnect). 
@@ -38,10 +38,10 @@ Aby połączyć się z usługami w chmurze firmy Microsoft za pomocą usługi Ex
 * **Routing**: w zależności od sposobu połączenia z chmurą firmy Microsoft użytkownik lub jego dostawca musi skonfigurować sesje protokołu BGP oraz nimi zarządzać na potrzeby [domen routingu](expressroute-circuit-peerings.md). Niektórzy dostawcy połączenia Ethernet lub dostawcy usług serwera Exchange w chmurze mogą oferować zarządzanie przy użyciu protokołu BGP w ramach usługi dodatkowej.
 * **Translator adresów sieciowych**: firma Microsoft akceptuje tylko publiczne adresy IP za pośrednictwem komunikacji równorzędnej firmy Microsoft. W przypadku korzystania z prywatnych adresów IP w sieci lokalnej użytkownik lub jego dostawca muszą przełożyć prywatne adresy IP na publiczne [przy użyciu translatora adresów sieciowych](expressroute-nat.md).
 * **Technologia QoS**: program Skype dla firm oferuje różne usługi (np. połączenia głosowe, wideo, usługi tekstowe), które wymagają zróżnicowanej obsługi w technologii QoS. Użytkownik i jego dostawca powinni postępować zgodnie z [wymaganiami technologii QoS](expressroute-qos.md).
-* **Bezpieczeństwo sieci**: podczas łączenia z usługą Microsoft Cloud za pośrednictwem usługi ExpressRoute należy mieć na uwadze [bezpieczeństwo sieci](../best-practices-network-security.md).
+* **Bezpieczeństwo sieci**: podczas łączenia z usługą Microsoft Cloud za pośrednictwem usługi ExpressRoute miej na uwadze [bezpieczeństwo sieci](../best-practices-network-security.md).
 
 ## <a name="office-365"></a>Office 365
-Jeśli zamierzasz włączyć usługę Office 365 w ramach usługi ExpressRoute, przejrzyj następujące dokumenty, by uzyskać więcej informacji o wymaganiach dotyczących usługi Office 365.
+Jeśli zamierzasz włączyć usługę Office 365 w ramach usługi ExpressRoute, przejrzyj następujące dokumenty, aby uzyskać więcej informacji o wymaganiach dotyczących usługi Office 365.
 
 * [Omówienie usługi ExpressRoute dla usługi Office 365](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
 * [Routing za pomocą usługi ExpressRoute dla usługi Office 365](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
@@ -49,9 +49,10 @@ Jeśli zamierzasz włączyć usługę Office 365 w ramach usługi ExpressRoute, 
 * [Planowanie sieci i dostrajanie wydajności dla usługi Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
 * [Narzędzia i kalkulatory przepustowości sieci](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [Integracja usługi Office 365 ze środowiskiem lokalnym](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Usługa ExpressRoute w usłudze Office 365 — szkoleniowe filmy wideo dla zaawansowanych](https://channel9.msdn.com/series/aer/)
 
 ## <a name="crm-online"></a>CRM Online
-Jeśli zamierzasz włączyć usługę CRM Online w ramach usługi ExpressRoute, przejrzyj następujące dokumenty, by uzyskać więcej informacji o usłudze CRM Online.
+Jeśli zamierzasz włączyć usługę CRM Online w ramach usługi ExpressRoute, przejrzyj następujące dokumenty, aby uzyskać więcej informacji o usłudze CRM Online
 
 * [Zakresy adresów URL i IP](https://support.microsoft.com/kb/2655102) [usługi CRM Online](https://support.microsoft.com/kb/2728473)
 
@@ -67,6 +68,6 @@ Jeśli zamierzasz włączyć usługę CRM Online w ramach usługi ExpressRoute, 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

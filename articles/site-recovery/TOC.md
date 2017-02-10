@@ -17,8 +17,9 @@
 ### [Mapowanie sieci (VMM)](site-recovery-network-mapping.md)
 ### [Mapowanie magazynu między lokacjami lokalnymi](site-recovery-storage-mapping.md)
 ## Replikowanie
-### [Maszyny wirtualne i serwery VMware do platformy Azure](site-recovery-vmware-to-azure.md)
-### [Maszyny wirtualne i serwery VMware do lokacji dodatkowej](site-recovery-vmware-to-vmware.md)
+### [Serwery fizyczne i maszyny wirtualne VMware do platformy Azure](site-recovery-vmware-to-azure.md)
+### [Serwery fizyczne i maszyny wirtualne VMware do lokacji dodatkowej](site-recovery-vmware-to-vmware.md)
+### [Maszyny wirtualne VMware z obsługą rozwiązań wielodostępnych na platformie Azure używające programu CSP](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Maszyny wirtualne funkcji Hyper-V do platformy Azure (z programem VMM)](site-recovery-vmm-to-azure.md)
 ### [Maszyny wirtualne funkcji Hyper-V do platformy Azure (bez programu VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [Maszyny wirtualne funkcji Hyper-V do lokacji dodatkowej](site-recovery-vmm-to-vmm.md)
@@ -64,6 +65,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

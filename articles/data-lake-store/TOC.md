@@ -29,6 +29,13 @@
 ### [Uwierzytelnianie między usługami](data-lake-store-authenticate-using-active-directory.md)
 ### [Uwierzytelnianie użytkowników końcowych](data-lake-store-end-user-authenticate-using-active-directory.md)
 
+## Wydajność
+### [Wskazówki dotyczące dostrajania wydajności usługi Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Wskazówki dotyczące dostrajania wydajności oprogramowania Spark w usługach HDInsight i Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
+### [Wskazówki dotyczące dostrajania wydajności oprogramowania Hive w usługach HDInsight i Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
+### [Wskazówki dotyczące dostrajania wydajności oprogramowania MapReduce w usługach HDInsight i Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
+### [Wskazówki dotyczące dostrajania wydajności oprogramowania Storm w usługach HDInsight i Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+
 ## Integracja z usługami Azure Services
 ### [Uzyskiwanie dostępu z poziomu maszyn wirtualnych w sieci wirtualnej platformy Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Używanie z usługą Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -64,6 +71,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

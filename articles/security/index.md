@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak dostosować opcje zabezpieczeń w usługach platformy Azure w celu spełnienia wymagań dotyczących wdrożeń usług i danych w chmurze."
 translationtype: Human Translation
-ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
-ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
 
 ---
 # <a name="security-documentation"></a>Dokumentacja zabezpieczeń
 
-Infrastruktura platformy Azure została zaprojektowana kompleksowo, począwszy od obiektu po aplikacje hostujące jednocześnie miliony klientów, i zapewnia wiarygodną podstawę zaspokajania potrzeb firm w zakresie bezpieczeństwa. Ponadto platforma Azure oferuje szeroki zakres konfigurowalnych opcji zabezpieczeń oraz możliwość sterowania nimi, co pozwala dostosować zabezpieczenia w taki sposób, aby spełniały unikatowe wymagania realizowanych wdrożeń.
+Dowiedz się, jak używać usługi Azure Security w celu zapewnienia bezpieczeństwa usług i danych w chmurze. Samouczki i inne dokumenty ułatwiające dostosowanie opcji zabezpieczeń w usługach platformy Azure w celu spełnienia wymagań dotyczących wdrożeń.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -104,16 +105,10 @@ Infrastruktura platformy Azure została zaprojektowana kompleksowo, począwszy o
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację zabezpieczeń </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

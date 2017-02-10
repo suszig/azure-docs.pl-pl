@@ -1,5 +1,5 @@
 ---
-title: " Wprowadzenie do dostarczania zawartości na żądanie przy użyciu witryny Azure Portal | Microsoft Docs"
+title: " Wprowadzenie do dostarczania zawartości na żądanie przy użyciu witryny Azure Portal | Microsoft Docss"
 description: "W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu portalu Azure."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 
 ---
@@ -33,7 +33,7 @@ W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do do
 W tym samouczku opisano następujące zadania:
 
 1. Tworzenie konta usługi Azure Media Services.
-2. Konfigurowanie punktów końcowych przesyłania strumieniowego.
+2. Uruchamianie punktu końcowego przesyłania strumieniowego.
 3. Ładowanie pliku wideo.
 4. Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów.
 5. Publikowanie elementu zawartości i uzyskiwanie adresów URL na potrzeby przesyłania strumieniowego i pobierania progresywnego.  
@@ -60,7 +60,7 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
    6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**, aby wyświetlić postęp wdrażania konta.
 4. Kliknij opcję **Utwórz** w dolnej części formularza.
    
-    Po pomyślnym utworzeniu konta stan zmieni się na **Uruchomiony**. 
+    Po pomyślnym utworzeniu konta zostanie załadowana strona przeglądu. W tabeli punktów końcowych przesyłania strumieniowego konto będzie mieć domyślny punkt końcowy przesyłania strumieniowego w stanie **Zatrzymany**. Punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać naszą zawartość, musi mieć stan **Uruchomiony**. 
    
     ![Ustawienia usługi Media Services](./media/media-services-portal-vod-get-started/media-services-settings.png)
    
@@ -79,33 +79,22 @@ Do uzyskania programowego dostępu do konta usługi Media Services będą wymaga
    
     ![Klucze usługi Media Services](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## <a name="configure-streaming-endpoints"></a>Konfigurowanie punktów końcowych przesyłania strumieniowego
-Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH.
+## <a name="start-streaming-endpoints"></a>Uruchamianie punktu końcowego przesyłania strumieniowego 
 
-Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach transmisji strumieniowej obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
+Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach przesyłania strumieniowego obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
 
-Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać następujące czynności:
+>[!NOTE]
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
 
-* Koduj plik (źródłowy) mezzanine do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów (kroki kodowania przedstawiono w dalszej części tego samouczka).  
-* Utwórz co najmniej jedną jednostkę przesyłania strumieniowego dla *punktu końcowego przesyłania strumieniowego*, z którego planujesz dostarczać zawartość. W poniższych krokach przedstawiono, jak zmienić liczbę jednostek przesyłania strumieniowego.
+Aby uruchomić punkt końcowy przesyłania strumieniowego, wykonaj następujące czynności:
 
-Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
-
-Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumieniowego, wykonaj następujące czynności:
-
-1. W oknie **Ustawienia** kliknij przycisk **Punkty końcowe przesyłania strumieniowego**. 
+1. W oknie Ustawienia kliknij pozycję Punkty końcowe przesyłania strumieniowego. 
 2. Kliknij domyślny punkt końcowy przesyłania strumieniowego. 
-   
-    Zostanie wyświetlone okno **SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO**.
-3. Aby określić liczbę jednostek przesyłania strumieniowego, przesuń suwak **Jednostki przesyłania strumieniowego**.
-   
-    ![Jednostki przesyłania strumieniowego](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
-   
-   > [!NOTE]
-   > Alokacja nowych jednostek może zająć maksymalnie 20 minut.
-   > 
-   > 
+
+    Zostanie wyświetlone okno SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO.
+
+3. Kliknij ikonę Uruchom.
+4. Kliknij przycisk Zapisz, aby zapisać zmiany.
 
 ## <a name="upload-files"></a>Przekazywanie plików
 Aby przesłać strumieniowo pliki wideo przy użyciu usługi Azure Media Services, musisz przekazać źródłowe pliki wideo, zakodować je do wielokrotnych szybkości transmisji bitów oraz opublikować wynik. Pierwszy krok został omówiony w tej sekcji. 
@@ -132,10 +121,7 @@ Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scen
 
 Usługa Media Services udostępnia również funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać pliki MP4 o różnej szybkości transmisji bitów w formatach przesyłania strumieniowego MPEG DASH, HLS i Smooth Streaming bez konieczności ponownego tworzenia pakietów w tych formatach. Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
 
-Aby skorzystać z funkcji dynamicznego tworzenia pakietów, należy wykonać następujące czynności:
-
-* Koduj plik źródłowy do zestawu plików MP4 o różnej szybkości transmisji bitów (kroki kodowania przedstawiono w dalszej części tej sekcji).
-* Pobierz co najmniej jedną jednostkę przesyłania strumieniowego dla punktu końcowego przesyłania strumieniowego, z którego planujesz dostarczać zawartość. Aby uzyskać więcej informacji, zobacz temat dotyczący [konfigurowania punktów końcowych przesyłania strumieniowego](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+Aby korzystać z dynamicznego tworzenia pakietów, wykonaj kodowanie pliku źródłowego do zestawu plików MP4 o różnej szybkości transmisji bitów (kroki kodowania przedstawiono w dalszej części tej sekcji).
 
 ### <a name="to-use-the-portal-to-encode"></a>Aby korzystać z portalu do kodowania
 W tej sekcji opisano kroki, które należy wykonać w celu zakodowania zawartości przy użyciu standardu Media Encoder Standard.
@@ -221,6 +207,6 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -138,6 +138,9 @@
 ##### [Korzystanie z akcji przystawki MMC w programie StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Tworzenie rozwiązań
+#### [StorSimple with Veeam](storsimple-configure-backup-target-veeam.md) (Usługa StorSimple z oprogramowaniem Veeam)
+#### [StorSimple with Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md) (Usługa StorSimple z oprogramowaniem Veritas Backup Exec)
+#### [StorSimple with Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md) (Usługa StorSimple z oprogramowaniem Veritas NetBackup)
 #### [Automatyzowanie odzyskiwania po awarii serwera plików na platformie Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Usługa StorSimple z usługą Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple with VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463) (Usługa StorSimple z oprogramowaniem VMware)
@@ -217,6 +220,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

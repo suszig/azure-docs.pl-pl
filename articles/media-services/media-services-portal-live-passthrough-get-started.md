@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
 
 
 ---
@@ -34,7 +34,7 @@ W tym samouczku opisano kolejne kroki w procesie tworzenia **kanału** skonfigur
 Do wykonania czynności przedstawionych w tym samouczku są niezbędne następujące elementy:
 
 * Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Konto usługi Media Services.    Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
+* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
 * Kamera internetowa. Na przykład [koder Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 Zdecydowanie zaleca się następujące artykuły:
@@ -46,6 +46,9 @@ Zdecydowanie zaleca się następujące artykuły:
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Typowy scenariusz transmisji strumieniowej na żywo
 W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji do transmisji strumieniowej na żywo używających kanałów skonfigurowanych do dostarczania zawartości w formie przekazywania. W tym samouczku przedstawiono sposób tworzenia kanału do przekazywania zawartości i transmitowania wydarzeń na żywo oraz zarządzania nimi.
 
+>[!NOTE]
+>Upewnij się, że punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, ma stan **Uruchomiony**. 
+    
 1. Podłącz kamerę wideo do komputera. Uruchom i skonfiguruj lokalny koder na żywo, który wyprowadza strumień protokołu RTMP o różnej szybkości transmisji bitów lub pofragmentowany strumień MP4. Aby uzyskać więcej informacji, zobacz temat [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Ten krok można również wykonać po utworzeniu kanału.
@@ -59,11 +62,7 @@ W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji 
 5. Utwórz program lub wydarzenie na żywo. 
    
     W przypadku korzystania z portalu Azure utworzenie wydarzenia na żywo spowoduje również utworzenie elementu zawartości. 
-   
-   > [!NOTE]
-   > Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
-   > 
-   > 
+
 6. Uruchom wydarzenie/program, gdy wszystko będzie gotowe do rozpoczęcia przesyłania strumieniowego i archiwizacji.
 7. Opcjonalnie można przesłać do kodera na żywo sygnał o rozpoczęciu reklamy. Reklama jest wstawiana do strumienia wyjściowego.
 8. Zatrzymaj wydarzenie/program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
@@ -78,28 +77,6 @@ W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji 
 Jeśli chcesz wyświetlić powiadomienia i błędy wygenerowane w portalu Azure, kliknij ikonę Powiadomienia.
 
 ![Powiadomienia](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
-
-## <a name="configure-streaming-endpoints"></a>Konfigurowanie punktów końcowych przesyłania strumieniowego
-Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać pliki MP4 o różnych szybkościach transmisji bitów w formatach przesyłania strumieniowego MPEG DASH, HLS i Smooth Streaming bez konieczności ponownego tworzenia pakietów w tych formatach. Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
-
-Aby skorzystać z dynamicznego tworzenia pakietów, pobierz co najmniej jedną jednostkę przesyłania strumieniowego punktu końcowego przesyłania strumieniowego, z którego planujesz dostarczać zawartość.  
-
-Aby utworzyć i zmienić liczbę jednostek zarezerwowanego przesyłania strumieniowego, wykonaj następujące czynności:
-
-1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
-2. W oknie **Ustawienia** kliknij przycisk **Punkty końcowe przesyłania strumieniowego**. 
-3. Kliknij domyślny punkt końcowy przesyłania strumieniowego. 
-   
-    Zostanie wyświetlone okno **SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO**.
-4. Aby określić liczbę jednostek przesyłania strumieniowego, przesuń suwak **Jednostki przesyłania strumieniowego**.
-   
-    ![Jednostki przesyłania strumieniowego](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
-   
-   > [!NOTE]
-   > Alokacja nowych jednostek może zająć maksymalnie 20 minut.
-   > 
-   > 
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Tworzenie i uruchamianie kanałów i wydarzeń w formie przekazywania
 Kanał jest skojarzony z wydarzeniami/programami, które umożliwiają kontrolowanie publikowania i przechowywania segmentów strumienia na żywo. Kanały zarządzają wydarzeniami. 
@@ -180,6 +157,6 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 
