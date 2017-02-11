@@ -6,18 +6,19 @@
 # Instrukcje 
 ##[Wdrażanie na serwerze](analysis-services-deploy.md)
 ##[Łączenie z klienta](analysis-services-connect.md)
-
 ##[Zarządzanie serwerem](analysis-services-manage.md)
+##[Zarządzanie użytkownikami](analysis-services-manage-users.md)
 ##[Integrowanie bramy danych lokalnych](analysis-services-gateway.md)
 
 # Dokumentacja
-##[Program PowerShell](/powershell/resourcemanager)
+##[Program PowerShell](analysis-services-powershell.md)
 ##[REST](/rest/api/analysisservices)
 
 # Zasoby
 ##[Połączenia źródła danych](analysis-services-datasource.md)
+##[Dostawcy danych](analysis-services-data-providers.md) 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -19,8 +19,7 @@
 ### [Integracja kontroli źródła](automation-source-control-integration.md)
 ## Automatyzacja elementów Runbook
 ### [Uruchamianie elementu Runbook](automation-starting-a-runbook.md)
-### [Uruchamianie elementu Runbook z wywołania sieci Web](automation-webhooks.md)
-### [Planowanie elementu Runbook](automation-scheduling-a-runbook.md)
+### [Uruchamianie elementu Runbook z poziomu elementu webhook](automation-webhooks.md)
 ### [Uruchamianie elementów Runbook w centrum danych](automation-hybrid-runbook-worker.md)
 ### [Konfigurowanie parametrów wejściowych elementu Runbook](automation-runbook-input-parameters.md)
 ### [Obsługa błędów w graficznych elementach Runbook](automation-runbook-graphical-error-handling.md)
@@ -60,7 +59,7 @@
 ### [Przenoszenie konta usługi Automation](automation-migrate-account-subscription.md)
 ## Rozwiązywanie problemów
 ### [Rozwiązywanie typowych problemów](automation-troubleshooting-automation-errors.md)
-### [Zawieszone zadanie elementu Runbook](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+### [Rozwiązywanie problemów z hybrydowym procesem roboczym elementu Runbook](automation-troubleshooting-hybrid-runbook-worker.md)
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (klasyczny)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
@@ -79,6 +78,6 @@
 ## [Usługa Automation — film z wprowadzeniem](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
