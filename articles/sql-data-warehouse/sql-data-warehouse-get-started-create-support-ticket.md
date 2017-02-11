@@ -101,6 +101,6 @@ Ponadto można nawiązać kontakt ze społecznością usługi SQL Data Warehouse
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
