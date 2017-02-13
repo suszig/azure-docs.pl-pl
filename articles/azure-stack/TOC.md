@@ -69,15 +69,16 @@
 ## [Wdrażanie maszyn wirtualnych z systemem Linux](azure-stack-linux.md)
 ## [Zarządzanie aktualizacjami](azure-stack-updates.md)
 ## [Opracowywanie zawartości dla usługi Azure Stack](azure-stack-developer.md)
-## Wdrażanie dostawcy zasobów programu SQL lub MySQL
-### [Korzystanie z baz danych MySQL jako PaaS w usłudze Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
-### [Wdrażanie karty dostawcy zasobów serwera SQL w usłudze Azure Stack](azure-stack-sql-resource-provider-deploy.md)
+## Oferowanie bazy danych SQL lub MySQL jako usługi PaaS
+### [Wdrażanie dostawcy zasobów bazy danych MySQL](azure-stack-mysql-resource-provider-deploy.md)
+### [Wdrażanie dostawcy zasobów bazy danych SQL](azure-stack-sql-resource-provider-deploy.md)
 
-## Planowanie i wdrażanie usługi App Service
-### [App Service on Azure Stack overview](azure-stack-app-service-overview.md) (Omówienie usługi App Service w usłudze Azure Stack)
+## Oferowanie usługi App Service jako usługi PaaS
+### [Omówienie usługi App Service w usłudze Azure Stack](azure-stack-app-service-overview.md)
 ### [Przed rozpoczęciem](azure-stack-app-service-before-you-get-started.md)
+### [Wdrażanie dostawcy zasobów usługi App Service](azure-stack-app-service-deploy.md)
 ### [Dodawanie większej liczby ról procesów roboczych w sieci Web](azure-stack-app-service-add-worker-roles.md)
-### [Add an App Service resource provider to Azure Stack](azure-stack-app-service-deploy.md) (Dodawanie dostawcy zasobów usługi App Service do usługi Azure Stack)
+
 
 # Rozwiązywanie problemów
 ## [Rozwiązywanie problemów z usługą Azure Stack](azure-stack-troubleshooting.md)
@@ -88,6 +89,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

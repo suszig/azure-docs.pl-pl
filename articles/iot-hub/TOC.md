@@ -97,6 +97,28 @@
 #### [Opcjonalnie: zmiana zachowania diody LED](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [Rozwiązywanie problemów](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Rozpoczynanie pracy z platformą Arduino (Node)
+### [Rozpoczynanie pracy z płytką Arduino: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Lekcja 1. Konfigurowanie urządzenia
+#### [Konfigurowanie urządzenia](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [Pobieranie narzędzi (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [Pobieranie narzędzi (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [Pobieranie narzędzi (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [Tworzenie i wdrażanie aplikacji blink](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Lekcja 2. Tworzenie centrum IoT Hub
+#### [Pobieranie narzędzi platformy Azure (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Pobieranie narzędzi platformy Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Pobieranie narzędzi platformy Azure (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [Tworzenie centrum IoT Hub i rejestrowanie urządzenia Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Lekcja 3. Wysyłanie komunikatów z urządzenia do chmury
+#### [Tworzenie aplikacji funkcji i konta magazynu platformy Azure](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [Uruchamianie przykładowej aplikacji w celu wysyłania komunikatów](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [Odczytywanie komunikatów utrwalonych w magazynie](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Lekcja 4. Wysyłanie komunikatów z chmury do urządzeń
+#### [Uruchamianie przykładowej aplikacji w celu otrzymywania komunikatów](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [Opcjonalnie: zmiana zachowania diody LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Rozwiązywanie problemów](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Wprowadzenie do zestawu SDK bramy (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Wprowadzenie do zestawu SDK bramy (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -219,9 +241,10 @@
 ## [Java (urządzenia)](/java/api/com.microsoft.azure.iothub)
 ## [Zestawy SDK usługi Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [Zestaw SDK bramy](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (dostawca zasobów)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (tożsamości urządzeń)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST (komunikaty urządzenia) — interfejs API REST](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST (dostawca zasobów)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (tożsamości urządzeń)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (komunikaty urządzeń)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST (zadania)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Powiązane
 ## [Pakiet IoT Azure](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -240,6 +263,6 @@
 ## [Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -11,7 +11,7 @@
 
 # Rozpoczynanie pracy
 ## [Wymagania wstępne](active-directory-aadconnect-prerequisites.md)
-## [Instalowanie programu Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+## [Instalowanie programu Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Ustawienia ekspresowe](active-directory-aadconnect-get-started-express.md)
 ### [Ustawienia niestandardowe](active-directory-aadconnect-get-started-custom.md)
 ### [Uaktualnianie z narzędzia DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -33,7 +33,6 @@
 
 
 ## Zarządzanie programem Azure AD Connect Sync
-### [Instrukcja krok po kroku dotycząca ogólnego łącznika SQL](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [Zapobieganie przypadkowemu usuwaniu](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronizacja haseł](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Konto usługi Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # Dokumentacja
-## [Łącznik programu Windows PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-## [Ogólny łącznik SQL](active-directory-aadconnectsync-connector-genericsql.md)
-## [Ogólny łącznik LDAP](active-directory-aadconnectsync-connector-genericldap.md)
-## [Łącznik programu Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 ## [Synchronizacja tożsamości i odporność na zduplikowane atrybuty](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Wymagane porty i protokoły tożsamości hybrydowej](active-directory-aadconnect-ports.md)
 ## [Funkcje w wersji zapoznawczej](active-directory-aadconnect-feature-preview.md)
 ## [Historia wersji](active-directory-aadconnect-version-history.md)
+## [Konta i uprawnienia](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect Sync
 ### [Atrybuty synchronizowane z usługą Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -89,6 +85,6 @@
 ##[Zakończenie świadczenia usługi DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

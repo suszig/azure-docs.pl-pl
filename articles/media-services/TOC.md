@@ -4,6 +4,12 @@
 # Rozpoczęcie pracy
 ## [Tworzenie konta i zarządzanie nim](media-services-portal-create-account.md)
 ## [Konfigurowanie środowiska deweloperskiego](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Połączenie programowe
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Dostarczanie wideo na żądanie
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [Zestaw SDK platformy .NET](media-services-dotnet-get-started.md)
@@ -21,13 +27,10 @@
 ### Zarządzanie jednostkami
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Połączenie programowe
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
 ### [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Instrukcje: aktualizowanie usługi Media Services po stopniowym uaktualnieniu kluczy dostępu do magazynu](media-services-roll-storage-access-keys.md)
+### [Aktualizowanie usługi Media Services po stopniowym uaktualnieniu kluczy dostępu do magazynu](media-services-roll-storage-access-keys.md)
 ### [Limity przydziału i ograniczenia](media-services-quotas-and-limitations.md)
 
 ## Przekazywanie zawartości
@@ -35,6 +38,7 @@
 #### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Przekazywanie dużych plików za pomocą rozwiązania Aspera](media-services-upload-files-with-aspera.md)
 ### [Kopiowanie istniejących obiektów blob](media-services-copying-existing-blob.md)
 
 ## [Kodowanie zawartości](media-services-encode-asset.md)
@@ -98,7 +102,6 @@
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Transmisja strumieniowa na żywo z użyciem kodera w chmurze](media-services-manage-live-encoder-enabled-channels.md)
-### Samouczki dotyczące kodera w chmurze
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Konfigurowanie koderów lokalnych do użycia z koderem w chmurze](media-services-live-encoders-overview.md)
@@ -114,6 +117,7 @@
 ### [Konfigurowanie klucza niezaszyfrowanego AES-128 dla strumienia](media-services-protect-with-aes128.md)
 ### [Szyfrowanie zawartości przy użyciu szyfrowania magazynu z wykorzystaniem interfejsu API REST usługi AMS](media-services-rest-storage-encryption.md)
 ### [Omówienie szablonu licencji PlayReady usługi Media Services](media-services-playready-license-template-overview.md)
+### [Omówienie szablonu licencji Widevine](media-services-widevine-license-template-overview.md)
 ### [Dostarczanie licencji DRM](media-services-deliver-keys-and-licenses.md)
 ### [Korzystanie z partnerów w celu dostarczania licencji Widevine do usługi Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine](media-services-protect-with-drm.md)
@@ -152,16 +156,15 @@
 ### [Przetwarzanie multimediów](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Punkty końcowe przesyłania strumieniowego
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Dostarczanie zawartości](media-services-deliver-content-overview.md)
 ### [Dynamiczne tworzenie pakietów](media-services-dynamic-packaging-overview.md)
 ### [Omówienie filtrów i manifestów dynamicznych](media-services-dynamic-manifest-overview.md)
-### Tworzenie filtrów
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Tworzenie filtrów za pomocą programu .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Tworzenie filtrów za pomocą wzorca REST](media-services-rest-dynamic-manifest.md)
 ### Publikowanie zawartości
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -184,7 +187,6 @@
 ### [Zarządzanie elementami zawartości na wielu kontach magazynu](meda-services-managing-multiple-storage-accounts.md)
 ### [Korzystanie z Axinom w celu dostarczania licencji Widevine do usługi Azure Media Services](media-services-axinom-integration.md)
 ### [Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services](media-services-castlabs-integration.md)
-### [Omówienie szablonu licencji Widevine](media-services-widevine-license-template-overview.md)
 
 ## Monitorowanie
 ### Sprawdzanie postępu zadania
@@ -212,6 +214,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

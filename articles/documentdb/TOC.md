@@ -1,3 +1,4 @@
+
 # Omówienie
 ## [Co to jest baza danych DocumentDB?](documentdb-introduction.md)
 ## [Kluczowe pojęcia](documentdb-resources.md)
@@ -29,8 +30,9 @@
 ### [Partycjonowanie i skalowanie](documentdb-partition-data.md)
 ### [Spójność](documentdb-consistency-levels.md)
 ### [NoSQL a SQL](documentdb-nosql-vs-sql.md)
+### [Ekonomiczne odczyty i zapisy](documentdb-key-value-store-cost.md)
 
-## Zarządzaj
+## Zarządzanie
 ### [Importowanie danych](documentdb-import-data.md)
 ### [Modelowanie danych](documentdb-modeling-data.md)
 ### [Używanie danych geoprzestrzennych](documentdb-geospatial.md)
@@ -91,6 +93,7 @@
 ### [Odbieranie powiadomień za pomocą funkcji Logic Apps](documentdb-change-notification.md)
 ### [Przetwarzanie danych z czujników w czasie rzeczywistym](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Wizualizacja danych przy użyciu usługi Power BI](documentdb-powerbi-visualize.md)
+### [Wykorzystywanie sterownika ODBC do wizualizacji danych](documentdb-nosql-odbc-driver.md)
 
 
 # Dokumentacja
@@ -123,6 +126,6 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

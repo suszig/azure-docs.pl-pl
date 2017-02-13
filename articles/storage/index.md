@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Dowiedz się, jak korzystać z usługi Azure Storage — obiektów Blob, kolejek, tabel, plików oraz magazynu dyskowego maszyny wirtualnej w chmurze. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: b34bd277da4b1bdca5831b5267cde79345674dc1
+ms.openlocfilehash: 2ec05a53d7b2dd854e0cd96c70c83b1fefe48a1c
 
 ---
 
@@ -133,6 +133,7 @@ Dowiedz się, jak korzystać z usługi Azure Storage — trwałej, dostępnej i 
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Obiekty blob, kolejki, tabele i pliki</a></p>
                         <p><a href="/rest/api/storagerp">Dostawca zasobów</a></p>
                         <p><a href="/rest/api/storageimportexport">Import/eksport</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Interfejs API REST danych magazynu</a></p>
                    </div>
                 </div>
             </div>
@@ -144,6 +145,6 @@ Dowiedz się, jak korzystać z usługi Azure Storage — trwałej, dostępnej i 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
