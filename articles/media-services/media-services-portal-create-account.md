@@ -1,5 +1,5 @@
 ---
-title: " Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal | Microsoft Docs"
+title: " Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal | Microsoft Docss"
 description: "Ten samouczek przeprowadzi Cię przez kroki tworzenia konta usługi Azure Media Services za pomocą portalu Azure."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
 1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
 2. Kliknij pozycję **+Nowe** > **Sieci Web i mobilność** > **Media Services**.
    
-    ![Tworzenie usługi Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Tworzenie usługi Media Services](./media/media-services-create-account/media-services-new1.png)
 3. Na stronie **TWORZENIE KONTA USŁUGI MEDIA SERVICES** wprowadź wymagane wartości.
    
-    ![Tworzenie usługi Media Services](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Tworzenie usługi Media Services](./media/media-services-create-account/media-services-new3.png)
    
    1. W polu **Nazwa konta** wprowadź nazwę nowego konta usługi AMS. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.
    2. W subskrypcji wybierz jedną z różnych subskrypcji Azure, do których masz dostęp.
@@ -69,9 +69,12 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
    6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**, aby wyświetlić postęp wdrażania konta.
 4. Kliknij opcję **Utwórz** w dolnej części formularza.
    
-    Po pomyślnym utworzeniu konta stan zmieni się na **Uruchomiony**. 
+    Po pomyślnym utworzeniu konta zostanie załadowana strona przeglądu. W tabeli punktów końcowych przesyłania strumieniowego konto będzie mieć domyślny punkt końcowy przesyłania strumieniowego w stanie **Zatrzymany**. 
+
+    >[!NOTE]
+    >Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
    
-    ![Ustawienia usługi Media Services](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Ustawienia usługi Media Services](./media/media-services-create-account/media-services-settings.png)
    
     Do zarządzania kontem AMS (na przykład przekazywania plików wideo, kodowania elementów zawartości, monitorowania postępu zadania) używaj okna **Ustawienia**.
 
@@ -86,7 +89,7 @@ Do uzyskania programowego dostępu do konta usługi Media Services będą wymaga
     W oknie **Zarządzanie kluczami** widoczna jest nazwa konta oraz wyświetlane są klucze podstawowe i pomocnicze. 
 3. Naciśnij przycisk kopiowania, aby skopiować wartości.
    
-    ![Klucze usługi Media Services](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Klucze usługi Media Services](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz możesz przekazać pliki na konto usługi AMS. Więcej informacji znajduje się na stronie [Przekazywanie plików](media-services-portal-upload-files.md).
@@ -100,6 +103,6 @@ Teraz możesz przekazać pliki na konto usługi AMS. Więcej informacji znajduje
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Informacje o sposobie konfigurowania prywatnego połączenia usługi ExpressRoute między usługami chmurowymi firmy Microsoft a infrastrukturą lokalną lub środowiskiem obejmującym kilka lokalizacji oraz zarządzania takim połączeniem."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 551759d87b6c697aa1f28810fe32815aec66f269
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
 
 ---
 #<a name="expressroute-documentation"></a>Dokumentacja usługi ExpressRoute
 
-Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem specjalnego połączenia prywatnego wspieranego przez dostawcę połączenia. Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji.
-
+Dowiedz się, jak za pomocą usługi ExpressRoute skonfigurować szybkie, prywatne połączenie między usługami chmurowymi firmy Microsoft a infrastrukturą lokalną lub środowiskiem obejmującym kilka lokalizacji. Samouczki, interfejsy API REST i inne dokumenty ułatwiające konfigurowanie obwodu usługi ExpressRoute i zarządzanie nim.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,16 +98,10 @@ Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Mi
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi ExpressRoute </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

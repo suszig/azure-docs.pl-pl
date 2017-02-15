@@ -128,7 +128,6 @@
 #### [Wdrażanie usługi sieci Web](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Use external data](machine-learning-web-services-that-use-import-export-modules.md) (Korzystanie z danych zewnętrznych)
 #### [Deploy in multi-regions](machine-learning-how-to-deploy-to-multiple-regions.md) (Wdrażanie w wielu regionach)
-#### [Publikowanie w witrynie Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [Korzystanie z parametrów usług sieci Web](machine-learning-web-service-parameters.md)
 #### [Włączanie rejestrowania](machine-learning-web-services-logging.md)
 ### Zarządzanie usługami sieci Web
@@ -157,23 +156,10 @@
 #### [Use Hadoop with 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md) (Korzystanie z usługi Hadoop z 1 TB danych)
 #### [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md) (Korzystanie z programu SQL Server)
 #### [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md) (Korzystanie z usługi SQL Data Warehouse)
-### Przykłady usług sieci Web
-#### [Examples with R](machine-learning-r-csharp-web-service-examples.md) (Przykłady języka R)
-#### [Klasyfikator binarny](machine-learning-r-csharp-binary-classifier.md)
-#### [Model klastra](machine-learning-r-csharp-cluster-model.md)
-#### [Wieloczynnikowa regresja liniowa](machine-learning-r-csharp-multivariate-linear-regression.md)
-#### [Prognozowanie — wygładzanie wykładnicze](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-#### [Prognozowanie — ETS i STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-#### [Prognozowanie — ARIMA](machine-learning-r-csharp-arima.md)
-#### [Analiza przeżycia](machine-learning-r-csharp-survival-analysis.md)
-#### [Analiza tonacji na podstawie leksykonu](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-#### [Różnica w teście proporcji](machine-learning-r-csharp-difference-in-two-proportions.md)
-#### [Pakiet zwykłego rozkładu](machine-learning-r-csharp-normal-distribution.md)
-#### [Pakiet rozkładu dwumianowego](machine-learning-r-csharp-binomial-distribution.md)
-#### [Marketplace FAQ](machine-learning-marketplace-faq.md) (Często zadawane pytania dotyczące witryny Marketplace)
 
 # Dokumentacja
-## [Program PowerShell](machine-learning-powershell-module.md)
+## [Moduł programu PowerShell (nowy)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [Moduł programu PowerShell (klasyczny)](machine-learning-powershell-module.md)
 ## [Dokumentacja algorytmów i modułu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 

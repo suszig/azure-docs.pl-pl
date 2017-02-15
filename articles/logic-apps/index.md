@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Dowiedz się, jak opracowywać aplikacje logiki, które automatyzują i upraszczają biznesowe przepływy pracy w środowisku lokalnym i w chmurze. Samouczki, szablony i dokumentacja interfejsu API."
 translationtype: Human Translation
-ms.sourcegitcommit: 09066e463fe42bb845ccadc98cd79ed1c5881462
-ms.openlocfilehash: e8ab6aecb3d614a7b42e0524382022eabf66ea36
+ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
+ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
 
 ---
 # <a name="logic-apps-documentation"></a>Dokumentacja usługi Logic Apps
@@ -12,7 +12,7 @@ Dowiedz się, jak opracowywać aplikacje Logic Apps, które upraszczają i integ
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-what-are-logic-apps">
+        <a href="/azure/logic-apps/logic-apps-what-are-logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -48,7 +48,7 @@ Dowiedz się, jak opracowywać aplikacje Logic Apps, które upraszczają i integ
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-a-logic-app">
+        <a href="/azure/logic-apps/logic-apps-create-a-logic-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -66,7 +66,7 @@ Dowiedz się, jak opracowywać aplikacje Logic Apps, które upraszczają i integ
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-arm-provision">
+        <a href="/azure/logic-apps/logic-apps-arm-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -84,7 +84,7 @@ Dowiedz się, jak opracowywać aplikacje Logic Apps, które upraszczają i integ
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-api-app">
+        <a href="/azure/logic-apps/logic-apps-create-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -125,8 +125,8 @@ Dowiedz się, jak opracowywać aplikacje Logic Apps, które upraszczają i integ
                 <div class="card">
                     <div class="cardText">
                         <h3>Historia schematu</h3>
-                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2016-04-01?toc=%2fazure%2flogic-apps%2ftoc.json">Ogólna dostępność</a></p>
-                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2015-08-01?toc=%2fazure%2flogic-apps%2ftoc.json">Wersja zapoznawcza</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">Ogólne udostępnienie</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Wersja zapoznawcza</a></p>
                    </div>
                 </div>
             </div>
@@ -146,13 +146,7 @@ Dowiedz się, jak opracowywać aplikacje Logic Apps, które upraszczają i integ
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Logic Apps </div>
-    </a>
-</div>
+
 
 
 

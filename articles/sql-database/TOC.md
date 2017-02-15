@@ -20,6 +20,7 @@
 ## [Samouczki dotyczące usługi SQL Database](sql-database-explore-tutorials.md)
 ## [Przewodniki szybkiego startu dla rozwiązań](sql-database-solution-quick-starts.md)
 ## Bezpieczeństwo
+### [Omówienie zabezpieczeń](sql-database-security-overview.md)
 ### [Usługa Azure Security Center dla usługi Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [Centrum zabezpieczeń SQL](https://msdn.microsoft.com/library/azure/bb510589)
 # Wprowadzenie
@@ -69,12 +70,12 @@
 #### [Kopiowanie bazy danych SQL](sql-database-copy.md)
 ## Reguły zapory, uwierzytelnianie i autoryzacja
 ### Informacje
-#### [Omówienie](sql-database-security.md)
-#### [Zalecenia dotyczące zabezpieczeń](sql-database-security-guidelines.md)
+#### [Kontrola dostępu](sql-database-control-access.md)
 #### [Zapora](sql-database-firewall-configure.md)
 #### [Zarządzanie danymi logowania](sql-database-manage-logins.md)
 ### Zalecenia
-#### [Uwierzytelnianie i autoryzacja SQL](sql-database-get-started-security.md)
+#### [Uwierzytelnianie i autoryzacja SQL](sql-database-control-access-sql-authentication-get-started.md)
+#### [Uwierzytelnianie i autoryzacja w usłudze Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Zabezpieczanie i ochrona danych
 ### Informacje
 #### Inspekcja
@@ -106,7 +107,8 @@
 #### [Przeprowadzanie próbnego odzyskiwania po awarii](sql-database-disaster-recovery-drills.md)
 #### [Omówienie aktywnej replikacji geograficznej](sql-database-geo-replication-overview.md)
 ### Zalecenia
-#### [Wprowadzenie do kopii zapasowej i przywracania usługi SQL Database](sql-database-get-started-backup-recovery.md)
+#### [Azure Portal: tworzenie kopii zapasowych i ich przywracanie](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: tworzenie kopii zapasowych i ich przywracanie](sql-database-get-started-backup-recovery-powershell.md)
 ## Opracowywanie aplikacji
 ### Informacje
 #### [Omówienie tworzenia baz danych i aplikacji](sql-database-develop-overview.md)
@@ -150,7 +152,7 @@
 #### [Pojedyncze bazy danych](sql-database-single-database-monitor.md)
 #### [Omówienie funkcji SQL Database Advisor](sql-database-advisor.md)
 #### [Wytyczne dotyczące pojedynczej bazy danych](sql-database-performance-guidance.md)
-#### [Szczegółowe informacje o obciążeniach w witrynie Azure Portal](sql-database-performance.md)
+#### [Szczegółowe informacje o wydajności: Azure Portal](sql-database-performance.md)
 #### [Korzystanie z dzielenia na partie](sql-database-use-batching-to-improve-performance.md)
 #### [Zdarzenia rozszerzone](sql-database-xevent-db-diff-from-svr.md)
 ## SQL Database V11
@@ -253,15 +255,14 @@
 #### [Konfigurowanie długoterminowego przechowywania kopii zapasowych](sql-database-configure-long-term-retention.md)
 #### [Wyświetlanie kopii zapasowych w magazynie usługi Recovery Services](sql-database-view-backups-in-vault.md)
 #### [Przywracanie po długoterminowym przechowywaniu kopii zapasowych](sql-database-restore-from-long-term-retention.md)
+#### [Usuwanie z długoterminowego przechowywania kopii zapasowych](sql-database-long-term-retention-delete.md)
 ### Przywracanie usuniętej bazy danych
 #### [Przywracanie usuniętych danych za pomocą witryny Azure Portal](sql-database-restore-deleted-database-portal.md)
 #### [Przywracanie usuniętych danych przy użyciu programu PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Przywracanie do punktu w czasie
 #### [Przywracanie do punktu w czasie](sql-database-point-in-time-restore.md)
 #### [Wyświetlanie najstarszego punktu przywracania](sql-database-view-oldest-restore-point.md)
-### Przywracanie geograficzne
-#### [Przywracanie geograficzne za pomocą witryny Azure Portal](sql-database-geo-restore-portal.md)
-#### [Przywracanie geograficzne przy użyciu programu PowerShell](sql-database-geo-restore-powershell.md)
+### [Przywracanie z kopii zapasowej nadmiarowej geograficznie](sql-database-geo-restore.md)
 ## Aktywna replikacja geograficzna
 ### [Konfigurowanie przy użyciu witryny Azure Portal](sql-database-geo-replication-portal.md)
 ### [Konfigurowanie przy użyciu programu PowerShell](sql-database-geo-replication-powershell.md)
@@ -309,6 +310,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

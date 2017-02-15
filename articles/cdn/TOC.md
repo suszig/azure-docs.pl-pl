@@ -50,6 +50,10 @@
 ## [REST](/rest/api/cdn/)
 
 # Zasoby
+##  [Rules Engine reference](cdn-rules-engine-reference.md) (Dokumentacja aparatu reguł)
+### [Rules Engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md) (Wyrażenia warunkowe aparatu reguł)
+### [Rules Engine match conditions](cdn-rules-engine-reference-match-conditions.md) (Warunki dopasowań aparatu reguł)
+### [Rules Engine features](cdn-rules-engine-reference-features.md) (Funkcje aparatu reguł)
 ## [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cdn)
 ## [Cennik](https://azure.microsoft.com/pricing/details/cdn/)
@@ -58,6 +62,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

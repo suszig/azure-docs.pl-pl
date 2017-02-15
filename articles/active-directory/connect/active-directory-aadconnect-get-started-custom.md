@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 01/09/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: abc2b3a55b1c28f290b1b3e3dfe8ab05ab22ec16
+ms.sourcegitcommit: b162ad1b776223cdf848ed8d04b1b44f9437f86d
+ms.openlocfilehash: 431e4283efa6ca985d832ead05e455d49ffdac74
 
 
 ---
@@ -50,7 +50,7 @@ Po zainstalowaniu wymaganych składników zostanie wyświetlony monit o wybranie
 | Opcja logowania jednokrotnego | Opis |
 | --- | --- |
 | Synchronizacja haseł |Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej. Hasła użytkowników są synchronizowane z usługą Azure AD jako skrót hasła, a uwierzytelnianie odbywa się w chmurze. Więcej informacji znajduje się w temacie [Synchronizacja haseł](active-directory-aadconnectsync-implement-password-synchronization.md). |
-|Uwierzytelnianie przekazywane (wersja zapoznawcza)|Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej.  Hasło użytkowników jest przekazywane do lokalnego kontrolera usługi Active Directory w celu sprawdzenia poprawności. 
+|Uwierzytelnianie przekazywane (wersja zapoznawcza)|Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej.  Hasło użytkowników jest przekazywane do lokalnego kontrolera usługi Active Directory w celu sprawdzenia poprawności.
 | Federacja z usługami AD FS |Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej.  Użytkownicy są przekierowywani do wystąpienia lokalnych usług AD FS w celu zalogowania, a uwierzytelnianie odbywa się lokalnie. |
 | Nie konfiguruj |Żadna z funkcji nie jest zainstalowana ani skonfigurowana. Wybierz tę opcję, jeśli masz już serwer federacyjny innej firmy lub korzystasz z innego rozwiązania. |
 |Włącz logowanie jednokrotne|Ta opcja jest dostępna w przypadku synchronizacji haseł i uwierzytelniania przekazywanego. Udostępnia ona funkcję logowania jednokrotnego użytkownikom pulpitu w sieci firmowej.  Aby uzyskać więcej informacji, zobacz [Logowanie jednokrotne](active-directory-aadconnect-sso.md). </br>W przypadku klientów usług AD FS ta opcja jest niedostępna, ponieważ usługi AD FS umożliwiają logowanie jednokrotne na tym samym poziomie.</br>(Jeśli w tym samym czasie nie jest używane uwierzytelnianie przekazywane).
@@ -95,7 +95,9 @@ Sprawdź wszystkie domeny z oznaczeniem **Nie dodano** lub **Nie zweryfikowano**
 
 ### <a name="domain-and-ou-filtering"></a>Filtrowanie domen i jednostek organizacyjnych
 Domyślnie wszystkie domeny i jednostki organizacyjne są zsynchronizowane. Jeśli istnieją jakieś domeny lub jednostki organizacyjne, których nie chcesz synchronizować z usługą Azure AD, możesz usunąć zaznaczenie tych domen i jednostek organizacyjnych.  
-![Filtrowanie domen i jednostek organizacyjnych](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Ta strona kreatora służy do konfigurowania filtrowania opartego na domenie. Więcej informacji znajduje się w temacie opisującym [filtrowanie oparte na domenie](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+![Filtrowanie domen i jednostek organizacyjnych](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Ta strona kreatora służy do konfigurowania filtrowania opartego na domenie i jednostce organizacyjnej. Więcej informacji znajduje się w temacie opisującym [filtrowanie oparte na domenie](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) i [filtrowanie oparte na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Jeśli używasz filtrowania opartego na jednostce organizacyjnej, nowe jednostki organizacyjne dodane później są domyślnie synchronizowane. Aby nowe jednostki organizacyjne nie były synchronizowane, możesz skonfigurować odpowiednie ustawienie po zakończeniu działania kreatora w zakresie [filtrowania opartego na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+
+Jeśli planujesz używać [filtrowania opartego na grupie](#sync-filtering-based-on-groups), upewnij się, że jednostka organizacyjna z grupą jest uwzględniona i nie została odfiltrowana przy użyciu filtrowania opartego na jednostce organizacyjnej. Filtrowanie oparte na jednostce organizacyjnej jest stosowane przed filtrowaniem opartym na grupie.
 
 Istnieje również możliwość, że niektóre domeny są niedostępne z powodu ograniczeń zapory. Te domeny są domyślnie niezaznaczone i wyświetlane jest dla nich ostrzeżenie.  
 ![Niedostępne domeny](./media/active-directory-aadconnect-get-started-custom/unreachable.png)  
@@ -148,39 +150,6 @@ Na tym ekranie można wybrać funkcje opcjonalne dla określonych scenariuszy.
 | Zapisywanie zwrotne urządzeń |Umożliwia zapisywanie zwrotne obiektów urządzeń w usłudze Azure AD do lokalnej usługi Active Directory dla scenariuszy dostępu warunkowego. Więcej informacji znajduje się w temacie [Włączanie zapisywania zwrotnego urządzeń w programie Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
 | Synchronizacja atrybutów rozszerzeń katalogów |Po włączeniu synchronizacji atrybutów rozszerzeń katalogów określone atrybuty są synchronizowane z usługą Azure AD. Więcej informacji znajduje się w temacie [Rozszerzenia katalogów](active-directory-aadconnectsync-feature-directory-extensions.md). |
 
-### <a name="enabling-single-sign-on-sso"></a>Włączanie logowania jednokrotnego
-Konfigurowanie logowania jednokrotnego na użytek synchronizacji haseł lub uwierzytelniania przekazywanego to prosty proces, który trzeba wykonać tylko raz dla każdego lasu synchronizowanego w usłudze Azure AD.  Konfiguracja obejmuje następujące dwa kroki:
-
-1.  Utworzenie konta komputera niezbędnego w lokalnej usłudze Active Directory.
-2.  Skonfigurowanie obsługi logowania jednokrotnego w strefie intranetowej na komputerach klienckich.
-
-#### <a name="creating-the-computer-account-in-active-directory"></a>Tworzenie konta komputera w usłudze Active Directory
-Dla każdego lasu dodanego za pomocą narzędzia AAD Connect trzeba podać poświadczenia administratora domeny, aby konto komputera mogło zostać utworzone w każdym lesie.  Poświadczenia są używane tylko w celu utworzenia konta i nie są przechowywane ani używane w kontekście innych operacji.  Wystarczy dodać poświadczenia na stronie Włącz logowanie jednokrotne kreatora AAD Connect, jak pokazano poniżej:
-
-![Włączanie logowania jednokrotnego](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
-
->[!NOTE]
->Jeśli w określonym lesie nie chcesz włączać logowania jednokrotnego, możesz pominąć ten las.
-
-#### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurowanie strefy intranetowej dla komputerów klienckich
-Aby klient logował się automatycznie w strefie intranetowej, upewnij się, że adresy URL są częścią strefy intranetowej.  Dzięki temu komputer stacjonarny przyłączony do domeny automatycznie wyśle bilet protokołu Kerberos po połączeniu z siecią firmową.
-Na komputerze, na którym są zainstalowane narzędzia do zarządzania zasadami grupy:
-
-1.  Otwórz narzędzia do zarządzania zasadami grupy.
-2.  Poddaj edycji zasady grupy, które zostaną zastosowane do wszystkich użytkowników.  Mogą to być na przykład domyślne zasady domeny.
-3.  Przejdź do folderu Bieżący użytkownik\Szablony administracyjne\Składniki systemu Windows\Internet Explorer\Internetowy panel sterowania\Strona zabezpieczeń i wybierz pozycję Lista przypisywanie witryn do stref (jak na poniższym obrazie).
-4.  Włącz zasady, a następnie wprowadź dwa poniższe elementy w oknie dialogowym.
-   
-        Value: https://autologon.microsoftazuread-sso.com
-        Data: 1
-        Value: https://aadg.windows.net.nsatc.net 
-        Data: 1
-
-5.  Zawartość okna powinna wyglądać mniej więcej tak: ![Strefy intranetowe](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
-
-6.  Dwa razy kliknij przycisk OK.
-
-
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Filtrowanie atrybutów i aplikacji usługi Azure AD
 W celu ograniczenia liczby atrybutów, które mają być synchronizowane z usługą Azure AD, należy najpierw wybrać usługi, które są używane. W przypadku wprowadzania na tej stronie zmian konfiguracji nową usługę należy wybrać jawnie przez ponowne uruchomienie kreatora instalacji.
 
@@ -201,6 +170,39 @@ Można rozszerzyć schemat w usłudze Azure AD o atrybuty niestandardowe dodane 
 ![Rozszerzenia katalogów](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
 Więcej informacji znajduje się w temacie [Rozszerzenia katalogów](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+### <a name="enabling-single-sign-on-sso"></a>Włączanie logowania jednokrotnego
+Konfigurowanie logowania jednokrotnego na użytek synchronizacji haseł lub uwierzytelniania przekazywanego to prosty proces, który trzeba wykonać tylko raz dla każdego lasu synchronizowanego w usłudze Azure AD. Konfiguracja obejmuje następujące dwa kroki:
+
+1.  Utworzenie niezbędnego konta komputera w lokalnej usłudze Active Directory.
+2.  Skonfigurowanie obsługi logowania jednokrotnego w strefie intranetowej na maszynach klienckich.
+
+#### <a name="create-the-computer-account-in-active-directory"></a>Tworzenie konta komputera w usłudze Active Directory
+Dla każdego lasu dodanego za pomocą programu Azure AD Connect trzeba podać poświadczenia administratora domeny, aby konto komputera mogło zostać utworzone w każdym lesie. Poświadczenia są używane tylko w celu utworzenia konta i nie są przechowywane ani używane w kontekście innych operacji. Wystarczy dodać poświadczenia na stronie **Włącz logowanie jednokrotne** kreatora Azure AD Connect, jak pokazano poniżej:
+
+![Włączanie logowania jednokrotnego](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>Jeśli w określonym lesie nie chcesz używać logowania jednokrotnego, możesz pominąć ten las.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurowanie strefy intranetowej dla maszyn klienckich
+Aby klient logował się automatycznie w strefie intranetowej, upewnij się, że dwa adresy URL są częścią strefy intranetowej. Dzięki temu komputer przyłączony do domeny automatycznie wyśle bilet protokołu Kerberos do usługi Azure AD po połączeniu z siecią firmową.
+Na komputerze, na którym są zainstalowane narzędzia do zarządzania zasadami grupy:
+
+1.  Otwórz narzędzia do zarządzania zasadami grupy.
+2.  Poddaj edycji zasady grupy, które zostaną zastosowane do wszystkich użytkowników. Mogą to być na przykład domyślne zasady domeny.
+3.  Przejdź do obszaru **Konfiguracja użytkownika\Szablony administracyjne\Składniki systemu Windows\Internet Explorer\Internetowy panel sterowania\Strona zabezpieczeń** i wybierz pozycję **Lista przypisywanie witryn do stref** (jak na poniższym obrazie).
+4.  Włącz zasady, a następnie wprowadź dwa poniższe elementy w oknie dialogowym.
+
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
+
+5.  Zawartość okna powinna wyglądać mniej więcej tak:  
+![Strefy intranetowe](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  Dwa razy kliknij przycisk **OK**.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurowanie federacji przy użyciu usług AD FS
 Konfigurowanie usług AD FS przy użyciu programu Azure AD Connect jest proste — wystarczy kilka kliknięć. Przed przystąpieniem do konfiguracji potrzebne są następujące elementy:
@@ -312,16 +314,8 @@ Dowiedz się więcej na te popularne tematy: [harmonogram i sposób włączania 
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).
 
-## <a name="related-documentation"></a>Dokumentacja pokrewna
-| Temat |
-| --- | --- |
-| Omówienie programu Azure AD Connect |
-| Instalowanie przy użyciu ustawień ekspresowych |
-| Uaktualnianie przy użyciu narzędzia DirSync |
-| Konta używane do instalacji |
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

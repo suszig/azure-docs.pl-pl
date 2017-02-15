@@ -3,6 +3,8 @@
 ## [Czy jest to rozwiązanie odpowiednie dla Ciebie?](active-directory-ds-comparison.md)
 ## [Funkcje](active-directory-ds-features.md)
 ## [Scenariusze](active-directory-ds-scenarios.md)
+## [Jak działa synchronizacja](active-directory-ds-synchronization.md)
+## [Zgodne oprogramowanie innych firm](active-directory-ds-compatible-software.md)
 
 # Rozpoczęcie pracy
 ## [Tworzenie grupy administracyjnej](active-directory-ds-getting-started.md)
@@ -21,8 +23,10 @@
 ## [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
 ## [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej](active-directory-ds-admin-guide-configure-secure-ldap.md)
 ## [Tworzenie jednostki organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md)
+## [Administrowanie zasadami grupy w domenie zarządzanej](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Wybieranie sieci wirtualnej](active-directory-ds-networking.md)
-## [Synchronizowanie z katalogiem lokalnym](active-directory-ds-synchronization.md)
+## [Konfigurowanie obsługi synchronizacji profilów dla programu SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
+
 
 ## Rozwiązywanie problemów
 ### [Często zadawane pytania](active-directory-ds-faqs.md)
@@ -33,13 +37,13 @@
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Zasoby 
+# Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Forum z opiniami na temat platformy Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Forum z opiniami na temat usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Kontakt z nami](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

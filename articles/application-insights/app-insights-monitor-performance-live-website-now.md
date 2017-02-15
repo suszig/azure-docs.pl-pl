@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: 5159e7fc47d320d52eb7b94b5775158a3f09c769
+ms.sourcegitcommit: ee9ebc23ce805bb4665669077a4d3fddf4c43e32
+ms.openlocfilehash: a190b1990a4ae4e7ad52cc1a7e802c8002522917
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentowanie aplikacji sieci Web w czasie wykonywania za pomocą usługi Application Insights
-*Usługa Application Insights jest dostępna w wersji zapoznawczej.*
 
-Możliwe jest instrumentowanie działającej aplikacji sieci Web za pomocą usługi Application Insights w programie Visual Studio bez konieczności modyfikowania kodu ani jego ponownego wdrażania. W aplikacjach hostowanych przez lokalny serwer IIS instalowany jest monitor stanu. Jeśli natomiast aplikacje to aplikacje sieci Web platformy Azure lub aplikacje działające w ramach maszyny wirtualnej platformy Azure, można zainstalować rozszerzenie Application Insights. Istnieją także osobne artykuły na temat instrumentacji [działających aplikacji sieci Web w technologii J2EE](app-insights-java-live.md) i [usług Azure Cloud Services](app-insights-cloudservices.md).
+
+Możliwe jest instrumentowanie działającej aplikacji sieci Web za pomocą usługi Azure Application Insights bez konieczności modyfikowania kodu ani jego ponownego wdrażania. W aplikacjach hostowanych przez lokalny serwer IIS instalowany jest monitor stanu. Jeśli natomiast aplikacje to aplikacje sieci Web platformy Azure lub aplikacje działające w ramach maszyny wirtualnej platformy Azure, można zainstalować rozszerzenie Application Insights. Istnieją także osobne artykuły na temat instrumentacji [działających aplikacji sieci Web w technologii J2EE](app-insights-java-live.md) i [usług Azure Cloud Services](app-insights-cloudservices.md).
 
 ![przykładowe wykresy](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -38,8 +38,8 @@ Poniżej przedstawiono podsumowanie tego, co można uzyskać, korzystając z dan
 | --- | --- | --- |
 | Żądania i wyjątki |Tak |Tak |
 | [Bardziej szczegółowe wyjątki](app-insights-asp-net-exceptions.md) | |Tak |
-| [Diagnostyka zależności](app-insights-asp-net-dependencies.md) |Na platformie .NET 4.6+ |Tak |
-| [Liczniki wydajności sytemu](app-insights-performance-counters.md) | |Usługa IIS lub Usługa w chmurze platformy Azure, nie aplikacja sieci Web platformy Azure |
+| [Diagnostyka zależności](app-insights-asp-net-dependencies.md) |Na platformie .NET 4.6 +, ale mniej szczegółów |Tak, kompletne szczegóły: kody wyników, tekst polecenia SQL, czasownik HTTP|
+| [Liczniki wydajności sytemu](app-insights-performance-counters.md) |Tak |Tak |
 | [Interfejs API dla telemetrii niestandardowej][api] |Tak | |
 | [Integracja dziennika śledzenia](app-insights-asp-net-trace-logs.md) |Tak | |
 | [Widok strony i dane użytkownika](app-insights-javascript.md) |Tak | |
@@ -55,29 +55,23 @@ Potrzebna jest subskrypcja platformy [Microsoft Azure](http://azure.com).
 
 ### <a name="if-your-app-is-hosted-on-your-iis-server"></a>Jeśli aplikacja jest hostowana na Twoim serwerze IIS
 1. Zaloguj się na serwerze sieci Web usług IIS, używając poświadczeń administratora.
-2. Pobierz i uruchom [instalator monitora stanu](http://go.microsoft.com/fwlink/?LinkId=506648).
-3. W kreatorze instalacji zaloguj się do platformy Microsoft Azure.
-
-    ![Logowanie do platformy Azure przy użyciu poświadczeń konta Microsoft](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
-
-    *Błędy podczas połączenia? Zobacz [Rozwiązywanie problemów ](#troubleshooting).*
-4. Wybierz zainstalowaną aplikację sieci Web lub witrynę, którą chcesz monitorować, a następnie skonfiguruj zasób, w którym chcesz oglądać wyniki w portalu usługi Application Insights.
+2. Pobierz i uruchom [instalator monitora stanu](http://go.microsoft.com/fwlink/?LinkId=506648).  
+3. Wybierz zainstalowaną aplikację sieci Web lub witrynę, którą chcesz monitorować, a następnie skonfiguruj zasób, w którym chcesz oglądać wyniki w portalu usługi Application Insights. Trzeba się zalogować do platformy Microsoft Azure.
 
     ![Wybór aplikacji i zasobu.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    Zwykle należy wybrać opcję skonfigurowania nowego zasobu i [grupy zasobów][role].
+    Zwykle należy wybrać opcję skonfigurowania nowego zasobu i [grupy zasobów][roles].
 
-    Możesz zamiast tego użyć istniejącego zasobu, jeśli masz już skonfigurowane [testy sieci Web][availability] dla danej witryny lub [monitorowanie klienta sieci Web][klient].
-5. Uruchom ponownie usługi IIS.
+    Możesz zamiast tego użyć istniejącego zasobu, jeśli masz już skonfigurowane [testy sieci Web][availability] dla danej witryny lub [monitorowanie klienta sieci Web][client].
+4. Uruchom ponownie usługi IIS.
 
     ![Wybór opcji Uruchom ponownie w górnej części okna dialogowego.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Działanie usługi sieci Web zostanie na krótko przerwane.
-6. Zauważ, że do aplikacji sieci Web, którą chcesz monitorować, został wstawiony plik ApplicationInsights.config.
+5. Zauważ, że do aplikacji sieci Web, którą chcesz monitorować, został wstawiony plik ApplicationInsights.config.
 
     ![Plik .config obok plików kodu aplikacji sieci Web.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-
-   Pewne zmiany zostały wprowadzone również w pliku web.config.
+   
 
 #### <a name="want-to-reconfigure-later"></a>Czy chcesz dokonać później (ponownej) konfiguracji?
 Po ukończeniu działania kreatora możesz ponownie skonfigurować agenta w dowolnym czasie. Możesz także użyć tego sposobu, jeśli agent został zainstalowany, ale wystąpiły problemy z konfiguracją początkową.
@@ -105,7 +99,7 @@ Aby podzielić wykres na segmenty według wywołań różnych składników zale�
 ![Zależność](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
 ## <a name="performance-counters"></a>Liczniki wydajności
-(Nie dotyczy aplikacji sieci Web platformy Azure). Kliknij opcję Serwery w bloku przeglądu, aby zobaczyć wykresy liczników wydajności serwera, takich jak zajętość procesora CPU i użycie pamięci.
+Kliknij opcję Serwery w bloku przeglądu, aby zobaczyć wykresy liczników wydajności serwera, takich jak zajętość procesora CPU i użycie pamięci.
 
 Jeśli masz kilka wystąpień serwera, możesz edytować wykresy w celu grupowania według wystąpienia roli.
 
@@ -137,7 +131,7 @@ Aby umożliwić działanie Monitora stanu, na zaporze serwera należy otworzyć 
   * W Menedżerze usług IIS wybierz pulę aplikacji, otwórz **Ustawienia zaawansowane** i zapamiętaj tożsamość w obszarze **Model procesu**.
   * W panelu sterowania Zarządzanie komputerem dodaj tę tożsamość do grupy Użytkownicy monitora wydajności.
 * Jeśli na serwerze jest zainstalowany agent MMA/SCOM, niektóre wersje mogą powodować konflikt. Odinstaluj oprogramowanie SCOM i monitor stanu, a następnie ponownie zainstaluj najnowsze wersje.
-* Zobacz [Rozwiązywanie problemów][pytania i odpowiedzi].
+* Zobacz [Rozwiązywanie problemów][qna].
 
 ## <a name="system-requirements"></a>Wymagania systemu
 Serwerowe systemy operacyjne obsługiwane przez monitor stanu usługi Application Insights:
@@ -146,10 +140,11 @@ Serwerowe systemy operacyjne obsługiwane przez monitor stanu usługi Applicatio
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
-z najnowszym dodatkiem SP oraz oprogramowaniem .NET Framework 4.0 i 4.5
+z najnowszym dodatkiem SP oraz platformą .NET Framework 4.5
 
-Po stronie klienta systemy Windows 7, 8 i 8.1, również z oprogramowaniem .NET Framework 4.0 i 4.5
+Po stronie klienta systemy Windows 7, 8, 8.1 i 10, również z platformą .NET Framework 4.5
 
 Obsługiwane wersje usług IIS: 7, 7.5, 8, 8.5 (usługi IIS są wymagane)
 
@@ -215,23 +210,23 @@ Dowiedz się, które aplikacje są monitorowane:
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Następne kroki
 * [Tworzenie testów sieci Web][availability], aby upewnić się, że witryna pozostaje aktywna.
-* [Wyszukiwanie zdarzeń i dzienników][diagnostyka], aby łatwiej diagnozować problemy.
-* [Dodawanie telemetrii klienta sieci Web][użycie], aby zobaczyć wyjątki pochodzące z kodu strony sieci Web i umożliwić wstawianie wywołań śladu.
+* [Wyszukiwanie zdarzeń i dzienników][diagnostic], aby łatwiej diagnozować problemy.
+* [Dodawanie telemetrii klienta sieci Web][usage], aby zobaczyć wyjątki pochodzące z kodu strony sieci Web i umożliwić wstawianie wywołań śladu.
 * [Dodawanie zestawu SDK usługi Application Insights do kodu usługi sieci Web][greenbrown], aby móc wstawić ślad i rejestrować wywołania w kodzie serwera.
 
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
-[klient]: app-insights-javascript.md
-[diagnostyka]: app-insights-diagnostic-search.md
+[client]: app-insights-javascript.md
+[diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
-[pytania i odpowiedzi]: app-insights-troubleshoot-faq.md
-[role]: app-insights-resources-roles-access-control.md
-[użycie]: app-insights-web-track-usage.md
+[qna]: app-insights-troubleshoot-faq.md
+[roles]: app-insights-resources-roles-access-control.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

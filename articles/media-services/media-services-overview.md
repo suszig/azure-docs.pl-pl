@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
-ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
 
 
 ---
@@ -48,7 +48,7 @@ Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
-Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.14).  
+Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.15).  
 
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
@@ -65,9 +65,8 @@ Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:
 2. Konto usługi Azure Media Services. Aby utworzyć konto usługi Azure Media Services, użyj witryny Azure Portal, platformy .NET lub interfejsu API REST. Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).
 3. (Opcjonalnie) Konfigurowanie środowiska deweloperskiego. Wybierz platformę .NET lub interfejs API REST dla środowiska deweloperskiego. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie środowiska](media-services-dotnet-how-to-use.md).
 
-    Poznaj także sposób programowego ustanawiania połączenia przedstawiony w temacie [Nawiązywanie połączenia](media-services-dotnet-connect-programmatically.md).
-
-4. (Zalecane) Przydziel co najmniej jedną jednostkę skalowania. Zalecane jest przydzielenie co najmniej jednej jednostki skalowania dla aplikacji w środowisku produkcyjnym.   Aby uzyskać więcej informacji, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-portal-manage-streaming-endpoints.md).
+    Poznaj także sposób [programowego ustanawiania połączenia](media-services-dotnet-connect-programmatically.md).
+4. Punkt końcowy przesyłania strumieniowego (standardowy lub Premium) w stanie uruchomionym.  Aby uzyskać więcej informacji, zobacz [Zarządzanie punktami końcowymi przesyłania strumieniowego](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-manage-streaming-endpoints)
 
 ## <a name="concepts-and-overview"></a>Pojęcia i omówienie
 Pojęcia związane z usługą Azure Media Services zostały przedstawione w temacie [Pojęcia](media-services-concepts.md).
@@ -79,6 +78,9 @@ W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych
 
 ![Wideo na żądanie — przepływ pracy](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
+>[!NOTE]
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
+    
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Ochrona zawartości w magazynie i dostarczanie multimediów strumieniowych w formie niezaszyfrowanej
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości.
 
@@ -90,12 +92,9 @@ W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych
 
     Jeśli element zawartości jest szyfrowany w magazynie, **musisz** skonfigurować zasady dostarczania elementu zawartości.
 4. Opublikuj element zawartości, tworząc lokalizator OnDemand.
-
-    Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 5. Prześlij strumieniowo opublikowaną zawartość.
 
 ### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Ochrona zawartości w magazynie i dostarczanie dynamicznie szyfrowanych multimediów strumieniowych
-Aby można było korzystać z dynamicznego szyfrowania, należy najpierw pobrać co najmniej jedną jednostkę zarezerwowanego przesyłania strumieniowego w punkcie końcowym przesyłania strumieniowego, z którego ma być przesyłana strumieniowo zaszyfrowana zawartość.
 
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości. Zastosuj opcję szyfrowania magazynu w odniesieniu do elementu zawartości.
 2. Wykonaj kodowanie do zestawu plików MP4 o adaptacyjnej szybkości transmisji bitów. Zastosuj opcję szyfrowania magazynu w odniesieniu do elementu zawartości wyjściowej.
@@ -123,9 +122,7 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
 2. Wykonaj kodowanie do pojedynczego pliku MP4.
 3. Opublikuj element zawartości, tworząc lokalizator OnDemand lub SAS.
 
-    W przypadku korzystania z lokalizatora OnDemand upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być pobierana progresywnie.
-
-    W przypadku użycia lokalizatora SAS zawartość zostanie pobrana z magazynu Azure Blob Storage. W takim przypadku jednostki zarezerwowanego przesyłania strumieniowego nie są konieczne.
+    W przypadku użycia lokalizatora SAS zawartość zostanie pobrana z magazynu Azure Blob Storage. W takim przypadku nie są konieczne punkty końcowe przesyłania strumieniowego w stanie uruchomionym.
 4. Pobierz progresywnie zawartość.
 
 ## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Dostarczanie wydarzeń transmisji strumieniowej na żywo za pośrednictwem usługi Azure Media Services
@@ -151,7 +148,7 @@ W usłudze Azure Media Services **kanały**, **programy**, i **punkty końcowe p
 
 **Kanał** reprezentuje potok przetwarzania zawartości transmisji strumieniowej na żywo. Kanał może odbierać przychodzące strumienie na żywo w następujący sposób:
 
-* Lokalny koder na żywo wysyła plik **RTMP** o różnych szybkościach transmisji bitów lub plik **Smooth Streaming** (pofragmentowany plik MP4) do kanału, który jest skonfigurowany do obsługi dostarczania zawartości w formie **przekazywania**. Dostarczanie w formie **przekazywania** występuje wtedy, gdy pozyskiwane strumienie są przekazywane przez **kanał** bez dalszego przetwarzania. Można użyć następujących koderów na żywo, które wysyłają pliki Smooth Streaming o różnych szybkościach transmisji bitów: Elemental, Envivio, Cisco.  Następujące kodery na żywo wysyłają pliki RTMP: Adobe Flash Live, Telestream Wirecast i transkodery Tricaster.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
+* Lokalny koder na żywo wysyła plik **RTMP** o różnych szybkościach transmisji bitów lub plik **Smooth Streaming** (pofragmentowany plik MP4) do kanału, który jest skonfigurowany do obsługi dostarczania zawartości w formie **przekazywania**. Dostarczanie w formie **przekazywania** występuje wtedy, gdy pozyskiwane strumienie są przekazywane przez **kanały** bez dalszego transkodowania ani kodowania. Można użyć następujących koderów na żywo, które wysyłają pliki Smooth Streaming o różnych szybkościach transmisji bitów: MediaExcel, Imagine Communications, Ateme, Envivio, Cisco i Elemental. Następujące kodery na żywo wysyłają pliki RTMP: Adobe Flash Live Encoder, Haivision, Telestream Wirecast, Teradek i Tricaster.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
 > [!NOTE]
 > Metoda przekazywania to najbardziej ekonomiczne rozwiązanie transmisji strumieniowej na żywo w przypadku organizowania wielu wydarzeń w długim okresie oraz poczynionych inwestycji w kodery lokalne. Zobacz szczegółowe informacje o [cenach](https://azure.microsoft.com/pricing/details/media-services/).
@@ -183,9 +180,11 @@ Usługa Azure Media Services udostępnia narzędzia potrzebne do tworzenia zaawa
 Usługa Media Services obsługuje integrację z usługą Azure CDN. Aby uzyskać informacje o sposobie włączania usługi Azure CDN, zobacz temat [Zarządzanie punktami końcowymi przesyłania strumieniowego na koncie usługi Media Services](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a name="scaling-a-media-services-account"></a>Skalowanie konta usługi Media Services
+
 Możesz skalować usługę **Media Services**, określając liczbę **jednostek zarezerwowanego przesyłania strumieniowego** i **jednostek zarezerwowanych do celów związanych z kodowaniem** obsługiwanych przez konto.
 
 Możliwe jest także skalowanie konta usługi Media Services przez dodanie do niego kont magazynu. Pojemność każdego konta magazynu jest ograniczona do 500 TB. Aby rozszerzyć pojemność magazynu poza ograniczenia domyślne, można dołączyć wiele kont magazynu do jednego konta usługi Media Services.
+Klienci platformy Media Services wybierają **standardowy** punkt końcowy przesyłania strumieniowego lub co najmniej jeden punkt końcowy przesyłania strumieniowego **Premium**, zgodnie ze swoimi potrzebami. Standardowy punkt końcowy przesyłania strumieniowego jest odpowiedni dla większości obciążeń przesyłania strumieniowego. Ma on te same funkcje co jednostki przesyłania strumieniowego Premium. Standardowy punkt końcowy przesyłania strumieniowego jest odpowiedni dla większości obciążeń przesyłania strumieniowego. Jeśli korzystasz z zaawansowanych obciążeń lub docelowe przepływności standardowego punktu końcowego przesyłania strumieniowego nie spełniają wymagań dotyczących wydajności przesyłania strumieniowego albo chcesz kontrolować wydajność usługi StreamingEndpoint w celu obsługi rosnącego zapotrzebowania na przepustowość przez dopasowanie liczby jednostek skalowania (znanych także jako jednostki przesyłania strumieniowego Premium), zaleca się przydzielenie jednostek skalowania.
 
 [Ten](media-services-portal-scale-streaming-endpoints.md) temat zawiera linki do powiązanych tematów.
 
@@ -197,7 +196,7 @@ Możliwe jest także skalowanie konta usługi Media Services przez dodanie do ni
 
 ## <a name="service-level-agreement-sla"></a>Umowa dotycząca poziomu usług (SLA)
 * W przypadku usługi Media Services Encoding gwarantujemy dostępność transakcji interfejsu API REST na poziomie 99,9%.
-* W zakresie transmisji strumieniowej zapewniamy pomyślną obsługę żądań z gwarancją dostępności na poziomie 99,9% dla istniejącej zawartości multimedialnej w przypadku zakupu co najmniej jednej jednostki przesyłania strumieniowego.
+* W zakresie przesyłania strumieniowego zapewniamy pomyślną obsługę żądań z gwarancją dostępności na poziomie 99,9% dla istniejącej zawartości multimedialnej w przypadku zakupu standardowego punktu końcowego przesyłania strumieniowego lub punktu końcowego przesyłania strumieniowego Premium.
 * W odniesieniu do kanałów na żywo gwarantujemy, że uruchomione kanały będą utrzymywać łączność zewnętrzną przez co najmniej 99,9% czasu.
 * W usłudze Content Protection gwarantujemy pomyślną realizację żądań kluczy przez co najmniej 99,9% czasu.
 * Dla odniesieniu do indeksatora zapewniamy pomyślną realizację żądań zadań indeksatora przetwarzanych przez jednostkę zarezerwowaną do celów związanych z kodowaniem przez 99,9% czasu.
@@ -212,6 +211,6 @@ Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług p
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

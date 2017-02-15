@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie reguły zapory na poziomie serwera w usłudze SQL Database | Microsoft Docs"
-description: "Informacje o konfigurowaniu zapory dla adresów IP uzyskujących dostęp do serwera Azure SQL."
+title: "Azure Portal: reguły zapory na poziomie serwera usługi Azure SQL Database | Microsoft Docs"
+description: "Informacje o konfigurowaniu reguł zapory na poziomie serwera dla adresów IP uzyskujących dostęp do serwera Azure SQL przy użyciu witryny Azure Portal."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
 
 
 ---
@@ -64,6 +64,6 @@ Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

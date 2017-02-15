@@ -110,15 +110,17 @@
 #### [Program PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [Interfejs wiersza polecenia](virtual-network-manage-nsg-arm-cli.md)
 #### [Dzienniki](virtual-network-nsg-manage-log.md)
-#### Rozwiązywanie problemów
-##### [Portal](virtual-network-nsg-troubleshoot-portal.md)
-##### [Program PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
-### Rozwiązywanie problemów z trasami
-#### [Portal](virtual-network-routes-troubleshoot-portal.md)
-#### [Program PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### Maszyny wirtualne
 #### [Wyświetlanie i modyfikowanie nazw hostów](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Przenoszenie maszyny wirtualnej do innej podsieci](virtual-networks-move-vm-role-to-subnet.md)
+
+## Rozwiązywanie problemów
+### Grupy zabezpieczeń sieci
+#### [Portal](virtual-network-nsg-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+### Trasy
+#### [Portal](virtual-network-routes-troubleshoot-portal.md)
+#### [Program PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Dokumentacja
 ## [Program PowerShell — model usługi Resource Manager](https://msdn.microsoft.com/library/mt163510(v=azure.300))
@@ -145,6 +147,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

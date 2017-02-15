@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak korzystać z usługi Azure Storage — obiektów Blob, kolejek, tabel, plików oraz magazynu dyskowego maszyny wirtualnej w chmurze. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
-ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
+ms.sourcegitcommit: b34bd277da4b1bdca5831b5267cde79345674dc1
+ms.openlocfilehash: 2ec05a53d7b2dd854e0cd96c70c83b1fefe48a1c
 
 ---
 
 # <a name="storage-documentation"></a>Dokumentacja usługi Storage
 
-Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplikacji, które polegają na trwałości, dostępności i skalowalności, aby spełniać potrzeby klientów.  Jest wysoce skalowalne, elastyczne, globalnie dostępne, a przy tym automatycznie równoważy obciążenia na podstawie ruchu danych.  Usługa Azure Storage obejmuje pięć następujących usług udostępnianych aplikacjom: Blob Storage, Table Storage, Queue Storage, Disk Storage i File Storage.
+Dowiedz się, jak korzystać z usługi Azure Storage — trwałej, dostępnej i skalowalnej usługi magazynu w chmurze. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób konfigurowania obiektów Blob, kolejek, tabel, plików i magazynu dyskowego maszyny wirtualnej oraz zarządzania tymi elementami.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -129,8 +130,10 @@ Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplika
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">REST: import/eksport</a></p>
-                        <p><a href="/rest/api/storagerp">REST: dostawca zasobów</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Obiekty blob, kolejki, tabele i pliki</a></p>
+                        <p><a href="/rest/api/storagerp">Dostawca zasobów</a></p>
+                        <p><a href="/rest/api/storageimportexport">Import/eksport</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Interfejs API REST danych magazynu</a></p>
                    </div>
                 </div>
             </div>
@@ -138,16 +141,10 @@ Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplika
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Storage </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO5-->
 
 

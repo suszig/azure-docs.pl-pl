@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak za pomocą platformy pośredniczącej usługi Service Fabric umieszczać mikrousługi w pakietach i wdrażać je na potrzeby obsługi aplikacji w skali chmury. Samouczki, dokumentacja interfejsu API i przykładowy kod."
 translationtype: Human Translation
-ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
-ms.openlocfilehash: 0598e5ea3dc95853a21a56326241a82854477cbe
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
 
 ---
 #<a name="service-fabric-documentation"></a>Dokumentacja usługi Service Fabric
 
-Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi. Ponadto usługa Service Fabric pozwala sprostać istotnym wyzwaniom związanym z opracowywaniem aplikacji w chmurze i zarządzaniem nimi. Deweloperzy i administratorzy mogą uniknąć złożonych problemów związanych z infrastrukturą i skoncentrować się na implementowaniu wymagających obciążeń o znaczeniu strategicznym, które są skalowalne, niezawodne i łatwe w zarządzaniu. 
+Dowiedz się, jak za pomocą usługi Service Fabric wdrażać skalowalne i niezawodne mikrousługi, umieszczać je w pakietach oraz zarządzać nimi. Samouczki, dokumentacja interfejsu API i przykładowy kod przedstawiające sposób używania platformy oprogramowania pośredniczącego do tworzenia aplikacji w skali chmury oraz zarządzania nimi.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,16 +149,10 @@ Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca 
 </ul>   
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Service Fabric </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

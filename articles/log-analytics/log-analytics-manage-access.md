@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -60,7 +60,7 @@ Szczegółowe informacje o obszarze roboczym można wyświetlić w witrynie Azur
 
 #### <a name="view-workspace-information-the-azure-portal"></a>Wyświetlanie informacji o obszarze roboczym w witrynie Azure Portal
 
-1. Jeśli nie zostało to wcześniej zrobione, zaloguj się do [Portalu Azure](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
+1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
 2. W menu **Centrum** kliknij pozycję **Więcej usług** i na liście zasobów wpisz ciąg **Log Analytics**. Po rozpoczęciu pisania zawartość listy będzie filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
     ![Centrum platformy Azure](./media/log-analytics-manage-access/hub.png)  
 3. Wybierz obszar roboczy w bloku subskrypcji usługi Log Analytics.
@@ -242,6 +242,24 @@ Jeśli chcesz zmienić subskrypcję platformy Azure, z którą jest połączony 
 6. Gdy odświeżysz widok w witrynie Azure Portal, zostanie wyświetlona zaktualizowana **warstwa cenowa** wybranego planu.  
     ![zaktualizowany plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Zmiana czasu przechowywania danych przez usługę Log Analytics
+
+W warstwie cenowej Bezpłatna usługa Log Analytics udostępnia dane z ostatnich siedmiu dni.
+W warstwie cenowej Standardowa usługa Log Analytics udostępnia dane z ostatnich 30 dni.
+W warstwie cenowej Premium usługa Log Analytics udostępnia dane z ostatnich 365 dni.
+W warstwach cenowych Autonomiczna i OMS usługa Log Analytics domyślnie udostępnia dane z ostatnich 31 dni.
+
+Korzystając z warstw cenowych Autonomiczna i OMS, możesz przechowywać dane z maksymalnie 2 lat (730 dni). Za dane przechowywane dłużej niż domyślne 31 dni jest naliczana opłata za przechowywanie danych. Aby uzyskać więcej informacji na temat cen, zobacz [opłaty za użycie nadwyżkowe](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Aby zmienić czas przechowywania danych:
+
+1. Zaloguj się do [Azure Portal](http://portal.azure.com).
+2. Wyszukaj pozycję **Log Analytics** i wybierz ją.
+3. Zostanie wyświetlona lista istniejących obszarów roboczych. Wybierz obszar roboczy.  
+4. W bloku obszaru roboczego w obszarze **Ogólne** kliknij pozycję **Przechowywanie**.  
+5. Za pomocą suwaka zwiększ lub zmniejsz liczbę dni przechowywania, a następnie kliknij przycisk **Zapisz**
+![zmiana okresu przechowywania](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Zmienianie organizacji usługi Azure Active Directory dla obszaru roboczego
 
 Organizację usługi Azure Active Directory obszaru roboczego można zmienić. Zmiana organizacji usługi Azure Active Directory umożliwia dodawanie użytkowników i grup z tego katalogu do obszaru roboczego.
@@ -275,6 +293,6 @@ Jeśli jesteś administratorem i z tym obszarem roboczym jest skojarzonych wielu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

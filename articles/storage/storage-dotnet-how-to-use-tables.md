@@ -259,9 +259,13 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 
 // Print the phone number of the result.
 if (retrievedResult.Result != null)
+{
     Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+}
 else
+{
     Console.WriteLine("The phone number could not be retrieved.");
+}
 ```
 
 ## <a name="replace-an-entity"></a>Zastępowanie jednostki
@@ -301,7 +305,9 @@ if (updateEntity != null)
     Console.WriteLine("Entity updated.");
 }
 else
+{
     Console.WriteLine("Entity could not be retrieved.");
+}
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Wstawianie lub zastępowanie jednostki
@@ -341,9 +347,10 @@ if (updateEntity != null)
 
     Console.WriteLine("Entity was updated.");
 }
-
 else
+{
     Console.WriteLine("Entity could not be retrieved.");
+}
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
@@ -405,9 +412,10 @@ if (deleteEntity != null)
 
     Console.WriteLine("Entity deleted.");
 }
-
 else
+{
     Console.WriteLine("Could not retrieve the entity.");
+}
 ```
 
 ## <a name="delete-a-table"></a>Usuwanie tabeli

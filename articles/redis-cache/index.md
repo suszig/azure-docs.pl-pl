@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pamięci podręcznej danych i komunikatów, który zapewnia aplikacjom szybki dostęp do danych. Samouczki, dokumentacja interfejsu API i inne materiały."
 translationtype: Human Translation
-ms.sourcegitcommit: 4e66f89a5a63cafc8cc9e6af957f27172957c934
-ms.openlocfilehash: cd838fe6027f2c097850c29308630d2086243985
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 ---
 #<a name="redis-cache-documentation"></a>Dokumentacja usługi Redis Cache
@@ -149,7 +149,7 @@ Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pami�
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="/cli/azure/redis">Azure CLI 2.0 (wersja zapoznawcza)</a></p>
+                        <p><a href="/cli/azure/redis">Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)</a></p>
                     </div>
                 </div>
             </div>
@@ -184,13 +184,7 @@ Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pami�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Redis Cache </div>
-    </a>
-</div>
+
 
 
 

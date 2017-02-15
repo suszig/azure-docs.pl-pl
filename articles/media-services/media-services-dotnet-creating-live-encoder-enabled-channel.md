@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1cee92f59f5883b031ccc547a2f67f7dcd4fa3c3
 
 
 ---
@@ -46,31 +46,32 @@ W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji 
 
 1. Podłącz kamerę wideo do komputera. Uruchom i skonfiguruj lokalny koder na żywo, który wysyła strumień o pojedynczej szybkości transmisji bitów przy użyciu jednego z następujących protokołów: RTMP, Smooth Streaming lub RTP (MPEG-TS). Aby uzyskać więcej informacji, zobacz temat [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Ten krok można również wykonać po utworzeniu kanału.
+    Ten krok można również wykonać po utworzeniu kanału.
 
-1. Utwórz i uruchom kanał.
-2. Pobierz adres URL pozyskiwania kanału.
+2. Utwórz i uruchom kanał.
+3. Pobierz adres URL pozyskiwania kanału.
 
-Koder na żywo używa adresu URL pozyskiwania do wysyłania strumienia do kanału.
+    Koder na żywo używa adresu URL pozyskiwania do wysyłania strumienia do kanału.
 
-1. Pobierz adres URL podglądu kanału.
+4. Pobierz adres URL podglądu kanału.
 
-Użyj tego adresu URL, aby sprawdzić, czy kanał prawidłowo odbiera strumień na żywo.
+    Użyj tego adresu URL, aby sprawdzić, czy kanał prawidłowo odbiera strumień na żywo.
 
-1. Utwórz zasób.
-2. Aby zasób był dynamicznie szyfrowany podczas odtwarzania , należy wykonać następujące czynności:
-3. Utwórz klucz zawartości.
-4. Skonfiguruj zasady autoryzacji klucza zawartości.
-5. Skonfiguruj zasady dostarczania zasobu (stosowane podczas pakowania dynamicznego i szyfrowania dynamicznego).
-6. Utwórz program i określ użycie utworzonego zasobu.
-7. Opublikuj zasób skojarzony z programem przez utworzenie lokalizatora OnDemand.
+5. Utwórz zasób.
+6. Aby zasób był dynamicznie szyfrowany podczas odtwarzania , należy wykonać następujące czynności:
+7. Utwórz klucz zawartości.
+8. Skonfiguruj zasady autoryzacji klucza zawartości.
+9. Skonfiguruj zasady dostarczania zasobu (stosowane podczas pakowania dynamicznego i szyfrowania dynamicznego).
+10. Utwórz program i określ użycie utworzonego zasobu.
+11. Opublikuj zasób skojarzony z programem przez utworzenie lokalizatora OnDemand.
 
-Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
+    >[!NOTE]
+    >Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
 
-1. Uruchom program, gdy wszystko będzie gotowe do rozpoczęcia przesyłania strumieniowego i archiwizacji.
-2. Opcjonalnie można przesłać do kodera na żywo sygnał o rozpoczęciu reklamy. Reklama jest wstawiana do strumienia wyjściowego.
-3. Zatrzymaj program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
-4. Usuń program (opcjonalnie można również usunąć zasób).
+12. Uruchom program, gdy wszystko będzie gotowe do rozpoczęcia przesyłania strumieniowego i archiwizacji.
+13. Opcjonalnie można przesłać do kodera na żywo sygnał o rozpoczęciu reklamy. Reklama jest wstawiana do strumienia wyjściowego.
+14. Zatrzymaj program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
+15. Usuń program (opcjonalnie można również usunąć zasób).
 
 ## <a name="what-youll-learn"></a>Zawartość
 W tym temacie opisano sposób wykonywania różnych operacji na kanałach i programach przy użyciu zestawu SDK .NET usługi Media Services. Ponieważ czas trwania wielu operacji jest długi, użyto interfejsów API platformy .NET służących do zarządzania operacjami długotrwałymi.
@@ -100,9 +101,8 @@ Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka 
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 * Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z nami pod adresem amslived@microsoft.com, jeśli chcesz uruchomić kanał na dłużej.
-* Upewnij się, że istnieje co najmniej jedna jednostka zarezerwowanego przesyłania strumieniowego w punkcie końcowym, z którego zawartość ma być przesyłana strumieniowo.
 
-## <a name="download-sample"></a>Pobieranie próbki
+## <a name="download-sample"></a>Pobieranie przykładu
 Pobierz i uruchom próbkę [z tego miejsca](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Konfigurowanie środowiska deweloperskiego przy użyciu zestawu .NET SDK usługi Media Services
@@ -524,12 +524,10 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Szukasz czegoś innego?
-Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się swoją opinią za pomocą wątku usługi Disqus poniżej.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

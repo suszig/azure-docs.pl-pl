@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak utworzyć maszynę wirtualną przy użyciu wybranej dystrybucji systemu Linux. W dokumentacji pokazano różne sposoby tworzenia szablonów maszyn wirtualnych."
+title: "Dokumentacja, samouczki i informacje o interfejsach API usługi Azure Virtual Machines dla systemu Linux | Microsoft Docs"
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f368f2700bd349e106169d1828af7a148daa5cc2
-ms.openlocfilehash: f87947ed5f072ba4f0927ade1b1d3ec0e1424f3c
+ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
+ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Dokumentacja maszyny wirtualnej z systemem Linux
+# <a name="linux-virtual-machine-documentation"></a>Dokumentacja maszyny wirtualnej z systemem Linux
 
-Usługa Azure Virtual Machines umożliwia tworzenie oraz uruchamianie maszyn wirtualnych z systemem Linux w infrastrukturze obliczeniowej oraz infrastrukturze sieci i magazynu platformy Azure.  Możesz skalować do tysięcy maszyn na potrzeby wdrażania przez Internet lub uruchomić jedną maszynę przez kilka minut, aby uzyskać zarówno niesamowitą szybkość, jak i spójność.
+Dowiedz się, jak uruchamiać maszyny wirtualne na platformie Azure przy użyciu wybranej dystrybucji systemu Linux. W dokumentach, dokumentacji interfejsu API i przykładach pokazano różne sposoby tworzenia i wdrażania szablonów maszyn wirtualnych.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -130,16 +142,10 @@ Usługa Azure Virtual Machines umożliwia tworzenie oraz uruchamianie maszyn wir
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację maszyny wirtualnej z systemem Linux </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak skonfigurować odzyskiwanie po awarii w chmurze i ciągłość działania dla serwerów fizycznych oraz maszyn wirtualnych przez wdrożenie replikacji i zarządzanie nią."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: e13f18042677dd1cea5913d7f6658f0c5d3e1d98
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Dokumentacja usługi Site Recovery
 
-Usługa Azure Site Recovery przyczynia się do strategii związanej z ciągłością biznesową i odzyskiwaniem po awarii (BCDR, business continuity and disaster recovery) przez organizowanie replikacji lokalnych maszyn wirtualnych i serwerów fizycznych. Serwery i maszyny wirtualne można replikować z podstawowego lokalnego centrum danych do platformy Azure lub do pomocniczego centrum danych. W przypadku wystąpienia awarii w lokacji podstawowej następuje przejście do lokacji dodatkowej w trybie failover, dzięki czemu obciążenia są nadal dostępne.
+Dowiedz się, jak używać usługi Site Recovery na potrzeby strategii ciągłości działania i odzyskiwania po awarii w chmurach prywatnych. W samouczkach i innych dokumentach pokazano, jak zaplanować i wdrożyć organizowanie replikacji lokalnych serwerów fizycznych i maszyn wirtualnych do chmury lub do dodatkowego centrum danych oraz jak zarządzać tym procesem.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -79,16 +80,10 @@ Usługa Azure Site Recovery przyczynia się do strategii związanej z ciągłoś
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Site Recovery </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

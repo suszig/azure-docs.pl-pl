@@ -39,17 +39,32 @@
 ### [Zarządzanie kontami użytkowników](api-management-howto-create-or-invite-developers.md)
 ### [Zarządzanie przy użyciu automatyzacji](automation-manage-api-management.md)
 ### [Konfigurowanie przy użyciu narzędzia Git](api-management-configuration-repository-git.md)
-
 # Dokumentacja
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (klasyczny)](https://msdn.microsoft.com/library/azure/mt613507)
+## [Program PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)
-## [REST (oryginalny)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
-
-
+## [REST (oryginalny)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
+## [Zasady](api-management-policies.md)
+### Policy reference
+#### [Zasady ograniczeń dostępu](api-management-access-restriction-policies.md)
+#### [Zasady zaawansowane](api-management-advanced-policies.md)
+#### [Zasady uwierzytelniania](api-management-authentication-policies.md)
+#### [Caching policies](api-management-caching-policies.md)
+#### [Zasady międzydomenowe](api-management-cross-domain-policies.md)
+#### [Zasady transformacji](api-management-transformation-policies.md)
+### [Obsługa błędów](api-management-error-handling-policies.md)
+### [Wyrażenia zasad](api-management-policy-expressions.md)
+## [Szablony](api-management-developer-portal-templates-reference.md)
+### Dokumentacja dotycząca szablonów
+#### [Interfejsy API](api-management-api-templates.md)
+#### [Produkty](api-management-product-templates.md)
+#### [Aplikacje](api-management-application-templates.md)
+#### [Problemy](api-management-issue-templates.md)
+#### [Profil użytkownika](api-management-user-profile-templates.md)
+#### [Strony](api-management-page-templates.md)
+### [Dokumentacja dotycząca modeli obiektów](api-management-template-data-model-reference.md)
+### [Kontrolki strony](api-management-page-controls.md)
+### [Zasoby szablonu](api-management-template-resources.md)
 # Zasoby
-## [Zasady](https://msdn.microsoft.com/library/azure/dn894081)
-## [Szablony](https://msdn.microsoft.com/library/azure/mt697540)
 ## [Cennik](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -67,6 +82,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
