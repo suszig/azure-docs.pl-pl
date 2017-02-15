@@ -4,12 +4,9 @@
 ## [Obciążenie magazynu danych](sql-data-warehouse-overview-workload.md)
 ## [Rozproszone dane](sql-data-warehouse-distributed-data.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 
-## Tworzenie bazy danych w usłudze SQL Data Warehouse
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [Program PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Samouczek dla początkujących](sql-data-warehouse-get-started-tutorial.md)
 ## [Najlepsze praktyki](sql-data-warehouse-best-practices.md)
 ## [Zarządzanie](sql-data-warehouse-overview-manage.md)
 ## [Uzyskiwanie pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalacja programu Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Przycisk Utwórz
+### [Azure Portal](sql-data-warehouse-get-started-provision.md)
+### [Program PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Programowanie
 
@@ -145,6 +147,6 @@
 ### [Zarządzanie danymi](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

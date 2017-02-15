@@ -38,10 +38,9 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (klasyczny)](application-gateway-create-probe-classic-ps.md)
 ## [Łączenie usług równoważenia obciążenia](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## Zarządzaj
-### [Diagnostyka](application-gateway-diagnostics.md)
-### [Rozwiązywanie problemów](application-gateway-troubleshooting-502.md)
-
+## Rozwiązywanie problemów
+### [Rozwiązywanie problemów z błędami w usłudze Application Gateway](application-gateway-troubleshooting-502.md)
+### [Rejestrowanie i metryki diagnostyki](application-gateway-diagnostics.md)
 # Dokumentacja
 ## [Program PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/network/application-gateway)
@@ -67,6 +66,6 @@
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

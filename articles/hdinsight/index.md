@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Poznaj platformę Hadoop w usłudze HDInsight. Dokumentacja przedstawiająca sposób użycia platform Hadoop, Spark, HBase i R-Server oraz innych technologii w celu przetwarzania i analizowania danych big data oraz uzyskiwania wglądu w nie."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 28b6ebfae16a5c2e119fc4f1af0dcee6a348d47f
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d78d12c6844e88da8b5d8b7cd99a38d6f4d36774
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Dokumentacja usługi Azure HDInsight
 
-Usługa Azure HDInsight to dystrybucja usługi Apache Hadoop obsługiwana przez chmurę.  Usługa Azure HDInsight udostępnia w chmurze składniki platformy Hadoop z dystrybucji Hortonworks Data Platform (HDP) oraz wdraża i obsługuje klastry zarządzane o wysokiej niezawodności i dostępności.  Usługa Azure HDInsight zapewnia konfiguracje klastrów dla technologii Apache Hadoop, Spark, HBase i Storm.  Można też dostosowywać klastry za pomocą akcji skryptów.  
+Informacje o sposobie używania usługi Hadoop w chmurze w usłudze HDInsight w celu analizowania danych przesyłanych strumieniowo lub danych historycznych. Samouczki i inne dokumenty przedstawiające sposób tworzenia klastrów, przetwarzania i analizowania danych big data oraz opracowywania rozwiązań korzystających z platform Hadoop, Spark, HBase, R-Server i Storm, a także innych technologii udostępnianych w ekosystemie usługi Hadoop.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -166,16 +167,10 @@ Usługa Azure HDInsight to dystrybucja usługi Apache Hadoop obsługiwana przez 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi HDInsight </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 

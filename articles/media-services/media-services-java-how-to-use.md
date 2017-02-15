@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Konfigurowanie konta platformy Azure dla usługi Media Services
-Aby skonfigurować konto usługi Media Services, skorzystaj z witryny Azure Portal. Zobacz temat [Tworzenie konta usługi Media Services](media-services-portal-create-account.md). Po utworzeniu konta w witrynie Azure Portal możesz przystąpić do konfigurowania komputera do tworzenia usługi Media Services.
 
-## <a name="setting-up-for-media-services-development"></a>Ustawienia konfiguracji do tworzenia usługi Media Services
+Aby skonfigurować konto usługi Media Services, skorzystaj z witryny Azure Portal. Zobacz temat [Tworzenie konta usługi Media Services](media-services-portal-create-account.md). Po utworzeniu konta w witrynie Azure Portal możesz przystąpić do konfigurowania komputera do tworzenia usługi Media Services.
+ 
 Ta sekcja zawiera ogólne wymagania wstępne dotyczące tworzenia usługi Media Services przy użyciu zestawu SDK Usługi multimediów dla języka Java.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
@@ -34,6 +34,10 @@ Ta sekcja zawiera ogólne wymagania wstępne dotyczące tworzenia usługi Media 
 * Biblioteki Azure dla języka Java, które można zainstalować z [Azure Java Developer Center][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Jak korzystać z usługi Media Services z językiem Java
+
+>[!NOTE]
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
+
 Poniższy kod przedstawia sposób tworzenia elementu zawartości, przesyłania pliku multimediów do elementu zawartości, uruchamiania zadania polegającego na przekształceniu elementu zawartości i tworzenia lokalizatora w celu strumieniowego przesyłania wideo.
 
 Przed rozpoczęciem korzystania z tego kodu musisz skonfigurować konto usługi Media Services. Aby dowiedzieć się, jak skonfigurować konto, zobacz temat [Tworzenie konta usługi Media Services](media-services-portal-create-account.md).
@@ -270,6 +274,6 @@ Dokumentację Javadoc usługi Media Services zawiera temat [Dokumentacja bibliot
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

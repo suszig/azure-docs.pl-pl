@@ -102,7 +102,7 @@ Aby wybrać rozwiązania i nawiązać połączenie z serwerami, które mają by�
 ## <a name="optionally-connect-windows-computers-by-installing-an-agent"></a>Opcjonalnie: łączenie komputerów z systemem Windows przez zainstalowanie agenta
 Na poniższym przykładzie pokazano sposób instalowania agenta systemu Windows.
 
-1. Kliknij kafelek **Ustawienia**, kliknij kartę **Połączone źródła**, kliknij kartę dla typu źródłowego, który ma zostać dodany, a następnie pobierz agenta lub dowiedz się, jak go włączyć. Na przykład kliknij pozycję **Pobierz agenta systemu Windows (wersja 64-bitowa)**. Agentów systemu Windows można zainstalować tylko w systemie Windows Server 2008 z dodatkiem SP 1 lub nowszym oraz w systemie Windows 7 z dodatkiem SP1 lub nowszym.
+1. Kliknij kafelek **Ustawienia**, kliknij kartę **Połączone źródła**, kliknij kartę dla typu źródłowego, który ma zostać dodany, a następnie pobierz agenta lub dowiedz się, jak go włączyć. Na przykład kliknij pozycję **Pobierz agenta systemu Windows (wersja&64;-bitowa)**. Agentów systemu Windows można zainstalować tylko w systemie Windows Server 2008 z dodatkiem SP 1 lub nowszym oraz w systemie Windows 7 z dodatkiem SP1 lub nowszym.
 2. Zainstaluj agenta na co najmniej jednym serwerze. Agentów można instalować pojedynczo lub za pomocą zautomatyzowanego [niestandardowego skryptu](log-analytics-windows-agents.md). Można też użyć innego dowolnego rozwiązania do dystrybucji oprogramowania.
 3. Po wyrażeniu zgody na warunki umowy licencyjnej i wybraniu folderu instalacji wybierz pozycję **Połącz agenta z usługą Azure Log Analytics (OMS)**.   
     ![konfigurowanie agenta](./media/log-analytics-get-started/oms-onboard-agent.png)

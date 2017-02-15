@@ -7,12 +7,13 @@
 # Rozpoczęcie pracy
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Aplikacja portalu Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,11 +61,12 @@
 ### [Zestaw SDK usługi WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Aplikacje ASP.NET
-#### [Wdrażanie pierwszej aplikacji sieci Web platformy .NET na platformie Azure w ciągu pięciu minut](app-service-web-get-started-dotnet.md)
+#### [Tworzenie aplikacji platformy ASP.NET za pomocą programu Visual Studio](web-sites-dotnet-get-started.md)
 #### [Tworzenie usługi REST za pomocą interfejsu API sieci Web platformy ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Tworzenie aplikacji sieci Web platformy ASP.NET 5 w programie Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 
 ### Aplikacje Node.js
+#### [Programowanie w języku Node.js na potrzeby usługi App Service](app-service-web-nodejs-get-started.md)
 #### [Tworzenie aplikacji sieci Web w technologii Node.js](web-sites-nodejs-develop-deploy-mac.md)
 #### [Tworzenie aplikacji rozmów w sieci Web w technologii Node.js przy użyciu biblioteki Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [Sposób użycia platformy io.js z usługą Web Apps](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [Tworzenie i wdrażanie za pomocą programu WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### Aplikacje PHP
-#### [Wdrażanie pierwszej aplikacji sieci Web w języku PHP na platformie Azure w ciągu pięciu minut](app-service-web-get-started-php.md)
+#### [Programowanie aplikacji PHP na potrzeby usługi App Service](app-service-web-php-get-started.md) 
 #### [Tworzenie aplikacji sieci Web PHP-SQL i wdrażanie jej za pomocą narzędzia Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Tworzenie bazy danych MySQL na platformie Azure i łączenie się z nią](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Oprogramowanie WordPress klasy korporacyjnej w usłudze Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Aplikacje Java
-#### [Wdrażanie pierwszej aplikacji sieci Web Java na platformie Azure w ciągu pięciu minut](web-sites-java-get-started.md)
 #### Tworzenie aplikacji Hello World
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -254,11 +255,11 @@
 
 # Powiązane
 ## [Zestaw Azure SDK dla platformy .NET — informacje o wersji](azure-sdk-dotnet-release-notes.md)
-### [Wersja 2.9](azure-sdk-dotnet-release-notes-2-9.md)
-### [Wersje 2.8.X](azure-sdk-dotnet-release-notes-2-8.md)
-### [Wersje 2.7.X](azure-sdk-dotnet-release-notes-2-7.md)
-### [Wersja 2.6](azure-sdk-dotnet-release-notes-2-6.md)
-### [Wersja 2.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Wersja&2;.9](azure-sdk-dotnet-release-notes-2-9.md)
+### [Wersje&2;.8.X](azure-sdk-dotnet-release-notes-2-8.md)
+### [Wersje&2;.7.X](azure-sdk-dotnet-release-notes-2-7.md)
+### [Wersja&2;.6](azure-sdk-dotnet-release-notes-2-6.md)
+### [Wersja&2;.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 # Zasoby
 ## [Najlepsze praktyki](app-service-best-practices.md)

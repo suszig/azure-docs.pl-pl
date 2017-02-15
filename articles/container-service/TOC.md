@@ -14,14 +14,18 @@
 ### [Włączanie dostępu publicznego do platformy DC/OS](container-service-enable-public-access.md)
 ### [Kontenery równoważenia obciążenia na platformie DC/OS](container-service-load-balancing.md)
 ### [Koordynator specyficzny dla aplikacji/użytkownika na platformie DC/OS](container-service-application-specific-marathon.md)
-### [Monitorowanie za pomocą pakietu OMS (DC/OS)](container-service-monitoring-oms.md)
-### [Monitorowanie za pomocą usługi Datadog (DC/OS)](container-service-monitoring.md)
-### [Monitorowanie za pomocą narzędzia Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-### [Monitorowanie za pomocą rozwiązania Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
+### [Monitorowanie za pomocą pakietu OMS](container-service-monitoring-oms.md)
+### [Monitorowanie za pomocą usługi Datadog](container-service-monitoring.md)
+### [Monitorowanie za pomocą narzędzia Sysdig](container-service-monitoring-sysdig.md)
+### [Monitorowanie za pomocą rozwiązania Dynatrace](container-service-monitoring-dynatrace.md)
 ## Zarządzanie przy użyciu rozwiązania Kubernetes
 ### [Wprowadzenie do rozwiązania Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Konfigurowanie nazwy głównej usługi](container-service-kubernetes-service-principal.md)
 ### [Interakcja z interfejsem użytkownika sieci Web rozwiązania Kubernetes](container-service-kubernetes-ui.md)
-## [Zarządzanie przy użyciu koordynatora Docker Swarm](container-service-docker-swarm.md)
+### [Monitorowanie za pomocą pakietu OMS](container-service-kubernetes-oms.md)
+### [Monitorowanie za pomocą usługi Datadog](container-service-kubernetes-datadog.md)
+### [Monitorowanie za pomocą narzędzia Sysdig](container-service-kubernetes-sysdig.md)
+## Zarządzanie przy użyciu koordynatora Docker Swarm
 ### [Platforma Docker i narzędzie Docker Compose](container-service-docker-swarm.md)
 ### [Integracja ciągła w rozwiązaniu Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Dokumentacja
@@ -34,6 +38,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

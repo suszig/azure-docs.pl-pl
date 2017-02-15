@@ -1,13 +1,26 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak tworzyć maszyny wirtualne systemu Windows. Dokumentacja ułatwiająca planowanie i wdrażanie środowiska obliczeniowego maszyn wirtualnych w chmurze oraz zarządzanie nim."
+title: "Dokumentacja, samouczki i informacje o interfejsach API usługi Azure Virtual Machines dla systemu Windows | Microsoft Docs"
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: cd8dfa8b436cd165b3438a1823a571feebb0f4f4
-ms.openlocfilehash: 0a2b4c08e5da4d9c16e12f33c5f1a3f9ae863498
+ms.sourcegitcommit: c3b5f79fe9ee312b5f45eff460b43224b9c254fe
+ms.openlocfilehash: 927fb368a7d0e0c7c996a591dfe8536ea3509164
+
 
 ---
-#<a name="windows-virtual-machines-documentation"></a>Dokumentacja dotycząca maszyn wirtualnych z systemem Windows
+# <a name="windows-virtual-machines-documentation"></a>Dokumentacja dotycząca maszyn wirtualnych z systemem Windows
 
-Usługa Azure Virtual Machines (VM) to jeden z wielu skalowalnych zasobów obliczeniowych dostępnych na żądanie, które są oferowane na platformie Azure. W większości przypadków maszynę wirtualną należy wybrać wtedy, gdy potrzebna jest większa kontrola nad środowiskiem obliczeniowym niż ta, jaką oferują inne opcje. Maszyna wirtualna Azure umożliwia swobodne korzystanie z wirtualizacji bez konieczności kupowania i utrzymywania fizycznego sprzętu potrzebnego do jej działania. Zachowujesz przy tym kontrolę nad konfiguracją, poprawkami i instalacją oprogramowania uruchomionego na maszynie wirtualnej.
+Dowiedz się, jak tworzyć maszyny wirtualne systemu Windows. Samouczki, dokumentacja interfejsu API i inne dokumenty ułatwiające planowanie i wdrażanie środowiska obliczeniowego maszyn wirtualnych w chmurze oraz zarządzanie nim.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,16 +161,10 @@ Usługa Azure Virtual Machines (VM) to jeden z wielu skalowalnych zasobów oblic
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację maszyny wirtualnej z systemem Windows </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO4-->
 
 

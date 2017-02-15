@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak usługa Event Hubs umożliwia pozyskiwanie milionów zdarzeń na sekundę z połączonych aplikacji i urządzeń IoT na wielu platformach."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8244f410fa3337ae161657fe11ae5db2a2f378cd
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 29d6165596d3e98264285b6471c8f54b66aa2c3a
 
 ---
 #<a name="event-hubs-documentation"></a>Dokumentacja usługi Event Hubs
 
-Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Usługa Event Hubs działa jako drzwi wejściowe dla potoku zdarzeń. Po pobraniu danych do centrum zdarzeń można je przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub za pomocą adapterów przetwarzania wsadowego i magazynowania.
+Dowiedz się, jak usługa Event Hubs umożliwia zbieranie milionów zdarzeń na sekundę i zarządzanie nimi z połączonych aplikacji i urządzeń IoT. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować skalowalne pozyskiwanie zdarzeń na wielu platformach.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -115,16 +116,10 @@ Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Event Hubs </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

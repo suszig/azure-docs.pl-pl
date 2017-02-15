@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Dowiedz się, jak uzyskać wgląd w dane dotyczące użycia aplikacji mobilnych i segmentowania użytkowników w czasie rzeczywistym oraz jak włączyć kontekstowe powiadomienia wypychane i komunikaty w aplikacjach."
 translationtype: Human Translation
-ms.sourcegitcommit: 2dbe8c3bf665249af4a1626e38f6465d2db32a0b
-ms.openlocfilehash: fed0048ab3a7101c4461ffa14511a26ecd7a36eb
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 37f08d8a03845b86d382d4c0b49b58f633cc1b0c
 
 ---
 # <a name="mobile-engagement-documentation"></a>Dokumentacja usługi Mobile Engagement
@@ -195,13 +195,6 @@ Dowiedz się, jak zwiększyć użycie aplikacji, utrzymanie użytkowników oraz 
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Azure Mobile Engagement </div>
-    </a>
-</div>
 
 
 

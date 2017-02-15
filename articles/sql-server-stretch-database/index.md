@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak usługa SQL Server Stretch Database umożliwia bezpieczne migrowanie zimnych danych do platformy Azure bez modyfikowania zapytań i aplikacji. Samouczki i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3dad35a38c753988615a4c1f2b439de9f95baf0e
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Dokumentacja dotycząca usługi SQL Server Stretch Database
 
-Usługa SQL Server Stretch Database umożliwia przejrzystą i bezpieczną migrację rzadko używanych danych do chmury Microsoft Azure. Usługa SQL Server Stretch Database zapewnia ekonomiczny dostęp do danych, które nie są regularnie używane, nie wymaga wprowadzania zmian w zapytaniach ani aplikacjach oraz chroni dane nawet podczas migracji. Usługa Stretch Database jest przeznaczona dla transakcyjnych baz danych zawierających duże ilości nieregularnie używanych danych, które są zwykle przechowywane w niewielkiej liczbie tabel.
+Dowiedz się, jak usługa SQL Server Stretch Database umożliwia przejrzystą i bezpieczną migrację zimnych danych do chmury platformy Azure. Samouczki i inne dokumenty ułatwiają skonfigurowanie ekonomicznego dostępu dla baz danych z rzadko używanymi danymi bez konieczności wprowadzania zmian w istniejących zapytaniach i aplikacjach.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,16 +88,10 @@ Usługa SQL Server Stretch Database umożliwia przejrzystą i bezpieczną migrac
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi SQL Server Stretch Database </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak zarządzać ruchem przychodzącym, aby uzyskać optymalną wydajność aplikacji. W dokumentacji przedstawiono sposób dystrybucji ruchu do punktów końcowych platformy Azure lub punktów końcowych usługi zewnętrznej."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 07d7e13862c252db61136110e04559e51a53e4b7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 ---
 #<a name="traffic-manager-documentation"></a>Dokumentacja usługi Traffic Manager
 
-Usługa Azure Traffic Manager umożliwia sterowanie dystrybucją ruchu użytkowników w punktach końcowych usługi w różnych regionach. Usługa Traffic Manager korzysta z systemu nazw domen (DNS), aby kierować żądania klientów do najbardziej odpowiednich punktów końcowych na podstawie wybranej metody rozsyłania ruchu i kondycji punktów końcowych, zapewniając aplikacji większą dostępność i krótszy czas odpowiedzi.
+Dowiedz się, jak za pomocą usługi Traffic Manager kierować ruchem przychodzącym, aby uzyskać optymalną wydajność i niezawodność aplikacji. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak zarządzać ruchem do punktów końcowych platformy Azure lub punktów końcowych usługi zewnętrznej.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -119,16 +120,10 @@ Usługa Azure Traffic Manager umożliwia sterowanie dystrybucją ruchu użytkown
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Traffic Manager </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 

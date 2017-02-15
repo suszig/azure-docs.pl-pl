@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informacje o sposobie używania usługi Load Balancer do zarządzania wydajnością aplikacji w sieci. Zarządzanie ruchem dla maszyn wirtualnych i zasobów w chmurze oraz w sieciach wirtualnych obejmujących wiele lokalizacji."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8b95ce7f93293a25db4df5858209902ba6347591
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>Dokumentacja usługi Load Balancer
 
-Usługa Azure Load Balancer zapewnia Twoim aplikacjom wysoką dostępność i wydajność sieci.  Usługę Load Balancer można skonfigurować do równoważenia ruchu internetowego przychodzącego do maszyn wirtualnych, ruchu pomiędzy zasobami w chmurze, ruchu w sieci wirtualnej między lokalizacjami lub ruchu zewnętrznego kierowanego do konkretnej maszyny wirtualnej.
+Dowiedz się, jak skonfigurować usługę Load Balancer, aby zapewnić aplikacjom wysoką dostępność i wydajność sieci. Dokumentacja przedstawiająca sposób równoważenia obciążenia ruchu w sieciach wirtualnych obejmujących wiele lokalizacji oraz kierowanego do i z maszyn wirtualnych i zasobów w chmurze.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -95,7 +96,7 @@ Usługa Azure Load Balancer zapewnia Twoim aplikacjom wysoką dostępność i wy
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/lb">Azure CLI 2.0 (wersja zapoznawcza)</a></p>
+                        <p><a href="/cli/azure/network/lb">Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)</a></p>
                     </div>
                 </div>
             </div>
@@ -131,16 +132,10 @@ Usługa Azure Load Balancer zapewnia Twoim aplikacjom wysoką dostępność i wy
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Load Balancer </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

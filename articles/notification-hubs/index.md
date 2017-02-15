@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Dowiedz się, jak wysyłać powiadomienia wypychane z dowolnego zaplecza na dowolne urządzenie mobilne za pomocą usługi Notification Hubs. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 translationtype: Human Translation
-ms.sourcegitcommit: 0d46d0e04550578a81c636aa118dc02c08428838
-ms.openlocfilehash: 8a4712af44c474cea93f04bf598e6595ba0dadee
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
 
 ---
 #<a name="notification-hubs-documentation"></a>Dokumentacja usługi Notification Hubs
@@ -201,13 +201,7 @@ Dowiedz się, jak używać usługi Notification Hubs, skalowalnego aparatu obsł
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Notification Hubs </div>
-    </a>
-</div>
+
 
 
 

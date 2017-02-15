@@ -1,6 +1,6 @@
 ---
-title: "Samouczek usługi SQL Database: tworzenie serwera, reguły zapory na poziomie serwera, przykładowej bazy danych i reguły zapory na poziomie bazy danych oraz nawiązywanie połączenia z programem SQL Server Management Studio | Microsoft Docs"
-description: "Dowiedz się, jak skonfigurować logiczny serwer usługi SQL Database, regułę zapory serwera, bazę danych SQL i przykładowe dane. Dowiedz się też, jak połączyć się z narzędziami klienta, skonfigurować użytkowników i regułę zapory bazy danych."
+title: "Azure Portal: rozpoczynanie pracy z usługą Azure SQL Database | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć serwer logiczny, regułę zapory na poziomie serwera i bazy danych usługi SQL Database przy użyciu witryny Azure Portal. Poznasz również sposoby wykonywania zapytań względem baz danych przy użyciu programu SQL Server Management Studio."
 keywords: "samouczek usługi sql database, tworzenie bazy danych sql"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Wprowadzenie do serwerów, baz danych i reguł zapory usługi Azure SQL Database przy użyciu witryny Azure Portal i programu SQL Server Management Studio
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Samouczek usługi SQL Database: wprowadzenie do serwerów, baz danych i reguł zapory usługi Azure SQL Database przy użyciu witryny Azure Portal i programu SQL Server Management Studio
 
 Z tego samouczka ułatwiającego rozpoczęcie pracy nauczysz się używać witryny Azure Portal do wykonywania następujących czynności:
 
@@ -306,6 +306,6 @@ Po ukończeniu tego samouczka możesz zapoznać się z kilkoma dodatkowymi samou
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
