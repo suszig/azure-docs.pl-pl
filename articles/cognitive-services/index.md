@@ -1,13 +1,25 @@
 ---
+title: "Dokumentacja usług Azure Cognitive Services — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak dodać do aplikacji funkcje inteligentne, takie jak analiza obrazu, mowy i języka. Uzyskaj przewodniki Szybki start i dokumentację interfejsu API."
+services: cognitive-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cognitive-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e4e35a7c13db98770295cbaa19cf33b18c1fb5e7
+ms.sourcegitcommit: 0c5f1ba593952cb6dc6a8200a5666ecb7a32fce7
+ms.openlocfilehash: 3895b02f25b0e27b46a5e5493fe2b7f8f83201c1
 
 ---
 #<a name="cognitive-services-documentation"></a>Dokumentacja usług Cognitive Services
 
-Usługa Cognitive Services (wersja zapoznawcza) to zbiór interfejsów API, który umożliwia naturalną i kontekstową interakcję z aplikacjami.  Usługi Cognitive Services oferują następujące interfejsy API: języka, mowy, przetwarzania obrazów, wyszukiwania oraz interfejs Knowledge API.
+Dowiedz się, jak za pomocą usług Cognitive Services korzystać z naturalnej i kontekstowej interakcji w aplikacjach. Samouczki Szybki start i dokumentacja interfejsu API ułatwiają zintegrowanie możliwości sztucznej inteligencji na potrzeby obsługi tekstu, mowy, obrazu i wyszukiwania. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -96,16 +108,10 @@ Usługa Cognitive Services (wersja zapoznawcza) to zbiór interfejsów API, któ
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usług Cognitive Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

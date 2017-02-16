@@ -1,14 +1,25 @@
 ---
+title: "Dokumentacja usługi Azure Mobile Apps — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak używać usługi Mobile Apps w usłudze Azure App Service, aby tworzyć i hostować natywne aplikacje dla systemów iOS, Android lub Windows albo aplikacje międzyplatformowe korzystające z technologii Xamarin lub Cordova."
+services: app-service\mobile
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service\mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 9cae18a8206e2828838c8b35733eee5d25d15cb1
-
+ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
+ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
 
 ---
 # <a name="mobile-apps-documentation"></a>Dokumentacja usługi Mobile Apps
 
-Funkcja Mobile Apps w usłudze Azure App Service oferuje skalowalną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych.
+Dowiedz się, jak używać usługi Mobile Apps w usłudze Azure App Service, aby tworzyć natywne aplikacje dla systemów iOS, Android lub Windows albo aplikacje międzyplatformowe korzystające z technologii Xamarin lub Cordova. Samouczki, filmy wideo, dokumentacja zestawu SDK klienta i inne materiały przedstawiające tworzenie i hostowanie zaplecza dla dowolnej aplikacji mobilnej.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -185,8 +196,13 @@ Funkcja Mobile Apps w usłudze Azure App Service oferuje skalowalną platformę 
                 <div class="card">
                     <div class="cardText">
                         <h3>Języki</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">Zestaw SDK zaplecza oprogramowania .NET</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Zestaw SDK zaplecza oprogramowania Node.js</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Zestaw SDK klienta systemu Android</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">Zestaw SDK klienta systemu iOS</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">Zestaw SDK klienta oprogramowania JavaScript/Cordova</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Zestaw SDK klienta oprogramowania Windows/Xamarin</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,6 +210,7 @@ Funkcja Mobile Apps w usłudze Azure App Service oferuje skalowalną platformę 
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

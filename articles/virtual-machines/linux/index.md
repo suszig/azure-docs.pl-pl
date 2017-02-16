@@ -1,20 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentacja maszyny wirtualnej z systemem Linux na platformie Azure — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak utworzyć maszynę wirtualną przy użyciu wybranej dystrybucji systemu Linux. W dokumentacji pokazano różne sposoby tworzenia szablonów maszyn wirtualnych."
-title: "Dokumentacja, samouczki i informacje o interfejsach API usługi Azure Virtual Machines dla systemu Linux | Microsoft Docs"
-services: virtual-machines-linux
+services: virtual-machines\linux
 author: carolz
 manager: carolz
+layout: LandingPage
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines\linux
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
-ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
+ms.sourcegitcommit: 4736be260d3fa0ed7ec402959fd53604f55aceca
+ms.openlocfilehash: 8f0236c8ed237c473ee900feb68a3f86a6165106
 
 ---
 # <a name="linux-virtual-machine-documentation"></a>Dokumentacja maszyny wirtualnej z systemem Linux
@@ -146,6 +146,6 @@ Dowiedz się, jak uruchamiać maszyny wirtualne na platformie Azure przy użyciu
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

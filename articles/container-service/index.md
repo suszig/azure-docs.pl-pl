@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure Container Service — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie używania usługi Container Service do wdrażania kontenerów aplikacji przy użyciu platform DC/OS, Docker Swarm lub Kubernetes oraz zarządzania nimi. Samouczki, dokumentacja interfejsu API i inne materiały."
+services: container-service
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: container-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
-ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
+ms.sourcegitcommit: 8dd0b2fe35c7f6280e6c1032d788955c891668d2
+ms.openlocfilehash: b5e7c83af078678454e6fc036bff657de402cf73
 
 ---
 
@@ -60,20 +71,8 @@ Informacje o sposobie używania usługi Container Service do wdrażania w pełni
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
+                        <p><a href="/cli/azure/acs">Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)</a></p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Języki</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
-                   </div>
                 </div>
             </div>
         </div>
@@ -92,16 +91,9 @@ Informacje o sposobie używania usługi Container Service do wdrażania w pełni
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Azure Container Service </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

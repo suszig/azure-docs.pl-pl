@@ -16,14 +16,19 @@
 ### [Zestaw skalowania systemu Linux z funkcją automatycznego skalowania](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Zestaw skalowania systemu Windows z funkcją automatycznego skalowania](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplikacje w zestawach skalowania](virtual-machine-scale-sets-deploy-app.md)
+### [Korzystanie z dysków danych z zestawami skalowania](virtual-machine-scale-sets-attached-disks.md)
+### [Praca z dużymi zestawami skalowania](virtual-machine-scale-sets-placement-groups.md)
+### [Konwertowanie szablonu zestawu skalowania w celu używania dysku zarządzanego](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## Zarządzaj
+
+## Zarządzanie
 ### [Zestaw skalowania systemu Windows korzystający z programu PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Automatyczne skalowanie i zestawy skalowania](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Skalowanie w pionie w zestawie skalowania](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Uaktualnienia dla zestawów skalowania](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Zaawansowane automatyczne skalowanie](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Korzystanie z DSC i zestawy skalowania](virtual-machine-scale-sets-dsc.md)
+### [Konwertowanie szablonu na dyski zarządzane](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Rozwiązywanie problemów
 ### [Skalowanie automatyczne](virtual-machine-scale-sets-troubleshoot.md)
@@ -40,6 +45,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

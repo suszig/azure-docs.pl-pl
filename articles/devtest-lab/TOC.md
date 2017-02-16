@@ -21,11 +21,19 @@
 ### [Dodawanie repozytorium artefaktów](devtest-lab-add-artifact-repo.md)
 ### [Tworzenie niestandardowych artefaktów](devtest-lab-artifact-author.md)
 
-## Zarządzanie bazami maszyn wirtualnych
-### [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md)
+## Zarządzanie bazami maszyn wirtualnych i szablonami
+### [Tworzenie środowisk z wieloma maszynami wirtualnymi za pomocą szablonów usługi Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 ### [Konfigurowanie obrazów z portalu Marketplace](devtest-lab-configure-marketplace-images.md)
-### [Zarządzanie formułami](devtest-lab-manage-formulas.md)
 ### [Porównywanie obrazów i formuł](devtest-lab-comparing-vm-base-image-types.md)
+### [Zarządzanie formułami](devtest-lab-manage-formulas.md)
+### [Tworzenie obrazu niestandardowego z poziomu maszyny wirtualnej](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Tworzenie obrazu niestandardowego z poziomu dysku VHD za pomocą witryny Azure Portal](devtest-lab-create-template.md)
+### [Tworzenie obrazu niestandardowego z poziomu dysku VHD za pomocą programu PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [Przekazywanie pliku VHD za pomocą programu AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
+### [Przekazywanie pliku VHD za pomocą programu PowerShell](devtest-lab-upload-vhd-using-powershell.md)
+### [Przekazywanie pliku VHD za pomocą Eksploratora magazynu](devtest-lab-upload-vhd-using-storage-explorer.md)
+
+
 
 # Zasoby
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=devtest-lab)
@@ -35,6 +43,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

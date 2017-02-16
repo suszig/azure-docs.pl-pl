@@ -21,16 +21,18 @@
 
 # Instrukcje
 ## Zarządzanie
-### Zarządzanie kontami
-#### [Program PowerShell](media-services-manage-with-powershell.md)
+### Konta
+#### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Zarządzanie jednostkami
+### Jednostki
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Zarządzanie punktami końcowymi przesyłania strumieniowego](media-services-streaming-endpoints-overview.md)
+### [Punkty końcowe przesyłania strumieniowego](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Aktualizowanie usługi Media Services po stopniowym uaktualnieniu kluczy dostępu do magazynu](media-services-roll-storage-access-keys.md)
+### Magazyn
+#### [Aktualizowanie usługi Media Services po stopniowym uaktualnieniu kluczy dostępu do magazynu](media-services-roll-storage-access-keys.md)
+#### [Zarządzanie elementami zawartości na wielu kontach magazynu](meda-services-managing-multiple-storage-accounts.md)
 ### [Limity przydziału i ograniczenia](media-services-quotas-and-limitations.md)
 
 ## Przekazywanie zawartości
@@ -123,6 +125,8 @@
 ### [Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine](media-services-protect-with-drm.md)
 ### [Korzystanie z usługi Azure Media Services do przesyłania strumieniowego zawartości chronionej przez moduł HLS z użyciem technologii FairPlay firmy Apple](media-services-protect-hls-with-fairplay.md)
 ### [Szyfrowanie CENC przy użyciu technologii Multi-DRM i kontroli dostępu: projekt wzorcowy i implementacja wzorcowa na platformie Azure i w usłudze Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+### [Korzystanie z Axinom w celu dostarczania licencji Widevine do usługi Azure Media Services](media-services-axinom-integration.md)
+### [Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services](media-services-castlabs-integration.md)
 
 ### Dostarczanie elementów zawartości
 #### Konfigurowanie zasad dostarczania elementów zawartości
@@ -165,6 +169,7 @@
 ### [Omówienie filtrów i manifestów dynamicznych](media-services-dynamic-manifest-overview.md)
 #### [Tworzenie filtrów za pomocą programu .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Tworzenie filtrów za pomocą wzorca REST](media-services-rest-dynamic-manifest.md)
+### [Zasady buforowania usługi CDN w rozszerzeniu usług Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publikowanie zawartości
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -180,13 +185,10 @@
 #### [Aplikacja HTML5 z implementacją DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Odtwarzacze w technologii Open Source Media Framework firmy Adobe](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Wstawianie reklam po stronie klienta](media-services-inserting-ads-on-client-side.md)
+### [Licencjonowanie zestawu Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integracja
-### [Zasady buforowania usługi CDN w rozszerzeniu usług Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licencjonowanie zestawu Microsoft†" Smooth Streaming Client Porting](media-services-sspk.md)
-### [Zarządzanie elementami zawartości na wielu kontach magazynu](meda-services-managing-multiple-storage-accounts.md)
-### [Korzystanie z Axinom w celu dostarczania licencji Widevine do usługi Azure Media Services](media-services-axinom-integration.md)
-### [Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services](media-services-castlabs-integration.md)
+### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
 ## Monitorowanie
 ### Sprawdzanie postępu zadania
@@ -214,6 +216,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

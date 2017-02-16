@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure App Service (aplikacje interfejsu API) — samouczki | Microsoft Docs"
 description: "Dowiedz się, jak usługa API Apps w usłudze Azure App Service umożliwia tworzenie, hostowanie i używanie interfejsów API zarówno w chmurze, jak i lokalnie. Samouczki, klipy wideo i inne dokumenty."
+services: app-service\api
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service\api
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 410479b746b5911d1ebcb51c92a6de74686cffbe
-ms.openlocfilehash: e5b9d9322bcf5860debb93fe579665f778a41e7b
+ms.sourcegitcommit: 741a6f2be3c8c689884cdeb180ff10dac046032b
+ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
 
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service — dokumentacja usługi API Apps
@@ -121,16 +132,10 @@ Dowiedz się, jak usługa API Apps w usłudze Azure App Service umożliwia tworz
     </li>     
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Mobile Apps </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

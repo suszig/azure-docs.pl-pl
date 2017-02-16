@@ -78,6 +78,8 @@
 ### [Przed rozpoczęciem](azure-stack-app-service-before-you-get-started.md)
 ### [Wdrażanie dostawcy zasobów usługi App Service](azure-stack-app-service-deploy.md)
 ### [Dodawanie większej liczby ról procesów roboczych w sieci Web](azure-stack-app-service-add-worker-roles.md)
+### [Włączanie publikowania FTP](azure-stack-app-service-enable-ftp.md)
+### [Konfigurowanie źródeł wdrożenia](azure-stack-app-service-configure-deployment-sources.md)
 
 
 # Rozwiązywanie problemów
@@ -89,6 +91,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
