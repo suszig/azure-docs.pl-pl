@@ -78,6 +78,6 @@ Aby skonfigurować klienta LDAP, skorzystaj z poniższych wytycznych:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -136,6 +136,6 @@ Kliknij pozycję **Wybierz**, a następnie przycisk **OK**. Możesz teraz przegl
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
