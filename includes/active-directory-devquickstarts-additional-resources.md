@@ -1,5 +1,5 @@
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Przewodnik dewelopera usługi Azure AD](../articles/active-directory/active-directory-developers-guide.md)
+* [Przewodnik dewelopera usługi Azure AD](../articles/active-directory/develop/active-directory-developers-guide.md)
 * [Przykłady usługi Azure AD w witrynie GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
 * [CloudIdentity.com](http://cloudidentity.com)
 
@@ -8,6 +8,6 @@ Firma Microsoft zachęca do przekazywania powiadomień o występujących incyden
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

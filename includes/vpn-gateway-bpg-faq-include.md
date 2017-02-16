@@ -26,10 +26,13 @@ Brama sieci VPN będzie anonsować następujące trasy na urządzeniach lokalnyc
 * Trasy zostały uzyskane na podstawie innych sesji równorzędnych protokołu BGP podłączonych do bramy sieci VPN platformy Azure **z wyjątkiem trasy domyślnej lub tras nakładających się dla dowolnego prefiksu sieci wirtualnej**.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Czy można anonsować trasę domyślną (0.0.0.0/0) do bram sieci VPN platformy Azure?
-Nie w tej chwili.
+Tak.
 
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Czy można anonsować takie same prefiksy jak prefiksy mojej sieci wirtualnej?
-Nie, anonsowanie takich samych prefiksów jak prefiksy adresów Twojej sieci wirtualnej zostanie zablokowane lub odfiltrowane przez platformę Azure. Można jednak anonsować prefiks, który jest podzbiorem tego, co znajduje się wewnątrz sieci wirtualnej. Na przykład sieć wirtualna może używać przestrzeni adresów 10.10.0.0/16, a można anonsować przestrzeń 10.0.0.0/8.
+
+Nie, anonsowanie takich samych prefiksów jak prefiksy adresów Twojej sieci wirtualnej zostanie zablokowane lub odfiltrowane przez platformę Azure. Można jednak anonsować prefiks, który jest podzbiorem tego, co znajduje się wewnątrz sieci wirtualnej. 
+
+Na przykład jeśli sieć wirtualna używała przestrzeni adresów 10.0.0.0/16, można anonsować przestrzeń 10.0.0.0/8. Nie można jednak anonsować przestrzeni 10.0.0.0/16 ani 10.0.0.0/24.
 
 ### <a name="can-i-use-bgp-with-my-vnet-to-vnet-connections"></a>Czy można użyć protokołu BGP do połączeń między sieciami wirtualnymi użytkownika?
 Tak, protokołu BGP można użyć do połączeń zarówno między różnymi lokalizacjami, jak i połączeń między sieciami wirtualnymi.
@@ -41,16 +44,18 @@ Tak, dla tej samej bramy sieci VPN platformy Azure można łączyć zarówno po�
 Tak, routing tranzytowy protokołu BGP jest obsługiwany, ale bramy sieci VPN platformy Azure **nie** anonsują tras domyślnych do innych elementów równorzędnych protokołu BGP. Aby włączyć routing tranzytowy dla wielu bram sieci VPN platformy Azure, należy włączyć protokół BGP dla wszystkich pośrednich połączeń między sieciami wirtualnymi.
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Czy można mieć więcej niż jeden tunel między bramą sieci VPN platformy Azure i lokalną siecią użytkownika?
-Tak, można utworzyć więcej niż jeden tunel VPN S2S między bramą sieci VPN platformy Azure i siecią lokalną. Należy pamiętać, że wszystkie te tunele będą uwzględniane w łącznej liczbie tuneli dla bram sieci VPN platformy Azure. Na przykład dwa nadmiarowe tunele między bramą sieci VPN platformy Azure i jedną z sieci lokalnych będą wymagały 2 tuneli z łącznego limitu przydziału dla bramy sieci VPN użytkownika platformy Azure (10 dla standardowej i 30 dla wysokowydajnej).
+Tak, można utworzyć więcej niż jeden tunel VPN S2S między bramą sieci VPN platformy Azure i siecią lokalną. Należy pamiętać, że wszystkie te tunele będą uwzględniane w łącznej liczbie tuneli dla bram sieci VPN platformy Azure oraz że należy włączyć protokół w obydwu tunelach.
+
+Na przykład dwa nadmiarowe tunele między bramą sieci VPN platformy Azure i jedną z sieci lokalnych będą wymagały 2 tuneli z łącznego limitu przydziału dla bramy sieci VPN użytkownika platformy Azure (10 dla standardowej i 30 dla wysokowydajnej).
 
 ### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>Czy można mieć wiele tuneli między dwiema sieciami wirtualnymi platformy Azure z protokołem BGP?
-Nie, nadmiarowe tunele między dwiema sieciami wirtualnymi nie są obsługiwane.
+Tak, ale co najmniej jedna z bram sieci wirtualnej musi mieć konfigurację aktywne-aktywne.
 
 ### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>Czy można użyć protokołu BGP dla sieci VPN S2S w konfiguracji współistnienia sieci ExpressRoute i sieci VPN S2S?
 Tak. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Jakiego adresu używa brama sieci VPN platformy Azure dla adresu IP elementu równorzędnego protokołu BGP?
-Brama sieci VPN platformy Azure przydziela pojedynczy adres IP z zakresu podsieci bramy zdefiniowanego dla sieci wirtualnej. Domyślnie jest to przedostatni adres zakresu. Na przykład jeśli podsieć bramy to 10.12.255.0/27, w zakresie od 10.12.255.0 do 10.12.255.31, wtedy adresem IP elementu równorzędnego protokołu BGP dla bramy sieci VPN platformy Azure jest 10.12.255.30. Te informacje można znaleźć wśród informacji dotyczących bramy sieci VPN platformy Azure.
+Brama sieci VPN platformy Azure przydziela pojedynczy adres IP z zakresu podsieci bramy zdefiniowanego dla sieci wirtualnej. Domyślnie jest to przedostatni adres zakresu. Na przykład jeśli podsieć bramy to 10.12.255.0/27, w zakresie od 10.12.255.0 do 10.12.255.31, adresem IP elementu równorzędnego protokołu BGP dla bramy sieci VPN platformy Azure jest 10.12.255.30. Te informacje można znaleźć wśród informacji dotyczących bramy sieci VPN platformy Azure.
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Jakie są wymagania dotyczące adresów IP elementów równorzędnych protokołu BGP na urządzeniu sieci VPN użytkownika?
 Adres lokalnego elementu równorzędnego protokołu BGP **NIE MOŻE** być taki sam jak publiczny adres IP urządzenia sieci VPN użytkownika. Na urządzeniu sieci VPN należy użyć innego adresu IP dla adresu IP elementu równorzędnego protokołu BGP. Może to być adres przypisany do interfejsu sprzężenia zwrotnego na urządzeniu. Ten adres należy określić w odpowiedniej bramie sieci lokalnej reprezentującej daną lokalizację.
@@ -63,6 +68,6 @@ Na urządzeniu sieci VPN należy dodać trasę hosta dla adresu IP elementu rów
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
