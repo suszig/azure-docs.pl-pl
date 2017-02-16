@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ W tej sekcji utworzysz lokalne repozytorium Git zawierające kod serwera dla int
         git init
    
      ![Nowe lokalne repozytorium Git](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Wykonaj poniższe polecenie, aby dodać zdalny element usługi Git do repozytorium aplikacji interfejsu API. 
+3. Jeśli wykonano kroki opisane w pierwszej części tego samouczka i skopiowano folder `ContactList`, kopia prawdopodobnie uwzględniała folder `node_modules`. Nie chcesz uwzględniać folderu `node_modules` w kontroli źródła, ponieważ jest on tworzony podczas procesu wdrażania za pomocą pliku `package.json` i polecenia `npm install`. W związku z tym dodaj plik `.gitignore`, uruchamiając następujące polecenie w katalogu głównym projektu.
+
+         touch .gitignore
+      
+   Otwórz plik .gitignore i dodaj folder `node_modules` do pierwszego wiersza pliku. Możesz potwierdzić, że folder `node_modules` jest ignorowany przez kontrolę źródła, uruchamiając polecenie `git status` i upewniając się, że katalogu nie ma na liście. Jeśli chcesz dodać więcej reguł, istnieje (projekt GitHub)[https://github.com/github/gitignore/blob/master/Node.gitignore] dla zalecanych plików do ignorowania w projekcie usługi NodeJS.
+ 
+4. Wykonaj poniższe polecenie, aby dodać zdalny element usługi Git do repozytorium aplikacji interfejsu API. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Uwaga**: zastąp ciąg „YOUR_GIT_CLONE_URL_HERE” własnym, wcześniej skopiowanym adresem URL klonowania Git. 
-4. Wykonaj poniższe polecenia, aby utworzyć zatwierdzenie zawierające cały kod. 
+5. Wykonaj poniższe polecenia, aby utworzyć zatwierdzenie zawierające cały kod. 
    
         git add .
         git commit -m "initial revision"
    
     ![Dane wyjściowe zatwierdzenia Git](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Wykonaj polecenie, aby wypchnąć kod do platformy Azure. Po wyświetleniu monitu o hasło wprowadź hasło utworzone wcześniej w Portalu Azure.
+6. Wykonaj polecenie, aby wypchnąć kod do platformy Azure. Po wyświetleniu monitu o hasło wprowadź hasło utworzone wcześniej w Portalu Azure.
    
         git push azure master
    
     Spowoduje to zainicjowanie wdrożenia w aplikacji interfejsu API.  
-6. W przeglądarce przejdź wstecz do bloku **Wdrożenia** dotyczącego aplikacji interfejsu API i sprawdź, czy jest widoczne wdrożenie w toku. 
+7. W przeglądarce przejdź wstecz do bloku **Wdrożenia** dotyczącego aplikacji interfejsu API i sprawdź, czy jest widoczne wdrożenie w toku. 
    
     ![Wdrożenie w toku](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ Na tym etapie pomyślnie zakończono tworzenie aplikacji interfejsu API i wdraż
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

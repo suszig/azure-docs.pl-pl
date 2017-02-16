@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -44,7 +44,7 @@ Aby rozpocząć pracę, potrzebne będą następujące elementy:
 
 ## <a name="create-a-sql-data-warehouse"></a>Tworzenie bazy danych w usłudze SQL Data Warehouse
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij kolejno opcje **+ Nowy** > **Dane i magazyn** > **SQL Data Warehouse**.
+2. Kliknij kolejno pozycje **+ Nowy** > **Bazy danych** > **SQL Data Warehouse**.
 
     ![Tworzenie](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. W bloku **SQL Data Warehouse** podaj potrzebne informacje, a następnie naciśnij przycisk „Utwórz”, aby utworzyć usługę.
@@ -102,6 +102,6 @@ Warto również zapoznać się z artykułem [Najlepsze praktyki][Best practices]
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

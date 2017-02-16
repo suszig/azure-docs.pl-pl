@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak używać usługi Azure Stack w wersji Preview w celu udostępniania usług platformy Azure przy użyciu centrum danych. Informacje o funkcjach udostępnianych przy użyciu środowiska weryfikacji koncepcji oraz demonstracja działania tych funkcji."
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
+ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
 
 ---
 #<a name="azure-stack-documentation"></a>Dokumentacja usługi Azure Stack
 
-Usługa Microsoft Azure Stack to nowy produkt platformy chmury hybrydowej, który umożliwia dostarczanie usług platformy Azure z centrum danych Twojej organizacji. Usługa Microsoft Azure Stack w wersji Technical Preview 2 jest udostępniana za pośrednictwem środowiska POC (Proof of Concept, weryfikacja koncepcji). Środowisko POC umożliwia poznawanie i demonstrowanie funkcji usługi Azure Stack. Obsługuje ono wdrażanie wszystkich wymaganych składników na jednym komputerze fizycznym, co pozwala utworzyć środowisko oceny najważniejszych koncepcji i możliwości oraz weryfikacji modelu rozszerzalności dla interfejsów API.
+Dowiedz się, jak używać usługi Azure Stack w wersji Technical Preview w celu udostępniania usług platformy Azure przy użyciu centrum danych organizacji. Samouczki i inne dokumenty przedstawiające sposób użycia środowiska weryfikacji koncepcji w celu zapoznania się z funkcjami usługi Azure Stack i zademonstrowania ich działania.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +97,6 @@ Pobierz dokumentację usługi Azure Stack </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

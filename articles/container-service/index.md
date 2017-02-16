@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Informacje o sposobie używania usługi Container Service do wdrażania kontenerów aplikacji przy użyciu platform DC/OS, Docker Swarm lub Kubernetes oraz zarządzania nimi. Samouczki, dokumentacja interfejsu API i inne materiały."
 translationtype: Human Translation
-ms.sourcegitcommit: 445c13f0ff0106aa1d919be81ca373377464b32a
-ms.openlocfilehash: 5e027ac1a0a9ec4d11c76bbce1e0c944742ffaf9
+ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
+ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
 
 ---
 
 # <a name="azure-container-service-documentation"></a>Dokumentacja usługi Azure Container Service
 
-Usługa Azure Container Service upraszcza tworzenie i konfigurację klastra maszyn wirtualnych, które są wstępnie skonfigurowane do uruchamiania konteneryzowanych aplikacji, oraz zarządzanie nim. Usługa Container Service używa zoptymalizowanej konfiguracji popularnych narzędzi do planowania i organizowania typu open source. Umożliwia to używanie posiadanych umiejętności lub sięganie po duży i rosnący zasób wiedzy społeczności w celu wdrażania opartych na kontenerze aplikacji platformy Microsoft Azure i zarządzania nimi.
+Informacje o sposobie używania usługi Container Service do wdrażania w pełni przenośnych kontenerów aplikacji oraz zarządzania nimi. Samouczki, dokumentacja interfejsu API oraz inne dokumenty przedstawiające sposób skalowania i organizowania kontenerów za pomocą platform DC/OS, Docker Swarm lub Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,6 +101,7 @@ Pobierz dokumentację usługi Azure Container Service </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

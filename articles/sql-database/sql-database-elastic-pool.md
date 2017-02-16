@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -33,7 +33,7 @@ Pule elastyczne zapewniają proste i ekonomiczne rozwiązanie umożliwiające za
 ## <a name="how-it-works"></a>Jak to działa
 Typowym wzorcem aplikacji SaaS jest model bazy danych z jedną dzierżawą: każdy klient otrzymuje własną bazę danych. Każdy klient (baza danych) ma nieprzewidywalne wymagania dotyczące zasobów pamięci, we/wy i procesora CPU. Jak przy tych okresowych wzrostach i spadkach zapotrzebowania przydzielić zasoby wydajnie i ekonomicznie? Tradycyjnie dostępne były dwie opcje: (1) nadmiarowa aprowizacja zasobów na podstawie szczytowego użycia i uiszczanie nadmiernych opłat lub (2) aprowizacja zasobów na niedostatecznym poziomie w celu obniżenia opłat, kosztem wydajności i zadowolenia klientów w okresach szczytowego użycia. Pule elastyczne rozwiązują ten problem przez zapewnienie, że bazy danych uzyskują potrzebne im zasoby wydajności wtedy, kiedy ich potrzebują. Udostępniają one prosty mechanizm alokacji zasobów w ramach przewidywalnego budżetu. Aby dowiedzieć się więcej na temat wzorców projektowych dla aplikacji SaaS wykorzystujących pule elastyczne, zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 W usłudze SQL Database względna miara możliwości obsługi zapotrzebowania na zasoby bazy danych jest wyrażona w jednostkach transakcji bazy danych (DTU) dla pojedynczych baz danych oraz w elastycznych jednostkach DTU (eDTU) dla baz danych w puli elastycznej. Aby dowiedzieć się więcej na temat jednostek DTU i eDTU, zobacz [Wprowadzenie do usługi SQL Database](sql-database-technical-overview.md).
@@ -106,6 +106,6 @@ Dla aplikacji, które wymagają bardziej agresywnego odzyskiwania niż oferowane
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

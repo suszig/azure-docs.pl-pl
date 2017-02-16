@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak opracować i wdrożyć funkcje w wybranym języku, aby umożliwić uruchamianie zadań w tle lub zgodnie z harmonogramem bez specjalnej infrastruktury."
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
+ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
 
 ---
 #<a name="azure-functions-documentation"></a>Dokumentacja usługi Azure Functions
 
-Azure Functions to rozwiązanie umożliwiające łatwe uruchamianie małych fragmentów kodu („funkcji”) w chmurze. Możesz napisać kod rozwiązujący aktualny problem, nie martwiąc się o całą aplikację ani infrastrukturę do jej uruchomienia. Możesz również tworzyć w wybranym języku, takim jak C#, F #, Node.js, Python lub PHP.
+Dowiedz się, jak usługa Functions umożliwia opracowywanie i wdrażanie małych fragmentów kodu w wybranym języku i w chmurze bez konieczności konfigurowania infrastruktury. W samouczkach, szablonach i innych dokumentach pokazano, jak tworzyć funkcje dla zadań, które mają być uruchamiane w wątku w tle lub zgodnie z harmonogramem.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -115,6 +116,6 @@ Pobierz dokumentację usługi Azure Functions </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

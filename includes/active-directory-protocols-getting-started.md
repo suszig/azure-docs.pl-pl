@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 8db20ca36190197abcb73200eeed79e004435af9
-ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
+ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
+ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
 
 ---
@@ -28,7 +28,7 @@ Po pierwsze należy zarejestrować aplikację w dzierżawie usługi Azure Active
 * Wybierz dzierżawę usługi Azure AD, klikając swoje konto w prawym górnym rogu strony.
 * W okienku nawigacji po lewej stronie kliknij pozycję **Azure Active Directory**.
 * Kliknij pozycję **Rejestracje aplikacji**, a następnie kliknij pozycję **Dodaj**.
-* Postępuj zgodnie z monitami i utwórz nową aplikację. Na potrzeby tego samouczka nie ma znaczenia, czy jest to aplikacja sieci Web, czy aplikacja natywna, ale jeśli chcesz zapoznać się z konkretnymi przykładami dla aplikacji sieci Web lub aplikacji natywnych, zobacz nasze [przewodniki szybkiego startu](../articles/active-directory/active-directory-developers-guide.md).
+* Postępuj zgodnie z monitami i utwórz nową aplikację. Na potrzeby tego samouczka nie ma znaczenia, czy jest to aplikacja sieci Web, czy aplikacja natywna, ale jeśli chcesz zapoznać się z konkretnymi przykładami dla aplikacji sieci Web lub aplikacji natywnych, zobacz nasze [przewodniki szybkiego startu](../articles/active-directory/develop/active-directory-developers-guide.md).
   * W przypadku aplikacji sieci Web podaj **Adres URL logowania**, czyli podstawowy adres URL aplikacji, pod którym użytkownicy mogą się logować, np. `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * W przypadku aplikacji natywnych podaj **Identyfikator URI przekierowania**, którego usługa Azure AD będzie używać do zwracania odpowiedzi z tokenem. Wprowadź wartość specyficzną dla Twojej aplikacji, np. `http://MyFirstAADApp`
@@ -36,6 +36,6 @@ Po pierwsze należy zarejestrować aplikację w dzierżawie usługi Azure Active
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Dowiedz się, jak usługa BizTalk Services umożliwia integrację specjalistycznych aplikacji dla firm działających w chmurze i lokalnie, takich jak SAP, Oracle EBS, SQL Server i PeopleSoft."
 translationtype: Human Translation
-ms.sourcegitcommit: 329bf8f57270c901d54f27a2159287e08e4c355a
-ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
+ms.sourcegitcommit: 74eb1a0a0f532ffe23fdfac0d8b25ee9434175a1
+ms.openlocfilehash: 754a932b8d98bbae8f7e24daab073cbec1d4d16e
 
 ---
 # <a name="biztalk-services-documentation"></a>Dokumentacja usługi BizTalk Services
 
-Usługa BizTalk Services oferuje funkcję integracji specjalistycznych aplikacji dla firm działających w chmurze i lokalnie, takich jak SAP, Oracle EBS, SQL Server i PeopleSoft. Umożliwia ona nawiązywanie połączeń z dowolnymi źródłami danych HTTP, FTP, SFTP i REST. Komunikaty można kierować przy użyciu różnych artefaktów platformy Azure, takich jak kolejki i tematy usługi Service Bus oraz usługi SQL Database i Blob Storage.   
+Dowiedz się, jak usługa BizTalk Services umożliwia integrację specjalistycznych aplikacji dla firm działających w chmurze i lokalnie, takich jak SAP, Oracle EBS, SQL Server i PeopleSoft. W samouczkach i innych dokumentach pokazano, jak zintegrować przedsiębiorstwo i chmurę.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -77,6 +78,7 @@ Pobierz dokumentację usługi BizTalk Services </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

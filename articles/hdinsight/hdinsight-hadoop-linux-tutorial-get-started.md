@@ -1,6 +1,6 @@
 ---
-title: "Samouczek systemu Linux: wprowadzenie do usług Hadoop i Hive | Microsoft Docs"
-description: "Skorzystaj z tego samouczka systemu Linux, aby rozpocząć korzystanie z usługi Hadoop w usłudze HDInsight. Dowiedz się, jak udostępniać klastry z systemem Linux i wykonywać zapytania na danych przy użyciu Hive."
+title: "Samouczek Hadoop: wprowadzenie do usług Hadoop i Hive w usłudze HDInsight | Microsoft Docs"
+description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Hadoop w usłudze HDInsight. Dowiedz się, jak tworzyć klastry systemu Linux i wykonywać zapytania na danych przy użyciu technologii Hive."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,22 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/16/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 2863bfb48d0fed706fbd3c3f14dfb6a8d77eb9ea
+ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
+ms.openlocfilehash: 1cf85c16847aad632d52fe72cd827f0ef8e66e91
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Samouczek Hadoop: rozpoczynanie pracy z opartą na systemie Linux usługą Hadoop w usłudze HDInsight
-> [!div class="op_single_selector"]
-> * [Oparte na systemie Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
-> * [Oparte na systemie Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
-> 
-> 
+# <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Samouczek Hadoop: rozpoczęcie korzystania z usługi Hadoop w usłudze HDInsight
 
-Informacje o sposobie tworzenia opartych na systemie Linux klastrów [Hadoop](http://hadoop.apache.org/) w usłudze HDInsight i uruchamiania zadań Hive w usłudze HDInsight. [Apache Hive](https://hive.apache.org/) jest najbardziej popularnym składnikiem w ekosystemie usługi Hadoop. Obecnie usługa HDInsight obejmuje sześć różnych typów klastrów: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (wersja zapoznawcza)](hdinsight-hadoop-use-interactive-hive.md) i [R Server](hdinsight-hadoop-r-server-overview.md).  Każdy typ klastra obsługuje inny zestaw składników. Wszystkie sześć typów klastrów obsługuje program Hive. Aby uzyskać listę obsługiwanych składników w usłudze HDInsight, zobacz artykuł [Nowości w wersjach klastra Hadoop dostarczanych z usługą HDInsight](hdinsight-component-versioning.md)  
+Informacje o sposobie tworzenia klastrów [Hadoop](http://hadoop.apache.org/) w usłudze HDInsight i uruchamiania zadań Hive w usłudze HDInsight. [Apache Hive](https://hive.apache.org/) jest najbardziej popularnym składnikiem w ekosystemie usługi Hadoop. Obecnie usługa HDInsight obejmuje sześć różnych typów klastrów: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (wersja zapoznawcza)](hdinsight-hadoop-use-interactive-hive.md) i [R Server](hdinsight-hadoop-r-server-overview.md).  Każdy typ klastra obsługuje inny zestaw składników. Wszystkie sześć typów klastrów obsługuje program Hive. Aby uzyskać listę obsługiwanych składników w usłudze HDInsight, zobacz artykuł [Nowości w wersjach klastra Hadoop dostarczanych z usługą HDInsight](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,7 +37,7 @@ Przed rozpoczęciem tego samouczka potrzebna będzie:
 
 ## <a name="create-cluster"></a>Tworzenie klastra
 
-Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, uruchamiasz pewne zadania, a następnie usuwasz klaster. W tej sekcji pokazano, jak utworzyć oparty na systemie Linux klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Szablon usługi Resource Manager jest w pełni dostosowywalny. Dzięki niemu tworzenie zasobów platformy Azure, takich jak usługa HDInsight, jest proste. Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Użyj selektora u góry strony, aby wybrać opcje tworzenia klastra.
+Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, uruchamiasz pewne zadania, a następnie usuwasz klaster. W tej sekcji tworzysz klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Szablon usługi Resource Manager jest w pełni dostosowywalny. Dzięki niemu tworzenie zasobów platformy Azure, takich jak usługa HDInsight, jest proste. Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Użyj selektora u góry strony, aby wybrać opcje tworzenia klastra.
 
 Użyty w tym samouczku szablon usługi Resource Manager znajduje się w usłudze [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
@@ -57,7 +52,7 @@ Użyty w tym samouczku szablon usługi Resource Manager znajduje się w usłudze
     * **Grupa zasobów**: utwórz nową grupę zasobów lub wybierz istniejącą.  Grupa zasobów jest kontenerem składników platformy Azure.  W tym przypadku grupa zasobów zawiera klaster usługi HDInsight i zależne konto usługi Azure Storage. 
     * **Lokalizacja**: wybierz lokalizację platformy Azure, w której chcesz utworzyć klaster.  Wybierz lokalizację znajdującą się blisko, aby zapewnić lepszą wydajność. 
     * **Typ klastra**: na potrzeby tego samouczka wybierz opcję **hadoop**.
-    * **Nazwa klastra**: wprowadź nazwę klastra usługi Hadoop, który utworzysz.
+    * **Nazwa klastra**: wprowadź nazwę klastra Hadoop.
     * **Nazwa logowania i hasło klastra**: domyślna nazwa logowania to **admin**.
     * **Nazwa użytkownika i hasło SSH**: domyślna nazwa użytkownika to **sshuser**.  Tę nazwę można zmienić. 
      
@@ -175,6 +170,6 @@ Jeśli chcesz dowiedzieć się więcej o tworzeniu klastra usługi HDInsight i z
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

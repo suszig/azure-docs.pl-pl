@@ -41,7 +41,7 @@ Pozwala to deweloperom na bardzo skuteczne dotarcie do klientów bez narzucania 
 ## <a name="open-apis-and-ease-of-integration"></a>Otwarte interfejsy API i łatwa integracja
 Dzięki otwartym interfejsom API i zestawom SDK ułatwiającym integrację można korzystać z istniejących danych z systemów CRM i CMS oraz innych systemów zaplecza. Pozwala to na jeszcze dokładniejsze określenie grupy docelowej odbiorców i ochronę inwestycji.
 
-## <a name="data-protection-privacy-across-the-globe"></a>Ochrona i prywatność danych na całym świecie
+## <a name="data-protection--privacy-across-the-globe"></a>Ochrona i prywatność danych na całym świecie
 Firma Microsoft od dawna dba o ochronę prywatności, która stanowi nieodłączną część cyklu życia produktów i usług Microsoft. Dążymy do zachowania przejrzystości naszych działań w zakresie prywatności, dlatego udostępniamy klientom możliwości wyboru rozwiązań związanych z ochroną prywatności oraz odpowiedzialnego zarządzania przechowywanymi danymi. Tak jak w przypadku wszystkich usług platformy Azure usługa Mobile Engagement nie udostępnia ani nie sprzedaje informacji pochodzących od klientów. Usługa Mobile Engagement jest dostępna na całym świecie, co zapewnia przestrzeganie regionalnych lub krajowych przepisów dotyczących prywatności danych.
 
 ### <a name="next-steps"></a>Następne kroki:

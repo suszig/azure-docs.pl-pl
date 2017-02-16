@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: shoatman;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5a75504058b82b3199a461d82938d0a222f5739
+ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
+ms.openlocfilehash: 3f18a587033e977d56b6c118e664fbe3cdbc6046
 
 
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: uaktualnianie z narzędzia DirSync
 Program Azure AD Connect zastępuje narzędzie DirSync. W tym temacie opisano sposoby uaktualniania z narzędzia DirSync. Czynności te nie zadziałają w przypadku aktualizowania z innej wersji programu Azure AD Connect lub z narzędzia Azure AD Sync.
 
-Przed rozpoczęciem instalacji należy [pobrać program Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) i wykonać czynności związane z wymaganiami wstępnymi opisane w temacie [Azure AD Connect: sprzęt i wymagania wstępne](../active-directory-aadconnect-prerequisites.md). W szczególności należy zapoznać się z informacjami o następujących obszarach, ponieważ różnią się one od narzędzia DirSync:
+Przed rozpoczęciem instalacji należy [pobrać program Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) i wykonać czynności związane z wymaganiami wstępnymi opisane w temacie [Azure AD Connect: sprzęt i wymagania wstępne](active-directory-aadconnect-prerequisites.md). W szczególności należy zapoznać się z informacjami o następujących obszarach, ponieważ różnią się one od narzędzia DirSync:
 
 * Wymagana wersja platformy .NET i programu PowerShell. Na serwerze są wymagane nowsze wersje niż w przypadku narzędzia DirSync.
 * Konfiguracja serwera proxy. Jeśli używasz serwera proxy w celu uzyskiwania dostępu do Internetu, to ustawienie musi zostać skonfigurowane przed uaktualnieniem. Narzędzie DirSync zawsze używało serwera proxy skonfigurowanego dla użytkownika, który je zainstalował, ale program Azure AD Connect używa ustawień maszyny.
@@ -67,11 +67,11 @@ Następującej zmiany nie można uwzględnić w uaktualnieniu. Jeśli jest używ
 
 ![Uaktualnienie zablokowane](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-W takim przypadku zalecane jest zainstalowanie nowego serwera z programem Azure AD Connect w [trybie przejściowym](../active-directory-aadconnectsync-operations.md#staging-mode) i zweryfikowanie starej konfiguracji narzędzia DirSync oraz nowej konfiguracji programu Azure AD Connect. Ponownie zastosuj zmiany, korzystając z konfiguracji niestandardowej, zgodnie z opisem w temacie [Synchronizacja programu Azure AD Connect: konfiguracja niestandardowa](../active-directory-aadconnectsync-whatis.md).
+W takim przypadku zalecane jest zainstalowanie nowego serwera z programem Azure AD Connect w [trybie przejściowym](active-directory-aadconnectsync-operations.md#staging-mode) i zweryfikowanie starej konfiguracji narzędzia DirSync oraz nowej konfiguracji programu Azure AD Connect. Ponownie zastosuj zmiany, korzystając z konfiguracji niestandardowej, zgodnie z opisem w temacie [Synchronizacja programu Azure AD Connect: konfiguracja niestandardowa](active-directory-aadconnectsync-whatis.md).
 
 Hasła używane przez narzędzie DirSync do kont usług nie mogą zostać pobrane i nie są migrowane. Te hasła są resetowane podczas uaktualnienia.
 
-### <a name="highlevel-steps-for-upgrading-from-dirsync-to-azure-ad-connect"></a>Ogólne kroki uaktualniania narzędzia DirSync do programu Azure AD Connect
+### <a name="high-level-steps-for-upgrading-from-dirsync-to-azure-ad-connect"></a>Ogólne kroki uaktualniania narzędzia DirSync do programu Azure AD Connect
 1. Wprowadzenie do programu Azure AD Connect
 2. Analiza bieżącej konfiguracji narzędzia DirSync
 3. Uzyskanie hasła administratora globalnego usługi Azure AD
@@ -86,7 +86,7 @@ Dodatkowe kroki są wymagane, jeśli:
 * Aktualnie używasz pełnej wersji programu SQL Server — lokalnie lub zdalnie
 * Synchronizacja ma obejmować więcej niż 50 000 obiektów
 
-## <a name="inplace-upgrade"></a>Uaktualnienie w miejscu
+## <a name="in-place-upgrade"></a>Uaktualnienie w miejscu
 1. Uruchom instalator (MSI) programu Azure AD Connect.
 2. Przeczytaj i zaakceptuj postanowienia licencyjne i zasady zachowania poufności informacji.
    ![Wprowadzenie do usługi Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
@@ -101,7 +101,7 @@ Dodatkowe kroki są wymagane, jeśli:
      Aby zamiast tego przeprowadzić [wdrożenie równoległe](#parallel-deployment), należy wyeksportować ustawienia konfiguracji narzędzia DirSync i przenieść konfigurację na nowy serwer.
 5. Wprowadź hasło do konta aktualnie używanego do łączenia się z usługą Azure AD. Musi to być konto używane aktualnie przez narzędzie DirSync.
    ![Wprowadzanie poświadczeń usługi Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
-   Jeśli wystąpi błąd lub problemy z łącznością, zobacz [Rozwiązywanie problemów z łącznością](../active-directory-aadconnect-troubleshoot-connectivity.md).
+   Jeśli wystąpi błąd lub problemy z łącznością, zobacz [Rozwiązywanie problemów z łącznością](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Podaj konto administratora przedsiębiorstwa dla usługi Active Directory.
    ![Wprowadzanie poświadczeń usług AD DS](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. Wszystko jest teraz gotowe do konfiguracji. Po kliknięciu polecenia **Uaktualnij** narzędzie DirSync zostanie odinstalowane, a program Azure AD Connect zostanie skonfigurowany i rozpocznie synchronizację.
@@ -153,12 +153,12 @@ W przypadku instalowania programu Azure AD Connect na nowym serwerze domyślnym 
    * Konto usługi używane do połączenia z serwerem SQL (jeśli korzystasz ze zdalnej bazy danych programu SQL Server, musi to być konto usługi domeny).
      Te opcje są widoczne na następującym ekranie: ![Wprowadzanie poświadczeń usługi Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. Kliknij przycisk **Dalej**.
-8. Na stronie **Wszystko gotowe do skonfigurowania** pozostaw zaznaczone pole wyboru **Uruchom proces synchronizacji, gdy tylko konfiguracja zostanie ukończona**. Serwer jest teraz w [trybie przejściowym](../active-directory-aadconnectsync-operations.md#staging-mode), więc zmiany nie są eksportowane do usługi Azure AD.
+8. Na stronie **Wszystko gotowe do skonfigurowania** pozostaw zaznaczone pole wyboru **Uruchom proces synchronizacji, gdy tylko konfiguracja zostanie ukończona**. Serwer jest teraz w [trybie przejściowym](active-directory-aadconnectsync-operations.md#staging-mode), więc zmiany nie są eksportowane do usługi Azure AD.
 9. Kliknij pozycję **Zainstaluj**.
 10. Po zakończeniu instalacji wyloguj się, a następnie zaloguj się ponownie w systemie Windows przed użyciem narzędzia Synchronization Service Manager lub Synchronization Rule Editor albo wprowadzeniem jakichkolwiek innych zmian konfiguracji.
 
 > [!NOTE]
-> Rozpocznie się synchronizacja między usługą Active Directory systemu Windows Server a usługą Azure Active Directory, ale żadne zmiany nie zostaną wyeksportowane do usługi Azure AD. Jednocześnie tylko jedno narzędzie do synchronizacji może aktywnie eksportować zmiany. Ten stan jest nazywany [trybem przejściowym](../active-directory-aadconnectsync-operations.md#staging-mode).
+> Rozpocznie się synchronizacja między usługą Active Directory systemu Windows Server a usługą Azure Active Directory, ale żadne zmiany nie zostaną wyeksportowane do usługi Azure AD. Jednocześnie tylko jedno narzędzie do synchronizacji może aktywnie eksportować zmiany. Ten stan jest nazywany [trybem przejściowym](active-directory-aadconnectsync-operations.md#staging-mode).
 > 
 > 
 
@@ -176,7 +176,7 @@ W aplikacji przejdź na kartę **Operacje**. Na tej karcie potwierdź, że zako�
 
 Przejrzyj wyniki tych operacji, aby upewnić się, że nie wystąpiły żadne błędy.
 
-Jeśli chcesz wyświetlić i sprawdzić zmiany, które mają zostać wyeksportowane do usługi Azure AD, zapoznaj się z instrukcjami weryfikacji konfiguracji w sekcji [tryb przejściowy](../active-directory-aadconnectsync-operations.md#staging-mode). Wprowadzaj wymagane zmiany konfiguracji do momentu, w którym nie znajdziesz już niczego nieoczekiwanego.
+Jeśli chcesz wyświetlić i sprawdzić zmiany, które mają zostać wyeksportowane do usługi Azure AD, zapoznaj się z instrukcjami weryfikacji konfiguracji w sekcji [tryb przejściowy](active-directory-aadconnectsync-operations.md#staging-mode). Wprowadzaj wymagane zmiany konfiguracji do momentu, w którym nie znajdziesz już niczego nieoczekiwanego.
 
 Po ukończeniu tych kroków i uzyskania zadowalających wyników wszystko jest gotowe, aby przełączyć się z narzędzia DirSync na usługę Azure AD.
 
@@ -207,13 +207,13 @@ Powinien zostać wyświetlony następujący ekran:
 Teraz program Azure AD Connect jest serwerem aktywnym.
 
 ## <a name="next-steps"></a>Następne kroki
-Po zainstalowaniu programu Azure AD Connect możesz [zweryfikować instalację i przypisać licencje](../active-directory-aadconnect-whats-next.md).
+Po zainstalowaniu programu Azure AD Connect możesz [zweryfikować instalację i przypisać licencje](active-directory-aadconnect-whats-next.md).
 
-Dowiedz się więcej na temat nowych funkcji włączonych w ramach instalacji: [Automatyczne uaktualnianie](../active-directory-aadconnect-feature-automatic-upgrade.md), [Zapobieganie przypadkowemu usuwaniu](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) oraz [Azure AD Connect Health](../active-directory-aadconnect-health-sync.md).
+Dowiedz się więcej na temat nowych funkcji włączonych w ramach instalacji: [Automatyczne uaktualnianie](active-directory-aadconnect-feature-automatic-upgrade.md), [Zapobieganie przypadkowemu usuwaniu](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) oraz [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 
-Dowiedz się więcej na te popularne tematy: [harmonogram i sposób włączania synchronizacji](../active-directory-aadconnectsync-feature-scheduler.md).
+Dowiedz się więcej na te popularne tematy: [harmonogram i sposób włączania synchronizacji](active-directory-aadconnectsync-feature-scheduler.md).
 
-Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](../active-directory-aadconnect.md).
+Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 | Temat |
@@ -227,6 +227,6 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 
 ---
@@ -51,7 +51,7 @@ Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z samouczkiem z wprowadzeniem, zobacz [Samouczek usługi SQL Database: tworzenie serwera, reguły zapory na poziomie serwera, przykładowej bazy danych i reguły zapory na poziomie bazy danych oraz nawiązywanie połączenia z programem SQL Server](sql-database-get-started.md).
-- Aby zapoznać się z samouczkiem z wprowadzeniem do zabezpieczeń, zobacz [Wprowadzenie do zabezpieczeń](sql-database-get-started-security.md)
+- Aby zapoznać się z samouczkiem z wprowadzeniem do zabezpieczeń, zobacz [Wprowadzenie do zabezpieczeń](sql-database-control-access-sql-authentication-get-started.md)
 - Aby uzyskać pomoc podczas łączenia się z bazą danych Azure SQL z aplikacji innych firm lub aplikacji typu open source, zobacz [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Przykłady kodu umożliwiające szybki start dla klienta usługi SQL Database).
 - Aby dowiedzieć się, jak utworzyć dodatkowych użytkowników mogących łączyć się z bazami danych, zobacz [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Uwierzytelnianie i autoryzacja w usłudze SQL Database: udzielanie dostępu).
 
@@ -64,6 +64,6 @@ Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

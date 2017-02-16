@@ -1,6 +1,6 @@
 ---
-title: "Używanie kluczy SSH z opartą na systemie Linux usługą Hadoop w systemie Linux, Unix lub OS X | Microsoft Docs"
-description: " Do usługi HDInsight w systemie Linux można uzyskać dostęp przy użyciu protokołu Secure Shell (SSH). Ten dokument zawiera informacje na temat używania protokołu SSH z usługą HDInsight przy użyciu klientów w systemie Linux, Unix lub OS X."
+title: "Korzystanie z protokołu SSH z usługą HDInsight (Hadoop) w systemie Windows, Linux, Unix lub OS X | Microsoft Docs"
+description: " Do usługi HDInsight można uzyskać dostęp przy użyciu protokołu Secure Shell (SSH). Ten dokument zawiera informacje na temat używania protokołu SSH z usługą HDInsight przy użyciu klientów w systemie Windows, Linux, Unix lub OS X."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Korzystanie z protokołu SSH z usługą HDInsight (Hadoop) w systemie Windows, Linux, Unix lub OS X
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix i OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 Protokół [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) umożliwia logowanie do klastra usługi HDInsight opartego na systemie Linux i uruchamianie poleceń przy użyciu interfejsu wiersza polecenia. Ten dokument zawiera podstawowe informacje o protokole SSH oraz szczegółowe informacje na temat używania protokołu SSH z usługą HDInsight.
 
@@ -233,6 +231,6 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
