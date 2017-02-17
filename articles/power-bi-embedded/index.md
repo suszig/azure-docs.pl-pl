@@ -143,6 +143,6 @@ Dowiedz się, jak za pomocą usługi Power BI Embedded dodawać do aplikacji wiz
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

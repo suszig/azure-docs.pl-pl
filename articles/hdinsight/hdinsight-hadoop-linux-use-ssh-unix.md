@@ -231,6 +231,6 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

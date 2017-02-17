@@ -82,6 +82,6 @@ Informacje o sposobie używania usługi Data Catalog w celu ułatwiania organiza
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

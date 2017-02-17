@@ -46,6 +46,6 @@ Zależy nam na Twojej opinii. Po zakończeniu każdej sesji pojawi się okno dia
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

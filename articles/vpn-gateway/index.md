@@ -168,6 +168,6 @@ Informacje o sposobie konfigurowania usługi VPN Gateway, bramy wirtualnej sieci
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
