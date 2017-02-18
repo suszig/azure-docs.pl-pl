@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie funkcji platformy Azure powiązanej z usługą platformy Azure | Microsoft Docs"
-description: "Tworzenie funkcji platformy Azure — aplikacji niekorzystającej z serwera — która współdziała z innymi usługami platformy Azure."
+title: "Tworzenie funkcji nawiązującej połączenie z usługami Azure | Microsoft Docs"
+description: "Tworzenie nieużywającej serwera aplikacji, która nawiązuje połączenie z innymi usługami Azure, za pomocą usługi Azure Functions."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,24 +14,21 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Tworzenie funkcji platformy Azure połączonej z usługą platformy Azure
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Tworzenie funkcji nawiązującej połączenie z innymi usługami Azure za pomocą usługi Azure Functions
 
-W tym temacie opisano sposób tworzenia funkcji platformy Azure, która nasłuchuje komunikatów w kolejce usługi Azure Storage i kopiuje je do wierszy w tabeli usługi Azure Storage. Funkcja wyzwalana przez czasomierz służy do ładowania komunikatów do kolejki. Druga funkcja odczytuje komunikaty z kolejki i zapisuje je do tabeli. Zarówno kolejka, jak i tabela są tworzone przez usługę Azure Functions na podstawie definicji powiązania. 
+W tym temacie opisano sposób tworzenia funkcji w usłudze Azure Functions, która nasłuchuje komunikatów w kolejce usługi Azure Storage i kopiuje je do wierszy w tabeli usługi Azure Storage. Funkcja wyzwalana przez czasomierz służy do ładowania komunikatów do kolejki. Druga funkcja odczytuje komunikaty z kolejki i zapisuje je do tabeli. Zarówno kolejka, jak i tabela są tworzone przez usługę Azure Functions na podstawie definicji powiązania. 
 
-Aby było ciekawiej, jedna funkcja została napisana w języku JavaScript, a druga w języku C#. To pokazuje, w jaki sposób aplikacja funkcji może mieć funkcje w różnych językach.
+Aby było ciekawiej, jedna funkcja została napisana w języku JavaScript, a druga w języku C#. To pokazuje, w jaki sposób aplikacja funkcji może mieć funkcje w różnych językach. 
 
-## <a name="watch-the-video"></a>Obejrzyj film
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+Ten scenariusz pokazano w [wideo w witrynie Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Tworzenie funkcji, która zapisuje do kolejki
 
@@ -197,6 +194,6 @@ Poniższe tematy umożliwiają uzyskanie dodatkowych informacji na temat usługi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

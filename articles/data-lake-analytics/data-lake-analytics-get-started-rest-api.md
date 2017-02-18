@@ -7,16 +7,16 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
-ms.service: data-lake-store
+ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
+ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
+ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
 
 
 ---
@@ -33,7 +33,7 @@ Dowiedz się, w jaki sposób można korzystać z interfejsów API REST WebHDFS o
 ## <a name="authenticate-with-azure-active-directory"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory
 Istnieją dwie metody uwierzytelniania za pomocą usługi Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Uwierzytelnianie użytkowników końcowych (interakcyjne)
+### <a name="end-user-authentication-interactive"></a>Uwierzytelnianie użytkowników końcowych (interakcyjne)
 W tej metodzie aplikacja wyświetla monit o zalogowanie się, po czym wszystkie operacje są wykonywane w kontekście zalogowanego użytkownika. 
 
 Wykonaj następujące kroki, aby przeprowadzić uwierzytelnianie interakcyjne:
@@ -76,7 +76,7 @@ Wykonaj następujące kroki, aby przeprowadzić uwierzytelnianie interakcyjne:
 
 Więcej informacji na temat interakcyjnego uwierzytelniania użytkownika zawiera temat [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) (Przepływ udzielania kodu autoryzacji).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Uwierzytelnianie między usługami (nieinterakcyjne)
+### <a name="service-to-service-authentication-non-interactive"></a>Uwierzytelnianie między usługami (nieinterakcyjne)
 Przy użyciu tej metody aplikacja udostępnia własne poświadczenia, aby wykonywać operacje. W tym celu należy wygenerować żądanie POST, tak jak pokazano poniżej: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -209,7 +209,7 @@ Zastąp \<`REDACTED`\> tokenem autoryzacji, \<`AzureSubscriptionID`\> identyfika
         ]
     }
 
-## <a name="submit-usql-jobs"></a>Przesyłanie zadań U-SQL
+## <a name="submit-u-sql-jobs"></a>Przesyłanie zadań U-SQL
 Następujące polecenie cURL ilustruje sposób przesłania zadania U-SQL:
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
@@ -266,7 +266,7 @@ Dane wyjściowe są podobne do następujących:
     }
 
 
-## <a name="list-usql-jobs"></a>Wyświetlenie listy zadań U-SQL
+## <a name="list-u-sql-jobs"></a>Wyświetlenie listy zadań U-SQL
 Następujące polecenie cURL ilustruje sposób wyświetlenia listy zadań U-SQL:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
@@ -350,6 +350,6 @@ Dane wyjściowe są podobne do następujących:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

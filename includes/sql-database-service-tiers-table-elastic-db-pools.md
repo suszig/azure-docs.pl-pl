@@ -70,10 +70,10 @@ sql-database-service-tiers.md
 | Maksymalna liczba jednostek eDTU na bazę danych | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Elastyczna baza danych współużytkuje magazyn w puli, dzięki czemu magazyn bazy danych jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych
+\* Bazy danych w puli współużytkują magazyn w puli, dzięki czemu magazyn bazy danych jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych. Maksymalna wielkość magazynu na pulę odwołuje się do maksymalnego magazynu plików danych w puli i nie obejmuje przestrzeni używanej przez pliki dziennika.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

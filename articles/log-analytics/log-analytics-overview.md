@@ -1,5 +1,5 @@
 ---
-title: "Co to jest usługa Log Analytics? | Microsoft Docs"
+title: "Co to jest usługa Log Analytics pakietu Operations Management Suite (OMS)? | Microsoft Docs"
 description: "Log Analytics to usługa należąca do pakietu Operations Management Suite (OMS) ułatwiająca zbieranie i analizę danych operacyjnych generowanych przez zasoby w środowisku chmurowym i lokalnym.  Ten artykuł zawiera krótkie omówienie różnych składników usługi Log Analytics i linki do szczegółowych treści na ich temat."
 services: log-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: bf1455cf3975b925d114acc3e1d4cba55f2a17a9
-ms.openlocfilehash: 3e7e42e2ac2deedf936ffc4d246553f72ee4dcd3
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: dcf61991fcbf989c905aa7c18e73df19afa89c36
 
 
 ---
@@ -73,6 +73,6 @@ Po [utworzeniu konta usługi Log Analytics](log-analytics-get-started.md) zostan
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

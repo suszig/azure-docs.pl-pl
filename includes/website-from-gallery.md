@@ -1,60 +1,60 @@
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
+Portal Azure Marketplace udostępnia szeroką gamę popularnych aplikacji sieci Web opracowanych przez firmę Microsoft, inne firmy oraz zespoły związane z inicjatywami dotyczącymi oprogramowania typu open source. Aplikacje sieci Web utworzone z poziomu portalu Azure Marketplace nie wymagają instalowania żadnego oprogramowania oprócz przeglądarki, przy użyciu której nawiązuje się połączenie z witryną [Azure Portal w wersji zapoznawczej](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
-In this tutorial, you'll learn:
+Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-* How to create a new web app through the Azure Marketplace.
-* How to deploy the web app through the Azure Preview Portal.
+* Jak utworzyć nową aplikację sieci Web za pośrednictwem portalu Azure Marketplace.
+* Jak wdrożyć aplikację sieci Web za pośrednictwem witryny Azure Portal w wersji zapoznawczej.
 
-You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
+Utworzysz blog WordPress korzystający z domyślnego szablonu. Poniższa ilustracja przedstawia gotową aplikację:
 
-![Wordpress blog][13]
+![Blog WordPress][13]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
-## Create a web app in the portal
-1. Log in to the Azure Preview Portal.
-2. Open the Azure Marketplace either by clicking the **Marketplace** icon:
+## <a name="create-a-web-app-in-the-portal"></a>Tworzenie aplikacji sieci Web w portalu
+1. Zaloguj się do witryny Azure Portal w wersji zapoznawczej.
+2. Otwórz portal Azure Marketplace, klikając ikonę **Marketplace**:
    
-    ![Marketplace icon][marketplace]
+    ![Ikona Marketplace][marketplace]
    
-    Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
+    Lub klikając ikonę **Nowe** w prawym górnym rogu pulpitu nawigacyjnego i wybierając pozycję **Marketplace** w dolnej części listy.
    
-    ![Create New][5]
-3. Select **Web + Mobile**. Search for **WordPress** and click the **WordPress** icon.
+    ![Create New (Utwórz nowe)][5]
+3. Wybierz pozycję **Sieć Web + aplikacje mobilne**. Wyszukaj wyrażenie **WordPress** i kliknij ikonę **WordPress**.
    
-    ![WordPress from list][7]
-4. After reading the description of the WordPress app, select **Create**.
-5. Click on **Web app**, and provide the required values for configuring your web app.
+    ![Pozycja WordPress na liście][7]
+4. Po przeczytaniu opisu aplikacji WordPress wybierz pozycję **Utwórz**.
+5. Kliknij pozycję **Aplikacja sieci Web** i podaj wartości wymagane do skonfigurowania aplikacji.
    
-    ![configure your app][8]
-6. Click on **Database**, and provide the required values for configuring your MySQL database. 
+    ![Konfigurowanie aplikacji][8]
+6. Kliknij pozycję **Baza danych** i podaj wartości wymagane do skonfigurowania bazy danych MySQL. 
    
-    ![configure database][database]
-7. Provide a name for a new resource group.
+    ![Konfigurowanie bazy danych][database]
+7. Podaj nazwę nowej grupy zasobów.
    
-    ![Set resource group][groupname]
-8. If necessary, click **SUBSCRIPTION**, and specify the subscription to use. 
-9. When you have finished defining the web app, click **Create**, and wait while the new web app is created.
+    ![Ustawianie grupy zasobów][groupname]
+8. W razie potrzeby kliknij pozycję **SUBSKRYPCJA** i określ subskrypcję, która ma być używana. 
+9. Gdy zakończysz definiować aplikację sieci Web, kliknij pozycję **Utwórz** i poczekaj na utworzenie nowej aplikacji sieci Web.
    
-   When the app has been created, you will see the resource group containing web app and database.
+   Po utworzeniu aplikacji zostanie wyświetlona grupa zasobów zawierająca aplikację sieci Web i bazę danych.
    
-   ![show group][resourcegroup]
+   ![Wyświetlanie grupy][resourcegroup]
 
-## Launch and manage your WordPress web app
-1. Click on your new web app to see details about your app.
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Uruchamianie aplikacji sieci Web WordPress i zarządzanie nią
+1. Kliknij nową aplikację sieci Web, aby zobaczyć jej szczegóły.
    
-    ![launch dashboard][10]
-2. On the **Essentials** page, click either **Browse** or the link under **Url** to open the web app's welcome page.
+    ![Uruchamianie pulpitu nawigacyjnego][10]
+2. Na stronie **Podstawy** kliknij pozycję **Przeglądaj** lub link pod pozycją **Url**, aby otworzyć stronę powitalną aplikacji sieci Web.
    
-    ![site URL][browse]
-3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
-4. Click **Login** and enter your credentials.  
-5. You'll have a new WordPress web app that looks similar to the web app below.    
+    ![Adres URL witryny][browse]
+3. Jeśli nie zainstalowano platformy WordPress, wprowadź odpowiednie informacje o konfiguracji wymagane przez platformę WordPress i kliknij pozycję **Zainstaluj platformę WordPress**, aby zakończyć konfigurowanie i otworzyć stronę logowania aplikacji sieci Web.
+4. Kliknij pozycję **Zaloguj się** i wprowadź swoje poświadczenia.  
+5. Będziesz mieć nową aplikację sieci Web WordPress podobną do aplikacji poniżej.    
    
-    ![your WordPress site][13]
+    ![Witryna WordPress][13]
 
 [5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
@@ -69,3 +69,8 @@ You'll build a WordPress blog that uses a default template. The following illust
 [browse]: ./media/website-from-gallery/browse-web.png
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
+
+
+<!--HONumber=Jan17_HO3-->
+
+

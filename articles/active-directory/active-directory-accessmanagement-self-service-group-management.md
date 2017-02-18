@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/3/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: be84686351255585c3484f5ab8dad37b92462e2b
 
 
 ---
@@ -41,7 +41,7 @@ Dodatkowo możesz użyć opcji **Użytkownicy, którzy mogą używać samoobsłu
 
 Dodatkowo możesz użyć pola **Grupa, która może używać samoobsługi dla grup zabezpieczeń**, aby wskazać niestandardową nazwę grupy, której członkowie mogą korzystać z funkcji samoobsługi.
 
-## <a name="additional-information"></a>Dodatkowe informacje
+## <a name="next-steps"></a>Następne kroki
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 * [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
@@ -52,7 +52,6 @@ Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

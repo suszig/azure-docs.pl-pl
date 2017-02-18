@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -170,7 +170,7 @@ Klikaj poszczególne wiersze, aby uzyskać szczegółowe informacje.
 Kliknij przycisk `...`, aby uzyskać pełną telemetrię wywołania Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Brak zgłoszonych wywołań Ajax?
-Wywołania AJAX obejmują dowolne wywołania HTTP dokonywane ze skryptu na stronie sieci Web. Jeśli nie widzisz ich w raporcie, sprawdź, czy we fragmencie kodu nie zostały ustawione [parametry](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` lub `maxAjaxCallsPerView`.
+Wywołania AJAX obejmują dowolne wywołania HTTP/HTTPS dokonywane ze skryptu na stronie sieci Web. Jeśli nie widzisz ich w raporcie, sprawdź, czy we fragmencie kodu nie zostały ustawione [parametry](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` lub `maxAjaxCallsPerView`.
 
 ## <a name="browser-exceptions"></a>Wyjątki przeglądarki
 W bloku Przeglądarki znajduje się wykres podsumowania wyjątków, a poniżej niego siatka typów wyjątków.
@@ -193,7 +193,7 @@ Wybierz dowolne zdarzenie, aby wyświetlić więcej szczegółów. Na stronie sz
 > 
 > 
 
-Można także użyć zaawansowanego [języka zapytań analizy](app-insights-analytics-tour.md) do przeszukiwania wyświetleń stron.
+Można także użyć zaawansowanego [języka zapytań analizy](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) do przeszukiwania wyświetleń stron.
 
 ### <a name="page-view-properties"></a>Właściwości wyświetlania stron
 * **Czas trwania wyświetlania stron** 
@@ -230,6 +230,6 @@ Chcesz dowiedzieć się, w jaki sposób użytkownicy korzystają z aplikacji?
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

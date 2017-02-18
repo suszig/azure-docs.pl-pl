@@ -1,5 +1,5 @@
 ---
-title: "Wdrażanie aplikacji ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio | Microsoft Docs"
+title: "Wdrażanie aplikacji ASP.NET na platformie Azure przy użyciu programu Visual Studio | Microsoft Docs"
 description: "Dowiedz się, jak wdrożyć projekt sieci Web ASP.NET w nowej aplikacji sieci Web w usłudze Azure App Service przy użyciu programu Visual Studio."
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ Oprócz czasu wymaganego do zainstalowania zestawu Azure SDK dla programu .NET w
 * Samouczek jest przeznaczony dla użytkowników, którzy pracowali już z aplikacją ASP.NET MVC i programem Visual Studio. Jeśli potrzebujesz wprowadzenia, zobacz [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) (Wprowadzenie do aplikacji ASP.NET MVC 5).
 * Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751). W tej lokalizacji możesz utworzyć początkową aplikację o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
+    Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/). W tej lokalizacji możesz utworzyć początkową aplikację o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Konfigurowanie środowiska projektowego
 Samouczek jest przeznaczony dla programu Visual Studio 2015 z [zestawem Azure SDK dla programu .NET](../dotnet-sdk.md) w wersji 2.9 lub nowszej. 
@@ -222,6 +222,6 @@ W tym samouczku przedstawiono sposób tworzenia prostej aplikacji sieci Web i wd
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

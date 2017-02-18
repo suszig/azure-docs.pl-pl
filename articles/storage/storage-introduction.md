@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do usługi Storage | Microsoft Docs"
+title: "Wprowadzenie do usługi Azure Storage | Microsoft Docs"
 description: "Omówienie usługi Azure Storage — magazynu danych online w chmurze firmy Microsoft. Dowiedz się, jak używać najlepszego dostępnego rozwiązania magazynu w chmurze dla Twoich aplikacji."
 services: storage
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/02/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
+ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
+ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
 
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
+
 ## <a name="overview"></a>Omówienie
 Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplikacji, które polegają na trwałości, dostępności i skalowalności, aby spełniać potrzeby klientów. Ten artykuł, przeznaczony dla deweloperów, specjalistów IT i osób podejmujących decyzje biznesowe, zawiera następujące informacje:
 
@@ -171,7 +172,7 @@ Usługa Import/Eksport Azure umożliwia zaimportowanie lub wyeksportowanie danyc
 ## <a name="pricing"></a>Cennik
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
-## <a name="storage-apis-libraries-and-tools"></a>Interfejsy API usługi Storage, biblioteki i narzędzia
+## <a name="storage-apis-libraries-and-tools"></a>Narzędzia, biblioteki oraz interfejsy API usługi Storage
 Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który obsługuje żądania HTTP/HTTPS. Dodatkowo Magazyn Azure oferuje biblioteki programistyczne dla kilku popularnych języków. Te biblioteki upraszczają wiele aspektów pracy z Magazynem Azure, obsługując szczegóły takie jak wywołania synchroniczne i asynchroniczne, przetwarzanie wsadowe operacji, zarządzanie wyjątkami, automatyczne ponawianie, zachowania podczas działania itd. Biblioteki są obecnie dostępne dla następujących języków i platform, a kolejne są planowane:
 
 ### <a name="azure-storage-data-services"></a>Usługi danych usługi Azure Storage
@@ -185,7 +186,7 @@ Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który 
 * [Biblioteka klienta usługi Storage dla języka Python](/develop/python/)
 * [Polecenia cmdlet usługi Storage dla programu PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
-### <a name="azure-storage-management-services"></a>Usługi zarządzania usługą Azure Storage
+### <a name="azure-storage-management-services"></a>Usługi zarządzania usługi Azure Storage
 * [Dokumentacja interfejsu API REST dostawcy zasobów usługi Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 * [Biblioteka klienta dostawcy zasobów usługi Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx)
 * [Polecenia cmdlet dostawcy zasobów usługi Storage dla programu PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
@@ -208,12 +209,14 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 
 ### <a name="documentation"></a>Dokumentacja
 * [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Tworzenie konta magazynu](storage-create-storage-account.md)
+* [Szybkie wprowadzenie do usługi Azure Storage](storage-getting-started-guide.md)
 
 ### <a name="for-administrators"></a>Dla administratorów
 * [Używanie programu Azure PowerShell z usługą Azure Storage](storage-powershell-guide-full.md)
 * [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](storage-azure-cli.md)
 
-### <a name="for-net-developers"></a>Dla deweloperów platformy .NET
+### <a name="for-net-developers"></a>Dla deweloperów .NET
 * [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md)
 * [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md)
 * [Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md)
@@ -230,7 +233,7 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 * [Używanie usługi Table Storage w oprogramowaniu Node.js](storage-nodejs-how-to-use-table-storage.md)
 * [Używanie usługi Queue Storage w oprogramowaniu Node.js](storage-nodejs-how-to-use-queues.md)
 
-### <a name="for-php-developers"></a>Dla programistów języka PHP
+### <a name="for-php-developers"></a>Dla deweloperów języka PHP
 * [Używanie usługi Blob Storage w języku PHP](storage-php-how-to-use-blobs.md)
 * [Używanie usługi Table Storage w języku PHP](storage-php-how-to-use-table-storage.md)
 * [Używanie usługi Queue Storage w języku PHP](storage-php-how-to-use-queues.md)
@@ -246,12 +249,8 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 * [Używanie usługi Queue Storage w języku Python](storage-python-how-to-use-queue-storage.md)
 * [Używanie usługi File Storage w języku Python](storage-python-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>Następne kroki
-
-* [Tworzenie konta magazynu](storage-create-storage-account.md)
-* [Szybkie wprowadzenie do usługi Azure Storage](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

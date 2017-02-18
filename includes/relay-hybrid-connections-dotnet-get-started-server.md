@@ -3,25 +3,29 @@
 
 ### <a name="add-the-relay-nuget-package"></a>Dodawanie pakietu NuGet usługi Relay
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
-2. Kliknij pozycję **Przeglądaj**, wyszukaj ciąg „Microsoft Azure Relay”, a następnie wybierz pozycję **Microsoft Azure Relay**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
+2. Kliknij kartę **Przeglądaj**, wyszukaj ciąg „Microsoft.Azure.Relay”, a następnie wybierz pozycję **Microsoft Azure Relay**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
 
 ### <a name="write-some-code-to-receive-messages"></a>Pisanie kodu w celu odbierania komunikatów
-1. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
+1. Zastąp istniejące instrukcje `using` na początku pliku Program.cs poniższymi instrukcjami:
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Dodaj zmienne do klasy `Program` na potrzeby szczegółów połączenia hybrydowego. Zastąp symbole zastępcze w nawiasach odpowiednimi wartościami uzyskanymi podczas tworzenia połączenia hybrydowego.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Dodaj nową metodę o nazwie `ProcessMessagesOnConnection` do klasy `Program` w następujący sposób:
+3. Dodaj następującą nową metodę o nazwie `ProcessMessagesOnConnection` do klasy `Program`:
    
-    ```cs
+    ```csharp
     // Method is used to initiate connection
     private static async void ProcessMessagesOnConnection(HybridConnectionStream relayConnection, CancellationTokenSource cts)
     {
@@ -72,7 +76,7 @@
     ```
 4. Dodaj inną nową metodę o nazwie `RunAsync` do klasy `Program` w następujący sposób:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         var cts = new CancellationTokenSource();
@@ -117,13 +121,13 @@
     ```
 5. Dodaj następujący wiersz kodu do metody `Main` w klasie `Program`.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Tak powinien wyglądać plik Program.cs:
    
-    ```cs
+    ```csharp
     namespace Server
     {
         using System;
@@ -238,6 +242,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

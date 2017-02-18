@@ -1,5 +1,5 @@
 ---
-title: "Omówienie funkcji usługi Azure Batch dla deweloperów | Microsoft Docs"
+title: "Omówienie usługi Azure Batch dla deweloperów | Microsoft Docs"
 description: "Opis funkcji usługi Batch i jej interfejsów API z punktu widzenia programowania."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 4bd60ab3b1be1fa590b20fbe292da69f6a2dac8e
-ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -111,7 +111,7 @@ Podczas tworzenia puli można określić następujące atrybuty:
     Wszystkie węzły w puli mają taki sam rozmiar. Jeśli planujesz uruchamiać aplikacje z różnymi wymaganiami systemowymi i/lub poziomami obciążenia, zalecamy użycie oddzielnych pul.
 * **Docelowa liczba węzłów**
 
-    Jest to liczba węzłów obliczeniowych, które chcesz wdrożyć w puli. Określa się ją jako *docelową*, ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Może zdarzyć się tak na przykład w przypadku osiągnięcia limitu [przydziału rdzeni](batch-quota-limit.md#batch-account-quotas) dla konta usługi Batch lub jeśli istnieje formuła automatycznego skalowania, którą zastosowano do puli ograniczającej maksymalną liczbę węzłów (zobacz poniżej sekcję „Zasady skalowania”).
+    Jest to liczba węzłów obliczeniowych, które chcesz wdrożyć w puli. Określa się ją jako *docelową*, ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Może zdarzyć się tak na przykład w przypadku osiągnięcia limitu [przydziału rdzeni](batch-quota-limit.md) dla konta usługi Batch lub jeśli istnieje formuła automatycznego skalowania, którą zastosowano do puli ograniczającej maksymalną liczbę węzłów (zobacz poniżej sekcję „Zasady skalowania”).
 * **Zasady skalowania**
 
     W przypadku obciążeń dynamicznych można zapisać i zastosować do puli [formułę automatycznego skalowania](#scaling-compute-resources). Usługa Batch okresowo oblicza formułę i dostosowuje liczbę węzłów w ramach puli na podstawie różnych wybieranych parametrów puli, zadań i zadań podrzędnych.
@@ -489,6 +489,6 @@ W sytuacjach, w których niektóre z zadań kończą się niepowodzeniem, aplika
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

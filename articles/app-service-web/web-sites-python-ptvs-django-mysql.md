@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -28,7 +28,7 @@ W ramach tego samouczka użyjesz narzędzi [Python Tools for Visual Studio](http
 > [!NOTE]
 > Informacje zawarte w tym samouczku są również dostępne w poniższym klipie wideo:
 > 
-> [PTVS 2.1: Aplikacja Django z obsługą MySQL]([wideo])
+> [PTVS 2.1: Aplikacja Django z obsługą MySQL][video]
 > 
 > 
 
@@ -47,7 +47,7 @@ Więcej artykułów o programowaniu aplikacji Web Apps w usłudze Azure App Serv
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Karta kredytowa nie jest wymagana i nie musisz się do niczego zobowiązywać.
+> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Karta kredytowa nie jest wymagana i nie musisz się do niczego zobowiązywać.
 > 
 > 
 
@@ -175,10 +175,10 @@ Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](/de
 [Projekty usługi w chmurze]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Dokumentacja platformy Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
-[wideo]: http://youtu.be/oKCApIrS0Lo
+[video]: http://youtu.be/oKCApIrS0Lo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

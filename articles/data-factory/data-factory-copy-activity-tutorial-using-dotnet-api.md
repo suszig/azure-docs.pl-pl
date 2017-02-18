@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
 
 
 ---
@@ -37,6 +37,9 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
 
 > [!NOTE]
 > Ten artykuł nie obejmuje całego interfejsu API .NET usługi Data Factory. Szczegółowe informacje na temat zestawu SDK .NET usługi Data Factory zamieszczono w temacie [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) (Informacje o interfejsie API .NET usługi Data Factory).
+> 
+> Potok danych przedstawiony w tym samouczku kopiuje dane ze źródłowego do docelowego magazynu danych. Nie przekształca on danych wejściowych w celu wygenerowania danych wyjściowych. Aby zapoznać się z samouczkiem dotyczącym przekształcania danych za pomocą usługi Azure Data Factory, zobacz [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Samouczek: Tworzenie potoku przekształcającego dane przy użyciu klastra Hadoop).
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Przejrzyj [omówienie samouczka i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), aby uzyskać omówienie samouczka i pełne kroki **wymagań wstępnych**.
@@ -503,12 +506,18 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
 20. Sprawdź, czy w tabeli „**emp**” w określonej bazie danych SQL Azure zostały utworzone rekordy dwóch pracowników.
 
 ## <a name="next-steps"></a>Następne kroki
-* Przeczytaj artykuł [Data Movement Activities](data-factory-data-movement-activities.md) (Działania przenoszenia danych), który zawiera szczegółowe informacje dotyczące działania kopiowania używanego w tym samouczku.
-* Szczegółowe informacje na temat zestawu SDK .NET usługi Data Factory zamieszczono w temacie [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) (Informacje o interfejsie API .NET usługi Data Factory). Ten artykuł nie obejmuje całego interfejsu API .NET usługi Data Factory.
+| Temat | Opis |
+|:--- |:--- |
+| [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory. |
+| [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
+| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
+[Dokumentacja interfejsu API .NET usługi Data Factory](/dotnet/api/) | Zawiera szczegółowe informacje na temat zestawu SDK .NET usługi Data Factory (odszukaj pozycję Microsoft.Azure.Management.DataFactories.Models w widoku drzewa). 
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+
+<!--HONumber=Feb17_HO1-->
 
 

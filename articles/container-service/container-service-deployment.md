@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie klastra usługi Azure Container Service | Microsoft Docs"
-description: "Wdrażanie klastra usługi kontenera Azure za pomocą witryny Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell."
+title: "Wdrażanie klastra kontenera platformy Docker na platformie Azure | Microsoft Docs"
+description: "Wdrażanie klastra usługi Azure Container Service za pomocą witryny Azure Portal lub szablonu usługi Azure Resource Manager."
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -14,142 +14,158 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/02/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: dc7ce9f0524567b861a40940f02cd07e0b7b22bf
-ms.openlocfilehash: 52331c92a4e3e254c044c9cba85a937b6ba95011
+ms.sourcegitcommit: 01fe5302e1c596017755c4669103bac910e3452c
+ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Wdrażanie klastra usługi kontenera platformy Azure
-Usługa kontenera platformy Azure zapewnia szybkie wdrażanie popularnych rozwiązań typu open source służących do aranżowania i klastrowania kontenerów. Za pomocą usługi Azure Container Service można wdrażać klastry DC/OS, Kubernetes i Docker Swarm przy użyciu szablonów usługi Azure Resource Manager lub witryny Azure Portal. Te klastry są wdrażane za pomocą zestawów skali maszyny wirtualnej Azure, a podczas pracy korzystają z ofert magazynu i pracy w sieci na platformie Azure. Do uzyskania dostępu do usługi kontenera platformy Azure niezbędna jest subskrypcja platformy Azure. Jeśli jej nie masz, możesz [utworzyć konto bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+
+
+
+Usługa kontenera platformy Azure zapewnia szybkie wdrażanie popularnych rozwiązań typu open source służących do aranżowania i klastrowania kontenerów. Ten dokument zawiera opis kroków wdrażania klastra usługi Azure Container Service przy użyciu witryny Azure Portal lub szablonu szybkiego startu usługi Azure Resource Manager. 
 
 > [!NOTE]
 > Obsługa klastra Kubernetes w usłudze Azure Container Service jest obecnie w wersji zapoznawczej.
->
 
-Ten dokument zawiera opis kroków wdrażania klastra usługi kontenera platformy Azure przy użyciu [portalu Azure](#creating-a-service-using-the-azure-portal), [interfejsu wiersza polecenia platformy Azure](#creating-a-service-using-the-azure-cli) i [modułu Azure PowerShell](#creating-a-service-using-powershell).  
+Wdrożenie klastra usługi Azure Container Service jest również możliwe za pomocą [interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](container-service-create-acs-cluster-cli.md) lub interfejsów API usługi Azure Container Service.
 
-## <a name="create-a-service-by-using-the-azure-portal"></a>Tworzenie usługi przy użyciu witryny Azure Portal
+
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* **Subskrypcja platformy Azure**: jeśli jej nie masz, możesz utworzyć konto [bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+
+* **Klucz publiczny SSH**: podczas wdrażania za pośrednictwem portalu lub jednego z szablonów szybkiego startu platformy Azure musisz podać klucz publiczny na potrzeby uwierzytelniania na maszynach wirtualnych usługi Azure Container Service. Aby utworzyć klucze Secure Shell (SSH), zobacz wskazówki dla systemów [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+
+* **Klucz tajny i identyfikator klienta jednostki usługi** (tylko rozwiązanie Kubernetes): aby uzyskać więcej informacji i wskazówek dotyczących tworzenia jednostki usługi, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o nazwie głównej usługi dla klastra Kubernetes).
+
+
+
+## <a name="create-a-cluster-by-using-the-azure-portal"></a>Tworzenie klastra przy użyciu witryny Azure Portal
 1. Zaloguj się w witrynie Azure Portal, wybierz pozycję **Nowy** i w portalu Azure Marketplace wyszukaj usługę **Azure Container Service**.
 
-    ![Tworzenie wdrożenia 1](media/acs-portal1.png)  <br />
+    ![Usługa Azure Container Service w portalu Marketplace](media/container-service-deployment/acs-portal1.png)  <br />
 
 2. Wybierz pozycję **Azure Container Service** i kliknij przycisk **Utwórz**.
 
-    ![Tworzenie wdrożenia 2](media/acs-portal2.png)  <br />
+    ![Tworzenie usługi kontenera](media/container-service-deployment/acs-portal2.png)  <br />
 
 3. Wprowadź następujące informacje:
 
-    * **Nazwa użytkownika**: jest to nazwa użytkownika, która będzie używana dla konta na poszczególnych maszynach wirtualnych i zestawach skali maszyn wirtualnych w klastrze usługi Azure Container Service.
+    * **Nazwa użytkownika**: nazwa użytkownika dla konta na poszczególnych maszynach wirtualnych i zestawach skalowania maszyn wirtualnych w klastrze usługi Azure Container Service.
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
     * **Grupa zasobów**: wybierz istniejącą grupę zasobów lub utwórz nową.
     * **Lokalizacja**: wybierz region platformy Azure dla wdrożenia usługi Azure Container Service.
-    * **Klucz publiczny SSH**: dodaj klucz publiczny, który będzie używany do uwierzytelniania względem maszyn wirtualnych usługi Azure Container Service. Bardzo ważne jest, aby klucz ten nie zawierał podziałów wierszy i miał prefiks „ssh-rsa” i postfiks 'username@domain'. Powinien wyglądać podobnie do poniższego: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Aby uzyskać wskazówki dotyczące tworzenia kluczy powłoki Secure Shell (SSH), zobacz artykuły dotyczące systemu [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) i [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+    * **Klucz publiczny SSH**: dodaj klucz publiczny, który będzie używany do uwierzytelniania względem maszyn wirtualnych usługi Azure Container Service. Ważne jest, aby ten klucz nie zawierał podziałów wierszy i miał prefiks `ssh-rsa`. Postfiks `username@domain` jest opcjonalny. Klucz powinien wyglądać podobnie do poniższego: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
 
 4. Aby kontynuować, kliknij przycisk **OK**.
 
-    ![Tworzenie wdrożenia 3](media/acs-portal3.png)  <br />
+    ![Ustawienia podstawowe](media/container-service-deployment/acs-portal3.png)  <br />
 
 5. Wybierz typ aranżacji. Dostępne opcje to:
 
-    * **DC/OS**: wdraża klaster DC/OS.
-    * **Swarm**: wdraża klaster Docker Swarm.
-    * **Kubernetes**: wdraża klaster Kubernetes.
+  * **DC/OS**: wdraża klaster DC/OS.
+  * **Swarm**: wdraża klaster Docker Swarm.
+  * **Kubernetes**: wdraża klaster Kubernetes.
+
 
 6. Aby kontynuować, kliknij przycisk **OK**.
 
-    ![Tworzenie wdrożenia 4](media/acs-portal4-new.png)  <br />
+    ![Wybór koordynatora](media/container-service-deployment/acs-portal4-new.png)  <br />
 
-7. Jeśli na liście rozwijanej wybrano wartość **Kubernetes**, należy wprowadzić identyfikator klienta jednostki usługi oraz klucz tajny klienta jednostki usługi. Aby uzyskać więcej informacji, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o jednostce usługi dla klastra Kubernetes).
+7. Jeśli na liście rozwijanej wybrano wartość **Kubernetes**, należy wprowadzić identyfikator klienta nazwy głównej usługi oraz klucz tajny klienta jednostki usługi. Aby uzyskać więcej informacji, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o nazwie głównej usługi dla klastra Kubernetes).
 
-    ![Tworzenie wdrożenia 4.5](media/acs-portal10.PNG)  <br />
+    ![Wprowadzanie nazwy głównej usługi Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
 
 7. W bloku ustawień usługi **Azure Container Service** wprowadź następujące informacje:
 
-    * **Liczba serwerów głównych**: liczba serwerów głównych w klastrze. Jeśli wybrano opcję Kubernetes, liczba serwerów głównych jest domyślnie ustawiona na 1
-    * **Liczba agentów**: w przypadku opcji Docker Swarm lub Kubernetes jest to początkowa liczba agentów w zestawie skalowania agenta. W przypadku opcji DC/OS jest to początkowa liczba agentów w prywatnym zestawie skalowania. Ponadto jest tworzony publiczny zestaw skalowania zawierający wstępnie określoną liczbę agentów. Liczba agentów w tym publicznym zestawie skalowania zależy od liczby serwerów głównych utworzonych w klastrze: jeden agent publiczny dla jednego serwera głównego i dwóch agentów publicznych dla trzech lub pięciu serwerów głównych.
+    * **Liczba serwerów głównych**: liczba serwerów głównych w klastrze. Jeśli wybrano opcję Kubernetes, liczba serwerów głównych jest domyślnie ustawiona na 1.
+    * **Liczba agentów**: w przypadku opcji Docker Swarm lub Kubernetes ta wartość to początkowa liczba agentów w zestawie skalowania agenta. W przypadku opcji DC/OS jest to początkowa liczba agentów w prywatnym zestawie skalowania. Ponadto w przypadku koordynatora DC/OS jest tworzony publiczny zestaw skalowania zawierający wstępnie określoną liczbę agentów. Liczba agentów w tym publicznym zestawie skalowania zależy od liczby serwerów głównych utworzonych w klastrze: jeden agent publiczny dla jednego serwera głównego i dwa agenty publiczne dla trzech lub pięciu serwerów głównych.
     * **Rozmiar maszyny wirtualnej agenta**: rozmiar maszyn wirtualnych agenta.
-    * **Prefiks DNS**: unikatowa w zakresie globalnym nazwa, która będzie służyć jako prefiks kluczowych części w pełni kwalifikowanych nazw domen dla usługi.
+    * **Prefiks DNS**: unikatowa w zakresie globalnym nazwa, która służy jako prefiks kluczowych części w pełni kwalifikowanych nazw domen dla usługi.
+    * **Diagnostyka maszyn wirtualnych**: w przypadku niektórych koordynatorów można włączyć diagnostykę maszyn wirtualnych.
 
 8. Aby kontynuować, kliknij przycisk **OK**.
 
-    ![Tworzenie wdrożenia 5](media/acs-portal5.png)  <br />
+    ![Ustawienia usługi Container Service](media/container-service-deployment/acs-portal5.png)  <br />
 
 9. Kliknij przycisk **OK** po zakończeniu weryfikacji usługi.
 
-    ![Tworzenie wdrożenia 6](media/acs-portal6.png)  <br />
+    ![Walidacja](media/container-service-deployment/acs-portal6.png)  <br />
 
-10. Kliknij przycisk **Kup**, aby rozpocząć proces wdrażania.
+10. Zapoznaj się z warunkami. Aby rozpocząć proces wdrażania, kliknij przycisk **Zakup**.
 
-    ![Tworzenie wdrożenia 7](media/acs-portal7.png)  <br />
+    ![Zakup](media/container-service-deployment/acs-portal7.png)  <br />
 
     Jeśli wybrano opcję przypięcia wdrożenia do witryny Azure Portal, widoczny jest stan wdrożenia.
 
-    ![Tworzenie wdrożenia 8](media/acs-portal8.png)  <br />
+    ![Stan wdrożenia](media/container-service-deployment/acs-portal8.png)  <br />
 
-Po zakończeniu wdrażania klaster usługi kontenera platformy Azure jest gotowy do użycia.
+Przeprowadzenie wdrożenia zajmuje kilka minut. Następnie klaster usługi Azure Container Service jest gotowy do użycia.
 
-## <a name="create-a-service-by-using-the-azure-cli"></a>Tworzenie usługi przy użyciu interfejsu wiersza polecenia platformy Azure
-Do utworzenia wystąpienia usługi kontenera platformy Azure przy użyciu wiersza polecenia niezbędna jest subskrypcja platformy Azure. Jeśli jej nie masz, możesz [utworzyć konto bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Musisz również [zainstalować](../xplat-cli-install.md) i [skonfigurować](../xplat-cli-connect.md) interfejs wiersza polecenia platformy Azure.
 
-1. Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z poniższych szablonów usługi GitHub. 
+
+## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Tworzenie klastra przy użyciu szablonu szybkiego startu
+Na potrzeby wdrożenia klastra w usłudze Azure Container Service są dostępne szablony szybkiego startu platformy Azure. Udostępnione szablony szybkiego startu można modyfikować w celu włączenia dodatkowej lub zaawansowanej konfiguracji platformy Azure. Aby utworzyć klaster usługi Azure Container Service za pomocą szablonu szybkiego startu platformy Azure, potrzebna jest subskrypcja platformy Azure. Jeśli jej nie masz, utwórz konto [bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+
+Wykonaj następujące kroki, aby wdrożyć klaster przy użyciu szablonu oraz interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza). Zobacz [instrukcje instalacji i konfigurowania](/cli/azure/install-az-cli2.md).
+
+> [!NOTE] 
+> Jeśli korzystasz z systemu Windows, możesz użyć podobnych kroków, aby wdrożyć szablon przy użyciu programu Azure PowerShell. Zobacz kroki w dalszej części tej sekcji. Szablon możesz także wdrożyć za pośrednictwem [portalu](../azure-resource-manager/resource-group-template-deploy-portal.md) lub innych metod.
+
+1. Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z poniższych szablonów usługi GitHub. Zwróć uwagę na to, że szablony DC/OS i Swarm są takie same — różnią się tylko domyślnie wybranym koordynatorem.
 
     * [Szablon DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Szablon Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
     * [Szablon Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
-2. Następnie upewnij się, że interfejs wiersza polecenia platformy Azure został połączony z subskrypcją platformy Azure. Możesz to zrobić za pomocą następującego polecenia:
+2. Zaloguj się do konta platformy Azure (`az login`) i upewnij się, że interfejs wiersza polecenia platformy Azure jest połączony z subskrypcją platformy Azure. Domyślną subskrypcję możesz wyświetlić przy użyciu następującego polecenia:
 
-    ```bash
-    azure account show
+    ```azurecli
+    az account show
     ```
-    Jeśli konto platformy Azure nie zostanie zwrócone, użyj poniższego polecenia, aby zalogować się do platformy Azure za pomocą interfejsu wiersza polecenia.
+    
+    Jeśli masz więcej niż jedną subskrypcję i chcesz ustawić inną subskrypcję domyślną, uruchom polecenie `az account set --subscription` i określ nazwę lub identyfikator subskrypcji.
 
-    ```bash
-    azure login -u user@domain.com
-    ```
+3. Najlepszym rozwiązaniem jest użycie dla wdrożenia nowej grupy zasobów. Aby utworzyć grupę zasobów, użyj polecenia `az group create`, określając lokalizację i nazwę grupy zasobów: 
 
-3. Skonfiguruj narzędzia interfejsu wiersza polecenia platformy Azure, aby umożliwić korzystanie z usługi Azure Resource Manager.
-
-    ```bash
-    azure config mode arm
+    ```azurecli
+    az group create --name "RESOURCE_GROUP" --location "LOCATION"
     ```
 
-4. Utwórz grupę zasobów platformy Azure oraz klaster usługi Container Service przy użyciu poniższego polecenia, gdzie:
+4. Utwórz plik JSON zawierający wymagane parametry szablonu. Pobierz plik parametrów o nazwie `azuredeploy.parameters.json`, który towarzyszy szablonowi usługi Azure Container Service `azuredeploy.json` w witrynie GitHub. Wprowadź wymagane wartości parametrów dla klastra. 
 
-    * **RESOURCE_GROUP** to nazwa grupy zasobów, której chcesz użyć dla tej usługi.
-    * **LOCATION** to region platformy Azure, w którym zostanie utworzone wdrożenie grupy zasobów i usługi Azure Container Service.
-    * **TEMPLATE_URI** (identyfikator_URI_szablonu) to lokalizacja pliku wdrożenia. Uwaga: musi to być plik RAW, a nie wskaźnik do interfejsu użytkownika usługi GitHub. Aby znaleźć ten adres URL, wybierz plik azuredeploy.json w usłudze GitHub i kliknij przycisk **Raw**.
+    Aby na przykład użyć [szablonu DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos), podaj wartości parametrów `dnsNamePrefix` i `sshRSAPublicKey`. W pliku `azuredeploy.json` można znaleźć opis oraz opcje dla innych parametrów.  
+ 
+
+5. Utwórz klaster usługi Container Service przez przekazanie pliku parametrów wdrożenia przy użyciu następującego polecenia, gdzie:
+
+    * **RESOURCE_GROUP** to nazwa grupy zasobów utworzonej w poprzednim kroku.
+    * **DEPLOYMENT_NAME** (opcjonalnie) to nazwa nadawana wdrożeniu.
+    * **TEMPLATE_URI** to lokalizacja pliku wdrożenia `azuredeploy.json`. Ten identyfikator URI musi wskazywać plik nieprzetworzony. Nie może to być wskaźnik do interfejsu użytkownika witryny GitHub. Aby znaleźć ten identyfikator URI, wybierz plik `azuredeploy.json` w witrynie GitHub i kliknij przycisk **Raw** (Nieprzetworzone).  
+
+    ```azurecli
+    az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters @azuredeploy.parameters.json
+    ```
+
+    Parametry możesz również podać jako ciąg w formacie JSON w wierszu polecenia. Użyj polecenia podobnego do następującego:
+
+    ```azurecli
+    az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters "{ \"param1\": {\"value1\"} … }"
+    ```
 
     > [!NOTE]
-    > W przypadku uruchamiania tego polecenia powłoka wyświetli monit o wprowadzenie wartości parametrów wdrożenia.
+    > Przeprowadzenie wdrożenia zajmuje kilka minut.
     > 
 
-    ```bash
-    azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
-    ```
+### <a name="equivalent-powershell-commands"></a>Równoważne polecenia programu PowerShell
+Szablon klastra usługi Azure Container Service można również wdrożyć przy użyciu programu PowerShell. Ten dokument jest oparty na wersji 1.0 [modułu Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
-### <a name="provide-template-parameters"></a>Wprowadzanie parametrów szablonu
-Ta wersja polecenia wymaga interaktywnego zdefiniowania parametrów. Jeśli chcesz podać parametry, takie jak ciąg sformatowany przy użyciu notacji JSON, możesz to zrobić za pomocą przełącznika `-p`. Na przykład:
-
- ```bash
-azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
-```
-
-Możesz również udostępnić plik z parametrami sformatowanymi przy użyciu notacji JSON, korzystając z przełącznika `-e`:
-
-```bash
-azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
-```
-
-Aby wyświetlić przykładowy plik parametrów o nazwie `azuredeploy.parameters.json`, wyszukaj go w serwisie GitHub przy użyciu szablonów usługi kontenera platformy Azure.
-
-## <a name="create-a-service-by-using-powershell"></a>Tworzenie usługi przy użyciu programu PowerShell
-Klaster usługi kontenera platformy Azure można również wdrożyć przy użyciu programu PowerShell. Ten dokument jest oparty na wersji 1.0 [modułu Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
-
-1. Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z poniższych szablonów. Zwróć uwagę na to, że oba te szablony są takie same — różnią się tylko domyślnie wybraną aranżacją.
+1. Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z poniższych szablonów. Zwróć uwagę na to, że szablony DC/OS i Swarm są takie same — różnią się tylko domyślnie wybranym koordynatorem.
 
     * [Szablon DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Szablon Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -167,19 +183,19 @@ Klaster usługi kontenera platformy Azure można również wdrożyć przy użyci
     Login-AzureRmAccount
     ```
 
-4. Jeśli wdrażasz do nowej grupy zasobów, musisz najpierw utworzyć grupę zasobów. Aby utworzyć nową grupę zasobów, użyj polecenia `New-AzureRmResourceGroup`, określając nazwę grupy zasobów i region docelowy:
+4. Najlepszym rozwiązaniem jest użycie dla wdrożenia nowej grupy zasobów. Aby utworzyć grupę zasobów, użyj polecenia `New-AzureRmResourceGroup`, określając nazwę grupy zasobów i region docelowy:
 
     ```powershell
     New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
     ```
 
-5. Po utworzeniu grupy zasobów możesz utworzyć klaster przy użyciu poniższego polecenia. Identyfikator URI żądanego szablonu zostanie określony dla parametru `-TemplateUri`. W przypadku uruchamiania tego polecenia program PowerShell wyświetli monit o wprowadzenie wartości parametrów wdrożenia.
+5. Po utworzeniu grupy zasobów możesz utworzyć klaster przy użyciu poniższego polecenia. Identyfikator URI żądanego szablonu zostanie określony dla parametru `-TemplateUri`. Po uruchomieniu tego polecenia program PowerShell wyświetli monit o wprowadzenie wartości parametrów wdrożenia.
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
     ```
 
-### <a name="provide-template-parameters"></a>Wprowadzanie parametrów szablonu
+#### <a name="provide-template-parameters"></a>Wprowadzanie parametrów szablonu
 Jeśli znasz program PowerShell, wiesz, że możesz przechodzić przez dostępne parametry polecenia cmdlet, wpisując znak minus (-), a następnie naciskając klawisz TAB. Ta funkcja działa również w przypadku parametrów zdefiniowanych w szablonie. Po wpisaniu nazwy szablonu polecenie cmdlet pobiera szablon, analizuje parametry i dynamicznie dodaje parametry szablonu do polecenia. Dzięki temu można bardzo łatwo określić wartości parametrów szablonu. A jeśli zapomnisz o podaniu wartości wymaganego parametru, w programie PowerShell zostanie wyświetlony monit dotyczący tej wartości.
 
 Poniżej znajduje się pełne polecenie z uwzględnionymi parametrami. Możesz podać własne wartości nazw zasobów.
@@ -198,7 +214,6 @@ Teraz, gdy masz działający klaster, możesz zapoznać się z tymi dokumentami,
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
