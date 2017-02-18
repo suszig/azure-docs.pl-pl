@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 12/15/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
+ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
+ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: warstwy magazynu gorącego i chłodnego
 ## <a name="overview"></a>Omówienie
-Usługa Azure Storage oferuje teraz dwie warstwy magazynowania dla magazynu obiektów blob, dzięki czemu możliwe jest najbardziej ekonomiczne przechowywanie danych w zależności od sposobu ich używania. **Warstwa magazynu gorącego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których często uzyskuje się dostęp. **Warstwa magazynu chłodnego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których rzadko uzyskuje się dostęp i które mają długi okres życia. Dla danych w warstwie magazynu chłodnego nie ma znaczenia nieco niższa dostępność, ale nadal wymagana jest wysoka trwałość oraz podobny czas dostępu i parametry przepływności jak w przypadku gorących danych. W przypadku chłodnych danych umowa SLA dotycząca nieco niższej dostępności i wyższe koszty dostępu to dopuszczalne wady, biorąc pod uwagę znacznie niższe koszty magazynowania.
+Usługa Azure Storage oferuje teraz dwie warstwy magazynowania dla magazynu obiektów blob, dzięki czemu możliwe jest najbardziej ekonomiczne przechowywanie danych w zależności od sposobu ich używania. **Warstwa magazynu gorącego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których często uzyskuje się dostęp. **Warstwa magazynu chłodnego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których rzadko uzyskuje się dostęp i które mają długi okres życia. Dla danych w warstwie magazynu chłodnego nie ma znaczenia nieco niższa dostępność, ale nadal są wymagane wysoka trwałość oraz podobny czas dostępu i parametry przepływności jak w przypadku gorących danych. W przypadku chłodnych danych umowa SLA dotycząca nieco niższej dostępności i wyższe koszty dostępu to dopuszczalne wady, biorąc pod uwagę znacznie niższe koszty magazynowania.
 
-Obecnie ilość danych przechowywanych w chmurze rośnie w tempie wykładniczym. Aby zarządzać kosztami zwiększających się potrzeb dotyczących magazynowania, warto zorganizować dane na podstawie atrybutów, takich jak częstotliwość dostępu do danych i planowany okres przechowywania. Dane przechowywane w chmurze mogą być zupełnie różne pod względem sposobu ich generowania, przetwarzania i uzyskiwania do nich dostępu przez cały okres ich istnienia. Do niektórych danych często uzyskuje się dostęp. Są one również często modyfikowane w trakcie całego okresu istnienia. Do niektórych danych często uzyskuje się dostęp na początkowym etapie istnienia, a z czasem już zdecydowanie rzadziej. Niektóre dane pozostają nieużywane w chmurze i dostęp do nich uzyskuje się rzadko (lub w ogóle) po umieszczeniu ich w magazynie.
+Obecnie ilość danych przechowywanych w chmurze rośnie w tempie wykładniczym. Aby zarządzać kosztami zwiększających się potrzeb dotyczących magazynowania, warto zorganizować dane na podstawie atrybutów, takich jak częstotliwość dostępu i planowany okres przechowywania. Dane przechowywane w chmurze mogą być różne pod względem sposobu ich generowania i przetwarzania oraz uzyskiwania do nich dostępu przez cały okres ich istnienia. Do niektórych danych często uzyskuje się dostęp. Są one również często modyfikowane w trakcie całego okresu istnienia. Do niektórych danych często uzyskuje się dostęp na początkowym etapie istnienia, a z czasem już zdecydowanie rzadziej. Niektóre dane pozostają nieużywane w chmurze i dostęp do nich uzyskuje się rzadko (lub w ogóle) po umieszczeniu ich w magazynie.
 
 Dla każdego z opisanych powyżej scenariuszy dostępu do danych istnieją korzyści ze zróżnicowanych warstw magazynowania zoptymalizowanych pod kątem określonego wzorca dostępu. Wraz z wprowadzeniem warstw magazynu gorącego i chłodnego usługa Azure Blob Storage zaspokaja tę potrzebę posiadania zróżnicowanych warstw magazynowania z oddzielnymi modelami cenowymi.
 
@@ -66,7 +66,7 @@ Dla aplikacji wymagających tylko magazynu blokowych obiektów blob lub magazynu
 * Używasz wersji [interfejsu API REST usług Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) wcześniejsza niż 2014-02-14 lub biblioteka klienta w wersji wcześniejszej niż 4.x i nie można uaktualnić aplikacji.
 
 > [!NOTE]
-> Konta Magazynu obiektów blob są obecnie obsługiwane w większości regionów platformy Azure i mają być obsługiwane w kolejnych regionach. Zaktualizowaną listę dostępnych regionów możesz znaleźć na stronie [regionów platformy Azure](https://azure.microsoft.com/regions/#services).
+> Konta usługi Blob Storage są obecnie obsługiwane we wszystkich regionach platformy Azure.
 > 
 > 
 
@@ -218,7 +218,7 @@ Dzięki włączeniu tej opcji transakcje interfejsu API są agregowane co godzin
 > 
 > 
 
-Aby uzyskać najbardziej zbliżone do prawdziwych informacje o użyciu danych i wzorcu dostępu, firma Microsoft zaleca wybranie takiego okresu przechowywania dla metryk, który odzwierciedla normalne użycie i ekstrapolację.
+Aby uzyskać najbardziej zbliżone do prawdziwych informacje o użyciu danych i wzorcu dostępu, zalecamy wybranie takiego okresu przechowywania dla metryk, który odzwierciedla normalne użycie i ekstrapolację.
 Jedną z opcji jest przechowywanie danych metryk przez 7 dni i zbieranie danych co tydzień, aby przeprowadzić analizę pod koniec miesiąca.
 Innym rozwiązaniem jest przechowywanie danych metryk z ostatnich 30 dni i zbieranie oraz analizowanie danych z końcem 30-dniowego okresu.
 
@@ -285,7 +285,7 @@ Można utworzyć aplikację niestandardową służącej do migracji danych do ko
 Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obiektów blob Azure](storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Obiekty blob zaszyfrowane za pomocą szyfrowania po stronie klienta przechowują metadane związane z szyfrowaniem przechowywane w ramach obiektu blob. Jest absolutnie krytyczne, aby każdy mechanizm kopiowania zapewnił, że metadane obiektu blob, a w szczególności metadane związane z szyfrowaniem, zostały zachowane. Jeśli obiekty blob zostaną skopiowane bez takich metadanych, nie będzie można ponownie pobrać zawartości obiektu blob. Aby uzyskać więcej informacji dotyczących metadanych związanych z szyfrowaniem, zobacz [Azure Storage client side encryption](storage-client-side-encryption.md) (Szyfrowanie po stronie klienta usługi Magazyn Azure).
+> Obiekty blob zaszyfrowane za pomocą szyfrowania po stronie klienta przechowują metadane związane z szyfrowaniem przechowywane w ramach obiektu blob. Jest absolutnie krytyczne, aby każdy mechanizm kopiowania zapewnił, że metadane obiektu blob, a w szczególności metadane związane z szyfrowaniem, zostały zachowane. Jeśli obiekty blob zostaną skopiowane bez takich metadanych, nie będzie można ponownie pobrać zawartości obiektu blob. Aby uzyskać więcej informacji na temat metadanych związanych z szyfrowaniem, zobacz [Azure Storage Client-Side Encryption](storage-client-side-encryption.md) (Szyfrowanie po stronie klienta usługi Azure Storage).
 > 
 > 
 
@@ -345,6 +345,6 @@ Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obie
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
