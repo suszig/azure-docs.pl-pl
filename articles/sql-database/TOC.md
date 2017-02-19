@@ -6,12 +6,6 @@
 ### [Limity zasobów](sql-database-resource-limits.md)
 ### [Funkcje](sql-database-features.md)
 ### [SQL Database — często zadawane pytania](sql-database-faq.md)
-## Korzyści
-### [Uczy się i dostosowuje](sql-database-learn-and-adapt.md)
-### [Skaluje się na bieżąco](sql-database-scale-on-the-fly.md)
-### [Tworzy aplikacje wielodostępne](sql-database-build-multi-tenant-apps.md)
-### [Zabezpiecza i chroni](sql-database-helps-secures-and-protects.md)
-### [Działa w Twoim środowisku](sql-database-works-in-your-environment.md)
 ## Porównania
 ### [Usługa SQL Database a baza danych SQL na maszynie wirtualnej](sql-database-paas-vs-sql-server-iaas.md)
 ### [Różnice w języku T-SQL](sql-database-transact-sql-information.md)

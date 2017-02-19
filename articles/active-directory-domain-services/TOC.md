@@ -16,18 +16,21 @@
 ### [Dzierżawa zsynchronizowana](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 # Instrukcje
-## [Dołączanie maszyny wirtualnej z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
-## [Dołączanie maszyny wirtualnej z systemem Windows Server przy użyciu programu PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-## [Dołączanie maszyny wirtualnej z systemem Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-## [Administrowanie domeną zarządzaną](active-directory-ds-admin-guide-administer-domain.md)
-## [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
-## [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej](active-directory-ds-admin-guide-configure-secure-ldap.md)
-## [Tworzenie jednostki organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md)
-## [Administrowanie zasadami grupy w domenie zarządzanej](active-directory-ds-admin-guide-administer-group-policy.md)
+## Dołączanie do domeny zarządzanej
+### [Dołączanie maszyny wirtualnej z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Dołączanie maszyny wirtualnej z systemem Windows Server przy użyciu programu PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Dołączanie maszyny wirtualnej z systemem Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+## Administrowanie domeną zarządzaną
+### [Administrowanie domeną zarządzaną](active-directory-ds-admin-guide-administer-domain.md)
+### [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
+### [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### [Tworzenie jednostki organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md)
+### [Administrowanie zasadami grupy w domenie zarządzanej](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Wybieranie sieci wirtualnej](active-directory-ds-networking.md)
-## [Konfigurowanie obsługi synchronizacji profilów dla programu SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
-
-
+## Wdrażanie aplikacji
+### [Konfigurowanie obsługi synchronizacji profilów dla programu SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
+### [Konfigurowanie ograniczonego delegowania protokołu Kerberos](active-directory-ds-enable-kcd.md)
+### [Wdrażanie serwera proxy aplikacji usługi Azure AD](active-directory-ds-deploy-azure-app-proxy.md)
 ## Rozwiązywanie problemów
 ### [Często zadawane pytania](active-directory-ds-faqs.md)
 ### [Przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md)
@@ -44,6 +47,6 @@
 ## [Kontakt z nami](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

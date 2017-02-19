@@ -19,6 +19,8 @@
 #### [Moduł równoważenia obciążenia — portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Moduł równoważenia obciążenia — PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Wiele regionów](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Wystąpienie klastra trybu failover
+#### [Konfigurowanie](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Zarządzanie
 ### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) (Korzystanie z rozszerzenia agenta IaaS w programie SQL Server)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

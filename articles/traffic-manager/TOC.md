@@ -16,9 +16,10 @@
 # Instrukcje
 ## [Konfigurowanie metody routingu](traffic-manager-configure-routing-method.md)
 ## [Testowanie ustawień](traffic-manager-testing-settings.md)
-## [Rozwiązywanie problemów z punktem końcowym o obniżonym poziomie](traffic-manager-troubleshooting-degraded.md)
 ## [Łączenie usług równoważenia obciążenia](traffic-manager-load-balancing-azure.md)
 ## [Korzystanie z zasobów sieciowych](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Rozwiązywanie problemów
+### [Rozwiązywanie problemów z punktem końcowym o obniżonym poziomie](traffic-manager-troubleshooting-degraded.md)
 
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
@@ -45,6 +46,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

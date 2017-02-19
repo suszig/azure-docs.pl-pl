@@ -4,10 +4,13 @@
 ## [Bezpieczeństwo danych](security-center-data-security.md)
 ## Scenariusze
 ### [Reagowanie na zdarzenia](security-center-incident-response.md)
+### [Używanie zaleceń w celu ulepszania zabezpieczeń](security-center-using-recommendations.md)
 
 # Rozpoczęcie pracy
 ## [Szybki start](security-center-get-started.md)
 ## [Planowanie i operacje](security-center-planning-and-operations-guide.md)
+## [Uprawnienia](security-center-permissions.md)
+## [Integracja z partnerami](security-center-partner-integration.md)
 ## [Często zadawane pytania](security-center-faq.md)
 
 # Instrukcje
@@ -18,11 +21,13 @@
 
 ### [Zalecenia dotyczące aplikacji](security-center-application-recommendations.md)
 #### [Dodawanie zapory aplikacji sieci Web](security-center-add-web-application-firewall.md)
+#### [Finalizowanie ochrony aplikacji](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Zalecenia dotyczące sieci](security-center-network-recommendations.md)
 #### [Dodawanie zapory nowej generacji](security-center-add-next-generation-firewall.md)
 #### [Włączanie sieciowych grup zabezpieczeń](security-center-enable-network-security-groups.md)
 #### [Ograniczanie dostępu przez punkty końcowe łączące się z Internetem](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Kierowanie ruchu sieciowego tylko za pośrednictwem zapory następnej generacji](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Zalecenia dotyczące usługi SQL](security-center-sql-service-recommendations.md)
 #### [Włączanie inspekcji baz danych SQL](security-center-enable-auditing-on-sql-databases.md)
@@ -33,9 +38,11 @@
 #### [Zastosuj szyfrowanie dysków](security-center-apply-disk-encryption.md)
 #### [Zastosuj aktualizacje systemu](security-center-apply-system-updates.md)
 #### [Włączanie zbierania danych](security-center-enable-data-collection.md)
+#### [Włączanie szyfrowania dla konta magazynu](security-center-enable-encryption-for-storage-account.md)
 #### [Włącz agenta maszyny wirtualnej](security-center-enable-vm-agent.md)
 #### [Zainstaluj punkt końcowy](security-center-install-endpoint-protection.md)
 #### [Podawanie szczegółów dotyczących kontaktu ds. zabezpieczeń](security-center-provide-security-contact-details.md)
+#### [Uruchom ponownie po zaktualizowaniu systemu](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Koryguj luki w zabezpieczeniach systemu operacyjnego](security-center-remediate-os-vulnerabilities.md)
 #### [Rozwiązywanie alertów dotyczących kondycji punktu końcowego](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Aktualizacja wersji systemu operacyjnego](security-center-update-os-version.md)
@@ -69,6 +76,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 
