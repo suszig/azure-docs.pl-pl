@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
 ### <a name="create-a-new-android-project"></a>Tworzenie nowego projektu dla systemu Android
 1. W programie Android Studio utwórz nowy projekt programu Android Studio.
    
-     ![Android Studio — nowy projekt][13]
+   ![Android Studio — nowy projekt][13]
 2. Wybierz kształt **Phone and Tablet** (Telefon i tablet) oraz odpowiednią wersję z listy **Minimum SDK** (Minimalna wersja zestawu SDK), która ma być obsługiwana. Następnie kliknij przycisk **Next** (Dalej).
    
-     ![Android Studio — przepływ pracy tworzenia projektu][14]
+   ![Android Studio — przepływ pracy tworzenia projektu][14]
 3. Wybierz pozycję **Empty Activity** (Puste działanie) dla głównego działania i kliknij przycisk **Next** (Dalej), a następnie kliknij przycisk **Finish** (Zakończ).
 
 ### <a name="add-google-play-services-to-the-project"></a>Dodawanie usług Google Play do projektu
@@ -619,13 +619,14 @@ Oprócz powyższego, upewnij się, że dodano konto Google do uruchomionego emul
 #### <a name="running-the-application"></a>Uruchamianie aplikacji
 1. Uruchom aplikację i zwróć uwagę, czy identyfikator rejestracji jest zgłaszany, co oznacza pomyślną rejestrację.
    
-       ![Testing on Android - Channel registration][18]
+      ![Testowanie w systemie Android — rejestracja kanału][18]
 2. Wprowadź komunikat powiadomienia, który ma zostać wysłany do wszystkich urządzeń z systemem Android zarejestrowanych w centrum.
    
-       ![Testing on Android - sending a message][19]
+      ![Testowanie w systemie Android — wysyłanie komunikatu][19]
+
 3. Naciśnij przycisk **Send Notification** (Wyślij powiadomienie). Na wszystkich urządzeniach, na których jest uruchomiona aplikacja, zostanie wyświetlone wystąpienie kontrolki `AlertDialog` z komunikatem powiadomienia wypychanego. Urządzenia, na których aplikacja nie jest uruchomiona, ale zostały wcześniej zarejestrowane do otrzymywania powiadomień wypychanych otrzymają powiadomienie w menedżerze powiadomień systemu Android. Można je wyświetlić, szybko przesuwając w dół od lewego górnego rogu.
    
-       ![Testing on Android - notifications][21]
+      ![Testowanie w systemie Android — powiadomienia][21]
 
 ## <a name="next-steps"></a>Następne kroki
 Zalecanym następnym krokiem jest zapoznanie się z samouczkiem [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]. Przedstawiono w nim sposób wysyłania powiadomień z zaplecza programu ASP.NET przy użyciu tagów służących do adresowania powiadomień do określonych użytkowników.
@@ -671,6 +672,6 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Sieciowe grupy zabezpieczeń | Microsoft Docs"
+title: "Sieciowe grupy zabezpieczeń na platformie Azure | Microsoft Docs"
 description: "Dowiedz się, jak izolować przepływ ruchu i sterować nim w sieciach wirtualnych przy użyciu rozproszonej zapory platformy Azure korzystającej z sieciowych grup zabezpieczeń."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
-ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
+ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
+ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
 
 
 ---
-# <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
+# <a name="control-network-traffic-flow-with-network-security-groups"></a>Kontrolowanie przepływu ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń
 
 Sieciowa grupa zabezpieczeń (NSG, Network security group) zawiera listę reguł listy kontroli dostępu (ACL), które blokują lub zezwalają na ruch sieciowy do wystąpień maszyn wirtualnych w sieci wirtualnej. Sieciowe grupy zabezpieczeń można kojarzyć z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w danej podsieci. Gdy sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci. Ponadto ruch do poszczególnych maszyn wirtualnych można ograniczyć jeszcze bardziej przez skojarzenie sieciowej grupy zabezpieczeń bezpośrednio z tą maszyną wirtualną.
 
@@ -194,7 +194,7 @@ Aby przedstawić, jak zastosować informacje z tego artykułu w praktyce, zdefin
 
 ![Sieciowe grupy zabezpieczeń](./media/virtual-network-nsg-overview/figure1.png)
 
-W schemacie powyżej maszyny wirtualne *Web 1* i *Web 2* są połączone z podsiecią *FrontEnd*, a maszyny wirtualne *DB1* i *DB2* są połączone z podsiecią *BackEnd*.  Obie podsieci są częścią sieci wirtualnej *TestVNet*. Wszystkie zasoby są przypisane do regionu Azure *Zachodnie stany USA*.
+W schemacie powyżej maszyny wirtualne *Web&1;* i *Web&2;* są połączone z podsiecią *FrontEnd*, a maszyny wirtualne *DB1* i *DB2* są połączone z podsiecią *BackEnd*.  Obie podsieci są częścią sieci wirtualnej *TestVNet*. Wszystkie zasoby są przypisane do regionu Azure *Zachodnie stany USA*.
 
 Wymagania 1–6 (z wyjątkiem 3) powyżej ograniczają się do przestrzeni podsieci. Aby zminimalizować liczbę reguł wymaganych dla każdej sieciowej grupy zabezpieczeń oraz ułatwić dodawanie kolejnych maszyn wirtualnych do podsieci z uruchomionymi tymi samymi typami obciążenia co na istniejących maszynach wirtualnych, możemy wdrożyć następujące sieciowe grupy zabezpieczeń na poziomie podsieci.
 
@@ -261,6 +261,6 @@ Ponieważ niektóre z sieciowych grup zabezpieczeń powyżej muszą być powiąz
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie środowiska | Microsoft Docs"
-description: "Konfigurowanie środowiska programowania z użyciem usługi Azure Media Services."
+title: "Konfigurowanie środowiska deweloperskiego usługi Azure Media Services | Microsoft Docs"
+description: "Konfigurowanie środowiska do programowania z użyciem usługi Azure Media Services."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,22 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 5d49c309a8bfef8f6b4a2825c2bd12a590f19fd9
+ms.sourcegitcommit: e16620b457e82260b27fe484abee715bb4b3aa24
+ms.openlocfilehash: fe69fc0ace47967e1ddf083e47dd25beb8d91d84
 
 
 ---
-# <a name="set-up-your-environment"></a>Konfigurowanie środowiska
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-create-account.md)
-> * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest)
->   <a id="create_account"></a>
-> 
-> 
+# <a name="set-up-your-media-services-development-environment"></a>Konfigurowanie środowiska deweloperskiego usługi Media Services
+
 
 W poniższych krokach opisano wymagania wstępne dotyczące programowania z użyciem usługi Azure Media Services.
 
@@ -36,17 +30,20 @@ Aby utworzyć konto usługi Azure Media Services, użyj witryny Azure Portal, ze
 
 <a id="setup_dev_env"></a>
 
-## <a name="set-up-the-development-environment"></a>Konfigurowanie środowiska projektowego
-Wybierz platformę .NET lub interfejs API REST dla swojego środowiska programowania.
+## <a name="set-up-the-development-environment"></a>Konfigurowanie środowiska deweloperskiego
 
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+Aby skonfigurować środowisko deweloperskie .NET, zobacz [ten](media-services-dotnet-how-to-use.md) temat.  
+
+Aby skonfigurować środowisko deweloperskie REST, zobacz [ten](media-services-rest-how-to-use.md) temat.  
 
 <a id="connect"></a>
 
 ## <a name="connect-programmatically"></a>Połączenie programowe
-Wybierz platformę .NET lub interfejs API REST, aby nawiązać połączenie programowe z usługą Azure Media Services.
 
-[!INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+Aby połączyć się z usługą Azure Media Services za pomocą programu .NET, zobacz [ten](media-services-dotnet-connect-programmatically.md) temat.  
+
+Aby połączyć się z usługą Azure Media Services za pomocą usługi REST, zobacz [ten](media-services-rest-connect-programmatically.md) temat.  
+
 
 ## <a name="next-steps-azure-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Azure Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -57,6 +54,6 @@ Wybierz platformę .NET lub interfejs API REST, aby nawiązać połączenie prog
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

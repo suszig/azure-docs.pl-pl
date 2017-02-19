@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 Usługa Azure Mobile Engagement to platforma zwiększająca zaangażowanie użytkowników typu „oprogramowanie jako usługa” (Software-as-a-Service, SaaS), która zapewnia analizę opartą na danych dotyczącą użycia aplikacji i segmentację użytkowników w czasie rzeczywistym oraz umożliwia użycie powiadomień wypychanych zależnych od kontekstu i wiadomości w aplikacji.
 
 ### <a name="overview-video"></a>Klip wideo z omówieniem
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Mobile-Engagement-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Mobile-Engagement-Overview/player]
 > 
 > 
 
@@ -54,6 +54,6 @@ Firma Microsoft od dawna dba o ochronę prywatności, która stanowi nieodłącz
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
-ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -65,7 +65,7 @@ Jeśli masz program Visual Studio 2013, możesz [pobrać najnowszy zestaw Azure 
 
 ## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 1. Otwórz program Visual Studio i kliknij kolejno opcje **Plik**, **Nowy**, **Projekt**.
-2. Rozwiń węzeł **Visual C#** na liście **Szablony**, wybierz pozycję **Chmura** i kliknij pozycję **Aplikacja sieci Web ASP.NET**. Upewnij się, że została wybrana pozycja **.NET Framework 4.5.2**.  Wpisz **ContosoTeamStats** w polu tekstowym **Nazwa** i kliknij przycisk **OK**.
+2. Rozwiń węzeł **Visual C#** na liście **Szablony**, wybierz pozycję **Chmura** i kliknij pozycję **Aplikacja sieci Web ASP.NET**. Upewnij się, że został wybrany program **.NET Framework 4.5.2** lub nowszy.  Wpisz **ContosoTeamStats** w polu tekstowym **Nazwa** i kliknij przycisk **OK**.
    
     ![Tworzenie projektu][cache-create-project]
 3. Wybierz **MVC** jako typ projektu. Wyczyść pole wyboru **Hostuj w chmurze**. W kolejnych krokach samouczka wykonasz [aprowizację zasobów platformy Azure](#provision-the-azure-resources) i [opublikujesz aplikację na platformie Azure](#publish-the-application-to-azure) Przykład aprowizacji aplikacji sieci Web usługi App Service z programu Visual Studio przez pozostawienie zaznaczonego pola wyboru **Hostuj w chmurze** opisano w artykule [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
@@ -852,6 +852,6 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 01/30/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2549ca9cd05f44f644687bbdf588f7af01bae3f4
-ms.openlocfilehash: 79162e5d31346370e596f39fa4827d49625897b3
+ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
+ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Łączenie z klastrem usługi kontenera platformy Azure
-Po utworzeniu klastra usługi Azure Container Service należy połączyć się z klastrem, aby wdrożyć obciążenia i zarządzać nimi. W tym artykule opisano sposób nawiązywania połączenia z główną maszyną wirtualną klastra z komputera zdalnego. Klastry Kubernetes, DC/OS i Docker Swarm uwidaczniają punkty końcowe REST. W przypadku klastrów Kubernetes ten punkt końcowy jest bezpiecznie uwidaczniany w Internecie i można do niego uzyskać dostęp, uruchamiając narzędzie wiersza polecenia `kubectl` z dowolnej maszyny podłączonej do Internetu. W przypadku kontenerów DC/OS i Docker Swarm musisz utworzyć tunel Secure Shell (SSH), aby bezpiecznie połączyć się z punktem końcowym REST. 
+Po utworzeniu klastra usługi Azure Container Service należy połączyć się z klastrem, aby wdrożyć obciążenia i zarządzać nimi. W tym artykule opisano sposób nawiązywania połączenia z główną maszyną wirtualną klastra z komputera zdalnego. 
+
+Klastry Kubernetes, DC/OS i Docker Swarm udostępniają punkty końcowe HTTP lokalnie. W przypadku klastrów Kubernetes ten punkt końcowy jest bezpiecznie uwidaczniany w Internecie i można do niego uzyskać dostęp, uruchamiając narzędzie wiersza polecenia `kubectl` z dowolnej maszyny podłączonej do Internetu. 
+
+W przypadku klastrów DC/OS i Docker Swarm musisz utworzyć tunel Secure Shell (SSH) do systemu wewnętrznego. Po ustanowieniu tunelu możesz uruchamiać polecenia korzystające z punktów końcowych HTTP i wyświetlać interfejs sieci Web klastra z systemu lokalnego. 
 
 > [!NOTE]
 > Obsługa klastra Kubernetes w usłudze Azure Container Service jest obecnie w wersji zapoznawczej.
@@ -68,7 +72,7 @@ To polecenie pobiera poświadczenia klastra do folderu `$HOME/.kube/config` zgod
 Możesz też użyć narzędzia `scp`, aby bezpiecznie skopiować plik z folderu `$HOME/.kube/config` na głównej maszynie wirtualnej do maszyny lokalnej. Na przykład:
 
 ```console
-mkdir $HOME/.kube/config
+mkdir $HOME/.kube
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
@@ -96,10 +100,10 @@ Aby uzyskać więcej informacji, zobacz [Kubernetes — szybki start](http://kub
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Nawiązywanie połączenia z klastrem DC/OS lub Swarm
 
-Klastry DC/OS i Docker Swarm wdrażane przez usługę Azure Container Service uwidaczniają punkty końcowe REST. Te punkty końcowe nie są jednak otwarte dla użytkowników zewnętrznych. Aby zarządzać tymi punktami końcowymi, należy utworzyć tunel Secure Shell (SSH). Po ustanowieniu tunelu SSH możesz uruchamiać polecenia względem punktów końcowych klastra i wyświetlać interfejs użytkownika klastra za pośrednictwem przeglądarki we własnym systemie. W poniższych sekcjach opisano tworzenie tunelu SSH z komputerów z systemami operacyjnymi Linux, OS X i Windows.
+Aby korzystać z klastrów DC/OS i Docker Swarm wdrożonych przez usługę Azure Container Service, postępuj zgodnie z tymi instrukcjami w celu utworzenia tunelu Secure Shell (SSH) z lokalnego systemu Linux, OS X lub Windows. 
 
 > [!NOTE]
-> Sesję SSH możesz utworzyć przy użyciu systemu zarządzania klastrem. Nie jest to jednak zalecane. Praca bezpośrednio w systemie zarządzania niesie ze sobą ryzyko przypadkowego wprowadzenia zmian konfiguracji.
+> Te instrukcje koncentrują się na tunelowaniu ruchu TCP przez SSH. Możesz też uruchomić interaktywną sesję SSH z jednym z wewnętrznych systemów zarządzania klastrami, ale nie zalecamy tego. Praca bezpośrednio na systemie wewnętrznym niesie za sobą ryzyko wprowadzenia niezamierzonych zmian w konfiguracji.  
 > 
 
 ### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Tworzenie tunelu SSH w systemie Linux lub OS X
@@ -108,49 +112,55 @@ Pierwszym krokiem tworzenia tunelu SSH w systemie Linux lub OS X jest zlokalizow
 
 1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do grupy zasobów zawierającej klaster usługi Containter Service. Rozwiń grupę zasobów, aby wyświetlić poszczególne zasoby. 
 
-2. Znajdź i wybierz maszynę wirtualną poziomu głównego. W klastrze DC/OS ten zasób ma nazwę rozpoczynającą się od **dcos-master-**. 
-
-    Blok **Maszyna wirtualna** zawiera informacje o publicznym adresie IP, w tym nazwę DNS. Zapisz tę nazwę do późniejszego użycia. 
+2. Kliknij zasób usługi kontenera, a następnie kliknij pozycję **Przegląd**. W obszarze **Podstawy** zostanie wyświetlona **główna nazwa FQDN** klastra. Zapisz tę nazwę do późniejszego użycia. 
 
     ![Publiczna nazwa DNS](media/pubdns.png)
 
+    Możesz też uruchomić polecenie `az acs show` względem usługi kontenera. Następnie poszukaj właściwości **Master Profile:fqdn** w danych wyjściowych polecenia.
+
 3. Otwórz powłokę i uruchom polecenie `ssh`, określając następujące wartości: 
 
-    **PORT** to port punktu końcowego, który chcesz udostępnić. W przypadku klastra Swarm jest to port 2375. W przypadku klastra DC/OS jest to port 80.  
+    **LOCAL_PORT** to port TCP tunelu po stronie usługi, z którym należy się połączyć. W przypadku klastra Swarm ustaw tę wartość na 2375. W przypadku klastra DC/OS ustaw tę wartość na 80.  
+    **REMOTE_PORT** to port punktu końcowego, który ma zostać udostępniony. W przypadku klastra Swarm jest to port 2375. W przypadku klastra DC/OS jest to port 80.  
     **USERNAME** (nazwa_użytkownika) to nazwa użytkownika podana podczas wdrażania klastra.  
     **DNSPREFIX** (prefiks_DNS) to prefiks DNS podany podczas wdrażania klastra.  
     **REGION** to region, w którym znajduje się grupa zasobów.  
     **PATH_TO_PRIVATE_KEY** [OPCJONALNIE] to ścieżka do klucza prywatnego odpowiadającego kluczowi publicznemu podanemu podczas tworzenia klastra. Użyj tej opcji z flagą `-i`.
 
     ```bash
-    ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > Port połączenia SSH to 2200, a nie standardowy port 22. W klastrze z więcej niż jedną główną maszyną wirtualną jest to port połączenia z pierwszą główną maszyną wirtualną.
     > 
 
+
+
 Zobacz przykłady dla klastrów DC/OS i Swarm w poniższych sekcjach.    
 
 ### <a name="dcos-tunnel"></a>Tunel DC/OS
-Aby otworzyć tunel do punktów końcowych powiązanych z klastrem DC/OS, uruchom polecenie podobne do następującego:
+Aby otworzyć tunel dla punktów końcowych DC/OS, uruchom polecenie podobne do następującego:
 
 ```bash
-sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 ```
 
-Teraz możesz uzyskiwać dostęp do punktów końcowych powiązanych z klastrem DC/OS w następujących lokalizacjach:
+> [!NOTE]
+> Możesz określić port lokalny inny niż 80, na przykład 8888. Jednak gdy ten port jest używany, niektóre linki w interfejsie użytkownika sieci Web mogą nie działać.
 
-* DC/OS: `http://localhost/`
-* Marathon: `http://localhost/marathon`
-* Mesos: `http://localhost/mesos`
+Możesz teraz uzyskiwać dostęp do punktów końcowych DC/OS z systemu lokalnego, używając następujących adresów URL (zakładając, że port lokalny to 80):
+
+* DC/OS: `http://localhost:80/`
+* Marathon: `http://localhost:80/marathon`
+* Mesos: `http://localhost:80/mesos`
 
 Podobnie za pomocą tego tunelu możesz uzyskiwać dostęp do interfejsów API REST dla poszczególnych aplikacji.
 
 ### <a name="swarm-tunnel"></a>Tunel Swarm
-Aby otworzyć tunel do punktu końcowego powiązanego z klastrem Swarm, uruchom polecenie podobne do następującego:
+Aby otworzyć tunel do punktu końcowego Swarm, uruchom polecenie podobne do następującego:
 
 ```bash
-ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com
 ```
 
 Teraz możesz ustawić zmienną środowiskową DOCKER_HOST w następujący sposób. Możesz kontynuować korzystanie z interfejsu wiersza polecenia (CLI) Docker w normalny sposób.
@@ -211,6 +221,6 @@ Wdrażanie kontenerów i zarządzanie nimi w klastrze:
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center | Microsoft Docs"
+title: "Monitorowanie zabezpieczeń w usłudze Azure Security Center | Microsoft Docs"
 description: "Informacje zawarte w tym artykule ułatwiają rozpoczęcie korzystania z funkcji monitorowania w usłudze Azure Security Center."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
 
 
 ---
@@ -60,8 +60,8 @@ Ta sekcja zawiera zestaw [zaleceń dotyczących każdej maszyny wirtualnej](secu
 
 > [!NOTE]
 > W bloku **Kondycja sieci** na liście **Topologie sieci** wyświetlane są tylko maszyny wirtualne z co najmniej jednym publicznym punktem końcowym.
-> 
-> 
+>
+>
 
 Każdy zalecenie obejmuje zestaw akcji możliwych do wykonania po jego kliknięciu. Na przykład kliknięcie pozycji **Brak aktualizacji systemu** spowoduje otwarcie bloku **Brak aktualizacji systemu**. Wyświetlona zostanie lista maszyn wirtualnych, na których brakuje poprawek, wraz z informacjami o ważności brakujących aktualizacji, jak pokazano na poniższym zrzucie ekranu.
 
@@ -87,8 +87,8 @@ Aby wyświetlić szczegóły zalecenia, kliknij nazwę maszyny wirtualnej. Zosta
 
 > [!NOTE]
 > Przedstawione tutaj zalecenia dotyczące zabezpieczeń są takie same jak w bloku **Zalecenia**. Więcej informacji dotyczących stosowania zaleceń można znaleźć w artykule [Wdrażanie zaleceń dotyczących zabezpieczeń w usłudze Azure Security Center](security-center-recommendations.md). Dotyczy to nie tylko maszyn wirtualnych, ale także wszystkich zasobów, które są dostępne za pośrednictwem kafelka **Kondycja zasobu**.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>Sekcja Maszyny wirtualne
 Sekcja Maszyny wirtualne zawiera przegląd wszystkich maszyn wirtualnych i zaleceń. Każda kolumna reprezentuje jeden zestaw zaleceń, jak pokazano na poniższym zrzucie ekranu:
@@ -217,7 +217,6 @@ W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłu
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 
