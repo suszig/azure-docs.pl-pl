@@ -17,10 +17,7 @@ translationtype: Human Translation
 ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
 ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
-
 ---
-<!--TODO: Introduction -->
-
 ## <a name="register-your-application-with-your-ad-tenant"></a>Rejestrowanie aplikacji w dzierżawie usługi AD
 Po pierwsze należy zarejestrować aplikację w dzierżawie usługi Azure Active Directory (Azure AD). Spowoduje to nadanie aplikacji identyfikatora oraz umożliwi jej otrzymywanie tokenów.
 

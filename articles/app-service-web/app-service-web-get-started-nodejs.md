@@ -129,7 +129,7 @@ Gratulacje! Udało Ci się wdrożyć aplikację w usłudze Azure App Service.
 ## <a name="see-your-app-running-live"></a>Wyświetlanie działającej aplikacji
 Aby wyświetlić aplikację działającą na platformie Azure, uruchom to polecenie w dowolnym katalogu repozytorium:
 
-    azure site browse
+    az appservice web browse -n <app-name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Aktualizowanie aplikacji
 Teraz możesz wypychać zmiany z katalogu głównego projektu (repozytorium) przy użyciu narzędzia Git, aby w dowolnej chwili aktualizować działającą witrynę. Procedura jest taka sama, jak podczas wdrażania kodu po raz pierwszy. Na przykład za każdym razem, gdy chcesz wypchnąć nową zmianę przetestowaną lokalnie, uruchom następujące polecenia w katalogu głównym (repozytorium) projektu:
