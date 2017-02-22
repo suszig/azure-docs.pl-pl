@@ -1,6 +1,6 @@
 ---
 title: "Wprowadzenie do korzystania z usługi Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia platformy Azure | Microsoft Docs"
-description: "Dowiedz się, jak za pomocą interfejsu wiersza polecenia utworzyć konto usługi Data Lake Store oraz utworzyć i przesłać zadanie usługi Data Lake Analytics, korzystając z języka U-SQL. "
+description: "Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć konto usługi Data Lake Analytics oraz utworzyć i przesłać zadanie usługi Data Lake Analytics, korzystając z języka U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Samouczek: wprowadzenie do korzystania z usługi Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Samouczek: wprowadzenie do korzystania z usługi Azure Data Lake Analytics przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Dowiedz się, jak używać kont usługi Azure Data Lake Analytics, definiować zadania usługi Data Lake Analytics w języku [U-SQL](data-lake-analytics-u-sql-get-started.md) i wysyłać je do kont usługi Data Lake Analytics. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -165,6 +165,6 @@ Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyśw
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: eee65672b3a9615afe2850b0cbc6daa275fc04ec
+ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
+ms.openlocfilehash: fe590e7fc551c175d2f41f5b98e1558a756df806
 
 
 ---
@@ -32,7 +32,7 @@ Aby wykonać uwierzytelnienie w usłudze AWS, należy określić zestaw poświad
 ## <a name="configure-automation-account"></a>Skonfiguruj konto usługi Automation
 Aby usługa Azure Automation mogła się komunikować z usługą AWS, należy najpierw pobrać poświadczenia usługi AWS i przechowywać je jako zasoby w usłudze Azure Automation.  Wykonaj następujące czynności opisane w dokumencie usługi AWS [Zarządzanie kluczami dostępu konta usługi AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html), aby utworzyć klucz dostępu i skopiować **identyfikator klucza dostępu** i **tajny klucz dostępu** (ewentualnie pobierz plik klucza, aby go bezpiecznie przechować w innym miejscu).
 
-Po utworzeniu i skopiowaniu kluczy zabezpieczeń usługi AWS należy utworzyć zasób poświadczeń przy użyciu konta usługi Azure Automation, aby bezpiecznie je przechowywać i odwoływać się do nich z poziomu elementów Runbook.  Wykonaj kroki opisane w sekcji **Creating a new credential asset** (Tworzenie nowego elementu zawartości poświadczenia) artykułu [Credential assets in Azure Automation](automation-credentials.md#creating-a-new-credential-asset) (Zasoby poświadczeń w usłudze Azure Automation), a następnie wprowadź następujące informacje:
+Po utworzeniu i skopiowaniu kluczy zabezpieczeń usługi AWS należy utworzyć zasób poświadczeń przy użyciu konta usługi Azure Automation, aby bezpiecznie je przechowywać i odwoływać się do nich z poziomu elementów Runbook.  Wykonaj kroki opisane w sekcji **Creating a new credential asset** (Tworzenie nowego elementu zawartości poświadczenia) artykułu [Credential assets in Azure Automation](automation-credentials.md) (Zasoby poświadczeń w usłudze Azure Automation), a następnie wprowadź następujące informacje:
 
 1. W polu **Nazwa** wprowadź **AWScred** lub wartość odpowiadającą Twoim standardom nazewnictwa.  
 2. W polu **Nazwa użytkownika** wpisz swój **identyfikator dostępu** oraz **tajny klucz dostępu** w polach **Hasło** i **Potwierdź hasło**.   
@@ -42,6 +42,7 @@ Po utworzeniu i skopiowaniu kluczy zabezpieczeń usługi AWS należy utworzyć z
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

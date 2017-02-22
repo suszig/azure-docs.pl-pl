@@ -15,7 +15,7 @@ Najczęstsze zastosowania usługi File Storage to:
 ## <a name="file-storage-concepts"></a>Pojęcia dotyczące usługi File Storage
 Usługa File Storage zawiera następujące składniki:
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Aby uzyskać szczegółowe informacje na temat pojemności konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](../articles/storage/storage-scalability-targets.md).
 * **Udział:** udział usługi File Storage jest udziałem plików SMB na platformie Azure. 
@@ -31,8 +31,7 @@ Usługa File Storage zawiera następujące składniki:
 
 Szczegółowe informacje o nazewnictwie udziałów, katalogów i plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

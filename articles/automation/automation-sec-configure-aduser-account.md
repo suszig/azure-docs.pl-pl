@@ -1,6 +1,6 @@
 ---
 title: "Konfigurowanie konta użytkownika usługi Azure AD | Microsoft Docs"
-description: "W tym artykule opisano sposób konfigurowania poświadczeń dla konta użytkownika usługi Azure AD dla elementów Runbook w usłudze Azure Automation do uwierzytelniania w usługach ARM i ASM."
+description: "W tym artykule opisano sposób konfigurowania poświadczeń konta użytkownika usługi Azure AD dla elementów Runbook w usłudze Azure Automation na potrzeby uwierzytelniania."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 11/14/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: db4eb96b3354d83864a7869c1fd08e9bb2884a1f
+ms.sourcegitcommit: 0078d544d5c30e31874d75fece62ca560d2aa2d6
+ms.openlocfilehash: 0544d4df8f50db2182375aec8ec2a0a9d47ed644
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-service-management-and-resource-manager"></a>Uwierzytelnianie elementów Runbook w usłudze Azure Service Management i Resource Manager
-W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto użytkownika usługi Azure AD dla elementów Runbook usługi Azure Automation działających w odniesieniu do zasobów usługi Azure Service Management (ASM) lub Azure Resource Manager (ARM).  To konto nadal jest obsługiwaną tożsamością uwierzytelniania dla elementów Runbook w ramach usługi ARM, jednak zalecane jest używanie nowego konta Uruchom jako platformy Azure.       
+W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto użytkownika usługi Azure AD dla elementów Runbook usługi Azure Automation działających w odniesieniu do zasobów usługi Azure Service Management lub Azure Resource Manager.  To konto nadal jest obsługiwaną tożsamością uwierzytelniania dla elementów Runbook w ramach usługi Azure Resource Manager, jednak zalecane jest używanie nowego konta Uruchom jako platformy Azure.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Tworzenie nowego użytkownika usługi Azure Active Directory
 1. Zaloguj się do klasycznego portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
@@ -39,12 +39,12 @@ W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto 
 12. Wyloguj się z platformy Azure, a następnie zaloguj się ponownie przy użyciu właśnie utworzonego konta. Zostanie wyświetlony monit informujący o konieczności zmiany hasła użytkownika.
 
 ## <a name="create-an-automation-account-in-azure-classic-portal"></a>Tworzenie konta usługi Automation w klasycznym portalu Azure
-W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usługi Azure Automation w portalu Azure, które będzie używane z elementami Runbook zarządzającymi zasobami w trybie ASM i ARM.  
+W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usługi Azure Automation w witrynie Azure Portal, które będzie używane z elementami Runbook zarządzającymi zasobami w trybie usług Azure Service Manager i Azure Resource Manager.  
 
 > [!NOTE]
 > Kontami usługi Automation utworzonymi za pomocą klasycznego portalu Azure można zarządzać zarówno za pomocą klasycznego portalu Azure, jak i portalu Azure oraz zestawu poleceń cmdlet. Po utworzeniu konta nie ma znaczenia, jak są tworzone zasoby w ramach konta ani jak się nimi zarządza. Jeśli planujesz dalsze używanie klasycznego portalu Azure, użyj go zamiast portalu Azure do tworzenia kont usługi Automation.
->
->
+> 
+> 
 
 1. Zaloguj się do klasycznego portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
 2. Wybierz opcję **Automatyzacja**.
@@ -60,7 +60,7 @@ W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usług
 12. Na następnej stronie **Definiowanie poświadczenia** wpisz nazwę użytkownika utworzonego wcześniej konta użytkownika usługi AD w polu **Nazwa użytkownika** oraz hasło w polach **Hasło** i **Potwierdź hasło**. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>Tworzenie konta usługi Automation w portalu Azure
-W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usługi Azure Automation w portalu Azure, które będzie używane w odniesieniu do elementów Runbook zarządzających zasobami w trybie ARM.  
+W tej sekcji należy wykonać poniższe kroki, aby utworzyć nowe konto usługi Azure Automation w witrynie Azure Portal. Będzie ono używane z elementami Runbook zarządzającymi zasobami w trybie usługi Azure Resource Manager.  
 
 1. Zaloguj się do portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
 2. Wybierz opcję **Konta automatyzacji**.
@@ -68,12 +68,12 @@ W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usług
 4. W bloku **Dodaj konto automatyzacji** w polu **Nazwa** wpisz nazwę nowego konta usługi Automation.
 5. Jeśli masz więcej niż jedną subskrypcję, jedną z nich określ dla nowego konta, podaj także nową lub istniejącą **grupę zasobów** i **lokalizację** centrum danych Azure.
 6. Wybierz wartość **Nie** dla opcji **Utwórz konto Uruchom jako platformy Azure**, a następnie kliknij przycisk **Utwórz**.  
-
+   
    > [!NOTE]
-   > Jeśli wybrano opcję **Nie**, aby nie tworzyć konta Uruchom jako, w bloku **Dodaj konto automatyzacji** zostanie wyświetlony komunikat ostrzegawczy.  Gdy konto zostanie utworzone i przypisane do roli **Współautor** w subskrypcji, nie będzie miało odpowiedniej tożsamości uwierzytelniania w usłudze katalogowej subskrypcji i dlatego nie będzie miało dostępu do zasobów w ramach subskrypcji.  Pozwoli to zapobiec sytuacji, w której wszelkie elementy Runbook odwołujące się do tego konta miałyby możliwość uwierzytelniania i wykonywania zadań w odniesieniu do zasobów usługi ARM.
-   >
-   >
-
+   > Jeśli wybrano opcję **Nie**, aby nie tworzyć konta Uruchom jako, w bloku **Dodaj konto automatyzacji** zostanie wyświetlony komunikat ostrzegawczy.  Gdy konto zostanie utworzone i przypisane do roli **Współautor** w subskrypcji, nie będzie ono miało odpowiedniej tożsamości uwierzytelniania w usłudze katalogowej subskrypcji i dlatego nie będzie miało dostępu do zasobów w ramach subskrypcji.  Pozwoli to zapobiec sytuacji, w której wszelkie elementy Runbook odwołujące się do tego konta miałyby możliwość uwierzytelniania i wykonywania zadań w odniesieniu do zasobów usługi Azure Resource Manager.
+   > 
+   > 
+   
     ![Ostrzeżenie podczas dodawania konta usługi Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 7. W trakcie tworzenia konta usługi Automation na platformie Azure postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
 
@@ -93,6 +93,7 @@ Te wiersze należy powtórzyć po każdym [punkcie kontrolnym](http://technet.mi
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 
