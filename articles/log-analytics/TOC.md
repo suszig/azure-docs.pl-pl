@@ -68,7 +68,8 @@
 ### [Interfejs API alertów](log-analytics-api-alerts.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
 # Zasoby
 ## [Uaktualnienie programu Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
@@ -76,6 +77,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
