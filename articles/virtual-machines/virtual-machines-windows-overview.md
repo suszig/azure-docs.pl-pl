@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/20/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7c7995e7242b3e07692fa89d05c4ba1fa230bfd2
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
 
 
 ---
@@ -35,7 +35,7 @@ Z maszyn wirtualnych na platformie Azure można korzystać na różne sposoby. P
 Liczbę maszyn wirtualnych używanych przez aplikację można dowolnie i bez ograniczeń zwiększać odpowiednio do potrzeb.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Co należy wziąć pod uwagę przed utworzeniem maszyny wirtualnej?
-Podczas tworzenia infrastruktury aplikacji na platformie Azure należy zawsze wziąć pod uwagę wiele różnych [zagadnień projektowych](virtual-machines-windows-infrastructure-virtual-machine-guidelines.md). Kwestie dotyczące maszyn wirtualnych, które należy rozważyć, to między innymi:
+Podczas tworzenia infrastruktury aplikacji na platformie Azure należy zawsze wziąć pod uwagę wiele różnych [zagadnień projektowych](virtual-machines-windows-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Kwestie dotyczące maszyn wirtualnych, które należy rozważyć, to między innymi:
 
 * nazwy zasobów aplikacji;
 * lokalizacja, w której są przechowywane zasoby;
@@ -46,9 +46,9 @@ Podczas tworzenia infrastruktury aplikacji na platformie Azure należy zawsze wz
 * powiązane zasoby niezbędne do działania maszyny wirtualnej.
 
 ### <a name="naming"></a>Nazewnictwo
-Maszyna wirtualna ma przypisaną do niej [nazwę](virtual-machines-windows-infrastructure-naming-guidelines.md), a także nazwę komputera skonfigurowaną jako element systemu operacyjnego. Nazwa maszyny wirtualnej może zawierać maksymalnie 15 znaków.
+Maszyna wirtualna ma przypisaną do niej [nazwę](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), a także nazwę komputera skonfigurowaną jako element systemu operacyjnego. Nazwa maszyny wirtualnej może zawierać maksymalnie 15 znaków.
 
-Jeśli dysk systemu operacyjnego zostanie utworzony na platformie Azure, nazwa komputera jest taka sama jak nazwa maszyny wirtualnej. Nazwy mogą się różnić w przypadku [przesłania i użycia własnego obrazu](virtual-machines-windows-upload-image.md), który zawiera skonfigurowany wcześniej system operacyjny, oraz wykorzystania go do utworzenia maszyny wirtualnej. Jeśli zostanie przesłany własny plik obrazu, zalecamy ustawienie takiej samej nazwy dla komputera w systemie operacyjnym i dla maszyny wirtualnej.
+Jeśli dysk systemu operacyjnego zostanie utworzony na platformie Azure, nazwa komputera jest taka sama jak nazwa maszyny wirtualnej. Nazwy mogą się różnić w przypadku [przesłania i użycia własnego obrazu](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), który zawiera skonfigurowany wcześniej system operacyjny, oraz wykorzystania go do utworzenia maszyny wirtualnej. Jeśli zostanie przesłany własny plik obrazu, zalecamy ustawienie takiej samej nazwy dla komputera w systemie operacyjnym i dla maszyny wirtualnej.
 
 ### <a name="locations"></a>Lokalizacje
 Wszystkie zasoby tworzone na platformie Azure są dystrybuowane w obrębie wielu [regionów geograficznych](https://azure.microsoft.com/regions/) na całym świecie. Zazwyczaj podczas tworzenia maszyny wirtualnej region określa się mianem **lokalizacji**. W przypadku maszyny wirtualnej lokalizacja określa miejsce, w którym są przechowywane wirtualne dyski twarde.
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono wybrane metody uzyskania dostępu do listy dos
 | Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](https://msdn.microsoft.com/library/dn790540.aspx). |
 
 ### <a name="vm-size"></a>Rozmiar maszyny wirtualnej
-[Rozmiar](virtual-machines-windows-sizes.md) maszyny wirtualnej zależy od obciążenia, które ma zostać uruchomione. Wybrany rozmiar ma więc wpływ na takie czynniki jak moc procesora, pamięć i przestrzeń dyskowa. W ramach platformy Azure dostępna jest szeroka gama rozmiarów umożliwiających wykorzystanie produktu do wielu różnych zastosowań.
+[Rozmiar](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) maszyny wirtualnej zależy od obciążenia, które ma zostać uruchomione. Wybrany rozmiar ma więc wpływ na takie czynniki jak moc procesora, pamięć i przestrzeń dyskowa. W ramach platformy Azure dostępna jest szeroka gama rozmiarów umożliwiających wykorzystanie produktu do wielu różnych zastosowań.
 
 Na platformie Azure obowiązuje [cena za godzinę](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), która jest określana na podstawie rozmiaru maszyny wirtualnej i jej systemu operacyjnego. W przypadku rozpoczętych godzin opłaty są pobierane tylko za faktycznie wykorzystane minuty. Magazyn jest wyceniany oddzielnie; związane z nim opłaty są także pobierane osobno.
 
@@ -70,7 +70,7 @@ Na platformie Azure obowiązuje [cena za godzinę](https://azure.microsoft.com/p
 Subskrypcje mają domyślne [limity przydziałów](../azure-subscription-service-limits.md), które mogą mieć wpływ na wdrożenie wielu maszyn wirtualnych w projekcie. Aktualny limit dla każdej subskrypcji wynosi 20 maszyn wirtualnych na region. Limity można zwiększyć, wypełniając bilet pomocy technicznej.
 
 ### <a name="operating-system-disks-and-images"></a>Dyski i obrazy z systemem operacyjnym
-System operacyjny i dane maszyny wirtualnej są przechowywane na [wirtualnym dysku twardym (VHD)](virtual-machines-windows-about-disks-vhds.md). Wirtualne dyski twarde są również używane do obsługi obrazów, spośród których można wybierać, chcąc zainstalować system operacyjny. 
+System operacyjny i dane maszyny wirtualnej są przechowywane na [wirtualnym dysku twardym (VHD)](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Wirtualne dyski twarde są również używane do obsługi obrazów, spośród których można wybierać, chcąc zainstalować system operacyjny. 
 
 Na platformie Azure jest dostępnych wiele [obrazów z portalu Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/), których można używać z różnymi wersjami i typami systemów operacyjnych Windows Server. Obrazy z Marketplace są oznaczone nazwą wydawcy i oferty, jednostką SKU i wersją (zwykle najnowszą). 
 
@@ -82,15 +82,15 @@ W poniższej tabeli pokazano, jak można znaleźć informacje o obrazie.
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "lokalizacja"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "lokalizacja" -Publisher "nazwa_wydawcy"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "lokalizacja" -Publisher "nazwa_wydawcy" -Offer "nazwa_oferty" |
 | Interfejsy API REST |[Wyświetl listę wydawców obrazów](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[Wyświetl listę ofert obrazów](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[Wyświetl listę jednostek SKU obrazów](https://msdn.microsoft.com/library/mt743701.aspx) |
 
-Istnieje możliwość [przesłania i użycia własnego obrazu](virtual-machines-windows-upload-image.md) — nazwa wydawcy, oferta i jednostka SKU nie są wtedy używane.
+Istnieje możliwość [przesłania i użycia własnego obrazu](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) — nazwa wydawcy, oferta i jednostka SKU nie są wtedy używane.
 
 ### <a name="extensions"></a>Rozszerzenia
-[Rozszerzenia](virtual-machines-windows-extensions-features.md) maszyn wirtualnych udostępniają dodatkowe funkcje, z których można korzystać po wdrożeniu i do automatyzacji zadań.
+[Rozszerzenia](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) maszyn wirtualnych udostępniają dodatkowe funkcje, z których można korzystać po wdrożeniu i do automatyzacji zadań.
 
 Typowe zadania można realizować przy użyciu różnych rozszerzeń:
 
-* **Uruchamianie skryptów niestandardowych** — [rozszerzenie niestandardowego skryptu](virtual-machines-windows-extensions-customscript.md) ułatwia konfigurowanie obciążeń na maszynie wirtualnej poprzez uruchomienie skryptu po aprowizacji maszyny wirtualnej.
-* **Wdrażanie konfiguracji i zarządzanie nimi** — [rozszerzenie Konfiguracja żądanego stanu (Desired State Configuration, DSC) programu PowerShell](virtual-machines-windows-extensions-dsc-overview.md) ułatwia skonfigurowanie żądanego stanu na maszynie wirtualnej w celu zarządzania konfiguracjami i środowiskami.
+* **Uruchamianie skryptów niestandardowych** — [rozszerzenie niestandardowego skryptu](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ułatwia konfigurowanie obciążeń na maszynie wirtualnej poprzez uruchomienie skryptu po aprowizacji maszyny wirtualnej.
+* **Wdrażanie konfiguracji i zarządzanie nimi** — [rozszerzenie Konfiguracja żądanego stanu (Desired State Configuration, DSC) programu PowerShell](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ułatwia skonfigurowanie żądanego stanu na maszynie wirtualnej w celu zarządzania konfiguracjami i środowiskami.
 * **Zbieranie danych diagnostycznych** — [rozszerzenie Diagnostyka Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) ułatwia skonfigurowanie maszyny wirtualnej w celu zbierania danych diagnostycznych używanych do monitorowania kondycji aplikacji.
 
 ### <a name="related-resources"></a>Powiązane zasoby
@@ -103,7 +103,7 @@ Zasoby wymienione w tej tabeli są używane przez maszynę wirtualną i muszą i
 | [Sieć wirtualna](../virtual-network/virtual-networks-overview.md) |Tak |Maszyna wirtualna musi należeć do sieci wirtualnej. |
 | [Publiczny adres IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nie |Maszyna wirtualna może mieć przypisany publiczny adres IP umożliwiający uzyskiwanie do niej dostępu zdalnego. |
 | [Interfejs sieciowy](../virtual-network/virtual-network-network-interface-overview.md) |Tak |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
-| [Dyski danych](virtual-machines-windows-attach-disk-portal.md) |Nie |Maszyna wirtualna może zawierać dyski danych zwiększające jej pojemność. |
+| [Dyski danych](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nie |Maszyna wirtualna może zawierać dyski danych zwiększające jej pojemność. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Jak utworzyć maszynę wirtualną?
 Można skorzystać z jednej z kilku opcji utworzenia maszyny wirtualnej. Wybór zależy od używanego środowiska. 
@@ -112,13 +112,13 @@ Ta tabela zawiera informacje ułatwiające utworzenie maszyny wirtualnej.
 
 | Metoda | Artykuł |
 | --- | --- |
-| Azure Portal |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu portalu](virtual-machines-windows-hero-tutorial.md) |
-| Szablony |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu usługi Resource Manager](virtual-machines-windows-ps-template.md) |
-| Azure PowerShell |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](virtual-machines-windows-ps-create.md) |
-| Zestawy SDK klienta |[Wdrażanie zasobów Azure przy użyciu języka C#](virtual-machines-windows-csharp.md) |
+| Azure Portal |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu portalu](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Szablony |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu usługi Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure PowerShell |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Zestawy SDK klienta |[Wdrażanie zasobów Azure przy użyciu języka C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Interfejsy API REST |[Tworzenie lub aktualizowanie maszyny wirtualnej](https://msdn.microsoft.com/library/mt163591.aspx) |
 
-Nikt tego nie lubi, ale czasem coś może pójść nie tak. Warto zapoznać się wtedy z artykułem [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md) (Rozwiązywanie problemów z wdrażaniem programu Resource Manager dotyczących tworzenia maszyny wirtualnej z systemem Windows na platformie Azure).
+Nikt tego nie lubi, ale czasem coś może pójść nie tak. Warto zapoznać się wtedy z artykułem [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozwiązywanie problemów z wdrażaniem programu Resource Manager dotyczących tworzenia maszyny wirtualnej z systemem Windows na platformie Azure).
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Jak zarządzać maszyną wirtualną?
 Maszynami wirtualnymi można zarządzać w portalu w przeglądarce internetowej, a także przy użyciu narzędzi wiersza polecenia z obsługą skryptów oraz bezpośrednio za pomocą interfejsów API. Najczęściej wykonywane zadania administracyjne to np. uzyskiwanie informacji na temat maszyny wirtualnej, logowanie się do niej, zarządzanie dostępnością oraz wykonywanie kopii zapasowych.
@@ -129,29 +129,29 @@ W tej tabeli opisano, w jaki sposób można uzyskiwać informacje o maszynie wir
 | Metoda | Opis |
 | --- | --- |
 | Azure Portal |W menu Centrum kliknij opcję **Maszyny wirtualne**, a następnie wybierz odpowiednią maszynę wirtualną z listy. Z poziomu bloku maszyny wirtualnej można uzyskać dostęp do podstawowych informacji, wartości ustawień i metryk monitorowania. |
-| Azure PowerShell |Aby dowiedzieć się więcej o zarządzaniu maszynami wirtualnymi za pomocą programu PowerShell, zobacz artykuł [Manage Azure Virtual Machines using Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md) (Zarządzanie maszynami wirtualnymi na platformie Azure za pomocą usługi Resource Manager i programu PowerShell). |
+| Azure PowerShell |Aby dowiedzieć się więcej o zarządzaniu maszynami wirtualnymi za pomocą programu PowerShell, zobacz artykuł [Manage Azure Virtual Machines using Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie maszynami wirtualnymi na platformie Azure za pomocą usługi Resource Manager i programu PowerShell). |
 | Interfejs API REST |Użyj operacji [Get VM information](https://msdn.microsoft.com/library/mt163682.aspx) (Pobierz informacje o maszynie wirtualnej), aby uzyskać informacje na temat maszyny wirtualnej. |
-| Zestawy SDK klienta |Aby dowiedzieć się więcej o zarządzaniu maszynami wirtualnymi za pomocą języka C#, zobacz artykuł [Manage Azure Virtual Machines using Azure Resource Manager and C#](virtual-machines-windows-csharp-manage.md) (Zarządzanie maszynami wirtualnymi na platformie Azure za pomocą usługi Azure Resource Manager i języka C#). |
+| Zestawy SDK klienta |Aby dowiedzieć się więcej o zarządzaniu maszynami wirtualnymi za pomocą języka C#, zobacz artykuł [Manage Azure Virtual Machines using Azure Resource Manager and C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie maszynami wirtualnymi na platformie Azure za pomocą usługi Azure Resource Manager i języka C#). |
 
 ### <a name="log-on-to-the-vm"></a>Logowanie się do maszyny wirtualnej
-Korzystając z przycisku Połącz w witrynie Azure, można [uruchomić sesję pulpitu zdalnego (RDP)](virtual-machines-windows-connect-logon.md). Podczas próby użycia połączenia zdalnego mogą czasami występować problemy. W takiej sytuacji zapoznaj się z artykułem [Rozwiązywanie problemów z połączeniami Pulpitu zdalnego z maszynami wirtualnymi systemu Windows na platformie Azure](virtual-machines-windows-troubleshoot-rdp-connection.md).
+Korzystając z przycisku Połącz w witrynie Azure, można [uruchomić sesję pulpitu zdalnego (RDP)](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Podczas próby użycia połączenia zdalnego mogą czasami występować problemy. W takiej sytuacji zapoznaj się z artykułem [Rozwiązywanie problemów z połączeniami Pulpitu zdalnego z maszynami wirtualnymi systemu Windows na platformie Azure](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="manage-availability"></a>Zarządzanie dostępnością
-Ważne jest zrozumienie, jak można [zapewnić wysoką dostępność](virtual-machines-windows-manage-availability.md) aplikacji. Ta konfiguracja obejmuje utworzenie wielu maszyn wirtualnych w celu zagwarantowania, że przynajmniej jednak z nich na pewno działa.
+Ważne jest zrozumienie, jak można [zapewnić wysoką dostępność](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) aplikacji. Ta konfiguracja obejmuje utworzenie wielu maszyn wirtualnych w celu zagwarantowania, że przynajmniej jednak z nich na pewno działa.
 
-Aby wdrożenie kwalifikowało się do naszej Umowy dotyczącej poziomu usług (SLA) uwzględniającej dostępność maszyn wirtualnych na poziomie 99,95%, wymagane jest wdrożenie co najmniej dwóch maszyn wirtualnych z uruchomionym obciążeniem w obrębie [zestawu dostępności](virtual-machines-windows-infrastructure-availability-sets-guidelines.md). Ta konfiguracja daje gwarancję, że maszyny wirtualne są rozproszone w wielu domenach błędów i wdrożone na hostach z różnymi okresami konserwacji. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
+Aby wdrożenie kwalifikowało się do naszej Umowy dotyczącej poziomu usług (SLA) uwzględniającej dostępność maszyn wirtualnych na poziomie 99,95%, wymagane jest wdrożenie co najmniej dwóch maszyn wirtualnych z uruchomionym obciążeniem w obrębie [zestawu dostępności](virtual-machines-windows-infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ta konfiguracja daje gwarancję, że maszyny wirtualne są rozproszone w wielu domenach błędów i wdrożone na hostach z różnymi okresami konserwacji. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
 
 ### <a name="back-up-the-vm"></a>Tworzenie kopii zapasowych maszyn wirtualnych
 [Magazyn usługi Recovery Services](../backup/backup-introduction-to-azure-backup.md) służy do ochrony danych i zasobów w usługach Azure Backup i Azure Site Recovery. Magazynu usługi Recovery Services można użyć do [wdrażania kopii zapasowych maszyn wirtualnych wdrożonych przy użyciu usługi Resource Manager oraz zarządzania nimi przy użyciu programu PowerShell](../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>Następne kroki
-* Użytkownicy korzystający z maszyn wirtualnych z systemem Linux powinni zapoznać się z tematem [Azure and Linux](virtual-machines-linux-azure-overview.md) (Usługa Azure a system Linux).
-* Więcej informacji na temat wytycznych dotyczących konfigurowania infrastruktury można znaleźć w artykule [Example Azure infrastructure walkthrough](virtual-machines-windows-infrastructure-example.md) (Przewodnik po konfigurowaniu przykładowej infrastruktury na platformie Azure).
-* Zdecydowanie zalecamy korzystanie z [najlepszych rozwiązań dotyczących uruchamiania maszyny wirtualnej z systemem Windows na platformie Azure](virtual-machines-windows-guidance-compute-single-vm.md).
+* Użytkownicy korzystający z maszyn wirtualnych z systemem Linux powinni zapoznać się z tematem [Azure and Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Usługa Azure a system Linux).
+* Więcej informacji na temat wytycznych dotyczących konfigurowania infrastruktury można znaleźć w artykule [Example Azure infrastructure walkthrough](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Przewodnik po konfigurowaniu przykładowej infrastruktury na platformie Azure).
+* Zdecydowanie zalecamy korzystanie z [najlepszych rozwiązań dotyczących uruchamiania maszyny wirtualnej z systemem Windows na platformie Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
