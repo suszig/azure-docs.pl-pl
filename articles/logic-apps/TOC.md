@@ -23,6 +23,7 @@
 ### [Aplikacje logiki jako wywoływalne punkty końcowe](logic-apps-http-endpoint.md)
 ### [Pętle, zakresy i usuwanie partii](logic-apps-loops-and-scopes.md)
 ### [Korzystanie z niestandardowego interfejsu API](logic-apps-custom-hosted-api.md)
+### [Korzystanie z instrukcji switch](logic-apps-switch-case.md)
 ### [Obsługa wyjątków](logic-apps-exception-handling.md)
 ### [Scenariusz obsługi wyjątków](logic-apps-scenario-error-and-exception-handling.md)
 ### [Obsługa typów zawartości](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

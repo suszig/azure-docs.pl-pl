@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure IoT Hub — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Internetu rzeczy za pomocą usługi IoT Hub. Samouczki, dokumentacja interfejsu API, filmy wideo i inne dokumenty."
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
+ms.sourcegitcommit: 7d0766cfafb471898cb1463df27075516af5e8e8
+ms.openlocfilehash: 779159765c2b8c117e7a950aef541bdfb045be26
 
 ---
+
 #<a name="iot-hub-documentation"></a>Dokumentacja usługi IoT Hub
 
 Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Internetu rzeczy za pomocą usługi IoT Hub. Samouczki, dokumentacja interfejsu API, filmy wideo i inne dokumenty ułatwiające wdrażanie niezawodnej komunikacji dwukierunkowej między urządzeniami IoT a zapleczem rozwiązania. 
@@ -157,6 +169,6 @@ Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Inter
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -3,25 +3,29 @@
 
 ### <a name="add-the-relay-nuget-package"></a>Dodawanie pakietu NuGet usługi Relay
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
-2. Kliknij pozycję **Przeglądaj**, wyszukaj ciąg „Microsoft Azure Relay”, a następnie wybierz pozycję **Microsoft Azure Relay**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
+2. Kliknij kartę **Przeglądaj**, wyszukaj ciąg „Microsoft.Azure.Relay”, a następnie wybierz pozycję **Microsoft Azure Relay**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
 
 ### <a name="write-some-code-to-send-messages"></a>Pisanie kodu w celu wysyłania komunikatów
-1. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
+1. Zastąp istniejące instrukcje `using` na początku pliku Program.cs poniższymi instrukcjami:
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Dodaj zmienne do klasy `Program` na potrzeby szczegółów połączenia hybrydowego. Zastąp symbole zastępcze w nawiasach odpowiednimi wartościami uzyskanymi podczas tworzenia połączenia hybrydowego.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Dodaj nową metodę o nazwie `Program` w następujący sposób:
+3. Dodaj następującą nową metodę do klasy `Program`:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         Console.WriteLine("Enter lines of text to send to the server with ENTER");
@@ -82,13 +86,13 @@
     ```
 4. Dodaj następujący wiersz kodu do metody `Main` w klasie `Program`.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Oto jak powinien wyglądać plik Program.cs.
    
-    ```cs
+    ```csharp
     using System;
     using System.IO;
     using System.Threading;
@@ -172,6 +176,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -42,14 +42,13 @@
 ### [Dostosowywanie indeksów](documentdb-indexing-policies.md)
 ### [Zabezpieczanie dostępu do danych](documentdb-secure-access-to-data.md)
 ### [Tworzenie kopii zapasowej i przywracanie](documentdb-online-backup-and-restore.md)
-### [Poziomy wydajności](documentdb-performance-levels.md)
+### [Wycofywanie wersji S1, S2, S3](documentdb-performance-levels.md)
 ### [Jednostki żądania](documentdb-request-units.md)
 ### Interfejs wiersza polecenia platformy Azure
 #### [Create an account](documentdb-automation-resource-manager-cli.md) (Tworzenie konta)
 #### [Add or remove regions](documentdb-automation-region-management.md) (Dodawanie lub usuwanie regionów)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Obsługa zapory](documentdb-firewall-support.md)
-### [Zwiększanie możliwości konta](documentdb-supercharge-your-account.md)
 
 ## Programowanie
 ### [Zapytanie SQL](documentdb-sql-query.md)
@@ -73,6 +72,7 @@
 ## Używanie portalu
 ### [Tworzenie konta bazy danych](documentdb-create-account.md)
 ### [Tworzenie kolekcji](documentdb-create-collection.md)
+### [Ustawianie przepływności](documentdb-set-throughput.md)
 ### [Dodawanie replikacji globalnej](documentdb-portal-global-replication.md)
 ### [Dodawanie i edytowanie dokumentów](documentdb-view-json-document-explorer.md)
 ### [Wyszukiwanie w dokumentach](documentdb-query-collections-query-explorer.md)
@@ -90,7 +90,7 @@
 ### [Integracja z usługą Azure Search](../search/search-howto-index-documentdb.md)
 ### [Przenoszenie danych za pomocą usługi Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analiza danych czasu rzeczywistego przy użyciu usługi Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Odbieranie powiadomień za pomocą funkcji Logic Apps](documentdb-change-notification.md)
+### [Uzyskiwanie zmienionego rekordu HL7 FHIR przy użyciu usługi Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Przetwarzanie danych z czujników w czasie rzeczywistym](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Wizualizacja danych przy użyciu usługi Power BI](documentdb-powerbi-visualize.md)
 ### [Wykorzystywanie sterownika ODBC do wizualizacji danych](documentdb-nosql-odbc-driver.md)
@@ -126,6 +126,6 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

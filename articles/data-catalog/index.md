@@ -1,13 +1,25 @@
 ---
+title: "Dokumentacja usługi Azure Data Catalog — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Informacje o sposobie konfigurowania wykazu danych, który pozwala organizacjom znajdować i interpretować źródła danych oraz korzystać z nich. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+services: data-catalog
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-catalog
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7c2c989ca2119f7a2c14ca55a56a2bce69d94efa
+ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
+ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
 
 ---
 #<a name="data-catalog-documentation"></a>Dokumentacja usługi Data Catalog
 
-Azure Data Catalog to w pełni zarządzana usługa w chmurze umożliwiająca użytkownikom odnajdywanie potrzebnych im źródeł danych i zrozumienie ich działania. Usługa ta ułatwia także organizacjom osiąganie większych zysków z ich istniejących inwestycji. Usługa Data Catalog oferuje możliwości dostępne dla każdego użytkownika — od analityków, przez analityków danych, do programistów — służące do odnajdywania, zrozumienia i używania źródeł danych. Usługa Data Catalog zawiera model crowdsourcingu w postaci metadanych oraz adnotacji i umożliwia wszystkim użytkownikom dzielenie się swoją wiedzą w celu tworzenia społeczności i kultury danych.
+Informacje o sposobie używania usługi Data Catalog w celu ułatwiania organizacjom i zespołom odnajdywania i interpretowania źródeł danych oraz korzystania z nich. Samouczki, dokumentacja interfejsu API REST oraz inne dokumenty przedstawiające planowanie i konfigurowanie repozytorium danych, w którym konsumenci danych mogą odnaleźć dostępne źródła danych i uzyskać wiedzę zamieszczaną przez ekspertów z danej dziedziny.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -66,15 +78,10 @@ Azure Data Catalog to w pełni zarządzana usługa w chmurze umożliwiająca uż
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Data Catalog </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+
+<!--HONumber=Feb17_HO3-->
 
 

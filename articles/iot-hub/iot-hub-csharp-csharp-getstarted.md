@@ -270,6 +270,6 @@ Aby dowiedzieć się, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

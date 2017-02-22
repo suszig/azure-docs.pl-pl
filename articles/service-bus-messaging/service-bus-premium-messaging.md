@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/06/2016
-ms.author: darosa,sethm,jotaub
+ms.date: 01/18/2017
+ms.author: darosa;sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
-ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
+ms.sourcegitcommit: f223ea7ac168d3c800b6ba664b31ab66b382d6cc
+ms.openlocfilehash: 2657965ff3ee028263f9ef0c48024fe1839eee6e
 
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Warstwy Premium i Standardowa komunikatów usługi Service Bus
-Komunikaty usługi Service Bus, w tym jednostki komunikatów, takie jak kolejki i tematy, stanowią połączenie możliwości obsługi komunikatów dla przedsiębiorstw oraz zaawansowanej semantyki publikowania/subskrybowania w skali chmury. Obsługa komunikatów usługi Service Bus pełni rolę szkieletu komunikacyjnego dla wielu zaawansowanych rozwiązań w chmurze.
+Komunikaty usługi Service Bus, w tym jednostki, takie jak kolejki i tematy, stanowią połączenie możliwości obsługi komunikatów dla przedsiębiorstw oraz zaawansowanej semantyki publikowania/subskrybowania w skali chmury. Obsługa komunikatów usługi Service Bus pełni rolę szkieletu komunikacyjnego dla wielu zaawansowanych rozwiązań w chmurze.
 
 Warstwa *Premium* komunikatów usługi Service Bus stanowi odpowiedź na częste żądania klientów dotyczące skali, wydajności i dostępności dla aplikacji o krytycznym znaczeniu. Mimo że zestawy funkcji są niemal identyczne, te dwie warstwy komunikatów usługi Service Bus są przeznaczone do różnych zastosowań.
 
@@ -29,7 +29,7 @@ W poniższej tabeli wyróżniono pewne ogólne różnice.
 
 | Premium | Standardowa (Standard) |
 | --- | --- |
-| Wysoka przepustowość |Zmienna przepustowość |
+| Wysoka przepływność |Zmienna przepływność |
 | Przewidywalna wydajność |Zmienne opóźnienie |
 | Stałe ceny |Zmienne ceny i płatność zgodnie z rzeczywistym użyciem |
 | Możliwość skalowania obciążenia |Nie dotyczy |
@@ -50,11 +50,11 @@ Ze względu na fakt, że komunikaty warstwy Premium działają w całkowicie odi
 
 ## <a name="get-started-with-premium-messaging"></a>Wprowadzenie do obsługi komunikatów Premium
 
-Rozpoczęcie pracy z obsługą komunikatów Premium jest proste, a proces jest podobny, jak w przypadku standardowej obsługi komunikatów. Rozpocznij od [utworzenia przestrzeni nazw](service-bus-create-namespace-portal.md). W obszarze „Warstwa cenowa” wybierz pozycję *Premium*.
+Rozpoczęcie pracy z obsługą komunikatów Premium jest proste, a proces jest podobny, jak w przypadku standardowej obsługi komunikatów. Rozpocznij od [utworzenia przestrzeni nazw](service-bus-create-namespace-portal.md). W obszarze **Warstwa cenowa** wybierz pozycję **Premium**.
 
 ![create-premium-namespace][create-premium-namespace]
 
-Możesz również utworzyć [przestrzeń nazw Premium za pomocą szablonów usługi Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Możesz również tworzyć [przestrzenie nazw Premium za pomocą szablonów usługi Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -71,6 +71,6 @@ Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus,
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

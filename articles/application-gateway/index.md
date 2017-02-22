@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure Application Gateway — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak wdrożyć kontrolera dostarczania aplikacji w chmurze. W dokumentacji pokazano, jak skonfigurować routing na poziomie aplikacji i równoważenie obciążenia dla frontonu sieci Web."
+services: application-gateway
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
-ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
+ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
+ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
 
 ---
 #<a name="application-gateway-documentation"></a>Dokumentacja usługi Application Gateway
@@ -114,7 +125,7 @@ Dowiedz się, jak wdrożyć usługę Application Gateway, kontrolera dostarczani
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0 (wersja zapoznawcza)</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)</a></p>
                     </div>
                 </div>
             </div>
@@ -149,18 +160,12 @@ Dowiedz się, jak wdrożyć usługę Application Gateway, kontrolera dostarczani
             </div>
         </div>
     </li>
-</ul>   
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Application Gateway </div>
-    </a>
-</div>
+</ul>    
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

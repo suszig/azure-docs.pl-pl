@@ -1,13 +1,25 @@
 ---
+title: "Dokumentacja usługi Azure API Management — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak usługa API Management umożliwia bezpieczne publikowanie interfejsów API w skali. W dokumentacji pokazano, jak tworzyć nowoczesne bramy interfejsu API dla istniejących usług zaplecza."
+services: api-management
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: api-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
+ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
+ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
 
 ---
 # <a name="api-management-documentation"></a>Dokumentacja usługi API Management
 
-Usługa API Management pomaga organizacjom publikować interfejsy API dla deweloperów zewnętrznych, partnerskich i wewnętrznych, aby w pełni wykorzystać potencjał danych i usług.  Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę.
+Dowiedz się, jak usługa API Management umożliwia bezpieczne publikowanie interfejsów API w skali do deweloperów zewnętrznych, deweloperów będących partnerami i deweloperów będących pracownikami. W samouczkach, dokumentacji interfejsu API i innych dokumentów pokazano, jak tworzyć nowoczesne bramy interfejsu API dla istniejących usług zaplecza hostowanych w dowolnym miejscu oraz jak nimi zarządzać.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -129,18 +141,12 @@ Usługa API Management pomaga organizacjom publikować interfejsy API dla dewelo
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi API Management </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

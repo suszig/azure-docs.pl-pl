@@ -1,5 +1,5 @@
 ---
-title: "Przegląd platformy Apache Spark w usłudze HDInsight | Microsoft Docs"
+title: "Przegląd platformy Apache Spark w usłudze Azure HDInsight | Microsoft Docs"
 description: "Wprowadzenie do platformy Apache Spark w usłudze HDInsight i scenariusze użycia platformy Spark w usłudze HDInsight w aplikacjach użytkownika."
 services: hdinsight
 documentationcenter: 
@@ -16,22 +16,23 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
-ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2cb69f253e1a6d01b412775bbfc37de3423bde0b
 
 
 ---
-# <a name="overview-apache-spark-on-hdinsight-linux"></a>Przegląd: platforma Apache Spark w usłudze HDInsight w systemie Linux
+# <a name="overview-apache-spark-on-hdinsight"></a>Przegląd: platforma Apache Spark w usłudze HDInsight
+
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> to platforma przetwarzania równoległego typu open source, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Aparat przetwarzania Spark został opracowany po kątem szybkości, łatwości użycia i zaawansowanych możliwości analitycznych. Dzięki oferowanym funkcjom przetwarzania w pamięci platforma Spark stanowi dobry wybór w przypadku algorytmów iteracyjnych używanych w uczeniu maszynowym i obliczeniach na grafach. Platforma Spark jest również zgodna z usługą Azure Blob Storage (WASB), co pozwala na łatwe przetwarzanie istniejących danych przechowywanych na platformie Azure za pośrednictwem platformy Spark.
 
-Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe systemu Azure z zainstalowaną i skonfigurowaną platformą Spark. Utworzenie klastra Spark w usłudze HDInsight trwa tylko około 10 minut. Dane, które mają być przetwarzane, są przechowywane w usługi Azure Blob Storage. Zobacz temat [Korzystanie z usługi Azure Blob Storage z usługą HDInsight][hdinsight-storage].
+Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe systemu Azure z zainstalowaną i skonfigurowaną platformą Spark. Utworzenie klastra Spark w usłudze HDInsight trwa tylko około&10; minut. Dane, które mają być przetwarzane, są przechowywane w usługi Azure Blob Storage. Zobacz temat [Korzystanie z usługi Azure Blob Storage z usługą HDInsight][hdinsight-storage].
 
 ![Platforma Apache Spark w usłudze Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Platforma Apache Spark w usłudze Azure HDInsight")
 
-**Chcesz rozpocząć korzystanie z platformy Apache Spark w usłudze Azure HDInsight?** Zobacz temat [Szybki start: tworzenie klastra Spark w usłudze HDInsight w systemie Linux i uruchamianie przykładowych aplikacji przy użyciu oprogramowania Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
+**Chcesz rozpocząć korzystanie z platformy Apache Spark w usłudze Azure HDInsight?** Zobacz temat [QuickStart: create a Spark cluster on HDInsight and run sample applications using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md) (Szybki start: tworzenie klastra Spark w usłudze HDInsight i uruchamianie przykładowych aplikacji przy użyciu oprogramowania Jupyter).
 
 > [!NOTE]
-> Lista znanych problemów i ograniczeń dotyczących bieżącej wersji znajduje się w artykule [Znane problemy platformy Apache Spark w usłudze Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+> Lista znanych problemów i ograniczeń dotyczących bieżącej wersji znajduje się w artykule [Known issues of Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) (Znane problemy platformy Apache Spark w usłudze Azure HDInsight).
 > 
 > 
 
@@ -115,6 +116,6 @@ Rozpocznij od utworzenia klastra Spark w usłudze HDInsight w systemie Linux. Zo
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

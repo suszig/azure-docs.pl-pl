@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
 
 
 ---
@@ -39,7 +39,7 @@ Aby uzyskać więcej informacji o bazach danych SQL Azure, zobacz temat [Bazy da
 
 ## <a name="what-features-are-supported"></a>Jakie funkcje są obsługiwane?
 
-W poniższej tabeli przedstawiono główne funkcje usługi Azure SQL Database i programu SQL Server. Określono możliwość ich obsługi, a także zawarto linki umożliwiające uzyskanie dodatkowych informacji o danej funkcji na każdej platformie. Aby uzyskać informacje o funkcjach języka Transact-SQL, skorzystaj z umieszczonego w tabeli linku dla kategorii odpowiadającej danej funkcji. Zobacz też [Różnice w języku Transact-SQL usługi Azure SQL Database](sql-database-transact-sql-information.md), aby uzyskać więcej informacji na temat przyczyn braku obsługi niektórych typów funkcji.
+W poniższych tabelach przedstawiono główne funkcje usługi Azure SQL Database i programu SQL Server. Określono możliwość ich obsługi, a także zawarto linki umożliwiające uzyskanie dodatkowych informacji o danej funkcji na każdej platformie. Aby uzyskać informacje o funkcjach języka Transact-SQL, skorzystaj z umieszczonego w tabeli linku dla kategorii odpowiadającej danej funkcji. Zobacz też [Różnice w języku Transact-SQL usługi Azure SQL Database](sql-database-transact-sql-information.md), aby uzyskać więcej informacji na temat przyczyn braku obsługi niektórych typów funkcji.
 
 W dalszym ciągu dodajemy funkcje do wersji V12. Zachęcamy zatem do odwiedzania naszej strony poświęconej aktualizacjom usług dla platformy Azure i korzystania z dostępnych tam filtrów:
 
@@ -47,7 +47,7 @@ W dalszym ciągu dodajemy funkcje do wersji V12. Zachęcamy zatem do odwiedzania
 * Włączony filtr [ogłoszeń dotyczących ogólnej dostępności](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) funkcji usługi SQL Database.
 
 > [!TIP]
-> Aby przetestować istniejącą bazę danych pod kątem zgodności z usługą Azure SQL Database, zobacz temat [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) (Weryfikowanie zgodności z usługą Azure SQL Database).
+> Aby przetestować istniejącą bazę danych pod kątem zgodności z usługą Azure SQL Database, zobacz temat [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md) (Migrowanie bazy danych programu SQL Server na platformę Azure).
 >
 
 | **Funkcja** | **SQL Server** | **Azure SQL Database** | 
@@ -57,12 +57,12 @@ W dalszym ciągu dodajemy funkcje do wersji V12. Zachęcamy zatem do odwiedzania
 | Zawsze włączone grupy dostępności | [Obsługiwane](https://msdn.microsoft.com/library/hh510230.aspx) | Nieobsługiwane — zobacz temat [Active Geo-Replication](sql-database-geo-replication-overview.md) (Aktywna replikacja geograficzna) |
 | Dołączanie bazy danych | [Obsługiwane](https://msdn.microsoft.com/library/ms190209.aspx) | Nieobsługiwane |
 | Role aplikacji | [Obsługiwane](https://msdn.microsoft.com/library/ms190998.aspx) | [Obsługiwane](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Automatyczne skalowanie | Nieobsługiwane | [Obsługiwane](sql-database-scale-up.md) |
+| Automatyczne skalowanie | Nieobsługiwane | [Obsługiwane](sql-database-service-tiers.md) |
 | Usługa Azure Active Directory | Nieobsługiwane | [Obsługiwane](sql-database-aad-authentication.md) |
 | Azure Data Factory | Nieobsługiwane — zobacz temat [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) (Usługi SQL Server Integration Services [SSIS]) | [Obsługiwane](https://azure.microsoft.com/services/data-factory/) |
-| Inspekcja | [Obsługiwane](https://msdn.microsoft.com/library/cc280386.aspx) | [Obsługiwane](sql-database-auditing-get-started.md) |
+| Inspekcja | [Obsługiwane](https://msdn.microsoft.com/library/cc280386.aspx) | [Obsługiwane](sql-database-auditing.md) |
 | Plik BACPAC (eksportowanie) | [Obsługiwane](https://msdn.microsoft.com/library/hh213241.aspx) | [Obsługiwane](sql-database-export.md) |
-| Plik BACPAC (importowanie) | [Obsługiwane](https://msdn.microsoft.com/library/hh710052.aspx) | [Obsługiwane](sql-database-import.md) |
+| Plik BACPAC (importowanie) | [Obsługiwane](https://msdn.microsoft.com/library/hh710052.aspx) | [Obsługiwane](sql-database-import-portal.md) |
 | Instrukcje BACKUP i RESTORE | [Obsługiwane](https://msdn.microsoft.com/library/ff848768.aspx) | Nieobsługiwane |
 | Funkcje wbudowane | [Obsługiwane](https://msdn.microsoft.com/library/ms174318.aspx) | [Większość](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Przechwytywanie danych dotyczących zmian | [Obsługiwane](https://msdn.microsoft.com/library/cc645937.aspx) | Nieobsługiwane |
@@ -132,7 +132,7 @@ W dalszym ciągu dodajemy funkcje do wersji V12. Zachęcamy zatem do odwiedzania
 | Usługi SQL Server Integration Services (SSIS) | [Obsługiwane](https://msdn.microsoft.com/library/ms141026.aspx) | Nieobsługiwane — zobacz [stronę usługi Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | Program PowerShell dla oprogramowania SQL Server | [Obsługiwane](https://msdn.microsoft.com/library/hh245198.aspx) | [Obsługiwane](https://msdn.microsoft.com/library/hh245198.aspx) |
 | Narzędzie SQL Server Profiler | [Obsługiwane](https://msdn.microsoft.com/library/ms181091.aspx) | Nieobsługiwane — zobacz temat [Extended events](https://msdn.microsoft.com/library/ms181091.aspx) (Zdarzenia rozszerzone) |
-| Replikacja programu SQL Server | [Obsługiwane](https://msdn.microsoft.com/library/ms151198.aspx) | [Tylko dla subskrybentów replikacji transakcyjnej i replikacji migawki](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Replikacja programu SQL Server | [Obsługiwane](https://msdn.microsoft.com/library/ms151198.aspx) | [Tylko dla subskrybentów replikacji transakcyjnej i replikacji migawki](sql-database-cloud-migrate.md) |
 | Usługi SQL Server Reporting Services (SSRS) | [Obsługiwane](https://msdn.microsoft.com/library/ms159106.aspx) | Nieobsługiwane |
 | Procedury składowane | [Obsługiwane](https://msdn.microsoft.com/library/ms190782.aspx) | [Obsługiwane](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Systemowe funkcje składowane | [Obsługiwane](https://msdn.microsoft.com/library/ff848780.aspx) | [Niektóre](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -161,6 +161,6 @@ W dalszym ciągu dodajemy funkcje do wersji V12. Zachęcamy zatem do odwiedzania
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

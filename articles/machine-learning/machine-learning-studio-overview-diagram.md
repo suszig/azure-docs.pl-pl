@@ -54,6 +54,6 @@ Pobierz diagram **Przegląd możliwości usługi Microsoft Azure Machine Learnin
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

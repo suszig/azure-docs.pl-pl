@@ -43,19 +43,22 @@
 ### [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Tworzenie jednostki usługi przy użyciu portalu](resource-group-create-service-principal-portal.md)
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
-### [Ustawianie zasad zarządzania](resource-manager-policy.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)
 ### [Zagadnienia związane z zabezpieczeniami](best-practices-resource-manager-security.md)
+## Ustawianie zasad zasobów
+### [Co to są zasady zasobów?](resource-manager-policy.md)
+### [Przypisywanie zasad i zarządzanie nimi](resource-manager-policy-create-assign.md)
+### [Zasady tagów zasobów](resource-manager-policy-tags.md)
+### [Zasady magazynu](resource-manager-policy-storage.md)
+### [Zasady maszyn wirtualnych z systemem Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zasady maszyn wirtualnych z systemem Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Przeprowadzanie inspekcji i rozwiązywanie problemów
 ### [Rozwiązywanie typowych błędów związanych z wdrażaniem](resource-manager-common-deployment-errors.md)
 ### [Wyświetlanie dzienników aktywności](resource-group-audit.md)
-### [Wyświetlanie operacji wdrażania przy użyciu portalu](resource-manager-troubleshoot-deployments-portal.md)
-### [Wyświetlanie operacji wdrażania przy użyciu programu PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Wyświetlanie operacji wdrażania przy użyciu interfejsu wiersza polecenia platformy Azure](resource-manager-troubleshoot-deployments-cli.md)
-### [Wyświetlanie operacji wdrażania przy użyciu interfejsu API REST](resource-manager-troubleshoot-deployments-rest.md)
+### [Wyświetlanie operacji wdrażania](resource-manager-deployment-operations.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
@@ -65,11 +68,12 @@
 
 # Zasoby
 ## [Ograniczanie żądań](resource-manager-request-limits.md)
+## [Śledzenie operacji asynchronicznych](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

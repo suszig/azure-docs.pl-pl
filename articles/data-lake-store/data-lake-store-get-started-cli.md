@@ -1,5 +1,5 @@
 ---
-title: "Rozpoczynanie pracy z usługą Data Lake Store z użyciem międzyplatformowego interfejsu wiersza polecenia | Microsoft Docs"
+title: "Rozpoczynanie pracy z usługą Azure Data Lake Store przy użyciu interfejsu wiersza polecenia | Microsoft Docs"
 description: "Korzystanie z międzyplatformowego wiersza polecenia platformy Azure w celu utworzenia konta usługi Data Lake Store i wykonywania podstawowych operacji"
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 
 
 ---
@@ -33,9 +33,14 @@ ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
 >
 >
 
+> [!NOTE]
+> Do przekazywania i pobierania dużej ilości danych (dużych i/lub licznych plików) zalecamy skorzystanie z [zestawu SDK dla języka Python](data-lake-store-get-started-python.md), [zestawu SDK programu .NET](data-lake-store-get-started-net-sdk.md) bądź programu [Azure PowerShell](data-lake-store-get-started-powershell.md). Te opcje cechują się lepszą wydajnością, ponieważ umożliwiają równoległe przenoszenie danych dzięki użyciu wielu wątków.
+> 
+>  
+
 Dowiedz się, jak użyć interfejsu wiersza polecenia portalu Azure, aby utworzyć konto usługi Azure Data Lake Store i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake Store, zobacz [Omówienie usługi Data Lake Store](data-lake-store-overview.md).
 
-Interfejs wiersza polecenia platformy Azure został zaimplementowany w środowisku Node.js. Można go używać na dowolnej platformie, która obsługuje środowisko Node.js, w tym w systemie Windows, Mac i Linux. Interfejs wiersza polecenia platformy Azure to rozwiązanie typu open source. Kod źródłowy jest zarządzany w witrynie GitHub pod adresem <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. W tym artykule opisano tylko sposób używania interfejsu wiersza polecenia platformy Azure z usługą Data Lake Store. Ogólne wskazówki na temat używania interfejsu wiersza polecenia platformy Azure można znaleźć w artykule [Jak korzystać z interfejsu wiersza polecenia platformy Azure][azure-command-line-tools].
+Interfejs wiersza polecenia platformy Azure został zaimplementowany w środowisku Node.js. Można go używać na dowolnej platformie, która obsługuje środowisko Node.js, w tym w systemie Windows, Mac i Linux. Interfejs wiersza polecenia platformy Azure to rozwiązanie typu open source. Kod źródłowy jest zarządzany w witrynie GitHub pod adresem <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. W tym artykule opisano tylko sposób używania interfejsu wiersza polecenia platformy Azure z usługą Data Lake Store. Ogólne wskazówki na temat używania interfejsu wiersza polecenia platformy Azure można znaleźć w artykule [How to use the Azure CLI (Jak korzystać z interfejsu wiersza polecenia platformy Azure)][azure-command-line-tools].
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dysponować następującymi elementami:
@@ -177,6 +182,6 @@ Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

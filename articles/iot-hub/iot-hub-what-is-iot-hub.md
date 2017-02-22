@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: f01a5e7ec081b1c989fc8784c845d6e639b1d73b
-ms.openlocfilehash: 92c5e8c50b281fe1dc7e296dcdf8a6822b187ce3
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 249f2dcd852c771d0c48aa223a4596992e5ce3d7
 
 
 ---
@@ -59,7 +59,7 @@ Poza oferowaniem bogatego zestawu opcji komunikacji [z urządzenia do chmury][ln
 
 * **Bliźniacze reprezentacje urządzeń**. Dzięki [bliźniaczym reprezentacjom urządzeń][lnk-twins] możesz przechowywać i synchronizować metadane urządzenia i informacje o stanie oraz tworzyć dotyczące ich zapytania. Bliźniacze reprezentacje urządzeń to dokumenty JSON, które przechowują informacje o stanie urządzenia (metadane, konfiguracje i warunki). Usługa IoT Hub utrzymuje bliźniaczą reprezentację urządzenia dla każdego urządzenia połączonego z usługą IoT Hub. 
 * **Uwierzytelnianie poszczególnych urządzeń i bezpieczna łączność**. Każde urządzenie może być aprowizowane za pomocą własnego [klucza zabezpieczeń][lnk-devguide-security] w celu umożliwienia nawiązania połączenia z usługą IoT Hub. W [rejestrze tożsamości usługi IoT Hub][lnk-devguide-identityregistry] są przechowywane tożsamości i klucze urządzeń należących do rozwiązania. Zaplecze rozwiązania może dodawać poszczególne urządzenia do listy dozwolonych i niedozwolonych urządzeń, co pozwala na pełną kontrolę nad ich dostępem.
-* **Kierowanie do usług Azure komunikatów wysyłanych z urządzenia do chmury na podstawie reguł deklaratywnych**. Usługa IoT Hub umożliwia zdefiniowanie tras komunikatów na podstawie reguł komunikatów w celu kontrolowania, gdzie centrum wysyła komunikaty z urządzenia do chmury. Reguły komunikatów nie wymagają pisania kodu i mogą zastąpić niestandardowych dyspozytorów komunikatów po przyjęciu.
+* **Kierowanie do usług Azure komunikatów wysyłanych z urządzenia do chmury na podstawie reguł deklaratywnych**. Usługa IoT Hub umożliwia zdefiniowanie tras komunikatów na podstawie reguł routingu w celu kontrolowania, gdzie centrum wysyła komunikaty z urządzenia do chmury. Reguły routingu nie wymagają pisania kodu i mogą zastąpić niestandardowych dyspozytorów komunikatów po przyjęciu.
 * **Monitorowanie operacji dotyczących łączności urządzeń**. Dostępne są szczegółowe dzienniki zawierające operacje zarządzania tożsamościami urządzeń i zdarzenia dotyczące łączności urządzeń. Ta funkcja monitorowania pozwala zidentyfikować problemy z łącznością, takie jak próby nawiązania połączenia przez urządzenia przy użyciu nieprawidłowych poświadczeń lub zbyt częste wysyłanie komunikatów albo odrzucanie wszystkich komunikatów przesyłanych z chmury do urządzenia.
 * **Obszerny zestaw bibliotek urządzeń**. Dostępne są [zestawy SDK urządzeń Azure IoT][lnk-device-sdks], które obsługują różne języki i platformy, na przykład język C w przypadku wielu dystrybucji systemu Linux, systemu Windows czy systemów operacyjnych czasu rzeczywistego. Zestawy SDK urządzeń Azure IoT obsługują także języki zarządzane, takie jak C#, Java i JavaScript.
 * **Protokoły i możliwość rozszerzania infrastruktury IoT**. Usługa IoT Hub udostępnia publiczny protokół, który umożliwia urządzeniom natywne korzystanie z protokołów MQTT 3.1.1, HTTP 1.1 lub AMQP 1.0. Jest to przydatne, jeśli w danym rozwiązaniu nie można użyć bibliotek urządzeń. Dodatkowo można rozszerzyć usługę IoT Hub pod kątem obsługi niestandardowych protokołów, wykonując następujące działania:
@@ -91,7 +91,7 @@ Wzorzec komunikacji korzystającej z usług jest używany na ogromną skalę w b
 Usługa IoT Hub jest obsługiwana przy użyciu ścieżki publicznej komunikacji równorzędnej usługi ExpressRoute.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się, jak wysyłać komunikaty z urządzenia i odbierać je w usłudze IoT Hub, a także jak skonfigurować trasy wiadomości dla swojego centrum IoT Hub, zobacz artykuł [Send and receive messages with IoT Hub][lnk-send-messages] (Wysyłanie i odbieranie komunikatów za pomocą usługi IoT Hub).
+Aby dowiedzieć się, jak wysyłać komunikaty z urządzenia i odbierać je w usłudze IoT Hub, a także jak skonfigurować trasy wiadomości, zobacz artykuł [Send and receive messages with IoT Hub][lnk-send-messages] (Wysyłanie i odbieranie komunikatów za pomocą usługi IoT Hub).
 
 Aby dowiedzieć się, jak usługa IoT Hub umożliwia oparte na standardach zarządzanie urządzeniami pozwalające na zdalne konfigurowanie i aktualizowanie urządzeń oraz zarządzanie nimi, zobacz artykuł [Omówienie zarządzania urządzeniami za pomocą usługi IoT Hub][lnk-device-management].
 
@@ -127,6 +127,6 @@ Aby rozpocząć pisanie kodu i uruchomić kilka przykładów, zobacz samouczek [
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

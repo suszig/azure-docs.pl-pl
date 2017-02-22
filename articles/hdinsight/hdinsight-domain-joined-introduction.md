@@ -1,5 +1,5 @@
 ---
-title: "Omówienie zabezpieczania usługi HDInsight | Microsoft Docs"
+title: "Zabezpieczenia usługi Hadoop — klastry usługi HDInsight przyłączone do domeny — Azure | Microsoft Docs"
 description: "Dowiedz się..."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Wprowadzenie do przyłączonych do domeny klastrów usługi HDInsight (wersja zapoznawcza)
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Wprowadzenie do zabezpieczeń usługi Hadoop z przyłączonymi do domeny klastrami usługi HDInsight (wersja zapoznawcza)
+
 Do tej pory usługa Azure HDInsight obsługiwała tylko jednego użytkownika z uprawnieniami lokalnego administratora. Bardzo dobrze funkcjonowało to dla mniejszych zespołów aplikacji lub działów. W miarę zwiększania popularności obciążeń opartych na usłudze Hadoop w sektorze przedsiębiorstw potrzeba dysponowania funkcjami klasy korporacyjnej, takimi jak uwierzytelnianie w oparciu o usługę Active Directory, obsługa wielu użytkowników oraz kontrola dostępu oparta na rolach, staje się coraz ważniejsza. Za pomocą przyłączonych do domeny klastrów usługi HDInsight można utworzyć klaster usługi HDInsight przyłączony do domeny usługi Active Directory i skonfigurować listę pracowników przedsiębiorstwa, którzy mogą uwierzytelniać się za pomocą usługi Azure Active Directory podczas logowania się do klastra usługi HDInsight. Żadna osoba spoza przedsiębiorstwa nie może zalogować się lub uzyskać dostępu do klastra usługi HDInsight. Administrator w przedsiębiorstwie może skonfigurować kontrolę dostępu opartą na rolach dla zabezpieczeń Hive przy użyciu środowiska [Apache Ranger](http://hortonworks.com/apache/ranger/), ograniczając w ten sposób dostęp do danych tylko do niezbędnego zakresu. Poza tym administrator może przeprowadzać inspekcje dostępu do danych przez pracowników oraz wszystkich zmian w zasadach kontroli dostępu, osiągając w ten sposób wysoki poziom nadzoru nad zasobami firmy.
 
 > [!NOTE]
@@ -57,6 +58,6 @@ Ochrona danych ma duże znaczenie dla spełniania wymagań organizacyjnych w zak
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure Storage — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak korzystać z usługi Azure Storage — obiektów Blob, kolejek, tabel, plików oraz magazynu dyskowego maszyny wirtualnej w chmurze. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+services: storage
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b34bd277da4b1bdca5831b5267cde79345674dc1
-ms.openlocfilehash: 2ec05a53d7b2dd854e0cd96c70c83b1fefe48a1c
+ms.sourcegitcommit: f7bd1007aeff86faf7a1d744602e5184f0ce1d6f
+ms.openlocfilehash: cdb001f960ea5d505bc757195abf14b505f77103
 
 ---
 
@@ -145,6 +156,6 @@ Dowiedz się, jak korzystać z usługi Azure Storage — trwałej, dostępnej i 
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

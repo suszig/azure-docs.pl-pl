@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Tylko użytkownik bazy danych z uprawnieniem **CONTROL** w bazie danych (na przy
 
 Aby uzyskać więcej informacji o tych procedurach składowanych, zobacz artykuły dotyczące procedur [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) i [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Aby zapoznać się z samouczkiem prezentującym sposób korzystania z zapór na poziomie bazy danych, zobacz [Samouczek usługi SQL Database: uwierzytelnianie programu SQL Server, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-sql-authentication-get-started.md).
+>
+
+
 ## <a name="next-steps"></a>Następne kroki
 Aby przejrzeć artykuły zawierające wskazówki na temat tworzenia reguł zapory na poziomie serwera przy użyciu innych metod, zobacz: 
 
@@ -94,6 +99,6 @@ Aby dowiedzieć się, jak przechodzić do baz danych, zobacz artykuł [Manage da
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

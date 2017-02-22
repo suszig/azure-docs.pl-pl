@@ -25,7 +25,7 @@
 
 # Instrukcje
 ## Przenoszenie danych
-### [Kreator kopiowania w usłudze Data Factory](data-factory-copy-wizard.md)
+### [Kreator kopiowania w usłudze Data Factory](data-factory-azure-copy-wizard.md)
 #### [Ładowanie 1 TB w ciągu 15 minut](data-factory-load-sql-data-warehouse.md)
 ### [Działanie kopiowania](data-factory-data-movement-activities.md)
 #### [Przewodnik dotyczący wydajności i dostosowywania działania](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Dokumentacja
 ## [Program PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Dokumentacja usługi Azure Data Factory dla deweloperów](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Zasoby
@@ -102,6 +101,6 @@
 ## [Prośba o funkcję](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

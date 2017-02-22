@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie wewnętrznego modułu równoważenia obciążenia przy użyciu szablonu w usłudze Resource Manager | Microsoft Docs"
+title: "Tworzenie wewnętrznego modułu równoważenia obciążenia — szablon platformy Azure | Microsoft Docs"
 description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia przy użyciu szablonu w usłudze Resource Manager"
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 03fdb734fee778ac5dbee4fb8417cb68c5267173
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: da1a0bb7982b02daa89144c3f5c3f257f14c06c9
 
 ---
 
@@ -85,6 +85,6 @@ Aby wdrożyć szablon przy użyciu interfejsu wiersza polecenia platformy Azure,
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

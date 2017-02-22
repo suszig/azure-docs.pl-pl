@@ -1,14 +1,15 @@
 # Omówienie
 ## [Co to jest usługa ExpressRoute?](expressroute-introduction.md)
 ## [Usługa ExpressRoute — często zadawane pytania](expressroute-faqs.md)
+## [Modele łączności](expressroute-connectivity-models.md)
 ## [Lokalizacje i partnerzy](expressroute-locations.md)
 ### [Dostawcy według lokalizacji](expressroute-locations-providers.md)
 ### [Lokalizacje według dostawcy](expressroute-locations.md)
 
 # Wprowadzenie
-## [Obwody i domeny routingu](expressroute-circuit-peerings.md)
 ## [Przepływy pracy](expressroute-workflows.md)
 ## [Wymagania wstępne](expressroute-prerequisites.md)
+## [Obwody i domeny routingu](expressroute-circuit-peerings.md)
 ## [Wymagania dotyczące routingu](expressroute-routing.md)
 ## [Optymalizowanie routingu](expressroute-optimize-routing.md)
 ## [Wymagania translatora adresów sieciowych](expressroute-nat.md)
@@ -80,6 +81,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

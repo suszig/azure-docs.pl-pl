@@ -1,12 +1,22 @@
 ---
-layout: LandingPage
+title: "Dokumentacja monitorowania i diagnostyki platformy Azure — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie korzystania z usług monitorowania i diagnostyki do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Dokumentacja interfejsu API, najlepsze rozwiązania i inne materiały."
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
+ms.sourcegitcommit: 88bfad219ee0564552ee80da5dc944b7e53320db
+ms.openlocfilehash: aa0837d82f5e938440096cd6d12d80bc42a07528
 
 ---
-
 # <a name="monitoring-and-diagnostics-documentation"></a>Dokumentacja monitorowania i diagnostyki
 
 Informacje o sposobie korzystania z usług monitorowania i diagnostyki platformy Azure do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Samouczki, dokumentacja interfejsu API, najlepsze rozwiązania oraz inne dokumenty, które ułatwiają zapoznanie się z zastosowaniami monitorowania i diagnostyki oraz planowanie i wdrażanie skalowalnych i niezawodnych rozwiązań.
@@ -144,12 +154,26 @@ Informacje o sposobie korzystania z usług monitorowania i diagnostyki platformy
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Schemat usługi Diagnostyka Azure</a></h3>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Schemat usługi Diagnostyka Azure 1.0</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Schemat usługi Diagnostyka Azure 1.2</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5">Schemat usługi Diagnostyka Azure 1.3 do 1.5</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

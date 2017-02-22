@@ -1,10 +1,10 @@
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com), a następnie kliknij opcję **+NOWE** u dołu ekranu.
-2. Kliknij kolejno pozycje **Usługi aplikacji**, **Mobile Engagement** i **Utwórz**.
+2. Kliknij kolejno pozycje **App Services**, **Mobile Engagement** i **Utwórz**.
    
-    ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
+       ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
 3. W wyświetlonym oknie podręcznym wprowadź następujące informacje:
    
-    ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
+       ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
    
    * **Application Name** (Nazwa aplikacji): nazwa aplikacji. 
    * **Platforma** (Platform): docelowa platforma aplikacji. Należy utworzyć jedną aplikację usługi Mobile Engagement dla każdej platformy, która ma być platformą docelową aplikacji mobilnej. 
@@ -16,8 +16,10 @@
 5. Kliknij opcję **CONNECTION INFO** (INFORMACJE O POŁĄCZENIU), aby wyświetlić ustawienia połączenia, które zostaną użyte do integracji zestawu SDK w aplikacji mobilnej.
 6. Skopiuj zawartość pola **CONNECTION STRING** (PARAMETRY POŁĄCZENIA) — te dane będą potrzebne do zidentyfikowania tej aplikacji w kodzie aplikacji i nawiązania połączenia z usługą Mobile Engagement z aplikacji.
    
-    ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+       ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

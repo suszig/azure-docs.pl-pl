@@ -1,13 +1,25 @@
 ---
+title: "Dokumentacja usługi Azure DevTest Labs — samouczki | Microsoft Docs"
+description: "Dowiedz się, jak szybko tworzyć środowiska testowe aplikacji przy użyciu artefaktów z możliwością ponownego użycia. W samouczkach, klipach wideo i innych zasobach pokazano, jak tworzyć i zabezpieczać laboratoria oraz jak nimi zarządzać."
+services: devtest-lab
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: devtest-lab
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 381c936b7e615cc35ddd429f2a70c468d511a8cf
-ms.openlocfilehash: 838593f4b7d1d83b182faf88433a5bfbf5620288
+ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
+ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
 
 ---
 #<a name="devtest-labs-documentation"></a>Dokumentacja usługi DevTest Labs
 
-Azure DevTest Labs to usługa, która ułatwia deweloperom i testerom szybkie tworzenie środowisk na platformie Azure oraz minimalizowanie strat i kontrolowanie kosztów.  Możesz przetestować najnowszą wersję aplikacji dzięki możliwości szybkiej aprowizacji środowisk systemów Windows i Linux przy użyciu szablonów i artefaktów z możliwością ponownego użycia.
+Dowiedz się, jak szybko tworzyć środowiska testowe aplikacji w usłudze Devtest Labs przy użyciu artefaktów z możliwością ponownego użycia. W samouczkach, klipach wideo i innych dokumentach pokazano, jak tworzyć i zabezpieczać laboratoria oraz jak nimi zarządzać, a także jak dodawać artefakty i zarządzać nimi.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -102,17 +114,10 @@ Azure DevTest Labs to usługa, która ułatwia deweloperom i testerom szybkie tw
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację laboratorium Devtest Lab </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

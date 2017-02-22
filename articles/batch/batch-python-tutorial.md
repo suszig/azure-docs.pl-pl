@@ -1,5 +1,5 @@
 ---
-title: "Samouczek — wprowadzenie do klienta usługi Azure Batch dla środowiska Python | Microsoft Docs"
+title: "Samouczek — korzystanie z zestawu SDK usługi Azure Batch dla języka Python | Microsoft Docs"
 description: "Podstawowe informacje na temat usługi Azure Batch oraz rozwijania usługi Batch za pomocą prostego scenariusza"
 services: batch
 documentationcenter: python
@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/30/2016
+ms.date: 02/01/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
+ms.sourcegitcommit: 02f68c743f18fa691afdd5ff02f427b89d28c663
+ms.openlocfilehash: 146eaea2bf523ff6e7d9024205e47965fa2e0413
 
 
 ---
@@ -708,6 +708,6 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch na
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

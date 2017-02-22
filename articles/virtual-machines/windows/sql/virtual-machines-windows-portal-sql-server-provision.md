@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 09/21/2016
+ms.workload: infrastructure-services
+ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 171566e8b1eccfafc78bd8b422189c977421592d
+ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
+ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 
 
 ---
@@ -46,14 +46,13 @@ W tym samouczku zostaną wykonane następujące czynności:
    > Jeśli nie masz konta platformy Azure, odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
    > 
    > 
-2. W witrynie Azure Portal kliknij pozycję **Nowe**. Portal otworzy blok **Nowe**. Zasoby maszyn wirtualnych programu SQL znajdują się w grupie **Virtual Machines** witryny Marketplace.
-3. W bloku **Nowe** kliknij pozycję **Virtual Machines**.
-4. Aby wyświetlić wszystkie dostępne obrazy, kliknij pozycję **Wyświetl wszystko** w bloku **Virtual Machines**.
-   
-    ![Blok Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-5. W obszarze **Serwery baz danych** kliknij pozycję **SQL Server**. Może być konieczne przewinięcie w dół w celu zlokalizowania pozycji **Serwery baz danych**. Przejrzyj dostępne szablony programu SQL Server.
-   
-    ![Obrazy SQL w galerii maszyn wirtualnych](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+2. W witrynie Azure Portal kliknij pozycję **Nowe**. Portal otworzy blok **Nowe**. Zasoby maszyny wirtualnej z programem SQL Server znajdują się w grupie **Obliczeniowe** witryny Marketplace.
+3. W bloku **Nowy** kliknij grupę **Obliczeniowe**, a następnie kliknij pozycję **Zobacz wszystko**.
+4. W polu tekstowym **Filtr** wpisz SQL Server i naciśnij klawisz ENTER.
+
+   ![Blok Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+
+5. Przejrzyj dostępne szablony programu SQL Server.
 6. Każdy szablon identyfikuje wersję programu SQL Server i system operacyjny. Wybierz z listy jeden z obrazów. Następnie przejrzyj blok szczegółów zawierający opis obrazu maszyny wirtualnej.
    
    > [!NOTE]
@@ -82,7 +81,7 @@ W bloku **Podstawowe** podaj następujące informacje:
 * Określ nazwę użytkownika dla konta lokalnego administratora maszyny wirtualnej w polu **Nazwa użytkownika**. To konto jest także dodawane do stałej roli serwera programu SQL Server **sysadmin**.
 * Podaj silne hasło w polu **Hasło**.
 * Jeśli masz wiele subskrypcji, sprawdź, czy subskrypcja jest poprawna dla nowej maszyny wirtualnej.
-* W polu **Grupa zasobów** wpisz nazwę nowej grupy zasobów. Inna możliwość to użycie istniejącej grupy zasobów i kliknięcie pozycji **Wybierz istniejącą**. Grupa zasobów to kolekcja powiązanych zasobów platformy Azure (maszyny wirtualne, konta magazynu, sieci wirtualne itp.).
+* W polu **Grupa zasobów** wpisz nazwę nowej grupy zasobów. Inna możliwość to użycie istniejącej grupy zasobów i kliknięcie pozycji **Użyj istniejącej**. Grupa zasobów to kolekcja powiązanych zasobów platformy Azure (maszyny wirtualne, konta magazynu, sieci wirtualne itp.).
   
   > [!NOTE]
   > Nowa grupa zasobów jest przydatna, jeśli tylko testujesz lub poznajesz wdrożenia programu SQL Server na platformie Azure. Po zakończeniu testu usuń grupę zasobów, aby automatycznie usunąć maszynę wirtualną i wszystkie skojarzone z nią zasoby. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
@@ -118,7 +117,7 @@ W bloku **Ustawienia** skonfiguruj usługę Azure Storage, sieć i monitorowanie
 > 
 
 * W obszarze **Konto usługi Storage** możesz zaakceptować nazwę konta automatycznie aprowizowanego magazynu. Możesz również kliknąć pozycję **Konto usługi Storage**, aby wybrać istniejące konto i skonfigurować typ konta magazynu. Domyślnie platforma Azure tworzy nowe konto magazynu z magazynem lokalnie nadmiarowym. Aby uzyskać więcej informacji na temat opcji magazynu, zobacz [Replikacja usługi Azure Storage](../../../storage/storage-redundancy.md).
-* W obszarze **Sieć** możesz zaakceptować automatycznie wypełnione wartości. Możesz również kliknąć poszczególne funkcje, aby ręcznie skonfigurować ustawienia **Sieć wirtualna**, **Podsieć**, **Publiczny adres IP** i **Grupa zabezpieczeń sieci**. Na potrzeby tego samouczka zachowaj wartości domyślne.
+* W obszarze **Sieć** możesz zaakceptować automatycznie wypełnione wartości. Możesz również kliknąć poszczególne funkcje, aby ręcznie skonfigurować ustawienia **Sieć wirtualna**, **Podsieć**, **Publiczny adres IP** i **Sieciowa grupa zabezpieczeń**. Na potrzeby tego samouczka zachowaj wartości domyślne.
 * Platforma Azure domyślnie umożliwia **monitorowanie** za pomocą tego samego konta magazynu wyznaczonego dla maszyny wirtualnej. Możesz zmienić te ustawienia tutaj.
 * W obszarze **Zestaw dostępności** określ zestaw dostępności. Na potrzeby tego samouczka możesz wybrać pozycję **Brak**. Jeśli planujesz konfigurowanie zawsze włączonych grup dostępności SQL, skonfiguruj dostępność, aby zapobiec ponownemu utworzeniu maszyny wirtualnej.  Aby uzyskać więcej informacji, zobacz [Manage the Availability of Virtual Machines](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością usługi Virtual Machines).
 
@@ -145,7 +144,7 @@ W obszarze **Łączność z serwerem SQL** określ żądany typ dostępu do wyst
 Aby ustanowić połączenie z programem SQL Server za pośrednictwem Internetu, musisz również włączyć funkcję Uwierzytelnianie programu SQL Server opisaną w następnej sekcji.
 
 > [!NOTE]
-> Można dodać więcej ograniczeń komunikacji sieciowej z maszyną wirtualną programu SQL Server. Możesz to zrobić, edytując grupę zabezpieczeń sieci po utworzeniu maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [What is a Network Security Group (NSG)?](../../../virtual-network/virtual-networks-nsg.md) (Co to jest sieciowa grupa zabezpieczeń?).
+> Można dodać więcej ograniczeń komunikacji sieciowej z maszyną wirtualną programu SQL Server. Możesz to zrobić, edytując sieciową grupę zabezpieczeń po utworzeniu maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [What is a Network Security Group (NSG)?](../../../virtual-network/virtual-networks-nsg.md) (Co to jest sieciowa grupa zabezpieczeń?).
 > 
 > 
 
@@ -216,10 +215,12 @@ Po włączeniu automatycznej obsługi kopii zapasowych SQL możesz skonfigurowa�
 * Okres przechowywania (dni) kopii zapasowych
 * Konto usługi Storage używane dla kopii zapasowych
 * Opcja szyfrowania i hasło dla kopii zapasowych
+* Bazy danych systemu tworzenia kopii zapasowych
+* Konfigurowanie harmonogramu tworzenia kopii zapasowych
 
 Aby szyfrować kopie zapasowe, kliknij pozycję **Włącz**. Następnie określ ustawienie **Hasło**. Platforma Azure tworzy certyfikat do szyfrowania kopii zapasowych i używa określonego hasła do ochrony tego certyfikatu.
 
-![Automatyczna usługa Backup SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![Automatyczna usługa Backup SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  Aby uzyskać więcej informacji, zobacz [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md) (Automatyczne tworzenie kopii zapasowych dla programu SQL Server w usłudze Azure Virtual Machines).
 
@@ -302,6 +303,6 @@ Obejrzyj film poglądowy dotyczący programu SQL Server w usłudze Azure Virtual
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

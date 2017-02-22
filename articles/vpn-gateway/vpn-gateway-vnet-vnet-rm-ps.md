@@ -1,10 +1,10 @@
 ---
-title: "Łączenie sieci wirtualnych platformy Azure przy użyciu usługi VPN Gateway i programu PowerShell | Microsoft Docs"
+title: "Łączenie sieci wirtualnej platformy Azure z inną siecią wirtualną: PowerShell | Microsoft Docs"
 description: "W tym artykule przedstawiono procedurę łączenia sieci wirtualnych przy użyciu usługi Azure Resource Manager i programu PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Konfigurowanie połączenia między sieciami wirtualnymi usługi Resource Manager przy użyciu programu PowerShell
+# <a name="configure-a-vnet-to-vnet-connection-using-powershell"></a>Konfigurowanie połączenia między sieciami wirtualnymi przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -36,7 +36,7 @@ W tym artykule opisano kroki tworzenia połączenia między sieciami wirtualnymi
 ### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modele wdrażania i metody połączeń między sieciami wirtualnymi
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-W poniższej tabeli przedstawiono aktualnie dostępne modele wdrażania i metody konfiguracji między sieciami wirtualnymi. Jeśli dostępny jest artykuł zawierający kroki konfiguracji, można do niego przejść bezpośrednio z tabeli.
+W poniższej tabeli przedstawiono aktualnie dostępne modele wdrażania i metody konfiguracji między sieciami wirtualnymi. Jeśli dostępny jest artykuł zawierający kroki konfiguracji, można do niego przejść bezpośrednio z tabeli. 
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -60,7 +60,7 @@ Sieci wirtualne można łączyć z następujących powodów:
   
   * W ramach jednego regionu można skonfigurować aplikacje wielowarstwowe z wielu połączonych ze sobą sieci wirtualnych, korzystając z izolacji lub wymagań administracyjnych.
 
-### <a name="vnet-to-vnet-faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
+### <a name="vnet-to-vnet-considerations"></a>Zagadnienia dotyczące połączeń między sieciami wirtualnymi
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>Która instrukcje mają zastosowanie w moim przypadku?
@@ -182,7 +182,7 @@ W przykładach stosujemy następujące wartości:
         -Subnet $subnet1 -PublicIpAddress $gwpip1
 8. Utworzenie bramy dla sieci TestVNet1
    
-    W tym kroku zostaje utworzona brama sieci wirtualnej TestVNet1. Konfiguracje połączeń między sieciami wirtualnymi wymagają zastosowania wartości RouteBased obiektu VpnType. Tworzenie bramy może potrwać co najmniej 45 minut.
+    W tym kroku zostaje utworzona brama sieci wirtualnej TestVNet1. Konfiguracje połączeń między sieciami wirtualnymi wymagają zastosowania wartości RouteBased obiektu VpnType. Tworzenie bramy może potrwać co najmniej&45; minut.
    
         New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
@@ -434,6 +434,6 @@ Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

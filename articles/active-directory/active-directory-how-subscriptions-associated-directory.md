@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ Na przykład tutaj użytkownik z kontem Microsoft loguje się do klasycznego por
 
 > [!NOTE]
 > Aby zalogować się do klasycznej witryny Azure Portal, użytkownik msmith@hotmail.com musi mieć subskrypcję platformy Azure. Konto musi być kontem administratora usługi lub współadministratora subskrypcji.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następu
 
 > [!NOTE]
 > Te kroki można wykonać tylko wtedy, gdy użytkownik jest zalogowany za pomocą konta Microsoft. Jeśli użytkownik jest zalogowany przy użyciu konta służbowego, opcja **Użyj istniejącego katalogu** jest niedostępna, ponieważ konto służbowe można uwierzytelnić tylko za pomocą jego katalogu macierzystego (tzn. katalogu, w którym jest przechowywane konto służbowe i które należy do właściciela tego konta).
-> 
-> 
+>
+>
 
 1. Zaloguj się do klasycznego portalu Azure za pomocą konta Microsoft.
 2. Kliknij pozycje **Nowy** > **App Services** > **Active Directory** > **Katalog** > **Utwórz niestandardowy**.
@@ -116,7 +116,7 @@ Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następu
 7. Zaloguj się ponownie do klasycznego portalu Azure za pomocą konta Microsoft. Oba katalogi będą wyświetlane w rozszerzeniu usługi Active Directory.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się więcej o modyfikowaniu administratorów subskrypcji platformy Azure, zobacz [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) (Jak dodać lub zmienić role administratora platformy Azure).
+* Aby dowiedzieć się więcej o modyfikowaniu administratorów subskrypcji platformy Azure, zobacz [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md) (Jak dodać lub zmienić role administratora platformy Azure).
 * Aby dowiedzieć się więcej o kontrolowaniu dostępu do zasobów na platformie Microsoft Azure, zobacz [Understanding resource access in Azure](active-directory-understanding-resource-access.md) (Opis dostępu do zasobów na platformie Azure).
 * Aby uzyskać więcej informacji na temat sposobu przypisywania ról w usłudze Azure AD, zobacz [Przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles.md).
 * [Tworzenie konta na platformie Azure jako organizacja](sign-up-organization.md)
@@ -128,6 +128,6 @@ Aby zarządzać obydwoma katalogami w klasycznym portalu Azure, wykonaj następu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

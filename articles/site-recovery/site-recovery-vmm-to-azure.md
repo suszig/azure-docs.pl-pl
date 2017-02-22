@@ -1,5 +1,5 @@
 ---
-title: "Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure przy użyciu witryny Azure Portal | Microsoft Docs"
+title: Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure | Microsoft Docs
 description: "Opisuje sposób wdrożenia usługi Site Recovery w celu organizowania replikacji, pracy w trybie failover i odzyskiwania maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,21 +12,22 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
 
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure przy użyciu witryny Azure Portal
+
+> [!div class="op_single_selector"]
 > * [Witryna Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Klasyczny portal Azure](site-recovery-vmm-to-azure-classic.md)
 > * [Program PowerShell — model usługi Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [PowerShell — model klasyczny](site-recovery-deploy-with-powershell.md)
->
->
+
 
 Usługa Azure Site Recovery — Zapraszamy!
 
@@ -46,7 +47,7 @@ Jeśli chcesz przeprowadzić pełne wdrożenie, zdecydowanie zalecamy wykonanie 
 | **Ograniczenia środowiska lokalnego** |Serwer proxy oparty na protokole HTTPS nie jest obsługiwany |
 | **Dostawca/agent** |Replikowanie maszyny wirtualnej wymagają dostawcy usługi Azure Site Recovery.<br/><br/> Hosty funkcji Hyper-V wymagają agenta usługi Recovery Services.<br/><br/> Te składniki są instalowanie podczas wdrażania. |
 |  **Wymagania platformy Azure** |Konto platformy Azure<br/><br/> Magazyn usługi Recovery Services<br/><br/> Konto magazynu LRS lub GRS w regionie magazynu<br/><br/> Konto usługi Storage w warstwie Standardowa<br/><br/> Sieć wirtualna platformy Azure w regionie magazynu. [Wszystkie szczegóły](#azure-prerequisites). |
-|  **Ograniczenia platformy Azure** |Jeśli używasz magazynu GRS, musisz mieć inne konto magazynu LRS na potrzeby rejestrowania.<br/><br/> Kont magazynu utworzonych w witrynie Azure Portal nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. <br/><br/> Magazyn w warstwie Premium nie jest obecnie obsługiwany.<br/><br/> Sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. 
+|  **Ograniczenia platformy Azure** |Jeśli używasz magazynu GRS, musisz mieć inne konto magazynu LRS na potrzeby rejestrowania.<br/><br/> Kont magazynu utworzonych w witrynie Azure Portal nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji. <br/><br/> Magazyn w warstwie Premium nie jest obecnie obsługiwany.<br/><br/> Sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można przenosić między grupami zasobów w ramach tej samej lub różnych subskrypcji.
 |  **Replikacja maszyny wirtualnej** |[Maszyny wirtualne muszą spełniać wymagania wstępne platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
 |  **Ograniczenia replikacji** |Nie można replikować maszyn wirtualnych z systemem Linux i statycznym adresem IP.<br/><br/> Z replikacji można wykluczyć określone dyski, ale nie dysk systemu operacyjnego.
 | **Kroki wdrażania** |1) Przygotowanie platformy Azure (subskrypcja, magazyn, sieć) -> 2) Przygotowanie środowiska lokalnego (mapowanie programu VMM i sieci) -> 3) Utworzenie magazynu usługi Recovery Services -> 4) Skonfigurowanie hostów programu VMM i funkcji Hyper-V -> 5) Skonfigurowanie ustawień replikacji -> 6) Włączenie replikacji -> 7) Testowanie replikacji i pracy w trybie failover. |
@@ -94,7 +95,7 @@ Oto, co należy zapewnić lokalnie
 | --- | --- |
 | **VMM** |Co najmniej jeden serwer programu VMM uruchomiony w programie System Center 2012 R2. Każdy serwer programu VMM powinien mieć co najmniej jedną skonfigurowaną chmurę. Chmura powinna zawierać:<br/><br/> Co najmniej jedną grupę hostów programu VMM.<br/><br/> Co najmniej jeden serwer hosta lub klaster funkcji Hyper-V w każdej grupie hostów.<br/><br/>[Dowiedz się więcej](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx) o konfigurowaniu chmur VMM. |
 | **Funkcja Hyper-V** |Serwery hostów funkcji Hyper-V muszą być uruchomione w **systemie Windows Server 2012 R2** z rolą Hyper-V lub w **systemie Microsoft Hyper-V Server 2012 R2** i muszą mieć zainstalowane najnowsze aktualizacje.<br/><br/> Serwer funkcji Hyper-V powinien zawierać co najmniej jedną maszynę wirtualną.<br/><br/> Serwer hosta lub klaster funkcji Hyper-V, który zawiera maszyny wirtualne do replikacji, musi być zarządzany w chmurze programu VMM.<br/><br/>Serwery funkcji Hyper-V powinny być podłączone do Internetu, bezpośrednio lub za pośrednictwem serwera proxy.<br/><br/>Serwery funkcji Hyper-V powinny mieć zainstalowane poprawki wymienione w artykule [2961977](https://support.microsoft.com/kb/2961977).<br/><br/>Serwery hostów funkcji Hyper-V wymagają dostępu do Internetu w celu przeprowadzenia replikacji danych do platformy Azure. |
-| **Dostawca i agent** |Podczas wdrażania usługi Azure Site Recovery instalujesz dostawcę usługi Azure Site Recovery na serwerze programu VMM oraz agenta usługi Recovery Services na hostach funkcji Hyper-V. Dostawca i agent muszą nawiązywać połączenie z platformą Azure za pośrednictwem Internetu, bezpośrednio lub przez serwer proxy. Serwer proxy oparty na protokole HTTPS nie jest obsługiwany. Serwer proxy na serwerze programu VMM i hostach funkcji Hyper-V powinien zezwalać na dostęp do: <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> Jeśli masz reguły zapory oparte na adresie IP na serwerze VMM, sprawdź, czy reguły zezwalają na komunikację z platformą Azure.<br/><br/> Zezwól na użycie [zakresów adresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) oraz portu 443 protokołu HTTPS.<br/><br/> Zezwól na użycie zakresów adresów IP dla regionu platformy Azure Twojej subskrypcji oraz regionu Zachodnie stany USA.<br/><br/> |
+| **Dostawca i agent** |Podczas wdrażania usługi Azure Site Recovery instalujesz dostawcę usługi Azure Site Recovery na serwerze programu VMM oraz agenta usługi Recovery Services na hostach funkcji Hyper-V. Dostawca i agent muszą nawiązywać połączenie z platformą Azure za pośrednictwem Internetu, bezpośrednio lub przez serwer proxy. Serwer proxy oparty na protokole HTTPS nie jest obsługiwany. Serwer proxy na serwerze programu VMM i hostach funkcji Hyper-V powinien zezwalać na dostęp do: <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> Jeśli masz reguły zapory oparte na adresie IP na serwerze VMM, sprawdź, czy reguły zezwalają na komunikację z platformą Azure.<br/><br/> Zezwól na użycie [zakresów adresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) oraz portu&443; protokołu HTTPS.<br/><br/> Zezwól na użycie zakresów adresów IP dla regionu platformy Azure Twojej subskrypcji oraz regionu Zachodnie stany USA.<br/><br/> |
 
 ## <a name="protected-machine-prerequisites"></a>Wymagania wstępne dotyczące chronionej maszyny
 | **Wymagania wstępne** | **Szczegóły** |
@@ -392,16 +393,16 @@ Teraz włącz replikację w następujący sposób:
 7. W pozycji **Właściwości** > **Konfiguruj właściwości** wybierz system operacyjny dla wybranych maszyn wirtualnych oraz dysk systemu operacyjnego. Domyślnie do replikacji są wybierane wszystkie dyski maszyny wirtualnej. Możesz wykluczyć dyski z replikacji, aby zmniejszyć wykorzystanie przepustowości w przypadku replikacji zbędnych danych na platformie Azure. Możesz na przykład zrezygnować z replikacji dysków z danymi tymczasowymi lub danych odświeżanych podczas każdego ponownego uruchomienia maszyny lub aplikacji (na przykład pagefile.sys lub tempdb programu Microsoft SQL Server). Dysk można wykluczyć z replikacji, cofając jego zaznaczenie. Sprawdź, czy nazwa maszyny wirtualnej platformy Azure (nazwa docelowa) jest zgodna z [wymaganiami maszyny wirtualnej platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) i w razie potrzeby ją zmodyfikuj. Następnie kliknij przycisk **OK**. Później możesz ustawić dodatkowe właściwości.
 
     ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
-    
+
     >[!NOTE]
-    > 
-    > * Tylko dyski podstawowe można wyłączyć z replikacji. Nie można wykluczyć dysku systemu operacyjnego. Nie jest zalecane wykluczanie dysków dynamicznych. Usługa ASR nie może ustalić, który wirtualny dysk twardy jest podstawowym, a który dynamicznym dyskiem wewnątrz maszyny wirtualnej gościa.  Jeśli wszystkie zależne dyski woluminu dynamicznego nie zostaną wykluczone, chroniony dysk dynamiczny będzie uszkodzonym dyskiem maszyny wirtualnej w trybie failover, a dane na tym dysku mogą być niedostępne.   
+    >
+    > * Tylko dyski podstawowe można wyłączyć z replikacji. Nie można wykluczyć dysku systemu operacyjnego. Nie jest zalecane wykluczanie dysków dynamicznych. Usługa ASR nie może ustalić, który wirtualny dysk twardy jest podstawowym, a który dynamicznym dyskiem wewnątrz maszyny wirtualnej gościa.  Jeśli wszystkie zależne dyski woluminu dynamicznego nie zostaną wykluczone, chroniony dysk dynamiczny będzie uszkodzonym dyskiem maszyny wirtualnej w trybie failover, a dane na tym dysku mogą być niedostępne.
     > * Po włączeniu replikacji nie można dodawać ani usuwać dysków do replikacji. Jeśli chcesz dodać lub wykluczyć dysk, musisz wyłączyć ochronę maszyny wirtualnej, a następnie włączyć ją ponownie.
     > * Jeśli wykluczasz dysk wymagany do działania aplikacji, po przejściu do trybu failover na platformie Azure musisz utworzyć go na tej platformie, aby można było uruchomić replikowaną aplikację. Można również zintegrować usługę Azure Automation w planie odzyskiwania, aby utworzyć dysk podczas pracy maszyny w trybie failover.
     > * Dyski tworzone ręcznie na platformie Azure nie mają możliwości powrotu po awarii. Jeśli na przykład przeniesiesz trzy dyski do trybu failover i utworzysz dwa bezpośrednio na maszynie wirtualnej platformy Azure, tylko dla trzech dysków przeniesionych do trybu failover nastąpi powrót po awarii z platformy Azure do funkcji Hyper-V. Dysków tworzonych ręcznie nie można uwzględnić podczas powrotu po awarii ani replikacji odwrotnej z funkcji Hyper-V do platformy Azure.
     >
     >
-    
+
 
 8. W pozycji **Ustawienia replikacji** > **Konfigurowanie ustawień replikacji** wybierz zasady replikacji, które chcesz zastosować dla chronionych maszyn wirtualnych. Następnie kliknij przycisk **OK**. Możesz zmodyfikować zasady replikacji w pozycji **Ustawienia** > **Zasady replikacji** > nazwa_zasady > **Edytuj ustawienia**. Zastosowane zmiany są używane dla obecnie replikowanych i nowych maszyn.
 
@@ -418,7 +419,8 @@ Zalecamy zweryfikowanie właściwości maszyny źródłowej. Pamiętaj, że nazw
 2. W obszarze **Właściwości** możesz wyświetlić informacje dotyczące replikacji i trybu failover dla danej maszyny wirtualnej.
 
     ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. W pozycji **Obliczenia i sieć** > **Właściwości obliczeń** możesz określić nazwę i docelowy rozmiar maszyny wirtualnej Azure. Zmodyfikuj nazwę, aby była zgodna z [wymaganiami platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements), jeśli zachodzi taka potrzeba. Możesz również wyświetlić i zmodyfikować informacje dotyczące sieci docelowej, podsieci i adresu IP, które zostaną przypisane do maszyny wirtualnej platformy Azure. Należy pamiętać, że:
+3. W pozycji **Obliczenia i sieć** > **Właściwości obliczeń** możesz określić nazwę i docelowy rozmiar maszyny wirtualnej Azure. Zmodyfikuj nazwę, aby była zgodna z [wymaganiami platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements), jeśli zachodzi taka potrzeba. Możesz również wyświetlić i zmodyfikować informacje dotyczące sieci docelowej, podsieci i adresu IP, które zostaną przypisane do maszyny wirtualnej platformy Azure.
+Należy pamiętać, że:
 
    * Możesz ustawić docelowy adres IP. Jeśli nie podasz adresu, maszyna w trybie failover będzie używać protokołu DHCP. Jeśli ustawisz adres, który nie jest dostępny w trybie failover, przejście do trybu failover zakończy się niepowodzeniem. Ten sam docelowy adres IP może być użyty do testowania trybu failover, jeśli adres jest dostępny w testowej sieci trybu failover.
    * Liczba kart sieciowych zależy od rozmiaru określonego dla docelowej maszyny wirtualnej, zgodnie z poniższym:
@@ -430,19 +432,6 @@ Zalecamy zweryfikowanie właściwości maszyny źródłowej. Pamiętaj, że nazw
 
      ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/test-failover4.png)
 4. W pozycji **Dyski** możesz zobaczyć dyski systemu operacyjnego i danych na maszynie wirtualnej, która będzie replikowana.
-
-## <a name="step-7-test-your-deployment"></a>Krok 7. Testowanie wdrożenia
-Aby przetestować wdrożenie, możesz uruchomić test trybu failover dla jednej maszyny wirtualnej lub plan odzyskiwania, który zawiera co najmniej jedną maszynę wirtualną.
-
-### <a name="prepare-for-failover"></a>Przygotowanie do przejścia do trybu failover
-* Aby uruchomić test trybu failover, zalecamy utworzenie nowej sieci platformy Azure, która jest odizolowana od sieci platformy Azure środowiska produkcyjnego. Jest to domyślne zachowanie podczas tworzenia nowej sieci na platformie Azure. [Dowiedz się więcej](site-recovery-failover.md#run-a-test-failover) o uruchamianiu testowych trybów failover.
-* Aby uzyskać najlepszą wydajność przechodzenia w tryb failover, zainstaluj agenta platformy Azure na chronionej maszynie. Przyspiesza to rozruch i pomaga w rozwiązywaniu problemów. Zainstaluj agenta systemu [Linux](https://github.com/Azure/WALinuxAgent) lub [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
-* Aby w pełni przetestować wdrożenie, potrzebujesz infrastruktury dla replikowanej maszyny, aby mogła działać zgodnie z oczekiwaniami. Jeśli chcesz przetestować usługę Active Directory i DNS, możesz utworzyć maszynę wirtualną jako kontroler domeny z serwerem DNS i replikować ją do platformy Azure przy użyciu usługi Azure Site Recovery. Dowiedz się więcej w [zagadnieniach dotyczących testowania trybu failover dla usługi Active Directory](site-recovery-active-directory.md#test-failover-considerations).
-* Jeśli dyski zostały wykluczone z replikacji, być może trzeba będzie utworzyć je ręcznie na platformie Azure po przejściu do trybu failover, aby aplikacja działa w oczekiwany sposób.
-* Jeśli chcesz uruchomić nieplanowany tryb failover zamiast testowego trybu failover, pamiętaj, że:
-
-  * Jeśli jest to możliwe, przed uruchomieniem nieplanowanego trybu failover należy wyłączyć maszyny główne. Dzięki temu maszyny źródłowe i replikowane nie będą uruchomione w tym samym czasie.
-  * Po uruchomieniu nieplanowanego trybu failover zostaje zatrzymana replikacja danych z maszyn głównych, dlatego żaden przyrost danych nie będzie transferowany po rozpoczęciu nieplanowanego trybu failover. Ponadto, jeśli uruchomisz nieplanowany tryb failover w ramach planu odzyskiwania, będzie działać do czasu ukończenia, nawet jeśli wystąpi błąd.
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Przygotowanie do połączenia z maszynami wirtualnymi Azure po przejściu do trybu failover
 Jeśli chcesz nawiązać połączenie z maszynami wirtualnymi Azure przy użyciu protokołu RDP po przejściu do trybu failover, upewnij się, że wykonano następujące czynności:
@@ -474,26 +463,19 @@ Aby uzyskać dostęp do maszyny wirtualnej Azure z systemem Linux po przejściu 
 * Aby zezwolić na połączenia przychodzące do portu SSH (domyślnie port TCP 22), należy utworzyć publiczny punkt końcowy.
 * Jeśli dostęp do maszyny wirtualnej uzyskuje się przez połączenie sieci VPN (VPN Express Route lub między lokacjami), można użyć klienta do nawiązania bezpośredniego połączenia z maszyną wirtualną przez port SSH.
 
-### <a name="run-a-test-failover"></a>Wykonywanie próby przejścia w tryb failover
+
+## <a name="step-7-test-your-deployment"></a>Krok 7. Testowanie wdrożenia
+Aby przetestować wdrożenie, możesz uruchomić test trybu failover dla jednej maszyny wirtualnej lub plan odzyskiwania, który zawiera co najmniej jedną maszynę wirtualną.
+
 1. Aby przenieść jedną maszynę wirtualną do trybu failover, w pozycji **Ustawienia** > **Elementy replikowane** kliknij maszynę wirtualną > **+ Testowy tryb failover**.
-2. Aby przenieść plan odzyskiwania do trybu failover, w pozycji **Ustawienia** > **Plany odzyskiwania** kliknij plan prawym przyciskiem myszy > **Testowy tryb failover**. Aby utworzyć plan odzyskiwania, [wykonaj te instrukcje](site-recovery-create-recovery-plans.md).
-3. W pozycji **Testowy tryb failover** wybierz sieć platformy Azure, z którą maszyny wirtualne Azure zostaną połączone po przejściu do trybu failover.
-4. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Możesz śledzić postępy, klikając maszynę wirtualną i otwierając jej właściwości lub przechodząc do zadania **Testowy tryb failover** w pozycji **Ustawienia** > **Zadania usługi Site Recovery**.
-5. Gdy tryb failover osiągnie fazę **Zakończ testowanie**, wykonaj następujące czynności:
+1. Aby przenieść plan odzyskiwania do trybu failover, w pozycji **Ustawienia** > **Plany odzyskiwania** kliknij plan prawym przyciskiem myszy > **Testowy tryb failover**. Aby utworzyć plan odzyskiwania, [wykonaj te instrukcje](site-recovery-create-recovery-plans.md).
+1. W pozycji **Testowy tryb failover** wybierz sieć platformy Azure, z którą maszyny wirtualne Azure zostaną połączone po przejściu do trybu failover.
+1. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Możesz śledzić postępy, klikając maszynę wirtualną i otwierając jej właściwości lub przechodząc do zadania **Testowy tryb failover** w pozycji **Ustawienia** > **Zadania usługi Site Recovery**.
+1. Po zakończeniu trybu failover w pozycji Azure Portal > **Maszyny wirtualne** powinna być widoczna replika maszyny wirtualnej platformy Azure. Upewnij się, że maszyna wirtualna ma prawidłowy rozmiar oraz że została podłączona do odpowiedniej sieci i uruchomiona.
+1. Jeśli przeprowadzono [przygotowanie do nawiązywania połączeń po przejściu do trybu failover](#prepare-to-connect-to-Azure-VMs-after-failover), powinno być możliwe nawiązanie połączenia z maszyną wirtualną Azure.
+1. Po zakończeniu kliknij pozycję **Wyczyść test pracy w trybie failover** w planie odzyskiwania. W obszarze **Uwagi** zarejestruj i zapisz wszelkie obserwacje związane z testem pracy w trybie failover. Spowoduje to usunięcie maszyn wirtualnych utworzonych podczas testu pracy w trybie failover. 
 
-   1. Wyświetl replikę maszyny wirtualnej w portalu Azure Sprawdź, czy maszyna wirtualna zostanie prawidłowo uruchomiona.
-   2. Jeśli skonfigurowano dostęp do maszyn wirtualnych z sieci lokalnej, możesz zainicjować połączenie Pulpitu zdalnego z maszyną wirtualną.
-   3. Kliknij przycisk **Zakończ test**, aby zakończyć testowanie.
-   4. Kliknij pozycję **Uwagi**, aby zarejestrować i zapisać wszelkie obserwacje związane z testowym trybem failover.
-   5. Kliknij pozycję **Ukończono testowe przełączanie w tryb failover**. Wyczyść środowisko testowe, aby automatycznie wyłączyć i usunąć testową maszynę wirtualną.
-   6. Na tym etapie usuwane są wszystkie elementy lub maszyny wirtualne utworzone automatycznie przez usługę Site Recovery podczas testowego trybu failover. Wszelkie dodatkowe elementy utworzone w ramach testowego trybu failover nie są usuwane.
-
-      > [!NOTE]
-      > Jeśli testowy tryb failover trwa dłużej niż dwa tygodnie, jego zakończenie zostanie wymuszone.
-      >
-      >
-6. Po zakończeniu trybu failover w pozycji Azure Portal > **Maszyny wirtualne** powinna być widoczna replika maszyny wirtualnej platformy Azure. Upewnij się, że maszyna wirtualna ma prawidłowy rozmiar oraz że została podłączona do odpowiedniej sieci i uruchomiona.
-7. Jeśli przeprowadzono [przygotowanie do nawiązywania połączeń po przejściu do trybu failover](#prepare-to-connect-to-Azure-VMs-after-failover), powinno być możliwe nawiązanie połączenia z maszyną wirtualną Azure.
+Więcej szczegółów można znaleźć w dokumencie [Test failover to Azure](site-recovery-test-failover-to-azure.md) (Testowanie pracy w trybie failover na platformie Azure).
 
 ## <a name="monitor-your-deployment"></a>Monitorowanie wdrożenia
 Oto, jak można monitorować ustawienia konfiguracji, stan i kondycję wdrożenia usługi Site Recovery:
@@ -509,6 +491,6 @@ Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](site-recover
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

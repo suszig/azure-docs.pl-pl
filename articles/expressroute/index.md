@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure ExpressRoute — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie konfigurowania prywatnego połączenia usługi ExpressRoute między usługami chmurowymi firmy Microsoft a infrastrukturą lokalną lub środowiskiem obejmującym kilka lokalizacji oraz zarządzania takim połączeniem."
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
+ms.sourcegitcommit: 6eb84236ff7814ab7dfade718693060d7e7383b9
+ms.openlocfilehash: a060970a2f2870a40d4925b8eeccf4fec4af1aa4
 
 ---
+
 #<a name="expressroute-documentation"></a>Dokumentacja usługi ExpressRoute
 
 Dowiedz się, jak za pomocą usługi ExpressRoute skonfigurować szybkie, prywatne połączenie między usługami chmurowymi firmy Microsoft a infrastrukturą lokalną lub środowiskiem obejmującym kilka lokalizacji. Samouczki, interfejsy API REST i inne dokumenty ułatwiające konfigurowanie obwodu usługi ExpressRoute i zarządzanie nim.
@@ -102,6 +114,6 @@ Dowiedz się, jak za pomocą usługi ExpressRoute skonfigurować szybkie, prywat
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

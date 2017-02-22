@@ -1,44 +1,61 @@
 ---
-title: Network interfaces | Microsoft Docs
-description: Learn about Azure network interfaces in Azure Resource Manager.
+title: Interfejsy sieciowe na platformie Azure | Microsoft Docs
+description: "Dowiedz się więcej o interfejsach sieciowych platformy Azure w modelu wdrażana przy użyciu usługi Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: ''
+manager: timlt
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
+ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
+
 
 ---
-# Network interfaces
-A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
+# <a name="network-interfaces-in-azure"></a>Interfejsy sieciowe na platformie Azure
+Interfejs sieciowy (karta sieciowa) to wzajemne połączenie między maszyną wirtualną (VM) i podstawową siecią oprogramowania. W tym artykule opisano interfejs sieciowy oraz sposób użycia w modelu wdrażania przy użyciu usługi Azure Resource Manager.
 
-Microsoft recommends deploying new resources using the Resource Manager deployment model, but you can also deploy VMs with network connectivity in the [classic](virtual-network-ip-addresses-overview-classic.md) deployment model. If you're familiar with the classic model, there are important differences in VM networking in the Resource Manager deployment model. Learn more about the differences by reading the [Virtual machine networking - Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) article.
+Firma Microsoft zaleca wdrażanie nowych zasobów za pomocą modelu wdrażania przy użyciu usługi Resource Manager, ale możesz również wdrażać maszyny wirtualne z łącznością sieciową w [klasycznym](virtual-network-ip-addresses-overview-classic.md) modelu wdrażania. Jeśli znasz klasyczny model, istnieją ważne różnice dotyczące sieci maszyny wirtualnej w modelu wdrażania przy użyciu usługi Resource Manager. Dowiesz się więcej o różnicach po przeczytaniu artykułu [Virtual machine networking - Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) (Sieć maszyny wirtualnej — klasyczna).
 
-In Azure, a network interface:
+Na platformie Azure interfejs sieciowy:
 
-1. Is a resource that can be created, deleted, and has its own configurable settings.
-2. Must be connected to one subnet in one Azure Virtual Network (VNet) when it's created. If you're not familiar with VNets, learn more about them by reading the [Virtual network overview](virtual-networks-overview.md) article. The NIC must be connected to a VNet that exists in the same Azure [location](https://azure.microsoft.com/regions) and [subscription](../azure-glossary-cloud-terminology.md#subscription) as the NIC. After a NIC is created, you can change the subnet it's connected to, but you cannot change the VNet it's connected to.
-3. Has a name assigned to it that cannot be changed after the NIC is created. The name must be unique within an Azure [resource group](../resource-group-overview.md#resource-groups), but doesn't have to be unique within the subscription, the Azure location it's created in, or the VNet it's connected to. Several NICs are typically created within an Azure subscription. It's recommended that you devise a naming convention that makes managing multiple NICs easier than using default names. See the [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) article for suggestions.
-4. May be attached to a VM, but can only be attached to a single VM that exists in the same location as the NIC.
-5. Has a MAC address, which is persisted with the NIC for as long as it remains attached to a VM. The MAC address is persisted whether the VM is restarted (from within the operating system) or stopped (de-allocated) and started using the Azure Portal, Azure PowerShell, or the Azure Command-Line Interface. If it's detached from a VM and attached to a different VM, the NIC receives a different MAC address. If the NIC is deleted, the MAC address is assigned to other NICs.
-6. Must have one primary **private** *IPv4* static or dynamic IP address assigned to it.
-7. May have one public IP address resource associated to it.
-8. Supports accelerated networking with single-root I/O virtualization (SR-IOV) for specific VM sizes running specific versions of the Microsoft Windows Server operating system. To learn more about this PREVIEW feature, read the [Accelerated networking for a virtual machine](virtual-network-accelerated-networking-powershell.md) article.
-9. Can receive traffic not destined to private IP addresses assigned to it if IP forwarding is enabled for the NIC. If a VM is running firewall software for example, it routes packets not destined for its own IP addresses. The VM must still run software capable of routing or forwarding traffic, but to do so, IP forwarding must be enabled for a NIC.
-10. Is often created in the same resource group as the VM it's attached to or the same VNet that it's connected to, though it isn't required to be.
+1. Jest zasobem, który można utworzyć, usunąć i który ma swoje własne konfigurowalne ustawienia.
+2. Musi być podłączony do jednej podsieci w jednej sieci wirtualnej platformy Azure, gdy jest on tworzony. Jeśli nie znasz sieci wirtualnych, dowiesz się więcej o nich po przeczytaniu artykułu [Omówienie usługi Virtual Network](virtual-networks-overview.md). Karta sieciowa musi być podłączona do sieci wirtualnej, która znajduje się w tej samej [lokalizacji](https://azure.microsoft.com/regions) i [subskrypcji](../azure-glossary-cloud-terminology.md#subscription) platformy Azure co karta sieciowa. Po utworzeniu karty sieciowej możesz zmienić podsieć, z którą jest ona połączona, ale nie możesz zmienić sieci wirtualnej, z którą jest połączona.
+3. Ma przypisaną nazwę, której nie można zmienić po utworzeniu karty sieciowej. Nazwa musi być unikatowa w obrębie [grupy zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups) platformy Azure, ale nie musi być unikatowa w ramach subskrypcji, w lokalizacji platformy Azure, w której została utworzona, lub sieci wirtualnej, z którą jest połączona. W ramach subskrypcji platformy Azure jest zazwyczaj tworzonych kilka kart sieciowych. Zalecane jest, aby zamiast używania nazw domyślnych wymyślić konwencję nazewnictwa, która ułatwi zarządzanie wieloma kartami sieciowymi. Aby zapoznać się z sugestiami, zobacz artykuł [Zalecane konwencje nazewnictwa dla zasobów platformy Azure](../guidance/guidance-naming-conventions.md).
+4. Może być podłączona do maszyny wirtualnej, ale można ją połączyć tylko z jedną maszyną wirtualną, która istnieje w tej samej lokalizacji co karta sieciowa.
+5. Ma adres MAC, który jest trwały dla karty sieciowej tak długo, jak długo pozostaje ona podłączona do maszyny wirtualnej. Adres MAC jest trwały bez względu na to, czy maszyna wirtualna zostanie ponownie uruchomiona (w ramach systemu operacyjnego) lub zatrzymana (cofnięcie przydziału) i uruchomiona za pomocą witryny Azure Portal, programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Jeśli karta sieciowa zostanie odłączona od maszyny wirtualnej i dołączona do innej maszyny wirtualnej, otrzyma inny adres MAC. Jeśli karta sieciowa zostanie usunięta, adres MAC zostanie przypisany do innych kart sieciowych.
+6. Musi mieć przypisany podstawowy **prywatny** statyczny lub dynamiczny adres IP *IPv4*.
+7. Może mieć powiązany jeden zasób publicznego adresu IP.
+8. Obsługuje przyspieszoną sieć za pomocą wirtualizacji we/wy z jednym elementem głównym (SR-IOV) dla określonych rozmiarów maszyny wirtualnej z uruchomioną określoną wersją systemu operacyjnego Microsoft Windows Server. Aby dowiedzieć się więcej o tej funkcji WERSJI ZAPOZNAWCZEJ, przeczytaj artykuł [Accelerated networking for a virtual machine](virtual-network-accelerated-networking-powershell.md) (Przyspieszona sieć dla maszyny wirtualnej).
+9. Może odbierać ruch nieprzeznaczony do prywatnych adresów IP przypisanych do niej, jeśli przesyłanie dalej IP jest włączone dla karty sieciowej. Jeśli na przykład na maszynie wirtualnej działa oprogramowanie zapory, określa ono trasy pakietów, które nie są przeznaczone do własnych adresów IP. Na maszynie wirtualnej nadal musi być uruchomione oprogramowanie umożliwiające routing lub przesyłanie dalej ruchu, ale w tym celu przesyłanie dalej IP musi być włączone dla karty sieciowej.
+10. Często jest tworzony w tej samej grupie zasobów, do której jest dołączona maszyna wirtualna lub w tej samej sieci wirtualnej, do której jest podłączona, chociaż nie jest to wymagane.
 
-Multiple NICs can be attached to the same VM, provided the VM size supports it. To learn more about which VM sizes support multiple NIC, read the [Windows Server VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) articles.
+## <a name="vms-with-multiple-network-interfaces"></a>Maszyny wirtualne z wieloma interfejsami sieciowymi
+Do maszyny wirtualnej można dołączyć wiele kart sieciowych, ale robiąc to, należy pamiętać o poniższym:  
 
-## Next steps
-* Learn how to create a VM with a single NIC by reading the [Create a VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) article.
-* Learn how to create a VM with multiple NICs by reading the [Deploy a VM with multiple NIC](virtual-network-deploy-multinic-arm-ps.md) article.
-* Learn how to create a NIC with multiple IP configurations by reading the [Multiple IP addresses for Azure virtual machines](virtual-network-multiple-ip-addresses-powershell.md) article.
+* Rozmiar maszyny wirtualnej musi obsługiwać wiele kart sieciowych. Aby dowiedzieć się więcej o tym, które rozmiary maszyn wirtualnych obsługują wiele kart sieciowych, przeczytaj artykuły [Windows Server VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) (Rozmiary maszyn wirtualnych w systemie Windows Server) lub [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) (Rozmiary maszyn wirtualnych w systemie Linux).
+* Maszyna wirtualna musi zostać utworzona z co najmniej dwoma kartami sieciowymi. Jeśli maszyna wirtualna została utworzona tylko z jedną kartą sieciową, nawet jeśli rozmiar maszyny wirtualnej obsługuje więcej niż jedną, nie możesz dołączyć dodatkowych kart sieciowych do maszyny wirtualnej po jej utworzeniu. Jeżeli maszyna wirtualna została utworzona z przynajmniej dwoma kartami sieciowymi, możesz dołączyć dodatkowe karty sieciowe do maszyny wirtualnej po jej utworzeniu pod warunkiem, że rozmiar maszyny wirtualnej obsługuje więcej niż dwie karty sieciowe.  
+* Od maszyny wirtualnej możesz odłączyć dodatkowe karty sieciowe (podstawowej karty sieciowej nie można odłączyć), jeśli maszyna wirtualna ma dołączone przynajmniej trzy karty sieciowe. Nie możesz odłączyć kart sieciowych, jeśli do maszyny wirtualnej są dołączone co najwyżej dwie karty sieciowe.  
+* Kolejność kart sieciowych wewnątrz maszyny wirtualnej będzie losowa i może również ulec zmianie między aktualizacjami infrastruktury platformy Azure. Jednak adresy IP i odpowiednie adresy Ethernet MAC pozostaną takie same. Na przykład załóżmy, że system operacyjny identyfikuje kartę sieciową Azure NIC1 jako Eth1. Interfejs sieciowy Eth1 ma adres IP 10.1.0.100 i adres MAC 00-0D-3A-B0-39-0D. Po aktualizacji i ponownym uruchomieniu infrastruktury platformy Azure system operacyjny może teraz zidentyfikować kartę sieciową Azure NIC1 jako Eth2, ale adresy IP i MAC będą takie same, jak wtedy, gdy system operacyjny zidentyfikował kartę sieciową Azure NIC1 jako Eth1. Jeśli ponowne uruchomienie jest inicjowane przez klienta, kolejność kart sieciowych pozostanie taka sama w ramach systemu operacyjnego.  
+* Jeśli maszyna wirtualna jest członkiem [zestawu dostępności](../azure-glossary-cloud-terminology.md#availability-set), wszystkie maszyny wirtualne w zestawie dostępności muszą mieć jedną kartę sieciową albo wiele kart sieciowych. Jeśli maszyny wirtualne mają wiele kart sieciowych, liczba kart, które ma każda z nich, nie musi być taka sama, dopóki każda maszyna wirtualna ma co najmniej dwie karty sieciowe.
+
+## <a name="next-steps"></a>Następne kroki
+* Dowiedz się, jak utworzyć maszynę wirtualną z jedną kartą sieciową, czytając artykuł [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+* Dowiedz się, jak utworzyć maszynę wirtualną z wieloma kartami sieciowymi, czytając artykuł [Wdrażanie maszyny wirtualnej z wieloma kartami sieciowymi](virtual-network-deploy-multinic-arm-ps.md).
+* Dowiedz się, jak utworzyć kartę sieciową z wieloma konfiguracjami IP, czytając artykuł [Wiele adresów IP dla maszyn wirtualnych platformy Azure](virtual-network-multiple-ip-addresses-powershell.md).
+
+
+
+
+<!--HONumber=Jan17_HO5-->
+
 

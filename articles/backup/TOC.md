@@ -1,3 +1,4 @@
+
 # Omówienie
 ## [Co to jest Azure Backup?](backup-introduction-to-azure-backup.md)
 # Rozpoczęcie pracy
@@ -32,6 +33,7 @@
 ### [Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure i monitorowanie ich w portalu klasycznym](backup-azure-manage-vms-classic.md)
 ### [Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-manage-vms.md)
 ### [Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-monitor-vms.md)
+### [Odzyskiwanie plików z kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-restore-files-from-vm.md)
 ### [Przywracanie maszyn wirtualnych na platformie Azure](backup-azure-restore-vms.md)
 ### [Przywracanie maszyn wirtualnych wdrożonych przez usługę Resource Manager w witrynie Azure Portal](backup-azure-arm-restore-vms.md)
 ### [Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych za pomocą usługi Azure Backup](backup-azure-restore-key-secret.md)
@@ -49,6 +51,7 @@
 ### [Odzyskiwanie plików w systemie Windows Server przy użyciu modelu wdrażania używającego usługi Resource Manager](backup-azure-restore-windows-server.md)
 ### [Odzyskiwanie plików w systemie Windows Server przy użyciu klasycznego modelu wdrażania](backup-azure-restore-windows-server-classic.md)
 
+## [Zarządzanie kopiami zapasowymi za pomocą kontroli dostępu opartej na rolach](backup-rbac-rs-vault.md)
 ## [Włączanie funkcji zabezpieczeń dla hybrydowych kopii zapasowych](backup-azure-security-feature.md)
 ## [Usuwanie magazynu usługi Azure Backup](backup-azure-delete-vault.md)
 ## [Konfigurowanie tworzenia kopii zapasowej offline](backup-azure-backup-import-export.md)
@@ -70,6 +73,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

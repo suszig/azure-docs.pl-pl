@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure DocumentDB — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak używać usługi DocumentDB, bazy danych dokumentów NoSQL bez schematu. W samouczkach pokazano, jak przeprowadzić integrację z aplikacjami i używać zapytań SQL w dokumentach JSON."
+services: documentdb
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
-ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>Dokumentacja usługi DocumentDB
 
 Dowiedz się, jak używać usługi DocumentDB w wysoce wydajnych aplikacjach sieci Web, mobilnych, gier i IoT. W samouczkach i innej dokumentacji pokazano, jak przechowywać dane JSON i uruchamiać zapytania SQL dla elastycznego schematu w tej usłudze bazy danych NoSQL.
@@ -210,18 +222,10 @@ Dowiedz się, jak używać usługi DocumentDB w wysoce wydajnych aplikacjach sie
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi DocumentDB </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

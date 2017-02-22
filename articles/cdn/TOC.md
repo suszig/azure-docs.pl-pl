@@ -12,6 +12,7 @@
 ### [Współużytkowanie zasobów między źródłami](cdn-cors.md)
 
 ## Zarządzanie
+### [Włączanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
 ### [Zarządzanie przy użyciu programu PowerShell](cdn-manage-powershell.md)
 ### Konfigurowanie czasu wygaśnięcia
 #### [Zawartość usług Web Apps/Cloud Services, ASP.NET lub IIS](cdn-manage-expiration-of-cloud-service-content.md)
@@ -40,7 +41,7 @@
 ### [Node.js](cdn-app-dev-node.md)
 
 ## Rozwiązywanie problemów
-### [Stan 404](cdn-troubleshoot-endpoint.md)
+### [Stan&404;](cdn-troubleshoot-endpoint.md)
 ### [Kompresja plików](cdn-troubleshoot-compression.md)
 
 # Dokumentacja
@@ -62,6 +63,6 @@
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

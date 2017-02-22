@@ -97,9 +97,10 @@
 ##### [Przykładowa aplikacja](virtual-networks-sample-app.md)
 
 ## Konfigurowanie
-### Wydajniejsze sieci
+### Wydajniejsze sieci dla maszyn wirtualnych
 #### [Azure Portal](virtual-network-accelerated-networking-portal.md)
 #### [Program PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Optymalizowanie przepływności sieci maszyny wirtualnej](virtual-network-optimize-network-bandwidth.md)
 ### Listy kontroli dostępu
 #### [Portal klasyczny](virtual-networks-acl.md)
 #### [Program PowerShell](virtual-networks-acl-powershell.md)
@@ -147,6 +148,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
 
 
 ---
@@ -32,19 +32,19 @@ ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
 
 Ten samouczek przedstawia sposób nawiązania połączenia z usługą SQL Data Warehouse przy użyciu usługi Power BI oraz tworzenia podstawowych wizualizacji.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
-* Baza danych usługi SQL Data Warehouse ze wstępnie załadowaną bazą danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][Tworzenie bazy danych w usłudze SQL Data Warehouse]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][ręczne ładowanie przykładowych danych].
+* Baza danych usługi SQL Data Warehouse ze wstępnie załadowaną bazą danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz [Tworzenie magazynu danych SQL Data Warehouse][Create a SQL Data Warehouse]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][load sample data manually].
 
 ## <a name="1-connect-to-your-database"></a>1. Nawiązywanie połączenia z bazą danych
 Aby otworzyć usługę Power BI nawiązać połączenie się z bazą danych AdventureWorksDW:
 
-1. Zaloguj się w witrynie [Azure Portal][Azure Portal].
+1. Zaloguj się do witryny [Azure Portal][Azure portal].
 2. Kliknij pozycję **Bazy danych SQL** i wybierz bazę danych AdventureWorks usługi SQL Data Warehouse.
    
     ![Znajdowanie bazy danych][1]
@@ -89,7 +89,7 @@ Teraz możesz przystąpić do analizowania przykładowych danych bazy AdventureW
 W dowolnym momencie możesz kliknąć menu **Plik** i wybrać polecenie **Zapisz**, aby zapisać postęp.
 
 ## <a name="next-steps"></a>Następne kroki
-Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj się ze sposobami wykonywania takich czynności, jak [opracowywanie][opracowywanie], [ładowanie][ładowanie] lub [migrowanie][migrowanie] danych. Możesz też zapoznać się z [witryną sieci Web usługi Power BI][witryna sieci Web usługi Power BI].
+Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj się ze sposobami wykonywania takich czynności, jak [opracowywanie][develop], [ładowanie][load] lub [migrowanie][migrate] danych. Możesz też zapoznać się z [witryną sieci Web usługi Power BI][Power BI website].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,19 +106,19 @@ Po przećwiczeniu podstawowych zadań z użyciem przykładowych danych zapoznaj 
 [12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrowanie]: sql-data-warehouse-overview-migrate.md
-[opracowywanie]: sql-data-warehouse-overview-develop.md
-[ładowanie]: sql-data-warehouse-overview-load.md
-[ręczne ładowanie przykładowych danych]: sql-data-warehouse-load-sample-databases.md
-[nawiązywanie połączenia z usługą SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
-[Tworzenie bazy danych w usłudze SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[Azure Portal]: https://portal.azure.com/
-[witryna sieci Web usługi Power BI]: http://www.powerbi.com/
+[Azure portal]: https://portal.azure.com/
+[Power BI website]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

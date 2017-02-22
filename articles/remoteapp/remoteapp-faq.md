@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
+ms.sourcegitcommit: 9d80640a58171e94440ca02f44a73866f6412997
+ms.openlocfilehash: 296dfaaa05b89cae265a9926fad08495ea02a647
 
 
 ---
@@ -81,7 +81,9 @@ Informacje o klientach, w tym kroki instalacji różnych klientów, można znale
   * Mac OS X
   * Windows RT
   * Tablety z systemem Android
-  * Urządzenia iPad i telefony:
+  * Tablety iPad
+
+    Telefony:
   * iPhone
   * Android
   * Windows Phone
@@ -126,6 +128,6 @@ Czy wiesz, że możesz nie tylko ocenić ten artykuł i dodać komentarze poniż
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

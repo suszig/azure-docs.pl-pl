@@ -1,13 +1,25 @@
 ---
+title: "Dokumentacja usługi Azure Backup — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "W dokumentacji usługi Backup pokazano, jak wykonać kopię zapasową w chmurze. Zapoznaj się z samouczkami i klipami wideo dotyczącymi kopii zapasowych aplikacji, serwerów z systemem Windows i maszyn wirtualnych platformy Azure."
+services: backup
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 4c3a00fe82ec903bcd756e8cd2ef940fc10e8af2
+ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
+ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
 
 ---
 #<a name="backup-documentation"></a>Dokumentacja usługi Backup
 
-Azure Backup to usługa w chmurze, która umożliwia tworzenie kopii zapasowej lub ochronę i przywracanie danych w chmurze firmy Microsoft.  Usługa Azure Backup pozwala zastąpić dotychczasowe rozwiązania tworzenia kopii zapasowych, istniejące lokalnie lub poza siedzibą firmy, rozwiązaniem opartym na chmurze, które jest niezawodne, bezpieczne i konkurencyjne cenowo.  
+Dowiedz się, jak za pomocą usługi Azure Backup chronić dane w chmurze na potrzeby długoterminowego przechowywania i odzyskiwania. Samouczki, klipy wideo i inne dokumenty przedstawiające sposób wykonywania kopii zapasowych danych, aplikacji, serwerów z systemem Windows i maszyn wirtualnych platformy Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -132,16 +144,10 @@ Azure Backup to usługa w chmurze, która umożliwia tworzenie kopii zapasowej l
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Azure Backup </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

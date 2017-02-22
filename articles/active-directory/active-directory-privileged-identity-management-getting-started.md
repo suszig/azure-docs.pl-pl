@@ -3,7 +3,7 @@ title: Wprowadzenie do aplikacji Azure AD Privileged Identity Management | Micro
 description: "Informacje o sposobie zarządzania uprzywilejowanymi tożsamościami przy użyciu aplikacji Azure Active Directory Privileged Identity Management w witrynie Azure Portal."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e84b361ec2acb062142d15ff9a6e02aca07d0958
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: 7b1510ccfed939e27bad4fc0e5fafd4383db4a35
 
 
 ---
@@ -44,7 +44,6 @@ Po skonfigurowaniu usługi Azure AD Privileged Identity Management zobaczysz blo
 * Opcja **Zarządzanie rolami uprzywilejowanymi** jest pulpitem nawigacyjnym dla administratorów roli uprzywilejowanej, który umożliwia m.in. zarządzanie przypisaniami ról, zmienianie ustawień aktywacji roli i rozpoczynanie przeglądów dostępu. Opcje na tym pulpicie nawigacyjnym są wyłączone dla każdego, kto nie jest administratorem roli uprzywilejowanej.
 * Opcja **Sprawdź dostęp uprzywilejowany** przenosi do oczekujących przeglądów dostępu, które należy wykonać niezależnie od tego, czy przeglądasz dostęp dla siebie lub kogoś innego. 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Następne kroki
 Temat [Azure AD Privileged Identity Management overview](active-directory-privileged-identity-management-configure.md) (Omówienie aplikacji Azure AD Privileged Identity Management) zawiera więcej informacji dotyczących zarządzania dostępem administracyjnym w organizacji.
 
@@ -56,6 +55,6 @@ Temat [Azure AD Privileged Identity Management overview](active-directory-privil
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

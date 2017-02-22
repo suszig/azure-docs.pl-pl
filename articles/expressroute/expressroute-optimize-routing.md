@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/27/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+ms.sourcegitcommit: 1b26e82f862a3b2149024d863b907899e14e7d86
+ms.openlocfilehash: 404929cf0def75d92d8bb6de8b41be3aecced458
 
 
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.
 
-## <a name="suboptimal-routing-case-1"></a>Przypadek routingu nieoptymalnego 1
+## <a name="suboptimal-routing-from-customer-to-microsoft"></a>Suboptymalny routing od klienta do firmy Microsoft
 Przyjrzyjmy się problemowi z routingiem, korzystając z przykładu. Załóżmy, że masz dwa biura w USA: jedno w Los Angeles i jedno w Nowym Jorku. Biura są połączone za pośrednictwem sieci WAN, która może być Twoją siecią podstawową lub siecią IP VPN dostawcy usług. Dostępne są dwa obwody usługi ExpressRoute: jeden w zachodnich stanach USA i jeden we wschodnich stanach USA, które są również połączone w ramach sieci WAN. Oczywiście masz dwie ścieżki połączenia z siecią firmy Microsoft. Teraz wyobraź sobie, że dysponujesz wdrożeniem Azure (np. usługą Azure App Service) zarówno w zachodnich, jak i wschodnich stanach USA. Masz zamiar połączyć użytkowników z Los Angeles z regionem świadczenia usługi Azure Zachodnie stany USA Azure, a użytkowników w Nowym Jorku z regionem Wschodnie stany USA, ponieważ administrator usług anonsuje, że użytkownicy z poszczególnych biur uzyskują w ten sposób dostęp do pobliskich usług Azure w celu uzyskania optymalnego środowiska. Niestety plan działa dobrze w przypadku użytkowników ze wschodniego wybrzeża, ale nie w przypadku użytkowników z zachodniego wybrzeża. Przyczyną tego problemu jest następująca. W poszczególnych obwodach usługi ExpressRoute anonsujemy zarówno prefiks dla wschodnich stanów USA (23.100.0.0/16), jak i prefiks w zachodnich stanach USA (13.100.0.0/16). Jeśli nie wiesz, który prefiks odpowiada któremu regionowi, nie możesz ich traktować w różny sposób. Sieć WAN może uznać, że oba prefiksy są bliżej wschodnich niż zachodnich stanów USA, i skierować obu użytkowników biura do obwodu usługi ExpressRoute we wschodnich stanach USA. W rezultacie wielu użytkowników w biurze z Los Angeles będzie niezadowolonych.
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
@@ -33,7 +33,7 @@ Aby zoptymalizować routing dla użytkowników obu biur, trzeba wiedzieć, któr
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
-## <a name="suboptimal-routing-case-2"></a>Przypadek routingu nieoptymalnego 2
+## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Suboptymalny routing od firmy Microsoft do klienta
 Oto inny przykład, w którym połączenia z firmy Microsoft używają dłuższej ścieżki, by dotrzeć do sieci. W tym przypadku używasz lokalnych serwerów programu Exchange i usługi Exchange Online w [środowisku hybrydowym](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Biura są połączone z siecią WAN. Prefiksy serwerów lokalnych w obu biurach są anonsowane do firmy Microsoft za pośrednictwem dwóch obwodów usługi ExpressRoute. Usługa Exchange Online inicjuje połączenia z serwerami lokalnymi w takich sytuacjach jak migracja skrzynek pocztowych. Niestety połączenie z biurem w Los Angeles zostaje skierowane do obwodu usługi ExpressRoute we wschodnich stanach USA, po czym przechodzi cały kontynent z powrotem na zachodnie wybrzeże. Przyczyna tego problemu jest podobna do pierwszej. Bez żadnej wskazówki sieć firmy Microsoft nie może rozróżnić, który prefiks klienta jest blisko wschodnich, a który blisko zachodnich stanów USA. Czasami wybiera nieprawidłową ścieżkę do biura w Los Angeles.
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
@@ -58,6 +58,6 @@ Drugim rozwiązaniem jest dalsze anonsowanie obu prefiksów w obu obwodach usłu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

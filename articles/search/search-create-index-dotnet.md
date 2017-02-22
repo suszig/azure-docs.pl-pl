@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
 
 
 ---
@@ -36,10 +36,10 @@ Przed rozpoczęciem pracy z przewodnikiem oraz przed utworzeniem indeksu powinna
 
 Należy zwrócić uwagę, że cały przykładowy kod przedstawiony w tym artykule został napisany w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identyfikowanie klucza api-key administratora usługi Azure Search
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identyfikowanie klucza api-key administratora usługi Azure Search
 Po aprowizowaniu usługi Azure Search wszystko jest już prawie gotowe, aby móc wysyłać żądania do punktu końcowego usługi za pomocą zestawu .NET SDK. Najpierw należy uzyskać klucz api-key administratora, który został wygenerowany dla aprowizowanej usługi wyszukiwania. Zestaw .NET SDK przesyła ten klucz przy każdorazowym wysłaniu żądania do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-1. Aby znaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
+1. Aby znaleźć klucze api-key dla usługi, zaloguj się w witrynie [Azure Portal](https://portal.azure.com/)
 2. Przejdź do bloku usługi Azure Search
 3. Kliknij ikonę „Klucze”
 
@@ -52,7 +52,7 @@ Podczas tworzenia indeksu można użyć zarówno podstawowego, jak i pomocniczeg
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>II. Tworzenie wystąpienia klasy SearchServiceClient
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Tworzenie wystąpienia klasy SearchServiceClient
 Aby rozpocząć korzystanie z zestawu .NET SDK usługi Azure Search, konieczne jest utworzenie wystąpienia klasy `SearchServiceClient`. Ta klasa ma kilka konstruktorów. Konstruktor odpowiedni w tym przypadku przyjmuje jako parametry nazwę usługi wyszukiwania i obiekt `SearchCredentials`. `SearchCredentials` opakowuje klucz interfejsu API.
 
 Poniższy kod tworzy nową klasę `SearchServiceClient` przy użyciu wartości dla nazwy usługi wyszukiwania i klucza api-key, które są przechowywane w pliku konfiguracji aplikacji (`app.config` lub `web.config`):
@@ -73,7 +73,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index"></a>III. Definiowanie indeksu usługi Azure Search
+## <a name="define-your-azure-search-index"></a>Definiowanie indeksu usługi Azure Search
 Pojedyncze wywołanie metody `Indexes.Create` spowoduje utworzenie indeksu. Ta metoda przyjmuje jako parametr obiekt `Index`, który definiuje indeks usługi Azure Search. Należy utworzyć obiekt `Index` i zainicjować go w następujący sposób:
 
 1. Ustaw właściwość `Name` obiektu `Index` na nazwę Twojego indeksu.
@@ -156,7 +156,7 @@ var definition = new Index()
 };
 ```
 
-## <a name="iv-create-the-index"></a>IV. Tworzenie indeksu
+## <a name="create-the-index"></a>Tworzenie indeksu
 Po zainicjowaniu obiektu `Index` możesz utworzyć indeks przez wywołanie metody `Indexes.Create` względem obiektu `SearchServiceClient`:
 
 ```csharp
@@ -176,12 +176,12 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## <a name="next"></a>Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po utworzeniu indeksu usługi Azure Search można [przekazać zawartość do indeksu](search-what-is-data-import.md), aby rozpocząć wyszukiwanie danych.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

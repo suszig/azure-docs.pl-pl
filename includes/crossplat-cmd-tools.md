@@ -1,203 +1,203 @@
-# How to use the Azure Command-Line Tools for Mac and Linux
-This guide describes how to use the Azure Command-Line Tools for Mac and Linux to create and manage services in Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Azure Websites**, and **creating and managing Azure Virtual Machines**. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
+# <a name="how-to-use-the-azure-command-line-tools-for-mac-and-linux"></a>Jak używać narzędzi wiersza polecenia platformy Azure dla systemów Mac i Linux
+Ten przewodnik opisuje sposób korzystania z narzędzi wiersza polecenia platformy Azure dla systemów Mac i Linux do tworzenia usług na platformie Azure i zarządzania nimi. Uwzględnione scenariusze obejmują **instalowanie narzędzi**, **importowanie ustawień publikowania**, **tworzenie witryn Azure Websites i zarządzanie nimi** oraz **tworzenie maszyn wirtualnych Azure Virtual Machines i zarządzanie nimi**. Aby zapoznać się z kompleksową dokumentacją referencyjną, zobacz [Azure command-line tool for Mac and Linux Documentation][reference-docs] (Dokumentacja narzędzia wiersza polecenia platformy Azure dla systemów Mac i Linux). 
 
-## Table of contents
-* [What are the Azure Command-Line Tools for Mac and Linux](#Overview)
-* [How to install the Azure Command-Line Tools for Mac and Linux](#Download)
-* [How to create an Azure account](#CreateAccount)
-* [How to download and import publish settings](#Account)
-* [How to create and manage an Azure Web Site](#WebSites)
-* [How to create and manage an Azure Virtual Machine](#VMs)
+## <a name="table-of-contents"></a>Spis treści
+* [Jakie narzędzia wiersza polecenia platformy Azure są dostępne dla systemów Mac i Linux](#Overview)
+* [Jak zainstalować narzędzia wiersza polecenia platformy Azure dla systemów Mac i Linux](#Download)
+* [Jak utworzyć konto platformy Azure](#CreateAccount)
+* [Jak pobrać i zaimportować ustawienia publikowania](#Account)
+* [Jak utworzyć witrynę sieci Web platformy Azure i zarządzać nią](#WebSites)
+* [Jak utworzyć maszynę wirtualną platformy Azure i zarządzać nią](#VMs)
 
-<h2><a id="Overview"></a>What are the Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Overview"></a>Jakie narzędzia wiersza polecenia platformy Azure są dostępne dla systemów Mac i Linux</h2>
 
-The Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Azure services.
+Narzędzia wiersza polecenia platformy Azure dla systemów Mac i Linux to zestaw narzędzi pozwalających na wdrażanie usług Azure i zarządzanie nimi.
 
-The supported tasks include the following:
+Obsługiwane zadania to m.in.:
 
-* Import publishing settings.
-* Create and manage Azure Websites.
-* Create and manage Azure Virtual Machines.
+* Importowanie ustawień publikowania.
+* Tworzenie witryn Azure Websites i zarządzanie nimi.
+* Tworzenie maszyn wirtualnych Azure Virtual Machines i zarządzanie nimi.
 
-For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
+Aby zapoznać się z pełną listą obsługiwanych poleceń, wpisz polecenie `azure -help` w wierszu polecenia po zainstalowaniu narzędzi lub zobacz [dokumentację referencyjną][reference-docs].
 
-<h2><a id="Download">How to install the Azure Command-Line Tools for Mac and Linux</a></h2>
+<h2><a id="Download">Jak zainstalować narzędzia wiersza polecenia platformy Azure dla systemów Mac i Linux</a></h2>
 
-The following list contains information for installing the command-line tools, depending on your operating system:
+Poniższa lista zawiera informacje dotyczące instalowania narzędzi wiersza polecenia, w zależności od systemu operacyjnego:
 
-* **Mac**: Download the [Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
-* **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
+* **Mac**: Pobierz [instalator zestawu Azure SDK][mac-installer]. Otwórz pobrany plik pkg i wykonaj kroki instalacji zgodnie z wyświetlanymi monitami.
+* **Linux**: Zainstaluj najnowszą wersję środowiska [Node.js][nodejs-org], zobacz [Install Node.js via Package Manager][install-node-linux] (Instalowanie środowiska Node.js przy użyciu menedżera pakietów), i uruchom następujące polecenie:
   
         npm install azure-cli -g
   
-    **Note**: You may need to run this command with elevated privileges:
+    **Uwaga**: może być konieczne uruchomienie tego polecenia z podwyższonym poziomem uprawnień:
   
         sudo npm install azure-cli -g
-* **Windows**: Run the Winows installer (.msi file), which is available here: [Azure Command Line Tools][windows-installer].
+* **Windows**: uruchom instalator systemu Windows (plik msi), który jest dostępny tutaj: [narzędzia wiersza polecenia platformy Azure][windows-installer].
 
-To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
+Aby przetestować instalację, wpisz polecenie `azure` w wierszu polecenia. Jeśli instalacja się powiodła, zostanie wyświetlona lista wszystkich dostępnych poleceń `azure`.
 
-<h2><a id="CreateAccount"></a>How to create an Azure account</h2>
+<h2><a id="CreateAccount"></a>Jak utworzyć konto platformy Azure</h2>
 
-To use the Azure Command-Line Tools for Mac and Linux, you will need an Azure account.
+Aby używać narzędzi wiersza polecenia platformy Azure dla systemów Mac i Linux, potrzebne jest konto platformy Azure.
 
-Open a web browser and browse to [http://www.windowsazure.com][windowsazuredotcom] and click **free trial** in the upper right corner.
+Otwórz przeglądarkę sieci Web, przejdź do witryny [http://www.windowsazure.com][windowsazuredotcom] i kliknij pozycję **Bezpłatne konto** w prawym górnym rogu.
 
-![Azure Web Site][Azure Web Site]
+![Witryna sieci Web platformy Azure][Azure Web Site]
 
-Follow the instructions for creating an account.
+Postępuj zgodnie z instrukcjami dotyczącymi tworzenia konta.
 
-<h2><a id="Account"></a>How to download and import publish settings</h2>
+<h2><a id="Account"></a>Jak pobrać i zaimportować ustawienia publikowania</h2>
 
-To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
+Aby rozpocząć pracę, należy najpierw pobrać i zaimportować swoje ustawienia publikowania. Dzięki temu będzie można korzystać z narzędzi do tworzenia usług Azure i zarządzania nimi. Aby pobrać swoje ustawienia publikowania, użyj polecenia `account download`:
 
     azure account download
 
-This will open your default browser and prompt you to sign in to the Management Portal. After signing in, your `.publishsettings` file will be downloaded. Make note of where this file is saved.
+Spowoduje to otworzenie domyślnej przeglądarki i wyświetlenie monitu o zalogowanie się do portalu zarządzania. Po zalogowaniu się Twój plik `.publishsettings` zostanie pobrany. Zanotuj miejsce, w którym plik został zapisany.
 
-Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
+Następnie zaimportuj plik `.publishsettings`, uruchamiając następujące polecenie, przy czym zmienną `{path to .publishsettings file}` zastąp ścieżką do Twojego pliku `.publishsettings`:
 
     azure account import {path to .publishsettings file}
 
-You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:
+Wszystkie informacje zapisane przez polecenie <code>import</code> możesz usunąć za pomocą polecenia <code>account clear</code>:
 
     azure account clear
 
-To see a list of options for `account` commands, use the `-help` option:
+Aby zobaczyć listę opcji poleceń `account`, skorzystaj z opcji `-help`:
 
     azure account -help
 
-After importing your publish settings, you should delete the `.publishsettings` file for security reasons.
+Po zaimportowaniu ustawień publikowania ze względów bezpieczeństwa usuń plik `.publishsettings`.
 
 > [!NOTE]
-> When you import publish settings, credentials for accessing your Azure subscription are stored inside your `user` folder. Your `user` folder is protected by your operating system. However, it is recommended that you take additional steps to encrypt your `user` folder. You can do so in the following ways:    
+> Podczas importowania ustawień publikowania poświadczenia umożliwiające uzyskanie dostępu do Twojej subskrypcji platformy Azure są zapisywane w folderze `user`. Folder `user` jest chroniony przez system operacyjny. Zaleca się jednak wykonanie dodatkowych kroków w celu zaszyfrowania folderu `user`. Można to zrobić na następujące sposoby:    
 > 
-> * On Windows, modify the folder properties or use BitLocker.
-> * On Mac, turn on FileVault for the folder.
-> * On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.
+> * W systemie Windows zmodyfikuj właściwości folderu lub użyj funkcji BitLocker.
+> * W systemie Mac włącz funkcję FileVault dla folderu.
+> * W systemie Ubuntu skorzystaj z funkcji zaszyfrowanego katalogu głównego. Inne dystrybucje systemu Linux oferują równoważne funkcje.
 > 
 > 
 
-You are now ready to being creating and managing Azure Websites and Azure Virtual Machines.  
+Teraz możesz przystąpić do tworzenia witryn Azure Websites i maszyn wirtualnych Azure Virtual Machines oraz zarządzania nimi.  
 
-<h2><a id="WebSites"></a>How to create and manage an Azure Website</h2>
+<h2><a id="WebSites"></a>Jak utworzyć witrynę sieci Web platformy Azure i zarządzać nią</h2>
 
-### Create a Website
-To create an Azure website, first create an empty directory called `MySite` and browse into that directory.
+### <a name="create-a-website"></a>Tworzenie witryny sieci Web
+Aby utworzyć witrynę sieci Web platformy Azure, najpierw utwórz pusty katalog o nazwie `MySite` i przejdź do tego katalogu.
 
-Then, run the following command:
+Następnie uruchom poniższe polecenie:
 
     azure site create MySite --git
 
-The output from this command will contain the default URL for the newly created website. The `--git` option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+Dane wyjściowe tego polecenia będą zawierać domyślny adres URL dla nowo utworzonej witryny sieci Web. Opcja `--git` pozwala na używanie sytemu Git do publikowania w witrynie sieci Web dzięki utworzeniu repozytoriów Git zarówno w lokalnym katalogu aplikacji, jak i w centrum danych witryny sieci Web. Zauważ, że jeśli folder lokalny już jest repozytorium Git, polecenie spowoduje dodanie do istniejącego repozytorium nowego repozytorium zdalnego wskazującego repozytorium w centrum danych witryny sieci Web.
 
-Note that you can execute the `azure site create` command with any of the following options:
+Polecenie `azure site create` można wykonywać z dowolną z następujących opcji:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
+* `--location [location name]`. Ta opcja umożliwia określenie lokalizacji centrum danych, w którym zostanie utworzona witryna sieci Web (np. „Zachodnie stany USA”). W przypadku pominięcia tej opcji zostanie wyświetlony monit, aby wybrać lokalizację.
+* `--hostname [custom host name]`. Ta opcja pozwala określić niestandardową nazwę hosta dla witryny sieci Web.
 
-You can then add content to your website directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your website content to Azure: 
+Następnie możesz dodać zawartość do katalogu witryny sieci Web. Użyj zwykłego przepływu Git (`git add`, `git commit`) do zatwierdzenia zawartości. Za pomocą następującego polecenia Git wypchnij zawartość witryny sieci Web na platformę Azure: 
 
     git push azure master
 
-### Set up publishing from GitHub
-To set up continuous publishing from a GitHub repository, use the `--GitHub` option when creating a site:
+### <a name="set-up-publishing-from-github"></a>Konfigurowanie publikowania z usługi GitHub
+Aby skonfigurować publikowanie ciągłe z repozytorium GitHub, użyj opcji `--GitHub` podczas tworzenia witryny:
 
     auzre site create MySite --github --githubusername username --githubpassword password --githubrepository githubuser/reponame
 
-If you have a local clone of a GitHub repository or if you have a repository with a single remote reference to a GitHub repository, this command will automatically publish code in the GitHub repository to your site. From then on, any changes pushed to the GitHub repository will automatically be published to your site.
+Jeśli masz lokalnego klona repozytorium GitHub lub repozytorium z jednym odwołaniem zdalnym do repozytorium GitHub, to polecenie automatycznie opublikuje kod w repozytorium GitHub w Twojej witrynie. Od tego momentu wszystkie zmiany wypychane do repozytorium GitHub będą automatycznie publikowane w witrynie.
 
-When you set up publishing from GitHub, the default branch used is the master branch. To specify a different branch, execute the following command from your local repository:
+Po skonfigurowaniu publikowania z usługi GitHub domyślnie używana gałąź to gałąź główna. Aby określić inną gałąź, wykonaj następujące polecenie w repozytorium lokalnym:
 
     azure site repository <branch name>
 
-### Configure app settings
-App settings are key-value pairs that are available to your application at runtime. When set for an Azure Website, app setting values will override settings with the same key that are defined in your site's Web.config file. For Node.js and PHP applications, app settings are available as environment variables. The following example shows you how to set a key-value pair:
+### <a name="configure-app-settings"></a>Konfigurowanie ustawień aplikacji
+Ustawienia aplikacji to pary klucz-wartość, które są dostępne dla aplikacji w czasie wykonywania. Określenie wartości ustawień aplikacji dla witryny sieci Web platformy Azure spowoduje zastąpienie ustawień zdefiniowanych w pliku Web.config witryny, które mają ten sam klucz. W przypadku aplikacji Node.js i PHP ustawienia aplikacji są dostępne jako zmienne środowiskowe. W poniższym przykładzie przedstawiono sposób ustawiania pary klucz-wartość:
 
     azure site config add <key>=<value> 
 
-To see a list of all key/value pairs, use the following:
+Aby wyświetlić listę wszystkich par klucz-wartość, użyj następującego polecenia:
 
     azure site config list 
 
-Or if you know the key and want to see the value, you can use:
+Jeśli znasz klucz i chcesz wyświetlić wartość, możesz także użyć polecenia:
 
     azure site config get <key> 
 
-If you want to change the value of an existing key you must first clear the existing key and then re-add it. The clear command is:
+Aby zmienić wartość istniejącego klucza, musisz najpierw wyczyścić istniejący klucz, a następnie ponownie go dodać. Polecenie czyszczenia jest następujące:
 
     azure site config clear <key> 
 
-### List and show sites
-To list your websites, use the following command:
+### <a name="list-and-show-sites"></a>Wyświetlanie listy witryn i informacji o witrynach
+Aby wyświetlić listę witryn sieci Web, użyj następującego polecenia:
 
     azure site list
 
-To get detailed information about a site, use the `site show` command. The following example shows details for `MySite`:
+Aby uzyskać szczegółowe informacje dotyczące witryny, użyj polecenia `site show`. W poniższym przykładzie przedstawiono szczegółowe informacje dotyczące witryny `MySite`:
 
     azure site show MySite
 
-### Stop, start, or restart a site
-You can stop, start, or restart a site with the `site stop`, `site start`, or `site restart` commands:
+### <a name="stop-start-or-restart-a-site"></a>Zatrzymywanie, uruchamianie lub ponowne uruchamianie witryny
+Witrynę możesz zatrzymać, uruchomić lub uruchomić ponownie przy użyciu polecenia `site stop`, `site start` lub `site restart`:
 
     azure site stop MySite
     azure site start MySite
     azure site restart MySite
 
-### Delete a site
-Finally, you can delete a site with the `site delete` command:
+### <a name="delete-a-site"></a>Usuwanie witryny
+Dodatkowo możesz też usunąć witrynę za pomocą polecenia `site delete`:
 
     azure site delete MySite
 
-Note that if you are running any of above commands from inside the folder where you ran `site create`, you do not need to specify the site name `MySite` as the last parameter.
+Pamiętaj, że jeśli uruchamiasz dowolne z powyższych poleceń z poziomu folderu, w którym uruchomiono polecenie `site create`, nie musisz określać nazwy witryny `MySite` jako ostatniego parametru.
 
-To see a complete list of `site` commands, use the `-help` option:
+Aby wyświetlić pełną listę poleceń `site`, podaj opcję `-help`:
 
     azure site -help 
 
-<h2><a id="VMs"></a>How to create and manage an Azure Virtual Machine</h2>
+<h2><a id="VMs"></a>Jak utworzyć maszynę wirtualną platformy Azure i zarządzać nią</h2>
 
-an Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is available in the Image Gallery. To see images that are available, use the `vm image list` command:
+Maszyna wirtualna platformy Azure jest tworzona z obrazu maszyny wirtualnej (pliku vhd) udostępnionego przez Ciebie lub dostępnego w galerii obrazów. Aby wyświetlić dostępne obrazy, użyj polecenia `vm image list`:
 
     azure vm image list
 
-You can provision and start a virtual machine from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the virtual machine are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the virtual machine is created. If you omit the `--location` parameter, you will be prompted to choose a location.)
+Aby aprowizować i uruchomić maszynę wirtualną na podstawie jednego z dostępnych obrazów, skorzystaj z polecenia `vm create`. Poniższy przykład przedstawia sposób tworzenia maszyny wirtualnej z systemem Linux (o nazwie `myVM`) na podstawie obrazu pochodzącego z galerii obrazów (CentOS 6.2). Nazwa i hasło użytkownika głównego maszyny wirtualnej to odpowiednio `myusername` i `Mypassw0rd`. (Pamiętaj, że parametr `--location` określa centrum danych, w którym maszyna wirtualna zostanie utworzona. W przypadku pominięcia parametru `--location` zostanie wyświetlony monit, aby wybrać lokalizację).
 
     azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
 
-You may consider passing the `--ssh` flag (Linux) or `--rdp` flag (Windows) to `vm create` to enable remote connections to the newly-created virtual machine.
+Opcjonalnie możesz przekazać flagę `--ssh` (Linux) lub `--rdp` (Windows) do polecenia `vm create`, aby włączyć połączenia zdalne z nowo utworzoną maszyną wirtualną.
 
-If you would rather provision a virtual machine from a custom image, you can create an image from a .vhd file with the `vm image create` command, then use the `vm create` command to provision the virtual machine. The following example shows how to create a Linux image (called `myImage`) from a local .vhd file. (The `--location` parameter specifies the data in which the image is stored.)
+Jeśli wolisz aprowizować maszynę wirtualną z obrazu niestandardowego, możesz utworzyć obraz z pliku vhd za pomocą polecenia `vm image create`, a następnie skorzystać z polecenia `vm create`, aby aprowizować maszynę wirtualną. Poniższy przykład przedstawia sposób tworzenia obrazu systemu Linux (o nazwie `myImage`) z lokalnego pliku vhd. (Parametr `--location` określa centrum danych, w którym obraz zostanie zapisany).
 
     azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
-Instead of creating an image from a local .vhd, you can create an image from a .vhd stored in Azure Blob Storage. You can do this with the `blob-url` parameter:
+Zamiast tworzyć obraz z lokalnego pliku vhd, możesz utworzyć obraz z pliku vhd przechowywanego w usłudze Azure Blob Storage. W tym celu możesz użyć parametru `blob-url`:
 
     azure vm image create myImage --blob-url <url to .vhd in Blob Storage> --os linux
 
-After creating an image, you can provision a virtual machine from the image by using `vm create`. The command below creates a virtual machine called `myVM` from the image created above (`myImage`).
+Po utworzeniu obrazu możesz aprowizować maszynę wirtualną na podstawie obrazu za pomocą polecenia `vm create`. Poniższe polecenie tworzy maszynę wirtualną o nazwie `myVM` z obrazu utworzonego powyżej (`myImage`).
 
     azure vm create myVM myImage myusername --location "West US"
 
-After you have provisioned a virtual machine, you may want to create endpoints to allow remote access to your virtual machine (for example). The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myVM`:
+Po aprowizowaniu maszyny wirtualnej możesz utworzyć punkty końcowe, aby (na przykład) umożliwić uzyskiwanie dostępu zdalnego do maszyny wirtualnej. W poniższym przykładzie użyto polecenia `vm create endpoint`, aby otworzyć zewnętrzny port 22 i lokalny port 22 w maszynie wirtualnej `myVM`:
 
     azure vm endpoint create myVM 22 22
 
-You can get detailed information about a virtual machine (including IP address, DNS name, and endpoint information) with the `vm show` command:
+Za pomocą polecenia `vm show` możesz uzyskać szczegółowe informacje dotyczące maszyny wirtualnej (w tym adres IP, nazwę DNS i informacje o punkcie końcowym):
 
     azure vm show myVM
 
-To shutdown, start, or restart the virtual machine, use one of the following commands:
+Aby zamknąć, uruchomić lub ponownie uruchomić maszynę wirtualną, użyj jednego z następujących poleceń:
 
     azure vm shutdown myVM
     azure vm start myVM
     azure vm restart myVM
 
-And finally, to delete the VM, use the `vm delete` command:
+Aby usunąć maszynę wirtualną, użyj polecenia `vm delete`:
 
     azure vm delete myVM
 
-For a complete list of commands for creating and managing virtual machines, use the `-h` option:
+Aby uzyskać pełną listę poleceń służących do tworzenia maszyn wirtualnych i zarządzania nimi, użyj opcji `-h`:
 
     azure vm -h
 
@@ -211,4 +211,9 @@ For a complete list of commands for creating and managing virtual machines, use 
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
+
+
+
+<!--HONumber=Jan17_HO5-->
+
 

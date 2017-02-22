@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
+ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
+ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](active-directory-users-create-external-azure-portal.md)
 > * [Klasyczna witryna Azure Portal](active-directory-create-users-external.md)
-> 
-> 
+>
+>
 
 W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
 
@@ -34,7 +34,7 @@ W tym artykule opisano sposób dodawania użytkowników z innych katalogów w us
 2. Wybierz usługę **Active Directory**, a następnie otwórz swój katalog.
 3. Wybierz kartę **Użytkownicy**, a następnie na pasku poleceń wybierz polecenie **Dodaj użytkownika**.
 4. Na stronie **Poinformuj nas o tym użytkowniku** w obszarze **Typ użytkownika** wybierz jedną z następujących opcji:
-   
+
    * **Użytkownik w innym katalogu usługi Azure AD** — dodaje do katalogu konto użytkownika, które pochodzi z innego katalogu usługi Azure AD. Możesz wybrać użytkownika w innym katalogu tylko wtedy, gdy również jesteś członkiem tego katalogu.
    * **Użytkownicy w firmach partnerskich** — aby zaprosić użytkowników firm partnerskich i autoryzować ich do katalogu (zobacz [Współpraca w usłudze Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md)). Konieczne będzie [przekazanie pliku CSV zawierającego adresy e-mail](active-directory-b2b-references-csv-file-format.md).
 5. Na stronie **Profil** użytkownika podaj imię i nazwisko, nazwę przyjazną użytkownikowi i rolę użytkownika z listy **Role**. Aby uzyskać więcej informacji dotyczących ról użytkowników i administratorów, zobacz [Przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles.md). Określ, czy **włączyć usługę Multi-Factor Authentication** dla użytkownika.
@@ -42,11 +42,11 @@ W tym artykule opisano sposób dodawania użytkowników z innych katalogów w us
 
 > [!IMPORTANT]
 > Jeśli Twoja organizacja korzysta z więcej niż jednej domeny, podczas dodawania konta użytkownika musisz wiedzieć o następujących kwestiach:
-> 
+>
 > * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com,, **a następnie** geoffgrisso@contoso.com.
 > * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com. Ta kolejność jest ważna, a jej cofnięcie może być kłopotliwe.
-> 
-> 
+>
+>
 
 Jeśli wprowadzasz zmiany w informacjach dla użytkownika, którego tożsamość jest zsynchronizowana z lokalną usługą Active Directory, nie możesz wprowadzać zmian w informacjach o użytkowniku w klasycznym portalu Azure. Aby zmienić informacje o użytkowniku, użyj narzędzi zarządzania lokalnej usługi Active Directory.
 
@@ -62,8 +62,8 @@ Jedyne połączenie dwóch kont polega na tym, że użytkownik zawsze jest uwier
 
 > [!NOTE]
 > Wciąż możesz zablokować użytkownika zewnętrznego w katalogu, co powoduje zablokowanie dostępu do katalogu.
-> 
-> 
+>
+>
 
 Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje konto Microsoft, użytkownik zewnętrzny będzie nadal istnieć w Twoim katalogu. Jednak użytkownik w Twoim katalogu nie będzie mieć dostępu do zasobów, ponieważ nie będzie mógł uwierzytelnić się przy użyciu katalogu macierzystego ani konta Microsoft.
 
@@ -79,6 +79,7 @@ Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje
 * Usługa Power BI nie obsługuje obecnie dostępu użytkowników zewnętrznych
 * Portal pakietu Office nie obsługuje licencji użytkowników zewnętrznych
 * W odniesieniu do programu PowerShell usługi Azure AD użytkownicy zewnętrzni logują się do katalogu macierzystego i nie mogą zarządzać katalogami, w których występują jako użytkownicy zewnętrzni
+* Podczas konfigurowania wtyczki aplikacji Dynamics CRM dla programu Outlook istnieje możliwość, że użytkownicy zewnętrzni będę musieli ręcznie wprowadzić adres URL dzierżawy usługi Dynamics CRM Online zamiast wybrać opcję „CRM Online”
 
 ## <a name="whats-next"></a>Co dalej
 * [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md)
@@ -88,7 +89,6 @@ Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

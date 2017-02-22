@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fa0fe7ee7b0a24b679b86dece2a3294004b57815
+ms.sourcegitcommit: 46e6ab8a9c5d4e6a00d61ee4e5bbfd42307bfc69
+ms.openlocfilehash: 5ec35fb0171a4a62b915579b5a079060132998dd
 
 
 ---
@@ -38,7 +38,7 @@ Poniższe elementy to znane implementacje usługi [Application Insights](app-ins
 * [ASP.NET — dla aplikacji, które już działają](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET 5](app-insights-asp-net-core.md)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-* [Aplikacje sieci Web i maszyny wirtualne platformy Azure](app-insights-azure-web-apps.md)
+* [Azure Web Apps](app-insights-azure-web-apps.md)
 * Usługi [Azure Cloud Services](app-insights-cloudservices.md) &#151; w tym role sieci Web i procesu roboczego
 * [Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 * [Docker](app-insights-docker.md)
@@ -68,7 +68,7 @@ Poniższe elementy to znane implementacje usługi [Application Insights](app-ins
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
-* [Orchard](https://orchardazureappinsights.codeplex.com) 
+* [Orchard](https://orchardazureappinsights.codeplex.com)
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
@@ -82,7 +82,6 @@ Jeśli brakuje zestawu SDK dla potrzebnego języka lub platformy, może zechcesz
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

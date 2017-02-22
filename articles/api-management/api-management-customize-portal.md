@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,17 +43,17 @@ Teraz nowy nagłówek powinien być widoczny na każdej stronie portalu dla dewe
 > 
 
 ## <a name="change-headers-styling"> </a>Zmiana stylu nagłówków
-Kolory, czcionki, rozmiary, odstępy i inne elementy stylu związane z dowolną stroną portalu są definiowane przez reguły stylów. Aby edytować style, kliknij pozycję **Wygląd** w menu **Portal dla deweloperów** w portalu wydawcy. Następnie kliknij przycisk **Rozpocznij dostosowywanie**, aby włączyć edytor stylów.
+Kolory, czcionki, rozmiary, odstępy i inne elementy stylu związane z dowolną stroną portalu są definiowane przez reguły stylów. Aby edytować style z poziomu **Portalu dla deweloperów**, otwórz pasek narzędzi do dostosowywania po lewej stronie, umieszczając kursor na ikonie dostosowywania, a następnie z paska narzędzi wybierz pozycję „style”.
 
-Przeglądarka przełączy się na ukrytą stronę w portalu dla deweloperów, która zawiera próbki zawartości wraz z przykładami dla wszystkich reguł stylów używanych w dowolnym miejscu witryny. Aby otworzyć edytor stylów, przesuń kursor nad cienką, szarą, pionową linię w lewej części strony. Powinien pojawić się pasek narzędzi edytora.
+![Przycisk paska narzędzi do dostosowywania][api-management-customization-toolbar-button]
+
+Istnieją dwa główne sposób edycji reguł stylów — można przeglądać listę wszystkich reguł stylów używanych w dowolnym miejscu (która jest wyświetlana domyślnie) i modyfikować styl zgodnie z potrzebami lub można wybrać pozycję **Wybierz element na stronie**, a następnie kliknąć dowolne miejsce na stronie, aby wyświetlić tylko style odpowiednie dla tego elementu.
+
+W tej części chcemy zmienić tylko style nagłówków. Kliknij opcję **Wybierz element na stronie** na pasku narzędzi edytora stylów. 
 
 ![Pasek narzędzi do dostosowywania][api-management-customization-toolbar]
 
-Dostępne są dwa główne tryby edycji reguł stylów — opcja **Edytuj wszystkie reguły** powoduje wyświetlenie listy wszystkich reguł stylów używanych w dowolnym miejscu, natomiast opcja **Wybierz element** pozwala na wybór elementu z otwartej strony, a następnie wyświetlenie stylów tylko dla tego elementu.
-
-W tej części chcemy zmienić tylko style nagłówków. Kliknij opcję **Wybierz element** na pasku narzędzi edytora stylów, a następnie kliknij opcję **Wybierz element, aby dostosować**. Teraz umieszczenie kursora myszy nad elementami powoduje ich wyróżnienie, a kliknięcie wyróżnionego elementu pozwala rozpocząć edycję jego stylów. Ustaw wskaźnik myszy nad tekstem, który jest używany jako nazwa firmy w nagłówku („Portal dla deweloperów firmy Fabrikam”, jeśli zastosowano wcześniejsze instrukcje), a następnie kliknij go. W edytorze stylów pojawi się zestaw nazwanych i podzielonych na kategorie reguł stylów.
-
-Każda reguła reprezentuje właściwość stylu wybranego elementu. Na przykład w wybranym powyżej tekście nagłówka rozmiar tekstu to @font-size-h1, a nazwa czcionki z alternatywami to @headings-font-family.
+Teraz umieszczenie kursora myszy nad elementami powoduje ich wyróżnienie, a kliknięcie wyróżnionego elementu pozwala rozpocząć edycję jego stylów. Ustaw wskaźnik myszy nad tekstem, który jest używany jako nazwa firmy w nagłówku („Portal dla deweloperów firmy Fabrikam”, jeśli zastosowano wcześniejsze instrukcje), a następnie kliknij go. W edytorze stylów pojawi się zestaw nazwanych i podzielonych na kategorie reguł stylów. Każda reguła reprezentuje właściwość stylu wybranego elementu. Na przykład w wybranym powyżej tekście nagłówka rozmiar tekstu to @font-size-h1, a nazwa czcionki z alternatywami to @headings-font-family.
 
 > Jeśli znasz środowisko [bootstrap][bootstrap], zauważysz, że te reguły są w rzeczywistości [zmiennymi LESS][LESS variables] w motywie bootstrap używanym w portalu dla deweloperów.
 > 
@@ -63,7 +63,7 @@ Zmienimy teraz kolor tekstu nagłówka. Zaznacz zawartość pola **@headings-col
 
 ![Selektor kolorów][api-management-customization-toolbar-color-picker]
 
-Po zakończeniu wprowadzania zmian w stylach wybranego elementu kliknij opcję **Podgląd zmian**, aby wyświetlić wyniki na ekranie. W tym momencie są one widoczne tylko dla administratorów. Aby zmiany stały się widoczne dla wszystkich użytkowników, kliknij przycisk **Publikuj** znajdujący się w edytorze stylów i zatwierdź zmiany.
+Zmiany można podglądać w czasie rzeczywistym podczas ich wprowadzania, ale są one widoczne tylko dla administratorów. Aby zmiany stały się widoczne dla wszystkich użytkowników, kliknij przycisk **Publikuj** znajdujący się w edytorze stylów i zatwierdź zmiany.
 
 ![Menu Publikuj][api-management-customization-toolbar-publish-form]
 
@@ -96,6 +96,7 @@ Kliknij stronę **Zapraszamy**, aby edytować zawartość strony głównej porta
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -107,6 +108,6 @@ Kliknij stronę **Zapraszamy**, aby edytować zawartość strony głównej porta
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

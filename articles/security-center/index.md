@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure Security Center — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak skonfigurować monitorowanie zabezpieczeń i zarządzanie zasadami dla zasobów platformy Azure. Samouczki, dokumentacja interfejsu API REST i inne dokumenty."
+services: security-center
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: security-center
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
+ms.sourcegitcommit: 75d2819ed673b6283221d1e09507dd9f18a1bc99
+ms.openlocfilehash: 324192324831cbda13f23b784b37efcfd14808d3
 
 ---
 # <a name="security-center-documentation"></a>Dokumentacja usługi Security Center
@@ -83,12 +94,12 @@ Dowiedz się, jak używać usługi Security Center, aby uzyskać wgląd w zabezp
             </div>
         </div>
     </li>
-</ul>   
+</ul>    
 
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

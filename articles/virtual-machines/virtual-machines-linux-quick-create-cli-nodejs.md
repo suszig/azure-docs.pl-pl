@@ -214,6 +214,6 @@ Można również [użyć sterownika platformy Azure `docker-machine` z różnymi
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 
