@@ -14,6 +14,7 @@
 ## Zabezpieczanie zaplecza
 ### [Ochrona zaplecza interfejsu API sieci Web za pomocą usługi AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Łączenie z siecią wirtualną](api-management-using-with-vnet.md)
+### [Łączenie z wewnętrzną siecią wirtualną](api-management-using-with-internal-vnet.md)
 ### [Wzajemne uwierzytelnianie certyfikatów](api-management-howto-mutual-certificates.md)
 ## Konfigurowanie zasad
 ### [Buforowanie niestandardowe](api-management-sample-cache-by-key.md)
@@ -82,6 +83,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w ciągu pięciu minut (interfejs wiersza polecenia 2.0 w wersji zapoznawczej) | Dokumentacja firmy Microsoft"
+title: "Wdrażanie pierwszej aplikacji sieci Web w języku HTML na platformie Azure w ciągu pięciu minut (interfejs wiersza polecenia 2.0 w wersji zapoznawczej) | Microsoft Docs"
 description: "Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w usłudze App Service, wdrażając przykładową aplikację. Szybko rozpocznij rzeczywiste tworzenie aplikacji i od razu zobacz wyniki."
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 42f3f17366a37e10d746fe177a93a2432dbdcca2
+ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
+ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Wdrażanie pierwszej aplikacji sieci Web na platformie Azure w ciągu pięciu minut (interfejs wiersza polecenia 2.0 w wersji zapoznawczej)
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Wdrażanie pierwszej aplikacji sieci Web w języku HTML na platformie Azure w ciągu pięciu minut (interfejs wiersza polecenia 2.0 w wersji zapoznawczej)
 
 > [!div class="op_single_selector"]
 > * [Pierwsza witryna HTML](app-service-web-get-started-html.md)
@@ -57,7 +57,7 @@ Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu 
 * Konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Usługę [App Service](http://go.microsoft.com/fwlink/?LinkId=523751) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
+> Usługę [App Service](https://azure.microsoft.com/try/app-service/) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
@@ -154,6 +154,6 @@ Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją si
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

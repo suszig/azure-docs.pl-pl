@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure Batch — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak przy użyciu usługi Batch wydajnie uruchamiać aplikacje równoległe oraz aplikacje do obliczeń o wysokiej wydajności na dużą skalę. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+services: batch
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: aafd374ff1d72df90bd09479e18ac7ce83715cef
-ms.openlocfilehash: daf72b1a473e3940e889cd6caf78b709e08428c6
+ms.sourcegitcommit: a180f89814c3186e98018eee4d97a6b6904742cf
+ms.openlocfilehash: 11ec370ee2736d66d19a33eab938fe9639cafed7
 
 ---
 #<a name="batch-documentation"></a>Dokumentacja usługi Batch
@@ -128,7 +139,7 @@ Dowiedz się, jak przy użyciu usługi Batch wydajnie uruchamiać aplikacje rów
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -148,16 +159,10 @@ Dowiedz się, jak przy użyciu usługi Batch wydajnie uruchamiać aplikacje rów
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi Azure Batch </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

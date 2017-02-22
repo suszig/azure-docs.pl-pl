@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 2d4898694c69b5eb0194747982fa8bfbfea1f6f8
 
 
 ---
@@ -77,7 +77,7 @@ Wstępny indeks jest zazwyczaj ustalany na podstawie zestawu danych. Można uzup
 4. Kliknij kartę **Analizator**, jeśli chcesz określić analizatora języka na poziomie pola. Obecnie można określić tylko analizatory języka. Skorzystanie z analizatorów niestandardowych lub innych niż analizatory języka, takich jak analizatory słów kluczowych, wzorców itp., będzie wymagać kodu.
    
    * Kliknij pozycję **Możliwość wyszukiwania**, aby określić wyszukiwanie pełnotekstowe w polu i włączyć listę rozwijaną Analizator.
-   * Wybierz odpowiedni analizator. Aby uzyskać szczegółowe informacje, zobacz [Create an index for documents in multiple language](search-language-support.md) (Tworzenie indeksu dla dokumentów w wielu językach).
+   * Wybierz odpowiedni analizator. Zobacz [Create an index for documents in multiple language](search-language-support.md) (Tworzenie indeksu dla dokumentów w wielu językach).
 5. Kliknij pozycję **Sugestor**, aby włączyć podpowiedzi pojawiające się w trakcie pisania w wybranych polach.
 
 ## <a name="import-your-data"></a>Importowanie danych
@@ -93,7 +93,13 @@ W usłudze Azure Search aktualizacje strukturalne indeksu wymagają odbudowania 
 
 Do zmian, które nie wymagają odbudowania indeksu, należą: dodanie nowego pola, zmiana profilów oceniania, zmiana funkcji sugestii i zmiana analizatorów języka. Aby uzyskać więcej informacji, zobacz [Aktualizowanie indeksu](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
-## <a name="next-step"></a>Następny krok
+## <a name="query-an-index-using-search-explorer"></a>Tworzenie zapytań względem indeksu za pomocą Eksploratora wyszukiwania
+
+Portal zawiera **Eksplorator wyszukiwania**, który umożliwia tworzenie zapytań dotyczących indeksu bez konieczności pisania kodu. Eksploratora wyszukiwania można używać dla dowolnego indeksu.
+
+Środowisko wyszukiwania jest oparte na ustawieniach domyślnych, takich jak [prosta składnia](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) i domyślnym parametrze zapytania [searchMode (https://docs.microsoft.com/rest/api/searchservice/search-documents). Wyniki są zwracane w formacie JSON, co umożliwia inspekcję całego dokumentu.
+
+## <a name="next-steps"></a>Następne kroki
 Przejrzyj następujące linki, aby dowiedzieć się więcej o indeksatorach:
 
 * [Indeksowanie w usłudze Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -107,6 +113,6 @@ Przejrzyj następujące linki, aby dowiedzieć się więcej o indeksatorach:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

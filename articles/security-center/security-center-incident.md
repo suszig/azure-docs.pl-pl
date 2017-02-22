@@ -1,10 +1,10 @@
 ---
-title: "Obsługa zdarzeń naruszenia zabezpieczeń w usłudze Azure Security Center | Microsoft Docs"
+title: "Obsługa alertów zabezpieczeń w usłudze Azure Security Center | Microsoft Docs"
 description: "Ten dokument wyjaśnia, jak korzystać z funkcji usługi Azure Security Center do obsługi zdarzeń naruszenia zabezpieczeń."
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
+ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
+ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
 
 
 ---
@@ -32,25 +32,25 @@ W usłudze Security Center zdarzenie naruszenia zabezpieczeń to agregacja wszys
 Bieżące zdarzenia naruszenia zabezpieczeń można przeglądać przy użyciu kafelka alertów zabezpieczeń. Otwórz witrynę Azure Portal i wykonaj poniższe kroki, aby wyświetlić więcej szczegółowych informacji dotyczących poszczególnych zdarzeń naruszenia zabezpieczeń:
 
 1. Na pulpicie nawigacyjnym Centrum zabezpieczeń widoczny jest kafelek **Alerty zabezpieczeń**.
-   
+
     ![Kafelek Alerty zabezpieczeń w usłudze Security Center](./media/security-center-incident/security-center-incident-fig1.png)
 
 2. Kliknij kafelek, aby go rozwinąć. Jeśli zostanie wykryte zdarzenie naruszenia zabezpieczeń, pojawi się ono pod wykresem alertów zabezpieczeń, jak pokazano poniżej:
-   
+
     ![Zdarzenie naruszenia zabezpieczeń](./media/security-center-incident/security-center-incident-fig2.png)
 
 3. Należy zwrócić uwagę, że ikona opisu zdarzenia naruszenia zabezpieczeń różni się od ikon innych alertów. Kliknij tę ikonę, aby wyświetlić więcej informacji na temat tego zdarzenia.
-   
+
     ![Zdarzenie naruszenia zabezpieczeń](./media/security-center-incident/security-center-incident-fig3.png)
 
 4. W bloku **zdarzeń** pojawi się więcej szczegółów dotyczących danego zdarzenia, w tym: jego pełny opis, ważność (w tym przypadku jest wysoka), obecny stan (w tym przypadku nadal jest *aktywny*, co oznacza, że użytkownik nie podjął przy tym działań — można to zrobić, klikając prawym przyciskiem myszy zdarzenie w bloku **Alerty zabezpieczeń**). Znajdują się tutaj też informacje na temat zaatakowanego zasobu (w tym przypadku jest to *VM1*), kroki naprawcze dla tego zdarzenia, a w dolnym okienku są wyświetlone alerty, które wchodzą w skład tego zdarzenia. Jeśli chcesz uzyskać więcej informacji na temat każdego alertu, wystarczy kliknąć go, a otworzy się inny blok, jak pokazano poniżej:
-   
+
     ![Zdarzenie naruszenia zabezpieczeń](./media/security-center-incident/security-center-incident-fig4.png)
 
 Informacje w tym bloku będą się różnić w zależności od alertu. Więcej informacji na temat zarządzania alertami zabezpieczeń znajduje się w artykule [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md). Pewne istotne kwestie dotyczące tej funkcji:
 
-* Nowy filtr pozwala na dostosowanie widoku tak, aby wyświetlane były tylko zdarzenia, tylko alerty albo zdarzenia i alerty jednocześnie. 
-* Ten sam alert może istnieć w ramach zdarzenia (jeśli go dotyczy), ale może też być wyświetlany jako samodzielny alert. 
+* Nowy filtr pozwala na dostosowanie widoku tak, aby wyświetlane były tylko zdarzenia, tylko alerty albo zdarzenia i alerty jednocześnie.
+* Ten sam alert może istnieć w ramach zdarzenia (jeśli go dotyczy), ale może też być wyświetlany jako samodzielny alert.
 
 ## <a name="see-also"></a>Zobacz też
 W tym dokumencie przedstawiono sposób użycia funkcji zdarzeń naruszenia zabezpieczeń w usłudze Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
@@ -64,7 +64,6 @@ W tym dokumencie przedstawiono sposób użycia funkcji zdarzeń naruszenia zabez
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

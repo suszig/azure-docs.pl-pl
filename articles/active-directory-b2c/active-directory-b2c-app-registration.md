@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
-ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
+ms.sourcegitcommit: fd22e9596feecbc12e577a4abfb47552e1b6e520
+ms.openlocfilehash: da8f083cb7bca59501df080036e789a0fb75731e
 
 
 ---
@@ -29,7 +29,7 @@ Aby utworzyć aplikację, która akceptuje tworzenie kont i logowanie użytkowni
 ## <a name="navigate-to-the-b2c-features-blade"></a>Przechodzenie do bloku funkcji B2C
 Blok funkcji B2C przypięty do tablicy startowej będzie widoczny od razu po zalogowaniu do witryny [Azure Portal](https://portal.azure.com/) w roli administratora globalnego dzierżawy usługi B2C.
 
-Do bloku można również przejść, klikając pozycję **Przeglądaj**, a następnie pozycję **Azure AD B2C** w lewym okienku nawigacji w [witryny Azure Portal](https://portal.azure.com/).
+Do bloku można również przejść, klikając pozycję **Więcej usług**, a następnie wyszukując usługę **Azure AD B2C** w lewym okienku nawigacji w witrynie [Azure Portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
 > Tylko administrator globalny dzierżawy B2C może uzyskiwać dostęp do bloku funkcji B2C. Administrator globalny innej dzierżawy ani użytkownik dowolnej dzierżawy nie mogą uzyskać dostępu do tego bloku.  Na swoją dzierżawę B2C możesz przełączyć się, używając przełącznika dzierżawy w prawym górnym rogu witryny Azure Portal.
@@ -40,7 +40,7 @@ Do bloku można również przejść, klikając pozycję **Przeglądaj**, a nast�
 1. W bloku funkcji B2C w witrynie Azure Portal kliknij pozycję **Aplikacje**.
 2. Kliknij pozycję **+Dodaj** w górnej części bloku.
 3. Wprowadź wartość **Nazwa**, która będzie opisywać aplikację na potrzeby klientów. Możesz na przykład wprowadzić nazwę „Aplikacja Contoso B2C”.
-4. Jeśli piszesz aplikację opartą na sieci Web, przestaw przełącznik **Uwzględnij aplikację sieci Web/interfejs API sieci Web** na wartość **Tak**. **Adresy URL odpowiedzi** to punkty końcowe, w których usługa Azure AD B2C będzie zwracać wszystkie tokeny żądań aplikacji. Na przykład wprowadź wartość `https://localhost:44321/`. Jeśli aplikacja sieci Web będzie również wywoływała jakiś interfejs API sieci Web zabezpieczony za pomocą usługi Azure AD B2C, może być także konieczne utworzenie **klucza tajnego aplikacji** przez kliknięcie przycisku **Generuj klucz**.
+4. Jeśli piszesz aplikację opartą na sieci Web, przestaw przełącznik **Uwzględnij aplikację sieci Web/interfejs API sieci Web** na wartość **Tak**. **Adresy URL odpowiedzi** to punkty końcowe, w których usługa Azure AD B2C będzie zwracać wszystkie tokeny żądań aplikacji. Na przykład wprowadź wartość `https://localhost:44316/`. Jeśli aplikacja sieci Web będzie również wywoływała jakiś interfejs API sieci Web zabezpieczony za pomocą usługi Azure AD B2C, może być także konieczne utworzenie **klucza tajnego aplikacji** przez kliknięcie przycisku **Generuj klucz**.
    
    > [!NOTE]
    > **Klucz tajny aplikacji** jest ważnym poświadczeniem zabezpieczeń i powinien być odpowiednio zabezpieczony.
@@ -63,6 +63,6 @@ Po zarejestrowaniu aplikacji w usłudze Azure AD B2C możesz wykonać czynności
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

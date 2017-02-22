@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/23/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: ae1cacf0ff003e69a16d6beac48abc36a7f18896
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: a0c4cfb127934f86a7ce272c1aec2fd01331e17c
 
 
 ---
@@ -39,6 +39,10 @@ Aby skonfigurować zaporę, należy utworzyć reguły zapory określające zakre
 
 * **Reguły zapory na poziomie serwera:** te reguły umożliwiają klientom dostęp do całego serwera Azure SQL, to znaczy do wszystkich baz danych na tym samym serwerze logicznym. Reguły te są przechowywane w **głównej** bazie danych. Reguły zapory na poziomie serwera można skonfigurować za pomocą portalu lub za pomocą instrukcji języka Transact-SQL. Aby utworzyć reguły zapory na poziomie serwera przy użyciu witryny Azure Portal lub programu PowerShell, musisz być właścicielem bądź współautorem subskrypcji. Aby utworzyć regułę zapory na poziomie serwera przy użyciu języka Transact-SQL, musisz połączyć się z wystąpieniem usługi SQL Database za pomocą identyfikatora logowania podmiotu zabezpieczeń na poziomie serwera lub jako administrator usługi Azure Active Directory (co oznacza, że reguła zapory na poziomie serwera musi zostać pierwotnie utworzona przez użytkownika mającego uprawnienia na poziomie platformy Azure).
 * **Reguły zapory na poziomie bazy danych:** reguły te umożliwiają klientom dostęp do poszczególnych baz danych w ramach serwera usługi Azure SQL Database. Te reguły można utworzyć dla każdej bazy danych i są one przechowywane w poszczególnych bazach danych. (Można utworzyć reguły zapory na poziomie bazy danych dla **głównej** bazy danych). Reguły te mogą być pomocne w ograniczaniu dostępu do niektórych (bezpiecznych) baz danych na tym samym serwerze logicznym. Reguły zapory na poziomie bazy danych można skonfigurować tylko za pomocą instrukcji języka Transact-SQL.
+
+   > [!NOTE]
+   > Aby zapoznać się z samouczkiem prezentującym sposób korzystania z zapór na poziomie bazy danych, zobacz [Samouczek usługi SQL Database: uwierzytelnianie programu SQL Server, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-sql-authentication-get-started.md).
+   >
 
 **Zalecenie:** firma Microsoft zaleca korzystanie z reguł zapory na poziomie bazy danych zawsze wtedy, gdy jest to możliwe, aby zwiększyć poziom bezpieczeństwa i uczynić bazę danych bardziej przenośną. Reguły zapory na poziomie serwera powinny być używane dla administratorów i w przypadku, gdy wiele baz danych ma takie same wymagania dotyczące dostępu, a użytkownik nie chce poświęcać czasu na oddzielne konfigurowanie każdej bazy danych.
 
@@ -150,6 +154,6 @@ Aby dowiedzieć się, jak przechodzić do baz danych, zobacz artykuł [Manage da
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

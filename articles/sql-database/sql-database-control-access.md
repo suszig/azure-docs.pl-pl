@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/18/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
+ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
+ms.openlocfilehash: f12ed9d76e7c6db5e14ed3c00d7d4087dbd4069c
 
 
 ---
@@ -26,7 +26,8 @@ ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
 Aby zapewnić bezpieczeństwo, usługa SQL Database kontroluje dostęp za pomocą reguł zapory, ograniczając adresy IP dla połączeń, stosując mechanizmy uwierzytelniania wymagające potwierdzenia tożsamości przez użytkowników oraz mechanizmy autoryzacji ograniczające użytkowników do określonych działań i danych. 
 
 > [!IMPORTANT]
-> Aby zobaczyć przegląd funkcji zabezpieczeń usługi SQL Database, zobacz [omówienie zabezpieczeń usługi SQL](sql-database-security-overview.md).
+> Aby zobaczyć przegląd funkcji zabezpieczeń usługi SQL Database, zobacz [omówienie zabezpieczeń usługi SQL](sql-database-security-overview.md). Aby zapoznać się z samouczkiem dotyczącym korzystania z uwierzytelniania programu SQL Server, zobacz [Samouczek usługi SQL Database: uwierzytelnianie programu SQL Server, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-sql-authentication-get-started.md). Aby zapoznać się z samouczkiem dotyczącym korzystania z uwierzytelniania usługi Azure Active Directory, zobacz [Samouczek usługi SQL Database: uwierzytelnianie usługi AAD, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-aad-authentication-get-started.md).
+
 >
 
 ## <a name="firewall-and-firewall-rules"></a>Zapora i reguły zapory
@@ -69,10 +70,11 @@ Ponadto tych funkcji można użyć do ograniczenia lub podniesienia poziomu upra
 - Aby dowiedzieć się więcej o użytkownikach i danych logowania, zobacz [Zarządzanie danymi logowania](sql-database-manage-logins.md). 
 - Omówienie korzystania z funkcji ochrony danych w usłudze SQL Database zawiera artykuł dotyczący [ochrony i zabezpieczeń danych](sql-database-protect-data.md).
 - Omówienie aktywnego monitorowania zawierają artykuły z [wprowadzeniem do funkcji inspekcji usługi SQL Database](sql-database-auditing-get-started.md) i [wprowadzeniem do funkcji wykrywania zagrożeń usługi SQL Database](sql-database-threat-detection-get-started.md).
+- Aby zapoznać się z samouczkiem dotyczącym korzystania z uwierzytelniania programu SQL Server, zobacz [Samouczek usługi SQL Database: uwierzytelnianie programu SQL Server, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-sql-authentication-get-started.md).
+- Aby zapoznać się z samouczkiem dotyczącym korzystania z uwierzytelniania usługi Azure Active Directory, zobacz [Samouczek usługi SQL Database: uwierzytelnianie usługi AAD, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

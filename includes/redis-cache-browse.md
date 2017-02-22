@@ -14,6 +14,6 @@ Pamięć podręczną można wyświetlić i skonfigurować z poziomu bloku **Redi
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

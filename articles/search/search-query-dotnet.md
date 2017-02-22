@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
 
 
 ---
@@ -34,10 +34,10 @@ Przed rozpoczęciem pracy z tym przewodnikiem należy [utworzyć indeks usługi 
 
 Należy zwrócić uwagę, że cały przykładowy kod przedstawiony w tym artykule został napisany w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identyfikowanie klucza api-key zapytania usługi Azure Search
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identyfikowanie klucza api-key zapytania usługi Azure Search
 Po utworzeniu indeksu usługi Azure Search wszystko jest już prawie gotowe do wysyłania zapytań przy użyciu zestawu .NET SDK. Najpierw musisz uzyskać jeden z kluczy api-key zapytania, który został wygenerowany dla aprowizowanej usługi wyszukiwania. Zestaw .NET SDK przesyła ten klucz przy każdorazowym wysłaniu żądania do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-1. Aby znaleźć klucze api-key dla usługi, musisz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
+1. Aby znaleźć klucze api-key dla usługi, możesz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
 2. Przejdź do bloku usługi Azure Search
 3. Kliknij ikonę „Klucze”
 
@@ -48,7 +48,7 @@ Usługa będzie dysponować *kluczami administratora* i *kluczami zapytań*.
 
 W celu tworzenia zapytań względem indeksu można użyć dowolnego klucza zapytania. Do tworzenia zapytań można również używać kluczy administratora, ale w kodzie aplikacji należy używać klucza zapytania, ponieważ takie podejście jest bardziej zgodne z [zasadą najniższych uprawnień](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. Tworzenie wystąpienia klasy SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Tworzenie wystąpienia klasy SearchIndexClient
 Aby wysyłać zapytania przy użyciu zestawu .NET SDK usługi Azure Search, konieczne jest utworzenie wystąpienia klasy `SearchIndexClient`. Ta klasa ma kilka konstruktorów. Ten, który nas interesuje, przyjmuje jako parametry nazwę usługi wyszukiwania, nazwę indeksu i obiekt `SearchCredentials`. `SearchCredentials` opakowuje klucz interfejsu API.
 
 Poniższy kod tworzy nową klasę `SearchIndexClient` dla indeksu „hotels” (utworzonego w ramach instrukcji zawartych w temacie [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md) [Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK]) za pomocą wartości nazwy usługi wyszukiwania i klucza api-key, które są przechowywane w pliku konfiguracyjnym aplikacji (`app.config` lub `web.config`):
@@ -62,7 +62,7 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient` ma właściwość `Documents`. Ta właściwość zawiera wszystkie metody, które są potrzebne do tworzenie zapytań względem indeksów usługi Azure Search.
 
-## <a name="iii-query-your-index"></a>III. Tworzenie zapytań względem indeksu
+## <a name="query-your-index"></a>Tworzenie zapytań względem indeksu
 Wyszukiwanie za pomocą zestawu .NET SDK jest równie proste co wywołanie metody `Documents.Search` klasy `SearchIndexClient`. Ta metoda przyjmuje kilka parametrów, łącznie z tekstem wyszukiwania oraz obiektem `SearchParameters`, który może służyć do uściślenia zapytania.
 
 #### <a name="types-of-queries"></a>Typy zapytań
@@ -127,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="iv-handle-search-results"></a>IV. Obsługa wyników wyszukiwania
+## <a name="handle-search-results"></a>Obsługa wyników wyszukiwania
 Metoda `Documents.Search` zwraca obiekt `DocumentSearchResult` zawierający wyniki zapytania. W poprzedniej sekcji użyto metody o nazwie `WriteDocuments` w celu przekazania wyników wyszukiwania do konsoli:
 
 ```csharp
@@ -169,6 +169,6 @@ W powyższym przykładowym kodzie użyto konsoli do wyświetlenia wyników wyszu
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

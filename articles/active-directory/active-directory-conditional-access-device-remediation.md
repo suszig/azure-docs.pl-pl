@@ -6,18 +6,17 @@ keywords: "dostęp warunkowy oparty na urządzeniach, rejestracja urządzenia, w
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -48,7 +47,7 @@ Jeśli na urządzeniu jest uruchomiona jedna z następujących platform, poszuka
 ### <a name="device-is-not-registered"></a>Urządzenie nie jest zarejestrowane
 Jeśli urządzenie nie jest zarejestrowane w usłudze Azure AD, a aplikacja jest chroniona za pomocą zasad opartych na urządzeniach, może zostać wyświetlona strona zawierająca jeden z tych komunikatów o błędach:
 
-![Komunikaty „Nie można dostać się tam z tego miejsca” dotyczące niezarejestrowanych urządzeń](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![Komunikaty „Nie można dostać się tam z tego miejsca” dotyczące niezarejestrowanych urządzeń](./media/active-directory-conditional-access-device-remediation/01.png "Scenariusz")
 
 Jeśli urządzenie jest przyłączone do domeny w usłudze Active Directory w Twojej organizacji, wypróbuj następujące rozwiązania:
 
@@ -122,7 +121,7 @@ Problem odmowy dostępu możesz napotkać, jeśli próbujesz uzyskać dostęp do
 
 Zostanie wyświetlona strona błędu, która wygląda następująco:
 
-![Komunikat „Nie można dostać się tam z tego miejsca” dotyczący nieobsługiwanych przeglądarek](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+![Komunikat „Nie można dostać się tam z tego miejsca” dotyczący nieobsługiwanych przeglądarek](./media/active-directory-conditional-access-device-remediation/02.png "Scenariusz")
 
 Jedynym wyjściem jest korzystanie z przeglądarki obsługiwanej przez aplikację na danej platformie sprzętowej.
 
@@ -132,6 +131,6 @@ Jedynym wyjściem jest korzystanie z przeglądarki obsługiwanej przez aplikacj�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -75,6 +75,6 @@ Azure Data Lake Analytics to nowa usługa zaprojektowana z myślą o upraszczani
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

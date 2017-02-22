@@ -23,7 +23,7 @@
 ### [Najlepsze rozwiązania dotyczące automatycznego skalowania](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Typowe metryki automatycznego skalowania](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Automatyczne skalowanie zestawów skalowania maszyn wirtualnych przy użyciu szablonów usługi Resource Manager](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Automatyczne skalowanie maszyn w zestawie skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [Automatyczne skalowanie maszyn w zestawie skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Konfigurowanie elementów webhook i powiadomień e-mail dotyczących automatycznego skalowania](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## Używanie dziennika aktywności
 ### [Wyświetlanie zdarzeń w dzienniku aktywności](../monitoring-and-diagnostics/insights-debugging-with-events.md)
@@ -38,17 +38,22 @@
 ## Używanie interfejsu API REST
 ### [Przewodnik po korzystaniu z interfejsu API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
-
 # Dokumentacja
 ## [Program PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
+## [Schemat usługi Diagnostyka Azure](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+### [Schemat usługi Diagnostyka 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
+### [Schemat usługi Diagnostyka 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
+### [Schemat usługi Diagnostyka 1.3 do 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+
 
 # Zasoby
 ## [Przykłady programu PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Przykłady interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Przykłady interfejsu wiersza polecenia platformy Azure 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista obsługiwanych metryk](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do tworzenia wewnętrznego modułu równoważenia obciążenia za pomocą usługi Resource Manager w witrynie Azure Portal | Microsoft Docs"
+title: "Tworzenie wewnętrznego modułu równoważenia obciążenia — witryna Azure Portal | Microsoft Docs"
 description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia za pomocą usługi Resource Manager w witrynie Azure Portal"
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 6961255e4b1a269b3ac9bafb5f1b3ced7a2a8943
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 
 ---
 
@@ -107,6 +107,6 @@ Przed skonfigurowaniem reguły równoważenia obciążenia należy najpierw skon
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

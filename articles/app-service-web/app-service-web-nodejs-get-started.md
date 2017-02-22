@@ -1,5 +1,5 @@
 ---
-title: "Rozpoczynanie pracy z aplikacjami sieci Web środowiska Node.js w usłudze Azure App Service | Microsoft Docs"
+title: "Tworzenie aplikacji sieci Web Node.js dla usługi Azure App Service | Microsoft Docs"
 description: "Dowiedz się, jak wdrożyć aplikację Node.js w aplikacji sieci Web w usłudze Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
-ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
+ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
+ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 
 
 ---
-# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Rozpoczynanie pracy z aplikacjami sieci Web Node.js w usłudze Azure App Service
+# <a name="develop-nodejs-web-apps-for-azure-app-service"></a>Tworzenie aplikacji sieci Web Node.js dla usługi Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 W tym samouczku przedstawiono sposób tworzenia prostej aplikacji [Node.js] i wdrażania jej w usłudze [Azure App Service] przy użyciu środowiska wiersza polecenia, takiego jak cmd.exe lub bash. Instrukcje podane w tym samouczku można wykonać w dowolnym systemie operacyjnym, w którym można uruchomić środowisko Node.js.
@@ -45,7 +45,7 @@ Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu 
 * Konto platformy Microsoft Azure. Jeśli nie masz konta, możesz [utworzyć konto bezpłatnej wersji próbnej] lub [aktywować korzyści dla subskrybentów programu Visual Studio].
 
 > [!NOTE]
-> Usługę [App Service](http://go.microsoft.com/fwlink/?LinkId=523751) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
+> Usługę [App Service](https://azure.microsoft.com/try/app-service/) możesz wypróbować, nie mając konta platformy Azure. Utwórz aplikację startową i testuj ją nawet przez godzinę — bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
@@ -303,6 +303,6 @@ Aby włączyć narzędzie Node-Inspector, wykonaj następujące czynności:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

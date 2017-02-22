@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
@@ -31,8 +31,8 @@ W tym temacie wyjaśniono, jak można dostosować stronę logowania i stronę pa
 > [!NOTE]
 > * Umieszczanie logo firmy jest funkcją dostępną tylko dla użytkowników usługi Office 365 lub osób, które dokonały uaktualnienia do wersji Premium lub Podstawowa usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
 > * Klienci w Chinach mogą używać wersji Premium i Podstawowa usługi Azure Active Directory za pomocą wystąpienia usługi Azure Active Directory dostępnego na całym świecie. Wersje Premium i Podstawowa usługi Azure Active Directory nie są obecnie obsługiwane w usłudze Microsoft Azure świadczonej przez 21Vianet w Chinach. Aby uzyskać więcej informacji, skontaktuj się z nami na [forum usługi Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Dostosowywanie strony logowania
 Zwykle na potrzeby dostępu opartego na przeglądarce do aplikacji i usług w chmurze subskrybowanych przez organizację używana jest strona logowania.
@@ -46,8 +46,8 @@ W przypadku odwiedzania usługi za pomocą adresów URL innych niż specyficzne 
 > [!NOTE]
 > * Nazwa domeny musi być widoczna jako „Aktywna” w sekcji **Active Directory** > **Katalog** > **Domeny** klasycznego portalu Azure, w którym skonfigurowano znakowanie.
 > * Znakowanie strony logowania nie jest przenoszone na stronę logowania klienta firmy Microsoft. Jeśli logujesz się za pomocą osobistego konta Microsoft, może być wyświetlana lista kafelków użytkowników renderowana przez usługę Azure AD, ale znakowanie organizacji nie ma zastosowania do strony logowania konta Microsoft.
-> 
-> 
+>
+>
 
 Jeśli chcesz wyświetlać swoje firmowe oznaczenia, kolory i inne dostosowywalne elementy na tej stronie, zobacz następujące ilustracje, aby zrozumieć różnicę między obydwoma środowiskami.
 
@@ -91,8 +91,8 @@ Na stronie logowania można dostosować następujące elementy:
 
 > [!NOTE]
 > Wszystkie elementy są opcjonalne. Na przykład jeśli określisz baner logo, ale nie określisz dużej ilustracji, na stronie logowania będzie pokazywane dostosowane logo oraz ilustracja dla lokacji docelowej (czyli obraz kalifornijskiej autostrady dla usługi Office 365).
-> 
-> 
+>
+>
 
 Na stronie logowania pole wyboru **Nie wylogowuj mnie** umożliwia użytkownikom zachowanie stanu zalogowania w przypadku zamknięcia i ponownego otworzenia przeglądarki. Opcja nie ma wpływu na okres istnienia sesji. Pole wyboru na stronie logowania usługi Azure Active Directory możesz ukryć.
 
@@ -100,12 +100,12 @@ Wyświetlanie pola wyboru zależy od ustawienia **Ukryj KMSI**.
 
 ![][9]
 
-Aby ukryć pole wyboru, skonfiguruj ustawienie, wybierając opcję **Ukryte**. 
+Aby ukryć pole wyboru, skonfiguruj ustawienie, wybierając opcję **Ukryte**.
 
 > [!NOTE]
 > Niektóre funkcje usługi SharePoint Online oraz pakietu Office 2010 zależą od możliwości skorzystania z tego pola wyboru przez użytkowników. Jeśli skonfigurujesz to ustawienia na wartość „Ukryte”, użytkownicy mogą otrzymywać dodatkowe i nieoczekiwane monity o logowanie.
-> 
-> 
+>
+>
 
 Możesz również dostosować wszystkie elementy na tej stronie. Po skonfigurowaniu „domyślnego” zestawu elementów dostosowania można skonfigurować więcej wersji dla różnych ustawień regionalnych. Możesz także mieszać i dopasowywać różne elementy. Można na przykład:
 
@@ -163,15 +163,15 @@ Uwzględnienie nowych zmian znakowania na stronie logowania może potrwać do go
 4. Kliknij pozycję **Customize Branding (Dostosuj znakowanie)**.
 5. Na stronie Customize Branding (Dostosowywanie znakowania) wybierz pozycję **Edit Existing Branding Settings (Edytuj istniejące ustawienia znakowania)**, a następnie przejdź do następnej strony.
 6. W zależności od tego, które elementy chcesz usunąć, wykonaj jedną lub więcej z następujących czynności:
-   
+
     a. W obszarze **Banner Logo (Baner logo)** wybierz opcję **Remove uploaded logo (Usuń przekazane logo)**.
-   
+
     b. W obszarze **Tile Logo (Logo kafelka)** wybierz opcję **Remove uploaded logo (Usuń przekazane logo)**.
-   
+
     c. Usuń tekst ze wszystkich pól tekstowych.
-   
+
     d. Kliknij przycisk **Dalej**.
-   
+
     e. Usuń tekst ze wszystkich pól tekstowych.
 7. Kliknij pozycję **Zapisz**, aby usunąć elementy.
 8. W razie potrzeby kliknij ponownie pozycję **Customize Branding (Dostosuj znakowanie)** i powtórz te kroki dla całego znakowania specyficznego dla języka, które musi zostać usunięte.
@@ -199,12 +199,12 @@ Niektóre elementy dostosowywalne w usłudze Azure AD mają wiele zastosowań. M
 
 | Nazwa | Opis | Ograniczenia | Zalecenia |
 | --- | --- | --- | --- |
-| Baner logo |Baner logo jest wyświetlany na stronie logowania i stronie panelu dostępu. |<p>JPG lub PNG</p><p>60 x 280 pikseli</p><p>10 KB</p> |<p>Użyj pełnego logo organizacji (piktogram i logo)</p><p>Utrzymaj wysokość poniżej 30 pikseli, aby uniknąć wprowadzenia pasków przewijania na urządzeniach przenośnych.</p><p>Utrzymaj rozmiar poniżej 4 KB</p><p>Użyj przezroczystego obrazu PNG (nie zakładaj, że strona logowania ma zawsze białe tło)</p> |
-| Logo kafelka |(aktualnie nieużywane na stronie logowania). W przyszłości ten tekst może być używany do zastąpienia ogólnego piktogramu „konto służbowe” w różnych miejscach w środowisku. |<p>JPG lub PNG</p><p>120 x 120 pikseli</p><p>10 KB</p> |<p>Zachowaj prostotę (brak małego tekstu), ponieważ rozmiar tego obrazu można zmienić do 50% |
+| Baner logo |Baner logo jest wyświetlany na stronie logowania i stronie panelu dostępu. |<p>JPG lub PNG</p><p>60 x&280; pikseli</p><p>10 KB</p> |<p>Użyj pełnego logo organizacji (piktogram i logo)</p><p>Utrzymaj wysokość poniżej 30 pikseli, aby uniknąć wprowadzenia pasków przewijania na urządzeniach przenośnych.</p><p>Utrzymaj rozmiar poniżej 4 KB</p><p>Użyj przezroczystego obrazu PNG (nie zakładaj, że strona logowania ma zawsze białe tło)</p> |
+| Logo kafelka |(aktualnie nieużywane na stronie logowania). W przyszłości ten tekst może być używany do zastąpienia ogólnego piktogramu „konto służbowe” w różnych miejscach w środowisku. |<p>JPG lub PNG</p><p>120 x&120; pikseli</p><p>10 KB</p> |<p>Zachowaj prostotę (brak małego tekstu), ponieważ rozmiar tego obrazu można zmienić do 50% |
 | </p> | | | |
 | Etykieta nazwy użytkownika strony logowania |(aktualnie nieużywana na stronie logowania). W przyszłości ten tekst może być używany do zastąpienia ogólnego ciągu „konto służbowe” w różnych miejscach w środowisku. Można ustawić tekst w rodzaju „Konto Contoso” lub „Identyfikator Contoso”. |<p>Tekst Unicode, maksymalnie 50 znaków</p><p>Tylko zwykły tekst (bez linków lub tagów HTML)</p> |<p>Powinna być krótka i prosta</p><p>Zapytaj użytkowników, jak zwykle nazywają udostępnione im konto służbowe.</p> |
 | Tekst strony logowania |Ten tekst „standardowy” pojawia się poniżej formularza strony logowania i może służyć do przekazania dodatkowych instrukcji lub informacji o pomocy i obsłudze technicznej. |<p>Tekst Unicode, maksymalnie 256 znaków</p><p>Tylko zwykły tekst (bez linków lub tagów HTML)</p> |Zachowaj długość nie więcej niż 250 znaków (około 3 wiersze tekstu) |
-| Ilustracja strony logowania |Ilustracja to duży obraz wyświetlany na stronie logowania na lewo od formularza strony logowania. |<p>JPG lub PNG</p><p>1420 x 1200</p><p>500 KB</p> |<p>1420 x 1200 pikseli</p><p>Ważne: zachowaj jak najmniejszy rozmiar, najlepiej poniżej 200 KB. Jeśli ten obraz jest za duży, pogarsza to wydajność strony logowania, gdy obraz nie jest buforowany</p><p>Ten obraz jest często przycinany w celu dopasowania do różnych współczynników proporcji ekranu. Zachowaj podstawowe elementy wizualne w lewym górnym rogu (prawym górnym dla języków z zapisem od prawej do lewej), ponieważ zmiana rozmiaru podczas zmniejszania okna przeglądarki następuje od prawego dolnego rogu w kierunku do góry/do lewej.</p> |
+| Ilustracja strony logowania |Ilustracja to duży obraz wyświetlany na stronie logowania na lewo od formularza strony logowania. |<p>JPG lub PNG</p><p>1420 x&1200;</p><p>500 KB</p> |<p>1420 x&1200; pikseli</p><p>Ważne: zachowaj jak najmniejszy rozmiar, najlepiej poniżej 200 KB. Jeśli ten obraz jest za duży, pogarsza to wydajność strony logowania, gdy obraz nie jest buforowany</p><p>Ten obraz jest często przycinany w celu dopasowania do różnych współczynników proporcji ekranu. Zachowaj podstawowe elementy wizualne w lewym górnym rogu (prawym górnym dla języków z zapisem od prawej do lewej), ponieważ zmiana rozmiaru podczas zmniejszania okna przeglądarki następuje od prawego dolnego rogu w kierunku do góry/do lewej.</p> |
 | Kolor tła strony logowania |Kolor tła strony logowania jest używany w obszarze na lewo od formularza strony logowania. |Wymagany jest kolor RGB w postaci szesnastkowej (przykład: #FFFFFF) |<p>W przypadku połączeń o niskiej przepustowości zamiast dużej ilustracji może być wyświetlany kolor tła.</p><p>Sugerujemy wybranie podstawowego koloru baneru logo</p> |
 
 ## <a name="next-steps"></a>Następne kroki
@@ -224,6 +224,6 @@ Niektóre elementy dostosowywalne w usłudze Azure AD mają wiele zastosowań. M
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

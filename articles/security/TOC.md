@@ -23,8 +23,11 @@
 ## [Zarządzanie tożsamościami](security-identity-management-overview.md)
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń zarządzania tożsamościami](azure-security-identity-management-best-practices.md)
 ## Usługi PaaS
-### [Najlepsze rozwiązania z zakresu zabezpieczeń IoT](azure-security-iot-best-practices.md)
+### [Zabezpieczanie wdrożeń typu PaaS](security-paas-deployments.md)
+#### [Zabezpieczanie aplikacji PaaS przy użyciu języka SQL](security-paas-applications-using-sql.md)
+#### [Zabezpieczanie aplikacji PaaS przy użyciu usług App Services](security-paas-applications-using-app-services.md)
 ### [Przegląd zabezpieczeń IoT](security-internet-of-things-overview.md)
+### [Najlepsze rozwiązania z zakresu zabezpieczeń IoT](azure-security-iot-best-practices.md)
 ## Branże działające na rynkach pionowych
 ### [Projektowanie bezpiecznych rozwiązań z zakresu ochrony zdrowia](security-health-care-solution.md)
 ## [Architektura zabezpieczeń](azure-security-architecture-overview.md)
@@ -51,6 +54,6 @@
 ## [Film wideo na temat zabezpieczeń w witrynie Channel 9](security-channel-nine.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

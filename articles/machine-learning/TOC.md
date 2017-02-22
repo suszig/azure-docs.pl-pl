@@ -1,17 +1,24 @@
 # Omówienie
+
 ## [Co to jest usługa Machine Learning?](machine-learning-what-is-machine-learning.md)
-## Machine Learning Studio
-### [Co to jest Studio?](machine-learning-what-is-ml-studio.md)
-### [Możliwości programu Studio](machine-learning-studio-overview-diagram.md)
-### [Grafika informacyjna: Podstawy Uczenia maszynowego](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## Zespołowe przetwarzanie danych dla celów naukowych
 ### [Omówienie](http://aka.ms/datascienceprocess)
 ### [Cykl życia](data-science-process-overview.md)
 ### [Przewodniki](data-science-process-walkthroughs.md)
+
+## Machine Learning Studio
+### [Co to jest Studio?](machine-learning-what-is-ml-studio.md)
+### [Możliwości programu Studio](machine-learning-studio-overview-diagram.md)
+### [Grafika informacyjna: Podstawy Uczenia maszynowego](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [Często zadawane pytania](machine-learning-faq.md)
 ## [Co nowego?](machine-learning-whats-new.md)
+
 # Wprowadzenie
+
 ## [Tworzenie pierwszego eksperymentu](machine-learning-create-experiment.md)
+
 ## Przykładowy przewodnik
 ### [Tworzenie rozwiązania do analizy predykcyjnej](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1. Tworzenie obszaru roboczego](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4: Train and evaluate](machine-learning-walkthrough-4-train-and-evaluate-models.md) (4. Nauczanie i ocena)
 ### [5. Wdrażanie usług sieci Web](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6. Uzyskiwanie dostępu do usługi sieci Web](machine-learning-walkthrough-6-access-web-service.md)
+
 ## Analiza danych dla początkujących
 ### [1: Five questions](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) (1. Pięć pytań)
 ### [2: Is your data ready?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) (2. Czy dane są gotowe?)
@@ -29,8 +37,8 @@
 
 ## [R quick start](machine-learning-r-quickstart.md) (Język R — Szybki start)
 
-
 # Instrukcje
+
 ## Konfigurowanie narzędzi i programów narzędziowych
 ### [Konfigurowanie środowisk](machine-learning-data-science-environment-setup.md)
 ### [Konfigurowanie maszyn wirtualnych](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [Rozwiązywanie problemów](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [Deploy using ARM](machine-learning-deploy-with-resource-manager-template.md) (Wdrażanie przy użyciu usługi ARM)
 #### [Create in another region](machine-learning-multi-geo.md) (Tworzenie w innym regionie)
+
 ## Analizowanie potrzeb biznesowych
 ### [Wymagania techniczne](machine-learning-data-science-plan-your-environment.md)
 ### [Identyfikowanie własnego scenariusza](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## Uzyskiwanie i rozumienie danych
 ### Ładowanie danych do magazynu
 #### [Omówienie](machine-learning-data-science-ingest-data.md)
@@ -95,6 +105,7 @@
 ##### [Score models](machine-learning-data-science-spark-model-consumption.md) (Ocenianie modeli)
 ##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) (Zaawansowane eksplorowanie danych)
 ##### [Use Scala and Spark](machine-learning-data-science-process-scala-walkthrough.md) (Korzystanie z języka Scala i aparatu Spark)
+
 ## Opracowywanie modeli
 ### Funkcje inżynierskie i funkcje wybierania
 #### [Omówienie](machine-learning-data-science-create-features.md)
@@ -104,6 +115,7 @@
 #### [Wybieranie funkcji środowiska TDSP](machine-learning-data-science-select-features.md)
 ### Tworzenie i uczenie modeli
 #### [Convert to scoring](machine-learning-convert-training-experiment-to-scoring-experiment.md) (Konwertowanie na ocenianie)
+#### [Zarządzanie cyklem życia eksperymentów](machine-learning-version-control.md)
 #### [Manage iterations](machine-learning-manage-experiment-iterations.md) (Zarządzanie iteracjami)
 #### [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md) (Tworzenie modeli przy użyciu programu PowerShell)
 #### Wybieranie algorytmów
@@ -120,11 +132,11 @@
 ##### [Execute R scripts](machine-learning-extend-your-experiment-with-r.md) (Wykonywanie skryptów w języku R)
 ##### [Tworzenie niestandardowych modułów R](machine-learning-custom-r-modules.md)
 ##### [Wykonywanie skryptów w języku Python](machine-learning-execute-python-scripts.md)
+
 ## Wdrażanie modeli i korzystanie z nich
 ### [Omówienie](machine-learning-deploy-consume-web-service-guide.md)
 ### Wdrażanie modeli
 #### [Jak to działa](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Wdrażanie nowej usługi sieci Web](machine-learning-webservice-deploy-a-web-service.md)
 #### [Wdrażanie usługi sieci Web](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Use external data](machine-learning-web-services-that-use-import-export-modules.md) (Korzystanie z danych zewnętrznych)
 #### [Deploy in multi-regions](machine-learning-how-to-deploy-to-multiple-regions.md) (Wdrażanie w wielu regionach)
@@ -147,6 +159,7 @@
 #### [Use Excel](machine-learning-consuming-from-excel.md) (Korzystanie z programu Excel)
 #### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md) (Korzystanie z dodatku programu Excel)
 #### [Korzystanie z szablonu aplikacji sieci Web](machine-learning-consume-web-service-with-web-app-template.md)
+
 ## Przykłady
 ### [Przykładowe eksperymenty](machine-learning-sample-experiments.md)
 ### [Sample datasets](machine-learning-use-sample-datasets.md) (Przykładowe zestawy danych)
@@ -158,10 +171,12 @@
 #### [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md) (Korzystanie z usługi SQL Data Warehouse)
 
 # Dokumentacja
+
 ## [Moduł programu PowerShell (nowy)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [Moduł programu PowerShell (klasyczny)](machine-learning-powershell-module.md)
 ## [Dokumentacja algorytmów i modułu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
+## [Dokumentacja interfejsu API REST](/rest/api/machinelearning)
+## [Kody błędów usługi sieci Web](machine-learning-web-service-error-codes.md)
 
 # Powiązane
 
@@ -176,6 +191,7 @@
 ### [Samouczki](machine-learning-gallery-tutorials.md)
 ### [Kolekcje](machine-learning-gallery-collections.md)
 ### [Custom Modules](machine-learning-gallery-custom-modules.md) (Moduły niestandardowe)
+
 ## Cortana Analytics
 ### Interfejsy API
 #### [Wykrywanie anomalii](machine-learning-apps-anomaly-detection-api.md)
@@ -197,7 +213,7 @@
 ##### [Konfigurowanie](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Zasoby
-## [Kody błędów interfejsu REST usługi Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+
 ## [Język programowania sieci neuronowych Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=machine-learning)
@@ -208,6 +224,6 @@
 ## [Get help from live chat](machine-learning-live-chat.md) (Uzyskaj pomoc przez czat na żywo)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do usługi Azure Container Registry | Microsoft Docs"
+title: "Rejestr prywatny kontenerów platformy Docker na platformie Azure | Microsoft Docs"
 description: "Wprowadzenie do usługi Azure Container Registry dostarczającej oparte na chmurze, zarządzane rejestry prywatne platformy Docker."
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 806ffa8ce0c434d2a6cc1c7ec3a6e89be9145679
-ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
 
 ---
 # <a name="what-is-azure-container-registry"></a>Co to jest usługa Azure Container Registry?
@@ -26,7 +26,7 @@ ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
 > Usługa Container Registry jest obecnie w wersji zapoznawczej.
 
 
-Usługa Azure Container Registry to zarządzana usługa [rejestru platformy Docker](https://docs.docker.com/registry/) oparta na oprogramowaniu typu open-source Docker Registry 2. Twórz i obsługuj rejestry kontenerów platformy Azure w celu przechowywania prywatnych obrazów [kontenerów platformy Docker](https://www.docker.com/what-docker) i zarządzania nimi. Używaj rejestrów kontenerów na platformie Azure przy użyciu istniejących potoków programowania i wdrażania kontenerów oraz korzystaj z wiedzy społeczności platformy Docker.
+Usługa Azure Container Registry to zarządzana usługa [rejestru platformy Docker](https://docs.docker.com/registry/) oparta na oprogramowaniu typu open-source Docker Registry&2;. Twórz i obsługuj rejestry kontenerów platformy Azure w celu przechowywania prywatnych obrazów [kontenerów platformy Docker](https://www.docker.com/what-docker) i zarządzania nimi. Używaj rejestrów kontenerów na platformie Azure przy użyciu istniejących potoków programowania i wdrażania kontenerów oraz korzystaj z wiedzy społeczności platformy Docker.
 
 Aby uzyskać ogólne informacje o platformie Docker i kontenerach, zobacz:
 
@@ -71,6 +71,6 @@ Deweloperzy mogą również przeprowadzać wypychanie do rejestru kontenerów w 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

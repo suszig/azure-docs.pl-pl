@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure Notification Hubs — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak wysyłać powiadomienia wypychane z dowolnego zaplecza na dowolne urządzenie mobilne za pomocą usługi Notification Hubs. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+services: notification-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
+ms.sourcegitcommit: a5d4401d74c8aebbe618cd1fac9bc8247b8da90b
+ms.openlocfilehash: 418e985335b582957637430cdde71024302f3fc2
 
 ---
+
 #<a name="notification-hubs-documentation"></a>Dokumentacja usługi Notification Hubs
 
 Dowiedz się, jak używać usługi Notification Hubs, skalowalnego aparatu obsługującego powiadomienia wypychane na wielu platformach, aby szybko wysyłać miliony wiadomości. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować i wysyłać powiadomienia wypychane z dowolnego zaplecza na dowolne urządzenie mobilne. 
@@ -205,6 +217,6 @@ Dowiedz się, jak używać usługi Notification Hubs, skalowalnego aparatu obsł
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

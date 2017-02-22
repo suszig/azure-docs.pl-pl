@@ -40,7 +40,7 @@ Subskrypcja usługi Azure RemoteApp obejmuje trzy obrazy szablonów:
 
 Poniżej podano szczegółowe informacje o zawartości każdego obrazu.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 (obraz podstawowy)
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 (obraz podstawowy)
 Ten obraz jest oparty na systemie operacyjnym Microsoft Windows Server 2012 R2 Datacenter i ma zainstalowane następujące role i funkcje spełniające wymagania obrazów szablonów usługi Azure RemoteApp:
 
 * .NET Framework 4.5, 3.5.1, 3.5

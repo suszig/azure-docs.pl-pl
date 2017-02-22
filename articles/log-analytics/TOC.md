@@ -8,6 +8,7 @@
 ## [Serwer proxy i zapora](log-analytics-proxy-firewall.md)
 ## [Dane użycia](log-analytics-usage.md)
 ## [Log Analytics — często zadawane pytania](log-analytics-faq.md)
+## [Dostawcy usług](log-analytics-service-providers.md)
 
 # Instrukcje
 ## Zbieranie danych
@@ -15,7 +16,7 @@
 #### [Agenci dla systemu Windows](log-analytics-windows-agents.md)
 #### [Agenci dla systemu Linux](log-analytics-linux-agents.md)
 #### [Maszyny wirtualne platformy Azure](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+#### [Zasoby platformy Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [Brama pakietu OMS](log-analytics-oms-gateway.md)
@@ -62,11 +63,13 @@
 ## Programowanie
 ### [Interfejs API modułu zbierającego dane](log-analytics-data-collector-api.md)
 ### [Polecenia cmdlet programu PowerShell](log-analytics-powershell-workspace-configuration.md)
+### [Szablony usługi Resource Manager](log-analytics-template-workspace-configuration.md)
 ### [Interfejs API wyszukiwania w dzienniku](log-analytics-log-search-api.md)
 ### [Interfejs API alertów](log-analytics-api-alerts.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [Program PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
 # Zasoby
 ## [Uaktualnienie programu Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
@@ -74,6 +77,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

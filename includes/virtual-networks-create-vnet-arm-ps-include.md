@@ -1,7 +1,7 @@
 ## <a name="how-to-create-a-vnet-using-powershell"></a>Tworzenie sieci wirtualnej za pomocą programu PowerShell
 Aby utworzyć sieć wirtualną przy użyciu programu PowerShell, wykonaj poniższe kroki.
 
-1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](../articles/powershell-install-configure.md) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
+1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
 2. W razie potrzeby utwórz nową grupę zasobów, jak pokazano poniżej. Na potrzeby tego scenariusza wymagane jest utworzenie grupy zasobów o nazwie *TestRG*. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
@@ -117,6 +117,6 @@ Aby utworzyć sieć wirtualną przy użyciu programu PowerShell, wykonaj poniżs
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

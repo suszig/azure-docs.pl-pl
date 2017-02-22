@@ -1,5 +1,5 @@
 ---
-title: "Wdrażanie usługi Azure Data Catalog | Microsoft Docs"
+title: "Wdrażanie usługi Azure Data Catalog — podejście i proces | Microsoft Docs"
 description: "W tym artykule przedstawiono podejście i proces dla organizacji rozważających wdrożenie usługi Azure Data Catalog, w tym definiowanie wizji, identyfikowanie najważniejszych przypadków użycia biznesowego i wybór projektu pilotażowego."
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
+ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
 
 
 ---
-# <a name="adopting-azure-data-catalog"></a>Wdrażanie usługi Azure Data Catalog
+# <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Wdrażanie usługi Azure Data Catalog — podejście i proces
 Ten artykuł ułatwia rozpoczęcie wdrażania usługi **Azure Data Catalog** w organizacji. Aby pomyślnie wdrożyć usługę **Azure Data Catalog**, należy skoncentrować się na trzech kluczowych elementach — zdefiniowaniu wizji, zidentyfikowaniu najważniejszych przypadków użycia biznesowego w ramach organizacji i wyborze projektu pilotażowego.
 
 ## <a name="introducing-the-azure-data-catalog"></a>Wprowadzenie do usługi Azure Data Catalog
@@ -102,8 +102,8 @@ Pierwszy projekt pilotażowy powinien mieć kilka osób, które generują dane i
 
 Jednym z problemów biznesowych, które rozwiązuje usługa **Azure Data Catalog**, jest połączenie **producentów danych** z **konsumentami danych**. Robi to, służąc jako centralne repozytorium informacji o źródłach danych przedsiębiorstwa. Przy użyciu usługi Data Catalog Dominik rejestruje źródła danych Adventure Works i programu SQL Server. Przy użyciu crowdsourcingu każdy użytkownik, który odnajdzie to źródło danych, może udostępnić swoje opinie na temat danych, a także korzystać z odnalezionych danych. Na przykład Irena odnajduje źródła danych przez wyszukiwanie w wykazie i udostępnia swoją specjalistyczną wiedzę o danych.  Teraz inni użytkownicy w organizacji korzystają z udostępnionej wiedzy po prostu przeszukując wykaz danych.
 
-* Aby dowiedzieć się więcej na temat rejestrowania źródeł danych, zobacz [Register data sources](data-catalog-get-started.md#exercise-2-registering-data-sources) (Rejestrowanie źródeł danych).
-* Aby dowiedzieć się więcej na temat odnajdywania źródeł danych, zobacz [Search data sources](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets) (Wyszukiwanie źródeł danych).
+* Aby dowiedzieć się więcej na temat rejestrowania źródeł danych, zobacz [Register data sources](data-catalog-get-started.md) (Rejestrowanie źródeł danych).
+* Aby dowiedzieć się więcej na temat odnajdywania źródeł danych, zobacz [Search data sources](data-catalog-get-started.md) (Wyszukiwanie źródeł danych).
 
 ### <a name="start-small-and-focused"></a>Rozpoczynanie od niewielkiego i skupionego projektu
 W przypadku większości projektów pilotażowych w przedsiębiorstwie należy na początek umieścić w wykazie źródła danych wysokiej wartości, tak aby użytkownicy biznesowi mogli szybko docenić wartość usługi Data Catalog. Identyfikowanie wspólnych źródeł danych, które mogą być przydatne dla zespołu pilotażowego, najlepiej zacząć w dziale IT. Dla obsługiwanych źródeł danych, takich jak program SQL Server, zaleca się używanie narzędzia rejestracji źródła danych usługi **Azure Data Catalog**. Za pomocą narzędzia rejestracji źródła danych można zarejestrować różnorodne źródła danych, w tym bazy danych programu SQL Server, bazy danych Oracle i raporty usług SQL Server Reporting Services. Pełną listę bieżących źródeł danych można znaleźć w artykule [Azure Data Catalog supported data sources](data-catalog-dsr.md) (Obsługiwane źródła danych usługi Azure Data Catalog).
@@ -123,8 +123,8 @@ W ramach projektu pilotażowego zespół Ireny korzysta również ze źródeł d
 
 > [!NOTE]
 > Napisaliśmy przykładowe narzędzie, które używa interfejsu API usługi **Azure Data Catalog** do migracji skoroszytu programu Excel do usługi Data Catalog. Aby dowiedzieć się więcej o interfejsie API usługi Data Catalog i przykładowym narzędziu, możesz [pobrać przykład kodu ad hoc skoroszytu](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) i zapoznać się z dokumentacją [interfejsu API REST usługi Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267593.aspx).
-> 
-> 
+>
+>
 
 Kiedy projekt pilotażowy jest gotowy, czas na wykonanie planu wdrożenia usługi Data Catalog.
 
@@ -142,9 +142,9 @@ Oto kilka porad ułatwiających rozpoczęcie pracy:
 Zanim zespół pilotażowy zacznie korzystać z usługi Data Catalog, zaplanuj spotkanie przed rozpoczęciem w celu omówienia oczekiwań dotyczących projektu pilotażowego i zapewnij wstępne szkolenie.
 
 ### <a name="set-expectations"></a>Ustalanie oczekiwań
-Ustalenie oczekiwań i celów ułatwia użytkownikom biznesowym skupienie się na osiągnięciu określonych wyników. Aby zachować zgodność projektu z harmonogramem, przydzielaj regularne (codziennie lub co tydzień, na podstawie zakresu i czasu trwania pilotażu) „zadania domowe”. Jedną z najbardziej wartościowych funkcji usługi Data Catalog jest crowdsourcing zasobów danych, umożliwiający użytkownikom biznesowym korzystanie z wiedzy i danych przedsiębiorstwa. Świetną pracą domową dla każdego członka zespołu pilotażowego jest zarejestrowanie lub opatrzenie adnotacją co najmniej jednego źródła danych, z którego korzystali. Zobacz [Register a data source](data-catalog-get-started.md#exercise-2-registering-data-sources) (Rejestrowanie źródła danych) i [Jak dodawać adnotacje do źródeł danych](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Ustalenie oczekiwań i celów ułatwia użytkownikom biznesowym skupienie się na osiągnięciu określonych wyników. Aby zachować zgodność projektu z harmonogramem, przydzielaj regularne (codziennie lub co tydzień, na podstawie zakresu i czasu trwania pilotażu) „zadania domowe”. Jedną z najbardziej wartościowych funkcji usługi Data Catalog jest crowdsourcing zasobów danych, umożliwiający użytkownikom biznesowym korzystanie z wiedzy i danych przedsiębiorstwa. Świetną pracą domową dla każdego członka zespołu pilotażowego jest zarejestrowanie lub opatrzenie adnotacją co najmniej jednego źródła danych, z którego korzystali. Zobacz [Register a data source](data-catalog-get-started.md) (Rejestrowanie źródła danych) i [Jak dodawać adnotacje do źródeł danych](data-catalog-get-started.md).
 
-Spotykaj się z zespołem regularnie w celu przejrzenia niektórych z adnotacji. Dobre adnotacje dotyczące źródeł danych są bardzo ważne dla pomyślnego wdrożenia i przyjęcia usługi Data Catalog, ponieważ zapewniają wgląd w źródła istotnych danych w centralnej lokalizacji. Bez dobrych adnotacji wiedza na temat źródeł danych pozostaje rozproszona w całym przedsiębiorstwie. Zobacz [Jak dodawać adnotacje do źródeł danych](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Spotykaj się z zespołem regularnie w celu przejrzenia niektórych z adnotacji. Dobre adnotacje dotyczące źródeł danych są bardzo ważne dla pomyślnego wdrożenia i przyjęcia usługi Data Catalog, ponieważ zapewniają wgląd w źródła istotnych danych w centralnej lokalizacji. Bez dobrych adnotacji wiedza na temat źródeł danych pozostaje rozproszona w całym przedsiębiorstwie. Zobacz [Jak dodawać adnotacje do źródeł danych](data-catalog-get-started.md).
 
 Oczywiście ostatecznym testem projektu jest to, czy użytkownicy mogą odnaleźć i zrozumieć użycie źródeł danych, które są im potrzebne. Użytkownicy pilotażowi powinni regularnie testować wykaz w celu upewnienia się, że źródła danych, których używają w codziennej pracy, są odpowiednie. Gdy brak wymaganego źródła danych lub nie ma ono poprawnych adnotacji, powinno to być przypomnieniem o konieczności zarejestrowania dodatkowych źródeł danych lub udostępnienia dodatkowych adnotacji. Taka praktyka nie tylko zwiększa wartość pracy zespołu pilotażowego, ale sprzyja wytwarzaniu się odpowiednich nawyków, które przeniosą się do innych zespołów po ukończeniu projektu pilotażowego.
 
@@ -162,14 +162,13 @@ W tym artykule omówiono rozpoczynanie pracy z usługą **Azure Data Catalog** w
 * [Strona produktu usługi Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)
 * [Dokumentacja dotycząca usługi Azure Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Azure Data Catalog common scenarios (Typowe scenariusze dla usługi Azure Data Catalog)](data-catalog-common-scenarios.md)
-* [Rejestrowanie źródeł danych](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Search data sources (Wyszukiwanie źródeł danych)](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Annotate data sources (Dodawanie adnotacji do źródeł danych)](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Crowdsourcing metadanych](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
+* [Rejestrowanie źródeł danych](data-catalog-get-started.md)
+* [Search data sources (Wyszukiwanie źródeł danych)](data-catalog-get-started.md)
+* [Annotate data sources (Dodawanie adnotacji do źródeł danych)](data-catalog-get-started.md)
+* [Crowdsourcing metadanych](data-catalog-get-started.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

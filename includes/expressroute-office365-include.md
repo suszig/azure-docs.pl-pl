@@ -9,6 +9,6 @@ Oferty oprogramowania jako usługi, takie jak usługa Office 365 i usługa Dynam
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

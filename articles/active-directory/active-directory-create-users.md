@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Dodaj użytkowników, aby wypełnić katalog. W tym artykule opisano sposób dod
 2. Wybierz usługę **Active Directory**, a następnie wybierz nazwę katalogu organizacji.
 3. Wybierz kartę **Użytkownicy**, a następnie na pasku poleceń wybierz polecenie **Dodaj użytkownika**.
 4. Na stronie **Poinformuj nas o tym użytkowniku** w obszarze **Typ użytkownika** wybierz jedną z następujących opcji:
-   
+
    * **Nowy użytkownik w organizacji** — dodaje nowe konto użytkownika w katalogu.
    * **Użytkownik z istniejącym kontem Microsoft** — dodaje istniejące konto klienta Microsoft do katalogu (na przykład konto programu Outlook)
 5. W zależności od **typu użytkownika** wprowadź nazwę użytkownika (dla nowego użytkownika) lub adres e-mail (dla użytkownika z kontem Microsoft).
@@ -37,11 +37,11 @@ Dodaj użytkowników, aby wypełnić katalog. W tym artykule opisano sposób dod
 
 > [!IMPORTANT]
 > Jeśli Twoja organizacja korzysta z więcej niż jednej domeny, podczas dodawania konta użytkownika musisz wiedzieć o następujących kwestiach:
-> 
+>
 > * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com,, **a następnie** geoffgrisso@contoso.com.
 > * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com. Ta kolejność jest ważna, a jej cofnięcie może być kłopotliwe.
-> 
-> 
+>
+>
 
 ## <a name="change-user-information"></a>Zmiana informacji o użytkowniku
 Możesz zmienić dowolny atrybut użytkownika z wyjątkiem identyfikatora obiektu.
@@ -87,6 +87,6 @@ Następnie możesz edytować opcje kontroli dostępu dla gości.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

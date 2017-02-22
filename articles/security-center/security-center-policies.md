@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ Zasady zabezpieczeń można skonfigurować dla każdej subskrypcji lub grupy zas
    > Zaleca się włączenie funkcji zbierania danych dla każdej subskrypcji, ponieważ gwarantuje to, że monitorowanie zabezpieczeń jest dostępne dla wszystkich istniejących i nowych maszyn wirtualnych. Włączenie zbierania danych instaluje agenta monitorowania. Jeśli nie chcesz teraz włączać funkcji zbierania danych z tej lokalizacji, możesz zrobić to później w widokach **Kondycja** i **Zalecenia**. Możesz również włączyć funkcję zbierania danych tylko dla subskrypcji lub dla wybranych maszyn wirtualnych. Więcej informacji na temat obsługiwanych maszyn wirtualnych znajduje się w artykule [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md).
    > 
    > 
-5. Jeśli konto magazynu nie jest jeszcze skonfigurowane, po otwarciu bloku **Zasady zabezpieczeń** może zostać wyświetlone ostrzeżenie podobne do pokazanego na poniższym zrzucie ekranu:
+5. Jeśli konto magazynu nie jest jeszcze skonfigurowane, po otwarciu bloku **Zasady zabezpieczeń** może zostać wyświetlone ostrzeżenie podobne do pokazanego na poniższym zrzucie ekranu. Jeśli nie zostanie wybrane konto magazynu dla każdego regionu, zostanie ono utworzone automatycznie.
    
     ![Wybór magazynu](./media/security-center-policies/security-center-policies-fig2.png)
 6. Jeśli to ostrzeżenie zostanie wyświetlone, kliknij tę opcję i wybierz region, jak pokazano na poniższym zrzucie ekranu:
@@ -111,6 +111,6 @@ W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabe
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

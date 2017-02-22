@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
 
 
 ---
@@ -58,10 +58,10 @@ Następny samouczek z tej serii dotyczy wdrożenia frontonu aplikacji jednostron
 * Interfejs API sieci Web platformy ASP.NET — w instrukcjach samouczka założono, że masz podstawową wiedzę z zakresu korzystania z [interfejsu API sieci Web 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) platformy ASP.NET w programie Visual Studio.
 * Konto platformy Azure — możesz [utworzyć konto bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
-    Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](http://go.microsoft.com/fwlink/?LinkId=523751). W tej lokalizacji możesz od razu utworzyć początkową aplikację o krótkim okresie istnienia w usłudze App Service — **bez karty kredytowej** i bez zobowiązań.
+    Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/). W tej lokalizacji możesz od razu utworzyć początkową aplikację o krótkim okresie istnienia w usłudze App Service — **bez karty kredytowej** i bez zobowiązań.
 * Program Visual Studio 2015 z [zestawem Azure SDK dla platformy .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) — jeśli nie masz jeszcze programu Visual Studio 2015, zostanie on automatycznie zainstalowany podczas instalacji tego zestawu SDK.
   
-  * W programie Visual Studio kliknij menu Pomoc -> Informacje o programie Microsoft Visual Studio i upewnij się, że zainstalowano „Narzędzia usługi Azure App Service 2.9.1” lub nowsze.
+  * W programie Visual Studio kliknij menu Pomoc -> Informacje o programie Microsoft Visual Studio i upewnij się, że zainstalowano „Narzędzia usługi Azure App Service&2;.9.1” lub nowsze.
     
     ![Wersja narzędzi usługi Azure App Service](./media/app-service-api-dotnet-get-started/apiversion.png)
     
@@ -442,6 +442,6 @@ Użycie szablonu projektu **aplikacji interfejsu API na platformie Azure** jest 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

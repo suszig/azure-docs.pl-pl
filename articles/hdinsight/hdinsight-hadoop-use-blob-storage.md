@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: 41b19d0ed2d77fc94ec7b3a7905b51e8e25e0585
 
 
 ---
@@ -39,7 +39,7 @@ Informacje dotyczące tworzenia klastra usługi HDInsight można znaleźć w tem
 ## <a name="hdinsight-storage-architecture"></a>Architektura magazynu usługi HDInsight
 Na poniższym diagramie przedstawiono abstrakcyjny widok architektury magazynu usługi HDInsight:
 
-![Klastry Hadoop używają interfejsu API systemu plików HDFS w celu dostępu do danych strukturalnych i bez struktury oraz przechowywania ich w magazynie obiektów blob.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Klastry Hadoop używają interfejsu API systemu plików HDFS w celu dostępu do danych strukturalnych i bez struktury oraz przechowywania ich w usłudze Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architektura usługi DHInsight Storage")
 
 Usługa HDInsight zapewnia dostęp do rozproszonego systemu plików, który jest lokalnie dołączony do węzłów obliczeniowych. Dostęp do tego systemu plików można uzyskać przy użyciu w pełni kwalifikowanego identyfikatora URI, na przykład:
 
@@ -98,10 +98,10 @@ Wszędzie tam, gdzie go umieszczono, każdy utworzony obiekt blob należy do kon
 
 Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historię zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Mogłoby to spowodować uszkodzenie historii zadań i błędne działanie klastra. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania połączonych kont magazynu, zobacz artykuł [Tworzenie klastrów usługi HDInsight][hdinsight-creation]. Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase faktycznie można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera magazynu obiektów blob, używanego przez klaster HBase, który został usunięty.
 
-### <a name="using-the-azure-portal"></a>Korzystanie z portalu Azure
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 Podczas tworzenia klastra usługi HDInsight za pomocą portalu masz do wyboru opcje użycia istniejącego konta magazynu lub utworzenie nowego konta magazynu:
 
-![źródło danych tworzenia hdinsight hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![HDInsight, hadoop, tworzenie źródła danych](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -219,7 +219,7 @@ Użyj następującego polecenia, aby wyświetlić listę poleceń cmdlet związa
 Zobacz [Przekazywanie danych do usługi HDInsight][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Pobieranie plików
-Następujący skrypt służy do pobierania blokowego obiektu blob do bieżącego folderu. Przed uruchomieniem skryptu zmień katalog na folder, w którym masz uprawnienia do zapisu.
+Następujący skrypt pobiera blokowy obiekt blob do bieżącego folderu. Przed uruchomieniem skryptu zmień katalog na folder, w którym masz uprawnienia do zapisu.
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
@@ -305,6 +305,6 @@ Aby uzyskać więcej informacji, zobacz:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

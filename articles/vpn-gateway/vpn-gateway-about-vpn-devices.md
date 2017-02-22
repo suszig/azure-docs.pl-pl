@@ -1,6 +1,6 @@
 ---
-title: "Informacje o urządzeniach sieci VPN używanych na potrzeby połączeń bramy sieci VPN typu lokacja-lokacja dla sieci wirtualnych platformy Azure | Microsoft Docs"
-description: "Ten artykuł zawiera omówienie urządzeń sieci VPN i parametrów protokołu IPsec dla połączeń bramy sieci VPN S2S oraz linki do przykładów i instrukcji konfiguracji."
+title: "Informacje na temat urządzeń sieci VPN | Microsoft Docs"
+description: "W tym artykule omówiono urządzenia sieci VPN i parametry protokołu IPsec dla połączeń obejmujących wiele lokalizacji usługi S2S VPN Gateway. Zamieszczono linki do przykładów i instrukcji konfigurowania."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informacje o urządzeniach sieci VPN używanych na potrzeby połączeń bramy VPN typu lokacja-lokacja
-Urządzenie sieci VPN jest niezbędne do skonfigurowania połączenia sieci VPN typu lokacja-lokacja (S2S). Połączeń typu lokacja-lokacja można użyć do tworzenia rozwiązań hybrydowych oraz bezpiecznych połączeń między siecią lokalną i wirtualną. W tym artykule omówiono zgodne urządzenia sieci VPN oraz parametry konfiguracji.
+Urządzenie sieci VPN jest niezbędne do skonfigurowania połączenia sieci VPN typu lokacja-lokacja obejmującego wiele lokalizacji (S2S) przy użyciu bramy sieci VPN. Połączeń typu lokacja-lokacja można użyć do tworzenia rozwiązań hybrydowych oraz bezpiecznych połączeń między siecią lokalną i wirtualną. W tym artykule omówiono zgodne urządzenia sieci VPN oraz parametry konfiguracji.
 
 > [!NOTE]
 > Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.                                                                                                                                                                               
@@ -115,7 +115,7 @@ Po pobraniu dostarczonej przykładowej konfiguracji urządzenia sieci VPN należ
 | **Właściwość** | **PolicyBased** | **Brama sieci VPN typu RouteBased i standardowa lub o wysokiej wydajności** |
 | --- | --- | --- |
 | Wersja IKE |IKEv1 |IKEv2 |
-| Algorytm skrótu |SHA1(SHA128) |SHA1(SHA128) |
+| Algorytm skrótu |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Okres istnienia (czas) skojarzenia zabezpieczeń (Security Association — SA) fazy 2 |3600 sekund |3600 sekund |
 | Okres istnienia (przepływność) skojarzenia zabezpieczeń (Security Association — SA) fazy 2 |102 400 000 KB |- |
 | Oferty szyfrowania i uwierzytelniania skojarzeń zabezpieczeń protokołu IPsec (wymienione w kolejności preferencji) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Nie dotyczy |Zobacz *Oferty skojarzeń zabezpieczeń (SA) protokołu IPsec bramy typu RouteBased* (poniżej). |
@@ -153,6 +153,6 @@ W poniższej tabeli przedstawiono oferty szyfrowania i uwierzytelniania skojarze
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

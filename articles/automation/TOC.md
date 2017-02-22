@@ -26,6 +26,7 @@
 ### [Śledzenie zadania elementu Runbook](automation-runbook-execution.md)
 ### [Zmienianie ustawień elementu Runbook](automation-runbook-settings.md)
 ### [Zarządzanie danymi usługi Azure Automation](automation-managing-data.md)
+### [Wywoływanie elementu Runbook usługi Azure Automation z alertu usługi Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Wdrażanie zarządzania konfiguracją (DSC)
 ### [Konfiguracja żądanego stanu (DSC)](automation-dsc-overview.md)
 ### [Rozpoczęcie pracy](automation-dsc-getting-started.md)
@@ -43,6 +44,7 @@
 ### [Moduły integracji](automation-integration-modules.md)
 ### [Harmonogramy](automation-schedules.md)
 ### [Zmienne](automation-variables.md)
+### [Aktualizowanie modułów programu Azure PowerShell](automation-update-azure-modules.md)
 ## Automatyzowanie scenariuszy
 ### [Galeria elementów Runbook](automation-runbook-gallery.md)
 ### [Uruchamianie/zatrzymywanie maszyn wirtualnych](automation-solution-startstopvm-graphical.md)
@@ -53,8 +55,10 @@
 ### [Usuwanie grupy zasobów](automation-scenario-remove-resourcegroup.md)
 ### [Uruchamianie/zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
 ### [Source Control Integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) (Integracja kontroli źródła z usługą GitHub Enterprise)
-## [Monitorowanie](automation-manage-send-joblogs-log-analytics.md)
-## Migrate (Migracja)
+## Monitorowanie
+### [Przekazywanie danych zadania usługi Azure Automation do usługi Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Odłączanie konta usługi Azure Automation od usługi Log Analytics](automation-unlink-from-log-analytics.md)
+## Migracja
 ### [Migracja z programu Orchestrator](automation-orchestrator-migration.md)
 ### [Przenoszenie konta usługi Automation](automation-migrate-account-subscription.md)
 ## Rozwiązywanie problemów
@@ -78,6 +82,6 @@
 ## [Usługa Automation — film z wprowadzeniem](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

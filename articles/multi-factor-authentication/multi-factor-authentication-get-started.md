@@ -1,5 +1,5 @@
 ---
-title: "Serwer a chmura usługi Azure MFA | Microsoft Docs"
+title: "Wybieranie między usługą Azure MFA w chmurze i na serwerze | Microsoft Docs"
 description: "Wybierz odpowiednie rozwiązanie zabezpieczające oparte na uwierzytelnianiu wieloskładnikowym, uwzględniając lokalizację użytkowników i zasoby, które chcesz zabezpieczyć.  Następnie wybierz chmurę lub serwer usługi MFA albo usługi AD FS."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07e2a62ee63a8f9ef3d660fff8c6269654e2b448
-ms.openlocfilehash: 3e10becd802dfe8934063727f2f7fb0e9e8b420b
+ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
+ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
 
 
 ---
@@ -36,7 +36,7 @@ Aby wybrać odpowiednie rozwiązanie weryfikacji dwuetapowej, najpierw należy o
 | --- |:---:|:---:|
 | Aplikacje firmy Microsoft |● |● |
 | Aplikacje SaaS w galerii aplikacji |● |● |
-| Aplikacje usług IIS opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD |● |● |
+| Aplikacje sieci Web opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD |● |● |
 | Aplikacje usług IIS, które nie zostały opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD | |● |
 | Dostęp zdalny, np. sieć VPN lub brama usług pulpitu zdalnego | |● |
 
@@ -62,8 +62,8 @@ Poniższa tabela zawiera zestawienie funkcji dostępnych w przypadku użycia us�
 | Jednokierunkowa wiadomość SMS jako drugi składnik | ● | ● |
 | Dwukierunkowa wiadomość SMS jako drugi składnik | | ● |
 | Tokeny sprzętowe jako drugi składnik | | ● |
-| Hasła aplikacji w przypadku klientów, którzy nie obsługują usługi MFA | ● | |
-| Kontrola administracyjna nad metodami uwierzytelniania | | ● |
+| Hasła aplikacji dla usługi w przypadku klientów usługi Office 365, którzy nie obsługują usługi MFA | ● | |
+| Kontrola administracyjna nad metodami uwierzytelniania | ● | ● |
 | Tryb numeru PIN | | ● |
 | Alert dotyczący wykrycia oszustwa |● | ● |
 | Raporty usługi MFA |● | ● |
@@ -73,7 +73,7 @@ Poniższa tabela zawiera zestawienie funkcji dostępnych w przypadku użycia us�
 | Zaufane adresy IP | ● | ● |
 | Pamiętanie uwierzytelniania MFA w przypadku zaufanych urządzeń | ● | |
 | Dostęp warunkowy | ● | ● |
-| Pamięć podręczna | ● | ● |
+| Pamięć podręczna |  | ● |
 
 Gdy już udało się ustalić, czy będzie używane uwierzytelnianie wieloskładnikowe w chmurze czy lokalny serwer MFA, można rozpocząć konfigurowanie i używanie usługi Azure Multi-Factor Authentication. **Wybierz ikonę, która odpowiada Twojemu scenariuszowi.**
 
@@ -87,6 +87,6 @@ Gdy już udało się ustalić, czy będzie używane uwierzytelnianie wieloskład
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

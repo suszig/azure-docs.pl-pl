@@ -1,5 +1,5 @@
 ---
-title: "Dokumentacja usługi VPN Gateway — samouczki i informacje o interfejsach API | Microsoft Docs"
+title: "Dokumentacja usługi Azure VPN Gateway — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie konfigurowania bram wirtualnych sieci prywatnych (VPN) do zarządzania ruchem między sieciami wirtualnymi w chmurze i sieciami lokalnymi lub między sieciami wirtualnymi w chmurze."
 services: vpn-gateway
 author: carolz
@@ -13,9 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
-ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
-
+ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
+ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
 
 ---
 # <a name="vpn-gateway-documentation"></a>Dokumentacja usługi VPN Gateway
@@ -169,6 +168,6 @@ Informacje o sposobie konfigurowania usługi VPN Gateway, bramy wirtualnej sieci
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

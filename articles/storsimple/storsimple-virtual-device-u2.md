@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ccf25aab4d6454e27a57f9a18305ef752421896f
-ms.openlocfilehash: 6e4af8f21a3ec9613d9dc36ebceb710c0d8c9906
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
 
 
 ---
@@ -33,7 +33,7 @@ Dostępne są dwa modele urządzenia wirtualnego StorSimple: standardowy — 801
 | **Maszyna wirtualna platformy Azure** |Standard_A3 (4 rdzenie, 7 GB pamięci) |Standard_DS3 (4 rdzenie, 14 GB pamięci) |
 | **Zgodność wersji** |Wersje przed wprowadzeniem aktualizacji Update 2 lub nowsze |Wersje z aktualizacją Update 2 lub nowsze |
 | **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Regiony platformy Azure obsługujące usługę Premium Storage<br></br>Aby wyświetlić listę regionów, zobacz [obsługiwane regiony dla serii 8020](#supported-regions-for-8020) |
-| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../storage/storage-premium-storage.md) |
 | **Wskazówki dotyczące obciążenia** |Pobieranie plików z kopii zapasowych na poziomie elementu |Tworzenie chmur i scenariusze testowania, krótki czas oczekiwania, bardziej wydajne obciążenia <br></br>Urządzenie pomocnicze do odzyskiwania po awarii |
 
 <sup>1</sup> *Poprzednia nazwa: 1100*.
@@ -103,7 +103,7 @@ Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować nast�
 Przed utworzeniem urządzenia wirtualnego pobierz następujące aktualizacje usługi Azure StorSimple:
 
 * Dodaj [rekordy kontroli dostępu](storsimple-manage-acrs.md) do maszyn wirtualnych, które będą serwerami hosta dla urządzenia wirtualnego.
-* Użyj [konta magazynu](storsimple-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym znajduje się urządzenie wirtualne. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. Na urządzeniu wirtualnym można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage](../storage/storage-create-storage-account.md) lub [konta Premium Storage](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Użyj [konta magazynu](storsimple-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym znajduje się urządzenie wirtualne. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. Na urządzeniu wirtualnym można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage](../storage/storage-create-storage-account.md) lub [konta Premium Storage](../storage/storage-premium-storage.md)
 * Do utworzenia urządzenia wirtualnego użyj innego konta magazynu niż to używane do danych. Użycie tego samego konta magazynu może spowodować obniżenie wydajności.
 
 Upewnij się, że przed rozpoczęciem masz przygotowane następujące informacje:
@@ -259,6 +259,6 @@ Jeśli podczas tworzenia urządzenia wirtualnego nie ma łączności z Internete
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

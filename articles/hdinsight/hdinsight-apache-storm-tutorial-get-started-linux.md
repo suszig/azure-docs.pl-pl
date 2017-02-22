@@ -1,5 +1,5 @@
 ---
-title: "Samouczek platformy Apache Storm: wprowadzenie do platformy Storm opartej na systemie Linux w usłudze HDInsight | Microsoft Docs"
+title: "Rozpoczynanie pracy z platformą Apache Storm w usłudze Azure HDInsight | Microsoft Docs"
 description: "Wprowadzenie do analizy danych big data na platformie Apache Storm i przykłady z projektu Storm Starter w usłudze HDInsight opartej na systemie Linux. Dowiedz się, jak używać systemu Storm do przetwarzania danych w czasie rzeczywistym."
 keywords: apache storm,apache storm tutorial,big data analytics,storm starter
 services: hdinsight
@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
-ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy działający w czasie rzeczywistym do przetwarzania strumieni danych. Dzięki platformie Storm w usłudze Azure HDInsight można utworzyć oparty na chmurze klaster Storm do wykonywania analizy danych big data w czasie rzeczywistym.
 
-> [!NOTE]
-> Kroki opisane w tym artykule umożliwiają utworzenie klastra usługi HDInsight na bazie systemu Linux. Aby uzyskać instrukcje tworzenia klastra Storm opartego na systemie Windows w usłudze HDInsight, zobacz temat [Samouczek platformy Apache Storm: wprowadzenie do przykładu z projektu Storm Starter z użyciem analizy danych w usłudze HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+> [!IMPORTANT]
+> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date) (Zakończenie obsługi usługi HDInsight w systemie Windows).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -216,6 +216,6 @@ Aby uzyskać przykładowe topologie, które mogą być używane z narzędziem St
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

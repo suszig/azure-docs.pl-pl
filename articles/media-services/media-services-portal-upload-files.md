@@ -1,5 +1,5 @@
 ---
-title: " Przekazywanie plików na konto usługi Azure Media Services za pomocą witryny Azure Portal | Microsoft Docs"
+title: " Przekazywanie plików na konto usługi Azure Media Services za pomocą witryny Azure Portal | Microsoft Docss"
 description: "Ten samouczek przeprowadzi Cię przez kroki przekazywania plików na konto usługi Media Services za pomocą portalu Azure"
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
+ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
+ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
 
 
 ---
@@ -29,9 +29,16 @@ ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
 > [!NOTE]
 > Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
-> 
+
 
 Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu zawartości. Element zawartości może zawierać pliki wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików). Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze, na potrzeby dalszego przetwarzania i przesyłania strumieniowego.
+
+
+## <a name="upload-files"></a>Przekazywanie plików
+
+>[!NOTE]
+>Istnieje limit maksymalnego rozmiaru pliku do przetwarzania w usłudze Media Services. Zobacz [ten](media-services-quotas-and-limitations.md) temat, aby uzyskać szczegółowe informacje na temat ograniczeń rozmiarów plików.
+>
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
 2. W bloku **Ustawienia** kliknij opcję **Elementy zawartości**.
@@ -54,6 +61,8 @@ Po zakończeniu przekazywania na liście w oknie **Elementy zawartości** pojawi
 ## <a name="next-steps"></a>Następne kroki
 Teraz możesz zakodować przekazane elementy zawartości. Więcej informacji znajduje się na stronie [Kodowanie elementów zawartości](media-services-portal-encode.md).
 
+Możesz także używać usługi Azure Functions do wyzwalania zadania kodowania na podstawie pliku trafiającego do skonfigurowanego kontenera. Aby uzyskać więcej informacji, zobacz [ten przykład](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
+
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -63,6 +72,6 @@ Teraz możesz zakodować przekazane elementy zawartości. Więcej informacji zna
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

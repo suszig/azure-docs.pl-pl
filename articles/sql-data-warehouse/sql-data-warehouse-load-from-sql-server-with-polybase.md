@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4f6feb844774fba00e3c46438f686e61b52d03d3
 
 
 ---
@@ -34,7 +34,7 @@ Ten samouczek przedstawia sposób ładowania danych do usługi SQL Data Warehous
 * Tworzenie obiektów bazy danych do definiowania danych
 * Uruchamianie zapytania T-SQL do ładowania danych
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -43,7 +43,7 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
 * Baza danych usługi SQL Data Warehouse.
 * Konto magazynu platformy Azure typu standardowy magazyn lokalnie nadmiarowy (Standard-LRS), standardowy magazyn geograficznie nadmiarowy (Standard-GRS) lub standardowy magazyn geograficznie nadmiarowy dostępny do odczytu (Standard-RAGRS).
-* Narzędzie wiersza polecenia AzCopy. Pobierz i zainstaluj [najnowszą wersję programu AzCopy][najnowszą wersję programu AzCopy], która jest instalowana z narzędziami Microsoft Azure Storage Tools.
+* Narzędzie wiersza polecenia AzCopy. Pobierz i zainstaluj [najnowszą wersję programu AzCopy][latest version of AzCopy], która jest instalowana z narzędziami Microsoft Azure Storage Tools.
   
     ![Narzędzia Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -106,7 +106,7 @@ Aby skopiować dane do magazynu obiektów blob platformy Azure:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Zobacz też [Wprowadzenie do narzędzia wiersza polecenia AzCopy][najnowszą wersję programu AzCopy].
+Zobacz też: [Wprowadzenie do narzędzia wiersza polecenia AzCopy][latest version of AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Eksplorowanie kontenera magazynu obiektów blob
 Aby zobaczyć plik przekazany do magazynu obiektów blob:
@@ -126,7 +126,7 @@ Aparat PolyBase używa tabel zewnętrznych do uzyskiwania dostępu do danych w m
 
 W tym kroku przykładu użyto następujących instrukcji języka Transact-SQL do utworzenia tabeli zewnętrznej.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] w celu szyfrowania klucza tajnego poświadczeń o zakresie bazy danych.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] w celu szyfrowania wpisu tajnego poświadczeń o zakresie bazy danych.
 * [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)], aby określić dane uwierzytelniania dla konta usługi Azure Storage.
 * [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)], aby określić lokalizację usługi Azure Blob Storage.
 * [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)], aby określić format danych.
@@ -237,25 +237,25 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Aby dowiedzieć się więcej, zobacz temat [Statystyki][Statystyki].  
+Aby dowiedzieć się więcej, zobacz temat [Statystyki][Statistics].  
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz [Przewodnik po programie PolyBase][Przewodnik po programie PolyBase] w celu uzyskania dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.
+Zobacz [Przewodnik po programie PolyBase][PolyBase guide] w celu uzyskania dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.
 
 <!--Image references-->
 
 
 <!--Article references-->
-[Aparat PolyBase w usłudze SQL Data Warehouse — samouczek]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Ładowanie danych za pomocą narzędzia BCP]: ./sql-data-warehouse-load-with-bcp.md
-[Statystyki]: ./sql-data-warehouse-tables-statistics.md
-[Przewodnik po programie PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[najnowszą wersję programu AzCopy]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[obsługiwane źródło/ujście]: https://msdn.microsoft.com/library/dn894007.aspx
-[działanie kopiowania]: https://msdn.microsoft.com/library/dn835035.aspx
-[Adapter miejsca docelowego programu SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -276,6 +276,6 @@ Zobacz [Przewodnik po programie PolyBase][Przewodnik po programie PolyBase] w ce
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

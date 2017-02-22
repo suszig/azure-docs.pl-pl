@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
-ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 28984e14f5afc27b608ab37daf19d454eb7c3201
 
 
 ---
@@ -28,7 +28,7 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 
 1. Otwórz powłokę.
 2. Przejdź do folderu głównego w lokalnej kopii repozytorium **azure-iot-gateway-sdk**.
-3. Uruchom skrypt **tools/build.sh --skip-unittests**. Ten skrypt używa narzędzia **cmake** do utworzenia folderu o nazwie **build** w folderze głównym lokalnej kopii repozytorium **azure-iot-gateway-sdk** i wygenerowania pliku reguł programu make. Skrypt następnie kompiluje rozwiązanie, pomijając testy jednostkowe. Usuń parametr **--skip-unittests**, jeśli chcesz skompilować rozwiązanie i uruchomić testy jednostkowe.
+3. Uruchom skrypt **tools/build.sh**. Ten skrypt używa narzędzia **cmake** do utworzenia folderu o nazwie **build** w folderze głównym lokalnej kopii repozytorium **azure-iot-gateway-sdk** i wygenerowania pliku reguł programu make. Skrypt następnie kompiluje rozwiązanie, pomijając testy jednostkowe i testy kompleksowe. Dodaj parametr **--run-unittests**, jeśli chcesz skompilować rozwiązanie i uruchomić testy jednostkowe. Dodaj parametr **--run-e2e-tests**, jeśli chcesz skompilować rozwiązanie i uruchomić testy kompleksowe.
 
 > [!NOTE]
 > Za każdym razem, gdy zostanie uruchomiony skrypt **build.sh**, folder **build** jest usuwany i tworzony ponownie w folderze głównym lokalnej kopii repozytorium **azure-iot-gateway-sdk**.
@@ -92,6 +92,6 @@ Przed rozpoczęciem należy [skonfigurować środowisko programistyczne][lnk-set
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Omówienie bazy danych Stretch | Microsoft Docs"
+title: "Archiwizowanie zimnych danych na platformie Azure — Stretch Database | Microsoft Docs"
 description: "Dowiedz się, jak w sposób niewidoczny i bezpieczny usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
+ms.sourcegitcommit: cfa45dbb2d6e7579ed151c0213d394581cb73c4d
+ms.openlocfilehash: 0c4355eb424f169238f274241747acff4532d589
 
 
 ---
-# <a name="stretch-database-overview"></a>Omówienie bazy danych Stretch
+# <a name="introduction-to-stretch-database"></a>Wprowadzenie do usługi Stretch Database
 Usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure w sposób niewidoczny i bezpieczny.
 
 Jeśli chcesz od razu rozpocząć pracę z bazą danych Stretch, zobacz artykuł [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) (Rozpoczęcie pracy przez uruchomienie Kreatora włączania bazy danych do usługi Stretch).
@@ -84,6 +84,6 @@ Użyj Doradcy w zakresie bazy danych Stretch, funkcji Doradcy uaktualnienia do p
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

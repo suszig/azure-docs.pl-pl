@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/06/2017
+ms.date: 01/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 6949e07622f229616f950a9aed07c7b58a5b63fc
-ms.openlocfilehash: 9de26e09cb41ef415d0535db35d7d5d0cd8784a5
+ms.sourcegitcommit: 8ff9c07fbc6e3d2a44414b485bd0f32b68b5d494
+ms.openlocfilehash: 127303bce70801ab93992273fd8f86d6f3c41605
 
 
 ---
@@ -132,7 +132,6 @@ Aby przydzielić dodatkowym użytkownikom pełną kontrolę nad bazą danych, na
 
 > [!NOTE]
 > Najczęstszym powodem tworzenia użytkowników bazy danych opartych na identyfikatorach logowania jest istnienie użytkowników uwierzytelniania programu SQL Server, którzy muszą mieć dostęp do wielu baz danych. Użytkownicy oparci na nazwach logowania są powiązani z nazwą logowania i tylko z jednym hasłem, które jest obsługiwane dla tej nazwy logowania. Użytkownicy zawartej bazy danych w poszczególnych bazach danych są poszczególnymi jednostkami i każdy z nich zachowuje własne hasło. Może to prowadzić do mylenia użytkowników zawartej bazy danych, jeśli nie zachowują oni identycznych haseł.
- 
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurowanie zapory na poziomie bazy danych
 Najlepszym rozwiązaniem jest sytuacja, gdy użytkownicy niebędący administratorami mają dostęp do używanych baz danych tylko poprzez zaporę. Zamiast autoryzowania ich adresów IP poprzez zaporę na poziomie serwera i przydzielania dostępu do wszystkich baz danych użyj instrukcji [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx), aby skonfigurować zaporę na poziomie bazy danych. Nie można skonfigurować zapory na poziomie bazy danych za pomocą portalu.
@@ -158,7 +157,8 @@ Istnieje ponad 100 uprawnień, których można indywidualnie udzielić lub odmó
 ### <a name="considerations-and-restrictions"></a>Uwagi i ograniczenia
 Podczas zarządzania nazwami logowania i użytkownikami w usłudze SQL Database należy uwzględnić następujące fakty:
 
-* Podczas wykonywania instrukcji `CREATE/ALTER/DROP DATABASE` musisz mieć połączenie z bazą danych **master**. Użytkownik bazy danych w bazie danych master odpowiadający identyfikatorowi logowania **Administrator serwera** nie może być zmieniony ani usunięty. 
+* Podczas wykonywania instrukcji `CREATE/ALTER/DROP DATABASE` musisz mieć połączenie z bazą danych **master**.   
+* Użytkownik bazy danych odpowiadający identyfikatorowi logowania **Administrator serwera** nie może zostać zmieniony ani usunięty. 
 * Domyślnym językiem identyfikatora logowania **Administrator serwera** jest angielski (Stany Zjednoczone).
 * Tylko administratorzy (identyfikator logowania **Administrator serwera** lub Administrator usługi Azure AD) i członkowie roli bazy danych **dbmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji `CREATE DATABASE` i `DROP DATABASE`.
 * Podczas wykonywania instrukcji `CREATE/ALTER/DROP LOGIN` musisz mieć połączenie z bazą danych master. Nie zaleca się jednak używania nazw logowania. Zamiast tego korzystaj z użytkowników zawartej bazy danych.
@@ -185,13 +185,14 @@ Podczas zarządzania nazwami logowania i użytkownikami w usłudze SQL Database 
 
 - Aby dowiedzieć się więcej o regułach zapory, zobacz artykuł dotyczący [zapory usługi Azure SQL Database](sql-database-firewall-configure.md).
 - Aby zobaczyć przegląd wszystkich funkcji zabezpieczeń usługi SQL Database, zobacz [omówienie zabezpieczeń usługi SQL](sql-database-security-overview.md).
-- Samouczek znajduje się w artykule [Rozpocznij pracę z usługą SQL Database](sql-database-get-started-security.md)
+- Samouczek znajduje się w artykule [Rozpocznij pracę z usługą SQL Database](sql-database-control-access-sql-authentication-get-started.md)
 - Aby uzyskać informacje o widokach i procedurach składowanych, zobacz artykuł dotyczący [tworzenia widoków i procedur składowanych](https://msdn.microsoft.com/library/ms365311.aspx)
 - Aby uzyskać informacje o udzielaniu dostępu do obiektu bazy danych, zobacz artykuł dotyczący [udzielania dostępu do obiektu bazy danych](https://msdn.microsoft.com/library/ms365327.aspx)
+- Aby zapoznać się z samouczkiem dotyczącym korzystania z uwierzytelniania programu SQL Server, zobacz [Samouczek usługi SQL Database: uwierzytelnianie programu SQL Server, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-sql-authentication-get-started.md).
+- Aby zapoznać się z samouczkiem dotyczącym korzystania z uwierzytelniania usługi Azure Active Directory, zobacz [Samouczek usługi SQL Database: uwierzytelnianie usługi AAD, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -26,7 +26,8 @@
 
 ## Instrukcje
 ### [Zarządzanie w witrynie Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Instalowanie najnowszych aktualizacji](storsimple-virtual-array-install-update.md)
+#### [Instalowanie najnowszych aktualizacji](storsimple-virtual-array-install-update-04.md)
+##### [Instalowanie aktualizacji Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Wykonywanie kopii zapasowych i zarządzanie nimi](storsimple-virtual-array-backup.md)
 #### [Klonowanie z kopii zapasowych](storsimple-virtual-array-clone.md)
 #### [Praca w trybie failover i odzyskiwanie po awarii](storsimple-virtual-array-failover-dr.md)
@@ -40,6 +41,8 @@
 #### [Zarządzanie zadaniami](storsimple-virtual-array-manage-jobs.md)
 #### [Zmienianie hasła urządzenia](storsimple-virtual-array-change-device-admin-password.md)
 #### [Konfigurowanie wielościeżkowego wejścia/wyjścia na hoście systemu Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Diagnozowanie i rozwiązywanie problemów](storsimple-virtual-array-diagnose-problems.md)
+#### [Rejestrowanie żądania pomocy technicznej](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Zarządzanie za pomocą klasycznej witryny Azure Portal](storsimple-ova-manager-service-administration.md)
 #### [Instalowanie najnowszych aktualizacji](storsimple-ova-install-update-01.md)
@@ -56,7 +59,8 @@
 ### [Konfigurowanie poprzez lokalny interfejs użytkownika sieci Web](storsimple-ova-web-ui-admin.md)
 
 ## Informacje o wersji
-### [Update 0.3 — bieżąca](storsimple-ova-update-03-release-notes.md)
+### [Aktualizacja Update 0.4 — bieżąca](storsimple-virtual-array-update-04-release-notes.md)
+### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Aktualizacje Update 0.2 i 0.1](storsimple-ova-update-01-release-notes.md)
 
 # StorSimple 8000 Series
@@ -150,6 +154,7 @@
 ### Monitorowanie
 #### [Korzystanie z pulpitu nawigacyjnego usług](storsimple-service-dashboard.md)
 #### [Korzystanie z pulpitu nawigacyjnego urządzeń](storsimple-device-dashboard.md)
+#### [Korzystanie z wykresów monitorowania](storsimple-monitor-device.md)
 #### [Korzystanie z alertów usług](storsimple-manage-alerts.md)
 #### [Korzystanie ze stanu sprzętu](storsimple-monitor-hardware-status.md)
 #### [Korzystanie z diod LED monitorowania](storsimple-monitoring-indicators.md)
@@ -172,6 +177,7 @@
 #### [Z innych urządzeń magazynujących](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aktualizacja
+#### [Instalowanie aktualizacji Update 4](storsimple-install-update-4.md)
 #### [Instalowanie aktualizacji Update 3](storsimple-install-update-3.md)
 #### [Instalowanie aktualizacji Update 2.2](storsimple-install-update-21.md)
 #### [Instalowanie aktualizacji Update 2](storsimple-install-update-2.md)
@@ -179,6 +185,7 @@
 #### [Aktualizowanie urządzenia](storsimple-update-device.md)
 
 ## Informacje o wersji
+### [Update 4 — bieżąca](storsimple-update4-release-notes.md)
 ### [Update 3 — bieżąca](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 ### [Update 2](storsimple-update2-release-notes.md)
@@ -203,6 +210,18 @@
 ## Instrukcje
 ### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md) (Korzystanie z platformy .NET do przekształcania danych)
 
+# Usługa StorSimple dla partnerów
+## Omówienie
+### [Jakie jest rozwiązanie?](storsimple-partner-csp-overview.md)
+
+## Rozpoczynanie pracy
+### [Wdrażanie macierzy wirtualnej dla dostawców CSP](storsimple-partner-csp-deploy.md)
+
+## Informacje o wersji
+### [Informacje o wersji magazynu StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [Informacje o wersji dla dostawców CSP](https://partner.microsoft.com/Support/whats-new)
+### [Usługa StorSimple dla dostawców CSP: często zadawane pytania](storsimple-partner-csp-faq.md)
+
 # Powiązane
 ## [StorSimple 5000–7000 Series](http://onlinehelp.storsimple.com)
 
@@ -220,6 +239,6 @@
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

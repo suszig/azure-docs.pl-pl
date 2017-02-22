@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentacja usługi Azure App Service — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak za pomocą usługi App Service tworzyć aplikacje sieci Web i aplikacje mobilne dla dowolnej platformy i dowolnego urządzenia, korzystając z samouczków, klipów wideo, dokumentacji interfejsu API oraz innych dokumentów."
+services: app-service
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
-ms.openlocfilehash: 42f4121a53432dedf214c45897aa846e0c901a41
+ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
+ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
 
 ---
 #<a name="app-service-documentation"></a>Dokumentacja usługi App Service
@@ -121,16 +132,10 @@ Dowiedz się, jak za pomocą usługi App Service opracowywać i hostować aplika
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usługi App Service </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

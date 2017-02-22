@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
 
 ---
@@ -44,17 +44,22 @@ Po ukończeniu tego samouczka uzyskasz przykładową bazę danych i pustą bazę
 
 **Szacowany czas**: ten samouczek zajmie Ci około 30 minut (przy założeniu, że spełniasz już wymagania wstępne).
 
+> [!TIP]
+> Te same czynności w samouczku ułatwiającym rozpoczęcie pracy można wykonać przy użyciu języka [C#](sql-database-get-started-csharp.md) lub programu [PowerShell](sql-database-get-started-powershell.md).
+>
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * Musisz być w stanie połączyć się z witryną Azure Portal przy użyciu konta, które jest członkiem roli właściciela subskrypcji albo współautora. Aby uzyskać więcej informacji o kontroli dostępu na podstawie ról (RBAC, role-based access control), zobacz [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Wprowadzenie do zarządzania dostępem w witrynie Azure Portal).
 
-> [!TIP]
-> Te same czynności w samouczku ułatwiającym rozpoczęcie pracy można wykonać przy użyciu języka [C#](sql-database-get-started-csharp.md) lub programu [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> Ten samouczek ułatwia opanowanie informacji podanych w następujących tematach szkoleniowych: [SQL Database server overview](sql-database-server-overview.md) (Omówienie serwerów usługi SQL Database), [Omówienie usługi Azure SQL Database](sql-database-overview.md) i [Omówienie reguł zapory usługi Azure SQL Database](sql-database-firewall-configure.md).
+>  
 
-### <a name="sign-in-by-using-your-existing-account"></a>Logowanie przy użyciu istniejącego konta
+
+### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Logowanie do witryny Azure Portal przy użyciu konta platformy Azure
 Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Index) wykonaj poniższe kroki, aby połączyć się z witryną Azure Portal.
 
 1. Otwórz wybraną przeglądarkę i połącz się z witryną [Azure Portal](https://portal.azure.com/).
@@ -103,7 +108,7 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
     ![lokalizacja serwera](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > W tym bloku nie można zmienić pola wyboru dla opcji **Zezwalaj usługom platformy Azure na dostęp do serwera**. To ustawienie można zmienić w bloku zapory serwera. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do zabezpieczeń](sql-database-get-started-security.md).
+    > W tym bloku nie można zmienić pola wyboru dla opcji **Zezwalaj usługom platformy Azure na dostęp do serwera**. To ustawienie można zmienić w bloku zapory serwera. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do zabezpieczeń](sql-database-control-access-sql-authentication-get-started.md).
     >
     
 9. Kliknij przycisk **Utwórz**.
@@ -183,7 +188,7 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
     ![odpytywanie bazy danych master o obiekty systemowe](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > Aby poznać zabezpieczenia SQL, zobacz [Wprowadzenie do zabezpieczeń SQL](sql-database-get-started-security.md)
+    > Aby poznać zabezpieczenia SQL, zobacz [Wprowadzenie do zabezpieczeń SQL](sql-database-control-access-sql-authentication-get-started.md)
     >
 
 ## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Tworzenie nowej bazy danych w witrynie Azure Portal przy użyciu przykładu Adventure Works LT
@@ -291,7 +296,7 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
 ## <a name="next-steps"></a>Następne kroki
 Po ukończeniu tego samouczka możesz zapoznać się z kilkoma dodatkowymi samouczkami, które poszerzą zdobytą wiedzę. 
 
-* Jeśli chcesz zacząć poznawać zabezpieczenia usługi Azure SQL Database, zobacz artykuł [Wprowadzenie do zabezpieczeń](sql-database-get-started-security.md).
+* Jeśli chcesz zacząć poznawać zabezpieczenia usługi Azure SQL Database, zobacz artykuł [Wprowadzenie do zabezpieczeń](sql-database-control-access-sql-authentication-get-started.md).
 * Jeśli posługujesz się programem Excel, naucz się [nawiązywać połączenie z bazą danych SQL w programie Excel](sql-database-connect-excel.md).
 * Jeśli chcesz zacząć programować, wybierz język programowania w obszarze [Biblioteki połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md).
 * Jeśli chcesz przenieść lokalne bazy danych programu SQL Server na platformę Azure, zobacz artykuł [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) (Migracja bazy danych do usługi Azure SQL Database).
@@ -306,6 +311,6 @@ Po ukończeniu tego samouczka możesz zapoznać się z kilkoma dodatkowymi samou
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

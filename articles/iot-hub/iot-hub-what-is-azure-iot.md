@@ -1,5 +1,5 @@
 ---
-title: "Rozwiązania platformy Azure dla Internetu rzeczy | Microsoft Docs"
+title: "Rozwiązania platformy Azure dla Internetu rzeczy (Pakiet IoT) | Microsoft Docs"
 description: "Przegląd przykładowej architektury rozwiązania IoT i jej relacji z urządzeniami, usługą Azure IoT Hub, zestawami SDK urządzeń Azure IoT, zestawami SDK usługi Azure IoT i innymi usługami Azure."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 36e4afb54485c12b39349124e241a2d74617702c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
 
 
 ---
@@ -49,6 +49,6 @@ Warto również zainteresować się [Pakietem IoT Azure][lnk-iot-suite], który 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

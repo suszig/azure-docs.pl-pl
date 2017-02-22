@@ -182,6 +182,6 @@ Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zap
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
-ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
+ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
+ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
 
 ---
 # <a name="manage-workspaces"></a>Zarządzanie obszarami roboczymi
 
-Dostępem do usługi Log Analytics można zarządzać, wykonując różne zadania administracyjne dotyczące obszarów roboczych. Ten artykuł zawiera opis najlepszych rozwiązań i procedur z zakresu zarządzania obszarami roboczymi przy użyciu różnych typów kont. Obszar roboczy to kontener, który zawiera informacje o koncie i podstawowe informacje o konfiguracji konta. Ty i inni członkowie organizacji możecie używać wielu obszarów roboczych, aby zarządzać różnymi zestawami danych zebranymi z całej infrastruktury IT lub jej części.
+Dostępem do usługi Log Analytics można zarządzać, wykonując różne zadania administracyjne dotyczące obszarów roboczych. Ten artykuł zawiera opis najlepszych rozwiązań i procedur z zakresu zarządzania obszarami roboczymi. Obszar roboczy to kontener, który zawiera informacje o koncie i podstawowe informacje o konfiguracji konta. Ty i inni członkowie organizacji możecie używać wielu obszarów roboczych, aby zarządzać różnymi zestawami danych zebranymi z całej infrastruktury IT lub jej części.
 
 Aby utworzyć obszar roboczy, trzeba:
 
@@ -41,6 +41,7 @@ Obecnie obszar roboczy oferuje następujące możliwości:
 * Lokalizacja geograficzna do przechowywania danych
 * Poziom szczegółowości rozliczeń
 * Izolacja danych
+* Możliwość konfiguracji
 
 Na podstawie powyższych właściwości można wskazać następujące sytuacje, w których warto utworzyć wiele obszarów roboczych:
 
@@ -61,7 +62,7 @@ Szczegółowe informacje o obszarze roboczym można wyświetlić w witrynie Azur
 #### <a name="view-workspace-information-the-azure-portal"></a>Wyświetlanie informacji o obszarze roboczym w witrynie Azure Portal
 
 1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
-2. W menu **Centrum** kliknij pozycję **Więcej usług** i na liście zasobów wpisz ciąg **Log Analytics**. Po rozpoczęciu pisania zawartość listy będzie filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
+2. W menu **Centrum** kliknij pozycję **Więcej usług** i na liście zasobów wpisz ciąg **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
     ![Centrum platformy Azure](./media/log-analytics-manage-access/hub.png)  
 3. Wybierz obszar roboczy w bloku subskrypcji usługi Log Analytics.
 4. Blok obszaru roboczego zawiera szczegółowe dane dotyczące obszaru roboczego i linki do dodatkowych informacji.  
@@ -78,15 +79,14 @@ Dostęp do obszaru roboczego jest kontrolowany w dwóch miejscach:
 * Na platformie Azure można użyć kontroli dostępu opartej na rolach, aby zapewnić dostęp do subskrypcji platformy Azure i skojarzonych zasobów platformy Azure. Te uprawnienia są również używane w przypadku dostępu do programu PowerShell i interfejsu API REST.
 * W portalu pakietu OMS — dostęp tylko portalu pakietu OMS, a nie do skojarzonej subskrypcji platformy Azure.
 
-Jeśli udzielisz użytkownikom dostępu tylko do portalu pakietu OMS, ale nie do połączonej z nim subskrypcji platformy Azure, użytkownicy nie będą widzieć żadnych danych na kafelkach rozwiązań Backup i Site Recovery.
-Aby umożliwić wszystkim użytkownikom wyświetlanie danych w tych rozwiązaniach, upewnij się, że mają oni uprawnienia dostępu co najmniej na poziomie **czytelnika** do magazynu kopii zapasowych i magazynu usługi Site Recovery połączonego z obszarem roboczym.   
+Do wyświetlenia danych z kafelków rozwiązań Backup i Site Recovery wymagane jest uprawnienie administratora bądź współadministratora umożliwiające dostęp do subskrypcji platformy Azure, z którą jest połączony obszar roboczy.   
 
 ### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Zarządzanie dostępem do usługi Log Analytics przy użyciu witryny Azure Portal
 Jeśli udzielisz użytkownikom dostępu do obszaru roboczego usługi Log Analytics przy użyciu uprawnień platformy Azure (np. w witrynie Azure Portal), będą oni mogli uzyskiwać dostęp do portalu usługi Log Analytics. W witrynie Azure Portal użytkownicy mogą przejść do portalu pakietu OMS przez kliknięcie zadania **Portal pakietu OMS**, gdy jest wyświetlany zasób obszaru roboczego usługi Log Analytics.
 
 Należy pamiętać o kilku kwestiach związanych z witryną Azure Portal:
 
-* Nie jest to *kontrola dostępu oparta na rolach*. Jeśli masz uprawnienia dostępu *czytelnika* do obszaru roboczego usługi Log Analytics w witrynie Azure Portal, możesz wprowadzać zmiany, korzystając z portalu pakietu OMS. Portal pakietu OMS korzysta z ról administratora, współautora i użytkownika tylko do odczytu. Jeśli konto, za pomocą którego Cię zalogowano, znajduje się w usłudze Azure Active Directory połączonej z obszarem roboczym, jesteś administratorem w portalu pakietu OMS. W przeciwnym razie jesteś współautorem.
+* Nie jest to *kontrola dostępu oparta na rolach*. Jeśli masz uprawnienia dostępu *czytelnika* do obszaru roboczego usługi Log Analytics w witrynie Azure Portal, możesz wprowadzać zmiany, korzystając z portalu pakietu OMS. Portal pakietu OMS korzysta z ról administratora, współautora i użytkownika tylko do odczytu. Jeśli konto, za pomocą którego się zalogowano, znajduje się w usłudze Azure Active Directory połączonej z obszarem roboczym, to jesteś administratorem w portalu pakietu OMS. W przeciwnym razie jesteś współautorem.
 * Po zalogowaniu się do portalu pakietu OMS na stronie http://mms.microsoft.com domyślnie jest wyświetlana lista **Wybierz obszar roboczy**. Zawiera ona tylko obszary robocze dodane przy użyciu portalu pakietu OMS. Aby wyświetlić obszary robocze, do których uzyskujesz dostęp za pomocą subskrypcji platformy Azure, musisz podać dzierżawę w adresie URL. Na przykład:
 
   `mms.microsoft.com/?tenant=contoso.com` Identyfikator dzierżawy jest często ostatnią częścią adresu e-mail użytego podczas logowania.
@@ -199,7 +199,7 @@ Nowy plan taryfowy jest wyświetlany na wstążce portalu pakietu OMS w górnej 
 8. Kliknij przycisk **OK**. Obszar roboczy jest teraz połączony z kontem platformy Azure.
 
 > [!NOTE]
-> Jeśli obszar roboczy, który chcesz połączyć, nie jest wyświetlany, oznacza to, że subskrypcja platformy Azure nie ma dostępu do obszaru roboczego utworzonego przy użyciu witryny sieci Web pakietu OMS.  Musisz udzielić dostępu do tego konta z poziomu obszaru roboczego pakietu OMS. Aby to zrobić, zobacz [Dodawanie użytkownika do istniejącego obszaru roboczego](#add-a-user-to-an-existing-workspace).
+> Jeśli obszar roboczy, który chcesz połączyć, nie jest wyświetlany, oznacza to, że subskrypcja platformy Azure nie ma dostępu do obszaru roboczego utworzonego przy użyciu witryny sieci Web pakietu OMS.  Aby udzielić dostępu do tego konta z poziomu portalu pakietu OMS, zobacz sekcję [Dodawanie użytkownika do istniejącego obszaru roboczego](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -232,15 +232,20 @@ Jeśli istnieje zobowiązanie pieniężne platformy Azure dotyczące rejestracji
 
 Jeśli chcesz zmienić subskrypcję platformy Azure, z którą jest połączony obszar roboczy, możesz użyć polecenia cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) programu Azure PowerShell.  
 
-### <a name="change-a-workspace-to-a-paid-data-plan"></a>Zmienianie obszaru roboczego na płatny plan taryfowy
+### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Zmienianie obszaru roboczego na płatną warstwę cenową
 1. Zaloguj się do [Azure Portal](http://portal.azure.com).
 2. Wyszukaj pozycję **Log Analytics** i wybierz ją.
 3. Zostanie wyświetlona lista istniejących obszarów roboczych. Wybierz obszar roboczy.  
 4. W bloku obszaru roboczego w obszarze **Ogólne** kliknij pozycję **Warstwa cenowa**.  
-5. W obszarze **Warstwa cenowa** kliknij plan taryfowy, a następnie kliknij przycisk **Wybierz**.  
+5. W obszarze **Warstwa cenowa** kliknij warstwę cenową, a następnie kliknij przycisk **Wybierz**.  
     ![wybieranie planu](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Gdy odświeżysz widok w witrynie Azure Portal, zostanie wyświetlona zaktualizowana **warstwa cenowa** wybranego planu.  
+6. Gdy odświeżysz widok w witrynie Azure Portal, zostanie wyświetlony zaktualizowany obszar **Warstwa cenowa** dla wybranej warstwy.  
     ![zaktualizowany plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Jeśli obszar roboczy jest połączony z kontem usługi Automation, przed wybraniem warstwy cenowej *Autonomiczna (za GB)* musisz usunąć wszystkie rozwiązania **Automation and Control** i odłączyć konto usługi Automation. W bloku obszaru roboczego w obszarze **Ogólne** kliknij pozycję **Rozwiązania**, aby wyświetlić i usunąć rozwiązania. Aby odłączyć konto usługi Automation, kliknij nazwę konta usługi Automation w bloku **Warstwa cenowa**.
+>
+>
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Zmiana czasu przechowywania danych przez usługę Log Analytics
 
@@ -293,6 +298,6 @@ Jeśli jesteś administratorem i z tym obszarem roboczym jest skojarzonych wielu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

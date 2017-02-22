@@ -1,23 +1,20 @@
 ---
-title: "Omówienie pakietu Operations Management Suite (OMS) | Microsoft Docs"
-description: "Pakiet Microsoft Operations Management Suite (OMS) to oparte na chmurze rozwiązanie firmy Microsoft do zarządzania systemami IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę.  W tym artykule opisano różne usługi w ramach pakietu OMS i umieszczono linki do szczegółowych treści na ich temat."
+title: "Dokumentacja pakietu Azure Operations Management Suite (OMS) — samouczki | Microsoft Docs"
+description: "Pakiet Microsoft Operations Management Suite (OMS) to oparte na chmurze rozwiązanie firmy Microsoft do zarządzania systemami IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. W tym artykule opisano różne usługi w ramach pakietu OMS i umieszczono linki do szczegółowych treści na ich temat."
 services: operations-management-suite
-documentationcenter: 
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 9dc437b9-e83c-45da-917c-cb4f4d8d6333
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: operations-management-suite
-ms.devlang: na
-ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: bwren
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
-ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
-
+ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
+ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
 
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Co to jest pakiet Operations Management Suite (OMS)?
@@ -32,7 +29,7 @@ Poniższe sekcje zawierają ogólny opis różnych obszarów wartości pakietu O
 
 Do usługi Log Analytics można łatwo dodawać rozwiązania definiujące dane, które mają być zbierane, i logikę ich analizy.  Rozwiązania mogą zawierać dodatkową funkcjonalność, która jest automatycznie dostarczana do agentów po wykonaniu minimalnej konfiguracji lub bez konfiguracji.  Oprócz używania narzędzi analizy dostarczonych przez indywidualne rozwiązania można wykonywać niestandardowe wyszukiwania w całym zestawie danych w celu skorelowania danych między systemami i aplikacjami.  
 
-## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Automatyzacja i kontrola](media/operations-management-suite-overview/icon-automation-control.png) Automatyzacja i kontrola
+## <a name="automation--controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation--control"></a>![Automatyzacja i kontrola](media/operations-management-suite-overview/icon-automation-control.png) Automatyzacja i kontrola
 Usługa Azure Automation pozwala automatyzować procesy administracyjne za pomocą opartych na programie PowerShell elementów [Runbook](../automation/automation-runbook-types.md), które działają w chmurze Azure.  Elementy Runbook mają dostęp do dowolnego produktu lub usługi, którymi można zarządzać za pomocą programu PowerShell, w tym do zasobów znajdujących się w innych chmurach, jak Amazon Web Services (AWS).  Elementy Runbook mogą być również wykonywane na serwerze w lokalnym centrum danych w celu zarządzania zasobami lokalnymi.
 
 Usługa Azure Automation udostępnia funkcję zarządzania konfiguracją za pomocą programu [PowerShell DSC](../automation/automation-dsc-overview.md).  Można tworzyć zasoby DSC hostowane na platformie Azure i nimi zarządzać oraz stosować je w systemach chmurowych i lokalnych w celu definiowania i automatycznego wymuszania ich konfiguracji.
@@ -58,6 +55,6 @@ Usługa zabezpieczeń i zgodności pomaga zidentyfikować, oszacować i ogranicz
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

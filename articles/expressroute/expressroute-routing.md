@@ -1,5 +1,5 @@
 ---
-title: "Wymagania dotyczące routingu dla usługi ExpressRoute | Microsoft Docs"
+title: "Wymagania dotyczące routingu dla usługi Azure ExpressRoute | Microsoft Docs"
 description: "Ta strona zawiera szczegółowe wymagania dotyczące konfigurowania routingu oraz zarządzania nim na potrzeby obwodów usługi ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/27/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
-ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
 
 
 ---
@@ -189,8 +189,12 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | **Region chmur krajowych platformy Azure**| **Wartość społeczności BGP** |
 | --- | --- |
 | **Administracja USA** |  |
+| Administracja USA — Arizona | 12076:51106 |
 | Administracja USA — Iowa | 12076:51109 |
 | Administracja USA — Wirginia | 12076:51105 |
+| Administracja USA — Teksas | 12076:51108 |
+| US DoD — środkowe stany | 12076:51209 |
+| US DoD — wschodnie stany | 12076:51205 |
 
 
 | **Usługa w chmurach krajowych** | **Wartość społeczności BGP** |
@@ -212,6 +216,6 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

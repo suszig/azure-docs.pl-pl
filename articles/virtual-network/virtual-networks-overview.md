@@ -1,5 +1,5 @@
 ---
-title: "Omówienie usługi Azure Virtual Network (VNet)"
+title: Azure Virtual Networks | Microsoft Docs
 description: "Dowiedz się więcej na temat sieci wirtualnych platformy Azure."
 services: virtual-network
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e08966567a8545c1b37ec856f836b976b5a9ab2a
+ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
+ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
 
 
 ---
-# <a name="virtual-network-overview"></a>Omówienie usługi Virtual Network
-Sieć wirtualna Azure odzwierciedla w chmurze Twoją sieć.  Jest logiczną izolacją chmury Azure przeznaczoną dla Twojej subskrypcji. W ramach tej sieci można w pełni kontrolować bloki adresów IP, ustawienia DNS, zasady zabezpieczeń i tabele tras. Można również podzielić sieć na jeszcze mniejsze segmenty i uruchomić maszyny wirtualne IaaS i/lub [usługi w chmurze Azure (wystąpienia roli PaaS)](../cloud-services/cloud-services-choose-me.md). Dodatkowo można połączyć sieć wirtualną z siecią lokalną przy użyciu jednej z [opcji łączności](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) dostępnej na platformie Azure. W zasadzie można rozbudować swoją sieć do sieci Azure, zachowując pełną kontrolę nad blokami adresów IP i wykorzystując zapewnianą przez platformę Azure skalowalność klasy korporacyjnej.
+# <a name="virtual-networks"></a>Sieci wirtualne
+Sieć wirtualna Azure odzwierciedla w chmurze Twoją sieć.  Jest logiczną izolacją chmury Azure przeznaczoną dla Twojej subskrypcji. W ramach tej sieci można w pełni kontrolować bloki adresów IP, ustawienia DNS, zasady zabezpieczeń i tabele tras. Można również podzielić sieć na jeszcze mniejsze segmenty i uruchomić maszyny wirtualne IaaS i/lub [usługi w chmurze Azure (wystąpienia roli PaaS)](../cloud-services/cloud-services-choose-me.md). Dodatkowo można połączyć sieć wirtualną z siecią lokalną przy użyciu jednej z [opcji łączności](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) dostępnej na platformie Azure. W zasadzie można rozbudować swoją sieć do sieci Azure, zachowując pełną kontrolę nad blokami adresów IP i wykorzystując zapewnianą przez platformę Azure skalowalność klasy korporacyjnej.
 
 Aby lepiej zrozumieć sieci wirtualne, należy spojrzeć na poniższy rysunek, przedstawiający uproszczoną sieć lokalną.
 
@@ -37,21 +37,19 @@ Zwróć uwagę, jak infrastruktura platformy Azure przejmuje rolę routera, umo�
 
 > [!NOTE]
 > Dostępne są dwa tryby wdrażania platformy Azure: klasyczny (znany także jako Service Management) i Azure Resource Manager (ARM). Klasyczne sieci wirtualne mogą być dodawane do grupy koligacji lub tworzone jako regionalne sieci wirtualne. Jeśli sieć wirtualna należy do grupy koligacji, zaleca się [przeprowadzić jej migrację do regionalnej sieci wirtualnej](virtual-networks-migrate-to-regional-vnet.md).
-> 
-> 
+>
 
-## <a name="virtual-network-benefits"></a>Korzyści ze stosowania usługi Virtual Network
+## <a name="benefits"></a>Korzyści
 * **Izolacja**. Sieci wirtualne są całkowicie odizolowane od siebie. Pozwala to tworzyć rozłączne sieci dla środowisk deweloperskich, testowych i produkcyjnych z użyciem tych samych bloków adresów CIDR.
 * **Dostęp do publicznego Internetu**. Wszystkie maszyny wirtualne IaaS i wystąpienia roli PaaS w sieci wirtualnej mają domyślnie dostęp do publicznej sieci Internet. Dostęp jest kontrolowany przy użyciu grup zabezpieczeń sieci (NSG).
 * **Dostęp do maszyn wirtualnych w ramach sieci wirtualnej**. Wystąpienia roli PaaS i maszyny wirtualne IaaS można uruchomić w tej samej sieci wirtualnej i połączyć ze sobą przy użyciu prywatnych adresów IP (nawet jeśli znajdują się w różnych podsieciach) bez konieczności konfigurowania bramy ani używania publicznych adresów IP.
-* **Rozpoznawanie nazw**. Platforma Azure udostępnia usługę rozpoznawania nazw wewnętrznych dla maszyn wirtualnych IaaS i wystąpień roli PaaS wdrożonych w sieci wirtualnej użytkownika. Można także wdrożyć własne serwery DNS i skonfigurować sieci wirtualne do korzystania z nich.
+* **Rozpoznawanie nazw**. Platforma Azure udostępnia [usługę rozpoznawania nazw wewnętrznych](virtual-networks-name-resolution-for-vms-and-role-instances.md) dla maszyn wirtualnych IaaS i wystąpień roli PaaS wdrożonych w sieci wirtualnej użytkownika. Można także wdrożyć własne serwery DNS i skonfigurować sieci wirtualne do korzystania z nich.
 * **Bezpieczeństwo** Ruch wchodzący do maszyn wirtualnych oraz wystąpień roli PaaS w sieci wirtualnej i wychodzący z nich można kontrolować przy użyciu grup zabezpieczeń sieci.
-* **Łączność**. Sieci wirtualne mogą być łączone ze sobą za pomocą bram sieci lub poprzez skonfigurowanie równorzędnych sieci wirtualnych. Sieci wirtualne mogą być łączone z lokalnymi centrami danych poprzez sieci VPN lokacja-lokacja lub za pomocą połączenia Azure ExpressRoute. Aby dowiedzieć się więcej o możliwościach połączeń przez sieć VPN lokacja-lokacja, odwiedź stronę [Informacje na temat bram sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site). Aby dowiedzieć się więcej na temat połączenia ExpressRoute, odwiedź stronę [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) (Opis techniczny ExpressRoute). Aby dowiedzieć się więcej na temat komunikacji równorzędnej sieci wirtualnych, odwiedź witrynę [Komunikacja równorzędna sieci wirtualnych](virtual-network-peering-overview.md).
-  
+* **Łączność**. Sieci wirtualne mogą być łączone ze sobą za pomocą bram sieci lub poprzez skonfigurowanie równorzędnych sieci wirtualnych. Sieci wirtualne mogą być łączone z lokalnymi centrami danych poprzez sieci VPN lokacja-lokacja lub za pomocą połączenia Azure ExpressRoute. Aby dowiedzieć się więcej o możliwościach połączeń przez sieć VPN lokacja-lokacja, odwiedź stronę [Informacje na temat bram sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections). Aby dowiedzieć się więcej na temat połączenia ExpressRoute, odwiedź stronę [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) (Opis techniczny ExpressRoute). Aby dowiedzieć się więcej na temat komunikacji równorzędnej sieci wirtualnych, odwiedź witrynę [Komunikacja równorzędna sieci wirtualnych](virtual-network-peering-overview.md).
+
   > [!NOTE]
   > Upewnij się, że sieć wirtualną utworzono przed wdrożeniem maszyn wirtualnych IaaS lub wystąpień roli PaaS w środowisku platformy Azure. Maszyny wirtualne oparte o usługę ARM wymagają sieci wirtualnej, a jeśli nie podano istniejącej sieci wirtualnej, system Azure utworzy domyślną sieć wirtualną, która może zawierać blok adresów CIDR powodujący konflikty z siecią lokalną. Uniemożliwia to połączenie Twojej sieci wirtualnej z siecią lokalną.
-  > 
-  > 
+  >
 
 ## <a name="subnets"></a>Podsieci
 Podsieć jest zakresem adresów IP w sieci wirtualnej; sieć wirtualną można podzielić na wiele podsieci w celu jej uporządkowania i zapewnienia bezpieczeństwa. Maszyny wirtualne i wystąpienia ról PaaS wdrożone w podsieciach (tych samych lub różnych) w ramach sieci wirtualnej mogą komunikować się ze sobą bez dodatkowego konfigurowania. Można także skonfigurować tabele tras i grupy zabezpieczeń sieci dla podsieci.
@@ -69,7 +67,7 @@ Maszyny wirtualne i usługi w chmurze znajdujące się w sieci wirtualnej mogą 
 
 Aby dowiedzieć się więcej na temat równoważenia obciążenia w Azure, odwiedź stronę [Load balancer overview](../load-balancer/load-balancer-overview.md) (Omówienie usługi równoważenia obciążenia).
 
-## <a name="network-security-group-nsg"></a>Grupy zabezpieczeń sieci (NSG)
+## <a name="network-security-groups-nsg"></a>Sieciowe grupy zabezpieczeń (NSG)
 Grupy NSG można utworzyć w celu kontrolowania dostępu ruchu przychodzącego i wychodzącego do interfejsów sieciowych (NIC), maszyn wirtualnych i podsieci. Każda grupa NSG zawiera jedną lub więcej reguł określających zatwierdzenie lub odrzucenie ruchu na podstawie źródłowego adresu IP, portu źródłowego, docelowego adresu IP i portu docelowego. Aby dowiedzieć się więcej na temat grup NSG, odwiedź stronę [Co to jest grupa zabezpieczeń sieci](virtual-networks-nsg.md).
 
 ## <a name="virtual-appliances"></a>Urządzenie wirtualne
@@ -93,7 +91,6 @@ Korzystanie z sieci wirtualnych w programie Azure nie pociąga za sobą żadnych
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

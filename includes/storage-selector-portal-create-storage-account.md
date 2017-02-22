@@ -1,11 +1,11 @@
 > [!div class="op_single_selector"]
-> * [Azure portal](../articles/storage/storage-create-storage-account.md)
-> * [Klasyczny portal Azure](../articles/storage/storage-create-storage-account-classic-portal.md)
+> * [Witryna Azure Portal](../articles/storage/storage-create-storage-account.md)
+> * [Klasyczna witryna Azure Portal](../articles/storage/storage-create-storage-account-classic-portal.md)
 > 
 > 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

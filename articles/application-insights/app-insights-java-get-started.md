@@ -38,10 +38,10 @@ Potrzebne elementy:
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Uzyskiwanie klucza instrumentacji usługi Application Insights
 1. Zaloguj się do [Portalu Microsoft Azure](https://portal.azure.com).
 2. Utwórz zasób usługi Application Insights. Jako typ aplikacji ustaw wartość Aplikacja sieci Web Java.
-   
+
     ![Wypełnij nazwę, wybierz aplikację sieci Web Java i kliknij przycisk Utwórz](./media/app-insights-java-get-started/02-create.png)
 3. Znajdź klucz instrumentacji nowego zasobu. Wkrótce będzie trzeba wkleić ten klucz do projektu kodu.
-   
+
     ![W opisie nowego zasobu kliknij opcję Właściwości i skopiuj klucz instrumentacji](./media/app-insights-java-get-started/03-key.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Dodawanie zestawu SDK usługi Application Insights dla środowiska Java do projektu
@@ -107,11 +107,11 @@ Ręcznie dodaj zestaw SDK:
 
 ### <a name="questions"></a>Pytania...
 * *Jaki jest związek między składnikami `-core` i `-web` w pliku zip?*
-  
+
   * Element `applicationinsights-core` dostarcza podstawowy interfejs API. Ten składnik jest zawsze potrzebny.
   * Element `applicationinsights-web` dostarcza metryki do śledzenia liczby żądań HTTP i czasów odpowiedzi. Możesz pominąć ten składnik, jeśli nie chcesz automatycznie zbierać tych danych telemetrycznych. Na przykład jeśli chcesz zaprogramować zbieranie samodzielnie.
 * *Aby zaktualizować zestaw SDK po opublikowaniu zmian*
-  
+
   * Pobierz najnowszy [Zestaw SDK usługi Application Insights dla środowiska Java](https://aka.ms/qqkaq6) i zastąp nim stary.
   * Zmiany są opisane w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
@@ -239,11 +239,11 @@ Klikaj elementy wykresów, aby wyświetlać bardziej szczegółowe metryki zagre
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Usługa Application Insights zakłada, że format żądania HTTP dla aplikacji MVC to: `VERB controller/action`. Na przykład żądania `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` i `GET Home/Product/sdf96vws` są grupowane w ramach pozycji `GET Home/Product`. To grupowanie umożliwia zrozumiałe agregowanie żądań, na przykład podawanie liczby żądań i średniego czasu ich wykonania.
-> 
-> 
+>
+>
 
 ### <a name="instance-data"></a>Dane wystąpienia
-Kliknij określony typ żądania, aby wyświetlić poszczególne wystąpienia. 
+Kliknij określony typ żądania, aby wyświetlić poszczególne wystąpienia.
 
 W usłudze Application Insights są wyświetlane dwa rodzaje danych: dane zagregowane, przechowywane i wyświetlane jako średnie, liczniki i sumy, oraz dane wystąpienia — indywidualne raporty dotyczące żądań HTTP, wyjątków, wyświetleń stron lub zdarzeń niestandardowych.
 
@@ -260,16 +260,16 @@ W miarę zgromadzenia większej ilości danych można uruchamiać zapytania zar�
 Teraz opublikuj aplikację na serwerze, pozwól z niej korzystać innym osobom, a następnie obejrzyj telemetrię wyświetlaną w portalu.
 
 * Upewnij się, że zapora pozwala aplikacji na wysłanie telemetrii do tych portów:
-  
+
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* Jeśli ruch wychodzący ma być kierowany przez zaporę, zdefiniuj właściwości systemu `http.proxyHost` i `http.proxyPort`. 
+* Jeśli ruch wychodzący ma być kierowany przez zaporę, zdefiniuj właściwości systemu `http.proxyHost` i `http.proxyPort`.
 
 * Na serwerach systemu Windows zainstaluj:
-  
+
   * [Pakiet Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     Ten składnik umożliwia działanie liczników wydajności.
 
 
@@ -280,7 +280,7 @@ Nieobsługiwane wyjątki są zbierane automatycznie:
 
 Istnieją dwie opcje zbierania danych o innych wyjątkach:
 
-* [Wstawianie wywołań metody trackException() w kodzie][apiexceptions]. 
+* [Wstawianie wywołań metody trackException() w kodzie][apiexceptions].
 * [Instalacja agenta Java na serwerze](app-insights-java-agent.md). Trzeba określić metody, które chcesz śledzić.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Monitorowanie wywołań metod i zależności zewnętrznych
@@ -370,7 +370,7 @@ Uzyskasz wykresy czasów odpowiedzi oraz powiadomienia e-mail w razie wyłączen
 
 ![Przykład testu sieci Web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Dowiedz się więcej o testach dostępności sieci Web.][availability] 
+[Dowiedz się więcej o testach dostępności sieci Web.][availability]
 
 ## <a name="questions-problems"></a>Pytania? Problemy?
 [Rozwiązywanie problemów z technologią Java](app-insights-java-troubleshoot.md)
@@ -387,7 +387,7 @@ Uzyskasz wykresy czasów odpowiedzi oraz powiadomienia e-mail w razie wyłączen
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
@@ -397,6 +397,6 @@ Uzyskasz wykresy czasów odpowiedzi oraz powiadomienia e-mail w razie wyłączen
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

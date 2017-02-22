@@ -1,10 +1,10 @@
 ---
-title: "Łączenie sieci wirtualnych za pomocą modelu wdrażania usługi Resource Manager oraz witryny Azure Portal | Microsoft Docs"
+title: "Łączenie sieci wirtualnej platformy Azure z inną siecią wirtualną: Portal | Microsoft Docs"
 description: "Utwórz połączenie usługi bramy VPN Gateway między sieciami wirtualnymi przy użyciu usługi Resource Manager i witryny Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
-ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 
 ---
@@ -51,7 +51,7 @@ Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega 
 
 Można także łączyć połączenia między sieciami wirtualnymi z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi, jak pokazano na poniższym diagramie.
 
-![Informacje o połączeniach](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+![Informacje o połączeniach](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Informacje o połączeniach")
 
 ### <a name="why-connect-virtual-networks"></a>Dlaczego łączy się sieci wirtualne?
 Sieci wirtualne można łączyć z następujących powodów:
@@ -64,7 +64,7 @@ Sieci wirtualne można łączyć z następujących powodów:
   
   * W ramach jednego regionu można skonfigurować aplikacje wielowarstwowe z wielu połączonych ze sobą sieci wirtualnych, korzystając z izolacji lub wymagań administracyjnych.
 
-Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu.
+Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Zagadnienia dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu.
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Przykładowe ustawienia
 Korzystając z tych kroków w ramach ćwiczenia, można użyć przykładowych wartości konfiguracyjnych. W celach demonstracyjnych dla poszczególnych sieci wirtualnych używamy wielu przestrzeni adresowych. Konfiguracje połączeń między sieciami wirtualnymi nie wymagają jednak wielu przestrzeni adresowych.
@@ -155,21 +155,21 @@ Po zakończeniu tworzenia bram sieci wirtualnej (zarówno dla sieci TestVNet1, j
 
 1. W sekcji **Wszystkie zasoby** przejdź do bramy swojej sieci wirtualnej (np. **TestVNet1GW**). Kliknij pozycję **TestVNet1GW**, aby otworzyć blok bramy sieci wirtualnej.
    
-    ![Blok połączeń](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Connections blade")
+    ![Blok połączeń](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Blok połączeń")
 2. Kliknij przycisk **+Dodaj**, aby otworzyć blok **Dodaj połączenie**.
 3. W bloku **Dodaj połączenie** wpisz nazwę połączenia w polu nazwy (np. **TestVNet1toTestVNet4**).
    
-    ![Nazwa połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Connection name")
+    ![Nazwa połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Nazwa połączenia")
 4. Dla opcji **Typ połączenia** wybierz z listy rozwijanej pozycję **Sieć wirtualna-sieć wirtualna**.
 5. Wartość pola **Pierwsza brama sieci wirtualnej** zostaje podana automatycznie, ponieważ połączenie jest tworzone z określonej bramy sieci wirtualnej.
 6. Pole **Druga brama sieci wirtualnej** jest bramą sieci wirtualnej sieci wirtualnej, z którą chcesz utworzyć połączenie. Kliknij pozycję **Wybierz inną bramę sieci wirtualnej**, aby otworzyć blok **Wybieranie bramy sieci wirtualnej**.
    
-    ![Dodawanie połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Add a connection")
+    ![Dodawanie połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Dodawanie połączenia")
 7. Wyświetl bramy sieci wirtualnej wymienione w tym bloku. Pamiętaj, że wyświetlane są tylko bramy sieci wirtualnej objęte subskrypcją. Jeśli chcesz połączyć się z bramą sieci wirtualnej, której nie ma w Twojej subskrypcji, zapoznaj się z [artykułem dotyczącym programu PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). 
 8. Kliknij bramę sieci wirtualnej, z którą chcesz nawiązać połączenie.
 9. W polu **Klucz współużytkowany** wpisz klucz, który będzie używany dla tego połączenia. Klucz można wygenerować lub utworzyć samodzielnie. W przypadku połączenia lokacja-lokacja używany klucz jest dokładnie taki sam dla urządzenia lokalnego oraz połączenia bramy sieci wirtualnej. Koncepcja jest tutaj podobna, z tym że zamiast połączenia z urządzeniem sieci VPN następuje połączenie z inną bramą sieci wirtualnej.
    
-    ![Klucz współużytkowany](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Shared key")
+    ![Klucz współużytkowany](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Klucz współużytkowany")
 10. Kliknij przycisk **OK** na dole bloku, aby zapisać zmiany.
 
 ## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Konfigurowanie połączenia z siecią TestVNet4
@@ -183,13 +183,13 @@ Zweryfikuj połączenie. Dla każdej bramy sieci wirtualnej wykonaj następując
 
 Wyświetl połączenia i zweryfikuj stan. Po utworzeniu połączenia zostanie wyświetlony stan z wartościami **Powodzenie** i **Połączono**.
 
-![Powodzenie](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
+![Powodzenie](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Powodzenie")
 
 Możesz kliknąć dwukrotnie każde połączenie, aby wyświetlić więcej informacji.
 
-![Podstawy](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
+![Podstawy](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Podstawy")
 
-## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
+## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Zagadnienia dotyczące połączeń między sieciami wirtualnymi
 Ta sekcja zawiera odpowiedzi na często zadawane pytań dotyczące połączeń między sieciami wirtualnymi.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
@@ -199,6 +199,6 @@ Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtua
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

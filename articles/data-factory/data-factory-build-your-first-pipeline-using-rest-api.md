@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/25/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 78117fd3947be922e339931a0f8f31040ebf79fe
 
 
 ---
@@ -31,7 +31,12 @@ ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
 >
 >
 
-Ten artykuł zawiera instrukcje korzystania z interfejsu API REST usługi Fabryka danych w celu utworzenia pierwszej fabryki danych Azure.
+Ten artykuł zawiera instrukcje korzystania z interfejsu API REST usługi Fabryka danych w celu utworzenia pierwszej fabryki danych Azure. Aby wykonać instrukcje z tego samouczka przy użyciu innych narzędzi/zestawów SDK, wybierz jedną z opcji z listy rozwijanej.
+
+> [!NOTE]
+> Potok danych przedstawiony w tym samouczku przekształca dane wejściowe w celu wygenerowania danych wyjściowych. Nie kopiuje on danych ze źródłowego do docelowego magazynu danych. Aby zapoznać się z samouczkiem dotyczącym kopiowania danych przy użyciu usługi Azure Data Factory, zobacz [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Kopiowanie danych z usługi Blob Storage do usługi SQL Database).
+> 
+> Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Szczegółowe informacje znajdują się w artykule [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Planowanie i wykonywanie w usłudze Data Factory). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Przeczytaj artykuł [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonaj kroki **wymagań wstępnych**.
@@ -477,16 +482,14 @@ W tym artykule opisano tworzenie potoku za pomocą działania przekształcania (
 ## <a name="see-also"></a>Zobacz też
 | Temat | Opis |
 |:--- |:--- |
-| [Dokumentacja interfejsu API REST usługi Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) |Zobacz pełną dokumentację dotyczącą poleceń cmdlet w usłudze Fabryka danych. |
-| [Działania przekształcania danych](data-factory-data-transformation-activities.md) |Ten artykuł zawiera listę działań przekształcania danych (takich jak przekształcenie programu Hive w usłudze HDInsight używane w tym samouczku) obsługiwanych w usłudze Fabryka danych Azure. |
-| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
+| [Dokumentacja interfejsu API REST usługi Data Factory](/rest/api/datafactory/) |Zobacz pełną dokumentację dotyczącą poleceń cmdlet w usłudze Fabryka danych. |
 | [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem konstruowania za ich pomocą przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
-| [Monitorowanie potoków i zarządzanie nimi przy użyciu bloków w witrynie Azure Portal](data-factory-monitor-manage-pipelines.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu bloków w witrynie Azure Portal. |
+| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. |
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

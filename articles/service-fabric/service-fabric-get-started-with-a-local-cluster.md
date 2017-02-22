@@ -1,6 +1,6 @@
 ---
-title: "Pierwsze kroki wdrażania i uaktualniania aplikacji w klastrze lokalnym | Microsoft Docs"
-description: "Konfigurowanie lokalnego klastra usługi Service Fabric, wdrażanie w nim istniejącej aplikacji, a następnie uaktualnianie tej aplikacji."
+title: "Lokalne wdrażanie i uaktualnianie mikrousług platformy Azure | Microsoft Docs"
+description: "Dowiedz się, jak skonfigurować lokalny klaster usługi Service Fabric, wdrożyć w nim istniejącą aplikację, a następnie uaktualnić tę aplikację."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: efe9845280de3bcd882a7c879b53576600aae0a7
-ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
 
 
 ---
@@ -243,6 +243,6 @@ Możesz też zmienić tryb klastra przy użyciu programu PowerShell:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
-ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
+ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
+ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
 
 
 ---
@@ -49,8 +49,7 @@ Po określeniu minimalnej warstwy usług możesz określić poziom wydajności b
 
 Po wybraniu początkowego poziomu wydajności możesz następnie dynamicznie skalować [poszczególne bazy danych](sql-database-scale-up.md) lub [pulę elastyczną](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) w górę lub w dół na podstawie rzeczywistego użycia. Na potrzeby scenariuszy migracji możesz również obliczyć przybliżoną liczbę potrzebnych jednostek DTU za pomocą [Kalkulatora DTU](http://dtucalculator.azurewebsites.net/). 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Warstwy usług i poziomy wydajności pojedynczej bazy danych
@@ -84,6 +83,6 @@ Każda baza danych w puli podlega również charakterystykom pojedynczej bazy da
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

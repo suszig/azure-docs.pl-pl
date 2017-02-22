@@ -1,13 +1,25 @@
 ---
+title: "Dokumentacja usług Azure Active Directory Domain Services — samouczki | Microsoft Docs"
+description: "Dowiedz się, jak usługi Active Directory Domain Services umożliwiają przyłączanie maszyn wirtualnych platformy Azure do domeny bez stosowania kontrolerów domen i zarządzania nimi przy użyciu zasad grupy."
+services: active-directory-ds
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-ds
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
+ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Dokumentacja usług Active Directory Domain Services
 
-Produkt Azure AD Domain Services (DS) zapewnia zarządzane usługi domenowe, takie jak przyłączanie do domeny, zasady grupy czy uwierzytelnianie LDAP i Kerberos/NTLM, które są w pełni zgodne z usługą Active Directory systemu Windows Server.  Usługa ta umożliwia użytkownikom zwinne wdrażanie szerokiego zakresu rozwiązań obliczeniowych.
+Dowiedz się, jak usługi Active Directory Domain Services umożliwiają przyłączanie maszyn wirtualnych platformy Azure do domeny bez stosowania kontrolerów domen. W samouczkach i innych dokumentach pokazano, jak zarządzać maszynami wirtualnymi za pomocą zasad grupy.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -156,18 +168,9 @@ Produkt Azure AD Domain Services (DS) zapewnia zarządzane usługi domenowe, tak
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Pobierz dokumentację usług Active Directory Domain Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

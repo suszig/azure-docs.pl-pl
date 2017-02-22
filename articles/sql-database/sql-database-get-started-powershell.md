@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 62f29382a2b29c7e5b06126b0ab60c7136186103
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: cf626be4914168d3ed3caae7f959a79324487b4e
 
 
 ---
 
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>Samouczek usługi SQL Database: wprowadzenie do serwerów, baz danych i reguł zapory usługi Azure SQL Database przy użyciu programu PowerShell
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>Samouczek: aprowizowanie bazy danych Azure SQL Database i uzyskiwanie do niej dostępu przy użyciu programu PowerShell
 
 Z tego samouczka ułatwiającego rozpoczęcie pracy nauczysz się używać programu PowerShell do wykonywania następujących czynności:
 
@@ -54,7 +54,7 @@ Po ukończeniu tego samouczka uzyskasz przykładową bazę danych i pustą bazę
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Musisz zalogować się przy użyciu konta, które jest elementem członkowskim roli współautora lub właściciela subskrypcji. Aby uzyskać więcej informacji o kontroli dostępu na podstawie ról (RBAC, role-based access control), zobacz [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Wprowadzenie do zarządzania dostępem w witrynie Azure Portal).
 
@@ -566,7 +566,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Następne kroki
 Po ukończeniu tego pierwszego samouczka z wprowadzeniem i utworzeniu bazy danych z pewnymi przykładowymi danymi możesz zapoznać się z kilkoma dodatkowymi samouczkami, które poszerzą zdobytą wiedzę. 
 
-* Jeśli chcesz zacząć poznawać zabezpieczenia usługi Azure SQL Database, zobacz artykuł [Wprowadzenie do zabezpieczeń](sql-database-get-started-security.md).
+- Samouczek z wprowadzeniem do uwierzytelniania programu SQL Server można znaleźć na stronie [Uwierzytelnianie i autoryzacja SQL](sql-database-control-access-sql-authentication-get-started.md)
+- Samouczek z wprowadzeniem do uwierzytelniania usługi Azure Active Directory można znaleźć na stronie [Uwierzytelnianie i autoryzacja usługi Azure AD](sql-database-control-access-aad-authentication-get-started.md)
+* Jeśli chcesz wykonać zapytanie w przykładowej bazie danych w witrynie Azure Portal, zobacz [Publiczna wersja zapoznawcza: zapytania interakcyjne dla baz danych SQL](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
 * Jeśli posługujesz się programem Excel, naucz się [nawiązywać połączenie z bazą danych SQL w programie Excel](sql-database-connect-excel.md).
 * Jeśli chcesz zacząć programować, wybierz język programowania w obszarze [Biblioteki połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md).
 * Jeśli chcesz przenieść lokalne bazy danych programu SQL Server na platformę Azure, zobacz artykuł [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) (Migracja bazy danych do usługi Azure SQL Database).
@@ -577,6 +579,7 @@ Po ukończeniu tego pierwszego samouczka z wprowadzeniem i utworzeniu bazy danyc
 [Co to jest SQL Database?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Feb17_HO3-->
 
 

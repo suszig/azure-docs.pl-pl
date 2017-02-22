@@ -1,4 +1,10 @@
-1. Zaloguj się w witrynie [Azure Portal][Azure Portal].
+## <a name="create-a-service-namespace"></a>Tworzenie przestrzeni nazw usługi
+
+Aby rozpocząć korzystanie z kolejek usługi Service Bus na platformie Azure, należy najpierw utworzyć przestrzeń nazw. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji. 
+
+Aby utworzyć przestrzeń nazw:
+
+1. Zaloguj się w witrynie [Azure Portal][Azure portal].
 2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Nowy**, **Integracja w przedsiębiorstwie** i **Service Bus**.
 3. W oknie dialogowym **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
 4. Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz warstwę cenową (Podstawowa, Standardowa lub Premium).
@@ -19,15 +25,15 @@
    
     ![connection-string][connection-string]
 
+5. Powtórz poprzedni krok, kopiując i wklejając wartość pozycji **Klucz podstawowy** w lokalizacji tymczasowej do późniejszego użycia.
+
 <!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
+[Azure portal]: https://portal.azure.com
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

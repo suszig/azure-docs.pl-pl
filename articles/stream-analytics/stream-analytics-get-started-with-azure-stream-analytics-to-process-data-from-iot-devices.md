@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do usługi Azure Stream Analytics służącej do przetwarzania danych z urządzeń IoT. | Microsoft Docs"
+title: "Strumienie danych IoT w czasie rzeczywistym i usługa Azure Stream Analytics | Microsoft Docs"
 description: "Używanie tagów czujników IoT i strumieni danych z analizą strumieni i przetwarzaniem danych w czasie rzeczywistym"
 keywords: "rozwiązanie iot, wprowadzenie do iot"
 services: stream-analytics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/19/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
 
 
 ---
@@ -105,7 +105,7 @@ Zauważ, że zapytanie uwzględniające wielkość liter porównuje wartość ci
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>Zapytanie: wysyłanie alertów w celu wyzwolenia biznesowego przepływu pracy
 Zwiększmy szczegółowość naszego zapytania. Dla każdego typu czujnika chcemy monitorować średnią temperaturę co 30 sekund i wyświetlać wyniki tylko wtedy, gdy przekracza ona 100 stopni. W tym celu napiszemy poniższe zapytanie, a następnie w celu wyświetlenia wyników klikniemy pozycję **Test**. Zapytanie znajduje się w pliku ThresholdAlerting.txt.
 
-![Zapytanie z filtrowaniem co 30 sekund](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![Zapytanie z filtrowaniem co&30; sekund](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 Wyniki powinny teraz zawierać tylko 245 wierszy i nazwy czujników, w przypadku których średnia temperatura przekracza 100 stopni. W tym zapytaniu strumień zdarzeń został pogrupowany według wartości **dspl**, czyli nazwy czujnika, i wartości **Okno wirowania** równej 30 sekund. W zapytaniu dotyczącym danych czasowych należy określić sposób przyrastania czasu. Użyliśmy klauzuli **TIMESTAMP BY** i wybraliśmy kolumnę **OUTPUTTIME**, aby skojarzyć czasy ze wszystkimi obliczeniami danych czasowych. Aby uzyskać szczegółowe informacje, przeczytaj w witrynie MSDN artykuły dotyczące [zarządzania czasem](https://msdn.microsoft.com/library/azure/mt582045.aspx) i [funkcji obsługi okien](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
@@ -122,6 +122,6 @@ Celem tego samouczka jest zademonstrowanie sposobu pisania różnych zapytań j�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

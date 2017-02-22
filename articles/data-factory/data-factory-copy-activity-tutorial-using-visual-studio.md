@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 01a6f060e6ae800b0de930c7c46ed60f73b530ac
-ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 01e1728d9658ac69659e31aca584cb574338a238
 
 
 ---
@@ -35,7 +35,12 @@ ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 
 Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych Azure przy użyciu programu Visual Studio. Potok w fabryce danych używa działania kopiowania w celu kopiowania danych z usługi Azure Blob Storage do usługi Azure SQL Database.
 
-Poniżej przedstawiono czynności do wykonania w ramach tego samouczka:
+> [!NOTE]
+> Potok danych przedstawiony w tym samouczku kopiuje dane ze źródłowego do docelowego magazynu danych. Nie przekształca on danych wejściowych w celu wygenerowania danych wyjściowych. Aby zapoznać się z samouczkiem dotyczącym przekształcania danych za pomocą usługi Azure Data Factory, zobacz [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Samouczek: Tworzenie pierwszego potoku przekształcającego dane przy użyciu klastra Hadoop).
+> 
+> Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Szczegółowe informacje znajdują się w artykule [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Planowanie i wykonywanie w usłudze Data Factory).
+
+Poniżej przedstawiono kroki do wykonania w ramach tego samouczka:
 
 1. Utworzysz dwie połączone usługi: **AzureStorageLinkedService1** i **AzureSqlLinkedService1**. 
    
@@ -370,15 +375,14 @@ Zobacz artykuł [Monitor datasets and pipeline](data-factory-copy-activity-tutor
 ## <a name="see-also"></a>Zobacz też
 | Temat | Opis |
 |:--- |:--- |
-| [Działania przenoszenia danych](data-factory-data-movement-activities.md) |Ten artykuł zawiera szczegółowe informacje dotyczące działania kopiowania używanego w tym samouczku. |
-| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
 | [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
+| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. |
 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 928a93793b0b5e346fc02427c670a4c5c6ad80cc
-ms.openlocfilehash: 5d0609b826d489eb789cc86612b495bbd05afbe0
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 2d8e851810b4ec5b7ae3f3b17c4aee11d7e51de4
 
 
 ---
+
 # <a name="application-gateway-web-application-firewall-preview"></a>Zapora aplikacji sieci Web w usłudze Application Gateway (wersja zapoznawcza)
 
 Zapora aplikacji sieci Web (WAF) to funkcja usługi Azure Application Gateway zapewniająca ochronę aplikacjom sieci Web, które używają usługi Application Gateway na potrzeby standardowych funkcji kontroli dostarczania aplikacji (ADC). Zapora aplikacji sieci Web realizuje ten cel, chroniąc je przed większością z 10 najpopularniejszych luk w zabezpieczeniach sieci Web OWASP. Aplikacje sieci Web coraz częściej stają się obiektami złośliwych ataków wykorzystujących znane luki w zabezpieczeniach. Wśród nich często zdarzają się np. ataki polegające na iniekcji SQL i ataki z użyciem skryptów wykorzystywanych w wielu witrynach. Zapobieganie takim atakom z poziomu kodu aplikacji może być trudne. Może też wymagać rygorystycznego przestrzegania harmonogramu konserwacji, poprawek i monitorowania na poziomie wielu warstw topologii aplikacji. Scentralizowana zapora aplikacji sieci Web chroniąca przed atakami w sieci Web sprawia, że zarządzanie zabezpieczeniami jest znacznie prostsze oraz zapewnia lepszą ochronę aplikacji przed intruzami. Zapora aplikacji sieci Web może reagować na zagrożenia bezpieczeństwa szybciej — poprzez wdrażanie poprawek zapobiegających wykorzystaniu znanych luk w zabezpieczeniach w centralnej lokalizacji zamiast w poszczególnych aplikacjach sieci Web. Istniejące bramy aplikacji można łatwo przekonwertować na bramę aplikacji z zaporą aplikacji sieci Web.
@@ -51,7 +52,7 @@ Zapora aplikacji sieci Web w usłudze Application Gateway jest oferowana w ramac
 
 Zapora aplikacji sieci Web bramy aplikacji może zostać skonfigurowana pod kątem jej uruchamiania w następujących dwóch trybach:
 
-* **Tryb wykrywania** — kiedy zapora jest skonfigurowana do działania w trybie wykrywania, monitoruje i zapisuje w dziennikach wszelkie ostrzeżenia o zagrożeniach. Należy upewnić się, że rejestrowanie danych diagnostycznych usługi Application Gateway jest włączone w obszarze Diagnostyka. Należy również upewnić się, że opcja dziennika zapory aplikacji sieci Web jest zaznaczona i włączona.
+* **Tryb wykrywania** — gdy zapora aplikacji sieci Web usługi Application Gateway jest skonfigurowana do działania w trybie wykrywania, monitoruje i zapisuje w dziennikach wszelkie ostrzeżenia o zagrożeniach. Należy upewnić się, że rejestrowanie danych diagnostycznych usługi Application Gateway jest włączone w obszarze Diagnostyka. Należy również upewnić się, że opcja dziennika zapory aplikacji sieci Web jest zaznaczona i włączona.
 * **Tryb zapobiegania** — kiedy zapora jest skonfigurowana do działania w tym trybie, usługa Application Gateway aktywnie blokuje próby włamań i ataki wykryte na podstawie reguł. Osoba atakująca odbiera wyjątek 403 odnoszący się do nieautoryzowanego dostępu, a jej połączenie zostaje zakończone. W trybie zapobiegania tego rodzaju ataki są rejestrowane w dziennikach zapory aplikacji sieci Web w sposób ciągły.
 
 ## <a name="application-gateway-waf-reports"></a>Raporty zapory aplikacji sieci Web w usłudze Application Gateway
@@ -82,7 +83,7 @@ Zapora aplikacji sieci Web w usłudze Application Gateway dostarcza szczegółow
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Cena jednostki SKU zapory aplikacji sieci Web w usłudze Application Gateway
 
-W okresie korzystania z wersji zapoznawczej nie są naliczane żadne dodatkowe opłaty za korzystanie z zapory aplikacji sieci Web w usłudze Application Gateway. Opłaty są w dalszym ciągu naliczane w oparciu o istniejącą podstawową jednostkę SKU. Firma Microsoft przekaże informacje o wysokości opłat za jednostkę SKU zapory aplikacji sieci Web z chwilą jej przekazania do ogólnego użytku. Klienci, którzy zdecydują się wdrożyć usługę Application Gateway z zastosowaniem zapory aplikacji sieci Web zaczną płacić za jednostkę SKU zapory dopiero po przekazaniu jednostki do ogólnego użytku.
+W okresie korzystania z wersji zapoznawczej nie są naliczane żadne dodatkowe opłaty za korzystanie z zapory aplikacji sieci Web w usłudze Application Gateway. Opłaty są w dalszym ciągu naliczane w oparciu o istniejącą podstawową jednostkę SKU. Informacje o wysokości opłat za jednostkę SKU zapory aplikacji sieci Web zostaną przedstawione z chwilą jej przekazania do ogólnego użytku. Klienci, którzy zdecydują się wdrożyć usługę Application Gateway z zastosowaniem zapory aplikacji sieci Web zaczną płacić za jednostkę SKU zapory dopiero po przekazaniu jednostki do ogólnego użytku.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -91,6 +92,6 @@ Więcej informacji na temat możliwości oferowanych przez zaporę aplikacji sie
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

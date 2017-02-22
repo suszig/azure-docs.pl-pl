@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6e5898d94a43b6859ce354f154bdb25948f7686
+ms.sourcegitcommit: dc95c922b71d18cf791ea98f4ab1a02d2bac2c3b
+ms.openlocfilehash: 5103c28047e6d5e7be5f4f3b7933196de7045eeb
 
 
 ---
 # <a name="set-up-application-insights-for-aspnet"></a>Konfigurowanie usługi Application Insights dla platformy ASP.NET
-Usługa [Visual Studio Application Insights](app-insights-overview.md) służy do monitorowania działającej aplikacji, aby ułatwić [wykrywanie i diagnozowanie problemów z wydajnością oraz wyjątków](app-insights-detect-triage-diagnose.md) i [uzyskiwanie informacji na temat sposobu użycia aplikacji](app-insights-overview-usage.md).  Obsługuje aplikacje, które są hostowane na lokalnych serwerach usług IIS lub na maszynach wirtualnych w chmurze, jak również aplikacje sieci Web platformy Azure.
+Usługa [Azure Application Insights](app-insights-overview.md) monitoruje działającą aplikację, aby ułatwić [wykrywanie i diagnozowanie problemów z wydajnością oraz wyjątków](app-insights-detect-triage-diagnose.md) i [uzyskiwanie informacji na temat sposobu użycia aplikacji](app-insights-overview-usage.md).  Obsługuje aplikacje, które są hostowane na lokalnych serwerach usług IIS lub na maszynach wirtualnych w chmurze, jak również aplikacje sieci Web platformy Azure.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 Potrzebne są:
@@ -57,9 +57,11 @@ W programie Visual Studio zobaczysz liczbę zarejestrowanych zdarzeń.
 ### <a name="-in-visual-studio"></a>... w programie Visual Studio
 Otwórz okno Application Insights w programie Visual Studio: kliknij przycisk Application Insights albo kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań:
 
-![W programie Visual Studio przycisk Application Insights jest widoczny podczas debugowania.](./media/app-insights-asp-net/55.png)
+![Przycisk usługi Application Insights jest widoczny w programie Visual Studio podczas debugowania.](./media/app-insights-asp-net/55.png)
 
-Ten widok przedstawia dane telemetryczne wygenerowane w aplikacji po stronie serwera. Poeksperymentuj z filtrami, a następnie kliknij dowolne zdarzenie, aby wyświetlić więcej szczegółów.
+Ten widok („Dane z sesji debugowania”) przedstawia dane telemetryczne wygenerowane w aplikacji po stronie serwera. Poeksperymentuj z filtrami, a następnie kliknij dowolne zdarzenie, aby wyświetlić więcej szczegółów.
+
+* *Brak danych? Upewnij się, że zakres czasu jest poprawny, a następnie kliknij ikonę wyszukiwania.*
 
 [Dowiedz się więcej o narzędziach usługi Application Insights w programie Visual Studio](app-insights-visual-studio.md).
 
@@ -70,15 +72,34 @@ Jeśli nie wybrano opcji *Zainstaluj tylko zestaw SDK*, dane telemetryczne są w
 
 Portal udostępnia więcej wykresów, narzędzi analitycznych i pulpitów nawigacyjnych niż program Visual Studio. 
 
-Otwórz zasób usługi Application Insights w [portalu Azure](https://portal.azure.com/).
+Otwórz zasób usługi Application Insights — zaloguj się do witryny [Azure Portalu](https://portal.azure.com/) i go tam znajdź, lub kliknij prawym przyciskiem myszy projekt w programie Visual Studio i przejdź do niego.
 
 ![Kliknij projekt prawym przyciskiem myszy i otwórz portal Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-W portalu zostanie otwarty widok danych telemetrycznych z Twojej aplikacji: ![](./media/app-insights-asp-net/66.png)
+* *Błąd dostępu? Jeśli masz więcej niż jeden zestaw poświadczeń firmy Microsoft, możesz być zalogowany z nieprawidłowym zestawem. W portalu wyloguj się i zaloguj się ponownie.*
 
-* Pierwsza telemetria zostanie wyświetlona w obszarze [transmisji strumieniowej metryk na żywo](app-insights-metrics-explorer.md#live-metrics-stream).
-* Poszczególne zdarzenia są wyświetlane w obszarze **Wyszukiwanie** (1). Wyświetlenie danych może potrwać kilka minut. Kliknij dowolne zdarzenie, aby wyświetlić jego właściwości. 
-* Agregowane metryki są wyświetlane na wykresach (2). Wyświetlenie danych w tym miejscu może zająć minutę lub dwie. Kliknij wykres, aby otworzyć blok z bardziej szczegółowymi informacjami.
+W portalu zostanie otwarty widok danych telemetrycznych z Twojej aplikacji: ![strona Omówienie usługi Application Insights](./media/app-insights-asp-net/66.png)
+
+Kliknij dowolny kafelek lub wykres, aby wyświetlić więcej szczegółów.
+
+### <a name="more-detail-in-the-portal"></a>Więcej szczegółów w portalu
+
+* W obszarze [**transmisji strumieniowej metryk na żywo**](app-insights-metrics-explorer.md#live-metrics-stream) dane telemetryczne zostaną wyświetlone niemal natychmiast.
+
+    ![Z poziomu bloku Przegląd kliknij pozycję Transmisja strumieniowa na żywo](./media/app-insights-asp-net/livestream.png)
+
+    Otwórz transmisję strumieniową na żywo, gdy uruchomiona jest aplikacja, aby umożliwić im nawiązanie połączenia.
+
+    W transmisji strumieniowej na żywo dane telemetryczne są wyświetlane tylko przez minutę po wysłaniu. W celu przeprowadzenia badania bardziej pod kątem danych historycznych, użyj funkcji Wyszukiwanie, Eksplorator metryk i Analiza. Wyświetlenie danych w tych miejscach może potrwać kilka minut.
+
+* W funkcji [**Wyszukiwanie** ](app-insights-diagnostic-search.md) wyświetlane są poszczególne zdarzenia, takie jak żądania, wyjątki i wyświetlenia stron. Można filtrować według typu zdarzenia, dopasowania terminu i wartości właściwości. Kliknij dowolne zdarzenie, aby wyświetlić jego właściwości i powiązane zdarzenia. 
+
+    ![Z poziomu bloku Przegląd kliknij pozycję Wyszukaj](./media/app-insights-asp-net/search.png)
+
+ * W trybie projektowania może być wyświetlanych wiele zdarzeń zależności (AJAX). Są to synchronizacje między przeglądarką a emulatorem serwera. Aby je ukryć, kliknij pozycję Filtr zależności.
+* [**Zagregowane metryki **](app-insights-metrics-explorer.md), takie jak żądania i współczynniki błędów, są wyświetlane na wykresach. Kliknij wykres, aby otworzyć blok z bardziej szczegółowymi informacjami. Kliknij tag **Edytuj** na dowolnym wykresie, aby ustawić filtry, rozmiar i inne elementy.
+    
+    ![Z poziomu bloku Przegląd kliknij dowolny wykres](./media/app-insights-asp-net/metrics.png)
 
 [Dowiedz się więcej o korzystaniu z usługi Application Insights w portalu Azure](app-insights-dashboards.md).
 
@@ -113,7 +134,7 @@ Aby przeprowadzić uaktualnienie do [nowej wersji zestawu SDK](https://github.co
 Jeśli plik ApplicationInsights.config został dostosowany, zapisz jego kopię przed uaktualnieniem, a następnie scal zmiany w nowej wersji.
 
 ## <a name="add-more-telemetry"></a>Dodawanie kolejnych funkcji telemetrii
-### <a name="web-pages-and-singlepage-apps"></a>Strony sieci Web i aplikacje jednostronicowe
+### <a name="web-pages-and-single-page-apps"></a>Strony sieci Web i aplikacje jednostronicowe
 1. [Dodaj fragment kodu JavaScript](app-insights-javascript.md) do stron sieci Web, aby wzbogacić zawartość bloków Przeglądarka i Użycie o dane dotyczące wyświetleń strony, czasów ładowania, wyjątków przeglądarki, wydajności wywołań AJAX oraz liczby użytkowników i sesji.
 2. [Zakoduj zdarzenia niestandardowe](app-insights-api-custom-events-metrics.md), aby zliczać lub mierzyć akcje użytkownika bądź sprawdzać ich czas.
 
@@ -175,6 +196,6 @@ Jeśli korzystasz z usługi Visual Studio Team Services, możesz [uzyskać znacz
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

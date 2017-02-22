@@ -394,6 +394,6 @@ Poniżej podano linki do wszystkich stron dokumentacji związanych z resetowanie
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

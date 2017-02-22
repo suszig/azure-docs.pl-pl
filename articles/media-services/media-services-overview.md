@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
 
 
 ---
@@ -32,7 +32,7 @@ Możliwe jest przesłanie strumieniowe zawartości na żywo lub dostarczanie zaw
 
 W celu tworzenia rozwiązań Media Services można użyć następujących elementów:
 
-* [Interfejs API REST usługi Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [Interfejs API REST usługi Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Jeden z dostępnych zestawów SDK klienta:
     * [Zestaw SDK usługi Azure Media Services dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services)
     * [Zestaw Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java)
@@ -46,7 +46,7 @@ Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiekt�
 
 Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -79,8 +79,8 @@ W tej sekcji opisano typowe scenariusze oraz udostępniono linki do powiązanych
 ![Wideo na żądanie — przepływ pracy](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
-    
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Ochrona zawartości w magazynie i dostarczanie multimediów strumieniowych w formie niezaszyfrowanej
 1. Przekaż wysokiej jakości plik mezzanine do elementu zawartości.
 
@@ -184,7 +184,8 @@ Usługa Media Services obsługuje integrację z usługą Azure CDN. Aby uzyskać
 Możesz skalować usługę **Media Services**, określając liczbę **jednostek zarezerwowanego przesyłania strumieniowego** i **jednostek zarezerwowanych do celów związanych z kodowaniem** obsługiwanych przez konto.
 
 Możliwe jest także skalowanie konta usługi Media Services przez dodanie do niego kont magazynu. Pojemność każdego konta magazynu jest ograniczona do 500 TB. Aby rozszerzyć pojemność magazynu poza ograniczenia domyślne, można dołączyć wiele kont magazynu do jednego konta usługi Media Services.
-Klienci platformy Media Services wybierają **standardowy** punkt końcowy przesyłania strumieniowego lub co najmniej jeden punkt końcowy przesyłania strumieniowego **Premium**, zgodnie ze swoimi potrzebami. Standardowy punkt końcowy przesyłania strumieniowego jest odpowiedni dla większości obciążeń przesyłania strumieniowego. Ma on te same funkcje co jednostki przesyłania strumieniowego Premium. Standardowy punkt końcowy przesyłania strumieniowego jest odpowiedni dla większości obciążeń przesyłania strumieniowego. Jeśli korzystasz z zaawansowanych obciążeń lub docelowe przepływności standardowego punktu końcowego przesyłania strumieniowego nie spełniają wymagań dotyczących wydajności przesyłania strumieniowego albo chcesz kontrolować wydajność usługi StreamingEndpoint w celu obsługi rosnącego zapotrzebowania na przepustowość przez dopasowanie liczby jednostek skalowania (znanych także jako jednostki przesyłania strumieniowego Premium), zaleca się przydzielenie jednostek skalowania.
+Klienci platformy Media Services wybierają **standardowy** punkt końcowy przesyłania strumieniowego lub co najmniej jeden punkt końcowy przesyłania strumieniowego **Premium**, zgodnie ze swoimi potrzebami. Standardowy punkt końcowy przesyłania strumieniowego jest odpowiedni dla większości obciążeń przesyłania strumieniowego. Ma on te same funkcje co jednostki przesyłania strumieniowego Premium.
+Standardowy punkt końcowy przesyłania strumieniowego jest odpowiedni dla większości obciążeń przesyłania strumieniowego. Jeśli korzystasz z zaawansowanych obciążeń lub docelowe przepływności standardowego punktu końcowego przesyłania strumieniowego nie spełniają wymagań dotyczących wydajności przesyłania strumieniowego albo chcesz kontrolować wydajność usługi StreamingEndpoint w celu obsługi rosnącego zapotrzebowania na przepustowość przez dopasowanie liczby jednostek skalowania (znanych także jako jednostki przesyłania strumieniowego Premium), zaleca się przydzielenie jednostek skalowania.
 
 [Ten](media-services-portal-scale-streaming-endpoints.md) temat zawiera linki do powiązanych tematów.
 

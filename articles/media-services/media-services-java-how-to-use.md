@@ -1,6 +1,6 @@
 ---
 title: "Wprowadzenie do dostarczania zawartości na żądanie przy użyciu języka Java | Microsoft Docs"
-description: "Informacje dotyczące używania usługi Azure Media Services do wykonywania typowych zadań, w tym kodowania, szyfrowania i przesyłania strumieniowego zasobów."
+description: "W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu języka Java."
 services: media-services
 documentationcenter: java
 author: juliako
@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu języka Java
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## <a name="setting-up-an-azure-account-for-media-services"></a>Konfigurowanie konta platformy Azure dla usługi Media Services
+W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu języka Java.
 
-Aby skonfigurować konto usługi Media Services, skorzystaj z witryny Azure Portal. Zobacz temat [Tworzenie konta usługi Media Services](media-services-portal-create-account.md). Po utworzeniu konta w witrynie Azure Portal możesz przystąpić do konfigurowania komputera do tworzenia usługi Media Services.
- 
-Ta sekcja zawiera ogólne wymagania wstępne dotyczące tworzenia usługi Media Services przy użyciu zestawu SDK Usługi multimediów dla języka Java.
+## <a name="prerequisites"></a>Wymagania wstępne
 
-### <a name="prerequisites"></a>Wymagania wstępne
-* Konto usługi Media Services w nowej lub istniejącej subskrypcji platformy Azure. Zobacz temat [Tworzenie konta usługi Media Services](media-services-portal-create-account.md).
+Do wykonania czynności przedstawionych w tym samouczku są niezbędne następujące elementy:
+
+* Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
 * Biblioteki Azure dla języka Java, które można zainstalować z [Azure Java Developer Center][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Jak korzystać z usługi Media Services z językiem Java

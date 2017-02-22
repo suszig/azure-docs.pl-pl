@@ -2,7 +2,7 @@
   * [Aplikacja sieci Web](../articles/app-service-web/app-service-web-overview.md)
   * [Aplikacja mobilna](../articles/app-service-mobile/app-service-mobile-value-prop.md)
   * [Aplikacja interfejsu API](../articles/app-service-api/app-service-api-apps-why-best-platform.md)
-  * [Aplikacja logiki](../articles/app-service-logic/app-service-logic-what-are-logic-apps.md)
+  * [Aplikacja logiki](../articles/logic-apps/logic-apps-what-are-logic-apps.md)
 * [Architektura usługi Azure App Service (prezentacja)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
 * [Porównanie usług Azure: App Service, Cloud Services i Virtual Machines](../articles/app-service-web/choose-web-site-cloud-service-vm.md)
 * [Zapoznanie się z planami usługi App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -15,6 +15,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
