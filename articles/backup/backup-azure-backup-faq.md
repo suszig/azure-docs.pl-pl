@@ -5,7 +5,7 @@ description: "Odpowiedzi na często zadawane pytania dotyczące usługi kopii za
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: "tworzenie kopii zapasowej i odzyskiwanie po awarii; usługa kopii zapasowej"
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
@@ -14,16 +14,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark;
+ms.date: 2/8/2017
+ms.author: markgal;giridham;arunak;markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
-ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
+ms.sourcegitcommit: d842d0a7e6a99a0a0a67b7cf6c695aba16f83d8f
+ms.openlocfilehash: 72cd97798df4e63da1e3d1dc167714f6033d2c86
 
 
 ---
 # <a name="azure-backup-service--faq"></a>Usługa Azure Backup — często zadawane pytania
-Ten artykuł zawiera listę często zadawanych pytań (i odpowiedzi na nie) dotyczących usługi Azure Backup. Nasza społeczność odpowiada szybko, a często zadawane pytania są dodawane do tego artykułu. Odpowiedzi na pytania zwykle zawierają odwołania lub informacje dotyczące pomocy technicznej. Pytania dotyczące usługi Azure Backup można zadawać w sekcji dyskusyjnej tego lub powiązanego artykułu. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Ten artykuł zawiera listę często zadawanych pytań (i odpowiedzi na nie) dotyczących usługi Azure Backup. Nasza społeczność odpowiada szybko, a często zadawane pytania są dodawane do tego artykułu. Odpowiedzi na pytania zwykle zawierają odwołania lub informacje dotyczące pomocy technicznej. Aby zadać pytanie dotyczące usługi Azure Backup, kliknij pozycję **Komentarze** (po prawej stronie). Komentarze są wyświetlane na dole tego artykułu. Aby komentować, musisz mieć konto Livefyre. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Jaka jest lista obsługiwanych systemów operacyjnych, z których można tworzyć kopie zapasowe na platformie Azure przy użyciu usługi Azure Backup? <br/>
 Usługa Azure Backup obsługuje następujące systemy operacyjne w przypadku zabezpieczonego tworzenia kopii zapasowych: plików i folderów oraz kopii zapasowych aplikacji obciążeń przy użyciu serwera Azure Backup Server i serwera SCDPM.
@@ -58,7 +58,7 @@ Zaleca się zainstalowanie [najnowszego](http://aka.ms/azurebackup_agent) agenta
 Tak, poświadczenia magazynu wygasają po upływie 48 godzin. Jeśli plik wygaśnie, należy zalogować się do witryny Azure Portal i pobrać z magazynu pliki poświadczeń magazynu.
 
 ## <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Czy istnieje ograniczenie liczby magazynów, które można utworzyć w poszczególnych subskrypcjach platformy Azure? <br/>
-Tak. Od września 2016 r. w każdej subskrypcji można utworzyć 25 magazynów kopii zapasowych. Można utworzyć maksymalnie 25 magazynów usługi Recovery Services na każdy obsługiwany region kopii zapasowej Azure na subskrypcję. Jeśli potrzebna jest większa liczba magazynów, należy utworzyć nową subskrypcję.
+Tak. Od września 2016 r. w każdej subskrypcji można utworzyć 25 magazynów kopii zapasowych. Maksymalnie można utworzyć 25 magazynów usługi Recovery Services na obsługiwany region usługi Azure Backup dla każdej subskrypcji. Jeśli potrzebna jest większa liczba magazynów, należy utworzyć dodatkową subskrypcję.
 
 ## <a name="are-there-any-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Czy istnieją jakiekolwiek ograniczenia dotyczące liczby serwerów/maszyn, które można zarejestrować w każdym magazynie? <br/>
 Tak, w magazynie można zarejestrować maksymalnie 50 maszyn. W przypadku maszyny wirtualnej IaaS platformy Azure ograniczenie wynosi 200 maszyn wirtualnych w magazynie. Jeśli trzeba zarejestrować więcej maszyn, należy utworzyć kolejny magazyn.
@@ -68,17 +68,17 @@ Dane kopii zapasowej są wysyłane do centrum danych magazynu, w którym jest on
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Co się stanie, jeśli zostanie zmieniona nazwa serwera Windows, który wykonuje kopie zapasowe danych na platformie Azure?<br/>
 Po zmianie nazwy serwera wszystkie aktualnie skonfigurowane kopie zapasowe są zatrzymywane.
-Zarejestruj nową nazwę serwera w magazynie usługi Backup. Po zarejestrowaniu nowej nazwy w magazynie pierwszą operacją kopii zapasowej będzie *pełna* kopia zapasowa. Dane, których kopia zapasowa wykonana wcześniej przy użyciu starej nazwy serwera znajduje się w magazynie, można odzyskać przy użyciu opcji [**Inny serwer**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) w kreatorze **Odtwarzanie danych**.
+Zarejestruj nową nazwę serwera w magazynie usługi Backup. Po zarejestrowaniu nowej nazwy w magazynie pierwszą operacją kopii zapasowej będzie *pełna* kopia zapasowa. Dane, których kopia zapasowa wykonana przy użyciu starej nazwy serwera znajduje się w magazynie, można odzyskać przy użyciu opcji [**Inny serwer**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) w kreatorze **Odtwarzanie danych**.
 
-## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>Z jakich typów dysków można tworzyć kopie zapasowe plików i folderów? <br/>
-Nie można utworzyć kopii zapasowej z następującego zestawu dysków/woluminów:
+## <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Z jakich typów dysków można tworzyć kopie zapasowe plików i folderów? <br/>
+Nie można utworzyć kopii zapasowych następujących dysków/woluminów:
 
-* Nośniki wymienne: dysk musi być stały, aby mógł posłużyć jako źródło elementu kopii zapasowej.
+* Nośniki wymienne: wszystkie źródła elementów kopii zapasowych muszą być stałe.
 * Woluminy tylko do odczytu: wolumin musi mieć możliwość zapisu ze względu na działanie usługi kopiowania woluminów w tle (VSS, volume shadow copy).
 * Woluminy offline: wolumin musi być w trybie online, aby mogła działać usługa VSS.
 * Udział sieciowy: wolumin musi być lokalny dla serwera, aby możliwe było wykonanie kopii zapasowej za pomocą usługi kopii zapasowej online.
-* Woluminy chronione przez funkcję BitLocker: wolumin musi być odblokowany przed próbą wykonania kopii zapasowej.
-* Identyfikacja systemu plików: w tej wersji usługi kopii zapasowej online jest obsługiwany tylko system NTFS.
+* Woluminy chronione przez funkcję BitLocker: wolumin musi zostać odblokowany przed próbą wykonania kopii zapasowej.
+* Identyfikacja systemu plików: jedyny obsługiwany system plików to system NTFS.
 
 ## <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Jakie typy plików i folderów z serwera można umieszczać w kopiach zapasowych?<br/>
 Obsługiwane są następujące typy:
@@ -89,7 +89,6 @@ Obsługiwane są następujące typy:
 * Skompresowane i rozrzedzone
 * Twarde linki: nieobsługiwane, pomijane
 * Punkt ponownej analizy: nieobsługiwane, pomijane
-* Zaszyfrowane i skompresowane: nieobsługiwane, pomijane
 * Zaszyfrowane i rozrzedzone: nieobsługiwane, pomijane
 * Skompresowany strumień: nieobsługiwane, pomijane
 * Rozrzedzony strumień: nieobsługiwane, pomijane
@@ -107,7 +106,7 @@ Nie. Magazyn jest tworzony na poziomie subskrypcji i po utworzeniu nie można go
 Tak. Podczas przygotowywania do wykonania kopii zapasowej usługa agenta konwertuje deduplikowane dane do zwykłej postaci. Następnie optymalizuje dane pod kątem utworzenia kopii zapasowej, szyfruje je, po czym wysyła zaszyfrowane dane do usługi kopii zapasowej online.
 
 ## <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Czy w przypadku anulowania uruchomionego zadania tworzenia kopii zapasowej przesyłane dane zostaną usunięte? <br/>
-Nie. Wszystkie dane przesłane do magazynu przed momentem anulowania pozostaną w magazynie. Usługa Azure Backup używa mechanizmu, który podczas tworzenia kopii zapasowej co pewien czas dodaje punkty kontrolne do danych kopii zapasowej. Ponieważ w danych kopii zapasowej umieszczone są punkty kontrolne, następny proces kopii zapasowej może sprawdzić integralność plików. Następnym zadaniem kopii zapasowej będzie przyrostowa kopia zapasowa tworzona w oparciu o wcześniej utworzoną kopię zapasową danych. Przyrostowe kopie zapasowe przesyłają tylko nowe lub zmienione dane, dzięki czemu zapewnia się lepsze wykorzystanie przepustowości.
+Nie. Wszystkie dane przesłane do magazynu przed momentem anulowania zadania utworzenia kopii zapasowej pozostaną w magazynie. Usługa Azure Backup używa mechanizmu, który podczas tworzenia kopii zapasowej co pewien czas dodaje punkty kontrolne do danych kopii zapasowej. Ponieważ w danych kopii zapasowej umieszczone są punkty kontrolne, następny proces kopii zapasowej może sprawdzić integralność plików. Następnym zadaniem kopii zapasowej będzie przyrostowa kopia zapasowa tworzona w oparciu o wcześniej utworzoną kopię zapasową danych. Przyrostowe kopie zapasowe przesyłają tylko nowe lub zmienione dane, dzięki czemu zapewnia się lepsze wykorzystanie przepustowości.
 
 Jeśli anulujesz zadanie kopii zapasowej dla maszyny wirtualnej platformy Azure, wszelkie przesłane dane zostaną zignorowane. Następne zadanie kopii zapasowej przesyła przyrostowe dane z ostatniego wykonanego zadania kopii zapasowej.
 
@@ -124,16 +123,16 @@ Aby zapewnić bezproblemową ochronę danych lokalnych i obciążeń na platform
 * \*.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Czy można zainstalować agenta usługi Azure Backup na maszynie wirtualnej, której kopia zapasowa została już utworzona przez usługę Azure Backup przy użyciu rozszerzenia maszyny wirtualnej? <br/>
-Naturalnie. Usługa Azure Backup udostępnia funkcję tworzenia kopii zapasowych na poziomie maszyny wirtualnej dla maszyn wirtualnych platformy Azure przy użyciu rozszerzenia maszyny wirtualnej. Zainstaluj agenta usługi Azure Backup w systemie operacyjnym Windows gościa, aby chronić pliki i foldery znajdujące się w tym systemie operacyjnym gościa.
+Naturalnie. Usługa Azure Backup udostępnia funkcję tworzenia kopii zapasowych na poziomie maszyny wirtualnej dla maszyn wirtualnych platformy Azure przy użyciu rozszerzenia maszyny wirtualnej. Aby chronić pliki i foldery znajdujące się w systemie operacyjnym Windows gościa, zainstaluj w tym systemie agenta usługi Azure Backup.
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Czy można zainstalować agenta usługi Azure Backup na maszynie wirtualnej Azure, aby wykonywać kopie zapasowe plików i folderów znajdujących się w magazynie tymczasowym dostarczanym przez maszynę wirtualną platformy Azure? <br/>
-Tak. Zainstaluj agenta usługi Azure Backup w systemie operacyjnym Windows gościa i wykonuj kopie zapasowe plików i folderów do magazynu tymczasowego. Należy jednak pamiętać, że tworzenie kopii zapasowej zakończy się niepowodzeniem, gdy dane magazynu tymczasowego zostaną wyczyszczone. Ponadto usunięcie danych magazynu tymczasowego powoduje, że można je przywracać tylko do trwałego magazynu.
+Tak. Zainstaluj agenta usługi Azure Backup w systemie operacyjnym Windows gościa i wykonuj kopie zapasowe plików i folderów do magazynu tymczasowego. Należy pamiętać, że tworzenie kopii zapasowej zakończy się niepowodzeniem, gdy dane magazynu tymczasowego zostaną wyczyszczone. Ponadto usunięcie danych magazynu tymczasowego powoduje, że można je przywracać tylko do trwałego magazynu.
 
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Agent usługi Azure Backup został zainstalowany w celu ochrony plików i folderów. Czy można teraz zainstalować program SCDPM do pracy z agentem usługi Azure Backup, aby chronić obciążenia aplikacji lokalnych i maszyn wirtualnych na platformie Azure? <br/>
-Aby użyć usługi Azure Backup z programem System Center Data Protection Manager (DPM), najpierw zainstaluj program DPM, a następnie agenta usługi Azure Backup. Instalowanie składników usługi Azure Backup w tej kolejności zapewnia działanie agenta usługi Azure Backup z programem DPM. Nie zaleca się instalowania agenta usługi Azure Backup przed instalacją programu DPM. Takie rozwiązanie nie jest obsługiwane.
+Aby użyć usługi Azure Backup z programem System Center Data Protection Manager (DPM), najpierw zainstaluj program DPM, a następnie agenta usługi Azure Backup. Instalowanie składników usługi Azure Backup w tej kolejności zapewnia współdziałanie agenta usługi Azure Backup z programem DPM. Nie zaleca się instalowania agenta usługi Azure Backup przed instalacją programu DPM. Takie rozwiązanie nie jest obsługiwane.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Jaka jest długość ścieżki pliku, którą można określić w ramach zasad usługi Azure Backup przy użyciu agenta usługi Azure Backup? <br/>
-Agent usługi Azure Backup bazuje na systemie plików NTFS. [Specyfikacja długości ścieżki pliku jest ograniczona przez interfejs API systemu Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Gdy podczas tworzenia kopii zapasowej plików długość ścieżki pliku jest większa niż dozwolona przez interfejs API systemu Windows, możesz wybrać utworzenie kopii zapasowej plików z folderu nadrzędnego lub napędu dyskowego.  
+Agent usługi Azure Backup bazuje na systemie plików NTFS. [Specyfikacja długości ścieżki pliku jest ograniczona przez interfejs API systemu Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Jeśli długość ścieżki pliku plików, które chcesz chronić, jest większa niż dozwolona przez interfejs API systemu Windows, utwórz kopię zapasową folderu nadrzędnego lub napędu dyskowego.  
 
 ## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Jakie znaki są dozwolone w ścieżce pliku zasad usługi Azure Backup przy użyciu agenta usługi Azure Backup? <br>
  Agent usługi Azure Backup bazuje na systemie plików NTFS. Dopuszcza [znaki obsługiwane w systemie NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) w ramach specyfikacji pliku.  
@@ -145,7 +144,7 @@ Tak.
 Tak, usługa Backup ma kilka alertów opartych na zdarzeniach, z których można korzystać za pomocą skryptu programu PowerShell. Pełny opis można znaleźć w temacie [Configure notifications](backup-azure-monitor-vms.md#configure-notifications) (Konfigurowanie powiadomień).
 
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Czy istnieje ograniczenie rozmiaru poszczególnych źródeł danych, dla których tworzona jest kopia zapasowa? <br/>
-Nie ma żadnego limitu ilości danych, dla których można utworzyć kopie zapasowe w magazynie. Usługa Azure Backup ogranicza maksymalny rozmiar źródła danych, niemniej te limity są bardzo duże. Według stanu na sierpień 2015 r. maksymalny rozmiar źródła danych dla obsługiwanych systemów operacyjnych wynosi:
+Nie ma żadnego limitu ilości danych, dla których można utworzyć kopie zapasowe w magazynie. Usługa Azure Backup ogranicza maksymalny rozmiar źródła danych, niemniej te limity są duże. Według stanu na sierpień 2015 r. maksymalny rozmiar źródła danych dla obsługiwanych systemów operacyjnych wynosi:
 
 | L.p. | System operacyjny | Maksymalny rozmiar źródła danych |
 |:---:|:--- |:--- |
@@ -193,7 +192,7 @@ Nie, przyrostowa kopia jest wysyłana na podstawie czasu podanego na stronie har
 Typowe produkty punktów długoterminowego przechowywania przechowują dane kopii zapasowych jako pełne punkty. Pełne punkty są *nieefektywne* z punktu widzenia magazynu, ale są łatwiejsze i szybsze do przywrócenia. Przyrostowe kopie są *efektywne* z punktu widzenia magazynu, ale wymagają przywrócenia łańcucha danych, co wpływa na czas odzyskiwania. Architektura magazynu usługi Azure Backup oferuje zalety obu rozwiązań dzięki optymalnemu przechowywaniu danych, umożliwiającemu szybkie ich przywrócenie, oraz niskim kosztom magazynowania. Takie podejście do magazynu danych zapewnia efektywne wykorzystanie przepustowości ruchu przychodzącego i wychodzącego. Zarówno ilość pamięci masowej, jak i czas potrzebny do odzyskania danych są ograniczone do minimum. Dowiedz się więcej o tym, dlaczego zapisywanie [przyrostowych kopii zapasowych](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) jest wydajne.
 
 ## <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-createdbr"></a>Czy istnieje ograniczenie liczby punktów odzyskiwania, które można utworzyć?<br/>
-Nie. Firma Microsoft wyeliminowała ograniczenia dotyczące punktów odzyskiwania. Można utworzyć dowolną liczbę takich punktów.
+Możesz utworzyć maksymalnie 9999 punktów odzyskiwania na każde pojedyncze chronione wystąpienie. Chronione wystąpienie to komputer, serwer (fizyczny lub wirtualny) albo obciążenie, które skonfigurowano do tworzenia kopii zapasowych na platformie Azure. Nie ma żadnego limitu liczby chronionych wystąpień na magazyn kopii zapasowych. Aby uzyskać więcej informacji, zobacz objaśnienia w sekcjach [Tworzenie kopii zapasowej i przechowywanie](./backup-introduction-to-azure-backup.md#backup-and-retention) i [Co to jest chronione wystąpienie?](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance).
 
 ## <a name="why-is-the-amount-of-data-transferred-in-backup-not-equal-to-the-amount-of-data-i-backed-upbr"></a>Dlaczego ilość danych przesyłanych w kopii zapasowej nie jest równa ilości danych, których kopia zapasowa jest tworzona?<br/>
  Wszystkie kopie zapasowe wykonywane przy użyciu agenta usługi Azure Backup, programu SCDPM lub serwera usługi Azure Backup są kompresowane i szyfrowane, zanim zostaną przesłane. Po zastosowaniu kompresji i szyfrowania dane w magazynie kopii zapasowych są mniejsze o 30–40%.
@@ -260,10 +259,10 @@ Nie zaleca się używać następujących lokalizacji dla folderu pamięci podrę
 Ani folder pamięci podręcznej, ani dysk VHD metadanych nie mają wymaganych atrybutów dla agenta usługi Azure Backup.
 
 ## <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Magazyny usług Recovery Services są oparte na usłudze Resource Manager. Czy magazyny usługi Backup (tryb klasyczny) są nadal obsługiwane? <br/>
-Tak. Magazyny usługi Backup nadal są obsługiwane. Magazyny usługi Backup są tworzone w [portalu klasycznym](https://manage.windowsazure.com). Magazyny usługi Recovery Services są tworzone w witrynie [Azure Portal](https://portal.azure.com). Jednak zdecydowanie zaleca się utworzenie magazynu usługi Recovery Services, ponieważ wszystkie przyszłe rozszerzenia będą dostępne tylko w magazynie tej usługi.
+Tak. Magazyny usługi Backup nadal są obsługiwane. Magazyny usługi Backup są tworzone w [portalu klasycznym](https://manage.windowsazure.com). Magazyny usługi Recovery Services są tworzone w witrynie [Azure Portal](https://portal.azure.com). Zdecydowanie zaleca się utworzenie magazynów usługi Recovery Services, ponieważ przyszłe rozszerzenia będą dostępne tylko dla magazynów tej usługi.
 
 ## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Czy mogę przeprowadzić migrację magazynu usługi Backup do magazynu usługi Recovery Services? <br/>
-Niestety nie. W tej chwili nie ma możliwości przeprowadzania migracji zawartości magazynu usługi Backup do magazynu usługi Recovery Services. Pracujemy nad dodaniem tej funkcji, ale nie jest ona obecnie dostępna.
+Niestety nie. Nie ma możliwości przeprowadzania migracji zawartości magazynu usługi Backup do magazynu usługi Recovery Services. Pracujemy nad dodaniem tej funkcji, ale nie jest ona obecnie dostępna.
 
 ## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Czy magazyny usługi Recovery Services obsługują klasyczne maszyny wirtualne, czy maszyny wirtualne oparte na usłudze Resource Manager? <br/>
 Magazyny usługi Recovery Services obsługują oba modele.  Możliwe jest utworzenie kopii zapasowej klasycznej maszyny wirtualnej (utworzonej w portalu klasycznym) lub maszyny wirtualnej usługi Resource Manager (utworzonej w witrynie Azure Portal) w magazynie usługi Recovery Services.
@@ -277,6 +276,6 @@ Punkty odzyskiwania klasycznych maszyn wirtualnych w magazynie usługi Backup ni
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

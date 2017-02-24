@@ -3,8 +3,8 @@ title: "Omówienie usługi Azure CDN | Microsoft Docs"
 description: "Dowiedz się, co to jest usługa Azure Content Delivery Network (CDN) i jak z niej korzystać w celu dostarczania zawartości wysokiej przepustowości przez buforowanie obiektów blob i zawartości statycznej."
 services: cdn
 documentationcenter: 
-author: camsoper
-manager: erikre
+author: lichard
+manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/30/2016
-ms.author: casoper
+ms.date: 02/08/2017
+ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
+ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
 
 
 ---
@@ -51,13 +51,14 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 | --- | --- | --- | --- |
 | Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) i [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Zarządzanie za pomocą [interfejsu API REST](https://msdn.microsoft.com/library/mt634456.aspx), [platformy .NET](cdn-app-dev-net.md), [środowiska Node.js](cdn-app-dev-node.md) lub [programu PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Obsługa protokołu HTTPS |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Obsługa protokołu HTTPS z punktem końcowym usługi CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Protokół HTTPS domen niestandardowych | |**&#x2713;** |**&#x2713;** |
 | Równoważenie obciążenia |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Ochrona przed atakami [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Podwójny stos protokołów IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Obsługa niestandardowych nazw domen](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Buforowanie ciągu zapytania](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrowanie geograficzne](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Filtrowanie geograficzne](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Szybkie przeczyszczanie](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Wstępne ładowanie zasobów](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Podstawowa analiza](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -69,6 +70,8 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 | Ustawienia pamięci podręcznej/nagłówka (przy użyciu [aparatu reguł](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Adres URL przekierowania/ponownego napisania (przy użyciu [aparatu reguł](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Zasady urządzeń przenośnych (przy użyciu [aparatu reguł](cdn-rules-engine.md)) | | |**&#x2713;** |
+| [Uwierzytelnianie przy użyciu tokenów](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
 
 > [!TIP]
 > Czy jest jakaś funkcja, z której chcesz korzystać w usłudze Azure CDN?  [Prześlij nam swoją opinię](https://feedback.azure.com/forums/169397-cdn)! 
@@ -89,6 +92,6 @@ Aby uzyskać informacje o cenach, zobacz [cennik usługi CDN](https://azure.micr
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

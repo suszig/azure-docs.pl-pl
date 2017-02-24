@@ -3,7 +3,7 @@ title: "Dodawanie niestandardowej nazwy domeny i konfigurowanie logowania federa
 description: "Dodawanie nazw domeny firmy do usługi Azure Active Directory i konfigurowanie logowania federacyjnego między usługą Azure Active Directory a federacyjnym rozwiązaniem lokalnym."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d

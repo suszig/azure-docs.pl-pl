@@ -1,4 +1,4 @@
-Aby połączyć się z wystąpieniem usługi Azure Redis Cache, klienci pamięci podręcznej potrzebują nazwy hosta, portów i kluczy pamięci podręcznej. Niektórzy klienci mogą odwoływać się do tych elementów przy użyciu nieco innych nazw. Aby pobrać te elementy, [przewiń](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) do pamięci podręcznej w witrynie [Azure Portal](https://portal.azure.com) i kliknij opcję **Ustawienia** lub **Wszystkie ustawienia**. 
+Aby połączyć się z wystąpieniem usługi Azure Redis Cache, klienci pamięci podręcznej potrzebują nazwy hosta, portów i kluczy pamięci podręcznej. Niektórzy klienci mogą odwoływać się do tych elementów przy użyciu nieco innych nazw. Aby pobrać te elementy, [przejdź](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) do swojej pamięci podręcznej w witrynie [Azure Portal](https://portal.azure.com) i kliknij żądany element w **menu Zasoby**. 
 
 ![Ustawienia pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
@@ -14,6 +14,6 @@ Aby pobrać klucze dostępu, kliknij opcję **Klucze dostępu**.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

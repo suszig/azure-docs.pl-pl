@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
+ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
+ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
 
 
 ---
@@ -279,7 +279,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: zasady, które mają być używane do weryfikacji tokenów przychodzących na serwerze. Powinny to być te same zasady, które są używane do logowania w aplikacji klienta.
 
 > [!NOTE]
-> W wersji zapoznawczej usługi B2C należy używać tych samych zasad w konfiguracji klienta i serwera. Jeśli zasady zostały już utworzone w ramach tego przewodnika, nie trzeba tego robić ponownie. Ponieważ zadania w tym przewodniku zostały wykonane, nie ma potrzeby konfigurowania nowych zasad w ramach przewodników klienta w witrynie.
+> Na tę chwilę należy używać tych samych zasad w konfiguracji klienta i serwera. Jeśli zasady zostały już utworzone w ramach tego przewodnika, nie trzeba tego robić ponownie. Ponieważ zadania w tym przewodniku zostały wykonane, nie ma potrzeby konfigurowania nowych zasad w ramach przewodników klienta w witrynie.
 >
 >
 
@@ -763,6 +763,6 @@ Możesz teraz przejść do bardziej zaawansowanych tematów, takich jak:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

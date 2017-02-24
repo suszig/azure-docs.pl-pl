@@ -1,0 +1,17 @@
+Oto ograniczenia używania i inne limity usługi dotyczące usługi Azure Active Directory.
+
+| Kategoria | Limity |
+| --- | --- |
+| Katalogi |Jeden użytkownik może być skojarzony z maksymalnie 20 katalogami usługi Azure Active Directory.<br />Przykłady możliwych kombinacji: <ul> <li>Jeden użytkownik tworzy 20 katalogów.</li><li>Jeden użytkownik zostaje dodany do 20 katalogów jako członek.</li><li>Jeden użytkownik tworzy 10 katalogów, a później zostaje dodany przez inne osoby do 10 różnych katalogów.</li></ul> |
+| Obiekty |<ul><li>Użytkownicy usługi Azure Active Directory w wersji Bezpłatna mogą używać maksymalnie 500 000 obiektów w jednym katalogu.</li><li>Użytkownik niebędący administratorem może utworzyć maksymalnie 250 obiektów.</li></ul> |
+| Rozszerzenia schematu |<ul><li>Rozszerzenia typu string mogą mieć maksymalnie 256 znaków. </li><li>Rozmiar rozszerzeń typu binary jest ograniczony do 256 bajtów.</li><li>Do każdego pojedynczego obiektu można zapisać&100; wartości rozszerzeń (we WSZYSTKICH typach i WSZYSTKICH aplikacjach).</li><li>Jednostki „User”, „Group”, „TenantDetail”, „Device”, „Application” i „ServcicePrincipal” można rozszerzyć za pomocą jednowartościowych atrybutów typu „String” lub „Binary”.</li><li>Rozszerzenia schematu są dostępne tylko w interfejsie API programu Graph w wersji 1.21 — wersja zapoznawcza. Aby zarejestrować rozszerzenie, należy przyznać aplikacji prawa dostępu do zapisu.</li></ul> |
+| Aplikacje |Właścicielami jednej aplikacji może być maksymalnie 10 użytkowników. |
+| Grupy |<ul><li>Właścicielami jednej grupy może być maksymalnie 10 użytkowników.</li><li>Członkami jednej grupy w usłudze Azure Active Directory może być dowolna liczba obiektów.</li><li>Liczba członków w grupie, których można zsynchronizować z lokalnej usługi Active Directory do usługi Azure Active Directory, jest ograniczona do 15 000 członków przy użyciu narzędzia synchronizacji katalogów usługi Azure Active Directory (DirSync).</li><li>Liczba członków w grupie, których można zsynchronizować z lokalnej usługi Active Directory do usługi Azure Active Directory przy użyciu programu Azure AD Connect, jest ograniczona do 50 000 członków.</li></ul> |
+| Panel dostępu |<ul><li>Nie ma żadnego limitu liczby aplikacji wyświetlanych w panelu dostępu na użytkownika końcowego dla przypisanych użytkownikom licencji na usługę Azure AD Premium lub pakiet Enterprise Mobility Suite.</li><li>W panelu dostępu może być wyświetlanych maksymalnie 10 kafelków aplikacji (na przykład Box, Salesforce czy Dropbox) na każdą przypisaną użytkownikowi końcowemu licencję na usługę Azure Active Directory w wersji Bezpłatna lub Podstawowa. Ten limit nie dotyczy kont administratorów.</li></ul> |
+| Reports | W dowolnym raporcie można wyświetlić lub pobrać maksymalnie 1000 wierszy. Dodatkowe dane są obcinane. |
+| Jednostki administracyjne | Jeden obiekt może być członkiem maksymalnie 30 jednostek administracyjnych. |
+
+
+<!--HONumber=Feb17_HO2-->
+
+

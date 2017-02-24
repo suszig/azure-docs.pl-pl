@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/19/2017
+ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
-ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
+ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
+ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
 
 
 ---
@@ -78,7 +78,7 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
    ![Zrzut ekranu przedstawiający menu wywoływane po kliknięciu prawym przyciskiem myszy dla projektu](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Na karcie **NuGet** kliknij pozycję **Przeglądaj** i wpisz ciąg **azure documentdb** w polu wyszukiwania.
 7. W wynikach znajdź pozycję **Microsoft.Azure.DocumentDB.Core** i kliknij przycisk **Zainstaluj**.
-   Identyfikator pakietu Biblioteka kliencka usługi DocumentDB to [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
+   Identyfikator pakietu Biblioteka kliencka usługi DocumentDB dla programu .NET Core to [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Jeśli elementem docelowym jest wersja programu .NET Framework (na przykład net461), która nie jest obsługiwana przez ten pakiet .NET Core NuGet, użyj elementu [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) obsługującego wszystkie wersje programu .NET Framework, począwszy od wersji .NET Framework 4.5.
 
 Wspaniale! Teraz, po zakończeniu konfigurowania, zacznijmy pisanie kodu. Ukończony projekt kodu z tego samouczka można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
@@ -113,7 +113,7 @@ Następnie przejdź do [portalu Azure](https://portal.azure.com), aby pobrać id
 
 W witrynie Azure Portal przejdź do swojego konta usługi DocumentDB i kliknij przycisk **Klucze**.
 
-Skopiuj identyfikator URI z portalu i wklej go w miejsce `<your endpoint URI>` w pliku program.cs. Następnie skopiuj KLUCZ PODSTAWOWY z portalu i wklej go w miejsce `<your key>`. Jeśli używasz emulatora usługi Azure DocumentDB, użyj `https://localhost:443` jako punktu końcowego i dobrze zdefiniowanego klucza autoryzacji z tematu [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md) (Programowanie przy użyciu emulatora usługi DocumentDB).
+Skopiuj identyfikator URI z portalu i wklej go w miejsce `<your endpoint URI>` w pliku program.cs. Następnie skopiuj KLUCZ PODSTAWOWY z portalu i wklej go w miejsce `<your key>`. Jeśli używasz emulatora usługi Azure DocumentDB, użyj `https://localhost:8081` jako punktu końcowego i dobrze zdefiniowanego klucza autoryzacji z tematu [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md) (Programowanie przy użyciu emulatora usługi DocumentDB).
 
 ![Zrzut ekranu przedstawiający portal Azure używany przez samouczek NoSQL do tworzenia aplikacji konsolowej C#. Przedstawia konto usługi DocumentDB z wyróżnionym AKTYWNYM centrum, przyciskiem KLUCZE wyróżnionym w bloku konta usługi DocumentDB oraz wartościami IDENTYFIKATOR URI, KLUCZ PODSTAWOWY i KLUCZ POMOCNICZY wyróżnionymi w bloku Klucze.][keys]
 
@@ -562,6 +562,6 @@ Aby przywrócić odwołania do zestawu SDK dla platformy .NET Core usługi Docum
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

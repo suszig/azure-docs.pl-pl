@@ -1,12 +1,12 @@
-1. Zaloguj się w witrynie [Azure Portal][Azure Portal].
+1. Zaloguj się w witrynie [Azure Portal][Azure portal].
 2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Nowy**, **Integracja w przedsiębiorstwie** i **Relay**.
 3. W oknie dialogowym **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
 4. W polu **Subskrypcja** wybierz subskrypcję platformy Azure, w której ma zostać utworzona przestrzeń nazw.
-5. W polu **[Grupa zasobów](../articles/azure-portal/resource-group-portal.md)** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
+5. W polu **[Grupa zasobów](../articles/azure-resource-manager/resource-group-portal.md)** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
 6. W polu **Lokalizacja** wybierz kraj lub region, w którym powinna być hostowana przestrzeń nazw.
    
     ![Create namespace][create-namespace]
-7. Kliknij pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
+7. Kliknij pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Po kilku minutach system aprowizuje zasoby dla Twojego konta.
 
 ### <a name="obtain-the-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
 1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
@@ -18,16 +18,16 @@
    
     ![connection-string][connection-string]
 
+5. Powtórz poprzedni krok, kopiując i wklejając wartość pozycji **Klucz podstawowy** w lokalizacji tymczasowej do późniejszego użycia.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

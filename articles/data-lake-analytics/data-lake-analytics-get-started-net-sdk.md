@@ -1,6 +1,6 @@
 ---
 title: "Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu zestawu SDK programu .NET | Microsoft Docs"
-description: "Dowiedz się, jak zestaw SDK programu .NET umożliwia tworzenie kont usługi Data Lake Store, tworzenie zadań usługi Data Lake Analytics i przesyłanie zadań napisanych w języku SQL U. "
+description: "Dowiedz się, jak zestaw SDK platformy .NET umożliwia tworzenie kont usługi Data Lake Analytics, tworzenie zadań usługi Data Lake Analytics i przesyłanie zadań napisanych w języku U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ Aby uzyskać dostęp do plików na połączonych kontach usługi Storage, należ
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ Aby uzyskać dostęp do plików na połączonych kontach usługi Storage, należ
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ Aby uzyskać dostęp do plików na połączonych kontach usługi Storage, należ
           }
         }
 
-1. Naciśnij klawisz **F5**, aby uruchomić aplikację. Dane wyjściowe wyglądają tak:
+5. Naciśnij klawisz **F5**, aby uruchomić aplikację. Dane wyjściowe wyglądają tak:
    
     ![Dane wyjściowe zadania U-SQL usługi Azure Data Lake Analytics utworzonego przy użyciu zestawu SDK programu .NET](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Sprawdź plik wyjściowy.  Domyślna ścieżka i nazwa pliku to c:\Temp\SearchLog-from-Data-Lake.csv.
+6. Sprawdź plik wyjściowy.  Domyślna ścieżka i nazwa pliku to c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## <a name="see-also"></a>Zobacz też
 * Aby wyświetlić ten samouczek przy użyciu innych narzędzi, kliknij odpowiedni selektor karty w górnej części strony.
@@ -257,6 +257,6 @@ Aby uzyskać dostęp do plików na połączonych kontach usługi Storage, należ
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

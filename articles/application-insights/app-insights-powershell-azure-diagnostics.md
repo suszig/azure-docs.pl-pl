@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 11/17/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b324d38f1f06f9cfcb15665da3d0e3964555ee54
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
 
 
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Konfigurowanie usługi Application Insights dla aplikacji sieci Web platformy Azure przy użyciu programu PowerShell
-Platformę [Microsoft Azure](https://azure.com) można [skonfigurować do wysyłania Diagnostyki Azure](app-insights-azure-diagnostics.md) do usługi [Visual Studio Application Insights](app-insights-overview.md). Dane diagnostyczne są związane z usługami Azure Cloud Services i maszynami wirtualnymi platformy Azure. Uzupełniają one dane telemetryczne wysyłane z poziomu aplikacji za pomocą zestawu SDK usługi Application Insights. W ramach automatyzowania procesu tworzenia nowych zasobów platformy Azure można skonfigurować diagnostykę przy użyciu programu PowerShell.
+Platformę [Microsoft Azure](https://azure.com) można [skonfigurować do wysyłania danych usługi Azure Diagnostics](app-insights-azure-diagnostics.md) do usługi [Azure Application Insights](app-insights-overview.md). Dane diagnostyczne są związane z usługami Azure Cloud Services i maszynami wirtualnymi platformy Azure. Uzupełniają one dane telemetryczne wysyłane z poziomu aplikacji za pomocą zestawu SDK usługi Application Insights. W ramach automatyzowania procesu tworzenia nowych zasobów platformy Azure można skonfigurować diagnostykę przy użyciu programu PowerShell.
 
 ## <a name="azure-template"></a>Szablon Azure
 Jeśli aplikacja sieci Web działa na platformie Azure, a zasoby zostały utworzone przy użyciu szablonu usługi Azure Resource Manager, można skonfigurować usługę Application Insights, dodając następujący kod do węzła zasobów:
@@ -141,6 +141,6 @@ Aby usunąć rozszerzenie diagnostyki z pojedynczej roli:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

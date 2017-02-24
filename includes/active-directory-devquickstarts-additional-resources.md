@@ -4,10 +4,9 @@
 * [CloudIdentity.com](http://cloudidentity.com)
 
 ## <a name="get-security-updates-for-our-products"></a>Pobierz aktualizacje zabezpieczeń naszych produktów
-Firma Microsoft zachęca do przekazywania powiadomień o występujących incydentach zabezpieczeń poprzez wizytę na [tej stronie](https://technet.microsoft.com/security/dd252948) i subskrybowanie Doradczych alertów zabezpieczeń.
+Zachęcamy do uzyskiwania powiadomień o występujących zdarzeniach naruszenia zabezpieczeń poprzez odwiedzanie [strony TechCenter z powiadomieniami firmy Microsoft dotyczącymi bezpieczeństwa technicznego](https://technet.microsoft.com/security/dd252948) i subskrybowanie doradczych alertów zabezpieczeń.
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

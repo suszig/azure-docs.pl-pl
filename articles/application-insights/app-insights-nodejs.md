@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Dodawanie zestawu SDK usługi Application Insights w celu monitorowania aplikacji Node.js
-*Usługa Application Insights jest dostępna w wersji zapoznawczej.*
 
-Usługa [Visual Studio Application Insights](app-insights-overview.md) służy do monitorowania działającej aplikacji, aby ułatwić [wykrywanie i diagnozowanie problemów z wydajnością oraz wyjątków](app-insights-detect-triage-diagnose.md) i [uzyskiwanie informacji na temat sposobu użycia aplikacji](app-insights-overview-usage.md). Obsługuje aplikacje, które są hostowane na lokalnych serwerach usług IIS lub na maszynach wirtualnych platformy Azure, jak również aplikacje sieci Web platformy Azure.
+
+Usługa [Azure Application Insights](app-insights-overview.md) monitoruje działającą aplikację, aby ułatwić [wykrywanie i diagnozowanie problemów z wydajnością oraz wyjątków](app-insights-detect-triage-diagnose.md) i [uzyskiwanie informacji na temat sposobu użycia aplikacji](app-insights-overview-usage.md). Obsługuje aplikacje, które są hostowane na lokalnych serwerach usług IIS lub na maszynach wirtualnych platformy Azure, jak również aplikacje sieci Web platformy Azure.
 
 Zestaw SDK zapewnia automatyczne zbieranie wskaźników przychodzących żądań HTTP i odpowiedzi, liczników wydajności (procesora, pamięci, żądań na sekundę) i nieobsługiwanych wyjątków. Można również dodać niestandardowe wywołania do śledzenia zależności, metryk i innych zdarzeń.
 
@@ -95,7 +95,7 @@ Otwórz następujące porty dla ruchu wychodzącego w zaporze serwera:
 Zobacz [ten punkt rozwiązywania problemów](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 ## <a name="customized-usage"></a>Niestandardowe użycie
-### <a name="disabling-autocollection"></a>Wyłączanie automatycznego zbierania
+### <a name="disabling-auto-collection"></a>Wyłączanie automatycznego zbierania
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -200,6 +200,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
