@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: ab8e5861dd7214dab41024e7048b739c072d3f64
-ms.openlocfilehash: 52a431c2af8b670fc4e4babb0a0d077051a46f54
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
 
 
 ---
-# <a name="introduction-to-machine-learning-in-the-cloud"></a>Wprowadzenie do uczenia maszynowego w chmurze
+# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Wprowadzenie do usługi Azure Machine Learning w chmurze
 ## <a name="what-is-machine-learning"></a>Co to jest uczenie maszynowe?
 Uczenie maszynowe to metoda przetwarzania danych, która ułatwia komputerom uczenie się na podstawie istniejących danych w celu przewidywania przyszłych zachowań, rezultatów i trendów.  
 
@@ -37,8 +37,6 @@ Możesz pracować z poziomu biblioteki gotowych do użycia algorytmów, używać
 ![Co to jest uczenie maszynowe? Podstawowy przepływ pracy, który umożliwia operacjonalizację analiz predykcyjnych w usłudze Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Usługa Azure Machine Learning nie tylko udostępnia narzędzia do modelowania analizy predykcyjnej, ale również zapewnia w pełni zarządzaną usługę, z której można korzystać w celu wdrażania modeli predykcyjnych w postaci gotowych do użycia usług sieci Web.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-predictive-analytics"></a>Co to jest analiza predykcyjna?
 Analiza predykcyjna używa formuł matematycznych nazywanych algorytmami, które analizują dane historyczne lub bieżące w celu ustalenia wzorców lub trendów umożliwiających prognozowanie przyszłych zdarzeń.
@@ -60,7 +58,7 @@ W usłudze [Machine Learning Studio](machine-learning-what-is-ml-studio.md) moż
 Następujące samouczki pokazują, jak operacjonalizować modele analizy predykcyjnej:
 
  * [Wdrażaj usługi sieci Web](machine-learning-publish-a-machine-learning-web-service.md)
- * [Ucz i ponownie ucz modele za pośrednictwem interfejsów API](machine-learning-retrain-models-programmatically.md)
+ * [Ponownie ucz modele za pośrednictwem interfejsów API](machine-learning-retrain-models-programmatically.md)
  * [Zarządzaj punktami końcowymi usług sieci Web](machine-learning-create-endpoint.md)
  * [Skaluj usługę sieci Web](machine-learning-scaling-webservice.md)
  * [Korzystaj z usług sieci Web](machine-learning-consume-web-services.md)
@@ -69,7 +67,10 @@ Następujące samouczki pokazują, jak operacjonalizować modele analizy predykc
 Terminy dotyczące uczenia maszynowego mogą być mylące. Poniżej znajdują się pomocne definicje kluczowych terminów. Skorzystaj z możliwości przekazania komentarzy na końcu artykułu, aby poinformować nas o dowolnym terminie, który powinien zostać zdefiniowany.
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Eksploracja danych, analiza opisowa i analiza predykcyjna
-**Eksploracja danych** to proces zbierania informacji o dużych i często nieustrukturyzowanych zestawach danych w celu znalezienia właściwości na potrzeby ukierunkowanej analizy. **Wyszukiwanie danych** oznacza zautomatyzowaną eksplorację danych.
+
+**Eksploracja danych** to proces zbierania informacji o dużych i często nieustrukturyzowanych zestawach danych w celu znalezienia właściwości na potrzeby ukierunkowanej analizy.
+
+**Wyszukiwanie danych** oznacza zautomatyzowaną eksplorację danych.
 
 **Analiza opisowa** to proces polegający na analizowaniu zestawu danych, aby podsumować, co się stało. Analizy biznesowe — takie jak raporty ze sprzedaży, metryki sieci Web i analizy sieci społecznościowych — są w większości opisowe.
 
@@ -114,6 +115,6 @@ Podstaw analizy predykcyjnej i uczenia maszynowego możesz się nauczyć, korzys
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

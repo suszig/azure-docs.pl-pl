@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86a4bc7ea89416f2c67626439f08fa615a2e6511
+ms.sourcegitcommit: 337a88105d1d19fd69805caeaaef5040dad42316
+ms.openlocfilehash: 663b8a0d27e3746aec5097364643eac981810368
 
 
 ---
-# <a name="secure-your-cloud-and-onpremises-resources-using-azure-multifactor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Zabezpieczanie zasobów chmurowych i lokalnych przy użyciu serwera Azure Multi-Factor Authentication z usługami AD FS w systemie Windows Server 2012 R2
+# <a name="secure-your-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Zabezpieczanie zasobów chmurowych i lokalnych przy użyciu serwera Azure Multi-Factor Authentication z usługami AD FS w systemie Windows Server 2012 R2
 Jeśli korzystasz z usług federacyjnych Active Directory (AD FS) i chcesz zabezpieczyć zasoby chmurowe lub lokalne, możesz skonfigurować serwer Azure Multi-Factor Authentication do pracy z usługami AD FS. Ta konfiguracja wyzwala weryfikację dwuetapową dla punktów końcowych o wysokiej wartości.
 
 W tym artykule omawiane jest korzystanie z serwera usługi Azure Multi-Factor Authentication oraz usług AD FS w systemie Windows Server 2012 R2. Aby uzyskać dodatkowe informacje, przeczytaj o sposobie [zabezpieczania zasobów w chmurze i zasobów lokalnych przy użyciu serwera Azure Multi-Factor Authentication z usługami AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
-## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multifactor-authentication-server"></a>Zabezpieczanie usług AD FS systemu Windows Server 2012 R2 za pomocą serwera usługi Azure Multi-Factor Authentication
+## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multi-factor-authentication-server"></a>Zabezpieczanie usług AD FS systemu Windows Server 2012 R2 za pomocą serwera usługi Azure Multi-Factor Authentication
 Podczas instalowania serwera usługi Azure Multi-Factor Authentication dostępne są następujące opcje:
 
 * Lokalna instalacja serwera usługi Azure Multi-Factor Authentication na tym samym serwerze, na którym zainstalowano usługi AD FS.
@@ -39,7 +39,7 @@ Przed rozpoczęciem należy uwzględnić następujące informacje:
 * Kreator instalacji adaptera AD FS usługi Multi-Factor Authentication tworzy grupę zabezpieczeń o nazwie PhoneFactor Admins w Twoim wystąpieniu usługi Active Directory. Następnie do tej grupy zostaje dodane konto usług AD FS usługi federacyjnej. Zaleca się sprawdzenie na kontrolerze domeny, czy grupa PhoneFactor Admins została rzeczywiście utworzona oraz czy konto usług AD FS jest elementem członkowskim tej grupy. W razie potrzeby ręcznie dodaj konto usług AD FS do grupy PhoneFactor Admins w ramach kontrolera domeny.
 * Informacje dotyczące instalowania zestawu SDK usługi sieci Web w portalu użytkownika można znaleźć w temacie [Deploying the user portal for the Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-portal.md) (Wdrażanie portalu użytkownika dla serwera Azure Multi-Factor Authentication).
 
-### <a name="install-azure-multifactor-authentication-server-locally-on-the-ad-fs-server"></a>Instalowanie serwera Azure Multi-Factor Authentication lokalnie na serwerze usług AD FS
+### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Instalowanie serwera Azure Multi-Factor Authentication lokalnie na serwerze usług AD FS
 1. Pobierz serwer Azure Multi-Factor Authentication i zainstaluj go na serwerze usług AD FS. Aby uzyskać informacje dotyczące instalacji, przeczytaj o [wprowadzeniu do serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md).
 2. W konsoli zarządzania serwera Multi-Factor Authentication kliknij ikonę usług **AD FS**, a następnie zaznacz opcję **Zezwalaj na rejestrację użytkownika** i **Zezwalaj użytkownikom na wybór metody**.
 3. Wybierz wszystkie dodatkowe opcje, które chcesz określić dla Twojej organizacji.
@@ -93,7 +93,7 @@ Jeśli nie chcesz używać nazwy użytkownika i hasła, wykonaj następujące cz
 3. Wyeksportuj klucz publiczny i prywatny certyfikatu klienta do pliku pfx.  
 4. Wyeksportuj klucz publiczny do pliku cer w formacie Base64.  
 5. W Menedżerze serwera sprawdź, czy zainstalowana jest funkcja Serwer sieci Web (IIS)\Serwer sieci Web\Zabezpieczenia\Uwierzytelnianie mapowań certyfikatów klientów za pośrednictwem usług IIS. Jeśli ta funkcja nie jest zainstalowana, wybierz pozycję **Dodaj role i funkcje**, aby ją dodać.  
-6. W Menedżerze usług IIS kliknij dwukrotnie składnik **Edytor konfiguracji** w witrynie sieci Web, która zawiera katalog wirtualny zestawu SDK usługi sieci Web. Istotne jest, aby wykonać tę czynność na poziomie witryny sieci Web, a nie na poziomie katalogu wirtualnego.  
+6. W Menedżerze usług IIS kliknij dwukrotnie składnik **Edytor konfiguracji** w witrynie sieci Web, która zawiera katalog wirtualny zestawu SDK usługi sieci Web. Ważne jest, aby wybrać witrynę sieci Web, a nie katalog wirtualny.  
 7. Przejdź do sekcji **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
 8. Ustaw węzeł enabled na wartość **true**.  
 9. Ustaw węzeł oneToOneCertificateMappingsEnabled na wartość **true**.  
@@ -116,12 +116,34 @@ Jeśli nie chcesz używać nazwy użytkownika i hasła, wykonaj następujące cz
 
 Następnie, aby zarejestrować adapter, uruchom skrypt \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 w programie PowerShell. Adapter zostanie zarejestrowany jako element WindowsAzureMultiFactorAuthentication. Uruchom ponownie usługę AD FS, aby zmiany wprowadzone w ramach rejestracji zaczęły obowiązywać.
 
+## <a name="secure-azure-ad-resources-using-ad-fs"></a>Zabezpieczanie zasobów usługi Azure AD za pomocą usług AD FS
+Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby usługi Active Directory Federation Services emitowały oświadczenie multipleauthn, gdy użytkownik pomyślnie przeprowadzi weryfikację dwuetapową. To oświadczenie jest przekazywane do usługi Azure AD. Wykonaj tę procedurę w celu przejścia przez poszczególne kroki:
+
+1. Otwórz przystawkę zarządzania usługami AD FS.
+2. Po lewej stronie wybierz pozycję **Relacje zaufania jednostek zależnych**.
+3. Kliknij prawym przyciskiem myszy pozycję **Platforma tożsamości usługi Microsoft Office 365** i wybierz pozycję **Edytuj reguły oświadczeń...**
+
+   ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+
+4. Na karcie Reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę**.
+
+   ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Przekazywanie lub filtrowanie oświadczenia przychodzącego**, a następnie kliknij przycisk **Dalej**.
+
+   ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Nadaj regule nazwę. 
+7. Wybierz wartość **Odwołania metod uwierzytelniania** jako typ oświadczenia przychodzącego.
+8. Wybierz pozycję **Przekazuj wszystkie wartości oświadczeń**.
+    ![Kreator dodawania reguły przekształcania dotyczącej oświadczeń](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Kliknij przycisk **Zakończ**. Zamknij konsolę zarządzania usługami AD FS.
+
 ## <a name="related-topics"></a>Powiązane tematy
 Aby uzyskać pomoc przy rozwiązywaniu problemów, zobacz [Azure Multi-Factor Authentication — często zadawane pytania](multi-factor-authentication-faq.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

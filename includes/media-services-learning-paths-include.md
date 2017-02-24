@@ -1,10 +1,9 @@
-Ścieżki szkoleniowe dotyczące usługi AMS można zobaczyć tutaj:
+Ścieżki szkoleniowe dotyczące usługi Azure Media Services można wyświetlić tutaj:
 
-* [Przepływ pracy transmisji strumieniowej na żywo usługi AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Przepływ pracy transmisji strumieniowej na żądanie usługi AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Przepływ pracy transmisji strumieniowej na żywo usługi Media Services](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Przepływ pracy transmisji strumieniowej na żądanie usługi Media Services](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

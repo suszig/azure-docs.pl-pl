@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff7ea65c329a37acf8b2febb52fd140954d81e97
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
 
 
 ---
@@ -28,7 +28,7 @@ W tym artykule przedstawiono szybki sposób wdrożenia maszyny wirtualnej system
 * dostępu do [interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md) (po zalogowaniu przy użyciu `azure login`).
 * Interfejs wiersza polecenia platformy Azure *musi działać w* trybie usługi Azure Resource Manager`azure config mode arm`.
 
-Szybkie wdrożenie szablonu maszyny wirtualnej z systemem Linux jest możliwe również przy użyciu witryny [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+Szybkie wdrożenie szablonu maszyny wirtualnej z systemem Linux jest możliwe również przy użyciu witryny [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-command-summary"></a>Szybkie polecenia — podsumowanie
 ```azurecli

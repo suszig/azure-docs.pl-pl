@@ -23,7 +23,7 @@ ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
 ---
 # <a name="how-app-service-works"></a>Jak działa usługa App Service
 Usługa Azure App Service to usługa w chmurze, która umożliwia rozwiązywanie praktycznych problemów dotyczących projektowania.
-Usługa App Service jest ukierunkowana na zapewnienie maksymalnej wydajności programowania i możliwości dostarczania aplikacji w skali chmury.
+Usługa App Service jest ukierunkowana na zapewnienie maksymalnej wydajności programowania i możliwości dostarczania aplikacji w skali chmury. 
 
 Usługa App Service udostępnia również funkcje i platformy niezbędne do tworzenia aplikacji biznesowych dla przedsiębiorstw przy zachowaniu potrzebnej dla deweloperów obsługi najbardziej popularnych języków programowania (.NET, Java, PHP, Node.js i Python).
 Usługa App Service pozwala deweloperom korzystać z następujących możliwości:

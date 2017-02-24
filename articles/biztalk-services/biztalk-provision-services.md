@@ -15,13 +15,12 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Tworzenie usługi BizTalk Services przy użyciu portalu Azure
-Tworzenie usługi Azure BizTalk Services w portalu Azure
 
 > [!TIP]
 > Do zalogowania się do portalu Azure potrzebne jest konto Azure i subskrypcja platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Zobacz [Bezpłatna wersja próbna platformy Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
@@ -116,7 +115,7 @@ Po ukończeniu kreatora usługa Azure BizTalk Services jest utworzona i gotowa d
 
 W zależności od stanu usługi BizTalk niektórych operacji nie można ukończyć. Aby uzyskać listę tych operacji, przejdź do artykułu [BizTalk Services State Chart](biztalk-service-state-chart.md) (Wykres stanu usługi BizTalk Services).
 
-## <a name="postprovisioning-steps"></a>Kroki po zainicjowaniu obsługi
+## <a name="post-provisioning-steps"></a>Kroki po zainicjowaniu obsługi
 * [Instalacja certyfikatu na komputerze lokalnym](#InstallCert)
 * [Dodanie certyfikatu gotowego do produkcji](#AddCert)
 * [Uzyskanie przestrzeni nazw kontroli dostępu](#ACS)
@@ -131,7 +130,7 @@ W ramach inicjowania obsługi usługi BizTalk zostaje utworzony certyfikat z pod
    ![Modyfikowanie certyfikatu SSL][QuickGlance]
 5. Kliknij dwukrotnie certyfikat, a następnie uruchom kreatora, aby go zainstalować. Pamiętaj, aby zainstalować certyfikat w obszarze magazynu **Zaufane główne urzędy certyfikacji**.
 
-#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Dodanie certyfikatu gotowego do produkcji
+#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Dodanie certyfikatu gotowego do produkcji
 Certyfikat z podpisem własnym, tworzony automatycznie podczas tworzenia usługi BizTalk Services, jest przeznaczony do użytku tylko w środowiskach programowania. Na potrzeby scenariuszy produkcyjnych zastąp go certyfikatem gotowym do produkcji.
 
 1. Na karcie **Pulpit nawigacyjny** wybierz opcję **Aktualizuj certyfikat SSL**.
@@ -275,6 +274,6 @@ Po utworzeniu usługi BizTalk zapoznaj się z różnymi [usługami BizTalk Servi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

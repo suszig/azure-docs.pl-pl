@@ -1,5 +1,5 @@
 ---
-title: "Zabezpieczanie zasobów w chmurze za pomocą usługi Azure MFA i usług AD FS"
+title: "Zabezpieczanie zasobów w chmurze za pomocą usługi Azure MFA i usług AD FS | Microsoft Docs"
 description: "Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i usług AD FS w chmurze."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,43 +12,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
-
+ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
+ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 ---
+
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
-Jeśli Twoja organizacja jest sfederowana z użyciem usługi Azure Active Directory, możesz użyć usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services do zabezpieczenia zasobów używanych przez usługę Azure AD. Aby zabezpieczyć zasoby usługi Azure Active Directory za pomocą usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services, postępuj zgodnie z poniższymi procedurami.
+Jeśli Twoja organizacja jest sfederowana z użyciem usługi Azure Active Directory, możesz użyć usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services (AD FS) do zabezpieczenia zasobów używanych przez usługę Azure AD. Aby zabezpieczyć zasoby usługi Azure Active Directory za pomocą usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services, postępuj zgodnie z poniższymi procedurami.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Zabezpieczanie zasobów usługi Azure AD za pomocą usług AD FS
-Aby zabezpieczyć zasób w chmurze, najpierw włącz konto dla użytkowników, a następnie skonfiguruj regułę oświadczeń. Wykonaj tę procedurę w celu przejścia przez poszczególne kroki:
+Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby usługi Active Directory Federation Services emitowały oświadczenie multipleauthn, gdy użytkownik pomyślnie przeprowadzi weryfikację dwuetapową. To oświadczenie jest przekazywane do usługi Azure AD. Wykonaj tę procedurę w celu przejścia przez poszczególne kroki:
 
-1. Włącz konta użytkowników, wykonując instrukcje podane w części [Włączanie uwierzytelniania wieloskładnikowego](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users).
-2. Uruchom konsolę zarządzania usługami AD FS.
-   ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. Przejdź do obszaru **Relacje zaufania jednostek zależnych** i kliknij prawym przyciskiem myszy pozycję Relacja zaufania jednostek zależnych. Wybierz pozycję **Edytuj reguły oświadczeń...**
-4. Kliknij pozycję **Dodaj regułę...**
-5. Wybierz z listy rozwijanej pozycję **Wysyłanie oświadczeń przy użyciu reguły niestandardowej** i kliknij przycisk **Dalej**.
-6. Wprowadź nazwę reguły oświadczeń.
-7. W obszarze Reguła niestandardowa dodaj następujący tekst:
 
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
+1. Otwórz przystawkę zarządzania usługami AD FS.
+2. Po lewej stronie wybierz pozycję **Relacje zaufania jednostek zależnych**.
+3. Kliknij prawym przyciskiem myszy pozycję **Platforma tożsamości usługi Microsoft Office 365** i wybierz pozycję **Edytuj reguły oświadczeń...**
 
-    Odpowiadające oświadczenie:
+   ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. Kliknij przycisk **OK**, a następnie kliknij przycisk **Zakończ**. Zamknij konsolę zarządzania usługami AD FS.
+4. Na karcie Reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę**.
 
-Użytkownicy będą mogli logować się za pośrednictwem metody lokalnej (na przykład przy użyciu karty inteligentnej).
+   ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Przekazywanie lub filtrowanie oświadczenia przychodzącego**, a następnie kliknij przycisk **Dalej**.
+
+   ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Nadaj regule nazwę. 
+7. Wybierz wartość **Odwołania metod uwierzytelniania** jako typ oświadczenia przychodzącego.
+8. Wybierz pozycję **Przekazuj wszystkie wartości oświadczeń**.
+    ![Kreator dodawania reguły przekształcania dotyczącej oświadczeń](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Kliknij przycisk **Zakończ**. Zamknij konsolę zarządzania usługami AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Zaufane adresy IP dla użytkowników federacyjnych
 Zaufane adresy IP umożliwiają administratorom pomijanie weryfikacji dwuetapowej w przypadku określonych adresów IP lub użytkowników federacyjnych, którzy wysyłają żądania z firmowej sieci intranet. Poniższe sekcje zawierają instrukcje dotyczące konfigurowania zaufanych adresów IP usługi Azure Multi-Factor Authentication dla użytkowników federacyjnych i pomijania weryfikacji dwuetapowej w przypadku żądań pochodzących od użytkowników federacyjnych z sieci intranet. Osiąga się to przez skonfigurowanie usług AD FS pod kątem używania szablonu przekazywania lub szablonu filtrowania oświadczeń przychodzących za pomocą typu oświadczeń wewnętrznej sieci firmowej.
@@ -56,7 +53,7 @@ Zaufane adresy IP umożliwiają administratorom pomijanie weryfikacji dwuetapowe
 W tym przykładzie użyto usługi Office 365 w celu pokazania obsługi relacji zaufania jednostek zależnych.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Konfigurowanie reguł oświadczeń usług AD FS
-W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utworzymy dwie reguły oświadczeń — jedną dla typu oświadczenia wewnętrznej sieci firmowej, a drugą na potrzeby umożliwienia stałego zalogowania użytkowników.
+W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwórz dwie reguły oświadczeń — jedną dla typu oświadczenia wewnętrznej sieci firmowej, a drugą na potrzeby umożliwienia stałego zalogowania użytkowników.
 
 1. Otwórz przystawkę zarządzania usługami AD FS.
 2. Po lewej stronie wybierz pozycję **Relacje zaufania jednostek zależnych**.
@@ -100,6 +97,6 @@ Gotowe. Od tej pory federacyjni użytkownicy usługi Office 365 muszą używać 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

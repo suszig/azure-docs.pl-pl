@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -45,7 +45,7 @@ Tradycyjne rozwiązania do tworzenia kopii zapasowych rozwinęły się w kierunk
 
 **Kopia zapasowa spójna na poziomie aplikacji** — czy wykonujesz kopię zapasową serwera plików, maszyny wirtualnej czy też bazy danych SQL, musisz wiedzieć, że punkt odzyskiwania zawiera wszystkie dane wymagane do przywrócenia kopii zapasowej. Usługa Azure Backup umożliwia wykonywanie kopii zapasowych spójnych na poziomie aplikacji, które zapewniają, że do przywrócenia danych nie są potrzebne dodatkowe poprawki. Przywracanie danych spójnych na poziomie aplikacji skraca czas przywracania, co pozwala szybko powrócić do stanu roboczego.
 
-**Długoterminowe przechowywanie** — przechowywanie kopii zapasowych danych na platformie Azure przez 99 lat. Zamiast przełączania kopii zapasowych z dysku na taśmę, a następnie przenoszenia taśmy do lokalizacji zewnętrznej w celu długoterminowego przechowywania, możesz użyć platformy Azure do przechowywania krótko- i długoterminowego.
+**Długoterminowe przechowywanie** — zamiast przełączania kopii zapasowych z dysku na taśmę, a następnie przenoszenia taśmy do lokalizacji zewnętrznej w celu długoterminowego przechowywania, możesz użyć platformy Azure do przechowywania krótko- i długoterminowego. Platforma Azure nie ogranicza czasu przechowywania danych w magazynie usługi Backup ani usługi Recovery Services. Dane możesz przechowywać w magazynie tak długo, jak chcesz. Usługa Azure Backup ma limit 9999 punktów odzyskiwania dla każdego chronionego wystąpienia. Zobacz sekcję [Tworzenie kopii zapasowej i przechowywanie](backup-introduction-to-azure-backup.md#backup-and-retention) w tym artykule, aby uzyskać informacje o tym, jaki wpływ ten limit może mieć na Twoje potrzeby związane z kopiami zapasowymi.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Jakich składników usługi Azure Backup mam użyć?
 Jeśli nie masz pewności, które składniki usługi Azure Backup odpowiadają Twoim potrzebom, zapoznaj się z poniższą tabelą zawierającą informacje o tym, co można chronić za pomocą każdego składnika. Witryna Azure Portal udostępnia wbudowanego kreatora, który prowadzi użytkownika przez proces wybierania składnika do pobrania i wdrożenia. Kreator, który jest częścią tworzenia magazynu usługi Recovery Services, poprowadzi użytkownika przez kroki wybierania celu tworzenia kopii zapasowej oraz wybierania danych lub aplikacji do ochrony.
@@ -107,6 +107,15 @@ Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostani
 
 ### <a name="restore-premium-storage-vms"></a>Przywracanie maszyn wirtualnych usługi Premium Storage
 Maszyny wirtualne usługi Premium Storage można przywrócić do usługi Premium Storage lub normalnego magazynu. Przywracanie punktu odzyskiwania maszyny wirtualnej usługi Premium Storage do magazynu w warstwie Premium to typowy proces przywracania. Jednak opłacalne może się okazać przywrócenie punktu odzyskiwania maszyny wirtualnej usługi Premium Storage do standardowego magazynu. Z tego typu przywracania można skorzystać, gdy potrzebny jest podzbiór plików z maszyny wirtualnej.
+
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Korzystanie z maszyn wirtualnych dysku zarządzanego z usługą Azure Backup
+Usługa Azure Backup chroni maszyny wirtualne dysku zarządzanego. Dzięki dyskom zarządzanym nie musisz zarządzać kontami magazynu maszyn wirtualnych, a aprowizowanie maszyny wirtualnej jest znacznie prostsze.
+
+### <a name="back-up-managed-disk-vms"></a>Tworzenie kopii zapasowej maszyn wirtualnych dysku zarządzanego
+Proces tworzenia maszyn wirtualnych na dyskach zarządzanych nie różni się niczym od tworzenia maszyn wirtualnych w usłudze Resource Manager. Kopie zapasowe można tworzyć bezpośrednio z widoku maszyny wirtualnej lub widoku magazynu usługi Recovery Services. Tworzenie kopii zapasowych maszyn wirtualnych na dyskach zarządzanych jest obsługiwane przez kolekcje RestorePoint tworzone na tych dyskach. Usługa Azure Backup nie obsługuje obecnie tworzenia kopii zapasowych maszyn wirtualnych dysku zarządzanego zaszyfrowanych za pomocą usługi Azure Disk Encryption (ADE).
+
+### <a name="restore-managed-disk-vms"></a>Przywracanie maszyn wirtualnych dysku zarządzanego
+Usługa Azure Backup umożliwia przywracanie kompletnej maszyny z dyskami zarządzanymi lub przywracanie dysków zarządzanych do konta magazynu usługi Resource Manager. Dyski tworzone podczas procesu przywracania są zarządzane przez platformę Azure, a konto magazynu utworzone w ramach procesu przywracania są podobny innych kont magazynu usługi Resource Manager i powinny być zarządzane przez klienta.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Jakie są funkcje każdego składnika usługi Azure Backup?
 Poniższe sekcje zawierają tabele podsumowujące dostępność lub obsługę różnych funkcji w każdym składniku usługi Azure Backup. W informacjach podanych po każdej tabeli znajdziesz dodatkowe wsparcie lub szczegóły.
@@ -175,7 +184,7 @@ W przypadku tworzenia kopii zapasowej danych w programie System Center DPM lub n
 #### <a name="network-throttling"></a>Ograniczanie przepustowości sieci
 Agent usługi Azure Backup umożliwia ograniczanie użycia sieci, co pozwala na sterowanie wykorzystaniem przepustowości sieci w trakcie transferu danych. Ograniczanie może być przydatne, gdy kopie zapasowe danych mają być tworzone podczas godzin pracy, ale proces tworzenia kopii zapasowej nie może kolidować z innym ruchem internetowym. Ograniczanie transferu danych ma zastosowanie do operacji tworzenia kopii zapasowej i przywracania.
 
-### <a name="backup-and-retention"></a>Tworzenie kopii zapasowej i przechowywanie
+## <a name="backup-and-retention"></a>Tworzenie kopii zapasowej i przechowywanie
 
 W usłudze Azure Backup obowiązuje limit wynoszący 9999 punktów odzyskiwania, znanych także jako kopie zapasowe lub migawki, na *chronione wystąpienie*. Chronione wystąpienie to komputer, serwer (fizyczny lub wirtualny) albo obciążenie, które skonfigurowano do tworzenia kopii zapasowych na platformie Azure. Aby uzyskać więcej informacji, zobacz [Co to jest chronione wystąpienie?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Wystąpienie jest chronione po zapisaniu kopii zapasowej danych. Kopia zapasowa danych stanowi ochronę. Jeśli dane źródłowe zostaną utracone lub uszkodzone, za pomocą kopii zapasowej możesz je przywrócić. W poniższej tabeli przedstawiono maksymalną częstotliwość wykonywania kopii zapasowych dla każdego składnika. Konfiguracja zasad kopii zapasowych określa, jak szybko są zużywane punkty odzyskiwania. Jeśli na przykład tworzysz punkt odzyskiwania codziennie, to możesz zachować punkty odzyskiwania przez 27 lat, zanim wyczerpie się ich liczba. Jeśli natomiast używasz jednego punktu odzyskiwania na miesiąc, to punkty odzyskiwania wyczerpią się po upływie 833 lat i do tego czasu będzie je można przechowywać. W usłudze Backup punktom odzyskiwania nie jest przypisywany limit czasu wygaśnięcia.
 
@@ -234,6 +243,6 @@ Szczegółowe informacje na temat ochrony innych obciążeń możesz uzyskać w 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

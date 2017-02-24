@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
 
 
 ---
@@ -39,37 +39,37 @@ Na tej stronie możesz zobaczyć eksperymenty z kategorii **Recently added** (Os
 Aby przeglądać wszystkie eksperymenty:
 
 1. Kliknij pozycję **Browse all** (Przeglądaj wszystkie) w górnej części strony.
-2. W obszarze **Refine by** (Uściślij według) wybierz pozycję **Experiment** (Eksperyment), aby zobaczyć wszystkie eksperymenty w galerii.
+2. W obszarze **Refine by** (Uściślij według) w sekcji **Categories** (Kategorie) wybierz pozycję **Experiment** (Eksperyment), aby zobaczyć wszystkie eksperymenty w galerii.
 3. Eksperymenty spełniające wymagania możesz znaleźć na kilka różnych sposobów:
    * **Zaznacz filtry po lewej stronie.** Na przykład aby przeglądać eksperymenty, w których jest używany algorytm wykrywania anomalii oparty na analizie PCA, wybierz pozycję **Experiment** (Eksperyment) w obszarze **Categories** (Kategorie), a następnie pozycję **PCA-Based Anomaly Detection** (Wykrywanie anomalii oparte na analizie PCA) w obszarze **Algorithms Used** (Używane algorytmy). (Jeśli nie widzisz tego algorytmu, kliknij pozycję **Show all** (Pokaż wszystkie) u dołu listy).<br></br>
      ![Wybierz filtry](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Użyj pola wyszukiwania.** Na przykład aby znaleźć eksperymenty zamieszczone przez firmę Microsoft, które są związane z rozpoznawaniem cyfr z użyciem algorytmu SVM dla problemu dwuklasowego, w polu wyszukiwania wprowadź ciąg „digit recognition” (rozpoznawanie cyfr). Następnie zaznacz filtry **Experiment** (Eksperyment), **Microsoft content only** (Tylko zawartość firmy Microsoft) i **Two-Class Support Vector Machine** (SVM dla problemu dwuklasowego): ![Używanie pola wyszukiwania](./media/machine-learning-sample-experiments/search-for-experiments.png)
+   * **Użyj pola wyszukiwania.** Na przykład aby znaleźć eksperymenty zamieszczone przez firmę Microsoft, które są związane z rozpoznawaniem cyfr z użyciem algorytmu SVM dla problemu dwuklasowego, w polu wyszukiwania wprowadź ciąg „digit recognition” (rozpoznawanie cyfr). Następnie zaznacz filtry **Experiment** (Eksperyment), **Microsoft content only** (Tylko zawartość firmy Microsoft) i **Two-Class Support Vector Machine** (SVM dla problemu dwuklasowego):<br></br>
+     ![Użyj pola wyszukiwania](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Kliknij eksperyment, aby uzyskać więcej informacji.
-5. Aby uruchomić i/lub zmodyfikować eksperyment, kliknij pozycję **Open in Studio** (Otwórz w Studio) na stronie eksperymentu.
-
-   > [!NOTE]
-   > Aby otworzyć eksperyment w usłudze Machine Learning Studio, musisz zalogować się z użyciem poświadczeń konta Microsoft. Jeśli nie posiadasz jeszcze obszaru roboczego usługi Machine Learning, zostanie utworzony obszar roboczy w ramach bezpłatnej wersji próbnej. [Dowiedz się, co obejmuje bezpłatna wersja próbna usługi Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)
-   >
-   >
+5. Aby uruchomić i/lub zmodyfikować eksperyment, kliknij pozycję **Open in Studio** (Otwórz w Studio) na stronie eksperymentu. <br></br>
 
     ![Przykładowy eksperyment](./media/machine-learning-sample-experiments/example-experiment.png)
+
+    > [!NOTE]
+    > Po otwarciu eksperymentu w usłudze Machine Learning Studio po raz pierwszy możesz wypróbować ją bezpłatnie lub kupić subskrypcję platformy Azure. [Dowiedz się więcej na temat usługi Machine Learning Studio w bezpłatnej wersji próbnej i w wersji płatnej](https://azure.microsoft.com/pricing/details/machine-learning/)
+    >
+    >
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Korzystanie z szablonu w usłudze Machine Learning Studio
 Nowy eksperyment można również utworzyć w usłudze Machine Learning Studio, używając przykładu z galerii jako szablonu.
 
-1. Zaloguj się przy użyciu poświadczeń konta Microsoft do usługi [Studio](https://studio.azureml.net), a następnie kliknij pozycję **New** (Nowy), aby utworzyć nowy eksperyment.
+1. Zaloguj się przy użyciu poświadczeń konta Microsoft do usługi [Studio](https://studio.azureml.net), a następnie kliknij pozycję **New** (Nowy), aby utworzyć eksperyment.
 2. Przejrzyj przykłady i kliknij jeden z nich.
 
 W obszarze roboczym zostanie utworzony nowy eksperyment z użyciem eksperymentu przykładowego jako szablonu.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Przygotowywanie danych](machine-learning-data-science-import-data.md)
-* [Próba użycia języka R w eksperymencie](machine-learning-r-quickstart.md)
-* [Przeglądanie przykładowych eksperymentów z użyciem języka R](machine-learning-r-csharp-web-service-examples.md)
-* [Tworzenie interfejsu API usługi sieci Web](machine-learning-publish-a-machine-learning-web-service.md)
+* [Importowanie danych z różnych źródeł](machine-learning-data-science-import-data.md)
+* [Samouczek szybkiego startu dotyczący języka R w usłudze Machine Learning](machine-learning-r-quickstart.md)
+* [Wdrażanie usługi sieci Web Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
