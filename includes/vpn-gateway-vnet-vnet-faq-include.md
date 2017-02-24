@@ -1,17 +1,52 @@
-* Sieci wirtualne mogą znajdować się w tym samym regionie lub w różnych regionach (lokalizacjach) świadczenia usługi Azure.
-* Usługa w chmurze ani punkt końcowy z równoważeniem obciążenia NIE MOGĄ rozciągać się na sieci wirtualne, nawet jeśli są one ze sobą połączone.
-* Łączenie wielu sieci wirtualnych Azure nie wymaga żadnych lokalnych bram VPN, chyba że jest wymagana łączność między różnymi lokalizacjami organizacji.
-* Połączenie między sieciami wirtualnymi obsługuje sieci wirtualne. Nie obsługuje połączeń maszyn wirtualnych ani usług w chmurze, które NIE należą do sieci wirtualnej.
-* Połączenie między sieciami wirtualnymi wymaga bram sieci VPN Azure z sieciami typu VPN RouteBased (nazywanymi wcześniej sieciami obsługującymi routing dynamiczny). 
-* Połączenie sieci wirtualnej może być wykorzystywane równolegle z sieciami VPN obejmującymi wiele lokalizacji z maksymalnie 10 (w przypadku bram domyślnych/standardowych) lub 30 (w przypadku bram wysokiej wydajności) tunelami VPN bramy VPN sieci wirtualnej łączącej z innymi sieciami wirtualnymi lub z innymi witrynami lokalnymi.
-* Przestrzenie adresów sieci wirtualnych i lokalnych witryn sieci obejmujących lokalizacje w obrębie organizacji nie mogą się nakładać. Nakładające się przestrzenie adresowe spowodują, że utworzenie połączenia między sieciami wirtualnymi się nie powiedzie.
-* Nadmiarowe tunele między dwiema sieciami wirtualnymi nie są obsługiwane.
-* Wszystkie tunele VPN sieci wirtualnej współdzielą dostępną przepustowość bramy VPN Azure i są wspólnie objęte umową SLA dotyczącą danej bramy na platformie Azure.
-* Ruch sieciowy w ramach połączenia działa między sieciami wirtualnymi w obrębie sieci Microsoft Network, a nie Internetu.
-* Ruch sieciowy w ramach połączenia między sieciami wirtualnymi w tym samym regionie jest bezpłatny w obu kierunkach. Opłaty są pobierane za ruch wychodzący w ramach połączenia sieci wirtualnych na przestrzeni różnych regionów, przy czym cenę za wychodzący transfer danych wewnątrz sieci wirtualnej określa się na podstawie regionów źródłowych. Szczegółowe informacje można znaleźć na stronie poświęconej [cenom](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+###<a name="does-azure-charge-for-traffic-between-vnets"></a>Czy w ramach platformy Azure są naliczane opłaty za ruch danych między sieciami wirtualnymi?
+Ruch sieciowy w ramach połączenia między sieciami wirtualnymi w tym samym regionie jest bezpłatny w obu kierunkach. Opłaty są pobierane za ruch wychodzący w ramach połączenia sieci wirtualnych na przestrzeni różnych regionów, przy czym cenę za wychodzący transfer danych wewnątrz sieci wirtualnej określa się na podstawie regionów źródłowych. Szczegółowe informacje można znaleźć na [stronie poświęconej cenom](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+
+###<a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Czy ruch sieciowy w ramach połączenia między sieciami wirtualnymi odbywa się poza Internetem?
+Nie. Ruch sieciowy w ramach połączenia między sieciami wirtualnymi przechodzi przez sieć szkieletową platformy Microsoft Azure, a nie przez Internet.
+
+### <a name="is-vnet-to-vnet-traffic-secure"></a>Czy ruch sieciowy w ramach połączenia między sieciami wirtualnymi jest bezpieczny?
+Tak, jest zabezpieczony z użyciem szyfrowania IPsec/IKE.
+
+###<a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>Czy do połączenia sieci wirtualnych jest potrzebne urządzenie sieci VPN?
+Nie. Łączenie wielu sieci wirtualnych platformy Azure nie wymaga urządzenia sieci VPN, chyba że jest wymagana łączność między wieloma lokalizacjami.
+
+###<a name="do-my-vnets-need-to-be-in-the-same-region"></a>Czy sieci wirtualne muszą znajdować się w tym samym regionie?
+Nie. Sieci wirtualne mogą znajdować się w tym samym regionie lub w różnych regionach (lokalizacjach) świadczenia usługi Azure.
+
+###<a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Czy połączenia między sieciami wirtualnymi można używać wraz z połączeniami obejmującymi wiele lokacji?
+Tak. Połączenie sieci wirtualnej może być używane równocześnie z sieciami VPN obejmującymi wiele lokacji.
+
+### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>Z iloma lokacjami lokalnymi i sieciami wirtualnymi może połączyć się jedna sieć wirtualna?
+Zobacz tabelę [Wymagania dotyczące bramy](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements).
+
+###<a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Czy za pomocą połączenia między sieciami wirtualnymi można łączyć się z maszynami wirtualnymi lub usługami w chmurze znajdującymi się poza siecią wirtualną?
+Nie. Połączenie między sieciami wirtualnymi obsługuje sieci wirtualne. Nie obsługuje połączeń maszyn wirtualnych ani usług w chmurze, które nie należą do sieci wirtualnej.
+
+###<a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Czy usługa w chmurze lub punkt końcowy z równoważeniem obciążenia może obejmować sieci wirtualne?
+Nie. Usługa w chmurze ani punkt końcowy z równoważeniem obciążenia nie mogą rozciągać się na sieci wirtualne, nawet jeśli są one ze sobą połączone.
+
+###<a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Czy można używać typu sieci VPN PolicyBased na potrzeby połączeń między sieciami wirtualnymi lub połączeń obejmujących wiele lokacji?
+Nie. Połączenia między sieciami wirtualnymi i połączenia obejmujące wiele lokacji wymagają bram sieci VPN platformy Azure z sieciami typu VPN RouteBased (nazywanymi wcześniej sieciami obsługującymi routing dynamiczny).
+
+### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>Czy można połączyć sieć wirtualną VPN opartą na trasach z inną siecią wirtualną VPN opartą na zasadach?
+Nie, obie sieci wirtualne MUSZĄ korzystać z sieci VPN opartych na trasach (nazywanych wcześniej sieciami obsługującymi routing dynamiczny).
+
+###<a name="do-vpn-tunnels-share-bandwidth"></a>Czy tunele VPN współdzielą przepustowość?
+Tak. Wszystkie tunele VPN sieci wirtualnej współdzielą dostępną przepustowość bramy VPN Azure i są wspólnie objęte umową SLA dotyczącą danej bramy na platformie Azure.
+
+###<a name="are-redundant-tunnels-supported"></a>Czy nadmiarowe tunele są obsługiwane?
+Nadmiarowe tunele między dwiema sieciami wirtualnymi są obsługiwane, jeśli jedna brama sieci wirtualnej jest w konfiguracji aktywne-aktywne.
+
+###<a name="can-i-have-overlapping-address-spaces-for-vnet-to-vnet-configurations"></a>Czy w konfiguracjach połączeń między sieciami wirtualnymi mogą występować nakładające się przestrzenie adresowe?
+Nie. Nakładające się przestrzenie adresowe nie są dopuszczalne.
+
+### <a name="can-there-be-overlapping-address-spaces-among-connected-virtual-networks-and-on-premises-local-sites"></a>Czy wśród połączonych sieci wirtualnych i lokacji lokalnych mogą występować nakładające się przestrzenie adresowe?
+Nie. Nakładające się przestrzenie adresowe nie są dopuszczalne.
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Feb17_HO3-->
 
 

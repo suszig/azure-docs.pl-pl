@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal | Microsoft Docs"
-description: "Aby rozpocząć pracę z usługą Relay, konieczna jest przestrzeń nazw. Poniżej przedstawiono sposób jej utworzenia za pomocą usługi Azure Portal."
+description: "Jak utworzyć przestrzeń nazw usługi Relay za pomocą witryny Azure Portal."
 services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/13/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: e51dc77e0a0fc3c0a2cc4050d7b896e177a86cc0
-
+ms.sourcegitcommit: 97c793abc9935707115c166a97f6f7bdfee1a8c5
+ms.openlocfilehash: d6ef2e0c75a27b294ee653bf9a0219c2233d272c
 
 ---
+
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Tworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal
 Przestrzeń nazw jest wspólnym kontenerem dla wszystkich składników usługi Relay. W jednej przestrzeni nazw może znajdować się wiele usług Relay, a przestrzenie nazw często pełnią rolę kontenerów aplikacji. Obecnie istnieją dwa różne sposoby tworzenia przestrzeni nazw usługi Relay.
 
@@ -39,6 +39,6 @@ Gratulacje! Przestrzeń nazw usługi Relay została utworzona.
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

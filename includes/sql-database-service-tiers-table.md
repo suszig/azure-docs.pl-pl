@@ -38,8 +38,8 @@ sql-database-service-tiers.md
 | Maksymalna liczba współbieżnych sesji | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* Maksymalny rozmiar bazy danych odnosi się do maksymalnego rozmiaru plików danych i nie obejmuje przestrzeni używanej przez pliki dziennika
+\* Maksymalny rozmiar bazy danych odnosi się do maksymalnego rozmiaru plików danych i nie obejmuje przestrzeni używanej przez pliki dziennika.
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

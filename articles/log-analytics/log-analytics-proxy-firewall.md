@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie ustawień serwera proxy i zapory w usłudze Log Analytics | Microsoft Docs"
+title: "Konfigurowanie ustawień serwera proxy i zapory w usłudze Azure Log Analytics | Microsoft Docs"
 description: "Ustawienia serwera proxy i zapory należy skonfigurować w sytuacji, gdy Twoi agenci lub usługi OMS muszą używać określonych portów."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
-ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
+ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
+ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
 
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Konfigurowanie ustawień serwera proxy i zapory w usłudze Log Analytics
-Działania wymagane do skonfigurowania ustawień serwera proxy i zapory dla usługi Log Analytics w usłudze OMS różnią się w zależności od tego, czy korzystasz z programu Operations Manager i jego agentów czy programu Microsoft Monitoring Agent i jego agentów, którzy łączą się bezpośrednio z serwerami. Przejrzyj poniższe sekcji, aby dowiedzieć się, jakiego typu agenta używasz.
+Działania wymagane do skonfigurowania ustawień serwera proxy i zapory dla usługi Log Analytics różnią się w zależności od typu używanych agentów. Przejrzyj poniższe sekcji, aby dowiedzieć się, jakiego typu agenta używasz.
 
-## <a name="configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent"></a>Konfigurowanie ustawień serwera proxy i zapory za pomocą programu Microsoft Monitoring Agent
+## <a name="settings-for-the-oms-gateway"></a>Ustawienia dla bramy pakietu OMS
+
+Jeśli agenci nie mają dostępu do Internetu, można zamiast tego wysłać ich dane przy użyciu własnych zasobów sieciowych do bramy pakietu OMS. Brama zbiera ich dane i wysyła je w ich imieniu do usługi pakietu OMS.
+
+Należy skonfigurować agentów komunikujących się z bramą pakietu OMS przy użyciu jej w pełni kwalifikowanej nazwy domeny i niestandardowego numer portu.
+
+Brama pakietu OMS wymaga dostępu do Internetu. Użyj tych samych ustawień serwera proxy i zapory dla bramy pakietu OMS, które zostałyby użyte w przypadku posiadanych agentów. Aby uzyskać więcej informacji na temat bramy pakietu OMS, zobacz [Connect computers and devices to OMS using the OMS Gateway](log-analytics-oms-gateway.md) (Łączenie komputerów i urządzeń z pakietem OMS za pomocą bramy pakietu OMS).
+
+## <a name="configure-settings-with-the-microsoft-monitoring-agent"></a>Konfigurowanie ustawień za pomocą programu Microsoft Monitoring Agent
 Aby program Microsoft Monitoring Agent mógł nawiązać połączenie z usługą OMS i zarejestrować się za jej pomocą, musi mieć dostęp do numeru portu Twoich domen i adresów URL. Jeśli na potrzeby komunikacji między agentem i usługą OMS używasz serwera proxy, konieczne będzie zapewnienie dostępności odpowiednich zasobów. W przypadku ograniczania dostępu do Internetu za pomocą zapory należy skonfigurować w zaporze zezwalanie na dostęp do usługi OMS. W poniższych tabelach podano porty, których potrzebuje usługa OMS.
 
 | **Zasób agenta** | **Porty** | **Obejście inspekcji HTTPS** |
@@ -71,7 +79,7 @@ Skopiuj poniższy przykład, zaktualizuj go informacjami specyficznymi dla Twoje
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## <a name="configure-proxy-and-firewall-settings-with-operations-manager"></a>Konfigurowanie ustawień serwera proxy i zapory za pomocą programu Operations Manager
+## <a name="configure-settings-with-operations-manager"></a>Konfigurowanie ustawień za pomocą programu Operations Manager
 Aby grupa zarządzania programu Operations Manager mogła nawiązać połączenie z usługą OMS i zarejestrować się za jej pomocą, musi mieć dostęp do numerów portów Twoich domen i adresów URL. Jeśli na potrzeby komunikacji między serwerem zarządzania programu Operations Manager i usługą OMS używasz serwera proxy, konieczne będzie zapewnienie dostępności odpowiednich zasobów. W przypadku ograniczania dostępu do Internetu za pomocą zapory należy skonfigurować w zaporze zezwalanie na dostęp do usługi OMS. Nawet jeśli serwer zarządzania programu Operations Manager nie znajduje się za serwerem proxy, jego agenci mogą się znajdować za serwerem proxy. W takim przypadku serwer proxy należy skonfigurować w taki sam sposób, jak agentów, aby włączyć wysyłanie danych rozwiązania Security and Log Management do usługi sieci Web OMS i zezwolić na to wysyłanie.
 
 Aby agenci programu Operations Manager mogli komunikować się z usługą OMS, Twoja infrastruktura programu Operations Manager (w tym agenci) musi mieć prawidłowe ustawienia serwera proxy oraz wersję. Ustawienia serwera proxy dla agentów są określone w konsoli programu Operations Manager. Twoja wersja powinna być jedną z następujących wersji:
@@ -180,6 +188,6 @@ Możesz również sprawdzić pakiety administracyjne pakietu OMS, używając nas
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

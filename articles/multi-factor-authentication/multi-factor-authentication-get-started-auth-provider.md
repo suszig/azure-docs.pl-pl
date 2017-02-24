@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
@@ -25,17 +25,13 @@ Weryfikacja dwuetapowa jest domyślnie dostępna dla administratorów globalnych
 
 > [!NOTE]
 > Funkcje oferowane w pełnej wersji usługi Azure MFA są dostępne za pośrednictwem dostawcy usługi Azure Multi-Factor Authentication. Jest on przeznaczony dla użytkowników, którzy **nie mają licencji usługi Azure MFA lub usługi Azure AD w wersji Premium ani licencji pakietu EMS**.  Usługa Azure MFA, usługa Azure AD w wersja Premium oraz pakiet EMS domyślnie zawierają pełną wersję usługi Azure MFA.  Jeśli masz te licencje, nie potrzebujesz dostawcy usługi Azure Multi-Factor Authentication.
-> 
-> 
 
 Dostawca usługi Azure Multi-Factor Authentication jest wymagany do pobrania zestawu SDK.
 
 > [!IMPORTANT]
 > Aby pobrać zestaw SDK, utwórz dostawcę usługi Azure Multi-Factor Authentication, nawet jeśli masz licencje usług Azure MFA, AAD Premium lub EMS.  Jeśli tworzysz dostawcę usługi Azure Multi-Factor Authentication w tym celu i masz już licencje, pamiętaj o utworzeniu go przy użyciu modelu **Za włączonego użytkownika**. Następnie połącz dostawcę z katalogiem zawierającym licencje usług Azure MFA, Azure AD Premium lub EMS.  Dzięki temu będziesz ponosić dodatkowe opłaty jedynie w przypadku, gdy liczba unikatowych użytkowników korzystających z zestawu SDK przekroczy liczbę posiadanych przez Ciebie licencji.
-> 
-> 
 
-## <a name="to-create-a-multi-factor-auth-provider"></a>Aby utworzyć dostawcę usługi Multi-Factor Authentication
+## <a name="create-a-multi-factor-auth-provider"></a>Tworzenie dostawcy usługi Multi-Factor Authentication
 Aby utworzyć dostawcę usługi Azure Multi-Factor Authentication, postępuj zgodnie z poniższymi instrukcjami.
 
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
@@ -64,6 +60,6 @@ Aby utworzyć dostawcę usługi Azure Multi-Factor Authentication, postępuj zgo
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
