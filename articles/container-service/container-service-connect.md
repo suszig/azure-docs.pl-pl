@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 45d399b72f8d037fb828d9ad22bbd3543847feb3
 
 
 ---
@@ -29,14 +29,11 @@ Klastry Kubernetes, DC/OS i Docker Swarm udostępniają punkty końcowe HTTP lok
 
 W przypadku klastrów DC/OS i Docker Swarm musisz utworzyć tunel Secure Shell (SSH) do systemu wewnętrznego. Po ustanowieniu tunelu możesz uruchamiać polecenia korzystające z punktów końcowych HTTP i wyświetlać interfejs sieci Web klastra z systemu lokalnego. 
 
-> [!NOTE]
-> Obsługa klastra Kubernetes w usłudze Azure Container Service jest obecnie w wersji zapoznawczej.
->
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Klaster Kubernetes, DC/OS lub Swarm [wdrożony w usłudze Azure Container Service](container-service-deployment.md).
-* Plik klucza prywatnego SSH odpowiadający kluczowi publicznemu dodanemu do klastra podczas wdrażania. Te polecenia zakładają, że prywatny klucz SSH znajduje się w folderu `$HOME/.ssh/id_rsa` na komputerze. Zobacz te instrukcje dla systemów [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md), aby uzyskać więcej informacji. Jeśli połączenie SSH nie działa, konieczne może być [zresetowanie kluczy SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* Plik klucza prywatnego SSH RSA odpowiadający kluczowi publicznemu dodanemu do klastra podczas wdrażania. Te polecenia zakładają, że prywatny klucz SSH znajduje się w folderu `$HOME/.ssh/id_rsa` na komputerze. Zobacz te instrukcje dla systemów [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md), aby uzyskać więcej informacji. Jeśli połączenie SSH nie działa, konieczne może być [zresetowanie kluczy SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Nawiązywanie połączenia z klastrem Kubernetes
 
@@ -47,7 +44,7 @@ Wykonaj następujące kroki, aby zainstalować i skonfigurować narzędzie `kube
 > 
 
 ### <a name="install-kubectl"></a>Instalowanie narzędzia kubectl
-Jednym ze sposobów instalacji tego narzędzia jest użycie polecenia `az acs kubernetes install-cli` interfejsu wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza). Aby uruchomić to polecenie, upewnij się, że [zainstalowano](/cli/azure/install-az-cli2) najnowszy interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza) i zalogowano się na koncie platformy Azure (`az login`).
+Jednym ze sposobów instalacji tego narzędzia jest użycie polecenia `az acs kubernetes install-cli` interfejsu wiersza polecenia platformy Azure 2.0. Aby uruchomić to polecenie, upewnij się, że [zainstalowano](/cli/azure/install-az-cli2) najnowszy interfejs wiersza polecenia platformy Azure 2.0 i zalogowano się na koncie platformy Azure (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +54,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Możesz też pobrać klienta bezpośrednio ze [strony z wersjami narzędzia](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+Możesz też pobrać najnowszego klienta bezpośrednio ze [strony z wersjami usługi Kubernetes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Aby uzyskać więcej informacji, zobacz [Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/) (Instalowanie i konfigurowanie narzędzia kubectl).
 
 ### <a name="download-cluster-credentials"></a>Pobieranie poświadczeń klastra
 Po zainstalowaniu narzędzia `kubectl` musisz skopiować poświadczenia klastra do swojej maszyny. Jednym ze sposobów uzyskania poświadczeń jest użycie polecenia `az acs kubernetes get-credentials`. Przekaż nazwę grupy zasobów i nazwę zasobu usługi Container Service:
@@ -203,7 +200,7 @@ Istnieje wiele opcji tworzenia tuneli SSH w systemie Windows. W tej sekcji opisa
 
     ![Dziennik zdarzeń programu PuTTY](media/putty4.png)
 
-Po skonfigurowaniu tunelu dla koordynatora DC/OS można uzyskiwać dostęp do powiązanego punktu końcowego w następujących lokalizacjach:
+Po skonfigurowaniu tunelu dla koordynatora DC/OS można uzyskiwać dostęp do powiązanych punktów końcowych w następujących lokalizacjach:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
@@ -221,6 +218,6 @@ Wdrażanie kontenerów i zarządzanie nimi w klastrze:
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO4-->
 
 

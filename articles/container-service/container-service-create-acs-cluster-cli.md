@@ -1,6 +1,6 @@
 ---
 title: "Wdrażanie klastra kontenera platformy Docker — interfejs wiersza polecenia platformy Azure | Microsoft Docs"
-description: "Wdrażanie klastra usługi Azure Container Service przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)"
+description: "Wdrażanie klastra usługi Azure Container Service przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Tworzenie klastra usługi Azure Container Service przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Tworzenie klastra usługi Azure Container Service przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0
 
-Za pomocą poleceń `az acs` interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza) możesz tworzyć klastry w usłudze Azure Container Service i zarządzać nimi. Wdrożenie klastra usługi Azure Container Service jest również możliwe za pomocą witryny [Azure Portal](container-service-deployment.md) lub interfejsów API usługi Azure Container Service.
+Za pomocą poleceń `az acs` interfejsu wiersza polecenia platformy Azure w wersji 2.0 możesz tworzyć klastry w usłudze Azure Container Service i zarządzać nimi. Wdrożenie klastra usługi Azure Container Service jest również możliwe za pomocą witryny [Azure Portal](container-service-deployment.md) lub interfejsów API usługi Azure Container Service.
 
 Aby uzyskać pomoc dotyczącą poleceń `az acs`, przekaż parametr `-h` do dowolnego polecenia. Na przykład: `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby utworzyć klaster usługi Azure Container Service przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza), musisz mieć:
+Aby utworzyć klaster usługi Azure Container Service przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0, musisz mieć:
 * Konto platformy Azure ([skorzystaj z bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/))
-* Zainstalowany i skonfigurowany [interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](/cli/azure/install-az-cli2)
+* Zainstalowany i skonfigurowany [interfejs wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-az-cli2)
 
 ## <a name="get-started"></a>Rozpoczęcie pracy 
 ### <a name="log-in-to-your-account"></a>Logowanie się na swoim koncie
@@ -41,7 +41,7 @@ Aby utworzyć klaster usługi Azure Container Service przy użyciu interfejsu wi
 az login 
 ```
 
-Postępuj zgodnie z monitami, aby zalogować się interaktywnie. Inne metody logowania omówiono w temacie [Get started with Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) (Wprowadzenie do interfejsu wiersza polecenia platformy Azure w wersji 2.0 [wersja zapoznawcza]).
+Postępuj zgodnie z monitami, aby zalogować się interaktywnie. Inne metody logowania omówiono w temacie [Get started with Azure CLI 2.0](/cli/azure/get-started-with-az-cli2) (Wprowadzenie do interfejsu wiersza polecenia platformy Azure w wersji 2.0).
 
 ### <a name="set-your-azure-subscription"></a>Ustawianie swojej subskrypcji platformy Azure
 
@@ -74,7 +74,7 @@ Dla pozostałych danych wejściowych są ustawiane wartości domyślne (zobacz p
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Szybkie wykonanie polecenia `acs create` z użyciem ustawień domyślnych
-Jeśli masz plik klucza publicznego SSH `id_rsa.pub` w lokalizacji domyślnej (lub został on utworzony dla systemu [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), użyj polecenia podobnego do poniższego:
+Jeśli masz plik klucza publicznego SSH RSA `id_rsa.pub` w lokalizacji domyślnej (lub został on utworzony dla systemu [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), użyj polecenia podobnego do poniższego:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -145,6 +145,6 @@ Teraz, gdy masz działający klaster, możesz zapoznać się z tymi dokumentami,
 * [Współpraca z usługą Azure Container Service i rozwiązaniem Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

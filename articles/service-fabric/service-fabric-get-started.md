@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie środowiska projektowego | Microsoft Docs"
+title: "Konfigurowanie środowiska deweloperskiego dla mikrousług platformy Azure | Microsoft Docs"
 description: "Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji wszystko będzie gotowe do tworzenia aplikacji."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 02/14/2017
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
+ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
 
 
 ---
@@ -37,6 +37,7 @@ Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu op
 * Windows 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,29 +45,33 @@ Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu op
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Instalowanie środowiska uruchomieniowego, zestawu SDK i narzędzi
-Instalator platformy sieci Web oferuje dwie konfiguracje na potrzeby tworzenia aplikacji platformy Service Fabric.
+## <a name="install-the-sdk-and-tools"></a>Instalowanie zestawu SDK i narzędzi
+### <a name="to-use-visual-studio-2017-rc"></a>Używanie programu Visual Studio 2017 RC
+Narzędzia Service Fabric Tools są częścią obciążenia projektowania i zarządzania na platformie Azure w programie Visual Studio 2017 RC. Włącz to obciążenie w ramach instalacji programu Visual Studio.
+Ponadto należy zainstalować zestaw SDK usługi Microsoft Azure Service Fabric przy użyciu instalatora platformy sieci Web.
 
-Visual Studio 2017 (musi być zainstalowane obciążenie projektowania i zarządzania na platformie Azure):
+* [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric][core-sdk]
 
-* [Instalowanie środowiska uruchomieniowego i zestawu SDK usługi Service Fabric (bez narzędzi dla programu Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Używanie programu Visual Studio 2015 (wymaga programu Visual Studio 2015 Update 2 lub nowszego)
+W przypadku programu Visual Studio 2015 narzędzia Service Fabric są instalowane razem z zestawem SDK przy użyciu instalatora platformy sieci Web:
 
-Visual Studio 2015 (wymaga programu Visual Studio 2015 Update 2 lub nowszego):
+* [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric i narzędzi][full-bundle-vs2015]
 
-* [Instalowanie środowiska uruchomieniowego, zestawu SDK i narzędzi usługi Service Fabric][full-bundle-vs2015]
-* [Instalowanie tylko środowiska uruchomieniowego i zestawu SDK usługi Service Fabric (bez narzędzi dla programu Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Instalowanie samego zestawu SDK
+Jeśli potrzebujesz tylko zestawu SDK, możesz zainstalować ten pakiet:
+* [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric][core-sdk]
 
 > [!WARNING]
-> Klienci zgłaszali błędy z linkami uruchamiania w trakcie instalacji lub w przypadku używania tych linków w przeglądarce Chrome. Są to znane problemy z Instalatorem platformy sieci Web — obecnie trwa praca nad ich rozwiązaniem.  Aby obejść ten problem, spróbuj wykonać następujące czynności:
->- Uruchom powyższe linki w programie Internet Explorer lub Edge
+> Klienci zgłaszali błędy z linkami uruchamiania w trakcie instalacji lub w przypadku używania tych linków w przeglądarce Chrome. Są to znane błędy Instalatora platformy sieci Web — obecnie trwa praca nad rozwiązaniem tych problemów.  Wypróbuj następujące rozwiązania:
+>- Uruchom poprzednie linki w programie Internet Explorer lub Edge, lub
 >- Uruchom Instalatora platformy sieci Web z menu Start, wyszukaj frazę „Service Fabric” i zainstaluj zestaw SDK
 > 
 > Przepraszamy za wszelkie niedogodności. 
 
 Bieżące wersje:
-* Zestaw SDK usługi Service Fabric w wersji 2.4.145
-* Środowisko uruchomieniowe usługi Service Fabric w wersji 5.4.145
-* Narzędzia dla programu Visual Studio 2015 w wersji 1.4.41209
+* Zestaw SDK usługi Service Fabric w wersji 2.4.164
+* Środowisko uruchomieniowe usługi Service Fabric w wersji 5.4.164
+* Narzędzia dla programu Visual Studio 2015 w wersji 1.4.50124
 
 Listę obsługiwanych wersji można znaleźć na stronie [pomocy technicznej usługi Service Fabric](service-fabric-support.md)
 
@@ -97,6 +102,6 @@ Po skonfigurowaniu środowiska projektowego możesz zacząć kompilować i uruch
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

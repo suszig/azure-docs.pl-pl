@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
 
 ---
 # <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do rejestru kontenera za pomocą interfejsu wiersza polecenia platformy Docker
@@ -33,7 +33,7 @@ Aby uzyskać więcej ogólnych informacji i zapoznać się z pojęciami, zobacz 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Usługa Azure Container Registry** — Tworzy rejestr kontenera w subskrypcji platformy Azure. Na przykład użyj witryny [Azure Portal](container-registry-get-started-portal.md) lub [interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](container-registry-get-started-azure-cli.md).
+* **Usługa Azure Container Registry** — Tworzy rejestr kontenera w subskrypcji platformy Azure. Na przykład użyj witryny [Azure Portal](container-registry-get-started-portal.md) lub [interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-registry-get-started-azure-cli.md).
 * **Interfejs wiersza polecenia platformy Docker** — Aby skonfigurować lokalny komputer jako hosta platformy Docker i uzyskać dostęp do poleceń interfejsu wiersza polecenia platformy Docker, zainstaluj [aparat platformy Docker](https://docs.docker.com/engine/installation/).
 
 ## <a name="log-in-to-a-registry"></a>Zaloguj się do rejestru
@@ -118,6 +118,6 @@ Teraz, kiedy znasz już podstawy, możesz zacząć korzystać z rejestru! Na prz
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

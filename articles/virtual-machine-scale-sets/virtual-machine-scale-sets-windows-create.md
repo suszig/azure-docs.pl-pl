@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell | Microsoft Docs"
-description: "Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell"
+title: "Tworzenie zestawu skalowania maszyn wirtualnych platformy Azure przy użyciu programu PowerShell | Microsoft Docs"
+description: "Tworzenie zestawu skalowania maszyn wirtualnych platformy Azure przy użyciu programu PowerShell"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/21/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
+ms.sourcegitcommit: 1f8e66fac5b82698525794f0486dd0432c7421a7
+ms.openlocfilehash: 7286fed39839675eb960b749f3235f83e36c5e9a
 
 
 ---
@@ -55,46 +55,6 @@ Zestaw skalowania maszyn wirtualnych musi być zawarty w grupie zasobów.
         ProvisioningState : Succeeded
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
-
-### <a name="storage-account"></a>Konto magazynu
-Konto magazynu jest używane przez maszynę wirtualną do przechowywania dysku systemu operacyjnego i danych diagnostycznych używanych do skalowania. Jeśli to możliwe, najlepiej jest mieć konto magazynu dla każdej maszyny wirtualnej utworzonej w zestawie skalowania. Jeśli nie jest to możliwe, należy planować nie więcej niż 20 maszyn wirtualnych na jedno konto magazynu. W przykładzie w tym artykule przedstawiono trzy konta magazynu tworzone dla trzech maszyn wirtualnych.
-
-1. Zastąp wartość **$saName** nazwą konta magazynu. Sprawdź unikatowość nazwy. 
-   
-        $saName = "storage account name"
-        Get-AzureRmStorageAccountNameAvailability $saName
-   
-    Jeśli odpowiedzią jest **True** (Prawda), zaproponowana nazwa jest unikatowa.
-2. Zastąp wartość **$saType** typem konta magazynu, a następnie utwórz zmienną:  
-   
-        $saType = "storage account type"
-   
-    Możliwe wartości to: Standard_LRS, Standard_GRS, Standard_RAGRS lub Premium_LRS.
-3. Utwórz konto:
-   
-        New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
-   
-    Powinny zostać wyświetlone informacje podobne do następujących:
-   
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-                              .Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
-4. Powtórz kroki od 1 do 4, aby utworzyć trzy konta magazynu, na przykład myst1, myst2 i myst3.
 
 ### <a name="virtual-network"></a>Sieć wirtualna
 Sieć wirtualna jest wymagana dla maszyn wirtualnych w zestawie skalowania.
@@ -173,12 +133,10 @@ Masz wszystkie zasoby potrzebne do konfiguracji zestawu skalowania, więc utwór
         $imageSku = "2012-R2-Datacenter"
    
     Aby znaleźć informacje o innych używanych obrazach, zobacz temat [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Nawigacja i wybieranie obrazów maszyn wirtualnych platformy Azure za pomocą programu Windows PowerShell i interfejsu wiersza polecenia platformy Azure).
-3. Zastąp wartość **$vhdContainers** listą zawierającą ścieżki, w których są przechowywane wirtualne dyski twarde, na przykład „https://mystorage.blob.core.windows.net/vhds”, a następnie utwórz zmienną:
+
+3. Utwórz profil magazynu:
    
-        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
-4. Utwórz profil magazynu:
-   
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### <a name="virtual-machine-scale-set"></a>Zestaw skalowania maszyn wirtualnych
 Na koniec możesz utworzyć zestaw skalowania.
@@ -225,6 +183,6 @@ Użyj tych zasobów, aby eksplorować zestaw skalowania maszyn wirtualnych, któ
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

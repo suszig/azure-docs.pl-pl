@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2016
+ms.date: 02/15/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9ed6eebd8a0c11158f9812edfc15b29a70ccc905
+ms.sourcegitcommit: b9f4a8b185f9fb06f8991b6da35a5d8c94689367
+ms.openlocfilehash: dbbec729c14d0d9dc5781e7a88a1db3f66f7df97
 
 
 ---
@@ -41,7 +41,7 @@ Agent monitorowania usługi Security Center służy do przeprowadzania zbierania
 * ASMMonitoringAgent.exe — rozszerzenie monitorowania zabezpieczeń platformy Azure
 * ASMSoftwareScanner.exe — menedżer skanowania platformy Azure
 
-Rozszerzenie monitorowania zabezpieczeń Azure skanuje pod kątem różnych konfiguracji związanych z zabezpieczeniami i zbiera dzienniki zabezpieczeń z maszyny wirtualnej. Menedżer skanowania będzie używany jako skaner poprawek.
+Rozszerzenie Azure Security Monitoring skanuje pod kątem różnych konfiguracji związanych z zabezpieczeniami i zbiera dzienniki zabezpieczeń z maszyny wirtualnej. Menedżer skanowania będzie używany jako skaner poprawek.
 
 Jeśli instalacja zostanie przeprowadzona pomyślnie, w dziennikach inspekcji dla docelowej maszyny wirtualnej powinien zostać wyświetlony wpis podobny do przedstawionego poniżej:
 
@@ -51,8 +51,16 @@ Więcej informacji na temat procesu instalacji można również uzyskać, odczyt
 
 > [!NOTE]
 > Jeśli agent Azure Security Center nie działa poprawnie, należy ponownie uruchomić docelową maszynę wirtualną, ponieważ nie istnieje żadne polecenie służące do zatrzymywania i uruchamiania agenta.
-> 
-> 
+
+
+Jeśli nadal będziesz mieć problemy z kolekcją danych, możesz odinstalować agenta, wykonując następujące kroki poniżej:
+
+1. W witrynie **Azure Portal** wybierz maszynę wirtualną, na której występują problemy z kolekcją danych, i kliknij pozycję **Rozszerzenia**.
+2. Kliknij prawym przyciskiem myszy pozycję **Microsoft.Azure.Security.Monitoring** i wybierz pozycję **Odinstaluj**.
+
+![Usuwanie agenta](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+
+Rozszerzenie Azure Security Monitoring powinno automatycznie zainstalować siebie ponownie w ciągu kilku minut.
 
 ## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Rozwiązywanie problemów z instalacją agenta monitorowania w systemie Linux
 Podczas rozwiązywania problemów z instalacją agenta maszyny wirtualnej w systemie Linux należy upewnić się, że rozszerzenie zostało pobrane do katalogu /var/lib/waagent/. Można uruchomić poniższe polecenie, aby sprawdzić, czy rozszerzenie zostało zainstalowane:
@@ -68,8 +76,26 @@ W działającym systemie powinno istnieć połączenie z procesem mdsd na porcie
 
 `netstat -plantu | grep 29130`
 
+## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Rozwiązywanie problemów z niedziałającą prawidłowo ochroną punktów końcowych
+
+Agent gościa to proces nadrzędny w stosunku do wszystkich czynności wykonywanych przez rozszerzenie [Usługa firmy Microsoft chroniąca przed złośliwym kodem](../security/azure-security-antimalware.md). Jeśli proces agenta gościa zakończy się niepowodzeniem, usługa firmy Microsoft chroniąca przed złośliwym kodem uruchomiona jako proces podrzędny agenta gościa może również zakończyć się niepowodzeniem.  W przypadku takich scenariuszy zalecamy zweryfikowanie następujących opcji:
+
+- Jeśli docelowa maszyna wirtualna to obraz niestandardowy, a twórca maszyny wirtualnej nigdy nie zainstalował agenta gościa.
+- Jeśli cel to maszyna wirtualna z systemem Linux, a nie Windows, instalowanie rozszerzenia usługi firmy Microsoft chroniącej przed złośliwym kodem w wersji dla systemu Windows na maszynie wirtualnej z systemem Linux zakończy się niepowodzeniem. Agent gościa z systemem Linux ma określone wymagania dotyczące wersji systemu operacyjnego i wymaganych pakietów. Jeśli nie zostaną one spełnione, agent maszyny wirtualnej również nie będzie działać. 
+- Jeśli maszyna wirtualna została utworzona za pomocą starszej wersji agenta gościa. W takiej sytuacji należy pamiętać, że niektórzy starsi agenci nie mogą przeprowadzić automatycznie samodzielnej aktualizacji i może to prowadzić do wystąpienia tego problemu. Zawsze używaj najnowszej wersji agenta gościa podczas tworzenia własnych obrazów.
+- Niektóre programy administracyjne innych firm mogą wyłączać agenta gościa lub blokować dostęp do niektórych lokalizacji plików. Jeśli na maszynie wirtualnej zainstalowano programy innych firm, upewnij się, że agent znajduje się na liście wykluczeń.
+- Niektóre ustawienia zapory lub grupy zabezpieczeń sieci (NSG) mogą blokować ruch sieciowy do i z agenta gościa.
+- Niektóre listy kontroli dostępu (ACL) mogą uniemożliwiać dostęp do dysku.
+- Brak miejsca na dysku może uniemożliwić prawidłowe działanie agenta gościa. 
+
+Domyślnie interfejs użytkownika usługi firmy Microsoft chroniącej przed złośliwym kodem jest wyłączony. Więcej informacji na temat jego włączania w razie potrzeby można znaleźć w temacie [Enabling Microsoft Antimalware User Interface on Azure Resource Manager VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) (Włączanie interfejsu użytkownika usługi firmy Microsoft chroniącej przed złośliwym kodem po wdrożeniu maszyn wirtualnych usługi Azure Resource Manager).
+
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Rozwiązywanie problemów z ładowaniem pulpitu nawigacyjnego
+
+Jeśli masz problemy z ładowaniem pulpitu nawigacyjnego usługi Security Center, upewnij się, że użytkownik, który rejestruje subskrypcję usługi Security Center (tj. pierwszy użytkownik, który otworzył usługę Security Center za pomocą subskrypcji), oraz użytkownik, który chce włączyć kolekcję danych, mają uprawnienia *Właściciel* lub *Współautor* w subskrypcji. Od tej pory również użytkownicy z uprawnieniem *Czytelnik* w subskrypcji będą widzieć pulpit nawigacyjny/alerty/rekomendacje/zasady.
+
 ## <a name="contacting-microsoft-support"></a>Kontaktowanie się z pomocą techniczną firmy Microsoft
-Niektóre problemy można zidentyfikować za pomocą wskazówek znajdujących się w tym artykule. Inne problemy można znaleźć udokumentowane na publicznym [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) usługi Security Center. Jeśli jednak konieczna jest dalsza pomoc w rozwiązywaniu problemów, można otworzyć nowe żądanie pomocy technicznej za pomocą usługi Azure Portal, jak pokazano poniżej: 
+Niektóre problemy można zidentyfikować za pomocą wskazówek znajdujących się w tym artykule. Inne problemy można znaleźć udokumentowane na publicznym [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) usługi Security Center. Jeśli jednak potrzebujesz dalszych wskazówek dotyczących rozwiązywania problemów, możesz otworzyć nowe żądanie pomocy technicznej, używając witryny **Azure Portal** w sposób pokazany poniżej: 
 
 ![Pomoc techniczna firmy Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -86,6 +112,6 @@ W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabe
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

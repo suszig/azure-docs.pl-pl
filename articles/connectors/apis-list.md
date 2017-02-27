@@ -1,10 +1,10 @@
 ---
-title: "Lista łączników zarządzanych przez firmę Microsoft do użycia w aplikacjach Microsoft Azure Logic Apps | Microsoft Docs"
-description: "Pobierz pełną listę łączników zarządzanych przez firmę Microsoft służących do tworzenia aplikacji logiki w usłudze Azure App Service"
+title: "Łączniki dla usługi Azure Logic Apps | Microsoft Docs"
+description: "Wybieraj spośród łączników zarządzanych przez firmę Microsoft, aby budować i tworzyć aplikacje logiki"
 services: logic-apps
 documentationcenter: 
-author: MSFTMAN
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
@@ -13,15 +13,15 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/07/2016
-ms.author: deonhe
+ms.date: 01/27/2017
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
-ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
+ms.sourcegitcommit: 671eed117f5577f3fdec2e03b1ba814e0e1a439b
+ms.openlocfilehash: 094d7a9ca2d14e506371488ee880fe8a2ab36707
 
 
 ---
-# <a name="list-of-connectors"></a>Lista łączników
+# <a name="connectors-list"></a>Lista łączników
 Wybierz łącznik, aby dowiedzieć się, jak użyć go do szybkiego tworzenia przepływów pracy.
 
 ## <a name="standard-connectors"></a>Łączniki standardowe
@@ -32,20 +32,21 @@ Wybierz łącznik, aby dowiedzieć się, jak użyć go do szybkiego tworzenia pr
 |![Ikona interfejsu API][Bitlyicon]<br/>**Bitly**|![Ikona interfejsu API][BizTalk-Servericon]<br/>**BizTalk Server**|![Ikona interfejsu API][Bloggericon]<br/>**Blogger**|[![Ikona interfejsu API][Boxicon]<br/>**Box**][boxDoc]|
 |![Ikona interfejsu API][Campfireicon]<br/>**Campfire**|![Ikona interfejsu API][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![Ikona interfejsu API][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![Ikona interfejsu API][DB2icon]<br/>**DB2**][db2doc]|
 |[![Ikona interfejsu API][Delayicon]<br/>**Opóźnienie**][Delaydoc]|[![Ikona interfejsu API][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Ikona interfejsu API][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![Ikona interfejsu API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
-|![Ikona interfejsu API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Ikona interfejsu API][Easy-Redmineicon]<br/>**Easy Redmine**|[![Ikona interfejsu API][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![Ikona interfejsu API][FTPicon]<br/>**FTP**][FTPdoc]|
-|![Ikona interfejsu API][GitHubicon]<br/>**GitHub**|![Ikona interfejsu API][Google-Calendaricon]<br/>**Kalendarz Google**|[![Ikona interfejsu API][Google-Driveicon]<br/>**Dysk Google**][Google-Drivedoc]|![Ikona interfejsu API][Google-Sheetsicon]<br/>**Arkusze Google**|
-|![Ikona interfejsu API][Google-Tasksicon]<br/>**Zadania Google**|![Ikona interfejsu API][HideKeyicon]<br/>**HideKey**|![Ikona interfejsu API][HipChaticon]<br/>**HipChat**|[![Ikona interfejsu API][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![Ikona interfejsu API][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![Ikona interfejsu API][HTTP-Requesticon]<br/>**Żądanie<br/>HTTP**][HTTP-Requestdoc]|[![Ikona interfejsu API][HTTP-Responseicon]<br/>**Odpowiedź<br/>HTTP**][HTTP-Responsedoc]|[![Ikona interfejsu API][Informixicon]<br/>**Informix**][Informixdoc]|
-|![Ikona interfejsu API][Insightlyicon]<br/>**Insightly**|![Ikona interfejsu API][Instagramicon]<br/>**Instagram**|![Ikona interfejsu API][Instapapericon]<br/>**Instapaper**|![Ikona interfejsu API][JIRAicon]<br/>**JIRA**|
-|[![Ikona interfejsu API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Ikona interfejsu API][Mandrillicon]<br/>**Mandrill**|[![Ikona interfejsu API][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![Ikona interfejsu API][Nested-Logic-Appicon]<br/>**Zagnieżdżona<br/>aplikacja logiki**][Nested-Logic-Appdoc]|
-[![Ikona interfejsu API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![Ikona interfejsu API][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![Ikona interfejsu API][Office-365-Videoicon]<br/>**Wideo usługi<br/>Office 365**][office365-videodoc]|[![Ikona interfejsu API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![Ikona interfejsu API][OneDrive-for-Businessicon]<br/>**OneDrive dla<br/>Firm**][OneDrive-for-Businessdoc]|
-[![Ikona interfejsu API][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Ikona interfejsu API][PagerDutyicon]<br/>**PagerDuty**|![Ikona interfejsu API][Pinteresticon]<br/>**Pinterest**|[![Ikona interfejsu API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-[![Ikona interfejsu API][Queryicon]<br/>**Zapytanie**][Querydoc]|[![Ikona interfejsu API][Recurrenceicon]<br/>**Cykl**][Recurrencedoc]|![Ikona interfejsu API][Redmineicon]<br/>**Redmine**|[![Ikona interfejsu API][RSSicon]<br/>**RSS**][RSSdoc]|
-[![Ikona interfejsu API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona interfejsu API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![Ikona interfejsu API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona interfejsu API][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-[![Ikona interfejsu API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona interfejsu API][Slackicon]<br/>**Slack**][Slackdoc]|![Ikona interfejsu API][Smartsheeticon]<br/>**Smartsheet**|[![Ikona interfejsu API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Ikona interfejsu API][SparkPosticon]<br/>**SparkPost**|[![Ikona interfejsu API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
+|![Ikona interfejsu API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Ikona interfejsu API][Easy-Redmineicon]<br/>**Easy Redmine**|[![Ikona interfejsu API][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![Ikona interfejsu API][FileSystemIcon]<br/>**System plików**][FileSystemdoc]|
+|[![Ikona interfejsu API][FTPicon]<br/>**FTP**][FTPdoc]|![Ikona interfejsu API][GitHubicon]<br/>**GitHub**|![Ikona interfejsu API][Google-Calendaricon]<br/>**Kalendarz Google**|[![Ikona interfejsu API][Google-Driveicon]<br/>**Dysk Google**][Google-Drivedoc]|
+|![Ikona interfejsu API][Google-Sheetsicon]<br/>**Arkusze Google**|![Ikona interfejsu API][Google-Tasksicon]<br/>**Zadania Google**|![Ikona interfejsu API][HideKeyicon]<br/>**HideKey**|![Ikona interfejsu API][HipChaticon]<br/>**HipChat**|
+|[![Ikona interfejsu API][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![Ikona interfejsu API][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![Ikona interfejsu API][HTTP-Requesticon]<br/>**Żądanie<br/>HTTP**][HTTP-Requestdoc]|[![Ikona interfejsu API][HTTP-Responseicon]<br/>**Odpowiedź<br/>HTTP**][HTTP-Responsedoc]|
+|[![Ikona interfejsu API][Informixicon]<br/>**Informix**][Informixdoc]|![Ikona interfejsu API][Insightlyicon]<br/>**Insightly**|![Ikona interfejsu API][Instagramicon]<br/>**Instagram**|![Ikona interfejsu API][Instapapericon]<br/>**Instapaper**|
+|![Ikona interfejsu API][JIRAicon]<br/>**JIRA**|[![Ikona interfejsu API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Ikona interfejsu API][Mandrillicon]<br/>**Mandrill**|[![Ikona interfejsu API][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|
+|[![Ikona interfejsu API][Nested-Logic-Appicon]<br/>**Zagnieżdżona<br/>aplikacja logiki**][Nested-Logic-Appdoc]|[![Ikona interfejsu API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![Ikona interfejsu API][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![Ikona interfejsu API][Office-365-Videoicon]<br/>**Wideo usługi<br/>Office 365**][office365-videodoc]|
+|[![Ikona interfejsu API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![Ikona interfejsu API][OneDrive-for-Businessicon]<br/>**OneDrive dla<br/>Firm**][OneDrive-for-Businessdoc]|[![Ikona interfejsu API][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Ikona interfejsu API][PagerDutyicon]<br/>**PagerDuty**|
+|![Ikona interfejsu API][Pinteresticon]<br/>**Pinterest**|[![Ikona interfejsu API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![Ikona interfejsu API][Queryicon]<br/>**Zapytanie**][Querydoc]|[![Ikona interfejsu API][Recurrenceicon]<br/>**Cykl**][Recurrencedoc]|
+|![Ikona interfejsu API][Redmineicon]<br/>**Redmine**|[![Ikona interfejsu API][RSSicon]<br/>**RSS**][RSSdoc]|[![Ikona interfejsu API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Ikona interfejsu API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![Ikona interfejsu API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![Ikona interfejsu API][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![Ikona interfejsu API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Ikona interfejsu API][Slackicon]<br/>**Slack**][Slackdoc]|
+|![Ikona interfejsu API][Smartsheeticon]<br/>**Smartsheet**|[![Ikona interfejsu API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Ikona interfejsu API][SparkPosticon]<br/>**SparkPost**|[![Ikona interfejsu API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
 |![Ikona interfejsu API][Todoisticon]<br/>**Todoist**|[![Ikona interfejsu API][Trelloicon]<br/>**Trello**][Trellodoc]|[![Ikona interfejsu API][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![Ikona interfejsu API][Twittericon]<br/>**Twitter**][Twitterdoc]|
 |![Ikona interfejsu API][Vimeoicon]<br/>**Vimeo**|![Ikona interfejsu API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![Ikona interfejsu API][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Ikona interfejsu API][WordPressicon]<br/>**WordPress**|
-|[![Ikona interfejsu API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona interfejsu API][Yammericon]<br/>**Yammer**][Yammerdoc]|![Ikona interfejsu API][YouTubeicon]<br/>**YouTube**|[![Ikona interfejsu API][FileSystemIcon]<br/>**System plików**][FileSystemdoc]
+|[![Ikona interfejsu API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Ikona interfejsu API][Yammericon]<br/>**Yammer**][Yammerdoc]|![Ikona interfejsu API][YouTubeicon]<br/>**YouTube**|
 
 ### <a name="integration-account-connectors"></a>Łączniki konta integracji 
 
@@ -56,9 +57,7 @@ Wybierz łącznik, aby dowiedzieć się, jak użyć go do szybkiego tworzenia pr
 | [![Ikona interfejsu API][x12icon]<br/>**Dekodowanie</br>komunikatów EDIFACT**][EDIFACTdecode] |[![Ikona interfejsu API][x12icon]<br/>**Kodowanie</br>komunikatów EDIFACT**][EDIFACTencode] | | |
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure Logic Apps przed założeniem konta platformy Azure, przejdź do strony umożliwiającej [wypróbowanie aplikacji logiki](https://tryappservice.azure.com/?appservice=logic). Możesz od razu utworzyć krótkotrwałą, początkową aplikację logiki w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
-> 
-> 
+> Jeśli chcesz zacząć korzystać z usługi Azure Logic Apps przed założeniem konta platformy Azure, przejdź do strony umożliwiającej [wypróbowanie aplikacji logiki](https://tryappservice.azure.com/?appservice=logic). Możesz od razu utworzyć krótkotrwałą wersję początkową aplikacji logiki w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 
 ## <a name="enterprise-connectors"></a>Łączniki dla przedsiębiorstw
 Łączniki dla przedsiębiorstw służą do tworzenia aplikacji logiki dla scenariuszy B2B obejmujących mechanizmy EAI I EDI.  
@@ -79,12 +78,12 @@ Istnieją dwa typy wyzwalaczy:
 * Wyzwalacze wypychania: te wyzwalacze nasłuchują danych w punkcie końcowym lub zdarzeń, a następnie uruchamiają nowe wystąpienie aplikacji. Przykładem takiego łącznika jest łącznik Twitter.
 
 ### <a name="connectors-can-be-actions"></a>Łączniki mogą być akcjami
-Łączniki mogą być również używane jako akcje w aplikacjach. Akcje są przydatne do wyszukiwania danych, które następnie mogą być używane podczas wykonywania aplikacji. Na przykład można wyszukiwać dane klienta w bazie danych SQL podczas przetwarzania zamówienia. Można również zapisywać, aktualizować lub usuwać dane w tabeli docelowej. Te czynności można wykonywać przy użyciu akcji udostępnianych przez łączniki. Akcje są mapowane na operacje, które są zdefiniowane w metadanych struktury Swagger.
+Łączników można również używać jako akcji w aplikacjach. Akcje są przydatne do wyszukiwania danych, które następnie mogą być używane podczas działania aplikacji. Na przykład można wyszukiwać dane klienta w bazie danych SQL podczas przetwarzania zamówienia. Można również zapisywać, aktualizować lub usuwać dane w tabeli docelowej. Te czynności można wykonywać przy użyciu akcji udostępnianych przez łączniki. Akcje są mapowane na operacje, które są zdefiniowane w metadanych struktury Swagger.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Kompilowanie aplikacji logiki](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-* [Tworzenie łącznika niestandardowego](../app-service-logic/app-service-logic-create-api-app.md)
-* [Monitorowanie aplikacji logiki](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [Tworzenie pierwszej aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Tworzenie niestandardowych interfejsów API dla aplikacji logiki](../logic-apps/logic-apps-create-api-app.md)
+* [Monitorowanie aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Umożliwia nawiązywanie połączeń z obiektami blob platformy Azure w celu zarządzania plikami w kontenerze obiektu blob."
@@ -104,7 +103,7 @@ Istnieją dwa typy wyzwalaczy:
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Umożliwia nawiązywanie połączeń z firmową usługą Microsoft OneDrive oraz przekazywanie, usuwanie i tworzenie list plików, a także wykonywanie innych zadań."
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Umożliwia nawiązywanie połączeń ze skrzynką pocztową programu Outlook, uzyskiwanie dostępu do poczty e-mail oraz korzystanie z innych funkcji."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Umożliwia nawiązywanie połączeń z usługą Microsoft Project Online."
-[rssdoc]: ./connectors-create-api-rss.md "Łącznik RSS umożliwia użytkownikom publikowanie i pobieranie elementów kanału informacyjnego. Umożliwia również użytkownikom wyzwalanie operacji po opublikowaniu nowego elementu w strumieniowym źródle danych."
+[rssdoc]: ./connectors-create-api-rss.md "Łącznik RSS umożliwia publikowanie i pobieranie elementów kanału informacyjnego. Umożliwia on również wyzwalanie operacji po opublikowaniu nowego elementu w kanale informacyjnym."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Umożliwia nawiązywanie połączeń z kontem aplikacji Salesforce i zarządzanie kontami, potencjalnymi klientami, możliwościami sprzedaży itd."
 [sendgriddoc]: ./connectors-create-api-sendgrid.md "Umożliwia nawiązywanie połączeń z usługą Microsoft Project Online."
 [service-busdoc]: ./connectors-create-api-servicebus.md "Umożliwia wysyłanie komunikatów z tematów i kolejek usługi Service Bus oraz odbieranie komunikatów z subskrypcji i kolejek usługi Service Bus."
@@ -120,18 +119,18 @@ Istnieją dwa typy wyzwalaczy:
 [twitterdoc]: ./connectors-create-api-twitter.md "Umożliwia nawiązywanie połączeń z usługą Twitter oraz pobieranie osi czasu, publikowanie tweetów i wykonywanie innych działań."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Umożliwia synchronizowanie aktywności."
 [yammerdoc]: ./connectors-create-api-yammer.md "Umożliwia nawiązywanie połączeń z usługą Yammer w celu publikowania wiadomości i pobierania nowych wiadomości."
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Więcej informacji na temat integracji dla przedsiębiorstw — AS2."
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Więcej informacji na temat integracji dla przedsiębiorstw — X12."
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Więcej informacji na temat integracji dla przedsiębiorstw — plik prosty."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Więcej informacji na temat integracji dla przedsiębiorstw — plik prosty."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Więcej informacji na temat integracji dla przedsiębiorstw — walidacja XML."
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Więcej informacji na temat integracji dla przedsiębiorstw — transformacje."
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Więcej informacji na temat integracji dla przedsiębiorstw — dekodowanie komunikatów AS2."
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Więcej informacji na temat integracji dla przedsiębiorstw — kodowanie komunikatów AS2."
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Więcej informacji na temat integracji dla przedsiębiorstw — dekodowanie komunikatów X12."
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Więcej informacji na temat integracji dla przedsiębiorstw — kodowanie komunikatów X12."
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Więcej informacji na temat integracji dla przedsiębiorstw — dekodowanie komunikatów EDIFACT."
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Więcej informacji na temat integracji dla przedsiębiorstw — kodowanie komunikatów EDIFACT."
+[as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Więcej informacji na temat integracji dla przedsiębiorstw — AS2."
+[x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Więcej informacji na temat integracji dla przedsiębiorstw — X12."
+[flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Więcej informacji na temat integracji dla przedsiębiorstw — plik prosty."
+[flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Więcej informacji na temat integracji dla przedsiębiorstw — plik prosty."
+[xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Więcej informacji na temat integracji dla przedsiębiorstw — walidacja XML."
+[xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Więcej informacji na temat integracji dla przedsiębiorstw — transformacje."
+[as2decode]: ..//logic-apps/logic-apps-enterprise-integration-as2-decode.md "Więcej informacji na temat integracji dla przedsiębiorstw — dekodowanie komunikatów AS2."
+[as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Więcej informacji na temat integracji dla przedsiębiorstw — kodowanie komunikatów AS2."
+[X12decode]: ..//logic-apps/logic-apps-enterprise-integration-X12-decode.md "Więcej informacji na temat integracji dla przedsiębiorstw — dekodowanie komunikatów X12."
+[X12encode]: ..//logic-apps/logic-apps-enterprise-integration-X12-encode.md "Więcej informacji na temat integracji dla przedsiębiorstw — kodowanie komunikatów X12."
+[EDIFACTdecode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Więcej informacji na temat integracji dla przedsiębiorstw — dekodowanie komunikatów EDIFACT."
+[EDIFACTencode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Więcej informacji na temat integracji dla przedsiębiorstw — kodowanie komunikatów EDIFACT."
 [httpdoc]: ./connectors-native-http.md "Łącznik protokołu HTTP do nawiązywania połączeń HTTP."
 [http-requestdoc]: ./connectors-native-reqres.md "Akcje żądania i odpowiedzi."
 [http-responsedoc]: ./connectors-native-reqres.md "Akcje żądania i odpowiedzi."
@@ -139,9 +138,9 @@ Istnieją dwa typy wyzwalaczy:
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "Łącznik protokołu HTTP + Swagger do nawiązywania połączeń HTTP."
 [querydoc]: ./connectors-native-query.md "Akcja zapytania do wybierania i filtrowania tablic."
 [webhookdoc]: ./connectors-native-webhook.md "Wyzwalacz i akcja elementu webhook dla aplikacji logiki."
-[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integracja aplikacji logiki z usługą Azure Functions."
-[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Integracja aplikacji logiki z usługą App Service API Apps."
-[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integracja aplikacji logiki z zagnieżdżonym przepływem pracy."
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integracja aplikacji logiki z usługą Azure Functions."
+[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integracja aplikacji logiki z usługą App Service API Apps."
+[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Integracja aplikacji logiki z zagnieżdżonym przepływem pracy."
 [recurrencedoc]:  ./connectors-native-recurrence.md "Wyzwalacz cykliczny aplikacji logiki."
 [google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Nawiązuje połączenie z usługą Arkusze Google i może modyfikować arkusze."
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Nawiązuje połączenie z usługą Zadania Google i może zarządzać zadaniami."
@@ -150,8 +149,8 @@ Istnieją dwa typy wyzwalaczy:
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Nawiązuje połączenie z usługą Mandrill i może być używany do komunikacji."
 [youtubedoc]: ./connectors-create-api-youtube.md "Nawiązuje połączenie z usługą YouTube i może wchodzić w interakcje z filmami i kanałami."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Nawiązuje połączenie z usługą SparkPost i może być używany do komunikacji."
-[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Łącznik systemu plików umożliwia komunikowanie się z lokalnym systemem plików."
-[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Dowiedz się więcej na temat łącznika SAP"
+[filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "Łącznik systemu plików umożliwia komunikowanie się z lokalnym systemem plików."
+[sapconnector]: ..//logic-apps/logic-apps-using-sap-connector.md "Dowiedz się więcej na temat łącznika SAP"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -249,6 +248,6 @@ Istnieją dwa typy wyzwalaczy:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

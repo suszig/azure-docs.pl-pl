@@ -15,18 +15,16 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
-ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
+ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
+ms.openlocfilehash: f0edea9c1509b0eb4b2590019610ccc9eb9d5f55
 
 
 ---
-# <a name="migrate-to-azure-with-site-recovery"></a>Migrujesz na platformę Azure za pomocą usługi Site Recovery?
+# <a name="migrate-to-azure-with-site-recovery"></a>Migrowanie na platformę Azure za pomocą usługi Site Recovery
 
 Przeczytaj ten artykuł, aby zapoznać się z usługą Azure Site Recovery pod kątem migrowania maszyn wirtualnych i serwerów fizycznych.
 
-Organizacje wymagają strategii BCDR, która określa, w jaki sposób aplikacje, obciążenia i dane pozostają uruchomione i dostępne podczas planowanych lub nieplanowanych przerw w pracy oraz są przywracane do normalnych warunków roboczych z możliwie dużą prędkością. Strategia BCDR powinna utrzymywać dane firmowe z zachowaniem bezpieczeństwa i umożliwiać ich odzyskiwanie, a także zapewniać, że obciążenia pozostają stale dostępne w przypadku awarii.
-
-Usługa Site Recovery jest usługą platformy Azure, która wspiera strategię BCDR przez organizowanie replikacji lokalnych serwerów fizycznych i maszyn wirtualnych do chmury (Azure) lub dodatkowego centrum danych. W przypadku wystąpienia awarii w lokalizacji głównej następuje przełączenie w trybie failover do lokalizacji dodatkowej, dzięki czemu aplikacje i obciążenia są nadal dostępne. Powrót po awarii może mieć miejsce do lokalizacji głównej, gdy powróci ona do normalnego działania. Dowiedz się więcej w temacie [Co to jest usługa Site Recovery?](site-recovery-overview.md)
+Usługa Site Recovery jest usługą platformy Azure, która wspiera strategię BCDR przez organizowanie replikacji lokalnych serwerów fizycznych i maszyn wirtualnych do chmury (Azure) lub dodatkowego centrum danych. W przypadku wystąpienia awarii w lokalizacji głównej następuje przełączenie w trybie failover do lokalizacji dodatkowej, dzięki czemu aplikacje i obciążenia są nadal dostępne. Powrót po awarii może mieć miejsce do lokalizacji głównej, gdy powróci ona do normalnego działania. Dowiedz się więcej w temacie [Co to jest usługa Site Recovery?](site-recovery-overview.md) Za pomocą usługi Site Recovery można też migrować istniejące obciążenia lokalne na platformę Azure w celu przyspieszenia przejścia do chmury i korzystania z szerokiej oferty funkcji dostępnych na platformie Azure.
 
 W tym artykule opisano wdrażanie w witrynie [Azure Portal](https://portal.azure.com). [Klasycznej witryny Azure Portal](https://manage.windowsazure.com/) można używać do obsługi istniejących magazynów usługi Site Recovery, ale nie można tworzyć nowych magazynów za jej pomocą.
 
@@ -35,7 +33,7 @@ Komentarze możesz zamieścić na dole tego artykułu. Zadawaj pytania techniczn
 
 ## <a name="what-do-we-mean-by-migration"></a>Co mamy na myśli przez migrację?
 
-Usługę Site Recovery można wdrożyć na potrzeby pełnej replikacji lokalnych maszyn wirtualnych i serwerów fizycznych na platformę Azure lub do lokacji dodatkowej. Maszyny są duplikowane, przechodzą do trybu failover z lokacji głównej gdy wystąpi awaria i z powrotem do lokacji głównej, gdy zostanie wykonane odzyskiwanie. Oprócz pełnej replikacji usługa Site Recovery umożliwia migrowanie maszyn wirtualnych i serwerów fizycznych na platformę Azure, dzięki czemu użytkownicy mają dostęp do obciążenia maszyny z maszyn wirtualnych na platformie Azure. Migracja pociąga za sobą replikację i przejście do trybu failover z lokacji głównej na platformę Azure. Jednak w przeciwieństwie do pełnej replikacji nie obejmuje mechanizmu powrotu po awarii.
+Usługę Site Recovery można wdrożyć na potrzeby replikacji lokalnych maszyn wirtualnych i serwerów fizycznych na platformę Azure lub do lokacji dodatkowej. Maszyny są duplikowane, przechodzą do trybu failover z lokacji głównej, gdy wystąpi awaria, i z powrotem do lokacji głównej, gdy zostanie wykonane odzyskiwanie. Oprócz tego usługa Site Recovery umożliwia migrowanie maszyn wirtualnych i serwerów fizycznych na platformę Azure, dzięki czemu użytkownicy mają do nich dostęp jako do maszyn wirtualnych na platformie Azure. Migracja obejmuje replikację i przejście do trybu failover z lokacji głównej na platformę Azure oraz pełną migrację.
 
 ## <a name="what-can-site-recovery-migrate"></a>Co może migrować usługa Site Recovery?
 
@@ -49,7 +47,9 @@ Możesz:
 
 Aby zmigrować lokalne maszyny wirtualne funkcji Hyper-V, maszyny wirtualne oprogramowania VMware i serwery fizyczne, należy wykonać prawie te same czynności co w przypadku zwykłej replikacji. Należy skonfigurować magazyn usługi Recovery Services, skonfigurować wymagane serwery zarządzania (w zależności od tego, co jest migrowane), dodać je do magazynu, a następnie określić ustawienia replikacji. Następnie należy włączyć replikację dla maszyn, które mają zostać zmigrowane, i uruchomić szybkie testowe przejście do trybu failover, aby upewnić się, że wszystko pracuje poprawnie.
 
-Po zweryfikowaniu, że środowisko replikacji działa, należy użyć planowanego lub nieplanowanego przejścia do trybu failover w zależności od tego, [co obsługuje](site-recovery-failover.md#failover-and-failback) scenariusz. W przypadku migracji nie jest koniecznie zatwierdzanie trybu failover ani usuwanie czegokolwiek. Zamiast tego należy wybrać opcję **Zakończ migrację** dla każdej maszyny, którą chcesz zmigrować. Akcja **Zakończ migrację** kończy proces migracji, usuwa replikację dla maszyny i zatrzymuje naliczanie opłat za usługę Site Recovery dla maszyny.
+Po zweryfikowaniu, że środowisko replikacji działa, należy użyć planowanego lub nieplanowanego przejścia do trybu failover w zależności od tego, [co obsługuje](site-recovery-failover.md#failover-and-failback) scenariusz. W przypadku migracji nie jest koniecznie zatwierdzanie trybu failover. Zamiast tego należy wybrać opcję **Zakończ migrację** dla każdej maszyny, którą chcesz zmigrować. Akcja **Zakończ migrację** kończy proces migracji, usuwa replikację dla maszyny i zatrzymuje naliczanie opłat za usługę Site Recovery dla maszyny.
+
+![pełna_migracja](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 ## <a name="migrate-between-azure-regions"></a>Migracja między regionami platformy Azure
 
@@ -65,7 +65,6 @@ Możesz zmigrować wystąpienia usługi AWS na maszyny wirtualne platformy Azure
 ## <a name="next-steps"></a>Następne kroki
 
 - [Migrowanie maszyn wirtualnych programu VMware na platformę Azure](site-recovery-vmware-to-azure.md)
-- [Migrowanie serwerów fizycznych na platformę Azure](site-recovery-vmware-to-azure.md)
 - [Migrowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM na platformę Azure](site-recovery-vmm-to-azure.md)
 - [Migrowanie maszyn wirtualnych funkcji Hyper-V (bez programu VMM) na platformę Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrowanie maszyn wirtualnych platformy Azure między regionami platformy Azure](site-recovery-migrate-azure-to-azure.md)
@@ -73,6 +72,6 @@ Możesz zmigrować wystąpienia usługi AWS na maszyny wirtualne platformy Azure
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

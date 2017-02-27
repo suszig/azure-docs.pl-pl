@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c0c33506d134db9fc49bd873e9c95063dd2ab845
-ms.openlocfilehash: d5dcdc94490ff46e39ff5894f6d70d5dcb5dd527
+ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
+ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
 
 
 ---
@@ -95,7 +95,10 @@ Sprawdź wszystkie domeny z oznaczeniem **Nie dodano** lub **Nie zweryfikowano**
 
 ### <a name="domain-and-ou-filtering"></a>Filtrowanie domen i jednostek organizacyjnych
 Domyślnie wszystkie domeny i jednostki organizacyjne są zsynchronizowane. Jeśli istnieją jakieś domeny lub jednostki organizacyjne, których nie chcesz synchronizować z usługą Azure AD, możesz usunąć zaznaczenie tych domen i jednostek organizacyjnych.  
-![Filtrowanie domen i jednostek organizacyjnych](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Ta strona kreatora służy do konfigurowania filtrowania opartego na domenie i jednostce organizacyjnej. Więcej informacji znajduje się w temacie opisującym [filtrowanie oparte na domenie](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) i [filtrowanie oparte na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Jeśli używasz filtrowania opartego na jednostce organizacyjnej, nowe jednostki organizacyjne dodane później są domyślnie synchronizowane. Aby nowe jednostki organizacyjne nie były synchronizowane, możesz skonfigurować odpowiednie ustawienie po zakończeniu działania kreatora w zakresie [filtrowania opartego na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+![Filtrowanie domen i jednostek organizacyjnych](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
+Ta strona kreatora służy do konfigurowania filtrowania opartego na domenie i jednostce organizacyjnej. Jeżeli planujesz wprowadzić zmiany, zobacz [filtrowanie oparte na domenie](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) i [filtrowanie oparte na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) przed wprowadzeniem tych zmian. Niektóre jednostki organizacyjne są niezbędne do działania i powinny pozostać zaznaczone.
+
+Jeśli używasz filtrowania opartego na jednostce organizacyjnej, nowe jednostki organizacyjne dodane później są domyślnie synchronizowane. Aby nowe jednostki organizacyjne nie były synchronizowane, możesz skonfigurować odpowiednie ustawienie po zakończeniu działania kreatora w zakresie [filtrowania opartego na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
 
 Jeśli planujesz używać [filtrowania opartego na grupie](#sync-filtering-based-on-groups), upewnij się, że jednostka organizacyjna z grupą jest uwzględniona i nie została odfiltrowana przy użyciu filtrowania opartego na jednostce organizacyjnej. Filtrowanie oparte na jednostce organizacyjnej jest stosowane przed filtrowaniem opartym na grupie.
 
@@ -174,8 +177,8 @@ Więcej informacji znajduje się w temacie [Rozszerzenia katalogów](active-dire
 ### <a name="enabling-single-sign-on-sso"></a>Włączanie logowania jednokrotnego
 Konfigurowanie logowania jednokrotnego na użytek synchronizacji haseł lub uwierzytelniania przekazywanego to prosty proces, który trzeba wykonać tylko raz dla każdego lasu synchronizowanego w usłudze Azure AD. Konfiguracja obejmuje następujące dwa kroki:
 
-1.  Utworzenie niezbędnego konta komputera w lokalnej usłudze Active Directory.
-2.  Skonfigurowanie obsługi logowania jednokrotnego w strefie intranetowej na maszynach klienckich.
+1.    Utworzenie niezbędnego konta komputera w lokalnej usłudze Active Directory.
+2.    Skonfigurowanie obsługi logowania jednokrotnego w strefie intranetowej na maszynach klienckich.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Tworzenie konta komputera w usłudze Active Directory
 Dla każdego lasu dodanego za pomocą programu Azure AD Connect trzeba podać poświadczenia administratora domeny, aby konto komputera mogło zostać utworzone w każdym lesie. Poświadczenia są używane tylko w celu utworzenia konta i nie są przechowywane ani używane w kontekście innych operacji. Wystarczy dodać poświadczenia na stronie **Włącz logowanie jednokrotne** kreatora Azure AD Connect, jak pokazano poniżej:
@@ -189,20 +192,20 @@ Dla każdego lasu dodanego za pomocą programu Azure AD Connect trzeba podać po
 Aby klient logował się automatycznie w strefie intranetowej, upewnij się, że dwa adresy URL są częścią strefy intranetowej. Dzięki temu komputer przyłączony do domeny automatycznie wyśle bilet protokołu Kerberos do usługi Azure AD po połączeniu z siecią firmową.
 Na komputerze, na którym są zainstalowane narzędzia do zarządzania zasadami grupy:
 
-1.  Otwórz narzędzia do zarządzania zasadami grupy.
-2.  Poddaj edycji zasady grupy, które zostaną zastosowane do wszystkich użytkowników. Mogą to być na przykład domyślne zasady domeny.
-3.  Przejdź do obszaru **Konfiguracja użytkownika\Szablony administracyjne\Składniki systemu Windows\Internet Explorer\Internetowy panel sterowania\Strona zabezpieczeń** i wybierz pozycję **Lista przypisywanie witryn do stref** (jak na poniższym obrazie).
-4.  Włącz zasady, a następnie wprowadź dwa poniższe elementy w oknie dialogowym.
+1.    Otwórz narzędzia do zarządzania zasadami grupy.
+2.    Poddaj edycji zasady grupy, które zostaną zastosowane do wszystkich użytkowników. Mogą to być na przykład domyślne zasady domeny.
+3.    Przejdź do obszaru **Konfiguracja użytkownika\Szablony administracyjne\Składniki systemu Windows\Internet Explorer\Internetowy panel sterowania\Strona zabezpieczeń** i wybierz pozycję **Lista przypisywanie witryn do stref** (jak na poniższym obrazie).
+4.    Włącz zasady, a następnie wprowadź dwa poniższe elementy w oknie dialogowym.
 
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+        Wartość:`https://autologon.microsoftazuread-sso.com`  
+        Dane: 1  
+        Wartość:`https://aadg.windows.net.nsatc.net`  
+        Dane: 1
 
-5.  Zawartość okna powinna wyglądać mniej więcej tak:  
+5.    Zawartość okna powinna wyglądać mniej więcej tak:  
 ![Strefy intranetowe](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.  Dwa razy kliknij przycisk **OK**.
+6.    Dwa razy kliknij przycisk **OK**.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurowanie federacji przy użyciu usług AD FS
 Konfigurowanie usług AD FS przy użyciu programu Azure AD Connect jest proste — wystarczy kilka kliknięć. Przed przystąpieniem do konfiguracji potrzebne są następujące elementy:
@@ -316,6 +319,6 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

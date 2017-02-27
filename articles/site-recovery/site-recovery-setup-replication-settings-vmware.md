@@ -1,6 +1,6 @@
 ---
 title: "Konfigurowanie ustawień replikacji dla usługi Azure Site Recovery | Microsoft Docs"
-description: "Opisuje sposób wdrożenia usługi Site Recovery w celu organizowania replikacji, pracy w trybie failover i odzyskiwania maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure."
+description: "Opis sposobu wdrożenia usługi Site Recovery w celu zaaranżowania replikacji, pracy w trybie failover i odzyskiwania maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -15,79 +15,80 @@ ms.topic: hero-article
 ms.date: 01/19/2017
 ms.author: sutalasi
 translationtype: Human Translation
-ms.sourcegitcommit: 74d51269cdd55e39eaa2963fec2b409decb47d0a
-ms.openlocfilehash: a279fdc35c62c76e6f0858d52c64240032669f15
+ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
+ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
 
 
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Zarządzanie zasadami replikacji oprogramowania VMware na platformie Azure
 
 
-## <a name="create-a-new-replication-policy"></a>Tworzenie nowych zasad replikacji
+## <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji
 
-1. W menu po lewej stronie kliknij pozycję „Zarządzaj -> Infrastruktura usługi Site Recovery”. 
-2. Wybierz pozycję „Zasady replikacji” w sekcji „Oprogramowanie VMware i maszyny fizyczne”.
-3. Wybierz pozycję „+Zasady replikacji” u góry.
+1. Wybierz pozycję **Zarządzaj** > **Infrastruktura usługi Site Recovery**.
+2. Wybierz pozycję **Zasady replikacji** w sekcji **Oprogramowanie VMware i maszyny fizyczne**.
+3. Wybierz pozycję **+Zasady replikacji**.
 
-    ![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+      ![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. Wprowadź nazwę zasad.
 
-5. W polu progu celu punktu odzyskiwania określ limit celu punktu odzyskiwania. Przekroczenie tego limitu przez replikację ciągłą będzie powodować generowanie alertów.
-6. W obszarze Przechowywanie punktu odzyskiwania określ w godzinach, jak długie będzie okno przechowywania dla każdego punktu odzyskiwania. Chronione maszyny można odzyskać do dowolnego punktu w tym oknie. 
+5. W polu **Wartość progowa celu punktu odzyskiwania** określ limit celu punktu odzyskiwania. Przekroczenie tego limitu przez replikację ciągłą będzie powodować generowanie alertów.
+6. W obszarze **Przechowywanie punktów odzyskiwania** określ w godzinach, jak długie będzie okno przechowywania dla każdego punktu odzyskiwania. Chronione maszyny można odzyskać do dowolnego punktu w tym oknie przechowywania.
 
-    > [!NOTE] 
-    > W przypadku maszyn replikowanych do magazynu w warstwie Premium jest obsługiwany czas przechowywania do 24 godzin, natomiast w przypadku maszyn replikowanych do magazynu w warstwie Standardowa jest obsługiwany czas przechowywania do 72 godzin.
-    
-    > [!NOTE] 
-    > Zostaną automatycznie utworzone zasady replikacji na potrzeby powrotu po awarii.
+    > [!NOTE]
+    > W przypadku maszyn replikowanych do magazynu w warstwie Premium jest obsługiwany czas przechowywania do 24 godzin. W przypadku maszyn replikowanych do magazynu w warstwie Standardowa jest obsługiwany czas przechowywania do 72 godzin.
 
-7. W obszarze Częstotliwość migawek spójności aplikacji określ, jak często (w minutach) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami.
+    > [!NOTE]
+    > Zasady replikacji na potrzeby powrotu po awarii są tworzone automatycznie.
 
-8. Kliknij przycisk OK. Tworzenie zasad powinno potrwać od około 30 sekund do 1 minuty.
+7. W obszarze **Częstotliwość wykonywania migawek na poziomie aplikacji** określ, jak często (w minutach) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami.
 
-![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
+8. Kliknij przycisk **OK**. Tworzenie zasad powinno potrwać od 30 do 60 sekund.
 
-## <a name="associate-configuration-server-with-replication-policy"></a>Kojarzenie serwera konfiguracji z zasadami replikacji
-1. Kliknij zasady replikacji, z którymi chcesz skojarzyć serwer konfiguracji.
-2. Kliknij pozycję „Skojarz” u góry.
-![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
+![Generowanie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
-3. Z listy serwerów wybierz pozycję „Serwer konfiguracji”.
-4. Kliknij przycisk OK. Kojarzenie serwera konfiguracji powinno potrwać od około 1 do 2 minut.
+## <a name="associate-a-configuration-server-with-a-replication-policy"></a>Kojarzenie serwera konfiguracji z zasadami replikacji
+1. Wybierz zasady replikacji, z którymi chcesz skojarzyć serwer konfiguracji.
+2. Kliknij pozycję **Skojarz**.
+![Kojarzenie serwera konfiguracji](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
-![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
+3. Z listy serwerów wybierz serwer konfiguracji.
+4. Kliknij przycisk **OK**. Kojarzenie serwera konfiguracji powinno potrwać od&1; do&2; minut.
 
-## <a name="edit-replication-policy"></a>Edytowanie zasad replikacji
-1. Kliknij zasady replikacji, dla których chcesz edytować ustawienia replikacji.
-![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
+![Kojarzenie serwera konfiguracji](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
-2. Kliknij pozycję „Edytuj ustawienia” u góry.
-![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
+## <a name="edit-a-replication-policy"></a>Edytowanie zasad replikacji
+1. Wybierz zasady replikacji, dla których chcesz edytować ustawienia replikacji.
+![Edytowanie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
+
+2. Kliknij pozycję **Edytuj ustawienia**.
+![Edytowanie ustawień zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Zmień ustawienia zgodnie z Twoimi wymaganiami.
-4. Kliknij pozycję „Zapisz” u góry. Zapisywanie zasad powinno potrwać od około 2 do 5 minut w zależności od tego, ile maszyn wirtualnych korzysta z tych zasad replikacji.
+4. Kliknij pozycję **Zapisz**. Zapisywanie zasad powinno potrwać od&2; do&5; minut w zależności od tego, ile maszyn wirtualnych korzysta z tych zasad replikacji.
 
-![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
+![Zapisywanie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
-## <a name="dissociate-configuration-server-from-replication-policy"></a>Usuwanie skojarzenia serwera konfiguracji z zasad replikacji
-1. Kliknij zasady replikacji, z którymi chcesz skojarzyć serwer konfiguracji.
-2. Kliknij pozycję „Usuń skojarzenie” u góry.
-3. Z listy serwerów wybierz pozycję „Serwer konfiguracji”.
-4. Kliknij przycisk OK. Usuwanie skojarzenia serwera konfiguracji powinno potrwać od około 1 do 2 minut.
-    
-    > [!NOTE] 
+## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a>Usuwanie skojarzenia serwera konfiguracji z zasad replikacji
+1. Wybierz zasady replikacji, z którymi chcesz skojarzyć serwer konfiguracji.
+2. Kliknij pozycję **Usuń skojarzenie**.
+3. Z listy serwerów wybierz serwer konfiguracji.
+4. Kliknij przycisk **OK**. Usuwanie skojarzenia serwera konfiguracji powinno potrwać od&1; do&2; minut.
+
+    > [!NOTE]
     > Nie można usunąć skojarzenia serwera konfiguracji, jeśli co najmniej jeden zreplikowany element korzysta z zasad. Przed usunięciem skojarzenia serwera konfiguracji upewnij się, że żadne zreplikowane elementy nie korzystają z zasad.
 
-## <a name="delete-replication-policy"></a>Usuwanie zasad replikacji 
+## <a name="delete-a-replication-policy"></a>Usuwanie zasad replikacji
 
-1. Kliknij zasady replikacji, które chcesz usunąć.
-2. Kliknij pozycję Usuń. Usuwanie zasad powinno potrwać od około 30 sekund do 1 minuty.
+1. Wybierz zasady replikacji, które chcesz usunąć.
+2. Kliknij polecenie **Usuń**. Usuwanie zasad powinno potrwać od 30 do 60 sekund.
 
-    > [!NOTE] 
-    > Nie można usunąć zasad replikacji, jeśli jest z nimi skojarzony co najmniej 1 serwer konfiguracji. Przed usunięciem zasad upewnij się, że żadne zreplikowane elementy nie korzystają z zasad, i usuń wszystkie skojarzone serwery konfiguracji.
+    > [!NOTE]
+    > Nie można usunąć zasad replikacji, jeśli jest z nimi skojarzony co najmniej jeden serwer konfiguracji. Przed usunięciem zasad upewnij się, że żadne zreplikowane elementy nie korzystają z zasad, i usuń wszystkie skojarzone serwery konfiguracji.
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 
