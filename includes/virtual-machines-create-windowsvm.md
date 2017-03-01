@@ -16,7 +16,7 @@ W bloku Podstawowe należy podać informacje administracyjne dotyczące maszyny 
 
 2. Podaj nazwę użytkownika w polu **Nazwa użytkownika** i silne hasło w polu **Hasło**. Zostaną one użyte do utworzenia konta lokalnego na maszynie wirtualnej. Konto lokalne jest używane do logowania się do maszyny wirtualnej i zarządzania nią. W tym przykładzie nazwa użytkownika to _azureuser_.
 
- Hasło musi mieć długość od 8 do 123 znaków i spełniać trzy z czterech następujących wymagań dotyczących złożoności: mała litera, wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](../articles/virtual-machines.md/virtual-machines-windows-faq).
+ Hasło musi mieć długość od 8 do 123 znaków i spełniać trzy z czterech następujących wymagań dotyczących złożoności: mała litera, wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](../articles/virtual-machines/virtual-machines-windows-faq.md).
 
 3. Pole **Subskrypcja** jest opcjonalne. Często używaną opcją jest „Płatność zgodnie z rzeczywistym użyciem”.
 
@@ -51,15 +51,6 @@ W bloku Podsumowanie prezentowane są ustawienia określone w poprzednich blokac
 
  ![Raport przekazanych ustawień maszyny wirtualnej w bloku Podsumowanie](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-<!--  deleted 2/16/2017 - RABixby
-  * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For more information, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  -->
-
 Po utworzeniu maszyny wirtualnej jest ona wyświetlana w portalu w obszarze **Wszystkie zasoby**, a jej kafelek jest wyświetlany na pulpicie nawigacyjnym. Utworzone zostają też odpowiednia usługa w chmurze oraz konto magazynu i są one wyświetlane w portalu. Zarówno maszyna wirtualna, jak i usługa w chmurze są uruchamiane automatycznie, a ich stany są wskazywane jako **Uruchomiono**.
 
  ![Konfigurowanie agenta maszyny wirtualnej i punktów końcowych maszyny wirtualnej](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

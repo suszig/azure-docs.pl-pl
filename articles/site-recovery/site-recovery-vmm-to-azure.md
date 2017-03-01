@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 89668033a5e9cf6b727992b7d221e49624fb3314
-ms.openlocfilehash: 448023b57d0beadc49e89d7dc22d324303700fa4
+ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
+ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -66,7 +67,7 @@ Oto, co należy zapewnić lokalnie
 ## <a name="protected-machine-prerequisites"></a>Wymagania wstępne dotyczące chronionej maszyny
 | **Wymagania wstępne** | **Szczegóły** |
 | --- | --- |
-| **Chronione maszyny wirtualne** |Zanim skorzystasz z trybu failover dla maszyny wirtualnej, upewnij się, że nazwa, która została przypisana do maszyny wirtualnej Azure, jest zgodna z [wymaganiami wstępnymi dotyczącymi platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Nazwę można zmodyfikować po włączeniu replikacji dla maszyny wirtualnej. <br/><br/> Pojemności poszczególnych dysków na chronionych komputerach nie powinny przekraczać 1023 GB. Maszyna wirtualna może mieć maksymalnie 64 dyski (w związku z tym maksymalnie 64 TB pojemności).<br/><br/> Klastry udostępnionych dysków gościa nie są obsługiwane.<br/><br/> Rozruch typu Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI) nie jest obsługiwany.<br/><br/> Jeśli źródło maszyny wirtualnej ma wiele kart sieciowych, zostanie przekonwertowane na jedną kartę sieciową w przypadku przejścia do trybu failover na platformie Azure.<br/><br/>Ochrona maszyn wirtualnych funkcji Hyper-V z systemem Linux i statycznym adresem IP nie jest obsługiwana. |
+| **Chronione maszyny wirtualne** |Zanim skorzystasz z trybu failover dla maszyny wirtualnej, upewnij się, że nazwa, która została przypisana do maszyny wirtualnej Azure, jest zgodna z [wymaganiami wstępnymi dotyczącymi platformy Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). Nazwę można zmodyfikować po włączeniu replikacji dla maszyny wirtualnej. <br/><br/> Pojemności poszczególnych dysków na chronionych komputerach nie powinny przekraczać 1023 GB. Maszyna wirtualna może mieć maksymalnie 64 dyski (w związku z tym maksymalnie 64 TB pojemności).<br/><br/> Klastry udostępnionych dysków gościa nie są obsługiwane.<br/><br/> Rozruch typu Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI) nie jest obsługiwany.<br/><br/> Jeśli źródło maszyny wirtualnej ma wiele kart sieciowych, zostanie przekonwertowane na jedną kartę sieciową w przypadku przejścia do trybu failover na platformie Azure.<br/><br/>Ochrona maszyn wirtualnych funkcji Hyper-V z systemem Linux i statycznym adresem IP nie jest obsługiwana. |
 
 ## <a name="prepare-for-deployment"></a>Przygotowanie do wdrożenia
 Aby przygotować się do wdrożenia, należy wykonać następujące czynności:
@@ -359,7 +360,8 @@ Teraz włącz replikację w następujący sposób:
 6. W pozycji **Maszyny wirtualne** > **Wybierz maszyny wirtualne** kliknij i zaznacz każdą maszynę, którą chcesz replikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie kliknij przycisk **OK**.
 
     ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. W pozycji **Właściwości** > **Konfiguruj właściwości** wybierz system operacyjny dla wybranych maszyn wirtualnych oraz dysk systemu operacyjnego. Domyślnie do replikacji są wybierane wszystkie dyski maszyny wirtualnej. Możesz wykluczyć dyski z replikacji, aby zmniejszyć wykorzystanie przepustowości w przypadku replikacji zbędnych danych na platformie Azure. Możesz na przykład zrezygnować z replikacji dysków z danymi tymczasowymi lub danych odświeżanych podczas każdego ponownego uruchomienia maszyny lub aplikacji (na przykład pagefile.sys lub tempdb programu Microsoft SQL Server). Dysk można wykluczyć z replikacji, cofając jego zaznaczenie. Sprawdź, czy nazwa maszyny wirtualnej platformy Azure (nazwa docelowa) jest zgodna z [wymaganiami maszyny wirtualnej platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) i w razie potrzeby ją zmodyfikuj. Następnie kliknij przycisk **OK**. Później możesz skonfigurować dodatkowe właściwości.
+
+7. W pozycji **Właściwości** > **Konfiguruj właściwości** wybierz system operacyjny dla wybranych maszyn wirtualnych oraz dysk systemu operacyjnego. Domyślnie do replikacji są wybierane wszystkie dyski maszyny wirtualnej. Możesz wykluczyć dyski z replikacji, aby zmniejszyć wykorzystanie przepustowości w przypadku replikacji zbędnych danych na platformie Azure. Możesz na przykład zrezygnować z replikacji dysków z danymi tymczasowymi lub danych odświeżanych podczas każdego ponownego uruchomienia maszyny lub aplikacji (na przykład pagefile.sys lub tempdb programu Microsoft SQL Server). Dysk można wykluczyć z replikacji, cofając jego zaznaczenie. Sprawdź, czy nazwa maszyny wirtualnej platformy Azure (nazwa docelowa) jest zgodna z [wymaganiami maszyny wirtualnej platformy Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) i w razie potrzeby ją zmodyfikuj. Następnie kliknij przycisk **OK**. Później możesz skonfigurować dodatkowe właściwości.
 
     ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -380,7 +382,7 @@ Teraz włącz replikację w następujący sposób:
 Możesz śledzić postępy zadania **Włącz ochronę** w pozycji **Ustawienia** > **Zadania** > **Zadania usługi Site Recovery**. Po uruchomieniu zadania **Sfinalizuj ochronę** maszyna jest gotowa do przejścia w tryb failover.
 
 ### <a name="view-and-manage-vm-properties"></a>Wyświetlanie właściwości maszyny wirtualnej i zarządzanie nimi
-Zalecamy zweryfikowanie właściwości maszyny źródłowej. Pamiętaj, że nazwa maszyny wirtualnej Azure powinna być zgodna z [wymaganiami dotyczącymi maszyn wirtualnych Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Zalecamy zweryfikowanie właściwości maszyny źródłowej. Pamiętaj, że nazwa maszyny wirtualnej Azure powinna być zgodna z [wymaganiami dotyczącymi maszyn wirtualnych Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Kliknij kolejno pozycje **Ustawienia** > **Elementy chronione** > **Elementy replikowane** i wybierz maszynę, aby zobaczyć szczegółowe informacje.
 
@@ -388,7 +390,7 @@ Zalecamy zweryfikowanie właściwości maszyny źródłowej. Pamiętaj, że nazw
 2. W obszarze **Właściwości** możesz wyświetlić informacje dotyczące replikacji i trybu failover dla danej maszyny wirtualnej.
 
     ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. W pozycji **Obliczenia i sieć** > **Właściwości obliczeń** możesz określić nazwę i docelowy rozmiar maszyny wirtualnej Azure. Zmodyfikuj nazwę, aby była zgodna z [wymaganiami platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements), jeśli zachodzi taka potrzeba. Możesz również wyświetlić i zmodyfikować informacje dotyczące sieci docelowej, podsieci i adresu IP, które zostaną przypisane do maszyny wirtualnej platformy Azure.
+3. W pozycji **Obliczenia i sieć** > **Właściwości obliczeń** możesz określić nazwę i docelowy rozmiar maszyny wirtualnej Azure. Zmodyfikuj nazwę, aby była zgodna z [wymaganiami platformy Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements), jeśli zachodzi taka potrzeba. Możesz również wyświetlić i zmodyfikować informacje dotyczące sieci docelowej, podsieci i adresu IP, które zostaną przypisane do maszyny wirtualnej platformy Azure.
 Należy pamiętać, że:
 
    * Możesz ustawić docelowy adres IP. Jeśli nie podasz adresu, maszyna w trybie failover będzie używać protokołu DHCP. Jeśli ustawisz adres, który nie jest dostępny w trybie failover, przejście do trybu failover zakończy się niepowodzeniem. Ten sam docelowy adres IP może być użyty do testowania trybu failover, jeśli adres jest dostępny w testowej sieci trybu failover.
@@ -457,9 +459,4 @@ Oto, jak można monitorować ustawienia konfiguracji, stan i kondycję wdrożeni
 
 ## <a name="next-steps"></a>Następne kroki
 Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](site-recovery-failover.md) o różnych typach trybu failover.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

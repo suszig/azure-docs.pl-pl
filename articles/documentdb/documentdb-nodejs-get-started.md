@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 49b765010be87bacdb486391c28bf58aad1a9d24
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -56,7 +57,7 @@ Upewnij się, że masz:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu uzyskania [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
     * Na potrzeby tego samouczka możesz także użyć [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
-* [Node.js](https://nodejs.org/) w wersji 0.10.29 lub nowszej.
+* [Node.js](https://nodejs.org/) w wersji&0;.10.29 lub nowszej.
 
 ## <a name="step-1-create-a-documentdb-account"></a>Krok 1. Tworzenie konta usługi DocumentDB
 Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Instalowanie aplikacji Node.js](#SetupNode). Jeśli używasz emulatora usługi DocumentDB, wykonaj czynności opisane w temacie [Emulator usługi Azure DocumentDB](documentdb-nosql-local-emulator.md), aby skonfigurować emulator, a następnie przejdź do sekcji [Instalowanie aplikacji Node.js](#SetupNode).
@@ -406,7 +407,7 @@ Na poniższym diagramie przedstawiono sposób, w jaki składnia zapytania SQL us
 
 ![Samouczek środowiska Node.js — diagram pokazujący zakres i znaczenie zapytania — baza danych Node](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-Słowo kluczowe [FROM](documentdb-sql-query.md#from-clause) jest opcjonalne w zapytaniu, ponieważ zapytania usługi DocumentDB mają już zakres określony jako jedna kolekcja. W związku z tym klauzula "FROM Families f" może być zamieniona na "FROM root r" lub dowolną inną wybraną nazwę zmiennej. Usługa DocumentDB będzie wnioskowała, że zmienne Families, root lub wybrana nazwa zmiennej domyślnie odwołują się do bieżącej kolekcji.
+Słowo kluczowe [FROM](documentdb-sql-query.md#FromClause) jest opcjonalne w zapytaniu, ponieważ zapytania usługi DocumentDB mają już zakres określony jako jedna kolekcja. W związku z tym klauzula "FROM Families f" może być zamieniona na "FROM root r" lub dowolną inną wybraną nazwę zmiennej. Usługa DocumentDB będzie wnioskowała, że zmienne Families, root lub wybrana nazwa zmiennej domyślnie odwołują się do bieżącej kolekcji.
 
 Skopiuj i wklej kod poniżej wywołania funkcji **getFamilyDocument**, aby wykonać funkcję **queryCollection**.
 
@@ -627,9 +628,4 @@ To wszystko — skompiluj projekt i gotowe!
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

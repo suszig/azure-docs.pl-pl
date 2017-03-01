@@ -13,20 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
-ms.openlocfilehash: 1f7faf166c1ddab8b25fb6a1fe4cc432b8a47432
+ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
+ms.openlocfilehash: 086c87c52adf972307003ff78fd0c07f3035321c
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Jak utworzyć konto usługi DocumentDB NoSQL przy użyciu witryny Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](documentdb-create-account.md)
-> * [Interfejs wiersza polecenia platformy Azure i usługa Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Interfejs wiersza polecenia platformy Azure 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Interfejs wiersza polecenia platformy Azure 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 Aby utworzyć bazę danych przy użyciu usługi Microsoft Azure DocumentDB, są potrzebne:
 
@@ -80,16 +81,11 @@ Nową kolekcję i bazę danych można utworzyć, korzystając z jednego z nastę
 
 Po utworzeniu bazy danych i kolekcji należy [dodać dokumenty](documentdb-view-json-document-explorer.md) do kolekcji.
 
-Gdy dokumenty znajdą się w kolekcji, można użyć [bazy danych SQL usługi DocumentDB](documentdb-sql-query.md) do [wykonywania zapytań](documentdb-sql-query.md#executing-sql-queries) dotyczących tych dokumentów. Zapytania można wykonywać za pomocą narzędzia [Eksplorator zapytań](documentdb-query-collections-query-explorer.md) w witrynie Azure Portal, [interfejsu API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) lub jednego z [zestawów SDK](documentdb-sdk-dotnet.md).
+Gdy dokumenty znajdą się w kolekcji, można użyć [bazy danych SQL usługi DocumentDB](documentdb-sql-query.md) do [wykonywania zapytań](documentdb-sql-query.md#ExecutingSqlQueries) dotyczących tych dokumentów. Zapytania można wykonywać za pomocą narzędzia [Eksplorator zapytań](documentdb-query-collections-query-explorer.md) w witrynie Azure Portal, [interfejsu API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) lub jednego z [zestawów SDK](documentdb-sdk-dotnet.md).
 
 ### <a name="learn-more"></a>Dowiedz się więcej
 Aby dowiedzieć się więcej na temat usługi DocumentDB, zapoznaj się z tymi zasobami:
 
 * [Ścieżka szkoleniowa dotycząca usługi DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [Pojęcia i hierarchiczny model zasobów bazy danych DocumentDB](documentdb-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

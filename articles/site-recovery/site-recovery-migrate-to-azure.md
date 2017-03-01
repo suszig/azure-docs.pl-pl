@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
-ms.openlocfilehash: f0edea9c1509b0eb4b2590019610ccc9eb9d5f55
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -47,7 +48,7 @@ Możesz:
 
 Aby zmigrować lokalne maszyny wirtualne funkcji Hyper-V, maszyny wirtualne oprogramowania VMware i serwery fizyczne, należy wykonać prawie te same czynności co w przypadku zwykłej replikacji. Należy skonfigurować magazyn usługi Recovery Services, skonfigurować wymagane serwery zarządzania (w zależności od tego, co jest migrowane), dodać je do magazynu, a następnie określić ustawienia replikacji. Następnie należy włączyć replikację dla maszyn, które mają zostać zmigrowane, i uruchomić szybkie testowe przejście do trybu failover, aby upewnić się, że wszystko pracuje poprawnie.
 
-Po zweryfikowaniu, że środowisko replikacji działa, należy użyć planowanego lub nieplanowanego przejścia do trybu failover w zależności od tego, [co obsługuje](site-recovery-failover.md#failover-and-failback) scenariusz. W przypadku migracji nie jest koniecznie zatwierdzanie trybu failover. Zamiast tego należy wybrać opcję **Zakończ migrację** dla każdej maszyny, którą chcesz zmigrować. Akcja **Zakończ migrację** kończy proces migracji, usuwa replikację dla maszyny i zatrzymuje naliczanie opłat za usługę Site Recovery dla maszyny.
+Po zweryfikowaniu, że środowisko replikacji działa, należy użyć planowanego lub nieplanowanego przejścia do trybu failover w zależności od tego, [co obsługuje](site-recovery-failover.md) scenariusz. W przypadku migracji nie jest koniecznie zatwierdzanie trybu failover. Zamiast tego należy wybrać opcję **Zakończ migrację** dla każdej maszyny, którą chcesz zmigrować. Akcja **Zakończ migrację** kończy proces migracji, usuwa replikację dla maszyny i zatrzymuje naliczanie opłat za usługę Site Recovery dla maszyny.
 
 ![pełna_migracja](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
@@ -69,9 +70,4 @@ Możesz zmigrować wystąpienia usługi AWS na maszyny wirtualne platformy Azure
 - [Migrowanie maszyn wirtualnych funkcji Hyper-V (bez programu VMM) na platformę Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrowanie maszyn wirtualnych platformy Azure między regionami platformy Azure](site-recovery-migrate-azure-to-azure.md)
 - [Migrowanie wystąpień usługi AWS na platformę Azure](site-recovery-migrate-aws-to-azure.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
