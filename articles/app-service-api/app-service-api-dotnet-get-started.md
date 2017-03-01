@@ -4,7 +4,7 @@ description: "Dowiedz się, jak za pomocą programu Visual Studio 2015 utworzyć
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -438,10 +439,5 @@ Jeśli chcesz tworzyć nowe projekty aplikacji interfejsu API zupełnie od pocz�
 ![Szablon aplikacji interfejsu API w programie Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 Użycie szablonu projektu **aplikacji interfejsu API na platformie Azure** jest równoważne wybraniu **pustego** szablonu platformy ASP.NET 4.5.2, dodaniu obsługi interfejsu API sieci Web za pomocą pola wyboru i zainstalowaniu pakietu Swashbuckle NuGet. Ponadto do szablonu dodawany jest kod konfiguracji pakietu Swashbuckle, który zapobiega tworzeniu zduplikowanych identyfikatorów operacji programu Swagger. Po utworzeniu projektu aplikacji interfejsu API możesz go wdrożyć w aplikacji interfejsu API w sposób opisany w tym samouczku.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
