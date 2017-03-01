@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
+ms.sourcegitcommit: a3fc1a6bf552ed8c6511c432c0d74b76247ce877
+ms.openlocfilehash: c08d863ef8913b9bad766c6232faaaa0a6cfa950
 
 
 ---
@@ -30,17 +30,17 @@ ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 > 
 > 
 
- W tym przewodniku przedstawiono, jak rozpocząć pracę z usługą **Azure Redis Cache**. Usługa Microsoft Azure Redis Cache jest oparta na popularnej pamięci podręcznej Redis typu open source. Umożliwia dostęp do bezpiecznej, dedykowanej pamięci podręcznej Redis, zarządzanej przez firmę Microsoft. Pamięć podręczna utworzona przy użyciu usługi Azure Redis Cache jest dostępna z poziomu dowolnej aplikacji w ramach platformy Microsoft Azure.
+W tym przewodniku przedstawiono, jak rozpocząć pracę z usługą **Azure Redis Cache**. Usługa Microsoft Azure Redis Cache jest oparta na popularnej pamięci podręcznej Redis typu open source. Umożliwia dostęp do bezpiecznej, dedykowanej pamięci podręcznej Redis, zarządzanej przez firmę Microsoft. Pamięć podręczna utworzona przy użyciu usługi Azure Redis Cache jest dostępna z poziomu dowolnej aplikacji w ramach platformy Microsoft Azure.
 
 Usługa Microsoft Azure Redis Cache jest dostępna w następujących warstwach:
 
 * **Podstawowa** — jeden węzeł. Wiele rozmiarów do 53 GB.
-* **Standardowa** — dwa węzły (węzeł podstawowy i węzeł repliki). Wiele rozmiarów do 53 GB. Umowa SLA na poziomie 99,9%.
-* **Premium** — dwa węzły (węzeł podstawowy i węzeł repliki) zawierające do 10 fragmentów. Różne rozmiary od 6 GB do 530 GB (skontaktuj się z nami, aby uzyskać więcej informacji). Wszystkie funkcje warstwy Standardowej i dodatkowe funkcje, m.in. obsługa [klastra Redis](cache-how-to-premium-clustering.md), [stanu trwałego pamięci podręcznej Redis](cache-how-to-premium-persistence.md) oraz usługi [Azure Virtual Network](cache-how-to-premium-vnet.md). Umowa SLA na poziomie 99,9%.
+* **Standardowa** — dwa węzły (węzeł podstawowy i węzeł repliki). Wiele rozmiarów do 53 GB. Umowa SLA na poziomie&99;,9%.
+* **Premium** — dwa węzły (węzeł podstawowy i węzeł repliki) zawierające do 10 fragmentów. Różne rozmiary od 6 GB do 530 GB (skontaktuj się z nami, aby uzyskać więcej informacji). Wszystkie funkcje warstwy Standardowej i dodatkowe funkcje, m.in. obsługa [klastra Redis](cache-how-to-premium-clustering.md), [stanu trwałego pamięci podręcznej Redis](cache-how-to-premium-persistence.md) oraz usługi [Azure Virtual Network](cache-how-to-premium-vnet.md). Umowa SLA na poziomie&99;,9%.
 
 Poszczególne warstwy różnią się od siebie pod względem funkcji i cen. Informacje dotyczące cen można znaleźć w artykule [Pamięć podręczna Redis — cennik][Cache Pricing Details].
 
-W tym przewodniku przedstawiono, jak korzystać z klienta [StackExchange.Redis][StackExchange.Redis] przy użyciu kodu C\#. Opisane scenariusze obejmują **tworzenie i konfigurowanie pamięci podręcznej**, **konfigurowanie klientów pamięci podręcznej** oraz **dodawanie i usuwanie obiektów z pamięci podręcznej**. Więcej informacji na temat korzystania z usługi Azure Redis Cache znajduje się w sekcji [Następne kroki][Next Steps]. Samouczek krok po kroku dotyczący tworzenia aplikacji sieci Web ASP.NET MVC z użyciem pamięci podręcznej Redis znajduje się w artykule [Tworzenie aplikacji sieci Web z użyciem pamięci podręcznej Redis](cache-web-app-howto.md).
+W tym przewodniku przedstawiono, jak korzystać z klienta [StackExchange.Redis][StackExchange.Redis] przy użyciu kodu C\#. Opisane scenariusze obejmują **tworzenie i konfigurowanie pamięci podręcznej**, **konfigurowanie klientów pamięci podręcznej** oraz **dodawanie i usuwanie obiektów z pamięci podręcznej**. Aby uzyskać więcej informacji na temat korzystania z usługi Azure Redis Cache, zobacz [Następne kroki][Next Steps]. Samouczek krok po kroku dotyczący tworzenia aplikacji sieci Web ASP.NET MVC z użyciem pamięci podręcznej Redis znajduje się w artykule [Tworzenie aplikacji sieci Web z użyciem pamięci podręcznej Redis](cache-web-app-howto.md).
 
 <a name="getting-started-cache-service"></a>
 
@@ -88,9 +88,9 @@ Aby programowo pracować z pamięcią podręczną, potrzebujesz odwołania do pa
 > 
 > 
 
-Połączenie z usługą Azure Redis Cache jest zarządzane przez klasę `ConnectionMultiplexer`. Ta klasa jest przeznaczona do współużytkowania i ponownego użycia w aplikacji klienta i nie trzeba jej tworzyć w oparciu o operację. 
+Połączenie z usługą Azure Redis Cache jest zarządzane przez klasę `ConnectionMultiplexer`. Ta klasa powinna być udostępniana i ponownie używana w aplikacji klienta i nie trzeba jej tworzyć w oparciu o operację. 
 
-Aby połączyć się z usługą Azure Redis Cache i otrzymać wystąpienie połączonej klasy `ConnectionMultiplexer`, wywołaj statyczną metodę `Connect` i przekaż punkt końcowy pamięci podręcznej oraz klucz jak w przykładzie poniżej. Użyj klucza wygenerowanego w portalu Azure jako parametru hasła.
+Aby połączyć się z usługą Azure Redis Cache i otrzymać wystąpienie połączonej klasy `ConnectionMultiplexer`, wywołaj statyczną metodę `Connect` i przekaż klucz oraz punkt końcowy pamięci podręcznej. Użyj klucza wygenerowanego w witrynie Azure Portal jako parametru hasła.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -106,7 +106,7 @@ Jeśli nie chcesz używać protokołu SSL, ustaw wartość `ssl=false` lub pomi�
 > 
 > 
 
-Jednym z rozwiązań w zakresie udostępniania wystąpienia klasy `ConnectionMultiplexer` w aplikacji jest korzystanie z właściwości statycznej, która zwraca połączone wystąpienie podobnie jak w poniższym przykładzie. Jest to bezpieczny wątkowo sposób na inicjowanie tylko jednego połączonego wystąpienia klasy `ConnectionMultiplexer` W tych przykładach parametr `abortConnect` ma wartość false, co oznacza, że wystąpienie zostanie wykonane pomyślnie, nawet jeśli połączenie z usługą Azure Redis Cache nie zostanie nawiązane. Kluczowa funkcja klasy `ConnectionMultiplexer` polega na automatycznym przywracaniu łączności z pamięcią podręczną po rozwiązaniu problemu z siecią lub usunięciu innych przyczyn.
+Jednym z rozwiązań w zakresie udostępniania wystąpienia klasy `ConnectionMultiplexer` w aplikacji jest korzystanie z właściwości statycznej, która zwraca połączone wystąpienie podobnie jak w poniższym przykładzie. To podejście oferuje bezpieczny wątkowo sposób na inicjowanie tylko jednego połączonego wystąpienia klasy `ConnectionMultiplexer`. W tych przykładach parametr `abortConnect` ma wartość false, co oznacza, że wystąpienie zostanie wykonane pomyślnie, nawet jeśli połączenie z usługą Azure Redis Cache nie zostanie nawiązane. Kluczowa funkcja klasy `ConnectionMultiplexer` polega na automatycznym przywracaniu łączności z pamięcią podręczną po rozwiązaniu problemu z siecią lub usunięciu innych przyczyn.
 
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -154,7 +154,7 @@ Elementy można zapisywać do pamięci podręcznej i pobierać z niej za pomocą
 
 Usługa Redis przechowuje większość danych w formie ciągów Redis, ale ciągi te mogą zawierać wiele typów danych, w tym serializowane dane binarne, które mogą być używane podczas przechowywania obiektów platformy .NET w pamięci podręcznej.
 
-Podczas wywoływania metody `StringGet`, jeśli obiekt istnieje, jest zwracany, a jeśli nie, zwracana jest wartość `null`. W takim przypadku można pobrać wartość z żądanego źródła danych i zapisać ją w pamięci podręcznej do późniejszego użytku. Nazywamy to wzorcem z odkładaniem do pamięci podręcznej.
+Podczas wywoływania metody `StringGet`, jeśli obiekt istnieje, jest zwracany, a jeśli nie, zwracana jest wartość `null`. W przypadku zwrócenia wartości `null` można pobrać wartość z żądanego źródła danych i zapisać ją w pamięci podręcznej do późniejszego użytku. Ten wzorzec użycia nazywamy wzorcem z odkładaniem do pamięci podręcznej.
 
     string value = cache.StringGet("key1");
     if (value == null)
@@ -171,7 +171,7 @@ Aby określić wygaśnięcie elementu w pamięci podręcznej, użyj parametru `T
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
 ## <a name="work-with-net-objects-in-the-cache"></a>Praca z obiektami platformy .NET w pamięci podręcznej
-Usługa Azure Redis Cache może buforować obiekty platformy .NET oraz pierwotne typy danych, ale zanim będzie możliwe buforowanie obiektu platformy .NET, trzeba go serializować. Odpowiedzialność za tę operację spoczywa na deweloperze aplikacji, który ma możliwość wybrania serializatora.
+Usługa Azure Redis Cache może buforować obiekty platformy .NET oraz pierwotne typy danych, ale zanim będzie możliwe buforowanie obiektu platformy .NET, trzeba go serializować. Odpowiedzialność za serializację obiektu .NET spoczywa na deweloperze aplikacji, który ma możliwość wybrania serializatora.
 
 Prostym sposobem na wykonywanie serializacji obiektów jest użycie metod serializacji `JsonConvert` w środowisku [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) oraz serializacja do i z formatu JSON. W poniższym przykładzie pokazano metody get i set używające wystąpienia obiektu `Employee`.
 
@@ -205,7 +205,7 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 * Zapoznaj się z [dokumentacją dotyczącą klienta pamięci podręcznej StackExchange.Redis][StackExchange.Redis cache client documentation].
   * Dostęp do usługi Azure Redis Cache można uzyskać z wielu klientów Redis i przy użyciu wielu języków programowania. Więcej informacji znajduje się na stronie [http://redis.io/clients][http://redis.io/clients].
 * Usługi Azure Redis Cache można również używać z usługami i narzędziami innych firm, takimi jak Redsmin i Redis Desktop Manager.
-  * Więcej informacji na temat usługi Redsmin znajduje się w artykule [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Jak pobrać parametry połączenia usługi Azure Redis Cache i używać ich w usłudze Redsmin).
+  * Więcej informacji na temat usługi Redsmin znajduje się w artykule [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Jak pobrać parametry połączenia usługi Azure Redis i używać ich w usłudze Redsmin).
   * Dostęp do danych w usłudze Azure Redis Cache oraz możliwość ich inspekcji można uzyskać za pomocą graficznego interfejsu użytkownika, używając usługi [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 * Zapoznaj się z dokumentacją dotyczącą usługi [Redis][redis], przeczytaj o [typach danych usługi Redis][redis data types] oraz poznaj [piętnastominutowe wprowadzenie do typów danych usługi Redis][a fifteen minute introduction to Redis data types].
 
@@ -277,7 +277,7 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -299,6 +299,6 @@ Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz si�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

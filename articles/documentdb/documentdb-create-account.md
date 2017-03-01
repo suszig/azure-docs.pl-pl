@@ -13,20 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
+ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
+ms.openlocfilehash: 086c87c52adf972307003ff78fd0c07f3035321c
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Jak utworzyć konto usługi DocumentDB NoSQL przy użyciu witryny Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](documentdb-create-account.md)
-> * [Interfejs wiersza polecenia platformy Azure i usługa Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Interfejs wiersza polecenia platformy Azure 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Interfejs wiersza polecenia platformy Azure 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 Aby utworzyć bazę danych przy użyciu usługi Microsoft Azure DocumentDB, są potrzebne:
 
@@ -38,9 +39,9 @@ Konto usługi DocumentDB można utworzyć za pomocą witryny Azure Portal, szabl
 Dopiero zaczynasz korzystać z usługi DocumentDB? Obejrzyj [to](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) czterominutowe nagranie, w którym Scott Hanselman pokazuje, jak wykonać typowe zadania w portalu online.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Na pasku dostępu kliknij pozycje **Nowy** i **Bazy danych**, a następnie kliknij pozycję **DocumentDB (NoSQL)**.
+2. Na lewym pasku nawigacyjnym kliknij pozycje **Nowy** i **Bazy danych**, a następnie kliknij pozycję **NoSQL (DocumentDB)**.
 
-   ![Zrzut ekranu przedstawiający witrynę Azure Portal z wyróżnionymi poleceniami Więcej usług i DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
+   ![Zrzut ekranu przedstawiający witrynę Azure Portal z wyróżnionymi poleceniami Więcej usług i NoSQL (DocumentDB)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. W bloku **Nowe konto** określ odpowiednią konfigurację konta usługi DocumentDB.
 
     ![Zrzut ekranu bloku Nowe konto usługi DocumentDB](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
@@ -80,16 +81,11 @@ Nową kolekcję i bazę danych można utworzyć, korzystając z jednego z nastę
 
 Po utworzeniu bazy danych i kolekcji należy [dodać dokumenty](documentdb-view-json-document-explorer.md) do kolekcji.
 
-Gdy dokumenty znajdą się w kolekcji, można użyć [bazy danych SQL usługi DocumentDB](documentdb-sql-query.md) do [wykonywania zapytań](documentdb-sql-query.md#executing-sql-queries) dotyczących tych dokumentów. Zapytania można wykonywać za pomocą narzędzia [Eksplorator zapytań](documentdb-query-collections-query-explorer.md) w witrynie Azure Portal, [interfejsu API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) lub jednego z [zestawów SDK](documentdb-sdk-dotnet.md).
+Gdy dokumenty znajdą się w kolekcji, można użyć [bazy danych SQL usługi DocumentDB](documentdb-sql-query.md) do [wykonywania zapytań](documentdb-sql-query.md#ExecutingSqlQueries) dotyczących tych dokumentów. Zapytania można wykonywać za pomocą narzędzia [Eksplorator zapytań](documentdb-query-collections-query-explorer.md) w witrynie Azure Portal, [interfejsu API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) lub jednego z [zestawów SDK](documentdb-sdk-dotnet.md).
 
 ### <a name="learn-more"></a>Dowiedz się więcej
 Aby dowiedzieć się więcej na temat usługi DocumentDB, zapoznaj się z tymi zasobami:
 
 * [Ścieżka szkoleniowa dotycząca usługi DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [Pojęcia i hierarchiczny model zasobów bazy danych DocumentDB](documentdb-resources.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

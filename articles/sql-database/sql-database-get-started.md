@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal: rozpoczynanie pracy z usługą Azure SQL Database | Microsoft Docs"
-description: "Dowiedz się, jak utworzyć serwer logiczny, regułę zapory na poziomie serwera i bazy danych usługi SQL Database przy użyciu witryny Azure Portal. Poznasz również sposoby wykonywania zapytań względem baz danych przy użyciu programu SQL Server Management Studio."
+title: 'Szybki start: pierwsza baza danych SQL na platformie Azure | Microsoft Docs'
+description: "Dowiedz się, jak utworzyć serwer logiczny, regułę zapory na poziomie serwera i bazy danych usługi SQL Database w witrynie Azure Portal. Dowiedz się także, jak używać programu SQL Server Management Studio z usługą Azure SQL Database."
 keywords: "samouczek usługi sql database, tworzenie bazy danych sql"
 services: sql-database
 documentationcenter: 
@@ -14,53 +14,43 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
+ms.sourcegitcommit: 166a9d7032bb75188a790bea1724aefd194dcefa
+ms.openlocfilehash: 36afd5c8bccb080ae3aaf1b4975d317b9087a3b3
 
 
 ---
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Samouczek usługi SQL Database: wprowadzenie do serwerów, baz danych i reguł zapory usługi Azure SQL Database przy użyciu witryny Azure Portal i programu SQL Server Management Studio
+# <a name="create-connect-to-and-query-your-first-azure-sql-databases-in-the-azure-portal-and-using-ssms"></a>Tworzenie pierwszych baz danych Azure SQL Database, łączenie się z nimi i kierowanie do nich zapytań w witrynie Azure Portal i za pomocą programu SSMS
 
-Z tego samouczka ułatwiającego rozpoczęcie pracy nauczysz się używać witryny Azure Portal do wykonywania następujących czynności:
+Z tego samouczka nauczysz się, jak tworzyć bazy danych Azure SQL Database, łączyć się z nimi i kierować do nich zapytania w witrynie Azure Portal i przy użyciu programu SQL Server Management Studio. Po ukończeniu tego samouczka:
 
-* Tworzenie nowej grupy zasobów platformy Azure
-* Tworzenie serwera logicznego usługi Azure SQL
-* Wyświetlanie właściwości serwera logicznego usługi Azure SQL
-* Tworzenie reguły zapory na poziomie serwera
-* Tworzenie przykładowej bazy danych Adventure Works LT jako pojedynczej bazy danych
-* Wyświetlanie właściwości przykładowej bazy danych Adventure Works LT na platformie Azure
+* Utworzysz grupę zasobów zawierającą serwer logiczny, regułę zapory na poziomie serwera i dwie bazy danych.
+* Dowiesz się, jak wyświetlić właściwości serwera i bazy danych w witrynie Azure Portal i za pomocą programu SQL Server Management Studio.
+* Dowiesz się, jak skierować zapytanie do bazy danych w witrynie Azure Portal i za pomocą programu SQL Server Management Studio.
 
-W tym samouczku używana jest również najnowsza wersja programu SQL Server Management Studio w celu wykonania następujących czynności:
-
-* Nawiązywanie połączenia z serwerem logicznym i jego bazą danych master
-* Odpytywanie bazy danych master
-* Nawiązywanie połączenia z przykładową bazą danych
-* Odpytywanie przykładowej bazy danych
-
-Po ukończeniu tego samouczka uzyskasz przykładową bazę danych i pustą bazę danych, uruchomione w grupie zasobów platformy Azure i dołączone do serwera logicznego. Ponadto będziesz mieć regułę zapory na poziomie serwera skonfigurowaną tak, aby umożliwić podmiotowi zabezpieczeń na poziomie serwera logowanie się do serwera z określonego adresu IP (lub zakresu adresów IP). 
-
-**Szacowany czas**: ten samouczek zajmie Ci około 30 minut (przy założeniu, że spełniasz już wymagania wstępne).
+**Szacowany czas**: ten samouczek zajmuje około 30 minut (przy założeniu, że spełniasz już wymagania wstępne).
 
 > [!TIP]
-> Te same czynności w samouczku ułatwiającym rozpoczęcie pracy można wykonać przy użyciu języka [C#](sql-database-get-started-csharp.md) lub programu [PowerShell](sql-database-get-started-powershell.md).
+> Możesz też dowiedzieć się, jak tworzyć bazy danych Azure SQL Database, łączyć się z nimi i kierować do nich zapytania, używając programu [PowerShell](sql-database-get-started-powershell.md) lub języka [C#](sql-database-get-started-csharp.md).
 >
+
+> [!NOTE]
+> Ten samouczek ułatwia opanowanie informacji podanych w następujących tematach szkoleniowych: [SQL Database server overview](sql-database-server-overview.md) (Omówienie serwerów usługi SQL Database), [Omówienie usługi Azure SQL Database](sql-database-overview.md) i [Omówienie reguł zapory usługi Azure SQL Database](sql-database-firewall-configure.md). Aby zapoznać się z przeglądem usługi SQL Database, zobacz [Co to jest SQL Database?](sql-database-technical-overview.md).
+>  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* **Konto platformy Azure**. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* Musisz być w stanie połączyć się z witryną Azure Portal przy użyciu konta, które jest członkiem roli właściciela subskrypcji albo współautora. Aby uzyskać więcej informacji o kontroli dostępu na podstawie ról (RBAC, role-based access control), zobacz [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Wprowadzenie do zarządzania dostępem w witrynie Azure Portal).
+* **Uprawnienia do tworzenia na platformie Azure**. Musisz być w stanie połączyć się z witryną Azure Portal przy użyciu konta, które jest członkiem roli właściciela subskrypcji albo współautora. Aby uzyskać więcej informacji o kontroli dostępu na podstawie ról (RBAC, role-based access control), zobacz [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Wprowadzenie do zarządzania dostępem w witrynie Azure Portal).
 
-> [!NOTE]
-> Ten samouczek ułatwia opanowanie informacji podanych w następujących tematach szkoleniowych: [SQL Database server overview](sql-database-server-overview.md) (Omówienie serwerów usługi SQL Database), [Omówienie usługi Azure SQL Database](sql-database-overview.md) i [Omówienie reguł zapory usługi Azure SQL Database](sql-database-firewall-configure.md).
->  
+* **SQL Server Management Studio**. Najnowszą wersję programu SSMS możesz zainstalować po pobraniu ze strony [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (Pobieranie programu SQL Server Management Studio). Zawsze używaj najnowszej wersji programu SSMS podczas łączenia się z usługą Azure SQL Database, ponieważ cały czas wydawane są nowe funkcje.
 
+### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Logowanie do witryny Azure Portal przy użyciu konta platformy Azure
-Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Index) wykonaj poniższe kroki, aby połączyć się z witryną Azure Portal.
+Kroki opisane w tej procedurze pokazują, jak łączyć się z witryną Azure Portal za pomocą [konta platformy Azure](https://account.windowsazure.com/Home/Index).
 
 1. Otwórz wybraną przeglądarkę i połącz się z witryną [Azure Portal](https://portal.azure.com/).
 2. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
@@ -71,7 +61,9 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Tworzenie nowego serwera logicznego SQL w witrynie Azure Portal
+## <a name="create-a-new-logical-sql-server"></a>Tworzenie nowego serwera logicznego SQL
+
+Kroki opisane w tej procedurze pokazują, jak w witrynie Azure Portal utworzyć serwer logiczny w wybranym przez siebie regionie. Serwer logiczny to obiekt, w którym tworzone są bazy danych SQL i reguły zapory zezwalające użytkownikom na łączenie się przez zaporę usługi Azure SQL Database. 
 
 1. Kliknij pozycję **Nowy**, wpisz ciąg **sql server**, a następnie naciśnij klawisz **ENTER**.
 
@@ -79,31 +71,31 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
 2. Kliknij pozycję **SQL Server (serwer logiczny)**.
    
     ![tworzenie serwera logicznego SQL](./media/sql-database-get-started/create-logical-sql-server.png)
-3. Kliknij pozycję **Utwórz**, aby otworzyć nowy blok SQL Server (serwer logiczny).
+3. Kliknij pozycję **Utwórz**, aby otworzyć nowy blok SQL Server (tylko serwer logiczny).
 
     ![nowy serwer logiczny SQL](./media/sql-database-get-started/new-logical-sql-server.png)
-3. W polu tekstowym Nazwa serwera podaj prawidłową nazwę nowego serwera logicznego. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
+3. W polu tekstowym **Nazwa serwera** podaj prawidłową nazwę nowego serwera logicznego. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
     
     ![nazwa nowego serwera](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > W pełni kwalifikowana nazwa nowego serwera to <Twoja_nazwa_serwera>.database.windows.net.
+    > W pełni kwalifikowana nazwa nowego serwera musi być globalnie unikatowa i ma postać **<Twoja_nazwa_serwera>.database.windows.net**. Ta w pełni kwalifikowana nazwa serwera będzie używana później w trakcie tego samouczka do łączenia się z serwerem i bazami danych.
     >
     
-4. W polu tekstowym Identyfikator logowania administratora serwera podaj nazwę użytkownika na potrzeby logowania w celu uwierzytelniania SQL dla tego serwera. Ta nazwa logowania jest nazywana główną nazwą logowania serwera. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
+4. W polu tekstowym **Nazwa logowania administratora serwera** podaj nazwę użytkownika na potrzeby logowania w celu uwierzytelniania SQL dla tego serwera. Ta nazwa logowania jest nazywana główną nazwą logowania serwera. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
     
     ![identyfikator logowania administratora SQL](./media/sql-database-get-started/sql-admin-login.png)
 5. W polach tekstowych **Hasło** i **Potwierdź hasło** podaj hasło do głównego konta logowania serwera. Zielony znacznik wyboru wskazuje, czy podane hasło jest poprawne.
     
     ![Hasło administratora SQL](./media/sql-database-get-started/sql-admin-password.png)
-6. Wybierz subskrypcję, w której masz uprawnienia do tworzenia obiektów.
+6. W polu rozwijanym **Subskrypcja** wybierz subskrypcję, w której masz uprawnienia do tworzenia obiektów.
 
     ![subskrypcja](./media/sql-database-get-started/subscription.png)
-7. W polu tekstowym Grupa zasobów wybierz opcję **Utwórz nową**, a następnie w polu tekstowym Grupa zasobów podaj prawidłową nazwę nowej grupy (możesz także użyć istniejącej grupy zasobów, jeśli masz już taką utworzoną na własne potrzeby). Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
+7. W polu tekstowym**Grupa zasobów** wybierz pozycję **Wybierz nowy**, a następnie podaj prawidłową nazwę dla nowej grupy zasobów. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
 
     ![nowa grupa zasobów](./media/sql-database-get-started/new-resource-group.png)
 
-8. W polu tekstowym **Lokalizacja** wybierz centrum danych odpowiednie dla danej lokalizacji — np. „Australia Wschodnia”.
+8. W polu tekstowym **Lokalizacja** wybierz centrum danych, w którym ma zostać utworzony serwer logiczny.
     
     ![lokalizacja serwera](./media/sql-database-get-started/server-location.png)
     
@@ -111,65 +103,53 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
     > W tym bloku nie można zmienić pola wyboru dla opcji **Zezwalaj usługom platformy Azure na dostęp do serwera**. To ustawienie można zmienić w bloku zapory serwera. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do zabezpieczeń](sql-database-control-access-sql-authentication-get-started.md).
     >
     
-9. Kliknij przycisk **Utwórz**.
+9. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**.
+
+10. Kliknij pozycję **Utwórz**, aby wdrożyć ten skrypt na platformie Azure w celu utworzenia serwera logicznego.
 
     ![przycisk Utwórz](./media/sql-database-get-started/create.png)
 
-## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>Wyświetlanie właściwości serwera logicznego SQL Server w witrynie Azure Portal
-
-1. W witrynie Azure Portal kliknij pozycję **Więcej usług**.
-
-    ![Więcej usług](./media/sql-database-get-started/more-services.png)
-2. W polu tekstowym Filtr wpisz ciąg **SQL**, a następnie kliknij gwiazdkę obok pozycji Serwery SQL, aby określić serwery SQL jako ulubione na platformie Azure. 
-
-    ![ustawianie ulubionych](./media/sql-database-get-started/favorite.png)
-3. W bloku domyślnym kliknij pozycję **Serwery SQL**, aby otworzyć listę serwerów SQL w subskrypcji platformy Azure. 
-
-    ![nowy serwer SQL](./media/sql-database-get-started/new-sql-server.png)
-
-4. Kliknij nowy serwer SQL, aby wyświetlić jego właściwości w witrynie Azure Portal. Kolejne samouczki pomogą Ci zrozumieć opcje dostępne w tym bloku.
+11. Po utworzeniu serwera przejrzyj jego właściwości, które są wyświetlane domyślnie. 
 
     ![blok serwera SQL](./media/sql-database-get-started/sql-server-blade.png)
-5. W obszarze Ustawienia kliknij pozycję **Właściwości**, aby wyświetlić różne właściwości serwera logicznego SQL.
+12. Kliknij pozycję **Właściwości**, aby wyświetlić dodatkowe właściwości serwera logicznego SQL.
 
     ![właściwości serwera SQL](./media/sql-database-get-started/sql-server-properties.png)
-6. Skopiuj w pełni kwalifikowaną nazwę serwera do schowka, aby skorzystać z niej na dalszym etapie tego samouczka.
+13. Skopiuj w pełni kwalifikowaną nazwę serwera do schowka, aby skorzystać z niej na dalszym etapie tego samouczka.
 
     ![pełna nazwa serwera SQL](./media/sql-database-get-started/sql-server-full-name.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Tworzenie reguły zapory na poziomie serwera w witrynie Azure Portal
+## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
 
-1. W bloku serwera SQL, w obszarze Ustawienia, kliknij pozycję **Zapora**, aby otworzyć blok Zapora dla serwera SQL.
+Kroki opisane w tej procedurze pokazują, jak utworzyć regułę zapory na poziomie serwera w witrynie Azure Portal. Domyślnie zapora usługi Azure SQL Database uniemożliwia połączenia z zewnątrz z Twoim serwerem logicznym i jego bazami danych. Aby umożliwić łączenie z serwerem, musisz utworzyć regułę zapory dla adresu IP komputera, z którego się łączysz w następnej procedurze. Aby uzyskać więcej informacji, zobacz [Omówienie reguł zapory usługi Azure SQL Database](sql-database-firewall-configure.md).
+
+1. W bloku serwera SQL kliknij pozycję **Zapora**, aby otworzyć blok Zapora dla Twojego serwera. Zwróć uwagę, że wyświetlany jest adres IP Twojego komputera klienckiego.
 
     ![zapora serwera SQL](./media/sql-database-get-started/sql-server-firewall.png)
 
-2. Sprawdź wyświetlony adres IP klienta i przy użyciu wybranej przeglądarki zweryfikuj w Internecie, czy jest to Twój adres IP (zadaj pytanie „jaki jest mój adres IP”). Czasami te adresy nie zgadzają się z różnych powodów.
-
-    ![Twój adres IP](./media/sql-database-get-started/your-ip-address.png)
-
-3. Zakładając, że adresy IP się zgadzają, na pasku narzędzi kliknij pozycję **Dodaj adres IP klienta**.
+2. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby utworzyć regułę zapory dla bieżącego adresu IP.
 
     ![dodawanie adresu IP klienta](./media/sql-database-get-started/add-client-ip.png)
 
     > [!NOTE]
-    > Zaporę usługi SQL Database możesz otworzyć na serwerze dla pojedynczego adresu IP lub dla całego zakresu adresów. Otwarcie zapory umożliwia administratorom SQL i użytkownikom logowanie się do dowolnej bazy danych na serwerze, dla którego mają prawidłowe poświadczenia.
+    > Regułę zapory można utworzyć dla pojedynczego adresu IP lub całego zakresu adresów. Otwarcie zapory pozwala administratorom i użytkownikom usługi SQL logować się do każdej bazy danych na serwerze, do którego mają ważne poświadczenia.
     >
 
-4. Kliknij pozycję **Zapisz** na pasku narzędzi, aby zapisać tę regułę zapory na poziomie serwera, a następnie kliknij przycisk **OK**.
+4. Kliknij pozycję **Zapisz** na pasku narzędzi, aby zapisać tę regułę zapory na poziomie serwera, a następnie kliknij przycisk **OK**, aby zamknąć okno dialogowe informujące o powodzeniu.
 
-    ![dodawanie adresu IP klienta](./media/sql-database-get-started/save-firewall-rule.png)
+    ![powodzenie](./media/sql-database-get-started/save-firewall-rule.png)
 
-## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z serwerem SQL przy użyciu programu SQL Server Management Studio (SSMS)
+## <a name="connect-to-the-server-with-ssms"></a>Nawiązywanie połączenia z serwerem za pomocą programu SSMS
 
-1. Jeśli jeszcze tego nie zrobiono, pobierz i zainstaluj najnowszą wersję programu SSMS ze strony [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (Pobieranie programu SQL Server Management Studio). Aby użytkownik był na bieżąco, najnowsza wersja programu SSMS wyświetla monit z informacją o możliwości pobrania jego nowej wersji.
+Kroki opisane w tej procedurze pokazują, jak nawiązać połączenie z serwerem logicznym SQL za pomocą programu SQL Server Management Studio. Program SSMS to podstawowe narzędzie używane przez administratorów baz danych do zarządzania serwerami i bazami danych SQL.
 
-2. Po zainstalowaniu w polu wyszukiwania systemu Windows wpisz nazwę **Microsoft SQL Server Management Studio**, a następnie naciśnij klawisz **Enter**, aby otworzyć program SSMS:
+1. Otwórz program SQL Server Management Studio (w polu wyszukiwania systemu Windows wpisz nazwę **Microsoft SQL Server Management Studio**, a następnie naciśnij klawisz **Enter**, aby otworzyć program SSMS).
 
     ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. W oknie dialogowym Łączenie z serwerem wprowadź informacje konieczne do nawiązania połączenia z serwerem SQL przy użyciu opcji Uwierzytelnianie programu SQL Server.
+3. W oknie dialogowym **Łączenie z serwerem** wprowadź w pełni kwalifikowaną nazwę serwera z poprzedniej procedury, wybierz pozycję Uwierzytelnianie SQL Server, a następnie podaj nazwę logowania i hasło określone podczas aprowizowania serwera.
 
     ![łączenie z serwerem](./media/sql-database-get-started/connect-to-server.png)
-4. Kliknij przycisk **Połącz**.
+4. Kliknij pozycję **Połącz**, aby zainicjować połączenie i otworzyć Eksploratora obiektów w programie SSMS.
 
     ![nawiązane połączenie z serwerem](./media/sql-database-get-started/connected-to-server.png)
 5. W Eksploratorze obiektów rozwiń kolejno węzły **Bazy danych**, **Systemowe bazy danych** i **master**, aby wyświetlić obiekty w bazie danych master.
@@ -188,61 +168,71 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
     ![odpytywanie bazy danych master o obiekty systemowe](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > Aby poznać zabezpieczenia SQL, zobacz [Wprowadzenie do zabezpieczeń SQL](sql-database-control-access-sql-authentication-get-started.md)
+    > Aby rozpocząć pracę z zabezpieczeniami SQL, zobacz [Get Started with SQL authentication](sql-database-control-access-sql-authentication-get-started.md) (Wprowadzenie do uwierzytelniania SQL)
     >
 
-## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Tworzenie nowej bazy danych w witrynie Azure Portal przy użyciu przykładu Adventure Works LT
+## <a name="create-a-database-with-sample-data"></a>Tworzenie bazy danych z przykładowymi danymi
+
+Kroki opisane w tej procedurze pokazują, jak w witrynie Azure Portal utworzyć bazę danych z przykładowymi danymi skojarzoną z wcześniej utworzonym serwerem logicznym. 
 
 1. W witrynie Azure Portal kliknij pozycję **Bazy danych SQL** w bloku domyślnym.
 
     ![Bazy danych SQL](./media/sql-database-get-started/new-sql-database.png)
-2. W bloku Bazy danych SQL kliknij pozycję **Dodaj**.
+2. W bloku Bazy danych SQL kliknij pozycję **Dodaj**. 
 
     ![dodawanie bazy danych SQL](./media/sql-database-get-started/add-sql-database.png)
-3. W bloku Baza danych SQL sprawdź automatycznie uzupełnione informacje.
 
     ![blok Baza danych SQL](./media/sql-database-get-started/sql-database-blade.png)
-4. Podaj prawidłową nazwę bazy danych.
+3. W polu tekstowym **Nazwa bazy danych** podaj prawidłową nazwę bazy danych.
 
     ![nazwa bazy danych SQL](./media/sql-database-get-started/sql-database-name.png)
-5. W obszarze Wybierz źródło kliknij pozycję **Przykład**, a następnie w obszarze Wybierz przykład kliknij pozycję **AdventureWorksLT [V12]**.
+4. W obszarze **Wybierz źródło** wybierz pozycję **Przykład (AdventureWorksLT)**.
    
     ![Adventure Works LT](./media/sql-database-get-started/adventureworkslt.png)
-6. W obszarze Serwer podaj nazwę użytkownika oraz hasło administratora serwera na potrzeby logowania.
+5. W obszarze **Serwer** sprawdź, czy Twój serwer jest wybrany. Zwróć uwagę, że bazę danych można dodać do serwera jako pojedynczą bazę danych (jest to ustawienie domyślne) lub dodać ją do elastycznej puli. Aby uzyskać więcej informacji o pulach elastycznych, zobacz artykuł [Pule elastyczne](sql-database-elastic-pool.md).
 
-    ![poświadczenia serwera](./media/sql-database-get-started/server-credentials.png)
-
-    > [!NOTE]
-    > Bazę danych można dodać do serwera jako pojedynczą bazę danych (jest to ustawienie domyślne) lub dodać ją do puli elastycznej. Aby uzyskać więcej informacji o pulach elastycznych, zobacz artykuł [Pule elastyczne](sql-database-elastic-pool.md).
-    >
-
-7. W obszarze Warstwa cenowa zmień warstwę cenową na opcję **Podstawowa** (w razie potrzeby warstwę cenową można później zwiększyć, ale dla celów szkoleniowych zalecamy użycie najniższej warstwy).
+6. W obszarze **Warstwa cenowa** zmień warstwę cenową na **Podstawowa** i kliknij pozycję **Wybierz**. W razie potrzeby warstwę cenową można później zwiększyć, ale dla celów szkoleniowych zalecamy użycie najtańszej warstwy.
 
     ![warstwa cenowa](./media/sql-database-get-started/pricing-tier.png)
-8. Kliknij przycisk **Utwórz**.
+7. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij pozycję **Utwórz**.
 
     ![przycisk Utwórz](./media/sql-database-get-started/create.png)
 
-## <a name="view-database-properties-in-the-azure-portal"></a>Wyświetlane właściwości bazy danych w witrynie Azure Portal
-
-1. W bloku Bazy danych SQL kliknij nową bazę danych, aby wyświetlić jej właściwości w witrynie Azure Portal. Kolejne samouczki pomogą Ci zrozumieć opcje dostępne w tym bloku. 
+8. Po utworzeniu bazy danych obejrzyj jej właściwości w witrynie Azure Portal. Kolejne samouczki pomogą Ci zrozumieć opcje dostępne w tym bloku. 
 
     ![blok nowej przykładowej bazy danych](./media/sql-database-get-started/new-sample-db-blade.png)
-2. Kliknij pozycję **Właściwości**, aby wyświetlić dodatkowe informacje o bazie danych.
 
-    ![właściwości nowej przykładowej bazy danych](./media/sql-database-get-started/new-sample-db-properties.png)
+## <a name="query-the-database-in-the-azure-portal"></a>Tworzenie zapytań względem bazy danych w witrynie Azure Portal
 
-3. Kliknij pozycję **Pokaż parametry połączenia bazy danych**.
+Kroki opisane w tej procedurze pokazują, jak kierować zapytania do bazy danych bezpośrednio z witryny Azure Portal. 
 
-    ![parametry połączenia nowej przykładowej bazy danych](./media/sql-database-get-started/new-sample-db-connection-strings.png)
-4. Kliknij pozycję **Przegląd**, a następnie nazwę serwera w okienku Podstawy.
-    
-    ![okienko Podstawy nowej przykładowej bazy danych](./media/sql-database-get-started/new-sample-db-essentials-pane.png)
-5. W okienku Podstawy serwera wyświetl nowo dodaną bazę danych.
+1. W bloku Bazy danych SQL kliknij pozycję **Narzędzia** na pasku narzędzi.
 
-    ![nowa przykładowa baza danych w okienku Podstawy serwera](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
+    ![narzędzia](./media/sql-database-get-started/tools.png)
+2. W bloku Narzędzia kliknij pozycję **Edytor zapytań (wersja zapoznawcza)**.
 
-## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>Łączenie i odpytywanie przykładowej bazy danych przy użyciu programu SQL Server Management Studio
+    ![edytor zapytań](./media/sql-database-get-started/query-editor.png)
+3. Kliknij pole wyboru, aby potwierdzić, że edytor zapytań jest funkcją w wersji zapoznawczej, a następnie kliknij przycisk **OK**.
+4. W bloku **Edytor zapytań** kliknij pozycję **Zaloguj się**.
+
+    ![blok edytora zapytań](./media/sql-database-get-started/query-editor-blade.png)
+5. Przejrzyj pozycje Typ autoryzacji i Konto logowania, a następnie podaj hasło dla tego konta logowania. 
+
+    ![logowanie w edytorze zapytań](./media/sql-database-get-started/query-editor-login.png)
+6. Kliknij przycisk **OK**, aby spróbować się zalogować.
+7. Po uwierzytelnieniu w oknie zapytania wpisz następujące zapytanie, a następnie kliknij pozycję **Uruchom**.
+
+   ```select * from sys.objects```
+
+    ![zapytanie edytora zapytań](./media/sql-database-get-started/query-editor-query.png)
+
+8. Przejrzyj wyniki zapytania w okienku **Wyniki**.
+
+    ![wyniki edytora zapytań](./media/sql-database-get-started/query-editor-results.png)
+
+## <a name="query-the-database-with-ssms"></a>Kierowanie zapytań do bazy danych za pomocą programu SSMS
+
+Kroki opisane w tej procedurze pokazują, jak nawiązać połączenie z bazą danych za pomocą programu SQL Server Management Studio, a następnie utworzyć zapytanie względem przykładowych danych w celu wyświetlenia obiektów w bazie danych.
 
 1. Przełącz się do programu SQL Server Management Studio i w Eksploratorze obiektów kliknij pozycję **Bazy danych**, a następnie przycisk **Odśwież** na pasku narzędzi, aby wyświetlić przykładową bazę danych.
 
@@ -261,17 +251,15 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
 
     ![zapytanie względem nowej przykładowej bazy danych o obiekty systemowe w programie SSMS](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
-## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>Tworzenie nowej pustej bazy danych przy użyciu programu SQL Server Management Studio
+## <a name="create-a-blank-database-with-ssms"></a>Tworzenie pustej bazy danych za pomocą programu SSMS
+
+Kroki opisane w tej procedurze pokazują, jak utworzyć nową bazę danych za pomocą programu SQL Server Management Studio.
 
 1. W Eksploratorze obiektów kliknij prawym przyciskiem myszy pozycję **Bazy danych**, a następnie kliknij pozycję **Nowa baza danych**.
 
     ![nowa pusta baza danych w programie SSMS](./media/sql-database-get-started/new-blank-database-ssms.png)
 
-    > [!NOTE]
-    > W programie SSMS można również automatycznie utworzyć skrypt tworzenia bazy danych w celu utworzenia nowej bazy danych przy użyciu języka Transact-SQL.
-    >
-
-2. W oknie dialogowym Nowa baza danych podaj nazwę bazy danych w polu tekstowym Nazwa bazy danych. 
+2. W oknie dialogowym **Nowa baza danych** podaj nazwę bazy danych w polu tekstowym Nazwa bazy danych. 
 
     ![nazwa nowej pustej bazy danych w programie SSMS](./media/sql-database-get-started/new-blank-database-name-ssms.png)
 
@@ -288,29 +276,47 @@ Za pomocą [istniejącej subskrypcji](https://account.windowsazure.com/Home/Inde
 
     ![nowa pusta baza danych w Eksploratorze obiektów](./media/sql-database-get-started/new-blank-database-object-explorer.png)
 
+## <a name="troubleshoot-connectivity"></a>Rozwiązywanie problemów z łącznością
+
+Gdy nawiązywanie połączenia z usługą Azure SQL Database nie powiedzie się, pojawią się komunikaty o błędach. Problemy z połączeniami mogą być spowodowane ponownym skonfigurowaniem bazy danych SQL Azure, ustawieniami zapory, przekroczeniem limitu czasu połączenia lub nieprawidłowymi informacjami logowania. Aby uzyskać narzędzie do rozwiązywania problemów z połączeniami, zobacz [Troubleshooting connectivity issues with Microsoft Azure SQL Database](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) (Rozwiązywanie problemów z połączeniami z usługą Microsoft Azure SQL Database).
+
+## <a name="delete-a-single-database-in-the-azure-portal"></a>Usuwanie pojedynczej bazy danych w witrynie Azure Portal
+
+Kroki opisane w tej procedurze pokazują, jak za pomocą witryny Azure Portal usunąć pojedynczą bazę danych.
+
+1. W bloku baz danych SQL w witrynie Azure Portal kliknij bazę danych, którą chcesz usunąć. 
+2.  dla bazy danych SQL i kliknij przycisk **Usuń**.
+
+    ![usuwanie bazy danych](./media/sql-database-get-started/delete-database.png)
+2. Kliknij przycisk **Tak**, aby potwierdzić, że chcesz trwale usunąć tę bazę danych.
+
+    ![potwierdzanie usunięcia bazy danych](./media/sql-database-get-started/delete-database-yes.png)
+
 > [!TIP]
-> W trakcie nauki możesz zaoszczędzić pieniądze, usuwając nieużywane bazy danych. Bazy danych w wersji Podstawowa możesz przywrócić w ciągu siedmiu dni. Nie usuwaj jednak serwera. Jeśli to zrobisz, nie będzie można odzyskać ani serwera, ani jego usuniętych baz danych.
+> Podczas okresu przechowywania bazy danych możesz ją przywrócić z automatycznych kopii zapasowych zainicjowanych przez usługę (o ile nie zostanie usunięty sam serwer). Bazy danych w wersji Podstawowa możesz przywrócić w ciągu siedmiu dni. W przypadku wszystkich innych wersji przywracanie jest możliwe w ciągu 35 dni. Jeśli usunięty zostanie sam serwer, nie będzie można odzyskać ani serwera, ani żadnej z jego usuniętych baz danych. Aby uzyskać więcej informacji o kopiach zapasowych bazy danych, zobacz [Dowiedz się więcej o kopiach zapasowych w usłudze SQL Database](sql-database-automated-backups.md). Aby uzyskać więcej informacji o przywracaniu bazy danych z kopii zapasowych, zobacz [Odzyskiwanie bazy danych](sql-database-recovery-using-backups.md). Aby uzyskać instrukcje dotyczące przywracania usuniętej bazy danych, zobacz [Przywracanie usuniętej bazy danych SQL na platformie Azure — Azure Portal](sql-database-restore-deleted-database-portal.md).
 >
 
 
 ## <a name="next-steps"></a>Następne kroki
 Po ukończeniu tego samouczka możesz zapoznać się z kilkoma dodatkowymi samouczkami, które poszerzą zdobytą wiedzę. 
 
-* Jeśli chcesz zacząć poznawać zabezpieczenia usługi Azure SQL Database, zobacz artykuł [Wprowadzenie do zabezpieczeń](sql-database-control-access-sql-authentication-get-started.md).
+- Samouczek z wprowadzeniem do uwierzytelniania programu SQL Server można znaleźć na stronie [Uwierzytelnianie i autoryzacja SQL](sql-database-control-access-sql-authentication-get-started.md)
+- Samouczek z wprowadzeniem do uwierzytelniania usługi Azure Active Directory można znaleźć na stronie [Uwierzytelnianie i autoryzacja usługi AAD](sql-database-control-access-aad-authentication-get-started.md)
+* Jeśli chcesz wykonać zapytanie w przykładowej bazie danych w witrynie Azure Portal, zobacz [Publiczna wersja zapoznawcza: zapytania interakcyjne dla baz danych SQL](https://azure.microsoft.com/updates/azure-sql-database-public-preview-t-sql-editor/)
 * Jeśli posługujesz się programem Excel, naucz się [nawiązywać połączenie z bazą danych SQL w programie Excel](sql-database-connect-excel.md).
 * Jeśli chcesz zacząć programować, wybierz język programowania w obszarze [Biblioteki połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md).
 * Jeśli chcesz przenieść lokalne bazy danych programu SQL Server na platformę Azure, zobacz artykuł [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) (Migracja bazy danych do usługi Azure SQL Database).
-* Jeśli chcesz załadować dane z pliku CSV do nowej tabeli przy użyciu narzędzia wiersza polecenia BCP, zobacz artykuł [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md) (Ładowanie danych do usługi SQL Database z pliku CSV przy użyciu narzędzia BCP).
+* Jeśli chcesz załadować dane z pliku CSV do nowej tabeli za pomocą narzędzia wiersza polecenia BCP, zobacz artykuł [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md) (Ładowanie danych do usługi SQL Database z pliku CSV za pomocą narzędzia BCP).
 * Jeśli chcesz zacząć tworzyć tabele i inne obiekty, zobacz temat „Aby utworzyć tabelę” w artykule [Tworzenie tabeli](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- Omówienie techniczne można znaleźć w temacie [Co to jest usługa SQL Database?](sql-database-technical-overview.md).
+- Aby zapoznać się z omówieniem technicznym, zobacz [Co to jest SQL Database?](sql-database-technical-overview.md)
 - Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

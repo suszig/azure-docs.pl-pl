@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 01fe5302e1c596017755c4669103bac910e3452c
-ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: b9be92498f9daf1d2f964cc689bacb2358b237be
 
 
 ---
@@ -28,10 +28,7 @@ ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
 
 Usługa kontenera platformy Azure zapewnia szybkie wdrażanie popularnych rozwiązań typu open source służących do aranżowania i klastrowania kontenerów. Ten dokument zawiera opis kroków wdrażania klastra usługi Azure Container Service przy użyciu witryny Azure Portal lub szablonu szybkiego startu usługi Azure Resource Manager. 
 
-> [!NOTE]
-> Obsługa klastra Kubernetes w usłudze Azure Container Service jest obecnie w wersji zapoznawczej.
-
-Wdrożenie klastra usługi Azure Container Service jest również możliwe za pomocą [interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](container-service-create-acs-cluster-cli.md) lub interfejsów API usługi Azure Container Service.
+Wdrożenie klastra usługi Azure Container Service jest również możliwe za pomocą [interfejsu wiersza polecenia Azure w wersji 2.0](container-service-create-acs-cluster-cli.md) lub interfejsów API usługi Azure Container Service.
 
 
 
@@ -39,7 +36,7 @@ Wdrożenie klastra usługi Azure Container Service jest również możliwe za po
 
 * **Subskrypcja platformy Azure**: jeśli jej nie masz, możesz utworzyć konto [bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
-* **Klucz publiczny SSH**: podczas wdrażania za pośrednictwem portalu lub jednego z szablonów szybkiego startu platformy Azure musisz podać klucz publiczny na potrzeby uwierzytelniania na maszynach wirtualnych usługi Azure Container Service. Aby utworzyć klucze Secure Shell (SSH), zobacz wskazówki dla systemów [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Klucz publiczny SSH RSA**: podczas wdrażania za pośrednictwem portalu lub jednego z szablonów szybkiego startu platformy Azure musisz podać klucz publiczny na potrzeby uwierzytelniania na maszynach wirtualnych usługi Azure Container Service. Aby utworzyć klucze RSA Secure Shell (SSH), zobacz wskazówki dla systemów [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
 * **Klucz tajny i identyfikator klienta jednostki usługi** (tylko rozwiązanie Kubernetes): aby uzyskać więcej informacji i wskazówek dotyczących tworzenia jednostki usługi, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o nazwie głównej usługi dla klastra Kubernetes).
 
@@ -58,15 +55,15 @@ Wdrożenie klastra usługi Azure Container Service jest również możliwe za po
 
     * **Nazwa użytkownika**: nazwa użytkownika dla konta na poszczególnych maszynach wirtualnych i zestawach skalowania maszyn wirtualnych w klastrze usługi Azure Container Service.
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: wybierz istniejącą grupę zasobów lub utwórz nową.
+    * **Grupa zasobów**: wybierz istniejącą grupę zasobów lub utwórz nową. Najlepszym rozwiązaniem jest użycie dla każdego wdrożenia nowej grupy zasobów.
     * **Lokalizacja**: wybierz region platformy Azure dla wdrożenia usługi Azure Container Service.
-    * **Klucz publiczny SSH**: dodaj klucz publiczny, który będzie używany do uwierzytelniania względem maszyn wirtualnych usługi Azure Container Service. Ważne jest, aby ten klucz nie zawierał podziałów wierszy i miał prefiks `ssh-rsa`. Postfiks `username@domain` jest opcjonalny. Klucz powinien wyglądać podobnie do poniższego: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **Klucz publiczny SSH RSA**: dodaj klucz publiczny, który będzie używany do uwierzytelniania względem maszyn wirtualnych usługi Azure Container Service. Ważne jest, aby ten klucz nie zawierał podziałów wierszy i miał prefiks `ssh-rsa`. Postfiks `username@domain` jest opcjonalny. Klucz powinien wyglądać podobnie do poniższego: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
 
 4. Aby kontynuować, kliknij przycisk **OK**.
 
     ![Ustawienia podstawowe](media/container-service-deployment/acs-portal3.png)  <br />
 
-5. Wybierz typ aranżacji. Dostępne opcje to:
+5. W bloku **Konfiguracja platformy** wybierz pozycję **Konfiguracja programu Orchestrator**. Dostępne są następujące opcje:
 
   * **DC/OS**: wdraża klaster DC/OS.
   * **Swarm**: wdraża klaster Docker Swarm.
@@ -77,17 +74,17 @@ Wdrożenie klastra usługi Azure Container Service jest również możliwe za po
 
     ![Wybór koordynatora](media/container-service-deployment/acs-portal4-new.png)  <br />
 
-7. Jeśli na liście rozwijanej wybrano wartość **Kubernetes**, należy wprowadzić identyfikator klienta nazwy głównej usługi oraz klucz tajny klienta jednostki usługi. Aby uzyskać więcej informacji, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o nazwie głównej usługi dla klastra Kubernetes).
+7. Jeśli na liście rozwijanej wybrano wartość **Kubernetes**, należy wprowadzić identyfikator klienta nazwy głównej usługi (zwany również appId) oraz klucz tajny klienta jednostki usługi (hasło). Aby uzyskać więcej informacji, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o nazwie głównej usługi dla klastra Kubernetes).
 
     ![Wprowadzanie nazwy głównej usługi Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
 
-7. W bloku ustawień usługi **Azure Container Service** wprowadź następujące informacje:
+7. W bloku **ustawień usługi Azure Container Service** wprowadź następujące informacje:
 
-    * **Liczba serwerów głównych**: liczba serwerów głównych w klastrze. Jeśli wybrano opcję Kubernetes, liczba serwerów głównych jest domyślnie ustawiona na 1.
+    * **Liczba serwerów głównych**: liczba serwerów głównych w klastrze.
     * **Liczba agentów**: w przypadku opcji Docker Swarm lub Kubernetes ta wartość to początkowa liczba agentów w zestawie skalowania agenta. W przypadku opcji DC/OS jest to początkowa liczba agentów w prywatnym zestawie skalowania. Ponadto w przypadku koordynatora DC/OS jest tworzony publiczny zestaw skalowania zawierający wstępnie określoną liczbę agentów. Liczba agentów w tym publicznym zestawie skalowania zależy od liczby serwerów głównych utworzonych w klastrze: jeden agent publiczny dla jednego serwera głównego i dwa agenty publiczne dla trzech lub pięciu serwerów głównych.
     * **Rozmiar maszyny wirtualnej agenta**: rozmiar maszyn wirtualnych agenta.
     * **Prefiks DNS**: unikatowa w zakresie globalnym nazwa, która służy jako prefiks kluczowych części w pełni kwalifikowanych nazw domen dla usługi.
-    * **Diagnostyka maszyn wirtualnych**: w przypadku niektórych koordynatorów można włączyć diagnostykę maszyn wirtualnych.
+    * **Diagnostyka maszyn wirtualnych**: w przypadku niektórych koordynatorów można wybrać opcję włączenia diagnostyki maszyn wirtualnych.
 
 8. Aby kontynuować, kliknij przycisk **OK**.
 
@@ -112,12 +109,12 @@ Przeprowadzenie wdrożenia zajmuje kilka minut. Następnie klaster usługi Azure
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Tworzenie klastra przy użyciu szablonu szybkiego startu
 Na potrzeby wdrożenia klastra w usłudze Azure Container Service są dostępne szablony szybkiego startu platformy Azure. Udostępnione szablony szybkiego startu można modyfikować w celu włączenia dodatkowej lub zaawansowanej konfiguracji platformy Azure. Aby utworzyć klaster usługi Azure Container Service za pomocą szablonu szybkiego startu platformy Azure, potrzebna jest subskrypcja platformy Azure. Jeśli jej nie masz, utwórz konto [bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Wykonaj następujące kroki, aby wdrożyć klaster przy użyciu szablonu oraz interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza). Zobacz [instrukcje instalacji i konfigurowania](/cli/azure/install-az-cli2.md).
+Wykonaj następujące kroki, aby wdrożyć klaster przy użyciu szablonu oraz interfejsu wiersza polecenia platformy Azure w wersji 2.0 (zobacz [instrukcje instalacji i konfigurowania](/cli/azure/install-az-cli2.md)).
 
 > [!NOTE] 
 > Jeśli korzystasz z systemu Windows, możesz użyć podobnych kroków, aby wdrożyć szablon przy użyciu programu Azure PowerShell. Zobacz kroki w dalszej części tej sekcji. Szablon możesz także wdrożyć za pośrednictwem [portalu](../azure-resource-manager/resource-group-template-deploy-portal.md) lub innych metod.
 
-1. Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z poniższych szablonów usługi GitHub. Zwróć uwagę na to, że szablony DC/OS i Swarm są takie same — różnią się tylko domyślnie wybranym koordynatorem.
+1. Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z dostępnych szablonów szybkiego startu usługi GitHub. Częściowa lista została przedstawiona poniżej. Zwróć uwagę na to, że szablony DC/OS i Swarm są takie same — różnią się tylko domyślnie wybranym koordynatorem.
 
     * [Szablon DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Szablon Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -165,7 +162,7 @@ Wykonaj następujące kroki, aby wdrożyć klaster przy użyciu szablonu oraz in
 ### <a name="equivalent-powershell-commands"></a>Równoważne polecenia programu PowerShell
 Szablon klastra usługi Azure Container Service można również wdrożyć przy użyciu programu PowerShell. Ten dokument jest oparty na wersji 1.0 [modułu Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
-1. Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z poniższych szablonów. Zwróć uwagę na to, że szablony DC/OS i Swarm są takie same — różnią się tylko domyślnie wybranym koordynatorem.
+1. Aby wdrożyć klaster DC/OS, Docker Swarm lub Kubernetes, wybierz jeden z dostępnych szablonów szybkiego startu usługi GitHub. Częściowa lista została przedstawiona poniżej. Zwróć uwagę na to, że szablony DC/OS i Swarm są takie same — różnią się tylko domyślnie wybranym koordynatorem.
 
     * [Szablon DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Szablon Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -214,6 +211,6 @@ Teraz, gdy masz działający klaster, możesz zapoznać się z tymi dokumentami,
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

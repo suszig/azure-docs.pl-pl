@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: a2e65de2ec77da9005cea18876fd86fd2928b9da
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
 
 
 ---
@@ -121,7 +121,7 @@ Dla wielu działów IT wypełnienie zobowiązań wynikających z umowy dotycząc
 
 W przypadku warstw usług Podstawowej, Standardowej i Premium usługi **SQL Database** firma Microsoft gwarantuje dostępność na poziomie 99,99%. Najnowsze informacje można znaleźć w artykule [SQL Database — umowa SLA](https://azure.microsoft.com/support/legal/sla/sql-database/). Najnowsze informacje dotyczące warstw usługi SQL Database oraz obsługiwanych planów ciągłości działalności biznesowej znajdują się w temacie [Warstwy usług](sql-database-service-tiers.md).
 
-W przypadku **programu SQL Server uruchomionego na maszynach wirtualnych platformy Azure** firma Microsoft zapewnia dostępność na poziomie 99,95%, która obejmuje tylko maszyny wirtualne. Umowa SLA nie obejmuje procesów (np. programu SQL Server) uruchomionych na maszynie wirtualnej i wymaga obsługi przynajmniej dwóch wystąpień maszyny wirtualnej w zbiorze dostępności. Najnowsze informacje znajdują się w artykule [Maszyny wirtualne — umowa SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Aby uzyskać wysoką dostępność bazy danych w maszynach wirtualnych, należy skonfigurować jedną z obsługiwanych opcji wysokiej dostępności w programie SQL Server, np. [Zawsze włączone grupy dostępności](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Użycie obsługiwanej opcji wysokiej dostępności nie zapewnia dodatkowej umowy SLA, ale umożliwia osiągnięcie dostępności bazy danych na poziomie > 99,99%.
+W przypadku **programu SQL Server uruchomionego na maszynach wirtualnych platformy Azure** firma Microsoft zapewnia dostępność na poziomie 99,95%, która obejmuje tylko maszyny wirtualne. Umowa SLA nie obejmuje procesów (np. programu SQL Server) uruchomionych na maszynie wirtualnej i wymaga obsługi przynajmniej dwóch wystąpień maszyny wirtualnej w zbiorze dostępności. Najnowsze informacje znajdują się w artykule [Maszyny wirtualne — umowa SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Aby uzyskać wysoką dostępność bazy danych w maszynach wirtualnych, należy skonfigurować jedną z obsługiwanych opcji wysokiej dostępności w programie SQL Server, np. [Zawsze włączone grupy dostępności](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Użycie obsługiwanej opcji wysokiej dostępności nie zapewnia dodatkowej umowy SLA, ale umożliwia osiągnięcie dostępności bazy danych na poziomie >&99;,99%.
 
 ### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Czas wprowadzenia na rynek
 Usługa **SQL Database** to odpowiednie rozwiązanie do obsługi aplikacji przeznaczonych do chmury, gdy wydajność deweloperów i krótki czas wprowadzania na rynek mają decydujące znaczenie. Dzięki funkcjonalności przypominającej model DBA jest doskonała dla architektów i deweloperów chmury, ponieważ zmniejsza potrzebę zarządzania bazowym systemem operacyjnym i bazą danych. Na przykład można użyć [interfejsu API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) i [poleceń cmdlet programu PowerShell](http://msdn.microsoft.com/library/mt740629.aspx) do automatyzacji operacji administracyjnych dla tysięcy baz danych oraz zarządzania nimi. Funkcje, takie jak [pule elastyczne](sql-database-elastic-pool.md), pozwalają skupić się na warstwie aplikacji i szybciej wprowadzić rozwiązanie na rynek.
@@ -142,14 +142,13 @@ Wybierz rozwiązanie **SQL Server na maszynach wirtualnych Azure**, jeśli:
 * Masz istniejące zasoby IT i możesz ostatecznie samodzielnie zarządzać poprawkami, kopiami zapasowymi i wysoką dostępnością bazy danych. Należy zauważyć, że niektóre funkcje automatyczne umożliwiają znaczne uproszczenie tych operacji. 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby rozpocząć korzystanie z usługi SQL Database, zobacz temat [Samouczek SQL Database: tworzenie bazy danych SQL w kilka minut za pomocą witryny Azure Portal](sql-database-get-started.md).
+* Aby rozpocząć pracę z usługą SQL Database, zobacz [Your first Azure SQL Database](sql-database-get-started.md) (Twoja pierwsza baza danych Azure SQL Database).
 * Zobacz [Cennik usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Aby rozpocząć pracę z programem SQL Server na maszynach wirtualnych platformy Azure, zobacz temat [Aprowizowanie maszyny wirtualnej programu SQL Server w Portalu Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
-* Zobacz [Program SQL Server na maszynie wirtualnej platformy Azure: ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

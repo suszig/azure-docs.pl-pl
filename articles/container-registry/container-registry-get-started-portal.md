@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
-ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 97bbb72e044d86375afd1dc2ba40c90681e5d9a1
 
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Tworzenie rejestru kontenerów za pomocą witryny Azure Portal
-Użyj witryny Azure Portal, aby utworzyć rejestr kontenerów i zarządzać jego ustawieniami. Tworzenie rejestrów kontenerów i zarządzanie nimi jest także możliwe przy użyciu [poleceń interfejsu wiersza polecenia platformy Azure w wersji zapoznawczej 2.0](container-registry-get-started-azure-cli.md) lub programowo przy użyciu interfejsu [API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) usługi Container Registry.
+Użyj witryny Azure Portal, aby utworzyć rejestr kontenerów i zarządzać jego ustawieniami. Tworzenie rejestrów kontenerów i zarządzanie nimi jest także możliwe przy użyciu [poleceń interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-registry-get-started-azure-cli.md) lub programowo przy użyciu interfejsu [API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) usługi Container Registry.
 
 Aby uzyskać ogólne informacje i zapoznać się z pojęciami, zobacz [What is Azure Container Registry?](container-registry-intro.md) (Co to jest usługa Azure Container Registry?)
 
@@ -77,6 +77,6 @@ Po utworzeniu rejestru znajdź ustawienia rejestru, uruchamiając blok **Rejestr
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

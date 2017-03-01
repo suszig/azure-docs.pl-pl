@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 02/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 487a006050bdb77f03db19b87a98dd3f4c64a738
+ms.sourcegitcommit: cf72197aba2c6e6c7a51f96d1161cf1fbe88a0c5
+ms.openlocfilehash: 149f3daf1f61f459b0a0834c0f112574510d5259
 
 
 ---
-# <a name="configure-a-pointtosite-connection-to-a-vnet-using-the-classic-portal"></a>Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu portalu klasycznego
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-portal"></a>Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu portalu klasycznego
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -32,9 +32,9 @@ ms.openlocfilehash: 487a006050bdb77f03db19b87a98dd3f4c64a738
 
 Konfiguracja typu punkt-lokacja pozwala utworzyć indywidualne bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Przedstawione rozwiązanie przydaje się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, np. z domu lub z konferencji, lub gdy konieczne jest połączenie z siecią wirtualną jedynie niewielkiej liczby klientów.
 
-W tym artykule opisano proces tworzenia sieci wirtualnej z połączeniem punkt-lokacja w ramach **klasycznego modelu wdrażania** przy użyciu **portalu klasycznego**.
+Połączenia typu punkt-lokacja nie wymagają do prawidłowego działania urządzenia sieci VPN ani publicznego adresu IP. Połączenie sieci VPN jest nawiązywane poprzez zainicjowanie połączenia z komputera klienckiego. Więcej informacji na temat połączeń typu punkt-lokacja znajduje się w sekcji [Często zadawane pytania dotyczące połączeń typu punkt-lokacja](#faq) na końcu tego artykułu.
 
-Połączenia typu punkt-lokacja nie wymagają do prawidłowego działania urządzenia sieci VPN ani publicznego adresu IP. Połączenie sieci VPN jest nawiązywane poprzez zainicjowanie połączenia z komputera klienckiego. Aby uzyskać więcej informacji na temat połączeń typu punkt-lokacja, zobacz artykuły [Brama sieci VPN — często zadawane pytania](vpn-gateway-vpn-faq.md#point-to-site-connections) i [Planning and Design](vpn-gateway-plan-design.md) (Planowanie i projekt).
+W tym artykule opisano proces tworzenia sieci wirtualnej z połączeniem typu punkt-lokacja w ramach klasycznego modelu wdrażania przy użyciu portalu klasycznego.
 
 ### <a name="deployment-models-and-methods-for-p2s-connections"></a>Modele wdrażania i metody nawiązywania połączeń typu punkt-lokacja
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -44,20 +44,20 @@ W poniższej tabeli przedstawiono dwa modele wdrażania oraz dostępne metody wd
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="basic-workflow"></a>Podstawowy przepływ pracy
-![Diagram: połączenie typu punkt-lokacja](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
+![Diagram: połączenie typu punkt-lokacja](./media/vpn-gateway-point-to-site-create/p2sclassic.png "punkt-lokacja")
 
 Poniższe kroki opisują czynności niezbędne w celu utworzenia bezpiecznego połączenia typu punkt-lokacja z siecią wirtualną. 
 
-Proces konfigurowania połączenia typu punkt-lokacja został podzielony na 4 sekcje. Ważne jest zachowanie kolejności konfigurowania poszczególnych sekcji. Nie pomijać żadnych kroków ani przeskakiwać do przodu.
+Proces konfigurowania połączenia typu punkt-lokacja został podzielony na&4; sekcje. Ważne jest zachowanie kolejności konfigurowania poszczególnych sekcji. Nie pomijać żadnych kroków ani przeskakiwać do przodu.
 
 * **Sekcja 1** — tworzenie sieci wirtualnej i bramy sieci VPN.
 * **Sekcja 2** — tworzenie certyfikatów używanych do uwierzytelniania oraz ich przekazywanie.
 * **Sekcja 3** — eksportowanie i instalowanie certyfikatów klienta.
 * **Sekcja 4** — konfigurowanie klienta VPN.
 
-## <a name="a-namevnetvpnasection-1-create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>Sekcja 1 — tworzenie sieci wirtualnej i bramy sieci VPN
+## <a name="a-namevnetvpnasection-1---create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>Sekcja 1 — tworzenie sieci wirtualnej i bramy sieci VPN
 ### <a name="part-1-create-a-virtual-network"></a>Część 1. Tworzenie sieci wirtualnej
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com/). Zwróć uwagę, że te kroki odnoszą się do portalu klasycznego, a nie do witryny Azure Portal. Obecnie nie można utworzyć połączenia punkt-lokacja za pomocą witryny Azure Portal.
+1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com). Zwróć uwagę, że te kroki odnoszą się do portalu klasycznego, a nie do witryny Azure Portal. Obecnie nie można utworzyć połączenia punkt-lokacja za pomocą witryny Azure Portal.
 2. W lewym dolnym rogu ekranu kliknij opcję **Nowe**. W okienku nawigacji kliknij opcję **Usługi sieciowe**, a następnie opcję **Sieć wirtualna**. Kliknij przycisk **Tworzenie niestandardowe**, aby rozpocząć korzystanie z kreatora konfiguracji.
 3. Na stronie **Szczegóły sieci wirtualnej** wprowadź następujące informacje, a następnie kliknij strzałkę w prawym dolnym rogu, aby przejść dalej.
    
@@ -84,9 +84,9 @@ Proces konfigurowania połączenia typu punkt-lokacja został podzielony na 4 se
 Podczas konfiguracji należy wybrać dynamiczny typ bramy. Bramy o statycznym routingu nie będą działać z tą funkcją.
 
 1. Na stronie **Sieci** w klasycznej witrynie Azure Portal kliknij sieć wirtualną, która została utworzona, a następnie przejdź na stronę **Pulpit nawigacyjny**.
-2. Kliknij przycisk **Utwórz bramę** w dolnej części strony **Pulpit nawigacyjny**. Zostanie wyświetlony komunikat z pytaniem: **Czy chcesz utworzyć bramę sieci wirtualnej „VNet1”?**. Kliknij opcję **Tak**, aby rozpocząć tworzenie bramy. Proces tworzenia bramy może potrwać około 15 minut.
+2. W dolnej części strony **Pulpit nawigacyjny** kliknij przycisk **Utwórz bramę**. Zostanie wyświetlony komunikat z pytaniem: **Czy chcesz utworzyć bramę sieci wirtualnej „VNet1”?**. Kliknij opcję **Tak**, aby rozpocząć tworzenie bramy. Proces tworzenia bramy może potrwać do 45 minut.
 
-## <a name="a-namegenerateasection-2-generate-and-upload-certificates"></a><a name="generate"></a>Sekcja 2 — generowanie i przekazywanie certyfikatów
+## <a name="a-namegenerateasection-2---generate-and-upload-certificates"></a><a name="generate"></a>Sekcja 2 — generowanie i przekazywanie certyfikatów
 Certyfikaty są używane do uwierzytelniania klientów sieci VPN w obrębie sieci VPN typu punkt-lokacja. Można stosować certyfikat z podpisem własnym lub certyfikat główny wygenerowany przez rozwiązanie do obsługi certyfikatów przedsiębiorstwa. Na platformę Azure można przekazać do 20 certyfikatów głównych. Po przekazaniu pliku cer platforma Azure może użyć zawartych w nim informacji do uwierzytelniania klientów, którzy mają zainstalowany certyfikat klienta. Certyfikat klienta musi zostać wygenerowany na podstawie tego samego certyfikatu, który jest reprezentowany przez plik cer.
 
 W tej sekcji wykonasz poniższe czynności:
@@ -109,21 +109,25 @@ Dodaj zaufany certyfikat do platformy Azure. Po dodaniu do platformy Azure pliku
 ### <a name="a-namecreateclientcertapart-3-generate-a-client-certificate"></a><a name="createclientcert"></a>Część 3: Generowanie certyfikatu klienta
 Kolejny krok to generowanie certyfikatów klienta. Można wygenerować unikatowy certyfikat dla każdego klienta, dzięki któremu będzie można się łączyć, ale można też użyć tego samego certyfikatu na wielu klientach. Zaletą generowania unikatowych certyfikatów klienta jest możliwość odwoływania pojedynczego certyfikatu, jeśli to konieczne. W przeciwnym razie, jeśli wszyscy użytkownicy korzystają z tego samego certyfikatu klienta i konieczne jest odwołanie certyfikatu dla jednego klienta, należy wygenerować i zainstalować nowe certyfikaty dla wszystkich klientów, którzy używają certyfikatu do uwierzytelniania.
 
-* Jeśli pracujesz z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu typowego formatu wartości nazwy 'name@yourdomain.com',, a nie w formacie NetBIOS „DOMENA\nazwa_użytkownika”. 
-* Jeśli używasz certyfikatu z podpisem własnym i chcesz wygenerować certyfikat klienta, zobacz temat [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Praca z certyfikatami głównymi z podpisem własnym dla konfiguracji połączenia typu punkt-lokacja).
+####<a name="enterprise-certificate"></a>Certyfikat przedsiębiorstwa
+- Jeśli pracujesz z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu typowego formatu wartości nazwy 'name@yourdomain.com',, a nie w formacie „nazwa_domeny\nazwa_użytkownika”.
+- Upewnij się, że wydawany certyfikat klienta jest oparty na szablonie certyfikatu „Użytkownik”, którego pierwszym elementem na liście użycia jest „Uwierzytelnienie klienta”, a nie Logowanie karty inteligentnej itp. Certyfikat można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i wyświetlenie pozycji **Szczegóły > Ulepszone użycie klucza**.
 
-## <a name="a-nameinstallclientcertasection-3-export-and-install-the-client-certificate"></a><a name="installclientcert"></a>Sekcja 3 — eksportowanie i instalowanie certyfikatu klienta
+####<a name="self-signed-certificate"></a>Certyfikat z podpisem własnym 
+Jeśli używasz certyfikatu z podpisem własnym i chcesz wygenerować certyfikat klienta, zobacz temat [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Praca z certyfikatami głównymi z podpisem własnym dla konfiguracji połączenia typu punkt-lokacja).
+
+## <a name="a-nameinstallclientcertasection-3---export-and-install-the-client-certificate"></a><a name="installclientcert"></a>Sekcja 3 — eksportowanie i instalowanie certyfikatu klienta
 Certyfikat klienta należy zainstalować na każdym komputerze, który zostanie połączony z siecią wirtualną. Certyfikat klienta jest wymagany do uwierzytelniania. Można zautomatyzować instalowanie certyfikatu klienta, ale możliwe jest też przeprowadzenie instalacji ręcznie. Kroki przedstawione poniżej opisują sposób postępowania w przypadku eksportu i ręcznej instalacji certyfikatu klienta.
 
 1. Aby wyeksportować certyfikat klienta, można użyć narzędzia *certmgr.msc*. Kliknij prawym przyciskiem myszy certyfikat klienta, który chcesz wyeksportować, a następnie kliknij przycisk **wszystkie zadania** i opcję **eksportuj**.
 2. Wyeksportuj certyfikat klienta z kluczem prywatnym. Klucz znajduje się w pliku *pfx*. Zapisz lub zapamiętaj hasło (klucz) ustawione dla tego certyfikatu.
 3. Skopiuj plik *.pfx* na komputer kliencki. Na komputerze klienckim kliknij dwukrotnie plik *pfx*, aby go zainstalować. Gdy zostanie wyświetlony stosowny monit, wprowadź hasło. Nie zmieniaj lokalizacji instalacji.
 
-## <a name="a-namevpnclientconfigasection-4-configure-your-vpn-client"></a><a name="vpnclientconfig"></a>Sekcja 4 — konfigurowanie klienta VPN
+## <a name="a-namevpnclientconfigasection-4---configure-your-vpn-client"></a><a name="vpnclientconfig"></a>Sekcja 4 — konfigurowanie klienta VPN
 Aby nawiązać połączenie z siecią wirtualną, należy skonfigurować także klienta sieci VPN. W celu nawiązania połączenia klient wymaga zarówno certyfikatu klienta, jak i odpowiedniej konfiguracji klienta sieci VPN. Aby skonfigurować klienta sieci VPN, wykonaj po kolei następujące czynności.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>Część 1: Tworzenie pakietu konfiguracyjnego klienta VPN
-1. W klasycznej witrynie Azure Portal na stronie **Pulpit nawigacyjny** sieci wirtualnej przejdź do menu szybkiego dostępu w prawym górnym rogu. Lista obsługiwanych systemów operacyjnych klienta znajduje się w temacie Brama sieci VPN — często zadawane pytania w sekcji [Połączenia typu punkt-lokacja](vpn-gateway-vpn-faq.md#point-to-site-connections). Pakiet klienta VPN zawiera informacje konfiguracyjne umożliwiające skonfigurowanie oprogramowania klienta VPN wbudowanego w system Windows. Instalacja pakietu nie powoduje instalacji dodatkowego oprogramowania. Ustawienia są specyficzne dla sieci wirtualnej, z którą chcesz nawiązać połączenie.<br><br>Wybierz pakiet pobierania, który odpowiada systemowi operacyjnemu klienta, na którym zostanie zainstalowany:
+1. W klasycznej witrynie Azure Portal na stronie **Pulpit nawigacyjny** sieci wirtualnej przejdź do menu szybkiego dostępu w prawym górnym rogu. Pakiet klienta VPN zawiera informacje konfiguracyjne umożliwiające skonfigurowanie oprogramowania klienta VPN wbudowanego w system Windows. Instalacja pakietu nie powoduje instalacji dodatkowego oprogramowania. Ustawienia są specyficzne dla sieci wirtualnej, z którą chcesz nawiązać połączenie. Lista obsługiwanych systemów operacyjnych klienta znajduje się w sekcji [Często zadawane pytania dotyczące połączeń typu punkt-lokacja](#faq) na końcu tego artykułu.<br><br>Wybierz pakiet pobierania, który odpowiada systemowi operacyjnemu klienta, na którym zostanie zainstalowany:
    
    * W przypadku klientów 32-bitowych należy wybrać opcję **Pobierz pakiet dla 32-bitowego klienta VPN**.
    * W przypadku klientów 64-bitowych należy wybrać opcję **Pobierz pakiet dla 64-bitowego klienta VPN**.
@@ -135,16 +139,21 @@ Aby nawiązać połączenie z siecią wirtualną, należy skonfigurować także 
 2. Gdy pakiet zostanie zainstalowany, możesz uruchomić połączenie sieci VPN. Pakiet konfiguracyjny nie jest podpisany przez firmę Microsoft. Możesz podpisać pakiet, korzystając z urządzenia używanego w tym celu w Twojej organizacji, lub samodzielnie, przy użyciu narzędzia [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Z pakietu można korzystać nawet, jeśli nie jest podpisany. Jeśli jednak pakiet nie jest podpisany, podczas instalowania go zostanie wyświetlone ostrzeżenie.
 3. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie zostanie wyświetlone. Widoczna będzie nazwa sieci wirtualnej, z którą zostanie nawiązane połączenie. Powinno to wyglądać następująco: 
    
-    ![Klient sieci VPN](./media/vpn-gateway-point-to-site-create/vpn.png "VPN client")
+    ![Klient sieci VPN](./media/vpn-gateway-point-to-site-create/vpn.png "Klient sieci VPN")
 
 ### <a name="part-3-connect-to-azure"></a>Część 3: Nawiązywanie połączenia z platformą Azure
 1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Jeśli tak się stanie, kliknij przycisk **Kontynuuj**, aby skorzystać z podniesionych uprawnień. 
 2. Na stronie stanu **Połączenie** kliknij przycisk **Połącz**, aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat**, sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli nie, kliknij strzałkę na liście rozwijanej, aby wybrać właściwy certyfikat, a następnie kliknij przycisk **OK**.
    
-    ![Klient sieci VPN 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "VPN client connection")
+    ![Klient sieci VPN 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "Połączenie klienta sieci VPN")
 3. Połączenie powinno zostać nawiązane.
    
-    ![Klient sieci VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
+    ![Klient sieci VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "Połączenie klienta sieci VPN 2")
+
+> [!NOTE]
+> Jeśli używasz certyfikatu wydanego przy użyciu rozwiązania dla przedsiębiorstwa proponowanego przez urząd certyfikacji i występują problemy z uwierzytelnianiem, sprawdź kolejność uwierzytelniania w certyfikacie klienta. Kolejność elementów na liście uwierzytelniania można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i przejście do pozycji **Szczegóły > Ulepszone użycie klucza**. Upewnij się, że pierwszym elementem na liście jest „Uwierzytelnienie klienta”. Jeśli tak nie jest, certyfikat klienta należy wydać na podstawie szablonu Użytkownik mającego Uwierzytelnienie klienta jako pierwszy element na liście. 
+>
+>
 
 ### <a name="part-4-verify-the-vpn-connection"></a>Część 4: Sprawdzenie połączenia sieci VPN
 1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
@@ -163,14 +172,19 @@ Przykład:
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
 
+## <a name="a-namefaqapoint-to-site-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące połączeń typu punkt-lokacja
+
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+
 ## <a name="next-steps"></a>Następne kroki
-Do sieci wirtualnej można dodać maszyny wirtualne. Zobacz artykuł [How to create a custom virtual machine](../virtual-machines/virtual-machines-windows-classic-createportal.md) (Tworzenie niestandardowej maszyny wirtualnej).
 
-Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz artykuł [Virtual Network Documentation](https://azure.microsoft.com/documentation/services/virtual-network/) (Dokumentacja sieci wirtualnych).
+Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne).
+
+Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz artykuł [Virtual Network Documentation](/azure/virtual-network) (Dokumentacja sieci wirtualnych).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

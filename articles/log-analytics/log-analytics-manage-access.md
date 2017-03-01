@@ -1,6 +1,6 @@
 ---
 title: "Zarządzanie obszarami roboczymi | Microsoft Docs"
-description: "Możesz zarządzać obszarami roboczymi w usłudze Log Analytics przy użyciu różnych zadań administracyjnych dotyczących użytkowników, kont, obszarów roboczych i kont platformy Azure."
+description: "Możesz zarządzać obszarami roboczymi w usłudze Azure Log Analytics przy użyciu różnych zadań administracyjnych dotyczących użytkowników, kont, obszarów roboczych i kont platformy Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
 
 
 ---
@@ -97,10 +97,13 @@ Należy pamiętać o kilku kwestiach związanych z witryną Azure Portal:
 
   Adres URL wygląda następująco: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+Aby na przykład dodać lub usunąć rozwiązania do zarządzania, użytkownik musi być administratorem lub współautorem subskrypcji używanej w witrynie Azure Portal. Ponadto użytkownik musi być członkiem roli administratora lub współautora obszaru roboczego pakietu OMS w portalu pakietu OMS.
+
 ### <a name="managing-users-in-the-oms-portal"></a>Zarządzanie użytkownikami w portalu pakietu OMS
 Do zarządzania użytkownikami i grupami służy karta **Zarządzanie użytkownikami** na karcie **Konta** na stronie Ustawienia.   
 
 ![zarządzanie użytkownikami](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>Dodawanie użytkownika do istniejącego obszaru roboczego
 Poniżej przedstawiono procedurę dodawania użytkownika lub grupy do obszaru roboczego.
@@ -298,6 +301,6 @@ Jeśli jesteś administratorem i z tym obszarem roboczym jest skojarzonych wielu
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

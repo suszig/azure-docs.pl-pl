@@ -16,8 +16,9 @@ ms.workload: powerbi
 ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
-ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
+ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
+ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -77,7 +78,7 @@ Po utworzeniu kolekcji obszarów roboczych musisz utworzyć obszar roboczy, któ
 Teraz, gdy masz utworzone wystąpienie usługi Power BI dla aplikacji i **klucze dostępu**, trzeba utworzyć zestawy danych i raporty usługi Power BI potrzebne do osadzenia. Zestawy danych i raporty można tworzyć za pomocą programu **Power BI Desktop**. Możesz pobrać program [Power BI Desktop za darmo](https://go.microsoft.com/fwlink/?LinkId=521662). Możesz też pobrać plik z [przykładem analizy sprzedaży PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), aby szybko rozpocząć pracę.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o sposobie używania programu **Power BI Desktop**, zobacz stronę [Getting Started With Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Wprowadzenie do programu Power BI Desktop).
+> Aby dowiedzieć się więcej o sposobie używania programu **Power BI Desktop**, zobacz stronę [Getting Started With Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Wprowadzenie do programu Power BI Desktop).
 
 W programie **Power BI Desktop** łączysz się ze źródłem danych, importując kopię danych do programu **Power BI Desktop**, lub korzystasz bezpośrednio ze źródła danych przy użyciu **trybu DirectQuery**.
 
@@ -109,10 +110,5 @@ W poprzednich krokach utworzono kolekcję obszarów roboczych oraz pierwszy rapo
 * [Program Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 Masz więcej pytań? [Dołącz do społeczności użytkowników usługi Power BI](http://community.powerbi.com/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

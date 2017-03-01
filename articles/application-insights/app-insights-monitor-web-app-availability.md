@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
 
 
 ---
@@ -29,7 +29,7 @@ Testy sieci Web można skonfigurować dla dowolnego punktu końcowego protokoł�
 Istnieją dwa typy testów sieci Web:
 
 * [Test ping adresu URL](#create): prosty test, który można utworzyć w portalu Azure.
-* [Wieloetapowy test sieci Web](#multi-step-web-tests): tworzony w programach Visual Studio Ultimate lub Visual Studio Enterprise i przekazywany do portalu.
+* [Wieloetapowy test sieci Web](#multi-step-web-tests): tworzony w programie Visual Studio Enterprise i przekazywany do portalu.
 
 Można utworzyć maksymalnie 10 testów sieci Web na każdy zasób aplikacji.
 
@@ -78,37 +78,20 @@ Wykresy zawierają wyniki wszystkich testów sieci Web dotyczących tej aplikacj
 ## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Jeśli widzisz błędy
 Kliknij czerwoną kropkę.
 
-![Kliknij czerwoną kropkę](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Kliknij czerwoną kropkę](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Lub przewiń w dół i kliknij test, który ma wynik niższy niż 100%.
 
-![Kliknij konkretny test sieci Web](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Z poziomu wyniku testu sieci Web można wykonać następujące czynności:
 
-Zostaną otwarte wyniki tego testu.
+* Zbadać odpowiedź odebraną z serwera.
+* Otworzyć telemetrię wysłaną przez aplikację serwera podczas przetwarzania wystąpienia żądań zakończonych niepowodzeniem.
+* Zarejestrować problem lub element roboczy w usłudze Git bądź VSTS w celu prześledzenia problemu. Błąd będzie zawierać link do tego zdarzenia.
+* Otworzyć wynik testu sieci Web w programie Visual Studio.
 
-![Kliknij konkretny test sieci Web](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-Test jest uruchamiany z kilku lokalizacji &#151; wybierz taką, której wyniki są poniżej 100%.
-
-![Kliknij konkretny test sieci Web](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Przewiń w dół do sekcji **Testy zakończone niepomyślnie** i wybierz wynik.
-
-Kliknij wynik, aby ocenić go w portalu i zobaczyć, dlaczego zakończył się błędem.
-
-![Wynik działania testu sieci Web](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Alternatywnie możesz pobrać plik wynikowy i przejrzeć go w programie Visual Studio.
 
 *Test wygląda dobrze, ale jest raportowany jako błąd?* Sprawdź wszystkie obrazy, skrypty, arkusze stylów i inne pliki ładowane przez stronę. Jeśli pobranie dowolnego z nich nie powiedzie się, test zostanie zgłoszony jako nieudany — nawet wtedy, gdy główna strona HTML ładuje się poprawnie.
 
-### <a name="open-the-server-request-and-exceptions"></a>Otwieranie żądania serwera i wyjątki
-
-W obszarze szczegółowych właściwości określonego testu można otworzyć raport po stronie serwera dotyczący żądania i inne zdarzenia, takie jak wyjątki.
-
-![Wynik działania testu sieci Web](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Jeśli nie widzisz powiązanych pozycji, może to być spowodowane [próbkowaniem](app-insights-sampling.md) w operacji.
+*Brak powiązanych elementów?* Może się tak zdarzyć, ponieważ trwa [próbkowanie](app-insights-sampling.md).
 
 ## <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
 Możliwe jest monitorowanie scenariusza, który obejmuje sekwencję adresów URL. Jeśli na przykład monitorujesz witrynę sklepu, możesz sprawdzić, czy dodawanie towarów do koszyka działa prawidłowo.
@@ -122,7 +105,7 @@ Aby utworzyć test wieloetapowy, nagraj scenariusz przy użyciu programu Visual 
 Podczas testów nie można jednak używać zakodowanych funkcji. Kroki scenariusza muszą być umieszczone w pliku .webtest jako skrypt.
 
 #### <a name="1-record-a-scenario"></a>1. Nagrywanie scenariusza
-Nagraj sesję sieci Web w programie Visual Studio Enterprise lub Ultimate.
+Nagraj sesję sieci Web w programie Visual Studio Enterprise.
 
 1. Utwórz projekt testu wydajności sieci Web.
 
@@ -239,7 +222,7 @@ Z poziomu bloku Przegląd otwórz pozycję **Ustawienia**, **Testy wydajności**
 Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzenia.
 
 ## <a name="automation"></a>Automatyzacja
-* Automatyczne [konfigurowanie testów sieci web za pomocą skryptów środowiska PowerShell](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/).
+* Automatyczne [konfigurowanie testów sieci web za pomocą skryptów środowiska PowerShell](app-insights-powershell.md#add-an-availability-test).
 * Konfigurowanie [elementu webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) który jest wywoływany przy zgłaszaniu alertu.
 
 ## <a name="questions-problems"></a>Pytania? Problemy?
@@ -294,6 +277,6 @@ Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzeni
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

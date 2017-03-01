@@ -4,7 +4,7 @@ description: "Ten artykuł pomaga zrozumieć, jak używać tego rozwiązania do 
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/21/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
+ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
 
 
 ---
@@ -24,6 +24,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 Rozwiązanie do zarządzania aktualizacjami w usłudze OMS pozwala na zarządzanie aktualizacjami dla komputerów z systemami Windows i Linux.  Umożliwia ono szybką ocenę stanu dostępnych aktualizacji na wszystkich komputerach z agentami i zainicjowanie procesu instalacji wymaganych aktualizacji serwerów. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+* Rozwiązanie obsługuje tylko przeprowadzanie ocen aktualizacji dla systemu Windows Server 2008 lub nowszych i wdrożeń aktualizacji systemu Windows Server 2012 lub nowszych.  Opcje instalacji Server Core i Nano Server nie są obsługiwane.
+* Systemy operacyjne klienta systemu Windows nie są obsługiwane.  
 * Agenci dla systemu Windows muszą być skonfigurowani do komunikowania się z serwerem Windows Server Update Services (WSUS) albo mieć dostęp do usługi Microsoft Update.  
   
   > [!NOTE]
@@ -104,7 +106,9 @@ Kliknij kafelek **Zarządzanie aktualizacjami**, aby otworzyć pulpit nawigacyjn
 ## <a name="installing-updates"></a>Instalowanie aktualizacji
 Gdy aktualizacje zostaną przeanalizowane dla wszystkich komputerów z systemem Windows w środowisku, konieczne może być utworzenie *wdrożenia aktualizacji* w celu zainstalowania wymaganych aktualizacji.  Wdrożenie aktualizacji to zaplanowana instalacja wymaganych aktualizacji na co najmniej jednym komputerze z systemem Windows.  Należy określić datę i godzinę wdrożenia, a także komputer lub grupę komputerów, które mają zostać uwzględnione.  
 
-Aktualizacje są instalowane przez elementy runbook w usłudze Azure Automation.  Obecnie nie można wyświetlić tych elementów runbook i nie wymagają one żadnej konfiguracji.  Utworzenie wdrożenia aktualizacji powoduje utworzenie harmonogramu, który uruchamia główny element runbook aktualizacji w określonym czasie na uwzględnionych komputerach.  Ten główny element runbook uruchamia podrzędny element runbook na każdym agencie systemu Windows, który przeprowadza instalację wymaganych aktualizacji.  
+Aktualizacje są instalowane przez elementy runbook w usłudze Azure Automation.  Nie można wyświetlić tych elementów runbook i nie wymagają one żadnej konfiguracji.  Utworzenie wdrożenia aktualizacji powoduje utworzenie harmonogramu, który uruchamia główny element runbook aktualizacji w określonym czasie na uwzględnionych komputerach.  Ten główny element runbook uruchamia podrzędny element runbook na każdym agencie systemu Windows, który przeprowadza instalację wymaganych aktualizacji.  
+
+W przypadku maszyn wirtualnych utworzonych na podstawie z obrazów systemu Red Hat Enterprise Linux (RHEL) na żądanie dostępnych w witrynie Azure Marketplace są one rejestrowane w celu uzyskiwania dostępu do [infrastruktury aktualizacji systemu Red Hat (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) wdrożonej na platformie Azure.  Inne dystrybucje systemu Linux należy aktualizować przy użyciu repozytorium plików online dystrybucji i odpowiadających im metod.  
 
 ### <a name="viewing-update-deployments"></a>Wyświetlanie wdrożeń aktualizacji
 Kliknij kafelek **Wdrożenia aktualizacji**, aby wyświetlić listę istniejących wdrożeń aktualizacji.  Są one pogrupowane według stanu — **Zaplanowano**, **Uruchomiono** i **Ukończono**.<br><br> ![Strona harmonogramu wdrożenia aktualizacji](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -247,6 +251,6 @@ Poniższa tabela zawiera przykładowe wyszukiwania w dzienniku dotyczące rekord
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

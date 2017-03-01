@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do tworzenia kopii zapasowych i przywracania baz danych Azure SQL w celu ochrony i odzyskiwania danych przy użyciu programu Azure PowerShell | Dokumentacja firmy Microsoft"
+title: 'PowerShell: wykonywanie kopii zapasowej bazy danych Azure SQL Database i jej przywracanie | Microsoft Docs'
 description: "W tym samouczku przedstawiono sposób przywracania automatycznych kopii zapasowych do punktu w czasie, przechowywania automatycznych kopii zapasowych w magazynie usługi Azure Recovery Services oraz przywracania ich z magazynu usługi Azure Recovery Services za pomocą programu PowerShell"
 keywords: "samouczek usługi sql database"
 services: sql-database
@@ -17,16 +17,16 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>Wprowadzenie do tworzenia kopii zapasowych i przywracania w celu ochrony i odzyskiwania danych za pomocą programu PowerShell
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>Samouczek: wykonywanie kopii zapasowej bazy danych Azure SQL Database i przywracanie jej przy użyciu programu PowerShell
 
-Korzystając z tego samouczka ułatwiającego rozpoczęcie pracy, nauczysz się wykonywać następujące czynności za pomocą programu Azure PowerShell:
+Z tego samouczka nauczysz się używać programu Azure PowerShell do wykonywania następujących czynności:
 
 - Wyświetlanie istniejących kopii zapasowych bazy danych
 - Przywracanie bazy danych do określonego punktu w czasie
@@ -38,7 +38,7 @@ Korzystając z tego samouczka ułatwiającego rozpoczęcie pracy, nauczysz się 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Musisz połączyć się z usługą Azure przy użyciu konta, które jest elementem członkowskim roli współautora lub właściciela subskrypcji. Aby uzyskać więcej informacji o kontroli dostępu na podstawie ról (RBAC, role-based access control), zobacz [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Wprowadzenie do zarządzania dostępem w witrynie Azure Portal).
 
@@ -47,7 +47,7 @@ Korzystając z tego samouczka ułatwiającego rozpoczęcie pracy, nauczysz się 
 * Wykonano kroki samouczka [Rozpoczynanie pracy z serwerami, bazami danych i regułami zapory usługi Azure SQL Database przy użyciu witryny Azure Portal i programu SQL Server Management Studio](sql-database-get-started.md) lub odpowiedniej [wersji dla programu PowerShell](sql-database-get-started-powershell.md). W przeciwnym razie przed kontynuowaniem wykonaj kroki tego samouczka dotyczącego wymagań wstępnych lub uruchom skrypt programu PowerShell wskazany pod koniec samouczka w [wersji dla programu PowerShell](sql-database-get-started-powershell.md).
 
 > [!TIP]
-> Te same czynności przedstawione w samouczku ułatwiającym rozpoczęcie pracy można wykonać przy użyciu witryny [Azure Portal](sql-database-get-started-backup-recovery.md).
+> Te same czynności przedstawione w samouczku ułatwiającym rozpoczęcie pracy można wykonać przy użyciu witryny [Azure Portal](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -55,7 +55,7 @@ Korzystając z tego samouczka ułatwiającego rozpoczęcie pracy, nauczysz się 
 
 W tej części samouczka zapoznasz się z informacjami o najstarszym punkcie przywracania związanym z [wygenerowanymi przez usługi automatycznymi kopiami zapasowymi](sql-database-automated-backups.md) bazy danych. 
 
-Możesz przywrócić bazę danych do dowolnego punktu w czasie pomiędzy najwcześniejszym punktem przywracania i ostatnią dostępną kopią zapasową (wcześniejszą o 6 minut od czasu bieżącego). 
+Możesz przywrócić bazę danych do dowolnego punktu w czasie pomiędzy najwcześniejszym punktem przywracania i ostatnią dostępną kopią zapasową (wcześniejszą o&6; minut od czasu bieżącego). 
 
 W poniższym fragmencie kodu polecenie cmdlet [Get AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabase) jest użyte do uzyskania najwcześniejszego punktu przywracania bazy danych, która ma zostać przywrócona. Czas jest zwracany jako czas UTC, ale następujące fragmenty kodu pokazują sposób pracy w czasie lokalnym. Najnowszy dostępny punkt przywracania aktywnej bazy danych pochodzi zwykle sprzed około sześciu minut, więc w celu użycia najnowszego punktu przywracania wystarczy po prostu ustawić czas bieżący minus sześć minut. 
 
@@ -114,7 +114,7 @@ W tej części samouczka możesz [skonfigurować magazyn usługi Azure Recovery 
 
 
 > [!TIP]
-> Aby usunąć kopie zapasowe podlegające długoterminowemu przechowywaniu, zobacz [Delete long-term retention backups](sql-database-long-term-retention-delete.md) (Usuwanie kopii zapasowych podlegających długoterminowemu przechowywaniu).
+> Aby usunąć kopie zapasowe objęte długoterminowym przechowywaniem, zobacz [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md) (Zarządzanie długotrwałym przechowywaniem kopii zapasowych za pomocą programu PowerShell).
 
 
 ### <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
@@ -380,6 +380,7 @@ $restoredDbFromLtr
 - Aby dowiedzieć się więcej o przywracaniu z kopii zapasowych, zobacz temat dotyczący [przywracania z kopii zapasowej](sql-database-recovery-using-backups.md)
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

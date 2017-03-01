@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 2/15/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 00ce8ecfed0516dd9423e6be15f6defbe886c598
+ms.sourcegitcommit: 738f9d5a8af6e1c641ebfab49bd1f01614ecc913
+ms.openlocfilehash: 9e4ba619d37e213b581f7d18d605b99474ad711b
 
 
 ---
@@ -35,34 +35,47 @@ Analiza użycia programu Azure AD Connect Health analizuje ruch na serwerach fed
 
 > [!NOTE]
 > Aby móc korzystać z analizy użycia dla usług AD FS, należy się upewnić, że inspekcja usług AD FS jest włączona. Aby uzyskać więcej informacji, zobacz [Włączanie inspekcji dla usług AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
-> 
-> 
+>
+>
 
 ![Portal programu Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
-Aby wybrać dodatkowe metryki, określić zakres czasu lub zmienić grupowanie, kliknij prawym przyciskiem myszy wykres analizy użycia i wybierz pozycję Edytuj wykres. Następnie możesz określić zakres czasu, wybrać inne metryki oraz zmienić grupowanie. Za pomocą odpowiednich parametrów funkcji „grupuj według” opisanych w poniższej tabeli możesz zobaczyć rozkład ruchu uwierzytelniania w oparciu o różne „metryki” i pogrupować wszystkie metryki.
+Aby wybrać dodatkowe metryki, określić zakres czasu lub zmienić grupowanie, kliknij prawym przyciskiem myszy wykres analizy użycia i wybierz pozycję Edytuj wykres. Następnie możesz określić zakres czasu, wybrać inne metryki oraz zmienić grupowanie. Za pomocą odpowiednich parametrów funkcji „grupuj według” opisanych w poniższej sekcji możesz zobaczyć rozkład ruchu uwierzytelniania w oparciu o różne „metryki” i pogrupować wszystkie metryki.
 
-| Metryka | Grupuj według | Co oznacza grupowanie i dlaczego jest przydatne? |
-| --- | --- | --- |
-| Łączna liczba żądań: Łączna liczba żądań przetwarzanych przez usługę federacyjną. |Wszyscy |Pokazuje liczbę wszystkich żądań bez grupowania. |
-| Aplikacja |Grupuj wszystkie żądania na podstawie docelowej jednostki zależnej. To grupowanie przydaje się, aby sprawdzić, która aplikacja ma największy procentowy udział w całkowitym ruchu sieciowym. | |
-| Serwer |Grupuje wszystkie żądania na podstawie serwera, który przetwarzał żądanie. Dzięki takiemu grupowaniu można sprawdzić rozkład obciążenia dla całego ruchu sieciowego. | |
-| Urządzenia dołączone w miejscu pracy |Grupuje wszystkie te żądania, które pochodzą z urządzeń dołączonych w miejscu pracy (znane). Dzięki takiemu grupowaniu można sprawdzić, czy do Twoich zasobów uzyskują dostęp urządzenia nieznane dla infrastruktury do obsługi tożsamości. | |
-| Metoda uwierzytelniania |Grupuje wszystkie żądania na podstawie metody uwierzytelniania użytej podczas uwierzytelniania. Dzięki takiemu grupowaniu można się dowiedzieć, jaka metoda uwierzytelniania jest najczęściej używana podczas uwierzytelniania. Możliwe są następujące metody uwierzytelniania <ol> <li>Zintegrowane uwierzytelnianie systemu Windows (system Windows)</li> <li>Uwierzytelnianie oparte na formularzach (Formularze)</li> <li>Logowanie jednokrotne (SSO, Single Sign On)</li> <li>Uwierzytelnianie w oparciu o certyfikat standardu X509 (Certyfikat)</li> <br>Jeśli serwery federacyjne otrzymają żądanie przez plik cookie SSO, żądanie jest traktowane jako SSO (logowanie jednokrotne). W takim przypadku, jeśli plik cookie jest ważny, użytkownik nie jest proszony o dostarczenie poświadczeń i od razu uzyskuje dostęp do aplikacji. To zachowanie ma miejsce często, gdy ma się wiele jednostek zależnych chronionych przez serwery federacyjne. | |
-| Lokalizacja sieciowa |Grupuje wszystkie żądania na podstawie lokalizacji sieciowej użytkownika. Może to być zarówno sieć intranet, jak i ekstranet. Dzięki takiemu grupowaniu można sprawdzić, jaki procent ruchu sieciowego pochodzi z intranetu, a jaki z ekstranetu. | |
-| Łączna liczba żądań zakończonych niepowodzeniem: Łączna liczba żądań zakończonych niepowodzeniem przetworzonych przez usługę federacyjną. <br> (Ta metryka jest dostępna tylko w usługach AD FS dla systemu Windows Server 2012 R2) |Typ błędu |Wyświetla liczbę błędów na podstawie wcześniej zdefiniowanych typów błędów. Takie grupowanie umożliwia zapoznanie się z najczęściej popełnianymi typami błędów. <ul><li>Nieprawidłowa nazwa użytkownika lub hasło: Błędy spowodowane nieprawidłową nazwą użytkownika lub nieprawidłowym hasłem.</li> <li>„Zablokowany ekstranet”: Niepowodzenia spowodowane żądaniami otrzymanymi od użytkownika, któremu został zablokowany dostęp do sieci ekstranet. </li><li> „Hasło nieaktualne”: Niepowodzenia spowodowane logowaniem się użytkowników przy użyciu nieaktualnych haseł.</li><li>„Konto wyłączone”: Niepowodzenia spowodowane logowaniem się użytkowników przy użyciu wyłączonych kont.</li><li>„Uwierzytelnianie urządzenia”: Niepowodzenia spowodowane nieudanymi uwierzytelnieniami użytkowników przy użyciu uwierzytelniania urządzenia.</li><li>„Uwierzytelnianie certyfikatu użytkownika”: Niepowodzenia wynikające z nieudanych uwierzytelnień użytkowników z powodu nieprawidłowego certyfikatu.</li><li>„MFA”: Niepowodzenia wynikające z nieudanych uwierzytelnień użytkowników przy użyciu usługi Multi Factor Authentication.</li><li>„Inne poświadczenia”: „Autoryzacja wystawiania”: Niepowodzenia spowodowane błędami autoryzacji.</li><li>„Delegowanie wystawiania”: Niepowodzenia spowodowane błędami delegowania wystawiania.</li><li>„Akceptacja tokenu”: Niepowodzenia spowodowane odrzuceniem przez usługi AD FS tokenu od innego dostawcy tożsamości.</li><li>„Protokół”: Niepowodzenie z powodu błędów protokołu.</li><li>„Nieznane”: Wszystkie inne rodzaje niepowodzeń. Wszystkie inne niepowodzenia, które nie mieszczą się w zdefiniowanych kategoriach.</li> |
-| Serwer |Grupuje błędy według serwera. Dzięki takiemu grupowaniu można sprawdzić, jak wygląda rozkład błędów między serwerami. Nierównomierny rozkład może oznaczać uszkodzenie serwera. | |
-| Lokalizacja sieciowa |Grupuje błędy na podstawie lokalizacji sieciowej żądań (intranet lub ekstranet). Dzięki takiemu grupowaniu można sprawdzić typy żądań, które kończą się niepowodzeniem. | |
-| Aplikacja |Grupuje niepowodzenia na podstawie aplikacji docelowej (jednostki zależnej). Dzięki takiemu grupowaniu można sprawdzić, która aplikacja docelowa ma do czynienia z największą liczbą błędów. | |
-| Liczba użytkowników: Średnia liczba unikatowych użytkowników aktywnych w systemie |Wszyscy |Ta metryka zapewnia liczenie średniej liczby użytkowników korzystających z usługi federacyjnej w wybranym przedziale czasu. Użytkownicy nie są zgrupowani. <br>Średnia zależy od wybranego przedziału czasu. |
-| Aplikacja |Grupuje średnią liczbę użytkowników na podstawie aplikacji docelowej (jednostki zależnej). Dzięki takiemu grupowaniu można sprawdzić, ilu użytkowników korzysta z danej aplikacji. | |
+**Metryka: Łączna liczba żądań** — łączna liczba żądań przetworzonych przez serwery usług AD FS.
+
+|Grupuj według | Co oznacza grupowanie i dlaczego jest przydatne? |
+| --- | --- |
+| Wszyscy | Pokazuje łączną liczbę żądań przetworzonych przez wszystkie serwery usług AD FS.|
+| Aplikacja | Grupuj wszystkie żądania na podstawie docelowej jednostki zależnej. To grupowanie przydaje się, aby sprawdzić, która aplikacja ma największy procentowy udział w całkowitym ruchu sieciowym. |
+|  Serwer |Grupuje wszystkie żądania na podstawie serwera, który przetwarzał żądanie. Dzięki takiemu grupowaniu można sprawdzić rozkład obciążenia dla całego ruchu sieciowego.
+| Urządzenia dołączone w miejscu pracy |Grupuje wszystkie te żądania, które pochodzą z urządzeń dołączonych w miejscu pracy (znane). Dzięki takiemu grupowaniu można sprawdzić, czy do Twoich zasobów uzyskują dostęp urządzenia nieznane dla infrastruktury do obsługi tożsamości. |
+|  Metoda uwierzytelniania | Grupuje wszystkie żądania na podstawie metody uwierzytelniania użytej podczas uwierzytelniania. Dzięki takiemu grupowaniu można się dowiedzieć, jaka metoda uwierzytelniania jest najczęściej używana podczas uwierzytelniania. Możliwe są następujące metody uwierzytelniania <ol> <li>Zintegrowane uwierzytelnianie systemu Windows (system Windows)</li> <li>Uwierzytelnianie oparte na formularzach (Formularze)</li> <li>Logowanie jednokrotne (SSO, Single Sign On)</li> <li>Uwierzytelnianie w oparciu o certyfikat standardu X509 (Certyfikat)</li> <br>Jeśli serwery federacyjne otrzymają żądanie przez plik cookie SSO, żądanie jest traktowane jako SSO (logowanie jednokrotne). W takim przypadku, jeśli plik cookie jest ważny, użytkownik nie jest proszony o dostarczenie poświadczeń i od razu uzyskuje dostęp do aplikacji. To zachowanie ma miejsce często, gdy ma się wiele jednostek zależnych chronionych przez serwery federacyjne. |
+| Lokalizacja sieciowa | Grupuje wszystkie żądania na podstawie lokalizacji sieciowej użytkownika. Może to być zarówno sieć intranet, jak i ekstranet. Dzięki takiemu grupowaniu można sprawdzić, jaki procent ruchu sieciowego pochodzi z intranetu, a jaki z ekstranetu. |
+
+
+**Metryka: Łączna liczba żądań zakończonych niepowodzeniem** — łączna liczba żądań zakończonych niepowodzeniem przetworzonych przez usługę federacyjną. (Ta metryka jest dostępna tylko w usługach AD FS dla systemu Windows Server 2012 R2)
+
+|Grupuj według | Co oznacza grupowanie i dlaczego jest przydatne? |
+| --- | --- |
+| Typ błędu | Wyświetla liczbę błędów na podstawie wcześniej zdefiniowanych typów błędów. Takie grupowanie umożliwia zapoznanie się z najczęściej popełnianymi typami błędów. <ul><li>Nieprawidłowa nazwa użytkownika lub hasło: Błędy spowodowane nieprawidłową nazwą użytkownika lub nieprawidłowym hasłem.</li> <li>„Zablokowany ekstranet”: Niepowodzenia spowodowane żądaniami otrzymanymi od użytkownika, któremu został zablokowany dostęp do sieci ekstranet. </li><li> „Hasło nieaktualne”: Niepowodzenia spowodowane logowaniem się użytkowników przy użyciu nieaktualnych haseł.</li><li>„Konto wyłączone”: Niepowodzenia spowodowane logowaniem się użytkowników przy użyciu wyłączonych kont.</li><li>„Uwierzytelnianie urządzenia”: Niepowodzenia spowodowane nieudanymi uwierzytelnieniami użytkowników przy użyciu uwierzytelniania urządzenia.</li><li>„Uwierzytelnianie certyfikatu użytkownika”: Niepowodzenia wynikające z nieudanych uwierzytelnień użytkowników z powodu nieprawidłowego certyfikatu.</li><li>„MFA”: Niepowodzenia wynikające z nieudanych uwierzytelnień użytkowników przy użyciu usługi Multi Factor Authentication.</li><li>„Inne poświadczenia”: „Autoryzacja wystawiania”: Niepowodzenia spowodowane błędami autoryzacji.</li><li>„Delegowanie wystawiania”: Niepowodzenia spowodowane błędami delegowania wystawiania.</li><li>„Akceptacja tokenu”: Niepowodzenia spowodowane odrzuceniem przez usługi AD FS tokenu od innego dostawcy tożsamości.</li><li>„Protokół”: Niepowodzenie z powodu błędów protokołu.</li><li>„Nieznane”: Wszystkie inne rodzaje niepowodzeń. Wszystkie inne niepowodzenia, które nie mieszczą się w zdefiniowanych kategoriach.</li> |
+| Serwer | Grupuje błędy według serwera. Dzięki takiemu grupowaniu można sprawdzić, jak wygląda rozkład błędów między serwerami. Nierównomierny rozkład może oznaczać uszkodzenie serwera. |
+| Lokalizacja sieciowa | Grupuje błędy na podstawie lokalizacji sieciowej żądań (intranet lub ekstranet). Dzięki takiemu grupowaniu można sprawdzić typy żądań, które kończą się niepowodzeniem. |
+|  Aplikacja | Grupuje niepowodzenia na podstawie aplikacji docelowej (jednostki zależnej). Dzięki takiemu grupowaniu można sprawdzić, która aplikacja docelowa ma do czynienia z największą liczbą błędów. |
+
+**Metryka: Liczba użytkowników** — średnia liczba unikatowych użytkowników aktywnie uwierzytelnianych za pomocą usług AD FS.
+
+|Grupuj według | Co oznacza grupowanie i dlaczego jest przydatne? |
+| --- | --- |
+|Wszyscy |Ta metryka zapewnia liczenie średniej liczby użytkowników korzystających z usługi federacyjnej w wybranym przedziale czasu. Użytkownicy nie są zgrupowani. <br>Średnia zależy od wybranego przedziału czasu. |
+| Aplikacja |Grupuje średnią liczbę użytkowników na podstawie aplikacji docelowej (jednostki zależnej). Dzięki takiemu grupowaniu można sprawdzić, ilu użytkowników korzysta z danej aplikacji. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitorowanie wydajności dla usług AD FS
 Funkcja monitorowania wydajności w programie Azure AD Connect Health udostępnia informacje o metrykach. Wybranie pola Monitorowanie powoduje otwarcie nowego bloku ze szczegółowymi informacjami o metrykach.
 
 ![Portal programu Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)
 
-Po wybraniu opcji Filtrowanie u góry bloku można przeprowadzać filtrowanie według serwera, aby uzyskać informacje o poszczególnych metrykach serwera. Aby zmienić metryki, kliknij prawym przyciskiem myszy wykres monitorowania pod blokiem monitorowania i wybierz pozycję Edytuj wykres. Następnie w nowo otwartym bloku możesz wybrać dodatkowe metryki z listy rozwijanej i określić zakres czasu w celu wyświetlenia danych wydajności.
+Po wybraniu opcji Filtrowanie u góry bloku można przeprowadzać filtrowanie według serwera, aby uzyskać informacje o poszczególnych metrykach serwera. Aby zmienić metrykę, kliknij prawym przyciskiem myszy wykres monitorowania pod blokiem monitorowania i wybierz pozycję Edytuj wykres (lub wybierz przycisk Edytuj wykres). W nowo otwartym bloku możesz wybrać dodatkowe metryki z listy rozwijanej i określić zakres czasu w celu wyświetlenia danych wydajności.
 
 ## <a name="reports-for-ad-fs"></a>Raporty dotyczące usług AD FS
 Program Azure AD Connect Health udostępnia raporty o aktywności i wydajności usług AD FS. Raporty te umożliwiają administratorom wgląd w działania na serwerach usług AD FS.
@@ -102,8 +115,8 @@ Raport zawiera następujące informacje:
 
 > [!NOTE]
 > Ten raport jest aktualizowany automatycznie co dwie godziny o nowe informacje, które pojawiły się w tym czasie. W rezultacie próby logowania z ostatnich dwóch godzin mogą nie zostać zawarte w raporcie.
-> 
-> 
+>
+>
 
 ## <a name="related-links"></a>Powiązane linki
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -115,8 +128,6 @@ Raport zawiera następujące informacje:
 * [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

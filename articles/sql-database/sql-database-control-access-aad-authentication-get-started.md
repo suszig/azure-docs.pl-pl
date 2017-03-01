@@ -17,13 +17,13 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4ef415b7c0e7079da9930ecc6d8375dfc5a3c0a9
-ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
+ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
+ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
 
 
 ---
-# <a name="sql-database-tutorial-aad-authentication-logins-and-user-accounts-database-roles-permissions-server-level-firewall-rules-and-database-level-firewall-rules"></a>Samouczek usługi SQL Database: uwierzytelnianie usługi AAD, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych
-W tym samouczku ułatwiającym rozpoczęcie pracy znajdziesz informacje na temat używania programu SQL Server Management Studio do pracy z uwierzytelnianiem w usłudze Azure Active Directory, danymi logowania, użytkownikami i rolami bazy danych na potrzeby udzielania praw dostępu i uprawnień do baz danych i serwerów usługi Azure SQL Database. Dowiesz się, jak wykonywać następujące czynności:
+# <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Uwierzytelnianie usługi Azure AD, dostęp i reguły zapory na poziomie bazy danych
+W tym samouczku znajdziesz informacje na temat używania programu SQL Server Management Studio do pracy z uwierzytelnianiem w usłudze Azure Active Directory, nazwami logowania, użytkownikami i rolami bazy danych na potrzeby udzielania praw dostępu i uprawnień do baz danych oraz serwerów usługi Azure SQL Database. Dowiesz się, jak wykonywać następujące czynności:
 
 - Wyświetlanie uprawnień użytkownika w bazie danych master i bazach danych użytkowników
 - Tworzenie danych logowania i użytkowników na podstawie uwierzytelniania usługi Azure Active Directory
@@ -36,14 +36,14 @@ W tym samouczku ułatwiającym rozpoczęcie pracy znajdziesz informacje na temat
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Musisz mieć konto platformy Azure. Możesz [utworzyć konto bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Musisz być w stanie połączyć się z witryną Azure Portal przy użyciu konta, które jest członkiem roli właściciela subskrypcji albo współautora. Aby uzyskać więcej informacji o kontroli dostępu na podstawie ról (RBAC, role-based access control), zobacz [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Wprowadzenie do zarządzania dostępem w witrynie Azure Portal).
 
 * Ukończono kroki samouczka [Wprowadzenie do serwerów, baz danych i reguł zapory usługi Azure SQL Database przy użyciu witryny Azure Portal i programu SQL Server Management Studio](sql-database-get-started.md) lub samouczka w odpowiedniej [wersji dla programu PowerShell](sql-database-get-started-powershell.md). Jeśli nie, przed kontynuowaniem wykonaj kroki tego samouczka dotyczącego wymagań wstępnych lub uruchom skrypt PowerShell pod koniec pracy z tym samouczkiem w [wersji dla programu PowerShell](sql-database-get-started-powershell.md).
 
    > [!NOTE]
-   > Wykonanie czynności opisanych w pokrewnym samouczku dotyczącym uwierzytelniania w programie SQL Server [Samouczek usługi SQL Database: uwierzytelnianie SQL, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory bazy danych na poziomie](sql-database-control-access-sql-authentication-get-started.md) jest opcjonalne, chociaż w tym samouczku omówiono pewne zagadnienia niepowtarzane tutaj. Opisane w tym samouczku procedury związane z zaporami na poziomie bazy danych i serwera nie są wymagane, jeśli czynności z pokrewnego samouczka zostały wykonane na tych samych komputerach (o tych samych adresach IP) i z tego powodu zostały oznaczone jako opcjonalne. Ponadto w przypadku zrzutów ekranu w tym samouczku założono, że wykonano czynności opisane w pokrewnym samouczku. 
+   > Wykonanie czynności opisanych w powiązanym samouczku dotyczącym uwierzytelniania w programie SQL Server, [Uwierzytelnianie SQL, nazwy logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory bazy danych na poziomie](sql-database-control-access-sql-authentication-get-started.md), jest opcjonalne, chociaż w tym samouczku omówiono pewne zagadnienia niepowtarzane tutaj. Opisane w tym samouczku procedury związane z zaporami na poziomie bazy danych i serwera nie są wymagane, jeśli czynności z powiązanego samouczka zostały wykonane na tych samych komputerach (o tych samych adresach IP) i z tego powodu zostały oznaczone jako opcjonalne. Ponadto w przypadku zrzutów ekranu w tym samouczku założono, że wykonano czynności opisane w pokrewnym samouczku. 
    >
 
 * Katalog usługi Azure Active Directory został utworzony i wypełniony. Aby uzyskać więcej informacji, zobacz tematy [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md) (Integrowanie tożsamości lokalnych z usługą Azure Active Directory), [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Platforma Microsoft Azure obsługuje teraz federację z usługą Windows Servder Active Directory), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx) (Administrowanie katalogiem usługi Azure AD), [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) (Zarządzanie usługą Azure AD przy użyciu programu Windows PowerShell) i [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md) (Wymagane porty i protokoły tożsamości hybrydowych).
@@ -85,7 +85,7 @@ W tej części samouczka znajdziesz informacje na temat konfiguracji zabezpiecze
    ![Zapisywanie wybranego konta administratora usługi AAD](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Aby przejrzeć informacje o połączeniu dla tego serwera, przejdź do tematu [View or update server settings](sql-database-view-update-server-settings.md) (Przeglądanie lub aktualizowanie ustawień serwera). W tej serii samouczków w pełni kwalifikowana nazwa serwera to „sqldbtutorialserver.database.windows.net”.
+> Aby przejrzeć informacje o połączeniu dla tego serwera, przejdź do tematu [Manage servers](sql-database-manage-servers-portal.md) (Zarządzanie serwerami). W tej serii samouczków w pełni kwalifikowana nazwa serwera to „sqldbtutorialserver.database.windows.net”.
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z serwerem SQL przy użyciu programu SQL Server Management Studio (SSMS)
@@ -256,7 +256,7 @@ W tej części samouczka utworzysz konto użytkownika w bazie danych AdventureWo
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>Tworzenie reguły zapory na poziomie bazy danych dla użytkowników bazy danych AdventureWorksLT
 
 > [!NOTE]
-> Nie musisz wykonywać tej procedury, jeśli wcześniej wykonano odpowiednią procedurę w pokrewnym samouczku dotyczącym uwierzytelniania programu SQL Server [Samouczek usługi SQL Database: uwierzytelnianie SQL, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-sql-authentication-get-started.md) i podczas nauki używasz tego samego komputera z tym samym adresem IP.
+> Nie musisz wykonywać tej procedury, jeśli została ukończona równoważna procedura w powiązanym samouczku dotyczącym uwierzytelniania w programie SQL Server, [Uwierzytelnianie i autoryzacja SQL](sql-database-control-access-sql-authentication-get-started.md), i uczysz się, używając komputera z tym samym adresem IP.
 >
 
 W tej części samouczka spróbujesz się zalogować przy użyciu nowego konta użytkownika z komputera z innym adresem IP, utworzyć regułę zapory na poziomie bazy danych jako administratora serwera, a następnie pomyślnie zalogować się przy użyciu tej nowej reguły zapory na poziomie bazy danych. 
@@ -317,6 +317,6 @@ W tej części samouczka spróbujesz się zalogować przy użyciu nowego konta u
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
