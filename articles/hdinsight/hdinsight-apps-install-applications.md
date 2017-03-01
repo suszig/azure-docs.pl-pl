@@ -1,6 +1,6 @@
 ---
-title: "Instalowanie aplikacji usługi Hadoop w usłudze HDInsight | Microsoft Docs"
-description: "Informacje o sposobie instalowania aplikacji usługi HDInsight w usłudze HDInsight."
+title: "Instalowanie aplikacji platformy Hadoop innych firm w usłudze Azure HDInsight | Microsoft Docs"
+description: "Dowiedz się, jak instalować aplikacje platformy Hadoop innych firm w usłudze Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/23/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
-ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
+ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
+ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
 
 
 ---
-# <a name="install-hdinsight-applications"></a>Instalowanie aplikacji usługi HDInsight
-Aplikacja usługi HDInsight to aplikacja, którą użytkownicy mogą zainstalować w klastrze usługi HDInsight opartym na systemie Linux. Te aplikacje mogą być opracowane przez firmę Microsoft, niezależnych dostawców oprogramowania (ISV) lub samodzielnie. W tym artykule opisano instalację opublikowanej aplikacji. Informacje na temat instalowania własnych aplikacji można znaleźć w artykule [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md). 
+# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instalowanie aplikacji platformy Hadoop innych firm w usłudze Azure HDInsight
 
-Obecnie dostępne są trzy opublikowane aplikacje:
+W tym artykule opisano, jak zainstalować już opublikowaną aplikację platformy Hadoop innej firmy w usłudze Azure HDInsight. Aby uzyskać instrukcje instalowania własnej aplikacji, zobacz [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) (Instalowanie niestandardowych aplikacji usługi HDInsight).
 
+Aplikacja usługi HDInsight to aplikacja, którą użytkownicy mogą zainstalować w klastrze usługi HDInsight opartym na systemie Linux. Te aplikacje mogą być opracowane przez firmę Microsoft, niezależnych dostawców oprogramowania (ISV) lub samodzielnie.  
+
+Obecnie dostępne są cztery opublikowane aplikacje:
+
+* **DATAIKU DDS w usłudze HDInsight**: Dataiku DSS (Data Science Studio) to oprogramowanie, które pozwala osobom zawodowo zajmującym się danymi (naukowcom, analitykom biznesowym, deweloperom...) prototypować, kompilować i wdrażać wysoce specjalizowane usługi przekształcające surowe dane w trafne przewidywania biznesowe.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) oferuje analitykom interaktywny sposób odnajdywania, analizowania i wizualizowania wyników danych big data. Łatwe pobieranie dodatkowych źródeł danych w celu odkrywania nowych relacji i szybkiego uzyskiwania potrzebnych odpowiedzi.
 * **Streamsets Data Collector for HDnsight** zapewnia kompleksowe zintegrowane środowisko projektowe (IDE) umożliwiające projektowanie, testowanie i wdrażanie potoków pozyskiwania typu dowolny-dowolny (które łączą dane strumieniowe i dane partii oraz obejmują różne przekształcenia strumienia) oraz zarządzanie tymi potokami — wszystko to bez konieczności pisania niestandardowego kodu. 
 * **Cask CDAP 3.5 for HDInsight** zapewnia pierwszą ujednoliconą platformę integracji dla danych big data, która skraca czas produkcji dla aplikacji danych i usług data lake o 80%. Ta aplikacja obsługuje tylko standardowe klastry bazy danych HBase 3.4.
@@ -42,9 +46,9 @@ Poniższa procedura pokazuje sposób instalacji aplikacji usługi HDInsight w is
 **Aby zainstalować aplikację usługi HDInsight**
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij pozycję **Klastry usługi HDInsight** w lewym menu.  Jeśli jej nie widzisz, kliknij przycisk **Przeglądaj**, a następnie kliknij pozycję **Klastry usługi HDInsight**.
+2. Kliknij pozycję **Klastry usługi HDInsight** w lewym menu.  Jeśli jej nie widzisz, kliknij pozycję **Więcej usług**, a następnie kliknij pozycję **Klastry usługi HDInsight**.
 3. Kliknij klaster usługi HDInsight.  Jeśli nie masz klastra, musisz go najpierw utworzyć.  Zobacz [Tworzenie klastrów](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Kliknij pozycję **Aplikacje** w kategorii **Konfiguracje**. Zostanie wyświetlona lista zainstalowanych aplikacji, o ile jakieś istnieją.
+4. Kliknij pozycję **Aplikacje** w kategorii **Konfiguracje**. Zostanie wyświetlona lista zainstalowanych aplikacji, o ile jakieś istnieją. Jeśli nie możesz znaleźć aplikacji, oznacza to, że dla tej wersji klastra HDInsight nie ma aplikacji.
    
     ![Aplikacje usługi HDInsight — menu portalu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Kliknij przycisk **Dodaj** w menu bloku. 
@@ -118,6 +122,6 @@ Zobacz [Troubleshoot the installation](hdinsight-apps-install-custom-application
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

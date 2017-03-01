@@ -1,5 +1,6 @@
 # Omówienie
 ## [Co to jest usługa Application Gateway?](application-gateway-introduction.md)
+## [Application Gateway FAQ](application-gateway-faq.md) (Często zadawane pytania dotyczące usługi Application Gateway)
 ## [Zapora aplikacji sieci Web](application-gateway-webapplicationfirewall-overview.md)
 ## [Monitorowanie kondycji](application-gateway-probe-overview.md)
 ## [Routing adresów URL](application-gateway-url-route-overview.md)
@@ -13,7 +14,7 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Szablon usługi Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [Interfejs wiersza polecenia](application-gateway-create-gateway-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
 #### [PowerShell (klasyczny)](application-gateway-create-gateway.md)
 ### Użytek wewnętrzny
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -42,14 +43,14 @@
 ### [Rozwiązywanie problemów z błędami w usłudze Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Rejestrowanie i metryki diagnostyki](application-gateway-diagnostics.md)
 # Dokumentacja
-## [Program PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/network/application-gateway)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
-## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/azure/mt299393)
 # Powiązane
 ## [ExpressRoute](/azure/expressroute/)
@@ -64,8 +65,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

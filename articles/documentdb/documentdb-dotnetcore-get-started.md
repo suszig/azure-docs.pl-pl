@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
-ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: e31be1a97b9b3d7718e4e6f58f22a2c6f5550beb
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -425,7 +426,7 @@ Na poniższym diagramie przedstawiono sposób, w jaki składnia zapytania SQL us
 
 ![Diagram pokazujący zakres i znaczenie zapytania używanego przez samouczek NoSQL do utworzenia aplikacji konsolowej C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-Słowo kluczowe [FROM](documentdb-sql-query.md#from-clause) jest opcjonalne w zapytaniu, ponieważ zapytania usługi DocumentDB mają już zakres określony jako jedna kolekcja. W związku z tym klauzula "FROM Families f" może być zamieniona na "FROM root r" lub dowolną inną wybraną nazwę zmiennej. Usługa DocumentDB będzie wnioskowała, że zmienne Families, root lub wybrana nazwa zmiennej domyślnie odwołują się do bieżącej kolekcji.
+Słowo kluczowe [FROM](documentdb-sql-query.md#FromClause) jest opcjonalne w zapytaniu, ponieważ zapytania usługi DocumentDB mają już zakres określony jako jedna kolekcja. W związku z tym klauzula "FROM Families f" może być zamieniona na "FROM root r" lub dowolną inną wybraną nazwę zmiennej. Usługa DocumentDB będzie wnioskowała, że zmienne Families, root lub wybrana nazwa zmiennej domyślnie odwołują się do bieżącej kolekcji.
 
 ## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Krok 8. Zastępowanie dokumentu JSON
 Usługa DocumentDB obsługuje zastępowanie dokumentów JSON.  
@@ -559,9 +560,4 @@ Aby przywrócić odwołania do zestawu SDK dla platformy .NET Core usługi Docum
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

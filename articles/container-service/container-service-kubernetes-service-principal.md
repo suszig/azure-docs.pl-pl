@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5af9b5fdaf228edd54900855d0eac5d90ea3db38
-ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
+ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
+ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
 
 
 ---
@@ -29,17 +29,15 @@ ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
 
 W usłudze Azure Container Service klaster Kubernetes wymaga [nazwy głównej usługi Azure Active Directory](../active-directory/active-directory-application-objects.md) jako konta usługi do współpracy z interfejsami API systemu Azure. Nazwa główna usługi jest potrzebna do dynamicznego zarządzania zasobami, takimi jak trasy zdefiniowane przez użytkownika i narzędzie Azure Load Balancer dla warstwy 4.
 
-W tym artykule przedstawiono różne sposoby określania nazwy głównej usługi dla klastra Kubernetes. Na przykład jeśli zainstalowano i skonfigurowano interfejs [wiersza polecenia Azure 2.0 (wersja zapoznawcza)](https://docs.microsoft.com/cli/azure/install-az-cli2), można uruchomić polecenie [ `az acs create` ](https://docs.microsoft.com/en-us/cli/azure/acs#create), aby jednocześnie utworzyć klaster Kubernetes i nazwę główną usługi.
+W tym artykule przedstawiono różne sposoby określania nazwy głównej usługi dla klastra Kubernetes. Na przykład jeśli zainstalowano i skonfigurowano [interfejs wiersza polecenia platformy Azure w wersji 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), można uruchomić polecenie [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create), aby jednocześnie utworzyć klaster Kubernetes i nazwę główną usługi.
 
-> [!NOTE]
-> Obsługa klastra Kubernetes w usłudze Azure Container Service jest obecnie w wersji zapoznawczej.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Wymagania dotyczące nazwy głównej usługi
 
 Poniżej przedstawiono wymagania dotyczące nazwy głównej usługi Azure Active Directory dla klastra Kubernetes w usłudze Azure Container Service. 
 
-* **Zakres**: subskrypcja platformy Azure, w której jest wdrażany klaster
+* **Zakres**: grupa zasobów, w której jest wdrażany klaster
 
 * **Rola**: **Współautor**
 
@@ -54,15 +52,15 @@ Poniżej przedstawiono wymagania dotyczące nazwy głównej usługi Azure Active
 
 ### <a name="option-1-pass-the-service-principal-client-id-and-client-secret"></a>Opcja 1: Przekaż identyfikator klienta nazwy głównej usługi i klucz tajny klienta
 
-Podaj **identyfikator klienta** (często nazywany `appId`, identyfikator aplikacji) i **klucz tajny klienta** (`password`) istniejącej usługi głównej jako parametry podczas tworzenia klastra Kubernetes. Jeśli korzystasz z istniejącej nazwy głównej usługi, upewnij się, że spełnione są wymagania z poprzedniej sekcji. Aby utworzyć nazwę główną usługi, odwiedź stronę [Tworzenie nazwy głównej usługi](#create-a-service-principal-in-azure-active-directory) w dalszej części tego artykułu.
+Podaj **identyfikator klienta** (nazywany również `appId`, identyfikator aplikacji) i **wpis tajny klienta** (`password`) istniejącej nazwy głównej usługi jako parametry podczas tworzenia klastra Kubernetes. Jeśli korzystasz z istniejącej nazwy głównej usługi, upewnij się, że spełnione są wymagania z poprzedniej sekcji. Aby utworzyć nazwę główną usługi, odwiedź stronę [Tworzenie nazwy głównej usługi](#create-a-service-principal-in-azure-active-directory) w dalszej części tego artykułu.
 
-Te parametry można określić podczas [wdrażanie klastra Kubernetes](./container-service-deployment.md) za pomocą portalu, interfejsu wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza), programu Azure PowerShell lub innymi metodami.
+Te parametry można określić podczas [wdrażanie klastra Kubernetes](./container-service-deployment.md) za pomocą portalu, interfejsu wiersza polecenia platformy Azure w wersji 2.0, programu Azure PowerShell lub innymi metodami.
 
 >[!TIP] 
 >Podczas określania **identyfikatora klienta** należy użyć identyfikatora `appId`, a nie `ObjectId` nazwy głównej usługi.
 >
 
-Poniższy przykład przedstawia sposób przekazania parametrów poprzez interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza) (zobacz [instrukcje instalacji i konfiguracji](/cli/azure/install-az-cli2)). W tym przykładzie użyto [szablonu Kubernetes quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+Poniższy przykład przedstawia sposób przekazania parametrów przez interfejs wiersza polecenia platformy Azure w wersji 2.0 (zobacz [instrukcje instalacji i konfiguracji](/cli/azure/install-az-cli2)). W tym przykładzie użyto [szablonu Kubernetes quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Pobierz](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) plik parametrów szablonu `azuredeploy.parameters.json` z usługi GitHub.
 
@@ -83,9 +81,9 @@ Poniższy przykład przedstawia sposób przekazania parametrów poprzez interfej
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Opcja 2: Wygeneruj nazwę główną usługi podczas tworzenia klastra przy użyciu interfejsu wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20"></a>Opcja 2: Wygeneruj nazwę główną usługi podczas tworzenia klastra przy użyciu interfejsu wiersza polecenia platformy Azure 2.0
 
-Jeśli zainstalowano i skonfigurowano [interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](https://docs.microsoft.com/cli/azure/install-az-cli2), można uruchomić polecenie [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) w celu [utworzenia klastra](./container-service-create-acs-cluster-cli.md).
+Jeśli zainstalowano i skonfigurowano [interfejs wiersza polecenia platformy Azure w wersji 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), można uruchomić polecenie [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) w celu [utworzenia klastra](./container-service-create-acs-cluster-cli.md).
 
 Tak jak w przypadku innych opcji tworzenia klastra Kubernetes, parametry istniejącej nazwy głównej usługi można określić po uruchomieniu polecenia `az acs create`. Jednak w przypadku pominięcia tych parametrów usługa Azure Container Service tworzy automatycznie nazwę główną usługi. Podczas wdrażania dzieje się to w sposób niewidoczny dla użytkownika. 
 
@@ -99,7 +97,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Jeśli chcesz utworzyć nazwę główną usługi w usłudze Azure Active Directory przeznaczoną do używania w klastrze Kubernetes, system Azure udostępnia kilka metod. 
 
-Następujące przykładowe polecenia pokazują, jak wykonać to za pomocą interfejsu [wiersza polecenia Azure 2.0 (wersja zapoznawcza)](https://docs.microsoft.com/cli/azure/install-az-cli2). Można też utworzyć nazwę główną usługi za pomocą programu [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), [portalu klasycznego](../azure-resource-manager/resource-group-create-service-principal-portal.md) lub innej metody.
+Następujące przykładowe polecenia pokazują, jak wykonać to za pomocą interfejsu [wiersza polecenia platformy Azure w wersji 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). Można też utworzyć nazwę główną usługi za pomocą programu [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), [portalu klasycznego](../azure-resource-manager/resource-group-create-service-principal-portal.md) lub innej metody.
 
 > [!IMPORTANT]
 > Upewnij się, że zostały spełnione wymagania dotyczące nazwy głównej usługi przedstawione wcześniej w tym artykule.
@@ -143,6 +141,6 @@ az vm list-sizes --location westus
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

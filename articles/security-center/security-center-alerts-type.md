@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
 
 
 ---
@@ -182,7 +182,7 @@ Oto przykład tego typu alertu:
 ![Wychodzący atak typu „odmowa usługi”](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## <a name="resource-analysis"></a>Analiza zasobów
-Analiza zasobów usługi Security Center koncentruje się na usługach PaaS, takich jak integracja z funkcją [wykrywania zagrożeń bazy danych SQL Azure](../sql-database/sql-database-threat-detection-get-started.md). Na podstawie analizy wyników z tych obszarów usługa Security Center generuje alert związany z zasobami.
+Analiza zasobów usługi Security Center koncentruje się na usługach PaaS, takich jak integracja z funkcją [wykrywania zagrożeń bazy danych Azure SQL Database](../sql-database/sql-database-threat-detection.md). Na podstawie analizy wyników z tych obszarów usługa Security Center generuje alert związany z zasobami.
 
 ### <a name="potential-sql-injection"></a>Potencjalna iniekcja SQL
 Iniekcja SQL to atak polegający na wstawieniu złośliwego kodu do ciągów, które są następnie przekazywane do wystąpienia programu SQL Server w celu ich przeanalizowania i wykonania. Każda procedura tworząca instrukcje SQL powinna zostać przejrzana pod kątem zagrożenia iniekcją, ponieważ oprogramowanie SQL Server wykonuje wszystkie otrzymane zapytania, które mają poprawną składnię. Wykrywanie zagrożenia SQL wykorzystuje maszynowe uczenie się, analizę behawioralną i wykrywanie anomalii w celu określenia podejrzanych zdarzeń, które mogą mieć miejsce w bazach danych SQL Azure. Na przykład:
@@ -216,6 +216,6 @@ W tym artykule opisano różne typy alertów zabezpieczeń w usłudze Security C
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

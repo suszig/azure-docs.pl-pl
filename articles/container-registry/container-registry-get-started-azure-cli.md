@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie rejestru kontenerów platformy Azure — interfejs wiersza polecenia | Microsoft Docs"
-description: "Wprowadzenie do tworzenia rejestrów kontenerów platformy Azure i zarządzania nimi za pomocą interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)"
+description: "Rozpoczynanie pracy z tworzeniem rejestrów kontenerów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure w wersji 2.0 i zarządzaniem nimi"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
 
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Tworzenie rejestru kontenera za pomocą interfejsu wiersza polecenia platformy Azure
-Polecenia [interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](https://github.com/Azure/azure-cli) służą do tworzenia rejestru kontenera i zarządzania jego ustawieniami z komputera z systemem Linux, Mac lub Windows. Tworzenie i zarządzanie rejestrami kontenerów jest także możliwe przy użyciu [witryny Azure Portal](container-registry-get-started-portal.md) lub programowo przy użyciu interfejsu [API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) usługi Container Registry.
+Polecenia [interfejsu wiersza polecenia platformy Azure w wersji 2.0](https://github.com/Azure/azure-cli) służą do tworzenia rejestru kontenera i zarządzania jego ustawieniami z komputera z systemem Linux, Mac lub Windows. Tworzenie i zarządzanie rejestrami kontenerów jest także możliwe przy użyciu [witryny Azure Portal](container-registry-get-started-portal.md) lub programowo przy użyciu interfejsu [API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) usługi Container Registry.
 
 
 * Aby uzyskać ogólne informacje i zapoznać się z pojęciami, zobacz [What is Azure Container Registry?](container-registry-intro.md) (Co to jest usługa Azure Container Registry?)
@@ -34,9 +34,9 @@ Polecenia [interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zap
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)** — aby zainstalować interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza) i rozpocząć pracę z nim, zobacz [instrukcje dotyczące instalacji](https://github.com/Azure/azure-cli/blob/master/README.rst). Zaloguj się do subskrypcji platformy Azure, uruchamiając polecenie `az login`.
-* **Grupa zasobów** — utwórz [grupę zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups) przed utworzeniem rejestru kontenera lub użyj istniejącej grupy zasobów. Upewnij się, że grupa zasobów znajduje się w lokalizacji, w której usługa Container Registry jest [dostępna](https://azure.microsoft.com/regions/services/). Aby utworzyć grupę zasobów przy użyciu interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza), zobacz [przykłady interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza)](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
-* **Konto magazynu** (opcjonalnie) — utwórz standardowe [konto magazynu](../storage/storage-introduction.md) platformy Azure, aby obsługiwać rejestr kontenera w tej samej lokalizacji. Jeśli nie określisz konta magazynu podczas tworzenia rejestru przy użyciu polecenia `az acr create`, polecenie spowoduje utworzenie go dla Ciebie. Aby utworzyć konto magazynu przy użyciu interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza), zobacz [przykłady interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza)](https://github.com/Azure/azure-cli-samples/tree/master/storage).
+* **Interfejs wiersza polecenia platformy Azure 2.0** — aby zainstalować interfejs wiersza polecenia platformy Azure 2.0 i rozpocząć pracę z nim, zobacz [instrukcje dotyczące instalacji](https://github.com/Azure/azure-cli/blob/master/README.rst). Zaloguj się do subskrypcji platformy Azure, uruchamiając polecenie `az login`.
+* **Grupa zasobów** — utwórz [grupę zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups) przed utworzeniem rejestru kontenera lub użyj istniejącej grupy zasobów. Upewnij się, że grupa zasobów znajduje się w lokalizacji, w której usługa Container Registry jest [dostępna](https://azure.microsoft.com/regions/services/). Aby utworzyć grupę zasobów przy użyciu interfejsu wiersza polecenia w wersji 2.0, zobacz [przykłady interfejsu wiersza polecenia w wersji 2.0](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
+* **Konto magazynu** (opcjonalnie) — utwórz standardowe [konto magazynu](../storage/storage-introduction.md) platformy Azure, aby obsługiwać rejestr kontenera w tej samej lokalizacji. Jeśli nie określisz konta magazynu podczas tworzenia rejestru przy użyciu polecenia `az acr create`, polecenie spowoduje utworzenie go dla Ciebie. Aby utworzyć konto magazynu przy użyciu interfejsu wiersza polecenia w wersji 2.0, zobacz [przykłady interfejsu wiersza polecenia w wersji 2.0](https://github.com/Azure/azure-cli-samples/tree/master/storage).
 * **Nazwa główna usługi** (opcjonalnie) — rejestr utworzony za pomocą interfejsu wiersza polecenia domyślnie nie jest skonfigurowany do uzyskiwania dostępu. W zależności od potrzeb możesz przypisać istniejącą nazwę główną usługi Azure Active Directory do rejestru (lub utworzyć i przypisać nową) albo włączyć konto administratora w rejestrze. Zobacz sekcje w dalszej części tego artykułu. Więcej informacji dotyczących dostępu do rejestru znajduje się w temacie [Authenticate with a container registry](container-registry-authentication.md) (Uwierzytelnianie za pomocą rejestru kontenera). 
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
@@ -66,7 +66,7 @@ Zwróć szczególną uwagę na następujące elementy:
 * `loginServer` — w pełni kwalifikowana nazwa służąca do [logowania do rejestru](container-registry-authentication.md). W tym przykładzie nazwa to `myregistry-contoso.exp.azurecr.io` (tylko małe litery).
 
 ## <a name="assign-a-service-principal"></a>Przypisywanie nazwy głównej usługi
-Aby przypisać nazwę główną usługi Azure Active Directory do rejestru, użyj poleceń interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza). W tych przykładach do nazwy głównej usługi przypisano rolę Właściciel, ale możesz przypisywać [inne role](../active-directory/role-based-access-control-configure.md).
+Aby przypisać nazwę główną usługi Azure Active Directory do rejestru, użyj poleceń interfejsu wiersza polecenia w wersji 2.0. W tych przykładach do nazwy głównej usługi przypisano rolę Właściciel, ale możesz przypisywać [inne role](../active-directory/role-based-access-control-configure.md).
 
 ### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Tworzenie nazwy głównej usługi i przypisywanie dostępu do rejestru
 W poniższym poleceniu do nowej nazwy głównej usługi jest przypisywany dostęp roli Właściciel do identyfikatora rejestru przy użyciu parametru `--scopes`. Określ silne hasło przy użyciu parametru `--password`.
@@ -131,6 +131,6 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

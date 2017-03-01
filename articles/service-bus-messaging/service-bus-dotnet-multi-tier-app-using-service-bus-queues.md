@@ -1,5 +1,5 @@
 ---
-title: "Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus | Microsoft Docs"
+title: "Aplikacja wielowarstwowa platformy .NET używająca usługi Azure Service Bus | Microsoft Docs"
 description: "Samouczek platformy .NET umożliwia utworzenie na platformie Azure aplikacji wielowarstwowej, która używa kolejek usługi Service Bus do komunikacji między warstwami."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
-ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
+ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
+ms.openlocfilehash: 0f2caeed40b59a65ec08e7d94701c93b862199fc
 
 
 ---
@@ -61,7 +61,7 @@ W poniższych sekcjach omówiono kod, który implementuje tę architekturę.
 ## <a name="set-up-the-development-environment"></a>Konfigurowanie środowiska deweloperskiego
 Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne narzędzia i skonfiguruj swoje środowisko deweloperskie.
 
-1. Zainstaluj zestaw Azure SDK dla platformy .NET, który znajduje się w sekcji [Pobierz narzędzia i zestaw SDK](https://azure.microsoft.com/downloads/).
+1. Zainstaluj zestaw Azure SDK dla platformy .NET ze [strony pobierania](https://azure.microsoft.com/downloads/) zestawów SDK.
 2. W kolumnie **.NET** kliknij używaną wersję programu Visual Studio. W krokach tego samouczka używany jest program Visual Studio 2015.
 3. Gdy zostanie wyświetlony monit o uruchomienie lub zapisanie instalatora, kliknij przycisk **Uruchom**.
 4. W **Instalatorze platformy sieci Web** kliknij przycisk **Zainstaluj** i kontynuuj instalację.
@@ -397,6 +397,6 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

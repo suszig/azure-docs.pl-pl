@@ -1,5 +1,5 @@
 ---
-title: "Korzystanie z kontroli dostępu opartej na rolach w witrynie Azure Portal | Microsoft Docs"
+title: "Kontrola dostępu oparta na rolach w klasycznej witrynie Azure Portal | Microsoft Docs"
 description: "Rozpocznij zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach w witrynie Azure Portal. Przypisz uprawnienia do swoich zasobów za pomocą przypisań ról."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
 
 
 ---
@@ -24,8 +24,6 @@ ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
 > [!div class="op_single_selector"]
 > * [Zarządzanie dostępem użytkowników lub grup](role-based-access-control-manage-assignments.md)
 > * [Zarządzanie dostępem do zasobów](role-based-access-control-configure.md)
-> 
-> 
 
 Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Korzystając z modelu RBAC, można udzielić użytkownikom tylko takiego dostępu, jakiego potrzebują do wykonania swoich zadań. Ten artykuł ułatwia rozpoczęcie pracy z kontrolą dostępu opartą na rolach w witrynie Azure Portal. Jeśli chcesz uzyskać więcej szczegółowych informacji na temat sposobu, w jaki RBAC ułatwia zarządzanie dostępem, zobacz [Co to jest kontrola dostępu oparta na rolach](role-based-access-control-what-is.md).
 
@@ -44,8 +42,6 @@ Należy zauważyć, że w przypadku niektórych użytkowników dostęp został *
 
 > [!NOTE]
 > Klasyczni administratorzy i współadministratorzy są traktowani jako właściciele subskrypcji w nowym modelu RBAC.
-> 
-> 
 
 ## <a name="add-access"></a>Dodawanie dostępu
 Dostęp udzielany jest w ramach zasobu, grupy zasobów lub subskrypcji, która jest zakresem przypisania roli.
@@ -61,12 +57,11 @@ Dostęp udzielany jest w ramach zasobu, grupy zasobów lub subskrypcji, która j
 Po pomyślnym dodaniu przypisania roli będzie ono wyświetlane w bloku **Użytkownicy**.
 
 ## <a name="remove-access"></a>Usuwanie dostępu
-1. Wybierz przypisanie roli w bloku Kontrola dostępu.
-2. Wybierz przycisk **Usuń** w bloku szczegółów przypisania.  
-3. Wybierz opcję **Tak**, aby potwierdzić usunięcie.  
-    ![Blok Użytkownicy — usuwanie z roli (zrzut ekranu)](./media/role-based-access-control-configure/remove-access1.png)
+1. Użyj pól wyboru w bloku Kontrola dostępu, aby wybrać co najmniej jedno przypisanie ról.
+2. Wybierz pozycję **Usuń**.  
+3. Zostanie wyświetlone okno z prośbą o potwierdzenie akcji. Wybierz pozycję **Tak**, aby usunąć przypisania ról.
 
-Przypisań dziedziczonych nie można usunąć. Zauważ, że na obrazie poniżej przycisk Usuń jest wyszarzony. Zamiast tego spójrz na informację w obszarze **Przypisane w**. Przejdź do zasobu wskazanego w tym miejscu, aby usunąć przypisanie roli.
+Przypisań dziedziczonych nie można usunąć. Aby usunąć odziedziczone przypisanie, należy to zrobić w zakresie, w którym je utworzono. W kolumnie **Zakres** obok pola **Dziedziczone** znajduje się link umożliwiający przejście do zasobów, w ramach których ta rola została przypisana. Przejdź do zasobu wskazanego w tym miejscu, aby usunąć przypisanie roli.
 
 ![Blok Użytkownicy — dostęp dziedziczony wyłącza przycisk usuwania (zrzut ekranu)](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -85,6 +80,6 @@ Za pomocą poleceń Azure RBAC można przypisywać role i zarządzać dostępem 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

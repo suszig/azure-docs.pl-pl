@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 8dd0b2fe35c7f6280e6c1032d788955c891668d2
-ms.openlocfilehash: b5e7c83af078678454e6fc036bff657de402cf73
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 9cf690482bfdfc8448542171066f2d9ab3ec3569
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -71,7 +72,7 @@ Informacje o sposobie używania usługi Container Service do wdrażania w pełni
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/cli/azure/acs">Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)</a></p>
+                        <p><a href="/cli/azure/acs">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -90,10 +91,5 @@ Informacje o sposobie używania usługi Container Service do wdrażania w pełni
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

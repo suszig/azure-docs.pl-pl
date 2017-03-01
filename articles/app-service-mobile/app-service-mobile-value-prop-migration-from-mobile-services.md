@@ -4,7 +4,7 @@ description: "Dowiedz się, jakie korzyści z usługi App Service można osiąga
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -63,10 +64,5 @@ Automatycznie twórz kopię zapasową zaplecza i bazy danych. Kod i dane są chr
 Dzięki *usłudze Azure App Service* można teraz tworzyć wiele prywatnych środowisk testowania i przejściowych dla aplikacji mobilnych. Używaj ich do testowania aplikacji przed wdrożeniem. Przechodź do środowiska produkcyjnego bez przestojów. Aplikacje sieci Web są wstępnie załadowane, dzięki czemu można pracować w najlepszym środowisku klienta.
 
 Aby rozpocząć korzystanie z zalet *usługi App Service* dla istniejącej Usługi mobilnej, wykonaj czynności opisane w tym [samouczku](app-service-mobile-migrating-from-mobile-services.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

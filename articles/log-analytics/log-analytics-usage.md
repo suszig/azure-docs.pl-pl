@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
 
 
 ---
@@ -47,6 +47,12 @@ Pulpit nawigacyjny **Użycie usługi Log Analytics** udostępnia następujące i
     - Ilość czasu zbierania i indeksowania danych
 - Lista zapytań
 
+## <a name="understanding-nodes-for-oms-offers"></a>Informacje o węzłach dla ofert pakietu OMS
+
+Jeśli korzystasz z warstwy cenowej *na węzeł (OMS)*, opłaty są naliczane na podstawie liczby włączonych węzłów i rozwiązań. Aby sprawdzić, z ilu węzłów poszczególnych ofert korzystasz, przejdź do sekcji *ofert* pulpitu nawigacyjnego Użycie.
+
+![pulpit nawigacyjny Użycie](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Aby pracować z danymi użycia
 1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
 2. W menu **Centrum** kliknij pozycję **Więcej usług** i na liście zasobów wpisz ciąg **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
@@ -66,6 +72,6 @@ Pulpit nawigacyjny **Użycie usługi Log Analytics** udostępnia następujące i
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

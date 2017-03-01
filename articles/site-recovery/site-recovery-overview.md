@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
+ms.sourcegitcommit: 5adacea6033070e808f9bf5e76bae0f45f7f1199
+ms.openlocfilehash: e922590c500517c93f7682b5cca5ef6a2c89de53
 
 
 ---
@@ -49,6 +49,9 @@ Oto, co usługa Site Recovery może zrobić dla Twojej firmy:
 * **Wiele maszyn wirtualnych w trybie failover** — można skonfigurować plany odzyskiwania obejmujące skrypty i automatyzacje elementów Runbook platformy Azure. Plany odzyskiwania umożliwiają modelowanie i dostosowywanie trybu failover oraz odzyskiwanie aplikacji wielowarstwowych, które obejmują wiele maszyn wirtualnych.
 * **Integracja z istniejącymi technologiami BCDR** — usługa Site Recovery współpracuje z innymi technologiami w ramach strategii BCDR. Usługi Site Recovery można na przykład używać, aby chronić zaplecze obciążeń firmowych programu SQL Server. Usługa oferuje natywne wsparcie funkcji AlwaysOn programu SQL Server, umożliwiając zarządzanie trybem failover dla grup dostępności.
 
+## <a name="which-regions-are-supported"></a>Które regiony są obsługiwane?
+Aby dowiedzieć się więcej na temat regionów, w których usługa Azure Site Recovery jest dostępna, zobacz [tutaj](https://azure.microsoft.com/en-us/regions/services/) 
+
 ## <a name="what-can-i-replicate"></a>Co mogę replikować?
 Poniżej przedstawiono podsumowanie elementów, które można replikować przy użyciu usługi Site Recovery.
 
@@ -78,7 +81,6 @@ Usługa Site Recovery umożliwia replikację z uwzględnieniem aplikacji, dzięk
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

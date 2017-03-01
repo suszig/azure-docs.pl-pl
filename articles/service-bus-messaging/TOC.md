@@ -39,6 +39,7 @@
 ### [Partycjonowane kolejki i tematy](service-bus-partitioning.md)
 ### [Kolejki utraconych wiadomości](service-bus-dead-letter-queues.md)
 ### [Przetwarzanie transakcji](service-bus-transactions.md)
+### [Dzienniki diagnostyczne](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Eksplorator usługi Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

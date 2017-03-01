@@ -15,16 +15,16 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
+ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
+ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
 
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-vmm-to-azure.md)
+> * [Witryna Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Program PowerShell — model usługi Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-> * [Klasyczny portal](site-recovery-vmm-to-azure-classic.md)
+> * [Portal klasyczny](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell — model klasyczny](site-recovery-deploy-with-powershell.md)
 >
 >
@@ -50,7 +50,7 @@ Oto, czego będziesz potrzebować na platformie Azure.
 | **Wymagania wstępne** | **Szczegóły** |
 | --- | --- |
 | **Konto platformy Azure** |Będziesz potrzebować konta platformy [Microsoft Azure](https://azure.microsoft.com/). Możesz rozpocząć od [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/). [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/site-recovery/) o cenach usługi Site Recovery. |
-| **Magazyn platformy Azure** |Będziesz potrzebować konta magazynu Azure do przechowywania replikowanych danych. Replikowane dane są przechowywane w usłudze Azure Storage, a w przypadku przejścia w tryb failover uruchamiane są maszyny wirtualne platformy Azure. <br/><br/>Potrzebujesz [standardowego konta magazynu geograficznie nadmiarowego](../storage/storage-redundancy.md#geo-redundant-storage). Konto musi znajdować się w tym samym regionie co magazyn usługi Site Recovery i musi być skojarzone z tą samą subskrypcją. Replikacja do konta magazynu w warstwie Premium obecnie nie jest obsługiwana i nie powinna być używana.<br/><br/>[Przeczytaj o](../storage/storage-introduction.md) usłudze Azure Storage. |
+| **Magazyn platformy Azure** |Będziesz potrzebować konta magazynu Azure do przechowywania replikowanych danych. Replikowane dane są przechowywane w usłudze Azure Storage, a w przypadku przejścia w tryb failover uruchamiane są maszyny wirtualne platformy Azure. <br/><br/>Potrzebujesz [standardowego konta magazynu geograficznie nadmiarowego](../storage/storage-redundancy.md#geo-redundant-storage). Konto musi znajdować się w tym samym regionie co usługa Site Recovery i musi być skojarzone z tą samą subskrypcją. Replikacja do konta magazynu w warstwie Premium obecnie nie jest obsługiwana i nie powinna być używana.<br/><br/>[Przeczytaj o](../storage/storage-introduction.md) usłudze Azure Storage. |
 | **Sieć platformy Azure** |Potrzebujesz sieci wirtualnej platformy Azure, z którą maszyny wirtualne Azure będą nawiązywać połączenie w przypadku przejścia w tryb failover. Sieć wirtualna platformy Azure musi znajdować się w tym samym regionie co magazyn usługi Site Recovery. |
 
 ## <a name="on-premises-prerequisites"></a>Lokalne wymagania wstępne
@@ -74,13 +74,6 @@ Jeśli chcesz wdrożyć mapowanie sieci, musisz upewnić się, że spełnione s�
 * Maszyny wirtualne, które chcesz chronić na źródłowym serwerze programu VMM, powinny być połączone z siecią maszyn wirtualnych. Ta sieć powinna być połączona z siecią logiczną skojarzoną z chmurą.
 * Sieć platformy Azure, z którą replikowane maszyny wirtualne mogą łączyć się po przejściu w tryb failover na platformie Azure. Tę sieć wybierzesz podczas przejścia w tryb failover. Sieć powinna znajdować się w tym samym regionie co subskrypcja usługi Azure Site Recovery.
 
-Przygotuj się do mapowania sieci w następujący sposób:
-
-1. [Przeczytaj o](site-recovery-network-mapping.md) wymaganiach związanych z mapowaniem sieci.
-2. Przygotuj sieci maszyn wirtualnych w programie VMM:
-
-   * [Skonfiguruj sieci logiczne](https://technet.microsoft.com/library/jj721568.aspx).
-   * [Skonfiguruj sieci maszyn wirtualnych](https://technet.microsoft.com/library/jj721575.aspx).
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Krok 1. Tworzenie magazynu usługi Site Recovery
 1. Zaloguj się do [portalu zarządzania](https://portal.azure.com) z serwera programu VMM, który chcesz zarejestrować.
@@ -138,7 +131,7 @@ Wygeneruj klucz rejestracji magazynu. Po pobraniu dostawcy usługi Azure Site Re
      * *.backup.windowsazure.com
      * *.blob.core.windows.net
      * *.store.core.windows.net
-   * Zezwól na adresy IP, opisane w temacie [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (Zakresy adresów IP centrum danych Azure), i protokół HTTPS (port 443). Należy również umieścić na liście dozwolonych zakresy adresów IP regionu Azure, który będzie używany, i regionu Zachodnie stany USA.
+   * Zezwól na adresy IP, opisane w temacie [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (Zakresy adresów IP centrum danych Azure), i protokół HTTPS (port&443;). Należy również umieścić na liście dozwolonych zakresy adresów IP regionu Azure, który będzie używany, i regionu Zachodnie stany USA.
    * W przypadku użycia niestandardowego serwera proxy konto Uruchom jako programu VMM (DRAProxyAccount) zostanie automatycznie utworzone przy użyciu określonych poświadczeń serwera proxy. Skonfiguruj serwer proxy tak, aby to konto mogło być pomyślnie uwierzytelnione. Ustawienia konta Uruchom jako programu VMM można zmodyfikować w konsoli programu VMM. Aby to zrobić, otwórz obszar roboczy **Ustawienia**, rozwiń pozycję **Zabezpieczenia**, kliknij pozycję **Konta Uruchom jako**, a następnie zmodyfikuj hasło dla konta DRAProxyAccount. Aby to ustawienie zostało zastosowane, należy ponownie uruchomić usługę programu VMM.
 9. W oknie **Klucz rejestracji** wybierz klucz, aby potwierdzić, że klucz został pobrany z usługi Azure Site Recovery i skopiowany na serwer programu VMM.
 10. Ustawienie szyfrowania jest używane tylko w przypadku replikacji maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure. Ustawienie nie jest używane w przypadku replikowania do lokacji dodatkowej.
@@ -146,7 +139,7 @@ Wygeneruj klucz rejestracji magazynu. Po pobraniu dostawcy usługi Azure Site Re
 12. W oknie **Synchronizacja metadanych chmury** określ, czy chcesz synchronizować metadane dla wszystkich chmur na serwerze programu VMM z magazynem. To działanie ma miejsce tylko raz na każdym serwerze. Jeśli nie chcesz synchronizować wszystkich chmur, możesz nie zaznaczać tego ustawienia i synchronizować poszczególne chmury indywidualnie we właściwościach chmury w konsoli programu VMM.
 13. Kliknij przycisk **Dalej**, aby ukończyć proces. Po rejestracji metadane z serwera programu VMM są pobierane przez usługę Azure Site Recovery. Serwer jest wyświetlany na karcie **Serwery programu VMM** na stronie **Serwery** w magazynie.
 
-    ![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
+    ![Ostatnia strona](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
 Po rejestracji metadane z serwera programu VMM są pobierane przez usługę Azure Site Recovery. Serwer jest wyświetlany na karcie **Serwery programu VMM** na stronie **Serwery** w magazynie.
 
@@ -217,7 +210,7 @@ Po zarejestrowaniu serwera VMM można skonfigurować ustawienia ochrony chmury. 
 2. Na karcie **Chronione elementy** kliknij chmurę, którą chcesz skonfigurować, i przejdź do karty **Konfiguracja**.
 3. W polu **Lokalizacja docelowa** wybierz pozycję **Azure**.
 4. W polu **Konto magazynu** wybierz konto usługi Azure Storage używanego do replikacji.
-5. Dla opcji **Szyfruj przechowywane dane** ustaw wartość **Wyłączone**. To ustawienie określa, że dane powinny być replikowane w postaci zaszyfrowanej między lokalną lokacją a platformą Azure.
+5. Dla opcji **Szyfruj przechowywane dane** ustaw wartość **Wyłączone**. To ustawienie określa, że dane powinny być replikowane w postaci zaszyfrowanej między lokacją lokalną a platformą Azure.
 6. W polu **Częstotliwość kopiowania** pozostaw ustawienie domyślne. Ta wartość określa, jak często dane mają być synchronizowane między lokalizacjami źródłowymi a docelowymi.
 7. W polu **Zachowaj punkty odzyskiwania dla** pozostaw ustawienie domyślne. Przy wartości domyślnej równej zero tylko najnowszy punkt odzyskiwania dla podstawowej maszyny wirtualnej jest przechowywany na serwerze hosta repliki.
 8. W polu **Częstotliwość migawek spójnych z aplikacjami** pozostaw ustawienie domyślne. Ta wartość określa, jak często mają być tworzone migawki. Migawki używają usługi kopiowania woluminów w tle (VSS), aby zapewnić stan spójności aplikacji podczas wykonywania migawki.  Jeśli ustawisz wartość, upewnij się, że jest ona mniejsza od liczby skonfigurowanych dodatkowych punktów odzyskiwania.
@@ -274,7 +267,7 @@ Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę
     ![Weryfikowanie maszyn wirtualnych](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Na karcie **Konfigurowanie** właściwości maszyny wirtualnej można zmodyfikować poniższe właściwości sieci.
 
-* **Liczba kart sieciowych na docelowej maszynie wirtualnej** — Liczba kart sieciowych jest zależna od rozmiaru określonego dla docelowej maszyny wirtualnej. Sprawdź [specyfikacje rozmiaru maszyny wirtualnej](../virtual-machines/virtual-machines-linux-sizes.md#size-tables), aby ustalić liczbę obsługiwanych kart sieciowych zależnie od rozmiaru maszyny wirtualnej. Podczas modyfikowania rozmiaru maszyny wirtualnej i zapisywania ustawień numer karty sieciowej ulegnie zmianie po następnym otwarciu strony **Konfigurowanie**. Liczba kart sieciowych docelowych maszyn wirtualnych jest minimalną liczbą kart sieciowych na źródłowej maszynie wirtualnej i maksymalną liczbą kart sieciowych obsługiwanych przy wybranym rozmiarze maszyny wirtualnej zgodnie z następującą zależnością: 
+* **Liczba kart sieciowych na docelowej maszynie wirtualnej** — Liczba kart sieciowych jest zależna od rozmiaru określonego dla docelowej maszyny wirtualnej. Sprawdź [specyfikacje rozmiaru maszyny wirtualnej](../virtual-machines/virtual-machines-linux-sizes.md#size-tables), aby ustalić liczbę obsługiwanych kart sieciowych zależnie od rozmiaru maszyny wirtualnej. W razie zmodyfikowania rozmiaru maszyny wirtualnej i zapisania ustawień liczba kart sieciowych ulegnie zmianie po następnym otwarciu strony **Konfigurowanie**. Liczba kart sieciowych docelowych maszyn wirtualnych jest minimalną liczbą kart sieciowych na źródłowej maszynie wirtualnej i maksymalną liczbą kart sieciowych obsługiwanych przy wybranym rozmiarze maszyny wirtualnej zgodnie z następującą zależnością: 
 
   * Jeśli liczba kart sieciowych w maszynie źródłowej jest mniejsza lub równa liczbie kart sieciowych dozwolonych dla rozmiaru maszyny docelowej, maszyna docelowa będzie mieć taką samą liczbę kart sieciowych jak maszyna źródłowa.
   * Jeśli liczba kart sieciowych dla źródłowej maszyny wirtualnej przekracza liczbę dozwolonych kart sieciowych dla rozmiaru maszyny docelowej, zostanie użyta maksymalna liczba kart dla rozmiaru maszyny docelowej.
@@ -299,12 +292,12 @@ Próba przejścia w tryb failover symuluje mechanizm pracy awaryjnej i odzyskiwa
 * Po przejściu w tryb failover publiczny adres IP będzie używany do nawiązania połączenia z maszyną wirtualną na platformie Azure przy użyciu funkcji Podłączanie pulpitu zdalnego. Jeśli chcesz to zrobić, upewnij się, że nie ma żadnych zasad domeny, które uniemożliwiają połączenie z maszyną wirtualną przy użyciu adresu publicznego.
 
 > [!NOTE]
-> Aby uzyskać najlepszą wydajność przechodzenia w tryb failover do platformy Azure, upewnij się, że na chronionej maszynie zainstalowano agenta platformy Azure. Ułatwia do szybsze uruchamianie i diagnozowanie w przypadku wystąpienia problemów. Agenta systemu Linux można znaleźć [tutaj](https://github.com/Azure/WALinuxAgent), a agenta systemu Windows można znaleźć [tutaj](http://go.microsoft.com/fwlink/?LinkID=394789).
+> Aby uzyskać najlepszą wydajność przechodzenia w tryb failover na platformie Azure, zainstaluj agenta platformy Azure na maszynie wirtualnej. Przyspiesza to rozruch i pomaga w rozwiązywaniu problemów. Pobierz [agenta systemu Linux](https://github.com/Azure/WALinuxAgent) lub [agenta systemu Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
 >
 >
 
 ### <a name="create-a-recovery-plan"></a>Tworzenie planu odzyskiwania
-1. Na karcie **Plany odzyskiwania** dodaj nowy plan. Określ nazwę **VMM** w polu **Typ źródła** i źródłowy serwer programu VMM w polu **Lokalizacja źródłowa**. Lokalizacją źródłową będzie platforma Azure.
+1. Na karcie **Plany odzyskiwania** dodaj nowy plan. Określ nazwę **VMM** w polu **Typ źródła** i źródłowy serwer programu VMM w polu **Źródło**. Lokalizacją docelową będzie platforma Azure.
 
     ![Tworzenie planu odzyskiwania](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 2. Na stronie **Wybieranie maszyn wirtualnych** wybierz maszyny wirtualne, które zostaną dodane do planu odzyskiwania. Te maszyny wirtualne są dodawane do planu odzyskiwania grupy domyślnej — Grupa 1. Przetestowano maksymalnie 100 maszyn wirtualnych w pojedynczym planie odzyskiwania.
@@ -334,8 +327,8 @@ Aby testować tryb failover, wykonaj następujące czynności:
     ![Brak sieci](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. Jeśli szyfrowanie danych jest włączone dla chmury, w polu **Klucz szyfrowania** wybierz certyfikat wystawiony podczas instalacji dostawcy na serwerze programu VMM, gdy została włączona opcja szyfrowania danych dla chmury.
 4. Na karcie **Zadania** można śledzić postęp trybu failover. W portalu Azure powinna być również widoczna testowa replika maszyny wirtualnej. Jeśli skonfigurowano dostęp do maszyn wirtualnych z sieci lokalnej, możesz zainicjować połączenie Pulpitu zdalnego z maszyną wirtualną.
-5. Gdy tryb failover osiągnie fazę **Ukończ testowanie**, kliknij przycisk **Zakończ test**, aby ukończyć test trybu failover. Możesz przejść do szczegółów na karcie **Zadanie**, aby śledzić postęp i stan trybu failover oraz wykonać dowolne potrzebne akcje.
-6. Po przejściu w tryb failover w portalu Azure będzie widoczna testowa replika maszyny wirtualnej. Jeśli skonfigurowano dostęp do maszyn wirtualnych z sieci lokalnej, możesz zainicjować połączenie Pulpitu zdalnego z maszyną wirtualną. Wykonaj następujące czynności:
+5. Gdy tryb failover osiągnie fazę **Ukończ testowanie**, kliknij przycisk **Zakończ test**, aby ukończyć test. Możesz przejść do szczegółów na karcie **Zadanie**, aby śledzić postęp i stan trybu failover oraz wykonać dowolne potrzebne akcje.
+6. Po przejściu w tryb failover w witrynie Azure Portal będzie widoczna testowa replika maszyny wirtualnej. Jeśli skonfigurowano dostęp do maszyn wirtualnych z sieci lokalnej, możesz zainicjować połączenie Pulpitu zdalnego z maszyną wirtualną. Wykonaj następujące czynności:
 
    1. Sprawdź, czy maszyna wirtualna jest uruchamiana pomyślnie.
    2. Jeśli chcesz nawiązać połączenie z maszyną wirtualną na platformie Azure przy użyciu Pulpitu zdalnego po przejściu w tryb failover, włącz funkcję Podłączanie pulpitu zdalnego na maszynie wirtualnej przed rozpoczęciem próby przejścia w tryb failover. Musisz również dodać punkt końcowy Pulpitu zdalnego (RDP) na maszynie wirtualnej. W tym celu możesz użyć [elementów runbook automatyzacji Azure](site-recovery-runbook-automation.md).
@@ -351,6 +344,6 @@ Dowiedz się więcej na temat [konfigurowania planów odzyskiwania](site-recover
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

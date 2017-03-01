@@ -4,7 +4,7 @@ description: "Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 82accfbfa92dfe77d17da05425c2e05af33e5a31
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Wdrażanie pierwszej aplikacji sieci Web w języku Java na platformie Azure w ciągu pięciu minut (interfejs wiersza polecenia 2.0 w wersji zapoznawczej)
-
-> [!div class="op_single_selector"]
-> * [Pierwsza witryna HTML](app-service-web-get-started-html-cli-nodejs.md)
-> * [Pierwsza aplikacja platformy .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Pierwsza aplikacja PHP](app-service-web-get-started-php-cli-nodejs.md)
-> * [Pierwsza aplikacja Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Pierwsza aplikacja w języku Python](app-service-web-get-started-python-cli-nodejs.md)
-> * [Pierwsza aplikacja w języku Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Ten samouczek ułatwia wdrażanie prostej aplikacji sieci Web Java w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Za pomocą usługi App Service można tworzyć aplikacje sieci Web, [zaplecza aplikacji mobilnych](/documentation/learning-paths/appservice-mobileapps/) oraz [aplikacje interfejsu API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -127,10 +119,5 @@ Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją si
 
 * Wypróbuj [inne sposoby wdrożenia kodu na platformie Azure](web-sites-deploy.md). 
 * Przenieś swoją aplikację Azure na wyższy poziom. Uwierzytelniaj użytkowników. Skaluj ją zależnie od potrzeb. Skonfiguruj alerty dotyczące wydajności. Wszystkie te czynności możesz wykonać za pomocą kilku kliknięć. Zobacz [Dodawanie funkcji do pierwszej aplikacji sieci Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

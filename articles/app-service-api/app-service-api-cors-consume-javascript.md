@@ -4,7 +4,7 @@ description: "Dowiedz się, jak korzystać z obsługi mechanizmu CORS w usłudze
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -248,10 +249,5 @@ Aby dowiedzieć się więcej o funkcjach programu Visual Studio, które ułatwia
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule pokazano, jak włączyć obsługę mechanizmu CORS usługi App Service w celu umożliwienia wywołania funkcji API z innej domeny przez kod języka JavaScript klienta. Aby dowiedzieć się więcej o aplikacjach interfejsu API, zapoznaj się z [wprowadzeniem do uwierzytelniania w usłudze App Service](../app-service/app-service-authentication-overview.md), a następnie przejdź do samouczka dotyczącego [uwierzytelniania użytkowników w Aplikacjach interfejsu API](app-service-api-dotnet-user-principal-auth.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

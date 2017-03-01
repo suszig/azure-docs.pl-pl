@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie pierwszej aplikacji usługi Service Fabric w programie Visual Studio | Microsoft Docs"
+title: "Tworzenie pierwszej aplikacji mikrousług platformy Azure | Microsoft Docs"
 description: "Tworzenie, wdrażanie i debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
-ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
 
 
 ---
@@ -36,7 +36,7 @@ Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programow
 ## <a name="video-walkthrough"></a>Przewodnik wideo
 Poniższe wideo przedstawia kroki omówione w niniejszym samouczku:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -122,6 +122,19 @@ Domyślnie lokalny klaster projektowy jest skonfigurowany do uruchamiania jako k
 
 Po zmianie trybu klastra klaster projektowy jest resetowany i wszystkie aplikacje zaprowizowane lub działające w klastrze są usuwane.
 
+Możesz też zmienić tryb klastra przy użyciu programu PowerShell:
+
+1. Uruchom nowe okno programu PowerShell jako administrator.
+2. Uruchom skrypt instalacji klastra z folderu zestawu SDK:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Instalacja klastra trwa kilka chwil. Po zakończeniu instalacji powinny być widoczne dane wyjściowe podobne do poniższych:
+   
+    ![Dane wyjściowe instalacji klastra][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Czyszczenie
 Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Istnieje kilka możliwości zarządzania klastrem:
 
@@ -150,9 +163,10 @@ Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Zatr
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
