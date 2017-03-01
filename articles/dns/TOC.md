@@ -5,12 +5,12 @@
 # Wprowadzenie
 
 ## [Tworzenie strefy DNS](dns-getstarted-create-dnszone-portal.md)
-### [Program PowerShell](dns-getstarted-create-dnszone.md)
-### [Interfejs wiersza polecenia](dns-getstarted-create-dnszone-cli.md)
+### [PowerShell](dns-getstarted-create-dnszone.md)
+### [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-dnszone-cli.md)
 
 ## [Tworzenie rekordów DNS](dns-getstarted-create-recordset-portal.md)
-### [Program PowerShell](dns-getstarted-create-recordset.md)
-### [Interfejs wiersza polecenia](dns-getstarted-create-recordset-cli.md)
+### [PowerShell](dns-getstarted-create-recordset.md)
+### [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-recordset-cli.md)
 
 ## [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md)
 ## [Tworzenie niestandardowych rekordów DNS aplikacji sieci Web](dns-web-sites-custom-domain.md)
@@ -18,16 +18,17 @@
 # Instrukcje
 
 ## Zarządzanie strefami DNS
-### [Program PowerShell](dns-operations-dnszones.md)
-### [Interfejs wiersza polecenia](dns-operations-dnszones-cli.md)
+### [PowerShell](dns-operations-dnszones.md)
+### [Interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md)
+
 
 ## [Zarządzanie rekordami DNS](dns-operations-recordsets-portal.md)
-### [Program PowerShell](dns-operations-recordsets.md)
-### [Interfejs wiersza polecenia](dns-operations-recordsets-cli.md)
+### [PowerShell](dns-operations-recordsets.md)
+### [Interfejs wiersza polecenia platformy Azure](dns-operations-recordsets-cli.md)
 
 ## [Zarządzanie rekordami odwrotnego systemu DNS](dns-reverse-dns-record-operations-ps.md)
-### [Interfejs wiersza polecenia](dns-reverse-dns-record-operations-cli.md)
-### [Program PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+### [Interfejs wiersza polecenia platformy Azure](dns-reverse-dns-record-operations-cli.md)
+### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Importowanie i eksportowanie pliku strefy systemu DNS](dns-import-export.md)
 ## [Integracja z innymi usługami platformy Azure](dns-for-azure-services.md)
@@ -39,7 +40,7 @@
 
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/network/dns)
+## [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
@@ -60,8 +61,3 @@
 ## [Cennik](https://azure.microsoft.com/pricing/details/dns/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

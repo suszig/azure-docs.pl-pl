@@ -44,8 +44,9 @@
 ### [Tworzenie kopii zapasowej i przywracanie](documentdb-online-backup-and-restore.md)
 ### [Wycofywanie wersji S1, S2, S3](documentdb-performance-levels.md)
 ### [Jednostki żądania](documentdb-request-units.md)
-### Interfejs wiersza polecenia platformy Azure
-#### [Create an account](documentdb-automation-resource-manager-cli.md) (Tworzenie konta)
+### [Interfejs wiersza polecenia platformy Azure 2.0](documentdb-automation-resource-manager-cli.md)
+### Interfejs wiersza polecenia platformy Azure CLI w wersji 1.0
+#### [Create an account](documentdb-automation-resource-manager-cli-nodejs.md) (Tworzenie konta)
 #### [Add or remove regions](documentdb-automation-region-management.md) (Dodawanie lub usuwanie regionów)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Obsługa zapory](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [Wyjaśnienie pojęcia spójności danych na podstawie baseballu](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Książka: Using Microsoft Azure DocumentDB in a Node.js Application (Korzystanie z bazy danych Microsoft Azure DocumentDB w aplikacji Node.js)](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

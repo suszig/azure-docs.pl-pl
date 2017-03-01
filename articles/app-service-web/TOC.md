@@ -3,6 +3,7 @@
 ## [Co to jest usługa App Service](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Plany usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Usługa App Service w systemie Linux](app-service-linux-intro.md)
+## [App Service on Linux FAQ](app-service-linux-faq.md) (Usługa App Service w systemie Linux — FAQ)
 
 # Rozpoczęcie pracy
 
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [Aplikacja portalu Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [Zestaw SDK usługi WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### Aplikacje ASP.NET
 #### [Tworzenie aplikacji platformy ASP.NET za pomocą programu Visual Studio](web-sites-dotnet-get-started.md)
 #### [Tworzenie usługi REST za pomocą interfejsu API sieci Web platformy ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Tworzenie aplikacji sieci Web platformy ASP.NET 5 w programie Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Using .NET Core in Web Apps on Linux](app-service-linux-using-dotnetcore.md) (Używanie platformy .NET Core w usłudze Web Apps w systemie Linux)
+
 
 ### Aplikacje Node.js
 #### [Programowanie w języku Node.js na potrzeby usługi App Service](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [Tworzenie i wdrażanie za pomocą programu WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### Aplikacje PHP
-#### [Programowanie aplikacji PHP na potrzeby usługi App Service](app-service-web-php-get-started.md) 
+#### [Programowanie aplikacji PHP na potrzeby usługi App Service](app-service-web-php-get-started.md)    
 #### [Tworzenie aplikacji sieci Web PHP-SQL i wdrażanie jej za pomocą narzędzia Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Tworzenie aplikacji sieci Web WordPress w usłudze Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Tworzenie bazy danych MySQL na platformie Azure i łączenie się z nią](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Tworzenie aplikacji Flask i magazynu Table Storage za pomocą narzędzi Python Tools 2.2 for Visual Studio](web-sites-python-ptvs-flask-table-storage.md)
 #### [Obsługa platformy Django i bazy danych MySQL na platformie Azure przy użyciu narzędzi Python Tools 2.2 for Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Obsługa platformy Django i bazy danych SQL Database na platformie Azure przy użyciu narzędzi Python Tools 2.2 for Visual Studio](web-sites-python-ptvs-django-sql.md)
+
+### Aplikacje Ruby
+#### [Using Ruby in Web Apps on Linux](app-service-linux-using-ruby.md) (Używanie języka Ruby w usłudze Web Apps w systemie Linux)
 
 ### [Wdrażanie pierwszej podstawowej aplikacji sieci Web na platformie Azure w ciągu pięciu minut](app-service-web-get-started-html.md)
 ### [Rozpoczynanie pracy z testami w środowisku produkcyjnym usługi Web Apps](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Konfigurowanie języka Python](web-sites-python-configure.md)
 #### [Konfigurowanie uruchamiania rozwiązania Node.js w systemie Linux](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Niestandardowe domeny
 #### [Zakup i konfiguracja domen niestandardowych](custom-dns-web-site-buydomains-web-app.md)
 #### [Mapowanie własnej domeny niestandardowej](web-sites-custom-domain-name.md)
+#### [Migrate an active custom domain](app-service-custom-domain-name-migrate.md) (Migracja aktywnej domeny niestandardowej)
 #### [Konfigurowanie domen GoDaddy](web-sites-godaddy-custom-domain-name.md)
 #### [Domeny niestandardowe z usługą Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -248,7 +257,7 @@
 ### [Rozwiązywanie problemów z wydajnością aplikacji sieci Web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Dokumentacja
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/appservice)
+## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -264,9 +273,3 @@
 # Zasoby
 ## [Najlepsze praktyki](app-service-best-practices.md)
 ## [Lista zasobów zadań WebJob](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
