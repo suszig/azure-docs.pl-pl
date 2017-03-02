@@ -21,6 +21,7 @@
 ### [Korzystanie z narzędzia DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Korzystanie z narzędzia Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Przekazywanie danych ze źródeł offline](data-lake-store-offline-bulk-data-upload.md)
+### [Migrowanie usługi Azure Data Lake Store między regionami](data-lake-store-migration-cross-region.md)
 
 ## Zabezpieczanie danych
 ### [Omówienie zabezpieczeń](data-lake-store-security-overview.md)
@@ -39,9 +40,10 @@
 ## Integracja z usługami Azure Services
 ### [Uzyskiwanie dostępu z poziomu maszyn wirtualnych w sieci wirtualnej platformy Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Używanie z usługą Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Tworzenie klastra HDInsight z usługą Data Lake Store za pomocą portalu](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Tworzenie klastra HDInsight z usługą Data Lake Store za pomocą programu PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Tworzenie klastra HDInsight z usługą Data Lake Store za pomocą szablonu usługi Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [HDInsight with Data Lake Store - Portal](data-lake-store-hdinsight-hadoop-use-portal.md) (Usługa HDInsight z usługą Data Lake Store — Portal)
+### [HDInsight with Data Lake Store as default storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md) (Usługa HDInsight z usługą Data Lake Store jako domyślnym magazynem — PowerShell)
+### [HDInsight with Data Lake Store as additional storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md) (Usługa HDInsight z usługą Data Lake Store jako dodatkowym magazynem — PowerShell)
+### [HDInsight with Data Lake Store - Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md) (Usługa HDInsight z usługą Data Lake Store — szablon platformy Azure)
 ### [Używanie z usługą Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Używanie z usługą Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Używanie z usługą Power BI](data-lake-store-power-bi.md)
@@ -69,8 +71,3 @@
 ## [Prześlij opinię na platformie UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog usługi Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
