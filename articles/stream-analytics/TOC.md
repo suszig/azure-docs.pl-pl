@@ -31,6 +31,7 @@
 ### [Funkcje okien](stream-analytics-window-functions.md)
 
 ## Zarządzanie
+### [Niezawodność zadań](stream-analytics-job-reliability.md)
 ### [Monitorowanie zadań](stream-analytics-monitoring.md)
 ### [Dzienniki diagnostyczne](stream-analytics-job-diagnostic-logs.md)
 ### [Programowe monitorowanie zadań](stream-analytics-monitor-jobs.md)
@@ -59,8 +60,3 @@
 ## [Forum z opiniami](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

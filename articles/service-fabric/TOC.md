@@ -105,6 +105,7 @@
 #### Tworzenie klastra na platformie Azure
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Program Visual Studio i usługa Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Typy węzłów i zestawy skalowania maszyn wirtualnych](service-fabric-cluster-nodetypes.md)
 #### [Skalowanie klastra](service-fabric-cluster-scale-up-down.md)
 #### [Uaktualnianie klastra](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Bezpłatne wypróbowywanie klastra testowego](http://aka.ms/tryservicefabric)
 
 ### Klastry autonomiczne
+#### [Planowanie i przygotowywanie wdrożenia](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Zawartość pakietu autonomicznego usługi Service Fabric](service-fabric-cluster-standalone-package-contents.md)
 #### [Tworzenie klastra autonomicznego](service-fabric-cluster-creation-for-windows-server.md)
 #### [Tworzenie klastra autonomicznego przy użyciu usługi Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Skalowanie klastra](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -211,8 +214,3 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
