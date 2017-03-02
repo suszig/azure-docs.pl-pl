@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -295,7 +296,7 @@ W poniższym przykładzie pokazano funkcje wprowadzone w programie Azure Media S
 
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
                 {
-                    var encodingPreset = "H264 Multiple Bitrate 720p";
+                    var encodingPreset = "Adaptive Streaming";
 
                     IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
                                             inputAsset.Name,
@@ -617,9 +618,4 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 [Konfigurowanie tworzenia pakietów Widevine przy użyciu usługi AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Powiadomienie o usługach dostarczania licencji Google Widevine w usłudze Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

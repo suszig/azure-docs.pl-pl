@@ -18,6 +18,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 002fa917e0cc17c34e0e617a28f2e21ba9b7e35f
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Tworzenie internetowego modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia platformy Azure
@@ -131,7 +132,7 @@ W tym przykładzie opisano tworzenie następujących elementów:
 2. Utwórz regułę modułu równoważenia obciążenia.
 
     ```azurecli
-        azure network lb rule create --resource-group nrprg nrplb --lb-name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
     ```
 
 3. Utwórz sondę kondycji.
@@ -308,9 +309,4 @@ azure network lb delete --resource-group nrprg --name nrplb
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
