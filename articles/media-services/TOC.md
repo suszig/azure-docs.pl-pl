@@ -45,9 +45,17 @@
 
 ## [Kodowanie zawartości](media-services-encode-asset.md)
 ### [Porównanie koderów](media-services-compare-encoders.md)
-### [Kody błędów](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Formaty i kodeki narzędzia Media Encoder Standard](media-services-media-encoder-standard-formats.md)
+#### [Automatyczne generowanie drabiny szybkości transmisji bitów za pomocą usługi MES](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Kodowanie za pomocą usługi Media Encoder Standard
+##### [Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Zaawansowane kodowanie za pomocą usługi MES](media-services-advanced-encoding-with-mes.md)
+##### [Dostosowywanie ustawień wstępnych usługi Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
+##### [Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Przycinanie wideo za pomocą usługi Media Encoder Standard](media-services-crop-video.md)
 #### Schematy usługi MES
 ##### [Schemat usługi Media Encoder Standard](media-services-mes-schema.md)
 ##### [Metadane wejściowe](media-services-input-metadata-schema.md)
@@ -78,13 +86,6 @@
 ##### [Pojedyncza szybkość transmisji bitów H264 720p dla systemu Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [Pojedyncza szybkość transmisji bitów H264 SD wysokiej jakości dla systemu Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [Pojedyncza szybkość transmisji bitów H264 SD niskiej jakości dla systemu Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Kodowanie za pomocą usługi Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Zaawansowane kodowanie za pomocą usługi MES](media-services-advanced-encoding-with-mes.md)
-##### [Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Przycinanie wideo za pomocą usługi Media Encoder Standard](media-services-crop-video.md)
 ### Przepływ pracy usługi Media Encoder w warstwie Premium
 #### [Formaty i kodeki usługi Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 #### Kodowanie za pomocą przepływu pracy usługi Media Encoder Premium
@@ -92,9 +93,11 @@
 ##### [Samouczki dotyczące przepływu pracy usługi Media Encoder w warstwie Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Tworzenie zaawansowanych przepływów pracy kodowania za pomocą projektanta przepływu pracy](media-services-workflow-designer.md)
 ##### [Przepływ pracy w warstwie Premium z wieloma danymi wejściowymi](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Tworzenie zadania generującego fragmenty fMP4](media-services-generate-fmp4-chunks.md)
 ### Procesory multimediów
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Kody błędów](media-services-encoding-error-codes.md)
 ### Przestarzałe
 #### [Statyczne tworzenie pakietów i szyfrowanie](media-services-static-packaging.md)
 
@@ -195,7 +198,8 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Kolejki magazynu do monitorowania powiadomień dotyczących zadań](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitor job notifications with queue storage](media-services-dotnet-check-job-progress-with-queues.md) (Monitorowanie powiadomień dotyczących zadań przy użyciu magazynu kolejek)
+### [Monitor job notifications with webhooks](media-services-dotnet-check-job-progress-with-webhooks.md) (Monitorowanie powiadomień dotyczących zadań przy użyciu elementów webhook)
 
 ## Rozwiązywanie problemów
 ### [Często zadawane pytania](media-services-frequently-asked-questions.md)
@@ -214,8 +218,3 @@
 ## [Cennik](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Społeczność usługi Azure Media Services](media-services-community.md)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=media-services)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -3,15 +3,14 @@
 ## [Co to jest usługa Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Zarządzanie urządzeniami — omówienie](iot-hub-device-management-overview.md)
 
-# Wprowadzenie
+# [Wprowadzenie](iot-hub-get-started.md)
 ## Korzystanie z symulowanego urządzenia
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
-### [Węzeł](iot-hub-node-node-getstarted.md)
+### [Node.js](iot-hub-node-node-getstarted.md)
 
 ## Korzystanie z urządzenia Raspberry Pi
-### Node.js
-#### [Rozpocznij](iot-hub-raspberry-pi-kit-node-get-started.md)
+### [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia
 ##### [Konfigurowanie urządzenia](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 ##### [Pobieranie narzędzi (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
@@ -24,7 +23,7 @@
 ##### [Pobieranie narzędzi platformy Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Tworzenie centrum IoT Hub i rejestrowanie urządzenia Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Lekcja 3. Wysyłanie komunikatów z urządzenia do chmury
-##### [Tworzenie aplikacji funkcji i konta magazynu platformy Azure]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Tworzenie aplikacji funkcji i konta magazynu platformy Azure](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Uruchamianie przykładowej aplikacji w celu wysyłania komunikatów](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 ##### [Odczytywanie komunikatów utrwalonych w magazynie](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
 #### Lekcja 4. Wysyłanie komunikatów z chmury do urządzeń
@@ -32,8 +31,7 @@
 ##### [Opcjonalnie: zmiana zachowania diody LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [Rozwiązywanie problemów](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-### C
-#### [Rozpocznij](iot-hub-raspberry-pi-kit-c-get-started.md)
+### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia
 ##### [Konfigurowanie urządzenia](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 ##### [Pobieranie narzędzi (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -55,8 +53,7 @@
 #### [Rozwiązywanie problemów](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Korzystanie z urządzenia Intel Edison
-### Node.js
-#### [Rozpocznij](iot-hub-intel-edison-kit-node-get-started.md)
+### [Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia
 ##### [Konfigurowanie urządzenia](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
 ##### [Pobieranie narzędzi (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
@@ -69,7 +66,7 @@
 ##### [Pobieranie narzędzi platformy Azure (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Tworzenie centrum IoT Hub i rejestrowanie urządzenia Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Lekcja 3. Wysyłanie komunikatów z urządzenia do chmury
-##### [Tworzenie aplikacji funkcji i konta magazynu platformy Azure]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Tworzenie aplikacji funkcji i konta magazynu platformy Azure](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Uruchamianie przykładowej aplikacji w celu wysyłania komunikatów](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
 ##### [Odczytywanie komunikatów utrwalonych w magazynie](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
 #### Lekcja 4. Wysyłanie komunikatów z chmury do urządzeń
@@ -77,8 +74,7 @@
 ##### [Opcjonalnie: zmiana zachowania diody LED](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
 #### [Rozwiązywanie problemów](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-### C
-#### [Rozpocznij](iot-hub-intel-edison-kit-c-get-started.md)
+### [C](iot-hub-intel-edison-kit-c-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia
 ##### [Konfigurowanie urządzenia](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
 ##### [Pobieranie narzędzi (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
@@ -100,8 +96,7 @@
 #### [Rozwiązywanie problemów](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Korzystanie z urządzenia Arduino
-### Node.js
-#### [Rozpocznij](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia
 ##### [Konfigurowanie urządzenia](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Pobieranie narzędzi (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -112,13 +107,13 @@
 ##### [Pobieranie narzędzi platformy Azure (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
 ##### [Pobieranie narzędzi platformy Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
 ##### [Pobieranie narzędzi platformy Azure (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [Tworzenie centrum IoT Hub i rejestrowanie urządzenia Raspberry Pi]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+##### [Tworzenie centrum IoT Hub i rejestrowanie urządzenia Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
 #### Lekcja 3. Wysyłanie komunikatów z urządzenia do chmury
-##### [Tworzenie aplikacji funkcji i konta magazynu platformy Azure]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Tworzenie aplikacji funkcji i konta magazynu platformy Azure](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
 ##### [Uruchamianie przykładowej aplikacji w celu wysyłania komunikatów](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
 ##### [Odczytywanie komunikatów utrwalonych w magazynie](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
 #### Lekcja 4. Wysyłanie komunikatów z chmury do urządzeń
-##### [Uruchamianie przykładowej aplikacji w celu otrzymywania wiadomości]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [Uruchamianie przykładowej aplikacji w celu otrzymywania komunikatów](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Opcjonalnie: zmiana zachowania diody LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Rozwiązywanie problemów](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
@@ -127,9 +122,7 @@
 ### [Symulacja w systemie Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## Korzystanie z pakietu startowego bramy IoT
-### Symulowane urządzenie
-
-#### [Rozpocznij](iot-hub-gateway-kit-c-sim-get-started.md)
+### [Symulowane urządzenie](iot-hub-gateway-kit-c-sim-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia NUC
 ##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md) (Konfigurowanie urządzenia Intel NUC jako bramy IoT)
 
@@ -149,8 +142,7 @@
 
 #### [Rozwiązywanie problemów](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
-### Urządzenie SensorTag
-#### [Rozpocznij](iot-hub-gateway-kit-c-get-started.md)
+### [Urządzenie SensorTag](iot-hub-gateway-kit-c-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia NUC
 ##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) (Konfigurowanie urządzenia Intel NUC jako bramy IoT)
 
@@ -170,8 +162,7 @@
 
 ##### [Rozwiązywanie problemów](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## Korzystanie z zestawu SDK urządzenia IoT dla języka C
-### [Wprowadzenie](iot-hub-device-sdk-c-intro.md)
+## [Korzystanie z zestawu SDK urządzenia IoT dla języka C](iot-hub-device-sdk-c-intro.md)
 ### [Korzystanie z usługi IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Korzystanie z serializatora](iot-hub-device-sdk-c-serializer.md)
 
@@ -181,7 +172,7 @@
 ### [Skalowanie rozwiązania](iot-hub-scaling.md)
 ### [Wysoka dostępność i odzyskiwanie po awarii](iot-hub-ha-dr.md)
 ### [Obsługa dodatkowych protokołów](iot-hub-protocol-gateway.md)
-## Programowanie
+## [Opracowywanie](iot-hub-how-to.md)
 ### [Przewodnik dla deweloperów](iot-hub-devguide.md)
 #### [Wysyłanie i odbieranie komunikatów](iot-hub-devguide-messaging.md)
 #### [Przewodnik po funkcjach przesyłania z urządzenia do chmury](iot-hub-devguide-d2c-guidance.md)
@@ -278,8 +269,3 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centrum deweloperów Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń](https://catalog.azureiotsuite.com/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -22,8 +22,10 @@
 ## Planowanie i projektowanie
 ### [Zagadnienia dotyczące projektowania](active-directory-aadconnect-design-concepts.md)
 ### [Topologie obsługiwane w programie Azure AD Connect](active-directory-aadconnect-topologies.md)
+### [Logowanie jednokrotne](active-directory-aadconnect-sso.md)
+### [Usługi Active Directory Federation Services na platformie Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Specjalne uwagi dotyczące wystąpień](active-directory-aadconnect-instances.md)
-
+### [Jeśli masz już usługę Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Zarządzanie programem Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Odnawianie certyfikatów dla usług O365 i Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Włączanie zapisywania zwrotnego urządzeń](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [Automatycznie uaktualnianie](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Zarządzanie programem Azure AD Connect Sync
 ### [Zapobieganie przypadkowemu usuwaniu](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronizacja haseł](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Uwierzytelnianie przekazywane](active-directory-aadconnect-pass-through-authentication.md)
 ### [Konto usługi Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Kreator instalacji](active-directory-aadconnectsync-installation-wizard.md)
 ### [Zmienianie konfiguracji domyślnej](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Konfigurowanie filtrowania](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Rozszerzenia katalogów](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Operacje](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Operacje](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Łączniki](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Projektant magazynu metaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Wyszukiwanie magazynu metaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## Zarządzanie usługami Federation Services
 ### [Zarządzanie i dostosowywanie](active-directory-aadconnect-federation-management.md)
@@ -83,8 +89,3 @@
 # Zasoby
 ##[Azure AD Connect — Często zadawane pytania](active-directory-aadconnect-faq.md)
 ##[Zakończenie świadczenia usługi DirSync](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

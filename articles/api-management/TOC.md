@@ -15,6 +15,7 @@
 ### [Ochrona zaplecza interfejsu API sieci Web za pomocą usługi AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Łączenie z siecią wirtualną](api-management-using-with-vnet.md)
 ### [Łączenie z wewnętrzną siecią wirtualną](api-management-using-with-internal-vnet.md)
+### [Integracja usługi Application Gateway w wewnętrznej sieci wirtualnej](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Wzajemne uwierzytelnianie certyfikatów](api-management-howto-mutual-certificates.md)
 ## Konfigurowanie zasad
 ### [Buforowanie niestandardowe](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [Informacje ogólne o zasadach — indeks](api-management-policy-reference.md)
 ### [Omówienie zasad](api-management-howto-policies.md)
 ### [Zarządzanie kluczami tajnymi za pomocą właściwości](api-management-howto-properties.md)
+### [Zabezpieczanie interfejsów API przy użyciu uwierzytelniania certyfikatów klientów](api-management-howto-mutual-certificates-for-clients.md)
 ## Dostosowywanie środowiska deweloperów
-### [Dostosowywanie portalu dla deweloperów](api-management-customize-portal.md)
+### [Modyfikowanie zawartości i układu strony](api-management-modify-content-layout.md)
+### [Dostosowywanie stylów elementów strony](api-management-customize-styles.md)
+### [Dostosowywanie stron systemowych za pomocą szablonów](api-management-developer-portal-templates.md)
 ### [Uwierzytelnianie przy użyciu usługi AAD](api-management-howto-aad.md)
+### [Uwierzytelnianie przy użyciu usługi AAD B2C](api-management-howto-aad-b2c.md)
 ### [Uwierzytelnianie delegowane](api-management-howto-setup-delegation.md)
 ### [Powiadomienia e-mail i szablony wiadomości e-mail](api-management-howto-configure-notifications.md)
 ### [Włączanie obsługi uwierzytelniania OAuth w konsoli](api-management-howto-oauth2.md)
-### [Dostosowywanie za pomocą szablonów](api-management-developer-portal-templates.md)
 ## Zarządzanie w produkcji
 ### [Zarządzanie grupami](api-management-howto-create-groups.md)
 ### [Wdrażanie w wielu regionach platformy Azure](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [Udostępnianie dostępu typu RBAC przy użyciu interfejsu API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Konfigurowanie narzędzia PostMan w celu wywoływania interfejsów API usługi API Management](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Wtyczka API Management dla interfejsu SmartBear Ready! Interfejs API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -45,7 +45,7 @@
 
 ## Disk Storage 
 ### [Tworzenie maszyny wirtualnej przy użyciu usługi Resource Manager i programu PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [Dołączanie dysku zarządzanego do maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [Dodawanie dysku zarządzanego do maszyny wirtualnej z systemem Linux](../virtual-machines/virtual-machines-linux-add-disk.md)
 ### [Tworzenie kopii wirtualnego dysku twardego przechowywanej jako dysk zarządzany przy użyciu migawek w systemie Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
@@ -100,7 +100,7 @@
 ### [Ustawianie i pobieranie właściwości oraz metadanych](storage-properties-metadata.md)
 ## Zarządzanie
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](storage-azure-cli.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0](storage-azure-cli.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Bezpieczeństwo
@@ -219,8 +219,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

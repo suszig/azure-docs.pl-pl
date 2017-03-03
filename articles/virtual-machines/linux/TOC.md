@@ -20,13 +20,9 @@
 ## [Tworzenie maszyny wirtualnej przy użyciu portalu](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Tworzenie kluczy SSH w systemie Linux i na komputerze Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Copy files to a Linux VM](../virtual-machines-linux-copy-files-to-linux-vm-using-scp.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Kopiowanie plików do maszyny wirtualnej z systemem Linux)
-## Różne sposoby tworzenia maszyny wirtualnej
-### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-creation-choices-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Różne sposoby tworzenia maszyny wirtualnej](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## Tworzenie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
-### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Tworzenie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Przewodnik po szablonach](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Tworzenie i wdrażanie złożonych szablonów maszyn wirtualnych](../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Architektura aplikacji](../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -37,19 +33,11 @@
 # Instrukcje
 ## Wystąpienia obliczeniowe
 ### [Tworzenie maszyny wirtualnej na podstawie szablonu platformy Azure](../virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### Tworzenie kompletnego środowiska przy użyciu interfejsu wiersza polecenia platformy Azure
-#### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Tworzenie kompletnego środowiska przy użyciu interfejsu wiersza polecenia platformy Azure](../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Tworzenie wielu maszyn wirtualnych za pomocą zestawów skalowania](../virtual-machines-linux-cli-vmss-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### Otwieranie portów i punktów końcowych
-#### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### Zmienianie rozmiaru maszyny wirtualnej
-#### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### Wdrażanie maszyny wirtualnej w istniejącej sieci wirtualnej
-#### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Otwieranie portów i punktów końcowych](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Zmienianie rozmiaru maszyny wirtualnej](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Wdrażanie maszyny wirtualnej w istniejącej sieci wirtualnej](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Azure Portal](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Znajdowanie obrazów maszyn wirtualnych](../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Używanie pakietu cloud-init](../virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -78,14 +66,10 @@
 ### [Instalowanie usługi Azure File Storage przy użyciu protokołu SMB](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## [Sieć](../virtual-machines-linux-azure-vm-network-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### Zezwalanie na dostęp do maszyny wirtualnej za pomocą interfejsu wiersza polecenia
-#### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Zezwalanie na dostęp do maszyny wirtualnej za pomocą interfejsu wiersza polecenia](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use internal DNS for VM name resolution](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Rozpoznawanie nazw maszyn wirtualnych za pomocą wewnętrznego serwera DNS)
 ### [Tworzenie nazwy FQDN przy użyciu portalu](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### Tworzenie maszyny wirtualnej z wieloma kartami sieciowymi
-#### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Tworzenie maszyny wirtualnej z wieloma kartami sieciowymi](../virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Tworzenie sieci wirtualnej przy użyciu interfejsu wiersza polecenia](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Tworzenie sieciowych grup zabezpieczeń przy użyciu interfejsu wiersza polecenia](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Tworzenie modułu równoważenia obciążenia](../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -97,19 +81,13 @@
 ### [Używanie usługi Azure Traffic Manager z maszynami wirtualnymi](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Wdrożenie
-### Kopiowanie maszyny wirtualnej
-#### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### Przechwytywanie maszyny wirtualnej
-#### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Kopiowanie maszyny wirtualnej](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Przechwytywanie maszyny wirtualnej](../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Tworzenie maszyny wirtualnej przy użyciu szablonu](../virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Obrazy
 #### [Obrazy zatwierdzone dla platformy Azure](../virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Obrazy niestandardowe](../virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### Przekazywanie obrazu maszyny wirtualnej
-##### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-##### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Przekazywanie obrazu maszyny wirtualnej](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Agent platformy Azure dla systemu Linux](../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [CentOS](../virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Ubuntu](../virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -185,7 +163,6 @@
 #### [Uruchamianie NAMD z zestawem Microsoft HPC Pack](../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Uruchamianie aplikacji
-### [Wdrażanie aplikacji Node.js](../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Aplikacja sieci Web na platformie Django](../virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Jupyter Notebook](../virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -196,18 +173,18 @@
 ### [Rozwiązywanie problemów z błędami alokacji](../virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Rozwiązywanie problemów dotyczących wdrożenia](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Ponowne wdrożenie maszyny wirtualnej w nowym węźle platformy Azure](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### Dołączanie wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów
-#### [Interfejs wiersza polecenia platformy Azure](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+### [Dołączanie wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 #### [Azure Portal](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Dokumentacja
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/vm)
+## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/vm)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Java](/java/api)
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
-## [REST](/rest/api/compute)
+## [Architektura REST — usługa Compute](/rest/api/compute)
+## [Managed Disks](/rest/api/manageddisks)
 
 # Zasoby
 ## [Tworzenie szablonów usługi Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -216,8 +193,3 @@
 ## [Dostępność regionalna](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

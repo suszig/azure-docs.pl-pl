@@ -63,6 +63,7 @@
 ### [Działania technologii MapReduce w usłudze HDInsight](data-factory-map-reduce.md)
 ### [Działania przesyłania strumieniowego usługi HDInsight](data-factory-hadoop-streaming-activity.md)
 ### [Działanie wykonywania wsadowego w usłudze Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+### [Działania aktualizowania zasobów w usłudze Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 ### [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 ### [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 ### [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
@@ -99,8 +100,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Prośba o funkcję](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
