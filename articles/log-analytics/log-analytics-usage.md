@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
 ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -69,9 +70,4 @@ Jeśli korzystasz z warstwy cenowej *na węzeł (OMS)*, opłaty są naliczane na
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby wyświetlić szczegółowe informacje, które są zbierane i przesyłane do usługi OMS przez funkcje i rozwiązania, zobacz [Wyszukiwanie w dzienniku w usłudze Log Analytics](log-analytics-log-searches.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
