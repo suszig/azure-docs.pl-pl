@@ -17,6 +17,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
 ms.openlocfilehash: 1f273f3b55d719e37b9cdb6cefda30c3566e7226
+ms.lasthandoff: 11/18/2016
 
 
 ---
@@ -28,42 +29,38 @@ W poniższym przykładzie usługa Application Gateway obsługuje ruch dla domeny
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Żądania dla adresu http://contoso.com/video* są kierowane do puli VideoServerPool, a dla adresu http://contoso.com/images* do puli ImageServerPool. Pula DefaultServerPool jest wybierana, jeśli żaden z wzorców ścieżki nie pasuje.
-
+    
 ## <a name="urlpathmap-configuration-element"></a>Element konfiguracji UrlPathMap
 
 Element UrlPathMap jest używany do określania wzorców ścieżki na potrzeby mapowań pul serwerów zaplecza. Poniższy przykład kodu jest fragmentem elementu urlPathMap z pliku szablonu.
 
 ```json
-"urlPathMaps": [
-{
-"name": "<urlPathMapName>",
-"id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
-"properties": {
-    "defaultBackendAddressPool": {
-        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
-    },
-    "defaultBackendHttpSettings": {
-        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
-    },
-    "pathRules": [
-        {
-            "paths": [
-                <pathPattern>
-            ],
-            "backendAddressPool": {
-                "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
-            },
-            "backendHttpsettings": {
-                "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
-            },
-
+"urlPathMaps": [{
+    "name": "<urlPathMapName>",
+    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/urlPathMaps/<urlPathMapName>",
+    "properties": {
+        "defaultBackendAddressPool": {
+            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
         },
-
-    ],
-
-}
-}
-]
+        "defaultBackendHttpSettings": {
+            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
+        },
+        "pathRules": [{
+            "name": "<pathRuleName>",
+            "properties": {
+                "paths": [
+                    "<pathPattern>"
+                ],
+                "backendAddressPool": {
+                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
+                },
+                "backendHttpsettings": {
+                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
+                }
+            }
+        }]
+    }
+}]
 ```
 
 > [!NOTE]
@@ -99,10 +96,5 @@ Fragment reguły PathBasedRouting:
 ## <a name="next-steps"></a>Następne kroki
 
 Po zapoznaniu się z informacjami na temat routingu zawartości opartego na adresach URL skorzystaj z informacji dotyczących [tworzenia bramy aplikacji przy użyciu routingu opartego na adresach URL](application-gateway-create-url-route-portal.md), aby utworzyć bramę aplikacji za pomocą reguł routingu adresów URL.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
