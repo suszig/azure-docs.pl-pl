@@ -1,97 +1,92 @@
 # Omówienie
-## [Omówienie aplikacji logiki](logic-apps-what-are-logic-apps.md)
-## [Lista łączników](../connectors/apis-list.md)
-## [Pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md)
+## [Co to są aplikacje logiki?](logic-apps-what-are-logic-apps.md)
+## [Rozwiązanie B2B z pakietem integracyjnym dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md)
+## [Łączniki](../connectors/apis-list.md)
 
 # Rozpoczęcie pracy
-## [Tworzenie aplikacji logiki](logic-apps-create-a-logic-app.md)
-## [Korzystanie z funkcji aplikacji logiki](logic-apps-use-logic-app-features.md)
-## [Przegląd szablonów](logic-apps-use-logic-app-templates.md)
-## [Create an app using a template](logic-apps-arm-provision.md) (Tworzenie aplikacji przy użyciu szablonu)
-## [Przykłady i scenariusze](logic-apps-examples-and-scenarios.md)
-## [Scenariusz usługi Service Bus](logic-apps-scenario-function-sb-trigger.md)
-## [Przetwarzanie B2B](logic-apps-enterprise-integration-b2b.md)
-## [Przetwarzanie XML](logic-apps-enterprise-integration-xml.md)
+## [Tworzenie pierwszej aplikacji logiki](logic-apps-create-a-logic-app.md)
+## [Szablony aplikacji logiki](logic-apps-use-logic-app-templates.md)
+## [Tworzenie aplikacji logiki przy użyciu szablonów](logic-apps-arm-provision.md)
 
 # Instrukcje
 ## Kompilacja
-### [Tworzenie łącznika](logic-apps-create-api-app.md)
-### [Korzystanie z łącznika systemu plików](logic-apps-using-file-connector.md)
-### [Korzystanie z łącznika SAP](logic-apps-using-sap-connector.md)
-### [Narzędzia programu Visual Studio](logic-apps-deploy-from-vs.md)
-### [Korzystanie z usługi Azure Functions](logic-apps-azure-functions.md)
-### [Aplikacje logiki jako wywoływalne punkty końcowe](logic-apps-http-endpoint.md)
-### [Pętle, zakresy i usuwanie partii](logic-apps-loops-and-scopes.md)
-### [Korzystanie z niestandardowego interfejsu API](logic-apps-custom-hosted-api.md)
-### [Korzystanie z instrukcji switch](logic-apps-switch-case.md)
-### [Obsługa wyjątków](logic-apps-exception-handling.md)
-### [Scenariusz obsługi wyjątków](logic-apps-scenario-error-and-exception-handling.md)
+### [Tworzenie i wdrażanie aplikacji logiki w programie Visual Studio](logic-apps-deploy-from-vs.md)
+### [Dodawanie warunków i uruchamianie przepływów pracy](logic-apps-use-logic-app-features.md)
+### [Dodawanie instrukcji switch](logic-apps-switch-case.md)
+### [Dodawanie kodu niestandardowego za pomocą usługi Azure Functions](logic-apps-azure-functions.md)
+### [Pętle, zakresy i usuwanie partii danych](logic-apps-loops-and-scopes.md)
+### [Tworzenie definicji aplikacji logiki](logic-apps-author-definitions.md)
+### [Tworzenie niestandardowych interfejsów API dla aplikacji logiki](logic-apps-create-api-app.md)
+### [Wywoływanie niestandardowych interfejsów API dla aplikacji logiki](logic-apps-custom-hosted-api.md)
+### [Wywoływanie punktów końcowych aplikacji logiki jako wyzwalaczy](logic-apps-http-endpoint.md)
+### [Obsługa błędów i wyjątków](logic-apps-exception-handling.md)
 ### [Obsługa typów zawartości](logic-apps-content-type.md)
-### [Definicja przepływu pracy](logic-apps-author-definitions.md)
-### [Wskazówki dotyczące rozwiązywania problemów](logic-apps-diagnosing-failures.md)
+### [Zabezpieczanie aplikacji logiki](logic-apps-securing-a-logic-app.md)
+### [Rozwiązywanie problemów](logic-apps-diagnosing-failures.md)
 ### [Limity i konfiguracja](logic-apps-limits-and-config.md)
 
-
-## Korzystanie z pakietu integracyjnego dla przedsiębiorstw (EIP)
-### [Omówienie integracji kont](logic-apps-enterprise-integration-create-integration-account.md)
+## Rozwiązanie B2B z pakietem integracyjnym dla przedsiębiorstw
+### [Integracja kont](logic-apps-enterprise-integration-create-integration-account.md)
+### [Partnerzy](logic-apps-enterprise-integration-partners.md)
 ### [Umowy](logic-apps-enterprise-integration-agreements.md)
 ### [Przetwarzanie B2B](logic-apps-enterprise-integration-b2b.md)
 ### [Przetwarzanie XML](logic-apps-enterprise-integration-xml.md)
 ### [Przetwarzanie plików prostych](logic-apps-enterprise-integration-flatfile.md)
-### [Dodawanie map XSLT](logic-apps-enterprise-integration-maps.md)
-### [Przekształcanie kodu XML](logic-apps-enterprise-integration-transform.md)
 ### [Walidacja danych XML](logic-apps-enterprise-integration-xml-validation.md)
-### [Używanie certyfikatów](logic-apps-enterprise-integration-certificates.md)
-### [Dodawanie partnerów](logic-apps-enterprise-integration-partners.md)
-### [Dodawanie schematów](logic-apps-enterprise-integration-schemas.md)
-### [Metadane magazynu](logic-apps-enterprise-integration-metadata.md)
-### [Integracja AS2](logic-apps-enterprise-integration-as2.md)
+### [Dodawanie schematów na potrzeby weryfikacji kodu XML](logic-apps-enterprise-integration-schemas.md)
+### [Przekształcanie kodu XML](logic-apps-enterprise-integration-transform.md)
+### [Dodawanie map na potrzeby przekształceń kodu XML](logic-apps-enterprise-integration-maps.md)
+### [Dodawanie certyfikatów zabezpieczeń B2B](logic-apps-enterprise-integration-certificates.md)
+### [Przechowywanie metadanych artefaktów](logic-apps-enterprise-integration-metadata.md)
+### [Integracja AS2 w przedsiębiorstwach](logic-apps-enterprise-integration-as2.md)
 ### [Kodowanie AS2](logic-apps-enterprise-integration-as2-encode.md)
 ### [Dekodowanie AS2](logic-apps-enterprise-integration-as2-decode.md)
-### [Integracja EDIFACT](logic-apps-enterprise-integration-edifact.md)
+### [Integracja EDIFACT w przedsiębiorstwach](logic-apps-enterprise-integration-edifact.md)
 ### [Kodowanie EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
 ### [Dekodowanie EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
-### [Integracja X12](logic-apps-enterprise-integration-x12.md)
+### [Integracja X12 w przedsiębiorstwach](logic-apps-enterprise-integration-x12.md)
 ### [Kodowanie X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Dekodowanie X12](logic-apps-enterprise-integration-x12-decode.md)
 
+## Dostęp do danych lokalnych
+### [Nawiązywanie połączenia z danymi lokalnymi](logic-apps-gateway-connection.md)
+### [Instalowanie bramy danych](logic-apps-gateway-install.md)
 
-## Używanie bram
-### [Połączenie systemów lokalnych](logic-apps-gateway-connection.md)
-### [Instalowanie](logic-apps-gateway-install.md)
+## Automatyzowanie i wdrażanie
+### [Tworzenie szablonów automatycznego wdrażania](logic-apps-create-deploy-template.md)
+### [Publikowanie z programu Visual Studio](logic-apps-deploy-from-vs.md)
 
-## Automatyzacja
-### [Szablon automatyzacji](logic-apps-create-deploy-template.md)
-### [Publikowanie z programu VS](logic-apps-deploy-from-vs.md)
-
-## Zarządzanie
-### [Korzystanie z programu Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
-### [Zabezpieczanie aplikacji logiki](logic-apps-securing-a-logic-app.md)
+## Zarządzanie i monitorowanie
+### [Zarządzanie aplikacjami logiki w programie Visual Studio](logic-apps-manage-from-vs.md)
 ### [Monitorowanie aplikacji logiki](logic-apps-monitor-your-logic-apps.md)
+### [Zarządzanie kontami integracji](logic-apps-enterprise-integration-accounts.md)
 ### [Monitorowanie komunikatów B2B](logic-apps-monitor-b2b-message.md)
 #### [Schemat śledzenia AS2](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [Schemat śledzenia X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Niestandardowe schematy śledzenia](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [Śledzenie komunikatów B2B](logic-apps-track-b2b-messages-omsportal.md)
-#### [Tworzenie zapytań w portalu pakietu OMS](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+#### [Śledzenie komunikatów B2B w pakiecie OMS](logic-apps-track-b2b-messages-omsportal.md)
+#### [Wykonywanie zapytań dotyczących komunikatów w pakiecie OMS](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
-### [Integracja kont](logic-apps-enterprise-integration-accounts.md)
-### [Cennik](logic-apps-pricing.md)
+## Przykłady, scenariusze i przewodniki
+### [Omówienie](logic-apps-examples-and-scenarios.md)
+### [Wywoływanie aplikacji logiki za pomocą usługi Azure Functions](logic-apps-scenario-function-sb-trigger.md)
+### [Dodawanie obsługi błędów i wyjątków](logic-apps-scenario-error-and-exception-handling.md)
+### [Przetwarzanie B2B](logic-apps-enterprise-integration-b2b.md)
+
+## Ceny i rozliczanie
+### [Cennik](https://azure.microsoft.com/pricing/details/logic-apps/)
+### [Pomiary użycia](logic-apps-pricing.md)
 
 # Dokumentacja
+## [Język definicji przepływów pracy](https://docs.microsoft.com/rest/api/logic/definition-language)
+## [Wyzwalacze i akcje przepływu pracy](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Interfejs API REST](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Historia schematu
 ### [Ogólne udostępnienie](logic-apps-schema-2016-04-01.md)
 ### [Wersja zapoznawcza](logic-apps-schema-2015-08-01.md)
-## [REST](/rest/api/logic/)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/pricing/details/logic-apps/)  
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=logic-apps)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

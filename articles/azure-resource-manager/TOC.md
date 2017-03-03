@@ -17,6 +17,7 @@
 ### [Tworzenie szablonów](resource-group-authoring-templates.md)
 ### [Funkcje szablonów](resource-group-template-functions.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
+### [Ustawianie nazwy i typu zasobu podrzędnego](resource-manager-template-child-resource.md)
 ### [Tworzenie wielu wystąpień typu zasobu](resource-group-create-multiple.md)
 ### [Przekazywanie bezpiecznych wartości podczas wdrażania](resource-manager-keyvault-parameter.md)
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
@@ -27,7 +28,6 @@
 ### [Interfejs wiersza polecenia platformy Azure](resource-group-template-deploy-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
-### [Środowiska deweloperskie i testowe](solution-dev-test-environments.md)
 ### [Ciągła integracja z usługą Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Zarządzaj
 ### [Program PowerShell](powershell-azure-resource-manager.md)
@@ -59,7 +59,7 @@
 
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/resource)
+## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
@@ -72,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
