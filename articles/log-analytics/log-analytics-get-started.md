@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
 ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -150,9 +151,4 @@ Opcjonalnie można usunąć obszar roboczy utworzony za pomocą tego samouczka.
 * Dowiedz się więcej o łączeniu [agentów programu Operations Manager](log-analytics-om-agents.md) z usługą Log Analytics.
 * [Dodaj rozwiązania Log Analytics z galerii rozwiązań](log-analytics-add-solutions.md), aby dodać funkcje i zebrać dane.
 * Zapoznaj się z [wyszukiwaniem w dziennikach](log-analytics-log-searches.md), aby wyświetlić szczegółowe informacje zebrane przez rozwiązania.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
