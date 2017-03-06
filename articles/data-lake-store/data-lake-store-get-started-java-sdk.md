@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
 ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -158,10 +159,5 @@ Pamiętaj, że pliki są odczytywane i zapisywane za pomocą standardowych strum
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 * [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

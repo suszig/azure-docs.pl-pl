@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
 ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -298,9 +299,4 @@ Jeśli jesteś administratorem i z tym obszarem roboczym jest skojarzonych wielu
 * Aby dowiedzieć się, jak dodać agentów i gromadzić dane, zobacz [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) (Tworzenie połączenia między komputerami z systemem Windows i usługą Log Analytics).
 * [Dodaj rozwiązania Log Analytics z galerii rozwiązań](log-analytics-add-solutions.md), aby dodać funkcje i zebrać dane.
 * [Skonfiguruj ustawienia serwera proxy i zapory w usłudze Log Analytics](log-analytics-proxy-firewall.md), jeśli organizacja korzysta z serwera proxy lub zapory, aby agenci mogli komunikować się z usługą Log Analytics.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
