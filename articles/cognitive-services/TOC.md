@@ -52,8 +52,3 @@
 ## [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cognitive-services)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -12,8 +12,3 @@
 ## Korzystanie z aplikacji Microsoft Authenticator
 ### [Wprowadzenie](microsoft-authenticator-app-how-to.md)
 ### [Często zadawane pytania](microsoft-authenticator-app-faq.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
