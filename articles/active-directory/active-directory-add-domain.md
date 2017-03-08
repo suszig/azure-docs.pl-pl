@@ -3,7 +3,7 @@ title: "Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory
 description: "Jak dodać nazwy domeny firmy do usługi Azure Active Directory oraz jak zweryfikować nazwę domeny."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
 > 
 > 
 
-Masz co najmniej jedną nazwę domeny, której organizacja używa do prowadzenia działalności, a użytkownicy logują się do sieci firmowej przy użyciu nazwy domeny firmowej. Teraz, gdy używasz usługi Azure Active Directory (Azure AD), możesz dodać nazwę domeny firmowej również do usługi Azure AD. Dzięki temu można w katalogu przypisać nazwy użytkowników znajome dla użytkowników, takie jak ‘alice@contoso.com.’ Proces jest prosty:
+Masz co najmniej jedną nazwę domeny, której organizacja używa do prowadzenia działalności, a użytkownicy logują się do sieci firmowej przy użyciu nazwy domeny firmowej. Teraz, gdy używasz usługi Azure Active Directory (Azure AD), możesz dodać nazwę domeny firmowej również do usługi Azure AD. Dzięki temu w katalogu można przypisać nazwy użytkowników znane użytkownikom, takie jak „alice@contoso.com”. Proces jest prosty:
 
 1. Dodawanie niestandardowej nazwy domeny do katalogu
 2. Dodawanie wpisu DNS dla nazwy domeny w rejestratorze nazw domen
@@ -85,10 +86,5 @@ Jeśli Twoja organizacja używa wielu niestandardowych nazw domen, takich jak �
 * [Zapoznanie z koncepcjami związanymi z zarządzaniem domenami w usłudze Azure AD](active-directory-add-domain-concepts.md)
 * [Wyświetlanie znakowania firmowego podczas logowania użytkowników](active-directory-add-company-branding.md)
 * [Zarządzanie nazwami domen w usłudze Azure AD przy użyciu programu PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

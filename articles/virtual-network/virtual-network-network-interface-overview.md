@@ -1,6 +1,6 @@
 ---
 title: Interfejsy sieciowe na platformie Azure | Microsoft Docs
-description: "Dowiedz się więcej o interfejsach sieciowych platformy Azure w modelu wdrażana przy użyciu usługi Azure Resource Manager."
+description: "Dowiedz się o interfejsach sieciowych platformy Azure i poznaj sposoby ich używania razem z maszynami wirtualnymi."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 02/24/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
-ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 395cff80b3f97b6340e15f370c13f783e2f5dde3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="network-interfaces-in-azure"></a>Interfejsy sieciowe na platformie Azure
+# <a name="what-are-network-interfaces"></a>Co to są interfejsy sieciowe?
+
 Interfejs sieciowy (karta sieciowa) to wzajemne połączenie między maszyną wirtualną (VM) i podstawową siecią oprogramowania. W tym artykule opisano interfejs sieciowy oraz sposób użycia w modelu wdrażania przy użyciu usługi Azure Resource Manager.
 
 Firma Microsoft zaleca wdrażanie nowych zasobów za pomocą modelu wdrażania przy użyciu usługi Resource Manager, ale możesz również wdrażać maszyny wirtualne z łącznością sieciową w [klasycznym](virtual-network-ip-addresses-overview-classic.md) modelu wdrażania. Jeśli znasz klasyczny model, istnieją ważne różnice dotyczące sieci maszyny wirtualnej w modelu wdrażania przy użyciu usługi Resource Manager. Dowiesz się więcej o różnicach po przeczytaniu artykułu [Virtual machine networking - Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) (Sieć maszyny wirtualnej — klasyczna).
@@ -34,7 +37,7 @@ Na platformie Azure interfejs sieciowy:
 4. Może być podłączona do maszyny wirtualnej, ale można ją połączyć tylko z jedną maszyną wirtualną, która istnieje w tej samej lokalizacji co karta sieciowa.
 5. Ma adres MAC, który jest trwały dla karty sieciowej tak długo, jak długo pozostaje ona podłączona do maszyny wirtualnej. Adres MAC jest trwały bez względu na to, czy maszyna wirtualna zostanie ponownie uruchomiona (w ramach systemu operacyjnego) lub zatrzymana (cofnięcie przydziału) i uruchomiona za pomocą witryny Azure Portal, programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Jeśli karta sieciowa zostanie odłączona od maszyny wirtualnej i dołączona do innej maszyny wirtualnej, otrzyma inny adres MAC. Jeśli karta sieciowa zostanie usunięta, adres MAC zostanie przypisany do innych kart sieciowych.
 6. Musi mieć przypisany podstawowy **prywatny** statyczny lub dynamiczny adres IP *IPv4*.
-7. Może mieć powiązany jeden zasób publicznego adresu IP.
+7. Może mieć powiązany jeden lub więcej zasobów publicznych adresów IP. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [Wiele adresów IP dla karty sieciowej](virtual-network-multiple-ip-addresses-portal.md).
 8. Obsługuje przyspieszoną sieć za pomocą wirtualizacji we/wy z jednym elementem głównym (SR-IOV) dla określonych rozmiarów maszyny wirtualnej z uruchomioną określoną wersją systemu operacyjnego Microsoft Windows Server. Aby dowiedzieć się więcej o tej funkcji WERSJI ZAPOZNAWCZEJ, przeczytaj artykuł [Accelerated networking for a virtual machine](virtual-network-accelerated-networking-powershell.md) (Przyspieszona sieć dla maszyny wirtualnej).
 9. Może odbierać ruch nieprzeznaczony do prywatnych adresów IP przypisanych do niej, jeśli przesyłanie dalej IP jest włączone dla karty sieciowej. Jeśli na przykład na maszynie wirtualnej działa oprogramowanie zapory, określa ono trasy pakietów, które nie są przeznaczone do własnych adresów IP. Na maszynie wirtualnej nadal musi być uruchomione oprogramowanie umożliwiające routing lub przesyłanie dalej ruchu, ale w tym celu przesyłanie dalej IP musi być włączone dla karty sieciowej.
 10. Często jest tworzony w tej samej grupie zasobów, do której jest dołączona maszyna wirtualna lub w tej samej sieci wirtualnej, do której jest podłączona, chociaż nie jest to wymagane.
@@ -52,10 +55,5 @@ Do maszyny wirtualnej można dołączyć wiele kart sieciowych, ale robiąc to, 
 * Dowiedz się, jak utworzyć maszynę wirtualną z jedną kartą sieciową, czytając artykuł [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Dowiedz się, jak utworzyć maszynę wirtualną z wieloma kartami sieciowymi, czytając artykuł [Wdrażanie maszyny wirtualnej z wieloma kartami sieciowymi](virtual-network-deploy-multinic-arm-ps.md).
 * Dowiedz się, jak utworzyć kartę sieciową z wieloma konfiguracjami IP, czytając artykuł [Wiele adresów IP dla maszyn wirtualnych platformy Azure](virtual-network-multiple-ip-addresses-powershell.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

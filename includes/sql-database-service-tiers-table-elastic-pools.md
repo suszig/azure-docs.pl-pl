@@ -4,12 +4,12 @@ sql-database-elastic-pool.md
 sql-database-resource-limits.md
 sql-database-service-tiers.md  
 -->
-
+ 
 ### <a name="basic-elastic-pool-limits"></a>Limity podstawowych pul elastycznych
 
 | Rozmiar puli (jednostki eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
-| Maksymalna pojemność magazynu na pulę* | 5 GB | 10 GB | 20 GB | 29 GB | 39 GB | 78 GB | 117 GB | 156 GB |
+| Maksymalny rozmiar magazynu danych na pulę* | 5 GB | 10 GB | 20 GB | 29 GB | 39 GB | 78 GB | 117 GB | 156 GB |
 | Maksymalna pojemność magazynu OLTP w pamięci na pulę* | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
 | Maksymalna liczba baz danych na pulę | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maksymalna liczba współbieżnych procesów roboczych na pulę | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -23,7 +23,7 @@ sql-database-service-tiers.md
 
 | Rozmiar puli (jednostki eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
-| Maksymalna pojemność magazynu na pulę* | 50 GB| 100 GB| 200 GB | 300 GB| 400 GB | 800 GB | 
+| Maksymalny rozmiar magazynu danych na pulę* | 50 GB| 100 GB| 200 GB | 300 GB| 400 GB | 800 GB | 
 | Maksymalna pojemność magazynu OLTP w pamięci na pulę* | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | 
 | Maksymalna liczba baz danych na pulę | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maksymalna liczba współbieżnych procesów roboczych na pulę | 100 | 200 | 400 | 600 |  800 | 1600 |
@@ -37,7 +37,7 @@ sql-database-service-tiers.md
 
 | Rozmiar puli (jednostki eDTU)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Maksymalna pojemność magazynu na pulę* | 1,2 TB | 1,6 TB | 2 TB | 2,4 TB | 2,9 TB | 
+| Maksymalny rozmiar magazynu danych na pulę* | 1,2 TB | 1,6 TB | 2 TB | 2,4 TB | 2,9 TB | 
 | Maksymalna pojemność magazynu OLTP w pamięci na pulę* | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | 
 | Maksymalna liczba baz danych na pulę | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maksymalna liczba współbieżnych procesów roboczych na pulę |  2400 | 3200 | 4000 | 5000 | 6000 |
@@ -51,7 +51,7 @@ sql-database-service-tiers.md
 
 | Rozmiar puli (jednostki eDTU)  | **125** | **250** | **500** | **1000** | **1500** | 
 |:---|---:|---:|---:| ---: | ---: | 
-| Maksymalna pojemność magazynu na pulę* | 250 GB| 500 GB| 750 GB| 750 GB| 750 GB| 
+| Maksymalny rozmiar magazynu danych na pulę* | 250 GB| 500 GB| 750 GB| 750 GB| 750 GB| 
 | Maksymalna pojemność magazynu OLTP w pamięci na pulę* | 1 GB| 2 GB| 4 GB| 10 GB| 12 GB| 
 | Maksymalna liczba baz danych na pulę | 50 | 100 | 100 | 100 | 100 |  
 | Maksymalna liczba współbieżnych procesów roboczych na pulę | 200 | 400 | 800 | 1600 |  2400 | 
@@ -65,7 +65,7 @@ sql-database-service-tiers.md
 
 | Rozmiar puli (jednostki eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
-| Maksymalna pojemność magazynu na pulę* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
+| Maksymalny rozmiar magazynu danych na pulę* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
 | Maksymalna pojemność magazynu OLTP w pamięci na pulę* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Maksymalna liczba baz danych na pulę | 100 | 100 | 100 | 100 | 100 | 
 | Maksymalna liczba współbieżnych procesów roboczych na pulę |  3200 | 4000 | 4800 | 5600 | 6400 |
@@ -75,10 +75,6 @@ sql-database-service-tiers.md
 | Maksymalna liczba jednostek eDTU na bazę danych | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Bazy danych w puli współużytkują magazyn w puli, dzięki czemu magazyn bazy danych jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych. Maksymalna wielkość magazynu na pulę odwołuje się do maksymalnego magazynu plików danych w puli i nie obejmuje przestrzeni używanej przez pliki dziennika.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+> [!IMPORTANT]
+>\* Bazy danych w puli współużytkują magazyn w puli, dzięki czemu magazyn danych w elastycznej puli jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych.
+>

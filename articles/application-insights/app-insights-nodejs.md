@@ -1,21 +1,22 @@
 ---
-title: "Dodawanie zestawu SDK usługi Application Insights w celu monitorowania aplikacji Node.js | Microsoft Docs"
+title: "Monitorowanie aplikacji Node.js za pomocą zestawu SDK usługi Application Insights | Microsoft Docs"
 description: "Analizowanie użycia, dostępności i wydajności aplikacji lokalnej lub aplikacji sieci Web na platformie Microsoft Azure za pomocą usługi Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,22 +32,21 @@ Zestaw SDK zapewnia automatyczne zbieranie wskaźników przychodzących żądań
 #### <a name="before-you-start"></a>Przed rozpoczęciem
 Potrzebne elementy:
 
-* Program Visual Studio 2013 lub nowszy. (Im nowszy, tym lepiej).
 * Subskrypcja platformy [Microsoft Azure](http://azure.com). Jeśli Twój zespół lub organizacja mają subskrypcję platformy Azure, właściciel subskrypcji może Cię do niej dodać, korzystając z Twojego [konta Microsoft](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Tworzenie zasobu usługi Application Insights
-Zaloguj się do [Azure Portal][portal] i utwórz nowy zasób usługi Application Insights. [Zasób][role] na platformie Azure to wystąpienie usługi. Ten zasób jest miejscem, gdzie odbywa się analizowane i wyświetlanie telemetrii z aplikacji.
+## <a name="add"></a>Tworzenie zasobu usługi Application Insights
+Zaloguj się w witrynie [Azure Portal][portal] i utwórz nowy zasób usługi Application Insights. [Zasób][roles] na platformie Azure to wystąpienie usługi. Ten zasób jest miejscem, gdzie odbywa się analizowane i wyświetlanie telemetrii z aplikacji.
 
 ![Kliknij kolejno polecenia Nowy, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Wybierz Inny jako typ aplikacji. Wybór typu aplikacji powoduje ustawienie domyślnej zawartości bloków zasobów i właściwości widocznych w [Eksploratorze metryk][metrics].
+Wybierz Ogólna jako typ aplikacji. Wybór typu aplikacji powoduje ustawienie domyślnej zawartości bloków zasobów i właściwości widocznych w [Eksploratorze metryk][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Kopiowanie klucza instrumentacji
 Klucz identyfikuje zasób. Wkrótce zainstalujesz go w zestawie SDK w celu kierowania danych do tego zasobu.
 
 ![Kliknij opcję Właściwości, zaznacz klucz i naciśnij klawisze Ctrl+C](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Instalowanie zestawu SDK w aplikacji
+## <a name="sdk"></a> Instalowanie zestawu SDK w aplikacji
 ```
 npm install applicationinsights --save
 ```
@@ -64,17 +64,17 @@ Można również ustawić klucz instrumentacji w zmiennej środowiskowej APPINSI
 
 Możesz przetestować zestaw SDK bez wysyłania telemetrii — ustaw niepusty ciąg tekstowy jako klucz instrumentacji.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Uruchamianie projektu
+## <a name="run"></a> Uruchamianie projektu
 Uruchom aplikację i wypróbuj jej działanie. Otwieraj różne strony, aby wygenerować dane telemetryczne.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Wyświetlanie telemetrii
+## <a name="monitor"></a> Wyświetlanie telemetrii
 Wróć do [Azure Portal](https://portal.azure.com) i przejdź do zasobu usługi Application Insights.
 
 Poszukaj danych na stronie Przegląd. Na początku zobaczysz tylko jeden lub dwa punkty. Na przykład:
 
 ![Klikaj elementy, aby uzyskać więcej danych](./media/app-insights-nodejs/12-first-perf.png)
 
-Klikaj elementy wykresów, aby wyświetlać bardziej szczegółowe metryki. [Dowiedz się więcej o metrykach.][wydajność]
+Klikaj elementy wykresów, aby wyświetlać bardziej szczegółowe metryki. [Dowiedz się więcej o metrykach.][perf]
 
 #### <a name="no-data"></a>Brak danych?
 * Otwieraj różne strony w aplikacji, aby wygenerować dane telemetryczne.
@@ -191,15 +191,10 @@ server.on("listening", () => {
 
 <!--Link references-->
 
-[znani użytkownicy]: app-insights-overview-usage.md
+[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
-[wydajność]: app-insights-web-monitor-performance.md
+[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[role]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[roles]: app-insights-resources-roles-access-control.md
 

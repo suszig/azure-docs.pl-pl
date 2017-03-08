@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
-ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
+ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
+ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -52,11 +53,14 @@ W tym samouczku zostaną wykonane następujące czynności:
 
    ![Blok Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Przejrzyj dostępne szablony programu SQL Server.
-6. Każdy szablon identyfikuje wersję programu SQL Server i system operacyjny. Wybierz z listy jeden z obrazów. Następnie przejrzyj blok szczegółów zawierający opis obrazu maszyny wirtualnej.
+5. Przejrzyj dostępne szablony programu SQL Server. Każdy szablon identyfikuje wersję programu SQL Server i system operacyjny. 
+6. Wybierz szablon dla programu SQL Server 2016 SP1 Developer w systemie Windows Server 2016.
+
+   > [!TIP]
+   > W tym samouczku jest używana wersja Developer — w pełni funkcjonalna wersja programu SQL Server, bezpłatna w przypadku zastosowań obejmujących tworzenie i testowanie. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej.
    
    > [!NOTE]
-   > W przypadku obrazów maszyn wirtualnych SQL koszty licencji programu SQL Server zostały uwzględnione w cenie za minutę dla tworzonej maszyny wirtualnej. Drugą opcją jest używanie własnej licencji (BYOL, bring your own license) i płatność tylko za maszynę wirtualną. Nazwy tych obrazów mają prefiks {BYOL}. Aby uzyskać więcej informacji na temat tej opcji, zobacz temat [Wprowadzenie do programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+   > W przypadku obrazów maszyn wirtualnych SQL koszty licencji programu SQL Server zostały uwzględnione w cenie za minutę dla tworzonej maszyny wirtualnej (z wyjątkiem wersji Developer i Express). Z programu SQL Server Developer można korzystać bezpłatnie w środowiskach tworzenia i testowania (nie produkcyjnych). Z programu SQL Express można korzystać bezpłatnie na potrzeby obsługi małych obciążeń (mniej niż 1 GB pamięci i mniej niż 10 GB magazynu). Drugą opcją jest używanie własnej licencji (BYOL, bring your own license) i płatność tylko za maszynę wirtualną. Nazwy tych obrazów mają prefiks {BYOL}. Aby uzyskać więcej informacji na temat tej opcji, zobacz temat [Wprowadzenie do programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. W obszarze **Wybierz model wdrożenia** sprawdź, czy pozycja **Resource Manager** została zaznaczona. Wdrażanie przy użyciu usługi Resource Manager jest zalecanym modelem wdrożenia dla nowych maszyn wirtualnych. Kliknij przycisk **Utwórz**.
@@ -243,14 +247,10 @@ Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration f
 Po zakończeniu konfigurowania tych ustawień programu SQL Server kliknij pozycję **OK**.
 
 ### <a name="r-services"></a>Usługi języka R
-W wersji SQL Server 2016 Enterprise można włączyć [usługi języka R programu SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Umożliwia to korzystanie z zaawansowanych funkcji analizy za pomocą programu SQL Server 2016. Kliknij pozycję **Włącz** w bloku **Ustawienia programu SQL Server**.
+Można włączyć [usługi języka R programu SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Umożliwia to korzystanie z zaawansowanych funkcji analizy za pomocą programu SQL Server 2016. Kliknij pozycję **Włącz** w bloku **Ustawienia programu SQL Server**.
 
 ![Włączanie usług języka R programu SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> W przypadku obrazów programu SQL Server w wersji innej niż 2016 Enterprise opcja włączania usług języka R jest wyłączona.
-> 
-> 
 
 ## <a name="5-review-the-summary"></a>5. Przeglądanie podsumowania
 W bloku **Podsumowanie** przejrzyj podsumowanie i kliknij pozycję **OK**, aby utworzyć wystąpienie programu SQL Server, grupę zasobów i zasoby określone dla tej maszyny wirtualnej.
@@ -299,10 +299,5 @@ Aby uzyskać inne informacje na temat użycia programu SQL Server na platformie 
 Obejrzyj film poglądowy dotyczący programu SQL Server w usłudze Azure Virtual Machines: [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Maszyna wirtualna Azure jest najlepszą platformą dla programu SQL Server 2016).
 
 [Zbadaj ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) dla programu SQL Server na maszynach wirtualnych Azure.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

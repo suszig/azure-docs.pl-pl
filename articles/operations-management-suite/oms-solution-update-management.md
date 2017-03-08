@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
-ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
+ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
+ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -38,7 +39,7 @@ Rozwiązanie do zarządzania aktualizacjami w usłudze OMS pozwala na zarządzan
 Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS, a także dodać agentów systemu Linux. Agenci systemu Windows są dodawani automatycznie bez dodatkowej konfiguracji.
 
 > [!NOTE]
-> Obecnie włączenie tego rozwiązania powoduje automatyczne skonfigurowanie każdego komputera z systemem Windows połączonego z obszarem roboczym pakietu OMS jako hybrydowego procesu roboczego elementu Runbook w celu obsługi elementów Runbook należących do tego rozwiązania.  Nie jest on jednak zarejestrowany w żadnej grupie hybrydowych procesów roboczych utworzonej na koncie usługi Automation i nie można dodać go do grupy hybrydowych procesów roboczych w celu uruchamiania własnych elementów Runbook.  Jeśli komputer z systemem Windows jest już wyznaczony jako hybrydowy proces roboczy elementu Runbook i połączony z obszarem roboczym pakietu OMS, musisz usunąć go z obszaru roboczego pakietu OMS przed dodaniem rozwiązania, aby zapobiec niezgodnemu z oczekiwaniami działaniu elementów Runbook.  
+> Włączenie tego rozwiązania powoduje automatyczne skonfigurowanie każdego komputera z systemem Windows połączonego z obszarem roboczym pakietu OMS jako hybrydowego procesu roboczego elementu Runbook w celu obsługi elementów Runbook należących do tego rozwiązania.  Nie jest ono jednak zarejestrowane w żadnych grupach hybrydowych procesów roboczych, które mogły już zostać przez Ciebie zdefiniowane na Twoim koncie usługi Automation.  Możesz je dodać do grupy hybrydowych procesów roboczych elementów Runbook na Twoim koncie usługi Automation w celu obsługi elementów Runbook usługi Automation, o ile używasz tego samego konta zarówno dla tego rozwiązania, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementów Runbook.  Ta funkcjonalność została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.   
 
 1. Dodaj rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS przy użyciu procesu opisanego w artykule [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) (Dodawanie rozwiązań OMS) z galerii rozwiązań.  
 2. W portalu usługi OMS wybierz pozycję **Ustawienia**, a następnie pozycję **Połączone źródła**.  Zanotuj **identyfikator obszaru roboczego** i **klucz podstawowy** albo **klucz pomocniczy**.
@@ -247,10 +248,5 @@ Poniższa tabela zawiera przykładowe wyszukiwania w dzienniku dotyczące rekord
 * Korzystanie z wyszukiwania w dzienniku usługi [Log Analytics](../log-analytics/log-analytics-log-searches.md) w celu wyświetlania szczegółowych danych aktualizacji.
 * [Tworzenie własnych pulpitów nawigacyjnych](../log-analytics/log-analytics-dashboards.md) przedstawiających zgodność aktualizacji na zarządzanych komputerach.
 * [Tworzenie alertów](../log-analytics/log-analytics-alerts.md) po wykryciu braku aktualizacji krytycznych na komputerach lub komputera z wyłączonymi aktualizacjami automatycznymi.  
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

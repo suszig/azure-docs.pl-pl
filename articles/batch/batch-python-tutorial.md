@@ -1,6 +1,6 @@
 ---
 title: "Samouczek — korzystanie z zestawu SDK usługi Azure Batch dla języka Python | Microsoft Docs"
-description: "Podstawowe informacje na temat usługi Azure Batch oraz rozwijania usługi Batch za pomocą prostego scenariusza"
+description: "Podstawowe pojęcia dotyczące usługi Azure Batch i tworzenie prostego rozwiązania przy użyciu platformy Python."
 services: batch
 documentationcenter: python
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/01/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 02f68c743f18fa691afdd5ff02f427b89d28c663
-ms.openlocfilehash: 146eaea2bf523ff6e7d9024205e47965fa2e0413
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 4dc9491f3645b071640262af3f1ffcb480cfabef
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-python-client"></a>Wprowadzenie do klienta usługi Azure Batch dla środowiska Python
+# <a name="get-started-with-the-batch-sdk-for-python"></a>Wprowadzenie do zestawu SDK usługi Batch dla języka Python
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -705,9 +708,4 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch na
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Poświadczenia usługi Batch w portalu"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Poświadczenia usługi Storage w portalu"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Przepływ pracy rozwiązania w usłudze Batch (diagram minimalny)"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -4,7 +4,7 @@ description: "Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: b0ffb91c2a92075b723b050338e8bedcc1e03ce7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5df82f438eab04d7ef2753c02b87eb5162c5c19d
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-python-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Wdrażanie pierwszej aplikacji sieci Web w języku Python na platformie Azure w ciągu pięciu minut (interfejs wiersza polecenia 2.0 w wersji zapoznawczej)
-
-> [!div class="op_single_selector"]
-> * [Pierwsza witryna HTML](app-service-web-get-started-html.md)
-> * [Pierwsza aplikacja platformy .NET](app-service-web-get-started-dotnet.md)
-> * [Pierwsza aplikacja PHP](app-service-web-get-started-php.md)
-> * [Pierwsza aplikacja Node.js](app-service-web-get-started-nodejs.md)
-> * [Pierwsza aplikacja w języku Python](app-service-web-get-started-python.md)
-> * [Pierwsza aplikacja w języku Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Ten samouczek ułatwia wdrażanie pierwszej aplikacji sieci Web Python w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Za pomocą usługi App Service można tworzyć aplikacje sieci Web, [zaplecza aplikacji mobilnych](/documentation/learning-paths/appservice-mobileapps/) oraz [aplikacje interfejsu API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Wykonasz następujące zadania:
 Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
 
 - [Interfejs wiersza polecenia platformy Azure w wersji 1.0](app-service-web-get-started-python-cli-nodejs.md) — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami
-- [Interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](app-service-web-get-started-python.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami
+- [Interfejs wiersza polecenia platformy Azure w wersji 2.0](app-service-web-get-started-python.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Git](http://www.git-scm.com/downloads).
@@ -150,10 +142,5 @@ Możesz także wykonać inne zadania związane ze swoją pierwszą aplikacją si
 
 * Wypróbuj [inne sposoby wdrożenia kodu na platformie Azure](web-sites-deploy.md). Na przykład w celu wdrożenia jednego z naszych repozytoriów GitHub wystarczy wybrać pozycję **GitHub** zamiast **Lokalne repozytorium Git** w obszarze **Opcje wdrażania**.
 * Przenieś swoją aplikację Azure na wyższy poziom. Uwierzytelniaj użytkowników. Skaluj ją zależnie od potrzeb. Skonfiguruj alerty dotyczące wydajności. Wszystkie te czynności możesz wykonać za pomocą kilku kliknięć. Zobacz [Dodawanie funkcji do pierwszej aplikacji sieci Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

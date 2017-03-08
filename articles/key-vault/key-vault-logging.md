@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -40,8 +41,6 @@ Ten samouczek ułatwi rozpoczęcie pracy z funkcją rejestrowania usługi Azure 
 > 
 > 
 
-Zbierane dzienniki można zwizualizować za pomocą usługi analizy dzienników z pakietu Operations Management Suite. Aby uzyskać więcej informacji, zobacz [Rozwiązanie Azure Key Vault (Preview) w usłudze analizy dzienników](../log-analytics/log-analytics-azure-key-vault.md).
-
 Aby uzyskać ogólne informacje na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -51,7 +50,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Usługa Azure PowerShell w **minimalnej wersji 1.0.1**. Aby zainstalować program Azure PowerShell i skojarzyć go z subskrypcją platformy Azure, zobacz [Sposób instalowania i konfigurowania programu Azure PowerShell](/powershell/azureps-cmdlets-docs). Jeśli masz już zainstalowany program Azure PowerShell, ale nie wiesz, z jakiej wersji korzystasz, w konsoli programu Azure PowerShell wpisz polecenie `(Get-Module azure -ListAvailable).Version`.  
 * Wystarczająca ilość miejsca w magazynie platformy Azure dla dzienników usługi Key Vault.
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Nawiązywanie połączenia z subskrypcjami
+## <a id="connect"></a>Nawiązywanie połączenia z subskrypcjami
 Uruchom sesję programu PowerShell Azure i zaloguj się na konto platformy Azure przy użyciu następującego polecenia:  
 
     Login-AzureRmAccount
@@ -68,7 +67,7 @@ Następnie, aby określić subskrypcję skojarzoną z Twoim magazynem kluczy, kt
 
 Aby uzyskać więcej informacji na temat konfigurowania programu Azure PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Tworzenie nowego konta magazynu dla dzienników
+## <a id="storage"></a>Tworzenie nowego konta magazynu dla dzienników
 Chociaż można użyć istniejącego konta magazynu dla dzienników, utworzymy nowe konto magazynu, które będzie przeznaczone dla dzienników usługi Key Vault. Aby później można było wygodnie określić wszystkie szczegóły, będą one przechowywane w zmiennej o nazwie **sa**.
 
 W celu ułatwienia zarządzania użyjemy tej grupy zasobów, która zawiera nasz magazyn kluczy. Tak samo jak w [samouczku wprowadzającym](key-vault-get-started.md) ta grupa zasobów ma nazwę **ContosoResourceGroup**. W dalszym ciągu będziemy też używać lokalizacji Azja Wschodnia. Zastąp te wartości własnymi, w razie potrzeby:
@@ -81,13 +80,13 @@ W celu ułatwienia zarządzania użyjemy tej grupy zasobów, która zawiera nasz
 > 
 > 
 
-## <a name="a-ididentifyaidentify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identyfikowanie magazynu kluczy dla dzienników
+## <a id="identify"></a>Identyfikowanie magazynu kluczy dla dzienników
 W naszym samouczku wprowadzającym magazyn kluczy został nazwany **ContosoKeyVault**, dlatego dalej będziemy używać tej nazwy, a szczegóły będziemy przechowywać w zmiennej o nazwie **kv**:
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
-## <a name="a-idenableaenable-logging"></a><a id="enable"></a>Włączanie rejestrowania
+## <a id="enable"></a>Włączanie rejestrowania
 Aby włączyć rejestrowanie dla usługi Key Vault użyjemy polecenia cmdlet Set-AzureRmDiagnosticSetting wraz ze zmiennymi utworzonymi dla naszego nowego konta magazynu i magazynu kluczy. Ustawimy też flagę **-Enabled** na wartość **$true**, a kategorię na AuditEvent (jedyna kategoria rejestrowania usługi Key Vault):
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -118,7 +117,7 @@ Co jest rejestrowane:
 * Operacje na kluczach i kluczach tajnych w magazynie kluczy (łącznie z tworzeniem, modyfikowaniem lub usuwaniem tych kluczy lub kluczy tajnych) oraz operacje, takie jak podpisywanie, weryfikowanie, szyfrowanie, odszyfrowywanie, opakowywanie i odpakowywanie kluczy, pobieranie kluczy tajnych, tworzenie listy kluczy i kluczy tajnych oraz ich wersji.
 * Nieuwierzytelnione żądania, które powodują uzyskanie odpowiedzi 401. Na przykład żądania, które nie mają tokenu elementu nośnego, są nieprawidłowo sformułowane, wygasły lub mają nieprawidłowy token.  
 
-## <a name="a-idaccessaaccess-your-logs"></a><a id="access"></a>Uzyskiwanie dostępu do dzienników
+## <a id="access"></a>Uzyskiwanie dostępu do dzienników
 Dzienniki magazynu kluczy są przechowywane w kontenerze **insights-logs-auditevent** na podanym przez Ciebie koncie magazynu. Aby wyświetlić listę wszystkich obiektów blob w tym kontenerze, wpisz polecenie:
 
     Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
@@ -173,7 +172,7 @@ Teraz możesz rozpocząć wyszukiwanie informacji zawartych w dziennikach. Jedna
 * Aby wykonać zapytanie o stan ustawień diagnostycznych dla zasobu magazynu kluczy: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
 * Aby wyłączyć rejestrowanie dla zasobu magazynu kluczy: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
-## <a name="a-idinterpretainterpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretowanie dzienników usługi Key Vault
+## <a id="interpret"></a>Interpretowanie dzienników usługi Key Vault
 Poszczególne obiekty blob są przechowywane jako tekst w formacie obiektu blob JSON. To jest przykładowy wpis dziennika po uruchomieniu polecenia `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
@@ -254,7 +253,11 @@ W poniższej tabeli wymieniono nazwy operacji operationName i odpowiadające im 
 | SecretList |[Utwórz listę kluczy tajnych w magazynie](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Utwórz listę wersji klucza tajnego](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Następne kroki
+## <a id="loganalytics"></a>Korzystanie z usługi Log Analytics
+
+Za pomocą rozwiązania Azure Key Vault możesz w usłudze Log Analytics przeglądać dzienniki rozwiązania Azure Key Vault z kategorii AuditEvent. Aby uzyskać więcej informacji, w tym na temat konfigurowania tego rozwiązania, zobacz [Rozwiązanie Azure Key Vault w usłudze Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Artykuł ten zawiera również instrukcje w razie potrzeby migracji ze starego rozwiązania Key Vault, które było oferowane w trakcie okresu zapoznawczego usługi Log Analytics, w której najpierw należało skierować dzienniki do konta usługi Azure Storage, a następnie skonfigurować usługę Log Analytics do odczytu z tego konta.
+
+## <a id="next"></a>Następne kroki
 Aby zapoznać się z samouczkiem, w którym użyto usługi Azure Key Vault w aplikacji sieci Web, zobacz [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md) (Używanie usługi Azure Key Vault za pośrednictwem aplikacji sieci Web).
 
 Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).
@@ -262,10 +265,5 @@ Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera us�
 Aby zapoznać się z listą poleceń cmdlet usługi Azure PowerShell 1.0 dla usługi Azure Key Vault, zobacz artykuł [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Polecenia cmdlet w usłudze Azure Key Vault).
 
 Aby znaleźć samouczek dotyczący rotacji kluczy i inspekcji dzienników w usłudze Azure Key Vault, zobacz [Jak skonfigurować usługę Key Vault na potrzeby rotacji i inspekcji typu end-to-end](key-vault-key-rotation-log-monitoring.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

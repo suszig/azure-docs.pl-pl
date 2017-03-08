@@ -1,10 +1,10 @@
 ---
-title: "Co to są trasy zdefiniowane przez użytkownika i przesyłanie dalej IP?"
-description: "Dowiedz się, w jaki sposób można korzystać z tras zdefiniowanych przez użytkownika i przesyłania dalej IP, aby przekazywać ruch w sieci do wirtualnych urządzeń sieciowych na platformie Azure."
+title: "Trasy zdefiniowane przez użytkownika i przekazywanie adresów IP na platformie Azure | Microsoft Docs"
+description: "Dowiedz się, w jaki sposób skonfigurować trasy zdefiniowane przez użytkownika i przekazywanie adresów IP w celu przekazywania ruchu do wirtualnych urządzeń sieciowych na platformie Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
-ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
+ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
+ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Co to są trasy zdefiniowane przez użytkownika i przesyłanie dalej IP?
+# <a name="user-defined-routes-and-ip-forwarding"></a>Trasy zdefiniowane przez użytkownika i przekazywanie adresów IP
+
 Po dodaniu maszyny wirtualnej do sieci wirtualnej na platformie Azure można zauważyć, że maszyny wirtualne mogą automatycznie komunikować się ze sobą za pośrednictwem sieci. Nie ma potrzeby określania bramy, nawet gdy maszyny wirtualne znajdują się w różnych podsieciach. Dotyczy to także komunikacji z maszyn wirtualnych do publicznej sieci Internet, a nawet do sieci lokalnej, gdy obecne jest połączenie hybrydowe z platformy Azure do własnego centrum danych.
 
 Taki przepływ komunikacji jest możliwy, ponieważ platforma Azure korzysta z szeregu tras systemowych do definiowania przepływu ruchu w sieci IP. Trasy systemowe sterują przepływem komunikacji według następujących scenariuszy:
@@ -53,8 +56,8 @@ Pakiety są przesyłane za pośrednictwem sieci TCP/IP w oparciu o tabelę tras 
 | Właściwość | Opis | Ograniczenia | Zagadnienia do rozważenia |
 | --- | --- | --- | --- |
 | Przedrostek adresu |Docelowy adres CIDR, do którego zostanie zastosowana trasa, na przykład 10.1.0.0/16. |Musi to być prawidłowy zakres adresów CIDR reprezentujący adresy w publicznej sieci Internet, sieci wirtualnej platformy Azure lub lokalnym centrum danych. |Upewnij się, że **przedrostek adresu** nie zawiera **adresu następnego skoku**, ponieważ w przeciwnym razie pakiety wpadną w pętlę, przechodząc od źródła do adresu następnego skoku i nigdy nie docierając do miejsca docelowego. |
-| Typ następnego skoku |Typ skoku platformy Azure, dokąd pakiet powinien zostać przesłany. |Musi mieć jedną z następujących wartości: <br/> **Sieć wirtualna** Reprezentuje lokalną sieć wirtualną. Na przykład jeśli dwie podsieci 10.1.0.0/16 i 10.2.0.0/16 znajdują się w tej samej sieci wirtualnej, trasa dla każdej podsieci w tabeli tras będzie miała wartość następnego skoku *Sieć wirtualna*. <br/> **Brama sieci wirtualnej** Reprezentuje usługę Azure S2S VPN Gateway. <br/> **Internet**. Reprezentuje domyślną bramę sieci Internet dostarczoną przez infrastrukturę platformy Azure. <br/> **Urządzenie wirtualne**. Reprezentuje urządzenie wirtualne dodane do Twojej sieci wirtualnej platformy Azure. <br/> **Brak**. Reprezentuje czarną dziurę. Pakiety przekazywane do czarnej dziury nie zostaną w ogóle przekazane. |Należy rozważyć użycie typu **Brak**, aby zatrzymać pakiety w drodze do zadanego miejsca docelowego. |
-| Adres następnego skoku |Adres następnego skoku zawiera adres IP, do którego powinien zostać przekazany pakiet. Wartości następnego skoku są dozwolone tylko w przypadku tras, dla których typem następnego skoku jest *Urządzenie wirtualne*. |Musi to być adres IP osiągalny w sieci wirtualnej, w której stosowana jest trasa zdefiniowana przez użytkownika. |Jeśli adres IP reprezentuje maszynę wirtualną, upewnij się, że funkcja [Przesyłanie dalej IP](#IP-forwarding) platformy Azure dla maszyny wirtualnej jest włączona. |
+| Typ następnego skoku |Typ skoku platformy Azure, dokąd pakiet powinien zostać przesłany. |Musi mieć jedną z następujących wartości: <br/> **Sieć wirtualna** Reprezentuje lokalną sieć wirtualną. Na przykład jeśli dwie podsieci 10.1.0.0/16 i 10.2.0.0/16 znajdują się w tej samej sieci wirtualnej, trasa dla każdej podsieci w tabeli tras będzie miała wartość następnego skoku *Sieć wirtualna*. <br/> **Brama sieci wirtualnej** Reprezentuje usługę Azure S2S VPN Gateway. <br/> **Internet**. Reprezentuje domyślną bramę sieci Internet dostarczoną przez infrastrukturę platformy Azure. <br/> **Urządzenie wirtualne**. Reprezentuje urządzenie wirtualne dodane do Twojej sieci wirtualnej platformy Azure. <br/> **Brak**. Reprezentuje czarną dziurę. Pakiety przekazywane do czarnej dziury nie zostaną w ogóle przekazane. |Rozważ użycie **urządzenia wirtualnego** umożliwiającego skierowanie ruchu do maszyny wirtualnej lub wewnętrznego adresu IP usługi Azure Load Balancer.  Typ ten umożliwia określenie adresu IP zgodnie z poniższym opisem. Należy rozważyć użycie typu **Brak**, aby zatrzymać pakiety w drodze do zadanego miejsca docelowego. |
+| Adres następnego skoku |Adres następnego skoku zawiera adres IP, do którego powinien zostać przekazany pakiet. Wartości następnego skoku są dozwolone tylko w przypadku tras, dla których typem następnego skoku jest *Urządzenie wirtualne*. |Musi to być adres IP osiągalny w sieci wirtualnej, w której stosowana jest trasa zdefiniowana przez użytkownika. |Jeśli adres IP reprezentuje maszynę wirtualną, upewnij się, że funkcja [Przesyłanie dalej IP](#IP-forwarding) platformy Azure dla maszyny wirtualnej jest włączona. Jeśli adres IP reprezentuje wewnętrzny adres IP usługi Azure Load Balancer, upewnij się, że dla każdego portu, którego obciążenie chcesz zrównoważyć, skonfigurowano zgodną regułę równoważenia obciążenia.|
 
 W programie Azure PowerShell niektóre wartości „NextHopType” mają inne nazwy:
 
@@ -100,7 +103,7 @@ Jeśli między siecią lokalną a platformą Azure istniej połączenie ExpressR
 > 
 > 
 
-## <a name="ip-forwarding"></a>Przesyłanie dalej IP
+## <a name="ip-forwarding"></a>Przekazywanie IP
 Jak opisano powyżej, jednym z głównych powodów tworzenia tras definiowanych przez użytkownika jest przesyłanie ruchu sieciowego do urządzenia wirtualnego. Urządzenie wirtualne to po prostu maszyna wirtualna, na której działa aplikacja służąca do obsługi ruchu sieciowego w określony sposób, na przykład zapora lub urządzenie NAT.
 
 Ta maszyna wirtualna musi mieć zdolność odbierania ruchu przychodzącego, który nie jest skierowany do niej samej. Aby umożliwić maszynie wirtualnej odbieranie ruchu kierowanego do innych miejsc docelowych, konieczne jest włączenie dla tej maszyny wirtualnej funkcji przesyłania dalej IP. Jest to ustawienie platformy Azure, a nie systemu operacyjnego gościa.
@@ -108,10 +111,5 @@ Ta maszyna wirtualna musi mieć zdolność odbierania ruchu przychodzącego, kt�
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, w jaki sposób można [tworzyć trasy w modelu wdrożenia usługi Resource Manager](virtual-network-create-udr-arm-template.md) i kojarzyć je z podsieciami. 
 * Dowiedz się, w jaki sposób można [tworzyć trasy w klasycznym modelu wdrożenia](virtual-network-create-udr-classic-ps.md) i kojarzyć je z podsieciami.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

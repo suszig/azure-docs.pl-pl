@@ -10,5 +10,7 @@
 ## [Rozwiązywanie problemów](multi-factor-authentication-end-user-troubleshoot.md)
 ## [Ustawianie hasła aplikacji](multi-factor-authentication-end-user-app-passwords.md)
 ## Korzystanie z aplikacji Microsoft Authenticator
-### [Wprowadzenie](microsoft-authenticator-app-how-to.md)
+### [Get started with the app](microsoft-authenticator-app-how-to.md) (Rozpoczynanie pracy z aplikacją)
+### [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md) (Logowanie przy użyciu telefonu)
 ### [Często zadawane pytania](microsoft-authenticator-app-faq.md)
+

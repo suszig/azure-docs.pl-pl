@@ -16,9 +16,5 @@
 
 # Zasoby
 ##[Połączenia źródła danych](analysis-services-datasource.md)
-##[Dostawcy danych](analysis-services-data-providers.md) 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+##[Dostawcy danych](analysis-services-data-providers.md)
+##[Create an .odc file](analysis-services-odc.md) (Tworzenie pliku odc)
