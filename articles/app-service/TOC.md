@@ -28,20 +28,6 @@
 ### [Aplikacja portalu Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Typowe przykłady
-## Przykłady interfejsu wiersza polecenia
-### [Tworzenie aplikacji sieci Web i wdrażanie kodu z usługi GitHub](./scripts/app-service-cli-deploy-github.md)
-### [Tworzenie aplikacji sieci Web z ciągłym wdrażania z usługi GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
-### [Tworzenie aplikacji sieci Web i wdrażanie kodu z lokalnego repozytorium Git](./scripts/app-service-cli-deploy-local-git.md)
-### [Tworzenie aplikacji sieci Web i wdrażanie kodu w środowisku przejściowym](./scripts/app-service-cli-deploy-staging-environment.md)
-### [Tworzenie aplikacji sieci Web ASP.NET Core w kontenerze platformy Docker](./scripts/app-service-cli-linux-docker-aspnetcore.md)
-### [Mapowanie domeny niestandardowej na aplikację sieci Web](./scripts/app-service-cli-configure-custom-domain.md)
-### [Ręczne skalowanie aplikacji sieci Web](./scripts/app-service-cli-scale-manual.md)
-### [Skalowanie aplikacji sieci Web na całym świecie przy użyciu architektury wysokiej dostępności](./scripts/app-service-cli-scale-high-availability.md)
-### [Łączenie aplikacji sieci Web z bazą danych SQL](./scripts/app-service-cli-app-service-sql.md)
-### [Łączenie aplikacji sieci Web z kontem magazynu](./scripts/app-service-cli-app-service-storage.md)
-### [Monitorowanie aplikacji sieci Web za pomocą dzienników serwera sieci Web](./scripts/app-service-cli-monitor.md)
-
 # Instrukcje
 
 ## Planowanie i projektowanie

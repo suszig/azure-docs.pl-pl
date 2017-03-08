@@ -36,8 +36,6 @@
 ### [Interfejs API REST](resource-manager-rest-api.md)
 ### [Organizowanie zasobów przy użyciu tagów](resource-group-using-tags.md)
 ### [Przenoszenie zasobów do nowej grupy lub subskrypcji](resource-group-move-resources.md)
-### [Łączenie z powiązanymi zasobami](resource-group-link-resources.md)
-### [Eksplorator zasobów Azure](resource-manager-resource-explorer.md)
 ## Kontrola dostępu
 ### [Tworzenie jednostki usługi przy użyciu programu PowerShell](resource-group-authenticate-service-principal.md)
 ### [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](resource-group-authenticate-service-principal-cli.md)

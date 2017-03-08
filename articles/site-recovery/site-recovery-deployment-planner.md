@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: f438db1d0129dfb0e2eaa00146147084cd8c11b6
-ms.openlocfilehash: 179e8cf928d83a3a66ed3489173e4c28a2bc9d4f
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -309,7 +309,7 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory** E:\vCenter1
 
 **Aby osiągnąć cel punktu odzyskiwania przez 90% czasu**: jeśli nie możesz aprowizować przepustowości wymaganej do osiągnięcia żądanego celu punktu odzyskiwania przez 100% czasu, możesz aprowizować mniejszą przepustowość umożliwiającą osiągnięcie żądanego celu punktu odzyskiwania przez 90% czasu. Aby umożliwić poznanie skutków aprowizacji mniejszej przepustowości, w raporcie przedstawiono analizę warunkową liczby i czasu trwania naruszeń celu punktu odzyskiwania.
 
-**Osiągnięta przepływność:** jest to przepływność między serwerem, na którym uruchomiono polecenie GetThroughput, i regionem świadczenia usługi Microsoft Azure, w którym znajduje się konto usługi Azure Storage. Ta wartość wskazuje przybliżoną przepływność, którą można osiągnąć podczas ochrony zgodnych maszyn wirtualnych za pomocą usługi Azure Site Recovery, jeśli charakterystyka magazynu i sieci serwera konfiguracji/serwera przetwarzania pozostają takie same jak w przypadku serwera, na którym uruchomiono narzędzie. Osiągnięta przepływność to przepływność między serwerem, na którym uruchomiono polecenie GetThroughput, i regionem świadczenia usługi Microsoft Azure, w którym znajduje się konto usługi Azure Storage. Ta wartość wskazuje przybliżoną przepływność, którą można osiągnąć podczas ochrony zgodnych maszyn wirtualnych za pomocą usługi Azure Site Recovery, jeśli charakterystyka magazynu i sieci serwera konfiguracji/serwera przetwarzania pozostają takie same jak w przypadku serwera, na którym uruchomiono narzędzie.
+**Osiągnięta przepływność:** jest to przepływność między serwerem, na którym uruchomiono polecenie GetThroughput, i regionem świadczenia usługi Microsoft Azure, w którym znajduje się konto usługi Azure Storage. Ta wartość wskazuje przybliżoną przepływność, którą można osiągnąć podczas ochrony zgodnych maszyn wirtualnych za pomocą usługi Azure Site Recovery, jeśli charakterystyka magazynu i sieci serwera konfiguracji/serwera przetwarzania pozostają takie same jak w przypadku serwera, na którym uruchomiono narzędzie.    
 
 W przypadku replikacji musisz aprowizować przepustowość zalecaną do osiągnięcia celu punktu odzyskiwania przez 100% czasu. Jeśli nie widzisz wzrostu osiągniętej przepływności zgłoszonej przez narzędzie nawet po aprowizowaniu odpowiedniej przepustowości, sprawdź następujące kwestie:
 

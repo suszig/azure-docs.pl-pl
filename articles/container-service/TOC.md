@@ -36,8 +36,6 @@
 ### [Integracja ciągła w rozwiązaniu Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Dokumentacja
 ## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/acs)
-## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
-## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
 # Zasoby
 ## [Dostępność w danym regionie](https://azure.microsoft.com/regions/services/)
