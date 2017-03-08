@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
-ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -60,7 +61,7 @@ Oto, co należy zapewnić lokalnie.
 | --- | --- |
 | **VMM** |Będziesz potrzebować co najmniej jednego serwera programu VMM wdrożonego jako fizyczny lub wirtualny serwer autonomiczny lub jako klaster wirtualny. <br/><br/>Na serwerze programu VMM powinien być uruchomiony program System Center 2012 R2 z najnowszymi aktualizacjami zbiorczymi.<br/><br/>Będziesz potrzebować co najmniej jednej chmury skonfigurowanej na serwerze programu VMM.<br/><br/>Chmura źródłowa, którą chcesz chronić, musi zawierać co najmniej jedną grupę hostów programu VMM.<br/><br/>Aby dowiedzieć się więcej na temat konfigurowania chmur programu VMM, zobacz [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) (Przewodnik: tworzenie chmur prywatnych przy użyciu programu System Center 2012 SP1 VMM) na blogu Keitha Mayera. |
 | **Funkcja Hyper-V** |Będziesz potrzebować co najmniej jednego serwera hosta lub klastra funkcji Hyper-V w chmurze programu VMM. Serwer hosta powinien mieć co najmniej jedną maszynę wirtualną. <br/><br/>Serwer funkcji Hyper-V musi być uruchomiony w **systemie Windows Server 2012 R2** z rolą Hyper-V lub w **systemie Microsoft Hyper-V Server 2012 R2** i musi mieć zainstalowane najnowsze aktualizacje.<br/><br/>Serwer funkcji Hyper-V zawierający maszyny wirtualne, które chcesz chronić, musi znajdować się w chmurze programu VMM.<br/><br/>Jeśli używasz funkcji Hyper-V w klastrze, broker klastra nie jest tworzony automatycznie, jeśli masz klaster oparty na statycznym adresie IP. Konieczne będzie ręczne skonfigurowanie brokera klastra. Aby [dowiedzieć się więcej](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters), zobacz wpis na blogu Aidana Finna. |
-| **Chronione maszyny** |Maszyny wirtualne, które chcesz chronić, powinny być zgodne z [wymaganiami platformy Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). |
+| **Chronione maszyny** | Maszyny wirtualne, które chcesz chronić, powinny być zgodne z [wymaganiami platformy Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). |
 
 ## <a name="network-mapping-prerequisites"></a>Wymagania wstępne związane z mapowaniem sieci
 Gdy chronisz maszyny wirtualne na platformie Azure, mapowanie sieci działa między źródłowymi sieciami maszyny wirtualnej na źródłowym serwerze programu VMM a docelowymi sieciami platformy Azure. Dzięki temu dostępne są następujące korzyści:
@@ -73,6 +74,12 @@ Jeśli chcesz wdrożyć mapowanie sieci, musisz upewnić się, że spełnione s�
 
 * Maszyny wirtualne, które chcesz chronić na źródłowym serwerze programu VMM, powinny być połączone z siecią maszyn wirtualnych. Ta sieć powinna być połączona z siecią logiczną skojarzoną z chmurą.
 * Sieć platformy Azure, z którą replikowane maszyny wirtualne mogą łączyć się po przejściu w tryb failover na platformie Azure. Tę sieć wybierzesz podczas przejścia w tryb failover. Sieć powinna znajdować się w tym samym regionie co subskrypcja usługi Azure Site Recovery.
+
+
+Przygotuj sieci w programie VMM:
+
+   * [Skonfiguruj sieci logiczne](https://technet.microsoft.com/library/jj721568.aspx).
+   * [Skonfiguruj sieci maszyn wirtualnych](https://technet.microsoft.com/library/jj721575.aspx).
 
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Krok 1. Tworzenie magazynu usługi Site Recovery
@@ -246,7 +253,7 @@ Jeśli sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą n
 ## <a name="step-8-enable-protection-for-virtual-machines"></a>Krok 8. Włączanie ochrony dla maszyn wirtualnych
 Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę dla maszyn wirtualnych w chmurze. Pamiętaj o następujących kwestiach:
 
-* Maszyny wirtualne muszą spełniać [wymagania związane z platformą Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Maszyny wirtualne muszą spełniać [wymagania związane z platformą Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 * Aby włączyć ochronę, należy ustawić właściwości systemu operacyjnego i dysku systemu operacyjnego dla maszyny wirtualnej. Podczas tworzenia maszyny wirtualnej w programie VMM przy użyciu szablonu maszyny wirtualnej można ustawić właściwości. Można również ustawić te właściwości dla istniejących maszyn wirtualnych na kartach **Ogólne** i **Konfiguracja sprzętu** właściwości maszyny wirtualnej. Jeśli nie ustawisz tych właściwości w programie VMM, możesz skonfigurować je w portalu Azure Site Recovery.
 
     ![Tworzenie maszyny wirtualnej](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
@@ -315,7 +322,7 @@ Istnieją dwa sposoby wykonania próby trybu failover do platformy Azure.
 * **Testowanie trybu failover bez sieci platformy Azure** — Ten test trybu failover pozwala sprawdzić, czy maszyna wirtualna funkcjonuje poprawnie na platformie Azure. Maszyna wirtualna nie zostanie połączona z żadną siecią platformy Azure po przejściu w tryb failover.
 * **Testowanie trybu failover z siecią platformy Azure** — Ten test trybu failover pozwala sprawdzić, czy całe środowisko replikacji funkcjonuje zgodnie z oczekiwaniami, a po przejściu w tryb failover maszyny wirtualne są łączone z określoną docelową siecią platformy Azure. W przypadku obsługi podsieci podczas testowania trybu failover podsieć dla testowanej maszyny wirtualnej będzie wybierana na podstawie podsieci maszyny wirtualnej repliki. Ta metoda różni się od zwykłej replikacji, w przypadku której podsieć maszyny wirtualnej repliki jest oparta na podsieci źródłowej maszyny wirtualnej.
 
-Jeśli chcesz testować przejście w tryb failover na platformie Azure dla maszyny wirtualnej z włączonymi zabezpieczeniami bez określania docelowej sieci platformy Azure, nie musisz wykonywać żadnych czynności przygotowawczych. Aby przetestować tryb failover z docelową siecią platformy Azure, musisz utworzyć nową sieć platformy Azure, która jest odizolowana od sieci platformy Azure środowiska produkcyjnego (jest to domyślne zachowanie podczas tworzenia nowej sieci na platformie Azure). Aby uzyskać więcej informacji, zobacz, jak [testować tryb failover](site-recovery-failover.md#run-a-test-failover).
+Jeśli chcesz testować przejście w tryb failover na platformie Azure dla maszyny wirtualnej z włączonymi zabezpieczeniami bez określania docelowej sieci platformy Azure, nie musisz wykonywać żadnych czynności przygotowawczych. Aby przetestować tryb failover z docelową siecią platformy Azure, musisz utworzyć nową sieć platformy Azure, która jest odizolowana od sieci platformy Azure środowiska produkcyjnego (jest to domyślne zachowanie podczas tworzenia nowej sieci na platformie Azure). Aby uzyskać więcej informacji, zobacz, jak [testować tryb failover](site-recovery-failover.md).
 
 Musisz również skonfigurować infrastrukturę dla zreplikowanej maszyny wirtualnej, aby mogła działać zgodnie z oczekiwaniami. Na przykład maszyna wirtualna z kontrolerem domeny i systemem DNS może być replikowana do platformy Azure przy użyciu usługi Azure Site Recovery i może być utworzona w sieci testowej przy użyciu testowego trybu failover. Aby uzyskać więcej informacji, zobacz sekcję [Zagadnienia dotyczące testowania trybu failover dla usługi Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
@@ -341,9 +348,4 @@ Aby testować tryb failover, wykonaj następujące czynności:
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat [konfigurowania planów odzyskiwania](site-recovery-create-recovery-plans.md) i [trybu failover](site-recovery-failover.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: cb0843ec739d11e997794a8217c95696c4e78d23
-ms.openlocfilehash: 70999d615038e7a5a11a623a9eef3e08c09f5eb9
+ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
+ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -56,7 +57,7 @@ Wielu klientów zaczyna od bezpłatnej usługi. Ta wersja jest ograniczona do tr
 > ![Kafelki dla indeksatorów i źródeł danych][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Tworzenie indeksu i ładowanie danych
+## <a name="create-index"></a> Tworzenie indeksu i ładowanie danych
 Zapytania wyszukiwania przechodzą przez kolejne pozycje *indeksu* zawierającego dane z możliwością wyszukiwania, metadane i konstrukcje używane do optymalizacji niektórych zachowań wyszukiwania.
 
 Aby podczas tego zadania korzystać jedynie z portalu, użyty zostanie wbudowany przykładowy zestaw danych, który może być przeszukiwany przy użyciu indeksatora za pośrednictwem kreatora **importu danych**. 
@@ -99,10 +100,8 @@ Aby monitorować importowanie danych, wróć do pulpitu nawigacyjnego usługi, p
 
    ![Komunikat o postępie indeksatora][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Wykonywanie zapytań względem indeksu
+## <a name="query-index"></a> Wykonywanie zapytań względem indeksu
 Dysponujesz już indeksem wyszukiwania, którego możesz używać do wykonywania zapytań. **Eksplorator wyszukiwania** jest narzędziem do wykonywania zapytań wbudowanym w portal. Zawiera on pole wyszukiwania, dzięki czemu można zweryfikować, czy wyniki wyszukiwania są zgodne z oczekiwaniami. 
-
-   ![Polecenie Eksploratora wyszukiwania][5]
 
 > [!TIP]
 > W [klipie wideo z omówieniem usługi Azure Search](https://channel9.msdn.com/Events/Connect/2016/138) następujące kroki są prezentowane od momentu 6:08.
@@ -110,42 +109,87 @@ Dysponujesz już indeksem wyszukiwania, którego możesz używać do wykonywania
 
 1. Kliknij pozycję **Eksplorator wyszukiwania** na pasku poleceń.
 
+   ![Polecenie Eksploratora wyszukiwania][5]
+
 2. Na pasku poleceń kliknij pozycję **Zmień indeks**, aby przełączyć się na zestaw danych *realestate-us-sample*.
 
    ![Polecenia indeksu i interfejsu API][6]
 
-3. Na pasku poleceń kliknij pozycję **Ustaw wersję interfejsu API**, aby wyświetlić dostępne interfejsy API REST. Interfejsy API w wersji zapoznawczej umożliwiają dostęp do nowych funkcji, które nie zostały jeszcze ogólnie wydane. Użyj ogólnie dostępnej wersji (2016-09-01), chyba że zostanie podana inna informacja. 
+3. Na pasku poleceń kliknij pozycję **Ustaw wersję interfejsu API**, aby wyświetlić dostępne interfejsy API REST. Interfejsy API w wersji zapoznawczej umożliwiają dostęp do nowych funkcji, które nie zostały jeszcze ogólnie wydane. W przypadku poniższych zapytań użyj ogólnie dostępnej wersji (2016-09-01), chyba że zostanie podana inna informacja. 
 
     > [!NOTE]
     > [Interfejs API REST usługi Azure Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) i [biblioteka .NET](search-howto-dotnet-sdk.md#core-scenarios) są całkowicie równoważne, ale **Eksplorator wyszukiwania** umożliwia tylko obsługę wywołań REST. Akceptuje on zarówno [prostą składnię zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), jak i składnię [pełnego analizatora zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), a także wszystkie parametry wyszukiwania dostępne w ramach operacji [Wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     > 
-    > **Eksplorator wyszukiwania** zwraca wyniki w formacie JSON, które są szczegółowe i trudne do odczytania, jeśli dokumenty mają gęstą strukturę. W zależności od dokumentów konieczne może być napisanie kodu obsługującego wyniki wyszukiwania w celu wyodrębnienia ważnych elementów.
 
 4. Na pasku wyszukiwania wprowadź poniższe ciągi zapytań, a następnie kliknij pozycję **Wyszukaj**.
 
   ![Przykład zapytania wyszukiwania][7]
 
-**`search=seattle`** Parametr `search` służy do wprowadzania wyszukiwania słów kluczowych — w tym przypadku zwrócone zostaną oferty w King County w stanie Waszyngton zawierające ciąg Seattle w dowolnym polu możliwym do przeszukania w dokumencie.
+**`search=seattle`**
 
-**`search=seattle&facet=beds`** Parametr `facet` zwraca strukturę nawigacji, którą można przekazać do kontrolki interfejsu użytkownika. Zwraca ona kategorie i liczbę elementów. W tym przypadku kategorie są oparte na liczbie sypialni. Dodatkowo podawana jest liczba dokumentów lub dopasowań dla każdej z kategorii. Łańcuch `"beds"` można określić jako aspekt, ponieważ w indeksie jest oznaczony jako pole z możliwością filtrowania i tworzenia aspektów, a wartości, które zawiera (liczbowe od 1 do 5), są odpowiednie na potrzeby kategoryzowania ofert w grupach (oferty z 3 i 4 sypialniami).  Symbol `&` jest używany do dołączania parametrów wyszukiwania.
++ Parametr `search` służy do wprowadzania pełnotekstowego wyszukiwania słów kluczowych — w tym przypadku zwrócone zostaną oferty w King County w stanie Waszyngton zawierające ciąg *Seattle* w dowolnym polu możliwym do przeszukania w dokumencie. 
 
-**`search=seattle&filter=bed gt 3`** Parametr `filter` zwraca wyniki spełniające podane kryteria. W tym przypadku są to oferty z liczbą sypialni większą niż 3. Składnia filtru to konstrukcja OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
++ **Eksplorator wyszukiwania** zwraca wyniki w formacie JSON, które są szczegółowe i trudne do odczytania, jeśli dokumenty mają gęstą strukturę. W zależności od dokumentów konieczne może być napisanie kodu obsługującego wyniki wyszukiwania w celu wyodrębnienia ważnych elementów. 
 
-**`search=granite countertops&highlight=description`** Wyróżnianie trafień powoduje dodanie formatowania do tekstu zgodnego ze słowem kluczowym na podstawie dopasowań znalezionych w określonym polu. Jeśli termin wyszukiwania jest głęboko ukryty w opisie, możliwe jest dodanie wyróżnienia trafień w celu jego łatwiejszego zauważenia. W tym przypadku sformatowaną frazę `"granite countertops"` można łatwiej zobaczyć w polu opisu.
++ Dokumenty składają się ze wszystkich pól oznaczonych jako możliwe do pobierania w indeksie. Aby wyświetlić atrybuty indeksu w portalu, kliknij zestaw danych *realestate-us-sample* w kafelku **Indeksy**.
 
-**`search=mice&highlight=description`** Wyszukiwanie pełnotekstowe umożliwia znalezienie wyrazów z podobną semantyką. W takim przypadku wyniki wyszukiwania zawierają wyróżniony tekst „mouse” (mysz) dla domów z plagą myszy zwracanych w rezultacie wyszukiwania słowa kluczowego „mice” (myszy). Różne rodzaje tego samego wyrazu mogą być wyświetlane w wynikach z powodu przeprowadzenia analizy lingwistycznej. Usługa Azure Search obsługuje 56 analizatorów — zarówno oprogramowania Lucene, jak i firmy Microsoft. W usłudze Azure Search domyślnie używany jest standardowy analizator Lucene. 
+**`search=seattle&$count=true&$top=100`**
 
-**`search=samamish`** Wyrazy z błędami pisowni, na przykład „samamish” zamiast równiny Samammish w pobliżu Seattle, spowodują, że w typowym wyszukiwaniu nie zostaną zwrócone żadne dopasowania. Aby obsłużyć literówki, można użyć wyszukiwania rozmytego, które zostało opisane w następnym przykładzie.
++ Symbol `&` służy do dołączania parametrów wyszukiwania, które mogą być podane w dowolnej kolejności. 
 
-**`search=samamish~&queryType=full`** Wyszukiwanie rozmyte jest włączane po określeniu symbolu `~` i użyciu pełnego analizatora zapytań, który interpretuje i poprawnie analizuje składnię `~`. Domyślnie używany jest prosty analizator zapytań, ponieważ działa szybciej, ale można skorzystać z pełnego analizatora zapytań, jeśli wymagane jest użycie wyszukiwania rozmytego, wyrażeń regularnych, wyszukiwania w sąsiedztwie lub innych zaawansowanych typów zapytań. Aby uzyskać więcej informacji o scenariuszach zapytań dostępnych przy użyciu pełnego analizatora zapytań, zobacz [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Składnia zapytań Lucene w usłudze Azure Search).
++  Parametr `$count=true` zwraca liczbę wszystkich zwróconych dokumentów. Możesz zweryfikować zapytania filtru, monitorując zmiany raportowane przez parametr `$count=true`. 
 
-**`search=*`** Puste wyszukiwania powodują zwracanie wszystkich elementów. Pustego zapytania można na przykład użyć, aby uzyskać łączną liczbę dokumentów w indeksie bądź przeprowadzić filtrowanie lub tworzenie aspektów pełnego zestawu dokumentów zgodnie z poniższym opisem.
++ Parametr `$top=100` zwraca 100 dokumentów o najwyższej randze spośród wszystkich dokumentów. Domyślnie usługa Azure Search zwraca 50 pierwszych najlepszych dopasowań. Możesz zwiększyć lub zmniejszyć tę liczbę za pomocą parametru `$top`.
 
-**`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`** Wyszukiwanie geoprzestrzenne jest obsługiwane za pośrednictwem [typu danych edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) względem pola zawierającego współrzędne. To zapytanie służy do przefiltrowania wszystkich wyników pozycyjnych, które znajdują się w odległości mniejszej niż 10 km od danego punktu (określonego jako szerokość i długość geograficzna). Wyszukiwanie geograficzne jest rodzajem filtru określonego w artykule [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData). 
+**`search=*&facet=city&$top=2`**
 
-Zwykle wyrażenia filtru są określane jako zmienna $filter ze znakiem `$`. W Eksploratorze wyszukiwania należy pominąć znak `$`.
++ Parametr `search=*` to puste wyszukiwanie. Puste wyszukiwania umożliwiają znalezienie wszystkiego. Jednym z powodów przesłania pustego zapytania może być potrzeba przeprowadzenia filtrowania lub utworzenia aspektów pełnego zestawu dokumentów. Na przykład może być potrzebne utworzenie aspektów struktury nawigacji składającej się ze wszystkich miast w indeksie.
 
-Wyszukiwanie geoprzestrzenne jest przydatne, jeśli aplikacja wyszukiwania ma funkcję „znajdź w pobliżu” lub używa nawigacji mapy. Nie jest to jednak wyszukiwanie pełnotekstowe. Jeśli istnieją wymagania użytkownika dotyczące wyszukiwania w mieście lub kraju według nazwy, oprócz współrzędnych dodaj pola zawierające nazwy miasta lub kraju.
++  Parametr `facet` zwraca strukturę nawigacji, którą można przekazać do kontrolki interfejsu użytkownika. Zwraca ona kategorie i liczbę elementów. W takim przypadku kategorie są oparte na określonej liczbie miast. Nie istnieje żadna agregacja w usłudze Azure Search, ale możesz przybliżyć się do agregacji za pomocą parametru `facet`, który podaje liczbę dokumentów w poszczególnych kategoriach.
+
++ Parametr `$top=2` zwraca dwa dokumenty, co pokazuje, że za pomocą parametru `top` możesz zmniejszyć lub zwiększyć liczbę wyników.
+
+**`search=seattle&facet=beds`**
+
++ To zapytanie to aspekt liczby sypialni w wyszukiwaniu tekstowym dla kategorii *Seattle*. Ciąg `"beds"` można określić jako aspekt, ponieważ w indeksie jest oznaczony jako pole z możliwością pobierania, filtrowania i tworzenia aspektów, a wartości, które zawiera (liczbowe od 1 do 5), są odpowiednie na potrzeby kategoryzowania ofert w grupach (oferty z 3 i 4 sypialniami). 
+
++ Aspekty mogą być tworzone tylko na podstawie pól z możliwością filtrowania. W wynikach mogą być zwracane tylko pola z możliwością pobierania.
+
+**`search=seattle&$filter=beds gt 3`**
+
++ Parametr `filter` zwraca wyniki spełniające podane kryteria. W tym przypadku są to oferty z liczbą sypialni większą niż 3. 
+
++ Składnia filtru to konstrukcja OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
+
+**`search=granite countertops&highlight=description`**
+
++ Wyróżnianie trafień oznacza dodawanie formatowania do tekstu zgodnego ze słowem kluczowym w przypadku znalezienia dopasowań w określonym polu. Jeśli termin wyszukiwania jest głęboko ukryty w opisie, możliwe jest dodanie wyróżnienia trafień w celu jego łatwiejszego zauważenia. W tym przypadku sformatowaną frazę `"granite countertops"` można łatwiej zobaczyć w polu opisu.
+
+**`search=mice&highlight=description`**
+
++ Wyszukiwanie pełnotekstowe umożliwia znalezienie wyrazów z podobną semantyką. W takim przypadku wyniki wyszukiwania zawierają wyróżniony tekst „mouse” (mysz) dla domów z plagą myszy zwracanych w rezultacie wyszukiwania słowa kluczowego „mice” (myszy). Różne rodzaje tego samego wyrazu mogą być wyświetlane w wynikach z powodu przeprowadzenia analizy lingwistycznej. 
+
++ Usługa Azure Search obsługuje 56 analizatorów — zarówno oprogramowania Lucene, jak i firmy Microsoft. W usłudze Azure Search domyślnie używany jest standardowy analizator Lucene. 
+
+**`search=samamish`**
+
++ Wyrazy z błędami pisowni, na przykład „samamish” zamiast równiny Samammish w pobliżu Seattle, spowodują, że w typowym wyszukiwaniu nie zostaną zwrócone żadne dopasowania. Aby obsłużyć literówki, można użyć wyszukiwania rozmytego, które zostało opisane w następnym przykładzie.
+
+**`search=samamish~&queryType=full`**
+
++ Wyszukiwanie rozmyte jest włączane po określeniu symbolu `~` i użyciu pełnego analizatora zapytań, który interpretuje i poprawnie analizuje składnię `~`. 
+
++ Wyszukiwanie rozmyte jest dostępne po włączeniu pełnego analizatora zapytań, co następuje w chwili ustawienia parametru `queryType=full`. Aby uzyskać więcej informacji o scenariuszach zapytań dostępnych przy użyciu pełnego analizatora zapytań, zobacz [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Składnia zapytań Lucene w usłudze Azure Search).
+
++ Gdy parametr `queryType` jest nieokreślony, używany jest domyślny prosty analizator zapytań. Prosty analizator zapytań jest szybszy, ale jeśli wymagane jest użycie wyszukiwania rozmytego, wyrażeń regularnych, wyszukiwania w sąsiedztwie lub innych zaawansowanych typów zapytań, konieczne będzie korzystanie z pełnej składni. 
+
+**`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
+
++ Wyszukiwanie geoprzestrzenne jest obsługiwane za pośrednictwem [typu danych edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) względem pola zawierającego współrzędne. Wyszukiwanie geograficzne jest rodzajem filtru określonego w artykule [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData). 
+
++ To zapytanie przykładowe służy do przefiltrowania wszystkich wyników danych pozycyjnych, które znajdują się w odległości mniejszej niż 5 km od danego punktu (określonego jako szerokość i długość geograficzna). Dodając parametr `$count`, możesz sprawdzić, ile wyników zostanie zwróconych, gdy zmienisz odległość lub współrzędne. 
+
++ Wyszukiwanie geoprzestrzenne jest przydatne, jeśli aplikacja wyszukiwania ma funkcję „znajdź w pobliżu” lub używa nawigacji mapy. Nie jest to jednak wyszukiwanie pełnotekstowe. Jeśli istnieją wymagania użytkownika dotyczące wyszukiwania w mieście lub kraju według nazwy, oprócz współrzędnych dodaj pola zawierające nazwy miasta lub kraju.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -153,9 +197,9 @@ Wyszukiwanie geoprzestrzenne jest przydatne, jeśli aplikacja wyszukiwania ma fu
 
   Aby wyświetlić poszczególne składniki, kliknij kafelek **Indeks**, **Indeksator** lub **Źródła danych** na pulpicie nawigacyjnym w celu wyświetlenia listy istniejących obiektów. Aby dowiedzieć się więcej na temat operacji edytowania indeksu, które nie wymagają ponownej kompilacji, zobacz [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) (Aktualizowanie indeksu — interfejs API REST usługi Azure Search).
 
-+ Wypróbuj te narzędzia i kroki z innymi źródłami danych. Przykładowy zestaw danych, `realestate-us-sample`, pochodzi z bazy danych Azure SQL Database, którą można przeszukiwać za pomocą usługi Azure Search. Oprócz bazy danych Azure SQL Database usługa Azure Search może przeszukiwać usługę Azure Table Storage, usługę Blob Storage, serwer SQL Server na maszynie wirtualnej platformy Azure oraz usługę DocumentDB. Wszystkie te źródła danych są obsługiwane w kreatorze. W kodzie można w łatwy sposób utworzyć i wypełnić indeks przy użyciu *indeksatora*.
++ Wypróbuj te narzędzia i kroki z innymi źródłami danych. Przykładowy zestaw danych, `realestate-us-sample`, pochodzi z bazy danych Azure SQL Database, którą można przeszukiwać za pomocą usługi Azure Search. Oprócz usługi Azure SQL Database usługa Azure Search może przeszukiwać płaskie struktury danych w usłudze Azure Table Storage, w usłudze Blob Storage, na serwerze SQL Server na maszynie wirtualnej platformy Azure oraz w usłudze DocumentDB. Na ich podstawie jest też tworzony indeks. Wszystkie te źródła danych są obsługiwane w kreatorze. W kodzie można w łatwy sposób wypełnić indeks przy użyciu *indeksatora*.
 
-+ Wszystkie inne źródła danych są obsługiwane za pośrednictwem modelu wypychania, w ramach którego za pomocą kodu do indeksu wypychane są nowe i zmienione zestawy wierszy w formacie JSON. Aby uzyskać więcej informacji, zobacz [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Dodawanie, aktualizowanie lub usuwanie dokumentów w usłudze Azure Search).
++ Wszystkie inne źródła danych niebędące indeksatorami są obsługiwane za pośrednictwem modelu wypychania, w ramach którego za pomocą kodu do indeksu wypychane są nowe i zmienione zestawy wierszy w formacie JSON. Aby uzyskać więcej informacji, zobacz [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Dodawanie, aktualizowanie lub usuwanie dokumentów w usłudze Azure Search).
 
 Aby dowiedzieć się więcej o innych funkcjach wymienionych w tym artykule, odwiedź następujące linki:
 
@@ -175,8 +219,3 @@ Aby dowiedzieć się więcej o innych funkcjach wymienionych w tym artykule, odw
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
-
-
-<!--HONumber=Feb17_HO3-->
-
-

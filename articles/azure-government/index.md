@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 651e65243a8f5d170b61352e0ab1d57d1a25ad1b
-ms.openlocfilehash: 1dc06fadc9c6b49ff314d5eab53ef1b0b1e91eda
+ms.sourcegitcommit: a715413312c7d8bd3dcfb9b252f3dae8d95fafd7
+ms.openlocfilehash: 7c4a0c1167837a876164d93d93e6dd6cd8f62ee6
+ms.lasthandoff: 02/21/2017
 
 ---
 #<a name="azure-government-documentation"></a>Dokumentacja platformy Azure dla instytucji rządowych
@@ -70,13 +71,27 @@ Platforma Microsoft Azure dla instytucji rządowych jest platformą w chmurze zb
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <p><a href="/azure/azure-government/documentation-government-image-gallery">Obrazy</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace dla partnerów</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Usługi</h3>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-compute">Obliczanie</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-storage">Storage</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-database">Baza danych</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-networking">Sieć</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity">Bezpieczeństwo i obsługa tożsamości</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement">Monitorowanie i zarządzanie</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-compute">Obliczanie</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-storage">Storage</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-database">Baza danych</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-networking">Sieć</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-securityandidentity">Bezpieczeństwo i obsługa tożsamości</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Monitorowanie i zarządzanie</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Sieć Web + aplikacje mobilne</a></p>
                     </div>
                 </div>
             </div>
@@ -85,10 +100,5 @@ Platforma Microsoft Azure dla instytucji rządowych jest platformą w chmurze zb
 </ul>
     
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

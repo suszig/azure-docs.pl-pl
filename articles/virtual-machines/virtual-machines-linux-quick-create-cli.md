@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza) | Microsoft Azure"
-description: "Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)."
+title: "Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0 | Microsoft Azure"
+description: "Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -12,27 +12,23 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2016
+ms.date: 01/13/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 1081eb18bd63b1ad580f568201e03258901e4eaf
-ms.openlocfilehash: e926f22b94da30e1d3b790432ffdc229d9f4e609
+ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
+ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0 w wersji zapoznawczej (az.py)
-Ten artykuł pokazuje, jak szybko wdrożyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu polecenia [az vm create](/cli/azure/vm#create) za pomocą interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza) z użyciem zarówno dysków zarządzanych, jak i dysków w natywnych kontach magazynu.
-
-> [!NOTE] 
-> Interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza) to nasza następna generacja wieloplatformowego interfejsu wiersza polecenia. [Wypróbuj ten produkt.](https://docs.microsoft.com/cli/azure/install-az-cli2)
->
-> Aby utworzyć maszynę wirtualną przy użyciu istniejącego interfejsu wiersza polecenia platformy Azure w wersji 1.0, a nie interfejsu wiersza polecenia w wersji 2.0 (wersja zapoznawcza), zobacz [Tworzenie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0
+W tym artykule pokazano, jak szybko wdrożyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu polecenia [az vm create](/cli/azure/vm#create) za pomocą interfejsu wiersza polecenia platformy Azure w wersji 2.0 z użyciem zarówno dysków zarządzanych, jak i dysków w natywnych kontach magazynu. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Aby utworzyć maszynę wirtualną, potrzebne są: 
 
 * konto platformy Azure ([skorzystaj z bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/))
-* zainstalowany [interfejs wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](/cli/azure/install-az-cli2)
+* zainstalowany [interfejs wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-az-cli2)
 * zalogowanie się do swojego konta platformy Azure (wpisz [az login](/cli/azure/#login))
 
 (Wdrożenie maszyny wirtualnej z systemem Linux jest możliwe również przy użyciu witryny [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
@@ -202,10 +198,5 @@ Polecenie `az vm create` jest szybkim sposobem wdrożenia maszyny wirtualnej, dz
 * [Tworzenie maszyny wirtualnej z systemem Linux zabezpieczonej przez protokół SSH na platformie Azure przy użyciu szablonów](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Możesz również [użyć sterownika platformy Azure `docker-machine` z różnymi poleceniami, aby szybko utworzyć maszynę wirtualną systemu Linux jako hosta docker](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), a jeśli korzystasz z języka Java, wypróbuj metodę [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine).
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

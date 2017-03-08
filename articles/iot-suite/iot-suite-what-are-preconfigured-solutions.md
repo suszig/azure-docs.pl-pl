@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
-ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
+ms.sourcegitcommit: a3657f8bb60cd1181740b0700f503b5bd1bd559f
+ms.openlocfilehash: a3847f83af1f28e40572af95ff31f44d2f3d6dc4
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -38,16 +39,17 @@ Oprócz wdrażania i uruchamiania rozwiązań na platformie Azure można pobrać
 
 W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje IoT:
 
-| Rozwiązanie | Wprowadzanie danych | Tożsamość urządzenia | Sterowanie i kontrola | Reguły i akcje | Analiza predykcyjna |
-| --- | --- | --- | --- | --- | --- |
-| [Zdalne monitorowanie][lnk-getstarted-preconfigured] |Tak |Tak |Tak |Tak |- |
-| [Konserwacja zapobiegawcza][lnk-predictive-maintenance] |Tak |Tak |Tak |Tak |Tak |
+| Rozwiązanie | Wprowadzanie danych | Tożsamość urządzenia | Zarządzanie urządzeniami | Sterowanie i kontrola | Reguły i akcje | Analiza predykcyjna |
+| --- | --- | --- | --- | --- | --- | --- |
+| [Zdalne monitorowanie][lnk-getstarted-preconfigured] |Tak |Tak |Tak |Tak |Tak |- |
+| [Konserwacja zapobiegawcza][lnk-predictive-maintenance] |Tak |Tak |- |Tak |Tak |Tak |
 
 * *Wprowadzanie danych*: transfer danych do chmury na dużą skalę.
-* *Tożsamość urządzenia*: zarządzanie unikatowymi tożsamościami wszystkich połączonych urządzeń.
-* *Sterowanie i kontrola*: wysyłanie komunikatów z chmury do urządzenia zawierających polecenia wykonania określonego działania.
+* *Tożsamość urządzenia*: zarządzanie unikatowymi tożsamościami urządzeń i sterowanie dostępem urządzeń do rozwiązania.
+* *Zarządzanie urządzeniami*: zarządzanie metadanymi urządzeń i wykonywanie operacji, takich jak ponowne uruchamianie urządzeń i aktualizacje oprogramowania układowego.
+* *Sterowanie i kontrola*: wysyłanie komunikatów z chmury do urządzenia zawierających polecenia wykonania akcji.
 * *Reguły i akcje*: przy użyciu reguł zaplecze rozwiązania wykonuje działania na podstawie określonych danych przesyłanych z urządzenia do chmury.
-* *Analiza predykcyjna*: zaplecze rozwiązania analizuje dane przesyłane z urządzenia do chmury i przewiduje działania do wykonania. Na przykład analiza danych telemetrycznych silnika samolotu umożliwia określenie konieczności przeprowadzenia konserwacji silnika.
+* *Analiza predykcyjna*: zaplecze rozwiązania analizuje dane przesyłane z urządzenia do chmury i przewiduje czas, kiedy konkretne działania powinny zostać wykonane. Na przykład analiza danych telemetrycznych silnika samolotu umożliwia określenie konieczności przeprowadzenia konserwacji silnika.
 
 ## <a name="remote-monitoring-preconfigured-solution-overview"></a>Omówienie wstępnie skonfigurowanego rozwiązania monitorowania zdalnego
 W tym artykule omówiono wstępnie skonfigurowane rozwiązanie monitorowania zdalnego, ponieważ zawiera ono wiele typowych elementów projektu, które są używane w innych rozwiązaniach.
@@ -57,18 +59,36 @@ Na poniższym diagramie przedstawiono najważniejsze elementy rozwiązania monit
 ![Architektura wstępnie skonfigurowanego rozwiązania monitorowania zdalnego][img-remote-monitoring-arch]
 
 ## <a name="devices"></a>Urządzenia
-Po wdrożeniu wstępnie skonfigurowanego rozwiązania monitorowania zdalnego następuje wstępna aprowizacja czterech symulowanych urządzeń w ramach rozwiązania, które pozoruje pracę urządzenia chłodzącego. Symulowane urządzenia mają wbudowany model generowania wartości temperatury i wilgotności, który emituje dane telemetryczne. Symulowane urządzenia umożliwiają zilustrowanie całościowego przepływu danych przez rozwiązanie i udostępniają przydatne źródło danych telemetrycznych oraz stanowią obiekty docelowe poleceń wysyłanych przez deweloperów zaplecza, którzy korzystają z rozwiązania jako punktu wyjściowego dla niestandardowych implementacji.
+Po wdrożeniu wstępnie skonfigurowanego rozwiązania monitorowania zdalnego następuje wstępna aprowizacja czterech symulowanych urządzeń w ramach rozwiązania, które pozoruje pracę urządzenia chłodzącego. Symulowane urządzenia mają wbudowany model generowania wartości temperatury i wilgotności, który emituje dane telemetryczne. Te symulowane urządzenia mogą wykonywać następujące działania:
+- Ilustrować kompleksowy przepływ danych przez rozwiązanie.
+- Zapewniać wygodne źródło danych telemetrycznych.
+- Udostępniać miejsce docelowe dla metod lub poleceń programistom zaplecza korzystającym z rozwiązania jako punktu początkowego na potrzeby implementacji niestandardowej.
 
-Gdy dane urządzenie pierwszy raz łączy się z usługą IoT Hub we wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego, do usługi IoT Hub jest wysyłany komunikat z informacjami o urządzeniu, który zawiera listę poleceń obsługiwanych przez to urządzenie. W przypadku wstępnie skonfigurowanego rozwiązania monitorowania zdalnego dostępne są następujące polecenia: 
+Symulowane urządzenia w rozwiązaniu mogą odpowiadać na następujące rodzaje komunikacji z chmury do urządzenia:
 
-* *Ping Device*: urządzenie potwierdza odebranie tego polecenia. Jest to przydatne w przypadku sprawdzania, czy urządzenie jest nadal aktywne i czy działa nasłuchiwanie.
+- *Metody ([metody bezpośrednie][lnk-direct-methods])*: dwukierunkowa metoda komunikacji, w przypadku której oczekuje się natychmiastowej odpowiedzi od podłączonego urządzenia.
+- *Polecenia (komunikaty z chmury do urządzenia)*: jednokierunkowa metoda komunikacji, w przypadku której urządzenie pobiera polecenie z kolejki trwałej.
+
+Porównanie tych różnych rozwiązań zawiera temat [Wskazówki dotyczące komunikacji z chmury do urządzenia][lnk-c2d-guidance].
+
+Gdy dane urządzenie pierwszy raz łączy się z usługą IoT Hub we wstępnie skonfigurowanym rozwiązaniu, z tego urządzenia jest wysyłany do centrum komunikat z informacjami o urządzeniu zawierający metody, na które może odpowiedzieć urządzenie. W zdalnym, wstępnie skonfigurowanym rozwiązaniu do monitorowania symulowane urządzenia obsługują następujące metody:
+
+* *Initiate Firmware Update*: ta metoda inicjuje na urządzeniu asynchroniczne zadanie wykonania aktualizacji oprogramowania układowego. Zadanie asynchroniczne używa zgłaszanych właściwości na potrzeby dostarczania aktualizacji stanu do pulpitu nawigacyjnego rozwiązania.
+* *Reboot*: ta metoda powoduje ponowne uruchomienie symulowanego urządzenia.
+* *FactoryReset*: ta metoda wyzwala resetowanie symulowanego urządzenia do ustawień fabrycznych.
+
+Gdy dane urządzenie pierwszy raz łączy się z usługą IoT Hub we wstępnie skonfigurowanym rozwiązaniu, z tego urządzenia jest wysyłany do centrum komunikat z informacjami o urządzeniu zawierający polecenia, na które może odpowiedzieć urządzenie. W zdalnym, wstępnie skonfigurowanym rozwiązaniu do monitorowania symulowane urządzenia obsługują następujące polecenia:
+
+* *Ping Device*: urządzenie potwierdza odebranie tego polecenia. To polecenie jest przydatne w przypadku sprawdzania, czy urządzenie jest nadal aktywne i czy działa nasłuchiwanie.
 * *Start Telemetry*: nakazuje urządzeniu rozpoczęcie wysyłania danych telemetrycznych.
 * *Stop Telemetry*: nakazuje urządzeniu zaprzestanie wysyłania danych telemetrycznych.
-* *Change Set Point Temperature*: umożliwia sterowanie symulowanymi wartościami telemetrycznymi temperatury wysyłanymi przez urządzenie. Jest to przydatne w przypadku testowania logiki wewnętrznej.
+* *Change Set Point Temperature*: umożliwia sterowanie symulowanymi wartościami telemetrycznymi temperatury wysyłanymi przez urządzenie. To polecenie jest przydatne w przypadku testowania logiki zaplecza.
 * *Diagnostic Telemetry*: umożliwia określenie, czy informacje o temperaturze zewnętrznej mają być wysyłane przez urządzenie w postaci danych telemetrycznych.
-* *Change Device State*: określa właściwość metadanych stanu urządzenia zgłaszaną przez urządzenie. Jest to przydatne w przypadku testowania logiki wewnętrznej.
+* *Change Device State*: określa właściwość metadanych stanu urządzenia zgłaszaną przez urządzenie. To polecenie jest przydatne w przypadku testowania logiki zaplecza.
 
-Do rozwiązania można dodać kolejne symulowane urządzenia, które emitują te same dane telemetryczne i obsługują te same polecenia. 
+Do rozwiązania można dodać kolejne symulowane urządzenia, które emitują te same dane telemetryczne oraz obsługują te same metody i polecenia.
+
+Oprócz odpowiadania na polecenia i metody rozwiązanie korzysta z [bliźniaczych reprezentacji urządzeń][lnk-device-twin]. Urządzenia używają bliźniaczych reprezentacji urządzeń na potrzeby zgłaszania wartości właściwości do zaplecza rozwiązania. Pulpit nawigacyjny rozwiązania używa bliźniaczych reprezentacji urządzeń do ustawiania nowych wartości żądanych właściwości na urządzeniach. Na przykład podczas aktualizacji oprogramowania układowego symulowane urządzenie informuje o stanie aktualizacji za pomocą zgłaszanych właściwości.
 
 ## <a name="iot-hub"></a>Usługa IoT Hub
 W tym wstępnie skonfigurowanym rozwiązaniu wystąpienie usługi IoT Hub odpowiada *bramie chmury* w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
@@ -77,29 +97,43 @@ Usługa IoT Hub odbiera dane telemetryczne z urządzeń w jednym punkcie końcow
 
 Usługa IoT Hub udostępnia odebrane dane telemetryczne za pośrednictwem punktu końcowego odczytu danych telemetrycznych po stronie usługi.
 
+Funkcja zarządzania urządzeniami w usłudze IoT Hub umożliwia zarządzanie właściwościami urządzenia z portalu rozwiązania i planowanie zadań wykonujących następujące operacje:
+
+- Ponowne uruchamianie urządzenia
+- Zmienianie stanów urządzenia
+- Przeprowadzanie aktualizacji oprogramowania układowego
+
 ## <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 Filtrowanie strumienia danych telemetrycznych pochodzących z urządzeń we wstępnie skonfigurowanym rozwiązaniu odbywa się za pomocą trzech zadań usługi [Azure Stream Analytics][lnk-asa] (ASA).
 
-* *Zadanie dotyczące informacji o urządzeniach* — wysyła dane do centrum zdarzeń, które przekazuje komunikaty dotyczące rejestracji urządzeń, wysyłane przy pierwszym połączeniu z urządzeniem lub w odpowiedzi na polecenie **Change device state**, do rejestru urządzeń rozwiązania (bazy danych DocumentDB). 
+* *Zadanie dotyczące informacji o urządzeniach* — wysyła dane do Centrum zdarzeń, które przekazuje komunikaty dotyczące rejestracji urządzeń do rejestru urządzeń rozwiązania (bazy danych DocumentDB). Ten komunikat jest wysyłany przy pierwszym połączeniu z urządzeniem lub w odpowiedzi na polecenie **Change device state**.
 * *Zadanie dotyczące telemetrii* — wysyła wszystkie nieprzetworzone dane telemetryczne do magazynu obiektów blob Azure w celu przechowania i oblicza zagregowane wartości danych telemetrycznych wyświetlane na pulpicie nawigacyjnym rozwiązania.
-* *Zadanie dotyczące reguł* — filtruje strumień danych telemetrycznych w poszukiwaniu danych przekraczających wartości progowe reguł i przesyła dane do centrum zdarzeń. W przypadku wykrycia przekroczenia zdarzenie jest wyświetlane jako nowy wiersz w tabeli historii alarmów w widoku pulpitu nawigacyjnego portalu rozwiązania i jest wywoływana akcja określona w ustawieniach widoków reguł i akcji w portalu rozwiązania.
+* *Zadanie dotyczące reguł* — filtruje strumień danych telemetrycznych w poszukiwaniu danych przekraczających wartości progowe reguł i przesyła dane do centrum zdarzeń. Gdy reguła jest wyzwalana, w widoku pulpitu nawigacyjnego portalu rozwiązania to zdarzenie jest wyświetlane jako nowy wiersz w tabeli historii alarmów. Te reguły mogą również wyzwalać akcję na podstawie ustawień zdefiniowanych w widokach **Reguły** i **Akcje** w portalu rozwiązania.
 
 W tym wstępnie skonfigurowanym rozwiązaniu zadania usługi ASA stanowią część **zaplecza rozwiązania IoT** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
 
 ## <a name="event-processor"></a>Procesor zdarzeń
 W tym wstępnie skonfigurowanym rozwiązaniu procesor zdarzeń stanowi część **zaplecza rozwiązania IoT** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
 
-Zadania usługi ASA dotyczące **reguł** i **informacji o urządzeniach** wysyłają dane wyjściowe do centrów zdarzeń, z których dane są przekazywane do innych usług zaplecza. Do odczytu komunikatów z centrów zdarzeń jest używane wystąpienie klasy [EventProcessorHost][lnk-event-processor] uruchomione w zadaniu [WebJob][lnk-web-job]. Klasa **EventProcessorHost** aktualizuje dane urządzeń w bazie danych DocumentDB za pomocą danych zadania **dotyczącego informacji o urządzeniach** oraz wywołuje aplikację logiki i aktualizuje alerty wyświetlane w portalu rozwiązania przy użyciu danych zadania **dotyczącego reguł**.
+Zadania usługi ASA dotyczące **reguł** i **informacji o urządzeniach** wysyłają dane wyjściowe do centrów zdarzeń, z których dane są przekazywane do innych usług zaplecza. Do odczytu komunikatów z centrów zdarzeń jest używane wystąpienie klasy [EventProcessorHost][lnk-event-processor] uruchomione w zadaniu [WebJob][lnk-web-job]. Klasa **EventProcessorHost** korzysta z następujących elementów:
+- Dane obiektu **DeviceInfo** do aktualizowania danych urządzenia w bazie danych DocumentDB.
+- Dane obiektu **Rules** do wywoływania aplikacji logiki i aktualizowania alertów wyświetlanych w portalu rozwiązania.
 
-## <a name="device-identity-registry-and-documentdb"></a>Rejestr tożsamości urządzeń i baza danych DocumentDB
+## <a name="device-identity-registry-device-twin-and-documentdb"></a>Rejestr tożsamości urządzeń, bliźniacza reprezentacja urządzenia i baza danych DocumentDB
 Każde wystąpienie usługi IoT Hub zawiera [rejestr tożsamości urządzeń][lnk-identity-registry], który przechowuje klucze urządzeń. Usługa IoT Hub używa tych informacji do uwierzytelniania urządzeń — dane urządzenie musi być zarejestrowane i mieć prawidłowy klucz, zanim będzie mogło połączyć się z centrum.
 
-W tym rozwiązaniu są przechowywane dodatkowe informacje o urządzeniach, takie jak stan, obsługiwane polecenia i inne metadane. Dane dotyczące urządzeń w ramach konkretnego rozwiązania są przechowywane w bazie danych DocumentDB, skąd są pobierane w celu ich wyświetlania i edytowania w portalu rozwiązania.
+[Bliźniacza reprezentacja urządzenia][lnk-device-twin] to dokument JSON zarządzany przez usługę IoT Hub. Bliźniacza reprezentacja urządzenia zawiera następujące elementy:
+
+- Zgłaszane właściwości wysyłane przez urządzenie do centrum. Te właściwości można wyświetlić w portalu rozwiązania.
+- Żądane właściwości, które mają być wysyłane do urządzenia. Te właściwości można ustawić w portalu rozwiązania.
+- Tagi, które istnieją tylko w bliźniaczej reprezentacji urządzenia, a nie na urządzeniu. Tych tagów można używać do filtrowania list urządzeń w portalu rozwiązania.
+
+To rozwiązanie korzysta z bliźniaczych reprezentacji urządzeń do zarządzania metadanymi urządzenia. Rozwiązanie korzysta również z bazy danych DocumentDB do przechowywania dodatkowych danych urządzeń specyficznych dla rozwiązania, takich jak polecenia obsługiwane przez poszczególne urządzenia i historia poleceń.
 
 Informacje przechowywane w rejestrze tożsamości urządzeń muszą być zsynchronizowane z zawartością bazy danych DocumentDB. Klasa **EventProcessorHost** zarządza synchronizacją przy użyciu danych z zadania analizy strumienia dotyczącego **informacji o urządzeniach**.
 
 ## <a name="solution-portal"></a>Portal rozwiązania
-![Pulpit nawigacyjny rozwiązania][img-dashboard]
+![portal rozwiązania][img-dashboard]
 
 Portal rozwiązania to oparty na sieci Web interfejs użytkownika wdrożony w chmurze w ramach wstępnie skonfigurowanego rozwiązania. Umożliwia on wykonywanie następujących czynności:
 
@@ -107,7 +141,9 @@ Portal rozwiązania to oparty na sieci Web interfejs użytkownika wdrożony w ch
 * Aprowizacja nowych urządzeń.
 * Monitorowanie urządzeń i zarządzanie nimi.
 * Wysyłanie poleceń do określonych urządzeń.
+* Wywoływanie metod na konkretnych urządzeniach.
 * Zarządzanie regułami i akcjami.
+* Planowanie zadań do uruchomienia na jednym lub większej liczbie urządzeń.
 
 W tym wstępnie skonfigurowanym rozwiązaniu portal rozwiązania stanowi część **zaplecza rozwiązania IoT** oraz **przetwarzania i łączności biznesowej** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
 
@@ -127,9 +163,7 @@ Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możes
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 

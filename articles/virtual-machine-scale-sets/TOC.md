@@ -3,6 +3,7 @@
 
 # Wprowadzenie
 ## [Tworzenie zestawu skalowania w portalu](virtual-machine-scale-sets-portal-create.md)
+## [Create a scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md) (Tworzenie zestawu skalowania przy użyciu interfejsu wiersza polecenia platformy Azure)
 
 # Instrukcje
 ## Planowanie i projektowanie
@@ -10,6 +11,7 @@
 
 ## Wdrożenie
 ### [Skalowanie zestawu przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)
+### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md) (Zestaw skalowania z dyskami zarządzanymi)
 ### [Skalowanie zestawu przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Zestaw skalowania przy użyciu programu PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Zestaw skalowania przy użyciu interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-linux-create-cli.md)
@@ -19,6 +21,7 @@
 ### [Korzystanie z dysków danych z zestawami skalowania](virtual-machine-scale-sets-attached-disks.md)
 ### [Praca z dużymi zestawami skalowania](virtual-machine-scale-sets-placement-groups.md)
 ### [Konwertowanie szablonu zestawu skalowania w celu używania dysku zarządzanego](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 
 ## Zarządzanie
@@ -36,15 +39,10 @@
 # Dokumentacja
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interfejs wiersza polecenia platformy Azure](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Zasoby
 ## Cennik 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

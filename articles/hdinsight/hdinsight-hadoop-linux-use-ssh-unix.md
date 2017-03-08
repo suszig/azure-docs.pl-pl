@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Korzystanie z protokołu SSH z usługą HDInsight (Hadoop) w systemie Windows, Linux, Unix lub OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>Korzystanie z protokołu SSH z usługą HDInsight (Hadoop) w systemie Linux, Unix lub OS X albo funkcji Bash w systemie Windows 10
 
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -42,13 +43,11 @@ Wiele systemów operacyjnych oferuje funkcje klienta SSH za pośrednictwem narz�
 * __ssh__: ogólny klient SSH, za pomocą którego można ustanawiać sesje zdalne wiersza polecenia i tworzyć tunele.
 * __scp__: narzędzie do kopiowania plików między systemami lokalnymi a zdalnymi za pośrednictwem protokołu SSH.
 
-Przed udostępnieniem aktualizacji rocznicowej systemu Windows 10 system Windows nie udostępniał klienta SSH. Ta wersja systemu Windows zawiera funkcję dla deweloperów Bash w systemie Windows 10, udostępniającą polecenia `ssh`, `scp` i inne polecenia systemu Linux. Aby uzyskać więcej informacji na temat korzystania z funkcji Bash w systemie Windows 10, zobacz [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Funkcja Bash dla Ubuntu w systemie Windows).
+Aktualizacja rocznicowa systemu Windows 10 zawiera funkcję Bash jako rozwiązanie dla deweloperów. Udostępnia ona polecenia `ssh` i `scp` oraz inne polecenia systemu Linux. Aby uzyskać więcej informacji na temat korzystania z funkcji Bash w systemie Windows 10, zobacz [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Funkcja Bash dla Ubuntu w systemie Windows).
 
 Jeśli korzystasz z systemu Windows, ale nie masz dostępu do funkcji Bash w systemie Windows 10, zalecamy użycie następujących klientów SSH:
 
 * [Git dla systemu Windows](https://git-for-windows.github.io/): udostępnia narzędzia wiersza polecenia `ssh` i `scp`.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): graficzny klient SSH.
-* [MobaXterm](http://mobaxterm.mobatek.net/): graficzny klient SSH.
 * [Cygwin](https://cygwin.com/): udostępnia narzędzia wiersza polecenia `ssh` i `scp`.
 
 > [!NOTE]
@@ -64,7 +63,7 @@ Zastosowanie kryptografii klucza publicznego wymaga utworzenia pary kluczy: _pub
 
 * **Klucz prywatny** jest przedstawiany klastrowi usługi HDInsight podczas logowania przy użyciu klienta SSH w celu zweryfikowania Twojej tożsamości. Klucz prywatny należy chronić. Nie należy go udostępniać.
 
-    Można zastosować dodatkowe zabezpieczenie, tworząc hasło klucza prywatnego. Użycie klucza będzie wymagało podania tego hasła.
+    Można zastosować dodatkowe zabezpieczenie, tworząc hasło klucza prywatnego. Jeśli używasz hasła, musisz je wprowadzić podczas uwierzytelniania przy użyciu protokołu SSH.
 
 ### <a name="create-a-public-and-private-key"></a>Tworzenie klucza publicznego i prywatnego
 
@@ -115,7 +114,7 @@ Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania SSH pod
 
 Dodanie kolejnych użytkowników SSH do klastra po jego utworzeniu jest możliwe, ale niezalecane.
 
-* Należy ręcznie dodać nowych użytkowników SSH do każdego węzła klastra.
+* Nowych użytkowników SSH należy dodać do każdego węzła w klastrze.
 
 * Nowi użytkownicy SSH mają taki sam dostęp do usługi HDInsight jak użytkownik domyślny. Nie można w żaden sposób ograniczyć dostępu do danych lub zadań w usłudze HDInsight na podstawie konta użytkownika SSH.
 
@@ -123,7 +122,7 @@ Aby ograniczyć dostęp dla poszczególnych użytkowników, należy użyć klast
 
 Korzystanie z klastra usługi HDInsight przyłączonego do domeny umożliwia uwierzytelnianie za pomocą usługi Active Directory po nawiązaniu połączenia za pośrednictwem protokołu SSH. Wielu użytkowników może połączyć się, korzystając z protokołu SSH, a następnie uwierzytelnić się na swoich kontach usługi Active Directory. Aby uzyskać więcej informacji, zobacz sekcję [Usługa HDInsight przyłączona do domeny](#domainjoined).
 
-##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Łączenie się z usługą HDInsight
+##<a id="connect"></a> Łączenie się z usługą HDInsight
 
 Chociaż serwer SSH jest uruchomiony na wszystkich węzłach klastra usługi HDInsight, za pośrednictwem publicznego Internetu można łączyć się tylko z węzłami głównymi i węzłami krawędzi.
 
@@ -147,7 +146,7 @@ Jeśli konto SSH jest zabezpieczone kluczem publicznym, może być konieczne wsk
 
 ### <a name="connect-to-other-nodes"></a>Łączenie z innymi węzłami
 
-Węzły procesów roboczych i węzły dozorcy nie są bezpośrednio dostępne spoza klastra, są jednak dostępne z węzłów głównych lub z węzłów krawędzi klastra. Poniżej przedstawiono ogólnie czynności, które należy w tym celu wykonać:
+Węzły procesów roboczych i węzły dozorcy nie są bezpośrednio dostępne spoza klastra, są jednak dostępne z węzłów głównych lub z węzłów krawędzi klastra. Poniżej przedstawiono ogólny zarys czynności, które należy wykonać w celu nawiązania połączenia z innymi węzłami:
 
 1. Połącz się z węzłem głównym lub węzłem krawędzi za pomocą protokołu SSH:
 
@@ -183,7 +182,7 @@ Jeśli do uwierzytelnienia konta użytkownika używasz klucza SSH, upewnij się,
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Jeśli żadne informacje nie zostaną zwrócone, oznacza to, że agent `ssh-agent` nie działa. Zapoznaj się z informacjami na temat skryptów uruchamiania agenta na stronie [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Korzystanie z agenta SSH z protokołem SSH) lub z dokumentacją używanego klienta SSH, aby uzyskać szczegółowe instrukcje instalowania i konfigurowania agenta `ssh-agent`.
+    Jeśli nie zostaną zwrócone żadne informacje, oznacza to, że agent `ssh-agent` nie działa. Zapoznaj się z informacjami na temat skryptów uruchamiania agenta na stronie [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Korzystanie z agenta SSH z protokołem SSH) lub z dokumentacją używanego klienta SSH, aby uzyskać szczegółowe instrukcje instalowania i konfigurowania agenta `ssh-agent`.
 
 4. Po upewnieniu się, że program **ssh-agent** działa, należy wykonać następujące czynności, aby dodać klucz prywatny SSH do agenta:
 
@@ -196,7 +195,7 @@ Jeśli do uwierzytelnienia konta użytkownika używasz klucza SSH, upewnij się,
 
 [Przyłączona do domeny usługa HDInsight](hdinsight-domain-joined-introduction.md) integruje uwierzytelnianie Kerberos z usługą Hadoop. Ponieważ użytkownik SSH nie jest użytkownikiem domeny usługi Active Directory, nie można uruchamiać poleceń platformy Hadoop bez uwierzytelnienia w usłudze Active Directory. Wykonaj poniższe czynności, aby uwierzytelnić sesję SSH w usłudze Active Directory:
 
-1. Połącz się z przyłączonym do domeny klastrem usługi HDInsight za pomocą protokołu SSH, zgodnie z opisem w sekcji [Łączenie się z usługą HDInsight](#connect). Na przykład za pomocą następującego polecenia możesz połączyć się z klastrem usługi HDInsight o nazwie __myhdi__ przy użyciu konta SSH o nazwie __sshuser__.
+1. Połącz się z przyłączonym do domeny klastrem usługi HDInsight przy użyciu protokołu SSH. Na przykład za pomocą następującego polecenia możesz połączyć się z klastrem usługi HDInsight o nazwie __myhdi__ przy użyciu konta SSH o nazwie __sshuser__.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -210,14 +209,14 @@ Jeśli do uwierzytelnienia konta użytkownika używasz klucza SSH, upewnij się,
 
 Po uwierzytelnieniu za pomocą polecenia `kinit` możesz używać poleceń platformy Hadoop, takich jak `hdfs dfs -ls /` i `hive`.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunelowanie SSH
+## <a id="tunnel"></a>Tunelowanie SSH
 
-Protokół SSH może również służyć do tunelowania żądań lokalnych, takich jak żądania sieci Web, do klastra usługi HDInsight. Żądania będą następnie kierowane do żądanego zasobu, tak jakby pochodziły z węzła głównego klastra usługi HDInsight.
+Protokół SSH może również służyć do tunelowania żądań lokalnych, takich jak żądania sieci Web, do klastra usługi HDInsight. Żądanie jest przekazywane do klastra, a następnie w nim rozwiązywane.
 
 > [!IMPORTANT]
 > Tunel SSH jest konieczny do uzyskiwania dostępu do interfejsu użytkownika sieci Web niektórych usług Hadoop. Na przykład interfejsy użytkownika usługi Historia zadań i Menedżera zasobów są dostępne wyłącznie przy użyciu tunelu SSH.
 
-Aby uzyskać więcej informacji dotyczących tworzenia i używania tunelu SSH, zobacz artykuł [Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) (Korzystanie z tunelowania SSH w celu uzyskania dostępu do interfejsów użytkownika sieci Web Ambari, JobHistory, NameNode, Oozie i innych).
+Aby uzyskać więcej informacji dotyczących tworzenia i używania tunelu SSH, zobacz [Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) (Korzystanie z tunelowania SSH w celu uzyskania dostępu do interfejsów użytkownika sieci Web Ambari, JobHistory, NameNode, Oozie i innych).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -228,9 +227,4 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 * [Korzystanie z zadań MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

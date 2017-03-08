@@ -58,8 +58,3 @@
 ## [Przykłady użycia pamięci podręcznej Redis](cache-redis-samples.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/cache/)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

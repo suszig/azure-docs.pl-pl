@@ -45,15 +45,10 @@
 ## [Schemat usługi Diagnostyka Azure](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
 ### [Schemat usługi Diagnostyka 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
 ### [Schemat usługi Diagnostyka 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
-### [Schemat usługi Diagnostyka 1.3 do 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+### [Diagnostics Schema 1.3 to 1.7](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md) (Schemat usługi Diagnostyka od 1.3 do 1.7)
 
 
 # Zasoby
 ## [Przykłady programu PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Przykłady interfejsu wiersza polecenia platformy Azure 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista obsługiwanych metryk](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

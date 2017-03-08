@@ -3,7 +3,7 @@
 ## [Często zadawane pytania](container-service-faq.md)
 # Wprowadzenie
 ## [Wdrażanie klastra usługi ACS](container-service-deployment.md)
-## [Wdrażanie w usłudze ACS przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0 (wersja zapoznawcza)](container-service-create-acs-cluster-cli.md)
+## [Wdrażanie w usłudze ACS przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-service-create-acs-cluster-cli.md)
 ## [Łączenie z klastrem usługi ACS](container-service-connect.md)
 ## [Skalowanie klastra usługi ACS](container-service-scale.md)
 # Instrukcje
@@ -23,6 +23,7 @@
 #### [Monitorowanie za pomocą rozwiązania Dynatrace](container-service-monitoring-dynatrace.md)
 ## Zarządzanie przy użyciu rozwiązania Kubernetes
 ### [Wprowadzenie do rozwiązania Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Get started with Kubernetes and Windows](container-service-kubernetes-windows-walkthrough.md) (Wprowadzenie do rozwiązania Kubernetes w systemie Windows)
 ### [Konfigurowanie nazwy głównej usługi](container-service-kubernetes-service-principal.md)
 ### [Zarządzanie kontenerem — interfejs użytkownika rozwiązania Kubernetes](container-service-kubernetes-ui.md)
 ### [Kontenery równoważenia obciążenia rozwiązania Kubernetes](container-service-kubernetes-load-balancing.md)
@@ -34,16 +35,9 @@
 ### [Platforma Docker i narzędzie Docker Compose](container-service-docker-swarm.md)
 ### [Integracja ciągła w rozwiązaniu Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Dokumentacja
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/acs)
-## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
-## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
+## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/acs)
 ## [REST](/rest/api/compute/containerservices)
 # Zasoby
 ## [Dostępność w danym regionie](https://azure.microsoft.com/regions/services/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Aktualizacje usług](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
