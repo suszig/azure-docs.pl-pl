@@ -17,8 +17,9 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: c99f16e7aa6ea6fe82f7a115b4642025a05bb241
+ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
+ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Co to jest SQL Database? Wprowadzenie do usługi SQL Database
@@ -43,7 +44,7 @@ W obu przypadkach — pojedyncza baza danych i pule elastyczne — nie ma ograni
 Jednak jak porównać względną wydajność pojedynczych baz danych i pul elastycznych? Skąd wiadomo, kiedy kliknąć, aby zatrzymać regulowanie w górę i w dół we właściwym miejscu? Możesz użyć [wbudowanej funkcji monitorowania wydajności](sql-database-performance.md) i narzędzi do [zgłaszania alertów](sql-database-insights-alerts-portal.md) w połączeniu z ocenami wydajności opartymi na [jednostkach DTU (Database Transaction Units) dla pojedynczych baz danych i jednostkach eDTU (elastic DTU) dla pul elastycznych](sql-database-what-is-a-dtu.md). Za pomocą tych narzędzi możesz szybko ocenić wpływ skalowania w górę lub w dół na podstawie bieżących lub przewidywanych wymagań dotyczących wydajności. Zobacz artykuł [Opcje i wydajność usługi SQL Database: poznaj, co jest dostępne w poszczególnych warstwach usług](sql-database-service-tiers.md), aby uzyskać szczegółowe informacje.
 
 ## <a name="keep-your-app-and-business-running"></a>Zapewnienie działania aplikacji i firmy
-Umowa dotycząca poziomu usług [(SLA)](http://azure.microsoft.com/support/legal/sla/) o czołowej w branży dostępności 99,99% dla platformy Azure, która jest obsługiwana przez globalną sieć centrów danych zarządzanych przez firmę Microsoft, pomaga zapewnić działanie aplikacji przez 24 godziny na dobę, 7 dni w tygodniu. W każdej usłudze SQL Database korzystasz z wbudowanych rozwiązań zabezpieczeń, odporności na uszkodzenia i [ochrony danych](sql-database-automated-backups.md), które w przeciwnym razie trzeba byłoby kupić lub zaprojektować, zrealizować, a także nimi zarządzać. W usłudze SQL Database każda warstwa usług oferuje kompleksowy zestaw funkcji i opcji ciągłości działania, których można użyć, aby rozpocząć i kontynuować pracę. Możesz użyć [przywracania do punktu w czasie](sql-database-recovery-using-backups.md), aby przywrócić bazę danych do wcześniejszego stanu — nawet sprzed 35 dni. Możesz skonfigurować [długoterminowe przechowywanie kopii zapasowych](sql-database-long-term-retention.md), aby przechowywać kopie zapasowe w bezpiecznym magazynie nawet przez 10 lat. Ponadto jeśli centrum danych hostujące bazy danych ulegnie awarii, możesz przywrócić bazy danych z [geograficznie nadmiarowych duplikatów najnowszych kopii zapasowych]((sql-database-recovery-using-backups.md). W razie potrzeby możesz także skonfigurować [geograficznie nadmiarowe repliki do odczytu](sql-database-geo-replication-overview.md) w jednym lub wielu regionach, aby umożliwić szybkie przechodzenie do trybu failover w przypadku niedostępności centrum danych. Możesz także użyć tych replik, aby zwiększyć wydajność odczytu w różnych regionach geograficznych lub [uaktualniać aplikacje bez przestoju](sql-database-manage-application-rolling-upgrade.md). 
+Umowa dotycząca poziomu usług [(SLA)](http://azure.microsoft.com/support/legal/sla/) o czołowej w branży dostępności 99,99% dla platformy Azure, która jest obsługiwana przez globalną sieć centrów danych zarządzanych przez firmę Microsoft, pomaga zapewnić działanie aplikacji przez 24 godziny na dobę, 7 dni w tygodniu. W każdej usłudze SQL Database korzystasz z wbudowanych rozwiązań zabezpieczeń, odporności na uszkodzenia i [ochrony danych](sql-database-automated-backups.md), które w przeciwnym razie trzeba byłoby kupić lub zaprojektować, zrealizować, a także nimi zarządzać. W usłudze SQL Database każda warstwa usług oferuje kompleksowy zestaw funkcji i opcji ciągłości działania, których można użyć, aby rozpocząć i kontynuować pracę. Możesz użyć [przywracania do punktu w czasie](sql-database-recovery-using-backups.md), aby przywrócić bazę danych do wcześniejszego stanu — nawet sprzed 35 dni. Możesz skonfigurować [długoterminowe przechowywanie kopii zapasowych](sql-database-long-term-retention.md), aby przechowywać kopie zapasowe w bezpiecznym magazynie nawet przez 10 lat. Ponadto jeśli centrum danych hostujące bazy danych ulegnie awarii, możesz przywrócić bazy danych z [geograficznie nadmiarowych duplikatów najnowszych kopii zapasowych](sql-database-recovery-using-backups.md). W razie potrzeby możesz także skonfigurować [geograficznie nadmiarowe repliki do odczytu](sql-database-geo-replication-overview.md) w jednym lub wielu regionach, aby umożliwić szybkie przechodzenie do trybu failover w przypadku niedostępności centrum danych. Możesz także użyć tych replik, aby zwiększyć wydajność odczytu w różnych regionach geograficznych lub [uaktualniać aplikacje bez przestoju](sql-database-manage-application-rolling-upgrade.md). 
 
 ![Replikacja geograficzna usługi SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,9 +60,4 @@ Po przeczytaniu wprowadzenia do usługi SQL Database i zapoznaniu się z nią mo
 * Poznać [pule elastyczne](sql-database-elastic-pool.md).
 * Rozpocząć [tworzenie pierwszej bazy danych](sql-database-get-started.md).
 * Utworzyć pierwszą aplikację w języku C#, Java, Node.js, PHP, Python lub Ruby, korzystając z [bibliotek połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

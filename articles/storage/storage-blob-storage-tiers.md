@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: warstwy magazynu gorącego i chłodnego
 ## <a name="overview"></a>Omówienie
-Usługa Azure Storage oferuje teraz dwie warstwy magazynowania dla magazynu obiektów blob, dzięki czemu możliwe jest najbardziej ekonomiczne przechowywanie danych w zależności od sposobu ich używania. **Warstwa magazynu gorącego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których często uzyskuje się dostęp. **Warstwa magazynu chłodnego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których rzadko uzyskuje się dostęp i które mają długi okres życia. Dla danych w warstwie magazynu chłodnego nie ma znaczenia nieco niższa dostępność, ale nadal są wymagane wysoka trwałość oraz podobny czas dostępu i parametry przepływności jak w przypadku gorących danych. W przypadku chłodnych danych umowa SLA dotycząca nieco niższej dostępności i wyższe koszty dostępu to dopuszczalne wady, biorąc pod uwagę znacznie niższe koszty magazynowania.
+Usługa Azure Storage oferuje dwie warstwy magazynowania dla magazynu obiektów blob, dzięki czemu możliwe jest najbardziej ekonomiczne przechowywanie danych w zależności od sposobu ich używania. **Warstwa magazynu gorącego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których często uzyskuje się dostęp. **Warstwa magazynu chłodnego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których rzadko uzyskuje się dostęp i które mają długi okres życia. Dla danych w warstwie magazynu chłodnego nie ma znaczenia nieco niższa dostępność, ale nadal są wymagane wysoka trwałość oraz podobny czas dostępu i parametry przepływności jak w przypadku gorących danych. W przypadku chłodnych danych umowa SLA dotycząca nieco niższej dostępności i wyższe koszty dostępu to dopuszczalne wady, biorąc pod uwagę znacznie niższe koszty magazynowania.
 
 Obecnie ilość danych przechowywanych w chmurze rośnie w tempie wykładniczym. Aby zarządzać kosztami zwiększających się potrzeb dotyczących magazynowania, warto zorganizować dane na podstawie atrybutów, takich jak częstotliwość dostępu i planowany okres przechowywania. Dane przechowywane w chmurze mogą być różne pod względem sposobu ich generowania i przetwarzania oraz uzyskiwania do nich dostępu przez cały okres ich istnienia. Do niektórych danych często uzyskuje się dostęp. Są one również często modyfikowane w trakcie całego okresu istnienia. Do niektórych danych często uzyskuje się dostęp na początkowym etapie istnienia, a z czasem już zdecydowanie rzadziej. Niektóre dane pozostają nieużywane w chmurze i dostęp do nich uzyskuje się rzadko (lub w ogóle) po umieszczeniu ich w magazynie.
 
@@ -89,12 +90,12 @@ W poniższej tabeli znajduje się porównanie dwóch warstw magazynowania:
     <td><center>99%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Dostępność<br>(odczyty RA GRS)</center></strong></td>
-    <td><center>99,99%</center></td>
+    <td><strong><center>Dostępność<br>(odczyty RA-GRS)</center></strong></td>
+    <td><center>99.99%</center></td>
     <td><center>99,9%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Opłaty za zużycie</center></strong></td>
+    <td><strong><center>Opłaty za użycie</center></strong></td>
     <td><center>Wyższe koszty magazynowania<br>Niższe koszty dostępu i transakcji</center></td>
     <td><center>Niższe koszty magazynowania<br>Wyższe koszty dostępu i transakcji</center></td>
 </tr>
@@ -341,10 +342,5 @@ Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obie
 [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
 
 [Przeglądaj i eksploruj konta magazynu](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

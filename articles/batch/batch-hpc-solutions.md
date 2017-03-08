@@ -1,5 +1,5 @@
 ---
-title: "Rozwiązania usługi Batch i HPC w chmurze | Microsoft Docs"
+title: "Rozwiązania usługi Batch i HPC w chmurze — platforma Azure | Microsoft Docs"
 description: "Scenariusze i opcje rozwiązań obliczania wsadowego i obliczeń o wysokiej wydajności (obliczenia HPC i duże obliczenia) na platformie Azure"
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Rozwiązania usługi Batch i HPC w chmurze Azure
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Rozwiązania usługi Batch i HPC dla dużych obciążeń obliczeniowych
+
 Platforma Azure oferuje wydajne, skalowalne rozwiązania w chmurze dla usługi Batch i obliczeń o wysokiej wydajności (HPC) — zwanych również *dużymi obliczeniami*. Informacje poniżej dotyczą obciążeń dużych obliczeń oraz usług Azure, w których są one obsługiwane. Można także przejść od razu do [scenariuszy rozwiązań](#scenarios) w dalszej części tego artykułu. Ten artykuł jest przeznaczony głównie dla osób podejmujących decyzje techniczne, menedżerów działu IT i niezależnych dostawców oprogramowania, ale z opisanymi tu rozwiązaniami mogą zapoznać się również inni specjaliści i deweloperzy IT.
 
 Organizacje zajmują się zagadnieniami obliczeniowymi na dużą skalę, m.in. projektowaniem inżynierskim i analizą, renderowaniem obrazu, złożonym modelowaniem, symulacjami Monte Carlo oraz obliczeniami w zakresie ryzyka finansowego. Platforma Azure ułatwia organizacjom realizowanie tych zadań, zapewniając potrzebne zasoby, odpowiednią skalę i założony harmonogram. Za pomocą platformy Azure organizacje mogą:
@@ -134,9 +137,4 @@ Rozwiązanie funkcji dużych obliczeń może wymagać innych usług Azure do po�
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

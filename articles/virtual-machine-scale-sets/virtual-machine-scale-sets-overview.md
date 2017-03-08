@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Omówienie zestawów skalowania maszyn wirtualnych
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co to są zestawy skalowania maszyn wirtualnych na platformie Azure?
 Zestawy skalowania maszyn wirtualnych to zasób dostępny w ramach usługi Azure Compute, który umożliwia wdrożenie zestawu identycznych maszyn wirtualnych oraz zarządzanie nimi. Wszystkie maszyny wirtualne mają jednakową konfigurację, dzięki czemu zestawy skalowania maszyn wirtualnych umożliwiają rzeczywiste skalowanie automatyczne (bez wstępnej aprowizacji maszyn wirtualnych). Dzięki temu można łatwiej tworzyć wielkoskalowe usługi z myślą o intensywnych operacjach obliczeniowych, obsłudze danych big data oraz obciążeń konteneryzowanych.
 
 W przypadku aplikacji skalujących zasoby komputerowe w poziomie operacje skalowania są niejawnie równoważone w domenach błędów i aktualizacji. Aby zapoznać się z zagadnieniami dotyczącymi zestawów skalowania maszyn wirtualnych, zobacz [Ogłoszenia na blogu platformy Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -127,9 +129,4 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
 **PYTANIE** Czy zestawy skalowania maszyn wirtualnych współdziałają z zestawami dostępności platformy Azure?
 
 **ODPOWIEDŹ** Tak. Zestaw skalowania maszyn wirtualnych to niejawny zestaw dostępności z 5 domenami błędów i 5 domenami uaktualniania. W obszarze virtualMachineProfile nie trzeba nic konfigurować. Zestawy skalowania maszyn wirtualnych składające się z ponad 100 maszyn wirtualnych obejmują wiele „grup umieszczania”, które są równoważne wielu zestawom dostępności. Zestaw dostępności maszyn wirtualnych może znajdować się w tej samej sieci wirtualnej co zestaw skalowania maszyn wirtualnych. Typowa konfiguracja polega na umieszczeniu maszyn wirtualnych węzła kontrolnego (często wymagających unikatowej konfiguracji) w zestawie dostępności, a węzłów danych w zestawie skalowania.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

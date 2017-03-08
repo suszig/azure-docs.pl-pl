@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -35,7 +36,7 @@ Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet ty
 * Routing dynamiczny między siecią użytkownika i firmą Microsoft za pośrednictwem standardowych protokołów (BGP).
 * Wbudowana nadmiarowość w każdej lokalizacji komunikacji równorzędnej w celu uzyskania większej niezawodności.
 * Czas sprawnego działania połączenia zgodnie z umową [SLA](https://azure.microsoft.com/support/legal/sla/).
-* QoS i obsługa wielu klas usługi dla wielu aplikacji, np. Skype dla firm.
+* Obsługa QoS dla programu Skype dla firm.
 
 Więcej informacji znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
 
@@ -108,8 +109,4 @@ Możesz wybrać najlepszy dla siebie model rozliczeń. Wybierz z modeli rozlicze
   * [Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configure routing (Konfigurowanie routingu)](expressroute-howto-routing-portal-resource-manager.md)
   * [Link a VNet to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

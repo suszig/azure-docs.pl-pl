@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal | Microsoft Docs"
+title: "Tworzenie przestrzeni nazw typu usługa Relay za pomocą witryny Azure Portal | Microsoft Docs"
 description: "Jak utworzyć przestrzeń nazw usługi Relay za pomocą witryny Azure Portal."
 services: service-bus-relay
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/13/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 97c793abc9935707115c166a97f6f7bdfee1a8c5
-ms.openlocfilehash: d6ef2e0c75a27b294ee653bf9a0219c2233d272c
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: 927c01ff4cfa7de6e1e9eb2917848a4450e9f597
+ms.lasthandoff: 02/28/2017
 
 ---
 
@@ -35,10 +36,5 @@ Gratulacje! Przestrzeń nazw usługi Relay została utworzona.
 * [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)
 * [Wprowadzenie do programu .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Wprowadzenie do programu Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

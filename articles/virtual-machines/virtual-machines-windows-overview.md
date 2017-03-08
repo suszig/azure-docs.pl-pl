@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
+ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
+ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ W poniższej tabeli przedstawiono wybrane metody uzyskania dostępu do listy dos
 | Metoda | Opis |
 | --- | --- |
 | Azure Portal |Wybór lokalizacji z listy podczas tworzenia maszyny wirtualnej. |
-| Azure PowerShell |Użycie polecenia [Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx). |
-| Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](https://msdn.microsoft.com/library/dn790540.aspx). |
+| Azure PowerShell |Użycie polecenia [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation). |
+| Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
 ### <a name="vm-size"></a>Rozmiar maszyny wirtualnej
 [Rozmiar](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) maszyny wirtualnej zależy od obciążenia, które ma zostać uruchomione. Wybrany rozmiar ma więc wpływ na takie czynniki jak moc procesora, pamięć i przestrzeń dyskowa. W ramach platformy Azure dostępna jest szeroka gama rozmiarów umożliwiających wykorzystanie produktu do wielu różnych zastosowań.
@@ -79,8 +80,8 @@ W poniższej tabeli pokazano, jak można znaleźć informacje o obrazie.
 | Metoda | Opis |
 | --- | --- |
 | Azure Portal |Wartości są podawane automatycznie po wybraniu obrazu, który ma zostać użyty. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "lokalizacja"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "lokalizacja" -Publisher "nazwa_wydawcy"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "lokalizacja" -Publisher "nazwa_wydawcy" -Offer "nazwa_oferty" |
-| Interfejsy API REST |[Wyświetl listę wydawców obrazów](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[Wyświetl listę ofert obrazów](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[Wyświetl listę jednostek SKU obrazów](https://msdn.microsoft.com/library/mt743701.aspx) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "lokalizacja"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "lokalizacja" -Publisher "nazwa_wydawcy"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku) -Location "lokalizacja" -Publisher "nazwa_wydawcy" -Offer "nazwa_oferty" |
+| Interfejsy API REST |[Wyświetl listę wydawców obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Wyświetl listę ofert obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Wyświetl listę jednostek SKU obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 Istnieje możliwość [przesłania i użycia własnego obrazu](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) — nazwa wydawcy, oferta i jednostka SKU nie są wtedy używane.
 
@@ -91,7 +92,7 @@ Typowe zadania można realizować przy użyciu różnych rozszerzeń:
 
 * **Uruchamianie skryptów niestandardowych** — [rozszerzenie niestandardowego skryptu](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ułatwia konfigurowanie obciążeń na maszynie wirtualnej poprzez uruchomienie skryptu po aprowizacji maszyny wirtualnej.
 * **Wdrażanie konfiguracji i zarządzanie nimi** — [rozszerzenie Konfiguracja żądanego stanu (Desired State Configuration, DSC) programu PowerShell](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ułatwia skonfigurowanie żądanego stanu na maszynie wirtualnej w celu zarządzania konfiguracjami i środowiskami.
-* **Zbieranie danych diagnostycznych** — [rozszerzenie Diagnostyka Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) ułatwia skonfigurowanie maszyny wirtualnej w celu zbierania danych diagnostycznych używanych do monitorowania kondycji aplikacji.
+* **Zbieranie danych diagnostycznych** — [rozszerzenie Diagnostyka Azure](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ułatwia skonfigurowanie maszyny wirtualnej w celu zbierania danych diagnostycznych używanych do monitorowania kondycji aplikacji.
 
 ### <a name="related-resources"></a>Powiązane zasoby
 Zasoby wymienione w tej tabeli są używane przez maszynę wirtualną i muszą istnieć lub zostać utworzone podczas jej tworzenia.
@@ -116,7 +117,7 @@ Ta tabela zawiera informacje ułatwiające utworzenie maszyny wirtualnej.
 | Szablony |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu usługi Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Zestawy SDK klienta |[Wdrażanie zasobów Azure przy użyciu języka C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Interfejsy API REST |[Tworzenie lub aktualizowanie maszyny wirtualnej](https://msdn.microsoft.com/library/mt163591.aspx) |
+| Interfejsy API REST |[Tworzenie lub aktualizowanie maszyny wirtualnej](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
 Nikt tego nie lubi, ale czasem coś może pójść nie tak. Warto zapoznać się wtedy z artykułem [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozwiązywanie problemów z wdrażaniem programu Resource Manager dotyczących tworzenia maszyny wirtualnej z systemem Windows na platformie Azure).
 
@@ -130,7 +131,7 @@ W tej tabeli opisano, w jaki sposób można uzyskiwać informacje o maszynie wir
 | --- | --- |
 | Azure Portal |W menu Centrum kliknij opcję **Maszyny wirtualne**, a następnie wybierz odpowiednią maszynę wirtualną z listy. Z poziomu bloku maszyny wirtualnej można uzyskać dostęp do podstawowych informacji, wartości ustawień i metryk monitorowania. |
 | Azure PowerShell |Aby dowiedzieć się więcej o zarządzaniu maszynami wirtualnymi za pomocą programu PowerShell, zobacz artykuł [Manage Azure Virtual Machines using Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie maszynami wirtualnymi na platformie Azure za pomocą usługi Resource Manager i programu PowerShell). |
-| Interfejs API REST |Użyj operacji [Get VM information](https://msdn.microsoft.com/library/mt163682.aspx) (Pobierz informacje o maszynie wirtualnej), aby uzyskać informacje na temat maszyny wirtualnej. |
+| Interfejs API REST |Użyj operacji [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) (Pobierz informacje o maszynie wirtualnej), aby uzyskać informacje na temat maszyny wirtualnej. |
 | Zestawy SDK klienta |Aby dowiedzieć się więcej o zarządzaniu maszynami wirtualnymi za pomocą języka C#, zobacz artykuł [Manage Azure Virtual Machines using Azure Resource Manager and C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie maszynami wirtualnymi na platformie Azure za pomocą usługi Azure Resource Manager i języka C#). |
 
 ### <a name="log-on-to-the-vm"></a>Logowanie się do maszyny wirtualnej
@@ -148,10 +149,5 @@ Aby wdrożenie kwalifikowało się do naszej Umowy dotyczącej poziomu usług (S
 * Użytkownicy korzystający z maszyn wirtualnych z systemem Linux powinni zapoznać się z tematem [Azure and Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Usługa Azure a system Linux).
 * Więcej informacji na temat wytycznych dotyczących konfigurowania infrastruktury można znaleźć w artykule [Example Azure infrastructure walkthrough](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Przewodnik po konfigurowaniu przykładowej infrastruktury na platformie Azure).
 * Zdecydowanie zalecamy korzystanie z [najlepszych rozwiązań dotyczących uruchamiania maszyny wirtualnej z systemem Windows na platformie Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

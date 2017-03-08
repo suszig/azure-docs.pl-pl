@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 02/28/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 13ff55ff06d0afd5e29ce85e7cc8e1c7e0a12a6c
-ms.openlocfilehash: b2e82cffa9c258d99dc26346851ebfc016d09839
+ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
+ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -33,19 +34,26 @@ Istnieją jeszcze inne tematy, które warto przejrzeć, jeśli interesują Cię 
 * [Instrumentacja aplikacji sieci Web w czasie wykonywania](app-insights-monitor-performance-live-website-now.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Krok 1. Dodawanie zestawu SDK usługi Application Insights
-W przypadku nowego projekt podczas jego tworzenia w programie Visual Studio upewnij się, że jest zaznaczona opcja Application Insights.
+## <a name="ide"></a> Krok 1. Dodawanie zestawu SDK usługi Application Insights
 
-![Zrzut ekranu przedstawiający nowy projekt ASP.NET](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
-
-W przypadku istniejącego projektu kliknij go prawym przyciskiem myszy w Eksploratorze rozwiązań, a następnie wybierz polecenie **Dodaj telemetrię usługi Application Insights** lub **Konfiguruj usługę Application Insights**.
+Kliknij prawym przyciskiem myszy projekt aplikacji sieci Web w Eksploratorze rozwiązań, a następnie wybierz polecenie **Dodaj**, **Telemetria usługi Application Insights...** lub **Konfiguruj usługę Application Insights**.
 
 ![Zrzut ekranu Eksploratora rozwiązań z wyróżnioną opcją Dodaj telemetrię usługi Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-> [!NOTE]
-> Jeśli pracujesz z projektem platformy ASP.NET Core, [wykonaj te instrukcje, aby naprawić kilka wierszy kodu](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
+(W programie Visual Studio 2015 istnieje również opcja dodania usługi Application Insights w oknie dialogowym Nowy projekt).
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> Krok 2. Uruchamianie aplikacji
+Przejdź do strony konfiguracji usługi Application Insights:
+
+![Zrzut ekranu strony Zarejestruj swoją aplikację w usłudze Application Insights](./media/app-insights-asp-net/visual-studio-register-dialog.png)
+
+1. Wybierz konto i subskrypcję używane do uzyskiwania dostępu do platformy Azure.
+2. Wybierz zasób na platformie Azure, w którym mają być wyświetlane dane z aplikacji. Zazwyczaj należy utworzyć osobny zasób dla każdej aplikacji. Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są przechowywane, kliknij pozycję **Konfiguruj ustawienia**. Grupy zasobów są używane do kontrolowania dostępu do danych. Jeśli na przykład masz kilka aplikacji, które stanowią część tego samego systemu, możesz umieścić ich dane usługi Application Insights w tej samej grupie zasobów.
+3. Usługa Application Insights jest bezpłatna do pewnej ilości danych telemetrycznych. Aby uniknąć naliczania opłat, możesz ustawić limit dla tej ilości. Po utworzeniu zasobu możesz zmienić wybór w portalu, wybierając pozycję **Funkcje i cennik**, **Zarządzanie ilością danych**, **Dzienny limit ilości**.
+4. Kliknij przycisk **Zarejestruj**, aby skonfigurować usługę Application Insights dla aplikacji sieci Web. Dane telemetryczne będą wysyłane do witryny [Azure Portal](https://portal.azure.com) zarówno podczas debugowania, jak i po opublikowaniu aplikacji.
+5. Alternatywnie możesz po prostu dodać zestaw SDK usługi Application Insights do swojej aplikacji. W takim przypadku dane telemetryczne będzie można wyświetlać w programie Visual Studio podczas debugowania. Później możesz powrócić do tej strony konfiguracji lub po wdrożeniu aplikacji [włączyć telemetrię w czasie wykonywania](app-insights-monitor-performance-live-website-now.md).
+
+
+## <a name="run"></a> Krok 2. Uruchamianie aplikacji
 Uruchom aplikację, naciskając klawisz F5. Otwórz różne strony w celu wygenerowania telemetrii.
 
 W programie Visual Studio zobaczysz liczbę zarejestrowanych zdarzeń.
@@ -116,7 +124,7 @@ Można również analizować telemetrię w programie [Visual Studio](app-insight
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a> Do czego służy polecenie Dodaj usługę Application Insights?
+## <a name="land"></a> Do czego służy polecenie Dodaj usługę Application Insights?
 Usługa Application Insights wysyła dane telemetryczne z aplikacji do portalu usługi Application Insights (który jest hostowany na platformie Azure).
 
 ![Diagram przepływu danych telemetrycznych](./media/app-insights-asp-net/01-scheme.png)
@@ -194,9 +202,4 @@ Jeśli korzystasz z usługi Visual Studio Team Services, możesz [uzyskać znacz
 **[Praca z usługą Application Insights w programie Visual Studio](app-insights-visual-studio.md)**<br/>Zawiera informacje o debugowaniu przy użyciu telemetrii, wyszukiwaniu diagnostycznym i przechodzeniu do szczegółów kodu.
 
 **[Praca z portalem usługi Application Insights](app-insights-dashboards.md)**<br/> Zawiera informacje o pulpitach nawigacyjnych, zaawansowanych narzędziach diagnostycznych i analitycznych, alertach, mapie zależności aplikacji na żywo oraz eksportowaniu telemetrii.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

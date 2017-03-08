@@ -4,7 +4,7 @@
 
 # Wprowadzenie
 ## [Tworzenie rejestru w portalu](container-registry-get-started-portal.md)
-## [Tworzenie rejestru przy użyciu interfejsu wiersza polecenia](container-registry-get-started-azure-cli.md)
+## [Create a registry with the Azure CLI 2.0](container-registry-get-started-azure-cli.md) (Tworzenie rejestru przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0)
 ## [Wypychanie i ściąganie obrazu](container-registry-get-started-docker-cli.md)
 
 # Instrukcje
@@ -14,7 +14,7 @@
 
 # Dokumentacja
 
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/acr)
+## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
 
 # Powiązane
@@ -25,8 +25,3 @@
 ## [Dostępność w danym regionie](https://azure.microsoft.com/regions/services/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/container-registry/)
 ## [Aktualizacje usług](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
+ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
+ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,8 +30,8 @@ Aby uzyskać więcej informacji na temat usługi Azure Storage przed rozpoczęci
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem należy spełnić następujące wymagania wstępne:
 
-1. Aby skompilować i utworzyć aplikację, musisz mieć wersję programu [Visual Studio](https://www.visualstudio.com/) zainstalowaną na komputerze.
-2. Zainstaluj najnowszą wersję zestawu [Azure SDK dla programu .NET](https://azure.microsoft.com/downloads/). Zestaw SDK zawiera przykładowe projekty Szybki start Azure, emulator usługi Azure Storage oraz [Bibliotekę klienta usługi Azure Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+1. Aby skompilować i utworzyć aplikację, na komputerze musi być zainstalowany program [Visual Studio 2015](https://www.visualstudio.com/) lub jego nowsza wersja.
+2. Musi być zainstalowana najnowsza wersja [zestawu Azure SDK dla programu .NET](https://azure.microsoft.com/downloads/). Zestaw SDK zawiera przykładowe projekty Szybki start Azure, emulator usługi Azure Storage oraz [Bibliotekę klienta usługi Azure Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 3. Upewnij się, że masz program [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) zainstalowany na komputerze, ponieważ jest wymagany w przykładowych projektach Szybki start Azure, których będziemy używać w tym samouczku.
 
     Jeśli nie masz pewności, jaka wersja programu .NET Framework jest zainstalowana na komputerze, zobacz [Poradnik: określanie zainstalowanych wersji programu .NET Framework](https://msdn.microsoft.com/vstudio/hh925568.aspx). Możesz również nacisnąć przycisk **Start** lub klawisz systemu Windows i wpisać **Panel sterowania**. Następnie kliknij pozycje **Programy** > **Programy i funkcje** i sprawdź, czy program .NET Framework 4.5 jest na liście zainstalowanych programów.
@@ -45,9 +46,12 @@ Jeśli masz już konto, możesz utworzyć prostą aplikację usługi Azure Stora
 1. Uruchom program Visual Studio.
 2. W menu **Plik** kliknij pozycję **Nowy projekt**.
 3. W oknie dialogowym **Nowy projekt** kliknij kolejno pozycje **Zainstalowane** > **Szablony** > **Visual C#** > **Chmura** > **Poradniki Szybki start** > **Data Services**.
-    a. Wybierz jeden z następujących szablonów: **Azure Storage: obiekty Blob**, **Azure Storage: pliki**, **Azure Storage: kolejki** lub **Azure Storage: tabele**.
-    b. Upewnij się, że program **.NET Framework 4.5** jest wybrany jako platforma docelowa.
-    c. Określ nazwę projektu i utwórz nowe rozwiązanie Visual Studio, jak pokazano poniżej:
+   
+   a. Wybierz jeden z następujących szablonów: **Azure Storage: obiekty Blob**, **Azure Storage: pliki**, **Azure Storage: kolejki** lub **Azure Storage: tabele**.
+   
+   b. Upewnij się, że program **.NET Framework 4.5** jest wybrany jako platforma docelowa.
+   
+   c. Określ nazwę projektu i utwórz nowe rozwiązanie Visual Studio, jak pokazano poniżej:
 
     ![Szybki start Azure][Image1]
 
@@ -55,11 +59,11 @@ Warto przejrzeć kod źródłowy przed uruchomieniem aplikacji. Aby przejrzeć k
 
 Uruchom przykładową aplikację:
 
-1. W programie Visual Studio wybierz pozycję **Eksplorator rozwiązań** w menu **Widok**. Otwórz plik App.config i oznacz jako komentarz parametry połączenia dla emulatora usługi Azure Storage:
+1. W programie Visual Studio wybierz pozycję **Eksplorator rozwiązań** w menu **Widok**. Otwórz plik **App.config** i oznacz jako komentarz parametry połączenia dla emulatora usługi Azure Storage:
 
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2. Usuń znaczniki komentarza z parametrów połączenia dla usługi Azure Storage i podaj nazwę oraz klucz dostępu konta magazynu w pliku App.config:
+2. Usuń znaczniki komentarza z parametrów połączenia dla usługi Azure Storage w pliku App.config i zastąp parametry `[AccountName]` i `[AccountKey]` swoimi poświadczeniami konta:
 
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
@@ -76,8 +80,11 @@ Aby wypróbować ten scenariusz, utwórz prostą aplikację usługi Azure Storag
 1. Uruchom program Visual Studio.
 2. W menu **Plik** kliknij pozycję **Nowy projekt**.
 3. W oknie dialogowym **Nowy projekt** kliknij kolejno pozycje **Zainstalowane** > **Szablony** > **Visual C#** > **Chmura** > **Poradniki Szybki start** > **Data Services**.
+    
     a. Wybierz jeden z następujących szablonów: **Azure Storage: obiekty Blob**, **Azure Storage: pliki**, **Azure Storage: kolejki** lub **Azure Storage: tabele**.
+    
     b. Upewnij się, że program **.NET Framework 4.5** jest wybrany jako platforma docelowa.
+    
     c. Określ nazwę projektu i utwórz nowe rozwiązanie Visual Studio, jak pokazano poniżej:
 
     ![Szybki start Azure][Image1]
@@ -109,9 +116,4 @@ Zobacz następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure
 * [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

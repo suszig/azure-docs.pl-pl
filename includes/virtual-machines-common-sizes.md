@@ -92,44 +92,45 @@ Informacje i uwagi dotyczące korzystania z tych rozmiarów zawiera artykuł [Ab
 
 ## <a name="av2-series"></a>Seria Av2
 
-| Rozmiar        | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków danych: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standardowa_A1_v2 | 1         | 2            | 10                   | 2              | 2 x&500;              | 1 / średnia              |
-| Standardowa_A2_v2 | 2         | 4            | 20                   | 4              | 4 x&500;              | 2 / średnia              |
-| Standardowa_A4_v2 | 4         | 8            | 40                   | 8              | 8 x&500;              | 4 / wysoka                  |
-| Standardowa_A8_v2 | 8         | 16           | 80                   | 16             | 16 x&500;             | 8 / wysoka                  |
-| Standardowa_A2m_v2 | 2        | 16           | 20                   | 4              | 4 x&500;              | 2 / średnia              |
-| Standardowa_A4m_v2 | 4        | 32           | 40                   | 8              | 8 x&500;              | 4 / wysoka                  |
-| Standardowa_A8m_v2 | 8        | 64           | 80                   | 16             | 16 x&500;             | 8 / wysoka                  |
-
+| Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maksymalna przepływność dysku lokalnego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
+|-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standardowa_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2 x 500                         | 1 / średnia                 |
+| Standardowa_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4 x 500                         | 2 / średnia                 |
+| Standardowa_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8 x 500                         | 4 / wysoka                     |
+| Standardowa_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500                       | 8 / wysoka                     |
+| Standardowa_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4 x 500                         | 2 / średnia                 |
+| Standardowa_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8 x 500                         | 4 / wysoka                     |
+| Standardowa_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500                       | 8 / wysoka                     |
 
 ## <a name="d-series"></a>Seria D
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków danych: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standardowa_D1 |1 |3,5 |50 |2 |2 x&500; |1 / średnia |
-| Standardowa_D2 |2 |7 |100 |4 |4 x&500; |2 / wysoka |
-| Standardowa_D3 |4 |14 |200 |8 |8 x&500; |4 / wysoka |
-| Standardowa_D4 |8 |28 |400 |16 |16 x&500; |8 / wysoka |
-| Standardowa_D11 |2 |14 |100 |4 |4 x&500; |2 / wysoka |
-| Standardowa_D12 |4 |28 |200 |8 |8 x&500; |4 / wysoka |
-| Standardowa_D13 |8 |56 |400 |16 |16 x&500; |8 / wysoka |
-| Standardowa_D14 |16 |112 |800 |32 |32 x&500; |8 / bardzo wysoka |
 
+| Rozmiar         | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maksymalna przepływność dysku lokalnego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standardowa_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 1 / średnia                 |
+| Standardowa_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / wysoka                     |
+| Standardowa_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / wysoka                     |
+| Standardowa_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / wysoka                     |
+| Standardowa_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / wysoka                     |
+| Standardowa_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / wysoka                     |
+| Standardowa_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / wysoka                     |
+| Standardowa_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / bardzo wysoka                |
 <br>
 
 ## <a name="dv2-series"></a>Seria Dv2
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków danych: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standardowa_D1_v2 |1 |3,5 |50 |2 |2 x&500; |1 / średnia |
-| Standardowa_D2_v2 |2 |7 |100 |4 |4 x&500; |2 / wysoka |
-| Standardowa_D3_v2 |4 |14 |200 |8 |8 x&500; |4 / wysoka |
-| Standardowa_D4_v2 |8 |28 |400 |16 |16 x&500; |8 / wysoka |
-| Standardowa_D5_v2 |16 |56 |800 |32 |32 x&500; |8 / ekstremalnie wysoka |
-| Standardowa_D11_v2 |2 |14 |100 |4 |4 x&500; |2 / wysoka |
-| Standardowa_D12_v2 |4 |28 |200 |8 |8 x&500; |4 / wysoka |
-| Standardowa_D13_v2 |8 |56 |400 |16 |16 x&500; |8 / wysoka |
-| Standardowa_D14_v2 |16 |112 |800 |32 |32 x&500; |8 / ekstremalnie wysoka |
-| Standardowa_D15_v2** |20 |140 |1000 |40 |40 x&500; |8 / ekstremalnie wysoka* |
+
+
+| Rozmiar              | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maksymalna przepływność dysku lokalnego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
+|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standardowa_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 1 / średnia                 |
+| Standardowa_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / wysoka                     |
+| Standardowa_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / wysoka                     |
+| Standardowa_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / wysoka                     |
+| Standardowa_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / ekstremalnie wysoka           |
+| Standardowa_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / wysoka                     |
+| Standardowa_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / wysoka                     |
+| Standardowa_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / wysoka                     |
+| Standardowa_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / ekstremalnie wysoka           |
+| Standardowa_D15_v2** | 20        | 140         | 1000          | 60000 / 937 / 468                                        | 40 / 40 x 500                       | 8 / ekstremalnie wysoka*          |
 
 * W niektórych regionach jest dostępna przyspieszona sieć dla rozmiaru Standardowa_D15_v2. Aby uzyskać więcej informacji o użyciu i dostępności, zobacz artykuły [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Przyspieszona sieć jest dostępna w wersji zapoznawczej) i [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md) (Przyspieszona sieć dla maszyny wirtualnej).
 
@@ -138,7 +139,7 @@ Informacje i uwagi dotyczące korzystania z tych rozmiarów zawiera artykuł [Ab
 <br>
 
 ## <a name="ds-series"></a>Seria DS*
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność buforowanych dysków: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
+| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków buforowanych i lokalnych: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standardowa_DS1 |1 |3,5 |7 |2 |4000 / 32 (43) |3200 / 32 |1 / średnia |
 | Standardowa_DS2 |2 |7 |14 |4 |8000 / 64 (86) |6400 / 64 |2 / wysoka |
@@ -179,18 +180,18 @@ MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów.
 <br>
 
 ## <a name="f-series"></a>Seria F
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standardowa_F1 |1 |2 |16 |2 |2 x&500; |1 / średnia |
-| Standardowa_F2 |2 |4 |32 |4 |4 x&500; |2 / wysoka |
-| Standardowa_F4 |4 |8 |64 |8 |8 x&500; |4 / wysoka |
-| Standardowa_F8 |8 |16 |128 |16 |16 x&500; |8 / wysoka |
-| Standardowa_F16 |16 |32 |256 |32 |32 x&500; |8 / ekstremalnie wysoka |
 
+| Rozmiar         | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maksymalna przepływność dysku lokalnego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standardowa_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 1 / średnia                 |
+| Standardowa_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / wysoka                     |
+| Standardowa_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / wysoka                     |
+| Standardowa_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / wysoka                     |
+| Standardowa_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / ekstremalnie wysoka           |
 <br>
 
 ## <a name="fs-series"></a>Seria Fs*
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność buforowanych dysków: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
+| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków buforowanych i lokalnych: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standardowa_F1s |1 |2 |4 |2 |4000 / 32 (12) |3200 / 48 |1 / średnia |
 | Standardowa_F2s |2 |4 |8 |4 |8000 / 64 (24) |6400 / 96 |2 / wysoka |
@@ -205,19 +206,20 @@ MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów.
 <br>
 
 ## <a name="g-series"></a>Seria G
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standardowa_G1 |2 |28 |384 |4 |4 x 500 |1 / wysoka |
-| Standardowa_G2 |4 |56 |768 |8 |8 x 500 |2 / wysoka |
-| Standardowa_G3 |8 |112 |1536 |16 |16 x 500 |4 / bardzo wysoka |
-| Standardowa_G4 |16 |224 |3072 |32 |32 x 500 |8 / ekstremalnie wysoka |
-| Standardowa_G5* |32 |448 |6144 |64 |64 x 500 |8 / ekstremalnie wysoka |
+
+| Rozmiar         | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maksymalna przepływność dysku lokalnego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / przepustowość sieci |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standardowa_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 x 500                       | 1 / wysoka                     |
+| Standardowa_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8 / 8 x 500                       | 2 / wysoka                     |
+| Standardowa_G3  | 8         | 112         | 1536          | 24000 / 375 / 187                                        | 16 / 16 x 500                     | 4 / bardzo wysoka                |
+| Standardowa_G4  | 16        | 224         | 3072          | 48000 / 750 / 375                                        | 32 / 32 x 500                     | 8 / ekstremalnie wysoka           |
+| Standardowa_G5* | 32        | 448         | 6144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / ekstremalnie wysoka           |
 
 * Wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 <br>
 
 ## <a name="gs-series"></a>Seria GS*
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność buforowanych dysków: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
+| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków buforowanych i lokalnych: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standardowa_GS1 |2 |28 |56 |4 |10 000 / 100 (264) |5000 / 125 |1 / wysoka |
 | Standardowa_GS2 |4 |56 |112 |8 |20 000 / 200 (528) |10 000 / 250 |2 / wysoka |
@@ -227,7 +229,7 @@ MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów.
 
 MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów.
 
-* Maksymalna przepływność dysków (liczba operacji we/wy na sekundę lub MB/s) możliwa dla maszyny wirtualnej serii GS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków. 
+* Maksymalna przepływność dysków (liczba operacji we/wy na sekundę lub MB/s) możliwa dla maszyny wirtualnej serii GS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure). 
 
 ** Wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 <br>
@@ -253,7 +255,7 @@ Informacje i uwagi dotyczące korzystania z tych rozmiarów zawiera artykuł [Ab
 <br>
 
 
-## <a name="ls-series"></a>Seria Ls 
+## <a name="ls-series"></a>Seria Ls* 
 
 Seria Ls jest zoptymalizowana pod kątem obciążeń wymagających magazynu lokalnego o małym opóźnieniu, takich jak bazy danych NoSQL (np. Cassandra, MongoDB, Cloudera i Redis). Maszyny wirtualne serii Ls oferują do 32 rdzeni procesora CPU — procesor [Intel® Xeon® z rodziny E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Wydajność procesora CPU jest taka sama jak w przypadku maszyn wirtualnych serii G/GS. Na rdzeń procesora przypada pamięć o pojemności 8 GiB.  
 
@@ -263,9 +265,13 @@ Seria Ls jest zoptymalizowana pod kątem obciążeń wymagających magazynu loka
 | Standardowa_L4s  | 4    | 32   | 678   | 8              | ND / ND (0)          | 5000 / 125                               | 2 / wysoka       | 
 | Standardowa_L8s  | 8    | 64   | 1,388 | 16             | ND / ND (0)          | 10 000 / 250                              | 4 / bardzo wysoka  | 
 | Standardowa_L16s | 16   | 128  | 2,807 | 32             | ND / ND (0)          | 20 000 / 500                              | 8 / ekstremalnie wysoka | 
-| Standardowa_L32s | 32   | 256  | 5,630 | 64             | ND / ND (0)          | 40 000 / 1000                            | 8 / ekstremalnie wysoka | 
+| Standardowa_L32s** | 32   | 256  | 5,630 | 64             | ND / ND (0)          | 40 000 / 1000                            | 8 / ekstremalnie wysoka | 
  
 MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów. 
+
+* Maksymalna przepływność dysków (liczba operacji we/wy na sekundę lub MB/s) możliwa dla maszyny wirtualnej serii Ls może być ograniczona przez liczbę, rozmiar i rozłożenie dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure). 
+
+** Wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 
 
 
@@ -322,9 +328,4 @@ W klasycznym modelu wdrażania niektóre nazwy rozmiarów maszyny wirtualnej są
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [limitów, przydziałów i ograniczeń usługi i subskrypcji platformy Azure](../articles/azure-subscription-service-limits.md).
 * Dowiedz się więcej [o maszynach wirtualnych serii H i intensywnie korzystających z obliczeń maszynach wirtualnych serii A](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) dla obciążeń takich jak obliczenia o wysokiej wydajności (HPC).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -13,16 +13,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 02/24/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
-ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
+ms.sourcegitcommit: 6966befa56dc6a0feff4b8a821bde4e423a2b53a
+ms.openlocfilehash: 97853ce9f78078cc6bbccdfb5c5a06cae49e218c
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure
-W tym temacie opisano, w jaki sposób można skonfigurować konto automatyzacji w portalu Azure za pomocą funkcji konta Uruchom jako, aby uwierzytelniać elementy Runbook zarządzające zasobami w usłudze Azure Resource Manager lub Azure Service Management.
+W tym temacie opisano, w jaki sposób można skonfigurować konto usługi Automation w witrynie Azure Portal za pomocą funkcji konta Uruchom jako, aby uwierzytelniać elementy runbook zarządzające zasobami w usłudze Azure Resource Manager lub Azure Service Management.
 
 Po utworzeniu nowego konta usługi Automation portal Azure automatycznie tworzy:
 
@@ -38,27 +39,25 @@ Używając konta Uruchom jako i klasycznego konta Uruchom jako, możesz:
 
 > [!NOTE]
 > [Funkcja integracji alertu](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) platformy Azure z globalnymi elementami Runbook automatyzacji wymaga konta usługi Automation ze skonfigurowanym kontem Uruchom jako lub klasycznym kontem Uruchom jako. Można wybrać konto usługi Automation, które ma już zdefiniowane konto Uruchom jako i klasyczne konto Uruchom jako, lub wybrać opcję utworzenia nowego.
-> 
-> 
+>  
 
-Pokażemy, jak utworzyć konto usługi Automation z portalu Azure, zaktualizować konto usługi Automation przy użyciu programu PowerShell oraz uwierzytelnić się w elementach Runbook.
+Pokażemy, jak utworzyć konto usługi Automation z witryny Azure Portal, zaktualizować konto usługi Automation przy użyciu programu PowerShell, zarządzać konfiguracją konta oraz uwierzytelnić się w elementach runbook.
 
 Jednak wcześniej musisz zrozumieć i wziąć pod uwagę kilka rzeczy.
 
 1. Nie wpływa to na istniejące konta usługi Automation, które zostały już utworzone w modelu klasycznym lub modelu wdrażania usługi Resource Manager.  
 2. Ma to zastosowanie tylko w przypadku kont usługi Automation utworzonych za pośrednictwem portalu Azure.  Próba utworzenia konta za pomocą portalu klasycznego nie spowoduje replikacji konfiguracji konta Uruchom jako.
-3. Jeśli masz już elementy Runbook i zasoby (tj. harmonogramy, zmienne itp.) utworzone wcześniej w celu zarządzania zasobami klasycznymi i chcesz, aby były one uwierzytelniane przy użyciu nowego konta klasycznego Uruchom jako, musisz przeprowadzić ich migrację do nowego konta usługi Automation lub zaktualizować istniejące konto za pomocą poniższego skryptu programu PowerShell.  
+3. Jeśli masz już elementy runbook i zasoby (tj. harmonogramy, zmienne itp.) utworzone wcześniej w celu zarządzania zasobami klasycznymi i chcesz, aby były one uwierzytelniane przy użyciu nowego klasycznego konta Uruchom jako, musisz utworzyć konto klasyczne Uruchom jako za pomocą funkcji zarządzania kontem Uruchom jako lub zaktualizować istniejące konto za pomocą poniższego skryptu programu PowerShell.  
 4. Aby uwierzytelniać się przy użyciu nowego konta Uruchom jako i klasycznego konta Uruchom jako usługi Automation, musisz zmodyfikować istniejące elementy Runbook za pomocą poniższego przykładowego kodu.  **Pamiętaj**, że konto Uruchom jako służy do uwierzytelniania względem zasobów usługi Resource Manager za pomocą nazwy głównej usługi opartej na certyfikatach, natomiast klasyczne konto Uruchom jako służy do uwierzytelniania w odniesieniu do zasobów usługi Service Management za pomocą certyfikatu zarządzania.     
 
-## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Tworzenie nowego konta automatyzacji w portalu Azure
+## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Tworzenie nowego konta usługi Automation w witrynie Azure Portal
 W tej części wykonasz poniższe kroki, aby utworzyć nowe konto usługi Azure Automation z portalu Azure.  Spowoduje to utworzenie zarówno konta Uruchom jako, jak i klasycznego konta Uruchom jako.  
 
 > [!NOTE]
 > Użytkownik wykonujący te czynności musi być członkiem roli Administratorzy usługi i współadministratorem subskrypcji, która udziela użytkownikowi dostępu do subskrypcji. Użytkownik musi być również dodany jako użytkownik do subskrypcji domyślnych usługi Active Directory; konto nie musi być przypisane do roli uprzywilejowanej. Użytkownicy, którzy nie są członkami usługi Active Directory subskrypcji, przed dodaniem do roli Współadministrator subskrypcji zostaną dodani do usługi Active Directory jako Gość i zobaczą ostrzeżenie „Nie masz uprawnień do utworzenia...” w bloku **Dodaj konto automatyzacji**. Użytkownicy dodani do roli współadministratora najpierw mogą zostać usunięci z subskrypcji usługi Active Directory i ponownie dodani, aby zostali pełnymi użytkownikami w usłudze Active Directory. Ta sytuacja może zostać zweryfikowana w okienku **Azure Active Directory** w witrynie Azure Portal. Po wybraniu pozycji **Użytkownicy i grupy** wybierz pozycję **Wszyscy użytkownicy**, a po wybraniu określonego użytkownika wybierz pozycję **Profil**.  Wartość atrybutu **Typ użytkownika** na liście profilów użytkowników nie powinna być równa **Gość**.  
 > 
-> 
 
-1. Zaloguj się do portalu Azure przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
+1. Zaloguj się do witryny Azure Portal przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
 2. Wybierz opcję **Konta automatyzacji**.
 3. W bloku Konta automatyzacji kliknij przycisk **Dodaj**.<br>![Dodawanie konta usługi Automation](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
    
@@ -76,7 +75,7 @@ W tej części wykonasz poniższe kroki, aby utworzyć nowe konto usługi Azure 
    > ![Ostrzeżenie podczas dodawania konta usługi Automation](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br>
    > Gdy nie została utworzona nazwa główna usługi, nie można przypisać roli Współautor.
    > 
-   > 
+
 7. W trakcie tworzenia konta usługi Automation na platformie Azure postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
 
 ### <a name="resources-included"></a>Zasoby dołączone
@@ -84,7 +83,7 @@ Po pomyślnym utworzeniu konta usługi Automation automatycznie zostanie utworzo
 
 | Zasób | Opis |
 | --- | --- |
-| AzureAutomationTutorial Runbook |Przykładowy element Runbook programu PowerShell, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako, i pobiera wszystkie zasoby usługi Resource Manager. |
+| AzureAutomationTutorial Runbook |Przykładowy graficzny element runbook, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako, i pobiera wszystkie zasoby usługi Resource Manager. |
 | AzureAutomationTutorialScript Runbook |Przykładowy element Runbook programu PowerShell, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako, i pobiera wszystkie zasoby usługi Resource Manager. |
 | AzureRunAsCertificate |Zasób Certyfikat utworzony automatycznie podczas tworzenia konta automatyzacji lub skorzystania z poniższego skryptu programu PowerShell dla istniejącego konta.  Umożliwia uwierzytelnianie za pomocą platformy Azure, aby można było zarządzać zasobami usługi Azure Resource Manager z poziomu elementów Runbook.  Ten certyfikat ma roczny okres obowiązywania. |
 | AzureRunAsConnection |Zasób Połączenie utworzony automatycznie podczas tworzenia konta automatyzacji lub skorzystania z poniższego skryptu programu PowerShell dla istniejącego konta. |
@@ -93,15 +92,15 @@ Poniższa tabela zawiera podsumowanie zasobów dla klasycznego konta Uruchom jak
 
 | Zasób | Opis |
 | --- | --- |
-| AzureClassicAutomationTutorial Runbook |Przykładowy element Runbook, który pobiera wszystkie klasyczne maszyny wirtualne w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikat), a następnie generuje nazwę i stan maszyny wirtualnej. |
-| AzureClassicAutomationTutorial Script Runbook |Przykładowy element Runbook, który pobiera wszystkie klasyczne maszyny wirtualne w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikat), a następnie generuje nazwę i stan maszyny wirtualnej. |
+| AzureClassicAutomationTutorial Runbook |Przykładowy graficzny element runbook, który pobiera wszystkie klasyczne maszyny wirtualne w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikat), a następnie generuje nazwę i stan maszyny wirtualnej. |
+| AzureClassicAutomationTutorial Script Runbook |Przykładowy element runbook programu PowerShell, który pobiera wszystkie klasyczne maszyny wirtualne w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikat), a następnie generuje nazwę i stan maszyny wirtualnej. |
 | AzureClassicRunAsCertificate |Automatycznie utworzony zasób Certyfikat, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów Runbook.  Ten certyfikat ma roczny okres obowiązywania. |
 | AzureClassicRunAsConnection |Automatycznie utworzony zasób Połączenie, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów Runbook. |
 
 ## <a name="verify-run-as-authentication"></a>Sprawdzanie uwierzytelniania Uruchom jako
 W następnej kolejności wykonamy mały test, aby potwierdzić, że możesz pomyślnie przeprowadzić uwierzytelnienie przy użyciu nowego konta Uruchom jako.     
 
-1. Otwórz utworzone wcześniej konto automatyzacji w portalu Azure.  
+1. Otwórz utworzone wcześniej konto usługi Automation w witrynie Azure Portal.  
 2. Kliknij kafelek **Elementy Runbook**, aby otworzyć listę elementów Runbook.
 3. Wybierz element Runbook **AzureAutomationTutorialScript**, a następnie kliknij pozycję **Start**, aby go uruchomić.  Zostanie wyświetlony monit sprawdzający, czy chcesz uruchomić element Runbook.
 4. Nastąpi utworzenie [zadania elementu Runbook](automation-runbook-execution.md), wyświetlenie bloku Zadanie oraz wyświetlenie stanu zadania w kafelku **Podsumowanie zadania**.  
@@ -115,7 +114,7 @@ W następnej kolejności wykonamy mały test, aby potwierdzić, że możesz pomy
 ## <a name="verify-classic-run-as-authentication"></a>Sprawdzanie klasycznego uwierzytelniania Uruchom jako
 W następnej kolejności wykonamy mały test, aby potwierdzić, że możesz pomyślnie przeprowadzić uwierzytelnienie przy użyciu nowego klasycznego konta Uruchom jako.     
 
-1. Otwórz utworzone wcześniej konto automatyzacji w portalu Azure.  
+1. Otwórz utworzone wcześniej konto usługi Automation w witrynie Azure Portal.  
 2. Kliknij kafelek **Elementy Runbook**, aby otworzyć listę elementów Runbook.
 3. Wybierz element Runbook **AzureClassicAutomationTutorialScript**, a następnie kliknij pozycję **Start**, aby go uruchomić.  Zostanie wyświetlony monit sprawdzający, czy chcesz uruchomić element Runbook.
 4. Nastąpi utworzenie [zadania elementu Runbook](automation-runbook-execution.md), wyświetlenie bloku Zadanie oraz wyświetlenie stanu zadania w kafelku **Podsumowanie zadania**.  
@@ -126,21 +125,51 @@ W następnej kolejności wykonamy mały test, aby potwierdzić, że możesz pomy
 9. Zamknij blok **Dane wyjściowe**, aby wrócić do bloku **Podsumowanie zadania**.
 10. Zamknij blok **Podsumowanie zadania** i odpowiedni blok elementu Runbook **AzureClassicAutomationTutorialScript**.
 
+## <a name="managing-azure-run-as-account"></a>Zarządzanie kontem Uruchom jako platformy Azure
+W okresie istnienia konta usługi Automation konieczne będzie odnawianie certyfikatu przed jego wygaśnięciem lub, jeśli uważasz, że bezpieczeństwo konta zostało naruszone, możesz usunąć konto Uruchom jako i ponownie je utworzyć.  W tej sekcji znajdują się kroki umożliwiające wykonanie tych operacji.  
+
+### <a name="certificate-renewal"></a>Odnawianie certyfikatu
+Certyfikat utworzony dla konta Uruchom jako platformy Azure można odnawiać w dowolnym momencie do czasu jego wygaśnięcia, czyli jednego roku od daty utworzenia.  Po odnowieniu poprzedni ważny certyfikat zostanie zachowany, aby ta zmiana nie miała wpływu na żadne umieszczone w kolejce lub aktywnie działające elementy runbook, które uwierzytelniają się przy użyciu konta Uruchom jako.  Certyfikat będzie nadal istniał aż do wygaśnięcia.     
+
+1. W witrynie Azure Portal otwórz konto usługi Automation.  
+2. W bloku konta usługi Automation, w okienku właściwości konta wybierz pozycję **Konta Uruchom jako** w sekcji **Ustawienia konta**.<br><br> ![Okienko właściwości konta usługi Automation](media/automation-sec-configure-azure-runas-account/automation-account-properties-pane.png)<br><br>
+3. W bloku właściwości **Konta Uruchom jako** wybierz konto Uruchom jako albo klasyczne konto Uruchom jako, dla którego chcesz odnowić certyfikat, i w bloku właściwości wybranego konta kliknij przycisk **Odnów certyfikat**.<br><br> ![Odnawianie certyfikatu konta Uruchom jako](media/automation-sec-configure-azure-runas-account/automation-account-renew-runas-certificate.png)<br><br> Zostanie wyświetlony monit sprawdzający, czy chcesz kontynuować.  
+4. W trakcie odnawiania certyfikatu postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
+
+### <a name="delete-run-as-account"></a>Usuwanie konta Uruchom jako
+Poniżej opisano sposób usunięcia i ponownego utworzenia konta Uruchom jako platformy Azure lub klasycznego konta Uruchom jako.  Konto usługi Automation jest zachowywane podczas wykonywania tej akcji.  Po usunięciu konta Uruchom jako lub klasycznego konta Uruchom jako możesz je ponownie utworzyć w portalu.  
+
+1. W witrynie Azure Portal otwórz konto usługi Automation.  
+2. W bloku konta usługi Automation, w okienku właściwości konta wybierz pozycję **Konta Uruchom jako** w sekcji **Ustawienia konta**.
+3. W bloku właściwości **Konta Uruchom jako** wybierz konto Uruchom jako albo klasyczne konto Uruchom jako, które chcesz usunąć, i w bloku właściwości wybranego konta kliknij przycisk **Usuń**.<br><br> ![Usuwanie konta Uruchom jako](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  Zostanie wyświetlony monit sprawdzający, czy chcesz kontynuować.
+4. W trakcie usuwania konta postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.  Po zakończeniu usuwania możesz ponownie utworzyć konto w bloku właściwości **Konta Uruchom jako**, wybierając opcję tworzenia **Konto Uruchom jako platformy Azure**.<br><br> ![Ponowne tworzenie konta Uruchom jako usługi Automation](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+
+### <a name="misconfiguration"></a>Błąd konfiguracji
+Jeśli jakiekolwiek elementy konfiguracji niezbędne do poprawnego działania konta Uruchom jako lub klasycznego konta Uruchom jako zostaną usunięte lub nie zostały utworzone prawidłowo podczas początkowej konfiguracji, na przykład:
+
+* Zasób certyfikatu 
+* Zasób połączenia 
+* Konto Uruchom jako zostało usunięte z roli współautora
+* Nazwa główna usługi lub aplikacji w usłudze Azure AD
+
+usługa Automation wykryje te zmiany i powiadomi o nich przy użyciu stanu **Niekompletne** w bloku właściwości **Konta Uruchom jako** danego konta.<br><br> ![Komunikat o stanie Niekompletne dla konfiguracji konta Uruchom jako](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)<br><br>Po wybraniu konta Uruchom jako w okienku właściwości konta zostanie wyświetlone następujące ostrzeżenie:<br><br> ![Komunikat ostrzegawczy Niekompletne dla konfiguracji konta Uruchom jako](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).<br>  
+Jeśli konto Uruchom jako jest nieprawidłowo skonfigurowane, możesz szybko rozwiązać ten problem przez usunięcie i ponowne utworzenie konta Uruchom jako.   
+
 ## <a name="update-an-automation-account-using-powershell"></a>Aktualizacja konta automatyzacji przy użyciu programu PowerShell
 W tym miejscu udostępniamy opcję aktualizacji istniejącego konta usługi Automation przy użyciu programu PowerShell, gdy:
 
 1. Użytkownik utworzył konto usługi Automation, ale zrezygnował z tworzenia konta Uruchom jako
-2. Użytkownik już ma konto usługi Automation do zarządzania zasobami usługi Resource Manager i chce zaktualizować je, aby umożliwiało uwierzytelnianie elementu Runbook za pomocą konta Uruchom jako
-3. Użytkownik już ma konto usługi Automation do zarządzania zasobami klasycznymi i chce zaktualizować je, aby używać klasycznego konta Uruchom jako, zamiast tworzenia nowego konta i migrowania do niego elementów Runbook i zasobów   
+2. Konieczne jest utworzenie konta usługi Automation w chmurze Azure Government
+3. Użytkownik już ma konto usługi Automation do zarządzania zasobami usługi Resource Manager i chce zaktualizować je, aby umożliwiało uwierzytelnianie elementu Runbook za pomocą konta Uruchom jako
+4. Użytkownik już ma konto usługi Automation do zarządzania zasobami klasycznymi i chce zaktualizować je, aby używać klasycznego konta Uruchom jako, zamiast tworzenia nowego konta i migrowania do niego elementów Runbook i zasobów   
 
 Przed kontynuowaniem sprawdź, czy następujące czynności zostały wykonane:
 
-1. Został pobrany i zainstalowany program [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855), jeśli korzystasz z systemu Windows 7.   
-    Jeśli używasz systemu Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 lub Windows 7 z dodatkiem SP1, program [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) jest dostępny do zainstalowania.
-2. Azure PowerShell 1.0. Informacje o tej wersji i sposobie jej instalowania można znaleźć w temacie [Sposób instalowania i konfigurowania programu PowerShell Azure](/powershell/azureps-cmdlets-docs).
+1. Ten skrypt jest obsługiwany tylko w systemach Windows 10 i Windows Server 2016 z zainstalowanymi modułami usługi Azure Resource Manager w wersji 2.01 lub nowszej.  Nie jest obsługiwany przez wcześniejsze wersje systemu Windows.  
+2. Program Azure PowerShell 1.0 lub nowszy. Informacje o tej wersji i sposobie jej instalowania można znaleźć w temacie [Sposób instalowania i konfigurowania programu PowerShell Azure](/powershell/azureps-cmdlets-docs).
 3. Utworzono konto automatyzacji.  To konto zostanie użyte jako wartości parametrów -AutomationAccountName i -ApplicationDisplayName w obu poniższych skryptach.
 
-Aby uzyskać wartości dla parametrów *SubscriptionID*, *ResourceGroup* i *AutomationAccountName*, które są wymagane w skryptach, w portalu Azure wybierz konto usługi Automation z bloku **Konto usługi Automation**, a następnie wybierz pozycję **Wszystkie ustawienia**.  W bloku **Wszystkie ustawienia** w obszarze **Ustawienia konta** wybierz pozycję **Właściwości**.  W bloku **Właściwości** możesz zauważyć poniższe wartości.<br> ![Konto usługi Automation — właściwości](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+Aby uzyskać wartości dla parametrów *SubscriptionID*, *ResourceGroup* i *AutomationAccountName*, które są wymagane w skryptach, w portalu Azure wybierz konto usługi Automation z bloku **Konto usługi Automation**, a następnie wybierz pozycję **Wszystkie ustawienia**.  W bloku **Wszystkie ustawienia** w obszarze **Ustawienia konta** wybierz pozycję **Właściwości**.  W bloku **Właściwości** możesz zauważyć poniższe wartości.<br><br> ![Konto usługi Automation — właściwości](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-run-as-account-powershell-script"></a>Tworzenie skryptu programu PowerShell konta Uruchom jako
 Poniższy skrypt programu PowerShell skonfiguruje następujące elementy:
@@ -172,9 +201,18 @@ Poniższa procedura przeprowadzi Cię przez proces wykonywania skryptu.
    
         [Parameter(Mandatory=$false)]
         [int] $NoOfMonthsUntilExpired = 12
+
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
         )
    
-        Login-AzureRmAccount
+        #Check to see which cloud environment to sign into.
+        Switch ($Environment)
+        {
+          "AzureCloud" {Login-AzureRmAccount}
+          "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+        }
         Import-Module AzureRM.Resources
         Select-AzureRmSubscription -SubscriptionId $SubscriptionId
    
@@ -195,9 +233,9 @@ Poniższa procedura przeprowadzi Cię przez proces wykonywania skryptu.
         $KeyCredential.StartDate = $CurrentDate
         $KeyCredential.EndDate= $EndDate
         $KeyCredential.KeyId = $KeyId
-        $KeyCredential.Type = "AsymmetricX509Cert"
-        $KeyCredential.Usage = "Verify"
-        $KeyCredential.Value = $KeyValue
+        #$KeyCredential.Type = "AsymmetricX509Cert"
+        #$KeyCredential.Usage = "Verify"
+        $KeyCredential.CertValue = $KeyValue
    
         # Use Key credentials
         $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
@@ -229,8 +267,9 @@ Poniższa procedura przeprowadzi Cię przez proces wykonywania skryptu.
         Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
         $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
         New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
+
 2. Na komputerze uruchom program **Windows PowerShell** z ekranu **Start** z podwyższonym poziomem uprawnień użytkownika.
-3. Z poziomu powłoki wiersza polecenia programu PowerShell z podwyższonym poziomem uprawnień przejdź do folderu, który zawiera skrypt utworzony w kroku 1 i uruchom skrypt zmieniający wartości parametrów *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* i *-CertPlainPassword*.<br>
+3. Z poziomu powłoki wiersza polecenia programu PowerShell z podwyższonym poziomem uprawnień przejdź do folderu, który zawiera skrypt utworzony w kroku 1 i uruchom go, zmieniając wartości parametrów *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, *-CertPlainPassword* i *-Environment*.<br>
    
    > [!NOTE]
    > Po wykonaniu skryptu otrzymasz monit do uwierzytelnienia w usłudze Azure. Musisz zalogować się przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
@@ -241,7 +280,7 @@ Poniższa procedura przeprowadzi Cię przez proces wykonywania skryptu.
         -AutomationAccountName <NameofAutomationAccount> `
         -ApplicationDisplayName <DisplayNameofAutomationAccount> `
         -SubscriptionId <SubscriptionId> `
-        -CertPlainPassword "<StrongPassword>"  
+        -CertPlainPassword "<StrongPassword>" -Environment <valid values are AzureCloud or AzureUSGovernment>  
    <br>
 
 Po pomyślnym ukończeniu działania skryptu skorzystać z [przykładowego kodu](#sample-code-to-authenticate-with-resource-manager-resources) poniżej, aby uwierzytelnić się za pomocą zasobów usługi Resource Manager i sprawdzić poprawność konfiguracji poświadczeń.
@@ -307,6 +346,7 @@ Skrypt utworzy certyfikat zarządzania z podpisem własnym i zapisze go w folder
         Write-Host -ForegroundColor red "Please upload the cert $CertPathCer to the Management store by following the steps below."
         Write-Host -ForegroundColor red "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates."
         Write-Host -ForegroundColor red "Then click Upload and upload the certificate $CertPathCer"
+
 2. Na komputerze uruchom program **Windows PowerShell** z ekranu **Start** z podwyższonym poziomem uprawnień użytkownika.  
 3. Z poziomu powłoki wiersza polecenia programu PowerShell z podwyższonym poziomem uprawnień przejdź do folderu, który zawiera skrypt utworzony w kroku 1 i uruchom skrypt zmieniający wartości parametrów *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* i *-CertPlainPassword*.<br>
    
@@ -333,7 +373,7 @@ Możesz skorzystać z podanego poniżej przykładowego kodu, pobranego z przykł
        # Get the connection "AzureRunAsConnection "
        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
-       "Logging in to Azure..."
+       "Signing in to Azure..."
        Add-AzureRmAccount `
          -ServicePrincipal `
          -TenantId $servicePrincipalConnection.TenantId `
@@ -354,7 +394,7 @@ Możesz skorzystać z podanego poniżej przykładowego kodu, pobranego z przykł
     }
 
 
-Skrypt zawiera dwa dodatkowe wiersze kodu odwołujące się do kontekstu subskrypcji, dzięki czemu można łatwo pracować z wieloma subskrypcjami. Zasób zmiennej o nazwie SubscriptionId zawiera identyfikator subskrypcji i po wykonaniu polecenia cmdlet Add-AzureRmAccount, [polecenie cmdlet Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) jest określane za pomocą parametru *-SubscriptionId*. Jeśli nazwa zmiennej jest zbyt ogólna, można ją skorygować w taki sposób, aby dołączyć prefiks lub zastosować inną konwencję nazewnictwa w celu ułatwienia identyfikacji do własnych celów. Alternatywnie można zastosować parametr -SubscriptionName zamiast -SubscriptionId z odpowiednim zasobem zmiennej.  
+Skrypt zawiera dwa dodatkowe wiersze kodu odwołujące się do kontekstu subskrypcji, dzięki czemu można łatwo pracować z wieloma subskrypcjami. Zasób zmiennej o nazwie SubscriptionId zawiera identyfikator subskrypcji i po wykonaniu polecenia cmdlet Add-AzureRmAccount, [polecenie cmdlet Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) jest określane za pomocą parametru *-SubscriptionId*. Jeśli nazwa zmiennej jest zbyt ogólna, można ją skorygować w taki sposób, aby dołączyć prefiks lub zastosować inną konwencję nazewnictwa w celu ułatwienia identyfikacji do własnych celów. Alternatywnie można zastosować parametr -SubscriptionName zamiast -SubscriptionId z odpowiednim zasobem zmiennej.    
 
 Zwróć uwagę, że polecenie cmdlet służące do uwierzytelniania w elemencie Runbook — **Add-AzureRmAccount** — używa zestawu parametrów *ServicePrincipalCertificate*.  Uwierzytelnia się ono za pomocą certyfikatu nazwy głównej usługi, a nie poświadczeń.  
 
@@ -390,10 +430,5 @@ Możesz skorzystać z podanego poniżej zaktualizowanego przykładowego kodu, po
 * Więcej informacji na temat nazw głównych usługi można znaleźć w temacie [Obiekty aplikacji i obiekty nazwę głównej usługi](../active-directory/active-directory-application-objects.md).
 * Więcej informacji na temat kontroli dostępu opartej na rolach w usłudze Automatyzacja platformy Azure można znaleźć w temacie [Kontrola dostępu oparta na rolach w usłudze Automatyzacja platformy Azure](automation-role-based-access-control.md).
 * Aby uzyskać więcej informacji na temat certyfikatów i usług Azure, zobacz [Omówienie certyfikatów usług w chmurze platformy Azure](../cloud-services/cloud-services-certs-create.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

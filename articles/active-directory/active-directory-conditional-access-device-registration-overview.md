@@ -5,7 +5,7 @@ services: active-directory
 keywords: "rejestracja urządzenia, włączanie rejestracji urządzenia, rejestracja urządzenia i MDM"
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
+ms.sourcegitcommit: 8df5889bfe2757ef68d0895d140dd44a765a89d0
+ms.openlocfilehash: 06fb59f627ea6aff3916787e321069c6b58c3e10
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -65,7 +66,7 @@ Urządzenia z systemami Windows 7 i Windows 8.1 będą odnajdywały usługę Rej
 
 Należy utworzyć rekord CNAME w systemie DNS wskazujący rekord A skojarzony z usługą Rejestracja urządzeń w usłudze Azure Active Directory. Rekord CNAME musi używać dobrze znanego prefiksu enterpriseregistration i następującego po nim sufiksu nazwy UPN używanego przez konta użytkowników w organizacji. Jeśli organizacja używa wielu sufiksów nazw UPN, należy utworzyć wiele rekordów CNAME w systemie DNS.
 
-Na przykład jeśli w organizacji używane są dwa sufiksy nazw UPN, @contoso.com i @region.contoso.com,, utworzysz następujące rekordy DNS.
+Jeśli na przykład w organizacji są używane dwa sufiksy nazw UPN, @contoso.com i @region.contoso.com, utworzysz poniższe rekordy DNS.
 
 | Wpis | Typ | Adres |
 | --- | --- | --- |
@@ -89,10 +90,5 @@ Za pomocą usługi Rejestracja urządzeń w usłudze Azure Active Directory moż
 * [Configure automatic device registration for Windows 7 domain joined devices (Konfigurowanie automatycznej rejestracji urządzeń z systemem Windows 7 przyłączonych do domeny)](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Configure automatic device registration for Windows 8.1 domain joined devices (Konfigurowanie automatycznej rejestracji urządzeń z systemem Windows 8.1 przyłączonych do domeny)](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Automatic device registration with Azure Active Directory for Windows 10 domain-joined devices (Automatyczna rejestracja w usłudze Azure Active Directory urządzeń z systemem Windows 10 przyłączonych do domeny)](active-directory-azureadjoin-devices-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

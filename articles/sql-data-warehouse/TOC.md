@@ -3,13 +3,15 @@
 ## [Co to jest Magazyn danych SQL?](sql-data-warehouse-overview-what-is.md)
 ## [Obciążenie magazynu danych](sql-data-warehouse-overview-workload.md)
 ## [Rozproszone dane](sql-data-warehouse-distributed-data.md)
+## [Często zadawane pytania](sql-data-warehouse-overview-faq.md)
 
-# Rozpoczęcie pracy
+# Wprowadzenie
 
 ## [Samouczek dla początkujących](sql-data-warehouse-get-started-tutorial.md)
 ## [Najlepsze praktyki](sql-data-warehouse-best-practices.md)
 ## [Zarządzanie](sql-data-warehouse-overview-manage.md)
 ## [Uzyskiwanie pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
+## [Rozwiązywanie problemów](sql-data-warehouse-troubleshoot.md)
 
 # Instrukcje
 
@@ -114,7 +116,6 @@
 ### [Kompresja magazynu kolumn](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Zapytania](sql-data-warehouse-manage-monitor.md)
 ### [Obciążenie](sql-data-warehouse-develop-concurrency.md)
-### [Rozwiązywanie problemów](sql-data-warehouse-troubleshoot.md)
 
 ## Bezpieczeństwo
 

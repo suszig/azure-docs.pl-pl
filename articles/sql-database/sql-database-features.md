@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -117,7 +118,8 @@ W dalszym ciągu dodajemy funkcje do wersji V12. Zachęcamy zatem do odwiedzania
 | Program Polybase | [Obsługiwane](https://msdn.microsoft.com/library/mt143171.aspx) | [Nieobsługiwane]
 | Zarządzanie oparte na zasadach | [Obsługiwane](https://msdn.microsoft.com/library/bb510667.aspx) | Nieobsługiwane |
 | Predykaty | [Obsługiwane](https://msdn.microsoft.com/library/ms189523.aspx) | [Większość](https://msdn.microsoft.com/library/ms189523.aspx)
-| Zarządca zasobów | [Obsługiwane](https://msdn.microsoft.com/library/bb933866.aspx) | [Wbudowane](sql-database-service-tiers.md) |
+| Usługi języka R | [Obsługiwane](https://msdn.microsoft.com/library/mt604845.aspx)
+| Zarządca zasobów | [Obsługiwane](https://msdn.microsoft.com/library/bb933866.aspx) | Nieobsługiwane |
 | Przywracanie bazy danych z kopii zapasowej | [Obsługiwane](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [Tylko z wbudowanych kopii zapasowych](sql-database-recovery-using-backups.md) |
 | Zabezpieczenia na poziomie wiersza | [Obsługiwane](https://msdn.microsoft.com/library/dn765131.aspx) | [Obsługiwane](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Instrukcje zabezpieczeń | [Obsługiwane](https://msdn.microsoft.com/library/ff848791.aspx) | [Niektóre](https://msdn.microsoft.com/library/ff848791.aspx) |
@@ -158,9 +160,4 @@ W dalszym ciągu dodajemy funkcje do wersji V12. Zachęcamy zatem do odwiedzania
 - Informacje o konkretnych limitach przydziału i ograniczeniach zasobów na podstawie określonej **warstwy usługi**. Omówienie warstw usługi można znaleźć w temacie [Warstwy usługi w usłudze SQL Database](sql-database-service-tiers.md).
 - Aby zapoznać się z przeglądem zabezpieczeń, zobacz [przegląd zabezpieczeń usługi Azure SQL Database](sql-database-security-overview.md).
 - Aby uzyskać informacje o dostępności sterowników i obsłudze usługi SQL Database, zobacz [biblioteki połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

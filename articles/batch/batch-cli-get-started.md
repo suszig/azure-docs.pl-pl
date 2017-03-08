@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 01/23/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: a2efffa5e250e02fec1a1834c9256ffef79b9be3
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e4a3f3f3bca06e66f39f5acd8b4571b4a498ed83
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-cli"></a>Rozpoczynanie pracy z interfejsem wiersza polecenia usługi Azure Batch
+# <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
+
 Interfejs wiersza polecenia platformy Azure obejmujący wiele platform (interfejs wiersza polecenia platformy Azure) umożliwia zarządzanie kontami i zasobami usługi Batch, np. pulami i zadaniami w powłokach poleceń systemów Linux, Mac i Windows. Za pomocą interfejsu wiersza polecenia platformy Azure można wykonywać oraz tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz poleceń cmdlet PowerShell usługi Batch.
 
 Ten artykuł jest oparty na interfejsie wiersza polecenia platformy Azure w wersji 0.10.5.
@@ -270,9 +273,4 @@ Ta sekcja ma na celu zapewnienie zasobów do użycia w przypadku rozwiązywania 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

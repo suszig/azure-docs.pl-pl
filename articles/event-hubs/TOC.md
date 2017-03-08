@@ -20,6 +20,7 @@
 ## Planowanie i projektowanie
 ### [Usługa Event Hubs w wersji dedykowanej](event-hubs-dedicated-overview.md)
 ### [Omówienie modelu uwierzytelniania i zabezpieczeń](event-hubs-authentication-and-security-model-overview.md)
+### [Availability and consistency](event-hubs-availability-and-consistency.md) (Dostępność i spójność)
 ## Programowanie
 ### [Dostępne interfejsy API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
@@ -57,8 +58,3 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

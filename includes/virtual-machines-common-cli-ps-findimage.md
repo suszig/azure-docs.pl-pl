@@ -1,8 +1,8 @@
 
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (wersja zapoznawcza)
+## <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Po [zainstalowaniu interfejsu Azure CLI 2.0 (wersja zapoznawcza)](https://docs.microsoft.com/cli/azure/install-az-cli2) wyświetl listę popularnych obrazów maszyn wirtualnych przechowywaną w pamięci podręcznej za pomocą polecenia `az vm image list`. Na przykład polecenie `az vm image list -o table` powoduje wyświetlenie tego:
+Po [zainstalowaniu interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) możesz wyświetlić listę popularnych obrazów maszyn wirtualnych przechowywaną w pamięci podręcznej za pomocą polecenia `az vm image list`. Na przykład polecenie `az vm image list -o table` powoduje wyświetlenie tego:
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -294,7 +294,3 @@ Skopiuj z tej listy nazwę wybranej wersji SKU — w ten sposób uzyskasz wszyst
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
-
-<!--HONumber=Feb17_HO3-->
-
-

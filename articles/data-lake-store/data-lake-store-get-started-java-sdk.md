@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -51,7 +51,7 @@ W tym samouczku do pobrania tokenu usługi Azure Active Directory (uwierzytelnia
 2. Pobranie identyfikatora klienta, klucza tajnego klienta i punktu końcowego tokenu dla aplikacji sieci Web Azure AD.
 3. Skonfigurowanie dostępu dla aplikacji sieci Web Azure AD do pliku/folderu usługi Data Lake Store, do którego chcesz uzyskać dostęp z tworzonej aplikacji Java.
 
-Aby uzyskać instrukcje na temat sposobu wykonania tych czynności, zobacz [Tworzenie aplikacji usługi Active Directory](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
+Aby uzyskać instrukcje na temat sposobu wykonania tych czynności, zobacz [Tworzenie aplikacji usługi Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 Usługa Azure Active Directory oferuje również inne opcje pobierania tokenu. Do wyboru jest wiele różnych mechanizmów uwierzytelniania odpowiednich dla danego scenariusza, na przykład aplikacja działająca w przeglądarce, aplikacja rozproszona jako aplikacja tradycyjna albo aplikacja serwera uruchomiona lokalnie lub na maszynie wirtualnej platformy Azure. Można również wybrać różne rodzaje poświadczeń, takie jak hasła, certyfikaty, uwierzytelnianie 2-etapowe itd. Ponadto usługa Azure Active Directory umożliwia synchronizowanie lokalnych użytkowników usługi Active Directory z chmurą. Aby uzyskać szczegółowe informacje, zobacz [Scenariusze uwierzytelniania dla usługi Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 
