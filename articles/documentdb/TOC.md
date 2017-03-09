@@ -1,6 +1,7 @@
 
 # Omówienie
 ## [Co to jest baza danych DocumentDB?](documentdb-introduction.md)
+## [Co to jest usługa DocumentDB: interfejs API dla bazy danych MongoDB?](documentdb-protocol-mongodb.md)
 ## [Kluczowe pojęcia](documentdb-resources.md)
 ## [Dystrybucja globalna](documentdb-distribute-data-globally.md)
 ## [Analiza NoSQL całkowitego kosztu posiadania](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [Aplikacja konsolowa platformy .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Aplikacja konsolowa środowiska Java](documentdb-java-get-started.md)
 ### [Aplikacja konsoli Node.js](documentdb-nodejs-get-started.md)
+### [Aplikacja konsoli Node.js dla interfejsów API bazy danych MongoDB](documentdb-mongodb-samples.md)
 ### [Aplikacja konsolowa języka C++](documentdb-cpp-get-started.md)
 ## Tworzenie aplikacji sieci Web
 ### [Aplikacja sieci Web programu .NET](documentdb-dotnet-application.md)
+### [Aplikacja sieci Web programu .NET dla interfejsów API bazy danych MongoDB](documentdb-mongodb-application.md)
 ### [Aplikacja sieci Web środowiska Node.js](documentdb-nodejs-application.md)
 ### [Aplikacje sieci Web w języku Java](documentdb-java-application.md)
 ### [Aplikacje sieci Web w języku Python Flask](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Zarządzanie
 ### [Importowanie danych](documentdb-import-data.md)
+### [Importowanie do interfejsu API dla bazy danych MongoDB](documentdb-mongodb-migrate.md)
+### [Łączenie ze swoim kontem MongoDB](documentdb-connect-mongodb-account.md)
+### [Korzystanie z programu MongoChef](documentdb-mongodb-mongochef.md)
+### [Korzystanie z narzędzia Robomongo](documentdb-mongodb-robomongo.md)
 ### [Modelowanie danych](documentdb-modeling-data.md)
 ### [Używanie danych geoprzestrzennych](documentdb-geospatial.md)
 ### [Opracowywanie zawartości dla wielu regionów](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### Najlepsze praktyki
 #### [Konfiguracja wielu wzorców](documentdb-multi-region-writers.md)
 #### [Elementy DateTime](documentdb-working-with-dates.md)
-
-## Korzystanie z obsługi bazy danych MongoDB w usłudze DocumentDB
-### [Obsługa protokołów dla programu MongoDB](documentdb-protocol-mongodb.md)
-### [Tworzenie konta](documentdb-create-mongodb-account.md)
-### [Łączenie ze swoim kontem](documentdb-connect-mongodb-account.md)
-### [Migrowanie danych](documentdb-mongodb-migrate.md)
-### [Korzystanie z narzędzia Robomongo](documentdb-mongodb-robomongo.md)
-### [Korzystanie z programu MongoChef](documentdb-mongodb-mongochef.md)
-### [Przykłady obsługi protokołów](documentdb-mongodb-samples.md)
 
 ## Używanie portalu
 ### [Tworzenie konta bazy danych](documentdb-create-account.md)

@@ -9,13 +9,13 @@
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych](azure-security-data-encryption-best-practices.md)
 ### [Przewodnik po zabezpieczeniach magazynu](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Bezpieczeństwo obliczeń](security-virtual-machines-overview.md)
+### [Najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure](azure-security-best-practices-vms.md)
 ### [Najlepsze rozwiązania dotyczące obciążeń IaaS](azure-security-iaas.md)
 ### [Usługa firmy Microsoft chroniąca przed złośliwym kodem](azure-security-antimalware.md)
 ### [Szyfrowanie dysków](azure-security-disk-encryption.md)
 ### [Szyfrowanie maszyny wirtualnej platformy Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Zarządzanie zabezpieczeniami i monitorowanie ich](security-management-and-monitoring-overview.md)
 ### [Zarządzanie zabezpieczeniami](azure-security-management.md)
-### [Najlepsze rozwiązania dotyczące aktualizacji oprogramowania w infrastrukturze IaaS](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Integracja dzienników platformy Azure](security-azure-log-integration-overview.md)
 #### [Wprowadzenie](security-azure-log-integration-get-started.md)
@@ -52,8 +52,14 @@
 ## [Doradztwo z zakresu cyberbezpieczeństwa](azure-security-cyber-services.md)
 ## [Kursy Virtual Academy z zakresu zabezpieczeń](security-microsoft-virtual-academy.md)
 ## [Film wideo na temat zabezpieczeń w witrynie Channel 9](security-channel-nine.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+## [Threat modeling tool](azure-security-threat-modeling-tool.md) (Narzędzie do modelowania zagrożeń)
+###[Auditing and logging](azure-security-threat-modeling-tool-auditing-and-logging.md) (Inspekcja i rejestrowanie)
+###[Uwierzytelnianie](azure-security-threat-modeling-tool-authentication.md)
+###[Autoryzacja](azure-security-threat-modeling-tool-authorization.md)
+###[Communication security](azure-security-threat-modeling-tool-communication-security.md) (Bezpieczeństwo komunikacji)
+###[Configuration management](azure-security-threat-modeling-tool-configuration-management.md) (Zarządzanie konfiguracją)
+###[Cryptography](azure-security-threat-modeling-tool-cryptography.md) (Kryptografia)
+###[Exception management](azure-security-threat-modeling-tool-exception-management.md) (Zarządzanie wyjątkami)
+###[Input validation](azure-security-threat-modeling-tool-input-validation.md) (Walidacja danych wejściowych)
+###[Sensitive data](azure-security-threat-modeling-tool-sensitive-data.md) (Dane poufne)
+###[Session management](azure-security-threat-modeling-tool-session-management.md) (Zarządzanie sesjami)

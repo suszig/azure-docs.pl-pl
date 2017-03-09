@@ -4,6 +4,7 @@
 # Wprowadzenie
 ## [Tworzenie zestawu skalowania w portalu](virtual-machine-scale-sets-portal-create.md)
 ## [Create a scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md) (Tworzenie zestawu skalowania przy użyciu interfejsu wiersza polecenia platformy Azure)
+## [Tworzenie zestawu skalowania przy użyciu szablonu usługi Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Instrukcje
 ## Planowanie i projektowanie

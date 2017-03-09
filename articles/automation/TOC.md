@@ -1,12 +1,16 @@
 # Omówienie
 ## [Co to jest Azure Automation?](automation-intro.md)
-## [Zabezpieczenia w usłudze Azure Automation](automation-security-overview.md)
 # Rozpoczęcie pracy
 ## [Tworzenie elementu Runbook](automation-first-runbook-graphical.md)
 ## [Tworzenie elementu Runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
 ## [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
 ## [Zarządzanie kontrolą dostępu opartą na rolach](automation-role-based-access-control.md)
 # Instrukcje
+## Konfigurowanie uwierzytelniania
+### [Uwierzytelnianie w usłudze Azure Automation](automation-security-overview.md)
+### [Konto Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md)
+### [Azure Service Management i Resource Manager](automation-sec-configure-aduser-account.md)
+### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Tworzenie elementów Runbook
 ### [Typy elementów Runbook](automation-runbook-types.md)
 ### [Tworzenie i importowanie elementów Runbook](automation-creating-importing-runbook.md)
@@ -28,15 +32,11 @@
 ### [Zarządzanie danymi usługi Azure Automation](automation-managing-data.md)
 ### [Wywoływanie elementu Runbook usługi Azure Automation z alertu usługi Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Wdrażanie zarządzania konfiguracją (DSC)
-### [Konfiguracja żądanego stanu (DSC)](automation-dsc-overview.md)
+### [Konfiguracja żądanego stanu (DSC) — omówienie](automation-dsc-overview.md)
 ### [Rozpoczęcie pracy](automation-dsc-getting-started.md)
 ### [Dołączanie maszyn w celu zarządzania](automation-dsc-onboarding.md)
 ### [Kompilowanie konfiguracji DSC](automation-dsc-compile.md)
 ### [Ciągłe wdrażanie za pomocą narzędzia Chocolatey](automation-dsc-cd-chocolatey.md)
-## Konfigurowanie uwierzytelniania
-### [Azure Service Management i Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
-### [Konto Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md)
 ## Zarządzanie zasobami usługi Automation
 ### [Certyfikaty](automation-certificates.md)
 ### [Połączenia](automation-connections.md)
@@ -47,14 +47,13 @@
 ### [Aktualizowanie modułów programu Azure PowerShell](automation-update-azure-modules.md)
 ## Automatyzowanie scenariuszy
 ### [Galeria elementów Runbook](automation-runbook-gallery.md)
-### [Uruchamianie/zatrzymywanie maszyn wirtualnych](automation-solution-startstopvm-graphical.md)
-### [Uruchamianie/zatrzymywanie maszyn wirtualnych przy użyciu programu PowerShell](automation-solution-startstopvm-psworkflow.md)
 ### [Tworzenie maszyny wirtualnej usługi Amazon Web Service](automation-scenario-aws-deployment.md)
 ### [Rozwiązywanie problemów dotyczących alertów maszyny wirtualnej platformy Azure](automation-azure-vm-alert-integration.md)
 ### [Uruchamianie/zatrzymywanie maszyny wirtualnej przy użyciu tagów JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Usuwanie grupy zasobów](automation-scenario-remove-resourcegroup.md)
 ### [Uruchamianie/zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
-### [Source Control Integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) (Integracja kontroli źródła z usługą GitHub Enterprise)
+### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) (Integracja kontroli źródła z usługą GitHub Enterprise)
+### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md) (Integracja kontroli źródła z usługą VSTS)
 ## Monitorowanie
 ### [Przekazywanie danych zadania usługi Azure Automation do usługi Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Odłączanie konta usługi Azure Automation od usługi Log Analytics](automation-unlink-from-log-analytics.md)
@@ -80,8 +79,3 @@
 ## [Szkolenie z usługi Azure Automation](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Usługa Automation — film z wprowadzeniem](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
