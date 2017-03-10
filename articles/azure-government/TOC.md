@@ -1,3 +1,4 @@
+
 # Omówienie
 ## [Co to jest platforma Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,6 +32,7 @@
 ### [Obliczanie](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Baza danych](documentation-government-services-database.md)
+### [Zbieranie danych i analiza](documentation-government-services-intelligenceandanalytics.md)
 ### [Sieć](documentation-government-networking.md)
 ### [Bezpieczeństwo i obsługa tożsamości](documentation-government-services-securityandidentity.md)
 ### [Monitorowanie i zarządzanie](documentation-government-services-monitoringandmanagement.md)

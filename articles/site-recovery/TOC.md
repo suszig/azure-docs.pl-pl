@@ -1,10 +1,11 @@
 # Omówienie
 ## [Co to jest usługa Site Recovery?](site-recovery-overview.md)
 ## [W jaki sposób działa usługa Site Recovery?](site-recovery-components.md)
+## [Jak działa replikacja funkcji Hyper-V na platformie Azure?](site-recovery-hyper-v-azure-architecture.md)
 ## [Jakie obciążenia można chronić?](site-recovery-workload.md)
 ## [Macierz obsługi usługi Site Recovery](site-recovery-support-matrix-to-azure.md)
 ## [Często zadawane pytania](site-recovery-faq.md)
-## [Obejrzyj wprowadzenie](https://www.youtube.com/watch?v=eOOwMQPBKfM)
+## [Obejrzyj wprowadzenie](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
 
 # Wprowadzenie
 ## [Replikacja maszyn wirtualnych VMware do platformy Azure](site-recovery-vmware-to-azure.md)
@@ -18,7 +19,7 @@
 ## Planowanie
 ### [Wymagania wstępne dotyczące wdrożenia](site-recovery-prereq.md)
 ### [Zagadnienia związane z infrastrukturą sieciową](site-recovery-network-design.md)
-### [Korzystanie z planisty wydajności usługi Site Recovery](site-recovery-capacity-planner.md)
+### [Uruchamianie planisty wydajności usługi Site Recovery na potrzeby replikacji funkcji Hyper-V](site-recovery-capacity-planner.md)
 ### [Planowanie wydajności i skalowanie replikacji oprogramowania VMware do platformy Azure](site-recovery-plan-capacity-vmware.md)
 ### [Uruchamianie planisty wdrożenia na potrzeby replikacji oprogramowania VMware na platformie Azure](site-recovery-deployment-planner.md)
 ## Konfigurowanie

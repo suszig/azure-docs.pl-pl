@@ -34,15 +34,13 @@
 ##### [Strategia wdrażania](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [Następne kroki](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [Porównanie narzędzi](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## Zarządzanie użytkownikami
 ### Dodawanie użytkowników
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [Portal klasyczny](active-directory-create-users.md)
 
-### Dodawanie użytkowników z innych katalogów
-#### [Azure Portal](active-directory-users-create-external-azure-portal.md)
-#### [Portal klasyczny](active-directory-create-users-external.md)
-
+### [Dodawanie użytkowników z innych katalogów (portal klasyczny)](active-directory-create-users-external.md)
 ### [Usuwanie użytkowników](active-directory-users-delete-user-azure-portal.md)
 ### [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
 ### [Resetowanie hasła](active-directory-users-reset-password-azure-portal.md)
@@ -69,32 +67,33 @@
 ### [Licencjonowanie oparte na grupach](active-directory-licensing-whatis-azure-portal.md)
 #### [Przypisywanie licencji do grupy](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Wykrywanie i rozwiązywanie problemów z licencją dla grupy](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Jak migrować użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrowanie użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
 #### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
 ### [Konfigurowanie grup samoobsługi](active-directory-accessmanagement-self-service-group-management.md)
 ### [Rozwiązywanie problemów](active-directory-accessmanagement-troubleshooting.md)
 
-## [Wyświetlanie raportów aktywności](active-directory-view-access-usage-reports.md)
-### [Logowania](active-directory-reporting-activity-sign-ins.md)
-### [Dzienniki inspekcji](active-directory-reporting-activity-audit-logs.md)
+## [Zarządzanie raportami](active-directory-reporting-azure-portal.md)
+### [Działania logowania](active-directory-reporting-activity-sign-ins.md)
+### [Działania inspekcji](active-directory-reporting-activity-audit-logs.md)
 ### [Narażeni użytkownicy](active-directory-reporting-security-user-at-risk.md)
 ### [Ryzykowne logowania](active-directory-reporting-security-risky-sign-ins.md)
+### [Zdarzenia ryzyka](active-directory-reporting-risk-events.md)
+### [Nazwane sieci](active-directory-known-networks-azure-portal.md)
 ### [Często zadawane pytania](active-directory-reporting-faq.md)
 ### [Report migration](active-directory-reporting-migration.md) (Migracja raportów)
-### [Znane sieci](active-directory-known-networks.md)
-
-### Portal klasyczny
+### [Przechowywanie](active-directory-reporting-retention.md)
+###    Dostęp programowy
+#### [Przewodnik inspekcji](active-directory-reporting-api-audit-reference.md)
+#### [Przykłady inspekcji](active-directory-reporting-api-audit-samples.md)
+#### [Wymagania wstępne](active-directory-reporting-api-prerequisites.md)
+#### [Odwołanie do logowania](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Przykłady logowania](active-directory-reporting-api-sign-in-activity-samples.md)
+### [Portal klasyczny](active-directory-view-access-usage-reports.md)
 #### [Raportowanie usługi Azure AD](active-directory-reporting-getting-started.md)
 #### [Przewodnik po raportowaniu](active-directory-reporting-guide.md)
-#### [Wersja zapoznawcza](active-directory-reporting-azure-portal.md)
+#### [Znane sieci](active-directory-known-networks.md)
 #### [Interfejs API](active-directory-reporting-api-getting-started.md)
-##### [Przewodnik inspekcji](active-directory-reporting-api-audit-reference.md)
-##### [Przykłady inspekcji](active-directory-reporting-api-audit-samples.md)
-##### [Wymagania wstępne](active-directory-reporting-api-prerequisites.md)
-##### [Odwołanie do logowania](active-directory-reporting-api-sign-in-activity-reference.md)
-##### [Przykłady logowania](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Inspekcja zdarzeń](active-directory-reporting-audit-events.md)
-#### [Przechowywanie](active-directory-reporting-retention.md)
 #### [Czasy oczekiwania](active-directory-reporting-latencies.md)
 #### [Powiadomienia](active-directory-reporting-notifications.md)
 #### Objaśnienie raportów
@@ -108,6 +107,7 @@
 
 ## [Zarządzanie hasłami](active-directory-manage-passwords.md)
 ### [Aktualizowanie własnego hasła](active-directory-passwords-update-your-own-password.md)
+### [Konfigurowanie samoobsługowego resetowania haseł](active-directory-passwords.md)
 ### [Objaśnienie zarządzania hasłami](active-directory-passwords-how-it-works.md)
 ### [Objaśnienie zasad i ograniczeń](active-directory-passwords-policy.md)
 ### Resetowanie haseł
@@ -117,7 +117,6 @@
 ### Włączanie zarządzania hasłami
 #### [Wprowadzenie](active-directory-passwords-getting-started.md)
 #### [Wdrażanie](active-directory-passwords-best-practices.md)
-#### [Konfigurowanie samoobsługowego resetowania haseł](active-directory-passwords.md)
 #### [Dostosowywanie](active-directory-passwords-customize.md)
 #### [Wyświetlanie raportów](active-directory-passwords-get-insights.md)
 #### [Dowiedz się więcej](active-directory-passwords-learn-more.md)
@@ -128,22 +127,19 @@
 ### [Rejestrowanie urządzeń](active-directory-conditional-access-device-registration-overview.md)
 #### [Zarządzanie automatyczną rejestracją](active-directory-conditional-access-automatic-device-registration.md)
 #### [Konfigurowanie](active-directory-conditional-access-automatic-device-registration-setup.md)
-### [Rejestrowanie własnego urządzenia](active-directory-azureadjoin-personal-device.md)
-### [Rejestrowanie urządzenia z systemem Windows 10](active-directory-azureadjoin-user-upgrade.md)
+#### [Często zadawane pytania](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Rozwiązywanie problemów
+##### [Rozwiązywanie problemów z systemami Windows 10 i Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Rozwiązywanie problemów z klientami niższego poziomu systemu Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planowanie](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Konfigurowanie rejestracji urządzeń](active-directory-azureadjoin-setup.md)
 #### [Rejestrowanie nowych urządzeń](active-directory-azureadjoin-user-frx.md)
 #### [Wdrażanie](active-directory-azureadjoin-devices-group-policy.md)
-#### [Uwierzytelnianie bez hasła](active-directory-azureadjoin-passport.md)
-#### [Włączanie usługi Windows Hello dla firm](active-directory-azureadjoin-passport-deployment.md)
-
 #### [Objaśnienie integracji w systemie Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Korzystanie z urządzeń z systemem Windows 10](active-directory-azureadjoin-windows10-devices.md)
-#### [Często zadawane pytania](active-directory-conditional-access-automatic-device-registration-faq.md)
-#### Rozwiązywanie problemów
-##### [Rozwiązywanie problemów z systemami Windows 10 i Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Rozwiązywanie problemów z klientami niższego poziomu systemu Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+#### [Dołączanie urządzenia](active-directory-azureadjoin-personal-device.md)
+#### [Dołączanie urządzenia z systemem Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
 ## Zarządzanie aplikacjami
 ### [Omówienie](active-directory-enable-sso-scenario.md)
@@ -237,6 +233,7 @@
 #### [Realizacja zaproszenia](active-directory-b2b-redemption-experience.md)
 #### [Właściwości użytkowników B2B](active-directory-b2b-user-properties.md)
 #### [Dodawanie użytkownika gościa do roli](active-directory-b2b-add-guest-to-role.md)
+#### [Inspekcja i raporty](active-directory-b2b-auditing-and-reporting.md)
 #### [Interfejs API i dostosowywanie](active-directory-b2b-api.md)
 #### [Delegowanie zaproszeń](active-directory-b2b-delegate-invitations.md)
 #### [Grupy dynamiczne i B2B](active-directory-b2b-dynamic-groups.md)
@@ -284,6 +281,9 @@
 #### [Często zadawane pytania](active-directory-conditional-faqs.md)
 #### [Rozwiązywanie problemów](active-directory-conditional-access-device-remediation.md)
 #### [Dokumentacja](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [Uwierzytelnianie bez hasła](active-directory-azureadjoin-passport.md)
+#### [Włączanie usługi Windows Hello dla firm](active-directory-azureadjoin-passport-deployment.md)
 ### Uwierzytelnianie oparte na certyfikatach
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

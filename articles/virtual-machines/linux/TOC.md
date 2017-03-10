@@ -79,6 +79,7 @@
 ### [Opcje rozpoznawania nazw DNS](../virtual-machines-linux-azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Używanie systemu Azure DNS z maszynami wirtualnymi](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Używanie usługi Azure Traffic Manager z maszynami wirtualnymi](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Konfigurowanie zapory NAT za pomocą zapory PF w systemie FreeBSD](../virtual-machines-linux-freebsd-pf-nat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Wdrożenie
 ### [Kopiowanie maszyny wirtualnej](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

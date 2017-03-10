@@ -264,6 +264,7 @@
 
 # Powiązane
 ## [Zestaw Azure SDK dla platformy .NET — informacje o wersji](azure-sdk-dotnet-release-notes.md)
+### [Wersja&3;.0](azure-sdk-dotnet-release-notes-3-0.md)
 ### [Wersja&2;.9](azure-sdk-dotnet-release-notes-2-9.md)
 ### [Wersje&2;.8.X](azure-sdk-dotnet-release-notes-2-8.md)
 ### [Wersje&2;.7.X](azure-sdk-dotnet-release-notes-2-7.md)
