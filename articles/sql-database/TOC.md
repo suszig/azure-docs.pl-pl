@@ -58,33 +58,37 @@
 ## Migrowanie i przenoszenie danych
 ### Informacje
 #### [Migrowanie bazy danych](sql-database-cloud-migrate.md)
-#### [Replikacja transakcyjna](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+#### [Eksportowanie bazy danych](sql-database-export.md)
 #### [Synchronizacja danych](sql-database-get-started-sql-data-sync.md)
 #### [Kopiowanie bazy danych SQL](sql-database-copy.md)
 ## Reguły zapory, uwierzytelnianie i autoryzacja
 ### Informacje
 #### [Kontrola dostępu](sql-database-control-access.md)
-#### [Zapora](sql-database-firewall-configure.md)
+#### [Reguły zapory](sql-database-firewall-configure.md)
 #### [Zarządzanie danymi logowania](sql-database-manage-logins.md)
+#### [Uwierzytelnianie w usłudze Azure AD](sql-database-aad-authentication.md)
+#### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### Zalecenia
 #### [Uwierzytelnianie i autoryzacja SQL](sql-database-control-access-sql-authentication-get-started.md)
 #### [Uwierzytelnianie i autoryzacja w usłudze Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Zabezpieczanie i ochrona danych
 ### Informacje
 #### Inspekcja
-##### [Inspekcja](sql-database-auditing-get-started.md)
+##### [Inspekcja](sql-database-auditing.md)
 ##### [Obsługa klientów z obniżonym poziomem i zmiany punktu końcowego adresu IP na potrzeby inspekcji](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Wykrywanie zagrożeń](sql-database-threat-detection-get-started.md)
+#### [Wykrywanie zagrożeń](sql-database-threat-detection.md)
 #### Szyfrowanie danych
-##### [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ##### [Niewidoczne szyfrowanie danych](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [Szyfrowanie kolumn](https://msdn.microsoft.com/library/azure/ms179331)
 #### Maskowanie danych
-##### Dynamiczne maskowanie danych
-###### [Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+##### [Dynamiczne maskowanie danych](sql-database-dynamic-data-masking-get-started.md)
 ### Zalecenia
-#### [Dynamiczne maskowanie danych za pomocą witryny Azure Portal](sql-database-dynamic-data-masking-get-started.md)
-##### [Korzystanie z funkcji Zawsze zaszyfrowane za pomocą magazynu certyfikatów systemu Windows](sql-database-always-encrypted.md)
+#### [Dynamiczne maskowanie danych za pomocą witryny Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
+#### [Konfigurowanie inspekcji przy użyciu witryny Azure Portal](sql-database-auditing-portal.md)
+#### [Konfigurowanie inspekcji przy użyciu programu PowerShell](sql-database-auditing-powershell.md)
+#### [Konfigurowanie inspekcji przy użyciu interfejsu API REST](sql-database-auditing-rest.md)
+#### [Korzystanie z funkcji Zawsze zaszyfrowane za pomocą certyfikatu systemu Windows](sql-database-always-encrypted.md)
+#### [Korzystanie z funkcji Zawsze zaszyfrowane za pomocą magazynu Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ## Ciągłość działalności biznesowej
 ### Informacje
 #### [Omówienie](sql-database-business-continuity.md)
@@ -100,7 +104,7 @@
 #### [Przeprowadzanie próbnego odzyskiwania po awarii](sql-database-disaster-recovery-drills.md)
 #### [Omówienie aktywnej replikacji geograficznej](sql-database-geo-replication-overview.md)
 ### Zalecenia
-#### [Azure Portal: tworzenie kopii zapasowych i ich przywracanie](sql-database-get-started-backup-recovery.md)
+#### [Azure Portal: tworzenie kopii zapasowych i ich przywracanie](sql-database-get-started-backup-recovery-portal.md)
 #### [PowerShell: tworzenie kopii zapasowych i ich przywracanie](sql-database-get-started-backup-recovery-powershell.md)
 ## Opracowywanie aplikacji
 ### Informacje
@@ -140,7 +144,7 @@
 ### Zalecenia
 #### [Opracowywanie rozwiązań dla programu SQL Server](https://msdn.microsoft.com/library/ms179422.aspx)
 #### [Wdrażanie przetwarzania OLTP w pamięci](sql-database-in-memory-oltp-migration.md)
-## Monitorowanie i dostosowywanie
+## Monitorowanie i dostrajanie
 ### Informacje
 #### [Pojedyncze bazy danych](sql-database-single-database-monitor.md)
 #### [Omówienie funkcji SQL Database Advisor](sql-database-advisor.md)
@@ -157,67 +161,55 @@
 #### [Uaktualnianie za pomocą programu PowerShell](sql-database-upgrade-server-powershell.md)
 # Instrukcje
 ## Tworzenie i zarządzanie
-### [Zarządzanie usługą SQL Database przy użyciu witryny Azure Portal](sql-database-manage-portal.md)
-### [Zarządzanie usługą SQL Database za pomocą programu PowerShell](sql-database-manage-powershell.md)
-### [Zarządzanie usługą SQL Database za pomocą programu SSMS](sql-database-manage-azure-ssms.md)
+### [Zarządzanie za pomocą witryny Azure Portal](sql-database-manage-portal.md)
+### [Zarządzanie za pomocą programu PowerShell](sql-database-manage-powershell.md)
+### [Zarządzanie za pomocą programu SSMS](sql-database-manage-azure-ssms.md)
 ### Serwery
-#### [Tworzenie serwerów](sql-database-create-servers.md)
-#### [Wyświetlanie i aktualizowanie ustawień serwera](sql-database-view-update-server-settings.md)
+#### [Zarządzanie za pomocą witryny Azure Portal](sql-database-manage-servers-portal.md)
+#### [Zarządzanie za pomocą programu PowerShell](sql-database-manage-servers-powershell.md)
 ### Pojedyncze bazy danych
-#### [Tworzenie pojedynczych baz danych](sql-database-create-databases.md)
-#### [Wyświetlanie i aktualizowanie ustawień bazy danych](sql-database-view-update-database-settings.md)
+#### [Zarządzanie za pomocą witryny Azure Portal](sql-database-manage-single-databases-portal.md)
+#### [Zarządzanie za pomocą programu PowerShell](sql-database-manage-single-databases-powershell.md)
+#### [Zarządzanie za pomocą języka Transact-SQL](sql-database-manage-single-databases-tsql.md)
 ### Reguły zapory
-#### [Tworzenie reguł zapory za pomocą witryny Azure Portal](sql-database-configure-firewall-settings.md)
-#### [Tworzenie reguł zapory przy użyciu programu PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Tworzenie reguł zapory przy użyciu interfejsu API REST](sql-database-configure-firewall-settings-rest.md)
-#### [Tworzenie reguł zapory przy użyciu języka T-SQL](sql-database-configure-firewall-settings-tsql.md)
+#### [Tworzenie za pomocą witryny Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Tworzenie za pomocą programu PowerShell](sql-database-configure-firewall-settings-powershell.md)
+#### [Tworzenie za pomocą interfejsu API REST](sql-database-configure-firewall-settings-rest.md)
+#### [Tworzenie za pomocą języka T-SQL](sql-database-configure-firewall-settings-tsql.md)
 ### Wiele baz danych
 #### [Uaktualnianie biblioteki klienckiej w aplikacjach klienckich](sql-database-elastic-scale-upgrade-client-library.md)
 #### Bazy danych podzielone na fragmenty
 ##### [Konfiguracja zabezpieczeń](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [Dodawanie fragmentu](sql-database-elastic-scale-add-a-shard.md)
 ##### [Rozwiązywanie problemów z mapami fragmentów](sql-database-elastic-database-recovery-manager.md)
-##### [Migrowanie istniejących baz danych skalowanych w poziomie do baz danych podzielonych na fragmenty](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [Migrowanie do baz danych podzielonych na fragmenty](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Tworzenie liczników wydajności dla menedżera map fragmentów](sql-database-elastic-database-perf-counters.md)
 #### Zadania elastyczne
-##### [Jak zainstalować usługę zadań elastycznych?](sql-database-elastic-jobs-service-installation.md)
-##### [Tworzenie zadań elastycznych i zarządzanie nimi za pomocą programu PowerShell](sql-database-elastic-jobs-powershell.md) 
-##### [Tworzenie zadań elastycznych w witrynie Azure Portal i zarządzanie nimi](sql-database-elastic-jobs-create-and-manage.md)
-##### [Jak odinstalować zadania elastyczne?](sql-database-elastic-jobs-uninstall.md)
+##### [Jak przeprowadzić instalację?](sql-database-elastic-jobs-service-installation.md)
+##### [Zarządzanie za pomocą programu PowerShell](sql-database-elastic-jobs-powershell.md) 
+##### [Zarządzanie za pomocą witryny Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
+##### [Jak przeprowadzić dezinstalację?](sql-database-elastic-jobs-uninstall.md)
 #### Pule elastyczne
-##### [Tworzenie za pomocą witryny Azure Portal](sql-database-elastic-pool-create-portal.md)
-##### [Tworzenie za pomocą programu PowerShell](sql-database-elastic-pool-create-powershell.md)
-##### [Tworzenie za pomocą języka C#](sql-database-elastic-pool-create-csharp.md)
 ##### [Zarządzanie za pomocą witryny Azure Portal](sql-database-elastic-pool-manage-portal.md)
 ##### [Zarządzanie za pomocą programu PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ##### [Zarządzanie za pomocą języka C#](sql-database-elastic-pool-manage-csharp.md)
 ##### [Zarządzanie za pomocą języka T-SQL](sql-database-elastic-pool-manage-tsql.md)
-##  Uwierzytelnianie i autoryzacja
-### [Uwierzytelnianie w usłudze Azure AD](sql-database-aad-authentication.md)
-### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
+## Uwierzytelnianie i autoryzacja
+### [Konfigurowanie uwierzytelniania w usłudze Azure AD](sql-database-aad-authentication-configure.md)
+### [Konfigurowanie uwierzytelniania Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md)
+## Konfigurowanie wykrywania zagrożeń
+### [Konfigurowanie wykrywania zagrożeń za pomocą witryny Azure Portal](sql-database-threat-detection-portal.md)
 ## Szyfrowanie danych
 ### [Niewidoczne szyfrowanie danych](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Szyfrowanie kolumn](https://msdn.microsoft.com/library/azure/ms179331)
-## Migrowanie baz danych
-### Określanie zgodności
-#### [Określanie zgodności za pomocą narzędzia pakietu SQL](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [Określanie zgodności za pomocą programu SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### Rozwiązywanie problemów ze zgodnością
-#### [Rozwiązywanie problemów ze zgodnością za pomocą narzędzi SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-#### [Rozwiązywanie problemów ze zgodnością za pomocą programu SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [Rozwiązywanie problemów ze zgodnością za pomocą kreatora SMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [Migrowanie przy użyciu Kreatora migracji programu SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ## Monitorowanie i dostrajanie
 ### [Szczegółowe informacje o wydajności zapytań](sql-database-query-performance.md)
 ### [SQL Database Advisor](sql-database-advisor-portal.md)
 ### [Dynamiczne widoki zarządzania](sql-database-monitoring-with-dmvs.md)
 ### [Poziomy zgodności](sql-database-compatibility-level-query-performance-130.md)
 ### [Porady dotyczące dostrajania wydajności](sql-database-troubleshoot-performance.md)
-### Zmienianie warstw usług i poziomów wydajności
-#### [Zmienianie warstw usług przy użyciu witryny Azure Portal](sql-database-scale-up.md)
-#### [Zmienianie warstw usług przy użyciu programu PowerShell](sql-database-scale-up-powershell.md)
 ### [Tworzenie alertów](sql-database-insights-alerts-portal.md)
-#### [Monitorowanie magazynu OLTP w pamięci](sql-database-in-memory-oltp-monitoring.md)
+### [Monitorowanie magazynu OLTP w pamięci](sql-database-in-memory-oltp-monitoring.md)
 ### Magazyn zapytań
 #### [Monitorowanie wydajności za pomocą magazynu zapytań](https://msdn.microsoft.com/library/dn817826.aspx)
 #### [Scenariusze użycia magazynu zapytań](https://msdn.microsoft.com/library/mt614796.aspx)
@@ -231,31 +223,30 @@
 #### [Kopiowanie za pomocą programu PowerShell](sql-database-copy-powershell.md)
 #### [Kopiowanie za pomocą języka T-SQL](sql-database-copy-transact-sql.md)
 ### Eksportowanie bazy danych do pliku BACPAC
-#### [Eksportowanie za pomocą witryny Azure Portal](sql-database-export.md)
-#### [Eksportowanie przy użyciu programu SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [Eksportowanie za pomocą narzędzia pakietu SQL](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [Eksportowanie za pomocą witryny Azure Portal](sql-database-export-portal.md)
+#### [Eksportowanie za pomocą narzędzia pakietu SQL](sql-database-export-sqlpackage.md)
 #### [Eksportowanie przy użyciu programu PowerShell](sql-database-export-powershell.md)
-### Importowanie bazy danych z pliku BACPAC
-#### [Importowanie za pomocą witryny Azure Portal](sql-database-import.md)
-#### [Importowanie przy użyciu programu PowerShell](sql-database-import-powershell.md)
-#### [Importowanie przy użyciu programu SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [Importowanie za pomocą narzędzia pakietu SQL](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [Eksportowanie przy użyciu programu SSMS](sql-database-export-ssms.md)
+## Importowanie danych
+### [Importowanie za pomocą witryny Azure Portal](sql-database-import-portal.md)
+### [Importowanie przy użyciu programu PowerShell](sql-database-import-powershell.md)
+### [Importowanie przy użyciu narzędzia SQLPackage](sql-database-import-sqlpackage.md)
 ### [Ładowanie z pliku CSV przy użyciu narzędzia BCP](sql-database-load-from-csv-with-bcp.md)
 ## Zapytanie
 ### [Wykonywanie zapytań przy użyciu programu SSMS](sql-database-connect-query-ssms.md)
-## Wykonywanie kopii zapasowych i przywracanie
+## Tworzenie kopii zapasowej i przywracanie
 ### Długoterminowe przechowywanie kopii zapasowych
-#### [Konfigurowanie długoterminowego przechowywania kopii zapasowych](sql-database-configure-long-term-retention.md)
-#### [Wyświetlanie kopii zapasowych w magazynie usługi Recovery Services](sql-database-view-backups-in-vault.md)
-#### [Przywracanie po długoterminowym przechowywaniu kopii zapasowych](sql-database-restore-from-long-term-retention.md)
-#### [Usuwanie z długoterminowego przechowywania kopii zapasowych](sql-database-long-term-retention-delete.md)
+#### [Zarządzanie długotrwałym przechowywaniem kopii zapasowych za pomocą witryny Azure Portal](sql-database-manage-long-term-backup-retention-portal.md)
+#### [Zarządzanie długotrwałym przechowywaniem kopii zapasowych za pomocą programu PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ### Przywracanie usuniętej bazy danych
 #### [Przywracanie usuniętych danych za pomocą witryny Azure Portal](sql-database-restore-deleted-database-portal.md)
 #### [Przywracanie usuniętych danych przy użyciu programu PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Przywracanie do punktu w czasie
-#### [Przywracanie do punktu w czasie](sql-database-point-in-time-restore.md)
-#### [Wyświetlanie najstarszego punktu przywracania](sql-database-view-oldest-restore-point.md)
-### [Przywracanie z kopii zapasowej nadmiarowej geograficznie](sql-database-geo-restore.md)
+### Przywracania bazy danych do punktu w czasie
+#### [Przywracanie do punktu w czasie za pomocą witryny Azure Portal](sql-database-point-in-time-restore-portal.md)
+#### [Przywracania bazy danych do punktu w czasie za pomocą programu PowerShell](sql-database-point-in-time-restore-powershell.md)
+### Przywracanie z kopii zapasowej nadmiarowej geograficznie
+### [Przywracanie geograficzne za pomocą witryny Azure Portal](sql-database-geo-restore-portal.md)
+### [Przywracanie geograficzne przy użyciu programu PowerShell](sql-database-geo-restore-powershell.md)
 ## Aktywna replikacja geograficzna
 ### [Konfigurowanie przy użyciu witryny Azure Portal](sql-database-geo-replication-portal.md)
 ### [Konfigurowanie przy użyciu programu PowerShell](sql-database-geo-replication-powershell.md)

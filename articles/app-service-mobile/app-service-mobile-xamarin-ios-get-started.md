@@ -4,7 +4,7 @@ description: "Wykonaj czynności opisane w tym samouczku, aby rozpocząć używa
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
