@@ -10,20 +10,20 @@ tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
-ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 3de1e04c3ce1d6d465c5a54bc9db676639709371
+ms.lasthandoff: 03/08/2017
 
 ---
 
-# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows przy użyciu usługi Resource Manager i programu PowerShell
+# <a name="create-a-windows-vm-using-azure-resource-manager-and-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows przy użyciu usługi Azure Resource Manager i programu PowerShell
 
-W tym artykule pokazano, jak szybko utworzyć maszynę wirtualną platformy Azure z systemem Windows Server i wymagane przez nią zasoby przy użyciu usługi [Resource Manager](../azure-resource-manager/resource-group-overview.md) i programu Azure PowerShell.  
+W tym artykule pokazano, jak szybko utworzyć maszynę wirtualną platformy Azure z systemem Windows Server i wymagane przez nią zasoby przy użyciu usługi [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) i programu Azure PowerShell.  
 
-Wszystkie kroki przedstawione w tym artykule są wymagane do utworzenia maszyny wirtualnej, a ich wykonanie powinno zająć około 30 minut. Zamień przykładowe wartości parametrów w poleceniach nazwami odpowiednimi dla konkretnego środowiska.
+Wszystkie kroki przedstawione w tym artykule są wymagane do utworzenia maszyny wirtualnej, a kopiowanie, wklejanie i uruchamianie poleceń powinno zająć około 10 minut.
 
 ## <a name="step-1-install-azure-powershell"></a>Krok 1. Instalowanie programu Azure PowerShell
 
@@ -79,7 +79,7 @@ Podczas tworzenia maszyny wirtualnej możesz obecnie wybrać, czy chcesz używa�
 
 ## <a name="step-4-create-a-virtual-network"></a>Krok 4. Tworzenie sieci wirtualnej
 
-Wszystkie maszyny wirtualne są częścią [sieci wirtualnej](../virtual-network/virtual-networks-overview.md).
+Wszystkie maszyny wirtualne są częścią [sieci wirtualnej](virtual-machines-windows-network-overview.md).
 
 1. Utwórz podsieć dla sieci wirtualnej. To polecenie tworzy podsieć o nazwie **mySubnet** z prefiksem adresu 10.0.0.0/24.
    

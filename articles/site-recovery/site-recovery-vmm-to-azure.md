@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
-ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b1bbe3a43d071b452b7b60e1c56571958b444237
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -129,8 +129,8 @@ Rozpocznij proces Wprowadzenie, wybierając sposób wdrożenia usługi Site Reco
 ## <a name="step-1-choose-your-protection-goals"></a>Krok 1. Wybranie celów ochrony
 Wybierz, co chcesz replikować, i miejsce, do którego chcesz przeprowadzać replikację.
 
-1. W bloku **magazynów usług Recovery Services** wybierz magazyn i kliknij przycisk **Ustawienia**.
-2. W sekcji **Wprowadzenie** kliknij **Site Recovery** > **Krok 1. Przygotowanie infrastruktury** > **Cel ochrony**.
+1. W bloku **Magazyny usługi Recovery Services** wybierz magazyn.
+2. W sekcji **Wprowadzenie** kliknij kolejno pozycje **Site Recovery** > **Krok 1. Przygotowanie infrastruktury** > **Cel ochrony**.
 
     ![Wybieranie celów](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. W obszarze **Cel ochrony** wybierz pozycję **Do platformy Azure** i wybierz opcję **Tak, z funkcją Hyper-V**. Wybierz opcję **Tak**, aby potwierdzić, że używasz programu VMM do zarządzania hostami funkcji Hyper-V i lokacją odzyskiwania. Następnie kliknij przycisk **OK**.
@@ -143,17 +143,17 @@ Zainstaluj dostawcę usługi Azure Site Recovery na serwerze programu VMM i zare
 1. Kliknij kolejno pozycje **Krok 2. Przygotowanie infrastruktury** > **Źródło**.
 
     ![Konfiguracja źródła](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. W obszarze **Przygotowywanie źródła** kliknij pozycję **+ VMM**, aby dodać serwer programu VMM.
 
     ![Konfiguracja źródła](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. W bloku **Dodawanie serwera** sprawdź, czy **Serwer programu System Center VMM** pojawia się w sekcji **Typ serwera** i czy serwer VMM spełnia [warunki wstępne i wymagania dotyczące adresu URL](#on-premises-prerequisites).
 4. Pobierz plik instalacyjny dostawcy usługi Azure Site Recovery.
 5. Pobierz klucz rejestracji. Będzie on potrzebny po uruchomieniu Instalatora. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
     ![Konfiguracja źródła](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. Zainstaluj dostawcę usługi Azure Site Recovery na serwerze VMM.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Konfigurowanie dostawcy usługi Azure Site Recovery
@@ -180,7 +180,7 @@ Zainstaluj dostawcę usługi Azure Site Recovery na serwerze programu VMM i zare
 9. Włącz **synchronizację metadanych chmury**, jeśli chcesz synchronizować metadane dla wszystkich chmur na serwerze VMM w magazynie. To działanie ma miejsce tylko raz na każdym serwerze. Jeśli nie chcesz synchronizować wszystkich chmur, możesz nie zaznaczać tego ustawienia i synchronizować poszczególne chmury indywidualnie we właściwościach chmury w konsoli programu VMM. Kliknij przycisk **Zarejestruj**, aby zakończyć proces.
 
     ![Rejestracja serwera](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. Rozpoczyna się rejestracja. Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia** > **Serwery** w magazynie.
+10. Rozpoczyna się rejestracja. Po zakończeniu rejestracji serwer jest wyświetlany w obszarze **Infrastruktura usługi Site Recovery** >  **Serwery VMM**.
 
 #### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Instalacja dostawcy usługi Azure Site Recovery przy użyciu wiersza polecenia
 Dostawca usługi Azure Site Recovery może zostać zainstalowany z poziomu wiersza polecenia. Tej metody można użyć do zainstalowania dostawcy w rdzeniu serwera dla systemu Windows Server 2012 R2.
@@ -266,7 +266,7 @@ Określ konto magazynu Azure do wykorzystania podczas replikacji i sieć platfor
 
 Skonfiguruj mapowanie w następujący sposób:
 
-1. W pozycji **Ustawienia** > **Infrastruktura usługi Site Recovery** > **Mapowania sieci** > **Mapowanie sieci** kliknij ikonę **+ Mapowanie sieci**.
+1. W obszarze **Infrastruktura usługi Site Recovery** > **Mapowania sieci** > **Mapowanie sieci** kliknij ikonę **+ Mapowanie sieci**.
 
     ![Mapowanie sieci](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. W obszarze **Dodawanie mapowania sieci** wybierz źródłowy serwer programu VMM i ustaw **Azure** jako element docelowy.
@@ -295,7 +295,7 @@ Oto, co się dzieje po rozpoczęciu mapowania sieci:
 7. W obszarze **Szyfrowanie danych przechowywanych na platformie Azure** określ, czy należy szyfrować dane w stanie spoczynku w usłudze Azure Storage. Następnie kliknij przycisk **OK**.
 
     ![Zasady replikacji](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Jeśli utworzysz nowe zasady, zostaną one automatycznie skojarzone z chmurą VMM. Kliknij przycisk **OK**. Możesz skojarzyć dodatkowe chmury VMM (oraz maszyny wirtualne w tych chmurach) z zasadami replikacji w obszarze **Ustawienia** > **Replikacja** > nazwa_zasad > **Skojarz chmurę VMM**.
+8. Jeśli utworzysz nowe zasady, zostaną one automatycznie skojarzone z chmurą VMM. Kliknij przycisk **OK**. Możesz skojarzyć dodatkowe chmury VMM (oraz maszyny wirtualne w tych chmurach) z zasadami replikacji w obszarze **Replikacja** > nazwa_zasad > **Skojarz chmurę VMM**.
 
     ![Zasady replikacji](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -375,16 +375,16 @@ Teraz włącz replikację w następujący sposób:
     >
 
 
-8. W pozycji **Ustawienia replikacji** > **Konfigurowanie ustawień replikacji** wybierz zasady replikacji, które chcesz zastosować dla chronionych maszyn wirtualnych. Następnie kliknij przycisk **OK**. Możesz zmodyfikować zasady replikacji w pozycji **Ustawienia** > **Zasady replikacji** > nazwa_zasady > **Edytuj ustawienia**. Zastosowane zmiany są używane dla obecnie replikowanych i nowych maszyn.
+8. W pozycji **Ustawienia replikacji** > **Konfigurowanie ustawień replikacji** wybierz zasady replikacji, które chcesz zastosować dla chronionych maszyn wirtualnych. Następnie kliknij przycisk **OK**. Możesz zmodyfikować zasady replikacji w pozycji **Zasady replikacji** > nazwa_zasad > **Edytuj ustawienia**. Zastosowane zmiany są używane dla obecnie replikowanych i nowych maszyn.
 
    ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-Możesz śledzić postępy zadania **Włącz ochronę** w pozycji **Ustawienia** > **Zadania** > **Zadania usługi Site Recovery**. Po uruchomieniu zadania **Sfinalizuj ochronę** maszyna jest gotowa do przejścia w tryb failover.
+Możesz śledzić postępy zadania **Włącz ochronę** w obszarze **Zadania** > **Zadania usługi Site Recovery**. Po uruchomieniu zadania **Sfinalizuj ochronę** maszyna jest gotowa do przejścia w tryb failover.
 
 ### <a name="view-and-manage-vm-properties"></a>Wyświetlanie właściwości maszyny wirtualnej i zarządzanie nimi
 Zalecamy zweryfikowanie właściwości maszyny źródłowej. Pamiętaj, że nazwa maszyny wirtualnej Azure powinna być zgodna z [wymaganiami dotyczącymi maszyn wirtualnych Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Kliknij kolejno pozycje **Ustawienia** > **Elementy chronione** > **Elementy replikowane** i wybierz maszynę, aby zobaczyć szczegółowe informacje.
+1. W obszarze **Elementy chronione** kliknij pozycję **Elementy replikowane** i wybierz maszynę, aby zobaczyć szczegółowe informacje.
 
     ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. W obszarze **Właściwości** możesz wyświetlić informacje dotyczące replikacji i trybu failover dla danej maszyny wirtualnej.
@@ -438,10 +438,10 @@ Aby uzyskać dostęp do maszyny wirtualnej Azure z systemem Linux po przejściu 
 ## <a name="step-7-test-your-deployment"></a>Krok 7. Testowanie wdrożenia
 Aby przetestować wdrożenie, możesz uruchomić test trybu failover dla jednej maszyny wirtualnej lub plan odzyskiwania, który zawiera co najmniej jedną maszynę wirtualną.
 
-1. Aby przenieść jedną maszynę wirtualną do trybu failover, w pozycji **Ustawienia** > **Elementy replikowane** kliknij maszynę wirtualną > **+ Testowy tryb failover**.
-1. Aby przenieść plan odzyskiwania do trybu failover, w pozycji **Ustawienia** > **Plany odzyskiwania** kliknij plan prawym przyciskiem myszy > **Testowy tryb failover**. Aby utworzyć plan odzyskiwania, [wykonaj te instrukcje](site-recovery-create-recovery-plans.md).
+1. Aby przenieść jedną maszynę wirtualną do trybu failover, w obszarze **Elementy replikowane** kliknij maszynę wirtualną > **+ Testowy tryb failover**.
+1. Aby przenieść plan odzyskiwania do trybu failover, w obszarze **Plany odzyskiwania** kliknij plan prawym przyciskiem myszy > **Testowy tryb failover**. Aby utworzyć plan odzyskiwania, [wykonaj te instrukcje](site-recovery-create-recovery-plans.md).
 1. W pozycji **Testowy tryb failover** wybierz sieć platformy Azure, z którą maszyny wirtualne Azure zostaną połączone po przejściu do trybu failover.
-1. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Możesz śledzić postępy, klikając maszynę wirtualną i otwierając jej właściwości lub przechodząc do zadania **Testowy tryb failover** w pozycji **Ustawienia** > **Zadania usługi Site Recovery**.
+1. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Możesz śledzić postępy, klikając maszynę wirtualną i otwierając jej właściwości lub przechodząc do zadania **Testowy tryb failover** w obszarze **Zadania usługi Site Recovery**.
 1. Po zakończeniu trybu failover w pozycji Azure Portal > **Maszyny wirtualne** powinna być widoczna replika maszyny wirtualnej platformy Azure. Upewnij się, że maszyna wirtualna ma prawidłowy rozmiar oraz że została podłączona do odpowiedniej sieci i uruchomiona.
 1. Jeśli przeprowadzono [przygotowanie do nawiązywania połączeń po przejściu do trybu failover](#prepare-to-connect-to-Azure-VMs-after-failover), powinno być możliwe nawiązanie połączenia z maszyną wirtualną Azure.
 1. Po zakończeniu kliknij pozycję **Wyczyść test pracy w trybie failover** w planie odzyskiwania. W obszarze **Uwagi** zarejestruj i zapisz wszelkie obserwacje związane z testem pracy w trybie failover. Spowoduje to usunięcie maszyn wirtualnych utworzonych podczas testu pracy w trybie failover.
@@ -454,9 +454,9 @@ Oto, jak można monitorować ustawienia konfiguracji, stan i kondycję wdrożeni
 1. Kliknij nazwę magazynu, aby uzyskać dostęp do pulpitu nawigacyjnego **Podstawy**. W tym pulpicie nawigacyjnym możesz wyświetlić zadania usługi Site Recovery, stan replikacji, plany odzyskiwania, kondycję serwera i zdarzenia.  Możesz dostosować pulpit **Podstawy**, aby pokazywał najbardziej przydatne kafelki i układy, w tym stan innych magazynów usług Site Recovery i Backup.
 
     ![Podstawy](./media/site-recovery-vmm-to-azure/essentials.png)
-2. W obszarze *Kondycja** możesz monitorować problemy związane z serwerami lokalnymi (serwerami programu VMM lub konfiguracji) oraz zdarzenia wygenerowane przez usługę Site Recovery w ciągu ostatnich 24 godzin.
-3. Korzystając z kafelków **Elementy replikowane**, **Plany odzyskiwania** i **Zadania usługi Site Recovery**, możesz zarządzać replikacją i monitorować ją. Możesz przejść do szczegółów zadań w pozycji **Ustawienia** > **Zadania** > **Zadania usługi Site Recovery**.
+2. W obszarze **Kondycja** możesz monitorować problemy związane z serwerami lokalnymi (serwerami programu VMM lub konfiguracji) oraz zdarzenia wygenerowane przez usługę Site Recovery w ciągu ostatnich 24 godzin.
+3. Korzystając z kafelków **Elementy replikowane**, **Plany odzyskiwania** i **Zadania usługi Site Recovery**, możesz zarządzać replikacją i monitorować ją. Możesz przejść do szczegółów zadań w pozycji **Zadania** > **Zadania usługi Site Recovery**.
 
 ## <a name="next-steps"></a>Następne kroki
-Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](site-recovery-failover.md) o różnych typach trybu failover.
+Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](site-recovery-failover.md) o trybie failover.
 
