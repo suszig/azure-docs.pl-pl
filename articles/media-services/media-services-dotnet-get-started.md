@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -33,8 +33,8 @@ Do wykonania czynności przedstawionych w tym samouczku są niezbędne następuj
 
 * Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
-* .NET Framework 4.0 lub nowszy
-* Visual Studio 2010 z dodatkiem SP1 (Professional, Premium, Ultimate lub Express) lub nowszy.
+* .NET Framework 4.0 lub nowszy.
+* Program Visual Studio.
 
 W tym samouczku opisano następujące zadania:
 
@@ -81,7 +81,7 @@ Aby uruchomić punkt końcowy przesyłania strumieniowego, wykonaj następujące
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-1. Utwórz nową aplikację konsoli w języku C# w programie Visual Studio 2013, Visual Studio 2012 lub Visual Studio 2010 SP1. Uzupełnij informacje w polach **Nazwa**, **Lokalizacja** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
+1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio. Uzupełnij informacje w polach **Nazwa**, **Lokalizacja** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
 2. Użyj pakietu NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions), aby zainstalować **rozszerzenia zestawu .NET SDK usługi Azure Media Services**.  Rozszerzenia .NET SDK usługi Media Services to zestaw metod rozszerzeń i funkcji pomocniczych, które pozwalają uprościć kod i ułatwiają pracę z usługą Media Services. Podczas instalacji tego pakietu instalowany jest również zestaw **.NET SDK usługi Media Services** oraz dodawane są wszystkie inne wymagane zależności.
 
     Aby dodać odwołania za pomocą pakietu NuGet, wykonaj następujące czynności: w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Następnie wyszukaj pozycję **windowsazure.mediaservices.extensions** i kliknij przycisk **Instaluj**.
@@ -184,7 +184,7 @@ Metoda **CreateFromFile** przyjmuje opcje **AssetCreationOptions**, które pozwa
 
 * **None** — szyfrowanie nie jest stosowane. Jest to wartość domyślna. Należy pamiętać, że w przypadku korzystania z tej opcji zawartość nie jest chroniona w trakcie przesyłania lub przechowywania w magazynie.
   Jeśli planujesz dostarczać zawartość w formacie MP4 przy użyciu pobierania progresywnego, użyj tej opcji.
-* **StorageEncrypted** — ta opcja umożliwia lokalne szyfrowanie wyczyszczonej zawartości przy użyciu szyfrowania 256-bitowego Advanced Encryption Standard (AES), a następnie przekazanie jej do usługi Azure Storage, gdzie jest przechowywana w formie zaszyfrowanej. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
+* **StorageEncrypted** — ta opcja umożliwia lokalne szyfrowanie wyczyszczonej zawartości przy użyciu szyfrowania&256;-bitowego Advanced Encryption Standard (AES), a następnie przekazanie jej do usługi Azure Storage, gdzie jest przechowywana w formie zaszyfrowanej. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
 * **CommonEncryptionProtected** — za pomocą tej opcji można przekazać zawartość, która jest już zaszyfrowana i chroniona za pomocą wspólnego szyfrowania lub technologii PlayReady DRM (np. pliki Smooth Streaming chronione za pomocą technologii PlayReady DRM).
 * **EnvelopeEncryptionProtected** — ta opcja umożliwia przekazanie plików w formacie HLS zaszyfrowanych z użyciem standardu AES. Należy pamiętać, że pliki muszą być zakodowane i zaszyfrowane za pomocą narzędzia Transform Manager.
 

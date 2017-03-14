@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/17/2017
+ms.date: 03/02/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: cf72197aba2c6e6c7a51f96d1161cf1fbe88a0c5
-ms.openlocfilehash: 149f3daf1f61f459b0a0834c0f112574510d5259
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3ff2dcba568ed7ff83154cb6e1f1861ffb32a0d2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -55,7 +56,7 @@ Proces konfigurowania połączenia typu punkt-lokacja został podzielony na&4; s
 * **Sekcja 3** — eksportowanie i instalowanie certyfikatów klienta.
 * **Sekcja 4** — konfigurowanie klienta VPN.
 
-## <a name="a-namevnetvpnasection-1---create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>Sekcja 1 — tworzenie sieci wirtualnej i bramy sieci VPN
+## <a name="vnetvpn"></a>Sekcja 1 — tworzenie sieci wirtualnej i bramy sieci VPN
 ### <a name="part-1-create-a-virtual-network"></a>Część 1. Tworzenie sieci wirtualnej
 1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com). Zwróć uwagę, że te kroki odnoszą się do portalu klasycznego, a nie do witryny Azure Portal. Obecnie nie można utworzyć połączenia punkt-lokacja za pomocą witryny Azure Portal.
 2. W lewym dolnym rogu ekranu kliknij opcję **Nowe**. W okienku nawigacji kliknij opcję **Usługi sieciowe**, a następnie opcję **Sieć wirtualna**. Kliknij przycisk **Tworzenie niestandardowe**, aby rozpocząć korzystanie z kreatora konfiguracji.
@@ -86,7 +87,7 @@ Podczas konfiguracji należy wybrać dynamiczny typ bramy. Bramy o statycznym ro
 1. Na stronie **Sieci** w klasycznej witrynie Azure Portal kliknij sieć wirtualną, która została utworzona, a następnie przejdź na stronę **Pulpit nawigacyjny**.
 2. W dolnej części strony **Pulpit nawigacyjny** kliknij przycisk **Utwórz bramę**. Zostanie wyświetlony komunikat z pytaniem: **Czy chcesz utworzyć bramę sieci wirtualnej „VNet1”?**. Kliknij opcję **Tak**, aby rozpocząć tworzenie bramy. Proces tworzenia bramy może potrwać do 45 minut.
 
-## <a name="a-namegenerateasection-2---generate-and-upload-certificates"></a><a name="generate"></a>Sekcja 2 — generowanie i przekazywanie certyfikatów
+## <a name="generate"></a>Sekcja 2 — generowanie i przekazywanie certyfikatów
 Certyfikaty są używane do uwierzytelniania klientów sieci VPN w obrębie sieci VPN typu punkt-lokacja. Można stosować certyfikat z podpisem własnym lub certyfikat główny wygenerowany przez rozwiązanie do obsługi certyfikatów przedsiębiorstwa. Na platformę Azure można przekazać do 20 certyfikatów głównych. Po przekazaniu pliku cer platforma Azure może użyć zawartych w nim informacji do uwierzytelniania klientów, którzy mają zainstalowany certyfikat klienta. Certyfikat klienta musi zostać wygenerowany na podstawie tego samego certyfikatu, który jest reprezentowany przez plik cer.
 
 W tej sekcji wykonasz poniższe czynności:
@@ -95,35 +96,48 @@ W tej sekcji wykonasz poniższe czynności:
 * Przekaż plik cer do platformy Azure.
 * Wygeneruj certyfikaty klienta.
 
-### <a name="a-namerootapart-1-obtain-the-cer-file-for-the-root-certificate"></a><a name="root"></a>Część 1: Uzyskiwanie pliku cer dla certyfikatu głównego
-Jeśli używasz systemu certyfikatów przedsiębiorstwa, możesz uzyskać plik cer dla certyfikatu głównego, którego chcesz użyć. W [części 3](#createclientcert) wygenerujesz certyfikaty klienta na podstawie certyfikatu głównego.
+### <a name="root"></a>Część 1: Uzyskiwanie pliku cer dla certyfikatu głównego
+Jeśli korzystasz z rozwiązania dla przedsiębiorstwa, możesz użyć istniejącego łańcucha certyfikatów. Uzyskaj plik cer dla certyfikatu głównego, którego chcesz użyć.
 
-Jeśli nie używasz certyfikatu przedsiębiorstwa, musisz wygenerować certyfikat główny z podpisem własnym. Kroki dla systemu Windows 10 można znaleźć w temacie [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Praca z certyfikatami głównymi z podpisem własnym w konfiguracjach typu punkt-lokacja). W tym artykule opisano sposób korzystania z narzędzia makecert w celu wygenerowania certyfikatu z podpisem własnym, a następnie wyeksportowania pliku cer.
+Jeśli nie używasz rozwiązania z certyfikatem przedsiębiorstwa, musisz utworzyć certyfikat główny z podpisem własnym. Aby utworzyć certyfikat z podpisem własnym, który zawiera pola niezbędne do uwierzytelniania punkt-lokacja, użyj narzędzia makecert. Temat [Tworzenie certyfikatu głównego z podpisem własnym dla połączeń punkt-lokacja](vpn-gateway-certificates-point-to-site.md) zawiera opis kroków tworzenia certyfikatu głównego z podpisem własnym. Zdajemy sobie sprawę, że narzędzie makecert jest przestarzałe, ale tym razem jest to wspierane rozwiązanie.
 
-### <a name="a-nameuploadapart-2-upload-the-root-certificate-cer-file-to-the-azure-classic-portal"></a><a name="upload"></a>Część 2: Przekazywanie pliku cer certyfikatu głównego do klasycznej witryny Azure Portal
+>[!NOTE]
+>Chociaż tworzenie certyfikatów z podpisem własnym przy użyciu programu PowerShell jest możliwe, certyfikaty wygenerowane w ten sposób nie zawierają pól niezbędnych do uwierzytelniania punkt-lokacja.
+>
+
+
+#### <a name="to-obtain-the-cer-file-from-a-self-signed-root-certificate"></a>Aby uzyskać plik cer z certyfikatu głównego z podpisem własnym
+
+1. Aby uzyskać plik cer z certyfikatu głównego z podpisem własnym, otwórz plik **certmgr.msc** i zlokalizuj utworzony przez Ciebie certyfikat główny. Certyfikat znajduje się zwykle w lokalizacji „Certificates-Current User/ Personal/Certificates” i ma nazwę nadaną mu podczas tworzenia. Kliknij prawym przyciskiem myszy certyfikat główny z podpisem własnym, kliknij pozycję **wszystkie zadania**, a następnie kliknij pozycję **eksport**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**.
+2. W kreatorze kliknij pozycję **Dalej**, wybierz opcję **Nie eksportuj klucza prywatnego**, a następnie kliknij przycisk **Dalej**.
+3. Na stronie **Format pliku eksportu** wybierz pozycję **Certyfikat X.509 szyfrowany algorytmem Base-64 (.CER)**. Następnie kliknij przycisk **Dalej**.
+4. W obszarze **Eksport pliku** wybierz pozycję **Przeglądaj**, aby przejść do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **Next** (Dalej).
+5. Kliknij przycisk **Zakończ**, aby wyeksportować certyfikat.
+
+### <a name="upload"></a>Część 2: Przekazywanie pliku cer certyfikatu głównego do klasycznej witryny Azure Portal
 Dodaj zaufany certyfikat do platformy Azure. Po dodaniu do platformy Azure pliku x.509 szyfrowanego algorytmem Base64 (.cer) otrzymuje ona informację, że może zaufać certyfikatowi głównemu reprezentowanemu przez ten plik.
 
 1. W klasycznej witrynie Azure Portal na stronie **Certyfikaty** odnoszącej się do danej sieci wirtualnej kliknij pozycję **Przekaż certyfikat główny**.
 2. Na stronie **Przekaż certyfikat** wybierz lokalizację pliku .cer certyfikatu głównego, a następnie kliknij znacznik wyboru.
 
-### <a name="a-namecreateclientcertapart-3-generate-a-client-certificate"></a><a name="createclientcert"></a>Część 3: Generowanie certyfikatu klienta
+### <a name="createclientcert"></a>Część 3: Generowanie certyfikatu klienta
 Kolejny krok to generowanie certyfikatów klienta. Można wygenerować unikatowy certyfikat dla każdego klienta, dzięki któremu będzie można się łączyć, ale można też użyć tego samego certyfikatu na wielu klientach. Zaletą generowania unikatowych certyfikatów klienta jest możliwość odwoływania pojedynczego certyfikatu, jeśli to konieczne. W przeciwnym razie, jeśli wszyscy użytkownicy korzystają z tego samego certyfikatu klienta i konieczne jest odwołanie certyfikatu dla jednego klienta, należy wygenerować i zainstalować nowe certyfikaty dla wszystkich klientów, którzy używają certyfikatu do uwierzytelniania.
 
 ####<a name="enterprise-certificate"></a>Certyfikat przedsiębiorstwa
-- Jeśli pracujesz z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu typowego formatu wartości nazwy 'name@yourdomain.com',, a nie w formacie „nazwa_domeny\nazwa_użytkownika”.
+- Jeśli używasz rozwiązania z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu formatu wartości nazwy pospolitej „name@yourdomain.com”, a nie formatu „nazwa_domeny\nazwa_użytkownika”.
 - Upewnij się, że wydawany certyfikat klienta jest oparty na szablonie certyfikatu „Użytkownik”, którego pierwszym elementem na liście użycia jest „Uwierzytelnienie klienta”, a nie Logowanie karty inteligentnej itp. Certyfikat można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i wyświetlenie pozycji **Szczegóły > Ulepszone użycie klucza**.
 
 ####<a name="self-signed-certificate"></a>Certyfikat z podpisem własnym 
 Jeśli używasz certyfikatu z podpisem własnym i chcesz wygenerować certyfikat klienta, zobacz temat [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Praca z certyfikatami głównymi z podpisem własnym dla konfiguracji połączenia typu punkt-lokacja).
 
-## <a name="a-nameinstallclientcertasection-3---export-and-install-the-client-certificate"></a><a name="installclientcert"></a>Sekcja 3 — eksportowanie i instalowanie certyfikatu klienta
+## <a name="installclientcert"></a>Sekcja 3 — eksportowanie i instalowanie certyfikatu klienta
 Certyfikat klienta należy zainstalować na każdym komputerze, który zostanie połączony z siecią wirtualną. Certyfikat klienta jest wymagany do uwierzytelniania. Można zautomatyzować instalowanie certyfikatu klienta, ale możliwe jest też przeprowadzenie instalacji ręcznie. Kroki przedstawione poniżej opisują sposób postępowania w przypadku eksportu i ręcznej instalacji certyfikatu klienta.
 
 1. Aby wyeksportować certyfikat klienta, można użyć narzędzia *certmgr.msc*. Kliknij prawym przyciskiem myszy certyfikat klienta, który chcesz wyeksportować, a następnie kliknij przycisk **wszystkie zadania** i opcję **eksportuj**.
 2. Wyeksportuj certyfikat klienta z kluczem prywatnym. Klucz znajduje się w pliku *pfx*. Zapisz lub zapamiętaj hasło (klucz) ustawione dla tego certyfikatu.
 3. Skopiuj plik *.pfx* na komputer kliencki. Na komputerze klienckim kliknij dwukrotnie plik *pfx*, aby go zainstalować. Gdy zostanie wyświetlony stosowny monit, wprowadź hasło. Nie zmieniaj lokalizacji instalacji.
 
-## <a name="a-namevpnclientconfigasection-4---configure-your-vpn-client"></a><a name="vpnclientconfig"></a>Sekcja 4 — konfigurowanie klienta VPN
+## <a name="vpnclientconfig"></a>Sekcja 4 — konfigurowanie klienta VPN
 Aby nawiązać połączenie z siecią wirtualną, należy skonfigurować także klienta sieci VPN. W celu nawiązania połączenia klient wymaga zarówno certyfikatu klienta, jak i odpowiedniej konfiguracji klienta sieci VPN. Aby skonfigurować klienta sieci VPN, wykonaj po kolei następujące czynności.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>Część 1: Tworzenie pakietu konfiguracyjnego klienta VPN
@@ -172,7 +186,7 @@ Przykład:
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
 
-## <a name="a-namefaqapoint-to-site-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące połączeń typu punkt-lokacja
+## <a name="faq"></a>Często zadawane pytania dotyczące połączeń typu punkt-lokacja
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
@@ -181,10 +195,5 @@ Przykład:
 Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne).
 
 Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz artykuł [Virtual Network Documentation](/azure/virtual-network) (Dokumentacja sieci wirtualnych).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

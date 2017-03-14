@@ -4,20 +4,20 @@
 | Zasób | Limit domyślny | 
 | --- | --- | 
 | Konta usługi Azure Media Services (AMS) w jednej subskrypcji | 25 (stały) |
-| Jednostki zarezerwowane multimediów na konto AMS |25 (S1, S2)<br/>10 (S3)<sup>1</sup> | 
-| Zadania na konto AMS | 50 000<sup>2</sup> |
+| Jednostki zarezerwowane multimediów na konto AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Zadania na konto AMS | 50,000<sup>(2)</sup> |
 | Łańcuchowe zadania podrzędne na zadanie | 30 (stały) |
 | Elementy zawartości na konto AMS | 1 000 000|
 | Elementy zawartości na zadanie podrzędne | 50 |
 | Elementy zawartości na zadanie | 100 |
-| Unikatowe lokalizatory jednocześnie skojarzone z elementem zawartości | 5<sup>4</sup> |
+| Unikatowe lokalizatory jednocześnie skojarzone z elementem zawartości | 5<sup>(4)</sup> |
 | Kanały na żywo dla każdego konta AMS |5|
 | Programy w stanie zatrzymania na kanał |50|
 | Programy w stanie działania na kanał |3|
 | Punkty końcowe przesyłania strumieniowego w stanie działania na konto AMS|2|
 | Jednostki przesyłania strumieniowego na punkt końcowy przesyłania strumieniowego |10 |
-| Konta magazynu | 1000<sup>5</sup> (stały) |
-| Zasady | 1 000 000<sup>6</sup> |
+| Konta magazynu | 1000<sup>(5)</sup> (stały) |
+| Zasady | 1 000 000<sup>(6)</sup> |
 | Rozmiar pliku| W niektórych scenariuszach istnieje limit maksymalnego rozmiaru pliku do przetwarzania w usłudze Media Services. <sup>7</sup> |
   
 <sup>1</sup> Jednostki zarezerwowane S3 nie są dostępne w regionie Indie Zachodnie.
@@ -44,8 +44,3 @@ Począwszy od 1 kwietnia 2017 roku, wszystkie rekordy zadań na Twoim koncie, kt
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-

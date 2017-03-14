@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -24,8 +25,9 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js dla MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupcastep-2-set-up-your-c-application"></a><a id="SetupC++"></a>Krok 2. Konfigurowanie aplikacji języka C++
+## <a id="SetupC++"></a>Krok 2. Konfigurowanie aplikacji języka C++
 1. Otwórz program Visual Studio, w menu **Plik** kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**. 
 2. W oknie **Nowy projekt** w okienku **Zainstalowane** rozwiń węzeł **Visual C++**, kliknij pozycję **Win32**, a następnie kliknij pozycję **Aplikacja konsolowa Win32**. Nadaj projektowi nazwę hellodocumentdb, a następnie kliknij przycisk **OK**. 
    
@@ -79,12 +81,12 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
    
     Gdy pakiety zostaną dodane do projektu, będziemy gotowi do rozpoczęcia pisania kodu.   
 
-## <a name="a-idconfigastep-3-copy-connection-details-from-azure-portal-for-your-documentdb-database"></a><a id="Config"></a>Krok 3. Kopiowanie szczegółów połączenia z witryny Azure Portal dla bazy danych DocumentDB
+## <a id="Config"></a>Krok 3. Kopiowanie szczegółów połączenia z witryny Azure Portal dla bazy danych DocumentDB
 Wywołaj witrynę [Azure Portal](https://portal.azure.com) i przejdź do utworzonego konta bazy danych NoSQL (DocumentDB). W następnym kroku identyfikator URI i klucz podstawowy z witryny Azure Portal będą nam potrzebne do nawiązania połączenia z naszych fragmentów kodu w języku C++. 
 
 ![Identyfikator URI usługi DocumentDB i klucze w witrynie Azure Portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a name="a-idconnectastep-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>Krok 4. Łączenie z kontem usługi DocumentDB
+## <a id="Connect"></a>Krok 4. Łączenie z kontem usługi DocumentDB
 1. Po wierszu `#include "stdafx.h"` dodaj następujące nagłówki i przestrzenie nazw do kodu źródłowego.
    
         #include <cpprest/json.h>
@@ -102,7 +104,7 @@ Wywołaj witrynę [Azure Portal](https://portal.azure.com) i przejdź do utworzo
    
     Teraz, gdy masz kod do zainicjowania klienta usługi DocumentDB, przyjrzyjmy się pracy z zasobami usługi DocumentDB.
 
-## <a name="a-idcreatedbcollastep-5-create-a-c-database-and-collection"></a><a id="CreateDBColl"></a>Krok 5. Tworzenie bazy danych i kolekcji w języku C++
+## <a id="CreateDBColl"></a>Krok 5. Tworzenie bazy danych i kolekcji w języku C++
 Zanim wykonamy ten krok, zajmijmy się sposobem interakcji bazy danych, kolekcji i dokumentów dla osób, które zaczynają korzystanie z usługi DocumentDB. [Baza danych](documentdb-resources.md#databases) jest kontenerem logicznym magazynu dokumentów podzielonym na kolekcje. [Kolekcja](documentdb-resources.md#collections) jest kontenerem dokumentów JSON i skojarzonej logiki aplikacji JavaScript. Więcej informacji o modelu zasobów hierarchicznych i pojęciach usługi DocumentDB znajduje się w temacie [Pojęcia i hierarchiczny model zasobów bazy danych DocumentDB](documentdb-resources.md).
 
 Aby utworzyć bazę danych i odpowiednią kolekcję, dodaj następujący kod na końcu Twojej funkcji main. Spowoduje to utworzenie bazy danych o nazwie „FamilyRegistry” i kolekcji o nazwie „FamilyCollection” przy użyciu konfiguracji klienta zadeklarowanej w poprzednim kroku.
@@ -115,7 +117,7 @@ Aby utworzyć bazę danych i odpowiednią kolekcję, dodaj następujący kod na 
     }
 
 
-## <a name="a-idcreatedocastep-6-create-a-document"></a><a id="CreateDoc"></a>Krok 6. Tworzenie dokumentu
+## <a id="CreateDoc"></a>Krok 6. Tworzenie dokumentu
 [Dokumenty](documentdb-resources.md#documents) są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Teraz można wstawić dokument do usługi DocumentDB. Dokument można utworzyć, kopiując następujący kod i wklejając go na końcu funkcji main. 
 
     try {
@@ -137,7 +139,7 @@ Podsumowując, ten kod tworzy bazę danych, kolekcję i dokumenty usługi Docume
 
 ![Samouczek języka C++ — diagram pokazujący hierarchiczną relację między kontem, bazą danych, kolekcją i dokumentami](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a name="a-idquerydbastep-7-query-documentdb-resources"></a><a id="QueryDB"></a>Krok 7. Wykonywanie zapytań względem zasobów usługi DocumentDB
+## <a id="QueryDB"></a>Krok 7. Wykonywanie zapytań względem zasobów usługi DocumentDB
 Usługa DocumentDB obsługuje [zaawansowane zapytania](documentdb-sql-query.md) względem dokumentów JSON przechowywanych w każdej kolekcji. Następujący przykładowy kod przedstawia zapytanie wykonywane przy użyciu składni SQL usługi DocumentDB, które możesz uruchomić względem dokumentów utworzonych w poprzednim kroku.
 
 Funkcja przyjmuje jako argumenty unikatowy identyfikator lub identyfikator zasobu dla bazy danych i kolekcji wraz z klientem dokumentu. Dodaj następujący kod przed funkcją main.
@@ -168,7 +170,7 @@ Funkcja przyjmuje jako argumenty unikatowy identyfikator lub identyfikator zasob
       }
     }
 
-## <a name="a-idreplaceastep-8-replace-a-document"></a><a id="Replace"></a>Krok 8. Zastępowanie dokumentu
+## <a id="Replace"></a>Krok 8. Zastępowanie dokumentu
 Usługa DocumentDB obsługuje zastępowanie dokumentów JSON, jak pokazano w poniższym kodzie. Dodaj ten kod po funkcji executesimplequery.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -188,7 +190,7 @@ Usługa DocumentDB obsługuje zastępowanie dokumentów JSON, jak pokazano w pon
       }
     }
 
-## <a name="a-iddeleteastep-9-delete-a-document"></a><a id="Delete"></a>Krok 9. Usuwanie dokumentu
+## <a id="Delete"></a>Krok 9. Usuwanie dokumentu
 Usługa DocumentDB obsługuje usuwanie dokumentów JSON. W tym celu możesz skopiować następujący kod i wkleić go po funkcji replacedocument. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -203,7 +205,7 @@ Usługa DocumentDB obsługuje usuwanie dokumentów JSON. W tym celu możesz skop
       }
     }
 
-## <a name="a-iddeletedbastep-10-delete-a-database"></a><a id="DeleteDB"></a>Krok 10. Usuwanie bazy danych
+## <a id="DeleteDB"></a>Krok 10. Usuwanie bazy danych
 Usunięcie utworzonej bazy danych usunie bazę danych i wszystkie zasoby podrzędne (kolekcje, dokumenty itd.).
 
 Skopiuj poniższy fragment kodu (funkcja cleanup) i wklej go po funkcji deletedocument, aby usunąć bazę danych i wszystkie zasoby podrzędne.
@@ -216,7 +218,7 @@ Skopiuj poniższy fragment kodu (funkcja cleanup) i wklej go po funkcji deletedo
       }
     }
 
-## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>Krok 11. Uruchamianie całej aplikacji w języku C++!
+## <a id="Run"></a>Krok 11. Uruchamianie całej aplikacji w języku C++!
 Dodaliśmy kod do tworzenia, modyfikowania i usuwania różnych zasobów usługi DocumentDB oraz do wykonywania względem nich zapytań.  Połączmy to teraz ze sobą, dodając wywołania tych różnych funkcji w naszej funkcji main w pliku hellodocumentdb.cpp wraz z pewnymi komunikatami diagnostycznymi.
 
 Możesz to zrobić, zastępując funkcję main Twojej aplikacji poniższym kodem. Nadpisuje to parametry account_configuration_uri i primary_key, które zostały skopiowane do kodu w kroku 3, więc zapisz ten wiersz lub ponownie skopiuj wartości z portalu. 
@@ -276,7 +278,7 @@ Powinny zostać wyświetlone dane wyjściowe aplikacji rozpoczynania pracy. Dane
 
 Gratulacje! Udało Ci się ukończyć samouczek języka C++ i utworzyć swoją pierwszą aplikację konsolową usługi DocumentDB!
 
-## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>Pobieranie kompletnego rozwiązania samouczka języka C++
+## <a id="GetSolution"></a>Pobieranie kompletnego rozwiązania samouczka języka C++
 Aby skompilować rozwiązanie GetStarted, które zawiera wszystkie przykłady z tego artykułu, będą potrzebne następujące elementy:
 
 * [Konto usługi DocumentDB][documentdb-create-account].
@@ -289,10 +291,5 @@ Aby skompilować rozwiązanie GetStarted, które zawiera wszystkie przykłady z 
 
 [documentdb-create-account]: documentdb-create-account.md
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 
