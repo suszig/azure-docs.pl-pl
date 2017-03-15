@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
-ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -48,12 +48,9 @@ Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami 
    a.    Zainstaluj najnowszą wersję agenta usługi OMS dla systemu Linux, uruchamiając następujące polecenia.  Zastąp parametr <Workspace ID> identyfikatorem obszaru roboczego, a parametr <Key> kluczem podstawowym lub pomocniczym.
    
         cd ~
-        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
 
-   b. Aby usunąć agenta, uruchom następujące polecenie:
-   
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+   b. Aby usunąć agenta, wykonaj kroki procesu opisanego w sekcji [Uninstalling the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux) (Odinstalowywanie agenta pakietu OMS dla systemu Linux).  
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 Jeśli grupa zarządzania programu System Center Operations Manager jest połączona z obszarem roboczym usługi OMS, to następujące pakiety administracyjne zostaną zainstalowane w programie Operations Manager po dodaniu tego rozwiązania. Nie jest wymagana żadna konfiguracja ani obsługa tych pakietów administracyjnych. 

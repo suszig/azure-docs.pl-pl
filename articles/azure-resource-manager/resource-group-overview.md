@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/06/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
-ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,10 +93,10 @@ Wszystkich dostawców zasobów można pobrać za pomocą następującego polecen
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Alternatywnie wszystkich dostawców zasobów można pobrać za pomocą następującego polecenia interfejsu wiersza polecenia platformy Azure:
+Alternatywnie wszystkich dostawców zasobów można pobrać za pomocą następującego polecenia interfejsu wiersza polecenia platformy Azure w wersji 2.0:
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Zwróconą listę dostawców zasobów można przeszukać w celu znalezienia dostawców zasobów, których należy użyć.
@@ -106,10 +107,10 @@ Aby uzyskać szczegółowe informacje o dostawcy zasobów, do polecenia należy 
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-Alternatywnie obsługiwane typy zasobów, lokalizacje i wersje interfejsu API dla dostawcy Microsoft.Compute można pobrać za pomocą następującego polecenia interfejsu wiersza polecenia platformy Azure:
+Alternatywnie obsługiwane typy zasobów, lokalizacje i wersje interfejsu API dla dostawcy Microsoft.Compute można pobrać za pomocą następującego polecenia interfejsu wiersza polecenia platformy Azure w wersji 2.0:
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 Aby uzyskać więcej informacji, zobacz [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md) (Dostawcy, regiony, wersje interfejsów API i schematy usługi Resource Manager).
@@ -214,10 +215,10 @@ Aby pobrać wszystkie zasoby z wartością tagu, użyj następującego polecenia
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Innym rozwiązaniem jest użycie następującego polecenia interfejsu wiersza polecenia platformy Azure:
+Innym rozwiązaniem jest użycie następującego polecenia interfejsu wiersza polecenia platformy Azure w wersji 2.0:
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tag costCenter=Finance
 ```
 
 Oznakowane zasoby można również wyświetlić za pośrednictwem witryny Azure Portal.
@@ -343,9 +344,4 @@ Oto film z omówieniem tego zagadnienia:
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

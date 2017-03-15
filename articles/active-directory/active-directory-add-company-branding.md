@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -133,6 +134,10 @@ Jeśli preferowanym językiem jest niemiecki, na stronie logowania wyświetlany 
 
 Pomimo że technicznie można skonfigurować różne zestawy dla każdego z języków obsługiwanych przez usługę Azure AD, zalecamy utrzymanie małej liczby wersji ze względu na wydajność i konserwację.
 
+> [!IMPORTANT]
+> Usługa Yammer nie pokazuje strony logowania brandowanej przez usługę Azure AD do czasu, aż użytkownik zaloguje się. Użytkownik najpierw widzi ogólną stronę logowania usługi Office 365, a dopiero po zalogowaniu się widzi brandowaną stronę.   
+ 
+ 
 **Aby dodać znakowanie firmowe do katalogu, wykonaj następujące czynności:**
 
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator katalogu, który chcesz dostosować.
@@ -148,7 +153,7 @@ Uwzględnienie nowych zmian znakowania na stronie logowania może potrwać do go
 
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator katalogu, który chcesz dostosować.
 2. Wybierz katalog, który chcesz dostosować.
-3. Na pasku narzędzi u góry kliknij przycisk **Konfiguruj**.
+fs3. Na pasku narzędzi u góry kliknij przycisk **Konfiguruj**.
 4. Kliknij pozycję **Customize Branding (Dostosuj znakowanie)**.
 5. Kliknij pozycję **Add branding for a specific language (Dodaj znakowanie dla określonego języka)**.
 6. Wybierz język, dla którego chcesz dostosować logo, a następnie kliknij przycisk **Dalej**.
@@ -221,9 +226,4 @@ Niektóre elementy dostosowywalne w usłudze Azure AD mają wiele zastosowań. M
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,38 +13,42 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ba659fe42fa2264708833f5674711334845defcc
-ms.openlocfilehash: 283e71f03f3907fd1e72283059ba7acbdac054d4
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informacje o urządzeniach sieci VPN używanych na potrzeby połączeń bramy VPN typu lokacja-lokacja
 Urządzenie sieci VPN jest niezbędne do skonfigurowania połączenia sieci VPN typu lokacja-lokacja obejmującego wiele lokalizacji (S2S) przy użyciu bramy sieci VPN. Połączeń typu lokacja-lokacja można użyć do tworzenia rozwiązań hybrydowych oraz bezpiecznych połączeń między siecią lokalną i wirtualną. W tym artykule omówiono zgodne urządzenia sieci VPN oraz parametry konfiguracji.
 
-> [!NOTE]
-> Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.                                                                                                                                                                               
->
->
-
-Jeśli urządzenie nie jest wyświetlane w tabeli [zweryfikowanych urządzeń sieci VPN](#devicetable), zapoznaj się z sekcją tego artykułu poświęconą [niezweryfikowanym urządzeniom VPN](#additionaldevices). Istnieje możliwość, że urządzenie będzie działało na platformie Azure. W celu uzyskania pomocy technicznej w zakresie urządzenia VPN należy skontaktować się z jego producentem.
 
 > [!IMPORTANT]
-> Jeśli występują problemy z połączeniem między urządzeniami lokalnymi sieci VPN i bramami sieci VPN Azure, zapoznaj się z sekcją [Znane problemy dotyczące zgodności urządzeń](#known).
+> Jeśli występują problemy z połączeniem między urządzeniami lokalnymi sieci VPN i bramami sieci VPN platformy Azure, zapoznaj się z sekcją [Znane problemy dotyczące zgodności urządzeń](#known).
+> 
+> 
 
-**Kwestie, które należy wziąć pod uwagę podczas przeglądania tabel:**
+
+###<a name="items-to-note-when-viewing-the-tables"></a>Kwestie, które należy wziąć pod uwagę podczas przeglądania tabeli:
 
 * Nastąpiła zmiana terminologii w zakresie routingu statycznego i dynamicznego. W publikacjach można z powodzeniem natknąć się na oba warianty pojęć. Nie nastąpiła żadna zmiana w zakresie funkcjonalności — zmieniły się jedynie nazwy.
   * Routing statyczny = PolicyBased
   * Routing dynamiczny = RouteBased
 * Specyfikacje dotyczące bramy VPN o wysokiej wydajności i bramy VPN typu RouteBased są takie same, o ile nie określono inaczej. Np. urządzenia sieci VPN zweryfikowane pod kątem poprawności, które są zgodne z bramami sieci VPN typu RouteBased, są również zgodne z bramą VPN Azure o wysokiej wydajności.
 
-## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Zweryfikowane urządzenia sieci VPN
+> [!NOTE]
+> Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.                                                                                                                                                                               
+>
+>
+
+
+## <a name="devicetable"></a>Zweryfikowane urządzenia sieci VPN
 Zweryfikowaliśmy szereg standardowych urządzeń sieci VPN we współpracy z ich dostawcami. Wszystkie urządzenia z rodzin ujętych na poniższej liście powinny współpracować z bramami sieci VPN Azure. Aby sprawdzić typ bramy niezbędnej do utworzenia rozwiązania, które chcesz skonfigurować, zobacz artykuł [Bramy sieci VPN — informacje](vpn-gateway-about-vpngateways.md).
 
-Aby łatwiej skonfigurować urządzenie sieci VPN, zapoznaj się z linkami odpowiadającymi ich poszczególnym rodzinom. W celu uzyskania pomocy technicznej w zakresie urządzenia VPN należy skontaktować się z jego producentem.
+Aby łatwiej skonfigurować urządzenie sieci VPN, zapoznaj się z linkami odpowiadającymi ich poszczególnym rodzinom. W celu uzyskania pomocy technicznej w zakresie urządzenia sieci VPN należy skontaktować się z jego producentem.
 
 | **Dostawca** | **Rodzina urządzeń** | **Minimalna wersja systemu operacyjnego** | **PolicyBased** | **RouteBased** |
 | --- | --- | --- | --- | --- |
@@ -73,13 +77,13 @@ Aby łatwiej skonfigurować urządzenie sieci VPN, zapoznaj się z linkami odpow
 
 (*) Routery z serii ISR 7200 obsługują tylko sieci VPN typu PolicyBased.
 
-## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Niezweryfikowane urządzenia sieci VPN
-Jeśli urządzenie nie zostało ujęte w tabeli zweryfikowanych urządzeń sieci VPN, być może będzie działało w ramach połączenia typu lokacja-lokacja. Sprawdź, czy urządzenie sieci VPN spełnia minimalne wymagania opisane w sekcji wymagań dotyczących bram artykułu [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md). Urządzenia spełniające minimalne wymagania powinny również działać z bramami sieci VPN. Dodatkową pomoc oraz instrukcje dotyczące konfiguracji można uzyskać, kontaktując się z producentem urządzenia.
+## <a name="additionaldevices"></a>Niezweryfikowane urządzenia sieci VPN
+Jeśli urządzenie nie zostało ujęte w tabeli zweryfikowanych urządzeń sieci VPN, być może będzie działało w ramach połączenia typu lokacja-lokacja. Dodatkową pomoc oraz instrukcje dotyczące konfiguracji można uzyskać, kontaktując się z producentem urządzenia.
 
-## <a name="editing-device-configuration-samples"></a>Edytowanie przykładów konfiguracji urządzenia
+## <a name="editing"></a>Edytowanie przykładów konfiguracji urządzenia
 Po pobraniu dostarczonej przykładowej konfiguracji urządzenia sieci VPN należy zastąpić niektóre z wartości w celu odzwierciedlenia ustawień własnego środowiska.
 
-**Aby edytować przykładową konfigurację:**
+###<a name="to-edit-a-sample"></a>Aby edytować przykładową konfigurację:
 
 1. Otwórz przykładową konfigurację za pomocą Notatnika.
 2. Wyszukaj i zamień wszystkie ciągi <*text*> z wartościami, które odnoszą się do używanego środowiska. Nie zapomnij o nawiasach < i >. Podczas określenia nazwy należy zwrócić uwagę na to, aby była ona unikatowa. Jeśli polecenie nie działa, zapoznaj się z dokumentacją producenta urządzenia.
@@ -98,7 +102,7 @@ Po pobraniu dostarczonej przykładowej konfiguracji urządzenia sieci VPN należ
 | &lt;SP_AzureGatewayIpAddress&gt; |Te informacje dotyczące konkretnej sieci wirtualnej znajdują się w portalu zarządzania usługą, w obszarze **Adres IP bramy**. |
 | &lt;SP_PresharedKey&gt; |Te informacje dotyczące konkretnej sieci wirtualnej znajdują się w portalu zarządzania usługą, w obszarze Zarządzaj kluczem. |
 
-## <a name="ipsec-parameters"></a>Parametry protokołu IPsec
+## <a name="IPSec"></a>Parametry protokołu IPsec
 > [!NOTE]
 > Choć wartości wymienione w poniższej tabeli są obsługiwane przez bramę sieci VPN Azure, obecnie nie istnieje sposób na określenie lub wybranie określonej kombinacji z obszaru bramy sieci VPN Azure. Należy określić wszystkie ograniczenia z poziomu lokalnego urządzenia sieci VPN. Ponadto należy określić ograniczenie wartości MSS na 1350.
 >
@@ -121,7 +125,7 @@ Po pobraniu dostarczonej przykładowej konfiguracji urządzenia sieci VPN należ
 | Algorytm skrótu |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Okres istnienia (czas) skojarzenia zabezpieczeń (Security Association — SA) fazy 2 |3600 sekund |3600 sekund |
 | Okres istnienia (przepływność) skojarzenia zabezpieczeń (Security Association — SA) fazy 2 |102 400 000 KB |- |
-| Oferty szyfrowania i uwierzytelniania skojarzeń zabezpieczeń protokołu IPsec (wymienione w kolejności preferencji) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Nie dotyczy |Zobacz *Oferty skojarzeń zabezpieczeń (SA) protokołu IPsec bramy typu RouteBased* (poniżej). |
+| Oferty szyfrowania i uwierzytelniania skojarzeń zabezpieczeń protokołu IPsec (wymienione w kolejności preferencji) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Nie dotyczy |Zobacz „Oferty skojarzeń zabezpieczeń (SA) protokołu IPsec bramy typu RouteBased” (poniżej) |
 | Doskonałe utajnienie przekazywania (PFS) |Nie |Nie (*) |
 | Wykrywanie nieaktywnych elementów równorzędnych |Nieobsługiwane |Obsługiwane |
 
@@ -154,21 +158,16 @@ W poniższej tabeli przedstawiono oferty szyfrowania i uwierzytelniania skojarze
 * Można określić wartość NULL szyfrowania ESP protokołu IPsec z bramami sieci VPN typu RouteBased i bramami sieci VPN o wysokiej wydajności. Szyfrowanie oparte na wartości null nie zapewnia ochrony danych w trakcie ich przesyłania i powinno być używane wyłącznie w przypadku, gdy wymagana jest maksymalna przepływność i minimalne opóźnienia.  Klienci mogą skorzystać z tej możliwości w kontekście scenariuszy komunikacji między sieciami wirtualnymi lub w przypadku, gdy szyfrowanie jest stosowane w innym obszarze rozwiązania.
 * Chcąc korzystać z łączności przez Internet obejmującej wiele lokalizacji, należy użyć ustawień domyślnych usługi Azure VPN Gateway z szyfrowaniem i algorytmami skrótu wymienionymi w tabelach powyżej w celu zapewnienia bezpieczeństwa komunikacji o krytycznym znaczeniu.
 
-## <a name="a-nameknownaknown-device-compatibility-issues"></a><a name="known"></a>Znane problemy dotyczące zgodności urządzeń
+## <a name="known"></a>Znane problemy dotyczące zgodności urządzeń
 
 > [!IMPORTANT]
-> Opisano tu znane problemy ze zgodnością między urządzeniami sieci VPN innych firm i bramami sieci VPN Azure. Zespołu platformy Azure aktywnie współpracuje z dostawcami w celu rozwiązania opisanych poniżej problemów. Po rozwiązaniu problemów ta strona zostanie zaktualizowana o najbardziej aktualne informacje. Sprawdzaj ją okresowo.
+> Opisano tu znane problemy ze zgodnością między urządzeniami sieci VPN innych firm i bramami sieci VPN platformy Azure. Zespołu platformy Azure aktywnie współpracuje z dostawcami w celu rozwiązania opisanych poniżej problemów. Po rozwiązaniu problemów ta strona zostanie zaktualizowana o najbardziej aktualne informacje. Sprawdzaj ją okresowo.
 
 ###<a name="feb-16-2017"></a>16 lutego 2017 r.
 
-**Urządzenia Palo Alto Networks z systemem w wersjach wcześniejszych niż 7.1.4** w przypadku sieci VPN na platformie Azure opartych na trasie: Jeśli korzystasz z urządzeń VPN firmy Palo Alto Networks z systemem PAN-OS w wersji wcześniejszej niż 7.1.4 i napotykasz problemy z połączeniem z bramami sieci VPN Azure opartymi na trasie, wykonaj następujące czynności:
+**Urządzenia Palo Alto Networks z systemem w wersjach wcześniejszych niż 7.1.4** w przypadku sieci VPN na platformie Azure opartych na trasie: Jeśli korzystasz z urządzeń VPN firmy Palo Alto Networks z systemem PAN-OS w wersji wcześniejszej niż 7.1.4 i napotykasz problemy z połączeniem z bramami sieci VPN platformy Azure opartymi na trasie, wykonaj następujące czynności:
 
 1. Sprawdź wersję oprogramowania układowego urządzenia Palo Alto Networks. Jeśli system PAN-OS jest w wersji wcześniejszej niż 7.1.4, przeprowadź uaktualnienie do wersji 7.1.4.
-2. Na urządzeniu Palo Alto Networks zmień okres istnienia Phase 2 SA (lub Quick Mode SA) na 28 800 sekund (8 godzin) podczas nawiązywania połączenia z bramą Azure VPN.
-3. Jeśli nadal występuje problem z łącznością, otwórz żądanie obsługi w witrynie Azure Portal. 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+2. Na urządzeniu Palo Alto Networks zmień okres istnienia Phase 2 SA (lub Quick Mode SA) na 28 800 sekund (8 godzin) podczas nawiązywania połączenia z bramą VPN platformy Azure.
+3. Jeśli nadal masz problemy z łącznością, otwórz żądanie obsługi w witrynie Azure Portal.
 

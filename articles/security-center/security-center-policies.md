@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
-ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -33,38 +34,38 @@ Zasady zabezpieczeń można skonfigurować dla każdej subskrypcji lub grupy zas
 
 1. Kliknij kafelek **Zasady** na pulpicie nawigacyjnym usługi Security Center.
 2. W otwartym bloku **Zasady zabezpieczeń — Zdefiniuj zasady dla subskrypcji lub grupy zasobów** wybierz subskrypcję, dla której chcesz włączyć zasady zabezpieczeń. Jeśli wolisz włączyć zasady zabezpieczeń dla grupy zasobów, a nie dla całej subskrypcji, przewiń w dół do następnej sekcji, w której opisano konfigurowanie zasad zabezpieczeń dla grupy zasobów.
-   
+
     ![Definiowanie zasad](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Zostanie otwarty blok **Zasady zabezpieczeń** dla wybranej subskrypcji z zestawem opcji podobnym do przedstawionego poniżej:
-   
+
     ![Włączanie zbierania danych](./media/security-center-policies/security-center-policies-fig2-ga.png)
-   
+
     Opcje dostępne w tym bloku to:
-   
+
    * **Zasady zapobiegania**: ta opcja umożliwia konfigurowanie zasad dla subskrypcji lub grupy zasobów.  
    * **Powiadomienie e-mail**: ta opcja umożliwia konfigurowanie powiadomienia e-mail, które jest wysyłane po pierwszym wystąpieniu alertu w ciągu dnia i w przypadku alertów o wysokiej ważności. Preferencje poczty e-mail można konfigurować tylko dla zasad dotyczących subskrypcji. Więcej informacji dotyczących sposobu konfigurowania powiadomień e-mail można znaleźć w artykule [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) (Wprowadzanie danych kontaktowych na potrzeby zabezpieczeń w usłudze Azure Security Center).
-   * **Warstwa cenowa**: użyj tej opcji, aby uaktualnić wybór warstwy cenowej. Odwiedź [stronę usługi Security Center](https://azure.microsoft.com/pricing/details/security-center/), aby dowiedzieć się więcej na temat cen.
+   * **Warstwa cenowa**: użyj tej opcji, aby uaktualnić wybór warstwy cenowej. Zobacz [cennik usługi Security Center](security-center-pricing.md), aby dowiedzieć się więcej na temat opcji cen.
 4. Upewnij się, że opcja **Zbieraj dane z maszyn wirtualnych** jest włączona (**Wł.**). Ta opcja umożliwia automatyczne zbieranie danych dziennika dla istniejących i nowych zasobów.
-   
+
    > [!NOTE]
    > Zaleca się włączenie funkcji zbierania danych dla każdej subskrypcji, ponieważ gwarantuje to, że monitorowanie zabezpieczeń jest dostępne dla wszystkich istniejących i nowych maszyn wirtualnych. Włączenie zbierania danych instaluje agenta monitorowania. Jeśli nie chcesz teraz włączać funkcji zbierania danych z tej lokalizacji, możesz zrobić to później w widokach **Kondycja** i **Zalecenia**. Możesz również włączyć funkcję zbierania danych tylko dla subskrypcji lub dla wybranych maszyn wirtualnych. Więcej informacji na temat obsługiwanych maszyn wirtualnych znajduje się w artykule [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md).
-   > 
-   > 
+   >
+   >
 5. Jeśli konto magazynu nie jest jeszcze skonfigurowane, po otwarciu bloku **Zasady zabezpieczeń** może zostać wyświetlone ostrzeżenie podobne do pokazanego na poniższym zrzucie ekranu. Jeśli nie zostanie wybrane konto magazynu dla każdego regionu, zostanie ono utworzone automatycznie.
-   
+
     ![Wybór magazynu](./media/security-center-policies/security-center-policies-fig2.png)
 6. Jeśli to ostrzeżenie zostanie wyświetlone, kliknij tę opcję i wybierz region, jak pokazano na poniższym zrzucie ekranu:
-   
+
     ![Wybór magazynu](./media/security-center-policies/security-center-policies-fig3-ga.png)
 7. Dla każdego regionu, w którym zostały uruchomione maszyny wirtualne, wybierz konto magazynu, w którym będą przechowywane dane z tych maszyn. Dzięki temu można łatwo przechowywać dane w tym samym obszarze geograficznym w celu zachowania prywatności i poufności danych. Po podjęciu decyzji, którego regionu będziesz używać, wybierz region, a następnie wybierz konto magazynu.
 8. W bloku **Wybieranie kont magazynu** kliknij przycisk **OK**.
-   
+
    > [!NOTE]
    > Jeśli wolisz, możesz agregować dane z maszyn wirtualnych działających w różnych regionach w jednym centralnym koncie magazynu. Więcej informacji znajduje się w temacie [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md).
-   > 
-   > 
+   >
+   >
 9. W bloku **Zasady zabezpieczeń** kliknij przycisk **Wł.**, aby włączyć zalecenia dotyczące zabezpieczeń, których chcesz użyć dla tej subskrypcji. Kliknij pozycję **Zasady zapobiegania**, aby wyświetlić opcje, jak te na poniższym zrzucie ekranu:
-   
+
     ![Wybieranie zasad zabezpieczeń](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Użyj poniższej tabeli jako źródła informacji, aby zrozumieć do czego służą poszczególne opcje:
@@ -72,7 +73,7 @@ Użyj poniższej tabeli jako źródła informacji, aby zrozumieć do czego słu�
 | Zasady | Gdy ustawienie jest włączone |
 | --- | --- |
 | Aktualizacje systemu |Codziennie pobiera listę dostępnych aktualizacji zabezpieczeń i aktualizacji krytycznych z usługi Windows Update lub Windows Server Update Services. Pobierana lista zależy od usługi, która jest skonfigurowana dla tej maszyny wirtualnej. Zaleca się zastosowanie brakujących aktualizacji. W systemach Linux korzysta z systemu zarządzania pakietami udostępnionego wraz z dystrybucją, aby ustalić, dla których pakietów są dostępne aktualizacje. Sprawdzane są również aktualizacje zabezpieczeń i aktualizacje krytyczne z maszyn wirtualnych usługi [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure.md). |
-| Luki w zabezpieczeniach systemu operacyjnego |Analizuje codziennie konfigurację systemu operacyjnego w celu określenia problemów, które mogą uczynić maszynę wirtualną podatną na ataki. Zaleca także dokonanie zmian w konfiguracji w celu usunięcia tych luk w zabezpieczeniach. Więcej informacji na temat określonych monitorowanych ustawień konfiguracyjnych znajduje się na [liście zalecanych linii bazowych](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
+| Luki w zabezpieczeniach systemu operacyjnego |Analizuje codziennie konfigurację systemu operacyjnego w celu określenia problemów, które mogą uczynić maszynę wirtualną podatną na ataki. Zaleca także dokonanie zmian w konfiguracji w celu usunięcia tych luk w zabezpieczeniach. Więcej informacji na temat określonych monitorowanych ustawień konfiguracyjnych znajduje się na [liście zalecanych linii bazowych](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (Obecnie system Windows Server 2016 nie jest w pełni obsługiwany). |
 | Ochrona punktów końcowych |Zaleca ochronę punktów końcowych, które mają zostać aprowizowane dla wszystkich maszyn wirtualnych systemu Windows, aby ułatwić identyfikację oraz usunięcie wirusów, programów szpiegujących oraz innego złośliwego oprogramowania. |
 | Szyfrowanie dysków |Zaleca włączenie szyfrowania dysków na wszystkich maszynach wirtualnych w celu zwiększenia ochrony magazynowanych danych. |
 | Grupy zabezpieczeń sieci |Zaleca się, aby [sieciowe grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md) były skonfigurowane do kontrolowania ruchu przychodzącego i wychodzącego do maszyn wirtualnych z publicznymi punktami końcowymi. Grupy zabezpieczeń sieci skonfigurowane dla podsieci będą dziedziczone przez wszystkie interfejsy sieciowe maszyny wirtualnej, chyba że określono inaczej. Oprócz sprawdzania, czy grupa zabezpieczeń sieci została skonfigurowana, ta opcja również ocenia reguły zabezpieczeń ruchu przychodzącego w celu określenia, czy istnieją takie, które zezwalają na ruch przychodzący. |
@@ -95,8 +96,8 @@ Po wybraniu grupy zasobów zostanie otwarty blok **Zasady zabezpieczeń**. Domy�
 
 > [!NOTE]
 > Jeśli między zasadami na poziomie subskrypcji a zasadami na poziomie grupy zasobów występuje konflikt, pierwszeństwo mają zasady na poziomie grupy zasobów.
-> 
-> 
+>
+>
 
 ## <a name="see-also"></a>Zobacz też
 W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabezpieczeń Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
@@ -107,10 +108,4 @@ W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabe
 * [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md). Informacje na temat sposobu monitorowania stanu kondycji rozwiązań partnerskich.
 * [Azure Security Center — często zadawane pytania](security-center-faq.md). Odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/). Wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -32,7 +33,7 @@ Ten scenariusz pokazano w [wideo w witrynie Channel 9](https://channel9.msdn.com
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Tworzenie funkcji, która zapisuje do kolejki
 
-Przed połączeniem się z kolejką magazynu należy utworzyć funkcję, która ładuje kolejkę komunikatów. Ta funkcja JavaScript korzysta z wyzwalacza czasomierza, który zapisuje komunikat do kolejki co 10 sekund. Jeśli nie masz jeszcze konta platformy Azure, zapoznaj się ze środowiskiem [Wypróbuj funkcje Azure](https://functions.azure.com/try) lub [utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/).
+Przed połączeniem się z kolejką magazynu należy utworzyć funkcję, która ładuje kolejkę komunikatów. Ta funkcja JavaScript korzysta z wyzwalacza czasomierza, który zapisuje komunikat do kolejki co 10 sekund. Jeśli nie masz jeszcze konta platformy Azure, zapoznaj się ze środowiskiem [Wypróbuj usługę Azure Functions](https://functions.azure.com/try) lub [utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/).
 
 1. Przejdź do witryny Azure Portal i wyszukaj aplikację funkcji.
 
@@ -125,7 +126,7 @@ Teraz, gdy komunikaty są dodawane do kolejki, możesz utworzyć inną funkcję,
 
     ![Dodawanie powiązania do tabeli usługi Azure Storage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Wprowadź wartość `TableItem` w polu **Nazwa tabeli** i `functionbindings` w polu **Nazwa parametru tabeli**, wybierz **Połączenie konta magazynu** lub utwórz nowe, a następnie kliknij przycisk **Zapisz**.
+2. Wprowadź wartość `functionbindings` w polu **Nazwa tabeli** i `myTable` w polu **Nazwa parametru tabeli**, wybierz **Połączenie konta magazynu** lub utwórz nowe, a następnie kliknij przycisk **Zapisz**.
 
     ![Konfigurowanie powiązania tabeli magazynu](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,7 +181,7 @@ Teraz, gdy komunikaty są dodawane do kolejki, możesz utworzyć inną funkcję,
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Poniższe tematy umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Functions.
+Aby uzyskać więcej informacji na temat usługi Azure Functions, zobacz poniższe tematy:
 
 * [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)  
   Dokumentacja dla programistów dotycząca kodowania funkcji oraz definiowania wyzwalaczy i powiązań.
@@ -190,10 +191,5 @@ Poniższe tematy umożliwiają uzyskanie dodatkowych informacji na temat usługi
   Omówienie planów usług dostępnych w środowisku Azure Functions, w tym planu hostingowego zużycia, oraz sposobu wybierania właściwego planu. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

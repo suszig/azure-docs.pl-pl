@@ -15,48 +15,36 @@ ms.topic: get-started-article
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
+ms.sourcegitcommit: 22b50dd6242e8c10241b0626b48f8ef842b6b0fd
+ms.openlocfilehash: c33ca9e5292096a0fd96d98da3e89d721463e903
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="how-does-azure-site-recovery-work"></a>W jaki sposób działa usługa Azure Site Recovery?
 
-Przeczytaj ten artykuł, aby zrozumieć podstawową architekturę usługi Azure Site Recovery i składników, dzięki którym działa.
-
-Usługa Site Recovery jest usługą platformy Azure, która wspiera strategię BCDR przez organizowanie replikacji lokalnych serwerów fizycznych i maszyn wirtualnych do chmury (Azure) lub dodatkowego centrum danych. W przypadku wystąpienia awarii w lokalizacji głównej następuje przełączenie w trybie failover do lokalizacji dodatkowej, dzięki czemu aplikacje i obciążenia są nadal dostępne. Powrót po awarii może mieć miejsce do lokalizacji głównej, gdy powróci ona do normalnego działania. Dowiedz się więcej w temacie [Co to jest usługa Site Recovery?](site-recovery-overview.md)
-
-W tym artykule opisano wdrażanie w witrynie [Azure Portal](https://portal.azure.com). [Klasycznej witryny Azure Portal](https://manage.windowsazure.com/) można używać do obsługi istniejących magazynów usługi Site Recovery, ale nie można tworzyć nowych magazynów za jej pomocą.
+Przeczytaj ten artykuł, aby zrozumieć podstawową architekturę usługi [Azure Site Recovery](site-recovery-overview.md) i składników, dzięki którym działa.
 
 Zamieść wszelkie komentarze pod tym artykułem lub na [forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="deployment-scenarios"></a>Scenariusze wdrażania
+## <a name="replication-to-azure"></a>Replikacja do platformy Azure
 
-Usługa Site Recovery może zostać wdrożona w celu organizowania replikacji w wielu scenariuszach:
+Oto co możesz replikować do platformy Azure:
+- **VMware**: Lokalne maszyny wirtualne programu VMware działające na [obsługiwanym hoście](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Replikować możesz maszyny wirtualne programu VMware, na których działają [obsługiwane systemy operacyjne](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+- **Hyper-V**: Lokalne maszyny wirtualne funkcji Hyper-V działające na [obsługiwanych hostach](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+- **Maszyny fizyczne**: Lokalne serwery fizyczne z systemem Windows lub Linux działające w [obsługiwanych systemach operacyjnych](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). Replikować możesz maszyny wirtualne funkcji Hyper-V, na których działa dowolny system operacyjny gościa [obsługiwany przez funkcję Hyper-V i platformę Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-- **Replikowanie maszyn wirtualnych VMware**: lokalne maszyny wirtualne VMware można replikować na platformę Azure lub do dodatkowego centrum danych.
-- **Replikowanie maszyn fizycznych**: maszyny fizyczne (z systemem Windows lub Linux) można replikować na platformę Azure lub do dodatkowego centrum danych. Proces replikowania maszyn fizycznych jest prawie taki sam jak proces replikowania maszyn wirtualnych VMware.
-- **Replikowanie maszyn wirtualnych funkcji Hyper-V**: maszyny wirtualne funkcji Hyper-V można replikować na platformę Azure lub do dodatkowej lokacji programu VMM. Jeśli mają one być replikowane do dodatkowej lokacji, muszą być zarządzane w chmurach programu System Center Virtual Machine Manager (VMM).
-- **Migrowanie maszyn wirtualnych**: oprócz replikowania (replikacja, tryb failover i powrót po awarii) lokalnych maszyn wirtualnych i serwerów fizycznych do platformy Azure, można również przeprowadzić ich migrację do maszyn wirtualnych platformy Azure (replikacja, tryb failover, bez powrotu po awarii). Można wykonać następujące czynności:
-    - Przeprowadzić migrację obciążeń działających na lokalnych maszynach wirtualnych funkcji Hyper-V, maszynach wirtualnych programu VMware i serwerach fizycznych, aby działały na maszynach wirtualnych platformy Azure.
-    - Przeprowadzić migrację [maszyn wirtualnych IaaS platformy Azure](site-recovery-migrate-azure-to-azure.md) między regionami platformy Azure. W tym scenariuszu aktualnie jest obsługiwana tylko migracja, co oznacza, że powrót po awarii nie jest obsługiwany.
-    - Przeprowadzić migrację [wystąpień usługi AWS dla systemu Windows](site-recovery-migrate-aws-to-azure.md) do maszyn wirtualnych IaaS platformy Azure. W tym scenariuszu aktualnie jest obsługiwana tylko migracja, co oznacza, że powrót po awarii nie jest obsługiwany.
+## <a name="vmware-replication-to-azure"></a>Replikacja z programu VMware do platformy Azure
 
-Usługa Site Recovery replikuje aplikacje działające na obsługiwanych maszynach wirtualnych lub serwerach fizycznych. Aby uzyskać pełne podsumowanie obsługiwanych aplikacji, zobacz [What workloads can Azure Site Recovery protect?](site-recovery-workload.md) (Jakie obciążenia może chronić usługa Azure Site Recovery?).
-
-## <a name="replicate-vmware-vmsphysical-servers-to-azure"></a>Replikacja maszyn wirtualnych VMware/serwerów fizycznych do platformy Azure
-
-### <a name="components"></a>Składniki
-
-**Składnik** | **Szczegóły**
---- | ---
-**Azure** | W przypadku platformy Azure konieczne jest posiadanie konta platformy Microsoft Azure, konta usługi Azure Storage i sieci platformy Azure.<br/><br/> Konta magazynu i sieci mogą być kontami usługi Resource Manager lub kontami klasycznymi.<br/><br/>  Replikowane dane są przechowywane na koncie magazynu. W przypadku wystąpienia w lokacji lokalnej przejścia w tryb failover maszyny wirtualne platformy Azure są tworzone przy użyciu zreplikowanych danych. Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
-**Serwer konfiguracji** | Serwer konfiguracji jest konfigurowany lokalnie na potrzeby koordynowania komunikacji między lokacją lokalną i platformą Azure oraz w celu zarządzania replikacją danych.
-**Serwer przetwarzania** | Instalowany domyślnie na lokalnym serwerze konfiguracji.<br/><br/> Działa jako brama replikacji. Odbiera dane replikacji z chronionych maszyn źródłowych, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła dane do usługi Azure Storage.<br/><br/> Obsługuje instalację wypychaną usługi Mobility na chronionych maszynach i przeprowadza automatyczne odnajdywanie maszyn wirtualnych VMware.<br/><br/> Wraz z rozwojem wdrożenia możliwe będzie dodawanie dodatkowych oddzielnych dedykowanych serwerów przetwarzania w celu obsługi coraz większej ilości danych związanych z ruchem replikacji.
-**Główny serwer docelowy** | Instalowany domyślnie na lokalnym serwerze konfiguracji.<br/><br/> Służy do obsługi replikacji danych podczas powrotu po awarii z platformy Azure. W przypadku dużego ruchu powrotu po awarii można wdrożyć oddzielny główny serwer docelowy na potrzeby obsługi powrotu po awarii.
-**Serwery VMware** | Aby replikować maszyny wirtualne VMware, należy dodać serwery vCenter i vSphere do magazynu usługi Recovery Services.<br/><br/> W celu zreplikowania serwerów fizycznych konieczne jest posiadanie lokalnej infrastruktury VMware na potrzeby powrotu po awarii. Nie można powracać po awarii do maszyny fizycznej.
-**Zreplikowane maszyny** | Usługa Mobility musi być zainstalowana na każdej maszynie, która ma być replikowana. Można ją zainstalować ręcznie na poszczególnych maszynach lub za pośrednictwem instalacji wypychanej z serwera przetwarzania.
+Obszar | Składnik | Szczegóły
+--- | --- | ---
+**Azure** | W przypadku platformy Azure konieczne jest posiadanie konta platformy Azure, konta usługi Azure Storage i sieci platformy Azure. | Konta magazynu i sieci mogą być kontami usługi Resource Manager lub kontami klasycznymi.<br/><br/>  Replikowane dane są przechowywane na koncie magazynu. W przypadku wystąpienia w lokacji lokalnej przejścia w tryb failover maszyny wirtualne platformy Azure są tworzone przy użyciu zreplikowanych danych. Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
+**Serwer konfiguracji** | Wszystkie lokalne składniki (serwer konfiguracji, serwer przetwarzania i główny serwer docelowy) działają na jednym serwerze zarządzania (maszynie wirtualnej programu VMware) | Serwer konfiguracji służy do koordynowania komunikacji między środowiskiem lokalnym i platformą Azure oraz do zarządzania replikacją danych.
+ **Serwer przetwarzania**:  | Domyślnie instalowany na serwerze konfiguracji. | Działa jako brama replikacji. Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do usługi Azure Storage.<br/><br/> Serwer przetwarzania obsługuje także instalację wypychaną usługi Mobility na chronionych maszynach i przeprowadza automatyczne odnajdywanie maszyn wirtualnych programu VMware.<br/><br/> Wraz z rozwojem wdrożenia możliwe będzie dodawanie dodatkowych oddzielnych dedykowanych serwerów przetwarzania w celu obsługi coraz większej ilości danych związanych z ruchem replikacji.
+ **Główny serwer docelowy** | Instalowany domyślnie na lokalnym serwerze konfiguracji. | Służy do obsługi replikacji danych podczas powrotu po awarii z platformy Azure.<br/><br/> W przypadku dużego ruchu powrotu po awarii można wdrożyć oddzielny główny serwer docelowy na potrzeby obsługi powrotu po awarii.
+**Serwery VMware** | Maszyny wirtualne programu VMware są hostowane na serwerach vSphere ESXi. Zalecamy użycie serwera vCenter do zarządzania hostami. | Serwery VMware są dodawane do magazynu usługi Recovery Services.<br/><br/> I
+**Zreplikowane maszyny** | Usługa Mobility zostanie zainstalowana na każdej maszynie wirtualnej VMware, która ma być replikowana. Można ją zainstalować ręcznie na poszczególnych maszynach lub za pośrednictwem instalacji wypychanej z serwera przetwarzania.
 
 **Rysunek 1: Składniki replikacji z oprogramowania VMware na platformę Azure**
 
@@ -64,7 +52,7 @@ Usługa Site Recovery replikuje aplikacje działające na obsługiwanych maszyna
 
 ### <a name="replication-process"></a>Proces replikacji
 
-1. Należy skonfigurować wdrażanie, w tym składniki platformy Azure i magazyn usługi Recovery Services. W magazynie należy określić źródło i cel replikacji, skonfigurować serwer konfiguracji, dodać serwery VMware, utworzyć zasady replikacji, wdrożyć usługę Mobility, włączyć replikację i uruchomić test trybu failover.
+1. Skonfiguruj wdrożenie, w tym składniki platformy Azure i magazyn usługi Recovery Services. W magazynie należy określić źródło i cel replikacji, skonfigurować serwer konfiguracji, dodać serwery VMware, utworzyć zasady replikacji, wdrożyć usługę Mobility, włączyć replikację i uruchomić test trybu failover.
 2.  Maszyny zaczynają się replikować zgodnie z zasadami replikacji. Początkowa kopia danych jest replikowana do usługi Azure Storage.
 4. Po zakończeniu początkowej replikacji rozpoczyna się replikowanie zmian różnicowych do platformy Azure. Śledzone zmiany dla maszyny są przechowywane w pliku hrl.
     - Na potrzeby zarządzania replikacją replikowane maszyny komunikują się z serwerem konfiguracji na porcie HTTPS 443 dla danych przychodzących.
@@ -78,16 +66,16 @@ Usługa Site Recovery replikuje aplikacje działające na obsługiwanych maszyna
 
 ![Rozszerzone](./media/site-recovery-components/v2a-architecture-henry.png)
 
-### <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
+### <a name="failover-and-failback"></a>Praca w trybie failover i powrót po awarii
 
-1. Nieplanowane przejścia w tryb failover uruchamia się z lokalnych maszyn wirtualnych VMware i serwerów fizycznych do platformy Azure. Planowane przejście w tryb failover nie jest obsługiwane.
-2. W tryb failover można przełączyć pojedynczą maszynę lub można utworzyć [plany odzyskiwania](site-recovery-create-recovery-plans.md), aby zaaranżować tryb failover na wielu maszynach.
+1. Po upewnieniu się, że testowe przełączenie w tryb failover działa zgodnie z oczekiwaniami, możesz uruchamiać niezaplanowane przełączenia w tryb failover na platformę Azure zgodnie z potrzebami. Planowane przejście w tryb failover nie jest obsługiwane.
+2. W tryb failover możesz przełączyć pojedynczą maszynę lub możesz utworzyć [plany odzyskiwania](site-recovery-create-recovery-plans.md), aby przełączyć wiele maszyn wirtualnych.
 3. Po przejściu w tryb failover na platformie Azure zostaną utworzone repliki maszyn wirtualnych. Po zatwierdzeniu trybu failover można rozpocząć uzyskiwanie dostępu do obciążenia z poziomu repliki maszyny wirtualnej platformy Azure.
 4. Po ponownym udostępnieniu głównej lokacji lokalnej można do niej powrócić po awarii. Należy skonfigurować infrastrukturę powrotu po awarii, uruchomić replikację maszyny z lokacji dodatkowej do lokacji głównej i uruchomić nieplanowane przejście w tryb failover z lokacji dodatkowej. Po zatwierdzeniu pracy w trybie failover dane będą znowu dostępne lokalnie i konieczne będzie ponowne włączenie replikacji do platformy Azure. [Dowiedz się więcej](site-recovery-failback-azure-to-vmware.md)
 
 Istnieje kilka wymagań powrotu po awarii:
 
-- **Powrót po awarii z lokalizacji fizycznej do lokalizacji fizycznej nie jest obsługiwany**: oznacza to, że w przypadku przeniesienia serwerów fizycznych do trybu failover na platformie Azure, a następnie ich przywrócenia po awarii, należy przywrócić je do maszyny wirtualnej VMware. Nie można powracać po awarii do serwera fizycznego. Wymagana jest maszyna wirtualna platformy Azure, do której przeprowadzony będzie powrót po awarii. Jeśli nie wdrożono serwera konfiguracji jako maszyny wirtualnej VMware, należy skonfigurować osobny główny serwer docelowy jako maszynę wirtualną VMware. Jest to potrzebne, ponieważ główny serwer docelowy wchodzi w interakcję i łączy się z magazynem VMware, aby przywracać dyski do maszyny wirtualnej VMware.
+
 - **Tymczasowy serwer przetwarzania na platformie Azure**: jeśli chcesz powrócić po awarii z platformy Azure po przejściu w tryb failover, konieczne będzie skonfigurowanie maszyny wirtualnej platformy Azure jako serwera przetwarzania do obsługi replikacji z platformy Azure. Po zakończeniu powrotu po awarii można usunąć tę maszynę wirtualną.
 - **Połączenie VPN**: na potrzeby powrotu po awarii będzie potrzebne połączenie VPN (lub usługa Azure ExpressRoute) skonfigurowane z sieci platformy Azure do lokacji lokalnej.
 - **Oddzielny lokalny główny serwer docelowy**: lokalny główny serwer docelowy obsługuje powrót po awarii. Główny serwer docelowy jest instalowany domyślnie na serwerze zarządzania, ale w przypadku powrotu po awarii większych ilości ruchu należy skonfigurować oddzielny lokalny główny serwer docelowy.
@@ -97,53 +85,28 @@ Istnieje kilka wymagań powrotu po awarii:
 
 ![Powrót po awarii](./media/site-recovery-components/enhanced-failback.png)
 
+## <a name="physical-server-replication-to-azure"></a>Replikacja serwera fizycznego do platformy Azure
 
-## <a name="replicate-vmware-vmsphysical-servers-to-a-secondary-site"></a>Replikacja maszyn wirtualnych VMware/serwerów fizycznych do lokacji dodatkowej
+Ten scenariusz replikacji używa tych samych składników i tego samego procesu co replikacja [z programu VMware do platformy Azure](#vmware-replication-to-azure), ale pamiętaj o następujących różnicach:
 
-### <a name="components"></a>Składniki
+- Jako serwera konfiguracji możesz użyć serwera fizycznego zamiast maszyny wirtualnej programu VMware.
+- Musisz mieć lokalną infrastrukturę VMware na potrzeby powrotu po awarii. Nie można powracać po awarii do maszyny fizycznej.
 
-**Składnik** | **Szczegóły**
---- | ---
-**Azure** | Ten scenariusz jest wdrażany przy użyciu programu InMage Scout. Aby go uzyskać, konieczna jest subskrypcja platformy Azure.<br/><br/> Po utworzeniu magazynu usługi Recovery Services należy pobrać program InMage Scout i zainstalować najnowsze aktualizacje w celu skonfigurowania wdrożenia.
-**Serwer przetwarzania** | Należy wdrożyć składnik serwera przetwarzania w lokacji głównej w celu obsługi pamięci podręcznej, kompresji i optymalizacji danych.<br/><br/> Umożliwia on również obsługę instalacji wypychanej programu Unified Agent na maszynach, które chcesz chronić.
-**Program VMware ESX/ESXi i serwer vCenter** |  Aby móc replikować maszyny wirtualne VMware, konieczne jest posiadanie infrastruktury VMware.
-**Maszyny wirtualne/serwery fizyczne** |  Na przeznaczonych do replikowania maszynach wirtualnych VMware lub serwerach fizycznych z systemem Windows/Linux należy zainstalować program Unified Agent.<br/><br/> Agent działa jako dostawca komunikacji między wszystkimi składnikami.
-**Serwer konfiguracji** | Serwer konfiguracji jest instalowany w lokacji dodatkowej w celu konfigurowania i monitorowania wdrożenia oraz zarządzania nim za pomocą witryny sieci Web zarządzania lub konsoli vContinuum.
-**Serwer vContinuum** | Instalowany w tej samej lokalizacji co serwer konfiguracji.<br/><br/> Zapewnia on konsolę do monitorowania chronionego środowiska i zarządzania nim.
-**Główny serwer docelowy (lokacja dodatkowa)** | Na głównym serwerze docelowym przechowywane są zreplikowane dane. Odbiera on dane z serwera przetwarzania i tworzy maszynę repliki w lokacji dodatkowej, a także znajdują się na nim punkty przechowywania danych.<br/><br/> Liczba potrzebnych głównych serwerów docelowych zależy od liczby chronionych maszyn.<br/><br/> Aby powrócić po awarii do lokacji głównej, konieczne jest również posiadanie w tej sieci głównego serwera docelowego. Na tym serwerze jest instalowany program Unified Agent.
+## <a name="hyper-v-replication-to-azure"></a>Replikacja funkcji Hyper-V do platformy Azure
+
+**Obszar** | **Składnik** | **Szczegóły**
+--- | --- | ---
+**Azure** | W przypadku platformy Azure konieczne jest posiadanie konta platformy Microsoft Azure, konta usługi Azure Storage i sieci platformy Azure. | Konta magazynu i sieci mogą być kontami opartymi na usłudze Resource Manager lub kontami klasycznymi.<br/><br/> Replikowane dane są przechowywane na koncie magazynu. W przypadku wystąpienia w lokacji lokalnej przejścia w tryb failover maszyny wirtualne platformy Azure są tworzone przy użyciu zreplikowanych danych.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
+**Serwer VMM** | Hosty funkcji Hyper-V znajdujące się w chmurach programu VMM | Jeśli hosty funkcji Hyper-V są zarządzane w chmurach programu VMM, należy zarejestrować serwer VMM w magazynie usługi Recovery Services.<br/><br/> Na serwerze VMM należy zainstalować dostawcę usługi Site Recovery w celu organizowania replikacji z platformą Azure.<br/><br/> Aby skonfigurować mapowanie sieci, trzeba dysponować sieciami logicznymi i maszyn wirtualnych. Sieć maszyn wirtualnych powinna być połączona z siecią logiczną skojarzoną z chmurą.
+**Host funkcji Hyper-V** | Serwery funkcji Hyper-V można wdrożyć z użyciem serwera VMM lub bez niego. | Jeśli nie ma serwera VMM, dostawca usługi Site Recovery jest instalowany na hoście w celu organizowania replikacji z usługą Site Recovery przez Internet. W przypadku użycia serwera VMM dostawca jest instalowany na nim, a nie na hoście.<br/><br/> Agent usługi Recovery Services jest instalowany na hoście w celu obsługi replikacji danych.<br/><br/> Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
+**Maszyny wirtualne funkcji Hyper-V** | Wymagana jest co najmniej jedna maszyna wirtualna na serwerze hosta funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych
+
 
 ### <a name="replication-process"></a>Proces replikacji
 
-1. Następnie należy skonfigurować serwery składników w każdej lokacji (konfiguracja, przetwarzanie, główny docelowy) oraz zainstalować program Unified Agent na maszynach, które mają zostać zreplikowane.
-2. Po początkowej replikacji agent na każdej maszynie wysyła zmiany replikacji przyrostowej na serwer przetwarzania.
-3. Serwer przetwarzania optymalizuje dane i transferuje je na główny serwer docelowy w lokacji dodatkowej. Serwer konfiguracji zarządza procesem replikacji.
-
-**Rysunek 4: Replikacja oprogramowania VMware to VMware**
-
-![Z programu VMware do programu VMware](./media/site-recovery-components/vmware-to-vmware.png)
-
-
-
-## <a name="replicate-hyper-v-vms-to-azure"></a>Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure
-
-
-### <a name="components"></a>Składniki
-
-**Składnik** | **Szczegóły**
---- | ---
-
-**Azure** | W przypadku platformy Azure konieczne jest posiadanie konta platformy Microsoft Azure, konta usługi Azure Storage i sieci platformy Azure.<br/><br/> Konta magazynu i sieci mogą być kontami opartymi na usłudze Resource Manager lub kontami klasycznymi.<br/><br/> Replikowane dane są przechowywane na koncie magazynu. W przypadku wystąpienia w lokacji lokalnej przejścia w tryb failover maszyny wirtualne platformy Azure są tworzone przy użyciu zreplikowanych danych.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
-**Serwer programu VMM** | Jeśli hosty funkcji Hyper-V znajdują się w chmurach programu VMM, należy skonfigurować sieci logiczne i sieci maszyn wirtualnych na potrzeby konfigurowania mapowania sieci. Sieć maszyn wirtualnych powinna być połączona z siecią logiczną skojarzoną z chmurą.
-**Host funkcji Hyper-V host** | Wymagany jest co najmniej jeden serwer hosta funkcji Hyper-V.
-**Maszyny wirtualne funkcji Hyper-V** | Wymagana jest co najmniej jedna maszyna wirtualna na serwerze hosta funkcji Hyper-V. Dostawca działający na hoście funkcji Hyper-V koordynuje i organizuje replikację za pomocą usługi Site Recovery przez Internet. Agent obsługuje replikację danych za pośrednictwem protokołu HTTPS 443. Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
-
-
-## <a name="replication-process"></a>Proces replikacji
-
 1. Należy skonfigurować składniki platformy Azure. Przed rozpoczęciem wdrażania usługi Site Recovery zaleca się skonfigurowanie kont magazynu i sieci.
 2. Należy utworzyć magazyn usługi Replication Services na potrzeby usługi Site Recovery i skonfigurować ustawienia magazynu, w tym następujące elementy:
-    - Jeśli hosty funkcji Hyper-V nie są zarządzane w chmurze programu VMM, należy utworzyć kontener lokacji funkcji Hyper-V i dodać do niego hosty funkcji Hyper-V.
-    - Źródło i cel replikacji. Jeśli hosty funkcji Hyper-V są zarządzane w programie VMM, źródłem jest chmura programu VMM. W przeciwnym razie źródłem jest lokacja funkcji Hyper-V.
+    - Ustawienia źródła i celu. Jeśli hosty funkcji Hyper-V nie są zarządzane w chmurze programu VMM, dla celu utwórz kontener lokacji funkcji Hyper-V i dodaj do niego hosty funkcji Hyper-V. Jeśli hosty funkcji Hyper-V są zarządzane w programie VMM, źródłem jest chmura programu VMM. Celem jest platforma Azure.
     - Instalacja dostawcy usługi Azure Site Recovery i agenta usługi Microsoft Azure Recovery Services. Jeśli korzystasz z programu VMM, dostawca zostanie zainstalowany w tym programie, a agent na każdym hoście funkcji Hyper-V. Jeśli nie masz programu VMM, zarówno dostawca, jak i agent są instalowane na każdym hoście.
     - Należy utworzyć zasady replikacji dla lokacji funkcji Hyper-V lub chmury programu VMM. Te zasady są stosowane do wszystkich maszyn wirtualnych znajdujących się na hostach w lokacji lub w chmurze.
     - Należy włączyć replikację maszyn wirtualnych funkcji Hyper-V. Początkowa replikacja jest wykonywana zgodnie z ustawieniami zasad replikacji.
@@ -156,30 +119,64 @@ Istnieje kilka wymagań powrotu po awarii:
 2. W tryb failover można przełączyć pojedynczą maszynę lub można utworzyć [plany odzyskiwania](site-recovery-create-recovery-plans.md), aby zarządzać trybem failover na wielu maszynach.
 4. Po uruchomieniu trybu failover powinno być można zobaczyć utworzone repliki maszyn wirtualnych na platformie Azure. Jeśli jest to wymagane, do maszyny wirtualnej można przypisać publiczny adres IP.
 5. Następnie następuje zatwierdzenie trybu failover, aby można było rozpocząć uzyskiwanie dostępu do obciążenia z poziomu repliki maszyny wirtualnej platformy Azure.
-6. Po ponownym udostępnieniu głównej lokacji lokalnej można do niej powrócić po awarii. Planowane przejście w tryb failover jest rozpoczynane z platformy Azure do lokacji głównej. W przypadku planowanego przejścia w tryb failover można wybrać powrót po awarii do tej samej maszyny wirtualnej lub do lokalizacji alternatywnej i zsynchronizować zmiany między platformą Azure i lokacją lokalną, aby zapobiec utracie danych. Po utworzeniu lokalnych maszyn wirtualnych należy zatwierdzić tryb failover.
+6. Po ponownym udostępnieniu lokalnej lokacji głównej można do niej [powrócić po awarii](site-recovery-failback-from-azure-to-hyper-v.md). Planowane przejście w tryb failover jest rozpoczynane z platformy Azure do lokacji głównej. W przypadku planowanego przejścia w tryb failover można wybrać powrót po awarii do tej samej maszyny wirtualnej lub do lokalizacji alternatywnej i zsynchronizować zmiany między platformą Azure i lokacją lokalną, aby zapobiec utracie danych. Po utworzeniu lokalnych maszyn wirtualnych należy zatwierdzić tryb failover.
 
-**Rysunek 5: Replikacja z lokacji funkcji Hyper-V na platformę Azure**
+**Rysunek 4: Replikacja z lokacji funkcji Hyper-V do platformy Azure**
 
 ![Składniki](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
-**Rysunek 6: Replikacja z funkcji Hyper-V w chmurach programu VMM na platformę Azure**
+**Rysunek 5: Replikacja z funkcji Hyper-V w chmurach programu VMM do platformy Azure**
 
 ![Składniki](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
+## <a name="replication-to-a-secondary-site"></a>Replikacja do lokacji dodatkowej
 
-## <a name="replicate-hyper-v-vms-to-a-secondary-site"></a>Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
+Oto co możesz replikować do lokacji dodatkowej:
+
+- **VMware**: Lokalne maszyny wirtualne programu VMware działające na [obsługiwanym hoście](site-recovery-support-matrix-to-sec-site.md#on-premises-servers). Replikować możesz maszyny wirtualne programu VMware, na których działają [obsługiwane systemy operacyjne](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)
+- **Maszyny fizyczne**: Lokalne serwery fizyczne z systemem Windows lub Linux działające w [obsługiwanych systemach operacyjnych](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- **Hyper-V**: Lokalne maszyny wirtualne funkcji Hyper-V działające na [obsługiwanych hostach funkcji Hyper-V](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) zarządzanych w chmurach programu VMM. ([Obsługiwane hosty](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)). Replikować możesz maszyny wirtualne funkcji Hyper-V, na których działa dowolny system operacyjny gościa [obsługiwany przez funkcję Hyper-V i platformę Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+
+
+## <a name="vmware-vmphysical-server-replication-to-a-secondary-site"></a>Replikacja maszyny wirtualnej programu VMware lub serwera fizycznego do lokacji dodatkowej
 
 ### <a name="components"></a>Składniki
 
-**Składnik** | **Szczegóły**
---- | ---
-**Konto platformy Azure** | Potrzebujesz konta platformy Microsoft Azure.
-**Serwer VMM** | Zalecamy, aby jeden serwer VMM znajdował się w lokacji głównej, a jeden w lokacji dodatkowej (połączone z Internetem).<br/><br/> Każdy serwer powinien mieć co najmniej jedną chmurę prywatną programu VMM z ustawionym profilem możliwości funkcji Hyper-V.<br/><br/> Zainstaluj dostawcę usługi Azure Site Recovery na serwerze VMM. Dostawca koordynuje i organizuje replikację za pomocą usługi Site Recovery przez Internet. Komunikacja między dostawcą i platformą Azure jest bezpieczna i szyfrowana.
-**Serwer funkcji Hyper-V** |  Potrzebujesz co najmniej jednego serwera hosta funkcji Hyper-V w głównych i dodatkowych chmurach programu VMM. Serwery powinny być połączone z Internetem.<br/><br/> Dane są replikowane między głównymi i dodatkowymi serwerami hosta funkcji Hyper-V za pośrednictwem sieci LAN albo sieci VPN korzystającej z protokołu Kerberos lub uwierzytelniania certyfikatu.  
-**Maszyny źródłowe** | Źródłowy serwer hosta funkcji Hyper-V powinien mieć co najmniej jedną maszynę wirtualną, która ma być replikowana.
+**Obszar** | **Składnik** | **Szczegóły**
+--- | --- | ---
+**Azure** | Ten scenariusz jest wdrażany przy użyciu programu InMage Scout. | Aby uzyskać program InMage Scout, konieczna jest subskrypcja platformy Azure.<br/><br/> Po utworzeniu magazynu usługi Recovery Services należy pobrać program InMage Scout i zainstalować najnowsze aktualizacje w celu skonfigurowania wdrożenia.
+**Serwer przetwarzania** | Znajduje się w lokacji głównej | Serwer przetwarzania jest wdrażany w celu obsługi pamięci podręcznej, kompresji i optymalizacji danych.<br/><br/> Umożliwia on również obsługę instalacji wypychanej programu Unified Agent na maszynach, które chcesz chronić.
+**Serwer konfiguracji** | Znajduje się w lokacji dodatkowej | Serwer konfiguracji umożliwia konfigurowanie i monitorowanie wdrożenia oraz zarządzanie nim za pomocą witryny sieci Web zarządzania lub konsoli vContinuum.
+**Serwer vContinuum** | Opcjonalny. Instalowany w tej samej lokalizacji co serwer konfiguracji. | Zapewnia on konsolę do monitorowania chronionego środowiska i zarządzania nim.
+**Główny serwer docelowy** | Znajduje się w lokacji dodatkowej | Na głównym serwerze docelowym przechowywane są zreplikowane dane. Odbiera on dane z serwera przetwarzania i tworzy maszynę repliki w lokacji dodatkowej, a także znajdują się na nim punkty przechowywania danych.<br/><br/> Liczba potrzebnych głównych serwerów docelowych zależy od liczby chronionych maszyn.<br/><br/> Aby powrócić po awarii do lokacji głównej, konieczne jest również posiadanie w tej sieci głównego serwera docelowego. Na tym serwerze jest instalowany program Unified Agent.
+**Program VMware ESX/ESXi i serwer vCenter** |  Maszyny wirtualne są hostowane na hostach ESX/ESXi. Hosty są zarządzane za pomocą serwera vCenter | Aby móc replikować maszyny wirtualne VMware, konieczne jest posiadanie infrastruktury VMware.
+**Maszyny wirtualne/serwery fizyczne** |  Program Unified Agent zainstalowany na przeznaczonych do replikowania maszynach wirtualnych programu VMware i serwerach fizycznych. | Agent działa jako dostawca komunikacji między wszystkimi składnikami.
 
-## <a name="replication-process"></a>Proces replikacji
+
+### <a name="replication-process"></a>Proces replikacji
+
+1. Następnie należy skonfigurować serwery składników w każdej lokacji (konfiguracja, przetwarzanie, główny docelowy) oraz zainstalować program Unified Agent na maszynach, które mają zostać zreplikowane.
+2. Po początkowej replikacji agent na każdej maszynie wysyła zmiany replikacji przyrostowej na serwer przetwarzania.
+3. Serwer przetwarzania optymalizuje dane i transferuje je na główny serwer docelowy w lokacji dodatkowej. Serwer konfiguracji zarządza procesem replikacji.
+
+**Rysunek 6: Replikacja z programu VMware do programu VMware**
+
+![Z programu VMware do programu VMware](./media/site-recovery-components/vmware-to-vmware.png)
+
+
+
+## <a name="hyper-v-vm-replication-to-a-secondary-site"></a>Replikacja maszyny wirtualnej funkcji Hyper-V do lokacji dodatkowej
+
+
+**Obszar** | **Składnik** | **Szczegóły**
+--- | --- | ---
+**Azure** | Potrzebujesz konta platformy Microsoft Azure. |
+**Serwer VMM** | Zalecamy, aby zarówno w lokacji głównej, jak i dodatkowej znajdował się jeden serwer VMM | Oba serwery VMM powinny być połączone z Internetem.<br/><br/> Każdy serwer powinien mieć co najmniej jedną chmurę prywatną programu VMM z ustawionym profilem możliwości funkcji Hyper-V.<br/><br/> Zainstaluj dostawcę usługi Azure Site Recovery na serwerze VMM. Dostawca koordynuje i organizuje replikację za pomocą usługi Site Recovery przez Internet. Komunikacja między dostawcą i platformą Azure jest bezpieczna i szyfrowana.
+**Serwer funkcji Hyper-V** |  Co najmniej jeden serwer hosta funkcji Hyper-V w głównych i dodatkowych chmurach programu VMM.<br/><br/> Serwery powinny być połączone z Internetem.<br/><br/> Dane są replikowane między głównymi i dodatkowymi serwerami hosta funkcji Hyper-V za pośrednictwem sieci LAN albo sieci VPN korzystającej z protokołu Kerberos lub uwierzytelniania certyfikatu.  
+**Maszyny wirtualne funkcji Hyper-V** | Znajduje się na źródłowym serwerze hosta funkcji Hyper-V. | Źródłowy serwer hosta powinien mieć co najmniej jedną maszynę wirtualną, która ma być replikowana.
+
+### <a name="replication-process"></a>Proces replikacji
 
 1. Należy skonfigurować konto platformy Azure.
 2. Należy utworzyć magazyn usługi Replication Services na potrzeby usługi Site Recovery i skonfigurować ustawienia magazynu, w tym następujące elementy:
@@ -195,7 +192,7 @@ Istnieje kilka wymagań powrotu po awarii:
 
 ![Ze środowiska lokalnego do środowiska lokalnego](./media/site-recovery-components/arch-onprem-onprem.png)
 
-### <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
+### <a name="failover-and-failback"></a>Praca w trybie failover i powrót po awarii
 
 1. Planowane lub nieplanowane przejście w tryb [failover](site-recovery-failover.md) można uruchomić między lokacjami lokalnymi. Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych.
 2. W tryb failover można przełączyć pojedynczą maszynę lub można utworzyć [plany odzyskiwania](site-recovery-create-recovery-plans.md), aby zarządzać trybem failover na wielu maszynach.
@@ -205,7 +202,7 @@ Istnieje kilka wymagań powrotu po awarii:
 7. Aby lokacja główna stała się z powrotem lokalizacją aktywną, należy zainicjować planowane przejście w tryb failover z lokacji dodatkowej do głównej, a następnie przeprowadzić kolejną replikację odwrotną.
 
 
-### <a name="hyper-v-replication-workflow"></a>Przepływ pracy replikacji funkcji Hyper-V
+## <a name="hyper-v-replication-workflow"></a>Przepływ pracy replikacji funkcji Hyper-V
 
 **Etap przepływu pracy** | **Akcja**
 --- | ---
@@ -220,12 +217,10 @@ Istnieje kilka wymagań powrotu po awarii:
 
 ![przepływ pracy](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
 
+
+
+
 ## <a name="next-steps"></a>Następne kroki
 
 [Sprawdzanie wymagań wstępnych](site-recovery-prereq.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

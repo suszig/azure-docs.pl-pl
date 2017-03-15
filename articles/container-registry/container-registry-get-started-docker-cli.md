@@ -1,6 +1,6 @@
 ---
-title: "Obrazy platformy Docker w rejestrze kontenerów platformy Azure | Microsoft Azure"
-description: "Wypychanie i ściąganie obrazów platformy Docker do rejestru kontenera platformy Azure za pomocą interfejsu wiersza polecenia platformy Docker"
+title: Wypychanie obrazu platformy Docker do prywatnego rejestru platformy Azure | Microsoft Docs
+description: "Wypychanie i ściąganie obrazów platformy Docker do prywatnego rejestru kontenerów na platformie Azure za pomocą interfejsu wiersza polecenia platformy Docker"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do rejestru kontenera za pomocą interfejsu wiersza polecenia platformy Docker
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do prywatnego rejestru kontenerów platformy Docker za pomocą interfejsu wiersza polecenia platformy Docker
 Rejestr kontenera platformy Azure przechowuje prywatne obrazy kontenerów platformy [Docker](http://hub.docker.com) i zarządza nimi podobnie, jak [koncentrator platformy Docker](https://hub.docker.com/) przechowuje publiczne obrazy platformy Docker. [Interfejsu wiersza polecenia platformy Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) możesz użyć do [logowania](https://docs.docker.com/engine/reference/commandline/login/), [wypychania](https://docs.docker.com/engine/reference/commandline/push/), [ściągania](https://docs.docker.com/engine/reference/commandline/pull/) oraz innych operacji na rejestrze kontenera. 
 
-Aby uzyskać więcej ogólnych informacji i zapoznać się z pojęciami, zobacz [What is Azure Container Registry?](container-registry-intro.md) (Co to jest usługa Azure Container Registry?)
+Dalsze podstawy oraz pojęcia zostały przedstawione w części [ — omówienie](container-registry-intro.md)
 
 
 > [!NOTE]
@@ -114,10 +116,5 @@ docker rmi myregistry-contoso.azurecr.io/samples/nginx
 Teraz, kiedy znasz już podstawy, możesz zacząć korzystać z rejestru! Na przykład rozpocznij wdrażanie obrazów kontenera do klastra usługi [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/).
 
 
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

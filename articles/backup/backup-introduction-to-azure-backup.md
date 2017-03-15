@@ -1,6 +1,6 @@
 ---
 title: Co to jest Azure Backup? | Microsoft Docs
-description: "Za pomocą usług Azure Backup oraz Recovery Services można wykonywać kopie zapasowe oraz przywracać dane i aplikacje z serwerów z systemem Windows, komputerów z systemem Windows, serwerów programu System Center DPM i maszyn wirtualnych platformy Azure."
+description: "Usługa Azure Backup umożliwia wykonywanie kopii zapasowych oraz przywracanie danych i obciążeń z serwerów i stacji roboczych z systemem Windows, serwerów programu System Center DPM, a także maszyn wirtualnych platformy Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,15 +13,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 2/27/2017
 ms.author: markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
-ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
+ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
+ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="what-is-azure-backup"></a>Co to jest Azure Backup?
+# <a name="overview-of-the-features-in-azure-backup"></a>Omówienie funkcji usługi Azure Backup
 Azure Backup to oparta na platformie Azure usługa, która umożliwia tworzenie kopii zapasowej (lub ochronę) i przywracanie danych w chmurze Microsoft Cloud. Usługa Azure Backup pozwala zastąpić dotychczasowe rozwiązania tworzenia kopii zapasowych, istniejące lokalnie lub poza siedzibą firmy, rozwiązaniem opartym na chmurze, które jest niezawodne, bezpieczne i konkurencyjne cenowo. Usługa Azure Backup oferuje wiele składników, które możesz pobrać i wdrożyć na odpowiednim komputerze, serwerze lub w chmurze. Wdrażany składnik lub agent zależy od tego, co ma być chronione. Wszystkie składniki usługi Azure Backup (niezależnie od tego, czy dane są chronione lokalnie, czy w chmurze) mogą służyć do tworzenia kopii zapasowych danych w magazynie kopii zapasowych Azure. Informacje o tym, jakich składników należy użyć do ochrony konkretnych danych, aplikacji lub obciążeń, znajdują się w [tabeli składników usługi Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (w dalszej części tego artykułu).
 
 [Obejrzyj wideo z omówieniem usługi Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
@@ -45,7 +47,7 @@ Tradycyjne rozwiązania do tworzenia kopii zapasowych rozwinęły się w kierunk
 
 **Kopia zapasowa spójna na poziomie aplikacji** — czy wykonujesz kopię zapasową serwera plików, maszyny wirtualnej czy też bazy danych SQL, musisz wiedzieć, że punkt odzyskiwania zawiera wszystkie dane wymagane do przywrócenia kopii zapasowej. Usługa Azure Backup umożliwia wykonywanie kopii zapasowych spójnych na poziomie aplikacji, które zapewniają, że do przywrócenia danych nie są potrzebne dodatkowe poprawki. Przywracanie danych spójnych na poziomie aplikacji skraca czas przywracania, co pozwala szybko powrócić do stanu roboczego.
 
-**Długoterminowe przechowywanie** — zamiast przełączania kopii zapasowych z dysku na taśmę, a następnie przenoszenia taśmy do lokalizacji zewnętrznej w celu długoterminowego przechowywania, możesz użyć platformy Azure do przechowywania krótko- i długoterminowego. Platforma Azure nie ogranicza czasu przechowywania danych w magazynie usługi Backup ani usługi Recovery Services. Dane możesz przechowywać w magazynie tak długo, jak chcesz. Usługa Azure Backup ma limit 9999 punktów odzyskiwania dla każdego chronionego wystąpienia. Zobacz sekcję [Tworzenie kopii zapasowej i przechowywanie](backup-introduction-to-azure-backup.md#backup-and-retention) w tym artykule, aby uzyskać informacje o tym, jaki wpływ ten limit może mieć na Twoje potrzeby związane z kopiami zapasowymi.  
+**Długoterminowe przechowywanie** — zamiast przełączania kopii zapasowych z dysku na taśmę, a następnie przenoszenia taśmy do lokalizacji zewnętrznej, możesz użyć platformy Azure do przechowywania krótko- i długoterminowego. Platforma Azure nie ogranicza czasu przechowywania danych w magazynie usługi Backup ani Recovery Services. Dane możesz przechowywać w magazynie tak długo, jak chcesz. Usługa Azure Backup ma limit 9999 punktów odzyskiwania dla każdego chronionego wystąpienia. Zobacz sekcję [Tworzenie kopii zapasowej i przechowywanie](backup-introduction-to-azure-backup.md#backup-and-retention) w tym artykule, aby uzyskać informacje o tym, jaki wpływ ten limit może mieć na Twoje potrzeby związane z kopiami zapasowymi.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Jakich składników usługi Azure Backup mam użyć?
 Jeśli nie masz pewności, które składniki usługi Azure Backup odpowiadają Twoim potrzebom, zapoznaj się z poniższą tabelą zawierającą informacje o tym, co można chronić za pomocą każdego składnika. Witryna Azure Portal udostępnia wbudowanego kreatora, który prowadzi użytkownika przez proces wybierania składnika do pobrania i wdrożenia. Kreator, który jest częścią tworzenia magazynu usługi Recovery Services, poprowadzi użytkownika przez kroki wybierania celu tworzenia kopii zapasowej oraz wybierania danych lub aplikacji do ochrony.
@@ -93,17 +95,15 @@ W poniższej tabeli przedstawiono składniki usługi Azure Backup, które obsłu
 | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |Tak |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Korzystanie z maszyn wirtualnych usługi Premium Storage przy użyciu usługi Azure Backup
-Usługa Azure Backup chroni maszyny wirtualne usługi Premium Storage. Azure Premium Storage to magazyn oparty na dyskach SSD i zaprojektowany z myślą o obsłudze dużych obciążeń wejścia/wyjścia. Usługa Premium Storage jest atrakcyjna dla obciążeń maszyn wirtualnych. Aby uzyskać więcej informacji o usłudze Premium Storage, zobacz artykuł [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure)
+Usługa Azure Backup chroni maszyny wirtualne usługi Premium Storage. Azure Premium Storage to magazyn oparty na dyskach SSD i zaprojektowany z myślą o obsłudze dużych obciążeń wejścia/wyjścia. Usługa Premium Storage jest atrakcyjna dla obciążeń maszyn wirtualnych. Aby uzyskać więcej informacji o usłudze Premium Storage, zobacz artykuł [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).
 
 ### <a name="back-up-premium-storage-vms"></a>Tworzenie kopii zapasowej maszyn wirtualnych usługi Premium Storage
-Podczas wykonywania kopii zapasowych maszyn wirtualnych usługi Premium Storage usługa Backup tworzy tymczasową lokalizację na koncie usługi Premium Storage. Ta tymczasowa lokalizacja o nazwie „AzureBackup-” ma wielkość równą łącznemu rozmiarowi danych dysków w warstwie Premium dołączonych do maszyny wirtualnej. Sprawdź, czy na koncie magazynu jest wystarczająca ilość wolnego miejsca na tymczasową lokalizację przejściową. Aby uzyskać dodatkowe informacje, zobacz [Premium Storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) (Ograniczenia usługi Premium Storage).
+Podczas wykonywania kopii zapasowych maszyn wirtualnych usługi Premium Storage usługa Backup tworzy tymczasową lokalizację o nazwie „AzureBackup-” na koncie usługi Premium Storage. Rozmiar lokalizacji przejściowej jest równy rozmiarowi migawki punktu odzyskiwania. Upewnij się, że ilość wolnego miejsca na koncie magazynu jest wystarczająca do obsługi tymczasowej lokalizacji przejściowej. Aby uzyskać więcej informacji, zobacz [Premium Storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) (Ograniczenia usługi Premium Storage). Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostanie usunięta. Cena przestrzeni dyskowej użytej na potrzeby lokalizacji tymczasowej jest zgodna z ogólnym [cennikiem usługi Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Nie wolno modyfikować ani edytować tej lokalizacji tymczasowej.
 >
 >
-
-Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostanie usunięta. Cena przestrzeni dyskowej użytej na potrzeby lokalizacji tymczasowej jest zgodna z ogólnym [cennikiem usługi Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
 
 ### <a name="restore-premium-storage-vms"></a>Przywracanie maszyn wirtualnych usługi Premium Storage
 Maszyny wirtualne usługi Premium Storage można przywrócić do usługi Premium Storage lub normalnego magazynu. Przywracanie punktu odzyskiwania maszyny wirtualnej usługi Premium Storage do magazynu w warstwie Premium to typowy proces przywracania. Jednak opłacalne może się okazać przywrócenie punktu odzyskiwania maszyny wirtualnej usługi Premium Storage do standardowego magazynu. Z tego typu przywracania można skorzystać, gdy potrzebny jest podzbiór plików z maszyny wirtualnej.
@@ -112,10 +112,10 @@ Maszyny wirtualne usługi Premium Storage można przywrócić do usługi Premium
 Usługa Azure Backup chroni maszyny wirtualne dysku zarządzanego. Dzięki dyskom zarządzanym nie musisz zarządzać kontami magazynu maszyn wirtualnych, a aprowizowanie maszyny wirtualnej jest znacznie prostsze.
 
 ### <a name="back-up-managed-disk-vms"></a>Tworzenie kopii zapasowej maszyn wirtualnych dysku zarządzanego
-Proces tworzenia maszyn wirtualnych na dyskach zarządzanych nie różni się niczym od tworzenia maszyn wirtualnych w usłudze Resource Manager. Kopie zapasowe można tworzyć bezpośrednio z widoku maszyny wirtualnej lub widoku magazynu usługi Recovery Services. Tworzenie kopii zapasowych maszyn wirtualnych na dyskach zarządzanych jest obsługiwane przez kolekcje RestorePoint tworzone na tych dyskach. Usługa Azure Backup nie obsługuje obecnie tworzenia kopii zapasowych maszyn wirtualnych dysku zarządzanego zaszyfrowanych za pomocą usługi Azure Disk Encryption (ADE).
+Proces tworzenia kopii zapasowych maszyn wirtualnych na dyskach zarządzanych nie różni się niczym od tworzenia kopii zapasowych maszyn wirtualnych w usłudze Resource Manager. W witrynie Azure Portal możesz skonfigurować zadanie tworzenia kopii zapasowej bezpośrednio w widoku maszyny wirtualnej lub widoku magazynu usługi Recovery Services. Kopie zapasowe maszyn wirtualnych możesz tworzyć na dyskach zarządzanych za pomocą kolekcji RestorePoint tworzonych na tych dyskach. Usługa Azure Backup nie obsługuje obecnie tworzenia kopii zapasowych maszyn wirtualnych z dyskami zarządzanymi zaszyfrowanymi za pomocą usługi Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Przywracanie maszyn wirtualnych dysku zarządzanego
-Usługa Azure Backup umożliwia przywracanie kompletnej maszyny z dyskami zarządzanymi lub przywracanie dysków zarządzanych do konta magazynu usługi Resource Manager. Dyski tworzone podczas procesu przywracania są zarządzane przez platformę Azure, a konto magazynu utworzone w ramach procesu przywracania są podobny innych kont magazynu usługi Resource Manager i powinny być zarządzane przez klienta.
+Usługa Azure Backup umożliwia przywracanie kompletnej maszyny wirtualnej z dyskami zarządzanymi lub przywracanie dysków zarządzanych do konta magazynu usługi Resource Manager. Platforma Azure zarządza dyskami zarządzanymi podczas procesu przywracania. Natomiast to klient (czyli Ty) zarządza kontem magazynu utworzonym w ramach procesu przywracania.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Jakie są funkcje każdego składnika usługi Azure Backup?
 Poniższe sekcje zawierają tabele podsumowujące dostępność lub obsługę różnych funkcji w każdym składniku usługi Azure Backup. W informacjach podanych po każdej tabeli znajdziesz dodatkowe wsparcie lub szczegóły.
@@ -137,8 +137,6 @@ Dla wszystkich składników preferowanym miejscem docelowym przechowywania jest 
 #### <a name="compression"></a>Kompresja
 Aby zmniejszyć ilość miejsca wymaganego do magazynowania kopie zapasowe są kompresowane. Jedyny składnik, który nie korzysta z kompresji, to rozszerzenie maszyny wirtualnej. W rozszerzeniu maszyny wirtualnej wszystkie dane kopii zapasowej są kopiowane z konta magazynu do magazynu usługi Backup w tym samym regionie. Kompresja nie jest używana podczas przesyłania danych. Przesyłanie danych bez kompresji nieco zwiększa ilość używanej pamięci. Z drugiej strony przechowywanie danych bez kompresji skraca czas ich przywracania, jeśli punkt przywracania jest potrzebny.
 
-#### <a name="incremental-backup"></a>Przyrostowa kopia zapasowa
-Każdy składnik obsługuje przyrostową kopię zapasową, niezależnie od magazynu docelowego (dysk, taśma, magazyn kopii zapasowych). Tworzenie przyrostowej kopii zapasowej powoduje oszczędność przestrzeni dyskowej i czasu dzięki transferowaniu tylko tych zmian, które zostały wprowadzone od czasu utworzenia ostatniej kopii zapasowej.
 
 #### <a name="disk-deduplication"></a>Deduplikacja dysku
 Możesz skorzystać z funkcji deduplikacji podczas wdrażania programu System Center DPM lub serwera Azure Backup Server [na maszynie wirtualnej funkcji Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). System Windows Server wykonuje deduplikację danych (na poziomie hosta) na wirtualnych dyskach twardych (VHD) dołączonych do maszyny wirtualnej jako magazyn kopii zapasowych.
@@ -147,6 +145,21 @@ Możesz skorzystać z funkcji deduplikacji podczas wdrażania programu System Ce
 > Funkcja deduplikacji nie jest dostępna na platformie Azure dla żadnego składnika usługi Backup. Gdy na platformie Azure wdrożone są programy System Center DPM i Backup Server, dyski magazynowania dołączone do maszyny wirtualnej nie mogą być deduplikowane.
 >
 >
+
+### <a name="incremental-backup-explained"></a>Informacje na temat przyrostowej kopii zapasowej
+Każdy składnik usługi Azure Backup obsługuje przyrostową kopię zapasową, niezależnie od magazynu docelowego (dysk, taśma, magazyn kopii zapasowych). Tworzenie przyrostowej kopii zapasowej powoduje oszczędność przestrzeni dyskowej i czasu dzięki transferowaniu tylko tych zmian, które zostały wprowadzone od czasu utworzenia ostatniej kopii zapasowej.
+
+#### <a name="comparing-full-differential-and-incremental-backup"></a>Porównanie pełnej, różnicowej i przyrostowej kopii zapasowej
+
+Użycie magazynu, cel czasu odzyskiwania (RTO, recovery time objective) oraz użycie sieci są różne w przypadku każdego typu metody wykonywania kopii zapasowej. Aby maksymalnie zmniejszyć całkowity koszt posiadania kopii zapasowej, należy zrozumieć, jak wybrać najlepsze rozwiązanie tworzenia kopii zapasowej. Na poniższym obrazie porównano pełną, różnicową i przyrostową kopię zapasową. Na obrazie źródło danych A składa się z 10 bloków magazynu A1–A10, których kopie zapasowe są wykonywane co miesiąc. Bloki A2, A3, A4 i A9 zmieniają się w trakcie pierwszego miesiąca, a blok A5 zmienia się w następnym miesiącu.
+
+![Obraz przedstawiający porównanie metod wykonywania kopii zapasowej](./media/backup-introduction-to-azure-backup/backup-method-comparison.png)
+
+W przypadku **pełnej kopii zapasowej** każda kopia zapasowa zawiera całe źródło danych. Pełna kopia zapasowa używa dużej ilości przepustowości sieci i magazynu przy każdym transferze kopii zapasowej.
+
+**Różnicowa kopia zapasowa** przechowuje tylko te bloki, które uległy zmianie od momentu wykonania początkowej pełnej kopii zapasowej, co skutkuje mniejszym użyciem sieci i magazynu. Różnicowe kopie zapasowe nie zawierają nadmiarowych kopii niezmienionych danych. Jednak ponieważ bloki danych, które nie uległy zmianie między kolejnymi kopiami zapasowymi, są transferowane i przechowywane, różnicowe kopie zapasowe są nieefektywne. W drugim miesiącu jest tworzona kopia zapasowa zmienionych bloków A2, A3, A4 i A9. W trzecim miesiącu jest ponownie wykonywana kopia zapasowa tych samych bloków, a dodatkowo zmienionego bloku A5. Kopie zapasowe zmienionych bloków będą ciągle wykonywane aż do czasu wykonania kolejnej pełnej kopii zapasowej.
+
+**Przyrostowa kopia zapasowa** osiąga wysoką efektywność użycia magazynu i sieci, ponieważ przechowuje tylko bloki danych, które uległy zmianie od momentu utworzenia poprzedniej kopii zapasowej. W przypadku przyrostowej kopii zapasowej nie ma potrzeby regularnego wykonywania pełnych kopii zapasowych. W tym przykładzie po wykonaniu pełnej kopii zapasowej w pierwszym miesiącu zmienione bloki A2, A3, A4 i A9 są oznaczane jako zmienione i transferowane w drugim miesiącu. W trzecim miesiącu jest oznaczany i transferowany jedynie zmieniony blok A5. Przenoszenie mniejszej ilości danych oszczędza zasoby magazynu i sieci, co zmniejsza całkowity koszt posiadania.   
 
 ### <a name="security"></a>Bezpieczeństwo
 | Funkcja | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
@@ -179,7 +192,7 @@ Tworzenie kopii zapasowych maszyn wirtualnych Azure wymaga skonfigurowania szyfr
 
 Rozszerzenie maszyny wirtualnej (na maszynie wirtualnej IaaS) odczytuje dane bezpośrednio z konta magazynu na platformie Azure w sieci magazynowania, więc kompresja tego ruchu nie jest konieczna.
 
-W przypadku tworzenia kopii zapasowej danych w programie System Center DPM lub na serwerze Azure Backup Server należy kompresować dane przechodzące z serwera podstawowego na serwer kopii zapasowych. Kompresowanie danych przed utworzeniem ich kopii zapasowej w programie DPM lub usłudze Azure Backup Server umożliwia zaoszczędzenie przepustowości.
+W przypadku tworzenia kopii zapasowej danych w programie System Center DPM lub na serwerze Azure Backup Server kompresuj dane przesyłane z serwera podstawowego na serwer kopii zapasowych. Skompresowanie danych przed utworzeniem ich kopii zapasowej w programie DPM lub usłudze Azure Backup Server umożliwia zaoszczędzenie przepustowości.
 
 #### <a name="network-throttling"></a>Ograniczanie przepustowości sieci
 Agent usługi Azure Backup umożliwia ograniczanie użycia sieci, co pozwala na sterowanie wykorzystaniem przepustowości sieci w trakcie transferu danych. Ograniczanie może być przydatne, gdy kopie zapasowe danych mają być tworzone podczas godzin pracy, ale proces tworzenia kopii zapasowej nie może kolidować z innym ruchem internetowym. Ograniczanie transferu danych ma zastosowanie do operacji tworzenia kopii zapasowej i przywracania.
@@ -203,8 +216,8 @@ Chronione wystąpienie to ogólna nazwa komputera z systemem Windows, serwera (f
 Typowe przykłady chronionych wystąpień to maszyny wirtualne, serwery aplikacji, bazy danych i komputery osobiste z systemem operacyjnym Windows. Na przykład:
 
 * Maszyna wirtualna, na której działa funkcja Hyper-V lub sieć szkieletowa funkcji hypervisor Azure IaaS. Systemem operacyjnym gościa maszyny wirtualnej może być system Windows Server lub Linux.
-* Serwer aplikacji, który może być maszyną fizyczną lub wirtualną z systemem Windows Server, obsługujący obciążenia korzystające z danych wymagających tworzenia kopii zapasowych. Typowe obciążenia to: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server, Microsoft Dynamics i rola serwera plików w systemie Windows Server. Aby tworzyć kopie zapasowe tych obciążeń, należy korzystać z programu System Center Data Protection Manager (DPM) lub usługi Azure Backup Server.
-* Komputer osobisty lub przenośny z systemem operacyjnym Windows.
+* Serwer aplikacji, który może być maszyną fizyczną lub wirtualną z systemem Windows Server, obsługujący obciążenia korzystające z danych wymagających tworzenia kopii zapasowych. Typowe obciążenia to: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server i rola serwera plików w systemie Windows Server. Aby tworzyć kopie zapasowe tych obciążeń, należy korzystać z programu System Center Data Protection Manager (DPM) lub usługi Azure Backup Server.
+* Komputer osobisty lub przenośny albo stacja robocza z systemem operacyjnym Windows.
 
 
 ## <a name="what-is-the-vault-credential-file"></a>Co to jest plik poświadczeń magazynu?
@@ -213,7 +226,7 @@ Plik poświadczeń magazynu jest to certyfikat wygenerowany przez portal dla ka�
 Aby zarejestrować serwery lub komputery, wystarczy używać tylko poświadczenia magazynu. Należy jednak zadbać o poświadczenia magazynu, ponieważ, w razie jego zgubienia lub uzyskania przez inne osoby, poświadczenia magazynu mogą zostać użyte do rejestrowania innych maszyn w tym samym magazynie. Ponieważ dane kopii zapasowej są szyfrowane przy użyciu hasła dostępnego tylko dla Ciebie, istniejące dane kopii zapasowej nie zostaną ujawnione. Poświadczenia magazynu wygasają po upływie 48 godzin. Chociaż możesz pobierać poświadczenia magazynu dla magazynu kopii zapasowych tak często, jak chcesz, tylko najnowsze poświadczenia mogą służyć do rejestracji.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Czym różni się usługa Azure Backup od usługi Azure Site Recovery?
-Usługi Azure Backup i Azure Site Recovery są zbliżone do siebie w tym sensie, że obie tworzą kopie zapasowe danych i mogą je przywracać, ale ich istota jest różna.
+Usługi Azure Backup i Azure Site Recovery są zbliżone do siebie w tym sensie, że obie tworzą kopie zapasowe danych i mogą je przywracać. Jednak ich istota jest różna.
 
 Usługa Azure Backup chroni dane lokalnie i w chmurze. Usługa Azure Site Recovery koordynuje replikację maszyn wirtualnych i serwerów fizycznych, pracę w trybie failover i powrót po awarii. Obie te usługi są ważne, ponieważ rozwiązanie odzyskiwania po awarii wymaga bezpiecznego przechowywania danych z możliwością ich odzyskania (usługa Backup) *oraz* utrzymywania dostępności obciążeń (usługa Site Recovery) w przypadku wystąpienia awarii.
 
@@ -240,9 +253,4 @@ Szczegółowe informacje na temat ochrony innych obciążeń możesz uzyskać w 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

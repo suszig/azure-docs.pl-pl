@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="frequently-asked-questions-azure-container-service"></a>Często zadawane pytania: usługa Azure Container Service
+# <a name="container-service-frequently-asked-questions"></a>Często zadawane pytania dotyczące usługi Container Service
 
 
 ## <a name="orchestrators"></a>Koordynatorzy
@@ -81,6 +83,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 Często używane adresy URL dla klastra można znaleźć w witrynie Azure Portal, Eksploratorze zasobów Azure lub innych narzędziach platformy Azure.
+
+### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Jak sprawdzić, która wersja koordynatora jest uruchamiana w moim klastrze?
+
+* DC/OS: zobacz [dokumentację w witrynie Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm: uruchom polecenie `docker version`
+* Kubernetes: uruchom polecenie `kubectl version`
+
+
+### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Jak uaktualnić koordynatora po wdrożeniu?
+
+Obecnie usługa Azure Container Service nie oferuje narzędzi umożliwiających uaktualnianie wersji koordynatora wdrożonego w klastrze. Jeśli usługa Container Service obsługuje nowszą wersję, można wdrożyć nowy klaster. Inna opcja to miejscowe uaktualnienie klastra przy użyciu narzędzi specyficznych dla koordynatora, jeśli są dostępne. Na przykład zobacz [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/) (Uaktualnianie rozwiązania DC/OS).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Gdzie mogę znaleźć parametry połączenia SSH z moim klastrem?
 
@@ -109,8 +122,3 @@ Aby uzyskać więcej informacji, zobacz [Łączenie z klastrem usługi Azure Con
 
 * [Dowiedz się więcej](container-service-intro.md) o usłudze Azure Container Service.
 * Wdrażanie klastra usługi kontenera przy użyciu [portalu](container-service-deployment.md) lub [interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-service-create-acs-cluster-cli.md).
-
-
-<!--HONumber=Feb17_HO4-->
-
-

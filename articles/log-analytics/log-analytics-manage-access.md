@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie obszarami roboczymi | Microsoft Docs"
-description: "Możesz zarządzać obszarami roboczymi w usłudze Azure Log Analytics przy użyciu różnych zadań administracyjnych dotyczących użytkowników, kont, obszarów roboczych i kont platformy Azure."
+title: "Zarządzanie obszarami roboczymi w usłudze Azure Log Analytics i portalu pakietu OMS | Microsoft Docs"
+description: "Możesz zarządzać obszarami roboczymi w usłudze Azure Log Analytics i portalu pakietu OMS przy użyciu różnych zadań administracyjnych dotyczących użytkowników, kont, obszarów roboczych i kont platformy Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -163,25 +163,16 @@ Poniżej przedstawiono procedurę usuwania użytkownika z obszaru roboczego. Usu
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Łączenie istniejącego obszaru roboczego z subskrypcją platformy Azure
 Wszystkie obszary robocze utworzone po 26 września 2016 roku muszą być w czasie tworzenia połączone z subskrypcją platformy Azure. Obszary robocze utworzone wcześniej muszą zostać połączone z obszarem roboczym po następnym zalogowaniu. Jeśli utworzysz obszar roboczy z poziomu witryny Azure Portal lub połączysz obszar roboczy z subskrypcją platformy Azure, usługa Azure Active Directory zostanie połączona jako konto organizacyjne.
 
-![łączenie subskrypcji platformy Azure](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> Aby można było połączyć obszar roboczy, konto platformy Azure musi już mieć dostęp do obszaru roboczego, który chcesz połączyć.  Oznacza to, że konto używane do uzyskiwania dostępu do witryny Azure Portal musi być **tym samym kontem**, za pomocą którego jest uzyskiwany dostęp do obszaru roboczego. Jeśli nie jest, zobacz [Dodawanie użytkownika do istniejącego obszaru roboczego](#add-a-user-to-an-existing-workspace).
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Aby połączyć obszar roboczy z subskrypcją platformy Azure w portalu pakietu OMS
-Aby móc połączyć obszar roboczy z subskrypcją platformy Azure w portalu pakietu OMS, zalogowany użytkownik musi już mieć płatne konto platformy Azure.
 
-1. W portalu pakietu OMS kliknij kafelek **Ustawienia**.
-2. Kliknij kartę **Konta**, a następnie kliknij kartę **Subskrypcja i plan taryfowy platformy Azure**.
-3. Kliknij plan taryfowy, którego chcesz używać.
-4. Kliknij pozycję **Zapisz**.  
-   ![subskrypcja i plany taryfowe](./media/log-analytics-manage-access/subscription-tab.png)
+- Gdy logujesz się do portalu pakietu OMS, jest wyświetlany monit o wybranie subskrypcji platformy Azure. Wybierz subskrypcję, którą chcesz połączyć z obszarem roboczym, a następnie kliknij pozycję **Połącz**.  
+    ![łączenie subskrypcji platformy Azure](./media/log-analytics-manage-access/required-link.png)
 
-Nowy plan taryfowy jest wyświetlany na wstążce portalu pakietu OMS w górnej części strony sieci Web.
+    > [!IMPORTANT]
+    > Aby można było połączyć obszar roboczy, konto platformy Azure musi już mieć dostęp do obszaru roboczego, który chcesz połączyć.  Oznacza to, że konto używane do uzyskiwania dostępu do witryny Azure Portal musi być **tym samym kontem**, za pomocą którego jest uzyskiwany dostęp do obszaru roboczego. Jeśli nie jest, zobacz [Dodawanie użytkownika do istniejącego obszaru roboczego](#add-a-user-to-an-existing-workspace).
 
-![Wstążka pakietu OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Aby połączyć obszar roboczy z subskrypcją platformy Azure w witrynie Azure Portal
 1. Zaloguj się do [Azure Portal](http://portal.azure.com).
@@ -236,7 +227,7 @@ Jeśli istnieje zobowiązanie pieniężne platformy Azure dotyczące rejestracji
 
 Jeśli chcesz zmienić subskrypcję platformy Azure, z którą jest połączony obszar roboczy, możesz użyć polecenia cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) programu Azure PowerShell.  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Zmienianie obszaru roboczego na płatną warstwę cenową
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Zmienianie obszaru roboczego na płatną warstwę cenową w witrynie Azure Portal
 1. Zaloguj się do [Azure Portal](http://portal.azure.com).
 2. Wyszukaj pozycję **Log Analytics** i wybierz ją.
 3. Zostanie wyświetlona lista istniejących obszarów roboczych. Wybierz obszar roboczy.  
@@ -250,6 +241,21 @@ Jeśli chcesz zmienić subskrypcję platformy Azure, z którą jest połączony 
 > Jeśli obszar roboczy jest połączony z kontem usługi Automation, przed wybraniem warstwy cenowej *Autonomiczna (za GB)* musisz usunąć wszystkie rozwiązania **Automation and Control** i odłączyć konto usługi Automation. W bloku obszaru roboczego w obszarze **Ogólne** kliknij pozycję **Rozwiązania**, aby wyświetlić i usunąć rozwiązania. Aby odłączyć konto usługi Automation, kliknij nazwę konta usługi Automation w bloku **Warstwa cenowa**.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>Zmienianie planu danych w portalu pakietu OMS
+
+Aby zmienić plan danych za pomocą portalu pakietu OMS, zalogowany użytkownik musi już mieć konto platformy Azure.
+
+1. W portalu pakietu OMS kliknij kafelek **Ustawienia**.
+2. Kliknij kartę **Konta**, a następnie kliknij kartę **Subskrypcja i plan taryfowy platformy Azure**.
+3. Kliknij plan taryfowy, którego chcesz używać.
+4. Kliknij pozycję **Zapisz**.  
+   ![subskrypcja i plany taryfowe](./media/log-analytics-manage-access/subscription-tab.png)
+
+Nowy plan taryfowy jest wyświetlany na wstążce portalu pakietu OMS w górnej części strony sieci Web.
+
+![Wstążka pakietu OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Zmiana czasu przechowywania danych przez usługę Log Analytics
 
@@ -266,8 +272,8 @@ Aby zmienić czas przechowywania danych:
 2. Wyszukaj pozycję **Log Analytics** i wybierz ją.
 3. Zostanie wyświetlona lista istniejących obszarów roboczych. Wybierz obszar roboczy.  
 4. W bloku obszaru roboczego w obszarze **Ogólne** kliknij pozycję **Przechowywanie**.  
-5. Za pomocą suwaka zwiększ lub zmniejsz liczbę dni przechowywania, a następnie kliknij przycisk **Zapisz**
-![zmiana okresu przechowywania](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+5. Za pomocą suwaka zwiększ lub zmniejsz liczbę dni przechowywania, a następnie kliknij przycisk **Zapisz**.  
+    ![zmiana okresu przechowywania](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Zmienianie organizacji usługi Azure Active Directory dla obszaru roboczego
 

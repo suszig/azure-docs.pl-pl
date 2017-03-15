@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 249f2dcd852c771d0c48aa223a4596992e5ce3d7
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: ed204c466c5cfb60e5ba250b9dacb2524ca384eb
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="what-is-azure-iot-hub"></a>Czym jest usługa Azure IoT Hub?
+# <a name="overview-of-the-azure-iot-hub-service"></a>Omówienie usługi Azure IoT Hub
 Witamy w usłudze Azure IoT Hub. W tym artykule omówiono usługę Azure IoT Hub oraz opisano, dlaczego należy używać tej usługi w przypadku implementowania rozwiązania Internetu rzeczy (IoT). Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między milionami urządzeń IoT i zapleczem rozwiązania. Usługa Azure IoT Hub:
 
 * zapewnia wiele opcji komunikacji z urządzenia do chmury i z chmury do urządzenia, w tym jednokierunkowe komunikaty, transfer plików i metody typu żądanie-odpowiedź;
@@ -124,9 +126,4 @@ Aby rozpocząć pisanie kodu i uruchomić kilka przykładów, zobacz samouczek [
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
