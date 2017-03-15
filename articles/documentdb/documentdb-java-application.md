@@ -16,15 +16,16 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6e315ea33fe4a493f1ab349482f9af3a732b3127
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="build-a-java-web-application-using-documentdb"></a>Tworzenie aplikacji sieci Web w języku Java za pomocą usługi DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET dla MongoDB](documentdb-mongodb-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -45,7 +46,7 @@ W tym samouczku aplikacji w języku Java pokazano, jak utworzyć aplikację do z
 > 
 > 
 
-## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Wymagania wstępne dotyczące tego samouczka aplikacji sieci Web w języku Java
+## <a id="Prerequisites"></a>Wymagania wstępne dotyczące tego samouczka aplikacji sieci Web w języku Java
 Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dysponować następującymi elementami:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
@@ -59,14 +60,14 @@ Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dys
 
 Jeśli instalujesz te narzędzia po raz pierwszy, witryna coreservlets.com zawiera omówienie procesu instalacji w artykule [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Samouczek: Instalacja środowiska TomCat7 i używanie go ze środowiskiem Eclipse) w sekcji Quick Start (Szybki start).
 
-## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
+## <a id="CreateDB"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
 Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi DocumentDB na potrzeby tego samouczka, możesz od razu przejść do etapu [Krok 2. Tworzenie aplikacji Java JSP](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="a-idcreatejspastep-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Krok 2. Tworzenie aplikacji Java JSP
+## <a id="CreateJSP"></a>Krok 2. Tworzenie aplikacji Java JSP
 Aby utworzyć aplikację JSP:
 
 1. Zacznijmy od utworzenia projektu języka Java. Uruchom środowisko Eclipse, a następnie w menu **File** (Plik) kliknij polecenie **New** (Nowy), a potem kliknij polecenie **Dynamic Web Project** (Dynamiczny projekt sieci Web). Jeśli nie widzisz polecenia **Dynamic Web Project** (Dynamiczny projekt sieci Web) na liście dostępnych projektów, wykonaj następujące czynności: w menu **File** (Plik) kliknij polecenie **New** (Nowy), kliknij polecenie **Project**... (Projekt...), rozwiń pozycję **Web** (Sieć Web), kliknij pozycję **Dynamic Web Project** (Dynamiczny projekt sieci Web) i kliknij przycisk **Next** (Dalej).
@@ -88,7 +89,7 @@ Aby utworzyć aplikację JSP:
    
     ![Witaj świecie – samouczek aplikacji w języku Java](./media/documentdb-java-application/image12.png)
 
-## <a name="a-idinstallsdkastep-3-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Krok 3. Instalacja zestawu SDK Java usługi DocumentDB
+## <a id="InstallSDK"></a>Krok 3. Instalacja zestawu SDK Java usługi DocumentDB
 Najprostszym sposobem pobrania zestawu SDK Java usługi DocumentDB i jego zależności jest skorzystanie z usługi [Apache Maven](http://maven.apache.org/).
 
 Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując następujące kroki:
@@ -115,7 +116,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
 6. Kliknij przycisk **OK**, aby zainstalować zestaw SDK Java usługi DocumentDB przy użyciu usługi Maven.
 7. Zapisz plik pom.xml.
 
-## <a name="a-iduseserviceastep-4-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Krok 4. Użycie usługi DocumentDB w aplikacji Java
+## <a id="UseService"></a>Krok 4. Użycie usługi DocumentDB w aplikacji Java
 1. Najpierw zdefiniujmy obiekt TodoItem:
    
         @Data
@@ -349,7 +350,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
             return true;
         }
 
-## <a name="a-idwireastep-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Krok 5. Dołączenie pozostałej części projektu tworzenia aplikacji w języku Java
+## <a id="Wire"></a>Krok 5. Dołączenie pozostałej części projektu tworzenia aplikacji w języku Java
 Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego interfejsu użytkownika i połączenie go z obiektem DAO.
 
 1. Zacznijmy od utworzenia kontrolera do wywoływania obiektu DAO:
@@ -721,7 +722,7 @@ Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego i
 5. Fantastycznie! Teraz pozostało już tylko przetestować aplikację. Uruchom aplikację lokalnie, a następnie dodaj jakieś zadania do wykonania, wpisując nazwę zadania oraz jego kategorię i klikając przycisk **Add Task** (Dodaj zadanie).
 6. Gdy zadanie zostanie wyświetlone, można zaktualizować, czy jest ono ukończone, klikając pole wyboru, a następnie klikając przycisk **Update Tasks** (Zaktualizuj zadania).
 
-## <a name="a-iddeployastep-6-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Krok 6. Wdrożenie aplikacji w języku Java w usłudze Azure Websites
+## <a id="Deploy"></a>Krok 6. Wdrożenie aplikacji w języku Java w usłudze Azure Websites
 Usługa Azure Websites sprawia, że wdrożenie aplikacji Java sprowadza się do wyeksportowania aplikacji jako pliku WAR i przesłania go na serwer za pomocą systemu kontroli źródła (np. GIT) lub FTP.
 
 1. Aby wyeksportować aplikację jako plik WAR, kliknij prawym przyciskiem myszy projekt w widoku **Project Explorer** (Eksplorator projektów), kliknij pozycję **Export** (Eksportuj), a następnie kliknij pozycję **WAR File** (Plik WAR).
@@ -735,7 +736,7 @@ Usługa Azure Websites sprawia, że wdrożenie aplikacji Java sprowadza się do 
     Po przesłaniu pliku WAR do katalogu webapps środowisko uruchomieniowe wykryje, że plik został dodany, i załaduje go automatycznie.
 4. Aby wyświetlić gotową aplikację, przejdź do http://NAZWA\_TWOJEJ\_WITRYNY.azurewebsites.net/azure-documentdb-java-sample/ i zacznij dodawać zadania.
 
-## <a name="a-idgetprojectaget-the-project-from-github"></a><a id="GetProject"></a>Pobieranie projektu z usługi GitHub
+## <a id="GetProject"></a>Pobieranie projektu z usługi GitHub
 Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) w usłudze GitHub. Aby zaimportować projekt todo do środowiska Eclipse, upewnij się, że dysponujesz oprogramowaniem i zasobami wymienionymi w sekcji [Wymagania wstępne](#Prerequisites), a następnie wykonaj następujące czynności:
 
 1. Zainstaluj [Projekt Lombok](http://projectlombok.org/). Lombok służy w projekcie do generowania konstruktorów, metod pobierających i ustawiających. Po pobraniu pliku lombok.jar kliknij go dwukrotnie, aby go zainstalować, lub zainstaluj go przy użyciu wiersza polecenia.

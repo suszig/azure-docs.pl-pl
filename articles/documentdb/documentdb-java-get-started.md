@@ -1,7 +1,7 @@
 ---
 title: "Samouczek NoSQL: zestaw Java SDK usługi Azure DocumentDB | Microsoft Docs"
 description: "Samouczek NoSQL, który pokazuje tworzenie bazy danych w trybie online i aplikacji konsolowej Java przy użyciu zestawu Java SDK usługi DocumentDB. Usługa Azure DocumentDB jest bazą danych NoSQL dla formatu JSON."
-keywords: samouczek nosql, baza danych online, aplikacja konsolowa java
+keywords: nosql tutorial, online database, java console application
 services: documentdb
 documentationcenter: Java
 author: arramac
@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ddd676df429c20d1c07cfe64abc9ab69ef11bd8c
-ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 74af5fda495adc726bfa85ad48a407fd61d4dd88
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,8 +26,9 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js dla MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -62,7 +64,7 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idgitcloneastep-2-clone-the-github-project"></a><a id="GitClone"></a>Krok 2. Klonowanie projektu Github
+## <a id="GitClone"></a>Krok 2. Klonowanie projektu Github
 Możesz rozpocząć od sklonowania repozytorium Github dla tematu [Rozpoczynanie pracy z bazą danych DocumentDB i językiem Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Na przykład z katalogu lokalnego uruchom następujące polecenie, aby lokalnie pobrać przykładowy projekt.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
@@ -77,7 +79,7 @@ Katalog zawiera plik `pom.xml` dla projektu i folder `src` zawierający kod źr�
         <version>LATEST</version>
     </dependency>
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Krok 3. Łączenie z kontem usługi DocumentDB
+## <a id="Connect"></a>Krok 3. Łączenie z kontem usługi DocumentDB
 Następnie wróć do witryny [Azure Portal](https://portal.azure.com), aby pobrać punkt końcowy i główny klucz podstawowy. Punkt końcowy i klucz podstawowy usługi DocumentDB są niezbędne, aby aplikacja wiedziała, z jakim elementem ma się połączyć, oraz aby usługa DocumentDB ufała połączeniu aplikacji.
 
 W witrynie Azure Portal przejdź do swojego konta usługi DocumentDB i kliknij przycisk **Klucze**. Skopiuj identyfikator URI z portalu i wklej go w miejsce `<your endpoint URI>` w pliku Program.java. Następnie skopiuj KLUCZ PODSTAWOWY z portalu i wklej go w miejsce `<your key>`.
@@ -97,7 +99,7 @@ Własną [bazę danych](documentdb-resources.md#databases) usługi DocumentDB mo
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Krok 5. Tworzenie kolekcji
+## <a id="CreateColl"></a>Krok 5. Tworzenie kolekcji
 > [!WARNING]
 > Metoda **createCollection** tworzy nową kolekcję z zarezerwowaną przepływnością, co ma wpływ na cenę. Aby uzyskać więcej informacji, odwiedź naszą [stronę cennika](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -116,7 +118,7 @@ Własną [bazę danych](documentdb-resources.md#databases) usługi DocumentDB mo
 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Krok 6. Tworzenie dokumentów JSON
+## <a id="CreateDoc"></a>Krok 6. Tworzenie dokumentów JSON
 [Dokument](documentdb-resources.md#documents) można utworzyć za pomocą metody [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) klasy **DocumentClient**. Dokumenty są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Można teraz wstawić jeden lub więcej dokumentów. Jeśli masz już dane, które chcesz przechowywać w bazie danych, możesz użyć [narzędzia migracji danych](documentdb-import-data.md) usługi DocumentDB, aby zaimportować dane do bazy danych.
 
     // Insert your Java objects as documents 
@@ -139,7 +141,7 @@ Własną [bazę danych](documentdb-resources.md#databases) usługi DocumentDB mo
 
 ![Diagram pokazujący hierarchiczną relację między kontem, bazą danych w trybie online, kolekcją i dokumentami używanymi przez samouczek NoSQL do tworzenia aplikacji konsolowej Java](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Krok 7. Wykonywanie zapytań względem zasobów usługi DocumentDB
+## <a id="Query"></a>Krok 7. Wykonywanie zapytań względem zasobów usługi DocumentDB
 Usługa DocumentDB obsługuje zaawansowane [zapytania](documentdb-sql-query.md) względem dokumentów JSON przechowywanych w każdej kolekcji.  Następujący przykładowy kod przedstawia sposób wysyłania zapytania w usłudze DocumentDB przy użyciu składni SQL za pomocą metody [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
@@ -152,7 +154,7 @@ Usługa DocumentDB obsługuje zaawansowane [zapytania](documentdb-sql-query.md) 
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Krok 8. Zastępowanie dokumentu JSON
+## <a id="ReplaceDocument"></a>Krok 8. Zastępowanie dokumentu JSON
 Usługa DocumentDB obsługuje aktualizowanie dokumentów JSON za pomocą metody [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
 
     // Update a property
@@ -163,17 +165,17 @@ Usługa DocumentDB obsługuje aktualizowanie dokumentów JSON za pomocą metody 
         andersenFamily,
         null);
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Krok 9. Usuwanie dokumentu JSON
+## <a id="DeleteDocument"></a>Krok 9. Usuwanie dokumentu JSON
 Analogicznie usługa DocumentDB obsługuje usuwanie dokumentów JSON za pomocą metody [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Krok 10. Usuwanie bazy danych
+## <a id="DeleteDatabase"></a>Krok 10. Usuwanie bazy danych
 Usunięcie utworzonej bazy danych usunie bazę danych i wszystkie zasoby podrzędne (kolekcje, dokumenty itd.).
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a name="a-idrunastep-11-run-your-java-console-application-all-together"></a><a id="Run"></a>Krok 11. Uruchamianie całej aplikacji konsolowej Java!
+## <a id="Run"></a>Krok 11. Uruchamianie całej aplikacji konsolowej Java!
 Aby uruchomić aplikację z konsoli, najpierw należy ją skompilować przy użyciu Maven:
     
     mvn package
@@ -192,9 +194,4 @@ Gratulacje! Pomyślnie ukończono ten samouczek NoSQL i utworzono działającą 
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

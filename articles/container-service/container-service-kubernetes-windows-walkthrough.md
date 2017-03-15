@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
-ms.author: dlepow
+ms.date: 03/03/2017
+ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 010a9a4a9ad0f6f7584b1c9a54e665557078d25b
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
+ms.lasthandoff: 03/06/2017
 
 
 ---
 
-# <a name="get-started-with-windows-containers-in-a-kubernetes-cluster"></a>Rozpoczynanie pracy z kontenerami systemu Windows w klastrze Kubernetes
+# <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Rozpoczynanie pracy z kontenerami Kubernetes i Windows w usłudze Container Service
 
 
 W tym artykule przedstawiono sposób tworzenia w usłudze Azure Container Service klastra Kubernetes, który zawiera węzły systemu Windows umożliwiające uruchamianie kontenerów systemu Windows. 
@@ -55,9 +57,19 @@ Wszystkie maszyny wirtualne znajdują w tej samej prywatnej sieci wirtualnej i s
 
 ## <a name="create-the-cluster"></a>Tworzenie klastra
 
-Do [tworzenia klastra Kubernetes](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) z węzłami agenta systemu Windows można użyć witryny Azure Portal. 
+Do [tworzenia klastra Kubernetes](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) z węzłami agenta systemu Windows można użyć witryny Azure Portal. Podczas tworzenia klastra zwróć uwagę na następujące ustawienia:
 
-W okienku **Konfiguracja platformy** w obszarze **Konfiguracja programu Orchestrator** wybierz opcję **Kubernetes — Windows**. 
+* W bloku **Podstawowe** w obszarze **Koordynator** wybierz pozycję **Kubernetes**. 
+
+  ![Wybieranie koordynatora Kubernetes](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
+
+* W bloku **Konfiguracja serwera głównego** wprowadź poświadczenia użytkownika i poświadczenia nazwy głównej usługi dla węzłów głównych systemu Linux. Wybierz 1, 3 lub 5 wzorców.
+
+* W bloku **Konfiguracja agenta** w obszarze **System operacyjny** wybierz pozycję **Windows (wersja zapoznawcza)**. Wprowadź poświadczenia administratora dla węzłów agentów systemu Windows.
+
+  ![Wybieranie agentów systemu Windows](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
+
+Więcej szczegółów można znaleźć w temacie [Wdrażanie klastra usługi Azure Container Service](container-service-deployment.md).
 
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
@@ -67,7 +79,7 @@ Użyj narzędzie wiersza polecenia `kubectl`, aby nawiązać połączenie z komp
 
 Po utworzeniu klastra i nawiązaniu połączenia z narzędziem `kubectl` możesz spróbować uruchomić podstawową aplikację sieci Web systemu Windows i uwidocznić ją w Internecie. W tym przykładzie określasz zasoby kontenera przy użyciu pliku YAML, a następnie tworzysz go za pomocą narzędzia `kubctl apply`.
 
-1. Aby wyświetlić listę węzłów, wpisz ciąg `kubectl get nodes`.  Jeśli chcesz wyświetlić wszystkie szczegóły węzłów, wpisz:  
+1. Aby wyświetlić listę węzłów, wpisz ciąg `kubectl get nodes`. Jeśli chcesz wyświetlić wszystkie szczegóły węzłów, wpisz:  
 
   ```
   kubectl get nodes -o yaml
@@ -198,8 +210,3 @@ Oto zalecane linki do dalszych informacji na temat usługi Kubernetes:
 * Scenariusz [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) — pokazuje, jak wdrażać, skalować, aktualizować i debugować aplikacje konteneryzowane.
 * [Podręcznik użytkownika rozwiązania Kubernetes](http://kubernetes.io/docs/user-guide/) — zawiera informacje na temat uruchamiania programów w istniejącym klastrze Kubernetes.
 * [Przykłady dotyczące rozwiązania Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples) — przykłady związane z uruchamianiem prawdziwych aplikacji przy użyciu rozwiązania Kubernetes.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

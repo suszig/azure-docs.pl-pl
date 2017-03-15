@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ Dostępne są trzy sposoby pobierania danych do eksperymentu usługi Machine Lea
 
 Aby dowiedzieć się więcej na temat obsługiwanych formatów plików, zobacz temat [Import training data into Machine Learning Studio](machine-learning-data-science-import-data.md) (Importowanie danych szkoleniowych do środowiska usługi Machine Learning Studio).
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>Jak duży może być zestaw danych dla moich modułów?
+#### <a id="ModuleLimit"></a>Jak duży może być zestaw danych dla moich modułów?
 W typowych przypadkach użycia moduły w usłudze Machine Learning Studio obsługują zestawy danych o rozmiarze maksymalnie 10 GB, zawierające gęsto upakowane dane liczbowe. Jeśli moduł przyjmuje więcej niż jedną operację wprowadzania danych wejściowych, wówczas 10 GB to łączny rozmiar wszystkich danych wejściowych. Większe zestawy danych można przed pozyskaniem próbkować przy użyciu zapytań programu Hive lub usługi Azure SQL Database albo stosując przetwarzanie wstępne metodą uczenia przez liczenie.  
 
 Podczas normalizacji funkcji następujące typy danych mogą ulegać rozszerzaniu do większych zestawów danych. Takie dane muszą być mniejsze niż 10 GB:
@@ -101,7 +102,7 @@ W przypadku następujących modułów obowiązuje ograniczenie do zestawów dany
 * Moduły, w których rozmiar danych wyjściowych może być większy niż rozmiar danych wejściowych, na przykład Przyłączenie lub Tworzenie skrótu funkcji
 * Krzyżowa weryfikacja, Hiperparametry modelu strojenia, Regresja porządkowa oraz Multiklasa Jedna kontra wszystkie, gdy liczba iteracji jest bardzo duża
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>Jakie są ograniczenia przekazywania danych?
+#### <a id="UploadLimit"></a>Jakie są ograniczenia przekazywania danych?
 W przypadku zestawów danych o rozmiarach większych niż kilka GB dane należy przekazać do usługi Azure Storage lub usługi Azure SQL Database albo użyć usługi Azure HDInsight, zamiast przekazywać dane bezpośrednio z pliku lokalnego.
 
 **Czy mogę odczytywać dane z usługi Amazon S3?**
@@ -429,7 +430,11 @@ Zalecamy rozpoczęcie od warstwy Standardowa S1 i monitorowanie użycia usługi.
 
 **W jakich regionach są dostępne nowe plany?**
 
-Aby uzyskać informacje dotyczące dostępności w danych regionach, zobacz [Dostępność produktów według regionów](https://azure.microsoft.com/regions/services/).
+Nowe plany rozliczeniowe są dostępne w trzech regionach produkcyjnych, w których są obsługiwane nowe usługi sieci Web:
+
+* Środkowo-południowe stany USA
+* Europa Zachodnia
+* Azja Południowo-Wschodnia
 
 **Moje usługi sieci Web działają w kilku regionach. Czy muszę mieć plan dla każdego regionu?**
 
@@ -464,7 +469,13 @@ Tak, klasyczne usługi sieci Web są wciąż dostępne w usłudze Azure Machine 
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Usługa Azure Machine Learning w warstwie Bezpłatna i Standardowa
 **Co obejmuje usługa Azure Machine Learning w warstwie Bezpłatna?**
 
-Usługa Azure Machine Learning w warstwie Bezpłatna zapewnia szczegółowe wprowadzenie do usługi Azure Machine Learning Studio. Do korzystania z tej usługi wystarczy konto Microsoft. Warstwa Bezpłatna umożliwia bezpłatne korzystanie z jednego obszaru roboczego usługi Azure Machine Learning Studio w ramach [konta Microsoft](https://www.microsoft.com/account/default.aspx). W tej warstwie możesz użyć do 10 GB pamięci i operacjonalizować modele jako tymczasowe interfejsy API. Obciążenia warstwy Bezpłatna nie są objęte umową SLA i są przeznaczone tylko do użytku osobistego i do opracowywania rozwiązań. Obciążenia warstwy Bezpłatna nie mogą uzyskiwać dostępu do danych, łącząc się z lokalnym serwerem z programem SQL Server.
+Usługa Azure Machine Learning w warstwie Bezpłatna zapewnia szczegółowe wprowadzenie do usługi Azure Machine Learning Studio. Do korzystania z tej usługi wystarczy konto Microsoft. Warstwa Bezpłatna umożliwia bezpłatne korzystanie z jednego obszaru roboczego usługi Azure Machine Learning Studio w ramach [konta Microsoft](https://www.microsoft.com/account/default.aspx). W tej warstwie możesz użyć do 10 GB pamięci i operacjonalizować modele jako tymczasowe interfejsy API. Obciążenia warstwy Bezpłatna nie są objęte umową SLA i są przeznaczone tylko do użytku osobistego i do opracowywania rozwiązań. 
+
+Obszary robocze warstwy Bezpłatna mają następujące ograniczenia:
+
+* Obciążenia nie mogą uzyskiwać dostępu do danych, łącząc się z lokalnym serwerem z programem SQL Server.
+* Nie można wdrażać nowych podstawowych usług sieci Web usługi Resource Manager.
+
 
 **Co obejmują plany usługi Azure Machine Learning w warstwie Standardowa?**
 
@@ -546,9 +557,4 @@ Dostęp gościa jest ograniczoną wersją próbną środowiska użytkownika. Mo�
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

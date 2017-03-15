@@ -28,10 +28,10 @@ Jeśli aplikacja sieci Web programu ASP.NET używa informacji o stanie sesji, na
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-idcreatecacheacreate-the-cache"></a><a id="createcache"></a>Tworzenie pamięci podręcznej
+## <a id="createcache"></a>Tworzenie pamięci podręcznej
 Wykonaj [te kroki](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache), aby utworzyć pamięć podręczną.
 
-## <a name="a-idconfigureprojectaadd-the-redissessionstateprovider-nuget-package-to-your-web-app"></a><a id="configureproject"></a>Dodawanie pakietu RedisSessionStateProvider NuGet do aplikacji sieci Web
+## <a id="configureproject"></a>Dodawanie pakietu RedisSessionStateProvider NuGet do aplikacji sieci Web
 Zainstaluj pakiet NuGet `RedisSessionStateProvider`.  Użyj następującego polecenia do instalacji z poziomu konsoli menedżera pakietów (**Narzędzia** > **Menedżer pakietów NuGet** > **Konsola menedżera pakietów**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -40,7 +40,7 @@ Aby zainstalować z lokalizacji **Narzędzia** > **Menedżer pakietów NuGet** >
 
 Aby uzyskać więcej informacji, zapoznaj się ze [stroną pakietu NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) i sekcją [Configure the cache client](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet) (Konfigurowanie klienta pamięci podręcznej).
 
-## <a name="a-idconfigurewebconfigamodify-the-webconfig-file"></a><a id="configurewebconfig"></a>Modyfikowanie pliku Web.Config
+## <a id="configurewebconfig"></a>Modyfikowanie pliku Web.Config
 Oprócz tworzenia odwołań do zestawów dla pamięci podręcznej pakiet NuGet dodaje wpisy zastępcze w pliku *web.config*. 
 
 1. Otwórz plik *web.config* i znajdź element **sessionState**.
@@ -74,7 +74,7 @@ Oprócz tworzenia odwołań do zestawów dla pamięci podręcznej pakiet NuGet d
             </sessionState>;
           </system.web>;
 
-## <a name="a-idusesessionobjecta-use-the-session-object-in-code"></a><a id="usesessionobject"></a>Użycie obiektu Session w kodzie
+## <a id="usesessionobject"></a>Użycie obiektu Session w kodzie
 Ostatnim krokiem jest rozpoczęcie korzystania z obiektu Session w kodzie ASP.NET. Obiekty są dodawane do stanu sesji przy użyciu metody **Session.Add**. Ta metoda używa par kluczy i wartości do przechowywania elementów w pamięci podręcznej stanu sesji.
 
     string strValue = "yourvalue";
@@ -97,7 +97,7 @@ Aby uzyskać więcej informacji na temat sposobu używania informacji o stanie s
 ## <a name="whats-changed"></a>Co zostało zmienione
 * Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
   
-  Autor: *Rick Anderson[](https://twitter.com/RickAndMSFT)*
+  *Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)*
 
 [installed the latest]: http://www.windowsazure.com/downloads/?sdk=net  
 [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx

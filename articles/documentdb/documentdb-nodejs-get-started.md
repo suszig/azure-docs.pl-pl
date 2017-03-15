@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 49b765010be87bacdb486391c28bf58aad1a9d24
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,8 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js dla MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +65,7 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupnodeastep-2-setup-your-nodejs-application"></a><a id="SetupNode"></a>Krok 2. Instalowanie aplikacji Node.js
+## <a id="SetupNode"></a>Krok 2. Instalowanie aplikacji Node.js
 1. Otwórz swój ulubiony terminal.
 2. Zlokalizuj folder lub katalog, w którym chcesz zapisać aplikację Node.js.
 3. Utwórz dwa puste pliki JavaScript za pomocą następujących poleceń:
@@ -79,7 +80,7 @@ Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć
 
 Wspaniale! Teraz, po zakończeniu instalacji, zacznijmy pisanie kodu.
 
-## <a name="a-idconfigastep-3-set-your-apps-configurations"></a><a id="Config"></a>Krok 3. Ustawianie konfiguracji aplikacji
+## <a id="Config"></a>Krok 3. Ustawianie konfiguracji aplikacji
 Otwórz plik ```config.js``` w ulubionym edytorze tekstu.
 
 Następnie skopiuj i wklej poniższy fragment kodu oraz ustaw właściwości ```config.endpoint``` i ```config.primaryKey``` na identyfikator URI punktu końcowego i klucz podstawowy usługi DocumentDB. Obie te konfiguracje można znaleźć w [portalu Azure](https://portal.azure.com).
@@ -176,7 +177,7 @@ Na koniec wyeksportuj obiekt ```config```, aby można było odwoływać się do 
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a name="a-idconnecta-step-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>Krok 4. Łączenie z kontem usługi DocumentDB
+## <a id="Connect"></a>Krok 4. Łączenie z kontem usługi DocumentDB
 Otwórz pusty plik ```app.js``` w edytorze tekstu. Skopiuj i wklej kod poniżej, aby zaimportować moduł ```documentdb``` i nowo utworzony moduł ```config```.
 
     // ADD THIS PART TO YOUR CODE
@@ -260,7 +261,7 @@ W terminalu znajdź swój plik ```app.js```, a następnie uruchom polecenie: ```
 
 Gratulacje! Pomyślnie utworzono bazę danych usługi DocumentDB.
 
-## <a name="a-idcreatecollastep-6-create-a-collection"></a><a id="CreateColl"></a>Krok 6. Tworzenie kolekcji
+## <a id="CreateColl"></a>Krok 6. Tworzenie kolekcji
 > [!WARNING]
 > Metoda **CreateDocumentCollectionAsync** utworzy nową kolekcję, co ma implikacje cenowe. Aby uzyskać więcej informacji, odwiedź naszą [stronę cennika](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -314,7 +315,7 @@ W terminalu znajdź swój plik ```app.js```, a następnie uruchom polecenie: ```
 
 Gratulacje! Pomyślnie utworzono kolekcję usługi DocumentDB.
 
-## <a name="a-idcreatedocastep-7-create-a-document"></a><a id="CreateDoc"></a>Krok 7. Tworzenie dokumentu
+## <a id="CreateDoc"></a>Krok 7. Tworzenie dokumentu
 [Dokument](documentdb-resources.md#documents) można utworzyć za pomocą funkcji [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) klasy **DocumentClient**. Dokumenty są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Teraz można wstawić dokument do usługi DocumentDB.
 
 Skopiuj i wklej funkcję **getFamilyDocument** poniżej funkcji **getCollection** w celu utworzenia dokumentów zawierających dane JSON zapisane w obiekcie ```config```. Znowu sprawdzimy w celu upewnienia się, że dokument o takim samym identyfikatorze jeszcze nie istnieje.
@@ -368,7 +369,7 @@ Gratulacje! Pomyślnie utworzono dokumenty usługi DocumentDB.
 
 ![Samouczek środowiska Node.js — diagram pokazujący hierarchiczną relację między kontem, bazą danych, kolekcją i dokumentami — baza danych Node](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>Krok 8. Wykonywanie zapytań względem zasobów usługi DocumentDB
+## <a id="Query"></a>Krok 8. Wykonywanie zapytań względem zasobów usługi DocumentDB
 Usługa DocumentDB obsługuje [zaawansowane zapytania](documentdb-sql-query.md) względem dokumentów JSON przechowywanych w każdej kolekcji. Następujący przykładowy kod przedstawia zapytanie, które można uruchomić dla dokumentów w kolekcji.
 
 Skopiuj i wklej funkcję **queryCollection** poniżej funkcji **getFamilyDocument** w pliku app.js. Usługa DocumentDB obsługuje zapytania podobne do zapytań SQL, jak pokazano poniżej. Aby uzyskać więcej informacji na temat tworzenia złożonych zapytań, zobacz [plac zabaw dla zapytań](https://www.documentdb.com/sql/demo) i [dokumentację dotyczącą zapytań](documentdb-sql-query.md).
@@ -425,7 +426,7 @@ W terminalu znajdź swój plik ```app.js```, a następnie uruchom polecenie: ```
 
 Gratulacje! Pomyślnie wykonano zapytanie dla dokumentów usługi DocumentDB.
 
-## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>Krok 9. Zastępowanie dokumentu
+## <a id="ReplaceDocument"></a>Krok 9. Zastępowanie dokumentu
 Usługa DocumentDB obsługuje zastępowanie dokumentów JSON.
 
 Skopiuj i wklej funkcję **replaceFamilyDocument** poniżej funkcji **queryCollection** w pliku app.js.
@@ -472,7 +473,7 @@ W terminalu znajdź swój plik ```app.js```, a następnie uruchom polecenie: ```
 
 Gratulacje! Pomyślnie zastąpiono dokument usługi DocumentDB.
 
-## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>Krok 10. Usuwanie dokumentu
+## <a id="DeleteDocument"></a>Krok 10. Usuwanie dokumentu
 Usługa DocumentDB obsługuje usuwanie dokumentów JSON.
 
 Skopiuj i wklej funkcję **deleteFamilyDocument** poniżej funkcji **replaceFamilyDocument**.
@@ -516,7 +517,7 @@ W terminalu znajdź swój plik ```app.js```, a następnie uruchom polecenie: ```
 
 Gratulacje! Pomyślnie usunięto dokument usługi DocumentDB.
 
-## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>Krok 11. Usuwanie bazy danych Node
+## <a id="DeleteDatabase"></a>Krok 11. Usuwanie bazy danych Node
 Usunięcie utworzonej bazy danych spowoduje usunięcie bazy danych i wszystkich zasobów podrzędnych (kolekcji, dokumentów itd.).
 
 Skopiuj poniższą funkcję **cleanup** i wklej ją poniżej funkcji **deleteFamilyDocument**, aby usunąć bazę danych i wszystkie zasoby podrzędne.
@@ -551,7 +552,7 @@ Skopiuj i wklej kod poniżej wywołania funkcji **deleteFamilyDocument**, aby wy
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
-## <a name="a-idrunastep-12-run-your-nodejs-application-all-together"></a><a id="Run"></a>Krok 12. Uruchamianie całej aplikacji Node.js
+## <a id="Run"></a>Krok 12. Uruchamianie całej aplikacji Node.js
 Cała sekwencja wywoływania funkcji powinna wyglądać następująco:
 
     getDatabase()
@@ -602,7 +603,7 @@ Powinny zostać wyświetlone dane wyjściowe aplikacji rozpoczynania pracy. Dane
 
 Gratulacje! Udało Ci się ukończyć samouczek środowiska Node.js i utworzyć swoją pierwszą aplikację konsolową usługi DocumentDB!
 
-## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Pobieranie kompletnego rozwiązania samouczka środowiska Node.js
+## <a id="GetSolution"></a>Pobieranie kompletnego rozwiązania samouczka środowiska Node.js
 Jeśli nie masz czasu na ukończenie tych kroków w ramach tego samouczka lub po prostu chcesz pobrać kod, możesz pobrać go z serwisu [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Do uruchomienia rozwiązania GetStarted, które zawiera wszystkie przykłady znajdujące się w tym artykule, będą potrzebne następujące elementy:

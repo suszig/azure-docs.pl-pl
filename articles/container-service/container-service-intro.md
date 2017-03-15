@@ -1,5 +1,5 @@
 ---
-title: Klastry kontenera platformy Docker w chmurze platformy Azure | Microsoft Docs
+title: Hosting kontenera platformy Docker w chmurze platformy Azure | Microsoft Docs
 description: "Usługa Azure Container Service umożliwia uproszczenie tworzenia, konfiguracji i zarządzania klastrem maszyn wirtualnych, które są wstępnie skonfigurowane do uruchamiania konteneryzowanych aplikacji."
 services: container-service
 documentationcenter: 
@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: a11b133794f7aedfa6740757fd8c1e89da665744
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 04fabadb1c713deb007b740369496b61bb5f424f
+ms.lasthandoff: 03/02/2017
+
 
 
 ---
-# <a name="azure-container-service-introduction"></a>Wprowadzenie do usługi Azure Container Service
+# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Wprowadzenie do rozwiązań hostingu kontenera przy użyciu usługi Azure Container Service 
 Usługa Azure Container Service upraszcza tworzenie, konfigurację i zarządzanie klastrem maszyn wirtualnych, które są wstępnie skonfigurowane do uruchamiania konteneryzowanych aplikacji. Używa ona zoptymalizowanej konfiguracji popularnych narzędzi do planowania i aranżacji typu open source. Umożliwia to używanie posiadanych umiejętności lub sięganie po duży i rosnący zasób wiedzy społeczności w celu wdrażania opartych na kontenerze aplikacji platformy Microsoft Azure i zarządzania nimi.
 
 ![Usługa Azure Container Service udostępnia środki do zarządzania konteneryzowanymi aplikacjami na wielu hostach na platformie Azure.](./media/acs-intro/acs-cluster-new.png)
@@ -109,8 +112,3 @@ Tworzenie aplikacji za pomocą usługi Azure Container Service (kompilacja 2016)
 ## <a name="next-steps"></a>Następne kroki
 
 Wdrażanie klastra usługi kontenera przy użyciu [portalu](container-service-deployment.md) lub [interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-service-create-acs-cluster-cli.md).
-
-
-<!--HONumber=Feb17_HO4-->
-
-
