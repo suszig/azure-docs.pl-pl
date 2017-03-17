@@ -36,9 +36,9 @@
 #### [Instalowanie programu .NET w roli usługi w chmurze przy użyciu zadania](cloud-services-dotnet-install-dotnet.md)
 
 ### Konfigurowanie pulpitu zdalnego
-#### [Program Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
-#### [Program PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Portal klasyczny](cloud-services-role-enable-remote-desktop.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Wdrożenie
 ### Tworzenie i wdrażanie usługi w chmurze w portalu

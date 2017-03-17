@@ -54,7 +54,6 @@
 #### Rozpoczęcie pracy
 ##### [C# w systemie Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java w systemie Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Architektura](service-fabric-reliable-services-platform-architecture.md)
 #### [Cykl życia usług Reliable Services](service-fabric-reliable-services-lifecycle.md)
 #### [Niezawodne kolekcje](service-fabric-reliable-services-reliable-collections.md)
 #### [Korzystanie z elementów Reliable Collections](service-fabric-work-with-reliable-collections.md)
@@ -78,8 +77,8 @@
 #### [Cykl życia i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
 #### [Polimorfizm](service-fabric-reliable-actors-polymorphism.md)
 #### [Ponowne wejścia](service-fabric-reliable-actors-reentrancy.md)
+#### [Zdarzenia](service-fabric-reliable-actors-events.md) 
 #### [Czasomierze i przypomnienia](service-fabric-reliable-actors-timers-reminders.md)
-#### [Zdarzenia](service-fabric-reliable-actors-events.md)
 #### [Zarządzanie stanem](service-fabric-reliable-actors-state-management.md)
 #### [Konfigurowanie dostawcy KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Serializacja typów](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
@@ -166,7 +165,6 @@
 ### [Diagnostyka stanowych usług Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostyka w elementach Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Rozwiązywanie problemów z klastrem lokalnym](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Rozwiązywanie typowych problemów](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## Skalowanie aplikacji
 ### [Partycjonowanie usług Reliable Services](service-fabric-concepts-partitioning.md)
@@ -181,7 +179,6 @@
 #### [Przy użyciu kontrolowanego chaosu](service-fabric-controlled-chaos.md)
 #### [Przy użyciu akcji testowych](service-fabric-testability-actions.md)
 #### [Podczas obciążeń](service-fabric-testability-workload-tests.md)
-#### [Za pomocą wywołania utraty danych](service-fabric-use-data-loss-api.md)
 #### [Przy użyciu scenariuszy testowania](service-fabric-testability-scenarios.md)
 #### [Przy użyciu interfejsów API przechodzenia węzłów](service-fabric-node-transition-apis.md)
 ### [Testowanie obciążenia aplikacji](service-fabric-vso-load-test.md)
