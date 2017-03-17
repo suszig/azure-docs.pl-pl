@@ -8,14 +8,11 @@
 
 # Rozpoczęcie pracy
 ## [Wprowadzenie do usługi Advisor](advisor-get-started.md)
-
+# Dokumentacja
+## [REST](https://docs.microsoft.com/rest/api/advisor)
 # Powiązane
 ## [Centrum zabezpieczeń](https://azure.microsoft.com/services/security-center/)
 ## [SQL DB Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
 ## [Pamięć podręczna Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [App Services](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
  
-
-<!--HONumber=Nov16_HO4-->
-
-
