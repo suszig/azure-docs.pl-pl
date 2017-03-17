@@ -62,12 +62,12 @@
 ### [Działania technologii Pig w usłudze HDInsight](data-factory-pig-activity.md)
 ### [Działania technologii MapReduce w usłudze HDInsight](data-factory-map-reduce.md)
 ### [Działania przesyłania strumieniowego usługi HDInsight](data-factory-hadoop-streaming-activity.md)
+### [Działania platformy Spark w usłudze HDInsight](data-factory-spark.md)
 ### [Działanie wykonywania wsadowego w usłudze Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 ### [Działania aktualizowania zasobów w usłudze Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 ### [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 ### [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 ### [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
-### [Wywoływanie programów platformy Spark](data-factory-spark.md)
 ### [Wywoływanie skryptów języka R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Programowanie
 ### [Szablon usługi Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)

@@ -39,9 +39,10 @@
 ## [Konfigurowanie protokołu BGP dla bram Azure VPN Gateway przy użyciu programu PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Konfigurowanie połączeń typu aktywne-aktywne o wysokiej dostępności](vpn-gateway-activeactive-rm-powershell.md)
 ## [Modyfikowanie ustawień lokalnej bramy sieci przy użyciu programu PowerShell](vpn-gateway-modify-local-network-gateway.md)
-## [Weryfikowanie połączenia z bramą](vpn-gateway-verify-connection-resource-manager.md)
-## [Resetowanie usługi Azure VPN Gateway](vpn-gateway-resetgw-classic.md)
-## [Praca z certyfikatami z podpisem własnym dla połączeń typu punkt-lokacja](vpn-gateway-certificates-point-to-site.md)
+## [Weryfikowanie połączenia z bramą VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
+## [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md)
+## [Usuwanie bramy VPN Gateway](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [Tworzenie certyfikatów głównych z podpisem własnym dla połączeń P2S](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Dokumentacja
@@ -64,8 +65,3 @@
 ## [Cennik](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

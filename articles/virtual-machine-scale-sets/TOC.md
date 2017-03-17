@@ -2,13 +2,16 @@
 ## [Co to są zestawy skalowania maszyn wirtualnych?](virtual-machine-scale-sets-overview.md)
 
 # Wprowadzenie
-## [Tworzenie zestawu skalowania w portalu](virtual-machine-scale-sets-portal-create.md)
-## [Create a scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md) (Tworzenie zestawu skalowania przy użyciu interfejsu wiersza polecenia platformy Azure)
-## [Tworzenie zestawu skalowania przy użyciu szablonu usługi Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Wdrażanie zestawu skalowania w portalu](virtual-machine-scale-sets-portal-create.md)
+## [Wdrażanie zestawu skalowania przy użyciu interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-linux-create-cli.md)
+## [Wdrażanie prostego zestawu skalowania przy użyciu szablonu usługi Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
 ### [Zagadnienia dotyczące projektowania](virtual-machine-scale-sets-design-overview.md)
+## Zapisywanie szablonów zestawów skalowania
+### [Wdrażanie prostego zestawu skalowania](virtual-machine-scale-sets-mvss-start.md)
+### [Wdrażanie zestawu skalowania w istniejącej sieci wirtualnej](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Wdrożenie
 ### [Skalowanie zestawu przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## Rozwiązywanie problemów
 ### [Skalowanie automatyczne](virtual-machine-scale-sets-troubleshoot.md)
+
+## Często zadawane pytania
+### [Zestaw skalowania — często zadawane pytania](virtual-machine-scale-sets-faq.md)
 
 # Dokumentacja
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

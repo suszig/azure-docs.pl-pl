@@ -54,6 +54,9 @@
 ### [Uruchamianie/zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) (Integracja kontroli źródła z usługą GitHub Enterprise)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md) (Integracja kontroli źródła z usługą VSTS)
+## Rozwiązania
+### [Śledzenie zmian](../log-analytics/log-analytics-change-tracking.md)
+### [Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md)
 ## Monitorowanie
 ### [Przekazywanie danych zadania usługi Azure Automation do usługi Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Odłączanie konta usługi Azure Automation od usługi Log Analytics](automation-unlink-from-log-analytics.md)

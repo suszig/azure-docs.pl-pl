@@ -38,7 +38,8 @@
 ### [Przenoszenie zasobów do nowej grupy lub subskrypcji](resource-group-move-resources.md)
 ## Kontrola dostępu
 ### [Tworzenie jednostki usługi przy użyciu programu PowerShell](resource-group-authenticate-service-principal.md)
-### [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](resource-group-authenticate-service-principal-cli.md)
+### [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Tworzenie jednostki usługi przy użyciu portalu](resource-group-create-service-principal-portal.md)
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)

@@ -29,7 +29,7 @@
 ### [Wyświetlanie zdarzeń w dzienniku aktywności](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Konfigurowanie elementu webhook dla alertu dotyczącego dziennika aktywności](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archiwizowanie dziennika aktywności](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
-### [Strumieniowe przesyłanie dziennika aktywności do usługi Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+### [Strumieniowe przesyłanie dzienników aktywności do usługi Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operacje inspekcji w usłudze Resource Manager)
 ## Zarządzanie dziennikami diagnostycznymi
 ### [Archiwizowanie](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
@@ -37,6 +37,8 @@
 ### [Włączanie ustawień diagnostycznych przy użyciu szablonów usługi Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## Używanie interfejsu API REST
 ### [Przewodnik po korzystaniu z interfejsu API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Korzystanie z usługi Diagnostyka Azure
+### [Wysyłanie do usługi Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
 # Dokumentacja
 ## [Program PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)

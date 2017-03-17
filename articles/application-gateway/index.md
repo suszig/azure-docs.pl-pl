@@ -13,11 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
-ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.lasthandoff: 03/15/2017
 
 ---
-#<a name="application-gateway-documentation"></a>Dokumentacja usługi Application Gateway
+# <a name="application-gateway-documentation"></a>Dokumentacja usługi Application Gateway
 
 Dowiedz się, jak wdrożyć usługę Application Gateway, kontrolera dostarczania aplikacji (ADC, Application Deliver Controller), jako usługę. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować usługi routingu i równoważenia obciążenia na poziomie aplikacji, które pozwalają tworzyć skalowalne frontony sieci Web o wysokiej dostępności.
 
@@ -125,7 +126,7 @@ Dowiedz się, jak wdrożyć usługę Application Gateway, kontrolera dostarczani
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -162,10 +163,5 @@ Dowiedz się, jak wdrożyć usługę Application Gateway, kontrolera dostarczani
     </li>
 </ul>    
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

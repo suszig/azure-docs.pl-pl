@@ -169,7 +169,7 @@
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
-### [Przenoszenie danych](https://msdn.microsoft.com/library/azure/mt684990.aspx)
+### [Przenoszenie danych](/dotnet/api/microsoft.windowsazure.storage.datamovement)
 ### [Obiekty blob, kolejki, tabele i pliki](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
