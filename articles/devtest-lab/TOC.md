@@ -5,17 +5,20 @@
 
 # Wprowadzenie
 ## [Tworzenie laboratorium](devtest-lab-create-lab.md)
+## [Tworzenie formuł](devtest-lab-create-formulas.md)
 ## [Tworzenie maszyny wirtualnej](devtest-lab-add-vm.md)
+## [Zarządzanie podstawowymi zasadami laboratorium](devtest-lab-get-started-with-lab-policies.md)
 ## [Tworzenie laboratorium na potrzeby szkolenia](devtest-lab-training-lab.md)
 ## [Często zadawane pytania](devtest-lab-faq.md)
 
 # Instrukcje
 ## Zarządzanie laboratoriami
 ### [Dodawanie właścicieli i użytkowników laboratorium](devtest-lab-add-devtest-user.md)
-### [Definiowanie zasad laboratorium](devtest-lab-set-lab-policy.md)
+### [Zarządzanie wszystkimi zasadami laboratorium](devtest-lab-set-lab-policy.md)
 ### [Nadawanie uprawnień zasadom](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Konfigurowanie zarządzania kosztami](devtest-lab-configure-cost-management.md)
 ### [Konfigurowanie sieci wirtualnych](devtest-lab-configure-vnet.md)
+### [Informacje o współużytkowanych adresach IP](devtest-lab-shared-ip.md)
 
 ## Zarządzanie artefaktami
 ### [Dodawanie repozytorium artefaktów](devtest-lab-add-artifact-repo.md)
@@ -33,8 +36,6 @@
 ### [Przekazywanie pliku VHD za pomocą programu AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Przekazywanie pliku VHD za pomocą programu PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Przekazywanie pliku VHD za pomocą Eksploratora magazynu](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Zasoby
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=devtest-lab)

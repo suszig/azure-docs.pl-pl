@@ -96,7 +96,10 @@
 #### [Rozwiązywanie problemów](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Korzystanie z urządzenia Arduino
-### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
+### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+
+### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia
 ##### [Konfigurowanie urządzenia](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Pobieranie narzędzi (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -116,6 +119,7 @@
 ##### [Uruchamianie przykładowej aplikacji w celu otrzymywania komunikatów](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Opcjonalnie: zmiana zachowania diody LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Rozwiązywanie problemów](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 
 ## Korzystanie z zestawu SDK bramy
 ### [Symulacja w systemie Linux](iot-hub-linux-gateway-sdk-get-started.md)
@@ -140,6 +144,8 @@
 ##### [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md) (Tworzenie aplikacji funkcji platformy Azure i konta usługi Azure Storage)
 ##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md) (Odczytywanie komunikatów utrwalonych w usłudze Azure Table Storage)
 
+#### [Lekcja 5. Tworzenie pierwszego modułu bramy usługi Azure IoT](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [Rozwiązywanie problemów](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [Urządzenie SensorTag](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +165,8 @@
 #### Lekcja 4. Zapisywanie komunikatów w usłudze Azure Table Storage
 ##### [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md) (Tworzenie aplikacji funkcji platformy Azure i konta usługi Azure Storage)
 ##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md) (Odczytywanie komunikatów utrwalonych w usłudze Azure Table Storage)
+
+#### [Lekcja 5. Tworzenie pierwszego modułu bramy usługi Azure IoT](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [Rozwiązywanie problemów](iot-hub-gateway-kit-c-troubleshooting.md)
 
@@ -219,7 +227,7 @@
 ## Zarządzanie
 ### Tworzenie centrum IoT 
 #### [Korzystanie z portalu](iot-hub-create-through-portal.md)
-#### [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](iot-hub-create-using-cli.md)
+#### [Korzystanie z interfejsu wiersza polecenia 2.0](iot-hub-create-using-cli.md)
 #### [Korzystanie z interfejsu wiersza polecenia](iot-hub-create-using-cli-nodejs.md)
 #### [Korzystanie z interfejsu API REST](iot-hub-rm-rest.md)
 #### [Korzystanie z programu PowerShell](iot-hub-rm-template-powershell.md)

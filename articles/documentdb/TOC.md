@@ -4,6 +4,7 @@
 ## [Co to jest usługa DocumentDB: interfejs API dla bazy danych MongoDB?](documentdb-protocol-mongodb.md)
 ## [Kluczowe pojęcia](documentdb-resources.md)
 ## [Dystrybucja globalna](documentdb-distribute-data-globally.md)
+## [Bezpieczeństwo](documentdb-nosql-database-security.md)
 ## [Analiza NoSQL całkowitego kosztu posiadania](https://aka.ms/documentdb-tco-paper)
 ## Scenariusze
 ### [Typowe przypadki użycia](documentdb-use-cases.md)
@@ -15,11 +16,11 @@
 ### [Aplikacja konsolowa platformy .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Aplikacja konsolowa środowiska Java](documentdb-java-get-started.md)
 ### [Aplikacja konsoli Node.js](documentdb-nodejs-get-started.md)
-### [Aplikacja konsoli Node.js dla interfejsów API bazy danych MongoDB](documentdb-mongodb-samples.md)
+### [Aplikacja konsolowa Node.js dla interfejsu API bazy danych MongoDB](documentdb-mongodb-samples.md)
 ### [Aplikacja konsolowa języka C++](documentdb-cpp-get-started.md)
 ## Tworzenie aplikacji sieci Web
 ### [Aplikacja sieci Web programu .NET](documentdb-dotnet-application.md)
-### [Aplikacja sieci Web programu .NET dla interfejsów API bazy danych MongoDB](documentdb-mongodb-application.md)
+### [Aplikacja sieci Web programu .NET dla interfejsu API bazy danych MongoDB](documentdb-mongodb-application.md)
 ### [Aplikacja sieci Web środowiska Node.js](documentdb-nodejs-application.md)
 ### [Aplikacje sieci Web w języku Java](documentdb-java-application.md)
 ### [Aplikacje sieci Web w języku Python Flask](documentdb-python-application.md)
@@ -36,32 +37,33 @@
 ### [Ekonomiczne odczyty i zapisy](documentdb-key-value-store-cost.md)
 
 ## Zarządzanie
+### [Jednostki żądania](documentdb-request-units.md)
 ### [Importowanie danych](documentdb-import-data.md)
 ### [Importowanie do interfejsu API dla bazy danych MongoDB](documentdb-mongodb-migrate.md)
 ### [Łączenie ze swoim kontem MongoDB](documentdb-connect-mongodb-account.md)
 ### [Korzystanie z programu MongoChef](documentdb-mongodb-mongochef.md)
 ### [Korzystanie z narzędzia Robomongo](documentdb-mongodb-robomongo.md)
 ### [Modelowanie danych](documentdb-modeling-data.md)
-### [Używanie danych geoprzestrzennych](documentdb-geospatial.md)
-### [Opracowywanie zawartości dla wielu regionów](documentdb-developing-with-multiple-regions.md)
-### [Praca w trybie failover w regionach](documentdb-regional-failovers.md)
 ### [Automatyczne wygaszanie danych](documentdb-time-to-live.md)
-### [Dostosowywanie indeksów](documentdb-indexing-policies.md)
-### [Zabezpieczanie dostępu do danych](documentdb-secure-access-to-data.md)
 ### [Tworzenie kopii zapasowej i przywracanie](documentdb-online-backup-and-restore.md)
+### [Praca w trybie failover w regionach](documentdb-regional-failovers.md)
+### Automatyzacja
+#### [Interfejs wiersza polecenia platformy Azure 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 1.0: tworzenie konta](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Interfejs wiersza polecenia platformy Azure 1.0: dodawanie lub usuwanie regionów](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Bezpieczeństwo
+#### [Zabezpieczanie dostępu do danych](documentdb-secure-access-to-data.md)
+#### [Obsługa zapory](documentdb-firewall-support.md)
 ### [Wycofywanie wersji S1, S2, S3](documentdb-performance-levels.md)
-### [Jednostki żądania](documentdb-request-units.md)
-### [Interfejs wiersza polecenia platformy Azure 2.0](documentdb-automation-resource-manager-cli.md)
-### Interfejs wiersza polecenia platformy Azure CLI w wersji 1.0
-#### [Create an account](documentdb-automation-resource-manager-cli-nodejs.md) (Tworzenie konta)
-#### [Add or remove regions](documentdb-automation-region-management.md) (Dodawanie lub usuwanie regionów)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Obsługa zapory](documentdb-firewall-support.md)
 
 ## Programowanie
 ### [Zapytanie SQL](documentdb-sql-query.md)
 ### [Procedury składowane, wyzwalacze i funkcje definiowane przez użytkownika (UDF)](documentdb-programming.md)
+### [Dostosowywanie indeksów](documentdb-indexing-policies.md)
+### [Opracowywanie zawartości dla wielu regionów](documentdb-developing-with-multiple-regions.md)
 ### [Track changes with Change feed](documentdb-change-feed.md) (Śledzenie zmian za pomocą kanału informacyjnego zmian)
+### [Używanie danych geoprzestrzennych](documentdb-geospatial.md)
 ### [Testowanie wydajności](documentdb-performance-testing.md)
 ### [Porady dotyczące wydajności](documentdb-performance-tips.md)
 ### Najlepsze praktyki
