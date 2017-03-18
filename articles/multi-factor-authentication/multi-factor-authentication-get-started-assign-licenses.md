@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2017
 ms.author: kgremban
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
 ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
-
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Przypisywanie użytkownikom licencji usługi Azure MFA, usługi Azure AD w wersji Premium lub pakietu Enterprise Mobility
@@ -41,8 +42,3 @@ Jeśli zakupiono licencję usługi Azure MFA, usługi Azure AD w wersji Premium 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji, zobacz [What is Microsoft Azure Active Directory licensing?](../active-directory/active-directory-licensing-what-is.md) (Co to jest licencjonowanie usługi Microsoft Azure Active Directory?)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
