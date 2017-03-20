@@ -17,6 +17,7 @@ ms.author: edmaca
 translationtype: Human Translation
 ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
 ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -161,10 +162,5 @@ Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyśw
 * Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).
 * Aby zapoznać się z omówieniem usługi Data Lake Analytics, zobacz [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

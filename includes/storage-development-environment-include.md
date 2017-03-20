@@ -77,8 +77,3 @@ Jeśli obiektem docelowym ma być emulator magazynu, możesz użyć skrótu klaw
 <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 ```
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

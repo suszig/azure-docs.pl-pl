@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
@@ -107,7 +107,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
 2. Użyj następującego polecenia, aby uruchomić przykładową topologię:
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm jar org.apache.storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
    
     > [!NOTE]
     > We wcześniejszych wersjach usługi HDInsight nazwa klasy topologii to `storm.starter.WordCountTopology` zamiast `org.apache.storm.starter.WordCountTopology`.
