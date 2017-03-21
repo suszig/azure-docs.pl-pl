@@ -5,37 +5,48 @@ sql-database-resource-limits.md
 sql-database-service-tiers.md  
 -->
 
-### <a name="basic-service-tier"></a>Warstwa Podstawowa usług
-| **Warstwa usług** | **Podstawowa** |
+### <a name="basic-service-tier"></a>Basic service tier
+| **Performance level** | **Basic** |
 | --- | :---: |
-| Maksymalna liczba jednostek DTU | 5 |
-| Maksymalny rozmiar bazy danych* |2 GB|
-| Maksymalna pojemność magazynu OLTP w pamięci |Nie dotyczy |
-| Maksymalna liczba współbieżnych procesów roboczych |30 |
-| Maksymalna liczba współbieżnych logowań |30 |
-| Maksymalna liczba współbieżnych sesji |300 |
+| Max DTUs | 5 |
+| Max database size* |2 GB|
+| Max in-memory OLTP storage |N/A |
+| Max concurrent workers |30 |
+| Max concurrent logins |30 |
+| Max concurrent sessions |300 |
 |||
 
-### <a name="standard-service-tier"></a>Warstwa Standardowa usług
-| **Warstwa usług** | **S0** | **S1** | **S2** | **S3** |
+### <a name="standard-service-tier"></a>Standard service tier
+| **Performance level** | **S0** | **S1** | **S2** | **S3** |
 | --- |---:| ---:|---:|---:|---:|
-| Maksymalna liczba jednostek DTU | 10 | 20 | 50 | 100 |
-| Maksymalny rozmiar bazy danych* | 250 GB| 250 GB | 250 GB | 250 GB |
-| Maksymalna pojemność magazynu OLTP w pamięci | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
-| Maksymalna liczba współbieżnych procesów roboczych | 60 | 90 | 120 | 200 |
-| Maksymalna liczba współbieżnych logowań | 60 | 90 | 120 | 200 |
-| Maksymalna liczba współbieżnych sesji |600 | 900 | 1200 | 2400 |
+| Max DTUs | 10 | 20 | 50 | 100 |
+| Max database size* | 250 GB| 250 GB | 250 GB | 250 GB |
+| Max in-memory OLTP storage | N/A | N/A | N/A | N/A |
+| Max concurrent workers | 60 | 90 | 120 | 200 |
+| Max concurrent logins | 60 | 90 | 120 | 200 |
+| Max concurrent sessions |600 | 900 | 1200 | 2400 |
 ||||||
 
-### <a name="premium-service-tier"></a>Warstwa Premium usług 
-| **Warstwa usług** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+### <a name="premium-service-tier"></a>Premium service tier 
+| **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | --- |---:|---:|---:|---:|---:|---:|
-| Maksymalna liczba jednostek DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Maksymalny rozmiar bazy danych* | 500 GB | 500 GB | 500 GB | 500 GB | 1 TB | 1 TB |
-| Maksymalna pojemność magazynu OLTP w pamięci | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
-| Maksymalna liczba współbieżnych procesów roboczych | 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Maksymalna liczba współbieżnych logowań | 200 | 400| 800| 1600| 2400| 6400 |
-| Maksymalna liczba współbieżnych sesji | 30000| 30000| 30000| 30000| 30000| 30000 |
+| Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Max database size* | 500 GB | 500 GB | 500  GB | 500 GB | 4 TB* | 4 TB* |
+| Max in-memory OLTP storage | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
+| Max concurrent workers | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Max concurrent logins | 200 | 400| 800| 1600| 2400| 6400 |
+| Max concurrent sessions | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* Maksymalny rozmiar bazy danych oznacza maksymalny rozmiar danych w bazie danych.
+### <a name="premium-rs-service-tier"></a>Premium RS service tier 
+| **Performance level** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
+| --- |---:|---:|---:|---:|---:|---:|
+| Max DTUs | 125 | 250 | 500 | 1000 |
+| Max database size* | 500 GB | 500 GB | 500  GB | 500 GB |
+| Max in-memory OLTP storage | 1 GB | 2 GB | 4 GB | 8 GB |
+| Max concurrent workers | 200 | 400 | 800 | 1600 |
+| Max concurrent logins | 200 | 400| 800| 1600|
+| Max concurrent sessions | 30000| 30000| 30000| 30000|
+|||||||
+
+\* Max database size refers to the maximum size of the data in the database. 

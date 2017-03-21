@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
-ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4f6ae0c3c40a10f75b46c6e44b0aa9e8ce440b4d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -45,8 +46,9 @@ Usługa Azure DocumentDB oferuje następujące kluczowe funkcje i korzyści:
 * **W pełni zarządzana**: eliminuje konieczność zarządzania zasobami maszyn i bazy danych. Ponieważ jest to w pełni zarządzana usługa platformy Microsoft Azure, nie musisz zarządzać maszynami wirtualnymi, wdrażać i konfigurować oprogramowania, zarządzać skalowaniem ani obsługiwać złożonych aktualizacji warstwy danych. Dla każdej bazy danych jest automatycznie tworzona kopia zapasowa i jest ona chroniona przed regionalnymi awariami. Możesz łatwo dodać konto usługi DocumentDB i aprowizować pojemność odpowiednio do potrzeb, co pozwala skupić się na aplikacji zamiast zajmować się obsługą bazy danych i zarządzaniem nią. 
 * **Celowa ogólnodostępność**: można szybko rozpocząć pracę, wykorzystując posiadane umiejętności i narzędzia. Programowanie bazy danych DocumentDB jest łatwe, przystępne i nie wymaga wdrażania nowych narzędzi ani niestandardowych rozszerzeń formatu JSON czy języka JavaScript. Możesz uzyskać dostęp do wszystkich funkcji bazy danych, w tym operacji CRUD, zapytań i przetwarzania języka JavaScript przy użyciu prostego interfejsu RESTful protokołu HTTP. Usługa DocumentDB wykorzystuje istniejące formaty, języki i standardy, jednocześnie oferując oparte na nich i zapewniające wysoką wartość możliwości bazy danych.
 * **Automatyczne indeksowanie:** domyślnie usługa DocumentDB automatycznie indeksuje wszystkie dokumenty w bazie danych i nie oczekuje ani nie wymaga żadnego schematu lub tworzenia indeksów pomocniczych. Nie chcesz indeksować wszystkiego? Nie martw się, możesz również [zrezygnować ze ścieżki plików JSON](documentdb-indexing-policies.md).
+* **Zgodność z aplikacjami usługi MongoDB:** dzięki usłudze DocumentDB: interfejs API dla bazy danych MongoDB możesz używać baz danych usługi DocumentDB jako magazynu danych dla aplikacji napisanych dla usługi MongoDB. To oznacza, że przy użyciu istniejących sterowników dla baz danych usługi MongoDB aplikacja napisana dla usługi MongoDB może teraz komunikować się z usługą DocumentDB i używać baz danych usługi DocumentDB zamiast baz danych usługi MongoDB. W wielu przypadkach możesz przejść z używania usługi MongoDB na używanie usługi DocumentDB, po prostu zmieniając parametry połączenia. Aby dowiedzieć się więcej, zobacz [Co to jest usługa DocumentDB: interfejs API dla bazy danych MongoDB?](documentdb-protocol-mongodb.md)
 
-## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Jak usługa DocumentDB zarządza danymi?
+## <a name="data-management"></a>Jak usługa DocumentDB zarządza danymi?
 Usługa Azure DocumentDB zarządza danymi JSON za pomocą dobrze zdefiniowanych zasobów bazy danych. Te zasoby są replikowane w celu zapewnienia wysokiej dostępności i unikatowo adresowane przez ich logiczny identyfikator URI. Usługa DocumentDB oferuje prosty model programowania RESTful oparty na protokole HTTP dla wszystkich zasobów. 
 
 Konto bazy danych usługi DocumentDB jest unikatową przestrzenią nazw, która umożliwia dostęp do usługi Azure DocumentDB. Przed utworzeniem konta bazy danych musisz mieć subskrypcję platformy Azure, która umożliwia dostęp do różnych usług platformy Azure. 
@@ -59,8 +61,8 @@ Na poniższym obrazie przedstawiono relacje między zasobami usługi DocumentDB:
 
 Konto bazy danych składa się z zestawu baz danych, każda z nich zawiera wiele kolekcji, a każda kolekcja może zawierać procedury składowane, wyzwalacze, funkcje UDF, dokumenty i powiązane załączniki. Baza danych ma również skojarzonych użytkowników, a każdy użytkownik ma zestaw uprawnień dostępu do różnych innych kolekcji, procedur składowanych, wyzwalaczy, funkcji UDF, dokumentów lub załączników. Bazy danych, użytkownicy, uprawnienia i kolekcje są zasobami zdefiniowanymi przez system za pomocą dobrze znanych schematów, natomiast dokumenty, procedury składowane, wyzwalacze, funkcje UDF i załączniki zawierają dowolną, zdefiniowaną przez użytkownika zawartość JSON.  
 
-## <a name="a-namedevelopa-how-can-i-develop-apps-with-documentdb"></a><a name="develop"></a> Jak można tworzyć aplikacje przy użyciu usługi DocumentDB?
-Usługa Azure DocumentDB udostępnia zasoby za pośrednictwem interfejsu API REST, który można wywoływać za pomocą dowolnego języka realizującego żądania HTTP i HTTPS. Ponadto usługa DocumentDB oferuje biblioteki programistyczne dla kilku popularnych języków. Te biblioteki upraszczają wiele aspektów pracy z usługą Azure DocumentDB dzięki obsłudze szczegółów takich jak buforowanie adresów, zarządzanie wyjątkami, automatyczne ponawianie prób i tak dalej. Biblioteki są obecnie dostępne dla następujących języków i platform:  
+## <a name="develop"></a> Jak można tworzyć aplikacje przy użyciu usługi DocumentDB?
+Usługa Azure DocumentDB udostępnia zasoby za pośrednictwem interfejsu API REST, który można wywoływać za pomocą dowolnego języka realizującego żądania HTTP i HTTPS. Ponadto usługa DocumentDB oferuje biblioteki programistyczne dla kilku popularnych języków i jest zgodna z interfejsami API usługi MongoDB. Biblioteki klienckie upraszczają wiele aspektów pracy z usługą Azure DocumentDB dzięki obsłudze szczegółów takich jak buforowanie adresów, zarządzanie wyjątkami, automatyczne ponawianie prób i tak dalej. Biblioteki są obecnie dostępne dla następujących języków i platform:  
 
 | Do pobrania | Dokumentacja |
 | --- | --- |
@@ -70,6 +72,7 @@ Usługa Azure DocumentDB udostępnia zasoby za pośrednictwem interfejsu API RES
 | [Zestaw SDK dla języka JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991) |[Biblioteka języka JavaScript](http://azure.github.io/azure-documentdb-js/) |
 | Nie dotyczy |[Zestaw SDK dla języka JavaScript po stronie serwera](http://azure.github.io/azure-documentdb-js-server/) |
 | [Zestaw SDK dla języka Python](https://pypi.python.org/pypi/pydocumentdb) |[Biblioteka języka Python](http://azure.github.io/azure-documentdb-python/) |
+| Nie dotyczy | [Interfejs API dla usługi MongoDB](documentdb-protocol-mongodb.md)
 
 Za pomocą [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md) możesz lokalnie opracowywać i testować swoją aplikację bez tworzenia subskrypcji platformy Azure i generowania kosztów. Jeśli sposób działania aplikacji w emulatorze usługi DocumentDB jest zadowalający, możesz przełączyć się do korzystania z konta usługi Azure DocumentDB w chmurze.
 
@@ -107,10 +110,5 @@ Nie masz konta platformy Azure? Możesz:
 Następnie, kiedy zechcesz dowiedzieć się więcej, odwiedź naszą [ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/documentdb/), aby przejrzeć listę wszystkich dostępnych zasobów szkoleniowych. 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
