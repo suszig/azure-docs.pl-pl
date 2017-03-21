@@ -4,18 +4,19 @@ description: "Szybki dostęp do żądania usługi Application Insights i wyjątk
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2016
+ms.date: 03/17/2017
 ms.author: daviste
 translationtype: Human Translation
 ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
 ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
+ms.lasthandoff: 11/16/2016
 
 
 ---
@@ -72,16 +73,11 @@ Aby uzyskać szczegółowe informacje, kliknij wskaźnik CodeLens żądań:
 * Wybierz polecenie **Trend**, aby wyświetlić wizualizację trendu dla żądań, żądań zakończonych niepowodzeniem lub średniego czasu odpowiedzi w ciągu ostatnich 24 godzin.
 * Wybierz nazwę zasobu usługi Application Insights w lewym górnym rogu widoku szczegółów funkcji CodeLens, aby zmienić zasób, który jest źródłem danych tej funkcji.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Następne kroki
+## <a name="next"></a>Następne kroki
 |  |  |
 | --- | --- |
 | **[Praca z usługą Application Insights w programie Visual Studio](app-insights-visual-studio.md)**<br/>Wyszukiwanie danych telemetrycznych, wyświetlanie danych CodeLens i konfigurowanie usługi Application Insights. Wszystko to w programie Visual Studio. |![Kliknij prawym przyciskiem myszy projekt i wybierz kolejno opcje Application Insights, Wyszukiwanie](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Dodawanie większej ilości danych](app-insights-asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
 | **[Praca z portalem usługi Application Insights](app-insights-dashboards.md)**<br/>Pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, mapa zależności aplikacji na żywo oraz eksportowanie telemetrii. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
