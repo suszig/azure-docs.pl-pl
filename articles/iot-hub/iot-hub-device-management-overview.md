@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 03/09/2017
 ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
-ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -38,7 +39,11 @@ Kluczowym elementem procesu tworzenia prawidłowo działającego rozwiązania Io
 
 * **Skalowanie i automatyzacja**: rozwiązania IoT wymagają prostych narzędzi, które pozwalają zautomatyzować rutynowe zadania i umożliwiają stosunkowo małej grupie pracowników operacyjnych zarządzanie milionami urządzeń. Na co dzień operatorzy chcą zdalnie i zbiorczo obsługiwać operacje związane z urządzeniami oraz chcą być powiadamiani tylko o problemach wymagających ich bezpośredniej uwagi.
 * **Otwartość i zgodność**: ekosystem urządzeń jest bardzo zróżnicowany. Narzędzia do zarządzania muszą być zgodne z wieloma klasami urządzeń, platformami i protokołami. Operatorzy muszą mieć możliwość zapewnienia obsługi dla wielu typów urządzeń — od wbudowanych układów wykonujących pojedyncze procesy po zaawansowane i w pełni funkcjonalne komputery.
-* **Uwzględnianie kontekstu**: środowiska IoT są dynamiczne i nieustannie się zmieniają. Najważniejszą kwestią jest niezawodność usługi. Operacje z zakresu zarządzania urządzeniami muszą uwzględniać okna obsługi w ramach umowy SLA, stan sieci i zasilania, warunki podczas użycia i lokalizację geograficzną urządzenia w celu zagwarantowania, że przestój spowodowany przez konserwację nie wpływa na operacje o kluczowym znaczeniu dla firmy oraz że nie tworzy niebezpiecznych warunków.
+* **Uwzględnianie kontekstu**: środowiska IoT są dynamiczne i nieustannie się zmieniają. Najważniejszą kwestią jest niezawodność usługi. Operacje zarządzania urządzeniami muszą uwzględniać następujące czynniki w celu zapewnienia, że przestój w ramach konserwacji nie wpłynie na operacje o krytycznym znaczeniu dla firmy ani nie spowoduje powstania niebezpiecznych warunków:
+    * Okna obsługi w umowie SLA
+    * Stany sieci i zasilania
+    * Warunki użycia
+    * Geolokalizacja urządzenia
 * **Obsługa wielu ról**: obsługa unikatowych przepływów pracy i procesów ról operacji IoT jest niezwykle ważna. Pracownicy operacyjni muszą zachować zgodność z ograniczeniami wewnętrznych działów IT.  Muszą również znaleźć niezawodne sposoby udostępniania nadzorcom i innym osobom odpowiedzialnym za zarządzanie informacji dotyczących odpowiednich operacji na urządzeniach.
 
 ## <a name="device-lifecycle"></a>Cykl życia urządzenia
@@ -50,19 +55,19 @@ W każdym z tych pięciu etapów istnieje kilka wymagań dotyczących operatora 
 
 * **Planowanie**: umożliwienie operatorom utworzenia schematu metadanych urządzenia, który pozwoli na łatwe oraz dokładne wykonanie zapytania dotyczącego grupy urządzeń i użycie jej na potrzeby zbiorczych operacji zarządzania. Bliźniaczej reprezentacji urządzenia można użyć do przechowywania metadanych tego urządzenia w postaci tagów i właściwości.
   
-    *Dalsze informacje*: [Wprowadzenie do zarządzania bliźniaczymi reprezentacjami urządzeń][lnk-twins-getstarted], [Opis bliźniaczych reprezentacji urządzeń][lnk-twins-devguide], [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń)
+    *Dalsze informacje*: [Wprowadzenie do zarządzania bliźniaczymi reprezentacjami urządzeń][lnk-twins-getstarted], [Opis bliźniaczych reprezentacji urządzeń][lnk-twins-devguide], [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń).
 * **Aprowizacja**: bezpieczna aprowizacja nowych urządzeń w usłudze IoT Hub oraz umożliwienie operatorom natychmiastowego wykrywania możliwości urządzeń.  Za pomocą rejestru tożsamości usługi IoT Hub można tworzyć elastyczne tożsamości i poświadczenia urządzeń. Aprowizacja może być wykonywana zbiorczo przy użyciu zadania. Możliwe jest tworzenie urządzeń w taki sposób, aby raportowały swoje możliwości i warunki za pośrednictwem właściwości urządzeń w bliźniaczej reprezentacji urządzenia.
   
-    *Dalsze informacje*: [Manage device identities][lnk-identity-registry] (Zarządzanie tożsamościami urządzeń), [Bulk management of device identities][lnk-bulk-identity] (Zbiorcze zarządzanie tożsamościami urządzeń), [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń)
+    *Dalsze informacje*: [Manage device identities][lnk-identity-registry] (Zarządzanie tożsamościami urządzeń), [Bulk management of device identities][lnk-bulk-identity] (Zbiorcze zarządzanie tożsamościami urządzeń), [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń).
 * **Konfigurowanie**: ułatwienie zbiorczego stosowania zmian konfiguracji i aktualizacji oprogramowania układowego na urządzeniach przy zachowaniu kondycji i bezpieczeństwa. Wykonaj te operacje zarządzania urządzeniami zbiorczo, używając odpowiednich właściwości lub bezpośrednich metod i zadań emisji.
   
-    *Dalsze informacje*: [Use direct methods][lnk-c2d-methods] (Używanie metod bezpośrednich), [Invoke a direct method on a device][lnk-methods-devguide] (Wywoływanie metody bezpośredniej względem urządzenia), [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [Planowanie i emitowanie zadań][lnk-jobs], [Planowanie zadań na wielu urządzeniach][lnk-jobs-devguide]
+    *Dalsze informacje*: [Use direct methods][lnk-c2d-methods] (Używanie metod bezpośrednich), [Invoke a direct method on a device][lnk-methods-devguide] (Wywoływanie metody bezpośredniej względem urządzenia), [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [Planowanie i emitowanie zadań][lnk-jobs], [Planowanie zadań na wielu urządzeniach][lnk-jobs-devguide].
 * **Monitorowanie**: monitorowanie ogólnej kondycji kolekcji urządzeń i stanu trwających operacji w celu ostrzegania operatorów o problemach, które mogą wymagać ich uwagi.  Zastosuj bliźniaczą reprezentacją urządzenia, aby umożliwić urządzeniom raportowanie w czasie rzeczywistym warunków pracy i stanu operacji aktualizacji. Twórz zaawansowane raporty pulpitu nawigacyjnego, które służą do udostępniania najważniejszych w danym momencie problemów przy użyciu zapytań bliźniaczych reprezentacji urządzeń.
   
-    *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [IoT Hub query language for device twins and jobs][lnk-query-language] (Język zapytań usługi IoT Hub dla bliźniaczych reprezentacji urządzeń i zadań)
+    *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [IoT Hub query language for device twins and jobs][lnk-query-language] (Język zapytań usługi IoT Hub dla bliźniaczych reprezentacji urządzeń i zadań).
 * **Wycofywanie**: wymiana lub likwidacja urządzeń po awarii albo po zakończeniu cyklu uaktualniania lub okresu istnienia usługi.  Użyj bliźniaczej reprezentacji urządzenia, aby zarządzać informacjami o urządzeniu, jeśli trwa zastępowanie urządzenia fizycznego lub jeśli jest ono archiwizowane w przypadku wycofywania. Za pomocą rejestru tożsamości usługi IoT Hub można bezpiecznie odwołać tożsamości i poświadczenia urządzeń.
   
-    *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [Manage device identities][lnk-identity-registry] (Zarządzanie tożsamościami urządzeń)
+    *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [Manage device identities][lnk-identity-registry] (Zarządzanie tożsamościami urządzeń).
 
 ## <a name="device-management-patterns"></a>Wzorce zarządzania urządzeniami
 Usługa IoT Hub udostępnia przedstawiony poniżej zestaw wzorców zarządzania urządzeniami.  W [samouczkach dotyczących zarządzania urządzeniami][lnk-get-started] znajduje się bardziej szczegółowy opis sposobu rozszerzenia tych wzorców w celu dopasowania ich do danego scenariusza oraz sposobu projektowania nowych wzorców na podstawie tych szablonów podstawowych.
@@ -76,7 +81,7 @@ Usługa IoT Hub udostępnia przedstawiony poniżej zestaw wzorców zarządzania 
 * **Konfiguracja** — aplikacja wewnętrzna konfiguruje oprogramowanie uruchomione na urządzeniu za pomocą odpowiednich właściwości.  Urządzenie aktualizuje stan konfiguracji urządzenia za pomocą zgłoszonych właściwości.
   
     ![Ilustracja dotycząca wzorca konfiguracji zarządzania urządzeniami][img-config_pattern]
-* **Aktualizacja oprogramowania układowego** — aplikacja wewnętrzna informuje urządzenie za pośrednictwem metody bezpośredniej o zainicjowaniu aktualizacji oprogramowania układowego.  Urządzenie inicjuje wieloetapowy proces pobierania obrazu oprogramowania układowego, stosowania obrazu oprogramowania układowego i ponownego nawiązywania połączenia z usługą IoT Hub.  W trakcie tego procesu urządzenie aktualizuje postęp i stan urządzenia do ustawień fabrycznych za pomocą zgłoszonych właściwości.
+* **Aktualizacja oprogramowania układowego** — aplikacja wewnętrzna informuje urządzenie za pośrednictwem metody bezpośredniej o zainicjowaniu aktualizacji oprogramowania układowego.  Urządzenie inicjuje wieloetapowy proces pobierania obrazu oprogramowania układowego, stosowania obrazu oprogramowania układowego i ponownego nawiązywania połączenia z usługą IoT Hub.  W trakcie tego wieloetapowego procesu urządzenie używa zgłoszonych właściwości do zaktualizowania postępu i stanu urządzenia.
   
     ![Ilustracja dotycząca wzorca aktualizacji oprogramowania układowego zarządzania urządzeniami][img-fwupdate_pattern]
 * **Raportowanie postępu i stanu** — zaplecze rozwiązania wykonuje zapytania dotyczące bliźniaczych reprezentacji urządzeń w zestawie urządzeń w celu raportowania stanu i postępu akcji na urządzeniu.
@@ -109,9 +114,4 @@ Aby kontynuować zapoznawanie się z funkcjami zarządzania urządzeniami usług
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

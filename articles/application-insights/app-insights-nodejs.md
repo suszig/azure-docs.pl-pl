@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
-ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: bc7b0d4037effd7bcc8685a357a49de339e31d7b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -86,10 +86,7 @@ Klikaj elementy wykresów, aby wyświetlać bardziej szczegółowe metryki. [Dow
 Przeprowadź teraz wdrożenie aplikacji w usługach IIS lub na platformie Azure. Rozpocznie się gromadzenie danych.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Brak danych po opublikowaniu na serwerze?
-Otwórz następujące porty dla ruchu wychodzącego w zaporze serwera:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Sprawdź, czy [niezbędne porty zapory są otwarte](app-insights-ip-addresses.md).
 
 #### <a name="trouble-on-your-build-server"></a>Problem z serwerem kompilacji?
 Zobacz [ten punkt rozwiązywania problemów](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).

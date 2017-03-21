@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4cf3aaa9678c423c71cf542591a5a98547bb5cf5
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -38,6 +38,9 @@ Do wykonania czynności przedstawionych w tym samouczku są niezbędne następuj
 
 >[!NOTE]
 >Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
+
+>[!NOTE]
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
 
 Poniższy kod przedstawia sposób tworzenia elementu zawartości, przesyłania pliku multimediów do elementu zawartości, uruchamiania zadania polegającego na przekształceniu elementu zawartości i tworzenia lokalizatora w celu strumieniowego przesyłania wideo.
 
