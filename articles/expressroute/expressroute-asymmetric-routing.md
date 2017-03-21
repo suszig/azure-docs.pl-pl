@@ -17,6 +17,7 @@ ms.author: osamam
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -71,10 +72,5 @@ Innym sposobem rozwiązania problemów z routingiem asymetrycznym jest translato
 
 ## <a name="asymmetric-routing-detection"></a>Wykrywanie routingu asymetrycznego
 Polecenie traceroute jest najlepszym sposobem zapewnienia, że ruch sieciowy jest kierowany oczekiwaną ścieżką. Jeśli oczekujesz, że ruch z lokalnego serwera SMTP do firmy Microsoft będzie przepływał ścieżką internetową, wykonaj polecenie traceroute z serwera SMTP do usługi Office 365. Wynik pozwoli sprawdzić, czy po opuszczeniu sieci ruch rzeczywiście jest kierowany do Internetu, a nie do usługi ExpressRoute.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

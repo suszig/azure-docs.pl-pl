@@ -17,6 +17,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -146,9 +147,4 @@ Są sprawdzane następujące warunki:
 <!--Image references-->
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
