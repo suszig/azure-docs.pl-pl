@@ -151,7 +151,7 @@ W tej sekcji opisano tworzenie aplikacji konsolowej Java, która odczytuje komun
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.11.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
 
