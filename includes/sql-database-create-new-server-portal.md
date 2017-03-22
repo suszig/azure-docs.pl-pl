@@ -8,36 +8,20 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Tworzenie serwera logicznego bazy danych SQL Azure
-W następujących krokach w portalu Azure opisano tworzenie serwera logicznego bazy danych SQL Azure.
+## <a name="create-an-azure-sql-database-logical-server"></a>Create an Azure SQL Database logical server
+Use the following steps in the Azure portal to create an Azure SQL Database logical server.
 
-1. Połącz się z [portalem Azure](http://portal.azure.com), jeśli jeszcze nie nawiązano z nim połączenia.
-2. Kliknij opcję **Nowa**, wpisz **Baza danych SQL**, a następnie kliknij opcję **Baza danych SQL (nowy serwer logiczny)**
+1. If you're not currently connected, connect to the [Azure portal](http://portal.azure.com).
+2. Click **New**, click **Data + Storage**, and then locate **SQL Database**.
+3. Click **SQL Database** to open the SQL Database blade.
+4. Provide the values for the following server properties:
    
-      ![nowy serwer logiczny](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
-3. Kliknij opcję Baza danych SQL (nowy serwer logiczny).
-   
-      ![nowy serwer logiczny](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
-4. Kliknij przycisk **Utwórz**, aby otworzyć szablon i utworzyć pusty serwer logiczny, który może obsługiwać pojedyncze bazy danych i elastyczne pule baz danych.
-   
-      ![nowy serwer logiczny](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
-5. Podaj wartości następujących właściwości serwera:
-   
-   * Nazwa serwera
-   * Identyfikator logowania administratora serwera
-   * Hasło
-   * Subskrypcja (tylko w przypadku posiadania wielu subskrypcji)
-   * Grupa zasobów (nowa lub istniejąca)
-   * Lokalizacja
-     
-        ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
-6. Po kliknięciu przycisku **Utwórz** w obszarze powiadomień będzie można zobaczyć, że rozpoczęło się wdrażanie.
-   
-      ![nowy serwer logiczny](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
-7. Po ukończeniu wdrażania przejdź do następnego kroku.
-   
-       ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
-
-<!--HONumber=Jun16_HO2-->
-
+   * Server name
+   * Server admin login
+   * Password
+   * Subscription (only if you have multiple subscriptions)
+   * Resource group (new or existing)
+   * Location
+5. Click **Create**. In the notification area, you can see that deployment has started.
+6. Wait for deployment to finish before continuing to the next step.
 

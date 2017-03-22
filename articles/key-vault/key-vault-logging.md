@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,6 +64,11 @@ Jeśli masz wiele subskrypcji, określ konkretne konto, które zostało użyte d
 Następnie, aby określić subskrypcję skojarzoną z Twoim magazynem kluczy, który będziesz rejestrować, wpisz polecenie:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
+
+> [!NOTE]
+> To jest ważny krok, szczególnie przydatny, jeśli masz wiele subskrypcji skojarzonych z Twoim kontem. Może wystąpić błąd rejestrowania usługi Microsoft.Insights, jeśli ten krok zostanie pominięty. 
+>   
+>
 
 Aby uzyskać więcej informacji na temat konfigurowania programu Azure PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
@@ -120,8 +125,13 @@ Co jest rejestrowane:
 ## <a id="access"></a>Uzyskiwanie dostępu do dzienników
 Dzienniki magazynu kluczy są przechowywane w kontenerze **insights-logs-auditevent** na podanym przez Ciebie koncie magazynu. Aby wyświetlić listę wszystkich obiektów blob w tym kontenerze, wpisz polecenie:
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+Najpierw utwórz zmienną dla nazwy kontenera. Będzie ona używana w pozostałej części przewodnika.
 
+    $container = 'insights-logs-auditevent'
+
+Aby wyświetlić listę wszystkich obiektów blob w tym kontenerze, wpisz polecenie:
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 Dane wyjściowe będą wyglądać podobnie do poniższych:
 
 **Identyfikator URI kontenera: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**

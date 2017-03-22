@@ -1,15 +1,9 @@
-| Aplikacje mobilne i natywne | Aplikacje sieci Web i interfejsy API sieci Web | Integracja bezpośrednia z protokołami |
+| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
 | --- | --- | --- |
-| [Dodawanie funkcji logowania do aplikacji systemu iOS](../articles/active-directory/develop/active-directory-v2-devquickstarts-ios.md) |[Dodawanie funkcji logowania do AngularJS SPA (NodeJS)](../articles/active-directory/develop/active-directory-v2-devquickstarts-angular-node.md) |[Rejestrowanie aplikacji](../articles/active-directory/develop/active-directory-v2-app-registration.md) |
-| [Dodawanie funkcji logowania do aplikacji systemu Android](../articles/active-directory/develop/active-directory-v2-devquickstarts-android.md) |[Dodawanie funkcji logowania do AngularJS SPA (.NET)](../articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md) |[Aplikacje mobilne z protokołem OAuth 2.0](../articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md) |
-| [Dodawanie funkcji logowania do aplikacji klasycznej systemu Windows](../articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md) |[Dodawanie funkcji logowania do aplikacji .NET MVC](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md) |[Aplikacje sieci Web z OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-oidc.md) |
-| [Call Office 365 Rest APIs from an app](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) (Wywoływanie interfejsów API REST usługi Office 365 z aplikacji) |[Dodawanie funkcji logowania do aplikacji sieci Web w środowisku Node JS](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md) |[Aplikacje jednej strony z OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-implicit.md) |
-| [Zabezpieczanie interfejsu API sieci Web platformy .NET](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-api.md) |[Daemon apps with the Client Credentials Flow](../articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md) (Aplikacje demona z przepływem poświadczeń klienta) | |
-| [Zabezpieczanie interfejsu API sieci Web NodeJS](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md) | | |
-| [Call Office 365 REST APIs from the web](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) (Wywoływanie interfejsów API REST usługi Office 365 z sieci Web) | | |
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+| [Add Sign-In to an iOS App](../articles/active-directory/develop/active-directory-v2-devquickstarts-ios.md) |[Add Sign-In to an JS SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |[Register an Application](../articles/active-directory/develop/active-directory-v2-app-registration.md) |
+| [Add Sign-In to an Android App](../articles/active-directory/develop/active-directory-v2-devquickstarts-android.md) |[Add Sign-In to a .NET MVC App](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md) |[Mobile Apps with OAuth 2.0](../articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md) |
+| [Add Sign-In to a Windows Desktop App](../articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md) |[Add Sign-In to a Node JS Web App](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md) |[Web Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-oidc.md) |
+| [Call Office 365 Rest APIs from an app](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |[Daemon apps with the Client Credentials Flow](../articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md) |[Single Page Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-implicit.md) |
+| [Secure a .NET Web API](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-api.md) | | |
+| [Secure a NodeJS Web API](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md) | | |
+| [Call Office 365 REST APIs from the web](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | | |

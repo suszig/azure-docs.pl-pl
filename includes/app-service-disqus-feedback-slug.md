@@ -1,10 +1,7 @@
 
 > [!TIP]
-> **Szukasz czegoś innego?**  
-> Jeśli ten temat nie zawiera oczekiwanych treści, brakuje w nim informacji lub w inny sposób nie spełnia Twoich potrzeb, podziel się swoją opinią za pomocą wątku usługi Disqus poniżej.
+> **Looking for something else?**  
+> If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 > 
 > 
-
-<!--HONumber=Sep16_HO3-->
-
 

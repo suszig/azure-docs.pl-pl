@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: fc04c5f8a9cdee4b51c67b480d70678c3dca7c93
-ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -46,17 +47,25 @@ Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego pr
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Dodaj nowy klucz GPG do pęku kluczy APT.
+3. Dodaj repozytorium dotnet do listy źródeł.
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+4. Dodaj nowy klucz GPG do pęku kluczy APT.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. Odśwież listę pakietów na podstawie nowo dodanych repozytoriów.
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    ```
+
+5. Odśwież listę pakietów na podstawie nowo dodanych repozytoriów.
 
     ```bash
     sudo apt-get update
     ```
-
 ## <a name="install-and-set-up-the-sdk"></a>Instalowanie i konfigurowanie zestawu SDK
 Po zaktualizowaniu źródeł można zainstalować zestaw SDK.
 
@@ -136,16 +145,19 @@ Zestaw Java SDK udostępnia biblioteki i szablony wymagane do kompilowania usłu
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z poziomu środowiska IDE Eclipse Neon.
+Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z poziomu środowiska **Eclipse IDE for Java Developers**.
 
-1. W środowisku Eclipse upewnij się, że zainstalowany został zestaw Buildship w wersji 1.0.17 lub nowszej. Wersje zainstalowanych składników można sprawdzić, wybierając pozycję **Help > Installation Details** (Pomoc > Szczegóły instalacji). Zestaw Buildship można zaktualizować, postępując zgodnie z instrukcjami znajdującymi się [tutaj][buildship-update].
+1. W środowisku Eclipse upewnij się, że masz zainstalowaną najnowszą wersję środowiska Eclipse **Neon** i zestawu Buildship (1.0.17 lub nowszą). Wersje zainstalowanych składników można sprawdzić, wybierając pozycję **Help > Installation Details** (Pomoc > Szczegóły instalacji). Zestaw Buildship można zaktualizować, postępując zgodnie z instrukcjami znajdującymi się [tutaj][buildship-update].
 2. Aby zainstalować wtyczkę usługi Service Fabric, wybierz pozycję **Help > Install New Software** (Pomoc > Zainstaluj nowe oprogramowanie...).
 3. W polu tekstowym „Work with” (Pracuj z) wprowadź http://dl.windowsazure.com/eclipse/servicefabric
 4. Kliknij pozycję Add (Dodaj).
-
     ![Wtyczka środowiska Eclipse][sf-eclipse-plugin]
 5. Wybierz wtyczkę usługi Service Fabric i kliknij przycisk Next (Dalej).
 6. Postępuj zgodnie z instrukcjami instalacji i zaakceptuj umowę licencyjną użytkownika końcowego.
+
+Jeśli wtyczka środowiska Eclipse dla usługi Service Fabric jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Dostępność aktualizacji możesz sprawdzić za pomocą pozycji ``Help => Installation Details`` (Pomoc > Szczegóły instalacji). Następnie wyszukaj usługę Service Fabric na liście zainstalowanych wtyczek i kliknij polecenie aktualizacji. Jeśli istnieje oczekująca aktualizacja, to zostanie pobrana i zainstalowana.
+
+Aby uzyskać więcej informacji na temat korzystania z wtyczki środowiska Eclipse usługi Service Fabric do tworzenia, kompilowania, wdrażania i uaktualniania aplikacji Java usługi Service Fabric, zapoznaj się z naszym szczegółowym przewodnikiem — [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md) (Wprowadzenie do usługi Service Fabric w środowisku Eclipse).
 
 ## <a name="install-the-net-core-sdk-optional"></a>Instalowanie zestawu SDK platformy .NET Core (opcjonalnie)
 Zestaw SDK platformy .NET Core udostępnia biblioteki i szablony wymagane do kompilowania usług Service Fabric przy użyciu wieloplatformowego środowiska .NET Core.
@@ -174,7 +186,8 @@ Aby zaktualizować zestaw SDK i środowisko uruchomieniowe do najnowszej wersji,
 Aby zaktualizować interfejs wiersza polecenia, przejdź do katalogu, w którym sklonowano interfejs wiersza polecenia, i uruchom polecenie `git pull` w celu rozpoczęcia aktualizacji.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Tworzenie pierwszej aplikacji Java w systemie Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md) (Tworzenie i wdrażanie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu programu Yeoman)
+* [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md) (Tworzenie i wdrażanie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu wtyczki usługi Service Fabric dla środowiska Eclipse)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md) (Tworzenie pierwszej aplikacji CSharp w systemie Linux)
 * [Przygotowywanie środowiska projektowego w systemie OSX](service-fabric-get-started-mac.md)
 * [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md) (Używanie interfejsu wiersza polecenia platformy Azure do zarządzania aplikacjami usługi Service Fabric)
@@ -189,9 +202,4 @@ Aby zaktualizować interfejs wiersza polecenia, przejdź do katalogu, w którym 
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

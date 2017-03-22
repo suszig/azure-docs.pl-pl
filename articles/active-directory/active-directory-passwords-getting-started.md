@@ -13,36 +13,169 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Wprowadzenie do zarządzania hasłami
 > [!IMPORTANT]
-> **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md).
+> **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
 Aby umożliwić użytkownikom zarządzanie własnymi hasłami w chmurze Azure Active Directory lub lokalnymi hasłami w usłudze Active Directory, należy wykonać jedynie kilka prostych kroków. Po spełnieniu kilku prostych wymagań wstępnych włączenie funkcji zmiany i resetowania haseł dla całej organizacji zajmie tylko kilka chwil.
  W tym artykule opisano następujące kwestie:
 
+* [**Najważniejsze porady klientów, które warto przeczytać przed rozpoczęciem**](#top-tips-from-our-customers-to-read-before-you-begin)
+ * [**NAJWAŻNIEJSZA PORADA: NAWIGOWANIE PO DOKUMENTACJI** — Użyj spisu treści i funkcji wyszukiwania przeglądarki w celu znalezienia odpowiedzi](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+ * [**Porada 1: LICENCJONOWANIE** — Zapoznaj się z wymaganiami dotyczącymi licencjonowania](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+ * [**Porada 2: TESTOWANIE** — Przeprowadzaj testowanie, korzystając z konta użytkownika końcowego, a nie administratora. Pilotażowe projekty wprowadzaj w małej grupie użytkowników](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Porada 3: WDRAŻANIE** — Wprowadź wstępne dane dla swoich użytkowników, aby nie musieli się rejestrować](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+ * [**Porada 4: WDRAŻANIE** — Użyj funkcji resetowania hasła, aby uniknąć konieczności przekazywania tymczasowych haseł](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+ * [**Porada 5: ZAPISYWANIE ZWROTNE** — Przejrzyj dziennik zdarzeń aplikacji na komputerze z narzędziem AAD Connect, aby rozwiązać problem z zapisywaniem zwrotnym haseł](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+ * [**Porada 6: ZAPISYWANIE ZWROTNE** — Upewnij się, że włączono odpowiednie uprawnienia, reguły zapory i ustawienia połączenia na potrzeby zapisywania zwrotnego haseł](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+ * [**Porada 7: RAPORTOWANIE** — Zobacz w dziennikach inspekcji usługi Azure AD SSPR, kto rejestruje lub resetuje hasła](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+ * [**Porada 8: ROZWIĄZYWANIE PROBLEMÓW** — Zapoznaj się z naszym podręcznikiem rozwiązywania problemów i często zadawanymi pytaniami, gdzie znajdziesz rozwiązania wielu problemów](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+ * [**Porada 9: ROZWIĄZYWANIE PROBLEMÓW** — Jeśli nadal potrzebujesz pomocy, przekaż nam wymagane informacje, abyśmy mogli Ci pomóc](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 * [**Jak umożliwić użytkownikom resetowanie swoich haseł w usłudze Azure Active Directory**](#enable-users-to-reset-their-azure-ad-passwords)
-  * [Wymagania wstępne dotyczące samoobsługowego resetowania haseł](#prerequisites)
-  * [Krok 1. Skonfigurowanie zasad resetowania hasła](#step-1-configure-password-reset-policy)
-  * [Krok 2. Dodanie danych kontaktowych dla użytkownika testowego](#step-2-add-contact-data-for-your-test-user)
-  * [Krok 3. Zresetowanie hasła jako użytkownik](#step-3-reset-your-azure-ad-password-as-a-user)
+ * [Wymagania wstępne dotyczące samoobsługowego resetowania haseł](#prerequisites)
+ * [Krok 1. Skonfigurowanie zasad resetowania hasła](#step-1-configure-password-reset-policy)
+ * [Krok 2. Dodanie danych kontaktowych dla użytkownika testowego](#step-2-add-contact-data-for-your-test-user)
+ * [Krok 3. Zresetowanie hasła jako użytkownik](#step-3-reset-your-azure-ad-password-as-a-user)
 * [**Jak umożliwić użytkownikom resetowanie lub zmienianie swoich haseł lokalnych w usłudze Active Directory**](#enable-users-to-reset-or-change-their-ad-passwords)
-  * [Wymagania wstępne dotyczące funkcji zapisywania zwrotnego haseł](#writeback-prerequisites)
-  * [Krok 1. Pobranie najnowszej wersji programu Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
-  * [Krok 2. Włączenie funkcji zapisywania zwrotnego haseł w programie Azure AD Connect za pośrednictwem interfejsu użytkownika lub środowiska PowerShell i zweryfikowanie jej działania](#step-2-enable-password-writeback-in-azure-ad-connect)
-  * [Krok 3. Skonfigurowanie zapory](#step-3-configure-your-firewall)
-  * [Krok 4. Skonfigurowanie odpowiednich uprawnień](#step-4-set-up-the-appropriate-active-directory-permissions)
-  * [Krok 5. Zresetowanie hasła w usłudze AD jako użytkownik i zweryfikowanie działania](#step-5-reset-your-ad-password-as-a-user)
+ * [Wymagania wstępne dotyczące funkcji zapisywania zwrotnego haseł](#writeback-prerequisites)
+ * [Krok 1. Pobranie najnowszej wersji programu Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
+ * [Krok 2. Włączenie funkcji zapisywania zwrotnego haseł w programie Azure AD Connect za pośrednictwem interfejsu użytkownika lub środowiska PowerShell i zweryfikowanie jej działania](#step-2-enable-password-writeback-in-azure-ad-connect)
+ * [Krok 3. Skonfigurowanie zapory](#step-3-configure-your-firewall)
+ * [Krok 4. Skonfigurowanie odpowiednich uprawnień](#step-4-set-up-the-appropriate-active-directory-permissions)
+ * [Krok 5. Zresetowanie hasła w usłudze AD jako użytkownik i zweryfikowanie działania](#step-5-reset-your-ad-password-as-a-user)
+
+## <a name="top-tips-from-our-customers-to-read-before-you-begin"></a>Najważniejsze porady klientów, które warto przeczytać przed rozpoczęciem
+Poniżej przedstawiono niektóre najważniejsze porady, które okazały się przydatne dla klientów wdrażających zarządzanie hasłami w swojej organizacji.
+
+* [**NAJWAŻNIEJSZA PORADA: NAWIGOWANIE PO DOKUMENTACJI** — Użyj spisu treści i funkcji wyszukiwania przeglądarki w celu znalezienia odpowiedzi](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+* [**Porada 1: LICENCJONOWANIE** — Zapoznaj się z wymaganiami dotyczącymi licencjonowania](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+* [**Porada 2: TESTOWANIE** — Przeprowadzaj testowanie, korzystając z konta użytkownika końcowego, a nie administratora. Pilotażowe projekty wprowadzaj w małej grupie użytkowników](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Porada 3: WDRAŻANIE** — Wprowadź wstępne dane dla swoich użytkowników, aby nie musieli się rejestrować](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+* [**Porada 4: WDRAŻANIE** — Użyj funkcji resetowania hasła, aby uniknąć konieczności przekazywania tymczasowych haseł](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+* [**Porada 5: ZAPISYWANIE ZWROTNE** — Przejrzyj dziennik zdarzeń aplikacji na komputerze z narzędziem AAD Connect, aby rozwiązać problem z zapisywaniem zwrotnym haseł](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+* [**Porada 6: ZAPISYWANIE ZWROTNE** — Upewnij się, że włączono odpowiednie uprawnienia, reguły zapory i ustawienia połączenia na potrzeby zapisywania zwrotnego haseł](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+* [**Porada 7: RAPORTOWANIE** — Zobacz w dziennikach inspekcji usługi Azure AD SSPR, kto rejestruje lub resetuje hasła](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+* [**Porada 8: ROZWIĄZYWANIE PROBLEMÓW** — Zapoznaj się z naszym podręcznikiem rozwiązywania problemów i często zadawanymi pytaniami, gdzie znajdziesz rozwiązania wielu problemów](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+* [**Porada 9: ROZWIĄZYWANIE PROBLEMÓW** — Jeśli nadal potrzebujesz pomocy, przekaż nam wymagane informacje, abyśmy mogli Ci pomóc](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
+
+### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>NAJWAŻNIEJSZA PORADA: NAWIGOWANIE PO DOKUMENTACJI — Użyj spisu treści i funkcji wyszukiwania przeglądarki w celu znalezienia odpowiedzi
+W spisach treści poszczególnych tematów w naszej dokumentacji staramy się udostępnić szybkie linki do wszystkich miejsc, które mogą się okazać przydatne dla administratorów. 
+
+Zapoznaj się z poniższym spisem treści: 
+* [Resetowania hasła usługi Azure AD: spis treści dokumentacji](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
+
+### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Porada 1: LICENCJONOWANIE — Zapoznaj się z wymaganiami dotyczącymi licencjonowania
+Aby resetowanie hasła usługi Azure AD działało, musisz mieć co najmniej jedną licencję przypisaną do organizacji. Podczas samego zresetowania hasła nie jest wymuszane licencjonowanie na użytkownika, jeśli jednak skorzystasz z tej funkcji, nie mając licencji przypisanej do użytkownika, wystąpi niezgodność z umową licencjonowania firmy Microsoft i konieczne będzie przypisanie licencji do tych użytkowników.
+
+Poniżej przedstawiono niektóre dokumenty, które mogą pomóc Ci zrozumieć, jakie licencje są wymagane do resetowania hasła.
+* [Ogólne informacje o licencjonowaniu na potrzeby resetowania hasła]()
+* [Informacje o licencjonowaniu na potrzeby resetowania hasła dotyczące konkretnej funkcji]()
+* [Scenariusze obsługiwane w przypadku zapisywania zwrotnego haseł]()
+
+### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Porada 2: TESTOWANIE — Przeprowadzaj testowanie, korzystając z konta użytkownika końcowego, a nie administratora. Pilotażowe projekty wprowadzaj w małej grupie użytkowników
+Podczas testowania za pomocą konta administratora wymuszane są zasady resetowania hasła administratora, co opisano poniżej.  Oznacza to, że NIE będzie możliwe zobaczenie oczekiwanych wyników zasad skonfigurowanych dla użytkowników końcowych.
+
+Zasady skonfigurowane w administracyjnym środowisku użytkownika mają zastosowanie TYLKO do użytkowników końcowych, a nie do administratorów. Firma Microsoft wymusza silne domyślne zasady resetowania hasła dla administratorów, które mogą różnić się do zasad skonfigurowanych dla użytkowników końcowych. Ma to na celu zapewnienie bezpieczeństwa organizacji.
+
+#### <a name="administrator-password-reset-policy"></a>Zasady resetowania haseł administratorów
+* **Stosuje się do** — dowolnej roli administratora (Administrator globalny Administrator pomocy technicznej, Administrator haseł itp.)
+* **Zasada jednej bramy ma zastosowanie...**
+ * ...przez pierwsze 30 dni od rozpoczęcia okresu próbnego **LUB**
+ * ...jeśli nie ma domeny znaczącej **ORAZ** usługa Azure AD Connect nie synchronizuje tożsamości
+ * **_Wymagania_**: obecność dowolnej wartości **jednego** z następujących elementów: Adres e-mail uwierzytelniania, Alternatywny adres e-mail, Numer telefonu uwierzytelniania, Telefon komórkowy lub Telefon w biurze
+* **Zasada dwóch bram ma zastosowanie...** 
+ * ...po upłynięciu 30-dniowego okresu próbnego **LUB**
+ * ...jeśli jest obecna domena znacząca **LUB** 
+ * ... w usłudze Azure AD Connect włączono synchronizowanie tożsamości ze środowiska lokalnego
+ * _**Wymagania**_: obecność dowolnej wartości **dwóch** z następujących elementów: Adres e-mail uwierzytelniania, Alternatywny adres e-mail, Numer telefonu uwierzytelniania, Telefon komórkowy lub Telefon w biurze
+
+### <a name="tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register"></a>Porada 3: WDRAŻANIE — Wprowadź wstępne dane dla swoich użytkowników, aby nie musieli się rejestrować
+Wiele osób nie wie, że administrator nie musi rejestrować użytkowników na potrzeby resetowania hasła, aby mogli oni skorzystać z tej funkcji.  Ustawiając wcześniej właściwości telefonu lub adresu e-mail użytkowników, możesz natychmiast wdrożyć resetowanie haseł w całej organizacji **bez konieczności podejmowania jakichkolwiek czynności ze strony użytkowników**!
+
+Aby dowiedzieć się, jak to zrobić za pomocą interfejsu API, programu PowerShell lub usługi Azure AD Connect, zapoznaj się z poniższą dokumentacją:
+* [Wdrażanie resetowania haseł bez wymagania od użytkowników rejestrowania się](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [Jakie dane są używane podczas resetowania hasła](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords"></a>Porada 4: WDRAŻANIE — Użyj funkcji resetowania hasła, aby uniknąć konieczności przekazywania tymczasowych haseł
+To jest znacznik dla porady 3. Po wstępnym skonfigurowaniu użytkowników na potrzeby resetowania hasła, wyobraź sobie scenariusz, w którym pracownik dołącza do firmy po raz pierwszy. Zamiast przekazywać mu tymczasowe hasło, możesz teraz po prostu poprosić go o przejście do [portalu resetowania hasła usługi Azure AD](https://passwordreset.microsoftonline.com) w celu zresetowania swojego hasła.
+
+Jeśli użytkownik korzysta z [urządzenia dołączonego do domeny Windows 10 Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy), może on wykonać tę czynność nawet z poziomu ekranu logowania nieskonfigurowanego systemu Windows 10, co umożliwia uzyskanie dostępu do nowych komputerów bez kiwnięcia palcem :).
+
+Aby dowiedzieć się, jak to zrobić za pomocą interfejsu API, programu PowerShell lub usługi Azure AD Connect, zapoznaj się z poniższą dokumentacją. Po wstępnym wprowadzeniu danych wystarczy poprosić użytkowników o zresetowanie swoich haseł, aby mogli oni natychmiast rozpocząć korzystanie ze swoich kont:
+* [Wdrażanie resetowania haseł bez wymagania od użytkowników rejestrowania się](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [Jakie dane są używane podczas resetowania hasła](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback"></a>Porada 5: ZAPISYWANIE ZWROTNE — Przejrzyj dziennik zdarzeń aplikacji na komputerze z narzędziem AAD Connect, aby rozwiązać problem z zapisywaniem zwrotnym haseł
+Dziennik zdarzeń aplikacji usługi Azure AD Connect zawiera bogaty zestaw informacji logowania opisujących w czasie rzeczywistym działania usługi zapisywania zwrotnego haseł. Aby uzyskać dostęp do tego dziennika, wykonaj opisane poniżej czynności:
+
+1. Zaloguj się do Twojego komputera z usługą **Azure AD Connect**
+2. Otwórz **Podgląd zdarzeń systemu Windows**, naciskając przycisk **Start** i wpisując frazę **„Podgląd zdarzeń”**
+3. Otwórz dziennik zdarzeń **Aplikacja**
+4. Wyszukaj zdarzenia z następujących źródeł: **PasswordResetService** i **ADSync**, aby dowiedzieć się więcej o problemie, który może występować
+
+Aby uzyskać pełną listę zdarzeń, które mogą wystąpić w tym dzienniku, jak również w celu uzyskania dalszych wskazówek dotyczących rozwiązywania problemów z funkcją zapisywania zwrotnego haseł, zobacz:
+* [Rozwiązywanie problemów z zapisywaniem zwrotnym haseł](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [Kody błędów w dzienniku zdarzeń zapisywania zwrotnego](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [Rozwiązywanie problemów z łącznością przy zapisywaniu zwrotnym haseł](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [Wdrażanie zapisywania zwrotnego — Krok 3. Skonfigurowanie zapory](#step-3-configure-your-firewall)
+* [Wdrażanie zapisywania zwrotnego — Krok 4. Skonfigurowanie odpowiednich uprawnień](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback"></a>Porada 6: ZAPISYWANIE ZWROTNE — Upewnij się, że włączono odpowiednie uprawnienia, reguły zapory i ustawienia połączenia na potrzeby zapisywania zwrotnego haseł
+Aby funkcja zapisywania zwrotnego działała prawidłowo, należy zapewnić następujące elementy:
+
+1. Poprawne ustawienie **uprawnień usługi Active Directory** dla użytkowników przy użyciu funkcji zapisywania zwrotnego haseł w taki sposób, że mają oni uprawnienia do modyfikowania flag odblokowywania własnych haseł i kont w usłudze AD
+2. Poprawne otwarcie **portów zapory**, aby umożliwić usłudze zapisywania zwrotnego haseł bezpieczne komunikowanie się ze światem zewnętrznym przy użyciu połączenia wychodzącego
+3. Poprawne utworzenie **wyjątków zapory** dla kluczowych adresów URL usługi resetowania haseł, na przykład usługi Service Bus
+4. Upewnienie się, że **serwer proxy ani zapora nie kasują bezczynnych połączeń wychodzących** (zalecana wartość to co najmniej 10 minut)
+
+Aby uzyskać pełną listę wskazówek dotyczących rozwiązywania problemów oraz konkretne wskazówki dotyczące konfigurowania uprawnień i reguł zapory na potrzeby zapisywania zwrotnego haseł, zobacz:
+* [Rozwiązywanie problemów z zapisywaniem zwrotnym haseł](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [Kody błędów w dzienniku zdarzeń zapisywania zwrotnego](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [Rozwiązywanie problemów z łącznością przy zapisywaniu zwrotnym haseł](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [Wdrażanie zapisywania zwrotnego — Krok 3. Skonfigurowanie zapory](#step-3-configure-your-firewall)
+* [Wdrażanie zapisywania zwrotnego — Krok 4. Skonfigurowanie odpowiednich uprawnień](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Porada 7: RAPORTOWANIE — Zobacz w dziennikach inspekcji usługi Azure AD SSPR, kto rejestruje lub resetuje hasła 
+Po wdrożeniu i przygotowaniu do działania funkcji resetowania haseł następnym logicznym krokiem jest sprawdzenie jej w działaniu i przeanalizowanie, kto nadal musi się zarejestrować, jakie są najczęstsze problemy, z jakimi spotykają się użytkownicy podczas resetowania, oraz jaki jest zwrot z inwestycji dla tej funkcji.
+
+Te wszystkie działania (i nie tylko te) można wykonać, korzystając z dzienników inspekcji resetowania haseł usługi Azure AD z poziomu witryny Azure Portal, z usługi Power BI, z interfejsu API raportowania zdarzeń usługi Azure AD lub z poziomu programu PowerShell.  Aby dowiedzieć się więcej o sposobie używania tych funkcji raportowania, zobacz:
+* [Omówienie raportów dotyczących zarządzania hasłami](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#overview-of-password-management-reports)
+* [Jak wyświetlać raporty dotyczące zarządzania hasłami w witrynie Azure Portal](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-view-password-management-reports)
+* [Typy działań samoobsługowego zarządzania hasłami w witrynie Azure Portal](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#self-service-password-management-activity-types-in-the-new-azure-portal)
+* [Jak pobrać zdarzenia zarządzania hasłami z interfejsu API raportów i zdarzeń usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api)
+* [Jak szybko pobrać zdarzenia rejestracji resetowania haseł przy użyciu programu PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-download-password-reset-registration-events-quickly-with-powershell)
+
+### <a name="tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues"></a>Porada 8: ROZWIĄZYWANIE PROBLEMÓW — Zapoznaj się z naszym podręcznikiem rozwiązywania problemów i często zadawanymi pytaniami, gdzie znajdziesz rozwiązania wielu problemów
+Czy wiesz, że dla funkcji resetowania haseł utworzono bogaty zestaw wskazówek dotyczących rozwiązywania problemów i sekcję odpowiedzi na często zadawane pytania? Jeśli masz pytanie, jest całkiem prawdopodobne, że znajdziesz na nie odpowiedź w artykułach, do których prowadzą poniższe linki.
+
+Oprócz tego możesz skorzystać z bloku **„Pomoc techniczna i rozwiązywanie problemów”** w witrynie [Azure Portal](https://portal.azure.com), aby uzyskać dostęp do bogatej zawartości dotyczącej rozwiązywania problemów bezpośrednio ze środowiska administratora zarządzania hasłami, które można znaleźć, przechodząc do pozycji **Azure Active Directory** -> **Użytkownicy i grupy** -> **Resetowanie hasła** -> **Pomoc techniczna i rozwiązywanie problemów** w okienku nawigacji po lewej stronie.
+
+Linki do wskazówek dotyczących rozwiązywania problemów z resetowaniem haseł oraz do często zadawanych pytań:
+* [Rozwiązywanie problemów z zarządzaniem hasłami](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot)
+* [Zarządzanie hasłami — często zadawane pytania](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-faq)
+
+### <a name="tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you"></a>Porada 9: ROZWIĄZYWANIE PROBLEMÓW — Jeśli nadal potrzebujesz pomocy, przekaż nam wymagane informacje, abyśmy mogli Ci pomóc
+Jeśli nadal potrzebujesz pomocy w rozwiązywaniu problemów, jesteśmy do Twojej dyspozycji. Możesz otworzyć zgłoszenie do pomocy technicznej lub skontaktować się bezpośrednio z Twoim zespołem zarządzania kontami. Chętnie pomożemy!
+
+Jednak przed nawiązaniem kontaktu **upewnij się, że zostały zebrane wszystkie wymienione poniżej wymagane informacje**, abyśmy mogli szybko Ci pomóc!
+* [Informacje, które należy podać, gdy będziesz potrzebować pomocy](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
+
+#### <a name="ways-to-provide-password-reset-feedback"></a>Sposoby przekazywania opinii dotyczących resetowania hasła
+* [Żądania funkcji lub rozwiązywanie problemów — publikowanie wpisów na forach MSDN usługi Azure AD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+* [Żądania funkcji lub rozwiązywanie problemów — publikowanie wpisów w witrynie StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Żądania funkcji lub rozwiązywanie problemów — publikowanie tweetów z tagiem @azuread!](https://twitter.com/azuread)
+* [Tylko żądania funkcji — pozostawienie notatki w witrynie UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 ## <a name="enable-users-to-reset-their-azure-ad-passwords"></a>Umożliwianie użytkownikom resetowania swoich haseł w usłudze Azure AD
 W tej sekcji omówiono włączanie funkcji samodzielnego resetowania haseł dla chmury AAD, rejestrowanie użytkowników do samodzielnego resetowania haseł oraz przeprowadzanie testu funkcji samodzielnego resetowania haseł z poziomu użytkownika.
@@ -268,11 +401,11 @@ Po włączeniu funkcji zapisywania zwrotnego haseł musisz się upewnić, że ko
 
 Aby funkcja zapisywania zwrotnego haseł działała poprawnie, komputer z programem Azure AD Connect musi być w stanie nawiązywać wychodzące połączenia HTTPS z adresami **.servicebus.windows.net* i określonymi adresami IP używanymi przez usługę Azure, zgodnie z [listą zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-W przypadku narzędzia Azure AD Connect w wersji **1.1.439.0** (najnowszej) i nowszych:
+W przypadku narzędzia Azure AD Connect w wersji **1.1.443.0** (najnowszej) i nowszych:
 
 - Najnowsza wersja narzędzia Azure AD Connect będzie potrzebować dostępu **wychodzącego HTTPS** do:
     - *passwordreset.microsoftonline.com*
-    - *servicbus.windows.net*
+    - *servicebus.windows.net*
 
 W przypadku narzędzia Azure AD Connect w wersjach od **1.0.8667.0** do **1.1.380.0**:
 
@@ -303,11 +436,11 @@ W przypadku narzędzia Azure AD Connect w wersjach od **1.0.8667.0** do **1.1.38
 
 Po skonfigurowaniu urządzeń sieciowych ponownie uruchom komputer z narzędziem Azure AD Connect.
 
-#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Bezczynne połączenia w narzędziu Azure AD Connect (wersja&1;.1.439.0 i nowsze)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Bezczynne połączenia w narzędziu Azure AD Connect (wersja&1;.1.443.0 i nowsze)
 Narzędzie Azure AD Connect będzie wysyłać okresowe sygnały ping/podtrzymywania aktywności do punktów końcowych usługi Service Bus, aby zapewnić, że połączenia pozostaną aktywne. Jeśli narzędzie wykryje, że zbyt wiele połączeń jest zamykanych, automatycznie zwiększy częstotliwość sygnałów ping wysyłanych do punktu końcowego. Najniższy możliwy do osiągnięcia „interwał sygnałów ping” to 1 sygnał ping co 60 sekund, jednak **zdecydowanie zalecamy, aby serwery proxy/zapory zezwalały na istnienie bezczynnych połączeń przez co najmniej 2-3 minuty.** \*W przypadku starszych wersji sugerujemy 4 minuty lub więcej.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Krok 4. Konfigurowanie odpowiednich uprawnień usługi Active Directory
-W każdym lesie zawierającym użytkowników, których hasła zostaną zresetowane, jeśli X jest kontem określonym dla tego lasu w kreatorze konfiguracji (podczas konfiguracji początkowej), to X musi mieć nadane uprawnienia **Resetuj hasło**, **Zmień hasło**, **Uprawnienia do zapisu** w pozycji `lockoutTime` oraz **Uprawnienia do zapisu** w pozycji `pwdLastSet`, a także rozszerzone prawa w głównym obiekcie każdej domeny w tym lesie. Uprawnienie powinno być oznaczone jako odziedziczone przez wszystkie obiekty użytkowników.  
+W każdym lesie zawierającym użytkowników, których hasła zostaną zresetowane, jeśli X jest kontem określonym dla tego lasu w kreatorze konfiguracji (podczas konfiguracji początkowej), to X musi mieć nadane uprawnienia **Resetuj hasło**, **Zmień hasło**, **Uprawnienia do zapisu** w pozycji `lockoutTime` oraz **Uprawnienia do zapisu** w pozycji `pwdLastSet`, a także rozszerzone prawa w głównym obiekcie każdej domeny w tym lesie LUB w jednostkach organizacyjnych użytkowników, które powinny znajdować się w zakresie usługi SSPR.  Drugiej opcji można użyć, aby zawęzić zakres uprawnień do resetowania tylko do konkretnego zestawu obiektów użytkowników w przypadku, gdy wykonywanie tego w katalogu głównym domeny nie jest akceptowane. Uprawnienie powinno być oznaczone jako odziedziczone przez wszystkie obiekty użytkowników.  
 
 Jeśli nie masz pewności, do którego konta odnoszą się powyższe informacje, otwórz interfejs konfiguracji narzędzia Azure Active Directory Connect i kliknij opcję **Przegląd rozwiązania**.  Konto, do którego należy dodać uprawnienia, jest podkreślone na czerwono na poniższym zrzucie ekranu.
 
@@ -362,7 +495,7 @@ Teraz, po włączeniu funkcji zapisywania zwrotnego haseł, możesz przetestowa�
 ## <a name="next-steps"></a>Następne kroki
 Poniżej podano linki do wszystkich stron dokumentacji związanych z resetowaniem haseł w usłudze Azure AD:
 
-* **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md).
+* **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Jak to działa**](active-directory-passwords-how-it-works.md) — poznaj informacje o sześciu różnych komponentach usługi i dowiedz się, jak działają
 * [**Dostosowanie**](active-directory-passwords-customize.md) — dowiedz się, jak dostosować wygląd, sposób działania i zachowanie usługi do potrzeb organizacji
 * [**Najlepsze praktyki**](active-directory-passwords-best-practices.md) — dowiedz się, jak szybko wdrożyć i efektywnie zarządzać hasłami w organizacji

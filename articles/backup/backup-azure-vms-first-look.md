@@ -1,6 +1,6 @@
 ---
-title: "Pierwsze spojrzenie: ochrona maszyn wirtualnych platformy Azure przy użyciu magazynu usługi Backup | Microsoft Docs"
-description: "Ochrona maszyn wirtualnych platformy Azure przy użyciu magazynu usługi Backup. Ten samouczek wyjaśnia sposób tworzenia magazynu, rejestrowania maszyn wirtualnych, tworzenia zasad i ochrony maszyn wirtualnych na platformie Azure."
+title: "Pierwsze spojrzenie — tworzenie kopii zapasowej maszyn wirtualnych platformy Azure przy użyciu magazynu kopii zapasowych | Microsoft Docs"
+description: "Użyj portalu klasycznego do tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie kopii zapasowych. W tym samouczku wyjaśniono wszystkie etapy, m.in. tworzenie magazynu kopii zapasowych, rejestrowanie maszyn wirtualnych, tworzenie zasad kopii zapasowych i uruchamianie początkowego zadania tworzenia kopii zapasowej."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/10/2017
+ms.date: 3/10/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8883ff1601c521d05068452b1b58cadaee1a941f
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -27,66 +28,30 @@ ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 >
 >
 
-Ten samouczek przedstawia kroki tworzenia kopii zapasowej maszyny wirtualnej platformy Azure w magazynie usługi Backup na platformie Azure. W tym artykule opisano klasyczny model wdrażania (model wdrażania Service Manager) na potrzeby tworzenia kopii zapasowych maszyn wirtualnych. Jeśli chcesz tworzyć kopie zapasowe maszyny wirtualnej w magazynie usługi Recovery Services należącym do grupy zasobów, zobacz [Pierwsze spojrzenie: ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md). Do pomyślnego ukończenia tego samouczka muszą być spełnione następujące wymagania wstępne:
+Ten samouczek przedstawia kroki tworzenia kopii zapasowej maszyny wirtualnej platformy Azure w magazynie usługi Backup na platformie Azure. W tym artykule opisano klasyczny model wdrażania (model wdrażania Service Manager) na potrzeby tworzenia kopii zapasowych maszyn wirtualnych. Poniższa procedura dotyczy tylko magazynów kopii zapasowych tworzonych w klasycznym portalu. W przypadku nowych wdrożeń firma Microsoft zaleca używanie modelu opartego na programie Resource Manager.
+
+Jeśli chcesz tworzyć kopie zapasowe maszyny wirtualnej w magazynie usługi Recovery Services należącym do grupy zasobów, zobacz [Pierwsze spojrzenie: ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md).
+
+Do pomyślnego ukończenia tego samouczka muszą być spełnione następujące wymagania wstępne:
 
 * Utworzona została maszyna wirtualna w ramach subskrypcji platformy Azure.
 * Maszyna wirtualna ma łączność z publicznymi adresami IP platformy Azure. Aby uzyskać więcej informacji, zobacz [Network connectivity](backup-azure-vms-prepare.md#network-connectivity) (Łączność sieciowa).
 
-Aby utworzyć kopię zapasową maszyny wirtualnej, należy wykonać pięć głównych kroków:  
-
-![step-one](./media/backup-azure-vms-first-look/step-one.png) Utworzenie magazynu kopii zapasowych lub wskazanie istniejącego magazynu kopii zapasowych. <br/>
-![step-two](./media/backup-azure-vms-first-look/step-two.png) Użycie klasycznej witryny Azure Portal do odnalezienia i zarejestrowania maszyn wirtualnych. <br/>
-![step-three](./media/backup-azure-vms-first-look/step-three.png) Zainstalowanie agenta maszyny wirtualnej. <br/>
-![step-four](./media/backup-azure-vms-first-look/step-four.png) Utworzenie zasad ochrony maszyn wirtualnych. <br/>
-![step-five](./media/backup-azure-vms-first-look/step-five.png) Uruchomienie procesu tworzenia kopii zapasowej.
-
-![Ogólny widok procesu tworzenia kopii zapasowej maszyny wirtualnej](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Platforma Azure ma dwa modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [Resource Manager i model klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). Ten samouczek jest przeznaczony dla maszyn wirtualnych, które mogą zostać utworzone w klasycznym portalu Azure. Usługa Azure Backup obsługuje maszyny wirtualne oparte na usłudze Resource Manager. Aby uzyskać szczegółowe informacje na temat tworzenia kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services, zobacz [Pierwsze spojrzenie: ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md).
+> Platforma Azure ma dwa modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [Resource Manager i model klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). Ten samouczek jest przeznaczony dla maszyn wirtualnych utworzonych w klasycznym portalu.
 >
 >
 
-## <a name="step-1---create-a-backup-vault-for-a-vm"></a>Krok 1. Tworzenie magazynu kopii zapasowych dla maszyny wirtualnej
+## <a name="create-a-backup-vault"></a>Tworzenie magazynu kopii zapasowych
 Magazyn kopii zapasowych to jednostka, w której przechowywane są wszystkie kopie zapasowe i punkty odzyskiwania, które zostały utworzone na przestrzeni czasu. Magazyn kopii zapasowych zawiera również zasady tworzenia kopii zapasowych stosowane względem maszyn wirtualnych, których kopie zapasowe są tworzone.
 
-1. Zaloguj się do [klasycznego portalu Azure](http://manage.windowsazure.com/).
-2. W lewym dolnym rogu Portalu Azure kliknij pozycję **Nowy**.
+> [!IMPORTANT]
+> Począwszy od marca 2017 r. nie można już tworzyć magazynów kopii zapasowych za pomocą klasycznego portalu. Istniejące magazyny kopii zapasowych są nadal obsługiwane i możliwe jest [użycie środowiska Azure PowerShell w celu utworzenia magazynów kopii zapasowych](./backup-client-automation-classic.md#create-a-backup-vault). Firma Microsoft zaleca jednak tworzenie dla wszystkich wdrożeń magazynów usługi Recovery Services, ponieważ przyszłe rozszerzenia będą miały zastosowanie tylko do magazynów tej usługi.
 
-    ![Klikanie menu Nowy](./media/backup-azure-vms-first-look/new-button.png)
-3. W kreatorze Szybkie tworzenie kliknij pozycję **Usługi danych** > **Usługi odzyskiwania** > **Magazyn kopii zapasowych** > **Szybkie tworzenie**.
 
-    ![Tworzenie magazynu kopii zapasowych](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
-    Kreator wyświetli monit o podanie wartości w polach **Nazwa** i **Region**. W przypadku administrowania więcej niż jedną subskrypcją zostanie wyświetlone okno dialogowe wyboru subskrypcji.
-4. W polu **Nazwa** wprowadź przyjazną nazwę identyfikującą magazyn. Nazwa musi być unikalna w ramach subskrypcji platformy Azure.
-5. W polu **Region** wybierz region geograficzny dla magazynu. Magazyn **musi** znajdować się w tym samym regionie, w którym znajdują się chronione przez niego maszyny wirtualne.
-
-    Jeśli nie znasz regionu, w którym znajduje się Twoja maszyna wirtualna, zamknij kreatora, a następnie kliknij pozycję **Maszyny wirtualne** na liście usług Azure. Kolumna Lokalizacja zawiera nazwę regionu. Jeśli masz maszyny wirtualne w wielu regionach, utwórz magazyn kopii zapasowych w każdym regionie.
-6. Jeśli w kreatorze nie zostanie wyświetlone okno dialogowe **Subskrypcja**, przejdź do następnego kroku. Jeśli pracujesz z wieloma subskrypcjami, wybierz subskrypcję do skojarzenia z nowym magazynem kopii zapasowych.
-
-    ![Powiadomienie wyskakujące tworzenia magazynu](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
-7. Kliknij pozycję **Utwórz magazyn**. Tworzenie magazynu kopii zapasowych może zająć trochę czasu. Stan powiadomień można monitorować w dolnej części portalu.
-
-    ![Powiadomienie wyskakujące tworzenia magazynu](./media/backup-azure-vms-first-look/create-vault-demo.png)
-
-    Po pomyślnym utworzeniu magazynu zostanie wyświetlony komunikat potwierdzający. Magazyn jest wyświetlany na stronie **Usługi odzyskiwania** jako **Aktywny**.
-
-    ![Powiadomienie wyskakujące tworzenia magazynu](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
-8. Na liście magazynów na stronie **Usługi odzyskiwania** wybierz utworzony magazyn, aby otworzyć stronę **Szybki start**.
-
-    ![Lista magazynów kopii zapasowych](./media/backup-azure-vms-first-look/active-vault-demo.png)
-9. Na stronie **Szybki start** kliknij pozycję **Konfiguruj**, aby otworzyć obszar opcji replikacji magazynu.
-    ![Lista magazynów kopii zapasowych](./media/backup-azure-vms-first-look/configure-storage.png)
-10. W obszarze opcji **replikacji magazynu** wybierz opcję replikacji dla magazynu.
-
-    ![Lista magazynów kopii zapasowych](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
-
-    Domyślnie magazyn jest nadmiarowy geograficznie. Wybierz magazyn geograficznie nadmiarowy, jeśli jest to Twoja podstawowa kopia zapasowa. Wybierz magazyn lokalnie nadmiarowy, jeśli chcesz skorzystać z tańszej, ale mniej trwałej opcji. Aby uzyskać więcej informacji o opcjach magazynu geograficznie nadmiarowego i lokalnie nadmiarowego, zobacz [Azure Storage replication overview](../storage/storage-redundancy.md) (Omówienie replikacji usługi Azure Storage).
-
-Po wybraniu opcji magazynu dla Twojego magazynu możesz skojarzyć maszynę wirtualną z magazynem. Aby rozpocząć kojarzenie, odnajdź i zarejestruj maszyny wirtualne platformy Azure.
-
-## <a name="step-2---discover-and-register-azure-virtual-machines"></a>Krok 2. Odnajdywanie i rejestrowanie maszyn wirtualnych platformy Azure
+## <a name="discover-and-register-azure-virtual-machines"></a>Odnajdywanie i rejestrowanie maszyn wirtualnych platformy Azure
 Przed zarejestrowaniem maszyny wirtualnej w magazynie uruchom proces wykrywania, aby zidentyfikować wszelkie nowe maszyny wirtualne. Proces ten zwraca listę maszyn wirtualnych w ramach subskrypcji wraz z dodatkowymi informacjami, takimi jak nazwa usługi w chmurze i region.
 
 1. Zaloguj się do [klasycznego portalu Azure](http://manage.windowsazure.com/).
@@ -133,12 +98,12 @@ Przed zarejestrowaniem maszyny wirtualnej w magazynie uruchom proces wykrywania,
 
     ![Rejestrowanie — stan 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>Krok 3. Instalowanie agenta maszyny wirtualnej na maszynie wirtualnej
-Agent maszyny wirtualnej musi być zainstalowany na maszynie wirtualnej platformy Azure, aby rozszerzenie usługi Backup mogło działać. Jeśli maszyna wirtualna została utworzona z poziomu galerii Azure, agent maszyny wirtualnej znajduje się już na maszynie wirtualnej. Możesz przejść do sekcji związanej z [ochroną maszyn wirtualnych](backup-azure-vms-first-look.md#step-4---create-the-backup-policy).
+## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalowanie agenta maszyny wirtualnej na maszynie wirtualnej
+Aby rozszerzenie usługi Backup mogło działać, na maszynie wirtualnej Azure musi być zainstalowany agent maszyny wirtualnej. Jeśli maszyna wirtualna została utworzona z poziomu galerii Azure, agent maszyny wirtualnej znajduje się już na maszynie wirtualnej. Możesz przejść do sekcji związanej z [ochroną maszyn wirtualnych](backup-azure-vms-first-look.md#create-the-backup-policy).
 
 Jeśli Twoja maszyna wirtualna została zmigrowana z lokalnego centrum danych, to prawdopodobnie nie ma na niej zainstalowanego agenta maszyny wirtualnej. Konieczne jest zainstalowanie agenta maszyny wirtualnej na maszynie wirtualnej zanim możliwe będzie chronienie maszyny wirtualnej. Aby uzyskać szczegółowy opis kroków instalowania agenta maszyny wirtualnej, zobacz [sekcję VM Agent (Agent maszyny wirtualnej) w artykule dotyczącym tworzenia kopii zapasowych maszyn wirtualnych](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4---create-the-backup-policy"></a>Krok 4. Tworzenie zasad wykonywania kopii zapasowej
+## <a name="create-the-backup-policy"></a>Tworzenie zasad kopii zapasowych
 Przed wyzwoleniem zadania tworzenia początkowej kopii zapasowej ustaw harmonogram tworzenia migawek kopii zapasowych. Zasady tworzenia kopii zapasowej określają harmonogram tworzenia migawek kopii zapasowych oraz okres, przez który te migawki są przechowywane. Informacje dotyczące przechowywania są oparte na schemacie rotacji kopii zapasowej dziadek-ojciec-syn.
 
 1. Przejdź do magazynu kopii zapasowych w obszarze **Usługi odzyskiwania** klasycznego portalu Azure, a następnie kliknij pozycję **Zarejestrowane elementy**.
@@ -175,7 +140,7 @@ Przed wyzwoleniem zadania tworzenia początkowej kopii zapasowej ustaw harmonogr
 
     Po ustanowieniu zasad przejdź do następnego kroku i uruchom tworzenie początkowej kopii zapasowej.
 
-## <a name="step-5---initial-backup"></a>Krok 5. Początkowa kopia zapasowa
+## <a name="initial-backup"></a>Początkowa kopia zapasowa
 Gdy zostanie ustawiona ochrona maszyny wirtualnej za pomocą zasad, można wyświetlić tę relację na karcie **Chronione elementy**. Dopóki nie zostanie utworzona początkowa kopia zapasowa, pole **Stan ochrony** będzie miało wartość **Chroniona — (oczekiwanie na początkową kopię zapasową)**. Domyślnie pierwszą zaplanowaną kopią zapasową jest *początkowa kopia zapasowa*.
 
 ![Oczekiwanie na kopię zapasową](./media/backup-azure-vms-first-look/protection-pending-border.png)
@@ -208,9 +173,4 @@ Po pomyślnym utworzeniu kopii zapasowej maszyny wirtualnej można wykonać jede
 
 ## <a name="questions"></a>Pytania?
 Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opinię](http://aka.ms/azurebackup_feedback).
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

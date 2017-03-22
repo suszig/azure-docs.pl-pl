@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
-ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -35,7 +35,7 @@ Aby utworzyć obszar roboczy, trzeba:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Określanie wymaganej liczby obszarów roboczych
 Obszar roboczy jest zasobem platformy Azure w postaci kontenera, w którym dane są zbierane, agregowane, analizowane i przedstawiane w witrynie Azure Portal.
 
-Możesz utworzyć wiele obszarów roboczych, aby użytkownicy mieli dostęp do jednego lub wielu obszarów roboczych. Zminimalizowanie liczby obszarów roboczych pozwala na wykonywanie zapytań dla większości danych i korelowanie tych danych. W tej sekcji opisano sytuacje, w których pomocne może być utworzenie więcej niż jednego obszaru roboczego.
+Możesz mieć wiele obszarów roboczych na subskrypcję platformy Azure i dostęp do więcej niż jednego obszaru roboczego. Minimalizacja liczby obszarów roboczych pozwala na wykonywanie zapytań dotyczących większości danych i ich korelowanie, ponieważ nie można wykonywać zapytań w wielu obszarach roboczych. W tej sekcji opisano sytuacje, w których pomocne może być utworzenie więcej niż jednego obszaru roboczego.
 
 Obecnie obszar roboczy oferuje następujące możliwości:
 
@@ -52,7 +52,7 @@ Na podstawie powyższych właściwości można wskazać następujące sytuacje, 
 * Jesteś dostawcą usługi zarządzanej i chcesz, aby dane analizy dziennika dla klientów, którymi zarządzasz, były odizolowane od danych innych klientów.
 * Zarządzasz wieloma klientami i chcesz, aby dla poszczególnych klientów, działów i grup biznesowych były widoczne ich własne dane, ale nie dane innych klientów, działów czy grup biznesowych.
 
-Kiedy zbierasz dane przy użyciu agenta, możesz skonfigurować każdego agenta w celu raportowania do co najmniej jednego obszaru roboczego.
+Kiedy zbierasz dane przy użyciu agenta, możesz [skonfigurować każdego agenta w celu raportowania do co najmniej jednego obszaru roboczego](log-analytics-windows-agents.md).
 
 Jeśli używasz programu System Center Operations Manager, jedna grupa zarządzania programu Operations Manager może być połączona tylko z jednym obszarem roboczym. Możesz zainstalować program Microsoft Monitoring Agent na komputerach zarządzanych przez program Operations Manager oraz skonfigurować agenta w celu raportowania do programu Operations Manager i innego obszaru roboczego usługi Log Analytics.
 
@@ -71,34 +71,64 @@ Szczegółowe informacje o obszarze roboczym można wyświetlić w witrynie Azur
 
 
 ## <a name="manage-accounts-and-users"></a>Zarządzanie kontami i użytkownikami
-Z obszarem roboczym może być skojarzonych wiele kont użytkowników, a konto użytkownika (konto Microsoft lub konto organizacyjne) może uzyskiwać dostęp do wielu obszarów roboczych.
+Z obszarem roboczym może być skojarzonych wiele kont, a każde konto (konto Microsoft lub konto organizacyjne) może uzyskiwać dostęp do wielu obszarów roboczych.
 
-Domyślnie konto Microsoft lub konto organizacyjne użyte do utworzenia obszaru roboczego jest kontem administratora obszaru roboczego. Administrator może zaprosić dodatkowe konta Microsoft lub wybrać użytkowników z usługi Azure Active Directory.
+Domyślnie konto Microsoft lub konto organizacyjne używane do utworzenia obszaru roboczego jest kontem administratora obszaru roboczego.
 
-Dostęp do obszaru roboczego jest kontrolowany w dwóch miejscach:
+Istnieją dwa modele uprawnień, które kontrolują dostęp do obszaru roboczego usługi Log Analytics:
 
-* Na platformie Azure można użyć kontroli dostępu opartej na rolach, aby zapewnić dostęp do subskrypcji platformy Azure i skojarzonych zasobów platformy Azure. Te uprawnienia są również używane w przypadku dostępu do programu PowerShell i interfejsu API REST.
-* W portalu pakietu OMS — dostęp tylko portalu pakietu OMS, a nie do skojarzonej subskrypcji platformy Azure.
+1. Starsze role użytkownika usługi Log Analytics
+2. [Dostęp oparty na rolach na platformie Azure](../active-directory/role-based-access-control-configure.md) 
 
-Do wyświetlenia danych z kafelków rozwiązań Backup i Site Recovery wymagane jest uprawnienie administratora bądź współadministratora umożliwiające dostęp do subskrypcji platformy Azure, z którą jest połączony obszar roboczy.   
+Poniższa tabela zawiera podsumowanie dostępu, który można ustawić za pomocą każdego modelu uprawnień:
 
-### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Zarządzanie dostępem do usługi Log Analytics przy użyciu witryny Azure Portal
-Jeśli udzielisz użytkownikom dostępu do obszaru roboczego usługi Log Analytics przy użyciu uprawnień platformy Azure (np. w witrynie Azure Portal), będą oni mogli uzyskiwać dostęp do portalu usługi Log Analytics. W witrynie Azure Portal użytkownicy mogą przejść do portalu pakietu OMS przez kliknięcie zadania **Portal pakietu OMS**, gdy jest wyświetlany zasób obszaru roboczego usługi Log Analytics.
+|                          | Portal usługi Log Analytics | Azure Portal | Interfejs API (w tym program PowerShell) |
+|--------------------------|----------------------|--------------|----------------------------|
+| Role użytkownika usługi Log Analytics | Tak                  | Nie           | Nie                         |
+| Dostęp oparty na rolach na platformie Azure  | Tak                  | Tak          | Tak                        |
+
+> [!NOTE]
+> Model uprawnień usługi Log Analytics jest zmieniany na dostęp oparty na rolach platformy Azure, który zastępuje role użytkownika usługi Log Analytics.
+>
+>
+
+Starsze role użytkownika usługi Log Analytics mogą kontrolować tylko dostęp do działań wykonywanych w [portalu usługi Log Analytics](https://mms.microsoft.com).
+
+Następujące działania w portalu usługi Log Analytics również wymagają uprawnień platformy Azure:
+
+| Akcja                                                          | Wymagane uprawnienia platformy Azure | Uwagi |
+|-----------------------------------------------------------------|--------------------------|-------|
+| Dodawanie i usuwanie rozwiązań do zarządzania                        | Zapis w grupie zasobów <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Zmienianie warstwy cenowej                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+| Wyświetlanie danych w kafelkach rozwiązań *Backup* i *Site Recovery* | Administrator/współadministrator | Uzyskuje dostęp do zasobów wdrożonych przy użyciu klasycznego modelu wdrażania |
+ 
+### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Zarządzanie dostępem do usługi Log Analytics przy użyciu uprawnień platformy Azure
+Aby udzielić dostępu do obszaru roboczego usługi Log Analytics przy użyciu uprawnień platformy Azure, wykonaj kroki opisane w części [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../active-directory/role-based-access-control-configure.md).
+
+Jeśli masz co najmniej uprawnienie platformy Azure do odczytu w obszarze roboczym usługi Log Analytics, możesz otworzyć portal pakietu OMS, klikając zadanie **Portal OMS** podczas przeglądania obszaru roboczego usługi Log Analytics.
+
+Podczas otwierania portalu usługi Log Analytics przełączasz się do użycia starszych ról użytkownika usługi Log Analytics. Jeśli nie masz przypisania roli w portalu usługi Log Analytics, usługa [sprawdza uprawnienia platformy Azure w obszarze roboczym](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Przypisanie roli w portalu usługi Log Analytics jest określane w następujący sposób:
+
+| Warunki                                                   | Przypisana rola użytkownika usługi Log Analytics | Uwagi |
+|--------------------------------------------------------------|----------------------------------|-------|
+| Konto należy do starszej roli użytkownika usługi Log Analytics     | Wybrana rola użytkownika usługi Log Analytics | |
+| Konto nie należy do starszej roli użytkownika usługi Log Analytics <br> Pełne uprawnienia platformy Azure do obszaru roboczego (uprawnienie `*` <sup>1</sup>) | Administrator ||
+| Konto nie należy do starszej roli użytkownika usługi Log Analytics <br> Pełne uprawnienia platformy Azure do obszaru roboczego (uprawnienie `*` <sup>1</sup>) <br> *nie akcje* elementów `Microsoft.Authorization/*/Delete` i `Microsoft.Authorization/*/Write` | Współautor ||
+| Konto nie należy do starszej roli użytkownika usługi Log Analytics <br> Uprawnienia platformy Azure do odczytu | Tylko do odczytu ||
+| Konto nie należy do starszej roli użytkownika usługi Log Analytics <br> Uprawnienia platformy Azure są niezrozumiałe | Tylko do odczytu ||
+| Zarządzane subskrypcje dostawcy rozwiązań w chmurze (CSP) <br> Konto, na którym się zalogowano, należy do usługi Azure Active Directory połączonej z obszarem roboczym | Administrator | Przeważnie klient dostawcy CSP |
+| Zarządzane subskrypcje dostawcy rozwiązań w chmurze (CSP) <br> Konto, na którym się zalogowano, nie należy do usługi Azure Active Directory połączonej z obszarem roboczym | Współautor | Przeważnie dostawca CSP |
+
+<sup>1</sup> Zapoznaj się z częścią [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) (Uprawnienia platformy Azure), aby uzyskać więcej informacji na temat definicji ról. Podczas oceny ról akcja `*` nie jest odpowiednikiem `Microsoft.OperationalInsights/workspaces/*`. 
 
 Należy pamiętać o kilku kwestiach związanych z witryną Azure Portal:
 
-* Nie jest to *kontrola dostępu oparta na rolach*. Jeśli masz uprawnienia dostępu *czytelnika* do obszaru roboczego usługi Log Analytics w witrynie Azure Portal, możesz wprowadzać zmiany, korzystając z portalu pakietu OMS. Portal pakietu OMS korzysta z ról administratora, współautora i użytkownika tylko do odczytu. Jeśli konto, za pomocą którego się zalogowano, znajduje się w usłudze Azure Active Directory połączonej z obszarem roboczym, to jesteś administratorem w portalu pakietu OMS. W przeciwnym razie jesteś współautorem.
-* Po zalogowaniu się do portalu pakietu OMS na stronie http://mms.microsoft.com domyślnie jest wyświetlana lista **Wybierz obszar roboczy**. Zawiera ona tylko obszary robocze dodane przy użyciu portalu pakietu OMS. Aby wyświetlić obszary robocze, do których uzyskujesz dostęp za pomocą subskrypcji platformy Azure, musisz podać dzierżawę w adresie URL. Na przykład:
-
-  `mms.microsoft.com/?tenant=contoso.com` Identyfikator dzierżawy jest często ostatnią częścią adresu e-mail użytego podczas logowania.
-* Jeśli zalogowano Cię przy użyciu konta w dzierżawie usługi Azure Active Directory, jesteś *administratorem* w portalu pakietu OMS. Zwykle tak jest, o ile nie logujesz się jako dostawca CSP.  Jeśli konto nie znajduje się w dzierżawie usługi Azure Active Directory, jesteś *użytkownikiem* w portalu pakietu OMS.
+* Po zalogowaniu się do portalu pakietu OMS na stronie http://mms.microsoft.com zobaczysz listę **Wybierz obszar roboczy**. Ta lista zawiera tylko obszary robocze, w których masz rolę użytkownika usługi Log Analytics. Aby wyświetlić obszary robocze, do których uzyskujesz dostęp za pomocą subskrypcji platformy Azure, musisz podać dzierżawę w adresie URL. Przykład: `mms.microsoft.com/?tenant=contoso.com`. Identyfikator dzierżawy jest często ostatnią częścią adresu e-mail użytego podczas logowania.
 * Aby przejść bezpośrednio do portalu, do którego uzyskujesz dostęp przy użyciu uprawnień platformy Azure, musisz podać zasób w adresie URL. Taki adres URL można uzyskać przy użyciu programu PowerShell.
 
   Na przykład `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
   Adres URL wygląda następująco: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
-
-Aby na przykład dodać lub usunąć rozwiązania do zarządzania, użytkownik musi być administratorem lub współautorem subskrypcji używanej w witrynie Azure Portal. Ponadto użytkownik musi być członkiem roli administratora lub współautora obszaru roboczego pakietu OMS w portalu pakietu OMS.
 
 ### <a name="managing-users-in-the-oms-portal"></a>Zarządzanie użytkownikami w portalu pakietu OMS
 Do zarządzania użytkownikami i grupami służy karta **Zarządzanie użytkownikami** na karcie **Konta** na stronie Ustawienia.   
@@ -114,7 +144,7 @@ Poniżej przedstawiono procedurę dodawania użytkownika lub grupy do obszaru ro
 3. W sekcji **Zarządzanie użytkownikami** wybierz typ konta, które chcesz dodać: **Konto organizacyjne**, **Konto Microsoft** lub **Pomoc techniczna firmy Microsoft**.
 
    * W przypadku wybrania konta Microsoft wpisz adres e-mail użytkownika skojarzonego z kontem Microsoft.
-   * W przypadku wybrania konta organizacyjnego możesz podać część nazwy albo aliasu e-mail użytkownika lub grupy, co spowoduje wyświetlenie listy zgodnych użytkowników i grup w polu listy rozwijanej. Wybierz użytkownika lub grupę.
+   * W przypadku wybrania konta organizacyjnego możesz podać część nazwy albo aliasu e-mail użytkownika/grupy, co spowoduje wyświetlenie listy zgodnych użytkowników i grup w polu listy rozwijanej. Wybierz użytkownika lub grupę.
    * Użyj konta Pomoc techniczna firmy Microsoft, aby udzielić inżynierowi pomocy technicznej lub innemu pracownikowi firmy Microsoft tymczasowego dostępu do obszaru roboczego w celu ułatwienia rozwiązywania problemów.
 
      > [!NOTE]
@@ -154,7 +184,7 @@ Poniżej przedstawiono procedurę usuwania użytkownika z obszaru roboczego. Usu
 4. W oknie dialogowym potwierdzenia kliknij przycisk **Tak**.
 
 ### <a name="add-a-group-to-an-existing-workspace"></a>Dodawanie grupy do istniejącego obszaru roboczego
-1. Wykonaj kroki od 1 do 4 przedstawione w powyższej sekcji „Dodawanie użytkownika do istniejącego obszaru roboczego”.
+1. Wykonaj kroki 1–4 przedstawione w powyższej sekcji „Dodawanie użytkownika do istniejącego obszaru roboczego”.
 2. W obszarze **Wybierz użytkownika/grupę** wybierz pozycję **Grupa**.  
    ![dodawanie grupy do istniejącego obszaru roboczego](./media/log-analytics-manage-access/add-group.png)
 3. Wprowadź nazwę wyświetlaną lub adres e-mail grupy, którą chcesz dodać.
@@ -204,7 +234,7 @@ Dostępne są trzy typy planów obszarów roboczych dla pakietu OMS: **Bezpłatn
 ### <a name="using-entitlements-from-an-oms-subscription"></a>Używanie uprawnień z subskrypcji pakietu OMS
 Aby używać uprawnień wynikających z zakupu pakietu OMS E1, OMS E2 OMS lub dodatku pakietu OMS dla programu System Center, wybierz plan *OMS* dla usługi Log Analytics pakietu OMS.
 
-Po zakupie subskrypcji pakietu OMS uprawnienia zostaną dodane do umowy Enterprise Agreement. Z tych uprawnień mogą korzystać dowolne subskrypcje platformy Azure utworzone w ramach tej umowy. Dzięki temu można mieć na przykład wiele obszarów roboczych korzystających z uprawnień subskrypcji pakietu OMS.
+Po zakupie subskrypcji pakietu OMS uprawnienia zostaną dodane do umowy Enterprise Agreement. Z tych uprawnień mogą korzystać dowolne subskrypcje platformy Azure utworzone w ramach tej umowy. Wszystkie obszary robocze w ramach tych subskrypcji korzystają z uprawnień pakietu OMS.
 
 Aby upewnić się, że uprawnienia subskrypcji pakietu OMS są uwzględniane w danych użycia obszaru roboczego, wykonaj następujące czynności:
 
@@ -212,18 +242,18 @@ Aby upewnić się, że uprawnienia subskrypcji pakietu OMS są uwzględniane w d
 2. Wybierz plan *OMS* dla obszaru roboczego
 
 > [!NOTE]
-> Jeśli obszar roboczy został utworzony przed 26 września 2016 roku, a plan taryfowy usługi Log Analytics to *Premium*, to ten obszar roboczy będzie używać uprawnień z dodatku pakietu OMS dla programu System Center. Uprawnień można także użyć, zmieniając warstwę cenową pakietu *OMS*.
+> Jeśli obszar roboczy został utworzony przed 26 września 2016 r., a plan taryfowy usługi Log Analytics to *Premium*, ten obszar roboczy używa uprawnień z dodatku pakietu OMS dla programu System Center. Uprawnień można także użyć, zmieniając warstwę cenową pakietu *OMS*.
 >
 >
 
 Uprawnienia subskrypcji pakietu OMS nie są widoczne w witrynie Azure Portal lub w portalu pakietu OMS. Uprawnienia i użycie są natomiast widoczne w witrynie Enterprise Portal.  
 
 Jeśli chcesz zmienić subskrypcję platformy Azure, z którą jest połączony obszar roboczy, możesz użyć polecenia cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) programu Azure PowerShell.
-
+na
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Korzystanie z zobowiązania platformy Azure w ramach umowy Enterprise Agreement
 Jeśli nie masz subskrypcji pakietu OMS, zapłacisz osobno za każdy składnik tego pakietu, a dane użycia będą widoczne na rachunku dotyczącym platformy Azure.
 
-Jeśli istnieje zobowiązanie pieniężne platformy Azure dotyczące rejestracji przedsiębiorstwa, z którą są połączone subskrypcje platformy Azure, każde użycie usługi Log Analytics spowoduje automatyczne obciążenie pozostałego zobowiązania pieniężnego.
+Jeśli istnieje zobowiązanie pieniężne platformy Azure dotyczące rejestracji przedsiębiorstwa, z którą są połączone subskrypcje platformy Azure, użycie usługi Log Analytics spowoduje automatyczne obciążenie pozostałego zobowiązania pieniężnego.
 
 Jeśli chcesz zmienić subskrypcję platformy Azure, z którą jest połączony obszar roboczy, możesz użyć polecenia cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) programu Azure PowerShell.  
 
@@ -242,13 +272,13 @@ Jeśli chcesz zmienić subskrypcję platformy Azure, z którą jest połączony 
 >
 >
 
-## <a name="change-your-data-plan-in-the-oms-portal"></a>Zmienianie planu danych w portalu pakietu OMS
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Zmienianie obszaru roboczego na płatną warstwę cenową w portalu pakietu OMS
 
-Aby zmienić plan danych za pomocą portalu pakietu OMS, zalogowany użytkownik musi już mieć konto platformy Azure.
+Aby zmienić warstwę cenową za pomocą portalu pakietu OMS, musisz mieć subskrypcję platformy Azure.
 
 1. W portalu pakietu OMS kliknij kafelek **Ustawienia**.
 2. Kliknij kartę **Konta**, a następnie kliknij kartę **Subskrypcja i plan taryfowy platformy Azure**.
-3. Kliknij plan taryfowy, którego chcesz używać.
+3. Kliknij warstwę cenową, której chcesz użyć.
 4. Kliknij pozycję **Zapisz**.  
    ![subskrypcja i plany taryfowe](./media/log-analytics-manage-access/subscription-tab.png)
 
