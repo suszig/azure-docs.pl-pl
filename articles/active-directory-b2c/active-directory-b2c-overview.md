@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
-ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,8 +56,8 @@ Poniższe linki przydadzą się podczas szczegółowego eksplorowania usługi:
 
 * Zobacz [Informacje o cenach usługi Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Przejrzyj nasze [przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) dla usługi Azure Active Directory B2C. 
-* Uzyskaj pomoc na stronie Stack Overflow, korzystając ze znaczników [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) i [adal](http://stackoverflow.com/questions/tagged/adal).
-* Przekaż nam swoje pomysły za pomocą funkcji [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) — chcemy się o nich dowiedzieć. W tytule wpisu użyj frazy „AzureADB2C:”, co pozwoli nam na odnalezienie go.
+* Uzyskaj pomoc na stronie Stack Overflow, korzystając z tagu [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Przekaż nam swoje pomysły za pomocą funkcji [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) — chcemy się o nich dowiedzieć.
 * Zapoznaj się z [dokumentacją protokołu usługi Azure AD B2C](active-directory-b2c-reference-protocols.md).
 * Zapoznaj się z [dokumentacją tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md).
 * Przeczytaj temat [Azure Active Directory B2C — często zadawane pytania](active-directory-b2c-faqs.md).
@@ -64,10 +65,5 @@ Poniższe linki przydadzą się podczas szczegółowego eksplorowania usługi:
 
 ## <a name="get-security-updates-for-our-products"></a>Pobierz aktualizacje zabezpieczeń naszych produktów
 Firma Microsoft zachęca do przekazywania powiadomień o występujących incydentach zabezpieczeń poprzez wizytę na [tej stronie](https://technet.microsoft.com/security/dd252948) i subskrybowanie Doradczych alertów zabezpieczeń.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

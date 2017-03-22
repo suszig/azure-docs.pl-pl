@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -82,9 +82,9 @@ Skopiuj plik zip na serwer z systemem Windows Server, z którego chcesz uruchomi
 Wyodrębnij folder zip. Zawiera on wiele plików i podfolderów. Plik wykonywalny narzędzia nosi nazwę ASRDeploymentPlanner.exe i znajduje się w folderze nadrzędnym.
 
 Przykład: skopiuj plik zip na dysk E:\ i wyodrębnij go.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##<a name="capabilities"></a>Możliwości
 Narzędzie wiersza polecenia (ASRDeploymentPlanner.exe) można uruchomić w jednym z trzech następujących trybów:
@@ -199,7 +199,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>Przykład 2: generowanie raportu, gdy profilowane dane znajdują się na serwerze zdalnym Użytkownik musi mieć uprawnienia odczytu i zapisu w katalogu zdalnym.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\Lista_mw_profilowania_1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Przykład 3: generowanie raportu przy użyciu określonej przepustowości i celu ukończenia replikacji początkowej w określonym czasie
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\Lista_mw_profilowania_1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -407,10 +407,10 @@ Strona danych wejściowych zawiera przegląd profilowanego środowiska VMware.
 
 **Maszyny wirtualne do rozmieszczenia** to lista wszystkich maszyn wirtualnych, które powinny zostać umieszczone na danym koncie usługi Azure Storage w celu uzyskania optymalnej wydajności i optymalnego użycia.
 
-##<a name="compatible-vms"></a>Zgodne maszyny wirtualne
+## <a name="compatible-vms"></a>Zgodne maszyny wirtualne
 ![Planista wdrożenia](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**Nazwa maszyny wirtualnej** to nazwa lub adres IP maszyny wirtualnej użyte w parametrze VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski (VMDK) dołączone do maszyn wirtualnych.
+**Nazwa maszyny wirtualnej** to nazwa lub adres IP maszyny wirtualnej użyte w parametrze VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski (VMDK) dołączone do maszyn wirtualnych. Maszyny wirtualne na serwerze vCenter z powielonymi nazwami lub adresami IP są wymieniane z nazwą hosta ESXi w celu odróżnienia poszczególnych maszyn wirtualnych. Wymieniony na liście host ESXi to host, na którym maszyna wirtualna została umieszczona po wykryciu przez narzędzie po raz pierwszy w okresie profilowania.
 
 **Zgodność maszyny wirtualnej** ma dwie wartości: Tak/Tak.* Wartość Tak* dotyczy sytuacji, gdy maszyna wirtualna może korzystać z [usługi Azure Storage w warstwie Premium](https://aka.ms/premium-storage-workload) z profilowanym dyskiem o wysokim współczynniku zmian lub dużej liczbie operacji we/wy na sekundę dysku z kategorii P20 lub P30, ale rozmiar dysku powoduje, że jest on mapowany w dół do kategorii P10 lub P20. Usługa Azure Storage określa, jakiego typu dysk usługi Premium Storage ma zostać zamapowany na dysk na podstawie rozmiaru, tj. mniej niż 128 GB to kategoria P10, od 128 do 512 GB to kategoria P20, a od 512 GB do 1023 GB to kategoria P30. Jeśli więc charakterystyka obciążenia dysku kwalifikuje dysk do kategorii P20 lub P30, ale ze względu na rozmiar dysk jest mapowany w dół na niższą kategorię dysku usługi Premium Storage, narzędzie ustawia dla tej maszyny wirtualnej wartość Tak i zaleca zmianę rozmiaru dysku źródłowego na zalecany typ dysku usługi Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
 Dostępne typy magazynu do Standardowa i Premium.
@@ -439,7 +439,7 @@ Dostępne typy magazynu do Standardowa i Premium.
 
 ![Planista wdrożenia](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**Nazwa maszyny wirtualnej** to nazwa lub adres IP maszyny wirtualnej użyte w parametrze VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski (VMDK) dołączone do maszyn wirtualnych.
+**Nazwa maszyny wirtualnej** to nazwa lub adres IP maszyny wirtualnej użyte w parametrze VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski (VMDK) dołączone do maszyn wirtualnych. Maszyny wirtualne na serwerze vCenter z powielonymi nazwami lub adresami IP są wymieniane z nazwą hosta ESXi w celu odróżnienia poszczególnych maszyn wirtualnych. Wymieniony na liście host ESXi to host, na którym maszyna wirtualna została umieszczona po wykryciu przez narzędzie po raz pierwszy w okresie profilowania.
 
 **Zgodność maszyny wirtualnej** wskazuje, dlaczego podana maszyna wirtualna nie jest zgodna na potrzeby użycia z usługą Azure Site Recovery. Podane przyczyny dotyczą poszczególnych niezgodnych dysków maszyny wirtualnej. Poniżej przedstawiono możliwe przyczyny na podstawie opublikowanych [limitów](https://aka.ms/azure-storage-scalbility-performance) usługi Azure Storage.
 
@@ -483,7 +483,24 @@ Są to średnie wartości przy założeniu 30-procentowego nakładania się oper
 
 Powyższe opublikowane limity są oparte na naszych testach, ale nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji. Rzeczywiste wyniki będą się różnić w zależności od kombinacji operacji we/wy aplikacji. Aby uzyskać najlepsze wyniki nawet po zakończeniu planowania wdrożenia, zawsze zaleca się dokładne przetestowanie aplikacji przy użyciu testu pracy w trybie failover w celu uzyskania prawdziwych informacji o wydajności.
 
-##<a name="release-notes"></a>Informacje o wersji
+## <a name="how-to-update-the-deployment-planner"></a>Jak zaktualizować planistę wdrożenia?
+[Pobierz](site-recovery-deployment-planner.md#download) najnowszą wersję planisty wdrożenia usługi Azure Site Recovery. Skopiuj plik ZIP na serwer, na którym chcesz go uruchomić. Wyodrębnij plik ZIP.
+Jeśli masz już poprzednią wersję planisty wdrożenia i trwa profilowanie, nie musisz zatrzymywać profilowania, chyba że nowa wersja ma poprawkę profilowania. Jeśli wersja zawiera poprawki w składniku profilowania, zalecane jest zatrzymanie profilowania przy użyciu starszej wersji i ponowne uruchomienie profilowania przy użyciu nowej wersji. Pamiętaj, że w przypadku uruchamiania profilowania przy użyciu nowej wersji musisz przekazać taką samą ścieżkę katalogu danych wyjściowych, aby narzędzie dołączyło dane profilu do istniejących plików. Podczas generowania raportu zostanie użyty kompletny zestaw profilowanych danych. Jeśli przekażesz inny katalog danych wyjściowych, zostaną utworzone nowe pliki, a użycie starych profilowanych danych podczas generowania raportu będzie niemożliwe.<br> Każda aktualizacja jest aktualizacją zbiorczą z plikiem ZIP. Aby jej użyć, nie trzeba kopiować plików nowej wersji do folderu poprzedniej wersji. Można użyć nowego folderu.
+
+
+##<a name="version-history"></a>Historia wersji
+### <a name="11"></a>1.1
+Data aktualizacji: 9 marca 2017 r. <br>
+
+Rozwiązano następujące problemy<br>
+
+* Nie można profilować maszyn wirtualnych, jeśli serwer vCenter ma co najmniej dwie maszyny wirtualne o takiej samej nazwie lub takim samym adresie IP na różnych hostach ESXi.<br>
+* Kopiowanie i wyszukiwanie zostało wyłączone dla arkuszy zgodnych maszyn wirtualnych i niezgodnych maszyn wirtualnych.
+
+
+### <a name="10"></a>1.0 
+Data aktualizacji: 23 lutego 2017 r. 
+
 Planista wdrożenia usługi Azure Site Recovery w publicznej wersji zapoznawczej 1.0 ma następujące znane problemy, które zostaną rozwiązane w przyszłych aktualizacjach.
 
 * Narzędzie działa tylko w przypadku replikacji z oprogramowania VMware na platformę Azure. Nie działa w przypadku wdrożeń funkcji Hyper-V na platformie Azure. W przypadku wdrożeń funkcji Hyper-V na platformie Azure użyj [narzędzia planisty wydajności funkcji Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).

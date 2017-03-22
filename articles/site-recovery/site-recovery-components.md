@@ -12,30 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 22b50dd6242e8c10241b0626b48f8ef842b6b0fd
-ms.openlocfilehash: c33ca9e5292096a0fd96d98da3e89d721463e903
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="how-does-azure-site-recovery-work"></a>W jaki sposób działa usługa Azure Site Recovery?
 
-Przeczytaj ten artykuł, aby zrozumieć podstawową architekturę usługi [Azure Site Recovery](site-recovery-overview.md) i składników, dzięki którym działa.
+W tym artykule opisano podstawową architekturę usługi [Azure Site Recovery](site-recovery-overview.md) i składniki, dzięki którym działa.
 
 Zamieść wszelkie komentarze pod tym artykułem lub na [forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="replication-to-azure"></a>Replikacja do platformy Azure
+## <a name="replicate-to-azure"></a>Replikacja do platformy Azure
 
 Oto co możesz replikować do platformy Azure:
+
 - **VMware**: Lokalne maszyny wirtualne programu VMware działające na [obsługiwanym hoście](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Replikować możesz maszyny wirtualne programu VMware, na których działają [obsługiwane systemy operacyjne](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 - **Hyper-V**: Lokalne maszyny wirtualne funkcji Hyper-V działające na [obsługiwanych hostach](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Maszyny fizyczne**: Lokalne serwery fizyczne z systemem Windows lub Linux działające w [obsługiwanych systemach operacyjnych](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). Replikować możesz maszyny wirtualne funkcji Hyper-V, na których działa dowolny system operacyjny gościa [obsługiwany przez funkcję Hyper-V i platformę Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-## <a name="vmware-replication-to-azure"></a>Replikacja z programu VMware do platformy Azure
+## <a name="vmware-to-azure"></a>Z programu VMware do platformy Azure
+
+Poniżej przedstawiono wymagania dotyczące replikacji maszyn wirtualnych programu VMware do platformy Azure.
 
 Obszar | Składnik | Szczegóły
 --- | --- | ---
@@ -85,14 +88,16 @@ Istnieje kilka wymagań powrotu po awarii:
 
 ![Powrót po awarii](./media/site-recovery-components/enhanced-failback.png)
 
-## <a name="physical-server-replication-to-azure"></a>Replikacja serwera fizycznego do platformy Azure
+## <a name="physical-to-azure"></a>Serwer fizyczny do platformy Azure
 
-Ten scenariusz replikacji używa tych samych składników i tego samego procesu co replikacja [z programu VMware do platformy Azure](#vmware-replication-to-azure), ale pamiętaj o następujących różnicach:
+W przypadku replikowania serwerów lokalnych do platformy Azure używane są również te same składniki i procesy, co podczas replikowania [z programu VMware do platformy Azure](#vmware-replication-to-azure), ale należy zwrócić uwagę na poniższe różnice:
 
 - Jako serwera konfiguracji możesz użyć serwera fizycznego zamiast maszyny wirtualnej programu VMware.
 - Musisz mieć lokalną infrastrukturę VMware na potrzeby powrotu po awarii. Nie można powracać po awarii do maszyny fizycznej.
 
-## <a name="hyper-v-replication-to-azure"></a>Replikacja funkcji Hyper-V do platformy Azure
+## <a name="hyper-v-to-azure"></a>Z funkcji Hyper-V do platformy Azure
+
+Poniżej przedstawiono wymagania dotyczące replikowania maszyn wirtualnych funkcji Hyper-V do platformy Azure.
 
 **Obszar** | **Składnik** | **Szczegóły**
 --- | --- | ---
@@ -130,7 +135,7 @@ Ten scenariusz replikacji używa tych samych składników i tego samego procesu 
 ![Składniki](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## <a name="replication-to-a-secondary-site"></a>Replikacja do lokacji dodatkowej
+## <a name="replicate-to-a-secondary-site"></a>Replikacja do lokacji dodatkowej
 
 Oto co możesz replikować do lokacji dodatkowej:
 
@@ -139,13 +144,15 @@ Oto co możesz replikować do lokacji dodatkowej:
 - **Hyper-V**: Lokalne maszyny wirtualne funkcji Hyper-V działające na [obsługiwanych hostach funkcji Hyper-V](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) zarządzanych w chmurach programu VMM. ([Obsługiwane hosty](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)). Replikować możesz maszyny wirtualne funkcji Hyper-V, na których działa dowolny system operacyjny gościa [obsługiwany przez funkcję Hyper-V i platformę Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
-## <a name="vmware-vmphysical-server-replication-to-a-secondary-site"></a>Replikacja maszyny wirtualnej programu VMware lub serwera fizycznego do lokacji dodatkowej
+## <a name="vmwarephysical-to-a-secondary-site"></a>Replikacja z programu VMware/serwera fizycznego do lokacji dodatkowej
+
+Serwery fizyczne lub maszyny wirtualne VMware są replikowane do lokacji dodatkowej przy użyciu programu InMage Scout.
 
 ### <a name="components"></a>Składniki
 
 **Obszar** | **Składnik** | **Szczegóły**
 --- | --- | ---
-**Azure** | Ten scenariusz jest wdrażany przy użyciu programu InMage Scout. | Aby uzyskać program InMage Scout, konieczna jest subskrypcja platformy Azure.<br/><br/> Po utworzeniu magazynu usługi Recovery Services należy pobrać program InMage Scout i zainstalować najnowsze aktualizacje w celu skonfigurowania wdrożenia.
+**Azure** | InMage Scout. | Aby uzyskać program InMage Scout, konieczna jest subskrypcja platformy Azure.<br/><br/> Po utworzeniu magazynu usługi Recovery Services należy pobrać program InMage Scout i zainstalować najnowsze aktualizacje w celu skonfigurowania wdrożenia.
 **Serwer przetwarzania** | Znajduje się w lokacji głównej | Serwer przetwarzania jest wdrażany w celu obsługi pamięci podręcznej, kompresji i optymalizacji danych.<br/><br/> Umożliwia on również obsługę instalacji wypychanej programu Unified Agent na maszynach, które chcesz chronić.
 **Serwer konfiguracji** | Znajduje się w lokacji dodatkowej | Serwer konfiguracji umożliwia konfigurowanie i monitorowanie wdrożenia oraz zarządzanie nim za pomocą witryny sieci Web zarządzania lub konsoli vContinuum.
 **Serwer vContinuum** | Opcjonalny. Instalowany w tej samej lokalizacji co serwer konfiguracji. | Zapewnia on konsolę do monitorowania chronionego środowiska i zarządzania nim.
@@ -166,7 +173,9 @@ Oto co możesz replikować do lokacji dodatkowej:
 
 
 
-## <a name="hyper-v-vm-replication-to-a-secondary-site"></a>Replikacja maszyny wirtualnej funkcji Hyper-V do lokacji dodatkowej
+## <a name="hyper-v-to-a-secondary-site"></a>Z funkcji Hyper-V do lokacji dodatkowej
+
+Poniżej przedstawiono wymagania dotyczące replikowania maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej.
 
 
 **Obszar** | **Składnik** | **Szczegóły**
@@ -202,25 +211,8 @@ Oto co możesz replikować do lokacji dodatkowej:
 7. Aby lokacja główna stała się z powrotem lokalizacją aktywną, należy zainicjować planowane przejście w tryb failover z lokacji dodatkowej do głównej, a następnie przeprowadzić kolejną replikację odwrotną.
 
 
-## <a name="hyper-v-replication-workflow"></a>Przepływ pracy replikacji funkcji Hyper-V
-
-**Etap przepływu pracy** | **Akcja**
---- | ---
-1. **Włączanie ochrony** | Po włączeniu ochrony maszyny wirtualnej funkcji Hyper-V jest inicjowane zadanie **Włączanie ochrony** w celu sprawdzenia zgodności maszyny z wymaganiami wstępnymi. To zadanie wywołuje dwie metody:<br/><br/> [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) w celu skonfigurowania replikacji za pomocą skonfigurowanych ustawień.<br/><br/> [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) w celu zainicjowania pełnej replikacji maszyny wirtualnej.
-2. **Replikacja początkowa** |  Wykonywana jest migawka maszyny wirtualnej, a wirtualne dyski twarde są replikowane pojedynczo, dopóki wszystkie nie zostaną skopiowane do lokalizacji dodatkowej.<br/><br/> Czas potrzebny na zakończenie tego procesu zależy od rozmiaru maszyny wirtualnej, przepustowości sieci i metody replikacji początkowej.<br/><br/> Jeśli podczas replikacji początkowej będzie miała miejsce zmiana dysku, składnik Replica Replication Tracker funkcji Hyper-V będzie śledził te zmiany jako dzienniki replikacji funkcji Hyper-V (hrl), które znajdują się w tym samym folderze co dyski.<br/><br/> Z każdym dyskiem jest skojarzony plik hrl, który zostanie wysłany do magazynu pomocniczego.<br/><br/> Pliki migawki i dziennika zużywają zasoby dysku w trakcie replikacji początkowej. Po zakończeniu replikacji początkowej migawka maszyny wirtualnej zostanie usunięta, a przyrostowe zmiany dysków w dzienniku zostaną zsynchronizowane i scalone.
-3. **Finalizowanie ochrony** | Po zakończeniu replikacji początkowej zadanie **Finalizowanie ochrony** konfiguruje ustawienia sieciowe i inne ustawienia po replikacji, aby maszyna wirtualna była chroniona.<br/><br/> W przypadku przeprowadzania replikacji na platformę Azure może być konieczne dostosowanie ustawień maszyny wirtualnej w taki sposób, aby była gotowa do przejścia w tryb failover.<br/><br/> W tym momencie możesz uruchomić testowe przejście w tryb failover w celu sprawdzenia, czy wszystko działa zgodnie z oczekiwaniami.
-4. **Replikacja** | Po przeprowadzeniu replikacji początkowej rozpoczynana jest synchronizacja przyrostowa zgodnie z ustawieniami replikacji.<br/><br/> **Niepowodzenie replikacji**: jeśli replikacja przyrostowa nie powiedzie się, a pełna replikacja będzie kosztowna pod względem przepustowości lub czasu, to zostanie przeprowadzona ponowna synchronizacja. Jeśli na przykład pliki hrl będą zajmować 50% rozmiaru dysku, to maszyna wirtualna zostanie oznaczona do ponownej synchronizacji. Ponowna synchronizacja minimalizuje ilość wysyłanych danych dzięki obliczaniu sum kontrolnych źródłowych i docelowych maszyn wirtualnych oraz wysyłaniu tylko danych przyrostowych. Po ukończeniu ponownej synchronizacji replikacja przyrostowa zostanie wznowiona. Domyślnie ponowna synchronizacja jest zaplanowana do automatycznego uruchamiania poza godzinami pracy, ale możliwe jest uruchomienie ponownej synchronizacji maszyny wirtualnej ręcznie.<br/><br/> **Błąd replikacji**: jeśli wystąpi błąd replikacji, może zostać użyty wbudowany mechanizm ponawiania. Jeśli jest to błąd nieodwracalny, taki jak błąd uwierzytelniania lub autoryzacji, albo jeśli maszyna repliki jest w nieprawidłowym stanie, nie będzie podejmowana żadna próba ponowienia. Jeśli jest to błąd odwracalny, taki jak błąd sieci lub błąd dotyczący małej ilości miejsca/pamięci, to wtedy podejmowana jest próba ponowienia w rosnących odstępach czasu między kolejnymi próbami (1, 2, 4, 8, 10, a następnie co 30 minut).
-5. **Planowane lub nieplanowane przejście w tryb failover** | W razie potrzeby można uruchomić planowane lub nieplanowane przejścia w tryb failover.<br/><br/> Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych.<br/><br/> Po utworzeniu maszyny wirtualne replik mają stan oczekiwania na zatwierdzenie. Należy je zatwierdzić, aby ukończyć przejście w tryb failover.<br/><br/> Po uruchomieniu lokacji głównej można powrócić do niej po awarii, kiedy będzie ona dostępna.
-
-
-**Rysunek 8: Przepływ pracy funkcji Hyper-V**
-
-![przepływ pracy](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
-
-
-
-
 ## <a name="next-steps"></a>Następne kroki
 
-[Sprawdzanie wymagań wstępnych](site-recovery-prereq.md)
+- [Dowiedz się więcej](site-recovery-hyper-v-azure-architecture.md) o przepływie pracy replikacji funkcji Hyper-V.
+- [Sprawdzanie wymagań wstępnych](site-recovery-prereq.md)
 

@@ -1,6 +1,6 @@
 ---
 title: "Wykonywanie zapytań dla danych z usługi Azure Storage zgodnej z systemem plików HDFS | Microsoft Docs"
-description: "Dowiedz się, jak wykonywać zapytania dla danych z usług Azure Blob Storage i Azure Data Lake Store w celu zapisania wyników analiz."
+description: "Dowiedz się, jak wykonywać zapytania dla danych z usług Azure Storage i Azure Data Lake Store w celu zapisania wyników analiz."
 keywords: blob storage,hdfs,structured data,unstructured data, data lake store
 services: hdinsight,storage
 documentationcenter: 
@@ -17,28 +17,33 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8133299b062bf3935df9c30dc8a6fcf88a525e
-ms.openlocfilehash: d3af6358a5786510f4f150425d0eb8ed45e52a6c
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: f739459681b0941a3dde6ec615ee468444d92c36
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>Korzystanie z magazynu zgodnego z systemem plików HDFS w połączeniu z platformą Hadoop w usłudze HDInsight
 
-Aby analizować dane w klastrze usługi HDInsight, możesz zapisać dane w usłudze Azure Blob Storage, usłudze Azure Data Lake Store lub obu tych usługach. Obie opcje magazynowania pozwalają bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
+Aby analizować dane w klastrze usługi HDInsight, możesz zapisać dane w usłudze Azure Storage, usłudze Azure Data Lake Store lub obu tych usługach. Obie opcje magazynowania pozwalają bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
 
-Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. W trakcie procesu tworzenia klastra usługi HDInsight jako domyślny system plików można wskazać kontenery usługi Azure Blob Storage. W przypadku wersji 3.5 usługi HDInsight jako domyślny system plików można wybrać usługę Azure Blob Storage lub Azure Data Lake Store.
+Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. W trakcie procesu tworzenia klastra usługi HDInsight jako domyślny system plików można wskazać kontener obiektów blob w usłudze Azure Storage. W przypadku wersji 3.5 usługi HDInsight jako domyślny system plików można wybrać usługę Azure Storage lub Azure Data Lake Store.
 
 Z tego artykułu dowiesz się, jak te dwie opcje magazynowania działają z klastrami usługi HDInsight. Więcej informacji dotyczących tworzenia klastra usługi HDInsight można znaleźć w temacie [Rozpoczynanie pracy z usługą HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-## <a name="using-azure-blob-storage-with-hdinsight-clusters"></a>Korzystanie z usługi Azure Blob Storage w połączeniu z klastrami usługi HDInsight
+## <a name="using-azure-storage-with-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi HDInsight
 
-Magazyn obiektów blob systemu Azure to niezawodne rozwiązanie ogólnego przeznaczenia, które bezproblemowo integruje się z usługą HDInsight. Korzystając z interfejsu rozproszonego systemu plików Hadoop (HDFS), pełny zestaw składników usługi HDInsight może operować bezpośrednio na danych strukturalnych lub bez struktury w magazynie obiektów blob.
+Usługa Azure Storage to niezawodne rozwiązanie ogólnego przeznaczenia, które bezproblemowo integruje się z usługą HDInsight. Usługa HDInsight może używać kontenera obiektów blob w usłudze Azure Storage jako domyślnego systemu plików dla klastra. Korzystając z interfejsu rozproszonego systemu plików Hadoop (HDFS), pełny zestaw składników usługi HDInsight może operować bezpośrednio na danych ze strukturą lub bez niej przechowywanych jako obiekty blob.
 
-> [!IMPORTANT]
-> Usługa HDInsight obsługuje tylko blokowe obiekty blob. Nie obsługuje stronicowych ani uzupełnialnych obiektów blob.
+> [!WARNING]
+> Przy tworzeniu konta usługi Azure Storage dostępnych jest kilka opcji. W poniższej tabeli zawarto informacje na temat opcji obsługiwanych z usługą HDInsight:
 > 
-> 
+> | Typ konta magazynu | Warstwa magazynu | Obsługiwane z usługą HDInsight |
+> | ------- | ------- | ------- |
+> | Konto magazynu ogólnego przeznaczenia | Standardowa | __Tak__ |
+> | &nbsp; | Premium | Nie |
+> | Konto magazynu obiektów blob | Gorąca | Nie |
+> | &nbsp; | Chłodna | Nie |
 
 ### <a name="hdinsight-storage-architecture"></a>Architektura magazynu usługi HDInsight
 Na poniższym diagramie przedstawiono abstrakcyjny widok architektury magazynu usługi HDInsight:
@@ -49,7 +54,7 @@ Usługa HDInsight zapewnia dostęp do rozproszonego systemu plików, który jest
 
     hdfs://<namenodehost>/<path>
 
-Ponadto usługa HDInsight zapewnia możliwość dostępu do danych przechowywanych w magazynie obiektów blob systemu Azure. Składnia jest następująca:
+Ponadto usługa HDInsight zapewnia możliwość dostępu do danych przechowywanych w usłudze Azure Storage. Składnia jest następująca:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -65,27 +70,27 @@ Poniżej przedstawiono kilka zagadnień dotyczących korzystania z konta usługi
   > 
 * **Prywatne kontenery na kontach magazynu, które NIE są podłączone do klastra:** nie masz dostępu do obiektów blob w kontenerach, chyba że zdefiniujesz konto magazynu podczas przesyłania zadań WebHCat. Wyjaśnienie jest zawarte w dalszej części tego artykułu.
 
-Konta magazynu definiowane w procesie tworzenia oraz ich klucze są przechowywane w pliku %HADOOP_HOME%/conf/core-site.xml w węzłach klastra. Domyślne działanie usługi HDInsight polega na korzystaniu z kont magazynu zdefiniowanych w pliku core-site.xml. Nie zaleca się edytowania pliku core-site.xml, ponieważ główny węzeł klastra (master) może być odtwarzany z obrazu lub poddawany migracji w dowolnym momencie, a wówczas wszelkie zmiany w tych plikach zostaną utracone.
+Konta magazynu definiowane w procesie tworzenia oraz ich klucze są przechowywane w pliku %HADOOP_HOME%/conf/core-site.xml w węzłach klastra. Domyślne działanie usługi HDInsight polega na korzystaniu z kont magazynu zdefiniowanych w pliku core-site.xml. Nie zaleca się bezpośredniego edytowania pliku core-site.xml, ponieważ główny węzeł klastra (master) może być odtwarzany z obrazu lub poddawany migracji w dowolnym momencie, a wówczas wszelkie zmiany w tym pliku nie są utrwalane.
 
 Wiele zadań WebHCat, w tym Hive, MapReduce, przesyłanie strumieniowe Hadoop, a także Pig, może przenosić ze sobą opis kont magazynu i metadane. (W przypadku technologii Pig obecnie działa to z kontami magazynu, ale nie dla metadanych). W sekcji [Dostęp do obiektów blob przy użyciu programu Azure PowerShell](#powershell) tego artykułu znajduje się przykład tej funkcjonalności. Aby uzyskać więcej informacji, zobacz [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Używanie klastra usługi HDInsight z alternatywnymi kontami magazynu i magazynami metadanych).
 
-Magazyn obiektów blob może być używany z danymi strukturalnymi i bez struktury. Kontenery magazynu obiektów blob przechowują dane jako pary klucz/wartość, bez hierarchii katalogów. Jednak wewnątrz nazwy klucza można użyć znaku ukośnika (/), co sprawi, że będzie wyglądała, jakby plik był przechowywany w ramach struktury katalogów. Na przykład klucz obiektu blob może mieć postać *input/log1.txt*. Katalog *input* w rzeczywistości nie istnieje, ale z powodu obecności znaku ukośnika w nazwie klucza, klucz ma wygląd ścieżki do pliku.
+Obiekty blob mogą być używane z danymi ze strukturą i bez niej. Kontenery obiektów blob przechowują dane jako pary klucz/wartość, bez hierarchii katalogów. Jednak wewnątrz nazwy klucza można użyć znaku ukośnika (/), co sprawi, że będzie wyglądała, jakby plik był przechowywany w ramach struktury katalogów. Na przykład klucz obiektu blob może mieć postać *input/log1.txt*. Katalog *input* w rzeczywistości nie istnieje, ale z powodu obecności znaku ukośnika w nazwie klucza, klucz ma wygląd ścieżki do pliku.
 
-### <a id="benefits"></a>Korzyści z magazynu obiektów blob
-Wynikowy koszt wydajności związany z brakiem łączenia klastrów obliczeniowych i zasobów magazynu jest zmniejszany przez sposób tworzenia klastrów obliczeniowych w pobliżu zasobów konta magazynu w obrębie regionu Azure, gdzie szybkie sieci zapewniają bardzo wydajny dostęp węzłów obliczeniowych do danych wewnątrz magazynu obiektów blob platformy Azure.
+### <a id="benefits"></a>Korzyści z usługi Azure Storage
+Wynikowy koszt wydajności związany z brakiem łączenia klastrów obliczeniowych i zasobów magazynu jest zmniejszany przez sposób tworzenia klastrów obliczeniowych w pobliżu zasobów konta magazynu w obrębie regionu świadczenia usługi Azure, gdzie szybkie sieci zapewniają bardzo wydajny dostęp węzłów obliczeniowych do danych wewnątrz usługi Azure Storage.
 
-Przechowywanie danych w magazynie obiektów blob platformy Azure zamiast w systemie plików HDFS ma wiele zalet:
+Przechowywanie danych w usłudze Azure Storage zamiast w systemie plików HDFS ma wiele zalet:
 
-* **Udostępnianie i ponowne użycie danych:** dane w systemie plików HDFS znajdują się wewnątrz klastra obliczeniowego. Tylko te aplikacje, które mają dostęp do klastra obliczeniowego mogą używać danych za pomocą interfejsów API systemu plików HDFS. Dane w magazynie obiektów blob platformy Azure są dostępne za pośrednictwem interfejsów API systemu plików HDFS lub za pomocą [interfejsów API REST usługi Blob Storage][blob-storage-restAPI]. W związku z tym większy zestaw narzędzi i aplikacji (w tym inne klastry HDInsight) może służyć do tworzenia i wykorzystywania danych.
-* **Archiwizacja danych:** przechowywanie danych w magazynie obiektów blob platformy Azure pozwala bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
-* **Koszt magazynowania danych:** długoterminowe przechowywanie danych w systemie plików DFS jest droższe niż przechowywanie danych w magazynie obiektów blob platformy Azure, ponieważ koszt klastra obliczeniowego jest wyższy niż koszt kontenera magazynu obiektów blob platformy Azure. Ponadto ponieważ nie trzeba ponownie ładować danych przy każdej generacji klastra obliczeniowego, oszczędzamy również koszty ładowania danych.
-* **Elastyczne skalowanie w poziomie:** chociaż system plików HDFS zapewnia skalowanie w poziomie, skala jest wyznaczana przez liczbę węzłów tworzonych dla klastra. Zmiana skali może stać się procesem bardziej skomplikowanym w porównaniu z elastycznymi możliwościami skalowania, które można uzyskać automatycznie w magazynie obiektów blob platformy Azure.
-* **Replikacja geograficzna:** kontenery magazynu obiektów blob platformy Azure można replikować geograficznie. Chociaż zapewnia to odzyskiwanie geograficzne i nadmiarowość danych, praca w trybie failover w przypadku lokalizacji zreplikowanych geograficznie poważnie wpływa na wydajność i może pociągać za sobą dodatkowe koszty. Dlatego zalecamy, aby wybierać replikację geograficzną w rozsądny sposób i tylko wtedy, gdy wartość danych uzasadnia ponoszenie dodatkowych kosztów.
+* **Udostępnianie i ponowne użycie danych:** dane w systemie plików HDFS znajdują się wewnątrz klastra obliczeniowego. Tylko te aplikacje, które mają dostęp do klastra obliczeniowego mogą używać danych za pomocą interfejsów API systemu plików HDFS. Dane w usłudze Azure Storage są dostępne za pośrednictwem interfejsów API systemu plików HDFS lub za pomocą [interfejsów API REST usługi Blob Storage][blob-storage-restAPI]. W związku z tym większy zestaw narzędzi i aplikacji (w tym inne klastry HDInsight) może służyć do tworzenia i wykorzystywania danych.
+* **Archiwizacja danych:** przechowywanie danych w usłudze Azure Storage pozwala bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
+* **Koszt magazynowania danych:** długoterminowe przechowywanie danych w systemie plików DFS jest droższe niż przechowywanie danych w usłudze Azure Storage, ponieważ koszt klastra obliczeniowego jest wyższy niż koszt usługi Azure Storage. Ponadto ponieważ nie trzeba ponownie ładować danych przy każdej generacji klastra obliczeniowego, oszczędzamy również koszty ładowania danych.
+* **Elastyczne skalowanie w poziomie:** chociaż system plików HDFS zapewnia skalowanie w poziomie, skala jest wyznaczana przez liczbę węzłów tworzonych dla klastra. Zmiana skali może stać się procesem bardziej skomplikowanym w porównaniu z elastycznymi możliwościami skalowania, które można uzyskać automatycznie w usłudze Azure Storage.
+* **Replikacja geograficzna:** usługę Azure Storage można replikować geograficznie. Chociaż zapewnia to odzyskiwanie geograficzne i nadmiarowość danych, praca w trybie failover w przypadku lokalizacji zreplikowanych geograficznie poważnie wpływa na wydajność i może pociągać za sobą dodatkowe koszty. Dlatego zalecamy, aby wybierać replikację geograficzną w rozsądny sposób i tylko wtedy, gdy wartość danych uzasadnia ponoszenie dodatkowych kosztów.
 
-Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, których nie potrzeba przechowywać w magazynie obiektów blob platformy Azure. W takim przypadku można zdecydować się na przechowywanie danych w lokalnym systemie plików HDFS. W rzeczywistości HDInsight używa systemu plików DFS dla wielu wyników pośrednich w zadaniach Hive i innych procesach.
+Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, których nie potrzeba przechowywać w usłudze Azure Storage. W takim przypadku można zdecydować się na przechowywanie danych w lokalnym systemie plików HDFS. W rzeczywistości HDInsight używa systemu plików DFS dla wielu wyników pośrednich w zadaniach Hive i innych procesach.
 
 > [!NOTE]
-> Większość poleceń systemu plików HDFS (na przykład <b>ls</b>, <b>copyFromLocal</b> i <b>mkdir</b>) nadal działa zgodnie z oczekiwaniami. Tylko polecenia specyficzne dla natywnych implementacji systemu plików HDFS (określanych jako systemy plików DFS), takie jak <b>fschk</b> i <b>dfsadmin</b>, będą działać inaczej w usłudze Azure Blob Storage.
+> Większość poleceń systemu plików HDFS (na przykład <b>ls</b>, <b>copyFromLocal</b> i <b>mkdir</b>) nadal działa zgodnie z oczekiwaniami. Tylko polecenia specyficzne dla natywnych implementacji systemu plików HDFS (określanych jako systemy plików DFS), takie jak <b>fschk</b> i <b>dfsadmin</b>, będą działać inaczej w usłudze Azure Storage.
 > 
 > 
 
@@ -94,7 +99,7 @@ Aby użyć obiektów blob, należy najpierw utworzyć [konto usługi Azure Stora
 
 Wszędzie tam, gdzie go umieszczono, każdy utworzony obiekt blob należy do kontenera na koncie usługi Azure Storage. Ten kontener może być istniejącym obiektem blob utworzonym poza usługą HDInsight lub może być kontenerem, który jest tworzony dla klastra usługi HDInsight.
 
-Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historię zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Mogłoby to spowodować uszkodzenie historii zadań i błędne działanie klastra. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania połączonych kont magazynu, zobacz artykuł [Tworzenie klastrów usługi HDInsight][hdinsight-creation]. Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase faktycznie można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera magazynu obiektów blob, używanego przez klaster HBase, który został usunięty.
+Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historię zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Może to spowodować uszkodzenie historii zadań. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania połączonych kont magazynu, zobacz artykuł [Tworzenie klastrów usługi HDInsight][hdinsight-creation]. Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase faktycznie można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera obiektów blob, używanego przez klaster HBase, który został usunięty.
 
 #### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 Podczas tworzenia klastra usługi HDInsight za pomocą witryny Portal masz do wyboru dwa sposoby podania szczegółów konta magazynu, które przedstawiono poniżej. Możesz także określić, czy chcesz skojarzyć dodatkowe konto magazynu z klastrem, a jeśli tak, możesz wybrać usługę Data Lake Store lub inną usługę Azure Storage Blob jako magazyn dodatkowy.
@@ -113,7 +118,7 @@ Jeśli masz [zainstalowany i skonfigurowany interfejs wiersza polecenia platform
 > 
 > 
 
-Pojawi się monit o region geograficzny, w którym zostanie umieszczone konto magazynu. Należy utworzyć konto magazynu w tym samym regionie, w którym planujesz utworzenie klastra usługi HDInsight.
+Pojawi się monit o region geograficzny, w którym zostanie utworzone konto magazynu. Należy utworzyć konto magazynu w tym samym regionie, w którym planujesz utworzenie klastra usługi HDInsight.
 
 Po utworzeniu konta magazynu użyj następującego polecenia w celu uzyskania kluczy do konta magazynu:
 
@@ -149,15 +154,14 @@ Po [zainstalowaniu i skonfigurowaniu programu Azure PowerShell][powershell-insta
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="address-files-in-blob-storage"></a>Adresowanie plików w magazynie obiektów blob
-Schemat identyfikatora URI do uzyskiwania dostępu do plików w magazynie obiektów blob z usługi HDInsight to:
+### <a name="address-files-in-azure-storage"></a>Adresowanie plików w usłudze Azure Storage
+Schemat identyfikatora URI do uzyskiwania dostępu do plików w usłudze Azure Storage z usługi HDInsight to:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-
 Schemat identyfikatora URI zapewnia nieszyfrowany dostęp (z prefiksem *wasb:*) oraz szyfrowany dostęp SSL (z prefiksem *wasbs*). Zalecamy używanie prefiksu *wasbs* wszędzie tam, gdzie to możliwe, nawet w przypadku uzyskiwania dostępu do danych, które znajdują się wewnątrz tego samego regionu w systemie Azure.
 
-&lt;BlobStorageContainerName&gt; identyfikuje nazwę kontenera w Magazynie obiektów Blob platformy Azure.
+&lt;BlobStorageContainerName&gt; identyfikuje nazwę kontenera obiektów blob w usłudze Azure Storage.
 &lt;StorageAccountName&gt; identyfikuje nazwę konta Azure Storage. Wymagana jest w pełni kwalifikowana nazwa domeny (FQDN).
 
 Jeśli żadna z nazw &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&gt; nie zostanie określona, używany jest domyślny system plików. W przypadku plików w domyślnym systemie plików można używać ścieżki względnej lub bezwzględnej. Na przykład do pliku *hadoop-mapreduce-examples.jar* dostarczanego z klastrami usługi HDInsight można odwoływać się w jeden z następujących sposobów:
@@ -171,7 +175,7 @@ Jeśli żadna z nazw &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName
 > 
 > 
 
-&lt;path&gt; jest nazwą ścieżki do pliku lub katalogu w systemie plików HDFS. Ponieważ kontenery w magazynie obiektów blob platformy Azure przechowują po prostu pary klucz-wartość, nie istnieje prawdziwy hierarchiczny system plików. Znak ukośnika (/) wewnątrz klucza obiektu blob jest interpretowany jako separator katalogu. Na przykład nazwą obiektu blob dla pliku *hadoop-mapreduce-examples.jar* jest:
+&lt;path&gt; jest nazwą ścieżki do pliku lub katalogu w systemie plików HDFS. Ponieważ kontenery w usłudze Azure Storage przechowują po prostu pary klucz-wartość, nie istnieje prawdziwy hierarchiczny system plików. Znak ukośnika (/) wewnątrz klucza obiektu blob jest interpretowany jako separator katalogu. Na przykład nazwą obiektu blob dla pliku *hadoop-mapreduce-examples.jar* jest:
 
     example/jars/hadoop-mapreduce-examples.jar
 
@@ -346,7 +350,7 @@ Użyj poniższych linków, aby uzyskać szczegółowe instrukcje dotyczące twor
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono sposób korzystania z usług Azure Blob Storage i Azure Data Lake Store zgodnych z systemem plików HDFS w połączeniu z usługą HDInsight. Podane tu informacje umożliwiają tworzenie skalowalnych, długoterminowych rozwiązań do pozyskiwania danych archiwalnych i używanie usługi HDInsight w celu efektywnego wykorzystywania informacji przechowywanych w postaci danych strukturalnych i danych bez struktury.
+W tym artykule przedstawiono sposób korzystania z usług Azure Storage i Azure Data Lake Store zgodnych z systemem plików HDFS w połączeniu z usługą HDInsight. Podane tu informacje umożliwiają tworzenie skalowalnych, długoterminowych rozwiązań do pozyskiwania danych archiwalnych i używanie usługi HDInsight w celu efektywnego wykorzystywania informacji przechowywanych w postaci danych ze strukturą i bez niej.
 
 Aby uzyskać więcej informacji, zobacz:
 

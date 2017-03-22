@@ -16,33 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informacje o urządzeniach sieci VPN używanych na potrzeby połączeń bramy VPN typu lokacja-lokacja
-Urządzenie sieci VPN jest niezbędne do skonfigurowania połączenia sieci VPN typu lokacja-lokacja obejmującego wiele lokalizacji (S2S) przy użyciu bramy sieci VPN. Połączeń typu lokacja-lokacja można użyć do tworzenia rozwiązań hybrydowych oraz bezpiecznych połączeń między siecią lokalną i wirtualną. W tym artykule omówiono zgodne urządzenia sieci VPN oraz parametry konfiguracji.
+# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informacje na temat urządzeń sieci VPN i parametrów protokołu IPsec/IKE dla połączeń bramy VPN typu lokacja-lokacja
+
+Urządzenie sieci VPN jest niezbędne do skonfigurowania połączenia sieci VPN typu lokacja-lokacja obejmującego wiele lokalizacji (S2S) przy użyciu bramy sieci VPN. Połączeń typu lokacja-lokacja można użyć do tworzenia rozwiązań hybrydowych oraz bezpiecznych połączeń między siecią lokalną i wirtualną. W tym artykule omówiono zgodne urządzenia sieci VPN oraz parametry konfiguracji. Ten dokument zawiera listę parametrów protokołu IPsec/IKE dla bram Azure VPN Gateway i listę zweryfikowanych urządzeń sieci VPN nawiązujących połączenie z bramami Azure VPN Gateway.
 
 
 > [!IMPORTANT]
-> Jeśli występują problemy z połączeniem między urządzeniami lokalnymi sieci VPN i bramami sieci VPN platformy Azure, zapoznaj się z sekcją [Znane problemy dotyczące zgodności urządzeń](#known).
-> 
-> 
+> Jeśli występują problemy z połączeniem między urządzeniami lokalnymi sieci VPN i bramami sieci VPN platformy Azure, zapoznaj się z sekcją [Znane problemy dotyczące zgodności urządzeń](#known). 
 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Kwestie, które należy wziąć pod uwagę podczas przeglądania tabeli:
 
-* Nastąpiła zmiana terminologii w zakresie routingu statycznego i dynamicznego. W publikacjach można z powodzeniem natknąć się na oba warianty pojęć. Nie nastąpiła żadna zmiana w zakresie funkcjonalności — zmieniły się jedynie nazwy.
+* Nastąpiła zmiana terminologii w zakresie bram Azure VPN Gateway. W publikacjach można z powodzeniem natknąć się na oba warianty pojęć. Nie nastąpiła żadna zmiana w zakresie funkcjonalności — zmieniły się jedynie nazwy.
   * Routing statyczny = PolicyBased
   * Routing dynamiczny = RouteBased
 * Specyfikacje dotyczące bramy VPN o wysokiej wydajności i bramy VPN typu RouteBased są takie same, o ile nie określono inaczej. Np. urządzenia sieci VPN zweryfikowane pod kątem poprawności, które są zgodne z bramami sieci VPN typu RouteBased, są również zgodne z bramą VPN Azure o wysokiej wydajności.
 
 > [!NOTE]
 > Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>Zweryfikowane urządzenia sieci VPN
@@ -102,58 +99,80 @@ Po pobraniu dostarczonej przykładowej konfiguracji urządzenia sieci VPN należ
 | &lt;SP_AzureGatewayIpAddress&gt; |Te informacje dotyczące konkretnej sieci wirtualnej znajdują się w portalu zarządzania usługą, w obszarze **Adres IP bramy**. |
 | &lt;SP_PresharedKey&gt; |Te informacje dotyczące konkretnej sieci wirtualnej znajdują się w portalu zarządzania usługą, w obszarze Zarządzaj kluczem. |
 
-## <a name="IPSec"></a>Parametry protokołu IPsec
+## <a name="IPSec"></a>Parametry protokołu IPsec/IKE
 > [!NOTE]
-> Choć wartości wymienione w poniższej tabeli są obsługiwane przez bramę sieci VPN Azure, obecnie nie istnieje sposób na określenie lub wybranie określonej kombinacji z obszaru bramy sieci VPN Azure. Należy określić wszystkie ograniczenia z poziomu lokalnego urządzenia sieci VPN. Ponadto należy określić ograniczenie wartości MSS na 1350.
->
->
+> Choć wartości wymienione w poniższej tabeli są obsługiwane przez bramę Azure VPN Gateway, obecnie nie istnieje żaden mechanizm służący do określenia lub wybrania konkretnej kombinacji algorytmów lub parametrów z obszaru bramy Azure VPN Gateway. Należy określić wszystkie ograniczenia z poziomu lokalnego urządzenia sieci VPN.
+> 
+> Ponadto należy określić ograniczenie wartości **MSS** wynoszące **1350**.
 
-### <a name="ike-phase-1-setup"></a>Konfigurowanie IKE — faza 1
-| **Właściwość** | **PolicyBased** | **Brama sieci VPN typu RouteBased i standardowa lub o wysokiej wydajności** |
-| --- | --- | --- |
-| Wersja IKE |IKEv1 |IKEv2 |
-| Grupa Diffie’ego-Hellmana |Grupa 2 (1024 bity) |Grupa 2 (1024 bity) |
-| Metoda uwierzytelniania |Klucz wstępny |Klucz wstępny |
-| Algorytmy szyfrowania |AES256 AES128 3DES |AES256 3DES |
-| Algorytm skrótu |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Okres istnienia (czas) skojarzenia zabezpieczeń (Security Association — SA) fazy 1 |28 800 sekund |10 800 sekund |
+W poniższych tabelach:
 
-### <a name="ike-phase-2-setup"></a>Konfigurowanie IKE — faza 2
-| **Właściwość** | **PolicyBased** | **Brama sieci VPN typu RouteBased i standardowa lub o wysokiej wydajności** |
-| --- | --- | --- |
-| Wersja IKE |IKEv1 |IKEv2 |
-| Algorytm skrótu |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| Okres istnienia (czas) skojarzenia zabezpieczeń (Security Association — SA) fazy 2 |3600 sekund |3600 sekund |
-| Okres istnienia (przepływność) skojarzenia zabezpieczeń (Security Association — SA) fazy 2 |102 400 000 KB |- |
-| Oferty szyfrowania i uwierzytelniania skojarzeń zabezpieczeń protokołu IPsec (wymienione w kolejności preferencji) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Nie dotyczy |Zobacz „Oferty skojarzeń zabezpieczeń (SA) protokołu IPsec bramy typu RouteBased” (poniżej) |
-| Doskonałe utajnienie przekazywania (PFS) |Nie |Nie (*) |
-| Wykrywanie nieaktywnych elementów równorzędnych |Nieobsługiwane |Obsługiwane |
+* SA — skojarzenia zabezpieczeń
+* Protokół IKE — faza 1 jest również określany jako „Tryb główny”
+* Protokół IKE — faza 2 jest również określany jako „Tryb szybki”
 
-(*) Brama Azure jako obiekt odpowiadający protokołu IKE może akceptować PFS DH Group 1, 2, 5, 14, 24.
+### <a name="ike-phase-1-main-mode-parameters"></a>Parametry protokołu IKE — faza 1 (tryb główny)
+| **Właściwość**          |**PolicyBased**    | **RouteBased**    |
+| ---                   | ---               | ---               |
+| Wersja IKE           |IKEv1              |IKEv2              |
+| Grupa Diffie’ego-Hellmana  |Grupa 2 (1024 bity) |Grupa 2 (1024 bity) |
+| Metoda uwierzytelniania |Klucz wstępny     |Klucz wstępny     |
+| Szyfrowanie i algorytmy wyznaczania wartości skrótu |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| Okres istnienia skojarzeń zabezpieczeń           |28 800 sekund     |10 800 sekund     |
 
-### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Oferty skojarzeń zabezpieczeń (SA) protokołu IPsec bramy typu RouteBased
-W poniższej tabeli przedstawiono oferty szyfrowania i uwierzytelniania skojarzeń zabezpieczeń protokołu IPsec. Oferty są wymienione w kolejności preferencji, w jakiej oferta jest przedstawiona lub zaakceptowana.
+### <a name="ike-phase-2-quick-mode-parameters"></a>Parametry protokołu IKE — faza 2 (tryb szybki)
+| **Właściwość**                  |**PolicyBased**| **RouteBased**                              |
+| ---                           | ---           | ---                                         |
+| Wersja IKE                   |IKEv1          |IKEv2                                        |
+| Szyfrowanie i algorytmy wyznaczania wartości skrótu |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Oferty skojarzeń zabezpieczeń trybu szybkiego RouteBased](#RouteBasedOffers) |
+| Okres istnienia skojarzeń zabezpieczeń (czas)            |3600 sekund  |3600 sekund                                |
+| Okres istnienia skojarzeń zabezpieczeń (bajty)           |102 400 000 KB | -                                           |
+| Doskonałe utajnienie przekazywania (PFS) |Nie             |[Oferty skojarzeń zabezpieczeń trybu szybkiego RouteBased](#RouteBasedOffers) |
+| Wykrywanie nieaktywnych elementów równorzędnych (DPD, Dead Peer Detection)     |Nieobsługiwane  |Obsługiwane                                    |
 
-| **Oferty szyfrowania i uwierzytelniania skojarzeń zabezpieczeń protokołu IPsec** | **Brama platformy Azure jako inicjator** | **Brama platformy Azure jako obiekt odpowiadający** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1 z ESP AES_128 z pustym kluczem HMAC |
-| 5 |AH SHA1 z ESP AES_256 z pustym kluczem HMAC |AH SHA1 z ESP 3_DES z pustym kluczem HMAC |
-| 6 |AH SHA1 z ESP AES_128 z pustym kluczem HMAC |AH MD5 z ESP 3_DES z pustym kluczem HMAC, brak określonych okresów istnienia |
-| 7 |AH SHA1 z ESP 3_DES z pustym kluczem HMAC |AH SHA1 z ESP 3_DES SHA1, brak okresów istnienia |
-| 8 |AH MD5 z ESP 3_DES z pustym kluczem HMAC, brak określonych okresów istnienia |AH MD5 z ESP 3_DES MD5, brak okresów istnienia |
-| 9 |AH SHA1 z ESP 3_DES SHA1, brak okresów istnienia |ESP DES MD5 |
-| 10 |AH MD5 z ESP 3_DES MD5, brak okresów istnienia |ESP DES SHA1, brak okresów istnienia |
-| 11 |ESP DES MD5 |AH SHA1 z ESP DES z pustym kluczem HMAC, brak określonych okresów istnienia |
-| 12 |ESP DES SHA1, brak okresów istnienia |AH MD5 z ESP DES z pustym kluczem HMAC, brak określonych okresów istnienia |
-| 13 |AH SHA1 z ESP DES z pustym kluczem HMAC, brak określonych okresów istnienia |AH SHA1 z ESP DES SHA1, brak okresów istnienia |
-| 14 |AH MD5 z ESP DES z pustym kluczem HMAC, brak określonych okresów istnienia |AH MD5 z ESP DES MD5, brak okresów istnienia |
-| 15 |AH SHA1 z ESP DES SHA1, brak okresów istnienia |ESP SHA, brak okresów istnienia |
-| 16 |AH MD5 z ESP DES MD5, brak okresów istnienia |ESP MD5, brak okresów istnienia |
-| 17 |- |AH SHA, brak okresów istnienia |
-| 18 |- |AH MD5, brak okresów istnienia |
+
+### <a name ="RouteBasedOffers"></a>Oferty skojarzeń zabezpieczeń protokołu IPsec połączenia VPN typu RouteBased (skojarzenia zabezpieczeń trybu szybkiego protokołu IKE)
+W poniższej tabeli znajduje się lista ofert skojarzeń zabezpieczeń protokołu IPsec (tryb szybki protokołu IKE). Oferty są wymienione w kolejności preferencji, w jakiej oferta jest przedstawiona lub zaakceptowana.
+
+#### <a name="azure-gateway-as-initiator"></a>Brama Azure jako inicjator
+|-  |**Szyfrowanie**|**Uwierzytelnianie**|**Grupa PFS**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Brak         |
+| 2 |AES256        |SHA1              |Brak         |
+| 3 |3DES          |SHA1              |Brak         |
+| 4 |AES256        |SHA256            |Brak         |
+| 5 |AES128        |SHA1              |Brak         |
+| 6 |3DES          |SHA256            |Brak         |
+
+#### <a name="azure-gateway-as-responder"></a>Brama Azure jako obiekt odpowiadający
+|-  |**Szyfrowanie**|**Uwierzytelnianie**|**Grupa PFS**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Brak         |
+| 2 |AES256        |SHA1              |Brak         |
+| 3 |3DES          |SHA1              |Brak         |
+| 4 |AES256        |SHA256            |Brak         |
+| 5 |AES128        |SHA1              |Brak         |
+| 6 |3DES          |SHA256            |Brak         |
+| 7 |DES           |SHA1              |Brak         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20|AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |Brak         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * Można określić wartość NULL szyfrowania ESP protokołu IPsec z bramami sieci VPN typu RouteBased i bramami sieci VPN o wysokiej wydajności. Szyfrowanie oparte na wartości null nie zapewnia ochrony danych w trakcie ich przesyłania i powinno być używane wyłącznie w przypadku, gdy wymagana jest maksymalna przepływność i minimalne opóźnienia.  Klienci mogą skorzystać z tej możliwości w kontekście scenariuszy komunikacji między sieciami wirtualnymi lub w przypadku, gdy szyfrowanie jest stosowane w innym obszarze rozwiązania.
 * Chcąc korzystać z łączności przez Internet obejmującej wiele lokalizacji, należy użyć ustawień domyślnych usługi Azure VPN Gateway z szyfrowaniem i algorytmami skrótu wymienionymi w tabelach powyżej w celu zapewnienia bezpieczeństwa komunikacji o krytycznym znaczeniu.

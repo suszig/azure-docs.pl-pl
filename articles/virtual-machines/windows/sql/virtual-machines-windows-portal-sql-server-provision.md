@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
-ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -53,8 +53,8 @@ W tym samouczku zostaną wykonane następujące czynności:
 
    ![Blok Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Przejrzyj dostępne szablony programu SQL Server. Każdy szablon identyfikuje wersję programu SQL Server i system operacyjny. 
-6. Wybierz szablon dla programu SQL Server 2016 SP1 Developer w systemie Windows Server 2016.
+5. Przejrzyj dostępne obrazy programu SQL Server. Każdy obraz identyfikuje wersję programu SQL Server i system operacyjny. 
+6. Wybierz obraz dla programu SQL Server 2016 SP1 Developer w systemie Windows Server 2016.
 
    > [!TIP]
    > W tym samouczku jest używana wersja Developer — w pełni funkcjonalna wersja programu SQL Server, bezpłatna w przypadku zastosowań obejmujących tworzenie i testowanie. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej.
@@ -97,7 +97,7 @@ W bloku **Podstawowe** podaj następujące informacje:
     ![Blok podstawowych ustawień SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Wybieranie rozmiaru maszyny wirtualnej
-W kroku **Rozmiar** wybierz rozmiar maszyny wirtualnej w bloku **Wybierz rozmiar**. W tym bloku początkowo wyświetlane są rozmiary zalecane zgodnie z wybranym szablonem. Szacowany jest również miesięczny koszt działania maszyny wirtualnej.
+W kroku **Rozmiar** wybierz rozmiar maszyny wirtualnej w bloku **Wybierz rozmiar**. W tym bloku początkowo wyświetlane są rozmiary maszyn zalecane zgodnie z wybranym obrazem. Szacowany jest również miesięczny koszt działania maszyny wirtualnej.
 
 ![Opcje rozmiaru maszyny wirtualnej SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 

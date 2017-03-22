@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/26/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e4bb13a73f6338d2d844a0561edc65063c685d59
-ms.openlocfilehash: e554a0ba87efb0272e092a121ba96edc9d9eb011
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>Co to jest usługa Site Recovery?
 
-Usługa Azure Site Recovery — Zapraszamy! W tym artykule omówiono usługę i podano linki do dodatkowych informacji.
+Usługa Azure Site Recovery — Zapraszamy! Ten artykuł zawiera krótkie omówienie usługi.
 
-Zjawiska naturalne i problemy operacyjne mogą powodować awarie, które zakłócają działanie firmy. Twoja organizacja wymaga strategii zapewniającej ciągłość biznesową i odzyskiwanie po awarii (BCDR, Business Continuity and Disaster Recovery), dzięki której podczas planowanych lub nieplanowanych przestojów dane będą bezpieczne, a aplikacje dostępne i jak najszybciej przywracane do normalnych warunków roboczych.
+Zjawiska naturalne i problemy operacyjne mogą powodować awarie. Twoja organizacja wymaga strategii zapewniającej ciągłość biznesową i odzyskiwanie po awarii (BCDR, Business Continuity and Disaster Recovery), dzięki której podczas planowanych lub nieplanowanych przestojów dane będą bezpieczne, a aplikacje pozostaną dostępne, oraz będą jak najszybciej przywracane do normalnych warunków roboczych.
 
 W celu realizacji strategii BCDR można wykorzystać usługi Azure Recovery Services. Usługa [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) zapewnia bezpieczeństwo danych i możliwość ich odzyskiwania. Usługa Site Recovery pozwala replikować i odzyskiwać obciążenia oraz przełączać je w tryb failover, co gwarantuje ich dostępność w razie awarii.
 
@@ -47,12 +47,6 @@ Replikowane dane są przechowywane w usłudze Azure Storage, która zapewnia odp
 * **Integracja z biblioteką automatyzacji** — bogata biblioteka usługi Azure Automation zapewnia gotowe do produkcji, dopasowane do aplikacji skrypty, które można pobrać i zintegrować z usługą Site Recovery.
 * **Proste zarządzanie siecią** — zaawansowane zarządzanie siecią w usłudze Site Recovery i na platformie Azure upraszcza wymagania sieciowe aplikacji, w tym rezerwowanie adresów IP, konfigurowanie równoważenia obciążenia i integrowanie usługi Azure Traffic Manager w celu zapewnienia efektywnych przełączeń sieci.
 
-## <a name="which-azure-portal"></a>Której witryny Azure Portal użyć?
-
-* Usługę Site Recovery można wdrażać zarówno w nowszej witrynie [Azure Portal](https://portal.azure.com), jak i w [klasycznej witrynie Azure Portal](https://manage.windowsazure.com/).
-* W klasycznej witrynie Azure Portal możliwe jest korzystanie z usługi Site Recovery przy użyciu klasycznego modelu zarządzania usługami.
-* Witryna Azure Portal obsługuje zarówno model klasyczny, jak i nowszy [model wdrożenia usługi Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
-- Portalu klasycznego należy używać tylko do obsługi istniejących wdrożeń usługi Site Recovery. Nie można w nim tworzyć nowych magazynów.
 
 ## <a name="whats-supported"></a>Jakie operacje są obsługiwane?
 
@@ -64,6 +58,14 @@ Replikowane dane są przechowywane w usłudze Azure Storage, która zapewnia odp
 **Gdzie można replikować?** | Do magazynu platformy Azure lub do pomocniczego centrum danych<br/><br/> W przypadku funkcji Hyper-V do pomocniczego centrum danych można replikować tylko maszyny wirtualne znajdujące się na hostach funkcji Hyper-V zarządzanych w chmurach programu System Center VMM.
 **Jakie serwery/hosty VMware są potrzebne?** | Maszyny wirtualne VMware, które są przeznaczone do replikacji, mogą być zarządzane przez [obsługiwane hosty vSphere/serwery vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 **Jakie obciążenia można replikować?** | Można replikować dowolne obciążenia uruchomione na obsługiwanej maszynie replikacji. Dodatkowo zespół usługi Site Recovery wykonał specyficzne dla aplikacji testowanie na potrzeby [wielu aplikacji](site-recovery-workload.md#workload-summary).
+
+
+## <a name="which-azure-portal"></a>Której witryny Azure Portal użyć?
+
+* Usługę Site Recovery można wdrażać zarówno w nowszej witrynie [Azure Portal](https://portal.azure.com), jak i w [klasycznej witrynie Azure Portal](https://manage.windowsazure.com/).
+* W klasycznej witrynie Azure Portal możliwe jest korzystanie z usługi Site Recovery przy użyciu klasycznego modelu zarządzania usługami.
+* Witryna Azure Portal obsługuje zarówno model klasyczny, jak i nowszy [model wdrożenia usługi Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
+- Portalu klasycznego należy używać tylko do obsługi istniejących wdrożeń usługi Site Recovery. Nie można w nim tworzyć nowych magazynów.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [obsłudze obciążeń](site-recovery-workload.md)
