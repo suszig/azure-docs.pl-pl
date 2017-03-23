@@ -62,9 +62,10 @@ W tej sekcji utworzysz aplikację konsolową Java, tworzącą tożsamość urzą
 3. Za pomocą edytora tekstów otwórz plik pom.xml w folderze create-device-identity i dodaj następującą zależność do węzła **zależności**. Dzięki tej zależności możesz użyć w aplikacji pakietu iot-service-client:
    
     ```
-    <groupId>com.microsoft.azure.sdk.iot</groupId>
+    </dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.1.15</version>
     </dependency>
     ```
     
@@ -77,8 +78,8 @@ W tej sekcji utworzysz aplikację konsolową Java, tworzącą tożsamość urzą
    
     ```
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.sdk.iot.service.sdk.Device;
-    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
+    import com.microsoft.azure.sdk.iot.service.Device;
+    import com.microsoft.azure.sdk.iot.service.RegistryManager;
    
     import java.io.IOException;
     import java.net.URISyntaxException;
