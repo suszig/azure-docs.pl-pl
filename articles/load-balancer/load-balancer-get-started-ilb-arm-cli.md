@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bd1f5e497bcf39a0d8848cc63c718e693f775d63
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -51,7 +52,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Azure Resource Manager support
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>Konfigurowanie interfejsu wiersza polecenia w celu użycia usługi Resource Manager
 
-1. Jeśli po raz pierwszy korzystasz z interfejsu wiersza polecenia platformy Azure, zobacz artykuł [Install and configure the Azure CLI](../xplat-cli-install.md) (Instalowanie i konfigurowanie interfejsu wiersza polecenia platformy Azure). Postępuj zgodnie z instrukcjami do momentu wybierania konta i subskrypcji platformy Azure.
+1. Jeśli po raz pierwszy korzystasz z interfejsu wiersza polecenia platformy Azure, zobacz artykuł [Install and configure the Azure CLI](../cli-install-nodejs.md) (Instalowanie i konfigurowanie interfejsu wiersza polecenia platformy Azure). Postępuj zgodnie z instrukcjami do momentu wybierania konta i subskrypcji platformy Azure.
 2. Uruchom polecenie **azure config mode**, aby włączyć tryb usługi Resource Manager, w następujący sposób:
 
     ```azurecli
@@ -214,10 +215,5 @@ azure network lb delete --resource-group nrprg --name ilbset
 [Configure a load balancer distribution mode by using source IP affinity](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia przy użyciu koligacji źródłowych adresów IP)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

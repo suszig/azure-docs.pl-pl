@@ -1,65 +1,65 @@
-W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail. Pozwala to uzyskać dostęp do zaawansowanych raportów i analiz oraz [wszystkich interfejsów API][all APIs] (np. sieci Web, protokołu SMTP, zdarzeń czy analizy). Informacje o dodatkowych usługach SendGrid można znaleźć na stronie z [rozwiązaniami usługi SendGrid][SendGrid Solutions].
+Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
 
-### <a name="to-sign-up-for-a-sendgrid-account"></a>Aby utworzyć konto usługi SendGrid
-1. Zaloguj się do [portalu zarządzania platformy Azure][Azure Management Portal].
-2. W menu po lewej stronie kliknij pozycję **Nowy**.
+### <a name="to-sign-up-for-a-sendgrid-account"></a>To sign up for a SendGrid account
+1. Log in to the [Azure Management Portal][Azure Management Portal].
+2. In the menu on the left, click **New**.
 
     ![command-bar-new][command-bar-new]
-3. Kliknij kolejno pozycje **Dodatki** i **Dostarczanie poczty e-mail przy użyciu usługi SendGrid**.
+3. Click **Add-ons** and then **SendGrid Email Delivery**.
 
     ![sendgrid-store][sendgrid-store]
-4. Wypełnij formularz rejestracji i wybierz pozycję **Utwórz**.
+4. Complete the signup form and select **Create**.
 
     ![sendgrid-create][sendgrid-create]
-5. Wprowadź **nazwę** identyfikującą usługę SendGrid w ustawieniach platformy Azure. Nazwa musi mieć długość od 1 do 100 znaków i może zawierać tylko znaki alfanumeryczne, łączniki, kropki i znaki podkreślenia. Nazwa musi być unikatowa w obrębie subskrybowanych elementów sklepu Azure Store.
-6. Wprowadź i potwierdź **hasło**.
-7. Wybierz **subskrypcję**.
-8. Utwórz nową **grupę zasobów** lub wybierz istniejącą.
-9. W sekcji **Warstwa cenowa** wybierz plan usługi SendGrid, w ramach którego chcesz utworzyć konto.
+5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+6. Enter and confirm your **Password**.
+7. Choose your **Subscription**.
+8. Create a new **Resource group** or use an existing one.
+9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
 
     ![sendgrid-pricing][sendgrid-pricing]
-10. Wprowadź **kod promocyjny**, jeśli go masz.
-11. Wprowadź **informacje kontaktowe**.
-12. Zapoznaj się z **postanowieniami prawnymi** i zaakceptuj je.
-13. Po potwierdzeniu zakupu zobaczysz okno podręczne z informacją o **pomyślnym zakończeniu wdrożenia**. Twoje konto pojawi się na liście w sekcji **Wszystkie zasoby**.
+10. Enter a **Promotion Code** if you have one.
+11. Enter your **Contact Information**.
+12. Review and accept the **Legal terms**.
+13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.
 
     ![all-resources][all-resources]
 
-    Po zakończeniu zakupu i kliknięciu przycisku **Zarządzaj** w celu rozpoczęcia procesu weryfikacji adresu e-mail otrzymasz wiadomość e-mail od zespołu SendGrid z monitem o potwierdzenie konta. Jeśli wiadomość e-mail nie dotarła do Ciebie lub masz problemy z weryfikacją konta, zobacz zbiór często zadawanych pytań.
+    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please see this FAQ.
 
     ![manage][manage]
 
-    **Do momentu zweryfikowania konta możesz wysyłać maksymalnie 100 wiadomości e-mail dziennie.**
+    **You can only send up to 100 emails/day until you have verified your account.**
 
-    Aby zmodyfikować plan subskrypcji lub wyświetlić ustawienia kontaktowe usługi SendGrid, kliknij nazwę usługi SendGrid w celu otwarcia pulpitu nawigacyjnego witryny SendGrid Marketplace.
+    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
 
     ![settings][settings]
 
-    Aby wysłać wiadomość e-mail przy użyciu usługi SendGrid, musisz podać klucz interfejsu API.
+    To send an email using SendGrid, you must supply your API Key.
 
-### <a name="to-find-your-sendgrid-api-key"></a>Aby znaleźć klucz interfejsu API usługi SendGrid
-1. Kliknij pozycję **Zarządzaj**.
+### <a name="to-find-your-sendgrid-api-key"></a>To find your SendGrid API Key
+1. Click **Manage**.
 
     ![manage][manage]
-2. W pulpicie nawigacyjnym usługi SendGrid wybierz pozycję **Ustawienia**, a następnie pozycję **Klucze interfejsu API** w menu po lewej stronie.
+2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
 
     ![api-keys][api-keys]
 
-3. Kliknij listę rozwijaną **Utwórz klucz interfejsu API** i wybierz pozycję **Ogólny klucz interfejsu API**.
+3. Click the **Create API Key** dropdown and select **General API Key**.
 
     ![general-api-key][general-api-key]
-4. Musisz podać **nazwę klucza** i przyznać pełen dostęp w wierszu **Wysyłanie poczty**. Wybierz przycisk **Zapisz**.
+4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
 
     ![access][access]
-5. Po wykonaniu tych czynności zostanie wyświetlony klucz interfejsu API. Zapisz go w bezpiecznym miejscu.
+5. Your API will be displayed at this point one time. Please be sure to store it safely.
 
-### <a name="to-find-your-sendgrid-credentials"></a>Aby znaleźć poświadczenia usługi SendGrid
-1. Kliknij ikonę klucza, aby wyświetlić swoją **nazwę użytkownika**.
+### <a name="to-find-your-sendgrid-credentials"></a>To find your SendGrid credentials
+1. Click the key icon to find your **Username**.
 
     ![key][key]
-2. Hasło zostało wcześniej ustawione podczas konfiguracji. Aby wprowadzić zmiany, możesz wybrać opcję **Zmień hasło** lub **Resetuj hasło**.
+2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
 
-Aby zarządzać ustawieniami dostarczania poczty e-mail, kliknij przycisk **Zarządzaj**. Nastąpi przekierowanie do [pulpitu nawigacyjnego usługi SendGrid][SendGrid dashboard].
+To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ Aby zarządzać ustawieniami dostarczania poczty e-mail, kliknij przycisk **Zarz
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ Aby zarządzać ustawieniami dostarczania poczty e-mail, kliknij przycisk **Zarz
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

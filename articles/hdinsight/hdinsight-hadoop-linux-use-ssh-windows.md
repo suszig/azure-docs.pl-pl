@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1806950581e0adbeec52839f12c70599d28100d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -110,7 +111,7 @@ Zostanie utworzony identyfikator logowania dla określonego użytkownika i włą
 
 ### <a name="azure-command-line-interface-for-mac-linux-and-windows"></a>Interfejs wiersza polecenia platformy Azure dla komputerów Mac oraz komputerów z systemem Linux i Windows
 
-Możesz użyć [interfejsu wiersza polecenia platformy Azure dla systemów Mac, Linux i Windows](../xplat-cli-install.md) do utworzenia nowego klastra przy użyciu polecenia `azure hdinsight cluster create`.
+Możesz użyć [interfejsu wiersza polecenia platformy Azure dla systemów Mac, Linux i Windows](../cli-install-nodejs.md) do utworzenia nowego klastra przy użyciu polecenia `azure hdinsight cluster create`.
 
 Aby uzyskać więcej informacji na temat używania tego polecenia, zobacz temat [Provision Hadoop Linux clusters in HDInsight using custom options](hdinsight-hadoop-provision-linux-clusters.md) (Obsługa administracyjna klastrów Hadoop w usłudze HDInsight opartej na systemie Linux przy użyciu opcji niestandardowych).
 
@@ -221,7 +222,7 @@ Jeśli potrzebujesz dodać więcej kont do klastra, wykonaj następujące czynno
 
 6. Teraz powinno być możliwe uwierzytelnienie na serwerze przy użyciu nowego konta użytkownika i klucza prywatnego.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunelowanie SSH
+## <a id="tunnel"></a>Tunelowanie SSH
 
 Protokół SSH może również służyć do tunelowania żądań lokalnych, takich jak żądania sieci Web, do klastra usługi HDInsight. Żądania będą następnie kierowane do wymaganego zasobu, tak jakby pochodziły z węzła głównego klastra usługi HDInsight.
 
@@ -239,9 +240,4 @@ Po zapoznaniu się ze sposobem uwierzytelniania przy użyciu klucza SSH dowiedz 
 * [Korzystanie z zadań MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

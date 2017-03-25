@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+ms.custom: loading
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a4ad30d1aa0ec273b6b875b0d2d037005ac159
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 21b4cc704e271ac220fd606305f8f97c9b2593bb
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +33,7 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
 * Zainstalowane narzędzie wiersza polecenia SQLCMD
 
 > [!NOTE]
-> Narzędzia bcp i sqlcmd można pobrać z [Centrum pobierania Microsoft][Centrum pobierania Microsoft].
+> Narzędzia bcp i sqlcmd można pobrać z [Centrum pobierania Microsoft][Microsoft Download Center].
 > 
 > 
 
@@ -58,7 +60,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Zobacz artykuł [Omówienie tabel][Omówienie tabel] lub [Składnia polecenia CREATE TABLE][Składnia polecenia CREATE TABLE], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
+> Zobacz artykuł [Omówienie tabel][Table Overview] lub [Składnia polecenia CREATE TABLE][CREATE TABLE syntax], aby uzyskać więcej informacji dotyczących tworzenia tabel w usłudze SQL Data Warehouse oraz dostępnych opcji klauzuli WITH.
 > 
 > 
 
@@ -116,7 +118,7 @@ Powinny zostać zwrócone następujące wyniki:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
-Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk. W celu uzyskania najlepszej wydajności zapytań należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie. Szczegółowy opis statystyk znajduje się w temacie [Statystyki][Statystyki] w grupie artykułów dla programistów. Poniżej przedstawiono prosty przykład tworzenia statystyk dotyczących tabeli załadowanej w tym przykładzie.
+Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk. W celu uzyskania najlepszej wydajności zapytań należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie. Szczegółowy opis statystyk znajduje się w temacie [Statystyki][Statistics] w grupie artykułów dla deweloperów. Poniżej przedstawiono prosty przykład tworzenia statystyk dotyczących tabeli załadowanej w tym przykładzie.
 
 W wierszu polecenia sqlcmd wykonaj następującą instrukcję CREATE STATISTICS:
 
@@ -160,27 +162,22 @@ Możesz sprawdzić, czy dane zostały poprawnie wyeksportowane, otwierając nowy
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Ogólny opis ładowania można znaleźć w artykule [Ładowanie danych do usługi SQL Data Warehouse][Ładowanie danych do usługi SQL Data Warehouse].
-Więcej porad programistycznych znajdziesz w artykule [Omówienie programowania w usłudze SQL Data Warehouse][Omówienie programowania w usłudze SQL Data Warehouse].
+Omówienie ładowania można znaleźć w artykule [Ładowanie danych do usługi SQL Data Warehouse][Load data into SQL Data Warehouse].
+Więcej porad dla deweloperów znajduje się w artykule [Omówienie programowania w usłudze SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Ładowanie danych do usługi SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Omówienie programowania w usłudze SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Omówienie tabel]: ./sql-data-warehouse-tables-overview.md
-[Statystyki]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[Składnia polecenia CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Centrum pobierania Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 

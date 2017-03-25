@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Klasyczny — witryna Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Model klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia bramy sieci VPN typu lokacja-lokacja z siecią lokalną z wykorzystaniem klasycznego modelu wdrażania i portalu klasycznego. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
 
@@ -50,25 +52,25 @@ Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi eleme
 * Dostępny zewnętrznie publiczny adres IP urządzenia sieci VPN. Ten adres IP nie może się znajdować za translatorem adresów sieciowych.
 * Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
 
-## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>Tworzenie sieci wirtualnej
+## <a name="CreateVNet"></a>Tworzenie sieci wirtualnej
 1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com/).
 2. W lewym dolnym rogu ekranu kliknij opcję **Nowe**. W okienku nawigacji kliknij opcję **Usługi sieciowe**, a następnie opcję **Sieć wirtualna**. Kliknij przycisk **Tworzenie niestandardowe**, aby rozpocząć korzystanie z kreatora konfiguracji.
 3. Aby utworzyć sieć wirtualną, wprowadź ustawienia konfiguracji na następujących stronach:
 
-## <a name="a-namedetailsavirtual-network-details-page"></a><a name="Details"></a>Strona szczegółów sieci wirtualnej
+## <a name="Details"></a>Strona szczegółów sieci wirtualnej
 Wprowadź następujące informacje:
 
 * **Nazwa**: nadaj nazwę sieci wirtualnej. Na przykład: *EastUSVNet*. Ta nazwa sieci wirtualnej będzie używana podczas wdrażania wystąpień maszyn wirtualnych i usług PaaS, dlatego nie powinna być zbyt skomplikowana.
 * **Lokalizacja**: omawiana lokalizacja jest bezpośrednio związana z lokalizacją fizyczną (regionem), w której mają się znajdować zasoby (maszyny wirtualne). Jeśli na przykład maszyny wirtualne wdrażane w ramach tej sieci wirtualnej mają znajdować się we wschodnim regionie USA, należy wybrać tę właśnie lokalizację (*Wschodnie stany USA*). Po utworzeniu sieci wirtualnej nie można zmienić powiązanego z nią regionu.
 
-## <a name="a-namednsadns-servers-and-vpn-connectivity-page"></a><a name="DNS"></a>Strona serwerów DNS i łączności VPN
+## <a name="DNS"></a>Strona serwerów DNS i łączności VPN
 Wprowadź następujące informacje, a następnie kliknij strzałkę widoczną w prawym dolnym rogu, aby przejść dalej.
 
 * **Serwery DNS**: wprowadź nazwę serwera DNS i jego adres IP lub wybierz zarejestrowany wcześniej serwer DNS z menu skrótów. To ustawienie nie powoduje jednak utworzenia serwera DNS. Umożliwia natomiast określenie serwerów DNS, które mają być używane do rozpoznawania nazw dla tej sieci wirtualnej.
 * **Konfiguracja sieci VPN typu lokacja-lokacja**: należy zaznaczyć pole wyboru **Konfiguracja sieci VPN typu lokacja-lokacja**.
 * **Sieć lokalna**: wartość w tym polu określa fizyczną lokalizację sieci lokalnej. Możesz wybrać wcześniej utworzoną sieć lokalną lub utworzyć nową. W przypadku wybrania utworzonej wcześniej sieci lokalnej należy przejść na stronę konfiguracji **Sieci lokalne** i upewnić się, że adres IP urządzenia sieci VPN (publiczny adres IPv4) dla używanego urządzenia sieci VPN jest prawidłowo wprowadzony.
 
-## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>Strona łączności lokacja-lokacja
+## <a name="Connectivity"></a>Strona łączności lokacja-lokacja
 W toku procedury tworzenia nowej sieci lokalnej zostanie wyświetlona strona **Łączność typu „lokacja do lokacji”** . W przypadku wyboru opcji użycia wcześniej utworzonej sieci lokalnej ta strona nie zostanie wyświetlona w ramach kreatora i będzie można przejść bezpośrednio do następnej sekcji.
 
 Wprowadź następujące informacje, a następnie kliknij strzałkę, aby przejść dalej.
@@ -78,7 +80,7 @@ Wprowadź następujące informacje, a następnie kliknij strzałkę, aby przejś
 * **Przestrzeń adresowa**: należy uwzględnić początkowy adres IP oraz wartość CIDR (liczbę adresów). W tym obszarze należy określić zakresy adresów, które mają zostać wysłane za pośrednictwem bramy sieci wirtualnej do lokalizacji w ramach sieci lokalnej. Jeśli docelowy adres IP mieści się w zakresach określonych w tym obszarze, zostanie skierowany przez bramę sieci wirtualnej.
 * **Dodaj przestrzeń adresową**: chcąc wysyłać za pośrednictwem bramy sieci wirtualnej wiele zakresów adresów, należy określić w tym obszarze wszystkie dodatkowe zakresy. Zakresy można dodawać i usuwać w późniejszym czasie na stronie **Sieć lokalna**.
 
-## <a name="a-nameaddressavirtual-network-address-spaces-page"></a><a name="Address"></a>Strona przestrzeni adresowych sieci wirtualnej
+## <a name="Address"></a>Strona przestrzeni adresowych sieci wirtualnej
 Określ zakres adresów, który ma zostać użyty dla sieci wirtualnej. Są to dynamiczne adresy IP (adresy DIP), które zostaną przypisane maszynom wirtualnym i innym wystąpieniom roli wdrażanym w ramach tej sieci wirtualnej.
 
 Szczególnie istotne jest, aby wybrać zakres, który nie nakłada się na żaden z zakresów używanych w sieci lokalnej. Skontaktuj się z administratorem sieci. Może się okazać niezbędne wydzielenie przez administratora sieci z przestrzeni adresowej sieci lokalnej zakresu adresów IP do użycia dla sieci wirtualnej.
@@ -93,15 +95,10 @@ Kliknij znacznik wyboru na dole strony. Spowoduje to rozpoczęcie procesu tworze
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="a-namevnetgatewayaconfigure-your-virtual-network-gateway"></a><a name="VNetGateway"></a>Konfigurowanie bramy sieci wirtualnej
+## <a name="VNetGateway"></a>Konfigurowanie bramy sieci wirtualnej
 Następnie konieczne będzie skonfigurowanie bramy sieci wirtualnej w celu utworzenia bezpiecznego połączenia typu lokacja-lokacja. Zobacz artykuł [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md) (Konfigurowanie bramy sieci wirtualnej w klasycznym portalu Azure).
 
 ## <a name="next-steps"></a>Następne kroki
  Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

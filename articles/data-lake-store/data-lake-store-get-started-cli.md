@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
-ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -46,7 +47,7 @@ Interfejs wiersza polecenia platformy Azure został zaimplementowany w środowis
 Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Interfejs wiersza polecenia platformy Azure** — informacje na temat instalacji i konfiguracji można znaleźć w temacie [Instalowanie i konfigurowanie interfejsu wiersza polecenia platformy Azure](../xplat-cli-install.md). Pamiętaj, aby ponownie uruchomić komputer po zainstalowaniu interfejsu wiersza polecenia.
+* **Interfejs wiersza polecenia platformy Azure** — informacje na temat instalacji i konfiguracji można znaleźć w temacie [Instalowanie i konfigurowanie interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md). Pamiętaj, aby ponownie uruchomić komputer po zainstalowaniu interfejsu wiersza polecenia.
 
 ## <a name="authentication"></a>Authentication
 W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Store, w przypadku której logujesz się jako użytkownik końcowy. Poziom dostępu do konta i systemu plików usługi Data Lake Store jest określany przez poziom dostępu zalogowanego użytkownika. Istnieją jednak inne metody uwierzytelniania w usłudze Data Lake Store: **uwierzytelnianie użytkowników końcowych** i **uwierzytelnianie między usługami**. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w artykule [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie w usłudze Data Lake Store przy użyciu usługi Azure Active Directory).
@@ -178,10 +179,5 @@ Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 * [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[azure-command-line-tools]: ../xplat-cli-install.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[azure-command-line-tools]: ../cli-install-nodejs.md
 
