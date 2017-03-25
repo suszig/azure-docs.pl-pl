@@ -78,8 +78,8 @@
 ### [Pomiary użycia](logic-apps-pricing.md)
 
 # Dokumentacja
-## [Język definicji przepływów pracy](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Wyzwalacze i akcje przepływu pracy](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Język definicji przepływów pracy](logic-apps-workflow-definition-language.md)
+## [Wyzwalacze i akcje przepływu pracy](logic-apps-workflow-actions-triggers.md)
 ## [Interfejs API REST](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Historia schematu

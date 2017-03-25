@@ -14,12 +14,12 @@
 ## Konfigurowanie połączenia lokacja-lokacja
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Portal klasyczny (model klasyczny)](vpn-gateway-site-to-site-create.md)
 ## Konfigurowanie połączenia punkt-lokacja
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Portal Azure (klasyczny)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Portal klasyczny (model klasyczny)](vpn-gateway-point-to-site-create.md)
 ## Konfigurowanie połączenia sieć wirtualna-sieć wirtualna
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,7 +41,9 @@
 ## [Modyfikowanie ustawień lokalnej bramy sieci przy użyciu programu PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Weryfikowanie połączenia z bramą VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md)
-## [Usuwanie bramy VPN Gateway](vpn-gateway-delete-vnet-gateway-powershell.md)
+## Usuwanie bramy VPN Gateway
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Tworzenie certyfikatów głównych z podpisem własnym dla połączeń P2S](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
 

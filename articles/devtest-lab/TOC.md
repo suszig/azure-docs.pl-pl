@@ -26,6 +26,7 @@
 ### [Zarządzanie artefaktami](devtest-lab-add-vm-with-artifacts.md)
 
 ## Zarządzanie bazami maszyn wirtualnych i szablonami
+### [Create claimable VM](devtest-lab-add-claimable-vm.md) (Tworzenie maszyn wirtualnych, które można zajmować)
 ### [Tworzenie środowisk z wieloma maszynami wirtualnymi za pomocą szablonów usługi Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 ### [Konfigurowanie obrazów z portalu Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Porównywanie obrazów i formuł](devtest-lab-comparing-vm-base-image-types.md)

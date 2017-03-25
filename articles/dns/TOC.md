@@ -4,13 +4,11 @@
 
 # Wprowadzenie
 
-## [Tworzenie strefy DNS](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-dnszone-cli.md)
-
-## [Tworzenie rekordów DNS](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [Interfejs wiersza polecenia platformy Azure](dns-getstarted-create-recordset-cli.md)
+## Tworzenie rekordu i strefy DNS
+### [Portal](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure 1.0](dns-getstarted-cli-nodejs.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0](dns-getstarted-cli.md)
 
 ## [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md)
 ## [Tworzenie niestandardowych rekordów DNS aplikacji sieci Web](dns-web-sites-custom-domain.md)

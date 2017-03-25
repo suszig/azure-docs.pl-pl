@@ -22,13 +22,15 @@
 #### [Powiązania funkcji Mobile Apps](functions-bindings-mobile-apps.md)
 #### [Powiązanie danych wyjściowych centrum powiadomień](functions-bindings-notification-hubs.md)
 #### [Wyzwalacze i powiązania usługi Service Bus dla kolejek i tematów](functions-bindings-service-bus.md)
+#### [Sendgrid bindings](functions-bindings-sendgrid.md) (Powiązania usługi SendGrid)
 #### Powiązania magazynu
 ##### [Powiązania obiektu blob](functions-bindings-storage-blob.md)
 ##### [Powiązania kolejki](functions-bindings-storage-queue.md)
 ##### [Powiązania tabeli](functions-bindings-storage-table.md)
+##### [SendGrid bindings](functions-bindings-sendgrid.md) (Powiązania usługi SendGrid)
 #### [Wyzwalacz czasomierza](functions-bindings-timer.md)
 #### [Powiązanie danych wyjściowych usługi Twilio](functions-bindings-twilio.md)
-### [Tworzenie funkcji przy użyciu witryny Azure Portal](functions-create-first-azure-function-azure-portal.md) 
+### [Create a function app from the Azure portal](functions-create-function-app-portal.md) (Tworzenie aplikacji funkcji przy użyciu witryny Azure Portal) 
 ### [Testowanie usługi Azure Functions](functions-test-a-function.md)
 ### [Programowanie i debugowanie lokalnie](functions-run-local.md)
 ### [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)
@@ -50,8 +52,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [Repozytorium GitHub usługi Azure Functions](https://github.com/Azure/Azure-Functions/) 
 ## [Aktualizacje usług](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

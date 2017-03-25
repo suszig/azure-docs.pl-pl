@@ -94,6 +94,7 @@
 ### Dołączanie dysku
 #### [Interfejs wiersza polecenia platformy Azure](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Witryna Azure Portal](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Odłączanie dysku](../virtual-machines-linux-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Rozszerzanie dysku systemu operacyjnego](../virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Konfigurowanie programowej macierzy RAID](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Konfigurowanie maszyny wirtualnej z systemem Linux](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

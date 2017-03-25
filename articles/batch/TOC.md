@@ -11,6 +11,7 @@
 ## Programowanie
 ### [Pakiety aplikacji](batch-application-packages.md)
 ### [Automatyczne skalowanie węzłów obliczeniowych](batch-automatic-scaling.md)
+### [Uwierzytelnianie w usłudze Azure AD](batch-aad-auth.md)
 ### [Równoczesne zadania w węzłach](batch-parallel-node-tasks.md)
 ### [Wydajne zapytania dotyczące list](batch-efficient-list-queries.md)
 ### [Zadania związane z przygotowywaniem i kończeniem prac](batch-job-prep-release.md)
@@ -47,4 +48,5 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Przykłady kodu języka C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Przykłady kodu języka Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

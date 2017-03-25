@@ -13,15 +13,25 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b7084081381aa9c4211f8bc0d0685541246a5ddb
-ms.openlocfilehash: 7adb6fcb0c9a673523feaad494e6bc8af5c7fe77
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e982e07b6279c1338398980aa07d46ce08ede11c
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="sql-database-documentation"></a>Dokumentacja usługi SQL Database
 
+<div class="introHolder">
+    <div class="intro">
 Dowiedz się, jak korzystać z usługi SQL Database — relacyjnej bazy danych oferowanej w formie usługi w chmurze, która korzysta z aparatu programu Microsoft SQL Server. W samouczkach, klipach wideo i innych dokumentach pokazano, jak skonfigurować i połączyć bazę danych SQL oraz jak nią zarządzać.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Free PluralSight video training - Managing Infrastructure using Microsoft Azure </a>
+         (Bezpłatne szkolenie wideo firmy PluralSight — Zarządzanie infrastrukturą za pomocą platformy Microsoft Azure)</div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -128,6 +138,7 @@ Dowiedz się, jak korzystać z usługi SQL Database — relacyjnej bazy danych o
                         <h3>Wiersz polecenia</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
                         <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (elastyczna baza danych)</a></p>
+                        <p><a href="/cli/azure/sql">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
