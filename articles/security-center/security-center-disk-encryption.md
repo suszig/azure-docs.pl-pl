@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2016
+ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,7 +27,7 @@ Jeśli masz maszyny wirtualne, które nie są szyfrowane, w Centrum zabezpiecze�
 ![Zalecenia dotyczące szyfrowania dysków](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Podane tu informacje odnoszą się do wersji zapoznawczej Centrum zabezpieczeń Azure.
+> Informacje przedstawione w tym dokumencie dotyczą szyfrowania maszyn wirtualnych bez użycia klucza szyfrowania (który jest wymagany do tworzenia kopii zapasowych maszyn wirtualnych za pomocą usługi Azure Backup). Informacje na temat sposobu użycia klucza szyfrowania do obsługi usługi Azure Backup dla zaszyfrowanych maszyn wirtualnych platformy Azure można znaleźć w artykule [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) (Szyfrowanie dysków Azure dla maszyn wirtualnych platformy Azure z systemem Windows i Linux).
 >
 >
 
@@ -178,9 +179,4 @@ W tym dokumencie opisano sposób szyfrowania maszyny wirtualnej platformy Azure.
 * [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w Centrum zabezpieczeń Azure](security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi.
 * [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md) — odpowiedzi na najczęstsze pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

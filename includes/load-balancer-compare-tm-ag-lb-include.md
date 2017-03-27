@@ -11,8 +11,8 @@ W poniższej tabeli podsumowano funkcje poszczególnych usług:
 | Usługa | Azure Load Balancer | Application Gateway | Traffic Manager |
 | --- | --- | --- | --- |
 | Technologia |Poziom transportu (warstwa 4) |Poziom aplikacji (warstwa 7) |Poziom DNS |
-| Obsługiwane protokoły aplikacji |Dowolne |HTTP i HTTPS |Dowolne (do monitorowania punktu końcowego jest wymagany punkt końcowy HTTP) |
-| Punkty końcowe |Wystąpienia roli maszyn wirtualnych i usług w chmurze Azure |Dowolny wewnętrzny adres IP usługi Azure lub publiczny adres IP w sieci Internet |Azure Virtual Machines, Cloud Services, Azure Web Apps i zewnętrzne punkty końcowe |
+| Obsługiwane protokoły aplikacji |Dowolne |Protokoły HTTP, HTTPS i WebSockets |Dowolne (do monitorowania punktu końcowego jest wymagany punkt końcowy HTTP) |
+| Punkty końcowe |Wystąpienia roli maszyn wirtualnych i usług w chmurze Azure |Dowolny wewnętrzny adres IP platformy Azure, publiczny adres IP, maszyna wirtualna platformy Azure lub usługa w chmurze platformy Azure |Azure Virtual Machines, Cloud Services, Azure Web Apps i zewnętrzne punkty końcowe |
 | Obsługa sieci wirtualnej |Możliwe użycie zarówno z aplikacjami połączonymi z Internetem, jak i aplikacjami wewnętrznymi (w sieci wirtualnej) |Możliwe użycie zarówno z aplikacjami połączonymi z Internetem, jak i aplikacjami wewnętrznymi (w sieci wirtualnej) |Obsługuje tylko aplikacje łączące się z Internetem |
 | Monitorowanie punktu końcowego |Obsługiwane z użyciem sond |Obsługiwane z użyciem sond |Obsługiwane z użyciem żądania GET protokołu HTTP/HTTPS |
 
@@ -20,14 +20,11 @@ Usługi Azure Load Balancer i Application Gateway zapewniają routing ruchu siec
 
 | Typ | Azure Load Balancer | Application Gateway |
 | --- | --- | --- |
-| Protokoły |UDP/TCP |HTTP/HTTPS |
+| Protokoły |UDP/TCP |Protokoły HTTP, HTTPS i WebSockets |
 | Rezerwacja adresu IP |Obsługiwane |Nieobsługiwane |
 | Tryb równoważenia obciążenia |5-krotka (źródłowy adres IP, port źródłowy, docelowy adres IP, port docelowy, typ protokołu) |Działanie okrężne<br>Routing na podstawie adresu URL |
 | Tryb równoważenia obciążenia (źródłowy adres IP / sesje umocowane) |2-krotka (źródłowy adres IP i docelowy adres IP), 3-krotka (źródłowy adres IP, docelowy adres IP i port). Możliwe jest skalowanie odpowiednio w górę lub w dół w oparciu o liczbę maszyn wirtualnych |Koligacja na podstawie pliku cookie<br>Routing na podstawie adresu URL |
 | Sondy kondycji |Wartość domyślna: interwał sondowania — 15 sekund. Wykluczenie z rotacji: dwa powtarzające się niepowodzenia. Obsługa sond zdefiniowanych przez użytkownika |Interwał bezczynności sondy — 30 sekund. Usunięta po pięciu kolejnych niepowodzeniach obsługi ruchu lub po pojedynczym niepowodzeniu sondy w trybie bezczynności. Obsługa sond zdefiniowanych przez użytkownika |
 | Odciążanie protokołu SSL |Nieobsługiwane |Obsługiwane |
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+| Routing oparty na adresach URL | Nieobsługiwane | Obsługiwane|
+| Zasady SSL | Nieobsługiwane | Obsługiwane|

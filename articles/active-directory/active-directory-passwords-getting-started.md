@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -34,7 +34,7 @@ Aby umożliwić użytkownikom zarządzanie własnymi hasłami w chmurze Azure Ac
 * [**Najważniejsze porady klientów, które warto przeczytać przed rozpoczęciem**](#top-tips-from-our-customers-to-read-before-you-begin)
  * [**NAJWAŻNIEJSZA PORADA: NAWIGOWANIE PO DOKUMENTACJI** — Użyj spisu treści i funkcji wyszukiwania przeglądarki w celu znalezienia odpowiedzi](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**Porada 1: LICENCJONOWANIE** — Zapoznaj się z wymaganiami dotyczącymi licencjonowania](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
- * [**Porada 2: TESTOWANIE** — Przeprowadzaj testowanie, korzystając z konta użytkownika końcowego, a nie administratora. Pilotażowe projekty wprowadzaj w małej grupie użytkowników](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Porada 2: TESTOWANIE** — Przeprowadzaj testowanie, korzystając z konta użytkownika końcowego, a nie administratora. Pilotażowe projekty wprowadzaj w małej grupie użytkowników](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Porada 3: WDRAŻANIE** — Wprowadź wstępne dane dla swoich użytkowników, aby nie musieli się rejestrować](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
  * [**Porada 4: WDRAŻANIE** — Użyj funkcji resetowania hasła, aby uniknąć konieczności przekazywania tymczasowych haseł](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**Porada 5: ZAPISYWANIE ZWROTNE** — Przejrzyj dziennik zdarzeń aplikacji na komputerze z narzędziem AAD Connect, aby rozwiązać problem z zapisywaniem zwrotnym haseł](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -60,7 +60,7 @@ Poniżej przedstawiono niektóre najważniejsze porady, które okazały się prz
 
 * [**NAJWAŻNIEJSZA PORADA: NAWIGOWANIE PO DOKUMENTACJI** — Użyj spisu treści i funkcji wyszukiwania przeglądarki w celu znalezienia odpowiedzi](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**Porada 1: LICENCJONOWANIE** — Zapoznaj się z wymaganiami dotyczącymi licencjonowania](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
-* [**Porada 2: TESTOWANIE** — Przeprowadzaj testowanie, korzystając z konta użytkownika końcowego, a nie administratora. Pilotażowe projekty wprowadzaj w małej grupie użytkowników](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Porada 2: TESTOWANIE** — Przeprowadzaj testowanie, korzystając z konta użytkownika końcowego, a nie administratora. Pilotażowe projekty wprowadzaj w małej grupie użytkowników](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Porada 3: WDRAŻANIE** — Wprowadź wstępne dane dla swoich użytkowników, aby nie musieli się rejestrować](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
 * [**Porada 4: WDRAŻANIE** — Użyj funkcji resetowania hasła, aby uniknąć konieczności przekazywania tymczasowych haseł](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**Porada 5: ZAPISYWANIE ZWROTNE** — Przejrzyj dziennik zdarzeń aplikacji na komputerze z narzędziem AAD Connect, aby rozwiązać problem z zapisywaniem zwrotnym haseł](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -79,9 +79,9 @@ Zapoznaj się z poniższym spisem treści:
 Aby resetowanie hasła usługi Azure AD działało, musisz mieć co najmniej jedną licencję przypisaną do organizacji. Podczas samego zresetowania hasła nie jest wymuszane licencjonowanie na użytkownika, jeśli jednak skorzystasz z tej funkcji, nie mając licencji przypisanej do użytkownika, wystąpi niezgodność z umową licencjonowania firmy Microsoft i konieczne będzie przypisanie licencji do tych użytkowników.
 
 Poniżej przedstawiono niektóre dokumenty, które mogą pomóc Ci zrozumieć, jakie licencje są wymagane do resetowania hasła.
-* [Ogólne informacje o licencjonowaniu na potrzeby resetowania hasła]()
-* [Informacje o licencjonowaniu na potrzeby resetowania hasła dotyczące konkretnej funkcji]()
-* [Scenariusze obsługiwane w przypadku zapisywania zwrotnego haseł]()
+* [Ogólne informacje o licencjonowaniu na potrzeby resetowania hasła](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize#what-customization-options-are-available)
+* [Informacje o licencjonowaniu na potrzeby resetowania hasła dotyczące konkretnej funkcji](https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability)
+* [Scenariusze obsługiwane w przypadku zapisywania zwrotnego haseł](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#scenarios-supported-for-password-writeback)
 
 ### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Porada 2: TESTOWANIE — Przeprowadzaj testowanie, korzystając z konta użytkownika końcowego, a nie administratora. Pilotażowe projekty wprowadzaj w małej grupie użytkowników
 Podczas testowania za pomocą konta administratora wymuszane są zasady resetowania hasła administratora, co opisano poniżej.  Oznacza to, że NIE będzie możliwe zobaczenie oczekiwanych wyników zasad skonfigurowanych dla użytkowników końcowych.
@@ -311,6 +311,7 @@ Ta sekcja przeprowadzi Cię przez proces konfigurowania funkcji resetowania has�
 Aby włączyć funkcję zapisywania zwrotnego haseł i z niej korzystać, musisz upewnić się, że spełniono następujące wymagania wstępne:
 
 * Masz dzierżawę usługi Azure AD z włączoną licencją Azure AD Premium.  Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
+* Aby funkcja zapisywania zwrotnego haseł działała, należy połączyć program Azure AD Connect z Emulatorem podstawowego kontrolera domeny.  Jeśli zachodzi taka potrzeba, można skonfigurować program Azure AD Connect na potrzeby korzystania z podstawowego kontrolera domeny. W tym celu kliknij prawym przyciskiem myszy **właściwości** łącznika synchronizacji usługi Active Directory, a następnie wybierz pozycję **Konfigurowanie partycji katalogu**. Z tego miejsca poszukaj sekcji **Ustawienia połączenia kontrolera domeny** i zaznacz pole wyboru o nazwie **Korzystaj tylko z preferowanych kontrolerów domeny**.  Uwaga: jeśli preferowany kontroler domeny nie jest emulatorem podstawowego kontrolera domeny, program Azure AD Connect będzie nadal korzystał z podstawowego kontrolera domeny na potrzeby zapisywania zwrotnego haseł.
 * Dla Twojej dzierżawy skonfigurowano i włączono funkcję resetowania haseł.  Aby uzyskać więcej informacji, zobacz [Umożliwianie użytkownikom resetowania swoich haseł w usłudze Azure AD](#enable-users-to-reset-their-azure-ad-passwords)
 * Masz co najmniej jedno konto administratora i jedno testowe konto użytkownika z licencją Azure AD Premium, których możesz użyć do testowania tej funkcji.  Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
 

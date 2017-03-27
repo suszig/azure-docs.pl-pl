@@ -1,21 +1,22 @@
 ---
-title: "Usługa Application Insights dla aplikacji sieci Web w języku JavaScript | Microsoft Docs"
+title: "Usługa Azure Application Insights dla aplikacji sieci Web w języku JavaScript | Microsoft Docs"
 description: "Pobieranie liczników wyświetleń stron i sesji, danych klienta sieci Web oraz śledzenie wzorców użycia. Wykrywanie wyjątków i problemów z wydajnością na stronach sieci Web w języku JavaScript."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
-ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Aby ustawić te parametry, poszukaj tego wiersza we fragmencie kodu i dodaj po n
 
 
 
-## <a name="a-namerunarun-your-app"></a><a name="run"></a>Uruchamianie aplikacji
+## <a name="run"></a>Uruchamianie aplikacji
 Uruchom aplikację sieci Web, używaj jej przez pewien czas, aby wygenerować dane telemetryczne, i odczekaj kilka sekund. Aplikację możesz uruchomić za pomocą klawisza **F5** na maszynie deweloperskiej lub opublikować ją i pozwolić na korzystanie z niej przez użytkowników.
 
 Jeśli chcesz sprawdzić telemetrię, którą aplikacja sieci Web wysyła do usługi Application Insights, użyj narzędzi debugowania w przeglądarce (**F12** w wielu przeglądarkach). Dane są przesyłane do witryny dc.services.visualstudio.com.
@@ -107,7 +108,7 @@ Otwórz blok Przeglądarka, aby wyświetlić agregowane dane wydajności z przeg
 
 ![W witrynie portal.azure.com otwórz zasób swojej aplikacji, a następnie kliknij kolejno opcje Ustawienia, Przeglądarki](./media/app-insights-javascript/03.png)
 
-*Jeszcze nie ma danych? Kliknij przycisk **Odśwież** w górnej części strony. Nadal nic? Zobacz [Rozwiązywanie problemów ](app-insights-troubleshoot-faq.md).*
+*Jeszcze nie ma danych? Kliknij przycisk**Odśwież**w górnej części strony. Nadal nic? Zobacz [Rozwiązywanie problemów ](app-insights-troubleshoot-faq.md).*
 
 Blok Przeglądarka jest [blokiem Eksploratora metryk](app-insights-metrics-explorer.md) z wstępnie ustawionymi filtrami i wybranymi wykresami. Jeśli chcesz, możesz edytować przedział czasu, filtry i konfiguracje wykresów, a następnie zapisać wynik jako ulubiony. Kliknij przycisk **Przywróć domyślne**, aby wrócić do oryginalnej konfiguracji bloku.
 
@@ -167,6 +168,7 @@ Klikaj poszczególne wiersze, aby uzyskać szczegółowe informacje.
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Kliknij przycisk `...`, aby uzyskać pełną telemetrię wywołania Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Brak zgłoszonych wywołań Ajax?
@@ -180,6 +182,7 @@ W bloku Przeglądarki znajduje się wykres podsumowania wyjątków, a poniżej n
 Jeśli nie widzisz wyjątków przeglądarki w raporcie, sprawdź, czy we fragmencie kodu nie został ustawiony [parametr](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
 
 ## <a name="inspect-individual-page-view-events"></a>Badanie zdarzeń wyświetlania pojedynczej strony
+
 Zazwyczaj telemetria wyświetlania strony jest analizowana w usłudze Application Insights i widoczne są jedynie raporty zbiorcze, uśrednione dla wszystkich użytkowników. Jednak na potrzeby debugowania, możesz zapoznać się ze zdarzeniami wyświetlania pojedynczej strony.
 
 W bloku Wyszukiwanie diagnostyczne jako Filtry ustaw Wyświetlenie strony.
@@ -217,19 +220,16 @@ Chcesz dowiedzieć się, w jaki sposób użytkownicy korzystają z aplikacji?
 * [Informacje na temat śledzenia użycia](app-insights-web-track-usage.md)
 * [Informacje o interfejsie API do monitorowania niestandardowych zdarzeń i metryk](app-insights-api-custom-events-metrics.md).
 
-#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> Wideo: Śledzenie użycia
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a> Wideo
 
-## <a name="a-namenexta-next-steps"></a><a name="next"></a> Następne kroki
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
+
+## <a name="next"></a> Następne kroki
 * [Śledzenie użycia](app-insights-web-track-usage.md)
 * [Niestandardowe zdarzenia i metryki](app-insights-api-custom-events-metrics.md)
 * [Tworzenie — pomiar— nauka](app-insights-overview-usage.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

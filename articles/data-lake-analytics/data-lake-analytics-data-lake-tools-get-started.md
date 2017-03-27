@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/08/2016
-ms.author: edmaca
+ms.date: 03/17/2017
+ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -128,9 +128,9 @@ Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzie�
        Nastąpi wyświetlenie automatycznie wypełnianej nazwy i członków dla zestawu wierszy, klas, baz danych, schematów i obiektów zdefiniowanych przez użytkownika (UDO).
 
        Funkcja IntelliSense dla obiektów katalogu (baz danych, schematów, tabel, obiektów UDO itp.) jest powiązana z kontem obliczeniowym. Możesz sprawdzić bieżące aktywne konto obliczeniowe, bazę danych i schemat na górnym pasku narzędzi oraz przełączać je za pomocą list rozwijanych.
-   * **Rozwiń * kolumny**
+   * **Rozwiń* kolumny**
 
-       Kliknij z prawej strony symbolu *. Poniżej symbolu pod * będzie widoczne niebieskie podkreślenie. Umieść kursor myszy na niebieskim podkreśleniu, a następnie kliknij strzałkę w dół.
+       Kliknij z prawej strony symbolu *. Poniżej symbolu pod* będzie widoczne niebieskie podkreślenie. Umieść kursor myszy na niebieskim podkreśleniu, a następnie kliknij strzałkę w dół.
        ![Rozwijanie narzędzi programu Visual Studio w usłudze Data Lake za pomocą symbolu *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Kliknij opcję **Expand Columns** (Rozwiń kolumny), a narzędzie zastąpi symbol * nazwami kolumn.
@@ -197,71 +197,11 @@ Funkcja odtwarzania zadania umożliwia obserwowanie postępu wykonywania zadania
 Narzędzia Data Lake Tools dla programu Visual Studio oferują wybierane przez użytkownika kolorowe nakładki widoku zadania, które pozwalają wskazać postęp, dane we/wy, czas wykonywania i przepustowość we/wy każdego etapu. W ten sposób użytkownicy mogą bezpośrednio i intuicyjnie określać potencjalne problemy i dystrybucję właściwości zadania. Źródło danych do wyświetlania można wybrać z listy rozwijanej.  
 
 ## <a name="run-u-sql-locally"></a>Uruchamianie skryptu U-SQL lokalnie
-Korzystając z lokalnego środowiska uruchamiania skrypt U-SQL w programie Visual Studio, można:
 
-* Lokalnie uruchamiać skrypty U-SQL wraz z zestawami języka C#.
-* Lokalnie debugować zestawy języka C#.
-* Tworzyć/usuwać/wyświetlać lokalne bazy danych, zestawy, schematy i tabele w Eksploratorze serwera, podobnie jak w przypadku usługi Azure Data Lake Analytics.
+Przy użyciu narzędzi Azure Data Lake Tools for Visual Studio i zestawu SDK U-SQL usługi Azure Data Lake można uruchamiać zadania U-SQL na stacji roboczej, podobnie jak w usłudze Azure Data Lake. Te dwie funkcje uruchamiania lokalnego pozwalają zaoszczędzić czas poświęcony na testowanie i debugowanie zadań U-SQL. 
 
-Zostanie wyświetlone konto *Lokalne* w programie Visual Studio i instalator utworzy folder *DataRoot* w ścieżce *C:\LocalRunRoot*. Folder DataRoot będzie służyć do:
+* [Testowanie i debugowanie zadań U-SQL przy użyciu uruchamiania lokalnego i zestawu SDK U-SQL usługi Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 
-* Przechowywania metadanych, w tym tabel, baz danych, funkcji TVF itp.
-* W przypadku niektórych skryptów: jeśli w ścieżkach danych wejściowych/wyjściowych występuje odwołanie do ścieżki względnej, sprawdzony zostanie folder DataRoot (a także ścieżka skryptu, jeśli jest do ścieżka danych wejściowych).
-* Odwołanie do folderu DataRoot NIE wystąpi w przypadku próby zarejestrowania zestawu z użyciem ścieżki względnej (aby uzyskać więcej szczegółowych informacji, zobacz temat „Używanie zestawów podczas uruchamiania lokalnego”).
-
-Dostępny poniżej film wideo przedstawia funkcję lokalnego uruchamiania skryptu U-SQL:
-
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/USQL-LocalRun/player]
->
->
-
-### <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
-* Nie można utworzyć tabeli/bazy danych itp. w Eksploratorze serwera dla konta lokalnego.
-* Gdy odwołanie do ścieżki względnej występuje:
-
-  * W danych wejściowych skryptu (EXTRACT * FROM “/path/abc”) — wyszukiwane będą zarówno ścieżka folderu DataRoot, jak i ścieżka skryptu.
-  * W danych wyjściowych skryptu (OUTPUT TO “path/abc”) — ścieżka folderu DataRoot zostanie użyta jako folder wyjściowy.
-  * Podczas rejestracji zestawu (CREATE ASSEMBLY xyz FROM “/path/abc”) — wyszukiwana będzie ścieżka skryptu, ale nie ścieżka folderu DataRoot.
-  * W zarejestrowanej funkcji TVF/widoku lub w innych obiektach metadanych — będzie wyszukiwana ścieżka folderu DataRoot, ale nie ścieżka skryptu.
-
-    W przypadku skryptów uruchamianych w usłudze Data Lake domyślne konto magazynu będzie używane jako folder główny i będzie odpowiednio przeszukiwane.
-
-### <a name="test-u-sql-scripts-locally"></a>Testowanie skryptów U-SQL lokalnie
-Aby uzyskać instrukcje dotyczące tworzenia skryptów U-SQL, zobacz temat [Develop U-SQL scripts](#develop-and-test-u-sql-scripts) (Tworzenie skryptów U-SQL). Aby skompilować i uruchomić skrypty U-SQL lokalnie, wybierz pozycję **(Local)** (Lokalnie) z listy rozwijanej klastra, a następnie kliknij przycisk **Submit** (Prześlij). Upewnij się, że w odwołaniu występują odpowiednie dane — odwołaj się do ścieżki bezwzględnej lub umieść dane w folderze DataRoot.
-
-![Przesyłanie projektu U-SQL programu Visual Studio lokalnie](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
-
-Możesz również kliknąć skrypt prawym przyciskiem myszy, a następnie kliknąć pozycję **Run Local Plan** (Uruchom plan lokalny) w menu kontekstowym lub użyć skrótu klawiaturowego **CTRL + F5**, aby wyzwolić uruchomienie lokalne.
-
-### <a name="use-assemblies-in-local-run"></a>Korzystanie z zestawów podczas uruchamiania lokalnego
-Istnieją dwa sposoby uruchamiania niestandardowych plików języka C#:
-
-* Zapisz zestawy w kodzie pliku, a zostaną one automatycznie zarejestrowane i usunięte po wykonaniu skryptu.
-* Utwórz projekt zestawu języka C# i zarejestruj wyjściowy plik dll na koncie lokalnym za pośrednictwem skryptu, takiego jak poniższy. Pamiętaj, że ścieżka jest określana względem skryptu, a nie folderu DataRoot.
-
-![Korzystanie z zestawów podczas uruchamiania lokalnego skryptu U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
-
-### <a name="debug-scripts-and-c-assemblies-locally"></a>Debugowanie skryptów i zestawów języka C# lokalnie
-Można debugować zestawy języka C# bez przesyłania i rejestrowania ich w usłudze Azure Data Lake Analytics. Można ustawić punkty przerwania w kodzie pliku oraz w projekcie języka C#, do którego się odwołujesz.
-
-**Aby debugować kod lokalny w kodzie pliku**
-
-1. Ustaw punkty przerwania w kodzie pliku.
-2. Naciśnij klawisz **F5**, aby debugować skrypt lokalnie.
-
-Poniższa procedura dotyczy tylko programu Visual Studio 2015. W starszych wersjach programu Visual Studio może być konieczne ręczne dodanie plików pdb.
-
-**Aby debugować kod lokalny w występującym w odwołaniu projekcie C#**
-
-1. Utwórz projekt zestawu języka C# i skompiluj go, aby wygenerować wyjściowy plik dll.
-2. Zarejestruj plik dll za pomocą instrukcji U-SQL:
-
-    ```
-    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-    ```
-    
-3. Ustaw punkty przerwania w kodzie C#.
-4. Naciśnij klawisz **F5**, aby debugować skrypt z zastosowaniem lokalnego odwołania do pliku dll języka C#.  
 
 ## <a name="see-also"></a>Zobacz też
 Aby rozpocząć pracę z usługą Data Lake Analytics przy użyciu różnych narzędzi, zobacz:

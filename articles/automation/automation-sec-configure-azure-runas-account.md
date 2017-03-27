@@ -13,22 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 03/15/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 15cbf897f3f67b9d1bee0845b4d287fdabe63ba8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 6f2a3880c6cd307282020a689ddd4e22a95c17b0
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure
 W tym temacie opisano, w jaki sposób można skonfigurować konto usługi Automation w witrynie Azure Portal za pomocą funkcji konta Uruchom jako, aby uwierzytelniać elementy runbook zarządzające zasobami w usłudze Azure Resource Manager lub Azure Service Management.
 
-Po utworzeniu konta usługi Automation witryna Azure Portal automatycznie tworzy:
+Po utworzeniu nowego konta usługi Automation portal Azure automatycznie tworzy:
 
-* Konto Uruchom jako, które tworzy nazwę główną usługi w usłudze Azure Active Directory i certyfikat oraz przypisuje rolę Współautor kontroli dostępu opartej na rolach (RBAC), która są używane do zarządzania zasobami usługi Resource Manager za pomocą elementów runbook.   
-* Klasyczne konto Uruchom jako przez przekazanie certyfikatu zarządzania, które jest używane do zarządzania usługą Azure Service Management lub klasycznymi zasobami przy użyciu elementów runbook.  
+* Konto Uruchom jako, które tworzy nową nazwę główną usługi w usłudze Azure Active Directory i certyfikat oraz przypisuje rolę Współautor kontroli dostępu opartej na rolach (RBAC), która będzie używana do zarządzania zasobami usługi Resource Manager za pomocą elementów Runbook.   
+* Klasyczne konto Uruchom jako przez przekazanie certyfikatu zarządzania, który będzie używany do zarządzania usługą Azure Service Management lub klasycznymi zasobami przy użyciu elementów Runbook.  
 
 Upraszcza to proces i pomaga szybko rozpocząć tworzenie i wdrażanie elementów Runbook dla różnych potrzeb automatyzacji.      
 
@@ -41,17 +41,14 @@ Używając konta Uruchom jako i klasycznego konta Uruchom jako, możesz:
 > [Funkcja integracji alertu](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) platformy Azure z globalnymi elementami Runbook automatyzacji wymaga konta usługi Automation ze skonfigurowanym kontem Uruchom jako lub klasycznym kontem Uruchom jako. Można wybrać konto usługi Automation, które ma już zdefiniowane konto Uruchom jako i klasyczne konto Uruchom jako, lub wybrać opcję utworzenia nowego.
 >  
 
-Pokazujemy, jak utworzyć konto usługi Automation z witryny Azure Portal, zaktualizować konto usługi Automation przy użyciu programu PowerShell, zarządzać konfiguracją konta oraz uwierzytelnić się w elementach runbook.
+Pokażemy, jak utworzyć konto usługi Automation z witryny Azure Portal, zaktualizować konto usługi Automation przy użyciu programu PowerShell, zarządzać konfiguracją konta oraz uwierzytelnić się w elementach runbook.
 
 Jednak wcześniej musisz zrozumieć i wziąć pod uwagę kilka rzeczy.
 
 1. Nie wpływa to na istniejące konta usługi Automation, które zostały już utworzone w modelu klasycznym lub modelu wdrażania usługi Resource Manager.  
 2. Ma to zastosowanie tylko w przypadku kont usługi Automation utworzonych za pośrednictwem portalu Azure.  Próba utworzenia konta za pomocą portalu klasycznego nie spowoduje replikacji konfiguracji konta Uruchom jako.
 3. Jeśli masz już elementy runbook i zasoby (tj. harmonogramy, zmienne itp.) utworzone wcześniej w celu zarządzania zasobami klasycznymi i chcesz, aby były one uwierzytelniane przy użyciu nowego klasycznego konta Uruchom jako, musisz utworzyć konto klasyczne Uruchom jako za pomocą funkcji zarządzania kontem Uruchom jako lub zaktualizować istniejące konto za pomocą poniższego skryptu programu PowerShell.  
-4. Aby uwierzytelniać się przy użyciu nowego konta Uruchom jako i klasycznego konta Uruchom jako usługi Automation, musisz zmodyfikować istniejące elementy runbook za pomocą przykładowego kodu podanego w sekcji [Przykłady kodu uwierzytelniania](#authentication-code-examples).  
-   
-    >[!NOTE] 
-    >Konto Uruchom jako służy do uwierzytelniania względem zasobów usługi Resource Manager za pomocą nazwy głównej usługi opartej na certyfikatach, natomiast klasyczne konto Uruchom jako służy do uwierzytelniania w odniesieniu do zasobów usługi Service Management za pomocą certyfikatu zarządzania.     
+4. Aby uwierzytelniać się przy użyciu nowego konta Uruchom jako i klasycznego konta Uruchom jako usługi Automation, musisz zmodyfikować istniejące elementy Runbook za pomocą poniższego przykładowego kodu.  **Pamiętaj**, że konto Uruchom jako służy do uwierzytelniania względem zasobów usługi Resource Manager za pomocą nazwy głównej usługi opartej na certyfikatach, natomiast klasyczne konto Uruchom jako służy do uwierzytelniania w odniesieniu do zasobów usługi Service Management za pomocą certyfikatu zarządzania.     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Tworzenie nowego konta usługi Automation w witrynie Azure Portal
 W tej części wykonasz poniższe kroki, aby utworzyć nowe konto usługi Azure Automation z portalu Azure.  Spowoduje to utworzenie zarówno konta Uruchom jako, jak i klasycznego konta Uruchom jako.  
@@ -88,7 +85,7 @@ Po pomyślnym utworzeniu konta usługi Automation automatycznie zostanie utworzo
 | --- | --- |
 | AzureAutomationTutorial Runbook |Przykładowy graficzny element runbook, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako, i pobiera wszystkie zasoby usługi Resource Manager. |
 | AzureAutomationTutorialScript Runbook |Przykładowy element Runbook programu PowerShell, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako, i pobiera wszystkie zasoby usługi Resource Manager. |
-| AzureRunAsCertificate |Zasób Certyfikat utworzony automatycznie podczas tworzenia konta usługi Automation lub skorzystania z poniższego skryptu programu PowerShell dla istniejącego konta.  Umożliwia uwierzytelnianie za pomocą platformy Azure, aby można było zarządzać zasobami usługi Azure Resource Manager z poziomu elementów Runbook.  Ten certyfikat ma roczny okres obowiązywania. |
+| AzureRunAsCertificate |Zasób Certyfikat utworzony automatycznie podczas tworzenia konta automatyzacji lub skorzystania z poniższego skryptu programu PowerShell dla istniejącego konta.  Umożliwia uwierzytelnianie za pomocą platformy Azure, aby można było zarządzać zasobami usługi Azure Resource Manager z poziomu elementów Runbook.  Ten certyfikat ma roczny okres obowiązywania. |
 | AzureRunAsConnection |Zasób Połączenie utworzony automatycznie podczas tworzenia konta automatyzacji lub skorzystania z poniższego skryptu programu PowerShell dla istniejącego konta. |
 
 Poniższa tabela zawiera podsumowanie zasobów dla klasycznego konta Uruchom jako.<br>
@@ -126,7 +123,7 @@ W następnej kolejności wykonamy mały test, aby potwierdzić, że możesz pomy
 7. Aby wyświetlić szczegółowe wyniki elementu Runbook, kliknij kafelek **Dane wyjściowe**.
 8. W bloku **Dane wyjściowe** powinna być wyświetlana informacja, że element został pomyślnie uwierzytelniony, oraz zwrócona lista wszystkich klasycznych maszyn wirtualnych w subskrypcji.
 9. Zamknij blok **Dane wyjściowe**, aby wrócić do bloku **Podsumowanie zadania**.
-10. Zamknij blok **Podsumowanie zadania** i odpowiedni blok elementu runbook **AzureClassicAutomationTutorialScript**.
+10. Zamknij blok **Podsumowanie zadania** i odpowiedni blok elementu Runbook **AzureClassicAutomationTutorialScript**.
 
 ## <a name="managing-azure-run-as-account"></a>Zarządzanie kontem Uruchom jako platformy Azure
 W okresie istnienia konta usługi Automation konieczne będzie odnawianie certyfikatu przed jego wygaśnięciem lub, jeśli uważasz, że bezpieczeństwo konta zostało naruszone, możesz usunąć konto Uruchom jako i ponownie je utworzyć.  W tej sekcji znajdują się kroki umożliwiające wykonanie tych operacji.  
@@ -392,15 +389,9 @@ Jeśli wybierzesz opcję utworzenia klasycznego konta Uruchom jako, po wykonaniu
     > 
     > 
 
-Po pomyślnym ukończeniu działania skryptu, jeśli zostało utworzone klasyczne konto Uruchom jako, wykonaj kroki [przekazywania certyfikatu interfejsu API zarządzania ](../azure-api-management-certs.md) do klasycznej witryny Azure Portal.  Jeśli zostało utworzone klasyczne konto Uruchom jako z certyfikatem publicznym z podpisem własnym (w formacie cer), kopię utworzonego certyfikatu możesz znaleźć w folderze plików tymczasowych na komputerze w ramach profilu użytkownika użytego do uruchomienia sesji programu PowerShell — *%USERPROFILE%\AppData\Local\Temp*.  W przeciwnym razie, jeśli klasyczne konto Uruchom jako zostało skonfigurowane do użycia certyfikatu wygenerowanego przez urząd certyfikacji przedsiębiorstwa (w formacie cer), trzeba będzie użyć tego certyfikatu.  Po przekazaniu tego certyfikatu zapoznaj się z [przykładowym kodem](#sample-code-to-authenticate-with-service-management-resources) do weryfikacji konfiguracji poświadczeń za pomocą zasobów usługi Service Management.  
+Jeśli po pomyślnym ukończeniu skryptu utworzono klasyczne konto Uruchom jako za pomocą certyfikatu publicznego z podpisem własnym (format cer), skrypt utworzy i zapisze ten certyfikat w folderze plików tymczasowych na komputerze w profilu użytkownika używanego do wykonywania sesji programu PowerShell — *%USERPROFILE%\AppData\Local\Temp*. Jeśli klasyczne konto Uruchom jako utworzono za pomocą publicznego certyfikatu przedsiębiorstwa (format cer), konieczne będzie użycie tego certyfikatu.  Postępuj zgodnie z instrukcjami [przekazywania certyfikatu interfejsu API zarządzania](../azure-api-management-certs.md) do klasycznego portalu Azure, a następnie skorzystaj z [przykładowego kodu](#sample-code-to-authenticate-with-service-management-resources), aby sprawdzić poprawność konfiguracji poświadczeń za pomocą zasobów usługi Service Management.  Jeśli nie zostało utworzone klasyczne konto Uruchom jako, zapoznaj się z [przykładowym kodem](#sample-code-to-authenticate-with-resource-manager-resources) poniżej do uwierzytelniania się za pomocą zasobów usługi Resource Manager i weryfikacji konfiguracji poświadczeń.
 
-Jeśli nie zostało utworzone klasyczne konto Uruchom jako, zapoznaj się z [przykładowym kodem](#sample-code-to-authenticate-with-resource-manager-resources) poniżej do uwierzytelniania się za pomocą zasobów usługi Resource Manager i weryfikacji konfiguracji poświadczeń.   
-
-##  <a name="authentication-code-examples"></a>Przykłady kodu uwierzytelniania
-
-Poniższe przykłady pokazują, jak uwierzytelniać elementy runbook względem zasobów usługi Resource Manager lub zasobów klasycznych przy użyciu konta Uruchom jako.
-
-### <a name="authenticate-with-resource-manager-resources"></a>Uwierzytelnianie przy użyciu zasobów usługi Resource Manager
+## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Przykładowy kod służący do uwierzytelniania przy użyciu Menedżera zasobów
 Możesz skorzystać z podanego poniżej przykładowego kodu, pobranego z przykładowego elementu Runbook **AzureAutomationTutorialScript**, do uwierzytelniania za pomocą konta Uruchom jako do zarządzania zasobami Menedżera zasobów przy użyciu Twoich elementów Runbook.   
 
     $connectionName = "AzureRunAsConnection"
@@ -435,7 +426,7 @@ Skrypt zawiera dwa dodatkowe wiersze kodu odwołujące się do kontekstu subskry
 
 Zwróć uwagę, że polecenie cmdlet służące do uwierzytelniania w elemencie Runbook — **Add-AzureRmAccount** — używa zestawu parametrów *ServicePrincipalCertificate*.  Uwierzytelnia się ono za pomocą certyfikatu nazwy głównej usługi, a nie poświadczeń.  
 
-### <a name="authenticate-with-service-management-resources"></a>Uwierzytelnianie przy użyciu zasobów usługi Service Management
+## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Przykładowy kod służący do uwierzytelniania przy użyciu zasobów usługi Service Management
 Możesz skorzystać z podanego poniżej zaktualizowanego przykładowego kodu, pobranego z przykładowego elementu Runbook **AzureClassicAutomationTutorialScript**, do uwierzytelniania za pomocą klasycznego konta Uruchom jako do zarządzania klasycznymi zasobami przy użyciu Twoich elementów Runbook.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"
