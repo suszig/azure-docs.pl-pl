@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: ea6717f8c5e04883d2feb83537c1c1f96bec2287
-ms.openlocfilehash: 70a89aad208ae71d5c0aab462b6078dafa8efcfc
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1913116e8d43d25a01ea2a8f4eb112c001dbc7ff
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -126,7 +127,7 @@ Dowiedz się, jak za pomocą usługi Key Vault chronić klucze kryptograficzne i
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
-                         <p><a href="/cli/azure/keyvault">Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)</a></p>
+                         <p><a href="/cli/azure/keyvault">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -162,10 +163,5 @@ Dowiedz się, jak za pomocą usługi Key Vault chronić klucze kryptograficzne i
 </ul>
 
 ---
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

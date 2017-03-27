@@ -17,8 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: ed725a12c04646a62cb0737266e24b6035522f20
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -123,7 +124,7 @@ W przypadku warstw usług Podstawowej, Standardowej i Premium usługi **SQL Data
 
 W przypadku **programu SQL Server uruchomionego na maszynach wirtualnych platformy Azure** firma Microsoft zapewnia dostępność na poziomie 99,95%, która obejmuje tylko maszyny wirtualne. Umowa SLA nie obejmuje procesów (np. programu SQL Server) uruchomionych na maszynie wirtualnej i wymaga obsługi przynajmniej dwóch wystąpień maszyny wirtualnej w zbiorze dostępności. Najnowsze informacje znajdują się w artykule [Maszyny wirtualne — umowa SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Aby uzyskać wysoką dostępność bazy danych w maszynach wirtualnych, należy skonfigurować jedną z obsługiwanych opcji wysokiej dostępności w programie SQL Server, np. [Zawsze włączone grupy dostępności](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Użycie obsługiwanej opcji wysokiej dostępności nie zapewnia dodatkowej umowy SLA, ale umożliwia osiągnięcie dostępności bazy danych na poziomie >&99;,99%.
 
-### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Czas wprowadzenia na rynek
+### <a name="market"></a>Czas wprowadzenia na rynek
 Usługa **SQL Database** to odpowiednie rozwiązanie do obsługi aplikacji przeznaczonych do chmury, gdy wydajność deweloperów i krótki czas wprowadzania na rynek mają decydujące znaczenie. Dzięki funkcjonalności przypominającej model DBA jest doskonała dla architektów i deweloperów chmury, ponieważ zmniejsza potrzebę zarządzania bazowym systemem operacyjnym i bazą danych. Na przykład można użyć [interfejsu API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) i [poleceń cmdlet programu PowerShell](http://msdn.microsoft.com/library/mt740629.aspx) do automatyzacji operacji administracyjnych dla tysięcy baz danych oraz zarządzania nimi. Funkcje, takie jak [pule elastyczne](sql-database-elastic-pool.md), pozwalają skupić się na warstwie aplikacji i szybciej wprowadzić rozwiązanie na rynek.
 
 **Program SQL Server uruchomiony na maszynach wirtualnych platformy Azure** jest doskonałym rozwiązaniem, jeśli istniejące lub nowe aplikacje wymagają dużych baz danych, powiązanych baz danych lub dostępu do wszystkich funkcji programu SQL Server lub systemu Windows. Jest również odpowiedni, jeśli chcesz migrować istniejące lokalne aplikacje i bazy danych do platformy Azure w niezmienionej postaci. Ponieważ nie musisz wprowadzać zmian w prezentacji, aplikacji i warstwach danych, jeśli rezygnujesz z ponownego projektowania istniejącego rozwiązania, oszczędzasz czas i pieniądze. Zamiast tego możesz skoncentrować się na migracji wszystkich rozwiązań do platformy Azure i przeprowadzeniu optymalizacji wydajności, których może wymagać platforma Azure. Więcej informacje zawiera artykuł [Performance Best Practices for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md) (Najlepsze praktyki dotyczące wydajności dla programu SQL Server w usłudze Azure Virtual Machines).
@@ -145,10 +146,5 @@ Wybierz rozwiązanie **SQL Server na maszynach wirtualnych Azure**, jeśli:
 * Aby rozpocząć pracę z usługą SQL Database, zobacz [Your first Azure SQL Database](sql-database-get-started.md) (Twoja pierwsza baza danych Azure SQL Database).
 * Zobacz [Cennik usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Aby rozpocząć pracę z programem SQL Server na maszynach wirtualnych platformy Azure, zobacz temat [Aprowizowanie maszyny wirtualnej programu SQL Server w Portalu Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

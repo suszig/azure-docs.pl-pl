@@ -161,6 +161,7 @@
 
 ### Rozwiązywanie problemów
 #### [Problemy z wdrażaniem](storsimple-troubleshoot-deployment.md)
+#### [Using diagnostics tool](storsimple-8000-diagnostics.md) (Korzystanie z narzędzia diagnostycznego)
 #### [Problemy operacyjne](storsimple-troubleshoot-operational-device.md)
 #### [Wymiana sprzętu](storsimple-hardware-component-replacement.md)
 ##### [Wymiana kontrolera urządzeń](storsimple-controller-replacement.md)
@@ -208,7 +209,9 @@
 ### [Using StorSimple Data Manager](storsimple-data-manager-ui.md) (Korzystanie z usługi StorSimple Data Manager)
 
 ## Instrukcje
-### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md) (Korzystanie z platformy .NET do przekształcania danych)
+### [Use .NET to start jobs](storsimple-data-manager-dotnet-jobs.md) (Rozpoczynanie zadań przy użyciu programu .NET)
+### [Use Automation to start jobs](storsimple-data-manager-job-using-automation.md) (Rozpoczynanie zadań przy użyciu usługi Automation)
+### [Change default blob path](storsimple-data-manager-change-default-blob-path.md) (Zmienianie domyślnej ścieżki obiektu blob)
 
 # Usługa StorSimple dla partnerów
 ## Omówienie

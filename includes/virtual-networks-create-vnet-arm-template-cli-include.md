@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Wdrażanie szablonu ARM przy użyciu interfejsu wiersza polecenia platformy Azure
 Aby wdrożyć pobrany szablon ARM przy użyciu interfejsu wiersza polecenia (CLI) Azure, wykonaj poniższe kroki.
 
-1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../articles/xplat-cli-install.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../articles/cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
 2. Uruchom polecenie **`azure config mode`**, aby włączyć tryb Resource Manager, jak pokazano poniżej.
    
         azure config mode arm
@@ -84,9 +84,4 @@ Aby wdrożyć pobrany szablon ARM przy użyciu interfejsu wiersza polecenia (CLI
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

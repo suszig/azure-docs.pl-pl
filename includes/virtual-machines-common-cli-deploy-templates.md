@@ -12,7 +12,7 @@
 * [Dołączanie dysku danych](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Przygotowanie
-Aby używać interfejsu wiersza polecenia platformy Azure z grupami zasobów Azure, musisz mieć właściwą wersję interfejsu wiersza polecenia platformy Azure i konto platformy Azure. Jeśli nie masz interfejsu wiersza polecenia platformy Azure, [zainstaluj go](../articles/xplat-cli-install.md).
+Aby używać interfejsu wiersza polecenia platformy Azure z grupami zasobów Azure, musisz mieć właściwą wersję interfejsu wiersza polecenia platformy Azure i konto platformy Azure. Jeśli nie masz interfejsu wiersza polecenia platformy Azure, [zainstaluj go](../articles/cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-version-to-090-or-later"></a>Aktualizowanie interfejsu wiersza polecenia platformy Azure do wersji 0.9.0 lub nowszej
 Wpisz `azure --version`, aby sprawdzić, czy masz już zainstalowaną wersję 0.9.0 lub nowszą.
@@ -80,7 +80,7 @@ Następnie możesz zarządzać całym cyklem życia zasobów grupy przy użyciu 
 
 Znacznie więcej informacji na temat grup zasobów platformy Azure i oferowanych przez nie funkcji zawiera temat [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Jeśli interesuje Cię tworzenie szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../articles/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-a-vm-in-azureatask-quick-create-a-vm-in-azure"></a><a id="quick-create-a-vm-in-azure"></a>Zadanie: Szybkie tworzenie maszyny wirtualnej na platformie Azure
+## <a id="quick-create-a-vm-in-azure"></a>Zadanie: Szybkie tworzenie maszyny wirtualnej na platformie Azure
 Czasami wiesz, którego obrazu potrzebujesz, i natychmiast chcesz utworzyć maszynę wirtualną z tego obrazu, niespecjalnie przejmując się infrastrukturą — być może musisz coś przetestować na czystej maszynie wirtualnej. To sytuacja, w której należy użyć polecenia `azure vm quick-create` i przekazać argumenty niezbędne do utworzenia maszyny wirtualnej i jej infrastruktury.
 
 Najpierw utwórz grupę zasobów.
@@ -214,7 +214,7 @@ info:    vm quick-create command OK
 
 I możesz iść dalej z nową maszyną wirtualną.
 
-## <a name="a-iddeploy-a-vm-in-azure-from-a-templateatask-deploy-a-vm-in-azure-from-a-template"></a><a id="deploy-a-vm-in-azure-from-a-template"></a>Zadanie: Wdrażanie maszyny wirtualnej na platformie Azure na podstawie szablonu
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Zadanie: Wdrażanie maszyny wirtualnej na platformie Azure na podstawie szablonu
 Instrukcje zawarte w tych sekcjach umożliwiają wdrożenie nowej maszyny wirtualnej platformy Azure na podstawie szablonu przy użyciu interfejsu wiersza polecenia platformy Azure. Ten szablon umożliwia utworzenie jednej maszyny wirtualnej w nowej sieci wirtualnej z jedną podsiecią i, w odróżnieniu od `azure vm quick-create`, umożliwia dokładne opisanie tego, czego oczekujesz, i powtórzenie go bez błędów. Oto, co ten szablon tworzy:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
@@ -483,7 +483,7 @@ info:    group deployment create command OK
 ```
 
 
-## <a name="a-idcreate-a-custom-vm-imageatask-create-a-custom-vm-image"></a><a id="create-a-custom-vm-image"></a>Zadanie: Tworzenie niestandardowej maszyny wirtualnej
+## <a id="create-a-custom-vm-image"></a>Zadanie: Tworzenie niestandardowej maszyny wirtualnej
 Podstawowe użycia szablonów przedstawiono powyżej, a więc teraz możemy użyć podobnych instrukcji w celu utworzenia niestandardowej maszyny wirtualnej z określonego pliku VHD na platformie Azure przy użyciu szablonu za pośrednictwem interfejsu wiersza polecenia platformy Azure. Różnica tutaj polega na tym, że ten szablon tworzy jedną maszynę wirtualną z określonego wirtualnego dysku twardego (VHD).
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Krok 1. Sprawdzanie pliku JSON dla szablonu
@@ -751,7 +751,7 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a name="a-iddeploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balanceratask-deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a><a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Zadanie: Wdrażanie aplikacji z wieloma maszynami wirtualnymi, korzystającej z sieci wirtualnej i modułu równoważenia obciążenia
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Zadanie: Wdrażanie aplikacji z wieloma maszynami wirtualnymi, korzystającej z sieci wirtualnej i modułu równoważenia obciążenia
 Ten szablon umożliwia utworzenie dwóch maszyn wirtualnych w ramach modułu równoważenia obciążenia i skonfigurowanie reguły równoważenia obciążenia na porcie 80. Ten szablon wdraża również konto magazynu, sieć wirtualną, publiczny adres IP, zestaw dostępności i interfejsy sieciowe.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
@@ -1163,7 +1163,7 @@ info:    group deployment create command OK
 
 Należy zauważyć, że ten szablon wdraża obraz systemu Windows Server, który jednak łatwo może zostać zastąpiony przez dowolny obraz systemu Linux. Czy chcesz utworzyć klaster Docker z wieloma menedżerami Swarm? [Możesz to zrobić](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a name="a-idremove-a-resource-groupatask-remove-a-resource-group"></a><a id="remove-a-resource-group"></a>Zadanie: Usuwanie grupy zasobów
+## <a id="remove-a-resource-group"></a>Zadanie: Usuwanie grupy zasobów
 Pamiętaj, że możesz wdrożyć ponownie do grupy zasobów, ale jeśli praca z nią została zakończona, możesz usunąć ją za pomocą polecenia `azure group delete <group name>`.
 
 ```azurecli
@@ -1174,7 +1174,7 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Zadanie: Wyświetlanie dziennika dla wdrożenia grupy zasobów
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Zadanie: Wyświetlanie dziennika dla wdrożenia grupy zasobów
 To zadanie jest typowe podczas tworzenia lub korzystania z szablonów. Do wywołania wyświetlania dzienników wdrożenia dla grupy służy polecenie `azure group log show <groupname>`, które wyświetla część informacji przydatną dla zrozumienia, dlaczego coś się stało lub się nie stało. (Aby uzyskać więcej informacji na temat rozwiązywania problemów dotyczących wdrożeń oraz inne informacje o problemach, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md) (Rozwiązywanie typowych problemów dotyczących wdrażania za pomocą usługi Azure Resource Manager).
 
 W celu określenia konkretnych błędów możesz korzystać z narzędzi, takich jak na przykład narzędzie **jq**, aby badać problemy bardziej precyzyjnie, na przykład zidentyfikować poszczególne błędy, które wymagają naprawienia. W poniższym przykładzie użyto narzędzia **jq** do przeanalizowania dziennika wdrożenia dla **lbgroup** w poszukiwaniu błędów.
@@ -1191,7 +1191,7 @@ Możesz szybko znaleźć przyczynę problemu, naprawić błąd i ponowić prób�
 }
 ```
 
-## <a name="a-iddisplay-information-about-a-virtual-machineatask-display-information-about-a-virtual-machine"></a><a id="display-information-about-a-virtual-machine"></a>Zadanie: Wyświetlanie informacji o maszynie wirtualnej
+## <a id="display-information-about-a-virtual-machine"></a>Zadanie: Wyświetlanie informacji o maszynie wirtualnej
 Informacje o określonych maszynach wirtualnych w grupie zasobów można wyświetlić za pomocą polecenia `azure vm show <groupname> <vmname>`. Jeśli w grupie jest więcej niż jedna maszyna wirtualna, może być konieczne wcześniejsze wyświetlenie listy maszyn wirtualnych w grupie za pomocą polecenia `azure vm list <groupname>`.
 
 ```azurecli
@@ -1263,10 +1263,10 @@ info:    vm show command OK
 >
 >
 
-## <a name="a-idlog-on-to-a-linux-based-virtual-machineatask-log-on-to-a-linux-based-virtual-machine"></a><a id="log-on-to-a-linux-based-virtual-machine"></a>Zadanie: Logowanie na maszynie wirtualnej z systemem Linux
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Zadanie: Logowanie na maszynie wirtualnej z systemem Linux
 Zazwyczaj maszyny z systemem Linux nawiązują połączenie za pośrednictwem protokołu SSH. Aby uzyskać więcej informacji, zobacz temat dotyczący [korzystania z protokołu SSH systemu Linux na platformie Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="a-idstop-a-virtual-machineatask-stop-a-vm"></a><a id="stop-a-virtual-machine"></a>Zadanie: Zatrzymywanie maszyny wirtualnej
+## <a id="stop-a-virtual-machine"></a>Zadanie: Zatrzymywanie maszyny wirtualnej
 Uruchom następujące polecenie:
 
 ```azurecli
@@ -1278,14 +1278,14 @@ azure vm stop <group name> <virtual machine name>
 >
 >
 
-## <a name="a-idstart-a-virtual-machineatask-start-a-vm"></a><a id="start-a-virtual-machine"></a>Zadanie: Uruchamianie maszyny wirtualnej
+## <a id="start-a-virtual-machine"></a>Zadanie: Uruchamianie maszyny wirtualnej
 Uruchom następujące polecenie:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a name="a-idattach-a-data-diskatask-attach-a-data-disk"></a><a id="attach-a-data-disk"></a>Zadanie: Dołączanie dysku danych
+## <a id="attach-a-data-disk"></a>Zadanie: Dołączanie dysku danych
 Musisz także zdecydować, czy dołączyć nowy dysk, czy taki, który zawiera dane. Dla nowego dysku polecenie tworzy plik VHD i dołącza go w tym samym poleceniu.
 
 Aby dołączyć nowy dysk, uruchom następujące polecenie:
@@ -1306,8 +1306,3 @@ Następnie należy zainstalować dysk, tak jak zwykle w systemie Linux.
 Aby uzyskać znacznie więcej przykładów użycia interfejsu wiersza polecenia platformy Azure z trybem **arm**, zobacz [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) (Używanie interfejsu wiersza polecenia platformy Azure na komputerach Mac i komputerach z systemem Linux oraz Windows z usługą Azure Resource Manager). Aby dowiedzieć się więcej na temat zasobów platformy Azure i powiązanych koncepcji, zobacz [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
 Aby uzyskać dodatkowe szablony, których możesz użyć, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) i [Application frameworks using templates](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Platformy aplikacji korzystające z szablonów).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

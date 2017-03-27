@@ -1,29 +1,24 @@
-1. Aby wyświetlić tagi dla zasobu lub grupy zasobów, wybierz ikonę **Tagi**. 
+1. To view the tags for a resource or resource group, select the **Tags** icon. 
    
-     ![Wybieranie tagów w blokach zasobu i grupy zasobów](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Zostaną wyświetlone istniejące tagi dla danego zasobu. Jeśli wcześniej nie zastosowano tagów, lista będzie pusta. 
+     ![Select tags on resource and resource group blades](./media/resource-manager-tag-resources/select-tag-icon.png)
+2. You see the existing tags for the resource. If you have not previously applied tags, the list is empty. 
 
-     ![Wyświetlanie istniejących tagów w blokach zasobu i grupy zasobów](./media/resource-manager-tag-resources/existing-tags.png)
-3. Aby dodać tag, wpisz klucz i wartość lub wybierz istniejącą opcję z menu rozwijanego. Wybierz pozycję **Zapisz**.
+     ![Show existing tags on resource and resource group blades](./media/resource-manager-tag-resources/existing-tags.png)
+3. To add a tag, type a key and value, or select an existing one from the dropdown menu. Select **Save**.
 
-     ![Dodawanie nowego tagu](./media/resource-manager-tag-resources/tag-resources.png)
-3. Aby wyświetlić wszystkie zasoby z wartością tagu, wybierz pozycję **>** (Więcej usług) i zastosuj filtr **Tagi**. Wybierz pozycję **Tagi** z listy dostępnych opcji.
+     ![Add new tag](./media/resource-manager-tag-resources/tag-resources.png)
+3. To view all the resources with a tag value, select **>** (More services), and enter the word **Tags** into the filter text box. Select **Tags** from the available options.
    
-     ![Znajdowanie tagów za pośrednictwem centrum przeglądania](./media/resource-manager-tag-resources/browse-tags.png)
-4. Zostanie wyświetlone podsumowanie tagów w Twoich subskrypcjach.
+     ![Find tags via the Browse hub](./media/resource-manager-tag-resources/browse-tags.png)
+4. You see a summary of the tags in your subscriptions.
    
-     ![Wyświetlanie wszystkich tagów](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Wybierz dowolny tag, aby wyświetlić oznaczone nim zasoby i grupy zasobów.
+     ![Show all tags](./media/resource-manager-tag-resources/tag-taxonomy.png)
+5. Select any of the tags to display the resources and resource groups with that tag.
    
-     ![Wyświetlanie otagowanych zasobów](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Wybierz pozycję **Przypnij blok do pulpitu nawigacyjnego**, aby uzyskać szybki dostęp.
+     ![Show tagged resources](./media/resource-manager-tag-resources/show-tagged-resources.png)
+6. Select **Pin blade to dashboard** for quick access.
    
-     ![Przypinanie tagów do pulpitu nawigacyjnego](./media/resource-manager-tag-resources/pin-tag.png)
-7. Przypięty tag możesz wybrać z poziomu pulpitu nawigacyjnego, aby zobaczyć oznaczone nim zasoby.
+     ![Pin tags to the Dashboard](./media/resource-manager-tag-resources/pin-tag.png)
+7. You can select the pinned tag from the dashboard to see the resources with that tag.
 
-     ![Przypinanie tagów do pulpitu nawigacyjnego](./media/resource-manager-tag-resources/show-pinned-tag.png)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+     ![Pin tags to the Dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)

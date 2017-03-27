@@ -1,29 +1,30 @@
 # Omówienie
 ## [Co to jest usługa Traffic Manager?](traffic-manager-overview.md)
-## [Jak działa usługa Traffic Manager](traffic-manager-how-traffic-manager-works.md)
-## [Punkty końcowe usługi Traffic Manager](traffic-manager-endpoint-types.md)
-## [Monitorowanie i przełączanie w tryb failover punktu końcowego usługi Traffic Manager](traffic-manager-monitoring.md)
-## [Metody routingu ruchu](traffic-manager-routing-methods.md)
-## [Profile zagnieżdżone](traffic-manager-nested-profiles.md)
-## [Zagadnienia związane z wydajnością w usłudze Traffic Manager](traffic-manager-performance-considerations.md)
-## [Obsługa usługi Azure Resource Manager](traffic-manager-powershell-arm.md)
+## [Routing methods](traffic-manager-routing-methods.md) (Metody routingu)
+### [Country/Region hierarchy used by Traffic Manager](traffic-manager-geographic-regions.md) (Hierarchia krajów/regionów używana przez usługę Traffic Manager)
+## [Endpoint types](traffic-manager-endpoint-types.md) (Typy punktów końcowych)
+## [Monitorowanie punktu końcowego](traffic-manager-monitoring.md)
+## [Często zadawane pytania](traffic-manager-FAQs.md)
 
 # Wprowadzenie
-## [Zarządzanie punktami końcowymi](traffic-manager-manage-endpoints.md)
-## [Zarządzanie profilami](traffic-manager-manage-profiles.md)
-## [Wskazywanie usługi Traffic Manager dla domeny internetowej](traffic-manager-point-internet-domain.md)
+## [Tworzenie profilu usługi Traffic Manager](traffic-manager-create-profile.md)
 
 # Instrukcje
-## [Konfigurowanie metody routingu](traffic-manager-configure-routing-method.md)
-## [Testowanie ustawień](traffic-manager-testing-settings.md)
+
+## [Configure geographic routing method](traffic-manager-configure-geographic-routing-method.md) (Konfigurowanie metody routingu geograficznego)
+## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md) (Konfigurowanie metody routingu opartego na priorytecie)
+## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md) (Konfigurowanie metody routingu ważonego)
+## [Konfigurowanie metody routingu opartego na wydajności](traffic-manager-configure-performance-routing-method.md)
+## [Zarządzanie punktami końcowymi](traffic-manager-manage-endpoints.md)
+## [Zarządzanie profilami](traffic-manager-manage-profiles.md)
+## [Verify Traffic Manager settings](traffic-manager-testing-settings.md) (Weryfikowanie ustawień usługi Traffic Manager)
 ## [Łączenie usług równoważenia obciążenia](traffic-manager-load-balancing-azure.md)
-## [Korzystanie z zasobów sieciowych](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Rozwiązywanie problemów
-### [Rozwiązywanie problemów z punktem końcowym o obniżonym poziomie](traffic-manager-troubleshooting-degraded.md)
+## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md) (Pomiar wydajności usługi Traffic Manager)
+## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md) (Zarządzanie usługą Traffic Manager za pomocą programu PowerShell)
+## [Wskazywanie usługi Traffic Manager dla domeny internetowej](traffic-manager-point-internet-domain.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (klasyczny)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

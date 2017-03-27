@@ -159,6 +159,7 @@
 #### [Use Excel](machine-learning-consuming-from-excel.md) (Korzystanie z programu Excel)
 #### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md) (Korzystanie z dodatku programu Excel)
 #### [Korzystanie z szablonu aplikacji sieci Web](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Use Batch Pool](machine-learning-dedicated-capacity-for-bes-jobs.md) (Używanie puli usługi Batch)
 
 ## Przykłady
 ### [Przykładowe eksperymenty](machine-learning-sample-experiments.md)
@@ -222,8 +223,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Get help from live chat](machine-learning-live-chat.md) (Uzyskaj pomoc przez czat na żywo)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

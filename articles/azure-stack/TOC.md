@@ -32,6 +32,7 @@
 ### [Monitorowanie kondycji i alertów](azure-stack-monitor-health.md)
 ### [Zarządzanie zasobami sieciowymi](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Zarządzanie zasobami magazynu](azure-stack-manage-storage-accounts.md)
+### [Manage Windows Azure Pack VMs](azure-stack-manage-windows-azure-pack.md) (Zarządzanie maszynami wirtualnymi pakietu Microsoft Azure Pack)
 
 # Zabezpieczenia i zgodność
 ## Instrukcje
@@ -86,7 +87,6 @@
 #### [Zarządzanie za pomocą portalu](azure-stack-kv-manage-portal.md)
 #### [Zarządzanie przy użyciu programu PowerShell](azure-stack-kv-manage-powershell.md)
 ### Instrukcje
-#### [Wdrażanie maszyny wirtualnej z hasłem](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Tworzenie maszyny wirtualnej z certyfikatem](azure-stack-kv-push-secret-into-vm.md)
 #### [Przykładowa aplikacja usługi Key Vault](azure-stack-kv-sample-app.md)
 

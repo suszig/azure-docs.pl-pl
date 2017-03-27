@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: HDInsight
+ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 0d15b6967b48f6d53cc169a87c25a2d9ee3936fe
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 383a325bfd2620f6c4fd25ce2f3a66522131efef
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ Usługa HDInsight obejmuje opcję oprogramowania R Server, którą można zinteg
 
 ## <a name="create-the-cluster"></a>Tworzenie klastra
 > [!NOTE]
-> Kroki opisane w tym dokumencie przeprowadzą Cię przez proces tworzenia oprogramowania R Server w klastrze usługi HDInsight przy użyciu podstawowej konfiguracji. Inne ustawienia konfiguracji klastra (takie jak dodawanie kolejnych kont magazynu, używanie usługi Azure Virtual Network lub tworzenie magazynu metadanych programu Hive) są opisane w artykule [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów usługi HDInsight opartych na systemie Linux).
+> Kroki opisane w tym dokumencie przeprowadzą Cię przez proces tworzenia oprogramowania R Server w klastrze usługi HDInsight przy użyciu podstawowej konfiguracji. Inne ustawienia konfiguracji klastra (takie jak dodawanie kolejnych kont magazynu, używanie usługi Azure Virtual Network lub tworzenie magazynu metadanych programu Hive) są opisane w artykule [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów usługi HDInsight opartych na systemie Linux). Aby utworzyć serwer R Server za pomocą szablonu usługi Azure Resource Management, zobacz [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Wdrażanie klastra usługi HDInsight serwera R Server).
 >
 > 
 
@@ -84,7 +85,7 @@ Usługa HDInsight obejmuje opcję oprogramowania R Server, którą można zinteg
    
    ![Katalog polecenia SSH](./media/hdinsight-getting-started-with-r/dir.png)
 
-   * Następnie określ plik klucza publicznego (*pub) podczas przypisywania poświadczeń klastra usługi HDI oraz potwierdź grupę zasobów i region, po czym wybierz pozycję **Dalej**
+   * Następnie określ plik klucza publicznego (*pub) podczas przypisywania poświadczeń klastra usługi HDI oraz potwierdź grupę zasobów i region, po czym wybierz pozycję**Dalej**
    
    ![Blok poświadczeń](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
    

@@ -7,9 +7,6 @@
 ## Adresowanie IP
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Wdrożenie klasyczne](virtual-network-ip-addresses-overview-classic.md)
-## Maszyny wirtualne
-### [Interfejsy sieciowe](virtual-network-network-interface-overview.md)
-### [Rozpoznawanie nazw](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Wprowadzenie
 ## [Tworzenie pierwszej sieci wirtualnej](virtual-network-get-started-vnet-subnet.md)
@@ -106,9 +103,10 @@
 ### [Optymalizowanie przepływności sieci maszyny wirtualnej](virtual-network-optimize-network-bandwidth.md)
 ### Listy kontroli dostępu
 #### [Portal klasyczny](virtual-networks-acl.md)
-#### [Program PowerShell](virtual-networks-acl-powershell.md)
+#### [PowerShell](virtual-networks-acl-powershell.md)
+### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md) (Rozpoznawanie nazw dla maszyn wirtualnych i usług w chmurze)
 
-## Zarządzaj
+## Zarządzanie
 ### Grupy zabezpieczeń sieci
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Program PowerShell](virtual-network-manage-nsg-arm-ps.md)

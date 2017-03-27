@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/27/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
-ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 5e7520f8a023cd5feb8401483161e7296a413b02
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,7 +46,7 @@ Dowiesz się:
 Do ukończenia tego samouczka niezbędne są następujące wstępnie wymagane elementy.
 
 * [Konto platformy Azure](#azure-account)
-* [Program Visual Studio 2015 z zestawem Azure SDK dla platformy .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Program Visual Studio 2017 z zestawem Azure SDK dla platformy .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Konto platformy Azure
 Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Możesz:
@@ -53,22 +54,23 @@ Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Możesz:
 * [Utworzyć bezpłatne konto platformy Azure ](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Otrzymasz środki, które możesz wykorzystać do wypróbowania płatnych usług Azure. Nawet po wyczerpaniu tych środków możesz zachować konto i korzystać z bezpłatnych usług i funkcji platformy Azure.
 * [Aktywować korzyści subskrybenta programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). W ramach subskrypcji MSDN co miesiąc otrzymasz środki, które możesz przeznaczyć na płatne usługi platformy Azure.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Program Visual Studio 2015 z zestawem Azure SDK dla platformy .NET
-Samouczek jest przeznaczony dla programu Visual Studio 2015 z [zestawem Azure SDK dla platformy .NET](../dotnet-sdk.md) w wersji 2.8.2 lub nowszej. [Pobierz najnowszy zestaw Azure SDK dla programu Visual Studio 2015 tutaj](http://go.microsoft.com/fwlink/?linkid=518003). Program Visual Studio jest automatycznie instalowany z zestawem SDK, jeśli nie był on zainstalowany wcześniej.
+### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>Program Visual Studio 2017 z zestawem Azure SDK dla platformy .NET
+Samouczek jest przeznaczony dla programu Visual Studio 2017 z [zestawem Azure SDK dla platformy .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). Zestaw Azure SDK 2.9.5 jest zawarty w instalatorze programu Visual Studio.
+
+Jeśli masz program Visual Studio 2015, możesz użyć samouczka przeznaczonego dla [zestawu Azure SDK dla platformy .NET](../dotnet-sdk.md) 2.8.2 lub nowszej wersji. [Pobierz najnowszy zestaw Azure SDK dla programu Visual Studio 2015 tutaj](http://go.microsoft.com/fwlink/?linkid=518003). Program Visual Studio jest automatycznie instalowany z zestawem SDK, jeśli nie był on zainstalowany wcześniej. Niektóre ekrany mogą różnić się od przedstawionych na ilustracjach w tym samouczku.
 
 Jeśli masz program Visual Studio 2013, możesz [pobrać najnowszy zestaw Azure SDK dla programu Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Niektóre ekrany mogą różnić się od przedstawionych na ilustracjach w tym samouczku.
-
-> [!NOTE]
-> Zależnie od liczby składników zależnych zestawu SDK, które znajdują się już na komputerze, instalowanie zestawu SDK może trwać od kilku minut do pół godziny lub dłużej.
-> 
-> 
 
 ## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 1. Otwórz program Visual Studio i kliknij kolejno opcje **Plik**, **Nowy**, **Projekt**.
 2. Rozwiń węzeł **Visual C#** na liście **Szablony**, wybierz pozycję **Chmura** i kliknij pozycję **Aplikacja sieci Web ASP.NET**. Upewnij się, że został wybrany program **.NET Framework 4.5.2** lub nowszy.  Wpisz **ContosoTeamStats** w polu tekstowym **Nazwa** i kliknij przycisk **OK**.
    
     ![Tworzenie projektu][cache-create-project]
-3. Wybierz **MVC** jako typ projektu. Wyczyść pole wyboru **Hostuj w chmurze**. W kolejnych krokach samouczka wykonasz [aprowizację zasobów platformy Azure](#provision-the-azure-resources) i [opublikujesz aplikację na platformie Azure](#publish-the-application-to-azure) Przykład aprowizacji aplikacji sieci Web usługi App Service z programu Visual Studio przez pozostawienie zaznaczonego pola wyboru **Hostuj w chmurze** opisano w artykule [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+3. Wybierz **MVC** jako typ projektu. 
+
+    Upewnij się, że dla ustawienia **Uwierzytelnianie** wybrano pozycję **Bez uwierzytelniania**. Ustawienie domyślnie może być różne w różnych wersjach programu Visual Studio. Aby je zmienić, kliknij przycisk **Zmień uwierzytelnianie** i wybierz pozycję **Bez uwierzytelniania**.
+
+    Jeśli używasz programu Visual Studio 2015, wyczyść pole wyboru **Hostuj w chmurze**. W kolejnych krokach samouczka wykonasz [aprowizację zasobów platformy Azure](#provision-the-azure-resources) i [opublikujesz aplikację na platformie Azure](#publish-the-application-to-azure) Przykład aprowizacji aplikacji sieci Web usługi App Service z programu Visual Studio przez pozostawienie zaznaczonego pola wyboru **Hostuj w chmurze** opisano w artykule [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
    
     ![Wybieranie szablonu projektu][cache-select-template]
 4. Kliknij przycisk **OK**, aby utworzyć projekt.
@@ -76,9 +78,21 @@ Jeśli masz program Visual Studio 2013, możesz [pobrać najnowszy zestaw Azure 
 ## <a name="create-the-aspnet-mvc-application"></a>Tworzenie aplikacji platformy ASP.NET MVC
 W tej części samouczka opisano tworzenie podstawowej aplikacji, która odczytuje i wyświetla statystyki zespołu z bazy danych.
 
+* [Dodawanie pakietu NuGet programu Entity Framework](#add-the-entity-framework-nuget-package)
 * [Dodawanie modelu](#add-the-model)
 * [Dodawanie kontrolera](#add-the-controller)
 * [Konfigurowanie widoków](#configure-the-views)
+
+### <a name="add-the-entity-framework-nuget-package"></a>Dodawanie pakietu NuGet programu Entity Framework
+
+1. W menu **Narzędzia** kliknij polecenie **Menedżer pakietów NuGet**, a następnie kliknij polecenie **Konsola menedżera pakietów**.
+2. W oknie `Package Manager Console` uruchom następujące polecenie.
+    
+    ```
+    Install-Package EntityFramework
+    ```
+
+Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakietu NuGet programu [EntityFramework](https://www.nuget.org/packages/EntityFramework/).
 
 ### <a name="add-the-model"></a>Dodawanie modelu
 1. Kliknij prawym przyciskiem myszy pozycję **Modele** w **Eksploratorze rozwiązań**, a następnie wybierz kolejno pozycje **Dodaj**, **Klasa**. 
@@ -172,21 +186,27 @@ W tej części samouczka opisano tworzenie podstawowej aplikacji, która odczytu
 1. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **web.config**, aby go otworzyć.
    
     ![Web.config][cache-web-config]
-2. Dodaj poniższe parametry połączenia do sekcji `connectionStrings`. Nazwa parametrów połączenia musi być zgodna z nazwą klasy kontekstu bazy danych platformy Entity Framework, którą jest `TeamContext`.
-
-    ```xml   
-    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-    ```
-
-    Po dodaniu sekcja `connectionStrings` powinna wyglądać jak w poniższym przykładzie.
+2. Dodaj następującą sekcję `connectionStrings`. Nazwa parametrów połączenia musi być zgodna z nazwą klasy kontekstu bazy danych platformy Entity Framework, którą jest `TeamContext`.
 
     ```xml
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-            providerName="System.Data.SqlClient" />
         <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
+
+    Nową sekcję `connectionStrings` możesz dodać po sekcji `configSections`, jak pokazano w poniższym przykładzie.
+
+    ```xml
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </configSections>
+      <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+      </connectionStrings>
+      ...
+      ```
 
 ### <a name="add-the-controller"></a>Dodawanie kontrolera
 1. Naciśnij klawisz **F6**, aby utworzyć projekt. 
@@ -261,14 +281,14 @@ W tej sekcji samouczka opisano konfigurowanie przykładowej aplikacji do przecho
 * [Aktualizacja widoku Indeks zespołów w celu pracy z pamięcią podręczną](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>Konfigurowanie aplikacji do korzystania z programu StackExchange.Redis
-1. Aby skonfigurować aplikację klienta w programie Visual Studio przy użyciu pakietu NuGet StackExchange.Redis, kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Zarządzaj pakietami NuGet**. 
+1. Aby skonfigurować aplikację klienta w programie Visual Studio przy użyciu pakietu NuGet StackExchange.Redis, w menu **Narzędzia** kliknij kolejno polecenia **Menedżer pakietów NuGet** i **Konsola menedżera pakietów**.
+2. W oknie `Package Manager Console` uruchom następujące polecenie.
+    
+    ```
+    Install-Package StackExchange.Redis
+    ```
    
-    ![Zarządzanie pakietami NuGet][redis-cache-manage-nuget-menu]
-2. Wpisz **StackExchange.Redis** w polu tekstowym wyszukiwania, wybierz z wyników żądaną wersję i kliknij przycisk **Zainstaluj**.
-   
-    ![Pakiet NuGet StackExchange.Redis][redis-cache-stack-exchange-nuget]
-   
-    Pakiet NuGet pobiera i dodaje wymagane odwołania do zestawu umożliwiające aplikacji klienta uzyskanie dostępu do usługi Azure Redis Cache przy użyciu klienta pamięci podręcznej StackExchange.Redis. Jeśli wolisz użyć wersji biblioteki klienckiej **StackExchange.Redis** o silnej nazwie, wybierz pozycję **StackExchange.Redis.StrongName**; w innym wypadku wybierz pozycję **StackExchange.Redis**.
+    Pakiet NuGet pobiera i dodaje wymagane odwołania do zestawu umożliwiające aplikacji klienta uzyskanie dostępu do usługi Azure Redis Cache przy użyciu klienta pamięci podręcznej StackExchange.Redis. Jeśli wolisz użyć wersji biblioteki klienckiej `StackExchange.Redis` o silnej nazwie, zainstaluj pakiet `StackExchange.Redis.StrongName`.
 3. W **Eksploratorze rozwiązań** rozwiń folder **Kontrolery** i kliknij dwukrotnie plik **TeamsController.cs**, aby go otworzyć.
    
     ![Kontroler zespołów][cache-teamscontroller]
@@ -670,7 +690,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    W tym wierszu wyświetlana jest wartość `ViewBag.Msg` zawierająca raport o stanie dotyczący bieżącej operacji, która zostaje ustawiona po kliknięciu jednego z linków akcji z poprzedniego kroku.   
+    W tym wierszu wyświetlana jest wartość `ViewBag.Msg` zawierająca raport o stanie dotyczący bieżącej operacji. Wartość `ViewBag.Msg` zostaje ustawiona po kliknięciu jednego z linków akcji z poprzedniego kroku.   
    
     ![Komunikat o stanie][cache-status-message]
 2. Naciśnij klawisz **F6**, aby utworzyć projekt.
@@ -698,7 +718,7 @@ Kliknięcie przycisku **Wdróż na platformie Azure** powoduje przejście do wit
 ![Wdrażanie na platformie Azure][cache-deploy-to-azure-step-1]
 
 1. W sekcji **Basics** wybierz subskrypcję Azure do użycia, wybierz istniejącą grupę zasobów lub utwórz nową, a następnie określ lokalizację grupy zasobów.
-2. W sekcji **Ustawienia** określ nazwę konta administratora (**ADMINISTRATORLOGIN** — nie należy używać nazwy **admin**), hasło logowania administratora (**ADMINISTRATORLOGINPASSWORD**) i nazwę bazy danych (**DATABASENAME**). Inne parametry są skonfigurowane na potrzeby planu hostingu Usługi aplikacji w warstwie Bezpłatna i tańszych opcji usług SQL Database i Azure Redis Cache, które nie są oferowane w warstwie Bezpłatna.
+2. W sekcji **Ustawienia** określ **nazwę konta administratora** (nie należy używać nazwy **admin**), **hasło logowania administratora** i **nazwę bazy danych**. Inne parametry są skonfigurowane na potrzeby planu hostingu Usługi aplikacji w warstwie Bezpłatna i tańszych opcji usług SQL Database i Azure Redis Cache, które nie są oferowane w warstwie Bezpłatna.
 
     ![Wdrażanie na platformie Azure][cache-deploy-to-azure-step-2]
 
@@ -726,17 +746,13 @@ W tym kroku samouczka opublikujesz aplikację na platformie Azure i uruchomisz j
 1. Kliknij prawym przyciskiem myszy projekt **ContosoTeamStats** w programie Visual Studio i wybierz polecenie **Publikuj**.
    
     ![Publikowanie][cache-publish-app]
-2. Kliknij przycisk **Usługa aplikacji Microsoft Azure**.
+2. Kliknij przycisk **Usługa aplikacji Microsoft Azure**, wybierz pozycję **Wybierz istniejące**i kliknij przycisk **Opublikuj**.
    
     ![Publikowanie][cache-publish-to-app-service]
-3. Wybierz subskrypcję używaną podczas tworzenia zasobów platformy Azure, rozwiń grupę zasobów zawierającą odpowiednie zasoby, wybierz żądaną aplikację sieci Web i kliknij przycisk **OK**. Jeśli został użyty przycisk **Wdróż na platformie Azure** nazwa aplikacji sieci Web rozpoczyna się od ciągu **webSite**, po którym występują dodatkowe znaki.
+3. Wybierz subskrypcję używaną podczas tworzenia zasobów platformy Azure, rozwiń grupę zasobów zawierającą odpowiednie zasoby i wybierz żądaną aplikację sieci Web. Jeśli został użyty przycisk **Wdróż na platformie Azure** nazwa aplikacji sieci Web rozpoczyna się od ciągu **webSite**, po którym występują dodatkowe znaki.
    
     ![Wybieranie aplikacji sieci Web][cache-select-web-app]
-4. Kliknij przycisk **Sprawdź poprawność połączenia**, aby sprawdzić ustawienia, a następnie kliknij przycisk **Publikuj**.
-   
-    ![Publikowanie][cache-publish]
-   
-    Po krótkim czasie zakończy się proces publikowania i zostanie otwarta przeglądarka z uruchomioną przykładową aplikacją. Jeśli podczas sprawdzania poprawności lub publikowania wystąpił błąd DNS, a proces aprowizacji zasobów platformy Azure dla aplikacji został dopiero niedawno ukończony, zaczekaj chwilę i spróbuj ponownie.
+4. Kliknij przycisk **OK**, aby rozpocząć proces publikowania. Po krótkim czasie zakończy się proces publikowania i zostanie otwarta przeglądarka z uruchomioną przykładową aplikacją. Jeśli podczas sprawdzania poprawności lub publikowania wystąpił błąd DNS, a proces aprowizacji zasobów platformy Azure dla aplikacji został dopiero niedawno ukończony, zaczekaj chwilę i spróbuj ponownie.
    
     ![Dodano pamięć podręczną][cache-added-to-application]
 
@@ -798,7 +814,7 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 1. Naciśnij klawisze **Ctrl+F5**, aby uruchomić aplikację.
 
 > [!NOTE]
-> Pamiętaj, że ponieważ aplikacja, łącznie z bazą danych, działa lokalnie, a pamięć podręczna Redis jest obsługiwana na platformie Azure, może wydawać się, że pamięć podręczna jest mniej wydajna niż baza danych. Aby uzyskać najlepszą wydajność, aplikacja klienta i wystąpienie usługi Azure Redis Cache powinny być w tej samej lokalizacji. 
+> Pamiętaj, że ponieważ aplikacja (łącznie z bazą danych) działa lokalnie, a pamięć podręczna Redis jest obsługiwana na platformie Azure, może wydawać się, że pamięć podręczna jest mniej wydajna niż baza danych. Aby uzyskać najlepszą wydajność, aplikacja klienta i wystąpienie usługi Azure Redis Cache powinny być w tej samej lokalizacji. 
 > 
 > 
 
@@ -848,10 +864,5 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

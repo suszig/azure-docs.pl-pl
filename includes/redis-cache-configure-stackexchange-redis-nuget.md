@@ -25,8 +25,8 @@ Pakiet NuGet pobiera i dodaje wymagane odwołania do zestawu umożliwiające apl
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+Można także zainstalować pakiet NuGet StackExchange.Redis, klikając pozycję **Menedżer pakietów NuGet**, **Konsola menedżera pakietów** z menu **Narzędzia**, a następnie uruchamiając następujące polecenie w oknie `Package Manager Console`.
+    
+```
+Install-Package StackExchange.Redis
+```

@@ -18,9 +18,9 @@ ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -105,7 +105,7 @@ Parametry połączenia można znaleźć w witrynie Azure Portal lub za pomocą n
 
 3. W bloku **Historia wdrażania** kliknij wdrożenie z nazwą rozpoczynającą się od **microsoft acs**, po której następuje data wdrożenia. Przykład: microsoft-acs-201701310000.  
 
-4. Na stronie **Podsumowanie** w obszarze **Dane wyjściowe** znajduje się kilka linków klastra (<provided>)</provided>. Element **SSHMaster0** zawiera parametry połączenia SSH z pierwszym wzorcem w klastrze usługi kontenera. 
+4. Na stronie **Podsumowanie** w obszarze **Dane wyjściowe** znajduje się kilka linków klastra. Element **SSHMaster0** zawiera parametry połączenia SSH z pierwszym wzorcem w klastrze usługi kontenera. 
 
 Jak wspomniano wcześniej, do wyszukania nazwy FQDN wzorca można również użyć narzędzi platformy Azure. Utwórz połączenie SSH z wzorcem, używając nazwy FQDN wzorca i nazwy użytkownika podanej podczas tworzenia klastra. Na przykład:
 
@@ -122,3 +122,4 @@ Aby uzyskać więcej informacji, zobacz [Łączenie z klastrem usługi Azure Con
 
 * [Dowiedz się więcej](container-service-intro.md) o usłudze Azure Container Service.
 * Wdrażanie klastra usługi kontenera przy użyciu [portalu](container-service-deployment.md) lub [interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-service-create-acs-cluster-cli.md).
+

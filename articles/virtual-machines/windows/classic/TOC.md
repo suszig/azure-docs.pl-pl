@@ -10,7 +10,7 @@
 ## [Tworzenie maszyny wirtualnej przy użyciu portalu](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Logowanie do maszyny wirtualnej](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Instalowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs)
-## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Instrukcje
 
@@ -85,6 +85,7 @@
 ### [Dostęp do aplikacji](../../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Problemy z klasycznym wdrożeniem przy tworzeniu nowej maszyny wirtualnej](../../virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Problemy z klasycznym wdrożeniem przy ponownym uruchamianiu lub zmienianiu rozmiaru istniejącej maszyny wirtualnej](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Resetowanie hasła protokołu RDP](../../virtual-machines-windows-classic-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Dokumentacja
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
@@ -102,8 +103,3 @@
 ## [Dostępność regionalna](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

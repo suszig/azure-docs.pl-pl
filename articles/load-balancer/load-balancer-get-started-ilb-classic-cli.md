@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: dc1ca3ce8befb0c5b707d6db2fb16178afe3de1e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -47,7 +48,7 @@ Aby utworzyć zestaw wewnętrznego modułu równoważenia obciążenia, a także
 
 W tym przewodniku opisano sposób tworzenia wewnętrznego modułu równoważenia obciążenia w oparciu o powyższy scenariusz.
 
-1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../xplat-cli-install.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
 2. Uruchom polecenie **azure config mode**, aby przełączyć tryb na klasyczny, jak pokazano poniżej.
 
     ```azurecli
@@ -179,9 +180,4 @@ Użyj polecenia `azure vm endpoint --help`, aby uzyskać więcej informacji.
 [Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia przy użyciu koligacji źródłowych adresów IP)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

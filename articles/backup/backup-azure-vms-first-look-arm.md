@@ -17,9 +17,9 @@ ms.date: 02/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 05a3b32e6d059c219b1b99df02536c5b287c29fd
-ms.openlocfilehash: 9a73f361ba80c7c4219de68d39026b936a77aa05
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 8b1a16384d7204c5d7d4d9a5165658c24b86bdb4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,8 +38,9 @@ Ten samouczek zawiera kroki prowadzące do utworzenia magazynu usługi Recovery 
 * Maszyny wirtualne magazynu w warstwie Premium
 * Maszyny wirtualne uruchomione na dyskach zarządzanych
 * Maszyny wirtualne szyfrowane przy użyciu usługi Azure Disk Encryption (BEK i KEK)
+* Spójna na poziomie aplikacji kopia zapasowa maszyn wirtualnych z systemem Windows wykonywana przy użyciu usługi VSS i kopia zapasowa maszyn wirtualnych z systemem Linux wykonywana przy użyciu niestandardowych skryptów uruchamianych przed utworzeniem i po utworzeniu migawki
 
-Dodatkowe informacje na temat ochrony maszyn wirtualnych usługi Premium Storage można znaleźć w artykule [Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych usługi Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Dodatkowe informacje na temat obsługi maszyn wirtualnych dysku zarządzanego można znaleźć w sekcji [Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych na dyskach zarządzanych](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Dodatkowe informacje na temat ochrony maszyn wirtualnych usługi Premium Storage można znaleźć w artykule [Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych usługi Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Dodatkowe informacje na temat obsługi maszyn wirtualnych dysku zarządzanego można znaleźć w sekcji [Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych na dyskach zarządzanych](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Aby uzyskać więcej informacji dotyczących struktury skryptów wykonywanych przed utworzeniem kopii zapasowej maszyny wirtualnej z systemem Linux i po utworzeniu kopii zapasowej, zobacz [Application consistent Linux VM backup using pre-script and post-script] (Spójna na poziomie aplikacji kopia zapasowa maszyn wirtualnych z systemem Linux wykonywana przy użyciu skryptów uruchamianych przed utworzeniem i po utworzeniu kopii zapasowej) (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 > [!NOTE]
 > W tym samouczku zakładamy, że masz już maszynę wirtualną w subskrypcji platformy Azure i zostały podjęte działania umożliwiające usłudze tworzenia kopii zapasowej dostęp do maszyny wirtualnej.

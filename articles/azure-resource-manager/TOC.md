@@ -7,14 +7,13 @@
 
 # Rozpoczęcie pracy
 ## [Eksportowanie szablonu](resource-manager-export-template.md)
-## [Przewodnik po szablonach](resource-manager-template-walkthrough.md)
+## [Create your first template](resource-manager-create-first-template.md) (Tworzenie pierwszego szablonu)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [Program VS Code z usługą Resource Manager](resource-manager-vs-code.md)
 
 # Instrukcje
 ## Tworzenie szablonów
 ### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
-### [Tworzenie szablonów](resource-group-authoring-templates.md)
+### [Template sections](resource-group-authoring-templates.md) (Sekcje szablonu)
 ### [Funkcje szablonów](resource-group-template-functions.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
 ### [Ustawianie nazwy i typu zasobu podrzędnego](resource-manager-template-child-resource.md)
@@ -62,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Schematy szablonów](https://github.com/Azure/azure-resource-manager-schemas)
+## [Template format](/azure/templates/) (Format szablonu)
 ## [REST](/rest/api/resources/)
 
 # Zasoby

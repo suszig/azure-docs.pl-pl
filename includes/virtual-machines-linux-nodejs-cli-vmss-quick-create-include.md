@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Osoby, które nie skorzystały jeszcze z [bezpłatnej wersji próbnej subskrypcji Azure](https://azure.microsoft.com/pricing/free-trial/) i [interfejsu wiersza polecenia Azure 1.0](../articles/xplat-cli-install.md) [powiązanych z kontem usługi Azure](../articles/xplat-cli-connect.md), mogą je zarejestrować. Upewnij się, że interfejs wiersza polecenia platformy Azure działa w trybie usługi Resource Manager, w następujący sposób:
+Osoby, które nie skorzystały jeszcze z [bezpłatnej wersji próbnej subskrypcji Azure](https://azure.microsoft.com/pricing/free-trial/) i [interfejsu wiersza polecenia Azure 1.0](../articles/cli-install-nodejs.md) [powiązanych z kontem usługi Azure](../articles/xplat-cli-connect.md), mogą je zarejestrować. Upewnij się, że interfejs wiersza polecenia platformy Azure działa w trybie usługi Resource Manager, w następujący sposób:
 
 ```azurecli
 azure config mode arm

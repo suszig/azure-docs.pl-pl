@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/20/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8b07ac76ebf40cd9bcf428711c2c0f3f3d917388
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,34 +33,13 @@ Dostępne są dwa modele urządzenia wirtualnego StorSimple: standardowy — 801
 | **Maksymalna pojemność** |30 TB |64 TB |
 | **Maszyna wirtualna platformy Azure** |Standard_A3 (4 rdzenie, 7 GB pamięci) |Standard_DS3 (4 rdzenie, 14 GB pamięci) |
 | **Zgodność wersji** |Wersje przed wprowadzeniem aktualizacji Update 2 lub nowsze |Wersje z aktualizacją Update 2 lub nowsze |
-| **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Regiony platformy Azure obsługujące usługę Premium Storage<br></br>Aby wyświetlić listę regionów, zobacz [obsługiwane regiony dla serii 8020](#supported-regions-for-8020) |
+| **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Wszystkie regiony platformy Azure obsługujące usługę Premium Storage<br></br>Regiony usługi Premium Storage można znaleźć na liście [Usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/en-us/regions/services). Odszukaj regiony, w których są obsługiwane maszyny wirtualne serii DS, DSV2, Fs i GS. |
 | **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../storage/storage-premium-storage.md) |
 | **Wskazówki dotyczące obciążenia** |Pobieranie plików z kopii zapasowych na poziomie elementu |Tworzenie chmur i scenariusze testowania, krótki czas oczekiwania, bardziej wydajne obciążenia <br></br>Urządzenie pomocnicze do odzyskiwania po awarii |
 
 <sup>1</sup> *Poprzednia nazwa: 1100*.
 
 <sup>2</sup> *Urządzenia 8010 i 8020 korzystają z usługi Azure Standard Storage dla warstwy chmury. Różnica istnieje tylko w warstwie lokalnej urządzenia*.
-
-#### <a name="supported-regions-for-8020"></a>Obsługiwane regiony dla urządzenia 8020
-Regiony usługi Premium Storage obsługiwane obecnie przez urządzenie 8020 wyszczególniono w poniższej tabeli. Lista ta będzie cały czas uaktualniania, w miarę jak usługa Premium Storage będzie udostępniana w kolejnych regionach.
-
-| Mag. nr | Obecnie obsługiwany w regionach |
-| --- | --- |
-| 1 |Środkowe stany USA |
-| 2 |Wschodnie stany USA |
-| 3 |Wschodnie stany USA 2 |
-| 4 |Zachodnie stany USA |
-| 5 |Europa Północna |
-| 6 |Europa Zachodnia |
-| 7 |Azja Południowo-Wschodnia |
-| 8 |Japonia Wschodnia |
-| 9 |Japonia Zachodnia |
-| 10 |Australia Wschodnia |
-| 11 |Australia Południowo-Wschodnia* |
-| 12 |Azja Wschodnia* |
-| 13 |Południowo-środkowe stany USA* |
-
-* Usługa Premium Storage została ostatnio uruchomiona w tych obszarach geograficznych.
 
 W tym artykule opisano krok po kroku proces wdrażania urządzenia wirtualnego StorSimple w systemie Azure. Zapoznanie się z tym artykułem umożliwi:
 
@@ -89,7 +69,7 @@ Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji u
 #### <a name="azure-requirements"></a>Wymagania systemu Azure
 Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować następujące elementy w środowisku platformy Azure:
 
-* [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) dla urządzenia wirtualnego. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Więcej informacji na temat [regionów, które są obecnie obsługiwane przez urządzenia 8020](#supported-regions-for-8020).
+* [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) dla urządzenia wirtualnego. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Regiony usługi Premium Storage można znaleźć na liście [Usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/en-us/regions/services). Odszukaj regiony, w których są obsługiwane maszyny wirtualne serii DS, DSV2, Fs i GS.
 * Zaleca się używanie domyślnego serwera DNS zapewnionego w systemie Azure zamiast określania własnej nazwy serwera DNS. Jeśli nazwa serwera DNS jest nieprawidłowa lub jeśli serwer DNS nie jest w stanie poprawnie rozpoznać adresów IP, tworzenie urządzenia wirtualnego zakończy się niepowodzeniem.
 * Sieci typu punkt do lokacji i lokacja do lokacji są opcjonalne. W razie potrzeby można skonfigurować te opcje dla bardziej zaawansowanych scenariuszy.
 * Można utworzyć [maszyny wirtualne Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (serwery hosta) w sieci wirtualnej, która może korzystać z woluminów udostępnionych przez urządzenie wirtualne. Serwery te muszą spełniać następujące wymagania:                             
@@ -256,9 +236,4 @@ Jeśli podczas tworzenia urządzenia wirtualnego nie ma łączności z Internete
 ## <a name="next-steps"></a>Następne kroki
 * Informacje na temat [używania usługi StorSimple Manager do zarządzania urządzeniem wirtualnym](storsimple-manager-service-administration.md).
 * Zapoznanie się ze sposobem [przywracania woluminu StorSimple z zestawu kopii zapasowych](storsimple-restore-from-backup-set.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
