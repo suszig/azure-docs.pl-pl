@@ -109,11 +109,11 @@
 #### [Wzorce sieci klastra](service-fabric-patterns-networking.md)
 #### [Typy węzłów i zestawy skalowania maszyn wirtualnych](service-fabric-cluster-nodetypes.md)
 #### [Skalowanie klastra](service-fabric-cluster-scale-up-down.md)
+#### [Scale a cluster programmatically](service-fabric-cluster-programmatic-scaling.md) (Programowe skalowania klastra)
 #### [Uaktualnianie klastra](service-fabric-cluster-upgrade.md)
 #### [Usuwanie klastra](service-fabric-cluster-delete.md)
 #### [Kontrola dostępu](service-fabric-cluster-security-roles.md)
 #### [Konfigurowanie klastra](service-fabric-cluster-fabric-settings.md)
-#### [Zabezpieczenia klastra przy użyciu certyfikatów](service-fabric-windows-cluster-x509-security.md)
 #### [Dodawanie lub przerzucanie certyfikatów klastra](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Bezpłatne wypróbowywanie klastra testowego](http://aka.ms/tryservicefabric)
 
@@ -131,7 +131,8 @@
 
 ## Zarządzanie cyklem życia aplikacji
 ### [Omówienie](service-fabric-application-lifecycle.md)
-### [Konfiguracja integracji ciągłej](service-fabric-set-up-continuous-integration.md)
+### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md) (Konfiguracja integracji ciągłej za pomocą usługi VSTS)
+### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md) (Wdrażanie aplikacji Java w systemie Linux przy użyciu narzędzia Jenkins)
 ### [Omówienie ustawienia ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Wdrażanie lub usuwanie aplikacji
 #### [Program PowerShell](service-fabric-deploy-remove-applications.md)

@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
-ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -106,7 +106,7 @@ Oto kilka przykładów sposobu udostępniania w portalu większej liczby szczeg�
     ![Zrzut ekranu przedstawiający portal. Z poziomu bloku Przegląd kliknij pozycję Wyszukaj.](./media/app-insights-asp-net/search.png)
 
  * W trybie projektowania może być wyświetlanych wiele zdarzeń zależności (AJAX). Są to synchronizacje między przeglądarką a emulatorem serwera. Aby je ukryć, kliknij filtr **Zależność**.
-* [**Zagregowane metryki **](app-insights-metrics-explorer.md), takie jak żądania i współczynniki błędów, są wyświetlane na wykresach. Kliknij wykres, aby otworzyć blok z bardziej szczegółowymi informacjami. Kliknij tag **Edytuj** na dowolnym wykresie, aby ustawić filtry i rozmiar.
+* [**Zagregowane metryki**](app-insights-metrics-explorer.md), takie jak żądania i współczynniki błędów, są wyświetlane na wykresach. Kliknij wykres, aby otworzyć blok z bardziej szczegółowymi informacjami. Kliknij tag **Edytuj** na dowolnym wykresie, aby ustawić filtry i rozmiar.
 
     ![Zrzut ekranu przedstawiający blok zagregowanych metryk dostępnych w portalu](./media/app-insights-asp-net/metrics.png)
 
@@ -197,6 +197,10 @@ Numer wersji kompilacji jest jednak generowany tylko przez aparat Microsoft Buil
 Jeśli korzystasz z usługi Visual Studio Team Services, możesz [uzyskać znacznik adnotacji](app-insights-annotations.md) dodawany do Twoich wykresów, za każdym razem, gdy wydasz nową wersję. Na następującej ilustracji pokazano sposób wyświetlania tego znacznika.
 
 ![Zrzut ekranu przedstawiający przykładową adnotację dotyczącą wersji widoczną na wykresie](./media/app-insights-asp-net/release-annotation.png)
+
+## <a name="video"></a>Połączenia wideo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Następne kroki
 **[Praca z usługą Application Insights w programie Visual Studio](app-insights-visual-studio.md)**<br/>Zawiera informacje o debugowaniu przy użyciu telemetrii, wyszukiwaniu diagnostycznym i przechodzeniu do szczegółów kodu.

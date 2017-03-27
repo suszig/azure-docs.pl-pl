@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
-ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -92,7 +92,7 @@ W poniższej tabeli przedstawiono składniki usługi Azure Backup, które obsłu
 | Agent usługi Azure Backup (MARS) |Nie (tylko agent oparty na systemie Windows) |
 | System Center DPM |Spójna na poziomie plików kopia zapasowa tylko dla funkcji Hyper-V<br/> (niedostępne dla maszyny wirtualnej platformy Azure) |
 | Azure Backup Server |Spójna na poziomie plików kopia zapasowa tylko dla funkcji Hyper-V<br/> (niedostępne dla maszyny wirtualnej platformy Azure) |
-| Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |Tak |
+| Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |Tak (spójna na poziomie aplikacji kopia zapasowa korzystająca ze [struktury skryptów uruchamianych przed utworzeniem i po utworzeniu kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Korzystanie z maszyn wirtualnych usługi Premium Storage przy użyciu usługi Azure Backup
 Usługa Azure Backup chroni maszyny wirtualne usługi Premium Storage. Azure Premium Storage to magazyn oparty na dyskach SSD i zaprojektowany z myślą o obsłudze dużych obciążeń wejścia/wyjścia. Usługa Premium Storage jest atrakcyjna dla obciążeń maszyn wirtualnych. Aby uzyskać więcej informacji o usłudze Premium Storage, zobacz artykuł [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).

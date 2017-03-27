@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -127,7 +127,7 @@ W tym kroku opisano tworzenie konta użytkownika umożliwiającego uzyskiwanie d
 
 - Usługa SQL Data Warehouse korzysta ze wstępnie zdefiniowanych ról bazy danych, nazywanych klasami zasobów, które umożliwiają przydzielanie użytkownikom różnej ilości pamięci i zasobów procesora CPU oraz liczby gniazd współbieżności. Każdy użytkownik może należeć do klasy małej, średniej, dużej lub bardzo dużej ilości zasobów. Klasa zasobów użytkownika określa zasoby dostępne dla użytkownika podczas wykonywania zapytań i operacji ładowania.
 
-- W celu uzyskania optymalnej kompresji danych użytkownik zwykle wymaga obciążenia z przydziałem dużej lub bardzo dużej ilości zasobów. Więcej o klasach zasobów może dowiedzieć się [tutaj](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- W celu uzyskania optymalnej kompresji danych użytkownik może wymagać obciążenia z przydziałem dużej lub bardzo dużej ilości zasobów. Więcej o klasach zasobów może dowiedzieć się [tutaj](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Tworzenie konta z możliwością sterowania bazą danych
 

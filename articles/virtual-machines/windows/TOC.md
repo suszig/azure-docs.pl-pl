@@ -55,7 +55,6 @@
 ### [Tworzenie maszyny wirtualnej przy użyciu języka C# i szablonu](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Tworzenie maszyny wirtualnej przy użyciu programu Chef](../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Tworzenie maszyny wirtualnej z popularnymi platformami aplikacji](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Kopiowanie maszyny wirtualnej](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Przenoszenie maszyny wirtualnej między subskrypcjami](../virtual-machines-windows-move-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
@@ -80,22 +79,18 @@
 ### [Licencjonowanie korzyści z używania hybrydowej platformy Azure](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Korzystanie z obrazów klientów systemu Windows](../virtual-machines-windows-client-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Przygotowywanie wirtualnego dysku twardego do przekazywania](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Uogólnianie maszyny wirtualnej za pomocą programu Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Przekazywanie wirtualnego dysku twardego](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Przekazywanie i tworzenie maszyny wirtualnej przy użyciu uogólnionego wirtualnego dysku twardego](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Przekazywanie i tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego wirtualnego dysku twardego](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Tworzenie obrazu dysku zarządzanego](../virtual-machines-windows-capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Tworzenie maszyny wirtualnej na podstawie uogólnionego obrazu dysku zarządzanego](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Tworzenie niezarządzanej maszyny wirtualnej na podstawie uogólnionego wirtualnego dysku twardego](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Przechwytywanie niezarządzanej maszyny wirtualnej do magazynu obiektów blob](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
+
 
 ## Zarządzanie magazynem maszyn wirtualnych
 ### [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Często zadawane pytania](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Tworzenie dysku zarządzanego](../virtual-machines-windows-create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Konwertowanie maszyny wirtualnej na dysk usługi Managed Disks](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Azure PowerShell](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Migrate VMs to Managed Disks](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Migrowanie maszyn wirtualnych do usługi Managed Disks)
+#### [Convert from unmanaged to Managed Disks](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Konwertowanie z dysków niezarządzanych do usługi Managed Disks)
+#### [Migrate a classic VM to Managed Disks](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Migrowanie klasycznej maszyny wirtualnej do usługi Managed Disks)
 ### [Tworzenie migawki dysku zarządzanego](../virtual-machines-windows-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### Dołączanie dysku danych
 #### [Azure PowerShell](../virtual-machines-windows-attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -104,6 +99,12 @@
 ### [Rozszerzanie dysku systemu operacyjnego](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Rozszerzanie dysku danych](../virtual-machines-windows-expand-data-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Używanie dysku D: jako dysku danych](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Tworzenie maszyn wirtualnych przy użyciu dysków niezarządzanych
+#### [Przekazywanie wirtualnego dysku twardego](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Create an unmanaged image](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Tworzenie obrazu niezarządzanego)
+#### [Tworzenie niezarządzanej maszyny wirtualnej na podstawie uogólnionego wirtualnego dysku twardego](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Kopiowanie maszyny wirtualnej](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## [Sieć maszyn wirtualnych](../virtual-machines-windows-ps-common-network-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Tworzenie sieci wirtualnych](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -169,10 +170,11 @@
 ## Migrowanie maszyn wirtualnych
 ### [Omówienie migrowania lokalnych maszyn wirtualnych i maszyn wirtualnych usług AWS na platformę Azure](../virtual-machines-windows-on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Migrowanie z usług Amazon Web Services (AWS) na platformę Azure](../virtual-machines-windows-aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Przekazywanie i tworzenie maszyny wirtualnej na podstawie uogólnionego wirtualnego dysku twardego](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Przekazywanie i tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego wirtualnego dysku twardego](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Migrowanie z wersji klasycznej do usługi Azure Resource Manager](../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Planowanie migracji](../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Migrowanie wszystkich maszyn wirtualnych w sieci wirtualnej przy użyciu programu PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Migrowanie jednej maszyny wirtualnej przy użyciu programu PowerShell](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Typowe błędy migracji](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Narzędzia społeczności do migracji](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

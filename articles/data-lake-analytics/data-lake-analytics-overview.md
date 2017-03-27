@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
-ms.openlocfilehash: 7311588adcdeb11d0972daa68e832c4f95e60a5a
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 12d6fe834ed2b31a756123351288eec7ba2a72f7
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Omówienie usługi Microsoft Azure Data Lake Analytics
 ## <a name="what-is-azure-data-lake-analytics"></a>Co to jest usługa Azure Data Lake Analytics?
-Azure Data Lake Analytics to nowa usługa zaprojektowana z myślą o upraszczaniu analizy danych big data. Ta usługa pozwala skoncentrować się na pisaniu i uruchamianiu zadań oraz zarządzaniu nimi, a nie na obsługiwaniu rozproszonej infrastruktury. Zamiast wdrażać, konfigurować i dostosowywać sprzęt, możesz pisać zapytania umożliwiające przekształcanie danych i wyodrębniać wartościowe informacje. Usługa analizy może od razu rozpocząć obsługę zadań w dowolnej skali — należy wybrać ustawienie wskazujące potrzebną moc. Płacisz tylko za uruchomione zadanie, dzięki czemu oszczędzasz pieniądze. Usługa analizy obsługuje usługę Azure Active Directory, umożliwiając zarządzanie dostępem i rolami, które jest zintegrowane z Twoim lokalnym systemem tożsamości. Obejmuje ona również język U-SQL, który łączy korzyści z użycia języka SQL z wszechstronnymi możliwościami kodu użytkownika. Skalowalne rozproszone środowisko uruchomieniowe języka U-SQL umożliwia efektywne analizowanie danych w magazynie i na serwerach SQL Server na platformie Azure oraz w usługach Azure SQL Database i Azure SQL Data Warehouse.
+Usługa Azure Data Lake Analytics jest usługą zadań analizy na żądanie, która pozwala uprościć analizowanie danych big data. Skoncentruj się na pisaniu i uruchamianiu zadań oraz zarządzaniu nimi, a nie na obsłudze rozproszonej infrastruktury. Zamiast wdrażać, konfigurować i dostosowywać sprzęt, możesz pisać zapytania umożliwiające przekształcanie danych i wyodrębniać wartościowe informacje. Usługa analizy może od razu rozpocząć obsługę zadań w dowolnej skali — należy wybrać ustawienie wskazujące potrzebną moc. Płacisz tylko za uruchomione zadanie, dzięki czemu oszczędzasz pieniądze. Usługa analizy obsługuje usługę Azure Active Directory, umożliwiając zarządzanie dostępem i rolami, które jest zintegrowane z Twoim lokalnym systemem tożsamości. Obejmuje ona również język U-SQL, który łączy korzyści z użycia języka SQL z wszechstronnymi możliwościami kodu użytkownika. Skalowalne rozproszone środowisko uruchomieniowe języka U-SQL umożliwia efektywne analizowanie danych w magazynie i na serwerach SQL Server na platformie Azure oraz w usługach Azure SQL Database i Azure SQL Data Warehouse.
 
 ## <a name="key-capabilities"></a>Najważniejsze możliwości
 * **Dynamiczne skalowanie**
@@ -71,10 +72,5 @@ Azure Data Lake Analytics to nowa usługa zaprojektowana z myślą o upraszczani
   <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [Prześlij zgłoszenie dotyczące funkcji](http://aka.ms/adlafeedback)
   * [Uzyskaj pomoc na forach](http://aka.ms/adlaforums)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 49602804cc6b4d4f98c802c1a3b651dda2634bb7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -142,7 +142,7 @@ Aby wyświetlić interfejs sieci Web rozwiązania Kubernetes, możesz użyć pol
 ```console
 kubectl proxy
 ```
-Spowoduje to uruchomienie na hoście lokalnym prostego, uwierzytelnionego serwera proxy, który umożliwia wyświetlenie [interfejsu użytkownika sieci Web rozwiązania Kubernetes](http://localhost:8001/ui). Aby uzyskać więcej informacji, zobacz [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md) (Używanie interfejsu użytkownika sieci Web usługi Kubernetes za pomocą usługi Azure Container Service).
+Spowoduje to uruchomienie na hoście lokalnym prostego, uwierzytelnionego serwera proxy, który umożliwia wyświetlenie interfejsu użytkownika sieci Web rozwiązania Kubernetes uruchomionego pod adresem [http://localhost:8001/ui](http://localhost:8001/ui). Aby uzyskać więcej informacji, zobacz [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md) (Używanie interfejsu użytkownika sieci Web usługi Kubernetes za pomocą usługi Azure Container Service).
 
 ![Obraz przedstawiający pulpit nawigacyjny rozwiązania Kubernetes](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -157,13 +157,13 @@ kubectl get pods
 Przy użyciu nazwy zasobnika możesz uruchomić w tym zasobniku polecenie zdalne.  Na przykład:
 
 ```console
-kubectl exec nginx-701339712-retbj date
+kubectl exec <pod name> date
 ```
 
 Oprócz tego możesz uzyskać w pełni interaktywną sesję, korzystając z flag `-it`:
 
 ```console
-kubectl exec nginx-701339712-retbj -it bash
+kubectl exec <pod name> -it bash
 ```
 
 ![Sesja zdalna wewnątrz kontenera](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)

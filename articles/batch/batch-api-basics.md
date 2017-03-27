@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0682a048429d8e980da529975a24dde28a9812fe
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
 ms.lasthandoff: 03/15/2017
 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 
 W tym omówieniu podstawowych składników usługi Azure Batch przedstawiamy główne funkcje oraz zasoby, z których deweloperzy usługi Batch mogą korzystać w przypadku kompilowania rozwiązań do przetwarzania równoległego na dużą skalę.
 
-Bez względu na to, czy tworzysz aplikację do przetwarzania rozproszonego, usługę obsługującą bezpośrednie wywołania interfejsu [API REST][batch_rest_api], czy też korzystasz z jednego z [zestawów SDK usługi Batch](batch-technical-overview.md#batch-development-apis), będziesz używać wielu zasobów oraz funkcji omówionych w tym artykule.
+Bez względu na to, czy tworzysz aplikację do przetwarzania rozproszonego, usługę obsługującą bezpośrednie wywołania interfejsu [API REST][batch_rest_api], czy też korzystasz z jednego z [zestawów SDK usługi Batch](batch-apis-tools.md#batch-development-apis), będziesz używać wielu zasobów oraz funkcji omówionych w tym artykule.
 
 > [!TIP]
 > Bardziej szczegółowe wprowadzenie do usługi Batch można znaleźć w temacie [Podstawy usługi Azure Batch](batch-technical-overview.md).
@@ -416,7 +416,7 @@ W sytuacjach, w których niektóre z zadań kończą się niepowodzeniem, aplika
     Spowoduje to ponowne zainstalowanie systemu operacyjnego w węźle. Podobnie jak w przypadku ponownego rozruchu węzła zadania uruchamiania i zadania przygotowania zadania są uruchamiane ponownie po odtworzeniu węzła z obrazu.
 * **Usuń węzeł z puli** ([REST][rest_remove] | [.NET][net_remove])
 
-    Czasami konieczne jest całkowite usunięcie węzła z puli..
+    Czasami konieczne jest całkowite usunięcie węzła z puli.
 * **Wyłącz planowanie zadań podrzędnych w węźle** ([REST][rest_offline] | [.NET][net_offline])
 
     Ta czynność przełącza węzeł w tryb „offline”, aby nie zostały do niego przypisane żadne dalsze zadania podrzędne, ale pozwala na dalsze działanie węzła i jego obecność w puli. Dzięki temu można dalej sprawdzać przyczyny błędów bez utraty danych nieudanego zadania, gdy węzeł nie powoduje dodatkowych awarii zadania. Można na przykład wyłączyć planowanie zadań podrzędnych w węźle, a następnie [zalogować się zdalnie](#connecting-to-compute-nodes), aby sprawdzić dzienniki zdarzeń węzła lub wykonać inne operacje związane z rozwiązywaniem problemów. Po zakończeniu sprawdzania można ponownie przełączyć węzeł w tryb online przez włączenie planowania zadań podrzędnych ([REST][rest_online] | [.NET][net_online]) lub wykonać jedną z innych akcji omówionych powyżej.
@@ -427,6 +427,7 @@ W sytuacjach, w których niektóre z zadań kończą się niepowodzeniem, aplika
 >
 
 ## <a name="next-steps"></a>Następne kroki
+* Dowiedz się więcej o [interfejsach API i narzędziach usługi Batch](batch-apis-tools.md) umożliwiających tworzenie rozwiązań usługi Batch.
 * Zapoznaj się ze szczegółowym opisem przykładowej aplikacji usługi Batch w temacie [Wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET](batch-dotnet-get-started.md). Udostępniono również samouczek w [wersji dla języka Python](batch-python-tutorial.md), który umożliwia uruchamianie obciążenia w węzłach obliczeniowych systemu Linux.
 * Pobierz i skompiluj przykładowy projekt programu [Batch Explorer][github_batchexplorer] do użycia podczas tworzenia rozwiązań usługi Batch. Za pomocą programu Batch Explorer można wykonywać m.in. następujące czynności:
 

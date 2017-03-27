@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 746f697076566ce3edd970336b005e53dc4d2d39
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 89a9e29261e338aceb4ff6feb55cf344afeeb3d4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,53 +26,59 @@ ms.lasthandoff: 03/15/2017
 
 Ten przewodnik szybkiego startu pomaga w ciągu kilku minut wdrożyć pierwszą aplikację sieci Web platformy Node.js w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-Przed uruchomieniem tego przewodnika szybkiego startu upewnij się, że masz na maszynie [zainstalowany interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Przed rozpoczęciem upewnij się, że interfejs wiersza polecenia platformy Azure został zainstalowany. Aby uzyskać więcej informacji, zobacz [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli) (Przewodnik instalacji interfejsu wiersza polecenia platformy Azure).
 
-# <a name="create-a-nodejs-web-app"></a>Tworzenie aplikacji sieci Web Node.js
-2. Zaloguj się do platformy Azure, uruchamiając polecenie `az login` i postępując zgodnie ze wskazówkami na ekranie.
+## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+Zaloguj się do platformy Azure, uruchamiając polecenie `az login` i postępując zgodnie ze wskazówkami na ekranie.
    
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
    
-3. Utwórz [grupę zasobów](../azure-resource-manager/resource-group-overview.md). W niej umieścisz wszystkie zasoby platformy Azure, którymi chcesz zarządzać razem, takie jak aplikacja sieci Web i jej zaplecze w usłudze SQL Database.
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów   
+Utwórz [grupę zasobów](../azure-resource-manager/resource-group-overview.md). W niej umieścisz wszystkie zasoby platformy Azure, którymi chcesz zarządzać razem, takie jak aplikacja sieci Web i jej zaplecze w usłudze SQL Database.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    Aby sprawdzić, jakich wartości można użyć dla lokalizacji `---location`, użyj polecenia interfejsu wiersza polecenia platformy Azure `az appservice list-locations`.
+Aby sprawdzić, jakich wartości można użyć dla lokalizacji `---location`, użyj polecenia interfejsu wiersza polecenia platformy Azure `az appservice list-locations`.
 
-3. Utwórz [plan usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) w warstwie Standardowa. Warstwa Standardowa jest wymagana do uruchamiania kontenerów systemu Linux.
+## <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
+Utwórz „Standardowy” [plan usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) na potrzeby uruchamiania kontenera systemu Linux. 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku S1 --is-linux 
-    ```
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --is-linux --sku S1
+```
 
-4. Utwórz aplikację sieci Web o unikatowej nazwie wprowadzonej w tagu `<app_name>`.
+## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
+Utwórz aplikację sieci Web o unikatowej nazwie wprowadzonej w tagu `<app_name>`.
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-4. Skonfiguruj kontener systemu Linux, aby użyć domyślnego obrazu Node.js 6.9.3.
+## <a name="configure-the-linux-container"></a>Konfigurowanie kontenera systemu Linux
+Skonfiguruj kontener systemu Linux, aby użyć domyślnego obrazu Node.js 6.9.3.
 
-    ```azurecli
-    az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
+```
 
-4. Wdróż przykładową aplikację platformy Node.js z usługi GitHub.
+## <a name="deploy-sample-application"></a>Wdrażanie przykładowej aplikacji
+Wdróż przykładową aplikację platformy Node.js z usługi GitHub.
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git" --branch master --manual-integration 
-    ```
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git" --branch master --manual-integration 
+```
 
-5. Aby zobaczyć aplikację działającą na platformie Azure, uruchom to polecenie.
+## <a name="browse-to-web-app"></a>Przechodzenie do aplikacji sieci Web
+Aby zobaczyć aplikację działającą na platformie Azure, uruchom to polecenie.
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Gratulacje, Twoja pierwsza aplikacja sieci Web platformy Node.js działa na żywo w usłudze Azure App Service.
 

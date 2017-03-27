@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
-ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a773e43b28b144dd8341b276eee3fa504d4f1080
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +37,7 @@ Poniższy 4-minutowy film zawiera krótkie objaśnienie, w jaki sposób usługa 
 Poniżej przedstawiono niektóre najważniejszych funkcji i możliwości usługi App Service:
 
 * **Wiele języków i struktur** — usługa App Service oferuje najwyższej jakości pomoc techniczną w zakresie rozwiązań ASP.NET, Node.js, Java, PHP i Python. Na maszynach wirtualnych usługi App Service można również uruchamiać [program Windows PowerShell oraz inne skrypty lub pliki wykonywalne](../app-service-web/web-sites-create-web-jobs.md).
-* **Optymalizacja metodyki DevOps** — konfigurowanie [ciągłej integracji i wdrażania](../app-service-web/app-service-continuous-deployment.md) za pomocą usług Visual Studio Team Services, GitHub lub BitBucket. Promowanie aktualizacji za pośrednictwem [środowisk testowych i przejściowych](../app-service-web/web-sites-staged-publishing.md). Wykonywanie [testowania A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Zarządzaj aplikacjami w usłudze App Service za pomocą programu [Azure PowerShell](/powershell/azureps-cmdlets-docs) lub [międzyplatformowego interfejsu wiersza polecenia](../xplat-cli-install.md).
+* **Optymalizacja metodyki DevOps** — konfigurowanie [ciągłej integracji i wdrażania](../app-service-web/app-service-continuous-deployment.md) za pomocą usług Visual Studio Team Services, GitHub lub BitBucket. Promowanie aktualizacji za pośrednictwem [środowisk testowych i przejściowych](../app-service-web/web-sites-staged-publishing.md). Wykonywanie [testowania A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Zarządzaj aplikacjami w usłudze App Service za pomocą programu [Azure PowerShell](/powershell/azureps-cmdlets-docs) lub [międzyplatformowego interfejsu wiersza polecenia](../cli-install-nodejs.md).
 * **Globalne skalowanie i wysoka dostępność** — ręczne lub automatyczne skalowanie [w pionie](../app-service-web/web-sites-scale.md) lub [w poziomie](../monitoring-and-diagnostics/insights-how-to-scale.md). Hostuj aplikacje w dowolnym miejscu globalnej infrastruktury centrum danych firmy Microsoft i korzystaj z wysokiej dostępności usługi App Service zapewnianej w umowie [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
 * **Połączenia z platformami SaaS i danymi lokalnymi** — możliwość wyboru spośród ponad 50 [łączników](../connectors/apis-list.md) obsługujących systemy dla przedsiębiorstw (takie jak SAP, Siebel i Oracle), usługi SaaS (takie jak Salesforce i Office 365) oraz serwisy internetowe (takie jak Facebook i Twitter). Dostęp do danych lokalnych przy użyciu [połączeń hybrydowych](../biztalk-services/integration-hybrid-connection-overview.md) i [sieci wirtualnych platformy Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 * **Bezpieczeństwo i zgodność** — usługa App Service jest [zgodna ze standardami ISO, SOC i PCI](https://www.microsoft.com/TrustCenter/).
@@ -90,10 +91,5 @@ Możesz też założyć [bezpłatne konto platformy Azure](https://azure.microso
 * [Samouczek: tworzenie aplikacji mobilnej](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Samouczek: tworzenie aplikacji interfejsu API](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Samouczek: tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

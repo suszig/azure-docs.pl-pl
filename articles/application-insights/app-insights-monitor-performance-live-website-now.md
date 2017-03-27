@@ -14,15 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentowanie aplikacji sieci Web w czasie wykonywania za pomocą usługi Application Insights
 
 
-Możliwe jest instrumentowanie działającej aplikacji sieci Web za pomocą usługi Azure Application Insights bez konieczności modyfikowania kodu ani jego ponownego wdrażania. Jeśli aplikacje hostowane są przez lokalny serwer IIS, instalowany jest monitor stanu. Jeśli natomiast aplikacje to aplikacje sieci Web platformy Azure lub aplikacje działające na maszynie wirtualnej platformy Azure, można zainstalować rozszerzenie Application Insights. Istnieją także osobne artykuły na temat instrumentacji [działających aplikacji sieci Web w technologii J2EE](app-insights-java-live.md) i [usług Azure Cloud Services](app-insights-cloudservices.md). Potrzebna jest subskrypcja platformy [Microsoft Azure](http://azure.com).
+Możliwe jest instrumentowanie działającej aplikacji sieci Web za pomocą usługi Azure Application Insights bez konieczności modyfikowania kodu ani jego ponownego wdrażania. Jeśli Twoje aplikacje są hostowane na lokalnym serwerze IIS, zainstaluj monitor stanu. Jeśli są to aplikacje sieci Web platformy Azure lub jeśli działają one na maszynie wirtualnej platformy Azure, możesz włączyć monitorowanie usługi Application Insights z poziomu panelu sterowania platformy Azure. Istnieją także osobne artykuły na temat instrumentacji [działających aplikacji sieci Web w technologii J2EE](app-insights-java-live.md) i [usług Azure Cloud Services](app-insights-cloudservices.md). Potrzebna jest subskrypcja platformy [Microsoft Azure](http://azure.com).
 
 ![przykładowe wykresy](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -64,7 +65,7 @@ Jeśli aplikacja działa jako usługa sieci Web platformy Azure, monitorowanie n
 Jeśli aplikacja jest hostowana na serwerze usług IIS, włącz usługę Application Insights przy użyciu monitora stanu.
 
 1. Zaloguj się na serwerze sieci Web usług IIS, używając poświadczeń administratora.
-2. Jeśli monitor stanu usługi Application Insights nie został jeszcze zainstalowany, pobierz i uruchom [instalator monitora stanu](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. Jeśli monitor stanu usługi Application Insights nie został jeszcze zainstalowany, pobierz i uruchom [Instalator monitora stanu](http://go.microsoft.com/fwlink/?LinkId=506648) (lub uruchom [Instalator platformy sieci Web](https://www.microsoft.com/web/downloads/platform.aspx) i wyszukaj w nim monitor stanu usługi Application Insights).
 3. W monitorze stanu wybierz zainstalowaną aplikację sieci Web lub witrynę sieci Web, którą chcesz monitorować. Zaloguj się przy użyciu poświadczeń platformy Azure.
 
     Skonfiguruj zasób, w którym mają być wyświetlane wyniki w portalu usługi Application Insights. (Zazwyczaj najlepiej jest utworzyć nowy zasób. Wybierz istniejący zasób, jeśli masz już [testy sieci Web][availability] lub [monitorowanie klienta][client] dla tej aplikacji). 
@@ -97,7 +98,7 @@ Jeśli chcesz ponownie przeprowadzić publikację bez dodawania usługi Applicat
 
 ### <a name="cant-connect-no-telemetry"></a>Nie można nawiązać połączenia? Brak telemetrii?
 
-* Aby umożliwić działanie Monitora stanu, na zaporze serwera należy otworzyć [niektóre porty wychodzące](app-insights-ip-addresses.md#outgoing-ports).
+* Aby umożliwić działanie monitora stanu, na zaporze serwera otwórz [wymagane porty wychodzące](app-insights-ip-addresses.md#outgoing-ports).
 
 * Otwórz monitor stanu i wybierz swoją aplikację w lewym okienku. Sprawdź, czy w sekcji „Powiadomienia konfiguracyjne” występują komunikaty diagnostyczne dotyczące tej aplikacji:
 
@@ -105,7 +106,7 @@ Jeśli chcesz ponownie przeprowadzić publikację bez dodawania usługi Applicat
 * Jeśli na serwerze zostanie wyświetlony komunikat o „niewystarczających uprawnieniach”, spróbuj wykonać następujące kroki:
   * W Menedżerze usług IIS wybierz pulę aplikacji, otwórz **Ustawienia zaawansowane** i zapamiętaj tożsamość w obszarze **Model procesu**.
   * W panelu sterowania Zarządzanie komputerem dodaj tę tożsamość do grupy Użytkownicy monitora wydajności.
-* Jeśli na serwerze jest zainstalowany agent MMA/SCOM, niektóre wersje mogą powodować konflikt. Odinstaluj oprogramowanie SCOM i monitor stanu, a następnie ponownie zainstaluj najnowsze wersje.
+* Jeśli na serwerze jest zainstalowany agent MMA/SCOM (Systems Center Operations Manager), niektóre wersje mogą powodować konflikt. Odinstaluj oprogramowanie SCOM i monitor stanu, a następnie ponownie zainstaluj najnowsze wersje.
 * Zobacz [Rozwiązywanie problemów][qna].
 
 ## <a name="system-requirements"></a>Wymagania systemu
@@ -119,7 +120,7 @@ Serwerowe systemy operacyjne obsługiwane przez monitor stanu usługi Applicatio
 
 z najnowszym dodatkiem SP oraz platformą .NET Framework 4.5
 
-Po stronie klienta systemy Windows 7, 8, 8.1 i 10, również z platformą .NET Framework 4.5
+Po stronie klienta: systemy Windows 7, 8, 8.1 i 10, również z programem .NET Framework 4.5
 
 Obsługiwane wersje usług IIS: 7, 7.5, 8, 8.5 (usługi IIS są wymagane)
 
@@ -150,7 +151,7 @@ Dowiedz się, które aplikacje są monitorowane:
 * `-InstrumentationKey` Klucz instrumentacji zasobu usługi Application Insights, w którym mają być wyświetlane wyniki.
 * To polecenie cmdlet dotyczy tylko aplikacji, dla których nie przeprowadzono jeszcze instrumentacji (czyli SdkState == NotInstrumented).
 
-    Polecenie cmdlet nie wpływa na aplikację, dla której dokonano już instrumentacji — zarówno w czasie kompilacji przez dodanie zestawu SDK do kodu, jaki i w czasie wykonywania przez wcześniejsze użycie tego polecenia cmdlet.
+    To polecenie cmdlet nie ma wpływu na aplikację, dla której przeprowadzono już instrumentację. Nie ma znaczenia, czy instrumentacji aplikacji dokonano w czasie kompilacji przez dodanie zestawu SDK do kodu, czy w czasie wykonywania przez wcześniejsze użycie tego polecenia cmdlet.
 
     Wersja zestawu SDK użyta do instrumentacji aplikacji to wersja, która została ostatnio pobrana na ten serwer.
 
@@ -183,7 +184,11 @@ Dowiedz się, które aplikacje są monitorowane:
 
 * Pobiera na serwer najnowszy zestaw SDK usługi Application Insights.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Następne kroki
+## <a name="video"></a>Połączenia wideo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="next"></a>Następne kroki
 
 Wyświetlanie telemetrii:
 
@@ -208,9 +213,4 @@ Dodawanie kolejnych funkcji telemetrii:
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

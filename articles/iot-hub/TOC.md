@@ -227,10 +227,11 @@
 ## Zarządzanie
 ### Tworzenie centrum IoT 
 #### [Korzystanie z portalu](iot-hub-create-through-portal.md)
+#### [Korzystanie z programu PowerShell](iot-hub-create-using-powershell.md)
 #### [Korzystanie z interfejsu wiersza polecenia 2.0](iot-hub-create-using-cli.md)
 #### [Korzystanie z interfejsu wiersza polecenia](iot-hub-create-using-cli-nodejs.md)
 #### [Korzystanie z interfejsu API REST](iot-hub-rm-rest.md)
-#### [Korzystanie z programu PowerShell](iot-hub-rm-template-powershell.md)
+#### [Use a template from PowerShell](iot-hub-rm-template-powershell.md) (Korzystanie z szablonu programu PowerShell)
 #### [Korzystanie z szablonu platformy .NET](iot-hub-rm-template.md)
 ### [Konfigurowanie przekazywania plików](iot-hub-configure-file-upload.md)
 ### [Zbiorcze zarządzanie urządzeniami IoT](iot-hub-bulk-identity-mgmt.md)

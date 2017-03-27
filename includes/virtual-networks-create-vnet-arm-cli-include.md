@@ -1,7 +1,7 @@
 ## <a name="how-to-create-a-vnet-using-the-azure-cli"></a>Tworzenie sieci wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
 Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasobami Azure z poziomu wiersza polecenia dowolnego komputera z systemem Windows, Linux lub OS X. Aby utworzyć sieć wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure, wykonaj poniższe kroki.
 
-1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz temat [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) (Instalacja i konfiguracja interfejsu wiersza polecenia platformy Azure) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz temat [Install and Configure the Azure CLI](../articles/cli-install-nodejs.md) (Instalacja i konfiguracja interfejsu wiersza polecenia platformy Azure) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
 2. Uruchom polecenie **azure config mode**, aby włączyć tryb Resource Manager, jak pokazano poniżej.
    
         azure config mode arm
@@ -99,9 +99,4 @@ Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasob
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

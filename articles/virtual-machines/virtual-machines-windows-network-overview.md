@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 71b75afc7a31c875672b53c2b2b106220b8c36dd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6a31b039825acf3033fa58820bb800f53a355ffb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ Oprócz tych podstawowych zasobów należy również rozważyć utworzenie poni�
 
 ## <a name="network-interfaces"></a>Interfejsy sieciowe
 
-[Interfejs sieciowy (karta sieciowa)](../virtual-network/virtual-network-network-interface-overview.md) to wzajemne połączenie między maszyną wirtualną (VM) i siecią wirtualną (VNet). Maszyna wirtualna musi mieć co najmniej jedną kartę sieciową. Może jednak mieć więcej kart, w zależności od rozmiaru podanego przy jej tworzeniu. Aby dowiedzieć się, ile kart sieciowych mogą obsługiwać maszyny wirtualne o konkretnym rozmiarze, zobacz [Rozmiary maszyn wirtualnych na platformie Azure](virtual-machines-windows-sizes.md). 
+[Interfejs sieciowy (karta sieciowa)](../virtual-network/virtual-network-network-interface.md) to wzajemne połączenie między maszyną wirtualną (VM) i siecią wirtualną (VNet). Maszyna wirtualna musi mieć co najmniej jedną kartę sieciową. Może jednak mieć więcej kart, w zależności od rozmiaru podanego przy jej tworzeniu. Aby dowiedzieć się, ile kart sieciowych mogą obsługiwać maszyny wirtualne o konkretnym rozmiarze, zobacz [Rozmiary maszyn wirtualnych na platformie Azure](virtual-machines-windows-sizes.md). 
 
 Jeśli chcesz, aby utworzona maszyna wirtualna miała więcej niż jedną kartę sieciową, musi ona zawierać co najmniej dwie karty.  Do utworzonej maszyny wirtualnej można dodawać karty sieciowe, aż zostanie osiągnięty limit określony przez rozmiar maszyny wirtualnej. Jednak jeśli maszyna wirtualna została utworzona tylko z jedną kartą sieciową, nie można dodawać do niej kolejnych kart, niezależnie od rozmiaru maszyny wirtualnej. 
 
@@ -180,3 +180,4 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia masz
 - Dowiedz się, jak skonfigurować [trasy zdefiniowane przez użytkownika i przekazywanie adresów IP](../virtual-network/virtual-networks-udr-overview.md). 
 - Dowiedz się, jak skonfigurować [połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Dowiedz się, jak [rozwiązywać problemy z trasami](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+

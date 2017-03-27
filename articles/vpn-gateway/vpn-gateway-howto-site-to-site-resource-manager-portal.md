@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 37311ea17004d8c5cfe9bfc9360c3972e39fb7f5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Klasyczny — witryna Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Model klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia bramy sieci VPN typu lokacja-lokacja z siecią lokalną z wykorzystaniem modelu wdrażania usługi Azure Resource Manager i witryny Azure Portal. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
 
@@ -50,7 +52,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi eleme
 * Dostępny zewnętrznie publiczny adres IP urządzenia sieci VPN. Ten adres IP nie może się znajdować za translatorem adresów sieciowych.
 * Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](http://azure.microsoft.com/pricing/free-trial).
 
-### <a name="a-namevaluesasample-configuration-values-for-this-exercise"></a><a name="values"></a>Przykładowe wartości konfiguracji dla tego ćwiczenia
+### <a name="values"></a>Przykładowe wartości konfiguracji dla tego ćwiczenia
 Korzystając z tych kroków w charakterze ćwiczenia, można użyć przykładowych wartości konfiguracji:
 
 * **Nazwa sieci wirtualnej:** TestVNet1
@@ -70,22 +72,22 @@ Korzystając z tych kroków w charakterze ćwiczenia, można użyć przykładowy
 * **Nazwa bramy sieci lokalnej:** Site2
 * **Nazwa połączenia:** VNet1toSite2
 
-## <a name="a-namecreatvneta1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Tworzenie sieci wirtualnej
+## <a name="CreatVNet"></a>1. Tworzenie sieci wirtualnej
 Jeśli masz już sieć wirtualną, sprawdź, czy ustawienia są zgodne z projektem bramy sieci VPN. Zwróć szczególną uwagę na wszelkie podsieci, które mogą pokrywać się z innymi sieciami. Obecność nakładających się podsieci spowoduje, że połączenie nie będzie działać prawidłowo. Jeśli sieć wirtualną skonfigurowano poprawnie, można rozpocząć wykonywanie kroków z sekcji [Określanie serwera DNS](#dns).
 
 ### <a name="to-create-a-virtual-network"></a>Aby utworzyć sieć wirtualną
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-subnets"></a><a name="subnets"></a>2. Dodawanie dodatkowej przestrzeni adresowej i podsieci
+## <a name="subnets"></a>2. Dodawanie dodatkowej przestrzeni adresowej i podsieci
 Po utworzeniu sieci wirtualnej można dodać do niej dodatkową przestrzeń adresową oraz podsieci.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namednsa3-specify-a-dns-server"></a><a name="dns"></a>3. Określanie serwera DNS
+## <a name="dns"></a>3. Określanie serwera DNS
 ### <a name="to-specify-a-dns-server"></a>Określenie serwera DNS
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namegatewaysubneta4-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>4. Tworzenie podsieci bramy
+## <a name="gatewaysubnet"></a>4. Tworzenie podsieci bramy
 Przed połączeniem sieci wirtualnej z bramą należy najpierw utworzyć podsieć bramy sieci wirtualnej, z którą ma zostać nawiązane połączenie. Jeśli to możliwe, najlepiej utworzyć podsieć bramy przy użyciu bloku CIDR /28 lub /27 w celu zapewnienia wystarczającej liczby adresów IP, aby uwzględnić wymagania dotyczące dodatkowych przyszłych konfiguracji.
 
 Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj tych [wartości](#values) podczas tworzenia podsieci bramy.
@@ -93,13 +95,13 @@ Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj tych [wartości](#v
 ### <a name="to-create-a-gateway-subnet"></a>Aby utworzyć podsieć bramy
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. Tworzenie bramy sieci wirtualnej
+## <a name="VNetGateway"></a>5. Tworzenie bramy sieci wirtualnej
 Jeśli tworzysz tę konfigurację w ramach ćwiczenia, skorzystaj z [przykładowych wartości konfiguracji](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Aby utworzyć bramę sieci wirtualnej
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namelocalnetworkgatewaya6-create-a-local-network-gateway"></a><a name="LocalNetworkGateway"></a>6. Tworzenie bramy sieci lokalnej
+## <a name="LocalNetworkGateway"></a>6. Tworzenie bramy sieci lokalnej
 Brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. Bramie sieci lokalnej należy nadać nazwę, za pomocą której platforma Azure będzie mogła się do niej odwoływać. 
 
 Jeśli tworzysz tę konfigurację w ramach ćwiczenia, skorzystaj z [przykładowych wartości konfiguracji](#values).
@@ -107,10 +109,10 @@ Jeśli tworzysz tę konfigurację w ramach ćwiczenia, skorzystaj z [przykładow
 ### <a name="to-create-a-local-network-gateway"></a>Aby utworzyć bramę sieci lokalnej
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
-## <a name="a-namevpndevicea7-configure-your-vpn-device"></a><a name="VPNDevice"></a>7. Konfiguracja urządzenia sieci VPN
+## <a name="VPNDevice"></a>7. Konfiguracja urządzenia sieci VPN
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="a-namecreateconnectiona8-create-a-site-to-site-vpn-connection"></a><a name="CreateConnection"></a>8. Tworzenie połączenia sieci VPN typu lokacja-lokacja
+## <a name="CreateConnection"></a>8. Tworzenie połączenia sieci VPN typu lokacja-lokacja
 Następnie należy utworzyć połączenie sieci VPN typu lokacja-lokacja między bramą sieci wirtualnej i urządzeniem sieci VPN. Przedstawione wartości należy zastąpić własnymi. Klucz wspólny musi odpowiadać wartości użytej podczas konfiguracji urządzenia sieci VPN. 
 
 Przed rozpoczęciem wykonywania czynności opisanych w tej sekcji należy sprawdzić, czy zakończono tworzenie bramy sieci wirtualnej i bram sieci lokalnej. Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj tych [wartości](#values) podczas tworzenia połączenia.
@@ -118,7 +120,7 @@ Przed rozpoczęciem wykonywania czynności opisanych w tej sekcji należy sprawd
 ### <a name="to-create-the-vpn-connection"></a>Aby utworzyć połączenie sieci VPN
 [!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
-## <a name="a-nameverifyconnectiona9-verify-the-vpn-connection"></a><a name="VerifyConnection"></a>9. Sprawdzenie połączenia sieci VPN
+## <a name="VerifyConnection"></a>9. Sprawdzenie połączenia sieci VPN
 Połączenie sieci VPN można sprawdzić, korzystając z portalu lub z programu PowerShell.
 
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
@@ -126,10 +128,5 @@ Połączenie sieci VPN można sprawdzić, korzystając z portalu lub z programu 
 ## <a name="next-steps"></a>Następne kroki
 *  Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne).
 *  Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

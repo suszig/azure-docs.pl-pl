@@ -5,7 +5,7 @@
 Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi elementami:
 
 * Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
-* Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure, który jest dostępny dla systemów Windows, Linux i MAC. Więcej informacji znajduje się w temacie [Instalowanie interfejsu wiersza polecenia platformy Azure](../articles/xplat-cli-install.md).
+* Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure, który jest dostępny dla systemów Windows, Linux i MAC. Więcej informacji znajduje się w temacie [Instalowanie interfejsu wiersza polecenia platformy Azure](../articles/cli-install-nodejs.md).
 
 ### <a name="sign-in-to-your-azure-account"></a>Zaloguj się do swojego konta platformy Azure
 
@@ -54,9 +54,4 @@ Usługa Azure DNS jest zarządzana przez dostawcę zasobów Microsoft.Network. A
 ```azurecli
 azure provider register --namespace Microsoft.Network
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

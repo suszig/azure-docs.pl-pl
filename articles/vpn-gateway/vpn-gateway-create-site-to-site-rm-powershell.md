@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 1d0addd4f04fb597e7962c21ccbcb61e165a6c1e
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,6 +26,7 @@ ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Klasyczny — witryna Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Model klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
 >
 >
@@ -51,7 +53,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi eleme
 * Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
 * Najnowsza wersja poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalowanie i konfigurowanie programu Azure PowerShell).
 
-## <a name="a-namelogina1-connect-to-your-subscription"></a><a name="Login"></a>1. Nawiązywanie połączenia z subskrypcją
+## <a name="Login"></a>1. Nawiązywanie połączenia z subskrypcją
 Upewnij się, że program PowerShell został przełączony do trybu umożliwiającego korzystanie z poleceń cmdlet usługi Resource Manager. Więcej informacji znajduje się w temacie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
 
 Otwórz konsolę programu PowerShell i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
@@ -66,7 +68,7 @@ Wskaż subskrypcję, której chcesz użyć.
 
     Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-## <a name="a-namevneta2-create-a-virtual-network-and-a-gateway-subnet"></a><a name="VNet"></a>2. Tworzenie sieci wirtualnej i podsieci bramy
+## <a name="VNet"></a>2. Tworzenie sieci wirtualnej i podsieci bramy
 W przykładach użyto podsieci bramy /28. Chociaż możliwe jest utworzenie małej podsieci bramy /29, zaleca się wybranie podsieci przynajmniej /28 lub /27, aby zawierała więcej adresów. Zapewni to wystarczająco dużo adresów, aby możliwe były dodatkowe konfiguracje, które mogą być potrzebne w przyszłości.
 
 Jeśli masz już sieć wirtualną z podsiecią bramy /29 lub większą, możesz przejść od razu do kroku [Dodawanie bramy sieci lokalnej](#localnet).
@@ -94,7 +96,7 @@ Utwórz sieć wirtualną.
     New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
     -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="a-namegatewaysubnetato-add-a-gateway-subnet-to-a-virtual-network-you-have-already-created"></a><a name="gatewaysubnet"></a>Aby dodać podsieć bramy do utworzonej wcześniej sieci wirtualnej
+### <a name="gatewaysubnet"></a>Aby dodać podsieć bramy do utworzonej wcześniej sieci wirtualnej
 Ten krok jest wymagany tylko w przypadku, gdy niezbędne jest dodanie podsieci bramy do utworzonej wcześniej sieci wirtualnej.
 
 Podsieć bramy można utworzyć, korzystając z poniższego przykładu. Należy pamiętać o nadaniu podsieci bramy nazwy „GatewaySubnet”. Jeśli zostanie nadana inna nazwa, podsieć zostanie utworzona, ale platforma Azure nie będzie jej traktowała jako podsieci bramy.
@@ -111,7 +113,7 @@ Ustaw konfigurację.
 
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## <a name="3-a-namelocalnetaadd-your-local-network-gateway"></a>3. <a name="localnet"></a>Dodanie bramy sieci lokalnej
+## 3. <a name="localnet"></a>Dodanie bramy sieci lokalnej
 W sieci wirtualnej brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. Należy tej lokalizacji nadać nazwę, z której platforma Azure będzie korzystać, odwołując się do niej, a także określić prefiks przestrzeni adresowej bramy sieci lokalnej.
 
 Platforma Azure używa prefiksu adresu IP w celu określenia, który ruch danych należy skierować do lokalizacji lokalnej. Oznacza to, że niezbędne jest określenie prefiksu dla każdego adresu, który ma zostać skojarzony z bramą sieci lokalnej. W przypadku zmian w sieci lokalnej prefiksy można łatwo zaktualizować.
@@ -134,7 +136,7 @@ Aby dodać bramę sieci lokalnej z wieloma prefiksami adresów:
 ### <a name="to-modify-ip-address-prefixes-for-your-local-network-gateway"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej
 Zdarza się, że prefiksy bramy sieci lokalnej są zmieniane. Kroki, które należy wykonać w celu zmodyfikowania prefiksów adresów IP, zależą od tego, czy utworzono połączenie bramy sieci VPN. Zapoznaj się z sekcją [Modyfikowanie prefiksów adresów IP bramy sieci lokalnej](#modify) tego artykułu.
 
-## <a name="a-namepublicipa4-request-a-public-ip-address-for-the-vpn-gateway"></a><a name="PublicIP"></a>4. Żądanie publicznego adresu IP dla bramy sieci VPN
+## <a name="PublicIP"></a>4. Żądanie publicznego adresu IP dla bramy sieci VPN
 Następnie należy przesłać żądanie przydzielenia publicznego adresu IP do bramy sieci VPN sieci wirtualnej platformy Azure. Nie jest to ten sam adres IP, który został przypisany do urządzenia sieci VPN, lecz adres przypisany do samej bramy sieci VPN Azure. Nie można określić adresu IP, którego chcesz użyć. Jest on przydzielany dynamicznie do bramy. Podany adres IP zostanie użyty podczas konfigurowania lokalnego urządzenia sieci VPN w celu nawiązania połączenia z bramą.
 
 Brama sieci VPN Azure dla modelu wdrażania przy użyciu usługi Resource Manager obsługuje obecnie tylko publiczne adresy IP z wykorzystaniem metody dynamicznej alokacji. Nie oznacza to jednak, że adres IP się zmienia. Jedyną sytuacją, w której ma miejsce zmiana adresu IP bramy sieci VPN Azure, jest usunięcie bramy i jej ponowne utworzenie. Publiczny adres IP bramy nie zmienia się w przypadku zmiany rozmiaru, zresetowania ani w przypadku przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN platformy Azure.
@@ -143,14 +145,14 @@ Użyj poniższego przykładu z programu PowerShell:
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
-## <a name="a-namegatewayipconfiga5-create-the-gateway-ip-addressing-configuration"></a><a name="GatewayIPConfig"></a>5. Tworzenie konfiguracji adresowania IP bramy
+## <a name="GatewayIPConfig"></a>5. Tworzenie konfiguracji adresowania IP bramy
 W ramach konfiguracji bramy zostaje zdefiniowana podsieć i publiczny adres IP do użycia. Poniższy przykład umożliwia utworzenie konfiguracji bramy.
 
     $vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
     $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 
-## <a name="a-namecreategatewaya6-create-the-virtual-network-gateway"></a><a name="CreateGateway"></a>6. Tworzenie bramy sieci wirtualnej
+## <a name="CreateGateway"></a>6. Tworzenie bramy sieci wirtualnej
 W tym kroku zostanie utworzona brama sieci wirtualnej. Należy pamiętać, że tworzenie bramy może okazać się czasochłonnym procesem. Często trwa 45 minut lub dłużej.
 
 Wprowadź następujące wartości:
@@ -163,14 +165,14 @@ Wprowadź następujące wartości:
         -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-## <a name="a-nameconfigurevpndevicea7-configure-your-vpn-device"></a><a name="ConfigureVPNDevice"></a>7. Konfiguracja urządzenia sieci VPN
+## <a name="ConfigureVPNDevice"></a>7. Konfiguracja urządzenia sieci VPN
 Na tym etapie potrzebny jest publiczny adres IP bramy sieci wirtualnej do celów konfigurowania lokalnego urządzenia sieci VPN. Uzyskaj szczegółowe informacje dotyczące konfiguracji od producenta urządzenia. Aby uzyskać więcej informacji, zapoznaj się z tematem [VPN Devices](vpn-gateway-about-vpn-devices.md) (Urządzenia sieci VPN).
 
 Aby znaleźć publiczny adres IP bramy sieci wirtualnej, skorzystaj z poniższego przykładu:
 
     Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
-## <a name="a-namecreateconnectiona8-create-the-vpn-connection"></a><a name="CreateConnection"></a>8. Tworzenie połączenia sieci VPN
+## <a name="CreateConnection"></a>8. Tworzenie połączenia sieci VPN
 Następnie należy utworzyć połączenie sieci VPN typu lokacja-lokacja między bramą sieci wirtualnej i urządzeniem sieci VPN. Przedstawione wartości należy zastąpić własnymi. Klucz wspólny musi odpowiadać wartości użytej podczas konfiguracji urządzenia sieci VPN. Należy pamiętać, że dla połączenia sieci typu lokacja-lokacja wartość `-ConnectionType` to *IPsec*.
 
 Ustaw zmienne.
@@ -186,25 +188,20 @@ Utwórz połączenie.
 
 Po chwili zostanie nawiązane połączenie.
 
-## <a name="a-nametoverifyato-verify-a-vpn-connection"></a><a name="toverify"></a>Aby zweryfikować połączenie sieci VPN
+## <a name="toverify"></a>Aby zweryfikować połączenie sieci VPN
 Istnieje kilka różnych sposobów sprawdzenia połączenia sieci VPN.
 
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="a-namemodifyato-modify-ip-address-prefixes-for-a-local-network-gateway"></a><a name="modify"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej
+## <a name="modify"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej
 Jeśli zajdzie potrzeba zmiany prefiksów bramy sieci lokalnej, należy wykonać czynności opisane poniżej. Poniżej przedstawiono dwa zestawy instrukcji. Należy wybrać odpowiednie instrukcje w zależności od tego, czy utworzono już połączenie bramy sieci VPN.
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="a-namemodifygwipaddressato-modify-the-gateway-ip-address-for-a-local-network-gateway"></a><a name="modifygwipaddress"></a>Aby zmodyfikować adres IP bramy dla bramy sieci lokalnej
+## <a name="modifygwipaddress"></a>Aby zmodyfikować adres IP bramy dla bramy sieci lokalnej
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 *  Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne).
 * Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

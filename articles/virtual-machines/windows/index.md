@@ -13,13 +13,24 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 90d760207ee6b6e0d8c15ff597bf53512f071ef0
-ms.openlocfilehash: ace8475bd9a75eb92a3b5c084ee27b9813f13bfb
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 91c81cdba745be375ea6cbdb689d5b6f46e53f98
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="windows-virtual-machines-documentation"></a>Dokumentacja dotycząca maszyn wirtualnych z systemem Windows
 
+<div class="introHolder">
+    <div class="intro">
 Dowiedz się, jak tworzyć maszyny wirtualne systemu Windows. Samouczki, dokumentacja interfejsu API i inne dokumenty ułatwiające planowanie i wdrażanie środowiska obliczeniowego maszyn wirtualnych w chmurze oraz zarządzanie nim.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Free PluralSight video training - Managing Infrastructure using Microsoft Azure </a>
+         (Bezpłatne szkolenie wideo firmy PluralSight — Zarządzanie infrastrukturą za pomocą platformy Microsoft Azure)</div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -160,10 +171,5 @@ Dowiedz się, jak tworzyć maszyny wirtualne systemu Windows. Samouczki, dokumen
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

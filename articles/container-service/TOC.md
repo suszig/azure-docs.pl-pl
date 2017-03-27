@@ -15,6 +15,7 @@
 ### [Włączanie dostępu publicznego do platformy DC/OS](container-service-enable-public-access.md)
 ### [Kontenery równoważenia obciążenia platformy DC/OS](container-service-load-balancing.md)
 ### [Koordynator specyficzny dla aplikacji/użytkownika na platformie DC/OS](container-service-application-specific-marathon.md)
+### [Add a file share](container-service-dcos-fileshare.md) (Dodawanie udziału plików)
 ### Monitorowanie platformy DC/OS
 #### [Monitorowanie za pomocą rozwiązania ELK](container-service-monitoring-elk.md)
 #### [Monitorowanie za pomocą pakietu OMS](container-service-monitoring-oms.md)

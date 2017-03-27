@@ -4,18 +4,19 @@ description: "Konfigurowanie testów sieci Web w usłudze Application Insights. 
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ Istnieją dwa typy testów sieci Web:
 
 Można utworzyć maksymalnie 10 testów sieci Web na każdy zasób aplikacji.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Tworzenie zasobu dla raportów testowych
+## <a name="create"></a>1. Tworzenie zasobu dla raportów testowych
 Pomiń ten krok, jeśli masz już [skonfigurowany zasób usługi Application Insights][start] dla tej aplikacji i chcesz zobaczyć raporty dostępności w tym samym miejscu.
 
 Zaloguj się do platformy [Microsoft Azure](http://azure.com), przejdź do witryny [Azure Portal](https://portal.azure.com) i utwórz zasób usługi Application Insights.
@@ -42,7 +43,7 @@ Zaloguj się do platformy [Microsoft Azure](http://azure.com), przejdź do witry
 
 Kliknij pozycję **Wszystkie zasoby**, aby otworzyć blok Omówienie dla nowego zasobu.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Tworzenie testu ping adresu URL
+## <a name="setup"></a>2. Tworzenie testu ping adresu URL
 W zasobie usługi Application Insights poszukaj kafelka Dostępność. Kliknij go, aby otworzyć blok Testy sieci Web dla aplikacji, a następnie dodaj test sieci Web.
 
 ![Podaj przynajmniej adres URL swojej witryny sieci Web](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ W zasobie usługi Application Insights poszukaj kafelka Dostępność. Kliknij g
 ### <a name="test-more-urls"></a>Testowanie większej liczby adresów URL
 Dodaj więcej testów. Na przykład oprócz testowania strony głównej możesz sprawdzić, czy działa baza danych, testując adres URL dla wyszukiwania.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Wyświetlanie wyników testu sieci Web
+## <a name="monitor"></a>3. Wyświetlanie wyników testu sieci Web
 Po 1–2 minutach wyniki są wyświetlane w bloku Test sieci Web.
 
 ![Podsumowanie wyników w bloku głównym](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,7 +76,7 @@ Kliknij dowolny słupek na wykresie podsumowania, aby uzyskać bardziej szczegó
 
 Wykresy zawierają wyniki wszystkich testów sieci Web dotyczących tej aplikacji.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Jeśli widzisz błędy
+## <a name="failures"></a>Jeśli widzisz błędy
 Kliknij czerwoną kropkę.
 
 ![Kliknij czerwoną kropkę](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -100,7 +101,7 @@ Możliwe jest monitorowanie scenariusza, który obejmuje sekwencję adresów URL
 > Za wieloetapowe testy sieci Web są naliczane opłaty. [Schemat cennika](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Aby utworzyć test wieloetapowy, nagraj scenariusz przy użyciu programu Visual Studio, a następnie przekaż nagranie do usługi Application Insights. Usługa Application Insights odtwarza ten scenariusz w określonych odstępach czasu i weryfikuje odpowiedzi.
+Aby utworzyć test wieloetapowy, nagraj scenariusz przy użyciu programu Visual Studio Enterprise, a następnie przekaż nagranie do usługi Application Insights. Usługa Application Insights odtwarza ten scenariusz w określonych odstępach czasu i weryfikuje odpowiedzi.
 
 Podczas testów nie można jednak używać zakodowanych funkcji. Kroki scenariusza muszą być umieszczone w pliku .webtest jako skrypt.
 
@@ -109,7 +110,10 @@ Nagraj sesję sieci Web w programie Visual Studio Enterprise.
 
 1. Utwórz projekt testu wydajności sieci Web.
 
-    ![W programie Visual Studio utwórz projekt z szablonu Projekt testu sieci Web i obciążenia.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![W programie Visual Studio Enterprise utwórz projekt z szablonu Projekt testu sieci Web i obciążenia.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Nie widzisz szablonu Projekt testu sieci Web i obciążenia?* — Zamknij program Visual Studio Enterprise. Otwórz **Instalator programu Visual Studio** w celu zmodyfikowania instalacji programu Visual Studio Enterprise. W obszarze **Poszczególne składniki** wybierz pozycję **Narzędzia do testowania obciążenia witryn sieci Web i aplikacji**.
+
 2. Otwórz plik .webtest i rozpocznij nagrywanie.
 
     ![Otwórz plik .webtest i kliknij przycisk Nagraj.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -207,7 +211,7 @@ Jeśli w ramach testu należy zalogować się przy użyciu protokołu OAuth, og�
 * Sparametryzuj tokeny, ustawiając parametr, gdy token jest zwracany z witryny uwierzytelniającej i używając go w zapytaniu do tej witryny.
   Program Visual Studio podejmie próby parametryzacji testu, ale parametryzacja tokenów nie przebiegnie poprawnie.
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Edytowanie lub wyłączanie testu
+## <a name="edit"></a> Edytowanie lub wyłączanie testu
 Otwórz wybrany test, aby go edytować lub wyłączyć.
 
 ![Edytowanie lub wyłączanie testu sieci Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -256,12 +260,12 @@ Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzeni
 
     Niestety nie jest to obsługiwane.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Wideo
+## <a name="video"></a>Wideo
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Następne kroki
+## <a name="next"></a>Następne kroki
 [Dzienniki diagnostyczne usługi Search][diagnostic]
 
 [Rozwiązywanie problemów][qna]
@@ -274,9 +278,4 @@ Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzeni
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

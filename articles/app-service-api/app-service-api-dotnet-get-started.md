@@ -3,7 +3,7 @@ title: "Wprowadzenie do usługi API Apps i programu ASP.NET w usłudze App Servi
 description: "Dowiedz się, jak za pomocą programu Visual Studio 2015 utworzyć i wdrożyć aplikację interfejsu API platformy ASP.NET w usłudze Azure App Service oraz korzystać z tej aplikacji."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
@@ -199,7 +199,7 @@ Pakiet Swashbuckle współdziała z dowolnym projektem interfejsu API sieci Web 
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Tworzenie aplikacji interfejsu API na platformie Azure i wdrażanie w niej kodu
+## <a id="createapiapp"></a> Tworzenie aplikacji interfejsu API na platformie Azure i wdrażanie w niej kodu
 W tej sekcji użyjemy narzędzi platformy Azure zintegrowanych z kreatorem **Publikowanie w sieci Web** programu Visual Studio w celu utworzenia nowej usługi aplikacji interfejsu API na platformie Azure. Następnie wdrożymy projekt ToDoListDataAPI w nowej aplikacji interfejsu API i wywołamy interfejs API, uruchamiając interfejs użytkownika programu Swagger.
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt ToDoListDataAPI, a następnie kliknij polecenie **Opublikuj**.
@@ -303,7 +303,7 @@ W tej sekcji użyjemy narzędzi platformy Azure zintegrowanych z kreatorem **Pub
     
     Po wybraniu aplikacji interfejsu API w celu wygenerowania dla niej kodu klienta program Visual Studio pobiera metadane z tego adresu URL.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Generowanie kodu klienta dla warstwy danych
+## <a id="codegen"></a> Generowanie kodu klienta dla warstwy danych
 Automatyczne generowanie kodu to jedna z zalet integracji programu Swagger z aplikacjami interfejsu API platformy Azure. Wygenerowane klasy klienta ułatwiają pisanie kodu, który wywołuje aplikację interfejsu API.
 
 W projekcie ToDoListAPI kod klienta został już wygenerowany, ale w poniższych krokach zostanie on usunięty i wygenerowany ponownie. Ma to na celu zapoznanie się z procedurą generowania kodu.

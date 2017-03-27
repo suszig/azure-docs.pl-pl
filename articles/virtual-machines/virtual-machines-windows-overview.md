@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f86b47f3886571b0795bc858a1a2c0757c6fb7b6
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -103,7 +103,7 @@ Zasoby wymienione w tej tabeli są używane przez maszynę wirtualną i muszą i
 | [Konto magazynu](../storage/storage-create-storage-account.md) |Tak |Maszyna wirtualna wymaga konta magazynu do przechowywania wirtualnych dysków twardych. |
 | [Sieć wirtualna](../virtual-network/virtual-networks-overview.md) |Tak |Maszyna wirtualna musi należeć do sieci wirtualnej. |
 | [Publiczny adres IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nie |Maszyna wirtualna może mieć przypisany publiczny adres IP umożliwiający uzyskiwanie do niej dostępu zdalnego. |
-| [Interfejs sieciowy](../virtual-network/virtual-network-network-interface-overview.md) |Tak |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
+| [Interfejs sieciowy](../virtual-network/virtual-network-network-interface.md) |Tak |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
 | [Dyski danych](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nie |Maszyna wirtualna może zawierać dyski danych zwiększające jej pojemność. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Jak utworzyć maszynę wirtualną?

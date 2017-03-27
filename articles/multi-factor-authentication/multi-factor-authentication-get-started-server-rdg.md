@@ -12,38 +12,68 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
-ms.openlocfilehash: 4b117f03a8f769cbd2ecf1fca2653e8c343b6aa0
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d0e35237b412d4c3bcc26c77d124f3ed2fef6403
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Brama usług pulpitu zdalnego i serwer Azure Multi-Factor Authentication korzystające z usługi RADIUS
-W wielu przypadkach brama usług pulpitu zdalnego używa lokalnego serwera NPS do uwierzytelniania użytkowników. Ten dokument zawiera informacje dotyczące określenia trasy żądania usługi RADIUS z bramy usług pulpitu zdalnego (za pośrednictwem lokalnego serwera NPS) do serwera Multi-Factor Authentication.
+Często bramy usług pulpitu zdalnego (RD, Remote Desktop) korzystają z lokalnych usług Network Policy Services (NPS) w celu uwierzytelniania użytkowników. Ten artykuł zawiera informacje dotyczące określenia trasy żądań usługi RADIUS z bramy usług pulpitu zdalnego (za pośrednictwem lokalnych usług NPS) do serwera Multi-Factor Authentication. Połączenie usługi Azure MFA i bramy usług pulpitu zdalnego oznacza, że użytkownicy mogą uzyskiwać dostęp do swoich środowisk pracy z dowolnego miejsca przy jednoczesnym zachowaniu kontroli nad zasobami firmy dzięki wymaganiu silnego uwierzytelniania. 
 
-Serwer Multi-Factor Authentication należy zainstalować na osobnym serwerze, który następnie przekaże żądanie usługi RADIUS do serwera NPS na serwerze bramy usług pulpitu zdalnego. Po sprawdzeniu poprawności nazwy użytkownika i hasła serwer NPS zwróci odpowiedź do serwera Multi-Factor Authentication, który realizuje drugi składnik uwierzytelniania przed zwróceniem wyników do bramy.
+Ponieważ uwierzytelnianie systemu Windows dla usług terminalowych nie jest obsługiwane w przypadku systemu Windows Server 2012 R2, należy użyć bramy usług pulpitu zdalnego i usługi RADIUS do integracji z serwerem MFA. 
 
-## <a name="configure-the-rd-gateway"></a>Konfigurowanie bramy usług pulpitu zdalnego
-Brama usług pulpitu zdalnego musi być skonfigurowana do wysyłania uwierzytelniania usługi RADIUS do serwera Azure Multi-Factor Authentication. Po zainstalowaniu, skonfigurowaniu i rozpoczęciu działania bramy usług pulpitu zdalnego przejdź do właściwości bramy usług pulpitu zdalnego. Przejdź do karty Magazyn zasad autoryzacji połączeń usług pulpitu zdalnego i ustaw wartość na Centralny serwer, na którym działa serwer NPS zamiast Lokalny serwer, na którym działa serwer NPS. Dodaj jeden lub więcej serwerów Azure Multi-Factor Authentication jako serwery usługi RADIUS i określ wspólny klucz tajny dla każdego serwera.
+Serwer Multi-Factor Authentication należy zainstalować na osobnym serwerze, który przekaże żądanie usługi RADIUS do usług NPS na serwerze bramy usług pulpitu zdalnego. Po zweryfikowaniu nazwy użytkownika i hasła usługi NPS zwrócą odpowiedź do serwera Multi-Factor Authentication, który realizuje drugi składnik uwierzytelniania przed zwróceniem wyników do bramy.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Przyłączony do domeny serwer Azure MFA. Jeśli nie jest jeszcze zainstalowany, postępuj zgodnie z instrukcjami przedstawionymi w artykule [Wprowadzenie do serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md).
+- Brama usług pulpitu zdalnego uwierzytelniana za pomocą usług Network Policy Services.
+
+## <a name="configure-the-remote-desktop-gateway"></a>Konfigurowanie bramy pulpitu zdalnego
+Należy skonfigurować bramę usług pulpitu zdalnego w celu wysyłania uwierzytelniania usługi RADIUS do serwera Azure Multi-Factor Authentication. 
+
+1. W menedżerze bramy usług pulpitu zdalnego kliknij prawym przyciskiem myszy nazwę serwera i wybierz pozycję **Właściwości**.
+2. Przejdź na kartę **Magazyn zasad autoryzacji połączeń usług pulpitu zdalnego**, a następnie wybierz pozycję **Centralny serwer, na którym działają usługi NPS**. 
+3. Dodaj co najmniej jeden serwer Azure Multi-Factor Authentication jako serwer usługi RADIUS, wprowadzając nazwę lub adres IP poszczególnych serwerów. 
+4. Utwórz wspólny klucz tajny dla każdego serwera.
 
 ## <a name="configure-nps"></a>Konfigurowanie serwera NPS
-Brama usług pulpitu zdalnego używa serwera NPS do wysyłania żądań usługi RADIUS do usługi Azure Multi-Factor Authentication. Aby zapobiec przekroczeniu limitu czasu bramy usług pulpitu zdalnego przed ukończeniem uwierzytelniania wieloskładnikowego, należy zmienić wartość limitu czasu. Poniższa procedura służy do konfigurowania serwera NPS.
+Brama usług pulpitu zdalnego używa serwera NPS do wysyłania żądań usługi RADIUS do usługi Azure Multi-Factor Authentication. Aby skonfigurować usługi NPS, najpierw należy zmienić ustawienia limitu czasu, aby zapobiec przekraczaniu limitu czasu przez bramę usług pulpitu zdalnego przed ukończeniem weryfikacji dwuetapowej. Następnie należy zaktualizować usługi NPS na potrzeby odbierania uwierzytelnień usługi RADIUS z serwera MFA. Postępuj zgodnie z następującą procedurą, aby skonfigurować usługi NPS:
 
-1. Na serwerze NPS rozwiń menu klientów i serwera usługi RADIUS w lewej kolumnie i kliknij pozycję Grupy zdalnych serwerów usługi RADIUS. Przejdź do właściwości pozycji GRUPA SERWERÓW BRAMY USŁUG TERMINALOWYCH. Edytuj wyświetlane serwery usługi RADIUS i przejdź do karty Równoważenie obciążenia. Zmień wartość opcji „Liczba sekund bez odpowiedzi zanim żądanie zostanie uznane za porzucone” i „Liczba sekund między żądaniami, gdy serwer jest Zidentyfikowany jako niedostępny” na od 30 do 60 sekund. Kliknij kartę Uwierzytelnianie/konto i upewnij się, że określone porty usługi RADIUS są zgodne z portami, na których będzie nasłuchiwać serwer Multi-Factor Authentication.
-2. Serwer NPS należy również skonfigurować do odbierania uwierzytelnień usługi RADIUS z serwera Azure Multi-Factor Authentication. Kliknij pozycję Klienci usługi RADIUS w lewym menu. Dodaj serwer Azure Multi-Factor Authentication jako klienta usługi RADIUS. Wybierz przyjazną nazwę i określ wspólny klucz tajny.
-3. Rozwiń sekcję Zasady w lewym pasku nawigacyjnym, a następnie kliknij opcję Zasady żądań połączeń. Powinna ona zawierać zasady żądań połączeń o nazwie ZASADY BRAMY USŁUG TERMINALOWYCH, które zostały utworzone podczas konfigurowania bramy usług pulpitu zdalnego. TE zasady powodują przesyłanie żądań usługi RADIUS do serwera Multi-Factor Authentication.
-4. Skopiuj te zasady, aby utworzyć nowe. W nowych zasadach dodaj warunek, który dopasowuje przyjazną nazwę klienta do przyjaznej nazwy określonej w kroku 2 powyżej dla klienta usługi RADIUS serwera Azure Multi-Factor Authentication. Zmień dostawcę uwierzytelniania na Komputer lokalny. Te zasady zapewniają, że po odebraniu żądania usługi RADIUS z serwera Azure Multi-Factor Authentication uwierzytelnianie odbywa się lokalnie, zamiast wysyłania żądań usługi RADIUS ponownie do serwera Azure Multi-Factor Authentication, co mogłoby spowodować zapętlenie. Aby zapobiec zapętleniu, nowe zasady muszą być umieszczone POWYŻEJ oryginalnych zasad, które powodują przekazanie do serwera Multi-Factor Authentication.
+### <a name="modify-the-timeout-policy"></a>Modyfikowanie zasad limitu czasu
+
+1. W usługach NPS otwórz menu **Klienci i serwery usługi RADIUS** w lewej kolumnie, a następnie wybierz pozycję **Grupy zdalnych serwerów usługi RADIUS**. 
+2. Wybierz pozycję **GRUPA SERWERA BRAMY USŁUG TERMINALOWYCH**. 
+3. Przejdź na kartę **Równoważenie obciążenia**. 
+4. Zmień wartość opcji „Liczba sekund bez odpowiedzi zanim żądanie zostanie uznane za porzucone” i „Liczba sekund między żądaniami, gdy serwer jest zidentyfikowany jako niedostępny” na wartość od 30 do 60 sekund. Jeśli okaże się, że nadal ma miejsce przekraczanie limitu czasu przez serwer podczas uwierzytelniania, możesz tu wrócić i zwiększyć liczbę sekund.
+5. Przejdź na kartę **Uwierzytelnianie/konto** i sprawdź, czy określone porty usługi RADIUS są zgodne z portami, na których będzie nasłuchiwać serwer Multi-Factor Authentication.
+
+### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>Przygotowywanie usług NPS do odbierania uwierzytelnień z serwera MFA
+
+1. Kliknij prawym przyciskiem myszy pozycję **Klienci RADIUS** w obszarze Klienci i serwery usługi RADIUS w lewej kolumnie, a następnie wybierz pozycję **Nowy**.
+2. Dodaj serwer Azure Multi-Factor Authentication jako klienta usługi RADIUS. Wybierz przyjazną nazwę i określ wspólny klucz tajny.
+3. Otwórz menu **Zasady** w lewej kolumnie, a następnie wybierz pozycję **Zasady żądań połączeń**. Powinny zostać wyświetlone zasady o nazwie ZASADY AUTORYZACJI BRAMY USŁUG TERMINALOWYCH, które zostały utworzone podczas konfigurowania bramy usług pulpitu zdalnego. Te zasady powodują przesyłanie żądań usługi RADIUS do serwera Multi-Factor Authentication.
+4. Kliknij prawym przyciskiem pozycję **ZASADY AUTORYZACJI BRAMY USŁUG TERMINALOWYCH**, a następnie wybierz pozycję **Duplikuj zasady**. 
+5. Otwórz nowe zasady i przejdź na kartę **Warunki**.
+6. Dodaj warunek, który dopasowuje przyjazną nazwę klienta do przyjaznej nazwy ustawionej w kroku 2 dla klienta usługi RADIUS serwera Azure Multi-Factor Authentication. 
+7. Przejdź na kartę **Ustawienia**, a następnie wybierz pozycję **Uwierzytelnianie**.
+8. Zmień opcję dostawcy uwierzytelniania na wartość **Uwierzytelniaj żądania na tym serwerze**. Te zasady zapewniają, że po odebraniu przez usługi NPS żądania usługi RADIUS z serwera Azure MFA uwierzytelnianie odbywa się lokalnie, a żądania usługi RADIUS nie są wysyłane ponownie do serwera Azure Multi-Factor Authentication, co mogłoby spowodować zapętlenie. 
+9. Aby zapobiec zapętleniu, upewnij się, że nowe zasady są POWYŻEJ oryginalnych zasad w okienku **Zasady żądań połączeń**.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Konfigurowanie usługi Azure Multi-Factor Authentication
 
 Serwer Azure Multi-Factor Authentication jest konfigurowany jako serwer proxy usługi RADIUS pomiędzy bramą usług pulpitu zdalnego a serwerem NPS.  Powinien zostać zainstalowany na serwerze przyłączonym do domeny, który jest oddzielony od serwera bramy usług pulpitu zdalnego. Poniższa procedura umożliwia skonfigurowanie serwera Azure Multi-Factor Authentication.
 
-1. Otwórz serwer Azure Multi-Factor Authentication i kliknij ikonę uwierzytelniania usługi RADIUS. Zaznacz pole wyboru Włącz uwierzytelnianie usługi RADIUS.
-2. Na karcie Klienci upewnij się, że porty są zgodne z portami skonfigurowanymi na serwerze NPS, a następnie kliknij przycisk Dodaj... Dodaj... Dodaj adres IP serwera bramy usług pulpitu zdalnego, nazwę aplikacji (opcjonalnie) i wspólny klucz tajny. Wspólny klucz tajny musi być taki sam dla serwera Azure Multi-Factor Authentication Server i bramy usług pulpitu zdalnego.
-3. Kliknij kartę Cel, a następnie wybierz przycisk radiowy Serwery RADIUS.
-4. Kliknij przycisk Dodaj... Wprowadź adres IP, wspólny klucz tajny i porty serwera NPS. Jeśli nie jest używany centralny serwer NPS, klient usługi RADIUS i cel usługi RADIUS będą takie same. Wspólny klucz tajny musi być zgodny z kluczem skonfigurowanym w sekcji klienta usługi RADIUS serwera NPS.
+1. Otwórz serwer Azure Multi-Factor Authentication i wybierz ikonę uwierzytelniania usługi RADIUS. 
+2. Zaznacz pole wyboru **Włącz uwierzytelnianie usługi RADIUS**.
+3. Na karcie Klienci upewnij się, że porty są zgodne z portami skonfigurowanymi w usługach NPS, a następnie wybierz pozycję **Dodaj**.
+4. Dodaj adres IP serwera bramy usług pulpitu zdalnego, nazwę aplikacji (opcjonalnie) i wspólny wpis tajny. Wspólny wpis tajny musi być taki sam dla serwera usługi Azure Multi-Factor Authentication i bramy usług pulpitu zdalnego.
+3. Kliknij kartę **Cel**, a następnie wybierz przycisk radiowy **Serwery RADIUS**.
+4. Wybierz pozycję **Dodaj**, a następnie wprowadź adres IP, wspólny wpis tajny i porty serwera usług NPS. Jeśli nie jest używany centralny serwer usług NPS, klient usługi RADIUS i cel usługi RADIUS będą takie same. Wspólny wpis tajny musi być zgodny z kluczem skonfigurowanym w sekcji klienta usługi RADIUS serwera NPS.
 
 ![Uwierzytelnianie usługi Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
@@ -52,9 +82,4 @@ Serwer Azure Multi-Factor Authentication jest konfigurowany jako serwer proxy us
 - Zintegruj usługę Azure MFA z [aplikacjami sieci Web usługi IIS](multi-factor-authentication-get-started-server-iis.md)
 
 - Uzyskaj odpowiedzi z artykułu [Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

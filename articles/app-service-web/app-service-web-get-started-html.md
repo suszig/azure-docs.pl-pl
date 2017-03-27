@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 3a618e4dfed5e941fb0200f4f21a6a45e33d948e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 472353a2d099db869f43649cd46c8b004ebd53cc
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -26,47 +26,53 @@ ms.lasthandoff: 03/15/2017
 
 Ten przewodnik szybkiego startu pomaga w ciągu kilku minut wdrożyć prostą witrynę w językach HTML+CSS w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-Przed uruchomieniem tego przewodnika szybkiego startu upewnij się, że masz na maszynie [zainstalowany interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Przed rozpoczęciem upewnij się, że interfejs wiersza polecenia platformy Azure został zainstalowany. Aby uzyskać więcej informacji, zobacz [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli) (Przewodnik instalacji interfejsu wiersza polecenia platformy Azure).
 
-## <a name="create-a-static-html-site-in-azure"></a>Tworzenie statycznej witryny w języku HTML na platformie Azure
-2. Zaloguj się do platformy Azure, uruchamiając polecenie `az login` i postępując zgodnie ze wskazówkami na ekranie.
+## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+Zaloguj się do platformy Azure, uruchamiając polecenie `az login` i postępując zgodnie ze wskazówkami na ekranie.
    
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
 
-3. Utwórz [grupę zasobów](../azure-resource-manager/resource-group-overview.md). W niej umieścisz wszystkie zasoby platformy Azure, którymi chcesz zarządzać razem, takie jak aplikacja sieci Web i jej zaplecze w usłudze SQL Database.
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów   
+Utwórz [grupę zasobów](../azure-resource-manager/resource-group-overview.md). W niej umieścisz wszystkie zasoby platformy Azure, którymi chcesz zarządzać razem, takie jak aplikacja sieci Web i jej zaplecze w usłudze SQL Database.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    Aby sprawdzić, jakich wartości można użyć dla lokalizacji `---location`, użyj polecenia interfejsu wiersza polecenia platformy Azure `az appservice list-locations`.
+Aby sprawdzić, jakich wartości można użyć dla lokalizacji `---location`, użyj polecenia interfejsu wiersza polecenia platformy Azure `az appservice list-locations`.
 
-3. Utwórz [plan usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) w warstwie BEZPŁATNA. 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-    ```
+## <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
+Utwórz [plan usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) w warstwie BEZPŁATNA. 
 
-4. Utwórz nową aplikację sieci Web o unikatowej nazwie wprowadzonej w tagu `<app_name>`.
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
+```
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
+Utwórz aplikację sieci Web o unikatowej nazwie wprowadzonej w tagu `<app_name>`.
 
-4. Wdróż przykładową witrynę w języku HTML z usługi GitHub.
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-html-get-started.git" --branch master --manual-integration 
-    ```
+## <a name="deploy-sample-application"></a>Wdrażanie przykładowej aplikacji
+Wdróż przykładową witrynę w języku HTML z usługi GitHub.
 
-5. Aby zobaczyć aplikację działającą na platformie Azure, uruchom to polecenie.
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-html-get-started.git" --branch master --manual-integration 
+```
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+## <a name="browse-to-web-app"></a>Przechodzenie do aplikacji sieci Web
+Aby zobaczyć aplikację działającą na platformie Azure, uruchom to polecenie.
+
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Gratulacje, Twoja pierwsza statyczna witryna w języku HTML działa na żywo w usłudze Azure App Service.
 

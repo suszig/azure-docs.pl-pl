@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/20/2016
+ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
-ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Co to jest SQL Database? Wprowadzenie do usługi SQL Database
 Usługa SQL Database jest usługą relacyjnej bazy danych w chmurze firmy Microsoft opartą na wiodącym na rynku aparacie programu Microsoft SQL Server. Może ona obsługiwać obciążenia o znaczeniu krytycznym. Usługa SQL Database oferuje przewidywalną wydajność na wielu poziomach usługi, dynamiczną skalowalność bez przestojów, wbudowane funkcje ciągłości prowadzenia działalności biznesowej i ochronę danych — wszystko przy bliskich zeru nakładach na administrację. Te możliwości pozwalają Ci skoncentrować się na szybkim tworzeniu aplikacji i skracaniu czasu wejścia na rynek, a nie na poświęcaniu cennego czasu i cennych zasobów na zarządzanie maszynami wirtualnymi i infrastrukturą. Ponieważ usługa SQL Database jest oparta na aparacie programu [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), usługa SQL Database obsługuje istniejące narzędzia, biblioteki i interfejsy API programu SQL Server. Dzięki temu można łatwo tworzyć nowe rozwiązania, przenosić istniejące rozwiązania programu SQL Server i rozszerzać je do chmury firmy Microsoft bez konieczności uczenia się nowych umiejętności.
 
-Ten artykuł obejmuje wprowadzenie do podstawowych pojęć i funkcji usługi SQL Database związanych z wydajnością, skalowalnością i możliwościami zarządzania, a także zawiera linki do szczegółowych informacji. Jeśli chcesz już przejść do samouczków, otwórz artykuł [Tworzenie pierwszej bazy danych SQL](sql-database-get-started.md) lub [Tworzenie puli elastycznej](sql-database-elastic-pool-manage-portal.md). Aby zapoznać się z krótki pokazem, obejrzyj to wideo.
+Ten artykuł obejmuje wprowadzenie do podstawowych pojęć i funkcji usługi SQL Database związanych z wydajnością, skalowalnością i możliwościami zarządzania, a także zawiera linki do szczegółowych informacji. Zobacz te przewodniki Szybki start, aby rozpocząć pracę:
+ - [Tworzenia bazy danych SQL w witrynie Azure Portal](sql-database-get-started-portal.md)  
+ - [Tworzenia bazy danych SQL za pomocą interfejsu wiersza polecenia platformy Azure](sql-database-get-started-cli.md)
+ - [Tworzenie bazy danych SQL za pomocą programu PowerShell](sql-database-get-started-powershell.md)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
-> 
-> 
+Aby uzyskać zestaw przykładów interfejsu wiersza polecenia platformy Azure i programu PowerShell, zobacz:
+ - [Przykłady interfejsu wiersza polecenia platformy Azure dla bazy danych Azure SQL Database](sql-database-cli-samples.md)
+ - [Przykłady programu Azure PowerShell dla bazy danych Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Dostosowanie wydajności i skalowanie bez przestojów
 Usługa SQL Database oferuje trzy warstwy usługi: Podstawowa, Standardowa i Premium. Każdej warstwa usług oferuje [różne poziomy wydajności i możliwości](sql-database-service-tiers.md) w celu obsługi różnych obciążeń bazy danych, zarówno niewielkich, jak i ogromnych. Możesz utworzyć pierwszą aplikację na małej bazie danych za niewielką sumę miesięcznie, a następnie [zmienić warstwę usługi](sql-database-service-tiers.md) ręcznie lub programowo w dowolnym momencie, aby spełnić wymagania rozwiązania. Jest to możliwe bez przestoju aplikacji i przerwy w świadczeniu usługi klientom. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów oraz płacenie tylko za potrzebne zasoby i tylko gdy są używane.

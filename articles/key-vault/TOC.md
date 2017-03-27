@@ -28,7 +28,7 @@
 
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/keyvault)
+## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)

@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2017
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: b652c0f817e5e56d4ff50701345b03db634f616c
 ms.openlocfilehash: 043c54094f53ae539c833eb8f167201781c677a6
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -58,9 +59,4 @@ Aby utworzyć to rozwiązanie do oceny ryzyka kredytowego, wykonamy następując
 > Funkcjonalną kopię eksperymentu opracowywanego w tym przewodniku można znaleźć w witrynie [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Otwórz stronę **[Walkthrough — Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Przewodnik — przewidywanie ryzyka kredytowego) i kliknij przycisk **Open in Studio** (Otwórz w usłudze Studio), aby pobrać kopię eksperymentu do obszaru roboczego usługi Machine Learning Studio.
 > 
 > Ten przewodnik jest oparty na uproszczonej wersji przykładowego eksperymentu [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Klasyfikacja binarna: przewidywanie ryzyka kredytowego) dostępnego również w witrynie [Gallery](http://gallery.cortanaintelligence.com/).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
