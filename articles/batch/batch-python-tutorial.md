@@ -87,7 +87,7 @@ Możesz także ręcznie zainstalować pakiety [azure-batch][pypi_batch] i [azure
 `pip install azure-storage`
 
 > [!TIP]
-> Jeśli używasz konta nieuprzywilejowanego, może być konieczne umieszczenie prefiksu `sudo` na początku poleceń. Na przykład `sudo pip install -r requirements.txt`. Więcej informacji na temat instalowania pakietów dla środowiska Python znajduje się w temacie [Installing Packages] (Instalowanie pakietów)[pypi_install] w witrynie python.org.
+> Jeśli używasz konta nieuprzywilejowanego, może być konieczne umieszczenie prefiksu `sudo` na początku poleceń. Na przykład `sudo pip install -r requirements.txt`. Więcej informacji na temat instalowania pakietów dla środowiska Python znajduje się w temacie [Instalowanie pakietów][pypi_install] w witrynie python.org.
 >
 >
 
