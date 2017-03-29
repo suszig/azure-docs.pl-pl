@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9192ed7b69e52c59efe33981e1e557b634679196
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 86471fe29bbc9076624d96b83f7001d8755363bc
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -32,7 +32,6 @@ Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonyc
 
 - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
-- [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md) 
 
 Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowano [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalacji rozszerzenia mssql, zobacz [Instalacja programu VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code). 
 
@@ -164,3 +163,4 @@ Użyj instrukcji Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms1898
 
 - Aby uzyskać więcej informacji o programie Visual Studio Code, zobacz [Visual Studio Code](https://code.visualstudio.com/docs)
 - Aby uzyskać więcej informacji o wysyłaniu zapytań i edytowaniu danych przy użyciu programu SQL Server Management Studio, zobacz [SSMS](https://msdn.microsoft.com/library/ms174173.aspx).
+

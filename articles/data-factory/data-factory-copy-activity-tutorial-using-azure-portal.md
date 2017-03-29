@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -125,7 +126,7 @@ W tym kroku opisano tworzenie dwóch połączonych usług: **AzureStorageLinkedS
 4. Upewnij się, że w widoku drzewa jest wyświetlana nazwa usługi **AzureSqlLinkedService**. 
 
 > [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
+> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
 > 
 > 
 
@@ -135,7 +136,7 @@ W poprzednim kroku utworzono połączone usługi **AzureStorageLinkedService** i
 ### <a name="create-input-dataset"></a>Tworzenie wejściowego zestawu danych
 W tym kroku opisano tworzenie zestawu danych o nazwie **InputDataset** wskazującego na kontener obiektów blob w usłudze Azure Storage reprezentowany przez połączoną usługę **AzureStorageLinkedService**.
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia ** Więcej**, **Nowy zestaw danych** i **Azure Blob Storage** w menu rozwijanym. 
+1. W **edytorze** fabryki danych kliknij kolejno polecenia **Więcej**, **Nowy zestaw danych** i **Azure Blob Storage** w menu rozwijanym. 
    
     ![Menu Nowy zestaw danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON: 
@@ -201,14 +202,14 @@ W tym kroku opisano tworzenie zestawu danych o nazwie **InputDataset** wskazują
 3. Kliknij przycisk **Wdróż** na pasku narzędzi, aby utworzyć i wdrożyć zestaw danych **InputDataset**. Upewnij się, że zestaw **InputDataset** jest wyświetlany w widoku drzewa.
 
 > [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) (Przenoszenie danych do i z usługi Azure Blob).
+> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) (Przenoszenie danych do i z usługi Azure Blob).
 > 
 > 
 
 ### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 W tej części kroku tworzony jest wyjściowy zestaw danych o nazwie **OutputDataset**. Ten zestaw danych wskazuje tabelę SQL w bazie danych SQL Azure reprezentowanej przez usługę **AzureSqlLinkedService**. 
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia ** Więcej**, **Nowy zestaw danych** i **SQL Azure** w menu rozwijanym. 
+1. W **edytorze** fabryki danych kliknij kolejno polecenia **Więcej**, **Nowy zestaw danych** i **SQL Azure** w menu rozwijanym. 
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON:
 
     ```JSON   
@@ -247,14 +248,14 @@ W tej części kroku tworzony jest wyjściowy zestaw danych o nazwie **OutputDat
 3. Kliknij przycisk **Wdróż** na pasku narzędzi, aby utworzyć i wdrożyć zestaw danych **OutputDataset**. Upewnij się, że zestaw **OutputDataset** jest wyświetlany w widoku drzewa. 
 
 > [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
+> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
 > 
 > 
 
 ## <a name="create-pipeline"></a>Tworzenie potoku
 W tym kroku opisano tworzenie potoku za pomocą **działania kopiowania**, w którym parametr **InputDataset** jest używany jako dane wejściowe, a parametr **OutputDataset** jako dane wyjściowe.
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia ** Więcej** i **Nowy potok**. Możesz również kliknąć prawym przyciskiem myszy opcję **Potoki** w widoku drzewa i kliknąć opcję **Nowy potok**.
+1. W **edytorze** fabryki danych kliknij kolejno polecenia **Więcej** i **Nowy potok**. Możesz również kliknąć prawym przyciskiem myszy opcję **Potoki** w widoku drzewa i kliknąć opcję **Nowy potok**.
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON: 
 
     ```JSON   
@@ -412,9 +413,4 @@ W tym samouczku opisano tworzenie fabryki danych Azure w celu kopiowania danych 
 | [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

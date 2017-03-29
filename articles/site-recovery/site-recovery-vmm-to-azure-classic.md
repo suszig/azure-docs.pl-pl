@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -138,7 +138,7 @@ Wygeneruj klucz rejestracji magazynu. Po pobraniu dostawcy usługi Azure Site Re
      * *.backup.windowsazure.com
      * *.blob.core.windows.net
      * *.store.core.windows.net
-   * Zezwól na adresy IP, opisane w temacie [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (Zakresy adresów IP centrum danych Azure), i protokół HTTPS (port&443;). Należy również umieścić na liście dozwolonych zakresy adresów IP regionu Azure, który będzie używany, i regionu Zachodnie stany USA.
+   * Zezwól na adresy IP, opisane w temacie [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (Zakresy adresów IP centrum danych Azure), i protokół HTTPS (port 443). Należy również umieścić na liście dozwolonych zakresy adresów IP regionu Azure, który będzie używany, i regionu Zachodnie stany USA.
    * W przypadku użycia niestandardowego serwera proxy konto Uruchom jako programu VMM (DRAProxyAccount) zostanie automatycznie utworzone przy użyciu określonych poświadczeń serwera proxy. Skonfiguruj serwer proxy tak, aby to konto mogło być pomyślnie uwierzytelnione. Ustawienia konta Uruchom jako programu VMM można zmodyfikować w konsoli programu VMM. Aby to zrobić, otwórz obszar roboczy **Ustawienia**, rozwiń pozycję **Zabezpieczenia**, kliknij pozycję **Konta Uruchom jako**, a następnie zmodyfikuj hasło dla konta DRAProxyAccount. Aby to ustawienie zostało zastosowane, należy ponownie uruchomić usługę programu VMM.
 9. W oknie **Klucz rejestracji** wybierz klucz, aby potwierdzić, że klucz został pobrany z usługi Azure Site Recovery i skopiowany na serwer programu VMM.
 10. Ustawienie szyfrowania jest używane tylko w przypadku replikacji maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure. Ustawienie nie jest używane w przypadku replikowania do lokacji dodatkowej.
@@ -274,7 +274,7 @@ Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę
     ![Weryfikowanie maszyn wirtualnych](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Na karcie **Konfigurowanie** właściwości maszyny wirtualnej można zmodyfikować poniższe właściwości sieci.
 
-* **Liczba kart sieciowych na docelowej maszynie wirtualnej** — Liczba kart sieciowych jest zależna od rozmiaru określonego dla docelowej maszyny wirtualnej. Sprawdź [specyfikacje rozmiaru maszyny wirtualnej](../virtual-machines/virtual-machines-linux-sizes.md#size-tables), aby ustalić liczbę obsługiwanych kart sieciowych zależnie od rozmiaru maszyny wirtualnej. W razie zmodyfikowania rozmiaru maszyny wirtualnej i zapisania ustawień liczba kart sieciowych ulegnie zmianie po następnym otwarciu strony **Konfigurowanie**. Liczba kart sieciowych docelowych maszyn wirtualnych jest minimalną liczbą kart sieciowych na źródłowej maszynie wirtualnej i maksymalną liczbą kart sieciowych obsługiwanych przy wybranym rozmiarze maszyny wirtualnej zgodnie z następującą zależnością: 
+* **Liczba kart sieciowych na docelowej maszynie wirtualnej** — Liczba kart sieciowych jest zależna od rozmiaru określonego dla docelowej maszyny wirtualnej. Sprawdź [specyfikacje rozmiaru maszyny wirtualnej](../virtual-machines/virtual-machines-linux-sizes.md), aby ustalić liczbę obsługiwanych kart sieciowych zależnie od rozmiaru maszyny wirtualnej. W razie zmodyfikowania rozmiaru maszyny wirtualnej i zapisania ustawień liczba kart sieciowych ulegnie zmianie po następnym otwarciu strony **Konfigurowanie**. Liczba kart sieciowych docelowych maszyn wirtualnych jest minimalną liczbą kart sieciowych na źródłowej maszynie wirtualnej i maksymalną liczbą kart sieciowych obsługiwanych przy wybranym rozmiarze maszyny wirtualnej zgodnie z następującą zależnością: 
 
   * Jeśli liczba kart sieciowych w maszynie źródłowej jest mniejsza lub równa liczbie kart sieciowych dozwolonych dla rozmiaru maszyny docelowej, maszyna docelowa będzie mieć taką samą liczbę kart sieciowych jak maszyna źródłowa.
   * Jeśli liczba kart sieciowych dla źródłowej maszyny wirtualnej przekracza liczbę dozwolonych kart sieciowych dla rozmiaru maszyny docelowej, zostanie użyta maksymalna liczba kart dla rozmiaru maszyny docelowej.

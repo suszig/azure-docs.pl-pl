@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e4b1907b95576468654703c843a5f6e06846814b
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f994edd71c6d8ca8a2c3f5de370115747f87da57
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -68,7 +68,7 @@ Nowego hasła w usłudze Azure AD Domain Services można używać wkrótce po je
 <br>
 
 ## <a name="related-content"></a>Powiązana zawartość
-* [Jak zaktualizować własne hasło](../active-directory/active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* [Jak zaktualizować własne hasło](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [Wprowadzenie do zarządzania hasłami w usłudze Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 * [Włączanie synchronizacji haseł w usługach AAD Domain Services dla zsynchronizowanej dzierżawy usługi Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administrowanie domeną zarządzaną usług Azure AD Domain Services](active-directory-ds-admin-guide-administer-domain.md)
