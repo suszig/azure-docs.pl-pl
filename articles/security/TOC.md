@@ -1,40 +1,55 @@
 # [Omówienie](security-get-started-overview.md)
-## [Jak to działa](azure-security-getting-started.md)
-## [Usługi i technologie zabezpieczeń](azure-security-services-technologies.md)
 ## [Bezpieczeństwo sieci](security-network-overview.md)
+## [Zabezpieczenia magazynu](security-storage-overview.md)
+## [Bezpieczeństwo obliczeń](security-virtual-machines-overview.md)
+## [Zarządzanie zabezpieczeniami i monitorowanie ich](security-management-and-monitoring-overview.md)
+## [Zarządzanie tożsamościami](security-identity-management-overview.md)
+## [Zabezpieczenia IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Architektura zabezpieczeń](azure-security-architecture-overview.md)
+
+# Wprowadzenie
+## [Rozpoczynanie pracy z zabezpieczeniami platformy Azure](azure-security-getting-started.md)
+## [Najlepsze rozwiązania i wzorce dotyczące zabezpieczeń](security-best-practices-and-patterns.md)
+## [Usługi i technologie zabezpieczeń](azure-security-services-technologies.md)
+
+## Bezpieczeństwo sieci
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń sieci](azure-security-network-security-best-practices.md)
 ### [Zabezpieczenia graniczne](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Bezpieczna hybrydowa architektura sieci](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Zabezpieczenia magazynu](security-storage-overview.md)
+
+## Zabezpieczenia magazynu
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych](azure-security-data-encryption-best-practices.md)
 ### [Przewodnik po zabezpieczeniach magazynu](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Bezpieczeństwo obliczeń](security-virtual-machines-overview.md)
+
+## Bezpieczeństwo obliczeń
 ### [Najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure](azure-security-best-practices-vms.md)
 ### [Najlepsze rozwiązania dotyczące obciążeń IaaS](azure-security-iaas.md)
 ### [Usługa firmy Microsoft chroniąca przed złośliwym kodem](azure-security-antimalware.md)
-### [Szyfrowanie dysków](azure-security-disk-encryption.md)
+### [Szyfrowanie dysków dla maszyn wirtualnych IaaS](azure-security-disk-encryption.md)
 ### [Szyfrowanie maszyny wirtualnej platformy Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Zarządzanie zabezpieczeniami i monitorowanie ich](security-management-and-monitoring-overview.md)
+
+## Zarządzanie zabezpieczeniami i monitorowanie ich
 ### [Zarządzanie zabezpieczeniami](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Integracja dzienników platformy Azure](security-azure-log-integration-overview.md)
-#### [Wprowadzenie](security-azure-log-integration-get-started.md)
+### [Wprowadzenie do integracji dzienników platformy Azure](security-azure-log-integration-overview.md)
+#### [Pierwsze kroki z integracją dzienników platformy Azure](security-azure-log-integration-get-started.md)
 #### [Często zadawane pytania](security-azure-log-integration-faq.md)
-## [Zarządzanie tożsamościami](security-identity-management-overview.md)
+
+## Zarządzanie tożsamościami
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń zarządzania tożsamościami](azure-security-identity-management-best-practices.md)
+
 ## Usługi PaaS
 ### [Zabezpieczanie wdrożeń typu PaaS](security-paas-deployments.md)
-#### [Zabezpieczanie aplikacji PaaS przy użyciu języka SQL](security-paas-applications-using-sql.md)
-#### [Zabezpieczanie aplikacji PaaS przy użyciu usług App Services](security-paas-applications-using-app-services.md)
-### [Przegląd zabezpieczeń IoT](security-internet-of-things-overview.md)
-### [Najlepsze rozwiązania z zakresu zabezpieczeń IoT](azure-security-iot-best-practices.md)
-## Branże działające na rynkach pionowych
-### [Projektowanie bezpiecznych rozwiązań z zakresu ochrony zdrowia](security-health-care-solution.md)
-## [Architektura zabezpieczeń](azure-security-architecture-overview.md)
-### [Klasyfikacja danych pod kątem przygotowania do chmury](azure-security-data-classification.md)
-### [Architektura aplikacji na platformie Azure](security-application-architecture-on-azure.md)
-### [Najlepsze rozwiązania i wzorce dotyczące zabezpieczeń](security-best-practices-and-patterns.md)
-### [Planowanie architektury wytrzymałych aplikacji](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
+#### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu języka SQL](security-paas-applications-using-sql.md)
+#### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu usług App Services](security-paas-applications-using-app-services.md)
+
+## Internet rzeczy
+### [Zabezpieczanie wdrożenia IoT](../iot-suite/iot-suite-security-deployment.md)
+### [Najlepsze rozwiązania z zakresu zabezpieczeń IoT](../iot-suite/iot-security-best-practices.md)
+
+## Architektura zabezpieczeń
+### [Klasyfikacja danych](azure-security-data-classification.md)
+### [Odzyskiwanie po awarii aplikacji utworzonych na platformie Azure i ich wysoka dostępność](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Powiązane
 ## [Centrum zaufania](security-microsoft-trust-center.md)
@@ -45,6 +60,7 @@
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Zasoby
 ## [Blog poświęcony zabezpieczeniom i zgodności](http://blogs.msdn.com/b/azuresecurity/)
