@@ -29,7 +29,7 @@ Przed odłączeniem dysku od maszyny wirtualnej należy określić numer LUN, kt
 3. Zapisz numer LUN, czyli **numer jednostki logicznej**, dysku, który chcesz odłączyć.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Usuwanie odwołań systemu operacyjnego do dysku
-Przed odłączeniem dysku od systemu Linux gościa upewnij się, że żadna partycja na dysku nie jest używana. Sprawdź, czy system operacyjny nie spróbuje ponownie ich zainstalować po ponownym uruchomieniu. Następujące kroki umożliwiają cofnięcie konfiguracji, którą prawdopodobnie utworzono podczas [dołączania](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) dysku.
+Przed odłączeniem dysku od systemu Linux gościa upewnij się, że żadna partycja na dysku nie jest używana. Sprawdź, czy system operacyjny nie spróbuje ponownie ich zainstalować po ponownym uruchomieniu. Następujące kroki umożliwiają cofnięcie konfiguracji, którą prawdopodobnie utworzono podczas [dołączania](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) dysku.
 
 1. Użyj polecenia `lsscsi`, aby określić identyfikator dysku. Program `lsscsi` można zainstalować za pomocą polecenia `yum install lsscsi` (dystrybucje oparte na systemie Red Hat) lub `apt-get install lsscsi` (dystrybucje oparte na systemie Debian). Możesz określić identyfikator dysku, którego szukasz, przy użyciu numeru LUN. Ostatnia liczba w krotce w każdym wierszu to numer LUN. W następującym przykładzie polecenia `lsscsi` jednostka LUN 0 jest zamapowana na urządzenie */dev/sdc*
 
@@ -111,9 +111,4 @@ Po określeniu numeru LUN dysku i usunięciu odwołań systemu operacyjnego moż
     ```
 
 Odłączony dysk pozostaje w magazynie, lecz nie jest już dołączony do maszyny wirtualnej.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

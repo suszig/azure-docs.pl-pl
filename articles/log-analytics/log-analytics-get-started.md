@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
-ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ Możesz szybko rozpocząć pracę z usługą Azure Log Analytics, która pomaga 
 Ten artykuł służy jako wprowadzenie do usługi Log Analytics — do tego celu zostanie użyty krótki samouczek, w którym opisano podstawowe wdrożenie na platformie Azure w celu umożliwienia korzystania z usługi. Logiczny kontener służący do przechowywania danych zarządzania na platformie Azure jest nazywany obszarem roboczym. Po przejrzeniu tych informacji i zakończeniu oceny możesz usunąć obszar roboczy dotyczący oceny. Ponieważ ten artykuł jest samouczkiem, nie zawiera on informacji dotyczących wymagań biznesowych i planowania ani wskazówek dotyczących architektury.
 
 >[!NOTE]
->Jeśli używasz chmury platformy Microsoft Azure Government, zamiast tego użyj [dokumentacji dotyczącej monitorowania platformy Azure Government i zarządzania nią](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
+>Jeśli używasz chmury platformy Microsoft Azure Government, zamiast tego użyj [dokumentacji dotyczącej monitorowania platformy Azure Government i zarządzania nią](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
 
 Oto krótki przegląd procesu umożliwiającego rozpoczęcie pracy:
 
@@ -73,7 +73,7 @@ Dodawanie rozwiązań do obszaru roboczego umożliwia usłudze Log Analytics zbi
 4. Kliknij przycisk **Utwórz**.  
     ![obszar roboczy rozwiązania](./media/log-analytics-get-started/solution-workspace.png)  
 5. Powtórz kroki 1–4, aby dodać:
-    - Ofertę usług ** Security & Compliance** wraz z rozwiązaniem do oceny ochrony przed złośliwym oprogramowaniem oraz rozwiązaniem zabezpieczeń i inspekcji.
+    - Ofertę usług **Security & Compliance** wraz z rozwiązaniem do oceny ochrony przed złośliwym oprogramowaniem oraz rozwiązaniem zabezpieczeń i inspekcji.
     - Ofertę usług **Automation & Control** wraz z rozwiązaniem dotyczącym hybrydowego procesu roboczego oraz rozwiązaniami do śledzenia zmian i oceny aktualizacji systemu (nazywanym również rozwiązaniem do zarządzania aktualizacjami). Podczas dodawania oferty rozwiązań należy utworzyć konto usługi Automation.  
         ![Konto usługi Automation](./media/log-analytics-get-started/automation-account.png)  
 6. Rozwiązania do zarządzania dodane do obszaru roboczego można wyświetlić, przechodząc do obszaru **Log Analytics** > **Subskrypcje** > ***nazwa obszaru roboczego*** > **Przegląd**. Zostaną wyświetlone kafelki dla dodanych rozwiązań do zarządzania.  

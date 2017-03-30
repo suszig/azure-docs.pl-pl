@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7196b4eddc8a00cf2c15e8d8447ef8381db738a3
-ms.openlocfilehash: a1ef4ccb6546f011c405a98cab3cae514de813ea
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -97,7 +97,7 @@ W tym kroku opisano tworzenie dwóch połączonych usług: **AzureStorageLinkedS
 4. Zapisz plik **AzureSqlLinkedService1.json**. 
 
 > [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
+> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
 > 
 > 
 
@@ -169,7 +169,7 @@ W tym kroku opisano tworzenie zestawu danych o nazwie **InputDataset** wskazują
     ```
             
 > [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) (Przenoszenie danych do i z usługi Azure Blob).
+> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) (Przenoszenie danych do i z usługi Azure Blob).
 > 
 > 
 
@@ -216,7 +216,7 @@ W tym kroku tworzony jest wyjściowy zestaw danych o nazwie **OutputDataset**. T
    * Parametr **availability** (dostępność) został ustawiony na wartość **hourly** (co godzinę) (parametr **frequency** [częstotliwość] został ustawiony na **hour** [godzinę], a **interval** [interwał] został ustawiony na wartość **1**).  Usługa Data Factory co godzinę generuje wycinek danych wyjściowych w tabeli **emp** w bazie danych Azure SQL Database.
 
 > [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
+> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
 > 
 > 
 

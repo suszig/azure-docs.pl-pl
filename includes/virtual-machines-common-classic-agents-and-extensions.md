@@ -41,4 +41,4 @@ Agent maszyny wirtualnej jest włączony w następujących sytuacjach:
 >
 
 ## <a name="find-add-update-and-remove-vm-extensions"></a>Znajdowanie, dodawanie, aktualizowanie i usuwanie rozszerzeń maszyn wirtualnych
-Aby uzyskać szczegółowe informacje na temat tych zadań, zobacz [Add, Find, Update, and Remove Azure VM Extensions](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Dodawanie, znajdowanie, aktualizowanie i usuwanie rozszerzeń maszyn wirtualnych platformy Azure).
+Aby uzyskać szczegółowe informacje na temat tych zadań, zobacz [Add, Find, Update, and Remove Azure VM Extensions](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Dodawanie, znajdowanie, aktualizowanie i usuwanie rozszerzeń maszyn wirtualnych platformy Azure).

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 0aa2a7075f64b353f6b052ab6b973a06622a9339
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -42,7 +43,7 @@ Usługa Apache Storm w usłudze HDInsight oferuje następujące kluczowe korzyś
 * Łatwe dostosowywanie dzięki uruchamianiu skryptów w klastrze podczas tworzenia lub po jego zakończeniu. Aby uzyskać więcej informacji, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
 
 * Użyj dowolnie wybranego języka: składniki usługi Storm można pisać w wielu językach, takich jak **Java**, **C#** i **Python**.
-  
+
   * Integracja programu Visual Studio z usługą HDInsight na potrzeby tworzenia i monitorowania topologii języka C# oraz zarządzania nimi. Aby uzyskać więcej informacji, zobacz [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md) (Tworzenie topologii języka C# przy użyciu narzędzi HDInsight Tools dla programu Visual Studio).
 
   * Obsługuje interfejs języka Java **Trident**. Ten interfejs umożliwia tworzenie topologii Storm obsługujących „dokładnie jednokrotne” przetwarzanie komunikatów, „transakcyjną” trwałość magazynu danych i zestaw typowych operacji analizy strumienia.
@@ -50,13 +51,13 @@ Usługa Apache Storm w usłudze HDInsight oferuje następujące kluczowe korzyś
 * Łatwe skalowanie klastra w górę i w dół: dodawanie lub usuwanie węzłów procesu roboczego bez wpływu na działające topologie Storm.
 
 * Integracja z następującymi usługami platformy Azure:
-  
+
     * Event Hubs
     * Virtual Network
     * SQL Database
     * Azure Storage
     * DocumentDB
-  
+
   * Bezpieczne łączenie możliwości wielu klastrów HDInsight za pomocą sieci Azure Virtual Network: tworzenie potoków analitycznych, korzystających z klastrów HDInsight, HBase lub Hadoop.
 
 Listę firm używających systemu Apache Storm w rozwiązaniach analitycznych działających w czasie rzeczywistym podano w części [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) (Firmy używające systemu Apache Storm).
@@ -80,7 +81,7 @@ W ciągu 15 minut od przesłania żądania nowy klaster Storm jest gotowy do pra
 
 * __Łączność w sieci Web__: klastry HDInsight oferują interfejs użytkownika sieci Web Ambari. Interfejs użytkownika sieci Web Ambari pozwala łatwo monitorować i konfigurować usługi oraz zarządzać nimi w klastrze. Usługa Storm w usłudze HDInsight udostępnia także interfejs użytkownika Storm, który umożliwia monitorowanie działających topologii usługi Storm i zarządzanie nimi w przeglądarce.
 
-  Aby uzyskać więcej informacji, zobacz [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Zarządzanie usługą HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari) i [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui) (Monitorowanie i zarządzanie przy użyciu interfejsu użytkownika Storm).
+  Aby uzyskać więcej informacji, zobacz [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Zarządzanie usługą HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari) i [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) (Monitorowanie i zarządzanie przy użyciu interfejsu użytkownika Storm).
 
 * __Środowisko Azure PowerShell i interfejs wiersza polecenia__: środowisko Azure PowerShell i interfejs wiersza polecenia platformy Azure udostępniają narzędzia wiersza polecenia, których można używać w systemie klienta do pracy z usługą HDInsight i innymi usługami platformy Azure.
 
@@ -152,7 +153,7 @@ Apache Storm uruchamia **topologie** zamiast zadań MapReduce, które być może
 * **Strumień**: niepowiązany zbiór **krotek**. Strumienie są produkowane przez elementy **spout** i **bolt**, a zużywane są przez elementy **bolt**.
 * **Krotka**: nazwana lista wartości o typach określanych dynamicznie.
 * **Spout**: zużywa dane ze źródła danych i emituje jeden lub kilka **strumieni**.
-  
+
   > [!NOTE]
   > Często dane są odczytywane z kolejki, takiej jak Kafka, lub kolejek usługi Azure Event Hubs. W przypadku wystąpienia awarii kolejka zapewnia trwałość danych.
 
