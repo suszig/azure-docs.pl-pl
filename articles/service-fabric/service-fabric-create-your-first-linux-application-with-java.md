@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: eedddf7a40acfba7513efd810d115f1afe2f224d
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -114,7 +114,7 @@ Aby dodać kolejną usługę do aplikacji utworzonej już przy użyciu polecenia
 2. Uruchom polecenie `yo azuresfjava:AddService`
 
 ### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Używanie wtyczki usługi Service Fabric środowiska Eclipse w systemie Linux
-Aby dodać usługę do istniejącej aplikacji utworzonej przy użyciu wtyczki usługi Service Fabric środowiska Eclipse, zapoznaj się z dokumentacją dostępną [tutaj](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application).
+Aby dodać usługę do istniejącej aplikacji utworzonej przy użyciu wtyczki usługi Service Fabric środowiska Eclipse, zapoznaj się z dokumentacją dostępną [tutaj](service-fabric-get-started-eclipse.md#add-a-service-fabric-service-to-your-service-fabric-application).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md) (Tworzenie i wdrażanie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu wtyczki usługi Service Fabric dla środowiska Eclipse w systemie Linux)

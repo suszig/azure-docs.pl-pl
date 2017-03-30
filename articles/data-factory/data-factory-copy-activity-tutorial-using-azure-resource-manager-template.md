@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -313,7 +314,7 @@ Utwórz plik JSON o nazwie **ADFCopyTutorialARM-Parameters.json** zawierający p
 1. Uruchom program **Azure PowerShell** i uruchom następujące polecenie:
    * Uruchom poniższe polecenie i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.
     ```PowerShell
-    Login-AzureRmAccount    
+    Login-AzureRmAccount       
     ```  
    * Uruchom poniższe polecenie, aby wyświetlić wszystkie subskrypcje dla tego konta.
     ```PowerShell
@@ -408,7 +409,7 @@ W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure. Szczeg
 Parametr connectionString używa parametrów storageAccountName i storageAccountKey. Wartości tych parametrów są przekazywane przy użyciu pliku konfiguracji. Definicja używa także zmiennych azureStorageLinkedService i dataFactoryName zdefiniowanych w szablonie. 
 
 #### <a name="azure-sql-database-linked-service"></a>Połączona usługa Azure SQL Database
-W tej sekcji określa się nazwę serwera usługi Azure SQL, nazwę bazy danych, nazwę użytkownika i hasło użytkownika. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure SQL zawiera temat [Połączona usługa Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).  
+W tej sekcji określa się nazwę serwera usługi Azure SQL, nazwę bazy danych, nazwę użytkownika i hasło użytkownika. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure SQL zawiera temat [Połączona usługa Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).  
 
 ```json
 {
@@ -431,7 +432,7 @@ W tej sekcji określa się nazwę serwera usługi Azure SQL, nazwę bazy danych,
 Parametr connectionString używa parametrów sqlServerName, databaseName, sqlServerUserName i sqlServerPassword, których wartości są przekazywane za pomocą pliku konfiguracji. Definicja używa także następujących zmiennych z szablonu: azureSqlLinkedServiceName i dataFactoryName.
 
 #### <a name="azure-blob-dataset"></a>Zestaw danych obiektów blob platformy Azure
-Określane są nazwy kontenera obiektów blob, folderu i pliku, który zawiera dane wejściowe. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych obiektów blob platformy Azure zawiera temat [Azure Blob dataset properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) (Właściwości zestawu danych obiektów blob plaformy Azure). 
+Określane są nazwy kontenera obiektów blob, folderu i pliku, który zawiera dane wejściowe. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych obiektów blob platformy Azure zawiera temat [Azure Blob dataset properties](data-factory-azure-blob-connector.md#dataset-properties) (Właściwości zestawu danych obiektów blob plaformy Azure). 
 
 ```json
 {
@@ -473,7 +474,7 @@ Określane są nazwy kontenera obiektów blob, folderu i pliku, który zawiera d
 ```
 
 #### <a name="azure-sql-dataset"></a>Zestaw danych usługi Azure SQL
-Określana jest nazwa tabeli w bazie danych usługi Azure SQL, która przechowuje dane skopiowane z usługi Azure Blob Storage. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych usługi Azure SQL zawiera temat [Azure SQL dataset properties](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) (Właściwości zestawu danych usługi Azure SQL). 
+Określana jest nazwa tabeli w bazie danych usługi Azure SQL, która przechowuje dane skopiowane z usługi Azure Blob Storage. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych usługi Azure SQL zawiera temat [Azure SQL dataset properties](data-factory-azure-sql-connector.md#dataset-properties) (Właściwości zestawu danych usługi Azure SQL). 
 
 ```json
 {
@@ -591,8 +592,3 @@ Można także ponownie użyć szablonu do wykonywania powtarzających się zada�
 | [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

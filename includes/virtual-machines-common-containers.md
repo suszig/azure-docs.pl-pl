@@ -146,8 +146,8 @@ Platforma Docker na platformie Microsoft Azure:
 
 * [Rozszerzenie maszyny wirtualnej platformy Docker dla systemu Linux na platformie Azure](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Podręcznik użytkownika rozszerzenia maszyny wirtualnej platformy Docker platformy Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-* [Korzystanie z rozszerzenia maszyny wirtualnej platformy Docker z poziomu interfejsu wiersza polecenia platformy Azure (Azure CLI)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Korzystanie z rozszerzenia maszyny wirtualnej rozwiązania Docker z poziomu witryny Azure Portal](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Korzystanie z rozszerzenia maszyny wirtualnej platformy Docker z poziomu interfejsu wiersza polecenia platformy Azure (Azure CLI)](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Korzystanie z rozszerzenia maszyny wirtualnej rozwiązania Docker z poziomu witryny Azure Portal](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Jak używać maszyny Docker na platformie Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Jak używać platformy Docker wraz z narzędziem swarm na platformie Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Wprowadzenie do platformy Docker i narzędzia Compose na platformie Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -193,8 +193,3 @@ Zapoznaj się z platformą [Docker](https://www.docker.com) i [kontenerami syste
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
-
-
-<!--HONumber=Feb17_HO3-->
-
-

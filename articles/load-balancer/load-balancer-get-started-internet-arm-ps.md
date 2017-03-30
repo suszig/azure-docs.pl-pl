@@ -17,10 +17,11 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5abd8365ed883831d4c85ebd14de31dbe45d815d
+ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>Tworzenie dostępnego z Internetu modułu równoważenia obciążenia w usłudze Resource Manager za pomocą programu PowerShell
+# <a name="get-started"></a>Tworzenie dostępnego z Internetu modułu równoważenia obciążenia w usłudze Resource Manager za pomocą programu PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -254,7 +255,7 @@ Wskazówki dotyczące tworzenia maszyny wirtualnej i przypisywania karty sieciow
 2. Załaduj konfigurację zaplecza do zmiennej.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Załaduj uprzednio utworzony interfejs sieciowy do zmiennej. Zmienna ma nazwę **$nic**. Nazwa interfejsu sieciowego jest taka sama, jak w poprzednim przykładzie.
@@ -282,7 +283,7 @@ Wskazówki dotyczące tworzenia maszyny wirtualnej i przypisywania karty sieciow
 1. Używając modułu równoważenia obciążenia z poprzedniego przykładu, przypisz obiekt modułu równoważenia obciążenia do zmiennej **$slb** za pomocą polecenia `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. W poniższym przykładzie należy dodać regułę ruchu przychodzącego NAT — przy użyciu portu 81 w puli frontonu i portu 8181 puli zaplecza — do istniejącego modułu równoważenia obciążenia.
@@ -302,7 +303,7 @@ Wskazówki dotyczące tworzenia maszyny wirtualnej i przypisywania karty sieciow
 Za pomocą polecenia `Remove-AzureLoadBalancer` usuń utworzony wcześniej moduł równoważenia obciążenia o nazwie **NRP-LB** w grupie zasobów o nazwie **NRP-RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -315,9 +316,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

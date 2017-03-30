@@ -560,6 +560,6 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 

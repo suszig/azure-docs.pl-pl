@@ -26,11 +26,11 @@
 ## Połączenie
 
 ### [Omówienie](sql-data-warehouse-connect-overview.md)
-### [Parametry połączenia](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalacja programu Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Parametry połączenia](sql-data-warehouse-connection-strings.md)
 
 ## Przycisk Utwórz
 ### [Azure Portal](sql-data-warehouse-get-started-provision.md)
