@@ -2,7 +2,7 @@
 Utwórz centrum IoT, z którym połączy się symulowana aplikacja urządzenia. Poniższe kroki przedstawiają sposób wykonania tego zadania przy użyciu witryny Azure Portal.
 
 1. Zaloguj się w witrynie [Azure Portal][lnk-portal].
-2. Na pasku dostępu kliknij pozycję **Nowe** > **Internet rzeczy** > ** IoT Hub**.
+2. Na pasku dostępu kliknij pozycję **Nowe** > **Internet rzeczy** > **IoT Hub**.
    
     ![Pasek dostępu witryny Azure Portal][1]
 3. W bloku **Centrum IoT** wybierz konfigurację centrum IoT.
@@ -35,8 +35,3 @@ Utwórz centrum IoT, z którym połączy się symulowana aplikacja urządzenia. 
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
-
-
-<!--HONumber=Dec16_HO3-->
-
-

@@ -643,7 +643,7 @@ Aby uzyskać kompleksowe wskazówki dotyczące rozwiązywania problemów, można
 14. **Rozpakowywanie plików w usłudze File Storage działa wolno. Co zrobić?**
     
     Jeśli chcesz przetransferować dużą liczbę plików do usługi Magazyn plików, zalecamy skorzystanie z narzędzia AzCopy, programu Azure Powershell (Windows) lub interfejsu wiersza polecenia platformy Azure (Linux/Unix). Te narzędzia są zoptymalizowane pod kątem transferu sieciowego.
-15. **Wydano poprawkę rozwiązującą problem powolnego działania usługi Pliki Azure **
+15. **Wydano poprawkę rozwiązującą problem powolnego działania usługi Pliki Azure**
     
     Zespół systemu Windows wydał ostatnio poprawkę rozwiązującą problem z wydajnością, gdy klienci próbują uzyskać dostęp do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2. Aby uzyskać więcej informacji, zapoznaj się z odpowiednim artykułem KB: [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Niska wydajność podczas dostępu do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2).
 16. **Korzystanie z usługi Azure File Storage z programem IBM MQ**
