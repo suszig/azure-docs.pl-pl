@@ -31,9 +31,9 @@ Aby utworzyć i sprawdzić szablony, potrzebujesz edytora plików JSON. [Visual 
 
 2. Zainstaluj rozszerzenie [Narzędzia usługi Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools), przechodząc do funkcji szybkiego otwierania (CTRL+P) i uruchamiając: 
 
-  ```
-  ext install msazurermtools.azurerm-vscode-tools
-  ```
+   ```
+   ext install msazurermtools.azurerm-vscode-tools
+   ```
 
 3. Uruchom ponownie program VS Code po wyświetleniu monitu, aby włączyć rozszerzenie.
 
@@ -45,15 +45,15 @@ Zacznijmy od pustego szablonu, który obejmuje tylko podstawowe sekcje.
 
 2. Skopiuj i wklej następującą składnię JSON do pliku:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [  ],
-    "outputs": {  }
-  }
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [  ],
+     "outputs": {  }
+   }
    ```
 
 3. Zapisz plik jako **azuredeploy.json**. 
@@ -63,43 +63,43 @@ Zacznijmy od pustego szablonu, który obejmuje tylko podstawowe sekcje.
 
 3. Wklej kod JSON do sekcji **resources** szablonu, jak pokazano w poniższym przykładzie: 
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [
-      {
-        "name": "string",
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2016-05-01",
-        "sku": {
-          "name": "string"
-        },
-        "kind": "string",
-        "location": "string",
-        "tags": {},
-        "properties": {
-          "customDomain": {
-            "name": "string",
-            "useSubDomain": boolean
-          },
-          "encryption": {
-            "services": {
-              "blob": {
-                "enabled": boolean
-              }
-            },
-            "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "string"
-        }
-      }
-    ],
-    "outputs": {  }
-  }
-  ```
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [
+       {
+         "name": "string",
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2016-05-01",
+         "sku": {
+           "name": "string"
+         },
+         "kind": "string",
+         "location": "string",
+         "tags": {},
+         "properties": {
+           "customDomain": {
+             "name": "string",
+             "useSubDomain": boolean
+           },
+           "encryption": {
+             "services": {
+               "blob": {
+                 "enabled": boolean
+               }
+             },
+             "keySource": "Microsoft.Storage"
+           },
+           "accessTier": "string"
+         }
+       }
+     ],
+     "outputs": {  }
+   }
+   ```
 
   Poprzedni przykład zawiera wiele wartości symboli zastępczych i kilka właściwości, których możesz nie potrzebować na swoim koncie magazynu.
 
@@ -111,37 +111,37 @@ Teraz możesz ustawić wartości konta magazynu.
 
 2. Zauważ, że w elemencie **properties** elementy **customDomain**, **encryption** i **accessTier** są oznaczone jako niewymagane. Wartości te mogą być ważne w danych scenariuszach, ale w celu uproszczenia tego przewodnika usuńmy je.
 
-  ```json
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "string",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  ```
+   ```json
+   "resources": [
+     {
+       "name": "string",
+       "type": "Microsoft.Storage/storageAccounts",
+       "apiVersion": "2016-05-01",
+       "sku": {
+         "name": "string"
+       },
+       "kind": "string",
+       "location": "string",
+       "tags": {},
+       "properties": {
+       }
+     }
+   ],
+   ```
 
 3. Obecnie element **kind** jest ustawiony na wartość symbolu zastępczego („string”). Program VS Code zawiera wiele funkcji, które ułatwiają zrozumienie wartości do wykorzystania w szablonie. Zauważ, że program VS Code wskazuje, że ta wartość jest nieprawidłowa. Jeśli zatrzymasz wskaźnik myszy nad elementem „string”, program VS Code zasugeruje, że prawidłowe wartości dla elementu **kind** to `Storage` lub `BlobStorage`. 
 
-  ![wyświetlanie sugerowanych wartości programu VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ![wyświetlanie sugerowanych wartości programu VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-  Aby zobaczyć dostępne wartości, usuń znaki między podwójnymi cudzysłowami i naciśnij klawisze **Ctrl+spacja**. Wybierz pozycję **Magazyn** z listy dostępnych opcji.
+   Aby zobaczyć dostępne wartości, usuń znaki między podwójnymi cudzysłowami i naciśnij klawisze **Ctrl+spacja**. Wybierz pozycję **Magazyn** z listy dostępnych opcji.
   
-  ![wyświetlanie funkcji intellisense](./media/resource-manager-create-first-template/intellisense.png)
+   ![wyświetlanie funkcji intellisense](./media/resource-manager-create-first-template/intellisense.png)
 
-  Jeśli nie używasz programu VS Code, zobacz stronę odwołania do szablonu kont magazynu. Zauważ, że opis zawiera listę tych samych prawidłowych wartości. Ustaw element na opcję **Magazyn**.
+   Jeśli nie używasz programu VS Code, zobacz stronę odwołania do szablonu kont magazynu. Zauważ, że opis zawiera listę tych samych prawidłowych wartości. Ustaw element na opcję **Magazyn**.
 
-  ```json
-  "kind": "Storage",
-  ```
+   ```json
+   "kind": "Storage",
+   ```
 
 Twój szablon wygląda teraz następująco:
 
@@ -186,8 +186,6 @@ Ponownie program VS Code zapewni pomoc w postaci sugerowanych dostępnych funkcj
 
 Zauważ, że funkcja jest ujęta w nawiasy kwadratowe. Funkcja [resourceGroup](resource-group-template-functions.md#resourcegroup) zwraca obiekt z właściwością o nazwie `location`. Grupa zasobów zawiera wszystkie zasoby dotyczące danego rozwiązania. Możesz zakodować właściwość lokalizacji na wartość taką jak „Środkowe stany USA”, ale będzie konieczna ręczna zmiana szablonu w celu jego ponownego wdrożenia w innej lokalizacji. Użycie funkcji `resourceGroup` ułatwia ponowne wdrażanie tego szablonu w innej grupie zasobów w innej lokalizacji.
 
-
-
 Twój szablon wygląda teraz następująco:
 
 ```json
@@ -222,71 +220,71 @@ Nazwy kont magazynu podlegają kilku ograniczeniom, które utrudniają ich skonf
 
 1. Aby przekazać nazwie prefiks spełniający stosowane konwencje nazewnictwa, przejdź do sekcji **parameters** szablonu. Dodaj parametr do szablonu, który akceptuje prefiks dla nazwy konta magazynu:
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     }
+   },
+   ```
 
   Długość prefiksu jest ograniczona do 11 znaków, ponieważ funkcja `uniqueString` zwraca 13 znaków, a nazwa nie może przekraczać 24 znaków. Jeśli nie przekażesz wartości parametru podczas wdrożenia, zostanie użyta wartość domyślna.
 
 2. Przejdź do sekcji **variables** szablonu. Aby skonstruować nazwę z prefiksu i unikatowego ciągu, dodaj następującą zmienną:
 
-  ```json
-  "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 3. W sekcji **resources** ustaw nazwę konta magazynu na tę zmienną.
 
-  ```json
-  "name": "[variables('storageName')]",
-  ```
+   ```json
+   "name": "[variables('storageName')]",
+   ```
 
 3. Aby włączyć przekazywanie w innych jednostkach SKU dla konta magazynu, przejdź do sekcji **parameters**. Po parametrze dla prefiksu nazwy magazynu dodaj parametr, który określa dozwolone wartości SKU i wartość domyślną. Możesz znaleźć dozwolone wartości na stronie z odwołaniem do szablonu lub w programie VS Code. W poniższym przykładzie uwzględnia się wszystkie prawidłowe wartości dla jednostki SKU. Niemniej możesz ograniczyć dozwolone wartości tylko do tych typów jednostek SKU, które chcesz wdrażać przy użyciu tego szablonu.
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
-    "storageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ],
-      "defaultValue": "Standard_LRS",
-      "metadata": {
-        "description": "The type of replication to use for the storage account."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     },
+     "storageSKU": {
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ],
+       "defaultValue": "Standard_LRS",
+       "metadata": {
+         "description": "The type of replication to use for the storage account."
+       }
+     }
+   },
+   ```
 
 3. Zmień właściwość SKU, aby używać wartości z innego parametru:
 
-  ```json
-  "sku": {
-    "name": "[parameters('storageSKU')]"
-  },
-  ```    
+   ```json
+   "sku": {
+     "name": "[parameters('storageSKU')]"
+   },
+   ```    
 
 4. Zapisz plik.
 
