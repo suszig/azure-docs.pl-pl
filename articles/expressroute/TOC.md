@@ -2,28 +2,26 @@
 ## [Co to jest usługa ExpressRoute?](expressroute-introduction.md)
 ## [Usługa ExpressRoute — często zadawane pytania](expressroute-faqs.md)
 ## [Modele łączności](expressroute-connectivity-models.md)
+## [Obwody i domeny routingu](expressroute-circuit-peerings.md)
 ## [Lokalizacje i partnerzy](expressroute-locations.md)
 ### [Dostawcy według lokalizacji](expressroute-locations-providers.md)
 ### [Lokalizacje według dostawcy](expressroute-locations.md)
+## [Bramy sieci wirtualnej dla usługi ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Wprowadzenie
-## [Przepływy pracy](expressroute-workflows.md)
 ## [Wymagania wstępne](expressroute-prerequisites.md)
-## [Obwody i domeny routingu](expressroute-circuit-peerings.md)
+## [Przepływy pracy](expressroute-workflows.md)
 ## [Wymagania dotyczące routingu](expressroute-routing.md)
-## [Optymalizowanie routingu](expressroute-optimize-routing.md)
 ## [Wymagania translatora adresów sieciowych](expressroute-nat.md)
 ## [Wymagania funkcji QoS](expressroute-qos.md)
 ## [Przenoszenie obwodów z wersji klasycznej do usługi Resource Manager](expressroute-move.md)
-## [Bramy sieci wirtualnej dla usługi ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Instrukcje
 ## Tworzenie i modyfikowanie obwodu
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [Program PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
-## Tworzenie i modyfikowanie konfiguracji routingu
-### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-circuit-arm.md)
+## Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej
+### [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [Program PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (klasyczny)](expressroute-howto-routing-classic.md)
 ## Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
@@ -38,11 +36,12 @@
 ### [PowerShell (klasyczny)](expressroute-howto-coexist-classic.md)
 ## [Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager](expressroute-howto-move-arm.md)
 ## Konfigurowanie routera dla usługi ExpressRoute
-### [Przykłady konfiguracji routera](expressroute-config-samples-routing.md)
+### [Konfigurowanie routera](expressroute-config-samples-routing.md)
 ### [Przykłady konfiguracji routera pod kątem translatora adresów sieciowych](expressroute-config-samples-nat.md)
 
 ## Najlepsze rozwiązania
 ### [Najlepsze rozwiązania z zakresu bezpieczeństwa sieci i usług w chmurze](../best-practices-network-security.md)
+## [Optymalizowanie routingu](expressroute-optimize-routing.md)
 ### [Routing asymetryczny](expressroute-asymmetric-routing.md)
 
 ## Rozwiązywanie problemów

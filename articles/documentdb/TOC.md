@@ -21,6 +21,7 @@
 ## Tworzenie aplikacji sieci Web
 ### [Aplikacja sieci Web programu .NET](documentdb-dotnet-application.md)
 ### [Aplikacja sieci Web programu .NET dla interfejsu API bazy danych MongoDB](documentdb-mongodb-application.md)
+### [Aplikacja platformy Xamarin](documentdb-mobile-apps-with-xamarin.md)
 ### [Aplikacja sieci Web środowiska Node.js](documentdb-nodejs-application.md)
 ### [Aplikacje sieci Web w języku Java](documentdb-java-application.md)
 ### [Aplikacje sieci Web w języku Python Flask](documentdb-python-application.md)

@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
 ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -100,9 +101,4 @@ Zespół reagowania na zdarzenia może również korzystać z możliwości usłu
 
 ## <a name="conclusion"></a>Podsumowanie
 Stworzenie zespołu przed wystąpieniem ataku jest bardzo istotne dla organizacji i pozytywnie wpływa na sposób reagowania na zdarzenia dotyczące bezpieczeństwa. Odpowiednie narzędzia do monitorowania zasobów mogą ułatwić zespołowi podjęcie właściwych kroków w celu usunięcia skutków zdarzenia zabezpieczeń. [Funkcje wykrywania](security-center-detection-capabilities.md) usługi Security Center mogą pomóc zespołowi IT szybko reagować na zdarzenia zabezpieczeń i rozwiązywać problemy dotyczące bezpieczeństwa.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

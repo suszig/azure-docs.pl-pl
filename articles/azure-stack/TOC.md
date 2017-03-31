@@ -36,8 +36,9 @@
 
 # Zabezpieczenia i zgodność
 ## Instrukcje
-### [Zarządzanie uprawnieniami użytkowników](azure-stack-manage-permissions.md)
+### [Zarządzanie kontrolą dostępu opartą na rolach](azure-stack-manage-permissions.md)
 ### [Dodawanie użytkowników do usług AD FS](azure-stack-add-users-adfs.md)
+### [Tworzenie jednostek usługi](Azure-stack-create-service-principals.md)
 
 # Oferowanie usług
 ## Rozpoczęcie pracy
@@ -113,6 +114,9 @@
 # Rozwiązywanie problemów
 ## [Znane problemy](azure-stack-troubleshooting.md)
 ## [Diagnostyka w usłudze Azure Stack](azure-stack-diagnostics.md)
+
+# Dokumentacja
+## [Zarządzanie profilami wersji interfejsu API](azure-stack-version-profiles.md)
 
 # Zasoby
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

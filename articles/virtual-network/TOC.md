@@ -122,7 +122,8 @@
 #### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 ### Trasy
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
-#### [Program PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+### [Testowanie przepływności](virtual-network-bandwidth-testing.md)
 
 # Dokumentacja
 ## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)

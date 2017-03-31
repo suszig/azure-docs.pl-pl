@@ -3,22 +3,21 @@
 
 # Wprowadzenie
 ## [Wdrażanie zestawu skalowania w portalu](virtual-machine-scale-sets-portal-create.md)
-## [Wdrażanie zestawu skalowania przy użyciu interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-linux-create-cli.md)
-## [Wdrażanie prostego zestawu skalowania przy użyciu szablonu usługi Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Wdrażanie zestawu skalowania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
 ### [Zagadnienia dotyczące projektowania](virtual-machine-scale-sets-design-overview.md)
-## Zapisywanie szablonów zestawów skalowania
-### [Wdrażanie prostego zestawu skalowania](virtual-machine-scale-sets-mvss-start.md)
-### [Wdrażanie zestawu skalowania w istniejącej sieci wirtualnej](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
-## Wdrożenie
-### [Skalowanie zestawu przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)
+## Tworzenie szablonu
+### [Informacje na temat szablonów zestawów dostępności](virtual-machine-scale-sets-mvss-start.md)
+### [Dodawanie sieci wirtualnej](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## Wdrażanie
+### [Tworzenie przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)
+### [Tworzenie przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Tworzenie przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
 ### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md) (Zestaw skalowania z dyskami zarządzanymi)
-### [Skalowanie zestawu przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Zestaw skalowania przy użyciu programu PowerShell](virtual-machine-scale-sets-windows-create.md)
-### [Zestaw skalowania przy użyciu interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Zestaw skalowania systemu Linux z funkcją automatycznego skalowania](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Zestaw skalowania systemu Windows z funkcją automatycznego skalowania](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplikacje w zestawach skalowania](virtual-machine-scale-sets-deploy-app.md)
