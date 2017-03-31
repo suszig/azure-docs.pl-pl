@@ -14,11 +14,11 @@
 ## Tworzenie szablonów
 ### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md) (Sekcje szablonu)
-### [Funkcje szablonów](resource-group-template-functions.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
+### [Ustawianie lokalizacji](resource-manager-template-location.md)
+### [Przypisywanie tagów](resource-manager-template-tags.md)
 ### [Ustawianie nazwy i typu zasobu podrzędnego](resource-manager-template-child-resource.md)
 ### [Tworzenie wielu wystąpień typu zasobu](resource-group-create-multiple.md)
-### [Przekazywanie bezpiecznych wartości podczas wdrażania](resource-manager-keyvault-parameter.md)
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Udostępnianie stanu między połączonymi szablonami](best-practices-resource-manager-state.md)
 ### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
@@ -28,7 +28,8 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
 ### [Ciągła integracja z usługą Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Zarządzaj
+### [Przekazywanie bezpiecznych wartości podczas wdrażania](resource-manager-keyvault-parameter.md)
+## Zarządzanie
 ### [Program PowerShell](powershell-azure-resource-manager.md)
 ### [Interfejs wiersza polecenia platformy Azure](xplat-cli-azure-resource-manager.md)
 ### [Portal](resource-group-portal.md)
@@ -56,6 +57,7 @@
 ### [Wyświetlanie operacji wdrażania](resource-manager-deployment-operations.md)
 
 # Dokumentacja
+## [Funkcje szablonów](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
