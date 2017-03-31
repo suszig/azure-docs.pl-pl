@@ -219,7 +219,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat używania zestawu SDK usługi IoT Gateway, zobacz następujące tematy:
 
-* [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux] (Zestaw SDK usługi IoT Gateway — wysyłanie komunikatów z urządzenia do chmury przy użyciu symulowanego urządzenia z systemem Linux) [lnk-gateway-simulated].
+* [Zestaw SDK usługi IoT Gateway — wysyłanie komunikatów z urządzenia do chmury przy użyciu symulowanego urządzenia z systemem Linux][lnk-gateway-simulated].
 * [Zestaw SDK usługi Azure IoT Gateway][lnk-gateway-sdk] w witrynie GitHub.
 
 <!-- Links -->
@@ -228,7 +228,3 @@ Aby dowiedzieć się więcej na temat używania zestawu SDK usługi IoT Gateway,
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-
-<!--HONumber=Dec16_HO1-->
-
-

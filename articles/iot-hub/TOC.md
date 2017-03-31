@@ -98,6 +98,11 @@
 ## Korzystanie z urządzenia Arduino
 
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Zarządzanie przesyłaniem komunikatów między chmurą a urządzeniem za pomocą narzędzia iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Zapisywanie komunikatów usługi IoT Hub w magazynie danych platformy Azure](iot-hub-store-data-in-azure-table-storage.md)
+### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Zarządzanie przesyłaniem komunikatów między chmurą a urządzeniem za pomocą narzędzia iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Zapisywanie komunikatów usługi IoT Hub w magazynie danych platformy Azure](iot-hub-store-data-in-azure-table-storage.md)
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lekcja 1. Konfigurowanie urządzenia
@@ -233,7 +238,9 @@
 #### [Korzystanie z interfejsu API REST](iot-hub-rm-rest.md)
 #### [Use a template from PowerShell](iot-hub-rm-template-powershell.md) (Korzystanie z szablonu programu PowerShell)
 #### [Korzystanie z szablonu platformy .NET](iot-hub-rm-template.md)
-### [Konfigurowanie przekazywania plików](iot-hub-configure-file-upload.md)
+### Konfigurowanie przekazywania plików
+#### [Korzystanie z portalu](iot-hub-configure-file-upload.md)
+#### [Korzystanie z programu PowerShell](iot-hub-configure-file-upload-powershell.md)
 ### [Zbiorcze zarządzanie urządzeniami IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Metryki użycia](iot-hub-metrics.md)
 ### [Monitorowanie operacji](iot-hub-operations-monitoring.md)

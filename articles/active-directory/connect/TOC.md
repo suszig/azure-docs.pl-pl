@@ -62,6 +62,7 @@
 ### [Błędy występujące podczas synchronizacji](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Obiekt nie jest zsynchronizowany](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Synchronizacja haseł](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Jak usunąć limit 10 GB dla lokalnej bazy danych](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Dokumentacja
 ## [Synchronizacja tożsamości i odporność na zduplikowane atrybuty](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
