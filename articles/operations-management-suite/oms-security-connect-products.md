@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -89,7 +90,7 @@ Na maszynie agenta zdarzenia muszą być wysyłane z demona dziennika systemu do
     ```
 6. Wpisz poniższe polecenie i przejrzyj wynik, aby upewnić się, że w dzienniku agenta pakietu OMS nie ma żadnych błędów:
 
-    ``` 
+    ```    
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
@@ -110,10 +111,5 @@ W tym dokumencie pokazano, jak połączyć rozwiązanie CEF z pakietem OMS. Wię
 * [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorowanie zasobów w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-monitoring-resources.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
