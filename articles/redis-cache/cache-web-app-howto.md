@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/21/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 5e7520f8a023cd5feb8401483161e7296a413b02
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/22/2017
 > 
 > 
 
-W tym samouczku przedstawiono tworzenie i wdrażanie aplikacji sieci Web programu ASP.NET do aplikacji sieci Web w usłudze Azure App Service przy użyciu programu Visual Studio 2015. Przykładowa aplikacja wyświetla listę statystyk zespołu z bazy danych i pokazuje różne sposoby korzystania z usługi Azure Redis Cache w celu przechowywania danych w pamięci podręcznej i pobierania ich. Wykonanie instrukcji z samouczka umożliwi uzyskanie działającej aplikacji sieci Web wykonującej odczyt i zapis w bazie danych, zoptymalizowanej przy użyciu usługi Azure Redis Cache i hostowanej na platformie Azure.
+W tym samouczku przedstawiono tworzenie i wdrażanie aplikacji sieci Web programu ASP.NET w aplikacji sieci Web w usłudze Azure App Service przy użyciu programu Visual Studio 2017. Przykładowa aplikacja wyświetla listę statystyk zespołu z bazy danych i pokazuje różne sposoby korzystania z usługi Azure Redis Cache w celu przechowywania danych w pamięci podręcznej i pobierania ich. Wykonanie instrukcji z samouczka umożliwi uzyskanie działającej aplikacji sieci Web wykonującej odczyt i zapis w bazie danych, zoptymalizowanej przy użyciu usługi Azure Redis Cache i hostowanej na platformie Azure.
 
 Dowiesz się:
 
@@ -248,7 +248,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
         url: "{controller}/{action}/{id}",
         defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
     );
-```
+    ```
 
 
 ### <a name="configure-the-views"></a>Konfigurowanie widoków

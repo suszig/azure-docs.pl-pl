@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -130,6 +130,19 @@ Z usługi Site Recovery można korzystać, aby zabezpieczyć wdrożenie SAP w na
 * Ułatw projektowanie i testowanie wdrożenia SAP poprzez tworzenie na żądanie kopii środowiska przypominającej środowisko produkcyjne, co umożliwia testowanie i debugowanie aplikacji.
 
 [Dowiedz się więcej](http://aka.ms/asr-sap) o ochronie systemu SAP.
+
+## <a name="protect-iis"></a>Ochrona usług IIS
+Z usługi Site Recovery można korzystać, aby zabezpieczyć wdrożenie usług IIS w następujący sposób:
+
+Usługa Azure Site Recovery zapewnia odzyskiwanie po awarii przez replikowanie krytycznych składników środowiska do zimnej lokacji zdalnej lub chmury publicznej, takiej jak Microsoft Azure. Ponieważ maszyna wirtualna z serwerem sieci Web i bazą danych są replikowane do lokacji odzyskiwania, nie jest wymagane oddzielne tworzenie kopii zapasowych plików konfiguracji lub certyfikatów. Mapowania i powiązania aplikacji zależne od zmiennych środowiskowych, które są zmieniane po przełączeniu do trybu failover, mogą być aktualizowane za pomocą skryptów zintegrowanych z planami odzyskiwania po awarii. Maszyny wirtualne są przenoszone do lokalizacji odzyskiwania tylko w przypadku przełączania do trybu failover. Oprócz tego usługa Azure Site Recovery pomaga kompleksowo organizować przełączanie do trybu failover, udostępniając następujące możliwości:
+
+-    Obsługa sekwencji wyłączania i włączania maszyn wirtualnych w różnych warstwach.
+-    Dodawanie skryptów umożliwiających aktualizację zależności i powiązań aplikacji na maszynach wirtualnych po ich uruchomieniu. Skrypty mogą też służyć do aktualizacji serwera DNS w taki sposób, aby wskazywał lokację odzyskiwania.
+-    Przydzielanie adresów IP do maszyn wirtualnych przed przełączeniem do trybu failover przez zamapowanie podstawowej oraz dodatkowej sieci odzyskiwania i użycie skryptów, których nie trzeba aktualizować po przełączeniu do trybu failover.
+-    Możliwość przełączania do trybu failover jednym kliknięciem dla wielu aplikacji sieci Web na serwerach sieci Web i w ten sposób wyeliminowanie pomyłek w przypadku awarii.
+-    Możliwość testowania planów odzyskiwania w izolowanym środowisku na potrzeby próbnego odzyskiwania po awarii.
+
+[Dowiedz się więcej](https://aka.ms/asr-iis) o ochronie farmy sieci Web usług IIS.
 
 ## <a name="next-steps"></a>Następne kroki
 [Sprawdzanie wymagań wstępnych](site-recovery-prereq.md) 

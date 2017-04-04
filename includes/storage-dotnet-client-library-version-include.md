@@ -1,12 +1,7 @@
 > [!NOTE]
-> Zaleca się, by wykonywać instrukcje z tego samouczka przy użyciu najnowszej wersji biblioteki klienta usługi Azure Storage dla programu .NET. Najnowszą wersją biblioteki jest 7.x, dostępna do pobrania przy użyciu narzędzia [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/). Źródło biblioteki klienta jest dostępne w portalu [GitHub](https://github.com/Azure/azure-storage-net).
+> Zaleca się, aby wykonywać instrukcje z tego samouczka przy użyciu najnowszej wersji biblioteki klienta usługi Azure Storage dla programu .NET. Najnowszą wersję do pobrania można znaleźć w usłudze [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/). Kod źródłowy biblioteki klienta jest dostępny w usłudze [GitHub](https://github.com/Azure/azure-storage-net).
 > 
-> Jeśli używasz emulatora magazynu, pamiętaj, że wersja 7.x biblioteki klienta wymaga co najmniej wersji 4.3 emulatora 
+> Jeśli używasz emulatora magazynu, wymagania co do wersji znajdziesz w [pliku README biblioteki klienta](https://github.com/Azure/azure-storage-net/blob/master/README.md). Aby używać biblioteki klienta magazynu dla platformy .NET z emulatorem magazynu, trzeba korzystać z odpowiedniej minimalnej wersji emulatora magazynu platformy Azure.
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
