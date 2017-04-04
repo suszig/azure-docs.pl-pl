@@ -1,5 +1,5 @@
 ---
-title: "Używanie tematów usługi Service Bus z platformą .NET | Microsoft Docs"
+title: "Używanie tematów usługi Azure Service Bus z platformą .NET | Microsoft Docs"
 description: "Dowiedz się, jak używać tematów i subskrypcji usługi Service Bus z platformą .NET na platformie Azure. Przykłady kodu są napisane dla aplikacji .NET."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/21/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: add228c8a24fbd36ab05f55570abf1374f519822
-ms.openlocfilehash: 9927de3bba251a2cc135657f00b789c7522fc05c
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: bec18e91ef8798a791d4b1fe93bd529593197e01
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -33,10 +34,10 @@ W tym artykule opisano sposób używania tematów i subskrypcji usługi Service 
 Gdy tworzysz aplikację, która używa usługi Service Bus, musisz dodać odwołanie do zestawu usługi Service Bus i dołączyć odpowiednie przestrzenie nazw. Najłatwiejszym sposobem na to jest pobranie odpowiedniego pakietu [NuGet](https://www.nuget.org).
 
 ## <a name="get-the-service-bus-nuget-package"></a>Uzyskiwanie pakietu NuGet usługi Service Bus
-Dodanie [pakietu NuGet usługi Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) jest najprostszym sposobem uzyskania interfejsu API usługi Service Bus i skonfigurowania aplikacji ze wszystkimi zależnościami usługi Service Bus. Aby zainstalować pakiet NuGet usługi Service Bus w projekcie, wykonaj następujące kroki:
+Dodanie [pakietu NuGet usługi Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) jest najprostszym sposobem skonfigurowania aplikacji ze wszystkimi niezbędnymi zależnościami usługi Service Bus. Aby zainstalować pakiet NuGet usługi Service Bus w projekcie, wykonaj następujące kroki:
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Odwołania**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
-2. Wyszukaj ciąg „Service Bus” i wybierz pozycję **Microsoft Azure Service Bus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij poniższe okno dialogowe:
+2. Kliknij pozycję **Przeglądaj**, wyszukaj nazwę „Azure Service Bus”, a następnie wybierz pozycję **Microsoft Azure Service Bus**. Kliknij pozycję **Zainstaluj**, aby ukończyć instalację, a następnie zamknij okno dialogowe:
    
    ![][7]
 
@@ -97,7 +98,7 @@ W przypadku korzystania z witryn sieci Web lub usługi Virtual Machines zaleca s
 Użyj nazwy i wartości klucza sygnatury dostępu współdzielonego pobranych z witryny [Azure Portal][Azure portal] zgodnie z opisem w poprzedniej sekcji.
 
 ## <a name="create-a-topic"></a>Tworzenie tematu
-Operacje zarządzania tematami i subskrypcjami usługi Service Bus można wykonywać przy użyciu klasy [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager). Ta klasa dostarcza metody do tworzenia, wyliczania i usuwania tematów.
+Operacje zarządzania tematami i subskrypcjami usługi Service Bus można wykonywać przy użyciu klasy [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). Ta klasa dostarcza metody do tworzenia, wyliczania i usuwania tematów.
 
 Poniższy przykład tworzy obiekt `NamespaceManager` przy użyciu klasy `CloudConfigurationManager` platformy Azure z użyciem parametrów połączenia składających się z adresu podstawowego przestrzeni nazw usługi Service Bus oraz odpowiednich poświadczeń sygnatury dostępu współdzielonego z uprawnieniami do zarządzania nim. Te parametry połączenia mają następującą postać:
 
@@ -121,7 +122,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Istnieją przeciążenia metody [CreateTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) umożliwiające ustawienie właściwości tematu, na przykład w celu ustawienia wartości czasu wygaśnięcia do zastosowania dla komunikatów wysyłanych do tematu. Te ustawienia są stosowane przy użyciu klasy [TopicDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription). Poniższy przykład pokazuje, jak utworzyć temat o nazwie **TestTopic** o maksymalnym rozmiarze 5 GB i domyślnym czasie wygaśnięcia komunikatu wynoszącym 1 minutę.
+Istnieją przeciążenia metody [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager) umożliwiające ustawienie właściwości tematu, na przykład w celu ustawienia wartości czasu wygaśnięcia do zastosowania dla komunikatów wysyłanych do tematu. Te ustawienia są stosowane przy użyciu klasy [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription). Poniższy przykład pokazuje, jak utworzyć temat o nazwie **TestTopic** o maksymalnym rozmiarze 5 GB i domyślnym czasie wygaśnięcia komunikatu wynoszącym 1 minutę.
 
 ```csharp
 // Configure Topic Settings.
@@ -143,12 +144,12 @@ if (!namespaceManager.TopicExists("TestTopic"))
 ```
 
 > [!NOTE]
-> Można użyć metody [TopicExists](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_TopicExists_System_String_) na obiektach [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager), aby sprawdzić, czy temat o określonej nazwie już istnieje w przestrzeni nazw.
+> Można użyć metody [TopicExists](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_TopicExists_System_String_) na obiektach [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager), aby sprawdzić, czy temat o określonej nazwie już istnieje w przestrzeni nazw.
 > 
 > 
 
 ## <a name="create-a-subscription"></a>Tworzenie subskrypcji
-Można również tworzyć subskrypcje tematu przy użyciu klasy [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager). Subskrypcje są nazywane i mogą zawierać opcjonalny filtr, który ogranicza zestaw komunikatów przesyłany do wirtualnej kolejki subskrypcji.
+Można również tworzyć subskrypcje tematu przy użyciu klasy [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). Subskrypcje są nazywane i mogą zawierać opcjonalny filtr, który ogranicza zestaw komunikatów przesyłany do wirtualnej kolejki subskrypcji.
 
 > [!IMPORTANT]
 > Aby móc odbierać komunikaty w ramach subskrypcji, musisz utworzyć subskrypcję przed wysłaniem komunikatów do tematu. Jeśli z tematem nie są powiązane żadne subskrypcje, temat odrzuci te komunikaty.
@@ -203,9 +204,9 @@ namespaceManager.CreateSubscription("TestTopic",
 W takiej sytuacji komunikat wysłany do tematu `TestTopic` zawsze jest dostarczany do odbiorców mających subskrypcję **AllMessages** i selektywnie dostarczany do odbiorców mających subskrypcje **HighMessages** i **LowMessages** (w zależności od zawartości komunikatu).
 
 ## <a name="send-messages-to-a-topic"></a>Wysyłanie komunikatów do tematu
-Aby wysłać komunikat do tematu usługi Service Bus, aplikacja tworzy obiekt [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) przy użyciu parametrów połączenia.
+Aby wysłać komunikat do tematu usługi Service Bus, aplikacja tworzy obiekt [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) przy użyciu parametrów połączenia.
 
-Poniższy kod przedstawia sposób tworzenia obiektu [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) dla tematu **TestTopic** utworzonego wcześniej przy użyciu wywołania interfejsu API [CreateFromConnectionString](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.topicclient#Microsoft_ServiceBus_Messaging_TopicClient_CreateFromConnectionString_System_String_System_String_).
+Poniższy kod przedstawia sposób tworzenia obiektu [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) dla tematu **TestTopic** utworzonego wcześniej przy użyciu wywołania interfejsu API [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.topicclient#Microsoft_ServiceBus_Messaging_TopicClient_CreateFromConnectionString_System_String_System_String_).
 
 ```csharp
 string connectionString =
@@ -217,9 +218,9 @@ TopicClient Client =
 Client.Send(new BrokeredMessage());
 ```
 
-Komunikaty wysyłane do tematów usługi Service Bus są wystąpieniami klasy [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Obiekty **BrokeredMessage** mają zestaw właściwości standardowych (takich jak [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) i [TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), słownik, który służy do przechowywania określonych właściwości niestandardowych aplikacji, oraz treść dowolnych danych aplikacji. Aplikacja może ustawić treść komunikatu przez przekazanie dowolnego obiektu podlegającego serializacji do konstruktora obiektu **BrokeredMessage**, a odpowiedni element **DataContractSerializer** jest następnie używany do serializacji obiektu. Alternatywnie można udostępnić obiekt **System.IO.Stream**.
+Komunikaty wysyłane do tematów usługi Service Bus są wystąpieniami klasy [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Obiekty **BrokeredMessage** mają zestaw właściwości standardowych (takich jak [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) i [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), słownik, który służy do przechowywania określonych właściwości niestandardowych aplikacji, oraz treść dowolnych danych aplikacji. Aplikacja może ustawić treść komunikatu przez przekazanie dowolnego obiektu podlegającego serializacji do konstruktora obiektu **BrokeredMessage**, a odpowiedni element **DataContractSerializer** jest następnie używany do serializacji obiektu. Alternatywnie można udostępnić obiekt **System.IO.Stream**.
 
-W poniższym przykładzie pokazano sposób wysyłania pięciu testowych komunikatów do obiektu **TestTopic** [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) uzyskanego w poprzednim przykładzie kodu. Należy pamiętać, że wartość właściwości [MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) każdego komunikatu różni się w zależności od iteracji pętli (określa subskrypcje, które go otrzymają).
+W poniższym przykładzie pokazano sposób wysyłania pięciu testowych komunikatów do obiektu **TestTopic** [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) uzyskanego w poprzednim przykładzie kodu. Należy pamiętać, że wartość właściwości [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) każdego komunikatu różni się w zależności od iteracji pętli (określa subskrypcje, które go otrzymają).
 
 ```csharp
 for (int i=0; i<5; i++)
@@ -238,13 +239,13 @@ for (int i=0; i<5; i++)
 Tematy usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [warstwie Standardowa](service-bus-premium-messaging.md) i 1 MB w [warstwie Premium](service-bus-premium-messaging.md). Nagłówek, który zawiera standardowe i niestandardowe właściwości aplikacji, może mieć maksymalny rozmiar 64 KB. Nie ma żadnego limitu liczby komunikatów w temacie, ale jest ograniczenie całkowitego rozmiaru komunikatów przechowywanych przez temat. Rozmiar tematu jest definiowany w czasie tworzenia, z górnym limitem 5 GB. Jeśli partycjonowanie jest włączone, górny limit jest większy. Aby uzyskać więcej informacji, zobacz [Partycjonowane jednostki do obsługi komunikatów](service-bus-partitioning.md).
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Jak odbierać komunikaty z subskrypcji
-Zalecanym sposobem odbierania komunikatów z subskrypcji jest użycie obiektu [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Obiekty **SubscriptionClient** mogą pracować w dwóch różnych trybach: [*ReceiveAndDelete* i *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). Ustawienie domyślne to **PeekLock**.
+Zalecanym sposobem odbierania komunikatów z subskrypcji jest użycie obiektu [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Obiekty **SubscriptionClient** mogą pracować w dwóch różnych trybach: [*ReceiveAndDelete* i *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). Ustawienie domyślne to **PeekLock**.
 
 W przypadku używania trybu **ReceiveAndDelete** odbieranie jest operacją pojedynczego zrzutu. Oznacza to, że kiedy usługa Service Bus odbiera żądanie odczytu komunikatu w subskrypcji, oznacza komunikat jako wykorzystywany i zwraca go do aplikacji. Tryb **ReceiveAndDelete** jest najprostszym modelem i działa najlepiej w scenariuszach, w których aplikacja może tolerować nieprzetworzenie komunikatu w razie awarii. Aby to zrozumieć, rozważmy scenariusz, w którym konsument wystawia żądanie odbioru, a następnie ulega awarii przed jego przetworzeniem. Usługa Service Bus oznaczyła komunikat jako wykorzystany, dlatego gdy aplikacja zostanie ponownie uruchomiona i ponownie rozpocznie korzystanie z komunikatów, pominie utracony komunikat, który został wykorzystany przed awarią.
 
-W trybie **PeekLock** (trybie domyślnym) odbieranie staje się operacją dwuetapową, co umożliwia obsługę aplikacji, które nie tolerują brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Kiedy aplikacja zakończy przetwarzanie komunikatu (lub niezawodnie zapisze go w celu przyszłego przetwarzania), wykonuje drugi etap procesu odbierania przez wywołanie metody [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) dla odebranego komunikatu. Gdy wywołanie metody **Complete** stanie się widoczne dla usługi Service Bus, usługa oznaczy komunikat jako wykorzystany i usunie go z subskrypcji.
+W trybie **PeekLock** (trybie domyślnym) odbieranie staje się operacją dwuetapową, co umożliwia obsługę aplikacji, które nie tolerują brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Kiedy aplikacja zakończy przetwarzanie komunikatu (lub niezawodnie zapisze go w celu przyszłego przetwarzania), wykonuje drugi etap procesu odbierania przez wywołanie metody [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) dla odebranego komunikatu. Gdy wywołanie metody **Complete** stanie się widoczne dla usługi Service Bus, usługa oznaczy komunikat jako wykorzystany i usunie go z subskrypcji.
 
-W poniższym przykładzie pokazano, jak komunikaty mogą być odbierane i przetwarzane przy użyciu domyślnego trybu **PeekLock**. Aby określić inną wartość właściwości [ReceiveMode](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), można użyć innego przeciążenia metody [CreateFromConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). W tym przykładzie użyto wywołania zwrotnego [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) do przetwarzania komunikatów przychodzących do subskrypcji **HighMessages**.
+W poniższym przykładzie pokazano, jak komunikaty mogą być odbierane i przetwarzane przy użyciu domyślnego trybu **PeekLock**. Aby określić inną wartość właściwości [ReceiveMode](/dotnet/api/microsoft.servicebus.messaging.receivemode), można użyć innego przeciążenia metody [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). W tym przykładzie użyto wywołania zwrotnego [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) do przetwarzania komunikatów przychodzących do subskrypcji **HighMessages**.
 
 ```csharp
 string connectionString =
@@ -281,14 +282,14 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Ten przykład konfiguruje wywołanie zwrotne metody [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) przy użyciu obiektu [OnMessageOptions](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions). Właściwość [AutoComplete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoComplete) jest ustawiona na **false** w celu umożliwienia ręcznej kontroli nad tym, kiedy wywołać metodę [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) na odebranym komunikacie. Właściwość [AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout) jest ustawiona na 1 minutę, co powoduje, że klient oczekuje przez jedną minutę na komunikat, zanim upłynie limit czasu funkcji automatycznego odnawiania i klient wyśle nowe wywołanie w celu sprawdzenia komunikatów. Ta wartość właściwości zmniejsza liczbę przypadków, gdy klient wysyła wywołania, które mogą być obciążane i nie pobierają komunikatów.
+Ten przykład konfiguruje wywołanie zwrotne metody [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) przy użyciu obiektu [OnMessageOptions](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions). Właściwość [AutoComplete](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoComplete) jest ustawiona na **false** w celu umożliwienia ręcznej kontroli nad tym, kiedy wywołać metodę [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) na odebranym komunikacie. Właściwość [AutoRenewTimeout](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout) jest ustawiona na 1 minutę, co powoduje, że klient oczekuje przez jedną minutę na komunikat, zanim upłynie limit czasu funkcji automatycznego odnawiania i klient wyśle nowe wywołanie w celu sprawdzenia komunikatów. Ta wartość właściwości zmniejsza liczbę przypadków, gdy klient wysyła wywołania, które mogą być obciążane i nie pobierają komunikatów.
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Sposób obsługi awarii aplikacji i komunikatów niemożliwych do odczytania
-Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w razie błędów w aplikacji lub trudności z przetwarzaniem komunikatu. Jeśli aplikacja odbierająca z jakiegoś powodu nie można przetworzyć komunikatu, wówczas może wywołać metodę [Abandon](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon_System_Collections_Generic_IDictionary_System_String_System_Object__) dla odebranego komunikatu (zamiast metody [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Powoduje to odblokowanie komunikatu w subskrypcji przez usługę Service Bus i ponowne udostępnienie go do odebrania przez tę samą lub inną odbierającą aplikację.
+Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w razie błędów w aplikacji lub trudności z przetwarzaniem komunikatu. Jeśli aplikacja odbierająca z jakiegoś powodu nie można przetworzyć komunikatu, wówczas może wywołać metodę [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon_System_Collections_Generic_IDictionary_System_String_System_Object__) dla odebranego komunikatu (zamiast metody [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Powoduje to odblokowanie komunikatu w subskrypcji przez usługę Service Bus i ponowne udostępnienie go do odebrania przez tę samą lub inną odbierającą aplikację.
 
 Istnieje również limit czasu skojarzony z komunikatem zablokowanym w subskrypcji i jeśli aplikacja nie może przetworzyć komunikatu przed upływem limitu czasu blokady (na przykład jeśli wystąpiła awaria aplikacji), usługa Service Bus automatycznie odblokowuje komunikat i udostępnia go do ponownego odbioru.
 
-W przypadku gdy aplikacja przestaje działać po przetworzeniu komunikatu, ale przed wysłaniem żądania [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), komunikat zostanie dostarczony do aplikacji po jej ponownym uruchomieniu. Jest to często określane jako *Przetwarzanie co najmniej raz*, co oznacza, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy użyciu właściwości [MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
+W przypadku gdy aplikacja przestaje działać po przetworzeniu komunikatu, ale przed wysłaniem żądania [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), komunikat zostanie dostarczony do aplikacji po jej ponownym uruchomieniu. Jest to często określane jako *Przetwarzanie co najmniej raz*, co oznacza, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy użyciu właściwości [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
 
 ## <a name="delete-topics-and-subscriptions"></a>Usuwanie tematów i subskrypcji
 W poniższym przykładzie pokazano sposób usuwania tematu **TestTopic** z przestrzeni nazw usługi **HowToSample**.
@@ -319,13 +320,8 @@ Teraz, kiedy znasz już podstawy tematów i subskrypcji usługi Service Bus, sko
 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Topic filters sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
 [Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

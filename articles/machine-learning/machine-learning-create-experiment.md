@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
-ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 0539e9d04c61d35de56a29d350c07654c095c576
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -159,7 +160,10 @@ Najpierw dodamy moduł, który całkowicie usunie kolumnę **normalized-losses**
     ***Zawartość okienka właściwości wskazuje na wykluczenie kolumny „normalized-losses” (znormalizowane straty)***
 
     > [!TIP]
-    > Aby dodać komentarz do modułu, kliknij dwukrotnie moduł i wpisz tekst. Pozwoli to od razu sprawdzić rolę modułu w eksperymencie. W tym przypadku kliknij dwukrotnie moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) i dodaj komentarz „Wykluczenie kolumny znormalizowane straty”.
+    Aby dodać komentarz do modułu, kliknij dwukrotnie moduł i wpisz tekst. Pozwoli to od razu sprawdzić rolę modułu w eksperymencie. W tym przypadku kliknij dwukrotnie moduł [Select Columns in Dataset][select-columns] (Wybieranie kolumn w zestawie danych) i dodaj komentarz „Wykluczenie kolumny znormalizowanych strat”.
+    >
+    >
+
 
     ![Dwukrotne kliknięcie modułu umożliwia dodanie komentarza][add-comment]
     <br/>
@@ -377,9 +381,4 @@ Chcesz dowiedzieć się więcej? Aby zapoznać się z bardziej rozbudowanym i sz
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

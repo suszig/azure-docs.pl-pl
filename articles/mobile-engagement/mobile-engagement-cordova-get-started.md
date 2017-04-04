@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 2fc534e90431d7c44dc05327fd3d32a2e6ab1c8b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -46,10 +46,10 @@ Dla tego samouczka wymagane są następujące elementy:
 > 
 > 
 
-## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji Cordova
+## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji Cordova
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych. 
 
 Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą systemu Cordova:
@@ -90,7 +90,7 @@ Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą sys
 
 *iOS Reach Icon* (Ikona zasięgu systemu iOS): musi być nazwą zasobu z rozszerzeniem (np. mynotificationicon.png), a plik ikony musi być dodany do projektu systemu iOS za pomocą środowiska XCode (przy użyciu menu Dodaj pliki)
 
-## <a name="a-idmonitoraenabling-real-time-monitoring"></a><a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
+## <a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
 1. W projekcie Cordova edytuj plik **www/js/index.js**, aby dodać wywołanie usługi Mobile Engagement i zadeklarować nowe działanie po odebraniu zdarzenia *deviceReady*.
    
          onDeviceReady: function() {
@@ -117,10 +117,10 @@ Aby zademonstrować integrację, utworzymy podstawową aplikację za pomocą sys
         [Engagement] Connection: Sent: startSession
         [Engagement] Connection: Sent: activity name='myPage'
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenabling-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
+## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 Usługa Mobile Engagement umożliwia wchodzenie w interakcję z użytkownikami przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
 Poniższe sekcje umożliwią skonfigurowanie aplikacji do ich odbierania.
 
@@ -172,7 +172,7 @@ Możesz użyć emulatora do uruchomienia aplikacji systemu Android, ponieważ po
 
     cordova run android
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Wysyłanie powiadomienia do aplikacji
+## <a id="send"></a>Wysyłanie powiadomienia do aplikacji
 Teraz utworzymy prostą kampanię powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji uruchomionej na urządzeniu:
 
 1. Przejdź do karty **Reach** (Zasięg) w portalu Mobile Engagement.
@@ -206,7 +206,7 @@ Teraz utworzymy prostą kampanię powiadomień wypychanych, która wyśle powiad
     ![][10]
 9. W ramach kampanii na urządzeniu lub w emulatorze powinno pojawić się powiadomienie wypychane. 
 
-## <a name="a-idnext-stepsanext-steps"></a><a id="next-steps"></a>Następne kroki
+## <a id="next-steps"></a>Następne kroki
 [Przegląd wszystkich metod dostępnych przy użyciu zestawu Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- Images. -->

@@ -14,7 +14,7 @@ Usługa Blob obejmuje następujące składniki:
 
 ![Architektura obiektów blob](./media/storage-blob-concepts-include/blob1.png)
 
-* **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Konto magazynu może być **kontem magazynu ogólnego przeznaczenia** lub **kontem usługi Blob Storage** służącym do przechowywania obiektów/obiektów blob. Aby uzyskać więcej informacji dotyczących kont magazynu, zobacz temat [Azure storage account](../articles/storage/storage-create-storage-account.md) (Konto usługi Azure Storage).
+* **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Konto magazynu może być **kontem magazynu ogólnego przeznaczenia** lub **kontem usługi Blob Storage** służącym do przechowywania obiektów/obiektów blob. Aby uzyskać więcej informacji, zobacz [About Azure storage accounts](../articles/storage/storage-create-storage-account.md) (Informacje o kontach usługi Azure Storage).
 * **Kontener:** kontener zawiera grupowanie zestawu obiektów blob. Wszystkie obiekty blob muszą być w kontenerze. Konto może zawierać nieograniczoną liczbę kontenerów. Kontener może przechowywać nieograniczoną liczbę obiektów blob. Pamiętaj, że wszystkie litery w nazwie kontenera muszą być małymi literami.
 * **Obiekt blob:** plik dowolnego typu o dowolnym rozmiarze. Usługa Azure Storage udostępnia trzy typy obiektów blob: blokowe, stronicowe i uzupełnialne.
   
@@ -22,10 +22,5 @@ Usługa Blob obejmuje następujące składniki:
   
     *Stronicowe obiekty blob* mogą mieć rozmiar maksymalnie 1 TB i są bardziej efektywne w przypadku operacji częstego odczytu/zapisu. Usługa Azure Virtual Machines używa stronicowych obiektów blob jako systemu operacyjnego lub dysków z danymi.
   
-    Aby uzyskać szczegółowe informacje o nazewnictwie kontenerów i obiektów blob, zobacz temat [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx) (Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+    Aby uzyskać szczegółowe informacje o nazewnictwie kontenerów i obiektów blob, zobacz temat [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) (Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych).
 

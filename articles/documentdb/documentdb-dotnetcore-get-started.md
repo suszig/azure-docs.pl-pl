@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/06/2017
+ms.date: 03/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 35e193a49aac7e3aaf91e2a4798b6eeed8377aae
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: c8a915055318697ade229837653df4c105279299
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -47,6 +47,8 @@ Omówione zostaną następujące czynności:
 * Usuwanie bazy danych
 
 Nie masz czasu? Nie martw się! Kompletne rozwiązanie jest dostępne w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Przeskocz do sekcji [Pobieranie kompletnego rozwiązania](#GetSolution), aby uzyskać krótkie instrukcje.
+
+Chcesz utworzyć aplikację platformy Xamarin iOS, Android lub Forms przy użyciu zestawu SDK dla platformy .NET Core usługi DocumentDB? Zobacz [Developing Xamarin mobile applications using DocumentDB](documentdb-mobile-apps-with-xamarin.md) (Opracowywanie aplikacji mobilnych platformy Xamarin przy użyciu usługi DocumentDB).
 
 Po wszystkim użyj przycisków głosowania u góry lub u dołu tej strony, aby wysłać nam swoją opinię. Jeśli chcesz, abyśmy skontaktowali się z Tobą bezpośrednio, możesz w komentarzach podać swój adres e-mail.
 
@@ -589,6 +591,7 @@ Aby przywrócić odwołania do zestawu SDK dla platformy .NET Core usługi Docum
 
 ## <a name="next-steps"></a>Następne kroki
 * Potrzebujesz bardziej złożonego samouczka NoSQL platformy ASP.NET MVC? Zobacz [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md) (Tworzenie aplikacji sieci Web na platformie ASP.NET MVC przy użyciu usługi DocumentDB).
+* Chcesz opracować aplikację platformy Xamarin iOS, Android lub Forms przy użyciu zestawu SDK dla platformy .NET Core usługi DocumentDB? Zobacz [Developing Xamarin mobile applications using DocumentDB](documentdb-mobile-apps-with-xamarin.md) (Opracowywanie aplikacji mobilnych platformy Xamarin przy użyciu usługi DocumentDB).
 * Czy chcesz wykonać testowanie wydajności i skalowania w usłudze DocumentDB? Zobacz [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Testowanie wydajności i skali w usłudze Azure DocumentDB).
 * Dowiedz się, jak [monitorować konto usługi DocumentDB](documentdb-monitor-accounts.md).
 * Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).

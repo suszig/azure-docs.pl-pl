@@ -1,17 +1,23 @@
 ## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego
-Następnie skonfiguruj środowisko projektowe w programie Visual Studio, aby przygotować się do wypróbowania przykładowych kodów podanych w tym przewodniku.
+Następnie skonfiguruj środowisko projektowe w programie Visual Studio, aby przygotować się do wypróbowania przykładów kodu zawartych w tym przewodniku.
 
-### <a name="create-a-windows-console-application-project"></a>Utwórz projekt aplikacji konsolowej dla systemu Windows
-W programie Visual Studio utwórz nową aplikację konsolową dla systemu Windows:
+### <a name="create-a-windows-console-application-project"></a>Utwórz projekt aplikacji konsoli dla systemu Windows
+W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. Poniższe kroki pokazują, jak utworzyć aplikację konsoli w programie Visual Studio 2017, jednak kroki w innych wersjach programu Visual Studio są podobne.
 
-![Tworzenie aplikacji konsolowej dla systemu Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+1. Wybierz kolejno pozycje **Plik** > **Nowy** > **Projekt**
+2. Wybierz kolejno pozycje **Zainstalowane** > **Szablony** > **Visual C#** > **Klasyczny pulpit systemu Windows**
+3. Wybierz pozycję **Aplikacja konsoli (.NET Framework)**
+4. Wprowadź nazwę aplikacji w polu **Nazwa:**
+5. Kliknij przycisk **OK**
 
-Wszystkie przykładowe kody w tym samouczku można dodać do metody **Main()** w `program.cs` w aplikacji konsolowej.
+![Okno dialogowe tworzenia projektu w programie Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-Pamiętaj, że Biblioteki klienta usługi Storage platformy Azure można używać z dowolnego typu aplikacji w środowisku .NET, m.in. usługi w chmurze Azure, aplikacji sieci Web platformy Azure, aplikacji pulpitu lub aplikacji mobilnej. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
+Wszystkie przykłady kodu w tym samouczku można dodać do metody `Main()` w pliku `Program.cs` aplikacji konsolowej.
+
+Biblioteki klienta usługi Azure Storage można używać w aplikacjach .NET dowolnego typu , m.in. usługach w chmurze lub aplikacjach sieci Web platformy Azure, aplikacjach pulpitu i aplikacjach mobilnych. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
-Istnieją dwa pakiety, które trzeba zainstalować w projekcie, aby wykonać instrukcje z tego samouczka:
+Istnieją dwa pakiety, które trzeba przywołać w projekcie, aby ukończyć ten samouczek:
 
 * [Biblioteka klienta usługi Storage platformy Microsoft Azure dla środowiska .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): ten pakiet zapewnia dostęp programowy do zasobów danych na koncie magazynu.
 * [Biblioteka programu Microsoft Azure Configuration Manager dla środowiska .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, niezależnie od tego, gdzie została uruchomiona aplikacja.
@@ -20,12 +26,12 @@ Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 
 1. Kliknij projekt prawym przyciskiem myszy w **Eksploratorze rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**.
 2. Wyszukaj w trybie online ciąg „WindowsAzure.Storage”, a następnie kliknij przycisk **Zainstaluj**, aby zainstalować Bibliotekę klienta usługi Storage oraz jej zależności.
-3. Wyszukaj w trybie online ciąg „ConfigurationManager” i kliknij przycisk **Zainstaluj**, aby zainstalować program Azure Configuration Manager.
+3. Wyszukaj w trybie online ciąg „WindowsAzure.ConfigurationManager” i kliknij przycisk **Zainstaluj**, aby zainstalować program Azure Configuration Manager.
 
 > [!NOTE]
 > Pakiet Biblioteki klienta usługi Storage znajduje się również w [zestawie SDK Azure dla środowiska .NET](https://azure.microsoft.com/downloads/). Firma Microsoft zaleca jednak również zainstalowanie Biblioteki klienta usługi Storage z pakietu NuGet, aby zagwarantować posiadanie najnowszej wersji biblioteki klienta.
 > 
-> Zależności ODataLib w Bibliotece klienta usługi Storage dla środowiska .NET są rozwiązywane za pośrednictwem pakietów ODataLib (w wersji 5.0.2 i nowszych) dostępnych przez pakiet NuGet, a nie za pośrednictwem usług Data Services WCF. Biblioteki ODataLib można pobrać bezpośrednio lub użyć odwołań w projekcie kodu za pośrednictwem pakietu NuGet. Określone pakiety ODataLib używane przez Bibliotekę klienta usługi Storage to [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) i [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Ze względu na to, że biblioteki te są używane przez klasy usługi Azure Table Storage, są one wymaganymi zależnościami do programowania za pomocą Biblioteki klienta usługi Storage.
+> Zależności ODataLib w Bibliotece klienta usługi Storage dla platformy .NET są rozwiązywane za pomocą pakietów ODataLib dostępnych w usłudze NuGet, a nie za pośrednictwem usług WCF Data Services. Biblioteki ODataLib można pobrać bezpośrednio lub użyć odwołań w projekcie kodu za pośrednictwem pakietu NuGet. Określone pakiety ODataLib używane przez Bibliotekę klienta usługi Storage to [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) i [Spatial](http://nuget.org/packages/System.Spatial/). Ze względu na to, że biblioteki te są używane przez klasy usługi Azure Table Storage, są one wymaganymi zależnościami do programowania za pomocą Biblioteki klienta usługi Storage.
 > 
 > 
 
@@ -33,7 +39,7 @@ Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 W przypadku uruchamiania przykładów w tym przewodniku istnieją dwie opcje środowiska:
 
 * Można uruchomić kod dla konta usługi Azure Storage w chmurze. 
-* Można uruchomić kod dla emulatora usługi Azure Storage. Emulator magazynu jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze. Emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Emulator używa dobrze znanego konta i klucza. Więcej szczegółowych informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania).
+* Można uruchomić kod dla emulatora usługi Azure Storage. Emulator magazynu jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze. Emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Emulator używa dobrze znanego konta i klucza. Więcej informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania)
 
 Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy klucz dostępu dla konta magazynu z witryny Azure Portal. Aby uzyskać więcej informacji, zobacz temat [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Wyświetlanie i kopiowanie kluczy dostępu kopiowania).
 
@@ -59,19 +65,19 @@ Aby skonfigurować parametry połączenia, otwórz plik `app.config` z Eksplorat
     <startup> 
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
     </startup>
-      <appSettings>
+    <appSettings>
         <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-      </appSettings>
+    </appSettings>
 </configuration>
 ```
 
-Na przykład ustawienie konfiguracji powinno wyglądać mniej więcej tak:
+Na przykład ustawienie konfiguracji może wyglądać mniej więcej tak:
 
 ```xml
 <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 ```
 
-Jeśli obiektem docelowym ma być emulator magazynu, możesz użyć skrótu klawiaturowego, który mapuje dobrze znaną nazwę konta i klucz. W takim przypadku ustawienie parametrów połączenia będzie wyglądać następująco:
+Jeśli obiektem docelowym ma być emulator magazynu, możesz użyć skrótu klawiaturowego, który mapuje dobrze znaną nazwę konta i klucz. W takim przypadku ustawienie parametrów połączenia wygląda następująco:
 
 ```xml
 <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />

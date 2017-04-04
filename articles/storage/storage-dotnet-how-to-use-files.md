@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
-ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -46,7 +46,7 @@ W tym filmie przedstawiamy, jak utworzyć udziały plików platformy Azure i kor
 ## <a name="about-this-tutorial"></a>Informacje o tym samouczku
 W tym samouczku wprowadzającym zostały omówione podstawy korzystania z usługi Magazyn plików Microsoft Azure. W tym samouczku zostaną wykonane następujące czynności:
 
-* Utworzenie nowego udziału plików platformy Azure za pomocą Portalu Azure lub programu PowerShell, dodanie katalogu, przekazanie pliku lokalnego do udziału oraz wyświetlenie listy plików w katalogu.
+* Utworzenie nowego udziału plików platformy Azure za pomocą witryny Azure Portal lub programu PowerShell, dodanie katalogu, przekazanie pliku lokalnego do udziału oraz wyświetlenie listy plików w katalogu.
 * Instalacja udziału plików tak samo jak instaluje się udziały SMB.
 * Uzyskanie dostępu do udziału pliku z poziomu aplikacji lokalnej za pomocą biblioteki klienta usługi Azure Storage dla programu .NET. Utworzenie aplikacji konsolowej i wykonanie następujących akcji dotyczących udziału plików:
   * Zapisanie zawartości pliku w udziale w oknie konsoli.
@@ -58,7 +58,7 @@ W tym samouczku wprowadzającym zostały omówione podstawy korzystania z usług
 
 Usługa Magazyn plików jest teraz obsługiwana dla wszystkich kont magazynu, można więc użyć istniejącego konta magazynu lub utworzyć nowe konto. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) (Jak utworzyć konto magazynu).
 
-## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Zarządzanie udziałem plików za pomocą Portalu Azure
+## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Zarządzanie udziałem plików za pomocą witryny Azure Portal
 Udziałami plików można zarządzać z poziomu interfejsu użytkownika w witrynie [Azure Portal](https://portal.azure.com). Portal umożliwia wykonywanie następujących czynności:
 
 * Tworzenie udziału plików
@@ -264,17 +264,29 @@ Aby zainstalować udział plików z klienta lokalnego, musisz najpierw wykonać 
 Aby napisać kod, który wywołuje usługę Magazyn plików, można użyć bibliotek klienckich magazynu dla platform .NET i Java lub interfejsu API REST usługi Magazyn Azure. W przykładzie w tej sekcji pokazano sposób pracy z udziałem plików przy użyciu [biblioteki klienta usługi Storage Azure dla programu .NET](https://msdn.microsoft.com/library/mt347887.aspx) z prostej aplikacji konsolowej działającej na komputerze.
 
 ### <a name="create-the-console-application-and-obtain-the-assembly"></a>Tworzenie aplikacji konsolowej i uzyskiwanie zestawu
-Aby utworzyć nową aplikację konsolową w programie Visual Studio i zainstalować pakiet NuGet zawierający bibliotekę klienta usługi Azure Storage:
+W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. Poniższe kroki pokazują, jak utworzyć aplikację konsoli w programie Visual Studio 2017, jednak kroki w innych wersjach programu Visual Studio są podobne.
 
-1. W programie Visual Studio wybierz pozycje **Plik > Nowy projekt**, a następnie wybierz pozycje **Windows > Aplikacja konsolowa** z listy szablonów Visual C#.
-2. Podaj nazwę aplikacji konsolowej, a następnie kliknij przycisk **OK**.
-3. Po utworzeniu projektu kliknij go prawym przyciskiem myszy w Eksploratorze rozwiązań i wybierz polecenie **Zarządzaj pakietami NuGet**. Wyszukaj w trybie online ciąg „WindowsAzure.Storage”, a następnie kliknij przycisk **Zainstaluj**, aby zainstalować pakiet i zależności biblioteki klienta usługi Azure Storage dla programu .NET.
+1. Wybierz kolejno pozycje **Plik** > **Nowy** > **Projekt**
+2. Wybierz kolejno pozycje **Zainstalowane** > **Szablony** > **Visual C#** > **Klasyczny pulpit systemu Windows**
+3. Wybierz pozycję **Aplikacja konsoli (.NET Framework)**
+4. Wprowadź nazwę aplikacji w polu **Nazwa:**
+5. Kliknij przycisk **OK**
 
-W przykładach kodu w tym artykule jest także używana [biblioteka programu Microsoft Azure Configuration Manager](https://msdn.microsoft.com/library/azure/mt634646.aspx), za pomocą której z pliku app.config aplikacji konsolowej pobierane są parametry połączenia magazynu. Program Azure Configuration Manager umożliwia pobranie parametrów połączenia w środowisku uruchomieniowym niezależnie od tego, czy aplikacja działa na platformie Microsoft Azure, na komputerze, urządzeniu przenośnym czy w sieci Web.
+Wszystkie przykłady kodu w tym samouczku można dodać do metody `Main()` w pliku `Program.cs` aplikacji konsolowej.
 
-Aby zainstalować pakiet programu Azure Configuration Manager, kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz polecenie **Zarządzaj pakietami NuGet**. Wyszukaj w trybie online ciąg „ConfigurationManager” i kliknij przycisk **Zainstaluj**, aby zainstalować pakiet.
+Biblioteki klienta usługi Azure Storage można używać w aplikacjach .NET dowolnego typu , m.in. usługach w chmurze lub aplikacjach sieci Web platformy Azure, aplikacjach pulpitu i aplikacjach mobilnych. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
 
-Użycie programu Azure Configuration Manager jest opcjonalne. Można także użyć interfejsu API, np. [klasy ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) programu .NET Framework.
+### <a name="use-nuget-to-install-the-required-packages"></a>Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
+Istnieją dwa pakiety, które trzeba przywołać w projekcie, aby ukończyć ten samouczek:
+
+* [Biblioteka klienta usługi Storage platformy Microsoft Azure dla środowiska .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): ten pakiet zapewnia dostęp programowy do zasobów danych na koncie magazynu.
+* [Biblioteka programu Microsoft Azure Configuration Manager dla środowiska .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, niezależnie od tego, gdzie została uruchomiona aplikacja.
+
+Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
+
+1. Kliknij projekt prawym przyciskiem myszy w **Eksploratorze rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**.
+2. Wyszukaj w trybie online ciąg „WindowsAzure.Storage”, a następnie kliknij przycisk **Zainstaluj**, aby zainstalować Bibliotekę klienta usługi Storage oraz jej zależności.
+3. Wyszukaj w trybie online ciąg „WindowsAzure.ConfigurationManager” i kliknij przycisk **Zainstaluj**, aby zainstalować program Azure Configuration Manager.
 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Zapisywanie poświadczeń konta magazynu w pliku app.config
 Teraz zapiszemy poświadczenia w pliku app.config projektu. Zmodyfikuj plik app.config, jak pokazano w poniższym przykładzie, zastępując ciąg `myaccount` nazwą konta magazynu, a ciąg `mykey` kluczem konta magazynu.
@@ -296,8 +308,8 @@ Teraz zapiszemy poświadczenia w pliku app.config projektu. Zmodyfikuj plik app.
 > 
 > 
 
-### <a name="add-namespace-declarations"></a>Dodawanie deklaracji przestrzeni nazw
-Otwórz plik `program.cs` w Eksploratorze rozwiązań i dodaj następujące deklaracje przestrzeni nazw na początku pliku.
+### <a name="add-using-directives"></a>Dodawanie dyrektyw using
+Otwórz plik `Program.cs` w Eksploratorze rozwiązań i dodaj następujące dyrektywy using na początku pliku.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -546,7 +558,7 @@ Metryki dla usługi File Storage można włączyć w witrynie [Azure Portal](htt
 
 Poniższy przykładowy kod pokazuje, jak włączyć metryki dla usługi File Storage za pomocą biblioteki klienta usługi Storage programu .NET.
 
-Najpierw dodaj następujące instrukcje `using` do pliku program.cs (oprócz tych dodanych powyżej):
+Najpierw dodaj następujące dyrektywy `using` do pliku `Program.cs` (obok tych dodanych powyżej):
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -645,7 +657,7 @@ Aby uzyskać kompleksowe wskazówki dotyczące rozwiązywania problemów, można
     Jeśli chcesz przetransferować dużą liczbę plików do usługi Magazyn plików, zalecamy skorzystanie z narzędzia AzCopy, programu Azure Powershell (Windows) lub interfejsu wiersza polecenia platformy Azure (Linux/Unix). Te narzędzia są zoptymalizowane pod kątem transferu sieciowego.
 15. **Wydano poprawkę rozwiązującą problem powolnego działania usługi Pliki Azure**
     
-    Zespół systemu Windows wydał ostatnio poprawkę rozwiązującą problem z wydajnością, gdy klienci próbują uzyskać dostęp do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2. Aby uzyskać więcej informacji, zapoznaj się z odpowiednim artykułem KB: [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Niska wydajność podczas dostępu do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2).
+    Zespół systemu Windows wydał ostatnio poprawkę rozwiązującą problem z wydajnością, gdy klienci próbują uzyskać dostęp do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2. Aby uzyskać więcej informacji, zapoznaj się z odpowiednim artykułem KB: [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025) (Niska wydajność podczas dostępu do usługi Azure File Storage z systemu Windows 8.1 lub Windows Server 2012 R2).
 16. **Korzystanie z usługi Azure File Storage z programem IBM MQ**
     
     Firma IBM wydała dokument pomagający posiadaczom oprogramowania IBM MQ w skonfigurowaniu usługi Azure File Storage. Aby uzyskać więcej informacji, zobacz: [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Jak skonfigurować menedżera kolejki z wieloma wystąpieniami programu IBM MQ do działania z usługą Magazyn plików Azure).
@@ -655,9 +667,10 @@ Aby uzyskać kompleksowe wskazówki dotyczące rozwiązywania problemów, można
 
 18. **Jak mogę włączyć szyfrowanie po stronie serwera dla usługi Azure Files?**
 
-    [Szyfrowanie po stronie serwera](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) jest obecnie dostępne w wersji zapoznawczej. W okresie zapoznawczym tę funkcję można włączyć tylko dla nowo utworzonych kont magazynu usługi Azure Resource Manager (ARM).
-    Tę funkcję można włączyć z poziomu konta magazynu usługi Azure Resource Manager przy użyciu witryny Azure Portal. Planujemy do końca lutego umożliwić włączanie szyfrowania dla magazynu plików za pomocą programu [Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) lub [interfejsu API dostawcy zasobów usługi Microsoft Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts). Włączenie tej funkcji nie wiąże się z żadną dodatkową opłatą. Po włączeniu szyfrowania usługi Storage dla usługi Azure File Storage dane są automatycznie szyfrowane. 
-    Dowiedz się więcej o szyfrowaniu usługi Storage. Jeśli masz dodatkowe pytania dotyczące wersji zapoznawczej, wyślij wiadomość e-mail na adres ssediscussions@microsoft.com.
+    [Szyfrowanie po stronie serwera](storage-service-encryption.md) dla usługi Azure Files jest obecnie dostępne w wersji zapoznawczej. W wersji zapoznawczej funkcję tę można włączyć wyłącznie z poziomu nowych kont magazynu usługi Azure Resource Manager utworzonych przy użyciu witryny [Azure Portal](https://portal.azure.com). Włączenie tej funkcji nie wiąże się z żadną dodatkową opłatą. Po włączeniu szyfrowania usługi Storage dla usługi Azure File Storage dane są automatycznie szyfrowane. 
+    
+    Planujemy w przyszłości umożliwić włączanie szyfrowania dla magazynu plików za pomocą programu [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [interfejsu wiersza polecenia platformy Azure](storage-azure-cli.md) lub [interfejsu API dostawcy zasobów usługi Azure Storage](/rest/api/storagerp/storageaccounts). 
+    Zobacz [Szyfrowanie usługi Storage](storage-service-encryption.md), aby uzyskać więcej informacji na temat szyfrowania danych w spoczynku w usłudze Azure Storage. Jeśli podczas korzystania z wersji zapoznawczej będziesz mieć jakieś pytania, napisz na adres ssediscussions@microsoft.com.
 
 ## <a name="next-steps"></a>Następne kroki
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Magazyn plików Azure.
@@ -670,7 +683,7 @@ Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi 
 * [Używanie programu Azure PowerShell z usługą Azure Storage](storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md) (Jak używać narzędzia AzCopy z usługą Microsoft Azure Storage)
 * [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
-* [Rozwiązywanie problemów z usługą Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Rozwiązywanie problemów z usługą Azure File Storage](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Dokumentacja
 * [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
