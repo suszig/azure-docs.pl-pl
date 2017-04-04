@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: 
 author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 541849501335fb25d96cffa81b8119adc158cdd7
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
+ms.lasthandoff: 03/23/2017
+
 
 
 ---
@@ -48,18 +49,26 @@ Do bloku można również przejść, klikając pozycję **Więcej usług**, a na
 2. Kliknij pozycję **+Dodaj** w górnej części bloku.
 3. Wprowadź wartość **Nazwa**, która będzie opisywać aplikację na potrzeby klientów. Możesz na przykład wprowadzić nazwę „Aplikacja Contoso B2C”.
 4. Przestaw przełącznik **Uwzględnij aplikację sieci Web/interfejs API sieci Web** na wartość **Tak**. **Adresy URL odpowiedzi** to punkty końcowe, w których usługa Azure AD B2C będzie zwracać wszystkie tokeny żądań aplikacji. Na przykład wprowadź wartość `https://localhost:44316/`.
-5. Kliknij pozycję **Zapisz**, aby zarejestrować aplikację.
-6. Kliknij nowo utworzoną aplikację i skopiuj globalnie unikatowy **identyfikator klienta aplikacji**, który będzie używany w dalszej części kodu.
+5. Kliknij pozycję **Utwórz**, aby zarejestrować aplikację.
+6. Kliknij nowo utworzoną aplikację i skopiuj globalnie unikatowy **identyfikator klienta aplikacji**, który będzie używany w dalszej części kodu. 
+7. Jeśli aplikacja sieci Web będzie również wywoływała interfejs API sieci Web zabezpieczony za pomocą usługi Azure AD B2C, może być konieczne utworzenie **klucza tajnego aplikacji** przez przejście do bloku **Klucze** i kliknięcie przycisku **Generuj klucz**.
 
+> [!NOTE]
+> **Klucz tajny aplikacji** jest ważnym poświadczeniem zabezpieczeń i powinien być odpowiednio zabezpieczony.
+> 
+   
 
 ## <a name="register-a-web-api"></a>Rejestrowanie interfejsu API sieci Web
 1. W bloku funkcji B2C w witrynie Azure Portal kliknij pozycję **Aplikacje**.
 2. Kliknij pozycję **+Dodaj** w górnej części bloku.
 3. Wprowadź wartość **Nazwa**, która będzie opisywać aplikację na potrzeby klientów. Możesz na przykład wprowadzić nazwę „Interfejs API Contoso B2C”.
 4. Przestaw przełącznik **Uwzględnij aplikację sieci Web/interfejs API sieci Web** na wartość **Tak**. **Adresy URL odpowiedzi** to punkty końcowe, w których usługa Azure AD B2C będzie zwracać wszystkie tokeny żądań aplikacji. Na przykład wprowadź wartość `https://localhost:44316/`.
-5. Kliknij pozycję **Zapisz**, aby zarejestrować aplikację.
-6. Kliknij nowo utworzoną aplikację i skopiuj globalnie unikatowy **identyfikator klienta aplikacji**, który będzie używany w dalszej części kodu.
-
+5. Wprowadź **identyfikator URI aplikacji**. Jest to identyfikator używany na potrzeby interfejsu API sieci Web. Na przykład wprowadź wartość „uwagi”. Spowoduje to wygenerowanie poniżej pełnego identyfikatora URI. 
+6. Kliknij pozycję **Utwórz**, aby zarejestrować aplikację.
+7. Kliknij nowo utworzoną aplikację i skopiuj globalnie unikatowy **identyfikator klienta aplikacji**, który będzie używany w dalszej części kodu.
+8. Kliknij pozycję **Opublikowane zakresy**. Jest to miejsce, w którym można zdefiniować uprawnienia (zakresy), które mogą być udzielone innym aplikacjom.
+9. W razie potrzeby dodaj więcej zakresów. Domyślnie zostanie zdefiniowany zakres „user_impersonation”. Daje to innym aplikacjom możliwość dostępu do tego interfejsu API w imieniu zalogowania użytkownika. W razie potrzeby może to zostać usunięte. 
+10. Kliknij pozycję **Zapisz**.
 
 ## <a name="register-a-mobilenative-application"></a>Rejestrowanie aplikacji mobilnej/natywnej
 1. W bloku funkcji B2C w witrynie Azure Portal kliknij pozycję **Aplikacje**.
@@ -69,6 +78,11 @@ Do bloku można również przejść, klikając pozycję **Więcej usług**, a na
 5. Wprowadź **Identyfikator URI przekierowania** ze schematem niestandardowym. Na przykład com.onmicrosoft.contoso.appname://przekierowanie/ścieżka. Upewnij się, że wybrano [dobry identyfikator URI przekierowania](#choosing-a-redirect-uri).
 6. Kliknij pozycję **Zapisz**, aby zarejestrować aplikację.
 7. Kliknij nowo utworzoną aplikację i skopiuj globalnie unikatowy **identyfikator klienta aplikacji**, który będzie używany w dalszej części kodu.
+8. Jeśli aplikacja natywna będzie również wywoływała interfejs API sieci Web zabezpieczony za pomocą usługi Azure AD B2C, może być konieczne utworzenie **klucza tajnego aplikacji** przez przejście do bloku **Klucze** i kliknięcie przycisku **Generuj klucz**.
+
+> [!NOTE]
+> **Klucz tajny aplikacji** jest ważnym poświadczeniem zabezpieczeń i powinien być odpowiednio zabezpieczony.
+> 
 
 ### <a name="choosing-a-redirect-uri"></a>Wybieranie identyfikatora URI przekierowania
 Istnieją dwie ważne kwestie, które należy wziąć pod uwagę podczas wybierania identyfikatora URI przekierowania dla aplikacji mobilych/natywnych: 

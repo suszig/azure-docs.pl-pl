@@ -14,7 +14,3 @@ Upewnij się, że masz już utworzoną przestrzeń nazw usługi Relay, tak jak o
 6. W dolnej części bloku kliknij pozycję **Utwórz**.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
-
-<!--HONumber=Feb17_HO1-->
-
-

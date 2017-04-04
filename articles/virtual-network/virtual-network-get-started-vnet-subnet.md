@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -240,9 +240,9 @@ Połączenie wychodzące z Internetem jest dozwolone, ponieważ domyślnie cały
 
 Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
 
-1. Aby wyświetlić grupę zasobów MojaGZ utworzoną w tym artykule, wykonaj kroki 1–3 opisane w sekcji [Przeglądanie zasobów](#review). Jeszcze raz przejrzyj zasoby w grupie zasobów. Jeśli grupę zasobów MojaGZ utworzono zgodnie z podanymi instrukcjami, będzie widocznych 12 zasobów, jak pokazano na ilustracji w kroku 3.
+1. Aby wyświetlić grupę zasobów MojaGZ utworzoną w tym artykule, wykonaj kroki 1–3 opisane w sekcji [Przeglądanie zasobów](#review). Jeszcze raz przejrzyj zasoby w grupie zasobów. Jeśli grupę zasobów MojaGZ utworzono zgodnie z podanymi instrukcjami, będzie widocznych 12 zasobów, jak pokazano na ilustracji w kroku 4.
 2. W bloku MojaGZ kliknij przycisk **Usuń**.
-3. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Jeśli zobaczysz inne zasoby niż te widoczne w kroku 3 sekcji [Przeglądanie zasobów](#review) tego artykułu, kliknij przycisk **Anuluj**. Jeśli zobaczysz tylko 12 zasobów utworzonych w ramach tego ćwiczenia, wpisz nazwę grupy zasobów *MojaGZ*, a następnie kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
+3. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Jeśli zobaczysz inne zasoby niż te widoczne w kroku 4 sekcji [Przeglądanie zasobów](#review) tego artykułu, kliknij przycisk **Anuluj**. Jeśli zobaczysz tylko 12 zasobów utworzonych w ramach tego ćwiczenia, wpisz nazwę grupy zasobów *MojaGZ*, a następnie kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
 

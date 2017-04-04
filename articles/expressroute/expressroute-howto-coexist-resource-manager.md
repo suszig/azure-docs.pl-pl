@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie połączeń usługi ExpressRoute i sieci VPN typu lokacja-lokacja, które mogą współistnieć, dla modelu wdrażania usługi Resource Manager | Microsoft Docs"
+title: "Konfigurowanie połączeń usługi ExpressRoute i sieci VPN typu lokacja-lokacja, które mogą współistnieć: usługa Resource Manager: Azure | Microsoft Docs"
 description: "Ten artykuł zawiera instrukcje dotyczące konfigurowania połączeń usługi ExpressRoute oraz sieci VPN typu lokacja-lokacja, które mogą współistnieć, dla modelu usługi Resource Manager."
 documentationcenter: na
 services: expressroute
@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 68ad5679a2a6fcb7cfca25410af3f2f113490bdc
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 17f179d9bd614b5ea05bef8c4ca4173eecc6b9be
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-resource-manager-deployment-model"></a>Konfigurowanie połączeń usługi ExpressRoute i współistniejących połączeń typu lokacja-lokacja dla modelu wdrażania usługi Resource Manager
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja
 > [!div class="op_single_selector"]
 > * [Program PowerShell — model usługi Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell — model klasyczny](expressroute-howto-coexist-classic.md)
@@ -79,7 +80,7 @@ Istnieją dwa różne zestawy procedur do wyboru służące do konfigurowania po
   
     W tej procedurze tworzenie połączeń, które mogą współistnieć, wymaga usunięcia bramy, a następnie skonfigurowania nowych bram. Oznacza to, że podczas usuwania i odtwarzania bramy oraz połączeń wystąpi przestój względem połączeń obejmujących wiele lokalizacji, ale nie trzeba będzie migrować żadnych maszyn wirtualnych ani usług do nowej sieci wirtualnej. Podczas konfigurowania bramy maszyny wirtualne i usługi będą mogły nadal komunikować się za pośrednictwem modułu równoważenia obciążenia, jeżeli zostały w taki sposób skonfigurowane.
 
-## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Aby utworzyć nową sieć wirtualną i współistniejące połączenia
+## <a name="new"></a>Aby utworzyć nową sieć wirtualną i współistniejące połączenia
 Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lokacja-lokacja oraz usługi ExpressRoute, które będą współistnieć.
 
 1. Niezbędne jest zainstalowanie najnowszej wersji poleceń cmdlet programu Azure PowerShell.  Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalowanie i konfigurowanie programu Azure PowerShell). Pamiętaj, że polecenia cmdlet, które zostaną użyte do tej konfiguracji, mogą trochę różnić się od tych, które znasz. Koniecznie użyj poleceń cmdlet podanych w tych instrukcjach.
@@ -150,7 +151,7 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
         $azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
         New-AzureRmVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
 
-## <a name="a-nameaddato-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Aby skonfigurować współistniejące połączenia dla istniejącej sieci wirtualnej
+## <a name="add"></a>Aby skonfigurować współistniejące połączenia dla istniejącej sieci wirtualnej
 Jeśli masz istniejącą sieć wirtualną, sprawdź rozmiar podsieci bramy. Jeśli podsieć bramy ma wartość /28 lub /29, musisz najpierw usunąć bramę sieci wirtualnej i zwiększyć rozmiar podsieci bramy. W krokach w tej sekcji przedstawiono, jak to zrobić.
 
 Jeśli podsieć bramy ma wartość /27 lub większą, a sieć wirtualna jest połączona za pośrednictwem usługi ExpressRoute, możesz pominąć poniższe kroki i przejść do tematu [„Krok 6 — tworzenie bramy sieci VPN typu lokacja-lokacja”](#vpngw) w poprzedniej sekcji. 
@@ -208,10 +209,5 @@ Więcej informacji na temat sieci VPN typu punkt-lokacja znajduje się w artykul
 
 ## <a name="next-steps"></a>Następne kroki
 Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

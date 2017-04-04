@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -62,10 +63,10 @@ Aplikacja sieci Web zostanie utworzona za pomocą usługi [Azure App Service](ht
 9. Po wybraniu projektu i gałęzi kliknij przycisk OK. Zaczną pojawiać się powiadomienia dotyczące wdrożenia.
    
    ![image9][image9]
-10. Wróć do witryny Github i wyświetl element webhook, który został utworzony w celu integracji repozytorium kontroli źródła z platformą Azure. Aby umożliwić integrację witryn Azure Portal i Github, wystarczy wykonać kilka prostych czynności.
+10. Wróć do witryny GitHub i wyświetl element webhook, który został utworzony w celu integracji repozytorium kontroli źródła z platformą Azure. Witryna Azure Portal umożliwia integrację z usługą GitHub przez wykonanie zaledwie kilku prostych czynności.
     
     ![image10][image10]
-11. Aby pokazać ciągłe wdrażanie, szybko dodamy zawartość do repozytorium. W celu uproszczenia demonstracji dodamy przykładowy plik tekstowy do repozytorium Github. Z usługą App Service możesz używać platform .NET, Ruby, Python lub innych typów aplikacji. Do wybranego repozytorium możesz dodać plik tekstowy albo aplikację platformy ASP.NET MVC, Java lub Ruby.
+11. Aby pokazać ciągłe wdrażanie, szybko dodamy zawartość do repozytorium. Prostym przykładem może być dodanie przykładowego pliku tekstowego do repozytorium GitHub. Z usługą App Service możesz używać platform .NET, Ruby, Python lub innych typów aplikacji. Do wybranego repozytorium możesz dodać plik tekstowy albo aplikację platformy ASP.NET MVC, Java lub Ruby.
     
     ![image11][image11]
 12. Po zatwierdzeniu zmian w repozytorium w obszarze powiadomień portalu zobaczysz informacje dotyczące inicjowania nowego wdrożenia. Jeśli zmiany nie pojawią się szybko, kliknij opcję synchronizacji.
@@ -334,9 +335,4 @@ W tym samouczku przedstawiono niektóre możliwości udostępniane przez platfor
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

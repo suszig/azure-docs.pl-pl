@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 24b23c412ae4e092427b4e68b16df0369f9e9f0e
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 29d8693dd1d6d1ef26ccb21e3a5b29cf1adbfcc5
+ms.lasthandoff: 03/28/2017
 
 ---
-
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET
+
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Omówienie
 Magazyn obiektów blob Azure jest usługą służącą do przechowywania danych niestrukturalnych w chmurze w postaci obiektów blob. Magazyn obiektów blob umożliwia przechowywanie dowolnego typu danych tekstowych lub binarnych, takich jak dokumenty, pliki multimedialne lub instalatory aplikacji. Magazyn obiektów blob jest również nazywany magazynem obiektów.
 
 ### <a name="about-this-tutorial"></a>Informacje o tym samouczku
@@ -33,7 +33,7 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 
 **Wymagania wstępne:**
 
-* [Program Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Program Microsoft Visual Studio](https://www.visualstudio.com/)
 * [Biblioteka klienta usługi Azure Storage dla programu .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Menedżer konfiguracji Azure dla programu .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
@@ -49,8 +49,8 @@ Dodatkowe przykłady użycia usługi Blob Storage znajdziesz w temacie [Getting 
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Dodawanie deklaracji przestrzeni nazw
-Dodaj następujące instrukcje **using** na początku pliku `program.cs`:
+### <a name="add-using-directives"></a>Dodawanie dyrektyw using
+Dodaj następujące dyrektywy **using** na początku pliku `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -96,12 +96,12 @@ container.SetPermissions(
     new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 ```
 
-Wszyscy użytkownicy Internetu mogą wyświetlać obiekty blob w kontenerze publicznym, ale można je modyfikować lub usuwać tylko przy użyciu odpowiedniego klucza dostępu do konta lub sygnatury dostępu współdzielonego.
+Wszyscy w Internecie będą mogli uzyskiwać dostęp do obiektów blob w kontenerze publicznym. Jednak modyfikować lub usuwać je można tylko przy użyciu odpowiedniego klucza dostępu do konta lub sygnatury dostępu współdzielonego.
 
 ## <a name="upload-a-blob-into-a-container"></a>Przekazywanie obiektu blob do kontenera
 Azure Blob Storage obsługuje blokowe i stronicowe obiekty blob.  W większości przypadków zalecane jest użycie blokowych obiektów blob.
 
-Aby przekazać plik do blokowego obiektu blob, pobierz odwołanie do kontenera i uzyskaj za jego pomocą odwołanie do blokowego obiektu blob. Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dowolny strumień danych, wywołując metodę **UploadFromStream** . Ta operacja spowoduje utworzenie obiektu blob, jeśli jeszcze nie istnieje, lub jego zastąpienie, jeśli już istnieje.
+Aby przekazać plik do blokowego obiektu blob, pobierz odwołanie do kontenera i uzyskaj za jego pomocą odwołanie do blokowego obiektu blob. Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dowolny strumień danych, wywołując metodę **UploadFromStream** . Ta operacja tworzy obiekt blob, jeśli jeszcze nie istniał, lub go zastępuje, jeśli już istniał.
 
 W poniższym przykładzie przedstawiono, jak przekazać obiekt blob do kontenera, zakładając, że kontener został już utworzony.
 
@@ -127,7 +127,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 ```
 
 ## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
-Aby wyświetlić listę obiektów blob w kontenerze, należy najpierw uzyskać odwołanie do kontenera. Następnie można użyć metody **ListBlobs** kontenera, aby pobrać obiekty blob i/lub zawarte w nim katalogi. Aby uzyskać dostęp do bogatego zestawu właściwości i metod zwróconego obiektu **IListBlobItem**, należy rzutować go na obiekt **CloudBlockBlob**, **CloudPageBlob** lub **CloudBlobDirectory**.  Jeśli typ jest nieznany, można zastosować sprawdzanie typu, aby określić, do którego obiektu rzutować obiekt.  Poniższy kod przedstawia sposób pobierania i zwracania identyfikatora URI poszczególnych elementów w kontenerze _photos_:
+Aby wyświetlić listę obiektów blob w kontenerze, należy najpierw uzyskać odwołanie do kontenera. Następnie można użyć metody **ListBlobs** kontenera, aby pobrać obiekty blob i/lub zawarte w nim katalogi. Aby uzyskać dostęp do bogatego zestawu właściwości i metod zwróconego obiektu **IListBlobItem**, należy rzutować go na obiekt **CloudBlockBlob**, **CloudPageBlob** lub **CloudBlobDirectory**. Jeśli typ jest nieznany, można zastosować sprawdzanie typu, aby określić, do którego obiektu rzutować obiekt. Poniższy kod przedstawia sposób pobierania i zwracania identyfikatora URI poszczególnych elementów w kontenerze _photos_:
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -166,24 +166,28 @@ foreach (IListBlobItem item in container.ListBlobs(null, false))
 }
 ```
 
-Jak przedstawiono powyżej, obiektom blob można nadawać nazwy zawierające informacje o ścieżce. Powoduje to utworzenie wirtualnej struktury katalogów, które można organizować i przechodzić między nimi tak jak w przypadku tradycyjnego systemu plików. Należy pamiętać, że struktura katalogów jest wyłącznie wirtualna — jedyne zasoby dostępne w Magazynie obiektów blob to kontenery i obiekty blob. Jednak biblioteka klienta magazynu zapewnia obiekt **CloudBlobDirectory** służący do odwoływania się do katalogów wirtualnych i ułatwiający pracę z obiektami blob zorganizowanymi w ten sposób.
+Uwzględniając informacje o ścieżce w nazwach obiektów blob, można utworzyć wirtualną strukturę katalogów, które można organizować i przechodzić między nimi tak jak w przypadku tradycyjnego systemu plików. Struktura katalogów jest wyłącznie wirtualna — jedyne zasoby dostępne w magazynie Blob Storage to kontenery i obiekty blob. Jednak biblioteka klienta magazynu zapewnia obiekt **CloudBlobDirectory** służący do odwoływania się do katalogów wirtualnych i ułatwiający pracę z obiektami blob zorganizowanymi w ten sposób.
 
-Rozważmy na przykład następujący zestaw blokowych obiektów blob w kontenerze o nazwie _photos_:
+Rozważmy na przykład następujący zestaw blokowych obiektów blob w kontenerze o nazwie *photos*:
 
-    photo1.jpg
-    2010/architecture/description.txt
-    2010/architecture/photo3.jpg
-    2010/architecture/photo4.jpg
-    2011/architecture/photo5.jpg
-    2011/architecture/photo6.jpg
-    2011/architecture/description.txt
-    2011/photo7.jpg
+```
+photo1.jpg
+2010/architecture/description.txt
+2010/architecture/photo3.jpg
+2010/architecture/photo4.jpg
+2011/architecture/photo5.jpg
+2011/architecture/photo6.jpg
+2011/architecture/description.txt
+2011/photo7.jpg
+```
 
-Wywołanie metody **ListBlobs** w kontenerze _photos_ (jak w powyższym przykładzie) powoduje zwrócenie listy hierarchicznej. Zawiera ona obiekty **CloudBlobDirectory** i **CloudBlockBlob** reprezentujące odpowiednio katalogi i obiekty blob w kontenerze. Dane wyjściowe wyglądają następująco:
+Wywołanie metody **ListBlobs** w kontenerze *photos* (jak we wcześniejszym fragmencie kodu) powoduje zwrócenie listy hierarchicznej. Zawiera ona obiekty **CloudBlobDirectory** i **CloudBlockBlob** reprezentujące odpowiednio katalogi i obiekty blob w kontenerze. Dane wyjściowe wyglądają następująco:
 
-    Directory: https://<accountname>.blob.core.windows.net/photos/2010/
-    Directory: https://<accountname>.blob.core.windows.net/photos/2011/
-    Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
+Directory: https://<accountname>.blob.core.windows.net/photos/2010/
+Directory: https://<accountname>.blob.core.windows.net/photos/2011/
+Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
 
 Opcjonalnie można ustawić parametr **UseFlatBlobListing** metody **ListBlobs** na wartość **true**. W takim przypadku każdy obiekt blob w kontenerze będzie zwracany jako obiekt **CloudBlockBlob**. Wywołanie metody **ListBlobs** w celu zwrócenia listy niezhierarchizowanej wygląda następująco:
 
@@ -197,15 +201,16 @@ foreach (IListBlobItem item in container.ListBlobs(null, true))
 
 Wyniki wyglądają następująco:
 
-    Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
-    Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
-    Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
-    Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
-    Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
-    Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
-    Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
-    Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
-
+```
+Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
+Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
+Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
+Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
+Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
+Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
+Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
+Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
 
 ## <a name="download-blobs"></a>Pobieranie obiektów blob
 Aby pobrać obiekty blob, należy najpierw pobrać odwołanie do obiektu blob, a następnie wywołać metodę **DownloadToStream**. W poniższym przykładzie użyto metody **DownloadToStream**, aby przesłać zawartość obiektu blob do obiektu strumienia, który można następnie zachować w pliku lokalnym.
@@ -315,7 +320,7 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 ```
 
 ## <a name="writing-to-an-append-blob"></a>Zapisywanie do uzupełnialnego obiektu blob
-Uzupełnialny obiekt blob jest nowym typem obiektu blob wprowadzonym w wersji 5.x biblioteki klienta magazynu Azure dla programu .NET. Uzupełnialny obiekt blob jest zoptymalizowany pod kątem operacji dołączania, takich jak rejestrowanie. Podobnie jak blokowy obiekt blob, uzupełnialny obiekt blob jest złożony z bloków, ale nowy blok dodany do uzupełnialnego obiektu blob jest zawsze dołączany na końcu obiektu blob. Nie można zaktualizować lub usunąć istniejącego bloku w uzupełnialnym obiekcie blob. Identyfikatory bloków w uzupełnialnym obiekcie blob nie są widoczne, jak w przypadku blokowego obiektu blob.
+Uzupełnialny obiekt blob jest zoptymalizowany pod kątem operacji dołączania, takich jak rejestrowanie. Podobnie jak blokowy obiekt blob, uzupełnialny obiekt blob jest złożony z bloków, ale nowy blok dodany do uzupełnialnego obiektu blob jest zawsze dołączany na końcu obiektu blob. Nie można zaktualizować lub usunąć istniejącego bloku w uzupełnialnym obiekcie blob. Identyfikatory bloków w uzupełnialnym obiekcie blob nie są widoczne, jak w przypadku blokowego obiektu blob.
 
 Każdy blok w uzupełnialnym obiekcie blob może różnić się rozmiarem, który może wynosić maksymalnie 4 MB, a uzupełnialny obiekt blob może zawierać do 50 000 bloków. Z tego względu maksymalny rozmiar uzupełnialnego obiektu blob nieznacznie przekracza 195 GB (4 MB X 50 000 bloków).
 
@@ -360,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Aby uzyskać więcej informacji o różnicach między tymi trzema typami obiektów blob, zobacz [Understanding Block Blobs, Page Blobs, and Append Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx) (Omówienie blokowych i stronicowych obiektów blob oraz uzupełnialnych obiektów blob).
+Aby uzyskać więcej informacji o różnicach między tymi trzema typami obiektów blob, zobacz [Understanding Block Blobs, Page Blobs, and Append Blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) (Omówienie blokowych i stronicowych obiektów blob oraz uzupełnialnych obiektów blob).
 
 ## <a name="managing-security-for-blobs"></a>Zarządzanie zabezpieczeniami obiektów blob
 Domyślnie usługa Azure Storage chroni dane, umożliwiając dostęp wyłącznie właścicielowi konta, który ma klucze dostępu do konta. W przypadku potrzeby udostępnienia danych obiektów blob na koncie magazynu ważne jest, aby zrobić to bez uszczerbku dla bezpieczeństwa kluczy dostępu do konta. Dodatkowo można zaszyfrować dane obiektu blob, aby zapewnić ich bezpieczeństwo podczas przesyłania przez sieć oraz w usłudze Azure Storage.
@@ -383,33 +388,17 @@ Usługa Azure Storage obsługuje szyfrowanie danych obiektów blob na kliencie i
 Teraz, kiedy znasz już podstawy usługi Blob Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest darmową aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia pracę poglądową z danymi w usłudze Azure Storage w systemie Windows, OS X i Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest darmową aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia pracę poglądową z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 
 ### <a name="blob-storage-samples"></a>Przykłady użycia usługi Blob Storage
 * [Rozpoczynanie pracy z usługą Azure Blob Storage na platformie .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### <a name="blob-storage-reference"></a>Informacje o usłudze Blob Storage
-* [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [Dokumentacja interfejsu API REST](http://msdn.microsoft.com/library/azure/dd179355)
+* [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+* [Dokumentacja interfejsu API REST](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Przewodniki koncepcyjne
 * [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
 * [Wprowadzenie do usługi File Storage dla platformy .NET](storage-dotnet-how-to-use-files.md)
 * [Korzystanie z usługi Azure Blob Storage z zestawem SDK WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-
-[Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
-[Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
-[Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
-[Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
-[Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
-
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-[.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

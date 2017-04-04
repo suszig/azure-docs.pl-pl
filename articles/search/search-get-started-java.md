@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -60,7 +61,7 @@ Na poniższej liście opisano pliki, które mają zastosowanie w tym przykładzi
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Znajdowanie nazwy usługi oraz klucza interfejsu API usługi Azure Search
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Znajdowanie nazwy usługi oraz klucza interfejsu API usługi Azure Search
 Wszystkie wywołania interfejsu API REST do usługi Azure Search wymagają podania adresu URL usługi i klucza api-key. 
 
 1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
@@ -72,7 +73,7 @@ Wszystkie wywołania interfejsu API REST do usługi Azure Search wymagają podan
 5. Skopiuj adres URL usługi i klucz administratora. Będą Ci potrzebne później podczas dodawania ich do pliku **config.properties**.
 
 ## <a name="download-the-sample-files"></a>Pobieranie plików przykładowych
-1. Wybierz pozycję [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) w witrynie GitHub.
+1. Przejdź do pozycji [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) w usłudze GitHub.
 2. Kliknij przycisk **Download ZIP** (Pobierz ZIP), zapisz plik zip na dysku, a następnie wyodrębnij wszystkie pliki w nim zawarte. Rozważ wyodrębnienie plików do obszaru roboczego Java, aby ułatwić znajdowanie projektu w przyszłości.
 3. Pliki przykładowe są tylko do odczytu. Kliknij prawym przyciskiem myszy folder właściwości i usuń atrybut tylko do odczytu.
 
@@ -88,7 +89,7 @@ Wszystkie kolejne modyfikacje plików i instrukcje uruchamiania będą wykonywan
 3. Kliknij przycisk **Zakończ**.
 4. W obszarze **Eksplorator projektów** możesz wyświetlać i edytować pliki. Jeśli nie jest on jeszcze otwarty, kliknij pozycję **Okna** > **Pokaż widok** > **Eksplorator projektów** lub użyj skrótu, aby go otworzyć.
 
-## <a name="configure-the-service-url-and-apikey"></a>Konfigurowanie adresu URL usługi i klucza api-key
+## <a name="configure-the-service-url-and-api-key"></a>Konfigurowanie adresu URL usługi i klucza api-key
 1. W obszarze **Eksplorator projektów** kliknij dwukrotnie pozycję **config.properties**, aby edytować ustawienia konfiguracji, które zawierają nazwę serwera i klucz api-key.
 2. Wróć do kroków opisanych wcześniej w tym artykule, aby odnaleźć adres URL usługi oraz klucz api-key w witrynie [Azure Portal](https://portal.azure.com). Uzyskane wartości należy wpisać w pliku **config.properties**.
 3. W pliku **config.properties** zastąp ciąg „Api Key” (Klucz interfejsu API) kluczem api-key dla Twojej usługi. Następnie nazwą usługi (pierwszy składnik adresu URL http://nazwa_uslugi.search.windows.net) zastąp ciąg „service name” (nazwa usługi) w tym samym pliku.
@@ -179,9 +180,4 @@ Dopiero zaczynasz korzystać z usługi Azure Search? Zalecamy wypróbować inne 
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

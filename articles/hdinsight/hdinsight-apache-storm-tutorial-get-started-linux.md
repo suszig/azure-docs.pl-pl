@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 4950dbe528290c7d839c97cc8770db4ae0ec08c6
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5d74f2c130eeddb1022acf9673c6a2006af2db58
+ms.lasthandoff: 03/25/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Wprowadzenie do przykładów z projektu Storm Starter dotyczących analizy danych big data w usłudze HDInsight opartej na systemie Linux
@@ -35,11 +35,7 @@ Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy 
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Znajomość protokołów SSH i SCP**. Aby uzyskać więcej informacji o korzystaniu protokołów SSH i SCP z usługą HDInsight, zobacz następujące dokumenty:
-  
-    * [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Linux, Unix, OS X lub funkcji Bash w systemie Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Używanie protokołu SSH (PuTTY) z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Znajomość protokołów SSH i SCP**. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
 
@@ -99,11 +95,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
    
     Jeśli do zabezpieczenia konta użytkownika SSH użyto hasła, zostanie wyświetlony monit o jego wprowadzenie. Jeśli używasz klucza publicznego, może być konieczne użycie parametru `-i` w celu wskazania zgodnego klucza prywatnego. Na przykład `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
    
-    Aby uzyskać więcej informacji o korzystaniu z protokołu SSH z usługą HDInsight opartą na systemie Linux, zobacz jeden z następujących artykułów:
-   
-    * [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Linux, Unix, OS X lub funkcji Bash w systemie Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Używanie protokołu SSH (PuTTY) z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemu Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Użyj następującego polecenia, aby uruchomić przykładową topologię:
    

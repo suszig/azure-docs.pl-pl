@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -58,7 +58,7 @@ Upewnij się, że masz:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu uzyskania [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
     * Na potrzeby tego samouczka możesz także użyć [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
-* [Node.js](https://nodejs.org/) w wersji&0;.10.29 lub nowszej.
+* [Node.js](https://nodejs.org/) w wersji 0.10.29 lub nowszej.
 
 ## <a name="step-1-create-a-documentdb-account"></a>Krok 1. Tworzenie konta usługi DocumentDB
 Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Instalowanie aplikacji Node.js](#SetupNode). Jeśli używasz emulatora usługi DocumentDB, wykonaj czynności opisane w temacie [Emulator usługi Azure DocumentDB](documentdb-nosql-local-emulator.md), aby skonfigurować emulator, a następnie przejdź do sekcji [Instalowanie aplikacji Node.js](#SetupNode).
@@ -604,7 +604,7 @@ Powinny zostać wyświetlone dane wyjściowe aplikacji rozpoczynania pracy. Dane
 Gratulacje! Udało Ci się ukończyć samouczek środowiska Node.js i utworzyć swoją pierwszą aplikację konsolową usługi DocumentDB!
 
 ## <a id="GetSolution"></a>Pobieranie kompletnego rozwiązania samouczka środowiska Node.js
-Jeśli nie masz czasu na ukończenie tych kroków w ramach tego samouczka lub po prostu chcesz pobrać kod, możesz pobrać go z serwisu [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+Jeśli nie masz czasu na ukończenie tego samouczka lub po prostu chcesz pobrać kod, możesz uzyskać go w serwisie [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Do uruchomienia rozwiązania GetStarted, które zawiera wszystkie przykłady znajdujące się w tym artykule, będą potrzebne następujące elementy:
 
