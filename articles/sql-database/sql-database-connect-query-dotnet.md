@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/16/2017
+ms.date: 03/24/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c54ccef3098502c9fbaad13c5fe35ed15bf93f29
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 61cc9cf7bdb552932a4659103a4d7ba479471948
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -30,48 +30,60 @@ Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonyc
 
 - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
-- [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md) 
 
 Przed rozpoczęciem upewnij się, że skonfigurowano środowisko programowania pod kątem języka C#. Zobacz [Bezpłatna instalacja programu Visual Studio Community](https://www.visualstudio.com/) lub zainstaluj [sterownik ADO.NET dla programu SQL Server](https://www.microsoft.com/net/download).
 
-## <a name="connect-to-database-and-query-data"></a>Nawiązywanie połączenia z bazą danych i wysyłanie zapytań dotyczących danych
+## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 
 Pobierz parametry połączenia w witrynie Azure Portal. Możesz użyć parametrów połączenia, aby nawiązać połączenie z bazą danych Azure SQL.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. W okienku **Essentials** bazy danych zlokalizuj i kliknij opcję **Pokaż parametry połączenia bazy danych**.
-4. Skopiuj parametry połączenia **ADO.NET**.
+3. W okienku **Podstawy** bazy danych sprawdź w pełni kwalifikowaną nazwę serwera. 
 
     <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
 
-5. Otwórz program Visual Studio i utwórz aplikację konsolową.
-6. Dodaj element ```using System.Data.SqlClient``` do pliku z kodem ([przestrzeń nazw System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+4. Kliknij pozycję **Pokaż parametry połączenia bazy danych**.
 
-7. Użyj polecenia [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) z instrukcją Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx), aby wykonać zapytanie dotyczące danych w bazie danych Azure SQL.
+5. Sprawdź pełne parametry połączenia **ADO.NET**.
+
+    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
+
+## <a name="select-data"></a>Wybieranie danych
+
+1. W środowisku programistycznym otwórz pusty plik kodu.
+2. Dodaj element ```using System.Data.SqlClient``` do pliku z kodem ([przestrzeń nazw System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+
+3. Użyj polecenia [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) z instrukcją Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx), aby wykonać zapytanie dotyczące danych w bazie danych Azure SQL. Dodaj odpowiednie wartości dla swojego serwera
 
     ```csharp
-    string strConn = "<connection string>";
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+    
     using (var connection = new SqlConnection(strConn))
     {
-   connection.Open();
+       connection.Open();
 
-    SqlCommand selectCommand = new SqlCommand("", connection);
-    selectCommand.CommandType = CommandType.Text;
+       SqlCommand selectCommand = new SqlCommand("", connection);
+       selectCommand.CommandType = CommandType.Text;
 
-    selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+       selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
         FROM [SalesLT].[ProductCategory] pc
         JOIN [SalesLT].[Product] p
         ON pc.productcategoryid = p.productcategoryid";
 
-    SqlDataReader reader = selectCommand.ExecuteReader();
+       SqlDataReader reader = selectCommand.ExecuteReader();
 
-    while (reader.Read())
-    {
-        // show data
-        Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
-    }
-    reader.Close();
+       while (reader.Read())
+       {
+          // show data
+          Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
+       }
+       reader.Close();
     }
     ```
 
@@ -80,9 +92,18 @@ Pobierz parametry połączenia w witrynie Azure Portal. Możesz użyć parametr�
 Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), aby wstawić dane do bazy danych Azure SQL.
 
 ```csharp
-SqlCommand insertCommand = new SqlCommand("", connection);
-insertCommand.CommandType = CommandType.Text;
-insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand insertCommand = new SqlCommand("", connection);
+    insertCommand.CommandType = CommandType.Text;
+    insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
             ( [Name]
             , [ProductNumber]
             , [Color]
@@ -115,14 +136,23 @@ Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
 Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx), aby zaktualizować dane w bazie danych Azure SQL.
 
 ```csharp
-SqlCommand updateCommand = new SqlCommand("", connection);
-updateCommand.CommandType = CommandType.Text;
-updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
 
-int updatedrows = updateCommand.ExecuteNonQuery();
-Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand updateCommand = new SqlCommand("", connection);
+    updateCommand.CommandType = CommandType.Text;
+    updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
+    updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+    updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+
+    int updatedrows = updateCommand.ExecuteNonQuery();
+    Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 ```
 
 ## <a name="delete-data"></a>Usuwanie danych
@@ -130,6 +160,15 @@ Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx), aby usunąć dane w bazie danych Azure SQL.
 
 ```csharp
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
 SqlCommand deleteCommand = new SqlCommand("", connection);
 deleteCommand.CommandType = CommandType.Text;
 deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
@@ -154,10 +193,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+             string hostName = 'yourserver.database.windows.net';
+             string dbName = 'yourdatabase';
+             string user = 'yourusername';
+             string password = 'yourpassword';
 
-            string strConn = "<connection string>";
+             string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-            using (var connection = new SqlConnection(strConn))
+             using (var connection = new SqlConnection(strConn))
+
             {
                 connection.Open();
 

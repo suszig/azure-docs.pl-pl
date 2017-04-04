@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 102eab0e2e915521f8702b526dda886a2502f40b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,7 +67,7 @@ Sieci wirtualne można łączyć z następujących powodów:
 
 Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Zagadnienia dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu.
 
-### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Przykładowe ustawienia
+### <a name="values"></a>Przykładowe ustawienia
 Korzystając z tych kroków w ramach ćwiczenia, można użyć przykładowych wartości konfiguracyjnych. W celach demonstracyjnych dla poszczególnych sieci wirtualnych używamy wielu przestrzeni adresowych. Konfiguracje połączeń między sieciami wirtualnymi nie wymagają jednak wielu przestrzeni adresowych.
 
 **Wartości dla sieci TestVNet1:**
@@ -115,18 +116,18 @@ Korzystając z tych kroków w ramach ćwiczenia, można użyć przykładowych wa
   * Nazwa: TestVNet4toTestVNet1
   * Klucz wspólny: klucz wspólny można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Ważne jest, aby podczas tworzenia połączenia między sieciami wirtualnymi, wartości były zgodne.
 
-## <a name="a-namecreatvneta1-create-and-configure-testvnet1"></a><a name="CreatVNet"></a>1. Tworzenie i konfigurowanie sieci TestVNet1
+## <a name="CreatVNet"></a>1. Tworzenie i konfigurowanie sieci TestVNet1
 Jeśli masz już sieć wirtualną, sprawdź, czy ustawienia są zgodne z projektem bramy sieci VPN. Zwróć szczególną uwagę na wszelkie podsieci, które mogą pokrywać się z innymi sieciami. Obecność nakładających się podsieci spowoduje, że połączenie nie będzie działać prawidłowo. Jeśli sieć wirtualną skonfigurowano poprawnie, można rozpocząć wykonywanie kroków z sekcji [Określanie serwera DNS](#dns).
 
 ### <a name="to-create-a-virtual-network"></a>Aby utworzyć sieć wirtualną
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Dodawanie dodatkowej przestrzeni adresowej i tworzenie podsieci
+## <a name="subnets"></a>2. Dodawanie dodatkowej przestrzeni adresowej i tworzenie podsieci
 Po utworzeniu sieci wirtualnej można dodać do niej dodatkową przestrzeń adresową oraz utworzyć podsieci.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Tworzenie podsieci bramy
+## <a name="gatewaysubnet"></a>3. Tworzenie podsieci bramy
 Przed połączeniem sieci wirtualnej z bramą należy najpierw utworzyć podsieć bramy sieci wirtualnej, z którą ma zostać nawiązane połączenie. Jeśli to możliwe, najlepiej utworzyć podsieć bramy przy użyciu bloku CIDR /28 lub /27 w celu zapewnienia wystarczającej liczby adresów IP, aby uwzględnić wymagania dotyczące dodatkowych przyszłych konfiguracji.
 
 Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj [przykładowych ustawień](#values) podczas tworzenia podsieci bramy.
@@ -136,21 +137,21 @@ Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj [przykładowych ust
 ### <a name="to-create-a-gateway-subnet"></a>Aby utworzyć podsieć bramy
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namednsservera4-specify-a-dns-server-optional"></a><a name="DNSServer"></a>4. Określanie serwera DNS (opcjonalne)
-Jeśli chcesz korzystać z funkcji rozpoznawania nazw maszyn wirtualnych, które zostały wdrożone w Twoich sieciach wirtualnych, określ serwer DNS.
+## <a name="DNSServer"></a>4. Określanie serwera DNS (opcjonalne)
+Serwer DNS nie jest wymagany w przypadku połączenia typu sieć wirtualna-sieć wirtualna. Jeśli jednak chcesz korzystać z funkcji rozpoznawania nazw dla zasobów, które zostały wdrożone w Twojej sieci wirtualnej, określ serwer DNS. To ustawienie umożliwia określenie serwera DNS, który ma być używany do rozpoznawania nazw dla tej sieci wirtualnej. Nie powoduje ono jednak utworzenia serwera DNS.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. Tworzenie bramy sieci wirtualnej
+## <a name="VNetGateway"></a>5. Tworzenie bramy sieci wirtualnej
 W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Może to potrwać do 45 minut. W przypadku tworzenia tej konfiguracji w ramach ćwiczenia można korzystać z [przykładowych ustawień](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Aby utworzyć bramę sieci wirtualnej
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namecreatetestvnet4a6-create-and-configure-testvnet4"></a><a name="CreateTestVNet4"></a>6. Tworzenie i konfigurowanie sieci TestVNet4
+## <a name="CreateTestVNet4"></a>6. Tworzenie i konfigurowanie sieci TestVNet4
 Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4, powtarzając poprzednie kroki, używając wartości dla sieci TestVNet4. Przed skonfigurowaniem sieci TestVNet4 nie musisz czekać, aż tworzenie bramy sieci wirtualnej dla sieci TestVNet1 zostanie zakończone. Jeśli używasz własnych wartości, upewnij się, że przestrzenie adresowe nie pokrywają się z żadnymi sieciami wirtualnymi, z którymi chcesz się połączyć.
 
-## <a name="a-nametestvnet1connectiona7-configure-the-testvnet1-connection"></a><a name="TestVNet1Connection"></a>7. Konfigurowanie połączenia TestVNet1
+## <a name="TestVNet1Connection"></a>7. Konfigurowanie połączenia TestVNet1
 Po zakończeniu tworzenia bram sieci wirtualnej (zarówno dla sieci TestVNet1, jak i TestVNet4) można utworzyć połączenia między bramami sieci wirtualnych. W tej sekcji opisano tworzenie połączenia z sieci VNet1 do sieci VNet4.
 
 1. W sekcji **Wszystkie zasoby** przejdź do bramy swojej sieci wirtualnej (np. **TestVNet1GW**). Kliknij pozycję **TestVNet1GW**, aby otworzyć blok bramy sieci wirtualnej.
@@ -172,10 +173,10 @@ Po zakończeniu tworzenia bram sieci wirtualnej (zarówno dla sieci TestVNet1, j
     ![Klucz współużytkowany](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Klucz współużytkowany")
 10. Kliknij przycisk **OK** na dole bloku, aby zapisać zmiany.
 
-## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Konfigurowanie połączenia z siecią TestVNet4
+## <a name="TestVNet4Connection"></a>8. Konfigurowanie połączenia z siecią TestVNet4
 Następnie utwórz połączenie z sieci TestVNet4 do sieci TestVNet1. Zastosuj tę samą metodę, która została użyta do utworzenia połączenia z sieci TestVNet1 do sieci TestVNet4. Pamiętaj, aby użyć tego samego klucza współużytkowanego.
 
-## <a name="a-nameverifyconnectiona9-verify-your-connection"></a><a name="VerifyConnection"></a>9. Weryfikowanie połączenia
+## <a name="VerifyConnection"></a>9. Weryfikowanie połączenia
 Zweryfikuj połączenie. Dla każdej bramy sieci wirtualnej wykonaj następujące czynności:
 
 1. Znajdź blok bramy sieci wirtualnej (np. **TestVNet4GW**). 
@@ -189,16 +190,11 @@ Możesz kliknąć dwukrotnie każde połączenie, aby wyświetlić więcej infor
 
 ![Podstawy](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Podstawy")
 
-## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Zagadnienia dotyczące połączeń między sieciami wirtualnymi
+## <a name="faq"></a>Zagadnienia dotyczące połączeń między sieciami wirtualnymi
 Ta sekcja zawiera odpowiedzi na często zadawane pytań dotyczące połączeń między sieciami wirtualnymi.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Zobacz [dokumentację dotyczącą maszyn wirtualnych](https://docs.microsoft.com/azure/#pivot=services&panel=Compute), aby uzyskać więcej informacji.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

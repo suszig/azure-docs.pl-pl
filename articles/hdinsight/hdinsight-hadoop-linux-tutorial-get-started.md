@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d038245747ff8cfd2c80d7a7e0f05373ccb1e5fe
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 24bb7e2ffd212594f50bab735e86d74ab95d8c62
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -40,7 +40,7 @@ Przed rozpoczęciem tego samouczka potrzebna będzie:
 
 Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, uruchamiasz pewne zadania, a następnie usuwasz klaster. W tej sekcji tworzysz klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Szablon usługi Resource Manager jest w pełni dostosowywalny. Dzięki niemu tworzenie zasobów platformy Azure, takich jak usługa HDInsight, jest proste. Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Użyj selektora u góry strony, aby wybrać opcje tworzenia klastra.
 
-Użyty w tym samouczku szablon usługi Resource Manager znajduje się w usłudze [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
+Użyty w tym samouczku szablon usługi Resource Manager znajduje się w serwisie [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
 1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w witrynie Azure Portal. 
    

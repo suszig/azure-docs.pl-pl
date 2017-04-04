@@ -17,15 +17,15 @@ ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 1c087f3ecbdd6956b50a8ef9b7e81340f83ff0cf
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="create-and-query-a-single-azure-sql-database-in-the-azure-portal"></a>Tworzenie pojedynczej bazy danych Azure SQL Database i wysyłanie do niej zapytań w witrynie Azure Portal
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Tworzenia bazy danych SQL platformy Azure w witrynie Azure Portal
 
-Bazy danych Azure SQL Database można utworzyć za pomocą witryny Azure Portal. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie i konfigurowanie baz danych Azure SQL Database oraz wszystkich pokrewnych zasobów platformy Azure.
+Ten samouczek Szybki start zawiera szczegółowe instrukcje dotyczące tworzenia bazy danych SQL na platformie Azure.  Usługa Azure SQL Database to oferta typu „baza danych jako usługa”, która pozwala na uruchamianie i skalowanie baz danych SQL Server o wysokiej dostępności w chmurze.  Ten przewodnik Szybki start pokazuje, jak rozpocząć pracę od utworzenia nowej bazy danych SQL za pomocą witryny Azure Portal.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
@@ -41,52 +41,66 @@ Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane
 
 2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Bazy danych** wybierz pozycję **SQL Database**.
 
-3. Wypełnij formularz usługi SQL Database wymaganymi informacjami: 
-   - Nazwa bazy danych: podaj nazwę bazy danych
-   - Subskrypcja: wybierz subskrypcję
-   - Grupa zasobów: wybierz nową lub istniejącą
+    ![tworzenie bazy danych 1](./media/sql-database-get-started/create-database-1.png)
+
+3. Wypełnij formularz Baza danych SQL w sposób pokazany na wcześniejszej ilustracji, używając następujących informacji: 
+   - Nazwa bazy danych: wpisz **mySampleDatabase**
+   - Grupa zasobów: wpisz **myResourceGroup**
    - Źródło: wybierz pozycję **Przykład (AdventureWorksLT)**
-   - Serwer: utwórz nowy serwer (nazwa w polu **Serwer** musi być unikatowa w skali globalnej)
-   - Elastyczna pula: na potrzeby tego szybkiego startu wybierz pozycję **Nie teraz**
-   - Warstwa cenowa: wybierz pozycję **20 DTU** i **250** GB pamięci masowej
-   - Sortowanie: nie można zmienić tej wartości podczas importowania przykładowej bazy danych 
-   - Przypnij do pulpitu nawigacyjnego: zaznacz to pole wyboru
 
-      ![tworzenie bazy danych](./media/sql-database-get-started/create-database-s1.png)
+4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować nowy serwer dla nowej bazy danych. Wypełnij **formularz Nowy serwer** określający globalnie unikatową nazwę serwera, podaj nazwę dla identyfikatora logowania administratora serwera, a następnie podaj dowolnie wybrane hasło. 
 
-4. Na koniec kliknij pozycję **Utwórz**. Aprowizacja zajmuje kilka minut.
-5. Po zakończeniu wdrażania bazy danych SQL wybierz opcję **Bazy danych SQL** na pulpicie nawigacyjnym lub wybierz pozycję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij nową bazę danych na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170313.database.windows.net**) i opcje dalszej konfiguracji.
+    ![tworzenie serwera bazy danych](./media/sql-database-get-started/create-database-server.png)
+5. Kliknij pozycję **Wybierz**.
 
-      ![nowa baza danych sql](./media/sql-database-get-started/new-database-s1-overview.png) 
+6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi i poziom wydajności dla nowej bazy danych. Na potrzeby tego przewodnika Szybki start wybierz **20 jednostek DTU** i **250** GB magazynu
+
+    ![tworzenie bazy danych s1](./media/sql-database-get-started/create-database-s1.png)
+
+7. Kliknij przycisk **Zastosuj**.  
+
+8. Kliknij pozycję **Utwórz**, aby aprowizować bazę danych. Aprowizacja zajmuje kilka minut. 
+
+9. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
+
+    ![powiadomienie](./media/sql-database-get-started/notification.png)
+
 
 ## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
 
-Usługa SQL Database tworzy zaporę uniemożliwiającą łączenie się zewnętrznych aplikacji i narzędzi z serwerem i bazą danych. Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera SQL Database](sql-database-firewall-configure.md) dla podanego adresu IP w celu włączenia zewnętrznej łączności za pośrednictwem zapory usługi SQL Database. 
+Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem i wszelkimi bazami danych na tym serwerze, chyba że zostanie utworzona reguła zapory otwierająca zaporę dla konkretnych adresów IP. Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera usługi SQL Database](sql-database-firewall-configure.md) dla podanego adresu IP klienta i włączyć zewnętrzną łączność przez zaporę usługi SQL Database wyłącznie dla konkretnego adresu IP. 
 
-1. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi dla bazy danych. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
+1. Po zakończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij nową bazę danych, **mySampleDatabase**, na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170327.database.windows.net**) i opcje dalszej konfiguracji.
 
       ![reguła zapory serwera](./media/sql-database-get-started/server-firewall-rule.png) 
 
-2. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, a następnie kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera.
+2. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi, tak jak pokazano to na wcześniejszej ilustracji. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
 
-3. Kliknij przycisk **OK**, a następnie kliknij przycisk **X**, aby zamknąć stronę Ustawienia zapory.
+3. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, a następnie kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera.
+
+      ![ustawianie reguły zapory serwera](./media/sql-database-get-started/server-firewall-rule-set.png) 
+
+4. Kliknij przycisk **OK**, a następnie kliknij przycisk **X**, aby zamknąć stronę **Ustawienia zapory**.
 
 Teraz można połączyć się z bazą danych i jej serwerem przy użyciu programu SQL Server Management Studio lub innego wybranego narzędzia.
 
 ## <a name="query-the-sql-database"></a>Wykonywanie zapytań względem bazy danych SQL
 
-Wykonaj następujące czynności, aby za pomocą edytora zapytań w witrynie Azure Portal utworzyć zapytanie względem bazy danych. 
+Przy tworzeniu baza danych SQL została wypełniona danymi z przykładowej bazy danych **AdventureWorksLT** (była to jedna z opcji wybrana wcześniej w tym przewodniku Szybki start w interfejsie użytkownika do tworzenia). Teraz użyjemy wbudowanego narzędzia zapytań w witrynie Azure Portal do uruchamiania zapytań o dane. 
 
-1. Na stronie SQL Database dla konkretnej bazy danych kliknij pozycję **Narzędzia** na pasku narzędzi. Zostanie otwarta strona wersji zapoznawczej **Edytora zapytań**.
+1. Na stronie SQL Database dla konkretnej bazy danych kliknij pozycję **Narzędzia** na pasku narzędzi. Zostanie otwarta strona **Narzędzia**.
 
      ![menu narzędzi](./media/sql-database-get-started/tools-menu.png) 
 
-2. Kliknij pozycję **Edytor zapytań (wersja zapoznawcza)**, kliknij pole wyboru **Warunki dotyczące wersji zapoznawczej**, a następnie kliknij przycisk **OK**. Zostanie otwarty edytor zapytań.
+2. Kliknij pozycję **Edytor zapytań (wersja zapoznawcza)**, kliknij pole wyboru **Warunki dotyczące wersji zapoznawczej**, a następnie kliknij przycisk **OK**. Zostanie otwarta strona Edytor zapytań.
 
-3. Kliknij pozycję **Zaloguj**, a następnie po wyświetleniu monitu wybierz pozycję **Uwierzytelnianie programu SQL Server** i podaj identyfikator oraz hasło logowania administratora serwera.
+3. Kliknij pozycję **Zaloguj**, a następnie po wyświetleniu monitu wybierz pozycję **Uwierzytelnianie programu SQL Server** i podaj utworzony wcześniej identyfikator oraz hasło logowania administratora serwera.
+
+    ![logowanie](./media/sql-database-get-started/login.png) 
+
 4. Kliknij przycisk **OK**, aby się zalogować.
 
-5. Po uwierzytelnieniu w oknie zapytania wpisz wybrane zapytanie, na przykład takie jak następujące:
+5. Po uwierzytelnieniu w okienku edytora zapytań wpisz następujące zapytanie.
 
    ```
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -99,11 +113,11 @@ Wykonaj następujące czynności, aby za pomocą edytora zapytań w witrynie Azu
 
     ![wyniki edytora zapytań](./media/sql-database-get-started/query-editor-results.png)
 
-7. Kliknij przycisk **X**, aby zamknąć stronę Edytor zapytań.
+7. Kliknij pozycję **X**, aby zamknąć stronę **Edytor zapytań**, i ponownie kliknij pozycję **X**, aby zamknąć stronę **Narzędzia**.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Opcja **Połącz z** zapewnia szybki start w tej kolekcji, a samouczki w kolekcji samouczków zależą od tego przewodnika Szybki start. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start lub samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego szybkiego startu.
+Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start lub samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego szybkiego startu.
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij pozycję **myResourceGroup**. 
 2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę **myResourceGroup**, a następnie kliknij pozycję **Usuń**.

@@ -1,0 +1,10 @@
+1. W portalu w obszarze **Wszystkie zasoby** kliknij pozycję **+ Dodaj**. W polu wyszukiwania bloku **Wszystko** wpisz wartość pola **Brama sieci lokalnej**, a następnie kliknij przycisk wyszukiwania. Spowoduje to zwrócenie listy. Kliknij pozycję **Brama sieci lokalnej**, aby otworzyć blok, a następnie kliknij pozycję **Utwórz**, aby otworzyć blok **Utwórz bramę sieci lokalnej**.
+
+      ![utwórz bramę sieci lokalnej](./media/vpn-gateway-add-lng-s2s-rm-portal-include/createlng.png)
+2. W **bloku Utwórz bramę sieci lokalnej** określ **nazwę** obiektu bramy sieci lokalnej.
+3. Określ prawidłowy publiczny **adres IP** dla urządzenia sieci VPN lub bramy sieci wirtualnej, z którą chcesz się połączyć.<br>Jest to publiczny adres IP urządzenia sieci VPN, z którym chcesz nawiązać połączenie. Nie może ono znajdować się za translatorem adresów sieciowych i musi być dostępne za pomocą usługi Azure. *Użyj własnych wartości, a nie wartości widocznych na zrzucie ekranu*.
+4. **Przestrzeń adresowa** odwołuje się do zakresów adresów sieci, które reprezentuje sieć lokalna. Można dodać wiele zakresów przestrzeni adresów. Upewnij się, że określone w tym miejscu zakresy nie pokrywają się z zakresami innych sieci, z którymi chcesz się łączyć. Platforma Azure będzie kierować określony zakres adresów pod adres IP lokalnego urządzenia sieci VPN. *Użyj w tym miejscu własnych wartości, a nie wartości widocznych na zrzucie ekranu*.
+5. W polu **Subskrypcja** sprawdź, czy wyświetlana jest prawidłowa subskrypcja.
+6. W polu **Grupa zasobów** wybierz grupę zasobów, która ma być używana. Możesz utworzyć nową grupę zasobów lub wybrać już utworzoną.
+7. W polu **Lokalizacja** wybierz lokalizację, w której ten obiekt zostanie utworzony. Można wybrać tę samą lokalizację, w której znajduje się sieć wirtualna, ale nie jest to konieczne.
+8. Kliknij przycisk **Utwórz**, aby utworzyć bramę sieci lokalnej.

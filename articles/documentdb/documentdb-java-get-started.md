@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 74af5fda495adc726bfa85ad48a407fd61d4dd88
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: da7907ffc515ea2e3040075c93bcd53840cf3ff5
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -60,12 +60,12 @@ Upewnij się, że masz:
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## <a name="step-1-create-a-documentdb-account"></a>Krok 1. Tworzenie konta usługi DocumentDB
-Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Klonowanie projektu Github](#GitClone). Jeśli używasz emulatora usługi DocumentDB, wykonaj czynności opisane w temacie [Emulator usługi Azure DocumentDB](documentdb-nosql-local-emulator.md), aby skonfigurować emulator, a następnie przejdź do kroku [Klonowanie projektu Github](#GitClone).
+Utwórz konto usługi DocumentDB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Klonowanie projektu GitHub](#GitClone). Jeśli używasz emulatora usługi DocumentDB, wykonaj czynności opisane w temacie [Emulator usługi Azure DocumentDB](documentdb-nosql-local-emulator.md), aby skonfigurować emulator, a następnie przejdź do kroku [Klonowanie projektu GitHub](#GitClone).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Krok 2. Klonowanie projektu Github
-Możesz rozpocząć od sklonowania repozytorium Github dla tematu [Rozpoczynanie pracy z bazą danych DocumentDB i językiem Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Na przykład z katalogu lokalnego uruchom następujące polecenie, aby lokalnie pobrać przykładowy projekt.
+## <a id="GitClone"></a>Krok 2. Klonowanie projektu GitHub
+Możesz rozpocząć od sklonowania repozytorium GitHub na potrzeby pracy z tematem [Rozpoczynanie pracy z bazą danych DocumentDB i językiem Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Na przykład z katalogu lokalnego uruchom następujące polecenie, aby lokalnie pobrać przykładowy projekt.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
 

@@ -4,7 +4,7 @@ description: "Informacje na temat tworzenia, wdrażania urządzenia wirtualnego 
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f37752a5-cd0c-479b-bef2-ac2c724bcc37
 ms.service: storsimple
@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/20/2017
+ms.date: 03/22/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 8b07ac76ebf40cd9bcf428711c2c0f3f3d917388
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -33,7 +33,7 @@ Dostępne są dwa modele urządzenia wirtualnego StorSimple: standardowy — 801
 | **Maksymalna pojemność** |30 TB |64 TB |
 | **Maszyna wirtualna platformy Azure** |Standard_A3 (4 rdzenie, 7 GB pamięci) |Standard_DS3 (4 rdzenie, 14 GB pamięci) |
 | **Zgodność wersji** |Wersje przed wprowadzeniem aktualizacji Update 2 lub nowsze |Wersje z aktualizacją Update 2 lub nowsze |
-| **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Wszystkie regiony platformy Azure obsługujące usługę Premium Storage<br></br>Regiony usługi Premium Storage można znaleźć na liście [Usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/en-us/regions/services). Odszukaj regiony, w których są obsługiwane maszyny wirtualne serii DS, DSV2, Fs i GS. |
+| **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Wszystkie regiony platformy Azure obsługujące usługę Premium Storage<br></br> Regiony świadczenia usługi Premium Storage to regiony, które odpowiadają wierszowi dla pozycji *Magazyn dyskowy* na liście [usług platformy Azure według regionów](https://azure.microsoft.com/en-us/regions/services). |
 | **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../storage/storage-premium-storage.md) |
 | **Wskazówki dotyczące obciążenia** |Pobieranie plików z kopii zapasowych na poziomie elementu |Tworzenie chmur i scenariusze testowania, krótki czas oczekiwania, bardziej wydajne obciążenia <br></br>Urządzenie pomocnicze do odzyskiwania po awarii |
 
@@ -69,7 +69,7 @@ Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji u
 #### <a name="azure-requirements"></a>Wymagania systemu Azure
 Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować następujące elementy w środowisku platformy Azure:
 
-* [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) dla urządzenia wirtualnego. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Regiony usługi Premium Storage można znaleźć na liście [Usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/en-us/regions/services). Odszukaj regiony, w których są obsługiwane maszyny wirtualne serii DS, DSV2, Fs i GS.
+* [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) dla urządzenia wirtualnego. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Regiony świadczenia usługi Premium Storage to regiony, które odpowiadają wierszowi dla pozycji *Magazyn dyskowy* na liście [usług platformy Azure według regionów](https://azure.microsoft.com/en-us/regions/services).
 * Zaleca się używanie domyślnego serwera DNS zapewnionego w systemie Azure zamiast określania własnej nazwy serwera DNS. Jeśli nazwa serwera DNS jest nieprawidłowa lub jeśli serwer DNS nie jest w stanie poprawnie rozpoznać adresów IP, tworzenie urządzenia wirtualnego zakończy się niepowodzeniem.
 * Sieci typu punkt do lokacji i lokacja do lokacji są opcjonalne. W razie potrzeby można skonfigurować te opcje dla bardziej zaawansowanych scenariuszy.
 * Można utworzyć [maszyny wirtualne Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (serwery hosta) w sieci wirtualnej, która może korzystać z woluminów udostępnionych przez urządzenie wirtualne. Serwery te muszą spełniać następujące wymagania:                             

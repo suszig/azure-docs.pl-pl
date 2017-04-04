@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Wprowadzenie do zarządzania hasłami
 > [!IMPORTANT]
-> **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -376,7 +376,7 @@ Po pobraniu narzędzia Azure AD Connect można przystąpić do włączania funkc
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Aby włączyć funkcję zapisywania zwrotnego haseł przy użyciu programu Windows PowerShell
 1. Na **komputerze synchronizacji katalogów** otwórz nowe **okno programu Windows PowerShell z podwyższonym poziomem uprawnień**.
 2. Jeśli moduł nie jest jeszcze załadowany, wpisz polecenie `import-module ADSync`, aby załadować polecenia cmdlet programu Azure AD Connect do bieżącej sesji.
-3. Pobierz listę łączników usługi Azure AD w systemie, uruchamiając polecenie cmdlet `Get-ADSyncConnector` i zapisując wyniki w parametrze `$aadConnectorName`, np. `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Pobierz listę łączników usługi Azure AD w systemie, uruchamiając polecenie cmdlet `Get-ADSyncConnector` i zapisując wyniki w parametrze `$aadConnectorName`, np. `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`
 4. Aby wyświetlić bieżący stan zapisywania zwrotnego dla bieżącego łącznika poprzez uruchomienie następującego polecenia cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Włącz funkcję zapisywania zwrotnego haseł poprzez uruchomienie polecenia cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -400,9 +400,9 @@ Po włączeniu funkcji zapisywania zwrotnego haseł musisz się upewnić, że ko
 
 #### <a name="why-do-i-need-to-do-this"></a>Dlaczego należy to zrobić?
 
-Aby funkcja zapisywania zwrotnego haseł działała poprawnie, komputer z programem Azure AD Connect musi być w stanie nawiązywać wychodzące połączenia HTTPS z adresami **.servicebus.windows.net* i określonymi adresami IP używanymi przez usługę Azure, zgodnie z [listą zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+W celu zapewnienia poprawnego działania funkcji zapisywania zwrotnego haseł komputer, na którym uruchomiono narzędzie Azure AD Connect, musi być w stanie komunikować się z usługą resetowania haseł oraz usługą Azure Service Bus.
 
-W przypadku narzędzia Azure AD Connect w wersji **1.1.443.0** (najnowszej) i nowszych:
+W przypadku narzędzia Azure AD Connect w wersji **1.1.443.0** i nowszych:
 
 - Najnowsza wersja narzędzia Azure AD Connect będzie potrzebować dostępu **wychodzącego HTTPS** do:
     - *passwordreset.microsoftonline.com*
@@ -422,7 +422,7 @@ W przypadku narzędzia Azure AD Connect w wersjach od **1.0.8667.0** do **1.1.38
         - Aby funkcja zapisywania zwrotnego haseł nadal działała w tej konfiguracji, urządzenia sieciowe muszą być co tydzień aktualizowane o najnowsze adresy IP z listy zakresów adresów IP centrum danych platformy Microsoft Azure. Te zakresy adresów IP są dostępne w postaci pliku XML, który jest aktualizowany co środę (czas pacyficzny) i zaczyna obowiązywać od następnego poniedziałku (czas pacyficzny).
     - Wymagane czynności:
         - Zezwolenie na wszystkie wychodzące połączenia HTTPS z adresami *.servicebus.windows.net
-        - Zezwolenie na wszystkie wychodzące połączenia HTTPS ze wszystkimi adresami IP z listy zakresów adresów IP centrum danych platformy Microsoft Azure i cotygodniowe aktualizowanie tej konfiguracji.
+        - Zezwolenie na wszystkie wychodzące połączenia HTTPS ze wszystkimi adresami IP z listy zakresów adresów IP centrum danych platformy Microsoft Azure i cotygodniowe aktualizowanie tej konfiguracji. Lista jest dostępna do pobrania [tutaj](https://www.microsoft.com/download/details.aspx?id=41653).
 
 > [!NOTE]
 > Jeśli po skonfigurowaniu funkcji zapisywania zwrotnego haseł przy użyciu powyższych instrukcji nie widzisz żadnych błędów w dzienniku zdarzeń programu Azure AD Connect, ale występują błędy łączności podczas testowania, być może urządzenie sieciowe w Twoim środowisku blokuje połączenia HTTPS z adresami IP. Przykładowo mimo iż połączenie z zakresem adresów *https://*.servicebus.windows.net* jest dozwolone, połączenie z konkretnym adresem IP w tym zakresie może być blokowane. Aby rozwiązać ten problem, musisz albo skonfigurować w swoim środowisku sieciowym zezwalanie na wszystkie wychodzące połączenia HTTPS za pośrednictwem portu 443 z dowolnym adresem URL lub IP (opcja 1 powyżej), albo we współpracy z zespołem ds. sieci jawnie zezwolić na połączenia HTTPS z konkretnymi adresami IP (opcja 2 powyżej).
@@ -437,7 +437,7 @@ W przypadku narzędzia Azure AD Connect w wersjach od **1.0.8667.0** do **1.1.38
 
 Po skonfigurowaniu urządzeń sieciowych ponownie uruchom komputer z narzędziem Azure AD Connect.
 
-#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Bezczynne połączenia w narzędziu Azure AD Connect (wersja&1;.1.443.0 i nowsze)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Bezczynne połączenia w narzędziu Azure AD Connect (wersja 1.1.443.0 i nowsze)
 Narzędzie Azure AD Connect będzie wysyłać okresowe sygnały ping/podtrzymywania aktywności do punktów końcowych usługi Service Bus, aby zapewnić, że połączenia pozostaną aktywne. Jeśli narzędzie wykryje, że zbyt wiele połączeń jest zamykanych, automatycznie zwiększy częstotliwość sygnałów ping wysyłanych do punktu końcowego. Najniższy możliwy do osiągnięcia „interwał sygnałów ping” to 1 sygnał ping co 60 sekund, jednak **zdecydowanie zalecamy, aby serwery proxy/zapory zezwalały na istnienie bezczynnych połączeń przez co najmniej 2-3 minuty.** \*W przypadku starszych wersji sugerujemy 4 minuty lub więcej.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Krok 4. Konfigurowanie odpowiednich uprawnień usługi Active Directory
@@ -496,7 +496,7 @@ Teraz, po włączeniu funkcji zapisywania zwrotnego haseł, możesz przetestowa�
 ## <a name="next-steps"></a>Następne kroki
 Poniżej podano linki do wszystkich stron dokumentacji związanych z resetowaniem haseł w usłudze Azure AD:
 
-* **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Jak to działa**](active-directory-passwords-how-it-works.md) — poznaj informacje o sześciu różnych komponentach usługi i dowiedz się, jak działają
 * [**Dostosowanie**](active-directory-passwords-customize.md) — dowiedz się, jak dostosować wygląd, sposób działania i zachowanie usługi do potrzeb organizacji
 * [**Najlepsze praktyki**](active-directory-passwords-best-practices.md) — dowiedz się, jak szybko wdrożyć i efektywnie zarządzać hasłami w organizacji

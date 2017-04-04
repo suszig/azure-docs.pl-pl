@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 03/22/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9e89f7d362a61f39af2a6e2a94241f99b95806a4
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: ccb33119c7fb87cf3d56c02d2a9ac727c347fed6
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
@@ -74,10 +74,10 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Pusan** |LG CNS+ |
 | **Chennai** |Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
-| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon |
+| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Dublin** |Colt, Telecity Group |
 | **Hongkong** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **Londyn** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions — Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse — KDDI, Telenor, Verizon, Vodafone |
+| **Londyn** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
@@ -109,6 +109,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Dallas** |Equinix, Megaport, Verizon |
 | **Nowy Jork** |Equinix, Level 3 Communications+, Verizon |
 | **Dolina Krzemowa** | Equinix |
+| **Seattle** | Equinix+ |
 | **Waszyngton** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Chiny
@@ -125,7 +126,7 @@ Więcej informacji znajduje się w artykule [ExpressRoute in China](http://www.w
 | **Berlin** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>Łączność za pośrednictwem dostawców usług niewymienionych na liście
+## <a name="c1partners"></a>Łączność za pośrednictwem dostawców usług niewymienionych na liście
 Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, możesz i tak utworzyć połączenie.
 
 * Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy jest on połączony z dowolną wymianą z tabeli powyżej. Użyj poniższych linków, aby zebrać więcej informacji o usługach oferowanych przez dostawców wymiany. Kilku dostawców połączenia jest już połączonych z wymianami sieci Ethernet.
@@ -144,11 +145,12 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 | **Lokalizacja** | **Exchange** | **Dostawcy połączeń** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix | Eurofiber |
-| **Londyn** | Equinix | Exponential E, HSO |
+| **Dallas** | Equinix, Megaport | C3ntro, Data Foundry |
+| **Londyn** | Equinix | Exponential E, HSO, NexGen Networks |
 | **Nowy Jork** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Dolina Krzemowa** |Equinix |XO Communications |
-| **Singapur** |Equinix |1CLOUDSTAR |
+| **Singapur** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
 | **Sydney** | Megaport | Macquarie Telecom Group|
 | **Tokio** | Equinix | ARTERIA Networks Corporation |
 | **Waszyngton** |Equinix | Lightower, Masergy |
@@ -160,7 +162,7 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 | --- | --- |
 | **Azja** |Avanade Inc., OneAs1a |
 | **Australia** | IT Consultancy |
-| **Europa** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
+| **Europa** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite, sol-tec |
 | **Ameryka Północna** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 | **Ameryka Południowa** |Avanade Inc. |
 ## <a name="next-steps"></a>Następne kroki
