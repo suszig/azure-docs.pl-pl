@@ -37,7 +37,7 @@
     ```
    
    > [!NOTE]
-   > W przypadku maszyny wirtualnej z systemem Linux musisz użyć opcji `-e` w instrukcji `vm create`. Po utworzeniu maszyny wirtualnej nie można włączyć protokołu SSH. Aby uzyskać dalsze szczegółowe informacje dotyczące protokołu SSH, zapoznaj się z tematem [How to Use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Jak korzystać z protokołu SSH w systemie Linux na platformie Azure).
+   > W przypadku maszyny wirtualnej z systemem Linux musisz użyć opcji `-e` w instrukcji `vm create`. Po utworzeniu maszyny wirtualnej nie można włączyć protokołu SSH. Aby uzyskać dalsze szczegółowe informacje dotyczące protokołu SSH, zapoznaj się z tematem [How to Use SSH with Linux on Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Jak korzystać z protokołu SSH w systemie Linux na platformie Azure).
 
 5. Atrybuty maszyny wirtualnej można sprawdzić za pomocą polecenia `azure vm show`. Poniższy przykład zawiera listę informacji dotyczących maszyny wirtualnej o nazwie `myVM`:
 
@@ -53,9 +53,4 @@
 
 ## <a name="next-steps"></a>Następne kroki
 Szczegółowe informacje na temat wszystkich poleceń maszyny wirtualnej interfejsu wiersza polecenia platformy Azure w wersji 1.0 można znaleźć w temacie [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Korzystanie z interfejsu wiersza polecenia platformy Azure w wersji 1.0 przy użyciu interfejsu API wdrożenia klasycznego).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e4f47341554e2de514c8be2f5c85983d09bbb760
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -34,7 +34,7 @@ Na poniższej ilustracji przedstawiono architekturę klastra usługi kontenera z
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym przewodniku przyjęto założenie, że zainstalowano i skonfigurowano już [interfejs wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-az-cli2). Musisz mieć również klucz publiczny SSH RSA w pliku `~/.ssh/id_rsa.pub`. Jeśli go nie masz, zobacz czynności dla systemów [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
+W tym przewodniku przyjęto założenie, że zainstalowano i skonfigurowano już [interfejs wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-az-cli2). Musisz mieć również klucz publiczny SSH RSA w pliku `~/.ssh/id_rsa.pub`. Jeśli go nie masz, zobacz czynności dla systemów [OS X i Linux](../virtual-machines/linux/mac-create-ssh-keys.md) lub [Windows](../virtual-machines/linux/ssh-from-windows.md).
 
 
 

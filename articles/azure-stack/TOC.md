@@ -65,10 +65,11 @@
 #### [Tworzenie i publikowanie elementu portalu Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 #### [Dodawanie niestandardowego obrazu maszyny wirtualnej](azure-stack-add-vm-image.md)
 #### [Wdrażanie maszyn wirtualnych z systemem Linux](azure-stack-linux.md)
-### Rozliczenia i obciążenia zwrotne
-#### [Omówienie rozliczeń i obciążeń zwrotnych](azure-stack-billing-and-chargeback.md)
-#### [Interfejs API użycia zasobów dostawcy](azure-stack-provider-resource-api.md)
-#### [Interfejs API użycia zasobów dzierżawy](azure-stack-tenant-resource-usage-api.md)
+### Użycie i rozliczenia
+#### [Omówienie](azure-stack-billing-and-chargeback.md)
+#### [Raportowanie danych użycia](azure-stack-usage-reporting.md)
+#### [Interfejs API użycia dostawcy](azure-stack-provider-resource-api.md)
+#### [Interfejs API użycia dzierżawy](azure-stack-tenant-resource-usage-api.md)
 #### [Często zadawane pytania na temat użycia](azure-stack-usage-related-faq.md)
 
 # Korzystanie z usług

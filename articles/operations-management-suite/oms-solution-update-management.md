@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18aa17f6af7fe492f3875e1af7cb06b613f171af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -106,7 +106,7 @@ Gdy aktualizacje zostaną przeanalizowane dla wszystkich komputerów z systemem 
 
 Aktualizacje są instalowane przez elementy runbook w usłudze Azure Automation.  Nie można wyświetlić tych elementów runbook i nie wymagają one żadnej konfiguracji.  Utworzenie wdrożenia aktualizacji powoduje utworzenie harmonogramu, który uruchamia główny element runbook aktualizacji w określonym czasie na uwzględnionych komputerach.  Ten główny element runbook uruchamia podrzędny element runbook na każdym agencie systemu Windows, który przeprowadza instalację wymaganych aktualizacji.  
 
-W przypadku maszyn wirtualnych utworzonych na podstawie z obrazów systemu Red Hat Enterprise Linux (RHEL) na żądanie dostępnych w witrynie Azure Marketplace są one rejestrowane w celu uzyskiwania dostępu do [infrastruktury aktualizacji systemu Red Hat (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) wdrożonej na platformie Azure.  Inne dystrybucje systemu Linux należy aktualizować przy użyciu repozytorium plików online dystrybucji i odpowiadających im metod.  
+W przypadku maszyn wirtualnych utworzonych na podstawie z obrazów systemu Red Hat Enterprise Linux (RHEL) na żądanie dostępnych w witrynie Azure Marketplace są one rejestrowane w celu uzyskiwania dostępu do [infrastruktury aktualizacji systemu Red Hat (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) wdrożonej na platformie Azure.  Inne dystrybucje systemu Linux należy aktualizować przy użyciu repozytorium plików online dystrybucji i odpowiadających im metod.  
 
 ### <a name="viewing-update-deployments"></a>Wyświetlanie wdrożeń aktualizacji
 Kliknij kafelek **Wdrożenia aktualizacji**, aby wyświetlić listę istniejących wdrożeń aktualizacji.  Są one pogrupowane według stanu — **Zaplanowano**, **Uruchomiono** i **Ukończono**.<br><br> ![Strona harmonogramu wdrożenia aktualizacji](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

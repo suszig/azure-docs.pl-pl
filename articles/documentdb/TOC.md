@@ -85,6 +85,7 @@
 
 
 ## Integracja
+### [Łączenie z platformą Spark](documentdb-spark-connector.md)
 ### [Wdrażanie witryny sieci Web za pomocą Azure App Service](documentdb-create-documentdb-website.md)
 ### [Rejestrowanie aplikacji za pomocą usługi Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Powiązanie z funkcją Azure Functions](../azure-functions/functions-bindings-documentdb.md)

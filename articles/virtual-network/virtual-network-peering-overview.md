@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ Wymagania i kluczowe aspekty komunikacji równorzędnej w sieci wirtualnej:
 * Komunikacja równorzędna sieci wirtualnych odbywa się między dwiema sieciami wirtualnymi, ale nie istnieje żadna pochodna relacja przechodnia między tymi sieciami. Na przykład jeśli zachodzi komunikacja równorzędna między sieciami VNetA i VNetB oraz komunikacja równorzędna między sieciami VNetB i VNetC, *nie* zachodzi komunikacja równorzędna między sieciami VNetA i VNetC.
 * Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi istniejącymi w dwóch różnych subskrypcjach, o ile połączenie za pomocą komunikacji równorzędnej zostanie autoryzowane przez uprawnionego użytkownika w obu subskrypcjach, a subskrypcje są skojarzone z tą samą dzierżawą usługi Active Directory.
 * Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi, jeśli obie sieci zostały utworzone za pomocą modelu wdrażania przy użyciu usługi Resource Manager lub jeśli jedna z nich została utworzona w ten sposób, a druga za pomocą klasycznego modelu wdrażania. Nie można jednak nawiązać komunikacji równorzędnej między dwiema sieciami wirtualnymi utworzonymi za pomocą klasycznego modelu wdrażania. W przypadku nawiązywania komunikacji równorzędnej między sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania obie te sieci muszą istnieć w *tej samej* subskrypcji. Możliwość nawiązywania komunikacji równorzędnej w *różnych* subskrypcjach między sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania istnieje w wersji **zapoznawczej**. Więcej szczegółowych informacji zawiera artykuł [Create a virtual network peering using Powershell](virtual-networks-create-vnetpeering-arm-ps.md) (Tworzenie wirtualnych sieci równorzędnych za pomocą programu Powershell).
-* Chociaż komunikacja między maszynami wirtualnymi w wirtualnych sieciach równorzędnych nie ma żadnych dodatkowych ograniczeń przepustowości, należy pamiętać, że nadal obowiązuje ograniczenie maksymalnej przepustowości sieci uzależnione od rozmiaru maszyny wirtualnej. Aby dowiedzieć się więcej o maksymalnej przepustowości dla różnych rozmiarów maszyn wirtualnych, przeczytaj artykuły dotyczące rozmiarów maszyn wirtualnych w systemach [Windows](../virtual-machines/virtual-machines-windows-sizes.md) i [Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+* Chociaż komunikacja między maszynami wirtualnymi w wirtualnych sieciach równorzędnych nie ma żadnych dodatkowych ograniczeń przepustowości, należy pamiętać, że nadal obowiązuje ograniczenie maksymalnej przepustowości sieci uzależnione od rozmiaru maszyny wirtualnej. Aby dowiedzieć się więcej o maksymalnej przepustowości dla różnych rozmiarów maszyn wirtualnych, przeczytaj artykuły dotyczące rozmiarów maszyn wirtualnych w systemach [Windows](../virtual-machines/windows/sizes.md) i [Linux](../virtual-machines/linux/sizes.md).
 
 ![Podstawowa komunikacja równorzędna w sieci wirtualnej](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Istnieją limity liczby dozwolonych połączeń za pomocą komunikacji równorz�
 ## <a name="pricing"></a>Cennik
 Istnieje nominalna opłata za ruch przychodzący i wychodzący podczas korzystania z komunikacji równorzędnej sieci wirtualnych. Więcej informacji zawiera [strona cennika](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Dowiedz się, jak utworzyć komunikację równorzędną sieci wirtualnych, korzystając z następujących narzędzi:
 
 * [Witryna Azure Portal](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Szablon usługi Azure Resource Manager](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

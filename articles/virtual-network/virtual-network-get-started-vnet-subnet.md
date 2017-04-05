@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -101,7 +101,7 @@ Aby utworzyć maszynę wirtualną serwera sieci Web, wykonaj następujące czynn
     |**Grupa zasobów**|**Użyj istniejącej:** wybierz wartość *MojaGZ*|Mimo że jest używana ta sama grupa zasobów co w przypadku sieci wirtualnej, zasoby nie muszą być objęte tą samą grupą zasobów.|
     |**Lokalizacja**|*Zachodnie stany USA*|Musi to być ta sama lokalizacja, która została wybrana w kroku 5 sekcji [Tworzenie sieci wirtualnej z dwiema podsieciami](#create-vnet) w tym artykule. Maszyny wirtualne i sieci wirtualne, z którymi łączą się te maszyny, muszą istnieć w tej samej lokalizacji.|
 
-4. W bloku **Wybierz rozmiar** kliknij pozycję *DS1_V2 Standardowa*, a następnie kliknij pozycję **Wybierz**. Listę wszystkich rozmiarów maszyn wirtualnych z systemem Windows obsługiwanych przez platformę Azure można znaleźć w artykule [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Rozmiary maszyn wirtualnych z systemem Windows).
+4. W bloku **Wybierz rozmiar** kliknij pozycję *DS1_V2 Standardowa*, a następnie kliknij pozycję **Wybierz**. Listę wszystkich rozmiarów maszyn wirtualnych z systemem Windows obsługiwanych przez platformę Azure można znaleźć w artykule [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Rozmiary maszyn wirtualnych z systemem Windows).
 5. W bloku **Ustawienia** wprowadź lub wybierz następujące wartości i kliknij przycisk **OK**:
 
     |**Ustawienie**|**Wartość**|**Szczegóły**|
@@ -111,7 +111,7 @@ Aby utworzyć maszynę wirtualną serwera sieci Web, wykonaj następujące czynn
     |**Podsieć**|Wybierz wartość *Fronton*|Możesz wybrać dowolną podsieć istniejącą w sieci wirtualnej.|
     |**Publiczny adres IP**|Zaakceptuj domyślną wartość|Publiczny adres IP umożliwia nawiązywanie połączeń między Internetem a maszyną wirtualną. Aby dowiedzieć się więcej o publicznych adresach IP, zapoznaj się z artykułem [Adresy IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).|
     |**Sieciowa grupa zabezpieczeń (zapora)**|Zaakceptuj domyślną wartość|Kliknij domyślną sieciową grupę zabezpieczeń **(nowa) MójSerwerSieciWeb — sgz** utworzoną w portalu, aby wyświetlić jej ustawienia. Zwróć uwagę na to, że wyświetlony blok **Tworzenie sieciowej grupy zabezpieczeń** zawiera regułę ruchu przychodzącego, która zezwala na ruch TCP/3389 (RDP) z dowolnego źródłowego adresu IP.|
-    |**Wszystkie inne wartości**|Zaakceptuj wartości domyślne|Aby dowiedzieć się więcej o pozostałych ustawieniach, zapoznaj się z artykułem [Informacje o maszynach wirtualnych](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+    |**Wszystkie inne wartości**|Zaakceptuj wartości domyślne|Aby dowiedzieć się więcej o pozostałych ustawieniach, zapoznaj się z artykułem [Informacje o maszynach wirtualnych](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 
     Sieciowe grupy zabezpieczeń umożliwiają tworzenie reguł dla ruchu przychodzącego do maszyn wirtualnych oraz ruchu wychodzącego. Domyślnie cały ruch przychodzący do maszyny wirtualnej jest blokowany. W przypadku serwera sieci Web w środowisku produkcyjnym można dodać reguły ruchu przychodzącego dla portów TCP/80 (HTTP) i TCP/443 (HTTPS). Dla ruchu wychodzącego nie ma reguł, ponieważ domyślnie cały ruch wychodzący jest dozwolony. Można dodawać i usuwać reguły w celu sterowania ruchem w ramach zasad. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zapoznaj się z artykułem [Sieciowe grupy zabezpieczeń](virtual-networks-nsg.md).
 
@@ -160,7 +160,7 @@ Mimo że zadanie obejmowało utworzenie jednej sieci wirtualnej i dwóch maszyn 
 
     ![Zawartość grupy zasobów](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Aby dowiedzieć się więcej o maszynach wirtualnych, dyskach i kontach magazynu, zapoznaj się z artykułami [Maszyna wirtualna](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Dysk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Konto magazynu](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) zawierającymi omówienie tych zagadnień. Widoczne są dwie domyślne sieciowe grupy zabezpieczeń automatycznie utworzone przez portal. Widać również, że w portalu zostały utworzone dwa zasoby interfejsów sieciowych (kart sieciowych). Karta sieciowa pozwala maszynie wirtualnej łączyć się z innymi zasobami w sieci wirtualnej. Więcej informacji o kartach sieciowych można znaleźć w artykule [Karty sieciowe](virtual-network-network-interface.md). W portalu utworzono także jeden zasób publicznego adresu IP. Publiczne adresy IP to jedno z ustawień zasobu publicznych adresów IP. Aby dowiedzieć się więcej o publicznych adresach IP, zapoznaj się z artykułem [Adresy IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Aby dowiedzieć się więcej o maszynach wirtualnych, dyskach i kontach magazynu, zapoznaj się z artykułami [Maszyna wirtualna](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Dysk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Konto magazynu](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) zawierającymi omówienie tych zagadnień. Widoczne są dwie domyślne sieciowe grupy zabezpieczeń automatycznie utworzone przez portal. Widać również, że w portalu zostały utworzone dwa zasoby interfejsów sieciowych (kart sieciowych). Karta sieciowa pozwala maszynie wirtualnej łączyć się z innymi zasobami w sieci wirtualnej. Więcej informacji o kartach sieciowych można znaleźć w artykule [Karty sieciowe](virtual-network-network-interface.md). W portalu utworzono także jeden zasób publicznego adresu IP. Publiczne adresy IP to jedno z ustawień zasobu publicznych adresów IP. Aby dowiedzieć się więcej o publicznych adresach IP, zapoznaj się z artykułem [Adresy IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Łączenie się z maszynami wirtualnymi
 
@@ -252,5 +252,5 @@ W tym ćwiczeniu utworzono sieć wirtualną i dwie maszyny wirtualne. Maszyny wi
 - [Publiczne adresy IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Interfejsy sieciowe](virtual-network-network-interface.md)
 - [Sieciowe grupy zabezpieczeń](virtual-networks-nsg.md)
-- [Maszyny wirtualne](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Maszyny wirtualne](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

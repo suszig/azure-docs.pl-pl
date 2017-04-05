@@ -128,7 +128,6 @@
 
 ## Zarządzanie urządzeniami
 ### [Rejestrowanie urządzeń](active-directory-device-registration-overview.md)
-#### [Zarządzanie automatyczną rejestracją](active-directory-device-registration.md)
 #### [Konfigurowanie](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Wdrażanie lokalnie](active-directory-device-registration-on-premises-setup.md)
 #### [Często zadawane pytania](active-directory-device-registration-faq.md)
@@ -161,7 +160,6 @@
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Portal klasyczny](active-directory-application-proxy-publish.md)
 
-#### [Usługa PingAccess dla usługi Azure AD](application-proxy-ping-access.md)
 #### [Bezpieczeństwo](application-proxy-security-considerations.md)
 #### [Sieci](application-proxy-network-topology-considerations.md)
 #### [Pulpit zdalny](application-proxy-publish-remote-desktop.md)
@@ -174,7 +172,8 @@
 #### [Niestandardowe domeny](active-directory-application-proxy-custom-domains.md)
 #### [Dostęp do aplikacji](active-directory-appssoaccess-whatis.md)
 ##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Logowanie jednokrotne](active-directory-application-proxy-sso-using-kcd.md)
+#### [Logowanie jednokrotne z delegowaniem KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [Logowanie jednokrotne z nagłówkami](application-proxy-ping-access.md)
 #### [Aplikacje obsługujące oświadczenia](active-directory-application-proxy-claims-aware-apps.md)
 #### [Aplikacje klienta natywnego](active-directory-application-proxy-native-client.md)
 #### [Niestandardowa strona główna](application-proxy-office365-app-launcher.md)

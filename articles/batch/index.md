@@ -60,7 +60,7 @@ Dowiedz się, jak przy użyciu usługi Batch wydajnie uruchamiać aplikacje rów
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

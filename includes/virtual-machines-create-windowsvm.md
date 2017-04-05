@@ -16,7 +16,7 @@ W bloku Podstawowe należy podać informacje administracyjne dotyczące maszyny 
 
 2. Podaj nazwę użytkownika w polu **Nazwa użytkownika** i silne hasło w polu **Hasło**. Zostaną one użyte do utworzenia konta lokalnego na maszynie wirtualnej. Konto lokalne jest używane do logowania się do maszyny wirtualnej i zarządzania nią. W tym przykładzie nazwa użytkownika to _azureuser_.
 
- Hasło musi mieć długość od 8 do 123 znaków i spełniać trzy z czterech następujących wymagań dotyczących złożoności: mała litera, wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ Hasło musi mieć długość od 8 do 123 znaków i spełniać trzy z czterech następujących wymagań dotyczących złożoności: mała litera, wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](../articles/virtual-machines/windows/faq.md).
 
 3. Pole **Subskrypcja** jest opcjonalne. Często używaną opcją jest „Płatność zgodnie z rzeczywistym użyciem”.
 

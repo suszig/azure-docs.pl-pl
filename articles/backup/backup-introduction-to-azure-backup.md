@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -98,7 +98,7 @@ W poniższej tabeli przedstawiono składniki usługi Azure Backup, które obsłu
 Usługa Azure Backup chroni maszyny wirtualne usługi Premium Storage. Azure Premium Storage to magazyn oparty na dyskach SSD i zaprojektowany z myślą o obsłudze dużych obciążeń wejścia/wyjścia. Usługa Premium Storage jest atrakcyjna dla obciążeń maszyn wirtualnych. Aby uzyskać więcej informacji o usłudze Premium Storage, zobacz artykuł [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).
 
 ### <a name="back-up-premium-storage-vms"></a>Tworzenie kopii zapasowej maszyn wirtualnych usługi Premium Storage
-Podczas wykonywania kopii zapasowych maszyn wirtualnych usługi Premium Storage usługa Backup tworzy tymczasową lokalizację o nazwie „AzureBackup-” na koncie usługi Premium Storage. Rozmiar lokalizacji przejściowej jest równy rozmiarowi migawki punktu odzyskiwania. Upewnij się, że ilość wolnego miejsca na koncie magazynu jest wystarczająca do obsługi tymczasowej lokalizacji przejściowej. Aby uzyskać więcej informacji, zobacz [Premium Storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) (Ograniczenia usługi Premium Storage). Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostanie usunięta. Cena przestrzeni dyskowej użytej na potrzeby lokalizacji tymczasowej jest zgodna z ogólnym [cennikiem usługi Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
+Podczas wykonywania kopii zapasowych maszyn wirtualnych usługi Premium Storage usługa Backup tworzy tymczasową lokalizację o nazwie „AzureBackup-” na koncie usługi Premium Storage. Rozmiar lokalizacji przejściowej jest równy rozmiarowi migawki punktu odzyskiwania. Upewnij się, że ilość wolnego miejsca na koncie magazynu jest wystarczająca do obsługi tymczasowej lokalizacji przejściowej. Aby uzyskać więcej informacji, zobacz [Premium Storage limitations](../storage/storage-premium-storage.md#scalability-and-performance-targets) (Ograniczenia usługi Premium Storage). Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostanie usunięta. Cena przestrzeni dyskowej użytej na potrzeby lokalizacji tymczasowej jest zgodna z ogólnym [cennikiem usługi Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Nie wolno modyfikować ani edytować tej lokalizacji tymczasowej.

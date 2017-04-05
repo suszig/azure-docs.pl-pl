@@ -16,9 +16,9 @@ ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -107,7 +107,7 @@ Podczas tworzenia puli można określić następujące atrybuty:
 
     Lista rozmiarów węzłów obliczeniowych **konfiguracji usług Cloud Serivces** znajduje się w temacie [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Rozmiary dla usługi Cloud Services). Usługa Batch obsługuje wszystkie rozmiary usług Cloud Services oprócz `ExtraSmall`, `STANDARD_A1_V2` i `STANDARD_A2_V2`.
 
-    Listę rozmiarów obliczeniowych **konfiguracji usługi Virtual Machines** można znaleźć w tematach [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) (Rozmiary maszyn wirtualnych na platformie Azure) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows) (Rozmiary maszyn wirtualnych na platformie Azure) (Windows). Usługa Batch obsługuje wszystkie rozmiary maszyn wirtualnych platformy Azure oprócz `STANDARD_A0` i maszyn z usługi Premium Storage (seria `STANDARD_GS`, `STANDARD_DS` i `STANDARD_DSV2`).
+    Listę rozmiarów obliczeniowych **konfiguracji usługi Virtual Machines** można znaleźć w tematach [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md) (Linux) (Rozmiary maszyn wirtualnych na platformie Azure) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md) (Windows) (Rozmiary maszyn wirtualnych na platformie Azure) (Windows). Usługa Batch obsługuje wszystkie rozmiary maszyn wirtualnych platformy Azure oprócz `STANDARD_A0` i maszyn z usługi Premium Storage (seria `STANDARD_GS`, `STANDARD_DS` i `STANDARD_DSV2`).
 
     Podczas wybierania rozmiaru węzła obliczeniowego należy wziąć pod uwagę charakterystyki i wymagania aplikacji, które będą uruchamiane w poszczególnych węzłach. Takie czynniki jak to, czy aplikacja jest wielowątkowa oraz ile pamięci zużywa, mogą pomóc w wyborze najbardziej odpowiedniego i ekonomicznego rozmiar węzła. Rozmiar węzła jest zazwyczaj wybierany w oparciu o założenie, że w węźle będzie uruchamiane w danym momencie jedno zadanie. Podczas wykonywania zadania można jednak [równolegle uruchomić](batch-parallel-node-tasks.md) wiele zadań podrzędnych, a co za tym idzie — wielu wystąpień aplikacji. W takiej sytuacji zwykle wybiera się większy rozmiar węzła w celu sprostania zwiększonemu zapotrzebowaniu na równoległe wykonywanie zadań podrzędnych. Aby uzyskać więcej informacji, zobacz [Zasady planowania zadań podrzędnych](#task-scheduling-policy).
 

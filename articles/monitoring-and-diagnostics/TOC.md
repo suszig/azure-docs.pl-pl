@@ -4,6 +4,7 @@
 ## [Alerty](monitoring-overview-alerts.md)
 ## [Skalowanie automatyczne](monitoring-overview-autoscale.md)
 ## [Dziennik aktywności](monitoring-overview-activity-logs.md)
+## [Grupy akcji](monitoring-action-groups.md)
 ## [Dzienniki diagnostyczne](monitoring-overview-of-diagnostic-logs.md)
 ## [Integracje partnerów](monitoring-partners.md)
 ## [Diagnostyka Azure](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [Konfigurowanie elementów webhook i powiadomień e-mail dotyczących automatycznego skalowania](insights-autoscale-to-webhook-email.md)
 ## Używanie dziennika aktywności
 ### [Wyświetlanie zdarzeń w dzienniku aktywności](insights-debugging-with-events.md)
-### [Konfigurowanie elementu webhook dla alertu dotyczącego dziennika aktywności](insights-auditlog-to-webhook-email.md)
+### [Konfigurowanie alertów dotyczących zdarzenia dziennika aktywności](monitoring-activity-log-alerts.md)
 ### [Archiwizowanie dziennika aktywności](monitoring-archive-activity-log.md)
 ### [Strumieniowe przesyłanie dzienników aktywności do usługi Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operacje inspekcji w usłudze Resource Manager)
+### [Tworzenie alertów dziennika aktywności przy użyciu usługi Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## Powiadomienia dotyczące usług
+### [Wyświetlanie powiadomień dotyczących usług](monitoring-service-notifications.md)
+### [Konfigurowanie alertów dla powiadomień dotyczących usług](monitoring-activity-log-alerts-on-service-notifications.md)
+## Grupy akcji
+### [Informacje dotyczące schematu elementu webhook](monitoring-activity-log-alerts-webhook.md)
+### [Zachowanie alertów SMS](monitoring-sms-alert-behavior.md)
+### [Ograniczanie częstotliwości alertów](monitoring-alerts-rate-limiting.md)
+### [Tworzenie grup akcji przy użyciu usługi Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
 ## Zarządzanie dziennikami diagnostycznymi
 ### [Archiwizowanie](monitoring-archive-diagnostic-logs.md)
 ### [Przesyłanie strumieniowe do usługi Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
