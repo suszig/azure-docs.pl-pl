@@ -4,7 +4,7 @@
 | --- | --- |
 | Całkowita pojemność dysku na konto |35 TB |
 | Całkowita pojemność migawki na konto |10 TB |
-| Maksymalna przepustowość na konto (ruch przychodzący i wychodzący<sup>1</sup>) |<=&50; Gb/s |
+| Maksymalna przepustowość na konto (ruch przychodzący i wychodzący<sup>1</sup>) |<= 50 Gb/s |
 
 <sup>1</sup>*Ruch przychodzący* odnosi się do wszystkich danych (żądań) wysyłanych na konto magazynu. *Ruch wychodzący* odnosi się do wszystkich danych (żądań) wysyłanych z konta magazynu.
 
@@ -24,10 +24,5 @@
 | Maksymalna liczba operacji wejścia/wyjścia na sekundę na maszynę wirtualną |80 000 operacji wejścia/wyjścia na sekundę na maszynie wirtualnej GS5<sup>1</sup> |
 | Maksymalna przepływność na maszynę wirtualną |2000 operacji wejścia/wyjścia na maszynie wirtualnej GS5<sup>1</sup> |
 
-<sup>1</sup>Limity innych rozmiarów maszyn wirtualnych można znaleźć w temacie [Rozmiar maszyny wirtualnej](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+<sup>1</sup>Limity innych rozmiarów maszyn wirtualnych można znaleźć w temacie [Rozmiar maszyny wirtualnej](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 

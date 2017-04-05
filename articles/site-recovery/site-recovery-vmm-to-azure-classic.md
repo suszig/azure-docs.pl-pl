@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -274,7 +274,7 @@ Po poprawnym skonfigurowaniu serwerów, chmur i sieci można włączyć ochronę
     ![Weryfikowanie maszyn wirtualnych](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Na karcie **Konfigurowanie** właściwości maszyny wirtualnej można zmodyfikować poniższe właściwości sieci.
 
-* **Liczba kart sieciowych na docelowej maszynie wirtualnej** — Liczba kart sieciowych jest zależna od rozmiaru określonego dla docelowej maszyny wirtualnej. Sprawdź [specyfikacje rozmiaru maszyny wirtualnej](../virtual-machines/virtual-machines-linux-sizes.md), aby ustalić liczbę obsługiwanych kart sieciowych zależnie od rozmiaru maszyny wirtualnej. W razie zmodyfikowania rozmiaru maszyny wirtualnej i zapisania ustawień liczba kart sieciowych ulegnie zmianie po następnym otwarciu strony **Konfigurowanie**. Liczba kart sieciowych docelowych maszyn wirtualnych jest minimalną liczbą kart sieciowych na źródłowej maszynie wirtualnej i maksymalną liczbą kart sieciowych obsługiwanych przy wybranym rozmiarze maszyny wirtualnej zgodnie z następującą zależnością: 
+* **Liczba kart sieciowych na docelowej maszynie wirtualnej** — Liczba kart sieciowych jest zależna od rozmiaru określonego dla docelowej maszyny wirtualnej. Sprawdź [specyfikacje rozmiaru maszyny wirtualnej](../virtual-machines/linux/sizes.md), aby ustalić liczbę obsługiwanych kart sieciowych zależnie od rozmiaru maszyny wirtualnej. W razie zmodyfikowania rozmiaru maszyny wirtualnej i zapisania ustawień liczba kart sieciowych ulegnie zmianie po następnym otwarciu strony **Konfigurowanie**. Liczba kart sieciowych docelowych maszyn wirtualnych jest minimalną liczbą kart sieciowych na źródłowej maszynie wirtualnej i maksymalną liczbą kart sieciowych obsługiwanych przy wybranym rozmiarze maszyny wirtualnej zgodnie z następującą zależnością: 
 
   * Jeśli liczba kart sieciowych w maszynie źródłowej jest mniejsza lub równa liczbie kart sieciowych dozwolonych dla rozmiaru maszyny docelowej, maszyna docelowa będzie mieć taką samą liczbę kart sieciowych jak maszyna źródłowa.
   * Jeśli liczba kart sieciowych dla źródłowej maszyny wirtualnej przekracza liczbę dozwolonych kart sieciowych dla rozmiaru maszyny docelowej, zostanie użyta maksymalna liczba kart dla rozmiaru maszyny docelowej.
