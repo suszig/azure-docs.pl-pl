@@ -1,16 +1,16 @@
-# [Omówienie](../../virtual-machines-linux-azure-overview.md)
+# [Omówienie](../overview.md)
 ## [Obrazy](about-images.md)
 ## [Rozszerzenia maszyn wirtualnych](agents-and-extensions.md)
 ## [Dostępność](configure-availability.md)
 ## [Często zadawane pytania](faq.md)
 
-# [Rozpoczęcie pracy](../../virtual-machines-linux-opensource-links.md)
+# [Rozpoczęcie pracy](../opensource-links.md)
 ## [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu portalu](createportal.md)
 ## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md)
-## [Tworzenie kluczy SSH](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [Tworzenie kluczy SSH](../mac-create-ssh-keys.md)
 
 # Instrukcje
-## [Obliczanie](../../virtual-machines-linux-intro-on-azure.md)
+## [Obliczanie](../intro-on-azure.md)
 ### [Tworzenie niestandardowej maszyny wirtualnej](create-custom.md)
 ### [Przechwytywanie maszyny wirtualnej](capture-image.md)
 ### [Używanie pulpitu zdalnego z maszyną wirtualną z systemem Linux](remote-desktop.md)

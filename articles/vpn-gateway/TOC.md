@@ -23,6 +23,7 @@
 ## Konfigurowanie połączenia sieć wirtualna-sieć wirtualna
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Portal klasyczny (model klasyczny)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Konfigurowanie połączenia sieć wirtualna-sieć wirtualna między modelami wdrażania
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [Weryfikowanie połączenia z bramą VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md)
 ## Usuwanie bramy VPN Gateway
+### [Witryna Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Tworzenie certyfikatów głównych z podpisem własnym dla połączeń P2S](vpn-gateway-certificates-point-to-site.md)
