@@ -33,9 +33,8 @@
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
 ## Zarządzaj
 ### Administrowanie usługą Azure Search
-#### [Azure Portal](search-manage.md)
-#### [REST](search-get-started-management-api.md)
-#### [Program PowerShell](search-manage-powershell.md)
+#### [Witryna Azure Portal](search-manage.md)
+#### [PowerShell](search-manage-powershell.md)
 ### [Monitorowanie użycia i statystyk](search-monitor-usage.md)
 ### [Analiza ruchu wyszukiwania](search-traffic-analytics.md)
 ### [Wydajność i optymalizacja](search-performance-optimization.md)
@@ -78,10 +77,10 @@
 ## Oprogramowanie edukacyjne i samouczki
 ### [Wirtualna akademia](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
 ### [Materiały wideo i samouczki](search-video-demo-tutorial-list.md)
-### [Repozytorium Github usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 ## Partner i społeczność
 ### [Dane relacyjne modelu](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Kategoryzowanie wielopoziomowe](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 ### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
-### [Repozytorium Github usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)

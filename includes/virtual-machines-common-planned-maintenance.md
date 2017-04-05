@@ -14,7 +14,7 @@ Istnieją dwa rodzaje konfiguracji maszyny wirtualnej: konfiguracja o wielu wyst
 
 Konfiguracja o wielu wystąpieniach zapewnia nadmiarowość w obrębie maszyn fizycznych, ich zasilania oraz dostępu do sieci, i jest zalecana w celu zapewnienia dostępności aplikacji. Wszystkie maszyny wirtualne w zestawie dostępności powinny mieć takie same znaczenie dla aplikacji.
 
-Aby uzyskać więcej informacji o konfigurowaniu maszyn wirtualnych na potrzeby wysokiej dostępności, zobacz [Manage the availability of your Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych systemu Windows) lub [Manage the availability of your Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych systemu Linux).
+Aby uzyskać więcej informacji o konfigurowaniu maszyn wirtualnych na potrzeby wysokiej dostępności, zobacz [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych systemu Windows) lub [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych systemu Linux).
 
 Z drugiej strony konfiguracja o jednym wystąpieniu jest używana na potrzeby autonomicznych maszyn wirtualnych, które nie są umieszczane w zestawie dostępności. Te maszyny wirtualne nie kwalifikują się do umowy dotyczącej poziomu usług wymagającej wdrożenia co najmniej dwóch maszyn wirtualnych w tym samym zestawie dostępności.
 
@@ -28,7 +28,7 @@ Podczas aktualizacji konfiguracji o wielu wystąpieniach przyjmowane jest zało�
 Każda maszyna wirtualna w zestawie dostępności ma przypisaną domenę aktualizacji i domenę błędów z odpowiedniej platformy Azure. Każda domena aktualizacji to grupa maszyn wirtualnych, które zostaną ponownie uruchomione w tym samym przedziale czasu. Każda domena błędów to grupa maszyn wirtualnych, które korzystają ze wspólnego źródła zasilania i przełącznika sieciowego.
 
 
-Aby uzyskać więcej informacji o domenach aktualizacji i domenach błędów, zobacz [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) (Konfigurowanie wielu maszyn wirtualnych w zestawie dostępności w celu zapewnienia nadmiarowości).
+Aby uzyskać więcej informacji o domenach aktualizacji i domenach błędów, zobacz [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) (Konfigurowanie wielu maszyn wirtualnych w zestawie dostępności w celu zapewnienia nadmiarowości).
 
 Aby zapewnić dostępność za pośrednictwem aktualizacji, na platformie Azure wykonywana jest konserwacja za pomocą domeny aktualizacji, która powoduje aktualizowanie jednej domeny jednocześnie. Konserwacja w domenie aktualizacji polega na zamknięciu każdej maszyny wirtualnej w domenie, zastosowaniu aktualizacji na maszynach hosta, a następnie ponownym uruchomieniu maszyn wirtualnych. Po zakończeniu konserwacji w domenie na platformie Azure powtarzany jest ten proces w przypadku następnej domeny aktualizacji — odbywa się to do momentu, gdy wszystkie domeny zostaną zaktualizowane.
 
@@ -101,4 +101,4 @@ W poniższej tabeli znajdują się aktualne pary regionów:
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

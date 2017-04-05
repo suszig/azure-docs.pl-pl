@@ -25,6 +25,7 @@
 ## Automatyzacja
 ### [Azure Automation](automation-manage-key-vault.md)
 ### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia](key-vault-manage-with-cli.md)
+### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia 2.0](key-vault-manage-with-cli2.md)
 
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)

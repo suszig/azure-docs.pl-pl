@@ -22,18 +22,12 @@
 ### [PowerShell](expressroute-howto-circuit-arm.md)
 ## Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej
 ### [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-### [Program PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (klasyczny)](expressroute-howto-routing-classic.md)
+### [PowerShell](expressroute-howto-routing-arm.md)
 ## Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [Program PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (klasyczny)](expressroute-howto-linkvnet-classic.md)
-## Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute
-### [Program PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (klasyczny)](expressroute-howto-add-gateway-classic.md)
-## Tworzenie współistniejących połączeń ExpressRoute i połączeń usługi VPN Gateway typu lokacja-lokacja
-### [Program PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (klasyczny)](expressroute-howto-coexist-classic.md)
+### [PowerShell](expressroute-howto-linkvnet-arm.md)
+## [Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja](expressroute-howto-coexist-resource-manager.md)
 ## [Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager](expressroute-howto-move-arm.md)
 ## Konfigurowanie routera dla usługi ExpressRoute
 ### [Konfigurowanie routera](expressroute-config-samples-routing.md)
