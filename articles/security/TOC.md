@@ -33,6 +33,8 @@
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Wprowadzenie do integracji dzienników platformy Azure](security-azure-log-integration-overview.md)
 #### [Pierwsze kroki z integracją dzienników platformy Azure](security-azure-log-integration-get-started.md)
+#### [Integrowanie usługi Azure Active Directory z dziennikami inspekcji](security-azure-log-integration-ad.md)
+#### [Integrowanie alertów usługi Security Center](security-azure-log-integration-security-center.md)
 #### [Często zadawane pytania](security-azure-log-integration-faq.md)
 
 ## Zarządzanie tożsamościami

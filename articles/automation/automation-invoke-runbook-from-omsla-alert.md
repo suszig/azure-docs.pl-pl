@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 81cf490eae7f283c0180875cb3a2ed2ffe6333c8
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -36,7 +36,7 @@ Podczas konfigurowania alertu dostępne są dwie opcje wywołania elementu runbo
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Wywoływanie elementu runbook przy użyciu elementu webhook
 
-Element webhook umożliwia uruchomienie określonego elementu runbook w usłudze Azure Automation za pośrednictwem pojedynczego żądania HTTP.  Zanim skonfigurujesz [alert usługi Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules) do wywoływania elementu runbook za pomocą elementu webhook jako akcji alertu, musisz najpierw utworzyć element webhook dla elementu runbook, który będzie wywoływany przy użyciu tej metody.  Przejrzyj i wykonaj kroki podane w artykule dotyczącym [tworzenia elementu webhook](automation-webhooks.md#creating-a-webhook). Pamiętaj o zapisaniu adresu URL elementu webhook, aby podać go podczas konfigurowania reguły alertu.   
+Element webhook umożliwia uruchomienie określonego elementu runbook w usłudze Azure Automation za pośrednictwem pojedynczego żądania HTTP.  Zanim skonfigurujesz [alert usługi Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules) do wywoływania elementu runbook za pomocą elementu webhook jako akcji alertu, musisz najpierw utworzyć element webhook dla elementu runbook, który będzie wywoływany przy użyciu tej metody.  Przejrzyj i wykonaj kroki podane w artykule dotyczącym [tworzenia elementu webhook](automation-webhooks.md#creating-a-webhook). Pamiętaj o zapisaniu adresu URL elementu webhook, aby podać go podczas konfigurowania reguły alertu.   
 
 ## <a name="calling-a-runbook-directly"></a>Bezpośrednie uruchamianie elementu runbook
 

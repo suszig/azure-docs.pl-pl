@@ -65,6 +65,7 @@
 ### [Przewidywanie wyników inspekcji żywności](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analizowanie dzienników witryn sieci Web](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Używanie platformy Caffe na potrzeby uczenia głębokiego](hdinsight-deep-learning-caffe-spark.md)
+### [Używanie z zestawem narzędzi usług Microsoft Cognitive](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Korzystanie z notesów Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jądra notesów programu Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Korzystanie z zewnętrznych pakietów w programie Jupyter przy użyciu funkcji cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -141,9 +142,8 @@
 #### [Instalowanie aplikacji przy użyciu architektury REST](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace](hdinsight-apps-publish-applications.md)
 ## Bezpieczeństwo
+### [Używanie protokołu SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Korzystanie z tunelowania SSH](hdinsight-linux-ambari-ssh-tunnel.md)
-### [Korzystanie z protokołu SSH z systemów Linux, Unix i OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [Korzystanie z protokołu SSH z systemu operacyjnego Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [Ograniczanie dostępu do danych](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## Zarządzanie
 ### [Tworzenie klastrów systemu Linux](hdinsight-hadoop-provision-linux-clusters.md)
@@ -171,6 +171,8 @@
 ### [Identyfikatory URI oraz porty usługi i klastra](hdinsight-hadoop-port-settings-for-services.md)
 ### [Migracja do narzędzi programistycznych usługi Resource Manager](hdinsight-hadoop-development-using-azure-resource-manager.md)
 ### [Dostępność i niezawodność](hdinsight-high-availability-linux.md)
+### [Uaktualnianie klastra usługi HDInsight do nowszej wersji](hdinsight-upgrade-cluster.md)
+### [Stosowanie poprawek systemu operacyjnego do klastra usługi HDInsight](hdinsight-os-patching.md)
 ## Rozwiązywanie problemów
 ### [Porady dotyczące systemu Linux](hdinsight-hadoop-linux-information.md)
 ### [Informacje o wersji](hdinsight-release-notes.md)
@@ -195,16 +197,7 @@
 # Powiązane
 ## Klastry systemu Windows
 ### [Migrowanie klastrów systemu Windows do klastrów systemu Linux](hdinsight-migrate-from-windows-to-linux.md)
-### [Rozpoczynanie pracy z usługą Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Rozpoczynanie pracy z systemem Storm](hdinsight-apache-storm-tutorial-get-started.md)
-### [Rozpoczynanie pracy z bazą danych HBase](hdinsight-hbase-tutorial-get-started.md)
 ### [Uruchamianie przykładów technologii MapReduce w usłudze Hadoop](hdinsight-run-samples.md)
-### [Tworzenie klastrów Hadoop](hdinsight-provision-clusters.md)
-#### [Korzystanie z witryny Azure Portal](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [Korzystanie z zestawu SDK dla platformy .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Korzystanie z interfejsu wiersza polecenia platformy Azure](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Korzystanie z programu Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Korzystanie z szablonów usługi Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Korzystanie z platformy Solr w klastrach](hdinsight-hadoop-solr-install-linux.md)
 ### [Przetwarzanie dużych wykresów za pomocą systemu Giraph](hdinsight-hadoop-giraph-install.md)
 ### [Korzystanie z technologii Oozie na potrzeby przepływów pracy](hdinsight-use-oozie.md)
@@ -212,7 +205,6 @@
 ### [Konstruowanie aplikacji Java za pomocą narzędzia Maven](hdinsight-hbase-build-java-maven.md)
 ### [Debugowanie zadań Tez przy użyciu interfejsu użytkownika Tez](hdinsight-debug-tez-ui.md)
 ### [Dostosowywanie za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster.md)
-### [Dostępność i niezawodność](hdinsight-high-availability.md)
 ### [Uzyskiwanie dostępu do dzienników aplikacji usługi YARN](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Korzystanie z rozwiązań Apache Phoenix i SQuirreL](hdinsight-hbase-phoenix-squirrel.md)
 ### [Generowanie rekomendacji filmów za pomocą biblioteki Mahout](hdinsight-mahout.md)

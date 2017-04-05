@@ -57,16 +57,19 @@
 #### Rozpoczęcie pracy
 ##### [C# w systemie Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java w systemie Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Cykl życia usług Reliable Services](service-fabric-reliable-services-lifecycle.md)
+#### [Cykl życia usług Reliable Services — C#](service-fabric-reliable-services-lifecycle.md)
+#### [Cykl życia usług Reliable Services — Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Niezawodne kolekcje](service-fabric-reliable-services-reliable-collections.md)
 #### [Korzystanie z elementów Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Konfigurowanie](service-fabric-reliable-services-configuration.md)
 #### [Powiadomienia](service-fabric-reliable-services-notifications.md)
 #### [Tworzenie kopii zapasowej i przywracanie](service-fabric-reliable-services-backup-restore.md)
 #### [Komunikacja przy użyciu usług Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Bezpieczna komunikacja przy użyciu usług Reliable Services](service-fabric-reliable-services-secure-communication.md)
+#### [Bezpieczna komunikacja przy użyciu usług Reliable Services — C#](service-fabric-reliable-services-secure-communication.md)
+#### [Bezpieczna komunikacja przy użyciu usług Reliable Services — Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Zdalna komunikacja usług](service-fabric-reliable-services-communication-remoting.md)
+##### [Zdalna komunikacja usług — C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Zdalna komunikacja usług — Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Odwrotny serwer proxy](service-fabric-reverseproxy.md)
 #### [Użycie zaawansowane](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Zarządzanie klastrem przy użyciu interfejsu wiersza polecenia platformy Azure](service-fabric-azure-cli.md) 
 #### [Zabezpieczanie klastra](service-fabric-cluster-security.md)
 #### [Odzyskiwanie po awarii](service-fabric-disaster-recovery.md)
+#### [Różnice między funkcjami systemów Linux i Windows](service-fabric-linux-windows-differences.md)
 
 ### Klastry na platformie Azure
 #### Tworzenie klastra na platformie Azure

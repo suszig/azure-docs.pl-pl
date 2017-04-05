@@ -3,7 +3,7 @@ title: "Wdrażanie aplikacji ASP.NET na platformie Azure przy użyciu programu V
 description: "Dowiedz się, jak wdrożyć projekt sieci Web ASP.NET w nowej aplikacji sieci Web w usłudze Azure App Service przy użyciu programu Visual Studio."
 services: app-service\web
 documentationcenter: .net
-author: tdykstra
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 12/16/2016
-ms.author: rachelap
+ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
-ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 93107d19e1814b30d69fc12c92b544d9760bda6a
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -50,7 +50,7 @@ Oprócz czasu wymaganego do zainstalowania zestawu Azure SDK dla programu .NET w
   
     Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/). W tej lokalizacji możesz utworzyć początkową aplikację o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
 
-## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Konfigurowanie środowiska projektowego
+## <a name="setupdevenv"></a>Konfigurowanie środowiska projektowego
 Samouczek jest przeznaczony dla programu Visual Studio 2015 z [zestawem Azure SDK dla programu .NET](../dotnet-sdk.md) w wersji 2.9 lub nowszej. 
 
 * [Pobierz najnowszy zestaw Azure SDK dla programu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Zestaw SDK instaluje program Visual Studio 2015, jeśli jest to konieczne.
@@ -189,8 +189,6 @@ W tej sekcji pokazano, jak wdrożyć projekt sieci Web w zasobie aplikacji sieci
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Jeśli wystąpi problem podczas korzystania z tego samouczka, upewnij się, że używasz najnowszej wersji zestawu Azure SDK dla platformy .NET. Najłatwiejszym sposobem wykonania tego zadania jest [pobranie zestawu Azure SDK dla programu Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Jeśli masz zainstalowaną bieżącą wersję, Instalator platformy sieci Web potwierdzi, że instalacja nie jest wymagana.
-
-Jeśli korzystasz z komputera działającego w sieci firmowej i próbujesz przeprowadzić wdrożenie w usłudze Azure App Service przez zaporę, upewnij się, że porty 443 i 8172 są otwarte dla narzędzia Web Deploy. Jeśli nie możesz otworzyć tych portów, skorzystaj z innych opcji wdrażania z sekcji Następne kroki.
 
 Po uruchomieniu aplikacji sieci Web programu ASP.NET w usłudze Azure App Service warto dowiedzieć się więcej na temat funkcji programu Visual Studio ułatwiających rozwiązywanie problemów. Aby uzyskać informacje na temat rejestrowania, zdalnego debugowania i innych funkcji, zobacz [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md) (Rozwiązywanie problemów z aplikacjami sieci Web platformy Azure w programie Visual Studio).
 
