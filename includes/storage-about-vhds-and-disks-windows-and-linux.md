@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Trwałość dysku 
-
-W poniższej tabeli przedstawiono różne stany dla różnych dysków w maszynach wirtualnych platformy Azure i informacje o tym, czy dane w poszczególnych stanach są utrwalane, czy nie.
-
-| Dysk | Uruchamianie | Zatrzymywanie/<br>cofanie przydziału | Wstrzymaj | Ponowny<br>rozruch | Zamykanie/<br>wyłączanie | Usuwanie | Niepowodzenie | Zmiana rozmiaru | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| Dysk systemu operacyjnego | Tak | Tak  | Tak | Tak | Tak  | Nie | Nie  | Tak | 
-| Pamięć RAM  | Tak | Tak | Tak | Tak | Nie   | Nie | Nie | Nie | 
-| Lokalny dysk tymczasowy | Tak | Nie | Tak | Nie | Nie  | Nie | Nie | Nie | 
-| Dołączony dysk danych | Tak | Tak | Tak | Tak | Tak  | Tak | Tak | Tak | 
 
 ## <a name="about-vhds"></a>Informacje o wirtualnych dyskach twardych
 
@@ -41,7 +31,7 @@ Magazyn Premium Storage bazuje na dyskach półprzewodnikowych (SSD) i oferuje d
 
 ### <a name="unmanaged-disks"></a>Dyski niezarządzane
 
-Dyski niezarządzane to tradycyjny typ dysków używany przez maszyny wirtualne. Za ich pomocą tworzy się własne konto magazynu, które wskazuje się podczas tworzenia dysku. Musisz upewnić się, że nie umieszczasz zbyt wielu dysków na tym samym koncie magazynu, ponieważ możesz przekroczyć [cele skalowalności](../articles/storage/storage-scalability-targets.md) konta magazynu (np.&20; 000 IOPS), przez co wydajność maszyn wirtualnych będzie ograniczona. Gdy korzystasz z dysków niezarządzanych, musisz opracować sposób zmaksymalizowania użycia jednego lub większej liczby kont magazynu w celu uzyskania najlepszej wydajności maszyn wirtualnych.
+Dyski niezarządzane to tradycyjny typ dysków używany przez maszyny wirtualne. Za ich pomocą tworzy się własne konto magazynu, które wskazuje się podczas tworzenia dysku. Musisz upewnić się, że nie umieszczasz zbyt wielu dysków na tym samym koncie magazynu, ponieważ możesz przekroczyć [cele skalowalności](../articles/storage/storage-scalability-targets.md) konta magazynu (np. 20 000 IOPS), przez co wydajność maszyn wirtualnych będzie ograniczona. Gdy korzystasz z dysków niezarządzanych, musisz opracować sposób zmaksymalizowania użycia jednego lub większej liczby kont magazynu w celu uzyskania najlepszej wydajności maszyn wirtualnych.
 
 ### <a name="managed-disks"></a>Dyski zarządzane 
 
@@ -63,7 +53,3 @@ Poniższa tabela zawiera porównanie warstw Premium i Standardowa dla dysków ni
 | Rozmiar dysku | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Dyski niezarządzane: 1 GB–1 TB <br><br>Dyski zarządzane:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Maksymalna przepływność na dysk | 200 MB/s | 60 MB/s |
 | Maksymalna liczba operacji wejścia/wyjścia na dysk | 5000 IOPS | 500 IOPS |
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ Dysk danych można dodać do zestawu skalowania maszyn wirtualnych przy użyciu 
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> Różne rozmiary maszyn wirtualnych mają różne limity dotyczące obsługiwanej przez nie liczby dysków dołączonych. Przed dodaniem nowego dysku zapoznaj się z [charakterystyką rozmiarów maszyn wirtualnych](../virtual-machines/virtual-machines-windows-sizes.md).
+> Różne rozmiary maszyn wirtualnych mają różne limity dotyczące obsługiwanej przez nie liczby dysków dołączonych. Przed dodaniem nowego dysku zapoznaj się z [charakterystyką rozmiarów maszyn wirtualnych](../virtual-machines/windows/sizes.md).
 
 Dysk można również dodać przez dodanie nowego wpisu do właściwości _dataDisks_ w obszarze _storageProfile_ definicji zestawu skalowania i przez zastosowanie tej zmiany. Aby to przetestować, odszukaj istniejącą definicję zestawu skalowania w [Eksploratorze zasobów Azure](https://resources.azure.com/). Wybierz pozycję _Edytuj_ i dodaj nowy dysk do listy dysków danych. Na przykład przy użyciu powyższego przykładu:
 ```json
@@ -106,10 +107,5 @@ We wstępnej implementacji obsługi dysków dołączonych dla zestawów skalowan
 
 W witrynie Azure Portal obsługa dołączonych dysków danych w zestawach skalowania jest wstępnie ograniczona. W zależności od wymagań można zarządzać dyskami dołączonymi przy użyciu szablonów platformy Azure, interfejsu wiersza polecenia, programu PowerShell, zestawów SDK oraz interfejsu API REST.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

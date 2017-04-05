@@ -17,7 +17,7 @@ Wystąpienia NC są obsługiwane przez kartę Tesla K80 firmy NVIDIA. Użytkowni
 
 **Obsługiwane systemy operacyjne**
 
-* Windows Server 2016, Windows Server 2012 R2 — zobacz artykuł [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Windows)
+* Windows Server 2016, Windows Server 2012 R2 — zobacz artykuł [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Windows)
 
 ## <a name="nc-instances"></a>Wystąpienia NC
 
@@ -34,8 +34,8 @@ Wystąpienia NC są obsługiwane przez kartę Tesla K80 firmy NVIDIA. Użytkowni
 
 **Obsługiwane systemy operacyjne**
 
-* Windows Server 2016, Windows Server 2012 R2 — zobacz artykuł [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Windows)
-* Ubuntu 16.04 LTS — zobacz artykuł [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Linux)
+* Windows Server 2016, Windows Server 2012 R2 — zobacz artykuł [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Windows)
+* Ubuntu 16.04 LTS — zobacz artykuł [N-series driver setup for Linux](../articles/virtual-machines/linux/n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Linux)
 
 <br>
 

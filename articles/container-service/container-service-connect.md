@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +35,7 @@ W przypadku klastrów DC/OS i Docker Swarm musisz utworzyć tunel Secure Shell (
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Klaster Kubernetes, DC/OS lub Swarm [wdrożony w usłudze Azure Container Service](container-service-deployment.md).
-* Plik klucza prywatnego SSH RSA odpowiadający kluczowi publicznemu dodanemu do klastra podczas wdrażania. Te polecenia zakładają, że prywatny klucz SSH znajduje się w folderu `$HOME/.ssh/id_rsa` na komputerze. Zobacz te instrukcje dla systemów [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md), aby uzyskać więcej informacji. Jeśli połączenie SSH nie działa, konieczne może być [zresetowanie kluczy SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* Plik klucza prywatnego SSH RSA odpowiadający kluczowi publicznemu dodanemu do klastra podczas wdrażania. Te polecenia zakładają, że prywatny klucz SSH znajduje się w folderu `$HOME/.ssh/id_rsa` na komputerze. Zobacz te instrukcje dla systemów [OS X i Linux](../virtual-machines/linux/mac-create-ssh-keys.md) lub [Windows](../virtual-machines/linux/ssh-from-windows.md), aby uzyskać więcej informacji. Jeśli połączenie SSH nie działa, konieczne może być [zresetowanie kluczy SSH](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Nawiązywanie połączenia z klastrem Kubernetes
 
