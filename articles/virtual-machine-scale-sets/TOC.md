@@ -4,6 +4,7 @@
 # Wprowadzenie
 ## [Wdrażanie zestawu skalowania w portalu](virtual-machine-scale-sets-portal-create.md)
 ## [Wdrażanie zestawu skalowania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
+## [Wdrażanie automatycznie skalowanej aplikacji przy użyciu szablonu](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Instrukcje
 ## Planowanie i projektowanie

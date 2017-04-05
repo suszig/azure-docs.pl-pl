@@ -4,9 +4,9 @@ hide_bc: true
 title: Dokumentacja platformy Microsoft Azure | Microsoft Docs
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1dc4b5b0613a76a90c566dedf3ff41be1f68f744
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24a921e6ccb73d3092e774243d51085f2d7835b9
+ms.lasthandoff: 03/31/2017
 
 ---
 <div id="main" class="v2">
@@ -522,6 +522,12 @@ ms.lasthandoff: 03/22/2017
                                             <a href="/azure/advisor">
                                                 <img src="media/index/advisor.svg" alt="" />
                                                 <p>Azure Advisor</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/resource-health">
+                                                <img src="media/index/resource-health.svg" alt="" />
+                                                <p>Azure Resource Health</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2341,6 +2347,25 @@ ms.lasthandoff: 03/22/2017
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
                                                     <p>Popraw efektywność kosztową, wydajność, wysoką dostępność i bezpieczeństwo zasobów platformy Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/resource-health/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/resource-health.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Resource Health</h3>
+                                                    <p>Ułatwia diagnozowanie i uzyskanie pomocy technicznej, gdy problem z platformą Azure ma wpływ na zasoby</p>
                                                 </div>
                                             </div>
                                         </div>

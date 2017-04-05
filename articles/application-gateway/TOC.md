@@ -1,13 +1,14 @@
 # Omówienie
 ## [Co to jest usługa Application Gateway?](application-gateway-introduction.md)
 ## [Application Gateway FAQ](application-gateway-faq.md) (Często zadawane pytania dotyczące usługi Application Gateway)
-## [Zapora aplikacji sieci Web](application-gateway-webapplicationfirewall-overview.md)
+## [Zapora aplikacji sieci Web](application-gateway-web-application-firewall-overview.md)
+### [Podstawowe zestawy reguł i reguły](application-gateway-crs-rulegroups-rules.md)
 ## [Monitorowanie kondycji](application-gateway-probe-overview.md)
 ## [Routing adresów URL](application-gateway-url-route-overview.md)
 ## [Wiele witryn](application-gateway-multi-site-overview.md)
 ## [Kompleksowa usługa SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Limity usługi](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Limity usługi](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Rozpoczęcie pracy
 ## Tworzenie bramy aplikacji
 ### Użytek publiczny
@@ -22,7 +23,9 @@
 # Instrukcje
 ## Konfigurowanie zapory aplikacji sieci Web
 ### [Portal](application-gateway-web-application-firewall-portal.md)
-### [Program PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## Dostosowywanie reguł zapory aplikacji sieci Web
+### [Portal](application-gateway-customize-waf-rules-portal.md)
 ## Konfigurowanie odciążania SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)

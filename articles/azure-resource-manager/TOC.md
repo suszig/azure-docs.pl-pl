@@ -46,11 +46,12 @@
 ### [Zagadnienia związane z zabezpieczeniami](best-practices-resource-manager-security.md)
 ## Ustawianie zasad zasobów
 ### [Co to są zasady zasobów?](resource-manager-policy.md)
-### [Przypisywanie zasad i zarządzanie nimi](resource-manager-policy-create-assign.md)
+### [Przypisanie zasad portalu](resource-manager-policy-portal.md)
+### [Przypisanie zasad skryptu](resource-manager-policy-create-assign.md)
 ### [Zasady tagów zasobów](resource-manager-policy-tags.md)
 ### [Zasady magazynu](resource-manager-policy-storage.md)
-### [Zasady maszyn wirtualnych z systemem Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Zasady maszyn wirtualnych z systemem Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zasady maszyn wirtualnych z systemem Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Zasady maszyn wirtualnych z systemem Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Przeprowadzanie inspekcji i rozwiązywanie problemów
 ### [Rozwiązywanie typowych błędów związanych z wdrażaniem](resource-manager-common-deployment-errors.md)
 ### [Wyświetlanie dzienników aktywności](resource-group-audit.md)
