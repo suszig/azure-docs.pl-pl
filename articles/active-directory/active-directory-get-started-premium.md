@@ -3,8 +3,8 @@ title: "Wprowadzenie do usługi Azure Active Directory — wersja Premium"
 description: "Temat opisujący tworzenie konta w usłudze Azure Active Directory — wersja Premium za pośrednictwem witryny sieci Web licencjonowania zbiorowego."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: curtand
+author: curtand
+manager: femila
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services
