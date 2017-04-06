@@ -3,7 +3,7 @@ title: "Administrowanie katalogiem usługi Azure AD | Microsoft Docs"
 description: "Wyjaśnienia dotyczące pojęcia „dzierżawa usługi Azure AD” i zarządzania nią za pomocą usługi Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: curtand
 writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
@@ -12,8 +12,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/11/2017
-ms.author: markvi
+ms.date: 04/06/2017
+ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
