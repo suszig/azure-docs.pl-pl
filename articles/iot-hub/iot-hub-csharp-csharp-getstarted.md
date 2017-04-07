@@ -196,7 +196,7 @@ Ta sekcja zawiera instrukcje dotyczÄ…ce tworzenia aplikacji konsolowej .NET, ktÃ
                 await deviceClient.SendEventAsync(message);
                 Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
    
-                Task.Delay(1000).Wait();
+                await Task.Delay(1000);
             }
         }
    
