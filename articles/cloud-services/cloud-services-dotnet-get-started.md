@@ -143,7 +143,7 @@ Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
     Jeśli usługa w chmurze i baza danych są obsługiwane w różnych centrach danych (różnych regionach), zwiększy się opóźnienie i będą naliczane opłaty dotyczące przepustowości poza centrum danych. Przepustowość w centrum danych jest bezpłatna.
 5. Wprowadź wartość **Nazwa logowania** i **Hasło** dla administratora.
 
-    W przypadku wybrania opcji **	Nowy serwer SQL Database** w tym miejscu nie wprowadzasz istniejącej nazwy i hasła — podajesz nową nazwę i hasło definiowane w tej chwili do użycia w przyszłości podczas uzyskiwania dostępu do bazy danych. W przypadku wybrania wcześniej utworzonego serwera zostanie wyświetlony monit o hasło do już utworzonego konta użytkownika administracyjnego.
+    W przypadku wybrania opcji **Nowy serwer SQL Database** w tym miejscu nie wprowadzasz istniejącej nazwy i hasła — podajesz nową nazwę i hasło definiowane w tej chwili do użycia w przyszłości podczas uzyskiwania dostępu do bazy danych. W przypadku wybrania wcześniej utworzonego serwera zostanie wyświetlony monit o hasło do już utworzonego konta użytkownika administracyjnego.
 6. Kliknij przycisk **Utwórz bazę danych SQL Database**.
 
     ![Nowa baza danych SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)
