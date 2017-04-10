@@ -1,0 +1,268 @@
+- name: "Dokumentacja usługi Web Apps"
+  href: index.md
+- name: "Omówienie"
+  items:
+  - name: "Informacje o usłudze Web Apps"
+    href: app-service-web-overview.md
+  - name: "Porównanie opcji hostingu"
+    href: choose-web-site-cloud-service-vm.md
+- name: "Szybki start"
+  expanded: true
+  items:
+  - name: "Tworzenie aplikacji .NET"
+    href: app-service-web-get-started-dotnet.md
+  - name: "Tworzenie aplikacji Node.js"
+    href: app-service-web-get-started-nodejs.md
+  - name: "Tworzenie aplikacji PHP"
+    href: app-service-web-get-started-php.md
+  - name: "Tworzenie aplikacji Java"
+    href: app-service-web-get-started-java.md
+  - name: "Tworzenie aplikacji Python"
+    href: app-service-web-get-started-python.md
+  - name: "Tworzenie statycznej witryny HTML"
+    href: app-service-web-get-started-html.md
+- name: "Przykłady"
+  items:
+  - name: "Interfejs wiersza polecenia platformy Azure"
+    href: app-service-cli-samples.md
+  - name: "PowerShell"
+    href: app-service-powershell-samples.md
+- name: "Samouczki"
+  items:
+  - name: "Platforma .NET z usługą SQL Database"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "Środowisko Node.js z bazą danych MongoDB"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+- name: "Pojęcia"
+  items:
+  - name: "Jak działa usługa App Service"
+    href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+  - name: "Plany usługi App Service"
+    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+  - name: "Środowiska usługi App Service"
+    href: app-service-app-service-environment-intro.md
+  - name: "Uwierzytelnianie i autoryzacja"
+    href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+  - name: "Uwierzytelnianie za pomocą lokalnej usługi AD"
+    href: web-sites-authentication-authorization.md
+- name: "Przewodniki z instrukcjami"
+  items:
+  - name: "Opracowywanie aplikacji"
+    items:
+    - name: "ASP.NET"
+      items:
+      - name: "Aplikacja ASP.NET z usługą SQL Database"
+        href: web-sites-dotnet-get-started.md
+      - name: "Opracowywanie aplikacji ASP.NET Core przy użyciu kodu programu VS"
+        href: web-sites-create-web-app-using-vscode.md
+    - name: "PHP"
+      items:
+      - name: "Aplikacja Laravel z rozwiązaniem MySQL"
+        href: app-service-web-php-get-started.md
+      - name: "Konfigurowanie projektu języka PHP"
+        href: web-sites-php-configure.md
+      - name: "Konfigurowanie witryny WordPress z obsługą wielu lokacji"
+        href: web-sites-php-convert-wordpress-multisite.md
+    - name: "Node.js"
+      items:
+      - name: "Aplikacja Sails.js z bazą danych NOSQL"
+        href: app-service-web-nodejs-sails.md
+      - name: "Używanie platformy io.js"
+        href: web-sites-nodejs-iojs.md
+      - name: "Debugowanie aplikacji Node.js"
+        href: web-sites-nodejs-debug.md
+    - name: "Java"
+      items:
+      - name: "Aplikacja Java ze środowiskiem Eclipse"
+        href: app-service-web-eclipse-create-hello-world-web-app.md
+      - name: "Aplikacja Java ze środowiskiem IntelliJ"
+        href: app-service-web-intellij-create-hello-world-web-app.md
+      - name: "Korzystanie z zestawu Azure SDK dla języka Java"
+        href: java-create-azure-website-using-java-sdk.md
+      - name: "Przekazywanie istniejącej aplikacji"
+        href: web-sites-java-add-app.md
+      - name: "Zdalne debugowanie środowiska Eclipse"
+        href: app-service-web-debug-java-web-app-in-eclipse.md
+      - name: "Zdalne debugowanie środowiska IntelliJ"
+        href: app-service-web-debug-java-web-app-in-intellij.md
+    - name: "Python"
+      items:
+      - name: "Aplikacja Django z rozwiązaniem MySQL"
+        href: web-sites-python-ptvs-django-mysql.md
+    - name: "Wysyłanie wiadomości e-mail za pomocą usługi SendGrid"
+      href: sendgrid-dotnet-how-to-send-email.md
+    - name: "Konfigurowanie środowiska uruchomieniowego"
+      items:
+      - name: "Środowisko PHP w systemie Windows"
+        href: web-sites-php-configure.md
+      - name: "Java"
+        href: web-sites-java-add-app.md
+      - name: "Środowisko Node.js w systemie Linux"
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: "Python"
+        href: web-sites-python-configure.md
+    - name: "Konfigurowanie aplikacji"
+      items:
+      - name: "Używanie ustawień aplikacji"
+        href: web-sites-configure.md
+  - name: "Wdrażanie na platformie Azure"
+    href: web-sites-deploy.md
+    items:
+    - name: "Wdrażanie przy użyciu protokołu FTP"
+      href: app-service-deploy-content-sync.md
+    - name: "Wdrażanie za pośrednictwem synchronizacji chmury"
+      href: web-sites-deploy.md
+    - name: "Ciągłe wdrażanie"
+      href: app-service-continuous-deployment.md
+    - name: "Wdrażanie w środowisku przejściowym"
+      href: web-sites-staged-publishing.md
+    - name: "Wdrażanie z lokalnego wdrożenia narzędzia Git"
+      href: app-service-deploy-local-git.md
+    - name: "Wdrażanie za pomocą szablonu"
+      href: app-service-deploy-complex-application-predictably.md
+    - name: "Wdrożenie elastyczne"
+      href: app-service-agile-software-development.md
+    - name: "Testowanie wersji beta"
+      href: app-service-web-test-in-production-controlled-test-flight.md
+    - name: "Konfigurowanie poświadczeń wdrożenia"
+      href: app-service-deployment-credentials.md
+    - name: "Mapowanie domeny niestandardowej"
+      items:
+      - name: "Kupowanie domeny"
+        href: custom-dns-web-site-buydomains-web-app.md
+      - name: "Mapowanie domeny innej firmy"
+        href: web-sites-custom-domain-name.md
+      - name: "Mapowanie domen za pomocą usługi Traffic Manager"
+        href: web-sites-traffic-manager-custom-domain-name.md
+      - name: "Mapowanie domen GoDaddy"
+        href: web-sites-godaddy-custom-domain-name.md
+      - name: "Migrowanie aktywnej domeny"
+        href: app-service-custom-domain-name-migrate.md
+    - name: "Migrowanie z programu IIS"
+      href: web-sites-migration-from-iis-server.md
+    - name: "Testowanie w produkcji"
+      href: app-service-web-test-in-production-get-start.md
+    - name: "Dodawanie funkcji do aplikacji sieci Web"
+      href: app-service-web-get-started-2.md
+  - name: "Nawiązywanie połączenia z bazą danych/zasobami"
+    items:
+    - name: "Nawiązywanie połączenia z danymi lokalnymi"
+      href: web-sites-hybrid-connection-get-started.md
+    - name: "Nawiązywanie połączenia z siecią wirtualną platformy Azure"
+      href: web-sites-integrate-with-vnet.md
+    - name: "Nawiązywanie połączenia z siecią wirtualną platformy Azure przy użyciu programu PowerShell"
+      href: app-service-vnet-integration-powershell.md
+    - name: "Nawiązywanie połączenia z bazą danych MongoDB na maszynie wirtualnej platformy Azure"
+      href: web-sites-dotnet-store-data-mongodb-vm.md
+  - name: "Zabezpieczanie aplikacji"
+    items:
+    - name: "Uwierzytelnianie użytkowników"
+      items:
+      - name: "Uwierzytelnianie za pomocą usługi Azure AD"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Uwierzytelnianie za pomocą usługi Facebook"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Uwierzytelnianie za pomocą usługi Google"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Uwierzytelnianie za pomocą konta Microsoft"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Uwierzytelnianie za pomocą usługi Twitter"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Uwierzytelnianie za pomocą lokalnej usługi AD"
+        href: web-sites-authentication-authorization.md
+      - name: "Aplikacja z wielodostępną bazą danych"
+        href: web-sites-dotnet-entity-framework-row-level-security.md
+    - name: "Przypisywanie niestandardowego połączenia SSL"
+      items:
+      - name: "Kupowanie certyfikatu SSL"
+        href: web-sites-purchase-ssl-web-site.md
+      - name: "Konfigurowanie certyfikatu SSL innej firmy"
+        href: web-sites-configure-ssl-certificate.md
+    - name: "Wymuszanie protokołu HTTPS"
+      href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
+    - name: "Konfigurowanie wzajemnego uwierzytelniania protokołu TLS"
+      href: app-service-web-configure-tls-mutual-auth.md
+  - name: "Skalowanie aplikacji"
+    items:
+    - name: "Skalowanie w górę"
+      href: web-sites-scale.md
+    - name: "Skalowanie w poziomie"
+      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: "Równoważenie obciążenia za pomocą usługi Traffic Manager"
+      href: web-sites-traffic-manager.md
+    - name: "Uzyskiwanie dużej skali przy użyciu środowisk usługi App Service"
+      href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: "Używanie usługi Azure CDN w celu uzyskania zasięgu globalnego"
+      href: cdn-websites-with-cdn.md
+    - name: "Nawiązywanie połączenia z pamięcią podręczną Redis Cache za pośrednictwem protokołu Memcache"
+      href: web-sites-connect-to-redis-using-memcache-protocol.md
+    - name: "Tworzenie pamięci podręcznej Redis Cache"
+      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: "Zarządzanie stanem sesji dzięki usłudze Azure Redis Cache"
+      href: web-sites-dotnet-session-state-caching.md
+  - name: "Monitorowanie"
+    items:
+    - name: "Monitorowanie aplikacji"
+      href: web-sites-monitor.md
+    - name: "Włączanie dzienników"
+      href: web-sites-enable-diagnostic-log.md
+    - name: "Strumieniowe przesyłanie dzienników"
+      href: web-sites-streaming-logs-and-console.md
+  - name: "Wykonywanie kopii zapasowej zawartości"
+    items:
+    - name: "Wykonywanie kopii zapasowej aplikacji"
+      href: web-sites-backup.md
+    - name: "Przywracanie aplikacji z kopii zapasowej"
+      href: web-sites-restore.md
+    - name: "Wykonywanie kopii zapasowej przy użyciu interfejsu API REST"
+      href: websites-csm-backup.md
+  - name: "Zarządzanie zasobami aplikacji"
+    items:
+    - name: "Klonowanie aplikacji za pomocą programu PowerShell"
+      href: app-service-web-app-cloning.md
+    - name: "Klonowanie aplikacji za pomocą portalu"
+      href: app-service-web-app-cloning-portal.md
+    - name: "Przenoszenie zasobów"
+      href: app-service-move-resources.md
+    - name: "Użycie usługi Azure Resource Manager z programem PowerShell"
+      href: app-service-web-app-azure-resource-manager-powershell.md
+    - name: "Zarządzanie aplikacjami za pomocą usługi Azure Automation"
+      href: automation-manage-web-app.md
+- name: "Dokumentacja"
+  items:
+  - name: "Interfejs wiersza polecenia 2.0"
+    href: /cli/azure/appservice
+  - name: "PowerShell"
+    href: /powershell
+  - name: "Interfejs API REST"
+    href: /rest/api/appservice/
+- name: "Zasoby"
+  items:
+  - name: "Rozwiązywanie problemów"
+    items:
+    - name: "Rozwiązywanie problemów z programem Visual Studio"
+      href: web-sites-dotnet-troubleshoot-visual-studio.md
+    - name: "Rozwiązywanie problemów z aplikacją Node.js"
+      href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
+    - name: "Rozwiązywanie problemów związanych z błędami HTTP 502 i 503"
+      href: app-service-web-troubleshoot-http-502-http-503.md
+    - name: "Rozwiązywanie problemów z wydajnością"
+      href: app-service-web-troubleshoot-performance-degradation.md
+  - name: "Cennik"
+    href: https://azure.microsoft.com/pricing/details/app-service/
+  - name: "Informacje o limitach przydziału"
+    href: ../azure-subscription-service-limits.md#app-service-limits
+  - name: "Aktualizacje usług i informacje o wersji"
+    href: https://azure.microsoft.com/updates/?product=app-service
+  - name: "Najlepsze praktyki"
+    href: app-service-best-practices.md
+  - name: "Przykłady"
+    href: https://azure.microsoft.com/resources/samples/?service=app-service
+  - name: "Filmy wideo"
+    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+  - name: "Podręczniki"
+    items:
+    - name: "Architektury referencyjne"
+      href: ../guidance/guidance-ra-app-service.md
+    - name: "Skrypty wdrażania"
+      href: https://azure.microsoft.com/documentation/scripts/
