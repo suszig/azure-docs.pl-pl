@@ -3,8 +3,8 @@ title: "Konfigurowanie środowiska projektowego w systemie Mac OS X | Microsoft 
 description: "Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji w systemie Mac OS X."
 services: service-fabric
 documentationcenter: java
-author: saysa
-manager: raunakp
+author: sayantancs
+manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/27/2016
+ms.date: 04/06/2017
 ms.author: saysa
 translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
@@ -51,7 +51,7 @@ Aby utworzyć lokalną maszynę wirtualną zawierającą pięciowęzłowy klaste
     ```
     Ten krok spowoduje pobranie pliku `Vagrantfile` zawierającego konfigurację maszyny wirtualnej wraz z lokalizacją, z której jest pobierana maszyna wirtualna.
 
-   
+
 2. Przejdź do lokalnego klona repozytorium.
 
     ```bash
