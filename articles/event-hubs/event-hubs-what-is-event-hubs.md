@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 55cc1559189a37741d866d86241426fb73f72e4f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,7 +34,7 @@ Możliwości obsługi zdarzeń i telemetrii w usłudze Event Hubs czynią ją sz
 Usługa Event Hubs umożliwia także śledzenie zachowania w aplikacjach mobilnych, gromadzenie informacji o ruchu z farmy serwerów sieci Web, przechwytywanie zdarzeń w grach na konsole i zbieranie danych telemetrycznych z maszyn przemysłowych bądź podłączonych pojazdów.
 
 ## <a name="azure-event-hubs-overview"></a>Omówienie usługi Azure Event Hubs
-Typową rolą pełnioną przez usługę Event Hubs w architekturze rozwiązań są „drzwi wejściowe” dla potoku zdarzeń. Jest ona często nazywana *systemem zbierania zdarzeń*. System zbierania zdarzeń to składnik lub usługa, która znajduje się między wydawcami zdarzeń, a ich odbiorcami. Jego rolą jest oddzielenie procesu tworzenia strumienia zdarzeń od użycia tych zdarzeń.
+Typową rolą pełnioną przez usługę Event Hubs w architekturze rozwiązań są „drzwi wejściowe” dla potoku zdarzeń. Jest ona często nazywana *systemem zbierania zdarzeń*. System zbierania zdarzeń to składnik lub usługa, która znajduje się między wydawcami zdarzeń, a ich odbiorcami. Jego rolą jest oddzielenie procesu tworzenia strumienia zdarzeń od użycia tych zdarzeń. Tę architekturę przedstawiono na poniższym rysunku:
 
 ![Usługa Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
@@ -104,6 +104,8 @@ Oto przykłady konwencji identyfikatora URI grupy odbiorców:
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
+
+Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usługi Event Hubs:
 
 ![Usługa Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 

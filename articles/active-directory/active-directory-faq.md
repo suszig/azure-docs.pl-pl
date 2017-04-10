@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 23c49393a115d9cd0ac3a1b0f146e9dcc780347e
-ms.openlocfilehash: 42be5d71d8f22a2eb06f7ca0ebd4c33fb3d8bebe
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -137,6 +138,16 @@ W przypadku kont usługi Azure AD administratorzy mogą zresetować hasło w jed
 
 
 - - -
+## <a name="security"></a>Bezpieczeństwo
+**Pytanie: czy konta są blokowane po określonej liczbie nieudanych prób, czy jest stosowana bardziej zaawansowana strategia?**</br>
+Korzystamy z bardziej zaawansowanej strategii blokowania kont.  Jest ona oparta na adresie IP żądania i wprowadzonym haśle. Czas trwania blokady wydłuża się też w zależności od stopnia prawdopodobieństwa ataku.  
+
+**Pytanie: niektóre (typowe) hasła są odrzucane i jest wyświetlany komunikat z informacją o tym, że hasło zostało użyte zbyt wiele razy. Czy dotyczy to haseł używanych w bieżącej usłudze Active Directory?**</br>
+Dotyczy to typowych haseł występujących globalnie, takich jak różne odmiany ciągów „Hasło” i „123456”.
+
+**Pytanie: czy żądanie logowania z podejrzanych źródeł (botnety, punkt końcowy sieci Tor) zostanie zablokowane w dzierżawie B2C, czy wymaga to dzierżawy w warstwie Podstawowa lub Premium?**</br>
+Oferujemy bramę, która filtruje żądania i zapewnia ochronę przed botnetami. Jest ona stosowana we wszystkich dzierżawach B2C. 
+
 ## <a name="application-access"></a>Dostęp do aplikacji
 **Pytanie: gdzie mogę znaleźć listę aplikacji, które są wstępnie zintegrowane z usługą Azure AD i jej funkcjami?**
 
@@ -202,9 +213,4 @@ Aby uzyskać więcej informacji, zobacz [Automate User Provisioning and Deprovis
 **Pytanie: czy mogę skonfigurować bezpieczne połączenie LDAP z usługą Azure AD?**
 
 **Odpowiedź:** nie.  Usługa Azure AD nie obsługuje protokołu LDAP.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

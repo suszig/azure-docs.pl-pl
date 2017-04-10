@@ -15,24 +15,20 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 98f592ca96d8c332d7cb99679e1ef3834f84a095
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 5fee3d1fed507684b73dc5bb3b6b08014329ace1
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="onedrive-for-business-and-azure-remoteapp"></a>Usługi OneDrive dla Firm i Azure RemoteApp
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
 Agent synchronizacji usługi OneDrive dla Firm nie działa z usługą Azure RemoteApp.
 
 Usługę OneDrive dla Firm możesz umieścić wewnątrz kolekcji do użycia z usługą Office 365. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

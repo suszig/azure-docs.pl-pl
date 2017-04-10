@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -61,6 +61,7 @@ Usługa Site Recovery może replikować dowolną aplikację uruchomioną na obs�
 | Dynamics CRM |Tak |Wkrótce |Tak |Wkrótce |
 | Oracle |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |
 | Serwer plików systemu Windows |Tak |Tak |Tak |Tak |
+| Citrix XenApp i XenDesktop |Nie dotyczy |Tak |Nie dotyczy |Tak |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikacja usługi Active Directory i DNS
 Usługa Active Directory i infrastruktura DNS są istotne dla większości aplikacji firmowych. Podczas odzyskiwania po awarii należy zabezpieczyć i odzyskać te składniki infrastruktury przed odzyskaniem obciążeń i aplikacji.
@@ -143,6 +144,17 @@ Usługa Azure Site Recovery zapewnia odzyskiwanie po awarii przez replikowanie k
 -    Możliwość testowania planów odzyskiwania w izolowanym środowisku na potrzeby próbnego odzyskiwania po awarii.
 
 [Dowiedz się więcej](https://aka.ms/asr-iis) o ochronie farmy sieci Web usług IIS.
+
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>Ochrona programów Citrix XenApp i XenDesktop
+Aby chronić wdrożenia programów Citrix XenApp i XenDesktop, korzystaj z usługi Site Recovery w następujący sposób:
+
+* Włącz ochronę wdrożenia programów Citrix XenApp i XenDesktop przez replikowanie różnych warstw wdrożenia (serwer AD DNS, serwer bazy danych SQL, kontroler dostarczania Citrix, serwer StoreFront, XenApp Master (VDA), serwer licencji Citrix XenApp) do platformy Azure.
+* Skorzystaj z uproszczenia migracji do chmury, używając usługi Site Recovery do migrowania wdrożenia programów Citrix XenApp i XenDesktop do platformy Azure.
+* Ułatw projektowanie i testowanie wdrożenia Citrix XenApp/XenDesktop przez tworzenie na żądanie kopii środowiska przypominającej środowisko produkcyjne, co umożliwia testowanie i debugowanie.
+* To rozwiązanie ma zastosowanie tylko w przypadku pulpitów wirtualnych systemu operacyjnego Windows Server, a nie pulpitów wirtualnych klientów, ponieważ pulpity wirtualne klienta nie są jeszcze obsługiwane w przypadku licencjonowania na platformie Azure. 
+[Dowiedz się więcej](https://azure.microsoft.com/en-us/pricing/licensing-faq/) na temat licencjonowania dla komputerów stacjonarnych klienta/serwera na platformie Azure.
+
+[Dowiedz się więcej](https://aka.ms/citrix-xenapp-xendesktop-with-asr) na temat chronienia wdrożeń programów Citrix XenApp i XenDesktop.
 
 ## <a name="next-steps"></a>Następne kroki
 [Sprawdzanie wymagań wstępnych](site-recovery-prereq.md) 

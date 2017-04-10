@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Łączenie się z usługą HDInsight (Hadoop) przy użyciu protokołu SSH
@@ -30,16 +30,19 @@ Poniższa tabela zawiera informacje dotyczące adresów i portów, które są wy
 
 | Adres | Port | Element docelowy połączenia |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Węzeł krawędzi (jeśli istnieje) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Węzeł krawędzi (program R Server w usłudze HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Węzeł krawędzi (inny dowolny typ klastra, jeśli istnieje węzeł krawędzi) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Podstawowy węzeł główny |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Dodatkowy węzeł główny |
 
 > [!NOTE]
-> Element `<edgenodename>` należy zastąpić nazwą węzła krawędzi. Więcej informacji dotyczących używania węzłów krawędzi można znaleźć w temacie [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) (Używanie węzłów krawędzi w usłudze HDInsight).
+> Element `<edgenodename>` należy zastąpić nazwą węzła krawędzi.
 >
 > Element `<clustername>` należy zastąpić nazwą klastra usługi HDInsight.
 >
 > Zalecamy, aby __zawsze nawiązywać połączenie z węzłem krawędzi__, jeśli jest dostępny. Węzły główne hostują usługi, które mają krytyczne znaczenie dla kondycji klastra. W węźle krawędzi działają tylko obciążenia umieszczone przez użytkownika.
+>
+> Więcej informacji dotyczących używania węzłów krawędzi można znaleźć w temacie [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) (Używanie węzłów krawędzi w usłudze HDInsight).
 
 ## <a name="ssh-clients"></a>Klienci SSH
 

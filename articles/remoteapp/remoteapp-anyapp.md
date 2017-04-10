@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84aaff1f1e8a92583107295643e0ada81376fab0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Uruchamianie dowolnej aplikacji systemu Windows na dowolnym urządzeniu za pomocą usługi Azure RemoteApp
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -121,10 +122,5 @@ Teraz można używać programu Access na dowolnych urządzeniach — wystarczy z
 Po opanowaniu tworzenia kolekcji spróbuj utworzyć [kolekcję korzystającą z usługi Office 365](remoteapp-tutorial-o365anywhere.md). Możesz też utworzyć [kolekcję hybrydową](remoteapp-create-hybrid-deployment.md) z dostępem do sieci lokalnej.
 
 <!--Image references-->
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

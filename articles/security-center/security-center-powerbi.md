@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ Można również w różny sposób łączyć alerty zabezpieczeń i zalecenia z 
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Uzyskiwanie dostępu do usługi Power BI za pomocą pulpitu nawigacyjnego Centrum zabezpieczeń Azure
 Pulpit nawigacyjny Centrum zabezpieczeń Azure umożliwia również dostęp do raportów usługi Power BI. W tym celu wykonaj następujące kroki:
 
-1. Na pulpicie nawigacyjnym **Azure Security Center** kliknij przycisk **Eksploruj w usłudze Power BI**.
+1. Na pulpicie nawigacyjnym **Azure Security Center** kliknij przycisk **Power BI**.
 
-    ![Łączenie z Centrum zabezpieczeń Azure przy użyciu usługi Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. Po prawej stronie zostanie otwarty blok **Eksplorowanie w usłudze Power BI** w sposób przedstawiony na poniższym ekranie:
+    ![Łączenie z Centrum zabezpieczeń Azure przy użyciu usługi Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. Po prawej stronie zostanie otwarty blok **Power BI** w sposób przedstawiony na poniższym ekranie:
 
-    ![Łączenie z Centrum zabezpieczeń Azure przy użyciu usługi Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Łączenie z Centrum zabezpieczeń Azure przy użyciu usługi Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. Jeśli po raz pierwszy tworzysz pulpit nawigacyjny usługi Power BI, możesz wybrać jedną z poniższych opcji w bloku **Eksplorowanie w usłudze Power BI**:
 
    * **Pulpit nawigacyjny Szczegółowe informacje o zabezpieczeniach**: wybierz tę opcję, jeśli chcesz utworzyć pulpit nawigacyjny, który wyświetla wątki, wykrycia i stan zabezpieczeń. Jest to częściej stosowana opcja dla roli DevOps, która odpowiada za analizowanie stanu ochrony oraz wykrytych alertów w subskrypcjach.
@@ -119,9 +120,4 @@ W tym dokumencie omówiono korzystanie z usługi Power BI w Centrum zabezpiecze�
 * [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi
 * [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

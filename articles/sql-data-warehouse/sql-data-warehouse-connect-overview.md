@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 106b9e8b5fd3461655527004fa7a65bbab9b3182
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c3c30e51b81886ebc875df7c815a17dfa633a5f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +28,7 @@ W tym artykule opisano, jak nawiązać połączenie z usługą SQL Data Warehous
 ## <a name="find-your-server-name"></a>Znajdowanie nazwy serwera
 Pierwszym krokiem do nawiązania połączenia z usługą SQL Data Warehouse jest wiedza, jak znaleźć nazwę serwera.  Na przykład w poniższym przykładzie nazwa serwera to sample.database.windows.net. Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
-1. Przejdź do witryny [Azure Portal][Azure Portal].
+1. Przejdź do witryny [Azure Portal][Azure portal].
 2. Kliknij pozycję **Bazy danych SQL**. 
 3. Kliknij bazę danych, z którą chcesz nawiązać połączenie.
 4. Znajdź pełną nazwę serwera.
@@ -75,8 +77,8 @@ Usługa SQL Data Warehouse standaryzuje niektóre ustawienia podczas tworzenia p
 Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu programu Visual Studio, zobacz artykuł [Query with Visual Studio][Query with Visual Studio] (Wykonywanie zapytań przy użyciu programu Visual Studio). Aby dowiedzieć się więcej na temat opcji uwierzytelniania, zobacz [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] (Uwierzytelnianie w usłudze Azure SQL Data Warehouse).
 
 <!--Articles-->
-[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md (Wykonywanie zapytań przy użyciu programu Visual Studio)
-[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md (Uwierzytelnianie w usłudze Azure SQL Data Warehouse)
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -89,15 +91,10 @@ Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu progra
 [DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

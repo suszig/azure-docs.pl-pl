@@ -4,7 +4,7 @@ Zwróć uwagę, że w tej tabeli nie przedstawiono jednostki SKU bramy UltraPerf
 
 |  | **Przepływność usługi VPN Gateway (1)** | **Maksymalna liczba tuneli protokołu IPsec usługi VPN Gateway (2)** | **Przepływność bramy ExpressRoute** | **Usługi VPN Gateway i ExpressRoute współistnieją** |
 | --- | --- | --- | --- | --- |
-| **Podstawowa jednostka SKU (3)(5)** |100 Mb/s |10 |500 Mb/s |Nie |
+| **Podstawowa jednostka SKU (3)(5)(6)** |100 Mb/s |10 |500 Mb/s (6) |Nie |
 | **Standardowa jednostka SKU (4)(5)** |100 Mb/s |10 |1000 Mb/s |Tak |
 | **Jednostka SKU wysokiej wydajności (4)** |200 Mb/s |30 |2000 Mb/s |Tak |
 
@@ -13,9 +13,4 @@ Zwróć uwagę, że w tej tabeli nie przedstawiono jednostki SKU bramy UltraPerf
 * (3) Protokół BGP nie jest obsługiwany w ramach podstawowej jednostki SKU.
 * (4) Sieci VPN oparte na zasadach nie są obsługiwane w ramach tej jednostki SKU. Są one obsługiwane tylko w ramach podstawowej jednostki SKU.
 * (5) Połączenia usługi VPN Gateway typu lokacja do lokacji (S2S) aktywne-aktywne nie są obsługiwane w ramach tej jednostki SKU. Połączenie typu aktywne-aktywne jest obsługiwane tylko dla jednostki SKU o wysokiej wydajności.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+* (6) Podstawowa jednostka do użycia z usługą ExpressRoute jest przestarzała.

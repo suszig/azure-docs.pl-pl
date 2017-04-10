@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: używanie programu SQL Server Management Studio do nawiązywania połączenia i wykonywania zapytań dotyczących danych
 
-Użyj programu [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS), aby utworzyć zasoby SQL Server i zarządzać nimi z poziomu interfejsu użytkownika lub w skryptach. Ten przewodnik zawiera szczegółowe informacje o używaniu programu SSMS do nawiązywania połączenia z bazą danych Azure SQL, a następnie wykonywania zapytania, wstawiania, aktualizowania i usuwania instrukcji.
+Użyj programu [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS), aby utworzyć zasoby SQL Server i zarządzać nimi z poziomu interfejsu użytkownika lub w skryptach. Ten przewodnik szybkiego startu zawiera szczegółowe informacje o używaniu programu SSMS do nawiązywania połączenia z bazą danych Azure SQL, a następnie wykonywania zapytania, wstawiania, aktualizowania i usuwania instrukcji.
 
 Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonych w jednym z poniższych przewodników Szybki start:
 
@@ -45,11 +45,11 @@ Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w 
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>Nawiązywanie połączenia z serwerem
+## <a name="connect-to-the-server-and-your-new-database"></a>Łączenie z serwerem i nową bazą danych
 
 Użyj programu SQL Server Management Studio, aby nawiązać połączenie z serwerem Azure SQL Database.
 
-1. Wpisz **SSMS** w polu wyszukiwania w systemie Windows, a następnie kliknij opcję **Uruchom**, aby otworzyć program SSMS.
+1. Otwórz program SQL Server Management Studio.
 
 2. W oknie dialogowym **Połącz z serwerem** wprowadź następujące informacje:
    - **Typ serwera**: określ aparat bazy danych

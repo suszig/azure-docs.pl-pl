@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,8 +66,8 @@ Na rysunku powyżej przedstawiono, jak są przetwarzane reguły sieciowej grupy 
 ### <a name="default-tags"></a>Znaczniki domyślne
 Znaczniki domyślne są dostarczanymi przez system identyfikatorami określającymi kategorię adresów IP. Można użyć znaczników domyślnych we właściwościach **prefiksu adresu źródłowego** i **prefiksu adresu docelowego** dowolnej reguły. Istnieją trzy znaczniki domyślne, których można użyć.
 
-* **VIRTUAL_NETWORK:** określa całą przestrzeń adresową sieci. Obejmuje przestrzeń adresową sieci wirtualnej (zakresy CIDR określone na platformie Azure), a także wszystkie połączone lokalne przestrzenie adresowe i połączone sieci wirtualne Azure (sieci lokalne).
-* **AZURE_LOADBALANCER:** określa moduł równoważenia obciążenia infrastruktury platformy Azure. Przekłada się on na adres IP centrum danych Azure, z którego pochodzą sondy kondycji Azure.
+* **VIRTUAL_NETWORK** (**VirtualNetwork** jeśli korzystasz z usługi Azure Resource Manager): określa całą przestrzeń adresową sieci. Obejmuje przestrzeń adresową sieci wirtualnej (zakresy CIDR określone na platformie Azure), a także wszystkie połączone lokalne przestrzenie adresowe i połączone sieci wirtualne Azure (sieci lokalne).
+* **AZURE_LOADBALANCER** (**AzureLoadBalancer** jeśli korzystasz z usługi Azure Resource Manager): określa moduł równoważenia obciążenia infrastruktury platformy Azure. Przekłada się on na adres IP centrum danych Azure, z którego pochodzą sondy kondycji Azure.
 * **INTERNET:** określa przestrzeń adresów IP, która znajduje się poza siecią wirtualną i do której można uzyskać dostęp w publicznym Internecie. Ten zakres obejmuje również [publiczną przestrzeń adresów IP należącą do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Reguły domyślne
@@ -194,7 +195,7 @@ Aby przedstawić, jak zastosować informacje z tego artykułu w praktyce, zdefin
 
 ![Sieciowe grupy zabezpieczeń](./media/virtual-network-nsg-overview/figure1.png)
 
-W schemacie powyżej maszyny wirtualne *Web&1;* i *Web&2;* są połączone z podsiecią *FrontEnd*, a maszyny wirtualne *DB1* i *DB2* są połączone z podsiecią *BackEnd*.  Obie podsieci są częścią sieci wirtualnej *TestVNet*. Wszystkie zasoby są przypisane do regionu Azure *Zachodnie stany USA*.
+W schemacie powyżej maszyny wirtualne *Web 1* i *Web 2* są połączone z podsiecią *FrontEnd*, a maszyny wirtualne *DB1* i *DB2* są połączone z podsiecią *BackEnd*.  Obie podsieci są częścią sieci wirtualnej *TestVNet*. Wszystkie zasoby są przypisane do regionu Azure *Zachodnie stany USA*.
 
 Wymagania 1–6 (z wyjątkiem 3) powyżej ograniczają się do przestrzeni podsieci. Aby zminimalizować liczbę reguł wymaganych dla każdej sieciowej grupy zabezpieczeń oraz ułatwić dodawanie kolejnych maszyn wirtualnych do podsieci z uruchomionymi tymi samymi typami obciążenia co na istniejących maszynach wirtualnych, możemy wdrożyć następujące sieciowe grupy zabezpieczeń na poziomie podsieci.
 
@@ -258,9 +259,4 @@ Ponieważ niektóre z sieciowych grup zabezpieczeń powyżej muszą być powiąz
 * [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md) (Wdrażanie sieciowych grup zabezpieczeń w klasycznym modelu wdrażania).
 * [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md) (Wdrażanie sieciowych grup zabezpieczeń we wdrożeniu za pomocą usługi Resource Manager).
 * [Manage NSG logs](virtual-network-nsg-manage-log.md) (Zarządzanie dziennikami sieciowej grupy zabezpieczeń).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

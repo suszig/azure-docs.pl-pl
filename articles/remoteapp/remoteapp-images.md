@@ -14,14 +14,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 348306795fd3c8275b21e4ec6dceae408916bf72
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-in-the-azure-remoteapp-template-images"></a>Co zawierają obrazy szablonów usługi Azure RemoteApp?
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -111,10 +112,5 @@ Ten obraz jest rozszerzeniem obrazu podstawowego i oprócz składników zawartyc
 > **Informacje prawne:** ten obraz nie zawiera licencji pakietu Microsoft Office i *nie może być używany w środowisku produkcyjnym*. Obraz pakietu Office 2013 Professional Plus jest przeznaczony tylko do użycia próbnego. Jeśli chcesz korzystać z aplikacji pakietu Office w usłudze Azure RemoteApp w środowisku produkcyjnym, musisz użyć obrazu usługi Office 365 ProPlus. Aby uzyskać więcej szczegółowych informacji na temat licencjonowania usługi Office, zobacz temat [Korzystanie z usługi Office 365 z usługą Azure RemoteApp](remoteapp-o365.md)
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

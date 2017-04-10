@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a70b82770a13231ee59ac768deb45b232f95687d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ Obecnie kontenery systemu Linux są obsługiwane przy użyciu wszystkich koordyn
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Czy zalecane jest korzystanie z określonego koordynatora w usłudze Azure Container Service? 
 Ogólnie nie zalecamy korzystania z określonego koordynatora. Jeśli masz doświadczenie w pracy z jednym z obsługiwanych koordynatorów, możesz zastosować go w usłudze Azure Container Service. Trendy danych sugerują jednak, że platforma DC/OS została sprawdzona podczas produkcji w przypadku obciążeń danych Big Data i IoT, usługa Kubernetes jest dobrym rozwiązaniem w przypadku natywnych obciążeń w chmurze, a usługa Docker Swarm jest znana z możliwości integrowania z narzędziami Docker oraz prostego procesu uczenia się.
 
-W zależności od swojego scenariusza możesz również kompilować niestandardowe rozwiązania kontenerów i zarządzać nimi przy użyciu innych usług Azure. Usługi te to: [Virtual Machines](../virtual-machines/virtual-machines-linux-azure-overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) i [Batch](../batch/batch-technical-overview.md).  
+W zależności od swojego scenariusza możesz również kompilować niestandardowe rozwiązania kontenerów i zarządzać nimi przy użyciu innych usług Azure. Usługi te to: [Virtual Machines](../virtual-machines/linux/overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) i [Batch](../batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Jaka jest różnica między usługą Azure Container Service i aparatem usługi ACS? 
 Azure Container Service to usługa platformy Azure z umową SLA, która oferuje funkcje działające w witrynie Azure Portal, narzędziach wiersza polecenia platformy Azure oraz interfejsach API platformy Azure. Usługa ta umożliwia szybkie implementowanie klastrów z uruchomionymi standardowymi narzędziami koordynowania kontenerów i stosunkowo niewielką liczbą opcji konfiguracji do wyboru oraz zarządzanie nimi. 
@@ -55,7 +55,7 @@ Azure Container Service to usługa platformy Azure z umową SLA, która oferuje 
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Jak mogę utworzyć klucze SSH dla mojego klastra?
 
-Aby utworzyć parę kluczy publicznych i prywatnych SSH RSA na potrzeby uwierzytelniania względem maszyn wirtualnych z systemem Linux dla klastra, możesz skorzystać ze standardowych narzędzi dostępnych w systemie operacyjnym. Informacje dotyczące kroków do wykonania można znaleźć we wskazówkach dotyczących systemów [OS X i Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) lub [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+Aby utworzyć parę kluczy publicznych i prywatnych SSH RSA na potrzeby uwierzytelniania względem maszyn wirtualnych z systemem Linux dla klastra, możesz skorzystać ze standardowych narzędzi dostępnych w systemie operacyjnym. Informacje dotyczące kroków do wykonania można znaleźć we wskazówkach dotyczących systemów [OS X i Linux](../virtual-machines/linux/mac-create-ssh-keys.md) lub [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 Jeśli używasz [poleceń interfejsu wiersza polecenia Azure 2.0](container-service-create-acs-cluster-cli.md) do wdrażania klastra usługi kontenera, klucze SSH dla klastra mogą być generowane automatycznie.
 
@@ -66,6 +66,12 @@ Do utworzenia klastra Kubernetes w usłudze Azure Container Service wymagany jes
 
 Jeśli używasz [poleceń interfejsu wiersza polecenia Azure 2.0](container-service-create-acs-cluster-cli.md) do wdrażania klastra Kubernetes, poświadczenia nazwy głównej usługi dla klastra mogą być generowane automatycznie.
 
+### <a name="how-large-a-cluster-can-i-create"></a>Jak duży klaster mogę utworzyć?
+Możesz utworzyć klaster z 1, 3 lub 5 węzłami głównymi. Możesz wybrać maksymalnie 100 węzłów agentów.
+
+> [!IMPORTANT]
+> W przypadku większych klastrów i w zależności od rozmiaru maszyny wirtualnej wybranego dla węzłów może być konieczne zwiększenie limitu przydziału rdzeni w ramach subskrypcji. Aby zażądać zwiększenia limitu przydziału, otwórz bezpłatnie [żądanie obsługi klienta online](../azure-supportability/how-to-create-azure-support-request.md). Jeśli używasz [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/), możesz użyć ograniczonej liczby rdzeni obliczeniowych platformy Azure.
+> 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Jak mogę zwiększyć liczbę wzorców po utworzeniu klastra? 
 Po utworzeniu klastra liczba wzorców jest stała i nie można jej zmienić. Podczas tworzenia klastra najlepiej wybrać wiele wzorców wysokiej dostępności.
