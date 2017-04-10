@@ -1,7 +1,8 @@
 ## <a name="typical-output"></a>Najczęściej pojawiające się dane wyjściowe
-Poniżej znajduje się przykład danych wyjściowych zapisywanych w pliku dziennika w ramach próbki kodu Hello World. Znaki nowego wiersza i tabulatory zostały dodane, aby poprawić czytelność kodu:
 
-```
+Poniżej znajduje się przykład danych wyjściowych zapisywanych w pliku dziennika w ramach próbki kodu Hello World. Dane wyjściowe są formatowane w celu uzyskania czytelności:
+
+```json
 [{
     "time": "Mon Apr 11 13:48:07 2016",
     "content": "Log started"
@@ -30,14 +31,16 @@ Poniżej znajduje się przykład danych wyjściowych zapisywanych w pliku dzienn
 ```
 
 ## <a name="code-snippets"></a>Fragmenty kodu
-W tej sekcji omówiono niektóre kluczowe fragmenty kodu znajdujące się w próbce Hello World.
+
+W tej sekcji omówiono niektóre kluczowe części kodu znajdujące się w próbce hello\_world.
 
 ### <a name="gateway-creation"></a>Tworzenie bramy
-Deweloper musi utworzyć *proces bramy*. Ten program tworzy wewnętrzną infrastrukturę (brokera), ładuje moduły i konfiguruje wszystko tak, aby działo poprawnie. Zestaw SDK zawiera funkcję **Gateway_Create_From_JSON**, aby umożliwić uruchomienie bramy z pliku JSON. Aby użyć funkcji **Gateway_Create_From_JSON**, należy udostępnić ścieżkę pliku JSON, który określa moduły do załadowania. 
 
-Kod procesu bramy w próbce Hello World możesz znaleźć w pliku [main.c][lnk-main-c]. Poniższy fragment kodu zawiera, dla czytelności, skróconą wersję kodu procesu bramy. Zanim program zniszczy bramę, tworzy bramę, a następnie czeka na zatwierdzenie użytkownika poprzez naciśnięcie klawisza **ENTER**. 
+Deweloper musi utworzyć *proces bramy*. Ten program tworzy wewnętrzną infrastrukturę (brokera), ładuje moduły i konfiguruje wszystko tak, aby działo poprawnie. Zestaw SDK zawiera funkcję **Gateway\_Create\_From\_JSON**, aby umożliwić uruchomienie bramy z pliku JSON. Aby użyć funkcji **Gateway\_Create\_From\_JSON**, należy udostępnić ścieżkę pliku JSON, który określa moduły do załadowania.
 
-```
+Kod procesu bramy w próbce Hello World możesz znaleźć w pliku [main.c][lnk-main-c]. Poniższy fragment kodu zawiera, w celu uzyskania czytelności, skróconą wersję kodu procesu bramy. Zanim ten przykładowy program zniszczy bramę, tworzy bramę, a następnie czeka na zatwierdzenie użytkownika przez naciśnięcie klawisza **ENTER**.
+
+```c
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -53,22 +56,21 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-} 
+}
 ```
 
-Plik ustawień JSON zawiera listę modułów do załadowania i połączeń między modułami.
-W każdym module muszą być określone następujące elementy:
+Plik ustawień JSON zawiera listę modułów do załadowania i połączeń między modułami. W każdym module muszą być określone następujące elementy:
 
 * **name**: unikatowa nazwa modułu.
-* **loader**: moduł ładujący będący w stanie załadować odpowiedni moduł.  Moduły ładujące to punkt rozszerzenia służący do ładowania różnych typów modułów. Udostępniamy moduły ładujące przeznaczone do używania z modułami napisanymi w natywnych językach C, Node.js, Java i .NET. W przykładzie Hello World użyto jedynie „natywnego” modułu ładującego, ponieważ wszystkie moduły w tym przykładzie są bibliotekami dynamicznymi napisanymi w języku C. Aby uzyskać więcej informacji na temat używania modułów napisanych w innych językach, zapoznaj się z przykładami [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) lub [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample).
-    * **name**: nazwa modułu ładującego służącego do ładowania modułu.  
-    * **entrypoint**: ścieżka do biblioteki zawierającej moduł. W systemie Linux jest to plik so, a w systemie Windows jest to plik dll. Należy pamiętać, że ten punkt wejścia jest specyficzny dla typu używanego modułu ładującego. Na przykład punkt wejścia modułu ładującego Node.js to plik js, punkt wejścia modułu ładującego Java to ścieżka klasy + nazwa klasy, a punkt wejścia modułu ładującego .NET to nazwa zestawu + nazwa klasy.
+* **loader**: moduł ładujący będący w stanie załadować odpowiedni moduł. Moduły ładujące to punkt rozszerzenia służący do ładowania różnych typów modułów. Udostępniamy moduły ładujące przeznaczone do używania z modułami napisanymi w natywnych językach C, Node.js, Java i .NET. W próbce kodu Hello World użyto jedynie natywnego modułu ładującego języka C, ponieważ wszystkie moduły w tym przykładzie są bibliotekami dynamicznymi napisanymi w tym języku. Aby uzyskać więcej informacji na temat używania modułów napisanych w innych językach, zapoznaj się z przykładami [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample) lub [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample).
+    * **name**: nazwa modułu ładującego służącego do ładowania modułu.
+    * **entrypoint**: ścieżka do biblioteki zawierającej moduł. W systemie Linux jest to plik SO, a w systemie Windows — plik DLL. Punkt wejścia jest specyficzny dla typu używanego modułu ładującego. Punkt wejścia modułu ładującego Node.js to plik JS. Punkt wejścia modułu ładującego Java to ścieżka klasy i nazwa klasy. Punkt wejścia modułu ładującego .NET to nazwa zestawu i nazwa klasy.
 
 * **args**: wszystkie informacje o konfiguracji wymaganej przez moduł.
 
-Następujący kod pokazuje zadeklarowanie wszystkich modułów dla przykładu Hello World w systemie Linux za pomocą pliku JSON. To, czy moduł wymaga jakichś argumentów, zależy od projektu modułu. W tym przykładzie moduł rejestratora przyjmuje argument, który jest ścieżką do pliku wyjściowego, natomiast moduł Hello World nie ma żadnych argumentów.
+Poniższy kod pokazuje zadeklarowanie wszystkich modułów dla przykładu Hello World w systemie Linux za pomocą pliku JSON. To, czy moduł wymaga jakichś argumentów, zależy od projektu modułu. W tym przykładzie moduł rejestratora przyjmuje argument, który jest ścieżką do pliku wyjściowego, natomiast moduł hello\_world nie ma żadnych argumentów.
 
-```
+```json
 "modules" :
 [
     {
@@ -94,17 +96,17 @@ Następujący kod pokazuje zadeklarowanie wszystkich modułów dla przykładu He
 ]
 ```
 
-Plik JSON zawiera również linki między modułami, które zostaną przekazane do brokera. Link ma dwie właściwości:
+Plik JSON zawiera również linki między modułami, które są przekazywane do brokera. Link ma dwie właściwości:
 
 * **source**: nazwa modułu z sekcji `modules` lub „\*”.
 * **sink**: nazwa modułu z sekcji `modules`.
 
-Każdy link definiuje trasę i kierunek komunikatów. Komunikaty z modułu `source` będą dostarczane do modułu `sink`. Dla właściwości `source` można ustawić wartość „\*”, co oznacza, że komunikaty z wszystkich modułów będę odbierane przez moduł `sink`.
+Każdy link definiuje trasę i kierunek komunikatów. Komunikaty z modułu `source` są dostarczane do modułu `sink`. Dla właściwości `source` można ustawić wartość „\*”, co oznacza, że komunikaty z wszystkich modułów są odbierane przez moduł `sink`.
 
-Następujący kod pokazuje konfigurowanie połączeń między modułami użytymi w przykładzie Hello World w systemie Linux za pomocą pliku JSON. Każdy komunikat generowany przez moduł `hello_world` będzie używany przez moduł `logger`.
+Następujący kod pokazuje konfigurowanie połączeń między modułami użytymi w przykładzie hello\_world w systemie Linux za pomocą pliku JSON. Każdy komunikat generowany przez moduł `hello_world` jest używany przez moduł `logger`.
 
-```
-"links": 
+```json
+"links":
 [
     {
         "source": "hello_world",
@@ -113,10 +115,11 @@ Następujący kod pokazuje konfigurowanie połączeń między modułami użytymi
 ]
 ```
 
-### <a name="hello-world-module-message-publishing"></a>Publikowanie komunikatów w module Hello World
-Kod używany przez moduł „hello world” do publikacji komunikatów można znaleźć w pliku [„hello_world.c”][lnk-helloworld-c]. Poniższy fragment kodu pokazuje jego zatwierdzoną wersję wraz z dodatkowymi komentarzami. Niektóre elementy kodu obsługujące błędy zostały usunięte, aby uzyskać jego lepszą czytelność:
+### <a name="helloworld-module-message-publishing"></a>Publikowanie komunikatów w module hello\_world
 
-```
+Kod używany przez moduł hello\_world do publikacji komunikatów można znaleźć w pliku [„hello_world.c”][lnk-helloworld-c]. Poniższy fragment kodu pokazuje jego zmienioną wersję wraz z dodanymi komentarzami. Niektóre elementy kodu obsługujące błędy zostały usunięte, aby uzyskać jego lepszą czytelność:
+
+```c
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -162,10 +165,11 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="hello-world-module-message-processing"></a>Przetwarzanie komunikatów w module Hello World
-Moduł Hello World nigdy nie musi przetwarzać komunikatów, które inne moduły publikują do brokera. To powoduje, że implementacja zwrotnego komunikatu w module Hello World jest funkcją bez operacji.
+### <a name="helloworld-module-message-processing"></a>Przetwarzanie komunikatów w module hello\_world
 
-```
+Moduł hello\_world nigdy nie musi przetwarzać komunikatów, które inne moduły publikują do brokera. Z tego powodu implementacja zwrotnego komunikatu w module hello\_world jest funkcją bez operacji.
+
+```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
@@ -173,11 +177,12 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### <a name="logger-module-message-publishing-and-processing"></a>Publikowanie i przetwarzanie komunikatu przez moduł rejestratora
+
 Moduł rejestratora odbiera komunikaty z brokera i zapisuje je w pliku. Nigdy nie publikuje żadnych komunikatów. W związku z tym kod modułu rejestratora nigdy nie wywołuje funkcji **Broker_Publish**.
 
-Funkcja **Logger_Recieve** w pliku [logger.c][lnk-logger-c] jest wywołaniem zwrotnym, które broker wywołuje w celu dostarczenia komunikatów do modułu rejestratora. Poniższy fragment kodu pokazuje jego zatwierdzoną wersję wraz z dodatkowymi komentarzami. Niektóre elementy kodu obsługujące błędy zostały usunięte, aby uzyskać jego lepszą czytelność:
+Funkcja **Logger_Recieve** w pliku [logger.c][lnk-logger-c] jest wywołaniem zwrotnym, które broker wywołuje w celu dostarczenia komunikatów do modułu rejestratora. Poniższy fragment kodu pokazuje zmienioną wersję wraz z dodanymi komentarzami. Niektóre elementy kodu obsługujące błędy zostały usunięte, aby uzyskać jego lepszą czytelność:
 
-```
+```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -217,7 +222,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat używania zestawu SDK usługi IoT Gateway, zobacz następujące tematy:
+
+Aby dowiedzieć się więcej na temat używania zestawu SDK usługi IoT Gateway, zobacz następujące artykuły:
 
 * [Zestaw SDK usługi IoT Gateway — wysyłanie komunikatów z urządzenia do chmury przy użyciu symulowanego urządzenia z systemem Linux][lnk-gateway-simulated].
 * [Zestaw SDK usługi Azure IoT Gateway][lnk-gateway-sdk] w witrynie GitHub.

@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: bf8f7763db5844a0706264d24ad7a035758ebbda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: bc5de9daeb09339c9488de8699174cd280197525
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-azure-remoteapp"></a>Co to jest usługa Azure RemoteApp?
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -83,10 +84,5 @@ Wszystko gotowe. Czas wypróbować usługę. Następujące artykuły pomogą Ci 
 
 ### <a name="help-us-help-you"></a>Pomóż nam sobie pomóc
 Czy wiesz, że możesz nie tylko ocenić ten artykuł i dodać komentarze poniżej, ale także wprowadzać zmiany w samym artykule? Brakuje informacji? Coś jest nie tak? Treść artykułu jest niejasna? Przewiń w górę i kliknij pozycję **Edit on GitHub** (Edytuj w serwisie GitHub) lub pozycję **Edit** (Edytuj) w celu wprowadzenia zmian. Te modyfikacje zostaną przesłane do nas do przeglądu, a jeśli zostaną zatwierdzone, Twoje zmiany i udoskonalenia pojawią się w tym miejscu.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -142,10 +142,10 @@ Naciśnij klawisz **ENTER**. Powinna zostać wyświetlona nazwa maszyny wirtualn
 
 ![Dane wyjściowe programu PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-Istnieją dwa sposoby uruchamiania polecenia szyfrowania w celu zaszyfrowania maszyny wirtualnej. Pierwsze rozwiązanie polega na wpisaniu następującego polecenia w konsoli programu PowerShell ISE:
+Istnieją dwie metody uruchamiania polecenia szyfrowania w celu zaszyfrowania wszystkich dysków na maszynie wirtualnej. Pierwsze rozwiązanie polega na wpisaniu następującego polecenia w konsoli programu PowerShell ISE:
 
 ~~~
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
 ~~~
 
 Po wpisaniu tego polecenia naciśnij klawisz **ENTER**.

@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 941cc40c3c1979609649eda42e4b39aa383c3fd2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a6d4fbdf0e552f50673092183e893841ec0c5aa4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Używanie programu Microsoft Outlook w usłudze Azure RemoteApp
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -36,10 +37,5 @@ Przeczytaj [instrukcje krok po kroku dotyczące włączania trybu buforowanego](
 
 ## <a name="search"></a>Wyszukiwanie
 Wyszukiwanie w programie Outlook w usłudze Azure RemoteApp ma pewne ograniczenia. Usługa Azure RemoteApp używa puli maszyn wirtualnych na potrzeby sesji użytkownika. Indeksowanie wyszukiwania zależy od identyfikatora komputera, który jest różny na różnych maszynach wirtualnych. Użytkownicy logujący się do usługi Azure RemoteApp mogą być za każdym razem przekierowywani do nowej maszyny wirtualnej. Oznacza to, że jeśli pozwolimy na wyszukiwanie lokalne, indeksator będzie uruchamiany przy każdej zmianie identyfikatora komputera (użyciu innej maszyny wirtualnej). W zależności od rozmiaru pliku OST działanie indeksatora może zajmować dużo czasu i zużywać zasoby potrzebne dla innych aplikacji. Wyszukiwanie nie tylko jest powolne, ale może nie dawać wyników. Ten problem można obejść, używając profilu konta w trybie online, ale mogłoby to spowodować obniżenie ogólnej wydajności z powodu braku lokalnej pamięci podręcznej (aby uzyskać więcej informacji o różnicach między trybem online i trybem pamięci podręcznej, zobacz powyższy link). Niestety, nie można wyłączyć indeksowanego/lokalnego wyszukiwania ani włączyć wyszukiwania w trybie online jako domyślnego w programie Outlook 2013.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

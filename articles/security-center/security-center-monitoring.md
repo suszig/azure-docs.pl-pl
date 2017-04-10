@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,30 +34,31 @@ Więcej informacji dotyczących stosowania zaleceń można znaleźć w temacie [
 
 Na kafelku **Kondycja zabezpieczeń zasobów** można monitorować stan zabezpieczeń zasobów. W poniższym przykładzie widać szereg problemów o wysokiej i średniej ważności, które wymagają uwagi. Włączone zasady zabezpieczeń wpływają na typy monitorowanych środków kontroli.
 
-![Kafelek Kondycja zabezpieczeń zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![Kafelek Kondycja zabezpieczeń zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 Jeśli w usłudze Security Center zostanie zidentyfikowana luka w zabezpieczeniach, którą trzeba usunąć, np. maszyna wirtualna z brakującymi aktualizacjami zabezpieczeń lub podsieć bez [sieciowej grupy zabezpieczeń](/virtual-network/virtual-networks-nsg.md), zostanie ona wyświetlona na tej liście.
 
-### <a name="monitor-virtual-machines"></a>Monitorowanie maszyn wirtualnych
-Po kliknięciu opcji **Maszyny wirtualne** na kafelku **Kondycja zabezpieczeń zasobów** zostanie otwarty blok **Maszyny wirtualne** zawierający więcej szczegółów dotyczących dołączania i środków zapobiegawczych oraz listę wszystkich maszyn wirtualnych, które są monitorowane przy użyciu usługi Security Center, jak pokazano na poniższym zrzucie ekranu.
+### <a name="monitor-compute"></a>Monitorowanie mocy obliczeniowej
+Kliknięcie pozycji **Obliczanie** na kafelku **Kondycja zabezpieczeń zasobów** spowoduje otwarcie bloku **Obliczanie** z trzema kartami:
 
-![Brak aktualizacji systemu na maszynie wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **Omówienie**: zalecenia dotyczące monitorowania i maszyny wirtualnej.
+- **Maszyny wirtualne**: lista wszystkich maszyn wirtualnych i bieżącego stanu zabezpieczeń.
+- **Usługi w chmurze**: lista wszystkich ról sieci Web i procesów roboczych monitorowanych przez usługę Security Center.
 
-* Kroki dołączania
-* Zalecenia dotyczące maszyny wirtualnej
-* Maszyny wirtualne
+![Brak aktualizacji systemu na maszynie wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-W każdej sekcji można wybrać poszczególne opcje, aby wyświetlić więcej szczegółowych informacji dotyczących zalecanych kroków rozwiązania problemu. Poniższe sekcje wyjaśnią te zagadnienia bardziej szczegółowo.
+Na każdej karcie znajduje się kilka sekcji, a w każdej sekcji można wybrać poszczególne opcje, aby wyświetlić więcej szczegółowych informacji dotyczących zalecanych kroków rozwiązania konkretnego problemu. 
 
 #### <a name="monitoring-recommendations"></a>Zalecenia dotyczące monitorowania
-W tej sekcji przedstawiono całkowitą liczbę maszyn wirtualnych, dla których zainicjowano obsługę zbierania danych, oraz ich bieżący stan. Po zainicjowaniu obsługi zbierania danych na wszystkich maszynach wirtualnych maszyny będą gotowe do odbierania zasad zabezpieczeń usługi Security Center. Kliknięcie tego wpisu spowoduje otwarcie bloku **Stan instalowania kolekcji danych**, w którym są wyświetlone nazwy maszyn wirtualnych oraz bieżący stan zbierania danych w kolumnie **STAN INSTALACJI**, jak pokazano na poniższym zrzucie ekranu.
+W tej sekcji przedstawiono całkowitą liczbę maszyn wirtualnych, dla których zainicjowano obsługę zbierania danych, oraz ich bieżący stan. Po zainicjowaniu obsługi zbierania danych na wszystkich maszynach wirtualnych maszyny będą gotowe do odbierania zasad zabezpieczeń usługi Security Center. Po kliknięciu tego wpisu zostanie otwarty blok **Brak agenta maszyny wirtualnej lub agent nie odpowiada**. 
 
-![Stan inicjalizacji maszyn wirtualnych](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Brak aktualizacji systemu na maszynie wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### <a name="virtual-machine-recommendations"></a>Zalecenia dotyczące maszyny wirtualnej
 Ta sekcja zawiera zestaw [zaleceń dotyczących każdej maszyny wirtualnej](security-center-virtual-machine-recommendations.md) monitorowanej przez usługę Azure Security Center. W pierwszej kolumnie wyświetlane są zalecenia. Druga kolumna zawiera całkowitą liczbę maszyn wirtualnych, na które dane zalecenie ma wpływ. Trzecia kolumna pokazuje wagę problemu, co przedstawiono na następującym zrzucie ekranu.
 
-![Zalecenia dotyczące maszyny wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Zalecenia dotyczące maszyny wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > W bloku **Kondycja sieci** na liście **Topologie sieci** wyświetlane są tylko maszyny wirtualne z co najmniej jednym publicznym punktem końcowym.
@@ -93,7 +95,7 @@ Aby wyświetlić szczegóły zalecenia, kliknij nazwę maszyny wirtualnej. Zosta
 #### <a name="virtual-machines-section"></a>Sekcja Maszyny wirtualne
 Sekcja Maszyny wirtualne zawiera przegląd wszystkich maszyn wirtualnych i zaleceń. Każda kolumna reprezentuje jeden zestaw zaleceń, jak pokazano na poniższym zrzucie ekranu:
 
-![Przegląd wszystkich maszyn wirtualnych i zaleceń](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Przegląd wszystkich maszyn wirtualnych i zaleceń](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 Ikona wyświetlana pod każdym zaleceniem pomaga szybko określić, które maszyny wirtualne wymagają uwagi oraz jakiego typu zalecenie ma do nich zastosowanie.
 
@@ -103,12 +105,12 @@ W powyższym przykładzie dla jednej maszyny wirtualnej widoczne jest krytyczne 
 
 Ten blok zawiera szczegóły zabezpieczeń dotyczące maszyny wirtualnej. W dolnej części bloku widoczna jest zalecana akcja i ważność poszczególnych problemów.
 
-#### <a name="cloud-services-preview-section"></a>Sekcja Cloud Services (wersja zapoznawcza)
-Stan kondycji usług w chmurze jest dołączony do kafelka **Kondycja zabezpieczeń** maszyny wirtualnej. Zalecenie jest tworzone, gdy wersja systemu operacyjnego jest nieaktualna, jak pokazano na poniższym zrzucie ekranu:
+#### <a name="cloud-services-section"></a>Sekcja Usługi w chmurze
+W przypadku usług w chmurze zalecenie jest tworzone, gdy wersja systemu operacyjnego jest nieaktualna, jak pokazano na poniższym zrzucie ekranu:
 
-![Stan kondycji dla usług w chmurze](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Stan kondycji dla usług w chmurze](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-Należy wykonać kroki zawarte w zaleceniu, aby zaktualizować wersję systemu operacyjnego. Na przykład po kliknięciu czerwonego alertu w roli sieci Web (WebRole1) lub roli procesu roboczego (WorkerRole1) — w ramach której działa system Windows Server z aplikacją sieci Web automatycznie wdrożoną w usługach IIS — zostanie otwarty nowy blok zawierający więcej szczegółów na temat tego zalecenia, co pokazano na poniższym zrzucie ekranu:
+W scenariuszu, w którym masz zalecenie (nieprzedstawionym w poprzednim przykładzie) należy wykonać kroki zalecenia, aby zaktualizować wersję systemu operacyjnego. Gdy aktualizacja jest dostępna, zostanie wyświetlony alert (czerwony lub pomarańczowy — w zależności od ważności problemu). Po kliknięciu tego alertu w roli sieci Web (WebRole1) lub roli procesu roboczego (WorkerRole1) — w ramach której działa system Windows Server z aplikacją sieci Web automatycznie wdrożoną w usługach IIS — zostanie otwarty nowy blok zawierający więcej szczegółów na temat tego zalecenia, co pokazano na poniższym zrzucie ekranu:
 
 ![Szczegóły dotyczące usługi w chmurze](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -214,9 +216,4 @@ W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłu
 * [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 * [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

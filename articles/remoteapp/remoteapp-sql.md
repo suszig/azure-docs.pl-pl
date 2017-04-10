@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>Usługi SQL Azure z usługą Azure RemoteApp
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -56,10 +57,5 @@ Istnieje kilka przyczyn spowolnienia działania aplikacji klienckiej hostowanej 
 * Opóźnienie sieci pomiędzy urządzeniem a platformą Azure jest wysokie. Aby uzyskać najlepszą wydajność, wybierz najlepsze i najszybsze dostępne połączenie sieciowe. Skorzystaj z witryny [azurespeed.com](http://azurespeed.com/) jako ogólnego narzędzia do testowania opóźnienia między urządzeniami a centrum danych Azure.  
 * Aplikacja kliencka hostowana w usłudze Azure RemoteApp jest mocno obciążona. Wybór innego planu rozliczeniowego, na przykład Premium, umożliwi zwiększenie wydajności. Innym sposobem jest monitorowanie zasobów zużywanych przez aplikację. Podczas aktywnej sesji naciśnij kolejno klawisze Ctrl-Alt-End, co spowoduje uruchomienie ekranu SAS, wybierz Menedżera zadań i sprawdź wykorzystanie zasobów przez aplikację.
 * Serwer SQL jest mocno obciążony lub nie jest zoptymalizowany. Postępuj zgodnie ze wskazówkami dotyczącymi rozwiązywania problemów z bazą danych SQL. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

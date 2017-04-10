@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Publikowanie aplikacji dla indywidualnych użytkowników w kolekcji usługi Azure RemoteApp (wersja zapoznawcza)
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie jest już obsługiwana. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -102,10 +103,5 @@ Dziękujemy za Twoje opinie i sugestie dotyczące tej funkcji wersji zapoznawcze
 
 ## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Funkcja wersji zapoznawczej nie została jeszcze wypróbowana?
 Jeśli nie korzystasz jeszcze z wersji zapoznawczej, użyj tej [ankiety](http://www.instant.ly/s/AY83p) w celu przesłania wniosku o uzyskanie dostępu.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

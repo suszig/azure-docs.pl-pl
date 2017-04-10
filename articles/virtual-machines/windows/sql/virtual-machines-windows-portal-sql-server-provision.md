@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -97,14 +97,17 @@ W bloku **Podstawowe** podaj następujące informacje:
     ![Blok podstawowych ustawień SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Wybieranie rozmiaru maszyny wirtualnej
-W kroku **Rozmiar** wybierz rozmiar maszyny wirtualnej w bloku **Wybierz rozmiar**. W tym bloku początkowo wyświetlane są rozmiary maszyn zalecane zgodnie z wybranym obrazem. Szacowany jest również miesięczny koszt działania maszyny wirtualnej.
+W kroku **Rozmiar** wybierz rozmiar maszyny wirtualnej w bloku **Wybierz rozmiar**. W tym bloku początkowo wyświetlane są rozmiary maszyn zalecane zgodnie z wybranym obrazem.
+
+> [!IMPORTANT]
+> Szacowany koszt miesięczny wyświetlany w bloku **Wybieranie rozmiaru** nie uwzględnia kosztów licencjonowania programu SQL Server. Jest to koszt samej maszyny wirtualnej. W przypadku wersji Express i Developer programu SQL Server jest to szacowany łączny koszt. W przypadku innych wersji zobacz [cennik maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) i wybierz docelową wersję programu SQL Server. 
 
 ![Opcje rozmiaru maszyny wirtualnej SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 W przypadku obciążeń produkcyjnych zalecane jest wybranie rozmiaru maszyny wirtualnej, która obsługuje [usługę Premium Storage](../../../storage/storage-premium-storage.md). Jeśli nie potrzebujesz tego poziomu wydajności, użyj przycisku **Wyświetl wszystkie**, który umożliwia wyświetlenie wszystkich opcji rozmiaru maszyny. Na przykład możesz użyć mniejszego rozmiaru maszyny dla wdrożenia lub środowiska testowego.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat rozmiarów maszyny wirtualnej, zobacz [Sizes for virtual machines](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozmiary maszyn wirtualnych). Aby zapoznać się z zagadnieniami związanymi z rozmiarami maszyn wirtualnych programu SQL Server, zobacz [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności programu SQL Server w usłudze Azure Virtual Machines).
+> Aby uzyskać więcej informacji na temat rozmiarów maszyny wirtualnej, zobacz [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozmiary maszyn wirtualnych). Aby zapoznać się z zagadnieniami związanymi z rozmiarami maszyn wirtualnych programu SQL Server, zobacz [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności programu SQL Server w usłudze Azure Virtual Machines).
 > 
 > 
 
@@ -123,7 +126,7 @@ W bloku **Ustawienia** skonfiguruj usługę Azure Storage, sieć i monitorowanie
 * W obszarze **Konto usługi Storage** możesz zaakceptować nazwę konta automatycznie aprowizowanego magazynu. Możesz również kliknąć pozycję **Konto usługi Storage**, aby wybrać istniejące konto i skonfigurować typ konta magazynu. Domyślnie platforma Azure tworzy nowe konto magazynu z magazynem lokalnie nadmiarowym. Aby uzyskać więcej informacji na temat opcji magazynu, zobacz [Replikacja usługi Azure Storage](../../../storage/storage-redundancy.md).
 * W obszarze **Sieć** możesz zaakceptować automatycznie wypełnione wartości. Możesz również kliknąć poszczególne funkcje, aby ręcznie skonfigurować ustawienia **Sieć wirtualna**, **Podsieć**, **Publiczny adres IP** i **Sieciowa grupa zabezpieczeń**. Na potrzeby tego samouczka zachowaj wartości domyślne.
 * Platforma Azure domyślnie umożliwia **monitorowanie** za pomocą tego samego konta magazynu wyznaczonego dla maszyny wirtualnej. Możesz zmienić te ustawienia tutaj.
-* W obszarze **Zestaw dostępności** określ zestaw dostępności. Na potrzeby tego samouczka możesz wybrać pozycję **Brak**. Jeśli planujesz konfigurowanie zawsze włączonych grup dostępności SQL, skonfiguruj dostępność, aby zapobiec ponownemu utworzeniu maszyny wirtualnej.  Aby uzyskać więcej informacji, zobacz [Manage the Availability of Virtual Machines](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością usługi Virtual Machines).
+* W obszarze **Zestaw dostępności** określ zestaw dostępności. Na potrzeby tego samouczka możesz wybrać pozycję **Brak**. Jeśli planujesz konfigurowanie zawsze włączonych grup dostępności SQL, skonfiguruj dostępność, aby zapobiec ponownemu utworzeniu maszyny wirtualnej.  Aby uzyskać więcej informacji, zobacz [Manage the Availability of Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością usługi Virtual Machines).
 
 Po zakończeniu konfigurowania tych ustawień kliknij pozycję **OK**.
 

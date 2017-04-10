@@ -3,22 +3,22 @@ title: "Nawiązywanie połączenia z bazą danych Azure SQL Database przy użyci
 description: "Użyj przykładowego kodu w niniejszym poradniku Szybki start, aby skompilować nowoczesną aplikację w języku C#, która będzie wspierana przez zaawansowaną relacyjną bazę danych w chmurze z bazą danych Azure SQL Database."
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: ajlam
 manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: development
+ms.custom: quick start
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/24/2017
-ms.author: sstein
+ms.date: 03/28/2017
+ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 61cc9cf7bdb552932a4659103a4d7ba479471948
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -31,7 +31,41 @@ Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonyc
 - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
 
-Przed rozpoczęciem upewnij się, że skonfigurowano środowisko programowania pod kątem języka C#. Zobacz [Bezpłatna instalacja programu Visual Studio Community](https://www.visualstudio.com/) lub zainstaluj [sterownik ADO.NET dla programu SQL Server](https://www.microsoft.com/net/download).
+## <a name="configure-development-environment"></a>Konfigurowanie środowiska programowania
+
+W poniższych sekcjach szczegółowo przedstawiono proces konfigurowania istniejących środowisk programowania w systemach Mac OS, Linux (Ubuntu) i Windows na potrzeby współpracy z usługą Azure SQL Database.
+
+### <a name="mac-os"></a>**Mac OS**
+Otwórz terminal i przejdź do katalogu, w którym planujesz utworzyć projekt .NET Core. Wprowadź następujące polecenia, aby zainstalować rozwiązania **brew**, **OpenSSL** i **.NET Core**. 
+
+```C#
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install openssl
+mkdir -p /usr/local/lib
+ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+```
+
+Zainstaluj program .NET Core w systemie macOS. Pobierz [oficjalnego instalatora](https://go.microsoft.com/fwlink/?linkid=843444). Instalator zainstaluje narzędzia i umieści je w elemencie PATH, aby można było uruchomić program dotnet z poziomu konsoli
+
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+Otwórz terminal i przejdź do katalogu, w którym planujesz utworzyć projekt .NET Core. Użyj następujących poleceń, aby zainstalować program **.NET Core**.
+
+```C#
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-dev-1.0.1
+```
+
+### <a name="windows"></a>**Windows**
+Zainstaluj programy Visual Studio 2015 Community Edition i .NET Framework. Jeśli na maszynie zainstalowano już program Visual Studio, pomiń kilka następnych kroków.
+
+Program Visual Studio 2015 Community to wyposażone w pełen zestaw funkcji, rozszerzalne, bezpłatne środowisko IDE do tworzenia nowoczesnych aplikacji przeznaczonych dla systemów Android, iOS, Windows, a także aplikacji baz danych i sieci Web oraz usług w chmurze.
+
+1. Pobierz [instalatora](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Uruchom instalatora i postępuj zgodnie z wyświetlanymi monitami, aby ukończyć instalację.
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 
@@ -48,6 +82,15 @@ Pobierz parametry połączenia w witrynie Azure Portal. Możesz użyć parametr�
 5. Sprawdź pełne parametry połączenia **ADO.NET**.
 
     <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
+    
+## <a name="add-systemdatasqlclient"></a>Dodawanie elementu System.Data.SqlClient
+W przypadku korzystania z programu .NET Core dodaj element System.Data.SqlClient do pliku projektu ***csproj*** jako zależność.
+
+```xml
+<ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
+</ItemGroup>
+```
 
 ## <a name="select-data"></a>Wybieranie danych
 
@@ -55,132 +98,6 @@ Pobierz parametry połączenia w witrynie Azure Portal. Możesz użyć parametr�
 2. Dodaj element ```using System.Data.SqlClient``` do pliku z kodem ([przestrzeń nazw System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
 3. Użyj polecenia [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) z instrukcją Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx), aby wykonać zapytanie dotyczące danych w bazie danych Azure SQL. Dodaj odpowiednie wartości dla swojego serwera
-
-    ```csharp
-    string hostName = 'yourserver.database.windows.net';
-    string dbName = 'yourdatabase';
-    string user = 'yourusername';
-    string password = 'yourpassword';
-
-    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-    
-    using (var connection = new SqlConnection(strConn))
-    {
-       connection.Open();
-
-       SqlCommand selectCommand = new SqlCommand("", connection);
-       selectCommand.CommandType = CommandType.Text;
-
-       selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-        FROM [SalesLT].[ProductCategory] pc
-        JOIN [SalesLT].[Product] p
-        ON pc.productcategoryid = p.productcategoryid";
-
-       SqlDataReader reader = selectCommand.ExecuteReader();
-
-       while (reader.Read())
-       {
-          // show data
-          Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
-       }
-       reader.Close();
-    }
-    ```
-
-## <a name="insert-data"></a>Wstawianie danych
-
-Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), aby wstawić dane do bazy danych Azure SQL.
-
-```csharp
-    string hostName = 'yourserver.database.windows.net';
-    string dbName = 'yourdatabase';
-    string user = 'yourusername';
-    string password = 'yourpassword';
-
-    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-    using (var connection = new SqlConnection(strConn))
-
-    SqlCommand insertCommand = new SqlCommand("", connection);
-    insertCommand.CommandType = CommandType.Text;
-    insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
-            ( [Name]
-            , [ProductNumber]
-            , [Color]
-            , [StandardCost]
-            , [ListPrice]
-            , [SellStartDate]
-            )
-VALUES
-(
-            @Name,
-            @ProductNumber,
-            @Color,
-            @StandardCost,
-            @ListPrice,
-            @SellStartDate)";
-
-            insertCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-            insertCommand.Parameters.AddWithValue("@ProductNumber", "200989");
-            insertCommand.Parameters.AddWithValue("@Color", "Blue");
-            insertCommand.Parameters.AddWithValue("@StandardCost", 75);
-            insertCommand.Parameters.AddWithValue("@ListPrice", 80);
-            insertCommand.Parameters.AddWithValue("@SellStartDate", "7/1/2016");
-
-int newrows = insertCommand.ExecuteNonQuery();
-Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
-```
-
-## <a name="update-data"></a>Aktualizowanie danych
-
-Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx), aby zaktualizować dane w bazie danych Azure SQL.
-
-```csharp
-    string hostName = 'yourserver.database.windows.net';
-    string dbName = 'yourdatabase';
-    string user = 'yourusername';
-    string password = 'yourpassword';
-
-    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-    using (var connection = new SqlConnection(strConn))
-
-    SqlCommand updateCommand = new SqlCommand("", connection);
-    updateCommand.CommandType = CommandType.Text;
-    updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-    updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-    updateCommand.Parameters.AddWithValue("@ListPrice", 500);
-
-    int updatedrows = updateCommand.ExecuteNonQuery();
-    Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
-```
-
-## <a name="delete-data"></a>Usuwanie danych
-
-Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx), aby usunąć dane w bazie danych Azure SQL.
-
-```csharp
-    string hostName = 'yourserver.database.windows.net';
-    string dbName = 'yourdatabase';
-    string user = 'yourusername';
-    string password = 'yourpassword';
-
-    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-    using (var connection = new SqlConnection(strConn))
-
-SqlCommand deleteCommand = new SqlCommand("", connection);
-deleteCommand.CommandType = CommandType.Text;
-deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
-deleteCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-
-int deletedrows = deleteCommand.ExecuteNonQuery();
-Console.WriteLine($"Deleted {deletedrows.ToString()} row(s).");
-```
-
-## <a name="complete-script"></a>Kompletny skrypt
-
-Poniższy skrypt zawiera wszystkie wcześniejsze kroki w jednym bloku kodu.
 
 ```csharp
 using System;
@@ -193,97 +110,196 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-             string hostName = 'yourserver.database.windows.net';
-             string dbName = 'yourdatabase';
-             string user = 'yourusername';
-             string password = 'yourpassword';
+            try 
+            { 
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "your_server.database.windows.net"; 
+                builder.UserID = "your_user";            
+                builder.Password = "your_password";     
+                builder.InitialCatalog = "your_database";
 
-             string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-             using (var connection = new SqlConnection(strConn))
-
-            {
-                connection.Open();
-
-                Console.WriteLine("Query data example:");
-                Console.WriteLine("\n=========================================\n");
-
-                SqlCommand selectCommand = new SqlCommand("", connection);
-                selectCommand.CommandType = CommandType.Text;
-
-                selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-                   FROM [SalesLT].[ProductCategory] pc
-                   JOIN [SalesLT].[Product] p
-                   ON pc.productcategoryid = p.productcategoryid";
-
-                SqlDataReader reader = selectCommand.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
-                    // show data columns
-                    Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
+                    Console.WriteLine("\nQuery data example:");
+                    Console.WriteLine("=========================================\n");
+                    
+                    connection.Open();       
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
+                    sb.Append("FROM [SalesLT].[ProductCategory] pc ");
+                    sb.Append("JOIN [SalesLT].[Product] p ");
+                    sb.Append("ON pc.productcategoryid = p.productcategoryid;");
+                    String sql = sb.ToString();
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
+                            }
+                        }
+                    }                    
                 }
-                reader.Close();
-                Console.WriteLine("\nPress any key to continue ...");
-                Console.ReadLine();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+    }
+}
+```
 
-                Console.WriteLine("\nInsert data example:");
-                Console.WriteLine("=========================================\n");
-                SqlCommand insertCommand = new SqlCommand("", connection);
-                insertCommand.CommandType = CommandType.Text;
-                insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
-                          ( [Name]
-                          , [ProductNumber]
-                          , [Color]
-                          , [StandardCost]
-                          , [ListPrice]
-                          , [SellStartDate]
-                          )
-                VALUES
-                (
-                            @Name,
-                            @ProductNumber,
-                            @Color,
-                            @StandardCost,
-                            @ListPrice,
-                            @SellStartDate)";
+## <a name="insert-data"></a>Wstawianie danych
 
-                insertCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-                insertCommand.Parameters.AddWithValue("@ProductNumber", "200989");
-                insertCommand.Parameters.AddWithValue("@Color", "Blue");
-                insertCommand.Parameters.AddWithValue("@StandardCost", 75);
-                insertCommand.Parameters.AddWithValue("@ListPrice", 80);
-                insertCommand.Parameters.AddWithValue("@SellStartDate", "7/1/2016");
+Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), aby wstawić dane do bazy danych Azure SQL.
 
-                int newrows = insertCommand.ExecuteNonQuery();
-                Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
-                Console.WriteLine("\nPress any key to continue ...");
-                Console.ReadLine();
+```csharp
+using System;
+using System.Data;
+using System.Data.SqlClient;
 
-                Console.WriteLine("\nUpdate data example:");
-                Console.WriteLine("======================\n");
-                SqlCommand updateCommand = new SqlCommand("", connection);
-                updateCommand.CommandType = CommandType.Text;
-                updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-                updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-                updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try 
+            { 
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "your_server.database.windows.net"; 
+                builder.UserID = "your_user";            
+                builder.Password = "your_password";     
+                builder.InitialCatalog = "your_database";
 
-                int updatedrows = updateCommand.ExecuteNonQuery();
-                Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
-                Console.WriteLine("\nPress any key to continue ...");
-                Console.ReadLine();
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    Console.WriteLine("\nInsert data example:");
+                    Console.WriteLine("=========================================\n");
 
-                Console.WriteLine("\nDelete data example:");
-                Console.WriteLine("======================\n");
-                SqlCommand deleteCommand = new SqlCommand("", connection);
-                deleteCommand.CommandType = CommandType.Text;
-                deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
-                deleteCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+                    connection.Open();       
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("INSERT INTO [SalesLT].[Product] ([Name], [ProductNumber], [Color], [StandardCost], [ListPrice], [SellStartDate]) ");
+                    sb.Append("VALUES (@Name, @ProductNumber, @Color, @StandardCost, @ListPrice, @SellStartDate);");
+                    String sql = sb.ToString();
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", "BrandNewProduct");
+                        command.Parameters.AddWithValue("@ProductNumber", "200989");
+                        command.Parameters.AddWithValue("@Color", "Blue");
+                        command.Parameters.AddWithValue("@StandardCost", 75);
+                        command.Parameters.AddWithValue("@ListPrice", 80);
+                        command.Parameters.AddWithValue("@SellStartDate", "7/1/2016");
+                        int rowsAffected = command.ExecuteNonQuery();
+                        Console.WriteLine(rowsAffected + " row(s) inserted");
+                    }         
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+    }
+}
+```
 
-                int deletedrows = deleteCommand.ExecuteNonQuery();
-                Console.WriteLine($"Deleted {deletedrows.ToString()} row(s).");
-                Console.WriteLine("\nPress any key to continue ...");
-                Console.ReadLine();
+## <a name="update-data"></a>Aktualizowanie danych
+
+Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx), aby zaktualizować dane w bazie danych Azure SQL.
+
+```csharp
+using System;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try 
+            { 
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "your_server.database.windows.net"; 
+                builder.UserID = "your_user";            
+                builder.Password = "your_password";     
+                builder.InitialCatalog = "your_database";
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    Console.WriteLine("\nUpdate data example");
+                    Console.WriteLine("=========================================\n");
+
+                    connection.Open();       
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("UPDATE [SalesLT].[Product] SET ListPrice = @ListPrice WHERE Name = @Name;");
+                    String sql = sb.ToString();
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", "BrandNewProduct");
+                        command.Parameters.AddWithValue("@ListPrice", 500);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        Console.WriteLine(rowsAffected + " row(s) updated");
+                    }         
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+    }
+}
+```
+
+## <a name="delete-data"></a>Usuwanie danych
+
+Użyj polecenia [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) z instrukcją Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx), aby usunąć dane w bazie danych Azure SQL.
+
+```csharp
+using System;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try 
+            { 
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "your_server.database.windows.net"; 
+                builder.UserID = "your_user";            
+                builder.Password = "your_password";     
+                builder.InitialCatalog = "your_database";
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    Console.WriteLine("\nDelete data example");
+                    Console.WriteLine("=========================================\n");
+
+                    connection.Open();       
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("DELETE FROM SalesLT.Product WHERE Name = @Name;");
+                    String sql = sb.ToString();
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", "BrandNewProduct");
+                        int rowsAffected = command.ExecuteNonQuery();
+                        Console.WriteLine(rowsAffected + " row(s) deleted");
+                    }         
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
             }
         }
     }

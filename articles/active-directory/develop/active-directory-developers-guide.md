@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 8da480acc04922a3636821c5303f6380236c5ea3
-ms.openlocfilehash: 1bff76371ea1ca3ee68c9f04ea24a42f95bb7da7
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 45ff2ff08cb36f9a4bf49ff04de149accf157e0e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -27,7 +28,7 @@ Jako platforma typu zarządzanie tożsamością jako usługa (IDMaaS), usługa A
 1. [Korzyści wynikające z integracji usługi Azure AD](active-directory-how-to-integrate.md): odkryj, dlaczego integracja z usługą Azure AD oferuje najlepsze rozwiązanie w zakresie bezpiecznego logowania i autoryzacji.
 2. [Scenariusze uwierzytelniania usługi Azure AD](active-directory-authentication-scenarios.md): wykorzystaj uproszczone uwierzytelnianie w usłudze Azure AD, aby zapewnić logowanie do aplikacji.
 3. [Integrowanie aplikacji w usłudze Azure AD](active-directory-integrating-applications.md): dowiedz się, jak dodawać, aktualizować i usuwać aplikacje z usługi Azure AD i poznaj wytyczne związane ze znakowaniem zintegrowanych aplikacji.
-4. [Interfejs API programu Graph w usłudze Azure AD](active-directory-graph-api.md): używaj interfejsu API programu Graph w usłudze Azure AD, aby uzyskać programowy dostęp do usługi Azure AD za pośrednictwem punktów końcowych interfejsu API REST. Interfejs API programu Graph w usłudze Azure AD jest również dostępny za pośrednictwem programu [Microsoft Graph](https://graph.microsoft.io/). Program Microsoft Graph udostępnia standaryzowany interfejs API, który umożliwia uzyskiwanie dostępu do wielu interfejsów API usług w chmurze firmy Microsoft poprzez jeden punkt końcowy interfejsu API REST i przy użyciu jednego tokenu dostępu.
+4. [Program Microsoft Graph](https://graph.microsoft.io/) i [interfejs API funkcji Azure AD Graph](active-directory-graph-api.md): uzyskiwanie programowego dostępu do usługi Azure AD za pośrednictwem punktów końcowych interfejsu API REST. **Zdecydowanie zalecamy uzyskiwanie dostępu do zasobów usługi Azure Active Directory za pomocą programu Microsoft Graph zamiast interfejsu API funkcji Azure AD Graph.** Obecnie koncentrujemy nasze działania deweloperskie na programie Microsoft Graph i nie planujemy żadnych dodatkowych rozszerzeń dla interfejsu API funkcji Azure AD Graph. Istnieje bardzo ograniczona liczba scenariuszy, w których można używać interfejsu API funkcji Azure AD Graph. Więcej informacji można znaleźć we wpisie w blogu [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) w Centrum deweloperów pakietu Office.
 5. [Biblioteki uwierzytelniania usługi Azure AD](active-directory-authentication-libraries.md): łatwe uwierzytelnianie użytkowników umożliwiające uzyskanie tokenów dostępu przy użyciu bibliotek uwierzytelniania usługi Azure AD dla platform .NET, JavaScript, Objective-C, Android i wielu innych.
 
 ## <a name="getting-started"></a>Wprowadzenie
@@ -56,10 +57,10 @@ Te samouczki są dostosowane do wielu platform i mogą pomóc w szybkim rozpocz�
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
 
-### <a name="querying-the-directory-quickstart-guide"></a>Wysyłanie zapytań do katalogu — przewodnik Szybki start
-| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
-|:---:|
-| [Interfejs API programu Graph](active-directory-graph-api-quickstart.md) |
+### <a name="microsoft-graph-and-azure-ad-graph-api-quick-start-guides"></a>Przewodniki Szybki start dotyczące programu Microsoft Graph i interfejsu API funkcji Azure AD Graph
+| [![Microsoft Graph](./media/active-directory-developers-guide/msgraph.png)](https://developer.microsoft.com/graph/quick-start) | [![Interfejs API funkcji Azure AD Graph](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
+|:---:|:---:|
+| [Microsoft Graph](https://developer.microsoft.com/graph/quick-start) | [Interfejs API funkcji Azure AD Graph](active-directory-graph-api-quickstart.md) |
 
 ## <a name="how-tos"></a>Poradniki
 Te artykuły zawierają opis wykonywania określonych zadań przy użyciu usługi Azure Active Directory:
@@ -90,9 +91,13 @@ Te artykuły zawierają dokumentację referencyjną dla interfejsów API REST i 
 * [Przykłady Azure Active Directory](https://github.com/azure-samples?query=active-directory): najłatwiejszym sposobem nawigowania na liście przykładów jest użycie [indeksu przykładów kodu](active-directory-code-samples.md).
 * [Biblioteka ADAL (Azure Active Directory Authentication Library) dla środowiska .NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) — dokumentacja referencyjna jest dostępna zarówno dla [najnowszej wersji głównej](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory), jak i [wcześniejszej wersji głównej](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory).
 
-### <a name="graph-api"></a>Interfejs API programu Graph
-* [Dokumentacja interfejsu API programu Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): dokumentacja referencyjna REST dla interfejsu API programu Graph usługi Azure Active Directory. [Wyświetlanie interaktywnego środowiska referencyjnego interfejsu API programu Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-* [Zakresy uprawnień interfejsu API programu Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): zakresy uprawnień uwierzytelniania OAuth 2.0, których używa się do kontrolowania dostępu aplikacji do danych katalogu w dzierżawie.
+### <a name="microsoft-graph-and-azure-ad-graph-api"></a>Program Microsoft Graph i interfejs API funkcji Azure AD Graph
+> [!IMPORTANT]
+> Zdecydowanie zalecamy uzyskiwanie dostępu do zasobów usługi Azure Active Directory za pomocą programu [Microsoft Graph](https://graph.microsoft.io/) zamiast interfejsu API funkcji Azure AD Graph. Obecnie koncentrujemy nasze działania deweloperskie na programie Microsoft Graph i nie planujemy żadnych dodatkowych rozszerzeń dla interfejsu API funkcji Azure AD Graph. Istnieje bardzo ograniczona liczba scenariuszy, w których można używać interfejsu API funkcji Azure AD Graph. Więcej informacji można znaleźć we wpisie w blogu [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) w Centrum deweloperów pakietu Office.
+> 
+* [Microsoft Graph](https://graph.microsoft.io/): dokumentacja, informacje, przykłady i zestawy SDK dotyczące programu Microsoft Graph. 
+* [Dokumentacja interfejsu API funkcji Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog): dokumentacja referencyjna REST dla interfejsu API funkcji Azure Active Directory Graph. 
+* [Zakresy uprawnień interfejsu API funkcji Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): zakresy uprawnień uwierzytelniania OAuth 2.0 używane do kontrolowania dostępu aplikacji do danych katalogu w dzierżawie.
 
 ### <a name="authentication-and-authorization-protocols"></a>Protokoły uwierzytelniania i autoryzacji
 * [Przerzucanie klucza podpisywania w usłudze Azure AD](active-directory-signing-key-rollover.md): dowiedz się więcej o kadencji przerzucania klucza podpisywania usługi Azure AD i sposobie aktualizowania klucza w najbardziej typowych scenariuszach aplikacji.
@@ -131,9 +136,4 @@ Aby uzyskać wskazówki dotyczące używania funkcji programowania systemu Windo
 
 * [Scenariusze usług AD FS dla deweloperów](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): zawiera omówienie składników usług AD FS i sposobu ich działania, ze szczegółami dotyczącymi obsługiwanych scenariuszy uwierzytelniania/autoryzacji.
 * [Przewodniki dotyczące usług AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): lista przewodników, które zawierają instrukcje krok po kroku dotyczące implementowania powiązanych przepływów uwierzytelniania/autoryzacji.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
