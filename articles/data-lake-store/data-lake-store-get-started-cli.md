@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2017
+ms.date: 03/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f7748dba30c6e0332c166feda25f4aaa93c06efa
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,19 +29,21 @@ ms.lasthandoff: 03/21/2017
 > * [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [Interfejs API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
+> * [Interfejs wiersza polecenia platformy Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-> [!NOTE]
-> Do przekazywania i pobierania dużej ilości danych (dużych i/lub licznych plików) zalecamy skorzystanie z [zestawu SDK dla języka Python](data-lake-store-get-started-python.md), [zestawu SDK programu .NET](data-lake-store-get-started-net-sdk.md) bądź programu [Azure PowerShell](data-lake-store-get-started-powershell.md). Te opcje cechują się lepszą wydajnością, ponieważ umożliwiają równoległe przenoszenie danych dzięki użyciu wielu wątków.
-> 
->  
-
 Dowiedz się, jak użyć interfejsu wiersza polecenia portalu Azure, aby utworzyć konto usługi Azure Data Lake Store i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake Store, zobacz [Omówienie usługi Data Lake Store](data-lake-store-overview.md).
 
 Interfejs wiersza polecenia platformy Azure został zaimplementowany w środowisku Node.js. Można go używać na dowolnej platformie, która obsługuje środowisko Node.js, w tym w systemie Windows, Mac i Linux. Interfejs wiersza polecenia platformy Azure to rozwiązanie typu open source. Kod źródłowy jest zarządzany w witrynie GitHub pod adresem <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. W tym artykule opisano tylko sposób używania interfejsu wiersza polecenia platformy Azure z usługą Data Lake Store. Ogólne wskazówki na temat używania interfejsu wiersza polecenia platformy Azure można znaleźć w artykule [How to use the Azure CLI (Jak korzystać z interfejsu wiersza polecenia platformy Azure)][azure-command-line-tools].
+
+
+> [!NOTE]
+> Do przekazywania i pobierania dużej ilości danych (dużych i/lub licznych plików) zalecamy skorzystanie z [zestawu SDK dla języka Python](data-lake-store-get-started-python.md), [zestawu SDK programu .NET](data-lake-store-get-started-net-sdk.md) bądź programu [Azure PowerShell](data-lake-store-get-started-powershell.md). Te opcje cechują się lepszą wydajnością, ponieważ umożliwiają równoległe przenoszenie danych dzięki użyciu wielu wątków.
+> 
+>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dysponować następującymi elementami:
@@ -50,10 +52,13 @@ Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dy
 * **Interfejs wiersza polecenia platformy Azure** — informacje na temat instalacji i konfiguracji można znaleźć w temacie [Instalowanie i konfigurowanie interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md). Pamiętaj, aby ponownie uruchomić komputer po zainstalowaniu interfejsu wiersza polecenia.
 
 ## <a name="authentication"></a>Authentication
+
 W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Store, w przypadku której logujesz się jako użytkownik końcowy. Poziom dostępu do konta i systemu plików usługi Data Lake Store jest określany przez poziom dostępu zalogowanego użytkownika. Istnieją jednak inne metody uwierzytelniania w usłudze Data Lake Store: **uwierzytelnianie użytkowników końcowych** i **uwierzytelnianie między usługami**. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w artykule [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie w usłudze Data Lake Store przy użyciu usługi Azure Active Directory).
 
 ## <a name="login-to-your-azure-subscription"></a>Logowanie do subskrypcji platformy Azure
+
 1. Wykonaj kroki opisane w temacie [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) (Nawiązywanie połączenia z subskrypcją platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure — Azure CLI) i nawiąż połączenie z subskrypcją za pomocą metody `azure login`.
+
 2. Wyświetl listę subskrypcji skojarzonych z Twoim kontem przy użyciu polecenia `azure account list`.
    
         info:    Executing command account list

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/10/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: fa3f31cdd708729071876ffad707bea70567da83
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6b1dede903083d1771733330a069b6ab533d9f00
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -103,7 +103,7 @@ Po zakończeniu wdrażania aplikacji przez platformę Azure zostanie wyświetlon
     ![Konfiguracja aplikacji Umbraco — pierwsza aplikacja Umbraco w usłudze Azure App Service](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
     
 ## <a name="next-steps"></a>Następne kroki
-* [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](web-sites-dotnet-get-started.md) — dowiedz się, jak utworzyć nową aplikację sieci Web platformy Azure w programie Visual Studio przy użyciu jednego z dołączonych szablonów aplikacji.
+* [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](app-service-web-get-started-dotnet.md) — dowiedz się, jak utworzyć nową aplikację sieci Web platformy Azure w programie Visual Studio przy użyciu jednego z dołączonych szablonów aplikacji.
 * [Deploy your code to Azure App Service](web-sites-deploy.md) (Wdrażanie kodu w usłudze Azure App Service) — informacje o sposobie wdrażania z serwera FTP lub repozytoriów kontroli źródła.
 * [Dodawanie funkcji do pierwszej aplikacji sieci Web](app-service-web-get-started-2.md) — przenieś swoją aplikację Azure na wyższy poziom. Uwierzytelniaj użytkowników. Skaluj ją zależnie od potrzeb. Skonfiguruj alerty dotyczące wydajności. Wszystkie te czynności możesz wykonać za pomocą kilku kliknięć.
 
