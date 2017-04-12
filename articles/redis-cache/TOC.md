@@ -26,7 +26,7 @@
 ###[Rozproszenie pamięci podręcznej przez zastosowanie klastrowania](cache-how-to-premium-clustering.md)
 ## Automatyzacja
 ###[Wdrażanie i zarządzanie przy użyciu programu PowerShell](cache-howto-manage-redis-cache-powershell.md)
-###[Wdrażanie i zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure](cache-manage-cli.md)
+###[Wdrażanie i zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure](cli-samples.md)
 ###[Inicjowanie obsługi administracyjnej pamięci podręcznej Redis](cache-redis-cache-arm-provision.md)
 ###[Inicjowanie obsługi administracyjnej aplikacji sieci Web i pamięci podręcznej Redis](cache-web-app-arm-with-redis-cache-provision.md)
 ## Integracja z platformą ASP.NET

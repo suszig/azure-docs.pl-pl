@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ Oprócz usługi Web Apps w usłudze App Service platforma Azure oferuje inne us�
 Aby rozpocząć od wdrożenia przykładowego kodu w nowej aplikacji sieci Web w usłudze App Service, postępuj zgodnie z informacjami znajdującymi się w jednym z samouczków w poniższym polu listy rozwijanej. Konieczne będzie posiadanie bezpłatnego konta platformy Azure.
 
 > [!div class="op_single_selector"]
-> * [Wdrażanie pierwszej witryny HTML na platformie Azure w ciągu 5 minut](app-service-web-get-started-html-cli-nodejs.md)
-> * [Wdrażanie pierwszej aplikacji sieci Web platformy ASP.NET na platformie Azure w ciągu 5 minut](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Wdrażanie pierwszej aplikacji sieci Web w języku PHP na platformie Azure w ciągu 5 minut](app-service-web-get-started-php-cli-nodejs.md)
-> * [Wdrażanie pierwszej aplikacji sieci Web w języku Node.js na platformie Azure w ciągu 5 minut](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Wdrażanie pierwszej aplikacji sieci Web w języku Python na platformie Azure w ciągu 5 minut](app-service-web-get-started-python-cli-nodejs.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web platformy ASP.NET na platformie Azure w ciągu 5 minut](app-service-web-get-started-dotnet.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web w języku PHP na platformie Azure w ciągu 5 minut](app-service-web-get-started-php.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web w języku Node.js na platformie Azure w ciągu 5 minut](app-service-web-get-started-nodejs.md)
 > * [Wdrażanie pierwszej aplikacji sieci Web w języku Java na platformie Azure w ciągu 5 minut](app-service-web-get-started-java.md)
+> * [Wdrażanie pierwszej aplikacji sieci Web w języku Python na platformie Azure w ciągu 5 minut](app-service-web-get-started-python.md)
+> * [Wdrażanie pierwszej witryny HTML na platformie Azure w ciągu 5 minut](app-service-web-get-started-html.md)
 > 
 > 
 

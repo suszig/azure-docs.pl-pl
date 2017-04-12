@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 1/24/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 66832a5d3f10f370ad486269c566fc948fd72234
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -66,7 +66,7 @@ Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-vmw
 >
 
 ### <a name="hyper-v-to-azure"></a>Z funkcji Hyper-V do platformy Azure
-Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication), aby chronić maszynę wirtualną z portalu usługi Azure Site Recovery. W czwartym kroku przepływu pracy wyklucz dyski z replikacji za pomocą kolumny **DYSK DO REPLIKACJI**. Domyślnie do replikacji są wybierane wszystkie dyski. Usuń zaznaczenie pola wyboru dysków, które chcesz wykluczyć z replikacji, a następnie wykonaj kroki w celu włączenia replikacji.
+Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-hyper-v-site-to-azure.md#enable-replication), aby chronić maszynę wirtualną z portalu usługi Azure Site Recovery. W czwartym kroku przepływu pracy wyklucz dyski z replikacji za pomocą kolumny **DYSK DO REPLIKACJI**. Domyślnie do replikacji są wybierane wszystkie dyski. Usuń zaznaczenie pola wyboru dysków, które chcesz wykluczyć z replikacji, a następnie wykonaj kroki w celu włączenia replikacji.
 
 ![Wykluczanie dysków z replikacji i włączanie replikacji na potrzeby powrotu po awarii z funkcji Hyper-V do platformy Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -96,10 +96,10 @@ Na źródłowej maszynie wirtualnej są następujące dyski:
 **Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | DYSK0 | C:\ | Dysk systemu operacyjnego
-DB-Disk1| Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika&1;
+DB-Disk1| Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
 DB-Disk2 (wykluczono dysk z ochrony) | Dysk2 | E:\ | Pliki tymczasowe
 DB-Disk3 (wykluczono dysk z ochrony) | Dysk3 | F:\ | Baza danych SQL tempdb — ścieżka folderu (F:\MSSQL\Data\) </br /> </br />Zanotuj ścieżkę folderu przed przełączeniem w tryb failover.
-DB-Disk4 | Dysk4 |G:\ |Baza danych użytkownika&2;
+DB-Disk4 | Dysk4 |G:\ |Baza danych użytkownika 2
 
 Ponieważ zmiany danych na dwóch dyskach maszyny wirtualnej dotyczą danych tymczasowych, podczas włączania ochrony maszyny wirtualnej bazy danych SalesDB, wyklucz dyski Dysk2 i Dysk3 z replikacji. Usługa Azure Site Recovery nie będzie replikować tych dysków. Po przełączeniu w tryb failover te dyski nie będą istnieć na maszynie wirtualnej w trybie failover na platformie Azure.
 
@@ -109,8 +109,8 @@ Dyski na maszynie wirtualnej platformy Azure po przełączeniu w tryb failover b
 --- | --- | ---
 DYSK0 |    C:\ | Dysk systemu operacyjnego
 Dysk1 |    E:\ | Magazyn tymczasowy</br /> </br />Platforma Azure dodaje ten dysk i przypisuje mu pierwszą dostępną literę dysku.
-Dysk2 | D:\ | Systemowa baza danych SQL i baza danych użytkownika&1;
-Dysk3 | G:\ | Baza danych użytkownika&2;
+Dysk2 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
+Dysk3 | G:\ | Baza danych użytkownika 2
 
 Ponieważ dyski Dysk2 i Dysk3 zostały wykluczone z maszyny wirtualnej bazy danych SalesDB, E: jest pierwszą dostępną literą dysku. Platforma Azure przypisuje literę E: woluminowi magazynu tymczasowego. Litery dysków wszystkich replikowanych dysków pozostają bez zmian.
 
@@ -173,8 +173,8 @@ W poprzednim przykładzie konfiguracja dysków maszyny wirtualnej platformy Azur
 --- | --- | ---
 DYSK0 | C:\ | Dysk systemu operacyjnego
 Dysk1 |    E:\ | Magazyn tymczasowy</br /> </br />Platforma Azure dodaje ten dysk i przypisuje mu pierwszą dostępną literę dysku.
-Dysk2 |    D:\ | Systemowa baza danych SQL i baza danych użytkownika&1;
-Dysk3 |    G:\ | Baza danych użytkownika&2;
+Dysk2 |    D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
+Dysk3 |    G:\ | Baza danych użytkownika 2
 
 
 #### <a name="vmware-to-azure"></a>Z programu VMware do platformy Azure
@@ -185,8 +185,8 @@ Dyski na maszynie wirtualnej programu VMware (oryginalna lokalizacja) po zaplano
 **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | ---
 DYSK0 | C:\ | Dysk systemu operacyjnego
-Dysk1 |    D:\ | Systemowa baza danych SQL i baza danych użytkownika&1;
-Dysk2 |    G:\ | Baza danych użytkownika&2;
+Dysk1 |    D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
+Dysk2 |    G:\ | Baza danych użytkownika 2
 
 #### <a name="hyper-v-to-azure"></a>Z funkcji Hyper-V do platformy Azure
 Jeśli powrót po awarii jest wykonywany do oryginalnej lokalizacji, konfiguracja dysków maszyny wirtualnej powrotu po awarii pozostaje taka sama jak w przypadku oryginalnej konfiguracji dysków maszyny wirtualnej dla funkcji Hyper-V. Dyski wykluczone z replikacji z lokacji funkcji Hyper-V do platformy Azure nie będą dostępne na maszynie wirtualnej powrotu po awarii.
@@ -196,10 +196,10 @@ Dyski na maszynie wirtualnej funkcji Hyper-V (oryginalna lokalizacja) po zaplano
 **Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | DYSK0 |    C:\ | Dysk systemu operacyjnego
-DB-Disk1 | Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika&1;
+DB-Disk1 | Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
 DB-Disk2 (dysk wykluczony) | Dysk2 | E:\ | Pliki tymczasowe
 DB-Disk3 (dysk wykluczony) | Dysk3 | F:\ | Baza danych SQL tempdb — ścieżka folderu (F:\MSSQL\Data\)
-DB-Disk4 | Dysk4 | G:\ | Baza danych użytkownika&2;
+DB-Disk4 | Dysk4 | G:\ | Baza danych użytkownika 2
 
 
 #### <a name="exclude-the-paging-file-pagefilesys-disk"></a>Wykluczanie dysku pliku stronicowania (pagefile.sys)

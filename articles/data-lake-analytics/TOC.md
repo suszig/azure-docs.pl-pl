@@ -9,6 +9,7 @@
 ## [Zestaw SDK Java](data-lake-analytics-get-started-java-sdk.md)
 ## [Program Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Interfejs wiersza polecenia platformy Azure](data-lake-analytics-get-started-cli.md)
+## [Interfejs wiersza polecenia platformy Azure 2.0](data-lake-analytics-get-started-cli2.md)
 ## [Interfejs API REST](data-lake-analytics-get-started-rest-api.md)
 ## [Python](data-lake-analytics-get-started-python.md)
 
@@ -45,6 +46,7 @@
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
+## [Interfejs wiersza polecenia 2.0](https://docs.microsoft.com/cli/azure/dla)
 
 # Zasoby
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-lake-analytics)
@@ -53,8 +55,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Prześlij opinię na platformie UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog usługi Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

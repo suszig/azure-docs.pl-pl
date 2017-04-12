@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
-ms.openlocfilehash: d8108368a157ed05c4fe0defbcef8372e205f6f8
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: e54861dbc851bc3d5629e84ddb61f26a06782ad4
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -164,7 +165,7 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 <!-- URL List -->
 
 [Porównanie usług Azure: Witryny sieci Web, Cloud Services i Virtual Machines]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[korzystanie z lekkiej aplikacji sieci web]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[korzystanie z lekkiej aplikacji sieci web]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connect PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
@@ -181,9 +182,4 @@ Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowi
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

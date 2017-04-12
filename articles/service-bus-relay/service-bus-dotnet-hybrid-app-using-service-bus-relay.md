@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -227,7 +227,7 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
 
    ![][19]
 8. Kliknij przycisk **OK**.
-9. Teraz musisz skonfigurować zasoby platformy Azure dla nowej aplikacji sieci Web. Wykonaj wszystkie czynności przedstawione w sekcjach [Tworzenia aplikacji sieci Web](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) i [Tworzenie zasobów platformy Azure](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Następnie wróć do tego samouczka i przejdź do następnego kroku.
+9. Teraz musisz skonfigurować zasoby platformy Azure dla nowej aplikacji sieci Web. Wykonaj wszystkie czynności przedstawione w sekcjach [Tworzenia aplikacji sieci Web](../app-service-web/app-service-web-get-started-dotnet.md) i [Tworzenie zasobów platformy Azure](../app-service-web/app-service-web-get-started-dotnet.md). Następnie wróć do tego samouczka i przejdź do następnego kroku.
 10. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Modele** i kliknij polecenie **Dodaj**, a następnie kliknij pozycję **Klasa**. W polu **Nazwa** wpisz nazwę **Product.cs**. Następnie kliknij pozycję **Dodaj**.
 
     ![][17]
@@ -395,7 +395,7 @@ Naciśnij przycisk **Odśwież** na stronie **ProductsPortal**. Przy każdym od�
 Zamknij obie aplikacje przed przejściem do następnego kroku.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Wdrażanie projektu ProductsPortal w aplikacji sieci Web platformy Azure
-Następny krok polega na przekonwertowaniu frontonu projektu **ProductsPortal** w aplikację sieci Web platformy Azure. Najpierw wdróż projekt **ProductsPortal**, postępując zgodnie z instrukcjami w sekcji [Wdrażanie projektu sieci Web na platformie Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). Po zakończeniu wdrażania wróć do tego samouczka i przejdź do następnego kroku.
+Następny krok polega na przekonwertowaniu frontonu projektu **ProductsPortal** w aplikację sieci Web platformy Azure. Najpierw wdróż projekt **ProductsPortal**, postępując zgodnie z instrukcjami w sekcji [Wdrażanie projektu sieci Web na platformie Azure](../app-service-web/app-service-web-get-started-dotnet.md). Po zakończeniu wdrażania wróć do tego samouczka i przejdź do następnego kroku.
 
 > [!NOTE]
 > Gdy projekt sieci Web **ProductsPortal** zostanie automatycznie uruchomiony po wdrożeniu, w oknie przeglądarki może zostać wyświetlony komunikat o błędzie. Jest to oczekiwane. Błąd występuje, ponieważ aplikacja **ProductsServer** nie jest jeszcze uruchomiona.
