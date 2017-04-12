@@ -46,7 +46,7 @@ Dopiero zaczynasz korzystać z usługi DocumentDB? Obejrzyj [to](https://azure.m
 
     ![Zrzut ekranu bloku Nowe konto usługi DocumentDB](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
 
-   * W polu **Identyfikator** wprowadź nazwę, aby zidentyfikować konto usługi DocumentDB.  Po zweryfikowaniu wartości pola **Identyfikator** w polu tym zostanie wyświetlony zielony znacznik wyboru.**** Wartość pola **Identyfikator** jest używana jako nazwa hosta w identyfikatorze URI. Pole **Identyfikator** może zawierać tylko małe litery, cyfry i znak „-” w liczbie od 3 do 50 znaków. Pamiętaj, że ciąg *documents.azure.com* jest dołączany do wybranej nazwy punktu końcowego, by utworzyć punkt końcowy konta usługi DocumentDB.
+   * W polu **Identyfikator** wprowadź nazwę, aby zidentyfikować konto usługi DocumentDB.  Po **zweryfikowaniu** wartości pola **Identyfikator** w polu tym zostanie wyświetlony zielony znacznik wyboru. Wartość pola **Identyfikator** jest używana jako nazwa hosta w identyfikatorze URI. Pole **Identyfikator** może zawierać tylko małe litery, cyfry i znak „-” w liczbie od 3 do 50 znaków. Pamiętaj, że ciąg *documents.azure.com* jest dołączany do wybranej nazwy punktu końcowego, by utworzyć punkt końcowy konta usługi DocumentDB.
    * W polu **Interfejs API usługi NoSQL** wybierz model programowania, który ma zostać użyty:
 
      * **DocumentDB**: interfejs API usługi DocumentDB jest dostępny za pośrednictwem [zestawów SDK](documentdb-sdk-dotnet.md) .NET, Java, Node.js, Python i JavaScript, a także w środowisku HTTP [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) i umożliwia dostęp programowy do wszystkich funkcji usługi DocumentDB.

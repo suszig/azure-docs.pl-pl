@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/16/2016
+ms.date: 04/04/2017
 ms.author: haining;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 5e9aa39ccf91f98336e5db179b532930f7e83313
 ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -50,10 +51,5 @@ Pobierz diagram **Przegląd możliwości usługi Microsoft Azure Machine Learnin
 * Szczegółowe omówienie algorytmów uczenia maszynowego dostępnych w usłudze Machine Learning Studio zawiera temat [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) (Jak wybierać algorytmy w usłudze Microsoft Azure Machine Learning).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
