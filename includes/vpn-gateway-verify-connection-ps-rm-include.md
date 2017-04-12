@@ -1,8 +1,10 @@
 Jest możliwość sprawdzenia, czy połączenie powiodło się, używając polecenia `Get-AzureRmVirtualNetworkGatewayConnection`, z opcją `-Debug` lub bez niej. 
 
 1. Można skorzystać z następującego przykładu użycia polecenia cmdlet, dopasowując wartości do własnych potrzeb. Po wyświetleniu monitu wybierz „A”, aby uruchomić wszystko. W podanym przykładzie opcja `-Name` odnosi się do nazwy utworzonego połączenia, które ma zostać przetestowane.
-   
-        Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+
+  ```powershell
+  Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+  ```
 2. Po zakończeniu działania polecenia cmdlet sprawdź wartości. W poniższym przykładzie stan połączenia jest wyświetlany jako „Połączone” i można zobaczyć bajty przychodzące i wychodzące.
    
         Body:
@@ -30,9 +32,4 @@ Jest możliwość sprawdzenia, czy połączenie powiodło się, używając polec
             "ingressBytesTransferred": 33509044,
             "egressBytesTransferred": 4142431
           }
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

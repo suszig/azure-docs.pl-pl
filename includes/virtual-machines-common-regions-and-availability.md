@@ -9,8 +9,6 @@ Istnieją specjalne regiony platformy Azure przeznaczone do celów związanych z
 
 * **Administracja USA — Wirginia** i **Administracja USA — Iowa**
   * Wystąpienie platformy Azure odizolowane fizycznie i na poziomie sieci logicznej dla instytucji rządowych oraz obsługiwane przez sprawdzony pod kątem bezpieczeństwa personel z obywatelstwem Stanów Zjednoczonych. Uwzględnia dodatkowe certyfikaty zgodności, takie jak [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) i [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Dowiedz się więcej o [platformie Azure Government](https://azure.microsoft.com/features/gov/).
-* **Indie Środkowe**, **Indie Zachodnie** i **Indie Południowe**
-  * Te regiony są obecnie dostępne dla klientów korzystających z licencjonowania zbiorowego i partnerów zarejestrowanych lokalnie w Indiach. Od 2016 r. użytkownicy mogą uzyskiwać do nich dostęp, jeśli zakupili bezpośrednie subskrypcje online.
 * **Chiny Północne** i **Chiny Wschodnie**
   * Te regiony są dostępne dzięki unikatowemu partnerstwu firm Microsoft i 21Vianet, w ramach którego firma Microsoft nie zarządza bezpośrednio centrami danych. Dowiedz się więcej na temat [platformy Microsoft Azure w Chinach](http://www.windowsazure.cn/).
 * **Niemcy Środkowe** i **Niemcy Północno-Wschodnie**
