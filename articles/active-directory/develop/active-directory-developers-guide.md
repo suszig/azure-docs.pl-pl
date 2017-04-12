@@ -95,6 +95,7 @@ Te artykuły zawierają dokumentację referencyjną dla interfejsów API REST i 
 > [!IMPORTANT]
 > Zdecydowanie zalecamy uzyskiwanie dostępu do zasobów usługi Azure Active Directory za pomocą programu [Microsoft Graph](https://graph.microsoft.io/) zamiast interfejsu API funkcji Azure AD Graph. Obecnie koncentrujemy nasze działania deweloperskie na programie Microsoft Graph i nie planujemy żadnych dodatkowych rozszerzeń dla interfejsu API funkcji Azure AD Graph. Istnieje bardzo ograniczona liczba scenariuszy, w których można używać interfejsu API funkcji Azure AD Graph. Więcej informacji można znaleźć we wpisie w blogu [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) w Centrum deweloperów pakietu Office.
 > 
+
 * [Microsoft Graph](https://graph.microsoft.io/): dokumentacja, informacje, przykłady i zestawy SDK dotyczące programu Microsoft Graph. 
 * [Dokumentacja interfejsu API funkcji Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog): dokumentacja referencyjna REST dla interfejsu API funkcji Azure Active Directory Graph. 
 * [Zakresy uprawnień interfejsu API funkcji Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): zakresy uprawnień uwierzytelniania OAuth 2.0 używane do kontrolowania dostępu aplikacji do danych katalogu w dzierżawie.

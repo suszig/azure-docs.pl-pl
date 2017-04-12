@@ -3,7 +3,7 @@
 Aby zapewnić odwołanie do pakietu CloudConfigurationManager, dodaj następującą dyrektywę `using`:
 
 ```csharp
-using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 Oto przykład, w którym przedstawiono, jak pobrać parametry połączenia z pliku konfiguracji:
@@ -15,9 +15,4 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 ```
 
 Użycie programu Azure Configuration Manager jest opcjonalne. Możesz także użyć interfejsu API, np. klasy [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) programu .NET Framework.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
