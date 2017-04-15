@@ -47,6 +47,7 @@
 ### [Rozszerzenia katalogów](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Zmienianie hasła konta usługi Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Zmienianie hasła konta usług AD DS](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [Włączanie Kosza usługi AD](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Zarządzanie usługami Federation Services
 ### [Zarządzanie i dostosowywanie](active-directory-aadconnect-federation-management.md)
+### [Federowanie wielu wystąpień usługi Azure AD przy użyciu jednego wystąpienia usług AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Rozwiązywanie problemów

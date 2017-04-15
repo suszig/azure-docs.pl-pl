@@ -1,16 +1,17 @@
 # Omówienie
 ## [Co to jest Azure Automation?](automation-intro.md)
 # Rozpoczęcie pracy
-## [Tworzenie elementu Runbook](automation-first-runbook-graphical.md)
-## [Tworzenie elementu Runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
-## [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
-## [Zarządzanie kontrolą dostępu opartą na rolach](automation-role-based-access-control.md)
+## Samouczek dotyczący elementów runbook
+### [Tworzenie graficznego elementu runbook](automation-first-runbook-graphical.md)
+### [Tworzenie elementu Runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
+### [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
 # Instrukcje
-## Konfigurowanie uwierzytelniania
+## Uwierzytelnianie i zabezpieczenia
 ### [Uwierzytelnianie w usłudze Azure Automation](automation-security-overview.md)
-### [Konto Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md)
-### [Azure Service Management i Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
+### [Konfigurowanie konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md)
+### [Konfigurowanie konta użytkownika usługi Azure AD](automation-sec-configure-aduser-account.md)
+### [Konfigurowanie uwierzytelniania za pomocą usług AWS](automation-sec-configure-aws-account.md)
+### [Zarządzanie kontrolą dostępu opartą na rolach](automation-role-based-access-control.md)
 ## Tworzenie elementów Runbook
 ### [Typy elementów Runbook](automation-runbook-types.md)
 ### [Tworzenie i importowanie elementów Runbook](automation-creating-importing-runbook.md)

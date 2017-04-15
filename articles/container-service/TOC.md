@@ -30,6 +30,7 @@
 ### [Zarządzanie kontenerem — interfejs użytkownika rozwiązania Kubernetes](container-service-kubernetes-ui.md)
 ### [Kontenery równoważenia obciążenia rozwiązania Kubernetes](container-service-kubernetes-load-balancing.md)
 ### [Integracja narzędzia Jenkins z rozwiązaniem ACS Kubernetes](container-service-kubernetes-jenkins.md)
+### [Wdrażanie wykresów rozwiązania Helm](container-service-kubernetes-helm.md)
 ### Monitorowanie rozwiązania Kubernetes
 #### [Monitorowanie za pomocą pakietu OMS](container-service-kubernetes-oms.md)
 #### [Monitorowanie za pomocą usługi Datadog](container-service-kubernetes-datadog.md)

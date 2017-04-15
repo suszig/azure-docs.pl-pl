@@ -1,6 +1,7 @@
 # Rozpoczynanie pracy
 ## [Zapobieganie powstawaniu nieoczekiwanych kosztów](billing-getting-started.md)
 ## [Rejestracja przy użyciu konta usługi Office 365](billing-use-existing-office-365-account-azure-subscription.md)
+## [Rejestracja w usłudze Office 365 przy użyciu konta platformy Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limity przydziału i ograniczenia](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Instrukcje
 ## Monitorowanie użycia i kosztów
@@ -33,8 +34,3 @@
 
 # Zasoby
 ## [Kontakt z pomocą techniczną](../azure-supportability/how-to-create-azure-support-request.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
