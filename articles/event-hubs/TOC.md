@@ -18,10 +18,13 @@
 
 # Instrukcje
 ## Planowanie i projektowanie
+### [🔧 Typowe scenariusze integracji z usługami platformy Azure](event-hubs-common-integrations.md)
 ### [Usługa Event Hubs w wersji dedykowanej](event-hubs-dedicated-overview.md)
 ### [Omówienie modelu uwierzytelniania i zabezpieczeń](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md) (Dostępność i spójność)
 ## Programowanie
+### [🔧 Obsługa błędów i ponawianie próby](event-hubs-handling-errors-retry.md)
+### [🔧 Zarządzanie wydajnością i skalą](event-hubs-performance-scale.md)
 ### [Dostępne interfejsy API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -34,6 +37,7 @@
 #### [Archiwum usługi Event Hubs](event-hubs-archive-overview.md)
 #### [Włączanie archiwum usługi Event Hubs za pomocą szablonu](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Korzystanie z języka Python w celu włączenia archiwum usługi Event Hubs](event-hubs-archive-python.md)
+### [Aprowizacja jednostek za pomocą programu PowerShell](event-hubs-manage-with-ps.md) 
 ### [Strumieniowe przesyłanie danych usługi Azure Diagnostics przy użyciu usługi Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Tworzenie i wdrażanie centrum zdarzeń przy użyciu szablonu usługi Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 

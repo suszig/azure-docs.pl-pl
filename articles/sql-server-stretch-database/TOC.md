@@ -1,30 +1,26 @@
 # Omówienie
-## [Co to jest funkcja Stretch Database?](sql-server-stretch-database-overview.md)
-## [Ograniczenia i problemy blokujące](sql-server-stretch-database-limitations.md)
+## [Co to jest funkcja Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
+## [Ograniczenia i problemy blokujące](/sql/sql-server/stretch-database/limitations-for-stretch-database)
 
 # Wprowadzenie
-## [Identyfikowanie baz danych i tabel](sql-server-stretch-database-identify-databases.md)
-## [Uruchamianie kreatora](sql-server-stretch-database-wizard.md)
+## [Identyfikowanie baz danych i tabel](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
+## [Uruchamianie kreatora](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
 # Instrukcje
 ## Włączanie
-### [Włączanie bazy danych](sql-server-stretch-database-enable-database.md)
-### [Włączanie tabeli](sql-server-stretch-database-enable-table.md)
-### [Wybieranie wierszy do migrowania](sql-server-stretch-database-predicate-function.md)
+### [Włączanie bazy danych](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
+### [Włączanie tabeli](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
+### [Wybieranie wierszy do migrowania](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
 ## Zarządzanie
-### [Monitorowanie migracji danych](sql-server-stretch-database-monitor.md)
-### [Wstrzymywanie i wznawianie migracji](sql-server-stretch-database-pause.md)
-### [Zarządzanie i rozwiązywanie problemów](sql-server-stretch-database-manage.md)
-### [Tworzenie kopii zapasowej i przywracanie](sql-server-stretch-database-backup.md)
-### [Wyłączanie bazy danych Stretch Database](sql-server-stretch-database-disable.md)
+### [Monitorowanie migracji danych](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
+### [Wstrzymywanie i wznawianie migracji](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
+### [Zarządzanie i rozwiązywanie problemów](/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)
+### [Wykonywanie kopii zapasowej](/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database)
+### [Przywracanie](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
+### [Wyłączanie bazy danych Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

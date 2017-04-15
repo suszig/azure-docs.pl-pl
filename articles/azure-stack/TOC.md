@@ -8,6 +8,7 @@
 ## Rozpoczęcie pracy
 ### [Wymagania wstępne dotyczące wdrożenia](azure-stack-deploy.md)
 ### [Wdrażanie](azure-stack-run-powershell-script.md)
+### [Uaktywnianie portali](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Rejestrowanie](azure-stack-register.md)
 ## Instrukcje
 ### [Nawiązywanie połączenia z usługą Azure Stack POC](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [Omówienie usługi App Service w usłudze Azure Stack](azure-stack-app-service-overview.md)
 #### [Przed rozpoczęciem](azure-stack-app-service-before-you-get-started.md)
 #### [Wdrażanie dostawcy zasobów usługi App Service](azure-stack-app-service-deploy.md)
+#### [Wdrażanie usługi App Service w trybie offline](azure-stack-app-service-deploy-offline.md)
 #### [Dodawanie większej liczby ról procesów roboczych w sieci Web](azure-stack-app-service-add-worker-roles.md)
 #### [Konfigurowanie źródeł wdrożenia](azure-stack-app-service-configure-deployment-sources.md)
 #### [Włączanie protokołu FTP w usłudze App Service w usłudze Azure Stack](azure-stack-app-service-enable-ftp.md)
@@ -80,7 +82,7 @@
 ### [Omówienie](azure-stack-storage-overview.md)
 ### [Różnice i zagadnienia](azure-stack-acs-differences-tp2.md)
 ## Sieć
-### [Serwery iDNS dla usługi Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [Serwery iDNS dla usługi Azure Stack](azure-stack-understanding-dns.md)
 ### [Usługa DNS w usłudze Azure Stack](azure-stack-dns.md)
 ### [Informacje o połączeniach VPN między lokacjami](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Usługa Key Vault

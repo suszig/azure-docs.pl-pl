@@ -14,7 +14,7 @@
 ## [Wymagania dotyczące routingu](expressroute-routing.md)
 ## [Wymagania translatora adresów sieciowych](expressroute-nat.md)
 ## [Wymagania funkcji QoS](expressroute-qos.md)
-## [Przenoszenie obwodów z wersji klasycznej do usługi Resource Manager](expressroute-move.md)
+## [Informacje o przenoszeniu obwodów z wersji klasycznej do usługi Resource Manager](expressroute-move.md)
 
 # Instrukcje
 ## Tworzenie i modyfikowanie obwodu
@@ -29,6 +29,7 @@
 ## [Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja](expressroute-howto-coexist-resource-manager.md)
 ## [Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager](expressroute-howto-move-arm.md)
+## [Migrowanie skojarzonych sieci wirtualnych z wersji klasycznej do usługi Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurowanie routera dla usługi ExpressRoute
 ### [Konfigurowanie routera](expressroute-config-samples-routing.md)
 ### [Przykłady konfiguracji routera pod kątem translatora adresów sieciowych](expressroute-config-samples-nat.md)

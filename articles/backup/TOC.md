@@ -19,6 +19,7 @@
 ## Azure Backup Server
 ### [Przygotowywanie obciążeń serwera Azure Backup Server w witrynie Azure Portal](backup-azure-microsoft-azure-backup.md)
 ### [Przygotowywanie obciążeń serwera Azure Backup Server w portalu klasycznym](backup-azure-microsoft-azure-backup-classic.md)
+### [Wykonywanie kopii zapasowej serwera VMware przy użyciu usługi Azure Backup Server](backup-azure-backup-server-vmware.md)
 ### [Używanie usługi Azure Backup Server do tworzenia kopii zapasowej programu Exchange](backup-azure-exchange-mabs.md)
 ### [Używanie usługi Azure Backup Server do tworzenia kopii zapasowej farmy programu SharePoint](backup-azure-backup-sharepoint-mabs.md)
 ### [Używanie usługi Azure Backup Server do tworzenia kopii zapasowej bazy danych SQL](backup-azure-sql-mabs.md)

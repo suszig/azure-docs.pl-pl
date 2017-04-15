@@ -9,6 +9,7 @@
 ## Zarządzanie maszynami wirtualnymi
 ### [Tworzenie oferty maszyny wirtualnej](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Wymagania wstępne](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Rejestracja konta dewelopera Microsoft](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [Tworzenie nowej oferty maszyny wirtualnej](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [Formularz ustawień oferty](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [Formularz jednostek SKU](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
@@ -21,6 +22,7 @@
 ### [Aktualizowanie istniejącej oferty](./cloud-partner-portal-update-existing-offer.md)
 ### [Usuwanie oferty/jednostki SKU maszyny wirtualnej](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrowanie do portalu Cloud Partner](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Podręcznik sprzedawcy w witrynie Azure Marketplace](./cloud-partner-portal-seller-guide.md)
 
 ## [Marketing — zarządzanie potencjalnymi klientami](./cloud-partner-portal-marketing-lead-management.md)
 ### [Tabela platformy Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)

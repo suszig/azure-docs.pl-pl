@@ -29,13 +29,13 @@
 ##### [Powiązania tabeli](functions-bindings-storage-table.md)
 #### [Wyzwalacz czasomierza](functions-bindings-timer.md)
 #### [Powiązanie danych wyjściowych usługi Twilio](functions-bindings-twilio.md)
+### [Definiowanie serwerów proxy usługi Functions](functions-proxies.md)
 ### [Create a function app from the Azure portal](functions-create-function-app-portal.md) (Tworzenie aplikacji funkcji przy użyciu witryny Azure Portal) 
+### [Wykonywanie zaplanowanego zadania oczyszczania](functions-scenario-database-table-cleanup.md)
 ### [Testowanie usługi Azure Functions](functions-test-a-function.md)
 ### [Programowanie i debugowanie lokalnie](functions-run-local.md)
 ### [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)
-### [Wykonywanie zaplanowanego zadania czyszczenia za pomocą usługi Azure Functions](functions-scenario-database-table-cleanup.md)
-### [Tworzenie definicji interfejsu OpenAPI (wersja zapoznawcza)](functions-api-definition-getting-started.md)
-#### [Informacje o interfejsie OpenAPI 2.0 w usłudze Functions](functions-api-definition.md)
+### [Tworzenie definicji interfejsu OpenAPI](functions-api-definition-getting-started.md)
 
 ## Zarządzanie
 ### [Konfigurowanie ustawień na potrzeby aplikacji funkcji](functions-how-to-use-azure-function-app-settings.md)

@@ -16,6 +16,11 @@
 ### [Rozwiązywanie problemów i monitorowanie](troubleshooting-monitoring.md)
 ### [Platforma SAP HANA z pojedynczym wystąpieniem](hana-get-started.md)
 ### [S/4 HANA lub BW/4 HANA — podręcznik wdrażania](cal-s4h.md)
+### Backup
+#### [Omówienie](sap-hana-backup-guide.md)
+#### [Kopia zapasowa na poziomie pliku](sap-hana-backup-file-level.md)
+#### [Migawki magazynu](sap-hana-backup-storage-snapshots.md)
+
 ## SAP Netweaver
 ### [Omówienie i architektura](suse-quickstart.md)
 ### [Planowanie i implementowanie](planning-guide.md)

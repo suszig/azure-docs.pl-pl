@@ -79,6 +79,7 @@
 ### [Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure](storage-faq-for-disks.md)
 ### Premium Storage
 #### [Magazyn Premium Storage o dużej wydajności dla dysków maszyn wirtualnych](storage-premium-storage.md)
+#### [Migrowanie do usługi Premium Storage przy użyciu usługi Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Projektowanie pod kątem wysokiej wydajności](storage-premium-storage-performance.md)
 ### Konto magazynu w warstwie Standardowa
 #### [Ekonomiczny magazyn usługi Storage w warstwie Standardowa oraz zarządzane i niezarządzane dyski maszyn wirtualnych](storage-standard-storage.md)

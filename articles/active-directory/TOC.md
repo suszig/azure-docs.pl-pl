@@ -81,6 +81,7 @@
 ### [Nazwane sieci](active-directory-known-networks-azure-portal.md)
 ### [Report migration](active-directory-reporting-migration.md) (Migracja raportów)
 ### [Przechowywanie](active-directory-reporting-retention.md)
+### [Czasy oczekiwania](active-directory-reporting-latencies-azure-portal.md)
 ### [Często zadawane pytania](active-directory-reporting-faq.md)
 ### Rozwiązywanie problemów
 #### [Brak danych inspekcji](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [Nieprawidłowe logowanie](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Zarządzanie hasłami](active-directory-manage-passwords.md)
-### [Aktualizowanie własnego hasła](active-directory-passwords-update-your-own-password.md)
-### [Konfigurowanie samoobsługowego resetowania haseł](active-directory-passwords.md)
+### [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
+### [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
+### [Administratorzy włączają funkcję samoobsługowego resetowania haseł](active-directory-passwords.md)
 ### [Objaśnienie zarządzania hasłami](active-directory-passwords-how-it-works.md)
 ### [Objaśnienie zasad i ograniczeń](active-directory-passwords-policy.md)
 ### Resetowanie haseł
@@ -155,19 +157,12 @@
 ### [Zapewnienie dostępu zdalnego do aplikacji](active-directory-application-proxy-get-started.md)
 #### [Włączanie serwera proxy aplikacji](active-directory-application-proxy-enable.md)
 #### [Omówienie łączników](application-proxy-understand-connectors.md)
-
-#### Publikowanie aplikacji
-##### [Azure Portal](application-proxy-publish-azure-portal.md)
-##### [Portal klasyczny](active-directory-application-proxy-publish.md)
-
+#### [Publikowanie aplikacji](application-proxy-publish-azure-portal.md)
 #### [Bezpieczeństwo](application-proxy-security-considerations.md)
 #### [Sieci](application-proxy-network-topology-considerations.md)
 #### [Pulpit zdalny](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Publikowanie w oddzielnych sieciach
-##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Portal klasyczny](active-directory-application-proxy-connectors.md)
+#### [Publikowanie w oddzielnych sieciach](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Serwery proxy](application-proxy-working-with-proxy-servers.md)
 #### [Niestandardowe domeny](active-directory-application-proxy-custom-domains.md)
 #### [Dostęp do aplikacji](active-directory-appssoaccess-whatis.md)
@@ -181,6 +176,11 @@
 #### [Instalacja dyskretna](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Rozwiązywanie problemów](active-directory-application-proxy-troubleshoot.md)
+#### Korzystanie z portalu klasycznego
+##### [Pobieranie łączników](application-proxy-enable-classic-portal.md)
+##### [Publikowanie aplikacji](active-directory-application-proxy-publish.md)
+##### [Korzystanie z łączników](active-directory-application-proxy-connectors.md)
+
 
 ### Zarządzanie aplikacjami w przedsiębiorstwie
 #### [Przypisywanie użytkowników](active-directory-coreapps-assign-user-azure-portal.md)
@@ -200,8 +200,21 @@
 #### [Dostęp do samoobsługi](active-directory-self-service-application-access.md)
 #### [Certyfikaty rejestracji jednokrotnej](active-directory-sso-certs.md)
 #### [Ograniczenia dzierżawy](active-directory-tenant-restrictions.md)
+#### [Aprowizacja użytkowników przy użyciu standardu SCIM](active-directory-scim-provisioning.md)
 
-### [Aprowizacja użytkowników przy użyciu standardu SCIM](active-directory-scim-provisioning.md)
+### [Rozwiązywanie problemów](active-directory-application-troubleshoot-content-map.md)
+#### Opracowywanie aplikacji
+##### [Konfiguracja i rejestracja](active-directory-application-dev-config-content-map.md)
+##### [Opracowywanie zawartości](active-directory-application-dev-development-content-map.md)
+#### Zarządzanie aplikacjami
+##### [Konfiguracja](active-directory-application-config-content-map.md)
+##### [Logowanie](active-directory-application-sign-in-content-map.md)
+##### [Aprowizacja](active-directory-application-provisioning-content-map.md)
+##### [Zarządzanie dostępem](active-directory-application-access-content-map.md)
+##### [Panel dostępu](active-directory-application-access-panel-content-map.md)
+##### [Serwer proxy aplikacji](active-directory-application-proxy-content-map.md)
+##### [Dostęp warunkowy](active-directory-application-conditional-access-content-map.md)
+
 ### [Biblioteka dokumentów](active-directory-apps-index.md)
 
 ## Zarządzanie swoim katalogiem
@@ -315,6 +328,12 @@
 ### [Zmiana algorytmu wyznaczania wartości skrótu podpisu](active-directory-federation-sha256-guidance.md)
 
 ## [Rozwiązywanie problemów](active-directory-troubleshooting.md)
+
+## Wdrażanie prototypu usługi Azure AD
+### [Podręcznik prototypu: wprowadzenie](active-directory-playbook-intro.md)
+### [Podręcznik prototypu: składniki](active-directory-playbook-ingredients.md)
+### [Podręcznik prototypu: implementacja](active-directory-playbook-implementation.md)
+### [Podręcznik prototypu: bloki konstrukcyjne](active-directory-playbook-building-blocks.md)
 
 
 # Dokumentacja
