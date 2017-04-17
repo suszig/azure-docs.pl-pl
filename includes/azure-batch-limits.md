@@ -1,15 +1,14 @@
-| **Zasób** | **Limit domyślny** | **Limit maksymalny** |
+| **Resource** | **Default Limit** | **Maximum Limit** |
 | --- | --- | --- |
-| Konta usługi Batch na region na subskrypcję |3 |50 |
-| Rdzenie na konto usługi Batch |20 |Nie dotyczy<sup>1</sup> |
-| Zadania i harmonogramy zadań<sup>2</sup> na konto usługi Batch |20 |10 000 |
-| Pule na konto usługi Batch |20 |5000 |
+| Batch accounts per region per subscription |3 |50 |
+| Cores per Batch account<sup>1</sup> |20 |N/A<sup>2</sup> |
+| Active jobs and job schedules<sup>3</sup> per Batch account |20 |5000<sup>4</sup> |
+| Pools per Batch account |20 |2500 |
 
-<sup>1</sup> Liczbę rdzeni na konto usługi Batch można zwiększyć, ale maksymalna liczba jest nieokreślona. Skontaktuj się z pomocą techniczną dla klientów w celu omówienia możliwości zwiększenia.
+<sup>1</sup> Cores quotas shown are for accounts in Batch service mode. In user subscription mode, cores quotas are based on the regional VM cores quotas in your subscription.
 
-<sup>2</sup> Obejmuje uruchamiane jednokrotnie aktywne zadania i aktywne harmonogramy zadań. Zakończone zadania i harmonogramy zadań nie są ograniczone.
+<sup>2</sup> The number of cores per Batch account can be increased, but the maximum number is unspecified. Contact customer support to discuss increase options.
 
+<sup>3</sup> Completed jobs and job schedules are not limited.
 
-<!--HONumber=Feb17_HO2-->
-
-
+<sup>4</sup> Contact customer support if you want to request an increase beyond this limit.
