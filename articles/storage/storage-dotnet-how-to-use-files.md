@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Aby zainstalować udział plików z klienta lokalnego, musisz najpierw wykonać 
 > Niektórzy usługodawcy internetowi mogą blokować port 445 — może więc być konieczny kontakt z usługodawcą.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>Odinstalowywanie udziału plików
+Aby odinstalować udziału plików, można użyć polecenia `net use` z opcją `/delete`.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>Pisanie kodu z użyciem usługi Magazyn plików
 Aby napisać kod, który wywołuje usługę Magazyn plików, można użyć bibliotek klienckich magazynu dla platform .NET i Java lub interfejsu API REST usługi Magazyn Azure. W przykładzie w tej sekcji pokazano sposób pracy z udziałem plików przy użyciu [biblioteki klienta usługi Storage Azure dla programu .NET](https://msdn.microsoft.com/library/mt347887.aspx) z prostej aplikacji konsolowej działającej na komputerze.
@@ -666,11 +676,13 @@ Aby uzyskać kompleksowe wskazówki dotyczące rozwiązywania problemów, można
     Aby uzyskać kompleksowe wskazówki dotyczące rozwiązywania problemów, można zajrzeć do [artykułu na temat rozwiązywania problemów z usługą Azure Files](storage-troubleshoot-file-connection-problems.md).               
 
 18. **Jak mogę włączyć szyfrowanie po stronie serwera dla usługi Azure Files?**
+> [!NOTE]
+> [Szyfrowanie po stronie serwera](storage-service-encryption.md) dla usługi Azure Files jest obecnie dostępne w wersji zapoznawczej. Jeśli w trakcie korzystania z wersji zapoznawczej będziesz mieć problemy, możesz napisać na adres [SSEDiscussion](mailto:ssediscussions@microsoft.com).
 
-    [Szyfrowanie po stronie serwera](storage-service-encryption.md) dla usługi Azure Files jest obecnie dostępne w wersji zapoznawczej. W wersji zapoznawczej funkcję tę można włączyć wyłącznie z poziomu nowych kont magazynu usługi Azure Resource Manager utworzonych przy użyciu witryny [Azure Portal](https://portal.azure.com). Włączenie tej funkcji nie wiąże się z żadną dodatkową opłatą. Po włączeniu szyfrowania usługi Storage dla usługi Azure File Storage dane są automatycznie szyfrowane. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    Planujemy w przyszłości umożliwić włączanie szyfrowania dla magazynu plików za pomocą programu [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [interfejsu wiersza polecenia platformy Azure](storage-azure-cli.md) lub [interfejsu API dostawcy zasobów usługi Azure Storage](/rest/api/storagerp/storageaccounts). 
-    Zobacz [Szyfrowanie usługi Storage](storage-service-encryption.md), aby uzyskać więcej informacji na temat szyfrowania danych w spoczynku w usłudze Azure Storage. Jeśli podczas korzystania z wersji zapoznawczej będziesz mieć jakieś pytania, napisz na adres ssediscussions@microsoft.com.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Następne kroki
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Magazyn plików Azure.

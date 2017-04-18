@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9716d18773fca8dd4612d681d1f9588106aacb14
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -148,10 +148,10 @@ W tym kroku opisano tworzenie zestawu danych o nazwie **InputDataset** wskazują
    * parametr **linkedServiceName** został ustawiony na **AzureStorageLinkedService**. Ta połączona usługa została utworzona w kroku 2.
    * Parametr **folderPath** został ustawiony na kontener **adftutorial**. Możesz również określić nazwę obiektu blob znajdującego się w folderze przy użyciu właściwości **fileName**. Ponieważ nie określasz nazwy obiektu blob, dane z wszystkich obiektów blob w kontenerze są traktowane jako dane wejściowe.  
    * parametr **type** formatu został ustawiony na **TextFormat**
-   * W pliku tekstowym znajdują się dwa pola — **FirstName** i **LastName** — oddzielone przecinkiem (**columnDelimiter**)    
-   * Parametr **availability** został ustawiony na wartość **hourly** (parametr **frequency** ma wartość **hour**, a **interval** — **1**). W związku z tym usługa Data Factory szuka danych wejściowych co godzinę w folderze głównym określonego kontenera obiektów blob (**adftutorial**). 
+   * W pliku tekstowym znajdują się dwa pola — **FirstName** i **LastName** — oddzielone przecinkiem (columnDelimiter)    
+   * Parametr **availability** został ustawiony na wartość **hourly** (parametr frequency ma wartość hour, a interval — 1). W związku z tym usługa Data Factory szuka danych wejściowych co godzinę w folderze głównym określonego kontenera obiektów blob (adftutorial). 
    
-   Jeśli nie określisz parametru **fileName** dla **wejściowego** zestawu danych, wszystkie pliki/obiekty blob z folderu danych wejściowych (**folderPath**) będą traktowane jako dane wejściowe. Jeśli określisz parametr fileName w kodzie JSON, tylko określony plik/obiekt blob będzie traktowany jako dane wejściowe.
+   Jeśli nie określisz parametru **fileName** dla **wejściowego** zestawu danych, wszystkie pliki/obiekty blob z folderu danych wejściowych (folderPath) będą traktowane jako dane wejściowe. Jeśli określisz parametr fileName w kodzie JSON, tylko określony plik/obiekt blob będzie traktowany jako dane wejściowe.
    
    Jeśli nie określisz parametru **fileName** dla **tabeli wyjściowej**, wygenerowane pliki w lokalizacji **folderPath** otrzymają nazwy w następującym formacie: Data.&lt;Guid&gt;.txt (np. Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
    
@@ -180,7 +180,7 @@ W tym kroku tworzony jest wyjściowy zestaw danych o nazwie **OutputDataset**. T
 2. W oknie dialogowym **Dodawanie nowego elementu** wybierz pozycję **Usługa SQL Azure** i kliknij przycisk **Dodaj**. 
 3. Zastąp tekst kodu JSON następującym kodem JSON i zapisz plik **AzureSqlTableLocation1.json**.
 
-    ```json
+  ```json
     {
      "name": "OutputDataset",
      "properties": {
@@ -213,7 +213,7 @@ W tym kroku tworzony jest wyjściowy zestaw danych o nazwie **OutputDataset**. T
    * Parametr **linkedServiceName** został ustawiony na wartość **AzureSqlLinkedService** (ta połączona usługa została utworzona w kroku 2).
    * Parametr **tablename** został ustawiony na wartość **emp**.
    * Tabela emp bazy danych zawiera trzy kolumny — **ID**, **FirstName** i **LastName**. ID to kolumna tożsamości, więc należy określić tylko wartości **FirstName** i **LastName**.
-   * Parametr **availability** (dostępność) został ustawiony na wartość **hourly** (co godzinę) (parametr **frequency** [częstotliwość] został ustawiony na **hour** [godzinę], a **interval** [interwał] został ustawiony na wartość **1**).  Usługa Data Factory co godzinę generuje wycinek danych wyjściowych w tabeli **emp** w bazie danych Azure SQL Database.
+   * Parametr **availability** (dostępność) został ustawiony na wartość **hourly** (co godzinę) (parametr frequency [częstotliwość] został ustawiony na hour [godzinę], a interval [interwał] został ustawiony na wartość 1).  Usługa Data Factory co godzinę generuje wycinek danych wyjściowych w tabeli **emp** w bazie danych Azure SQL Database.
 
 > [!NOTE]
 > Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
@@ -227,7 +227,7 @@ Do tej pory nastąpiło utworzenie połączonych usług i tabel dotyczących dan
 2. Wybierz pozycję **Potok kopiowania danych** w oknie dialogowym **Dodawanie nowego elementu** i kliknij przycisk **Dodaj**. 
 3. Zastąp kod JSON poniższym kodem JSON i zapisz plik **CopyActivity1.json**.
 
-    ```json   
+  ```json   
     {
      "name": "ADFTutorialPipeline",
      "properties": {
@@ -281,7 +281,7 @@ Do tej pory nastąpiło utworzenie połączonych usług i tabel dotyczących dan
    
    Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). Przykładowo: 2016-10-14T16:32:41Z. Czas **end** jest opcjonalny, ale w tym samouczku zostanie użyty. 
    
-   Jeśli nie określisz wartości dla właściwości **end**, zostanie ona obliczona jako „**czas rozpoczęcia + 48 godzin**”. Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end**.
+   Jeśli nie określisz wartości dla właściwości **end**, zostanie ona obliczona jako **czas rozpoczęcia + 48 godzin**. Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end**.
    
    W powyższym przykładzie występują 24 wycinki danych, gdyż poszczególne wycinki są generowane co godzinę.
 
@@ -325,7 +325,7 @@ W tym kroku publikowane są utworzone wcześniej obiekty usługi Data Factory (p
 
 Pamiętaj o następujących kwestiach: 
 
-* Jeśli zostanie wyświetlony komunikat o błędzie: „**Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw Microsoft.DataFactory**”, wykonaj jedną z następujących czynności i spróbuj opublikować ponownie: 
+* Jeśli zostanie wyświetlony komunikat o błędzie: „Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw Microsoft.DataFactory”, wykonaj jedną z następujących czynności i spróbuj opublikować ponownie: 
   
   * W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Fabryka danych. 
 

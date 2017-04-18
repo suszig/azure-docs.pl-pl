@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ Folder zawiera wiele plików i podfolderów. Plik wykonywalny nosi nazwę ASRDep
 
     Przykład:  
     Skopiuj plik ZIP na dysk E:\ i wyodrębnij go.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Możliwości
 Narzędzie wiersza polecenia (ASRDeploymentPlanner.exe) możesz uruchomić w jednym z trzech następujących trybów:
@@ -145,6 +145,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Opcjonalnie) Hasło do użycia podczas nawiązywania połączenia z serwerem vCenter/hostem vSphere ESXi. Jeśli nie określisz go teraz, monit o podanie hasła zostanie wyświetlony podczas wykonywania polecenia.|
 | -StorageAccountName | (Opcjonalnie) Nazwa konta magazynu używana do wyszukiwania osiągalnej przepływności na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu obliczenia przepływności.|
 | -StorageAccountKey | (Opcjonalnie) Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > <*Nazwa_konta_magazynu*> > Ustawienia > Klucze dostępu > Klucz1 (lub podstawowy klucz dostępu w przypadku klasycznego konta magazynu). |
+| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj tego parametru, jeśli Twoim docelowym regionem świadczenia usługi Azure są chmury wersji platformy Azure dla administracji USA lub chińska wersja platformy Azure. |
+
 
 Zalecamy, aby maszyny wirtualne były profilowane przez co najmniej 15 do 30 dni. Podczas profilowania jest uruchomiony proces ASRDeploymentPlanner.exe. Czas profilowania w narzędziu jest określany w dniach. Jeśli chcesz przeprowadzić profilowanie w ciągu kilku godzin lub minut w celu szybkiego przetestowania narzędzia w publicznej wersji zapoznawczej, musisz przekonwertować wartość czasu na równoważność liczby dni. Aby na przykład profilowanie trwało 30 minut, musisz wprowadzić wartość 30/(60*24) = 0,021 dnia. Minimalny dozwolony czas profilowania to 30 minut.
 
@@ -281,11 +283,12 @@ Otwórz konsolę wiersza polecenia i przejdź do folderu narzędzia do planowani
 
 |Nazwa parametru | Opis |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (Opcjonalnie) Ścieżka UNC lub ścieżka katalogu lokalnego, w której są przechowywane profilowane dane (pliki wygenerowane podczas profilowania). Te dane są wymagane do wygenerowania raportu. Jeśli nie określono nazwy katalogu, jest używany katalog „ProfiledData”. |
 | -StorageAccountName | Nazwa konta magazynu używana w celu znalezienia użytej przepustowości na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu określenia użytej przepustowości. |
 | -StorageAccountKey | Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > <*Nazwa_konta_magazynu*> > Ustawienia > Klucze dostępu > Klucz1 (lub podstawowy klucz dostępu w przypadku klasycznego konta magazynu). |
 | -VMListFile | Plik zawierający listę maszyn wirtualnych, które mają być profilowane, na potrzeby obliczenia użytej przepustowości. Można użyć bezwzględnej lub względnej ścieżki pliku. Ten plik powinien zawierać jedną nazwę/jeden adres IP maszyny wirtualnej w każdym wierszu. Nazwy maszyn wirtualnych określone w pliku powinny być takie same jak nazw maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi.<br>Na przykład plik VMList.txt zawiera informacje o następujących maszynach wirtualnych:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj tego parametru, jeśli Twoim docelowym regionem świadczenia usługi Azure są chmury wersji platformy Azure dla administracji USA lub chińska wersja platformy Azure. |
 
 Narzędzie tworzy kilka plików asrvhdfile<#>.vhd (gdzie znak „#” to liczba plików) o rozmiarze 64 MB w określonym katalogu. Narzędzie przekazuje te pliki na konto magazynu w celu znalezienia informacji o przepływności. Po zmierzeniu przepływności narzędzie usuwa wszystkie pliki z konta magazynu i serwera lokalnego. Jeśli działanie narzędzia zostanie z jakiegokolwiek powodu przerwane podczas obliczania przepływności, nie usunie ono plików z magazynu ani z serwera lokalnego. Trzeba będzie usunąć je ręcznie.
 
@@ -477,6 +480,10 @@ Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii 
 
 **Karty sieciowe**: liczba kart sieciowych maszyny wirtualnej.
 
+**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych. 
+
+**Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
+
 ## <a name="incompatible-vms"></a>Niezgodne maszyny wirtualne
 
 ![Arkusz kalkulacyjny programu Excel zawierający niezgodne maszyny wirtualne](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -486,6 +493,7 @@ Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii 
 **Zgodność maszyny wirtualnej**: wskazuje, dlaczego dana maszyna wirtualna nie jest zgodna na potrzeby użycia z usługą Site Recovery. Niezgodność każdego dysku na podstawie opublikowanych [limitów magazynów](https://aka.ms/azure-storage-scalbility-performance) może wynikać z dowolnej spośród następujących przyczyn:
 
 * Rozmiar dysku jest większy niż 1023 GB. Usługa Azure Storage obecnie nie obsługuje dysków większych niż 1 TB.
+* Typ rozruchu to EFI. Obecnie usługa Azure Site Recovery obsługuje tylko maszyny wirtualne o typie rozruchu BIOS.
 
 * Łączny rozmiar maszyny wirtualnej (suma replikacji i testu pracy w trybie failover) przekracza obsługiwany limit rozmiaru konta magazynu (35 TB). Ta niezgodność występuje przeważnie, jeśli wartość charakterystyki wydajności pojedynczego dysku maszyny wirtualnej przekracza maksymalny obsługiwany limit standardowego magazynu platformy Azure lub usługi Site Recovery. Takie wystąpienie powoduje przeniesienie do strefy magazynów Premium Storage. Jednak maksymalny obsługiwany rozmiar konta magazynu Premium Storage jest równy 35 TB i jedna chroniona maszyna wirtualna nie może być chroniona na wielu kontach magazynu. Zauważ również, że przeprowadzenie testu pracy w trybie failover na chronionej maszynie wirtualnej powoduje również uruchomienie go na koncie magazynu z trwającą replikacją. W takiej sytuacji skonfiguruj podwojony rozmiar dysku na potrzeby równoległej kontynuacji replikacji i pomyślnie przeprowadzonego testu pracy w trybie failover.
 * Źródłowe operacje we/wy na sekundę przekraczają obsługiwany limit operacji we/wy na sekundę magazynu wynoszący 5000 operacji na dysk.
@@ -508,6 +516,10 @@ Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii 
 **Pamięć (MB)**: wielkość pamięci RAM maszyny wirtualnej.
 
 **Karty sieciowe**: liczba kart sieciowych maszyny wirtualnej.
+
+**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych. 
+
+**Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
 
 
 ## <a name="site-recovery-limits"></a>Limity usługi Site Recovery
@@ -546,6 +558,18 @@ Aby zaktualizować planistę wdrożenia, wykonaj następujące czynności:
 
 
 ## <a name="version-history"></a>Historia wersji
+### <a name="12"></a>1.2
+Zaktualizowano: 7 kwietnia 2017 r.
+
+Dodano następujące poprawki:
+
+* Dodano test typu rozruchu (BIOS lub EFI) dla każdej maszyny wirtualnej, aby określić, czy maszyna wirtualna jest zgodna, czy niezgodna z funkcją ochrony.
+* Dodano informacje o systemie operacyjnym dla każdej maszyny wirtualnej na arkuszach zgodnych maszyn wirtualnych i niezgodnych maszyn wirtualnych.
+* Operacja GetThroughput jest teraz obsługiwana w regionach świadczenia usługi Microsoft Azure Administracja USA i Chiny.
+* Dodano kilka testów wymagań wstępnych dla serwerów vCenter i ESXi.
+* Po skonfigurowaniu ustawień regionalnych jako inne niż angielskie generowany był nieprawidłowy raport.
+
+
 ### <a name="11"></a>1.1
 Aktualizacja: 9 marca 2017 r.
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Rozwiązywanie problemów: nie można dostać się tam z tego miejsca na urządzeniu z systemem Windows
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Nie można dostać się tam z tego miejsca na urządzeniu z systemem Windows
 
 Na przykład podczas próby uzyskania dostępu do intranetu usługi SharePoint Online w organizacji możesz zostać wyświetlona strona z informacją o tym, że *nie można dostać się tam z tego miejsca*. Ta strona jest wyświetlana, ponieważ administrator skonfigurował zasady dostępu warunkowego, które blokują dostęp do zasobów organizacji w pewnych warunkach. W celu rozwiązania tego problemu może być konieczne skontaktowanie się z pomocą techniczną lub administratorem, ale najpierw możesz spróbować samodzielnie wykonać pewne czynności.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Wdrażanie usług Active Directory Federation Services na platformie Azure
@@ -38,7 +38,7 @@ Na powyższym diagramie przedstawiono zalecaną podstawową topologię umożliwi
 
 * **Kontrolery domeny (DC) / serwery usług AD FS**: jeśli liczba użytkowników nie przekracza 1000, można po prostu zainstalować rolę usług AD FS na kontrolerach domeny. Jeśli liczba użytkowników przekracza 1000 lub konieczne jest wyeliminowanie wszelkich wpływów na wydajność kontrolerów domeny, usługi AD FS należy wdrożyć na oddzielnych serwerach.
 * **Serwer proxy aplikacji sieci Web (WAP)** — konieczne jest wdrożenie serwerów proxy aplikacji sieci Web w celu umożliwienia użytkownikom korzystania z usług AD FS również spoza sieci firmowej.
-* **Strefa DMZ**: serwery proxy aplikacji sieci Web zostaną umieszczone w strefie DMZ. Komunikacja między strefą DMZ i podsiecią wewnętrzną jest możliwa TYLKO przez port TCP&443;.
+* **Strefa DMZ**: serwery proxy aplikacji sieci Web zostaną umieszczone w strefie DMZ. Komunikacja między strefą DMZ i podsiecią wewnętrzną jest możliwa TYLKO przez port TCP 443.
 * **Moduły równoważenia obciążenia**: aby zapewnić wysoką dostępność usług AD FS i serwerów proxy aplikacji sieci Web, zaleca się użycie wewnętrznego modułu równoważenia obciążenia dla serwerów usług AD FS oraz usługi Azure Load Balancer dla serwerów proxy aplikacji sieci Web.
 * **Zestawy dostępności**: aby zapewnić nadmiarowość wdrożenia usług AD FS, zaleca się umieszczenie co najmniej dwóch maszyn wirtualnych w zestawie dostępności w celu uzyskania podobnych obciążeń. Taka konfiguracja zapewnia dostępność co najmniej jednej maszyny wirtualnej podczas planowanych i nieplanowanych zdarzeń związanych z konserwacją.
 * **Konta magazynu**: zaleca się korzystanie z dwóch kont magazynu. Korzystanie z jednego konta magazynu może prowadzić do utworzenia pojedynczego punktu awarii. Jeśli konto magazynu przestanie funkcjonować (w mało prawdopodobnym scenariuszu), wdrożenie stanie się niedostępne. Użycie dwóch kont magazynu pozwala powiązać każde konto z linią awarii.
@@ -119,8 +119,8 @@ Utwórz następujące zestawy dostępności.
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    Wdrażanie maszyn wirtualnych
-Następnym krokiem jest wdrożenie maszyn wirtualnych, które będą hostować różne role w używanej infrastrukturze. Zaleca się wdrożenie co najmniej dwóch maszyn w każdym zestawie dostępności. Na potrzeby podstawowego wdrożenia zostanie utworzone sześć maszyn wirtualnych.
+### <a name="4-deploy-virtual-machines"></a>4. Wdrażanie maszyn wirtualnych
+Następnym krokiem jest wdrożenie maszyn wirtualnych, które będą hostować różne role w używanej infrastrukturze. Zaleca się wdrożenie co najmniej dwóch maszyn w każdym zestawie dostępności. Na potrzeby podstawowego wdrożenia zostaną utworzone cztery maszyny wirtualne.
 
 | Maszyna | Rola | Podsieć | Zestaw dostępności | Konto magazynu | Adres IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -146,8 +146,8 @@ Po ukończeniu wdrażania okienko maszyn wirtualnych powinno wyglądać tak jak 
 * Podnieś poziom tych dwóch serwerów jako replika kontrolerów domeny w systemie DNS
 * Skonfiguruj serwery usług AD FS, instalując rolę usług AD FS za pomocą Menedżera serwera.
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    Wdrażanie wewnętrznego modułu równoważenia obciążenia (ILB)
-**6.1.    Tworzenie wewnętrznego modułu równoważenia obciążenia**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Wdrażanie wewnętrznego modułu równoważenia obciążenia (ILB)
+**6.1. Tworzenie wewnętrznego modułu równoważenia obciążenia**
 
 Aby wdrożyć wewnętrzny moduł równoważenia obciążenia, wybierz pozycję Moduły równoważenia obciążenia w witrynie Azure Portal i kliknij pozycję (+).
 
@@ -172,7 +172,7 @@ Po kliknięciu pozycji Utwórz i wdrożeniu wewnętrznego modułu równoważenia
 
 Następnym krokiem jest skonfigurowanie puli zaplecza i sondy zaplecza.
 
-**6.2.    Konfigurowanie puli zaplecza wewnętrznego modułu równoważenia obciążenia**
+**6.2. Konfigurowanie puli zaplecza wewnętrznego modułu równoważenia obciążenia**
 
 Wybierz nowo utworzony wewnętrzny moduł równoważenia obciążenia na panelu Moduły równoważenia obciążenia. Zostanie otwarty panel ustawień. 
 
@@ -183,7 +183,7 @@ Wybierz nowo utworzony wewnętrzny moduł równoważenia obciążenia na panelu 
 
 ![Konfigurowanie puli zaplecza wewnętrznego modułu równoważenia obciążenia](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Konfigurowanie sondy**
+**6.3. Konfigurowanie sondy**
 
 W panelu ustawień wewnętrznego modułu równoważenia obciążenia wybierz pozycję Sondy.
 
@@ -192,7 +192,7 @@ W panelu ustawień wewnętrznego modułu równoważenia obciążenia wybierz poz
 
 ![Konfigurowanie sondy wewnętrznego modułu równoważenia obciążenia](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Tworzenie reguł równoważenia obciążenia**
+**6.4. Tworzenie reguł równoważenia obciążenia**
 
 Reguły równoważenia obciążenia pozwalają modułowi skutecznie równoważyć ruch sieciowy. W celu utworzenia reguły równoważenia obciążenia wykonaj następujące czynności: 
 
@@ -202,23 +202,23 @@ Reguły równoważenia obciążenia pozwalają modułowi skutecznie równoważy�
 
 ![Konfigurowanie reguł wewnętrznego modułu równoważenia obciążenia](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    Aktualizowanie systemu DNS o dane wewnętrznego modułu równoważenia obciążenia**
+**6.5. Aktualizowanie systemu DNS o dane wewnętrznego modułu równoważenia obciążenia**
 
 Przejdź do serwera DNS i utwórz rekord CNAME dla wewnętrznego modułu równoważenia obciążenia. Rekord CNAME jest przeznaczony dla usługi federacyjnej. Adres IP powinien wskazywać adres IP wewnętrznego modułu równoważenia obciążenia. Na przykład jeśli docelowy adres IP modułu to 10.3.0.8, a zainstalowana usługa federacyjna jest dostępna pod adresem fs.contoso.com, należy utworzyć rekord CNAME dla adresu fs.contoso.com wskazujący na adres 10.3.0.8.
 Dzięki temu cała komunikacja dla adresu fs.contoso.com będzie odpowiednio kierowana i przekazywana do wewnętrznego modułu równoważenia obciążenia.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Konfigurowanie serwera proxy aplikacji sieci Web
-**7.1.    Konfigurowanie połączenia między serwerami proxy aplikacji sieci Web i serwerami usług AD FS**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Konfigurowanie serwera proxy aplikacji sieci Web
+**7.1. Konfigurowanie połączenia między serwerami proxy aplikacji sieci Web i serwerami usług AD FS**
 
-Aby zapewnić komunikację między serwerami proxy aplikacji sieci Web a serwerami usług AD FS znajdującymi się za wewnętrznym modułem równoważenia obciążenia, w katalogu %systemroot%\system32\drivers\etc\hosts utwórz rekord dla wewnętrznego modułu równoważenia obciążenia. Pamiętaj o tym, że nazwa wyróżniająca (DN) powinna być nazwą usługi federacyjnej, na przykład fs.contoso.com. Ponadto wpis adresu IP powinien odpowiadać adresowi IP wewnętrznego modułu równoważenia obciążenia (w tym przykładzie:&10;.3.0.8).
+Aby zapewnić komunikację między serwerami proxy aplikacji sieci Web a serwerami usług AD FS znajdującymi się za wewnętrznym modułem równoważenia obciążenia, w katalogu %systemroot%\system32\drivers\etc\hosts utwórz rekord dla wewnętrznego modułu równoważenia obciążenia. Pamiętaj o tym, że nazwa wyróżniająca (DN) powinna być nazwą usługi federacyjnej, na przykład fs.contoso.com. Ponadto wpis adresu IP powinien odpowiadać adresowi IP wewnętrznego modułu równoważenia obciążenia (w tym przykładzie: 10.3.0.8).
 
-**7.2.    Instalowanie roli serwera proxy aplikacji sieci Web**
+**7.2. Instalowanie roli serwera proxy aplikacji sieci Web**
 
 Gdy serwery proxy aplikacji sieci Web mają zapewniony dostęp do serwerów usług AD FS znajdujących się za wewnętrznym modułem równoważenia obciążenia, można zainstalować serwery proxy aplikacji sieci Web. Serwery proxy aplikacji sieci Web nie są przyłączane do domeny. Zainstaluj role serwera proxy aplikacji sieci Web na dwóch serwerach proxy aplikacji sieci Web, wybierając rolę dostępu zdalnego. Menedżer serwera poprowadzi Cię przez proces instalacji serwera proxy aplikacji sieci Web.
 Aby uzyskać więcej informacji na temat wdrażania serwera proxy aplikacji sieci Web, zapoznaj się z artykułem [Instalowanie i konfigurowanie usługi Serwer proxy aplikacji sieci Web](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    Wdrażanie modułu równoważenia obciążenia połączonego z Internetem (publicznego)
-**8.1.    Tworzenie modułu równoważenia obciążenia połączonego z Internetem (publicznego)**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Wdrażanie modułu równoważenia obciążenia połączonego z Internetem (publicznego)
+**8.1.  Tworzenie modułu równoważenia obciążenia połączonego z Internetem (publicznego)**
 
 W witrynie Azure Portal wybierz pozycję Moduły równoważenia obciążenia, a następnie kliknij pozycję Dodaj. Na panelu Tworzenie modułu równoważenia obciążenia wprowadź następujące informacje.
 
@@ -232,7 +232,7 @@ Wdrożony moduł pojawi się na liście modułów równoważenia obciążenia.
 
 ![Lista modułów równoważenia obciążenia](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Przypisywanie etykiety DNS do publicznego adresu IP**
+**8.2. Przypisywanie etykiety DNS do publicznego adresu IP**
 
 Kliknij nowo utworzony moduł w panelu modułów równoważenia obciążenia, aby wyświetlić panel konfiguracji. Wykonaj poniższe kroki, aby skonfigurować etykietę DNS dla publicznego adresu IP:
 
@@ -244,26 +244,26 @@ Kliknij nowo utworzony moduł w panelu modułów równoważenia obciążenia, ab
 
 ![Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Konfigurowanie puli zaplecza dla modułu równoważenia obciążenia połączonego z** Internetem (publicznego) 
+**8.3. Konfigurowanie puli zaplecza dla modułu równoważenia obciążenia połączonego z** Internetem (publicznego) 
 
 Konfigurowanie puli zaplecza dla modułu równoważenia obciążenia połączonego z Internetem (publicznego) jako zestawu dostępności (np. contosowapset) dla serwerów proxy aplikacji sieci Web obejmuje te same czynności co tworzenie wewnętrznego modułu równoważenia obciążenia .
 
 ![Konfigurowanie puli zaplecza modułu równoważenia obciążenia połączonego z Internetem](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Konfigurowanie sondy**
+**8.4. Konfigurowanie sondy**
 
 Konfigurowanie sondy dla puli zaplecza serwerów proxy aplikacji sieci Web obejmuje te same czynności co konfigurowanie wewnętrznego modułu równoważenia obciążenia.
 
 ![Konfigurowanie sondy modułu równoważenia obciążenia połączonego z Internetem](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Tworzenie reguł równoważenia obciążenia**
+**8.5. Tworzenie reguł równoważenia obciążenia**
 
 Aby skonfigurować regułę równoważenia obciążenia dla portu TCP 443, wykonaj te same czynności co w przypadku konfigurowania reguły dla wewnętrznego modułu równoważenia obciążenia.
 
 ![Konfigurowanie reguł modułu równoważenia obciążenia połączonego z Internetem](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    Zabezpieczanie sieci
-**9.1.    Zabezpieczanie wewnętrznej podsieci**
+### <a name="9-securing-the-network"></a>9. Zabezpieczanie sieci
+**9.1. Zabezpieczanie wewnętrznej podsieci**
 
 Wdrożenie poniższych reguł (w przedstawionej kolejności) stanowi podstawę skutecznego zabezpieczenia wewnętrznej podsieci.
 
@@ -276,7 +276,7 @@ Wdrożenie poniższych reguł (w przedstawionej kolejności) stanowi podstawę s
 
 [komentarz]: <> (![reguły dostępu WEWN. (ruch przychodzący)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [komentarz]: <> (![reguły dostępu WEWN. (ruch wychodzący)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    Zabezpieczanie podsieci DMZ**
+**9.2. Zabezpieczanie podsieci DMZ**
 
 | Reguła | Opis | Ruch |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ Wdrożenie poniższych reguł (w przedstawionej kolejności) stanowi podstawę s
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    Testowanie logowania za pomocą usług AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10. Testowanie logowania za pomocą usług AD FS
 Najprostszym sposobem przetestowania działania usług AD FS jest użycie strony IdpInitiatedSignon.aspx. Przede wszystkim trzeba ją włączyć we właściwościach usług AD FS. Wykonaj poniższe kroki, aby zweryfikować konfigurację usług AD FS.
 
 1. Aby włączyć tę stronę, uruchom poniższe polecenie cmdlet na serwerze usług AD FS przy użyciu programu PowerShell.

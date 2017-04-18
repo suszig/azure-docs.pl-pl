@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
-ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -88,7 +88,7 @@ Magazyn obiektów blob udostępnia trzy typy obiektów blob: blokowe obiekty blo
 W wypadku bardzo dużych zestawów danych, gdy ograniczenia sieci mogą w praktyce uniemożliwić przekazanie lub pobranie danych do Magazynu obiektów blob, możesz przesłać dysk twardy do firmy Microsoft, aby zaimportować dane bezpośrednio do centrum danych lub wyeksportować je stamtąd. Zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](storage-import-export-service.md).
 
 ## <a name="table-storage"></a>Magazyn tabel
-Nowoczesne aplikacje często wymagają magazynu, który jest bardziej skalowalny i elastyczny, niż określają to wymagania poprzedniej generacji oprogramowania. Magazyn tabel jest skalowalny na ogromną skalę i oferuje wysoką dostępność, dzięki czemu aplikacja może automatycznie skalować się, aby spełnić wymagania użytkownika. Magazyn tabel to magazyn typu NoSQL (par klucz-atrybut) firmy Microsoft — nie korzysta ze schematów, czym różni się od tradycyjnych relacyjnych baz danych. W wypadku magazynu danych bez schematów można łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Magazyn tabel jest łatwy w użyciu, dzięki czemu deweloperzy mogą szybko tworzyć aplikacje. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji.  Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
+Nowoczesne aplikacje często wymagają magazynu, który jest bardziej skalowalny i elastyczny, niż określają to wymagania poprzedniej generacji oprogramowania. Magazyn tabel jest skalowalny na ogromną skalę i oferuje wysoką dostępność, dzięki czemu aplikacja może automatycznie skalować się, aby spełnić wymagania użytkownika. Usługa Table Storage to magazyn typu NoSQL (par klucz-atrybut) firmy Microsoft — nie korzysta ze schematów, czym różni się od tradycyjnych relacyjnych baz danych. W wypadku magazynu danych bez schematów można łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Magazyn tabel jest łatwy w użyciu, dzięki czemu deweloperzy mogą szybko tworzyć aplikacje. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji.  Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
 
 Magazyn tabel to magazyn zawierający pary klucz-atrybut, co oznacza, że każda wartość w tabeli jest przechowywana razem z nazwą właściwości z określonym typem. Nazwa właściwości może służyć do filtrowania i określania kryteriów wyboru. Kolekcja właściwości i ich wartości stanowi jednostkę. Ponieważ Magazyn tabel nie korzysta ze schematów, dwie jednostki w tej samej tabeli mogą zawierać różne kolekcje właściwości, a te właściwości mogą być różnych typów.
 
@@ -108,7 +108,7 @@ Magazyn plików Azure oferuje udziały plików w chmurze oparte na protokole SMB
 
 Ponieważ udział usługi File Storage to standardowy udział plików SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy systemu plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure.
 
-Podobnie jak inne usługi magazynu platformy Azure, Magazyn plików uwidacznia interfejs API REST na potrzeby uzyskiwania dostępu do danych w udziale. Aplikacje lokalne mogą wywołać interfejs API REST Magazynu plików, aby uzyskać dostęp do danych w udziale plików. W ten sposób przedsiębiorstwo ma możliwość zmigrowania niektórych starszych aplikacji na platformę Azure i kontynuowania korzystania z pozostałych ze swojej organizacji. Należy pamiętać, że instalowanie udziału plików jest możliwe tylko dla aplikacji działających na platformie Azure. Aplikacja lokalna ma dostęp do udziału plików tylko za pomocą interfejsu API REST.
+Podobnie jak inne usługi magazynu platformy Azure, Magazyn plików uwidacznia interfejs API REST na potrzeby uzyskiwania dostępu do danych w udziale. Aplikacje lokalne mogą wywołać interfejs API REST usługi File Storage, aby uzyskać dostęp do danych w udziale plików. W ten sposób przedsiębiorstwo ma możliwość zmigrowania niektórych starszych aplikacji na platformę Azure i kontynuowania korzystania z pozostałych ze swojej organizacji. Należy pamiętać, że instalowanie udziału plików jest możliwe tylko dla aplikacji działających na platformie Azure. Aplikacja lokalna ma dostęp do udziału plików tylko za pomocą interfejsu API REST.
 
 Aplikacje rozproszone mogą także używać Magazynu plików do przechowywania i udostępniania przydatnych danych aplikacji oraz narzędzi do programowania i testowania. Na przykład aplikacja może przechowywać pliki konfiguracji i dane diagnostyczne, takie jak dzienniki, metryki i zrzuty awaryjne, w udziale Magazynu plików, dzięki czemu są one dostępne dla wielu maszyn wirtualnych lub ról. Deweloperzy i administratorzy mogą przechowywać narzędzia, które są im niezbędne do kompilacji aplikacji lub zarządzania aplikacją, w udziale Magazynu plików, który jest dostępny dla wszystkich składników, zamiast instalowania ich na każdej maszynie wirtualnej lub w każdym wystąpieniu roli.
 

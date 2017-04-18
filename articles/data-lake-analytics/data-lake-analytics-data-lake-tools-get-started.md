@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>Samouczek: tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Poznaj sposoby instalowania narzędzi Data Lake Tools dla Visual Studio oraz pisania i testowania skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio.
+Napisz i przetestuj skrypty U-SQL przy użyciu narzędzi Data Lake Tools for Visual Studio.
 
 U-SQL jest wysoko skalowalnym językiem o dużych możliwościach rozszerzania umożliwiającym przygotowywanie, przekształcanie i analizowanie wszystkich danych w ramach usługi Data Lake i poza nią. Więcej informacji znajduje się w temacie [Dokumentacja języka U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Zainstalowany program Visual Studio 2015 Update 3, Visual Studio 2013 Update 4 lub Visual Studio 2012. Wersje Enterprise (Ultimate/Premium), Professional, Community są obsługiwane; wersja Express nie jest obsługiwana. Program Visual Studio 2017 nie jest obecnie obsługiwany.**
+* **Visual Studio 2017 (z obciążeniem magazynu danych i przetwarzania), Visual Studio 2015 aktualizacja 3, Visual Studio 2013 aktualizacja 4 lub Visual Studio 2012. Wersje Enterprise (Ultimate/Premium), Professional, Community są obsługiwane; wersja Express nie jest obsługiwana.**
 * **Zestaw Microsoft Azure SDK dla programu .NET w wersji 2.7.1 lub nowszej**.  Można go zainstalować przy użyciu [Instalatora platformy sieci Web](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools dla Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    Po zainstalowaniu narzędzi Data Lake Tools dla programu Visual Studio węzeł „Data Lake Analytics” zostanie wyświetlony w Eksploratorze serwera w węźle „Azure” (aby otworzyć Eksploratora serwera, naciśnij klawisze Ctrl + Alt + S).
+    Po zainstalowaniu narzędzi Data Lake Tools dla programu Visual Studio węzeł „Data Lake Analytics” zostanie wyświetlony w Eksploratorze serwera w węźle „Azure” (aby otworzyć Eksploratora serwera, naciśnij klawisze Ctrl+Alt+S).
 
-* **Konto i przykładowe dane usługi Data Lake Analytics** Usługa Data Lake Tools nie obsługuje tworzenia kont usługi Data Lake Analytics. Możesz utworzyć konto przy użyciu witryny Azure Portal, programu Azure PowerShell, zestawu SDK platformy .NET lub interfejsu wiersza polecenia platformy Azure.
+* **Konto i przykładowe dane usługi Data Lake Analytics** Usługa Data Lake Tools nie obsługuje tworzenia kont usługi Data Lake Analytics. Utwórz konto przy użyciu witryny Azure Portal, programu Azure PowerShell, zestawu SDK platformy .NET lub interfejsu wiersza polecenia platformy Azure.
 Dla wygody skrypt programu PowerShell na potrzeby tworzenia usługi Data Lake Analytics i przekazywania źródłowego pliku danych można znaleźć w [przykładowym pakiecie Appx-A programu PowerShell do przygotowania samouczka](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
     Opcjonalnie możesz wykonać instrukcje zawarte w następujących dwóch sekcjach tematu [Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-get-started-portal.md), aby utworzyć konto i przekazać dane ręcznie:
@@ -44,7 +44,7 @@ Dla wygody skrypt programu PowerShell na potrzeby tworzenia usługi Data Lake An
     2. [Przekazywanie pliku SearchLog.tsv do domyślnego konta usługi Data Lake Storage](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Nawiązywanie połączenia z usługą Azure
-**Aby nawiązać połączenie z usługą Data Lake Analytics**
+**Nawiązywanie połączenia z usługą Data Lake Analytics**
 
 1. Otwórz program Visual Studio.
 2. W menu **Widok** kliknij opcję **Eksplorator serwera**, aby otworzyć Eksplorator serwera, lub naciśnij klawisze **[CTRL] + [ALT] + S**.
@@ -54,9 +54,9 @@ Dla wygody skrypt programu PowerShell na potrzeby tworzenia usługi Data Lake An
 ## <a name="upload-source-data-files"></a>Przekazywanie źródłowych plików danych
 Niektóre dane zostały przekazane podczas wykonywania instrukcji zawartych we wcześniejszej sekcji **Wymagania wstępne** samouczka.  
 
-Jeśli chcesz użyć własnych danych, przedstawione niżej procedury umożliwiają przekazanie danych przy użyciu narzędzi Data Lake Tools.
+Aby skorzystać z własnych danych, wykonaj następujące kroki dotyczące przekazywania danych z narzędzi Data Lake Tools.
 
-**Aby przekazać pliki do zależnego konta usługi Azure Data Lake**
+**Przekazywanie plików do zależnego konta usługi Azure Data Lake**
 
 1. W **Eksploratorze serwera** rozwiń węzeł **Azure**, rozwiń węzeł **Data Lake Analytics**, rozwiń konto usługi Data Lake Analytics, po czym rozwiń węzeł **Konta magazynu**. Zostanie wyświetlone domyślne konto usługi Data Lake Storage oraz połączone konta usługi Data Lake Storage i połączone konta usługi Azure Storage. Domyślne konto usługi Data Lake jest oznaczone jako „Domyślne konto magazynu”.
 2. Kliknij prawym przyciskiem myszy domyślne konto usługi Data Lake Storage, a następnie kliknij pozycję **Explorer**.  Spowoduje to otwarcie okienka narzędzi Data Lake Tools dla programu Visual Studio Explorer.  Po lewej stronie wyświetlany jest widok drzewa, po prawej — widok zawartości.
@@ -65,7 +65,7 @@ Jeśli chcesz użyć własnych danych, przedstawione niżej procedury umożliwia
 
     ![Skrypt U-SQL projektu U-SQL programu Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Aby przekazać pliki do połączonego konta magazynu obiektów Blob platformy Azure**
+**Przekazywanie plików do połączonego konta usługi Azure Blob Storage**
 
 1. W **Eksploratorze serwera** rozwiń węzeł **Azure**, rozwiń węzeł **Data Lake Analytics**, rozwiń konto usługi Data Lake Analytics, po czym rozwiń węzeł **Konta magazynu**. Zostanie wyświetlone domyślne konto usługi Data Lake Storage oraz połączone konta usługi Data Lake Storage i połączone konta usługi Azure Storage.
 2. Rozwiń konto usługi Azure Storage.
@@ -76,7 +76,7 @@ Jeśli chcesz użyć własnych danych, przedstawione niżej procedury umożliwia
 ## <a name="develop-u-sql-scripts"></a>Tworzenie skryptów U-SQL
 Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL](data-lake-analytics-u-sql-get-started.md) i [Dokumentację języka U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
-**Aby utworzyć i przesłać zadanie usługi Data Lake Analytics**
+**Tworzenie i przesyłanie zadania usługi Data Lake Analytics**
 
 1. W menu **Plik** kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
 2. Wybierz typ **U-SQL Project** (Projekt U-SQL).
@@ -128,9 +128,9 @@ Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzie�
        Nastąpi wyświetlenie automatycznie wypełnianej nazwy i członków dla zestawu wierszy, klas, baz danych, schematów i obiektów zdefiniowanych przez użytkownika (UDO).
 
        Funkcja IntelliSense dla obiektów katalogu (baz danych, schematów, tabel, obiektów UDO itp.) jest powiązana z kontem obliczeniowym. Możesz sprawdzić bieżące aktywne konto obliczeniowe, bazę danych i schemat na górnym pasku narzędzi oraz przełączać je za pomocą list rozwijanych.
-   * **Rozwiń* kolumny**
+   * **Rozwijanie kolumn oznaczonych symbolem ***
 
-       Kliknij z prawej strony symbolu *. Poniżej symbolu pod* będzie widoczne niebieskie podkreślenie. Umieść kursor myszy na niebieskim podkreśleniu, a następnie kliknij strzałkę w dół.
+       Kliknij z prawej strony symbolu *. Poniżej symbolu * będzie widoczne niebieskie podkreślenie. Umieść kursor myszy na niebieskim podkreśleniu, a następnie kliknij strzałkę w dół.
        ![Rozwijanie narzędzi programu Visual Studio w usłudze Data Lake za pomocą symbolu *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Kliknij opcję **Expand Columns** (Rozwiń kolumny), a narzędzie zastąpi symbol * nazwami kolumn.

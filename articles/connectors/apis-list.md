@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ Istnieją dwa typy wyzwalaczy:
 
 ## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Łączniki niestandardowe i certyfikaty związane z platformą Microsoft Azure
 
-Chcesz tworzyć własne łączniki lub nie możesz znaleźć odpowiedniego łącznika? Możesz [rozszerzyć platformę usługi Logic Apps](../logic-apps/logic-apps-create-api-app.md) i tworzyć aplikacje interfejsu API wywołujące interfejsy API lub systemy, które nie są dostępne jako gotowe do użycia łączniki. Ponadto możesz przesyłać aplikacje interfejsu API na potrzeby certyfikacji platformy Microsoft Azure, a następnie udostępniać je za pomocą platformy Azure. Dowiedz się więcej na temat uzyskiwania [certyfikatów platformy Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) dla rozwiązań.
+Aby wywoływać interfejsy API, na których jest uruchomiony niestandardowy kod lub które nie są dostępne jako łączniki, można [rozszerzyć platformę usługi Logic Apps](../logic-apps/logic-apps-create-api-app.md), tworząc aplikacje interfejsu API oparte na protokole REST jako łączniki niestandardowe. Jeśli chcesz, aby Twoje niestandardowe aplikacje interfejsu API były publiczne i dostępne do użytku na platformie Azure, prześlij swoje nominacje do [programu certyfikatów platformy Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 

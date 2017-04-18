@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Aby uzyskać więcej informacji o bazach danych SQL Azure, zobacz temat [Bazy da
 
 W poniższych tabelach przedstawiono główne funkcje usługi Azure SQL Database i programu SQL Server. Określono możliwość ich obsługi, a także zawarto linki umożliwiające uzyskanie dodatkowych informacji o danej funkcji na każdej platformie. Aby uzyskać informacje o funkcjach języka Transact-SQL, skorzystaj z umieszczonego w tabeli linku dla kategorii odpowiadającej danej funkcji. Zobacz też [Różnice w języku Transact-SQL usługi Azure SQL Database](sql-database-transact-sql-information.md), aby uzyskać więcej informacji na temat przyczyn braku obsługi niektórych typów funkcji.
 
-W dalszym ciągu dodajemy funkcje do wersji V12. Zachęcamy zatem do odwiedzania naszej strony poświęconej aktualizacjom usług dla platformy Azure i korzystania z dostępnych tam filtrów:
+W dalszym ciągu dodajemy funkcje do usługi Azure SQL Database. Zachęcamy zatem do odwiedzania naszej strony poświęconej aktualizacjom usług dla platformy Azure i korzystania z dostępnych tam filtrów:
 
 * Włączony filtr [usługi SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
 * Włączony filtr [ogłoszeń dotyczących ogólnej dostępności](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) funkcji usługi SQL Database.

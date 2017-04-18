@@ -6,6 +6,7 @@ Usługa Azure Data Factory obsługuje następujące działania przekształcania,
 | [Pig](../articles/data-factory/data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](../articles/data-factory/data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Przesyłanie strumieniowe usługi Hadoop](../articles/data-factory/data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
+| [Spark](../articles/data-factory/data-factory-spark.md) | HDInsight [Hadoop] |
 | [Działania usługi Machine Learning: wykonywanie wsadowe i aktualizacja zasobów](../articles/data-factory/data-factory-azure-ml-batch-execution-activity.md) |Maszyna wirtualna platformy Azure |
 | [Procedura składowana](../articles/data-factory/data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse lub SQL Server |
 | [Język U-SQL usługi Data Lake Analytics](../articles/data-factory/data-factory-usql-activity.md) |Azure Data Lake Analytics |
@@ -16,9 +17,4 @@ Usługa Azure Data Factory obsługuje następujące działania przekształcania,
 > Możesz utworzyć niestandardowe działanie, aby uruchamiać skrypty w klastrze usługi HDInsight z zainstalowanym językiem R. Zobacz [Uruchamianie skryptów języka R przy użyciu usługi Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

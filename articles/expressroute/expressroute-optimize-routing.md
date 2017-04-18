@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ Usługa ExpressRoute umożliwia skonfigurowanie usługi Virtual Network pod kąt
 ![Przypadek 3 dotyczący usługi ExpressRoute — suboptymalny routing między sieciami wirtualnymi](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>Rozwiązanie: przypisanie wysokiej wagi połączeniu lokalnemu
-Rozwiązanie jest proste. Ponieważ wiadomo, gdzie znajdują się sieci wirtualne i obwody, można określić preferowaną ścieżkę dla poszczególnych sieci wirtualnych. Na potrzeby tego przykładu połączeniu lokalnemu jest przypisywana wyższa waga niż połączeniu zdalnemu. Gdy sieć wirtualna z wieloma połączeniami odbierze prefiks drugiej sieci wirtualnej, w celu wysłania danych przeznaczonych dla tego prefiksu zostanie wybrane połączenie z najwyższą wagą.
+Rozwiązanie jest proste. Ponieważ wiadomo, gdzie znajdują się sieci wirtualne i obwody, można określić preferowaną ścieżkę dla poszczególnych sieci wirtualnych. Na potrzeby tego przykładu połączeniu lokalnemu jest przypisywana wyższa waga niż połączeniu zdalnemu (zobacz przykład konfiguracji [tutaj](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)). Gdy sieć wirtualna z wieloma połączeniami odbierze prefiks drugiej sieci wirtualnej, w celu wysłania danych przeznaczonych dla tego prefiksu zostanie wybrane połączenie z najwyższą wagą.
 
 ![Rozwiązanie przypadku 3 dotyczącego usługi ExpressRoute — przypisanie wysokiej wagi połączeniu lokalnemu](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ Rozwiązanie jest proste. Ponieważ wiadomo, gdzie znajdują się sieci wirtualn
 > Jeśli korzystasz z kilku obwodów usługi ExpressRoute, możesz również zmieniać routing z sieci wirtualnej do sieci lokalnej, konfigurując wagę połączenia, zamiast stosowania dołączania ścieżki AS, które zostało opisane w drugim scenariuszu. Podczas określania trasy danych w przypadku wszystkich prefiksów waga połączenia ma zawsze pierwszeństwo przed długością ścieżki AS.
 >
 >
+

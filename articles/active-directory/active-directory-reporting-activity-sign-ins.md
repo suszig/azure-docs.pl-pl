@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 78617dc7e3a4b6eb4fc32d32b6850b8c0832d6d8
-ms.openlocfilehash: 9819c5f6a3aea53664d86e3a23b25946c0f2b731
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,17 +44,99 @@ Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać o
 * Ilu użytkowników zalogowało się w ciągu tygodnia?
 * Jaki jest stan tych logowań?
 
+Pierwszym punktem wejścia do wszystkich danych dotyczących logowania jest pozycja **Logowania** w sekcji Działania usługi **Azure Active** Directory.
+
+
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/61.png "Działania związane z logowaniem")
+
+
+Dziennik inspekcji zawiera domyślny widok listy, który pokazuje:
+
+- powiązanego użytkownika;
+- aplikację, do której zalogował się użytkownik;
+- stan logowania;
+- czas logowania.
+
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/41.png "Działania związane z logowaniem")
+
+Możesz dostosować widok listy, klikając pozycję **Kolumny** na pasku narzędzi.
+
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/19.png "Działania związane z logowaniem")
+
+Dzięki temu możesz wyświetlić dodatkowe pola lub usunąć pola, które są już wyświetlane.
+
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/42.png "Działania związane z logowaniem")
+
+Klikając pozycję w widoku listy, możesz uzyskać wszystkie szczegóły na jej temat.
+
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/43.png "Działania związane z logowaniem")
+
+
+## <a name="filtering-sign-in-activities"></a>Filtrowanie działań związanych z logowaniem
+
+Aby zawęzić zgłaszane dane do odpowiedniego poziomu, możesz odfiltrować dane logowania przy użyciu następujących pól:
+
+- Przedział czasu
+- Użytkownik
+- Aplikacja
+- Klient
+- Stan logowania
+
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/44.png "Działania związane z logowaniem")
+
+
+Filtr **Przedział czasu** umożliwia zdefiniowanie przedziału czasu dla zwracanych danych.  
+Możliwe wartości:
+
+- 1 miesiąc
+- 7 dni
+- 24 godziny
+- Niestandardowy
+
+Po wybraniu niestandardowego przedziału czasu możesz skonfigurować godzinę rozpoczęcia i zakończenia.
+
+Filtr **Użytkownik** umożliwia określenie nazwy lub głównej nazwy użytkownika (UPN, user principal name) dla żądanego użytkownika.
+
+Filtr **Aplikacja** umożliwia określenie nazwy żądanej aplikacji.
+
+Filtr **Klient** umożliwia określenie informacji dotyczących żądanego urządzenia.
+
+Filtr **Stan logowania** umożliwia wybranie jednego z następujących filtrów:
+
+- Wszystkie
+- Powodzenie
+- Niepowodzenie
+
+
+## <a name="sign-in-activities-shortcuts"></a>Skróty działań związanych z logowaniem
+
+Poza usługą Azure Active Directory witryna Azure Portal zapewnia dwa dodatkowe punkty wejścia do danych dotyczących działań związanych z logowaniem:
+
+- Użytkownicy i grupy
+- Aplikacje dla przedsiębiorstw
+
+
+### <a name="users-and-groups-sign-ins-activities"></a>Działania związane z logowaniem użytkowników i grup
+
+Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać odpowiedzi na pytania, takie jak:
+
+- Co to jest wzorzec logowania użytkownika?
+- Ilu użytkowników zalogowało się w ciągu tygodnia?
+- Jaki jest stan tych logowań?
+
+
+
 Punktem wyjścia do tych danych jest wykres logowania użytkownika znajdujący się w sekcji **Przegląd** w obszarze **Użytkownicy i grupy**.
 
- ![Raportowanie](./media/active-directory-reporting-activity-sign-ins/05.png "Raportowanie")
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/45.png "Działania związane z logowaniem")
 
 Wykres logowania użytkownika przedstawia tygodniowe agregacje logowań dla wszystkich użytkowników w danym okresie czasu. Domyślny okres to 30 dni.
 
-![Raportowanie](./media/active-directory-reporting-activity-sign-ins/02.png "Raportowanie")
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/46.png "Działania związane z logowaniem")
 
-Po kliknięciu dnia na wykresie logowania zostanie wyświetlona szczegółowa lista działań związanych z logowaniem.
+Po kliknięciu dnia na wykresie logowania zostanie wyświetlona szczegółowa lista działań związanych z logowaniem dla tego dnia.
 
-![Raportowanie](./media/active-directory-reporting-activity-sign-ins/03.png "Raportowanie")
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/41.png "Działania związane z logowaniem")
 
 Każdy wiersz na liście działań związanych z logowaniem zapewnia szczegółowe informacje o wybranym logowaniu, takie jak:
 
@@ -63,6 +145,12 @@ Każdy wiersz na liście działań związanych z logowaniem zapewnia szczegóło
 * Do której aplikacji się logowano?
 * Jaki jest adres IP komputera, z którego się logowano?
 * Jaki był stan logowania?
+
+Opcja **Logowania** umożliwia pełny przegląd logowań wszystkich użytkowników.
+
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/51.png "Działania związane z logowaniem")
+
+
 
 ## <a name="usage-of-managed-applications"></a>Użycie zarządzanych aplikacji
 
@@ -74,43 +162,27 @@ Dzięki widokowi skoncentrowanemu na aplikacji w ramach danych logowania można 
 
 Punktem wyjścia do tych danych są 3 najczęściej używane aplikacje w organizacji uwzględnione w raporcie z ostatnich 30 dni znajdującym się w sekcji **Przegląd** w obszarze **Aplikacje dla przedsiębiorstw**.
 
- ![Raportowanie](./media/active-directory-reporting-activity-sign-ins/06.png "Raportowanie")
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/64.png "Działania związane z logowaniem")
 
 Wykres użycia aplikacji przedstawia tygodniowe agregacje logowań 3 najczęściej używanych aplikacji w danym czasie. Domyślny okres to 30 dni.
 
-![Raportowanie](./media/active-directory-reporting-activity-sign-ins/78.png "Raportowanie")
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/47.png "Działania związane z logowaniem")
 
 Jeśli chcesz, możesz ustawić fokus na konkretnej aplikacji.
+
 
 ![Raportowanie](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Raportowanie")
 
 Po kliknięciu dnia na wykresie użycia aplikacji zostanie wyświetlona szczegółowa lista działań związanych z logowaniem.
 
-![Raportowanie](./media/active-directory-reporting-activity-sign-ins/top_app_sign_ins.png "Raportowanie")
+
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/48.png "Działania związane z logowaniem")
+
 
 Opcja **Logowania** umożliwia pełny przegląd zdarzeń logowania do aplikacji.
 
-![Raportowanie](./media/active-directory-reporting-activity-sign-ins/85.png "Raportowanie")
+![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/49.png "Działania związane z logowaniem")
 
-Za pomocą selektora kolumny można wybrać pola danych, które mają być wyświetlane.
-
-![Raportowanie](./media/active-directory-reporting-activity-sign-ins/column_chooser.png "Raportowanie")
-
-## <a name="filtering-sign-ins"></a>Filtrowanie logowań
-Logowania można filtrować, aby ograniczyć ilość wyświetlanych danych, przy użyciu następujących pól:
-
-* Data i godzina 
-* Główna nazwa użytkownika
-* Nazwa aplikacji
-* Nazwa klienta
-* Stan logowania
-
-![Raportowanie](./media/active-directory-reporting-activity-sign-ins/293.png "Raportowanie")
-
-Inną metodą filtrowania wpisów działań związanych z logowaniem jest wyszukiwanie określonych wpisów.
-Ta metoda wyszukiwania umożliwia zestawienie logowań wokół określonych **użytkowników**, **grup** i **aplikacji**.
-
-![Raportowanie](./media/active-directory-reporting-activity-sign-ins/84.png "Raportowanie")
 
 
 ## <a name="next-steps"></a>Następne kroki

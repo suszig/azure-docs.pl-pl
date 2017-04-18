@@ -18,22 +18,36 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: fd5cb0d45d0955b7e4c471dc5ccecac65ad7400a
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Baza danych Azure SQL Database: używanie programu Visual Studio Code do nawiązywania połączenia i wysyłania zapytań dotyczących danych
 
-[Visual Studio Code](https://code.visualstudio.com/docs) jest graficznym edytorem kodu dla systemów Linux, MacOS i Windows, który obsługuje rozszerzenia. Użyj programu Visual Studio Code z [rozszerzeniem mssql](https://aka.ms/mssql-marketplace), aby nawiązać połączenie z bazą danych Azure SQL i wysyłać do niej zapytania. Ten przewodnik szybkiego startu zawiera szczegółowe informacje o używaniu programu Visual Studio Code do nawiązywania połączenia z bazą danych Azure SQL, a następnie wykonywania instrukcji zapytań, wstawiania, aktualizowania i usuwania.
+[Visual Studio Code](https://code.visualstudio.com/docs) to graficzny edytor kodu dla systemów Linux, macOS i Windows obsługujący rozszerzenia, w tym [rozszerzenie mssql](https://aka.ms/mssql-marketplace), używany do wysyłania zapytań do programów Microsoft SQL Server, Azure SQL Database i SQL Data Warehouse. W tym przewodniku Szybki start pokazano, jak używać edytora Visual Studio Code w celu nawiązywania połączenia z usługą Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane, a także wstawiać, aktualizować i usuwać dane z bazy danych.
 
 Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonych w jednym z poniższych przewodników Szybki start:
 
 - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
 
-Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowano [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalacji rozszerzenia mssql, zobacz [Instalacja programu VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code). 
+Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowano [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalacji rozszerzenia mssql, zobacz [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) (Instalacja programu VS Code) i [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (Rozszerzenie mssql dla programu Visual Studio Code). 
+
+## <a name="configure-vs-code-mac-os-only"></a>Konfigurowanie programu VS Code (tylko system Mac OS)
+
+### <a name="mac-os"></a>**Mac OS**
+W systemie macOS należy zainstalować protokół OpenSSL, który jest wymaganiem wstępnym dla narzędzi DotNet Core używanych przez rozszerzenie mssql. Otwórz terminal i wprowadź następujące polecenia, aby zainstalować rozwiązania **brew** i **OpenSSL***. 
+
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install openssl
+mkdir -p /usr/local/lib
+ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+```
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 
@@ -43,7 +57,7 @@ Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w 
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
 3. W okienku **Essentials** na stronie bazy danych w witrynie Azure Portal zlokalizuj i skopiuj **nazwę serwera**, aby wykorzystać ją później w tym przewodniku Szybki start.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
 
 ## <a name="set-language-mode-to-sql"></a>Ustawianie trybu języka na SQL
 
@@ -51,7 +65,7 @@ Ustaw tryb języka na **SQL** w programie Visual Studio Code, aby włączyć pol
 
 1. Otwórz nowe okno programu Visual Studio Code. 
 
-2. Naciśnij klawisze **CTRL+K, M**, wpisz **SQL** i naciśnij klawisz **ENTER**, aby ustawić tryb języka na SQL. 
+2. Naciśnij klawisze **⌘ + K, M** lub **CTRL + K, M** (opcje odpowiednio dla komputerów Mac i z systemem Windows), wpisz **SQL** i naciśnij klawisz **ENTER**, aby ustawić tryb języka SQL. 
 
 <img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
 
@@ -61,13 +75,11 @@ Użyj programu Visual Studio Code, aby nawiązać połączenie z serwerem Azure 
 
 1. W programie VS Code naciśnij klawisze **CTRL + SHIFT + P** (lub klawisz **F1**), aby otworzyć paletę poleceń.
 
-2. Wpisz **sqlcon** i naciśnij klawisz **ENTER**.
+2. Wpisz **sqlcon** i naciśnij klawisz **ENTER**, aby ustawić język **SQL**.
 
-3. Kliknij przycisk **Tak**, aby ustawić język na **SQL**.
+3. Naciśnij klawisz **ENTER**, aby wybrać opcję **Utwórz profil połączenia**. W ten sposób zostanie utworzony profil połączenia dla wystąpienia programu SQL Server.
 
-4. Naciśnij klawisz **ENTER**, aby wybrać opcję **Utwórz profil połączenia**. W ten sposób zostanie utworzony profil połączenia dla wystąpienia programu SQL Server.
-
-5. Postępuj zgodnie z monitami, aby określić właściwości połączenia dla nowego profilu połączenia. Po określeniu każdej wartości naciśnij klawisz **ENTER**, aby kontynuować. 
+4. Postępuj zgodnie z monitami, aby określić właściwości połączenia dla nowego profilu połączenia. Po określeniu każdej wartości naciśnij klawisz **ENTER**, aby kontynuować. 
 
    Poniższa tabela opisuje właściwości profilu połączenia.
 
@@ -81,9 +93,9 @@ Użyj programu Visual Studio Code, aby nawiązać połączenie z serwerem Azure 
    | **Zapisać hasło?** | Wybierz opcję **Tak** lub **Nie** |
    | **[Opcjonalnie] Wprowadź nazwę dla tego profilu** | Wprowadź nazwę profilu połączenia, np. **mySampleDatabase**. 
 
-6. Naciśnij klawisz **ESC**, aby zamknąć komunikat z informacją o utworzeniu profilu i nawiązaniu z nim połączenia.
+5. Naciśnij klawisz **ESC**, aby zamknąć komunikat z informacją o utworzeniu profilu i nawiązaniu z nim połączenia.
 
-7. Sprawdź połączenie na pasku stanu.
+6. Sprawdź połączenie na pasku stanu.
 
    <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
 
@@ -100,7 +112,7 @@ Użyj instrukcji Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms1894
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. Naciśnij klawisze **CTRL+SHIFT+E**, aby pobrać dane z tabel Product i ProductCategory.
+2. Naciśnij klawisze **CTRL+SHIFT+E**, aby pobrać dane z tabel Product i ProductCategory.
 
     <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
 
@@ -130,7 +142,7 @@ Użyj instrukcji Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms1743
            ,GETDATE() );
    ```
 
-3. Naciśnij klawisze **CTRL+SHIFT+E**, aby wstawić nowy wiersz w tabeli Product.
+2. Naciśnij klawisze **CTRL+SHIFT+E**, aby wstawić nowy wiersz w tabeli Product.
 
 ## <a name="update-data"></a>Aktualizowanie danych
 
@@ -144,7 +156,7 @@ Użyj instrukcji Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms1775
    WHERE Name = 'myNewProduct';
    ```
 
-3. Naciśnij klawisze **CTRL+SHIFT+E**, aby zaktualizować wiersz w tabeli Product.
+2. Naciśnij klawisze **CTRL+SHIFT+E**, aby zaktualizować wiersz w tabeli Product.
 
 ## <a name="delete-data"></a>Usuwanie danych
 
@@ -157,10 +169,15 @@ Użyj instrukcji Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms1898
    WHERE Name = 'myNewProduct';
    ```
 
-3. Naciśnij klawisze **CTRL+SHIFT+E**, aby usunąć wiersz w tabeli Product.
+2. Naciśnij klawisze **CTRL+SHIFT+E**, aby usunąć wiersz w tabeli Product.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji o programie Visual Studio Code, zobacz [Visual Studio Code](https://code.visualstudio.com/docs)
-- Aby uzyskać więcej informacji o wysyłaniu zapytań i edytowaniu danych przy użyciu programu SQL Server Management Studio, zobacz [SSMS](https://msdn.microsoft.com/library/ms174173.aspx).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu SQL Server Management Studio, zobacz [Connect and query with SSMS](sql-database-connect-query-ssms.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu SSMS).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą platformy .NET, zobacz [Connect and query with .NET](sql-database-connect-query-dotnet.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą platformy .NET).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka PHP, zobacz [Connect and query with PHP](sql-database-connect-query-php.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka PHP).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą oprogramowania Node.js, zobacz [Connect and query with Node.js](sql-database-connect-query-nodejs.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą oprogramowania Node.js).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Java, zobacz [Connect and query with Java](sql-database-connect-query-java.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Java).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Python, zobacz [Connect and query with Python](sql-database-connect-query-python.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Python).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Ruby, zobacz [Connect and query with Ruby](sql-database-connect-query-ruby.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Ruby).
 
