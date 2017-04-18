@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ Poniższy ogólny przepływ pracy to typowy przykład dla niemal wszystkich apli
 W poniższych sekcjach omówiono te i inne zasoby usługi Batch, które umożliwiają pracę ze scenariuszem przetwarzania rozproszonego.
 
 > [!NOTE]
-> Do korzystania z usługi Batch niezbędne jest [konto usługi Batch](batch-account-create-portal.md). Niemal we wszystkich rozwiązaniach do przechowywania i pobierania plików jest używane konto usługi [Azure Storage][azure_storage]. Usługa Batch obsługuje obecnie tylko typ konta magazynu **ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach usługi Azure Storage](../storage/storage-create-storage-account.md).
+> Do korzystania z usługi Batch niezbędne jest [konto usługi Batch](#account). Niemal we wszystkich rozwiązaniach do przechowywania i pobierania plików jest używane konto usługi [Azure Storage][azure_storage]. Usługa Batch obsługuje obecnie tylko typ konta magazynu **ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach usługi Azure Storage](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -69,7 +69,16 @@ Niektóre z poniższych zasobów — konta, węzły obliczeniowe, pule, zadania 
 * [Pakiety aplikacji](#application-packages)
 
 ## <a name="account"></a>Konto
-Konto usługi Batch jest jednoznacznie zdefiniowanym obiektem w ramach usługi Batch. Całe przetwarzanie jest skojarzone z kontem usługi Batch. Podczas wykonywania operacji w usłudze Batch potrzebna jest zarówno nazwa konta, jak i jeden z kluczy konta. Możesz [utworzyć konto usługi Azure Batch w portalu Azure](batch-account-create-portal.md).
+Konto usługi Batch jest jednoznacznie zdefiniowanym obiektem w ramach usługi Batch. Całe przetwarzanie jest skojarzone z kontem usługi Batch.
+
+Konto usługi Azure Batch możesz utworzyć za pomocą witryny [Azure Portal](batch-account-create-portal.md) lub programowo, na przykład za pomocą [biblioteki Batch Management .NET](batch-management-dotnet.md). Podczas tworzenia konta możesz skojarzyć konto magazynu platformy Azure.
+
+Usługa Batch obsługuje dwie konfiguracje konta oparte na właściwości *Tryb alokacji puli*. Te dwie konfiguracje udostępniają różne opcje uwierzytelniania za pomocą usługi Batch oraz aprowizacji i zarządzania [pulami](#pool) usługi Batch (zobacz w dalszej części tego artykułu). 
+
+
+* **Usługa Batch** (domyślnie): możesz uzyskać dostęp do interfejsów API usługi Batch przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). Zasoby obliczeniowe usługi Batch są przydzielane w tle dla konta zarządzanego przez platformę Azure.   
+* **Subskrypcja użytkownika**: możesz uzyskać dostęp tylko do interfejsów API usługi Batch przy użyciu [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). Zasoby obliczeniowe usługi Batch są przydzielane bezpośrednio w subskrypcji platformy Azure. Ten tryb zapewnia większą elastyczność konfigurowania węzłów obliczeniowych i integracji z innymi usługami. Ten tryb wymaga skonfigurowania dodatkowego magazynu Azure Key Vault dla konta usługi Batch.
+ 
 
 ## <a name="compute-node"></a>Węzeł obliczeniowy
 Węzeł obliczeniowy jest maszyną wirtualną platformy Azure przeznaczoną do przetwarzania części obciążenia danej aplikacji. Rozmiar węzła określa liczbę rdzeni procesora, pojemność pamięci oraz rozmiar lokalnego systemu plików przydzielony do tego węzła. Pule węzłów systemu Windows lub Linux można tworzyć przy użyciu obrazów witryny Marketplace dla usług Azure Cloud Services lub Virtual Machines. Aby uzyskać więcej informacji na temat tych opcji, zobacz poniżej sekcję [Pula](#pool).
@@ -89,13 +98,16 @@ Pule usługi Batch są oparte na podstawowej platformie obliczeniowej Azure. Ofe
 
 Do każdego węzła, który jest dodawany do puli zostaje przypisana unikatowa nazwa i adres IP. Gdy węzeł zostanie usunięty z puli, wszelkie zmiany wprowadzone w systemie operacyjnym lub w plikach zostaną utracone, a jego nazwa i adres IP zostaną zwolnione do użytku w przyszłości. Gdy węzeł opuści pulę, oznacza to, że zakończył się jego okres istnienia.
 
-Podczas tworzenia puli można określić następujące atrybuty:
+Podczas tworzenia puli możesz określić następujące atrybuty. Niektóre ustawienia różnią się w zależności od trybu alokacji puli [konta](#account) usługi Batch.
 
 * **System operacyjny** i **wersja** węzła obliczeniowego
 
-    Po wybraniu systemu operacyjnego dla węzłów puli dostępne są dwie opcje: **konfiguracja usługi Virtual Machines** i **konfiguracja usług Cloud Services**.
+    > [!NOTE]
+    > W trybie alokacji puli usługi Batch masz dwie opcje podczas wybierania systemu operacyjnego dla węzłów w puli: **konfiguracja maszyny wirtualnej** i **konfiguracja usług Cloud Services**. W trybie subskrypcji użytkownika możesz użyć tylko konfiguracji maszyny wirtualnej.
+    >
 
-    **Konfiguracja usługi Virtual Machines** udostępnia obrazy systemów Linux i Windows dla węzłów obliczeniowych z [portalu Marketplace usługi Azure Virtual Machines][vm_marketplace].
+    **Konfiguracja maszyny wirtualnej** udostępnia obrazy zarówno systemu Linux, jak i Windows dla węzłów obliczeniowych z [portalu Marketplace usługi Azure Virtual Machines][vm_marketplace] oraz, w trybie alokacji subskrypcji użytkownika, opcję wykorzystania niestandardowych obrazów maszyny wirtualnej.
+
     Podczas tworzenia puli, która zawiera węzły konfiguracji usługi Virtual Machines, należy określić nie tylko rozmiar węzłów, ale także **odwołanie do obrazu maszyny wirtualnej** i **jednostkę SKU węzła agenta** usługi Batch do zainstalowania w węzłach. Więcej informacji na temat określania powyższych właściwości puli znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizowanie węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
 
     **Konfiguracja usług Cloud Services** oferuje *tylko* węzły obliczeniowe systemu Windows. Listę systemów operacyjnych dostępnych dla pul konfiguracji usług Cloud Services można znaleźć w temacie [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md) (Macierz zgodności zestawów SDK i wersji systemów operacyjnych gościa platformy Azure). Podczas tworzenia puli, która zawiera węzły usług Cloud Services, należy określić tylko rozmiar węzła i jego *rodzinę systemów operacyjnych*. Podczas tworzenia pul węzłów obliczeniowych systemu Windows najczęściej stosuje się usługi Cloud Services.
@@ -313,17 +325,27 @@ W przypadku zmiennego, ale ciągłego obciążenia zwykle jest stosowane rozwią
 
 ## <a name="pool-network-configuration"></a>Konfiguracja sieciowa puli
 
-Podczas tworzenia puli węzłów obliczeniowych w usłudze Azure Batch możesz określić identyfikator [sieci wirtualnej](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) platformy Azure, w której powinny zostać utworzone węzły obliczeniowe puli.
-
-* Sieć wirtualną można przypisać tylko do pul **konfiguracji usług Cloud Services**.
+Podczas tworzenia puli węzłów obliczeniowych w usłudze Azure Batch możesz użyć interfejsów API, aby określić identyfikator [sieci wirtualnej (VNet)](../virtual-network/virtual-networks-overview.md) platformy Azure, w której powinny zostać utworzone węzły obliczeniowe puli.
 
 * Sieć wirtualna musi być:
 
    * W tym samym **regionie** świadczenia usługi Azure jako konto usługi Azure Batch.
    * W tej samej **subskrypcji** platformy Azure jako konto usługi Azure Batch.
-   * **Klasyczną** siecią wirtualną. Sieci wirtualne utworzone w modelu wdrażania przy użyciu usługi Azure Resource Manager nie są obsługiwane.
 
 * Sieci wirtualne powinny mieć dostatecznie dużo wolnych **adresów IP**, aby pomieścić właściwość `targetDedicated` puli. Jeśli podsieć nie ma wystarczającej liczby wolnych adresów IP, usługa Batch częściowo przydzieli węzły obliczeniowe w puli, a następnie zwróci błąd dotyczący zmiany rozmiaru.
+
+* Określona podsieć musi zezwalać na komunikację z usługą Batch, aby umożliwiać planowanie zadań w węzłach obliczeniowych. Jeśli komunikacja z węzłami obliczeniowymi zostanie odrzucona przez **sieciową grupę zabezpieczeń** skojarzoną z siecią wirtualną, usługa Batch ustawia stan węzłów obliczeniowych na **nienadające się do użytku**. 
+
+* Jeśli określona sieć wirtualna ma jakiekolwiek skojarzone sieciowe grupy zabezpieczeń, musi być włączona komunikacja przychodząca. Dla puli systemu Linux muszą być włączone porty 29876, 29877 i 22. Dla puli systemu Windows musi być włączony port 3389.
+
+Dodatkowe ustawienia sieci wirtualnej zależą od trybu alokacji puli konta usługi Batch.
+
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Sieci wirtualne dla pul aprowizowanych w usłudze Batch
+
+W trybie aplikacji usługi Batch sieć wirtualną można przypisać tylko do pul **konfiguracji usług Cloud Services**. Ponadto określona sieć wirtualna musi być **klasyczną** siecią wirtualną. Sieci wirtualne utworzone w modelu wdrażania przy użyciu usługi Azure Resource Manager nie są obsługiwane.
+   
+
+
 * Jednostka usługi *MicrosoftAzureBatch* musi mieć rolę [współautora klasycznej maszyny wirtualnej](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) z kontrolą dostępu opartą na rolach (RBAC) dla określonej sieci wirtualnej. W witrynie Azure Portal:
 
   * Wybierz **sieć wirtualną**, a następnie wybierz kolejno pozycje **Kontrola dostępu (IAM)** > **Role** > **Współautor klasycznej maszyny wirtualnej** > **Dodaj**
@@ -331,7 +353,13 @@ Podczas tworzenia puli węzłów obliczeniowych w usłudze Azure Batch możesz o
   * Zaznacz pole wyboru **MicrosoftAzureBatch**
   * Wybierz przycisk **Wybierz**
 
-* Jeśli komunikacja z węzłami obliczeniowymi zostanie odrzucona przez **sieciową grupę zabezpieczeń** skojarzoną z siecią wirtualną, usługa Batch ustawi stan węzłów obliczeniowych na **nienadające się do użytku**. Podsieć musi zezwalać na komunikację z usługą Azure Batch, aby umożliwiać planowanie zadań w węzłach obliczeniowych.
+
+
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>Sieci wirtualne dla pul aprowizowanych w subskrypcji użytkownika
+
+W trybie alokacji subskrypcji użytkownika są obsługiwane tylko pule **konfiguracji maszyny wirtualnej**, do których można przypisać sieci wirtualne. Ponadto określona sieć wirtualna musi być siecią wirtualną opartą na usłudze **Resource Manager**. Sieci wirtualne utworzone za pomocą klasycznego modelu wdrażania nie są obsługiwane.
+
+
 
 ## <a name="scaling-compute-resources"></a>Skalowanie zasobów obliczeniowych
 [Skalowanie automatyczne](batch-automatic-scaling.md) pozwala na to, by usługa Batch dynamicznie dostosowywała liczbę węzłów obliczeniowych w puli zgodnie z bieżącym obciążeniem i użyciem zasobów w ramach scenariusza obliczeniowego. Dzięki temu można zmniejszyć całkowity koszt działania aplikacji przy użyciu tylko potrzebnych zasobów, zwalniając te zbędne.

@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Oto przykład tego typu alertu:
 ![Alert o wykonaniu podejrzanego procesu](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Wiele zapytań do kont domeny
-Usługa Security Center może wykryć wielokrotne próby zapytań do kont domeny, które są zazwyczaj wykonywane przez osoby atakujące podczas czynności rozpoznawczych sieci. Osoby atakujące mogą korzystać z tej techniki wysyłania zapytań do domeny w celu identyfikacji użytkowników, kont administratorów domeny, komputerów, które są kontrolerami domeny, oraz potencjalnych relacji zaufania z innymi domenami.
+Usługa Security Center może wykryć wielokrotne próby zapytań do kont domeny usługi Active Directory, które są zazwyczaj wykonywane przez osoby atakujące podczas czynności rozpoznawczych sieci. Osoby atakujące mogą korzystać z tej techniki wysyłania zapytań do domeny w celu identyfikacji użytkowników, kont administratorów domeny, komputerów, które są kontrolerami domeny, oraz potencjalnych relacji zaufania z innymi domenami.
 
 Oto przykład tego typu alertu:
 
 ![Alert o wielokrotnych zapytaniach do konta domeny](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Wyliczono członków grupy administratorów lokalnych
+
+Usługa Security Center wyzwoli alert, kiedy w systemie Windows Server 2016 i Windows 10 zostanie wyzwolone zdarzenie zabezpieczeń 4798. Dzieje się tak, kiedy zostają wyliczone grupy administratorów lokalnych, co jest zazwyczaj wykonywane przez osoby atakujące podczas czynności rozpoznawczych sieci. Osoby atakujące mogą korzystać z tej techniki w celu wykonania zapytań o tożsamości użytkowników z uprawnieniami administracyjnymi.
+
+Oto przykład tego typu alertu:
+
+![Administrator lokalny](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Nietypowa kombinacja wielkich i małych liter
+
+Usługa Security Center wyzwoli alert, kiedy wykryje użycie kombinacji wielkich i małych liter w wierszu polecenia. Niektóre osoby atakujące mogą użyć tej techniki w celu obejścia zasad komputera uwzględniających wielkość liter lub bazujących na skrótach.
+
+Oto przykład tego typu alertu:
+
+![Nietypowa kombinacja](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Podejrzenie ataku na złoty bilet protokołu Kerberos
+
+Naruszony klucz [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) może zostać użyty przez osobę atakującą do utworzenia „złotego biletu” protokołu Kerberos, który umożliwiłby osobie atakującej podszycie się pod dowolnego użytkownika. Usługa Security Center wyzwoli alert, kiedy wykryje ten rodzaj aktywności.
+
+> [!NOTE] 
+> Aby uzyskać więcej informacji o złotym bilecie protokołu Kerberos, przeczytaj przewodnik [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) (Przewodnik ograniczania przypadków kradzieży poświadczeń w systemie Windows 10).
+
+Oto przykład tego typu alertu:
+
+![Złoty bilet](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Utworzono podejrzane konto
+
+Usługa Security Center wyzwoli alert, kiedy zostanie utworzone konto bardzo podobne do istniejącego wbudowanego konta z uprawnieniami administracyjnymi. Ta technika może zostać użyta przez osoby atakujące do utworzenia nieautoryzowanego konta, które pozostanie niezauważone podczas weryfikacji dokonywanej przez człowieka.
+ 
+Oto przykład tego typu alertu:
+
+![Podejrzane konto](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Utworzono podejrzaną regułę zapory
+
+Osoby atakujące mogą próbować obejść zabezpieczenia hosta przez utworzenie niestandardowych reguł zapory umożliwiających złośliwym aplikacjom komunikowanie się na potrzeby poleceń i kontroli lub podejmowanie ataków przez sieć za pośrednictwem naruszonego hosta. Usługa Security Center wyzwoli alert, kiedy wykryje, że utworzono nową regułę zapory przy użyciu pliku wykonywalnego w podejrzanej lokalizacji.
+ 
+Oto przykład tego typu alertu:
+
+![Reguła zapory](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Podejrzana kombinacja hosta HTA i programu PowerShell
+
+Usługa Security Center wyzwoli alert, kiedy wykryje, że narzędzie Microsoft HTML Application Host (HTA) uruchamia polecenia programu PowerShell. Jest to technika używana przez osoby atakujące do uruchamiania złośliwych skryptów programu PowerShell.
+ 
+Oto przykład tego typu alertu:
+
+![HTA i PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Analiza sieci
 Wykrywanie zagrożeń sieci za pomocą usługi Security Center polega na automatycznym zbieraniu informacji o zabezpieczeniach uzyskanych na podstawie ruchu protokołu IPFIX (Internet Protocol Flow Information Export) na platformie Azure. Analizuje ona te informacje, często zestawiając informacje z wielu źródeł, aby zidentyfikować zagrożenia.

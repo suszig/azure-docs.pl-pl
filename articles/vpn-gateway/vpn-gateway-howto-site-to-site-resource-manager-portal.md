@@ -13,42 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 80939bb48c29ba39e2d347cb80d6169d79329cfc
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d6f4caebeeced1286f24dd5fcb4f5fc7d8591785
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Tworzenie połączenia typu lokacja-lokacja w witrynie Azure Portal
+
+Połączenie bramy sieci VPN typu lokacja-lokacja to połączenie nawiązywane za pośrednictwem tunelu sieci VPN wykorzystującego protokół IPsec/IKE (IKEv1 lub IKEv2). Ten typ połączenia wymaga, aby urządzenie sieci VPN znajdowało się lokalnie, miało przypisany publiczny adres IP i nie znajdowało się za translatorem adresów sieciowych. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
+
+![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
+
+W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia bramy sieci VPN typu lokacja-lokacja z siecią lokalną z wykorzystaniem modelu wdrażania usługi Azure Resource Manager i witryny Azure Portal. Tę konfigurację można również utworzyć przy użyciu innych narzędzi wdrażania lub, w przypadku klasycznego modelu wdrażania, wybierając inną opcję z następującej listy:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Klasyczny — witryna Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Model klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
+> * [Klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
 >
 >
 
-
-Połączenie bramy sieci VPN typu lokacja-lokacja to połączenie nawiązywane za pośrednictwem tunelu sieci VPN wykorzystującego protokół IPsec/IKE (IKEv1 lub IKEv2). Ten typ połączenia wymaga, aby urządzenie sieci VPN znajdowało się lokalnie, miało przypisany publiczny adres IP i nie znajdowało się za translatorem adresów sieciowych. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
-
-W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia bramy sieci VPN typu lokacja-lokacja z siecią lokalną z wykorzystaniem modelu wdrażania usługi Azure Resource Manager i witryny Azure Portal. 
-
-![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Metody i modele wdrażania używane w kontekście połączeń typu lokacja-lokacja
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-W poniższej tabeli przedstawiono metody i modele wdrażania aktualnie dostępne dla konfiguracji lokacja-lokacja. Jeśli jest dostępny artykuł z krokami konfiguracji, można przejść do niego bezpośrednio z tabeli.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 #### <a name="additional-configurations"></a>Dodatkowe konfiguracje
 Jeśli chcesz połączyć ze sobą sieci wirtualne, nie tworzysz jednak połączenia z lokalizacją lokalną, zapoznaj się z artykułem [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) (Konfigurowanie połączenia między sieciami wirtualnymi). Jeśli chcesz dodać połączenie lokacja-lokacja do sieci wirtualnej, z którą istnieje już połączenie, zobacz [Add a S2S connection to a VNet with an existing VPN gateway connection](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Dodawanie połączenia lokacja-lokacja do sieci wirtualnej, z którą istnieje połączenie bramy sieci VPN).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi elementami.
 
 * Zgodne urządzenie sieci VPN i osoba, która umie je skonfigurować. Zobacz artykuł [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Urządzenia sieci VPN — informacje).
@@ -88,7 +85,7 @@ Serwer DNS nie jest wymagany w przypadku połączeń typu lokacja-lokacja. Jeśl
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Tworzenie podsieci bramy
-Musisz utworzyć podsieć dla bramy sieci VPN. Podsieć bramy zawiera adresy IP, z których będą korzystać usługi bramy sieci VPN. Jeśli to możliwe, utwórz podsieć bramy przy użyciu bloku CIDR /28 lub /27. Da to pewność, że nie braknie adresów IP w celu spełnienia dodatkowych wymagań dotyczących konfiguracji bramy w przyszłości.
+Musisz utworzyć podsieć dla bramy sieci VPN. Podsieć bramy zawiera adresy IP, z których korzystają usługi bramy sieci VPN. Jeśli to możliwe, utwórz podsieć bramy przy użyciu bloku CIDR /28 lub /27. Zapewni to wystarczającą liczbę adresów IP na potrzeby możliwych przyszłych funkcji bramy.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 

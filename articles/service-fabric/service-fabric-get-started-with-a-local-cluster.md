@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 04/07/2017
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,7 +90,7 @@ W tym samouczku użyto istniejącej aplikacji przykładowej (o nazwie WordCount)
    
     ![Interfejs użytkownika wdrożonej aplikacji][deployed-app-ui]
    
-    Aplikacja WordCount jest prosta. Zawiera kliencki kod JavaScript generujący losowe pięcioznakowe „słowa”, które są następnie przekazywane do aplikacji za pośrednictwem interfejsu API ASP.NET Web. Usługa stanowa śledzi liczbę zliczonych słów. Są one przydzielane do partycji na podstawie pierwszego znaku słowa. Kod źródłowy aplikacji WordCount można znaleźć w [przykładach wprowadzających](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    Aplikacja WordCount jest prosta. Zawiera kliencki kod JavaScript generujący losowe pięcioznakowe „słowa”, które są następnie przekazywane do aplikacji za pośrednictwem interfejsu API ASP.NET Web. Usługa stanowa śledzi liczbę zliczonych słów. Są one przydzielane do partycji na podstawie pierwszego znaku słowa. Kod źródłowy aplikacji WordCount można znaleźć w [klasycznych przykładach wprowadzających](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount).
    
     Aplikacja, którą wdrożyliśmy, zawiera cztery partycje. Słowa zaczynające się na litery od A do G są przechowywane w pierwszej partycji, słowa zaczynające się na litery od H do N są przechowywane w drugiej partycji i tak dalej.
 

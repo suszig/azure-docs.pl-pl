@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
-ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 618d31e991d9405ece6533727d700e316ae85bec
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -268,6 +268,7 @@ Koszt transferu danych replikacji geograficznej dla kont magazynu usługi Blob S
 
 ### <a name="migrating-existing-data"></a>Migrowanie istniejących danych
 Konto usługi Blob Storage jest przeznaczone do przechowywania tylko blokowych obiektów blob i uzupełnialnych obiektów blob. Istniejące konta magazynu ogólnego przeznaczenia, które umożliwiają przechowywanie tabel, kolejek, plików, dysków, a także obiektów blob, nie mogą być konwertowane na konta usługi Blob Storage. Aby użyć warstw magazynowania, należy utworzyć nowe konta usługi Blob Storage i przeprowadzić migrację istniejących danych do nowo utworzonych kont.
+
 Poniższych metod można użyć do migrowania istniejących danych do kont usługi Blob Storage z lokalnych urządzeń magazynujących, od innych dostawców magazynu w chmurze lub z istniejących kont magazynu ogólnego przeznaczenia na platformie Azure:
 
 #### <a name="azcopy"></a>Narzędzie AzCopy

@@ -12,7 +12,7 @@
     ```
 2. Dodaj następujący element usługi Relay `constants` do pliku `listener.js` na potrzeby szczegółów połączenia hybrydowego. Zastąp symbole zastępcze w nawiasach odpowiednimi wartościami uzyskanymi podczas tworzenia połączenia hybrydowego.
    
-   1. `const ns` — przestrzeń nazw usługi Relay
+   1. `const ns` — przestrzeń nazw usługi Relay (użyj nazwy FQDN, np. `{namespace}.servicebus.windows.net`)
    2. `const path` — nazwa połączenia hybrydowego
    3. `const keyrule` — nazwa klucza sygnatury dostępu współdzielonego
    4. `const key` — wartość klucza sygnatury dostępu współdzielonego
@@ -71,9 +71,4 @@
         console.log('error' + err);
     });
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

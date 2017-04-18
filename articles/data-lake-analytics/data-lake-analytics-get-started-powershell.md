@@ -1,6 +1,6 @@
 ---
 title: "Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell | Microsoft Docs"
-description: "Dowiedz się, jak utworzyć konto usługi Data Lake Analytics przy użyciu programu Azure PowerShell oraz utworzyć zadanie usługi Data Lake Analytics przy użyciu języka U-SQL i przesłać je. "
+description: "Utwórz konto usługi Data Lake Analytics przy użyciu programu Azure PowerShell oraz utwórz zadanie usługi Data Lake Analytics przy użyciu języka U-SQL i prześlij je. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2016
+ms.date: 04/06/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 32f115a4d901a43abf1bf69d1c0c72b65ec7368c
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -112,7 +113,7 @@ Przykładowy plik dziennika wyszukiwania został skopiowany do publicznego konte
 
     # Download the sample file from Azure Blob storage
     $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
-    $blobs = Azure\Get-AzureStorageBlob -Container $container -Context $context
+    $$blobs = Get-AzureStorageBlob -Container $container -Context $context
     $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
 
     # Upload the file to the default Data Lake Store account    
@@ -122,7 +123,7 @@ Poniższy skrypt programu PowerShell pokazuje, jak pobrać domyślną nazwę us�
 
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeAccount
+    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeStoreAccount
     echo $dataLakeStoreName
 
 > [!NOTE]
@@ -206,9 +207,4 @@ Po zakończeniu zadania można użyć następujących poleceń cmdlet, aby wyśw
 * Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).
 * Aby zapoznać się z omówieniem usługi Data Lake Analytics, zobacz [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

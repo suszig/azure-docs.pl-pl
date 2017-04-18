@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 23927acae12f0db13fe6dd24a4e1fde8ced25d40
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 5c6a6fcf86867fb2195a31d636003f16ed503da2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -502,6 +502,9 @@ Aby opublikować jednostki w projekcie usługi Fabryka danych Azure przy użyciu
 6. Kliknij przycisk **Zakończ** po zakończeniu operacji wdrożenia.
 
 Podczas wdrożenia wartości z pliku konfiguracji służą do ustawiania wartości właściwości w plikach JSON dla jednostek fabryki danych przed ich wdrożeniem w usłudze Fabryka danych Azure.   
+
+## <a name="use-azure-key-vault"></a>Korzystanie z rozwiązania Azure Key Vault
+Przekazywanie poufnych danych (na przykład parametrów połączeń) do repozytorium kodu jest niezalecane, a często nawet sprzeczne z zasadami zabezpieczeń. Zobacz przykład [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) w witrynie GitHub, aby dowiedzieć się więcej o przechowywaniu poufnych informacji w usłudze Azure Key Vault i korzystaniu z nich podczas publikowania jednostek usługi Data Factory. Rozszerzenie Secure Publish dla programu Visual Studio umożliwia przechowywanie kluczy tajnych w usłudze Key Vault, a w połączonych usługach/konfiguracjach wdrażania są określane tylko odwołania do tych kluczy. Te odwołania są rozpoznawane podczas publikowania jednostek usługi Data Factory na platformie Azure. Te pliki można następnie przekazać do repozytorium źródłowego bez ujawniania jakichkolwiek kluczy tajnych.
 
 ## <a name="summary"></a>Podsumowanie
 W tym samouczku opisano tworzenie fabryki danych Azure do przetwarzania danych przez uruchomienie skryptu programu Hive w klastrze platformy Hadoop w usłudze HDInsight. Użyto Edytora fabryki danych w witrynie Azure Portal, aby:  

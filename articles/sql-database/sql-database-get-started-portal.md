@@ -17,15 +17,15 @@ ms.topic: hero-article
 ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Tworzenia bazy danych SQL platformy Azure w witrynie Azure Portal
 
-Ten samouczek Szybki start zawiera szczegółowe instrukcje dotyczące tworzenia bazy danych SQL na platformie Azure.  Usługa Azure SQL Database to oferta typu „baza danych jako usługa”, która pozwala na uruchamianie i skalowanie baz danych SQL Server o wysokiej dostępności w chmurze.  Ten przewodnik Szybki start pokazuje, jak rozpocząć pracę od utworzenia nowej bazy danych SQL za pomocą witryny Azure Portal.
+Ten samouczek Szybki start zawiera szczegółowe instrukcje dotyczące tworzenia bazy danych SQL na platformie Azure. Usługa Azure SQL Database to oferta typu „baza danych jako usługa”, która pozwala na uruchamianie i skalowanie baz danych SQL Server o wysokiej dostępności w chmurze. Ten przewodnik Szybki start pokazuje, jak rozpocząć pracę od utworzenia bazy danych SQL za pomocą witryny Azure Portal.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
@@ -43,21 +43,21 @@ Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane
 
 2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Bazy danych** wybierz pozycję **SQL Database**.
 
-    ![tworzenie bazy danych 1](./media/sql-database-get-started/create-database-1.png)
+    ![tworzenie bazy danych 1](./media/sql-database-get-started-portal/create-database-1.png)
 
 3. Wypełnij formularz Baza danych SQL w sposób pokazany na wcześniejszej ilustracji, używając następujących informacji:     
    - Nazwa bazy danych: **mySampleDatabase**
    - Grupa zasobów: **myResourceGroup**
    - Źródło: **Przykład (AdventureWorksLT)**
 
-4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować nowy serwer dla nowej bazy danych. Wypełnij **formularz Nowy serwer** określający globalnie unikatową nazwę serwera, podaj nazwę dla identyfikatora logowania administratora serwera, a następnie podaj dowolnie wybrane hasło. 
+4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować serwer dla nowej bazy danych. Wypełnij **formularz Nowy serwer** określający globalnie unikatową nazwę serwera, podaj nazwę dla identyfikatora logowania administratora serwera, a następnie podaj dowolnie wybrane hasło. 
 
-    ![tworzenie serwera bazy danych](./media/sql-database-get-started/create-database-server.png)
+    ![tworzenie serwera bazy danych](./media/sql-database-get-started-portal/create-database-server.png)
 5. Kliknij pozycję **Wybierz**.
 
 6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi i poziom wydajności dla nowej bazy danych. Na potrzeby tego przewodnika Szybki start wybierz **20 jednostek DTU** i **250** GB magazynu
 
-    ![tworzenie bazy danych s1](./media/sql-database-get-started/create-database-s1.png)
+    ![tworzenie bazy danych s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
 7. Kliknij przycisk **Zastosuj**.  
 
@@ -65,26 +65,30 @@ Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane
 
 9. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
 
-    ![powiadomienie](./media/sql-database-get-started/notification.png)
+    ![powiadomienie](./media/sql-database-get-started-portal/notification.png)
 
 
 ## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
 
 Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem i wszelkimi bazami danych na tym serwerze, chyba że zostanie utworzona reguła zapory otwierająca zaporę dla konkretnych adresów IP. Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera usługi SQL Database](sql-database-firewall-configure.md) dla podanego adresu IP klienta i włączyć zewnętrzną łączność przez zaporę usługi SQL Database wyłącznie dla konkretnego adresu IP. 
 
-1. Po zakończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij nową bazę danych, **mySampleDatabase**, na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170327.database.windows.net**) i opcje dalszej konfiguracji.
+1. Po zakończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170327.database.windows.net**) i opcje dalszej konfiguracji.
 
-      ![reguła zapory serwera](./media/sql-database-get-started/server-firewall-rule.png) 
+      ![reguła zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 2. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi, tak jak pokazano to na wcześniejszej ilustracji. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
 
 3. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, a następnie kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera.
 
-      ![ustawianie reguły zapory serwera](./media/sql-database-get-started/server-firewall-rule-set.png) 
+      ![ustawianie reguły zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
-4. Kliknij przycisk **OK**, a następnie kliknij przycisk **X**, aby zamknąć stronę **Ustawienia zapory**.
+4. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
 
-Teraz można połączyć się z bazą danych i jej serwerem przy użyciu programu SQL Server Management Studio lub innego wybranego narzędzia z tego adresu IP przy użyciu poprzednio utworzonego konta administratora serwera.
+Teraz można połączyć się z serwerem usługi SQL Database i jego bazami danych przy użyciu programu SQL Server Management Studio lub innego wybranego narzędzia z tego adresu IP przy użyciu poprzednio utworzonego konta administratora serwera.
+
+> [!NOTE]
+> Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli zachodzi taka sytuacja, nie będzie można nawiązać połączenia z serwerem Azure SQL Database, chyba że dział IT otworzy port 1433.
+>
 
 ## <a name="query-the-sql-database"></a>Wykonywanie zapytań względem bazy danych SQL
 
@@ -92,13 +96,13 @@ Przy tworzeniu baza danych SQL została wypełniona danymi z przykładowej bazy 
 
 1. Na stronie SQL Database dla konkretnej bazy danych kliknij pozycję **Narzędzia** na pasku narzędzi. Zostanie otwarta strona **Narzędzia**.
 
-     ![menu narzędzi](./media/sql-database-get-started/tools-menu.png) 
+     ![menu narzędzi](./media/sql-database-get-started-portal/tools-menu.png) 
 
 2. Kliknij pozycję **Edytor zapytań (wersja zapoznawcza)**, kliknij pole wyboru **Warunki dotyczące wersji zapoznawczej**, a następnie kliknij przycisk **OK**. Zostanie otwarta strona Edytor zapytań.
 
 3. Kliknij pozycję **Zaloguj**, a następnie po wyświetleniu monitu wybierz pozycję **Uwierzytelnianie programu SQL Server** i podaj utworzony wcześniej identyfikator oraz hasło logowania administratora serwera.
 
-    ![logowanie](./media/sql-database-get-started/login.png) 
+    ![logowanie](./media/sql-database-get-started-portal/login.png) 
 
 4. Kliknij przycisk **OK**, aby się zalogować.
 
@@ -113,13 +117,13 @@ Przy tworzeniu baza danych SQL została wypełniona danymi z przykładowej bazy 
 
 6. Kliknij pozycję **Uruchom**, a następnie przejrzyj wyniki zapytania w okienku **Wyniki**.
 
-    ![wyniki edytora zapytań](./media/sql-database-get-started/query-editor-results.png)
+    ![wyniki edytora zapytań](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Kliknij pozycję **X**, aby zamknąć stronę **Edytor zapytań**, i ponownie kliknij pozycję **X**, aby zamknąć stronę **Narzędzia**.
+7. Zamknij stronę **Edytor zapytań** i stronę **Narzędzia**.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start lub samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego szybkiego startu.
+Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego szybkiego startu.
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij pozycję **myResourceGroup**. 
 2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę **myResourceGroup**, a następnie kliknij pozycję **Usuń**.
@@ -127,6 +131,11 @@ Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu SQL Server Management Studio, zobacz [Connect and query with SSMS](sql-database-connect-query-ssms.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu SSMS).
-- Aby nawiązywać połączenia przy użyciu programu Visual Studio, zobacz [Connect and query with Visual Studio](sql-database-connect-query.md) (Nawiązywanie połączeń i wykonywanie zapytań przy użyciu programu Visual Studio).
-- Opis techniczny usługi SQL Database można znaleźć w temacie [About the SQL Database service](sql-database-technical-overview.md) (Informacje o usłudze SQL Database).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu Visual Studio Code, zobacz [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu Visual Studio Code).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą platformy .NET, zobacz [Connect and query with .NET](sql-database-connect-query-dotnet.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą platformy .NET).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka PHP, zobacz [Connect and query with PHP](sql-database-connect-query-php.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka PHP).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą oprogramowania Node.js, zobacz [Connect and query with Node.js](sql-database-connect-query-nodejs.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą oprogramowania Node.js).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Java, zobacz [Connect and query with Java](sql-database-connect-query-java.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Java).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Python, zobacz [Connect and query with Python](sql-database-connect-query-python.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Python).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Ruby, zobacz [Connect and query with Ruby](sql-database-connect-query-ruby.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Ruby).
 

@@ -1,6 +1,6 @@
 ---
 title: "Nawiązywanie połączenia z bazą danych Azure SQL Database przy użyciu platformy .NET (C#) | Microsoft Docs"
-description: "Użyj przykładowego kodu w niniejszym poradniku Szybki start, aby skompilować nowoczesną aplikację w języku C#, która będzie wspierana przez zaawansowaną relacyjną bazę danych w chmurze z bazą danych Azure SQL Database."
+description: "Przykładowy kod platformy .NET, którego można użyć do nawiązywania połączenia z usługą Azure SQL Database i do wykonywania w niej zapytań"
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,37 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Baza danych Azure SQL Database: używanie platformy .NET (C#) do nawiązywania połączenia i wysyłania zapytań dotyczących danych
 
-Użyj [języka C# i platformy ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx), aby nawiązać połączenie z bazą danych Azure SQL i wysyłać do niej zapytania. Ten przewodnik zawiera szczegółowe informacje o używaniu języka C# do nawiązywania połączenia z bazą danych Azure SQL, a następnie wykonywania instrukcji zapytań, wstawiania, aktualizowania i usuwania.
+W tym przewodniku Szybki start pokazano, jak używać narzędzi [C# i ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) w celu nawiązywania połączenia z usługą Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane, a także wstawiać, aktualizować i usuwać dane z bazy danych z platform Windows, Mac OS i Ubuntu Linux.
 
 Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonych w jednym z poniższych przewodników Szybki start:
 
 - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>Konfigurowanie środowiska programowania
+## <a name="install-net"></a>Instalowanie platformy .NET
 
-W poniższych sekcjach szczegółowo przedstawiono proces konfigurowania istniejących środowisk programowania w systemach Mac OS, Linux (Ubuntu) i Windows na potrzeby współpracy z usługą Azure SQL Database.
+### <a name="windows-net-framework-and-net-core"></a>**Programy Windows .NET Framework i .NET Core**
+
+Program Visual Studio 2017 Community to wyposażone w pełen zestaw funkcji, rozszerzalne, bezpłatne środowisko IDE do tworzenia nowoczesnych aplikacji przeznaczonych dla systemów Android, iOS, Windows, a także aplikacji baz danych i sieci Web oraz usług w chmurze. Można zainstalować pełny program .NET Framework lub tylko program .NET Core. Fragmenty kodu w tym przewodniku Szybki start działają z oboma tymi programami. Jeśli na maszynie zainstalowano już program Visual Studio, pomiń kilka następnych kroków.
+
+1. Pobierz [instalatora](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Uruchom instalatora i postępuj zgodnie z wyświetlanymi monitami, aby ukończyć instalację.
 
 ### <a name="mac-os"></a>**Mac OS**
 Otwórz terminal i przejdź do katalogu, w którym planujesz utworzyć projekt .NET Core. Wprowadź następujące polecenia, aby zainstalować rozwiązania **brew**, **OpenSSL** i **.NET Core**. 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -52,20 +57,12 @@ Zainstaluj program .NET Core w systemie macOS. Pobierz [oficjalnego instalatora]
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Otwórz terminal i przejdź do katalogu, w którym planujesz utworzyć projekt .NET Core. Użyj następujących poleceń, aby zainstalować program **.NET Core**.
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### <a name="windows"></a>**Windows**
-Zainstaluj programy Visual Studio 2015 Community Edition i .NET Framework. Jeśli na maszynie zainstalowano już program Visual Studio, pomiń kilka następnych kroków.
-
-Program Visual Studio 2015 Community to wyposażone w pełen zestaw funkcji, rozszerzalne, bezpłatne środowisko IDE do tworzenia nowoczesnych aplikacji przeznaczonych dla systemów Android, iOS, Windows, a także aplikacji baz danych i sieci Web oraz usług w chmurze.
-
-1. Pobierz [instalatora](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Uruchom instalatora i postępuj zgodnie z wyświetlanymi monitami, aby ukończyć instalację.
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 
@@ -309,5 +306,11 @@ namespace ConsoleApplication1
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać dostęp do dokumentacji platformy .NET, zobacz [Dokumentacja platformy .NET](https://docs.microsoft.com/dotnet/).
-- Aby uzyskać informacje dotyczące uruchamiania zapytań i edytowania danych przy użyciu programu Visual Studio Code, zobacz [Visual Studio Code](https://code.visualstudio.com/docs).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu SQL Server Management Studio, zobacz [Connect and query with SSMS](sql-database-connect-query-ssms.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu SSMS).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu Visual Studio, zobacz [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu Visual Studio Code).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka PHP, zobacz [Connect and query with PHP](sql-database-connect-query-php.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka PHP).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą oprogramowania Node.js, zobacz [Connect and query with Node.js](sql-database-connect-query-nodejs.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą oprogramowania Node.js).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Java, zobacz [Connect and query with Java](sql-database-connect-query-java.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Java).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Python, zobacz [Connect and query with Python](sql-database-connect-query-python.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Python).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Ruby, zobacz [Connect and query with Ruby](sql-database-connect-query-ruby.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Ruby).
 

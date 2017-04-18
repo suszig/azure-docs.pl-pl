@@ -13,42 +13,38 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 619ea430b13c16e8e4338413613d5798f36458ba
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 81eca4b41b6a0726e5fcf851074bfb7dfca16fb8
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal (model klasyczny)
+
+Połączenie bramy sieci VPN typu lokacja-lokacja to połączenie nawiązywane za pośrednictwem tunelu sieci VPN wykorzystującego protokół IPsec/IKE (IKEv1 lub IKEv2). Ten typ połączenia wymaga, aby urządzenie sieci VPN znajdowało się lokalnie, miało przypisany publiczny adres IP i nie znajdowało się za translatorem adresów sieciowych. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
+
+![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
+
+W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia bramy sieci VPN typu lokacja-lokacja z siecią lokalną z użyciem klasycznego modelu wdrażania i witryny Azure Portal. Tę konfigurację można również utworzyć dla modelu wdrażania usługi Resource Manager, wybierając inną opcję z następującej listy:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Klasyczny — witryna Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Model klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
+> * [Klasyczny — klasyczny portal](vpn-gateway-site-to-site-create.md)
 >
 >
-
-
-Połączenie bramy sieci VPN typu lokacja-lokacja to połączenie nawiązywane za pośrednictwem tunelu sieci VPN wykorzystującego protokół IPsec/IKE (IKEv1 lub IKEv2). Ten typ połączenia wymaga, aby urządzenie sieci VPN znajdowało się lokalnie, miało przypisany publiczny adres IP i nie znajdowało się za translatorem adresów sieciowych. Z połączeń typu lokacja-lokacja można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji.
-
-W tym artykule opisano proces tworzenia sieci wirtualnej i połączenia bramy sieci VPN typu lokacja-lokacja z siecią lokalną z użyciem klasycznego modelu wdrażania i witryny Azure Portal. 
-
-![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Metody i modele wdrażania używane w kontekście połączeń typu lokacja-lokacja
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-W poniższej tabeli przedstawiono metody i modele wdrażania aktualnie dostępne dla konfiguracji lokacja-lokacja. Jeśli jest dostępny artykuł z krokami konfiguracji, można przejść do niego bezpośrednio z tabeli.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 #### <a name="additional-configurations"></a>Dodatkowe konfiguracje
 Jeśli chcesz połączyć ze sobą sieci wirtualne, nie tworzysz jednak połączenia z lokalizacją lokalną, zapoznaj się z artykułem [Configure a VNet-to-VNet connection](virtual-networks-configure-vnet-to-vnet-connection.md) (Konfigurowanie połączenia między sieciami wirtualnymi). Jeśli chcesz dodać połączenie lokacja-lokacja do sieci wirtualnej, z którą istnieje już połączenie, zobacz [Add a S2S connection to a VNet with an existing VPN gateway connection](vpn-gateway-multi-site.md) (Dodawanie połączenia lokacja-lokacja do sieci wirtualnej, z którą istnieje połączenie bramy sieci VPN).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi elementami.
 
 * Zgodne urządzenie sieci VPN i osoba, która umie je skonfigurować. Zobacz artykuł [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Urządzenia sieci VPN — informacje). Jeśli nie dysponujesz wiedzą niezbędną do skonfigurowania urządzenia sieci VPN lub nie znasz zakresu adresów IP ujętego w konfiguracji sieci lokalnej, skontaktuj się z osobą, która może podać Ci te dane.
@@ -57,8 +53,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi eleme
 * Obecnie w celu określenia klucza wspólnego i utworzenia połączenia bramy sieci VPN jest wymagany program PowerShell. Zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure Service Management (SM). Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs). Podczas pracy z programem PowerShell dla tej konfiguracji upewnij się, że działasz jako administrator. 
 
 > [!NOTE]
-> Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.                                                                                                                                                                               
->
+> Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.
 >
 
 ### <a name="values"></a>Przykładowe wartości konfiguracji dla tego ćwiczenia
@@ -125,7 +120,7 @@ Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS, aby umożliw
 1. Znajdź sieci wirtualne w portalu.
 2. W bloku Twojej sieci wirtualnej, w sekcji **Ustawienia** kliknij pozycję **Serwery DNS**.
 3. Dodaj serwer DNS.
-4. Kliknij przycisk **Zapisz** znajdujący się u góry strony, aby zapisać ustawienia.
+4. Aby zapisać ustawienia, kliknij przycisk **Zapisz** znajdujący się u góry strony.
  
 ## <a name="localsite"></a>4. Konfigurowanie lokacji lokalnej
 
@@ -147,7 +142,7 @@ Lokacja lokalna zazwyczaj oznacza lokalizację lokalną. Zawiera ona adres IP ur
 
 ## <a name="gatewaysubnet"></a>5. Konfigurowanie podsieci bramy
 
-Musisz utworzyć podsieć dla bramy sieci VPN. Podsieć bramy zawiera adresy IP, z których będą korzystać usługi bramy sieci VPN.
+Musisz utworzyć podsieć dla bramy sieci VPN. Podsieć bramy zawiera adresy IP, z których korzystają usługi bramy sieci VPN.
 
 1. W bloku **Nowe połączenie VPN** zaznacz pole wyboru **Utwórz bramę natychmiast**. Zostanie wyświetlony blok „Opcjonalna konfiguracja bramy”. Jeśli nie zaznaczysz pola wyboru, blok umożliwiający skonfigurowanie podsieci bramy nie zostanie wyświetlony.
 
@@ -161,7 +156,7 @@ Musisz utworzyć podsieć dla bramy sieci VPN. Podsieć bramy zawiera adresy IP,
     ![Dodawanie podsieci bramy](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Dodawanie podsieci bramy")
 
 ## <a name="sku"></a>6. Określ typ jednostki SKU i sieci VPN
-1. Wybierz **rozmiar** bramy. To jest jednostka SKU bramy, która będzie używana do tworzenia bramy sieci wirtualnej. W portalu domyślna jednostka SKU to **Podstawowa**. Więcej informacji o jednostkach SKU bramy zawiera artykuł [Informacje o ustawieniach bramy VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+1. Wybierz **rozmiar** bramy. To jest jednostka SKU bramy używana do tworzenia bramy sieci wirtualnej. W portalu domyślna jednostka SKU to **Podstawowa**. Więcej informacji o jednostkach SKU bramy zawiera artykuł [Informacje o ustawieniach bramy VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
     ![Wybieranie typu jednostki SKU i sieci VPN](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Wybieranie typu jednostki SKU i sieci VPN")
 2. Wybierz **Typ routingu** dla bramy. Jest on również nazywany typem sieci VPN. Wybranie poprawnego typu bramy jest bardzo ważne, ponieważ nie można konwertować bramy na inny typ. Urządzenie sieci VPN musi być zgodne z wybranym typem routingu. Więcej informacji o typie sieci VPN można znaleźć w artykule [Informacje na temat ustawień usługi VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype). W niektórych artykułach mogą znajdować się odwołania do typów sieci VPN „RouteBased” i „PolicyBased”. Typ „Dynamiczny” odpowiada typowi „RouteBased”, a „Statyczny” — typowi „PolicyBased”.
@@ -170,32 +165,48 @@ Musisz utworzyć podsieć dla bramy sieci VPN. Podsieć bramy zawiera adresy IP,
 
 ## <a name="vpndevice"></a>7. Konfiguracja urządzenia sieci VPN
 
-Uzyskaj określone informacje dotyczące konfiguracji od producenta urządzenia i skonfiguruj urządzenie. Zapoznaj się z tematem [Urządzenia sieci VPN](vpn-gateway-about-vpn-devices.md), aby uzyskać więcej informacji o urządzeniach sieci VPN, które dobrze współdziałają z platformą Azure. Sprawdź również [Znane problemy dotyczące zgodności urządzeń](vpn-gateway-about-vpn-devices.md#known) dla urządzenia sieci VPN, które ma być używane. 
+Połączenia typu lokacja-lokacja z siecią lokalną wymagają urządzenia sieci VPN. Nie podajemy kroków konfiguracji dla wszystkich urządzeń sieci VPN, jednak następujące linki mogą zawierać przydatne informacje:
 
-Podczas konfigurowania urządzenia sieci VPN jest potrzebny adres IP utworzonej bramy sieci VPN. Aby go sprawdzić, przejdź do bloku **Przegląd** sieci wirtualnej.
+- Aby uzyskać informacje o zgodnych urządzeniach sieci VPN, zobacz [Urządzenia sieci VPN](vpn-gateway-about-vpn-devices.md). 
+- Aby uzyskać linki do ustawień konfiguracji urządzeń, zobacz [Zweryfikowane urządzenia sieci VPN](vpn-gateway-about-vpn-devices.md#devicetable). Te linki zostały podane na zasadzie największej staranności. Zawsze najlepiej jest skontaktować się z producentem urządzenia, aby uzyskać najnowsze informacje o konfiguracji.
+- Aby uzyskać informacje na temat edytowania przykładów konfiguracji urządzeń, zobacz [Edytowanie przykładów](vpn-gateway-about-vpn-devices.md#editing).
+- Aby zapoznać się z parametrami protokołów IPsec/IKE, zobacz [Parametry](vpn-gateway-about-vpn-devices.md#ipsec).
+- Przed skonfigurowaniem urządzenia sieci VPN, którego zamierzasz użyć, sprawdź, czy istnieją dla niego [znane problemy dotyczące zgodności urządzeń](vpn-gateway-about-vpn-devices.md#known).
+
+Podczas konfigurowania urządzenia sieci VPN potrzebne będą:
+
+- Publiczny adres IP bramy sieci wirtualnej. Aby go sprawdzić, przejdź do bloku **Przegląd** sieci wirtualnej.
+- Klucz wspólny. To ten sam klucz wspólny, który jest określany podczas tworzenia połączenia sieci VPN typu lokacja-lokacja. W naszych przykładach używamy bardzo prostego klucza wspólnego. Do użycia należy wygenerować bardziej złożony klucz.
 
 ## <a name="CreateConnection"></a>8. Tworzenie połączenia
 W tym kroku należy ustawić klucz wspólny i utworzyć połączenie. Ustawiony klucz musi być tym samym kluczem, którego użyto do skonfigurowania urządzenia sieci VPN.
 
 > [!NOTE]
-> Obecnie tego kroku nie można wykonać w witrynie Azure Portal. Musisz użyć wersji poleceń cmdlet programu Azure PowerShell pochodzącej z usługi Service Management (SM).                                                                                                                                                                             
->
+> Obecnie tego kroku nie można wykonać w witrynie Azure Portal. Musisz użyć wersji poleceń cmdlet programu Azure PowerShell pochodzącej z usługi Service Management (SM).                                        >
 >
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Krok 1. Nawiąż połączenie z kontem platformy Azure
 
 1. Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
 
-        Login-AzureRmAccount
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Sprawdź subskrypcje dostępne na koncie.
 
-        Get-AzureRmSubscription
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 3. Jeśli masz więcej niż jedną subskrypcję, wybierz tę, której chcesz użyć.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. Dodaj wersję poleceń cmdlet programu PowerShell pochodzącą z usługi SM.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Krok 2. Ustaw klucz wspólny i utwórz połączenie
 
@@ -203,13 +214,17 @@ Podczas pracy z programem PowerShell w klasycznym modelu wdrażania czasami nazw
 
 1. Utwórz katalog na komputerze, a następnie wyeksportuj plik konfiguracji sieci do tego katalogu. W tym przykładzie plik konfiguracji sieci zostanie wyeksportowany do katalogu C:\AzureNet.
 
-         Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 2. Otwórz plik konfiguracji sieci przy użyciu edytora xml, a następnie sprawdź wartości właściwości „LocalNetworkSite name” i „VirtualNetworkSite name”. Zmodyfikuj przykład tak, aby odzwierciedlał te wartości. W przypadku podawania nazwy, która zawiera spacje, umieść wartość w apostrofach.
 
 3. Ustaw klucz wspólny i utwórz połączenie. Wartość „-SharedKey” jest generowana i określana przez Ciebie. W tym przykładzie użyliśmy wartości „abc123”, ale można (i należy) wygenerować bardziej złożoną wartość. Pamiętaj o tym, że wartość podana w tym miejscu musi być taka sama, jak wartość podana podczas konfigurowania urządzenia sieci VPN.
 
-        Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-        -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```
 Wynik po utworzeniu połączenia: **Stan: Powodzenie**.
 
 ## <a name="verify"></a>9. Weryfikowanie połączenia

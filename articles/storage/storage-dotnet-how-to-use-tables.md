@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/27/2016
+ms.date: 04/10/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 7a9a28ce8be7587c84a1188d643c990cc4fb7355
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 0764d4cbcd618be54c8b6e71a632d24c5c3bfe67
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -26,20 +26,21 @@ ms.lasthandoff: 03/28/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Omówienie
-Magazyn tabel Azure to usługa, która przechowuje dane strukturalne NoSQL w chmurze. Magazyn tabel jest magazynem kluczy/atrybutów bez schematu. Ponieważ Magazyn tabel nie ma schematu, łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji. Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
+Azure Table Storage to usługa, która przechowuje dane NoSQL ze strukturą w chmurze, udostępniając magazyn par klucz-atrybut z projektem bez schematu. Ponieważ Magazyn tabel nie ma schematu, łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Dla większości aplikacji dostęp do danych w usłudze Table Storage jest szybki i ekonomiczny, jest też zazwyczaj tańszy od tradycyjnego rozwiązania SQL dla podobnych ilości danych.
 
-Magazyn tabel umożliwia przechowywanie elastycznych zestawów danych, takich jak dane użytkownika dla aplikacji sieci Web, książki adresowe, informacje o urządzeniach i wszelkie inne metadane, których wymaga Twoja usługa. W tabeli można przechowywać dowolną liczbę jednostek, a konto magazynu może zawierać dowolną liczbę tabel w granicach pojemności konta magazynu.
+Usługa Table Storage umożliwia przechowywanie elastycznych zestawów danych, takich jak dane użytkowników dla aplikacji sieci Web, książki adresowe, informacje o urządzeniach i inne typy metadanych, których wymaga Twoja usługa. W tabeli można przechowywać dowolną liczbę jednostek, a konto magazynu może zawierać dowolną liczbę tabel w granicach pojemności konta magazynu.
 
 ### <a name="about-this-tutorial"></a>Informacje o tym samouczku
-Ten samouczek pokazuje, jak napisać kod .NET dla niektórych typowych scenariuszy przy użyciu Magazynu tabel Azure, w tym związanych z tworzeniem i usuwaniem tabel oraz wstawianiem, aktualizowaniem, usuwaniem i przeszukiwaniem danych w tabeli.
+Ten samouczek pokazuje, jak zastosować [bibliotekę klienta usługi Azure Storage dla programu .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) w kilku typowych scenariuszach z usługą Azure Table Storage. Te scenariusze są przedstawiane za pomocą przykładów w języku C# tworzących i usuwających tabelę oraz wstawiających, aktualizujących i usuwających dane w tabeli oraz wykonujących zapytania o nie.
 
-**Wymagania wstępne:**
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Do pomyślnego ukończenia samouczka niezbędne są:
 
 * [Program Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Biblioteka klienta usługi Azure Storage dla programu .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Menedżer konfiguracji Azure dla programu .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
+* [Konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -65,7 +66,7 @@ using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-table-service-client"></a>Tworzenie klienta usługi tabel
-Klasa **CloudTableClient** umożliwia pobieranie tabel i jednostek przechowywanych w usłudze Table Storage. Oto jeden ze sposobów tworzenia klienta usługi:
+Klasa [CloudTableClient][dotnet_CloudTableClient] umożliwia pobieranie tabel i jednostek przechowywanych w usłudze Table Storage. Oto jeden ze sposobów tworzenia klienta usługi Table service:
 
 ```csharp
 // Create the table client.
@@ -93,8 +94,7 @@ table.CreateIfNotExists();
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
-Jednostki są mapowane do obiektów C\# za pomocą niestandardowej klasy pochodzącej od klasy **TableEntity**. Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki. Poniższy kod definiuje klasę jednostki, która używa imienia klienta jako klucza wiersza i nazwiska jako klucza partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, niemniej użycie różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych. Dla dowolnej właściwości, która powinna być przechowywana w usłudze Table Service, właściwość musi być właściwością publiczną obsługiwanego typu, która ujawnia zarówno wartości ustawień, jak i pobierania.
-Ponadto typ jednostki *musi* ujawniać konstruktor bez parametrów.
+Jednostki są mapowane na obiekty języka C# za pomocą niestandardowej klasy pochodzącej od klasy [TableEntity][dotnet_TableEntity]. Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki. Poniższy kod definiuje klasę jednostki, która używa imienia klienta jako klucza wiersza i nazwiska jako klucza partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, niemniej użycie różnych kluczy partycji umożliwia zwiększenie skalowalności operacji równoległych. Jednostki, które mają być przechowywane w tabelach, muszą być obsługiwanego typu, na przykład muszą pochodzić od klasy [TableEntity][dotnet_TableEntity]. Właściwości jednostki, które zamierzasz przechowywać w tabeli, muszą być publicznymi właściwościami typu i obsługiwać zarówno pobieranie, jak i ustawianie wartości. Ponadto typ jednostki *musi* ujawniać konstruktor bez parametrów.
 
 ```csharp
 public class CustomerEntity : TableEntity
@@ -113,7 +113,7 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-Operacje tabeli obejmujące jednostki są wykonywane za pośrednictwem obiektu **CloudTable** utworzonego wcześniej w sekcji „Tworzenie tabeli”. Operacja do wykonania jest reprezentowana przez obiekt **TableOperation**.  W poniższym przykładzie kodu pokazano tworzenie obiektu **CloudTable**, a następnie obiektu **CustomerEntity**.  Aby przygotować operację, tworzy się obiekt **TableOperation** i umieszcza się go w jednostce klienta w tabeli.  W końcu operacja jest wykonywana przez wywołanie obiektu **CloudTable.Execute**.
+Operacje tabeli obejmujące jednostki są wykonywane za pośrednictwem obiektu [CloudTable][dotnet_CloudTable] utworzonego wcześniej w sekcji „Tworzenie tabeli”. Operacja do wykonania jest reprezentowana przez obiekt [TableOperation][dotnet_TableOperation]. W poniższym przykładzie kodu pokazano tworzenie obiektu [CloudTable][dotnet_CloudTable], a następnie obiektu **CustomerEntity**. Aby przygotować operację, obiekt [TableOperation][dotnet_TableOperation] jest tworzony w celu umieszczenia jednostki klienta w tabeli. Na koniec operacja jest wykonywana przez wywołanie obiektu [CloudTable][dotnet_CloudTable].[Execute][dotnet_CloudTable_Execute].
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -146,8 +146,7 @@ Możesz wstawić partię jednostek do tabeli w jednej operacji zapisu. Inne wybr
 * Wszystkie jednostki w jednej operacji zbiorczej muszą mieć ten sam klucz partycji.
 * W operacji zbiorczej można wykonywać zapytanie, ale musi to być jedyna operacja w operacji zbiorczej.
 
-<!-- -->
-Poniższy przykład kodu tworzy dwa obiekty jednostki i dodaje je do obiektu **TableBatchOperation** za pomocą metody **Insert**. Następnie obiekt **CloudTable.Execute** jest wywoływany, aby wykonać operację.
+Poniższy przykład kodu tworzy dwa obiekty jednostki i dodaje je do obiektu [TableBatchOperation][dotnet_TableBatchOperation] za pomocą metody [Insert][dotnet_TableBatchOperation_Insert]. Następnie obiekt [CloudTable][dotnet_CloudTable].[ExecuteBatch][dotnet_CloudTable_ExecuteBatch] jest wywoływany, aby wykonać operację.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -182,8 +181,7 @@ table.ExecuteBatch(batchOperation);
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Pobieranie wszystkich jednostek w partycji
-Aby wysłać zapytanie do tabeli dla wszystkich obiektów w partycji, użyj obiektu **TableQuery**.
-Poniższy przykład kodu określa filtr jednostek, gdzie „Smith” jest kluczem partycji. W tym przykładzie drukowane są pola każdej jednostki w wynikach zapytania w konsoli.
+Aby wysłać zapytanie do tabeli dla wszystkich obiektów w partycji, użyj obiektu [TableQuery][dotnet_TableQuery]. Poniższy przykład kodu określa filtr jednostek, gdzie „Smith” jest kluczem partycji. W tym przykładzie drukowane są pola każdej jednostki w wynikach zapytania w konsoli.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -237,9 +235,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Pobieranie pojedynczej jednostki
-Można napisać zapytanie do pobrania jednej, określonej jednostki. Poniższy kod używa obiektu **TableOperation** do określenia klienta „Ben Smith”.
-Metoda ta zwraca tylko jedną jednostkę zamiast ich zbioru, a zwrócona wartość w pozycji **TableResult.Result** jest obiektem **CustomerEntity**.
-Określenie kluczy partycji i wiersza w pojedynczym zapytaniu jest najszybszym sposobem na pobranie jednej jednostki z usługi tabel.
+Można napisać zapytanie do pobrania jednej, określonej jednostki. Poniższy kod używa obiektu [TableOperation][dotnet_TableOperation] do określenia klienta „Ben Smith”. Metoda ta zwraca tylko jedną jednostkę zamiast ich zbioru, a zwrócona wartość w pozycji [TableResult][dotnet_TableResult].[Result][dotnet_TableResult_Result] jest obiektem **CustomerEntity**. Określenie kluczy partycji i wiersza w pojedynczym zapytaniu jest najszybszym sposobem na pobranie jednej jednostki z usługi tabel.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -270,7 +266,7 @@ else
 ```
 
 ## <a name="replace-an-entity"></a>Zastępowanie jednostki
-Aby zaktualizować jednostkę, pobierz ją z usługi tabel, zmodyfikuj obiekt jednostki, a następnie zapisz zmiany w usłudze tabel. Poniższy kod zmienia istniejący numer telefonu klienta. Zamiast wywoływać metodę **Insert**, ten kod używa metody **Replace**. Dzięki temu jednostka będzie całkowicie zastąpiona na serwerze, chyba że jednostka na serwerze zmieniła się od czasu jej pobrania. W takim przypadku operacja nie powiedzie się.  Ten błąd uniemożliwia aplikacji nieodwracalne nadpisanie zmiany dokonanej pomiędzy pobraniem i zaktualizowaniem przez inny składnik aplikacji.  W przypadku tego błędu prawidłowa procedura obejmuje ponowne pobranie jednostki, wprowadzenie zmian (jeśli nadal mają zastosowanie), a następnie ponowne przeprowadzenie operacji **Replace**.  W następnej sekcji opisano sposób zastąpienia tego zachowania.
+Aby zaktualizować jednostkę, pobierz ją z usługi tabel, zmodyfikuj obiekt jednostki, a następnie zapisz zmiany w usłudze tabel. Poniższy kod zmienia istniejący numer telefonu klienta. Zamiast wywoływać metodę [Insert][dotnet_TableOperation_Insert], ten kod używa metody [Replace][dotnet_TableOperation_Replace]. Metoda [Replace][dotnet_TableOperation_Replace] powoduje, że jednostka zostanie całkowicie zastąpiona na serwerze, chyba że jednostka na serwerze zmieniła się od czasu jej pobrania. W takim przypadku operacja nie powiedzie się. Ten błąd uniemożliwia aplikacji nieodwracalne nadpisanie zmiany dokonanej pomiędzy pobraniem i zaktualizowaniem przez inny składnik aplikacji. W przypadku tego błędu prawidłowa procedura obejmuje ponowne pobranie jednostki, wprowadzenie zmian (jeśli nadal mają zastosowanie), a następnie ponowne przeprowadzenie operacji [Replace][dotnet_TableOperation_Replace]. W następnej sekcji opisano sposób zastąpienia tego zachowania.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -312,8 +308,9 @@ else
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Wstawianie lub zastępowanie jednostki
-Operacje **Replace** zakończą się niepowodzeniem, jeśli jednostka została zmieniona od czasu jej pobrania z serwera.  Ponadto aby operacja **Replace** zakończyła się powodzeniem, jednostka musi zostać wcześniej pobrana z serwera.
-Czasami jednak nie wiadomo, czy jednostka istnieje na serwerze oraz czy obecne wartości przechowywane w jednostce są istotne. Aktualizacja powinna nadpisać je wszystkie.  Aby to zrobić, użyj operacji **InsertOrReplace**.  Ta operacja wstawi jednostkę, jeśli jednostka nie istnieje, lub zastąpi ją, jeśli już istnieje — niezależnie od czasu ostatniej aktualizacji.  W poniższym przykładzie kodu jednostka klienta dla klienta Ben Smith nadal jest pobierana, ale następnie jest zapisywana na serwerze za pomocą operacji **InsertOrReplace**.  Wszelkie aktualizacje wprowadzone w jednostce między operacjami pobrania i aktualizacji zostaną nadpisane.
+Operacje [Replace][dotnet_TableOperation_Replace] zakończą się niepowodzeniem, jeśli jednostka została zmieniona od czasu jej pobrania z serwera. Ponadto aby operacja [Replace][dotnet_TableOperation_Replace] zakończyła się powodzeniem, jednostka musi zostać wcześniej pobrana z serwera. Czasami jednak nie wiadomo, czy jednostka istnieje na serwerze oraz czy obecne wartości przechowywane w jednostce są istotne. Aktualizacja powinna nadpisać je wszystkie. Aby to zrobić, użyj operacji [InsertOrReplace][dotnet_TableOperation_InsertOrReplace]. Ta operacja wstawi jednostkę, jeśli jednostka nie istnieje, lub zastąpi ją, jeśli już istnieje — niezależnie od czasu ostatniej aktualizacji.
+
+W poniższym przykładzie kodu jednostka klienta dla „Fred Jones” jest tworzona i wstawiana do tabeli „people”. Następnie używany operacji [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] do zapisania na serwerze jednostki z tym samym kluczem partycji (Jones) i kluczem wiersza (Fred), ale tym razem z inną wartością właściwości PhoneNumber. Ponieważ używamy operacji [InsertOrReplace][dotnet_TableOperation_InsertOrReplace], wszystkie wartości właściwości tej jednostki są zastępowane. Jeśli jednak jednostka „Fred Jones” nie istniałaby w tabeli, zostałaby wstawiona.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -326,36 +323,37 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 // Create the CloudTable object that represents the "people" table.
 CloudTable table = tableClient.GetTableReference("people");
 
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+// Create a customer entity.
+CustomerEntity customer3 = new CustomerEntity("Jones", "Fred");
+customer3.Email = "Fred@contoso.com";
+customer3.PhoneNumber = "425-555-0106";
+
+// Create the TableOperation object that inserts the customer entity.
+TableOperation insertOperation = TableOperation.Insert(customer3);
 
 // Execute the operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
+table.Execute(insertOperation);
 
-// Assign the result to a CustomerEntity object.
-CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
+// Create another customer entity with the same partition key and row key.
+// We've already created a 'Fred Jones' entity and saved it to the
+// 'people' table, but here we're specifying a different value for the
+// PhoneNumber property.
+CustomerEntity customer4 = new CustomerEntity("Jones", "Fred");
+customer4.Email = "Fred@contoso.com";
+customer4.PhoneNumber = "425-555-0107";
 
-if (updateEntity != null)
-{
-    // Change the phone number.
-    updateEntity.PhoneNumber = "425-555-1234";
+// Create the InsertOrReplace TableOperation.
+TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(customer4);
 
-    // Create the InsertOrReplace TableOperation.
-    TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
-
-    // Execute the operation.
-    table.Execute(insertOrReplaceOperation);
-
-    Console.WriteLine("Entity was updated.");
-}
-else
-{
-    Console.WriteLine("Entity could not be retrieved.");
-}
+// Execute the operation. Because a 'Fred Jones' entity already exists in the
+// 'people' table, its property values will be overwritten by those in this
+// CustomerEntity. If 'Fred Jones' didn't already exist, the entity would be
+// added to the table.
+table.Execute(insertOrReplaceOperation);
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
-Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich właściwości jednostki. Ta technika, zwana projekcją, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Zapytanie w poniższym kodzie zwraca wyłącznie adresy e-mail jednostek w tabeli. Operację tę przeprowadza się za pomocą zapytania **DynamicTableEntity** lub **EntityResolver**. Użytkownik może dowiedzieć się więcej o projekcji z [wpisu na blogu Introducing Upsert and Query Projection][Introducing Upsert and Query Projection blog post] (Wprowadzenie operacji upsert i projekcji zapytań). Należy zauważyć, że funkcja projekcji nie jest obsługiwana w lokalnym emulatorze magazynu, dlatego ten kod zadziała tylko w przypadku użycia konta w usłudze tabel.
+Zapytanie tabeli może pobrać kilka właściwości jednostki zamiast wszystkich właściwości jednostki. Ta technika, zwana projekcją, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Zapytanie w poniższym kodzie zwraca wyłącznie adresy e-mail jednostek w tabeli. Operację tę przeprowadza się za pomocą zapytania [DynamicTableEntity][dotnet_DynamicTableEntity] lub [EntityResolver][dotnet_EntityResolver]. Użytkownik może dowiedzieć się więcej o projekcji z [wpisu na blogu Introducing Upsert and Query Projection][blog_post_upsert] (Wprowadzenie operacji upsert i projekcji zapytań). Funkcja projekcji nie jest obsługiwana w emulatorze magazynu, dlatego ten kod zadziała tylko w przypadku użycia konta w usłudze Table service.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -381,7 +379,7 @@ foreach (string projectedEmail in table.ExecuteQuery(projectionQuery, resolver, 
 ```
 
 ## <a name="delete-an-entity"></a>Usuwanie jednostki
-Można z łatwością usunąć jednostkę po jej pobraniu, korzystając z tego samego wzorca co w przypadku aktualizowania jednostki.  Poniższy kod umożliwia pobranie i usunięcie jednostki klienta.
+Można z łatwością usunąć jednostkę po jej pobraniu, korzystając z tego samego wzorca co w przypadku aktualizowania jednostki. Poniższy kod umożliwia pobranie i usunięcie jednostki klienta.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -479,18 +477,23 @@ Teraz, kiedy znasz już podstawy usługi Table Storage, skorzystaj z poniższych
 [Download and install the Azure SDK for .NET]: /develop/net/
 [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
-[Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
-[Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
-[Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
-[Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
-[Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
+[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-[Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-[How to: Programmatically access Table storage]: #tablestorage
+[dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
+[dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx
+[dotnet_CloudTable]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.aspx
+[dotnet_CloudTable_Execute]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.execute.aspx
+[dotnet_CloudTable_ExecuteBatch]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.executebatch.aspx
+[dotnet_DynamicTableEntity]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.dynamictableentity.aspx
+[dotnet_EntityResolver]: https://msdn.microsoft.com/library/jj733144.aspx
+[dotnet_TableBatchOperation]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx
+[dotnet_TableBatchOperation_Insert]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.insert.aspx
+[dotnet_TableEntity]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx
+[dotnet_TableOperation]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.aspx
+[dotnet_TableOperation_Insert]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.insert.aspx
+[dotnet_TableOperation_InsertOrReplace]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.insertorreplace.aspx
+[dotnet_TableOperation_Replace]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.replace.aspx
+[dotnet_TableQuery]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablequery.aspx
+[dotnet_TableResult]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
+[dotnet_TableResult_Result]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.result.aspx
 

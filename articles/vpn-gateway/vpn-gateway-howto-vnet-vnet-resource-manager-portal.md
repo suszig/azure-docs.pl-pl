@@ -13,43 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c80ddbaf8c2c84735564e514ddaf4308c4aff303
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4133e2e90f51d141044f2ac064c60df1263b498e
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Konfigurowanie połączenia między sieciami wirtualnymi przy użyciu witryny Azure Portal
+
+Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Można także łączyć połączenia między sieciami wirtualnymi z konfiguracjami połączeń obejmujących wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi.
+
+![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+
+W tym artykule opisano tworzenie połączenia między sieciami wirtualnymi w modelu wdrażania przy użyciu usługi Resource Manager za pomocą usługi VPN Gateway oraz witryny Azure Portal. W przypadku używania witryny Azure Portal do łączenia sieci wirtualnych sieci wirtualne muszą być objęte tą samą subskrypcją. Jeśli sieci wirtualne są objęte różnymi subskrypcjami, można je nadal łączyć ze sobą, używając programu [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] Jeśli chcesz utworzyć połączenie między sieciami wirtualnymi przy użyciu innego modelu wdrażania, między różnymi modelami wdrażania lub za pomocą innego narzędzia wdrażania, możesz wybrać opcję z następującej listy rozwijanej artykułów:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager — program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Klasyczny — witryna Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Model klasyczny — klasyczny portal](virtual-networks-configure-vnet-to-vnet-connection.md)
-> 
-> 
-
-W tym artykule opisano tworzenie połączenia między sieciami wirtualnymi w modelu wdrażania przy użyciu usługi Resource Manager za pomocą usługi VPN Gateway oraz witryny Azure Portal.
-
-W przypadku używania witryny Azure Portal do łączenia sieci wirtualnych sieci wirtualne muszą być objęte tą samą subskrypcją. Jeśli sieci wirtualne są objęte różnymi subskrypcjami, można je nadal łączyć ze sobą, używając programu [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
-
-![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
-
-### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modele wdrażania i metody połączeń między sieciami wirtualnymi
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-W poniższej tabeli przedstawiono aktualnie dostępne modele wdrażania i metody konfiguracji między sieciami wirtualnymi. Jeśli dostępny jest artykuł zawierający kroki konfiguracji, można do niego przejść bezpośrednio z tabeli.
-
-[!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
-
-**Komunikacja równorzędna sieci wirtualnych**
+> * [Łączenie różnych modeli wdrażania — witryna Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Łączenie różnych modeli wdrażania — program PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+>
+>
 
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
+
 ## <a name="about-vnet-to-vnet-connections"></a>Informacje o połączeniach między sieciami wirtualnymi
-Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN na platformie Azure, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Sieci wirtualne, które mają zostać połączone, mogą być zlokalizowane w różnych regionach lub należeć do różnych subskrypcji.
+Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN na platformie Azure, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Sieci wirtualne, które mają zostać połączone, mogą być zlokalizowane w różnych regionach lub należeć do różnych subskrypcji. Pamiętaj, że jeśli Twoje sieci wirtualne należą do różnych subskrypcji, to nie można utworzyć połączenia w portalu. Możesz użyć programu [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 Można także łączyć połączenia między sieciami wirtualnymi z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi, jak pokazano na poniższym diagramie.
 
@@ -144,7 +140,7 @@ Serwer DNS nie jest wymagany w przypadku połączenia typu sieć wirtualna-sieć
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>5. Tworzenie bramy sieci wirtualnej
-W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Może to potrwać do 45 minut. W przypadku tworzenia tej konfiguracji w ramach ćwiczenia można korzystać z [przykładowych ustawień](#values).
+W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie bramy często może trwać 45 minut lub dłużej, w zależności od wybranej jednostki SKU bramy. W przypadku tworzenia tej konfiguracji w ramach ćwiczenia można korzystać z [przykładowych ustawień](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Aby utworzyć bramę sieci wirtualnej
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
@@ -153,7 +149,7 @@ W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Może to 
 Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4, powtarzając poprzednie kroki, używając wartości dla sieci TestVNet4. Przed skonfigurowaniem sieci TestVNet4 nie musisz czekać, aż tworzenie bramy sieci wirtualnej dla sieci TestVNet1 zostanie zakończone. Jeśli używasz własnych wartości, upewnij się, że przestrzenie adresowe nie pokrywają się z żadnymi sieciami wirtualnymi, z którymi chcesz się połączyć.
 
 ## <a name="TestVNet1Connection"></a>7. Konfigurowanie połączenia TestVNet1
-Po zakończeniu tworzenia bram sieci wirtualnej (zarówno dla sieci TestVNet1, jak i TestVNet4) można utworzyć połączenia między bramami sieci wirtualnych. W tej sekcji opisano tworzenie połączenia z sieci VNet1 do sieci VNet4.
+Po zakończeniu tworzenia bram sieci wirtualnej (zarówno dla sieci TestVNet1, jak i TestVNet4) można utworzyć połączenia między bramami sieci wirtualnych. W tej sekcji opisano tworzenie połączenia z sieci VNet1 do sieci VNet4. Następujące kroki działają tylko w przypadku sieci wirtualnych należących do tej samej subskrypcji. Jeśli Twoje sieci wirtualne znajdują się w różnych subskrypcjach, do utworzenia połączenia musisz użyć programu PowerShell. Zobacz artykuł [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 1. W sekcji **Wszystkie zasoby** przejdź do bramy swojej sieci wirtualnej (np. **TestVNet1GW**). Kliknij pozycję **TestVNet1GW**, aby otworzyć blok bramy sieci wirtualnej.
    

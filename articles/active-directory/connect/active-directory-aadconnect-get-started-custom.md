@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 03/30/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
-ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -39,7 +40,7 @@ Podczas instalowania usług synchronizacji sekcja konfiguracji opcjonalnej może
 | Konfiguracja opcjonalna | Opis |
 | --- | --- |
 | Użyj istniejącego serwera SQL Server |Pozwala określić nazwę serwera SQL Server i nazwę wystąpienia. Wybierz tę opcję, jeśli masz już serwer baz danych, którego chcesz użyć. Wprowadź nazwę wystąpienia, a następnie przecinek i numer portu w polu **Nazwa wystąpienia**, jeśli na serwerze SQL Server jest wyłączona funkcja przeglądania. |
-| Użyj istniejącego konta usługi |Domyślnie program Azure AD Connect tworzy lokalne konto usługi, które będzie używane przez usługi synchronizacji. Hasło jest generowane automatycznie i nieznane osobie, która instaluje program Azure AD Connect. Jeśli używany jest zdalny serwer SQL lub serwer proxy, który wymaga uwierzytelnienia, potrzebne jest konto usługi w domenie i hasło. W takich przypadkach wprowadź konto usługi, które będzie używane. Upewnij się, że użytkownik wykonujący instalację jest administratorem systemu na serwerze SQL, aby można było utworzyć identyfikator logowania dla konta usługi. Zobacz temat [Konta i uprawnienia w programie Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Użyj istniejącego konta usługi |Domyślnie program Azure AD Connect korzysta z wirtualnego konta usługi na potrzeby usług synchronizacji. Jeśli używasz zdalnego serwera SQL lub serwera proxy wymagającego uwierzytelnienia, musisz użyć **zarządzanego konta usługi** lub konta usługi w domenie, do którego znasz hasło. W takich przypadkach wprowadź konto do użycia. Upewnij się, że użytkownik wykonujący instalację jest administratorem systemu na serwerze SQL, aby można było utworzyć identyfikator logowania dla konta usługi. Zobacz temat [Konta i uprawnienia w programie Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) |
 | Określ niestandardowe grupy synchronizacji |Domyślnie program Azure AD Connect tworzy cztery grupy lokalne na serwerze podczas instalowania usług synchronizacji. Są to: grupa administratorów, grupa operatorów, grupa przeglądania i grupa resetowanie hasła. Możesz tu określić własne grupy. Grupy muszą być lokalne na serwerze i nie mogą znajdować się w domenie. |
 
 ### <a name="user-sign-in"></a>Logowanie użytkowników
@@ -119,7 +120,7 @@ Funkcja dopasowywania w lasach umożliwia określenie, jak użytkownicy z lasów
 | Atrybuty sAMAccountName i MailNickName |Ta opcja łączy atrybuty w przypadku, gdy oczekiwane jest znalezienie identyfikatora logowania dla użytkownika. |
 | Określony atrybut |Ta opcja umożliwia wybranie własnego atrybutu. **Ograniczenie:** należy pamiętać, aby wybrać atrybut, który znajduje się już w magazynie metaverse. W przypadku wybrania atrybutu niestandardowego (który nie znajduje się w magazynie metaverse) nie można ukończyć działania kreatora. |
 
-**Zakotwiczenie źródła** — atrybut sourceAnchor jest niezmienialny w okresie istnienia obiektu użytkownika. Jest kluczem podstawowym łączącym użytkownika lokalnego z użytkownikiem w usłudze Azure AD. Ze względu na to, że atrybutu nie można zmienić należy zaplanować użycie właściwego atrybutu. Dobrym wyborem jest atrybut objectGUID. Tego atrybutu nie można zmienić, chyba że konto użytkownika jest przenoszone między lasami/domenami. W środowisku wielu lasów, w którym konta są przenoszone między lasami, należy użyć innego atrybutu, np. atrybutu z identyfikatorem employeeID. Należy unikać atrybutów, które mogą ulec zmianie po zmianie stanu cywilnego lub zmianie zadań. Nie można używać atrybutów ze znakiem @-sign,, więc nie można używać adresu e-mail ani atrybutu userPrincipalName. W tym atrybucie uwzględniana jest również wielkość liter, więc w przypadku przenoszenia obiektu między lasami należy pamiętać o zachowaniu wielkich/małych liter. Atrybuty binarne są zakodowane przy użyciu standardu base64, ale inne typy atrybutów pozostają w stanie niezakodowanym. W scenariuszach federacji i niektórych interfejsach usługi Azure AD ten atrybut nosi również nazwę immutableID. Więcej informacji na temat zakotwiczenia źródła znajduje się w temacie, w którym opisano [zagadnienia dotyczące projektowania](active-directory-aadconnect-design-concepts.md#sourceanchor).
+**Zakotwiczenie źródła** — atrybut sourceAnchor jest niezmienialny w okresie istnienia obiektu użytkownika. Jest kluczem podstawowym łączącym użytkownika lokalnego z użytkownikiem w usłudze Azure AD. Ze względu na to, że atrybutu nie można zmienić należy zaplanować użycie właściwego atrybutu. Dobrym wyborem jest atrybut objectGUID. Tego atrybutu nie można zmienić, chyba że konto użytkownika jest przenoszone między lasami/domenami. W środowisku wielu lasów, w którym konta są przenoszone między lasami, należy użyć innego atrybutu, np. atrybutu z identyfikatorem employeeID. Należy unikać atrybutów, które mogą ulec zmianie po zmianie stanu cywilnego lub zmianie zadań. Nie można używać atrybutów ze znakiem @-sign, więc nie można używać adresu e-mail ani atrybutu userPrincipalName. W tym atrybucie uwzględniana jest również wielkość liter, więc w przypadku przenoszenia obiektu między lasami należy pamiętać o zachowaniu wielkich/małych liter. Atrybuty binarne są zakodowane przy użyciu standardu base64, ale inne typy atrybutów pozostają w stanie niezakodowanym. W scenariuszach federacji i niektórych interfejsach usługi Azure AD ten atrybut nosi również nazwę immutableID. Więcej informacji na temat zakotwiczenia źródła znajduje się w temacie, w którym opisano [zagadnienia dotyczące projektowania](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtrowanie synchronizacji na podstawie grup
 Funkcja filtrowania grup umożliwia synchronizowanie tylko małego podzbioru obiektów do celów wdrożenia pilotażowego. Aby użyć tej funkcji, należy utworzyć w tym celu grupę w lokalnej usłudze Active Directory. Następnie należy dodać użytkowników i grupy, którzy mają zostać zsynchronizowani z usługą Azure AD jako bezpośrednie elementy członkowskie. Później można dodawać i usuwać użytkowników tej grupy, aby opracować listę obiektów, które powinny znajdować się w usłudze Azure AD. Wszystkie obiekty przeznaczone do synchronizacji powinny być bezpośrednimi elementami członkowskimi grupy. Wszyscy użytkownicy i wszystkie grupy, kontakty, komputery/urządzenia muszą być bezpośrednimi elementami członkowskimi. Członkostwo grup zagnieżdżonych nie jest rozpoznawane. W przypadku dodania grupy jako elementu członkowskiego dodawana jest tylko sama grupa, a nie jej elementy członkowskie.
@@ -316,9 +317,4 @@ Dowiedz się więcej na temat funkcji włączonych w ramach instalacji: [Zapobie
 Dowiedz się więcej na te popularne tematy: [harmonogram i sposób włączania synchronizacji](active-directory-aadconnectsync-feature-scheduler.md).
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

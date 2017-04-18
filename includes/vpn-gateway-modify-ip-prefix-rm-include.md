@@ -1,16 +1,24 @@
-### <a name="a-namenoconnectionahow-to-add-or-remove-prefixes-no-gateway-connection"></a><a name="noconnection"></a>Dodawanie lub usuwanie prefiksów — brak połączenia bramy
-* **Aby dodać** dodatkowe prefiksy adresów do bramy sieci lokalnej, która została utworzona, ale nie ma jeszcze połączenia z bramą, skorzystaj z poniższego przykładu. Pamiętaj, aby zastąpić podane wartości swoimi.
-  
-        $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-        -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-* **Aby usunąć** prefiks adresu z bramy sieci lokalnej, która nie ma połączenia sieci VPN, skorzystaj z poniższego przykładu. Opuść prefiksy, które nie są już potrzebne. W tym przykładzie nie są już potrzebne prefiksy 20.0.0.0/24 (z poprzedniego przykładu), dlatego zostanie zaktualizowana brama sieci lokalnej i zostaną one wykluczone.
-  
-        $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-        -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+### <a name="noconnection"></a>Dodawanie lub usuwanie prefiksów — brak połączenia bramy
+### <a name="to-add-additional-prefixes"></a>Aby dodać prefiksy
 
-### <a name="a-namewithconnectionahow-to-add-or-remove-prefixes-existing-gateway-connection"></a><a name="withconnection"></a>Dodawanie lub usuwanie prefiksów — istniejące połączenie bramy
+Aby dodać prefiksy adresów do bramy sieci lokalnej, która została utworzona, ale nie ma jeszcze połączenia z bramą, skorzystaj z poniższego przykładu. Pamiętaj, aby zastąpić podane wartości swoimi.
+
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+```
+### <a name="to-remove-an-address-prefix"></a>Aby usunąć prefiks adresu
+
+Aby usunąć prefiks adresu z bramy sieci lokalnej, która nie ma połączenia sieci VPN, skorzystaj z poniższego przykładu. Opuść prefiksy, które nie są już potrzebne. W tym przykładzie nie są już potrzebne prefiksy 20.0.0.0/24 (z poprzedniego przykładu), dlatego zostanie zaktualizowana brama sieci lokalnej i zostaną one wykluczone.
+
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+```
+
+### <a name="withconnection"></a>Dodawanie lub usuwanie prefiksów — istniejące połączenie bramy
 Jeśli połączenie bramy zostało już utworzone i chcesz dodać lub usunąć prefiksy adresów IP zawarte w bramie Twojej sieci lokalnej, wykonaj kolejno następujące kroki. Spowoduje to pewien przestój połączenia sieci VPN. Podczas aktualizowania prefiksów najpierw należy usunąć połączenie, zmodyfikować prefiksy, a następnie utworzyć nowe połączenie. W poniższych przykładach należy zastąpić podane wartości swoimi.
 
 > [!IMPORTANT]
@@ -19,33 +27,38 @@ Jeśli połączenie bramy zostało już utworzone i chcesz dodać lub usunąć p
 > 
 
 1. Usuń połączenie.
-   
-        Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName
+
+  ```powershell
+  Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName
+  ```
 2. Zmodyfikuj prefiksy adresów IP bramy Twojej sieci lokalnej.
    
-    Ustaw wartość zmiennej dla klasy LocalNetworkGateway.
+  Ustaw wartość zmiennej dla klasy LocalNetworkGateway.
+
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName
+  ```
    
-        $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName
+  Zmodyfikuj prefiksy.
    
-    Zmodyfikuj prefiksy.
-   
-        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-        -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  ```powershell
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  ```
 3. Utwórz połączenie. W tym przykładzie będziemy konfigurować połączenie typu IPsec. Podczas ponownego tworzenia połączenia należy użyć typu połączenia, który został określony dla danej konfiguracji. O dodatkowych typach połączeń można przeczytać na stronie [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) (Polecenia cmdlet programu PowerShell).
    
-     Ustaw wartość zmiennej dla klasy VirtualNetworkGateway.
+  Ustaw wartość zmiennej dla klasy VirtualNetworkGateway.
+
+  ```powershell
+  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
+  ```
    
-        $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
-   
-    Utwórz połączenie. Należy zauważyć, że w przykładzie użyto zmiennej $local, która została ustawiona w poprzednim kroku.
+  Utwórz połączenie. Należy zauważyć, że w przykładzie użyto zmiennej $local, która została ustawiona w poprzednim kroku.
 
-        New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
-        -ResourceGroupName MyRGName -Location 'West US' `
-        -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-        -ConnectionType IPsec `
-        -RoutingWeight 10 -SharedKey 'abc123'
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+  ```powershell
+  New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
+  -ResourceGroupName MyRGName -Location 'West US' `
+  -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+  -ConnectionType IPsec `
+  -RoutingWeight 10 -SharedKey 'abc123'
+  ```

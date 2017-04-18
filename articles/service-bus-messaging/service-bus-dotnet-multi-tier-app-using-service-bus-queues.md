@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
 ## <a name="introduction"></a>Wprowadzenie
-Tworzenie aplikacji dla platformy Microsoft Azure przy użyciu programu Visual Studio oraz bezpłatnego zestawu Azure SDK dla platformy .NET jest proste. Ten samouczek przeprowadzi Cię przez etapy tworzenia aplikacji, która używa wielu zasobów platformy Azure działających w środowisku lokalnym. Założono w nim, że nie masz wcześniejszego doświadczenia w używaniu platformy Azure.
+Tworzenie aplikacji dla platformy Microsoft Azure przy użyciu programu Visual Studio oraz bezpłatnego zestawu Azure SDK dla platformy .NET jest proste. Ten samouczek przeprowadzi Cię przez etapy tworzenia aplikacji, która używa wielu zasobów platformy Azure działających w środowisku lokalnym.
 
 Dowiesz się:
 
@@ -34,16 +34,16 @@ Dowiesz się:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Dzięki temu samouczkowi będziesz w stanie utworzyć i uruchomić aplikację wielowarstwową w usłudze w chmurze platformy Azure. Fronton ma przypisaną rolę sieci Web programu ASP.NET MVC, a zaplecze rolę procesu roboczego używającego kolejki usługi Service Bus. Taką samą aplikację wielowarstwową z frontonem możesz utworzyć jako projekt sieci Web, który jest wdrażany w witrynie sieci Web platformy Azure, a nie jako usługa w chmurze. Aby uzyskać instrukcje na temat różnic w postępowaniu w przypadku frontonu witryny sieci Web platformy Azure, zobacz sekcję [Następne kroki](#nextsteps). Możesz również wypróbować samouczek na temat [hybrydowych aplikacji lokalnych/w chmurze platformy .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+Dzięki temu samouczkowi będziesz w stanie utworzyć i uruchomić aplikację wielowarstwową w usłudze w chmurze platformy Azure. Fronton ma przypisaną rolę sieci Web programu ASP.NET MVC, a zaplecze rolę procesu roboczego używającego kolejki usługi Service Bus. Taką samą aplikację wielowarstwową z frontonem możesz utworzyć jako projekt sieci Web, który jest wdrażany w witrynie sieci Web platformy Azure, a nie jako usługa w chmurze. Możesz również wypróbować samouczek na temat [hybrydowych aplikacji lokalnych/w chmurze platformy .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Poniższy zrzut ekranu przedstawia gotową aplikację.
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Omówienie scenariusza: komunikacja między rolami
-Aby przesłać zamówienie do przetworzenia, składnik interfejsu użytkownika frontonu działający w roli sieci Web musi współdziałać z logiką warstwy środkowej uruchomionej w roli procesu roboczego. W tym przykładzie do komunikacji między warstwami użyto komunikatów usługi Service Bus obsługiwanych przez brokera.
+Aby przesłać zamówienie do przetworzenia, składnik interfejsu użytkownika frontonu działający w roli sieci Web musi współdziałać z logiką warstwy środkowej uruchomionej w roli procesu roboczego. W tym przykładzie do komunikacji między warstwami użyto komunikatów usługi Service Bus.
 
-Korzystanie z komunikatów obsługiwanych przez brokera między warstwą sieci Web i warstwą środkową oddziela dwa składniki. W przeciwieństwie do komunikatów bezpośrednich (czyli TCP lub HTTP), warstwa sieci Web nie łączy się bezpośrednio z warstwą środkową. Zamiast tego wypycha jednostki pracy jako komunikaty do usługi Service Bus, która w niezawodny sposób je przechowuje do momentu, aż środkowa warstwa będzie gotowa na ich użycie i przetworzenie.
+Korzystanie z komunikatów usługi Service Bus między warstwą sieci Web i warstwą środkową oddziela dwa składniki. W przeciwieństwie do komunikatów bezpośrednich (czyli TCP lub HTTP), warstwa sieci Web nie łączy się bezpośrednio z warstwą środkową. Zamiast tego wypycha jednostki pracy jako komunikaty do usługi Service Bus, która w niezawodny sposób je przechowuje do momentu, aż środkowa warstwa będzie gotowa na ich użycie i przetworzenie.
 
 Usługa Service Bus zapewnia dwie jednostki do obsługi komunikatów obsługiwanych przez brokera: kolejki i tematy. W przypadku kolejek każdy komunikat wysyłany do kolejki jest używany przez jednego odbiorcę. Tematy obsługują wzorzec publikowania/subskrypcji, w którym każdy opublikowany komunikat jest udostępniony dla subskrypcji zarejestrowanej w temacie. Każda subskrypcja logicznie zachowuje własną kolejkę komunikatów. Subskrypcje mogą być również konfigurowane przy użyciu reguł filtrowania, które ograniczają zestaw komunikatów przesyłanych do kolejki subskrypcji do tych, które są zgodne z filtrem. W poniższym przykładzie użyto kolejek usługi Service Bus.
 
@@ -63,7 +63,7 @@ W poniższych sekcjach omówiono kod, który implementuje tę architekturę.
 Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne narzędzia i skonfiguruj swoje środowisko deweloperskie.
 
 1. Zainstaluj zestaw Azure SDK dla platformy .NET ze [strony pobierania](https://azure.microsoft.com/downloads/) zestawów SDK.
-2. W kolumnie **.NET** kliknij używaną wersję programu [Visual Studio](http://www.visualstudio.com). W krokach tego samouczka używany jest program Visual Studio 2015.
+2. W kolumnie **.NET** kliknij używaną wersję programu [Visual Studio](http://www.visualstudio.com). Czynności opisane w tym samouczku są wykonywane w programie Visual Studio 2015, ale można w ich przypadku korzystać z programu Visual Studio 2017.
 3. Gdy zostanie wyświetlony monit o uruchomienie lub zapisanie instalatora, kliknij przycisk **Uruchom**.
 4. W **Instalatorze platformy sieci Web** kliknij przycisk **Zainstaluj** i kontynuuj instalację.
 5. Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio.
@@ -78,7 +78,7 @@ W tej sekcji omówione zostanie tworzenie frontonu aplikacji. Najpierw tworzy si
 Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service Bus i wyświetla informacje o stanie kolejki.
 
 ### <a name="create-the-project"></a>Tworzenie projektu
-1. Korzystając z uprawnień administratora, uruchom program Microsoft Visual Studio. Aby uruchomić program Visual Studio z uprawnieniami administratora, kliknij prawym przyciskiem myszy ikonę programu **Visual Studio**, a następnie kliknij polecenie **Uruchom jako administrator**. Emulator obliczeń platformy Azure, który zostanie omówiony w dalszej części tego artykułu, wymaga uruchomienia programu Visual Studio z uprawnieniami administratora.
+1. Używając uprawnień administratora, uruchom program Visual Studio: kliknij prawym przyciskiem myszy ikonę programu **Visual Studio**, a następnie kliknij polecenie **Uruchom jako administrator**. Emulator obliczeń platformy Azure, który zostanie omówiony w dalszej części tego artykułu, wymaga uruchomienia programu Visual Studio z uprawnieniami administratora.
    
    W menu **Plik** programu Visual Studio kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
 2. W pozycji **Zainstalowane szablony** w obszarze **Visual C#** kliknij pozycję **Chmura**, a następnie kliknij pozycję **Usługa w chmurze Azure**. Nazwij projekt **MultiTierApp**. Następnie kliknij przycisk **OK**.
@@ -98,7 +98,7 @@ Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service
     ![][16]
 7. W oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **OK**, aby utworzyć projekt.
 8. W **Eksploratorze rozwiązań** w projekcie **FrontendWebRole** kliknij prawym przyciskiem myszy pozycję **Odwołania**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
-9. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
+9. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Wybierz pakiet **WindowsAzure.ServiceBus**, kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
    
    ![][13]
    
@@ -362,7 +362,7 @@ Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówie�
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące zasoby:  
 
-* [Azure Service Bus][sbmsdn]  
+* [Dokumentacja usługi Azure Service Bus][sbdocs]  
 * [Service Bus service page][sbacom] (Strona usługi Service Bus)  
 * [Jak używać kolejek usługi Service Bus][sbacomqhowto]  
 
@@ -370,7 +370,7 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
 
 * [Wielowarstwowa aplikacja platformy .NET korzystająca z tabel, kolejek i obiektów Blob magazynu][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -381,8 +381,8 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -391,7 +391,7 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

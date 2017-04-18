@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6703df0f64534ed638e570342eef7fbda2a74d2e
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d559151e49b4c74cef8cb0bf6452436152d2b7fe
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -103,11 +103,11 @@ Na każdym komputerze klienckim nawiązującym połączenie z siecią wirtualną
 
 ### <a name="getcer"></a>Krok 1 — uzyskiwanie pliku cer dla certyfikatu głównego
 
-####<a name="enterprise-certificate"></a>Certyfikat przedsiębiorstwa
+#### <a name="enterprise-certificate"></a>Certyfikat przedsiębiorstwa
  
 Jeśli korzystasz z rozwiązania dla przedsiębiorstwa, możesz użyć istniejącego łańcucha certyfikatów. Uzyskaj plik cer dla certyfikatu głównego, którego chcesz użyć.
 
-####<a name="self-signed-root-certificate"></a>Certyfikat główny z podpisem własnym
+#### <a name="self-signed-root-certificate"></a>Certyfikat główny z podpisem własnym
 
 Jeśli nie używasz rozwiązania z certyfikatem przedsiębiorstwa, musisz utworzyć certyfikat główny z podpisem własnym. Aby utworzyć certyfikat główny z podpisem własnym, który zawiera pola niezbędne do uwierzytelniania punkt-lokacja, możesz użyć programu PowerShell. Temat [Create a self-signed root certificate for Point-to-Site connections using PowerShell](vpn-gateway-certificates-point-to-site.md) (Tworzenie certyfikatu głównego z podpisem własnym dla połączeń punkt-lokacja za pomocą programu PowerShell) zawiera opis kroków tworzenia certyfikatu głównego z podpisem własnym.
 
@@ -121,38 +121,39 @@ Jeśli nie używasz rozwiązania z certyfikatem przedsiębiorstwa, musisz utworz
 
 Połączenia punkt-lokacja wymagają przesłania klucza publicznego (plik cer) na platformę Azure. Wykonanie poniższych kroków ułatwia wyeksportowanie pliku cer dla certyfikatu głównego z podpisem własnym.
 
-1. Aby uzyskać plik cer z certyfikatu, otwórz narzędzie **certmgr.msc**. Zlokalizuj certyfikat główny z podpisem własnym — zwykle znajduje się w katalogu „Certyfikaty - bieżący użytkownik\Osobisty\Certyfikat” — a następnie kliknij go prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania**, a następnie kliknij pozycję **Eksportuj**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**.
-2. W Kreatorze kliknij pozycję **Dalej**. Wybierz pozycję **Nie eksportuj klucza prywatnego**, a następnie kliknij pozycję **Dalej**.
-3. Na stronie **Format pliku eksportu** wybierz pozycję **Certyfikat X.509 szyfrowany algorytmem Base-64 (.CER)**, a następnie kliknij pozycję **Dalej**. 
-4. W obszarze **Eksport pliku** wybierz pozycję **Przeglądaj**, aby przejść do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **Next** (Dalej).
-5. Kliknij przycisk **Zakończ**, aby wyeksportować certyfikat. Wyświetlony zostanie komunikat **Eksport zakończył się pomyślnie**. Kliknij przycisk **OK**, aby zamknąć kreatora.
+1. Aby uzyskać plik cer z certyfikatu, otwórz okno **Zarządzaj certyfikatami użytkowników**.
+2. Zlokalizuj certyfikat główny z podpisem własnym „P2SRootCert” w katalogu „Certyfikaty - bieżący użytkownik\Osobisty\Certyfikat”, a następnie kliknij go prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania**, a następnie kliknij pozycję **Eksportuj**, aby otworzyć **Kreatora eksportu certyfikatów**.
+3. W Kreatorze kliknij pozycję **Dalej**. Wybierz pozycję **Nie eksportuj klucza prywatnego**, a następnie kliknij pozycję **Dalej**.
+4. Na stronie **Format pliku eksportu** wybierz pozycję **Certyfikat X.509 szyfrowany algorytmem Base-64 (.CER)**, a następnie kliknij pozycję **Dalej**. 
+5. Na stronie **Eksport pliku** przejdź na dysk „C:”, utwórz podkatalog o nazwie „cert” i wybierz go. Nadaj plikowi certyfikatu nazwę „P2SRootCert.cer”, a następnie kliknij przycisk **Zapisz**. 
+6. Kliknij przycisk **Dalej**, a następnie przycisk **Zakończ**, aby wyeksportować certyfikat. Zostanie wyświetlony komunikat **Eksport zakończył się pomyślnie**. Kliknij przycisk **OK**, aby zamknąć kreatora.
 
 ### <a name="generateclientcert"></a>Krok 2 — generowanie certyfikatu klienta
-Można wygenerować unikatowy certyfikat dla każdego klienta, który będzie się łączył z siecią wirtualną, albo użyć tego samego certyfikatu na wielu klientach. Zaletą generowania unikatowych certyfikatów klienta jest możliwość odwoływania pojedynczego certyfikatu, jeśli to konieczne. W przeciwnym razie, jeśli wszyscy użytkownicy korzystają z tego samego certyfikatu klienta i konieczne jest odwołanie certyfikatu dla jednego klienta, będzie konieczne wygenerowanie i zainstalowanie nowych certyfikatów dla wszystkich klientów, którzy używają certyfikatu do uwierzytelniania.
+Można wygenerować unikatowy certyfikat dla każdego klienta lub można użyć tego samego certyfikatu na wielu klientach. Zaletą generowania unikatowych certyfikatów klienta jest możliwość odwołania pojedynczego certyfikatu. W przeciwnym razie, jeśli wszyscy użytkownicy korzystają z tego samego certyfikatu klienta i zajdzie potrzeba jego odwołania, będzie konieczne wygenerowanie i zainstalowanie nowych certyfikatów dla wszystkich klientów, którzy używają tego certyfikatu do uwierzytelniania.
 
-####<a name="enterprise-certificate"></a>Certyfikat przedsiębiorstwa
+#### <a name="enterprise-certificate"></a>Certyfikat przedsiębiorstwa
 - Jeśli używasz rozwiązania z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu formatu wartości nazwy pospolitej „name@yourdomain.com”, a nie formatu „nazwa_domeny\nazwa_użytkownika”.
-- Upewnij się, że wydawany certyfikat klienta jest oparty na szablonie certyfikatu „Użytkownik”, którego pierwszym elementem na liście użycia jest „Uwierzytelnienie klienta”, a nie Logowanie karty inteligentnej itp. Certyfikat można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i wyświetlenie pozycji **Szczegóły > Ulepszone użycie klucza**.
+- Upewnij się, że certyfikat klienta jest oparty na szablonie certyfikatu „Użytkownik”, którego pierwszym elementem na liście użycia jest „Uwierzytelnienie klienta”, a nie Logowanie karty inteligentnej itp. Certyfikat można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i wyświetlenie pozycji **Szczegóły > Ulepszone użycie klucza**.
 
-####<a name="self-signed-root-certificate"></a>Certyfikat główny z podpisem własnym 
+#### <a name="self-signed-root-certificate"></a>Certyfikat główny z podpisem własnym 
 Jeśli używasz certyfikatu głównego z podpisem własnym, zobacz temat [Generate a client certificate using PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) (Generowanie certyfikatu klienta za pomocą programu PowerShell), aby uzyskać kroki służące do wygenerowania certyfikatu klienta zgodnego z połączeniami punkt-lokacja.
 
 
 ### <a name="exportclientcert"></a>Krok 3 — eksportowanie certyfikatu klienta
 Jeśli certyfikat klienta jest generowany na podstawie certyfikatu głównego z podpisem własnym za pomocą instrukcji dla programu [PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert), jest on automatycznie instalowany na komputerze użytym do jego wygenerowania. Aby zainstalować certyfikat klienta na innym komputerze klienckim, należy go wyeksportować.
-
-1. Aby wyeksportować certyfikat klienta, otwórz narzędzie **certmgr.msc**. Kliknij prawym przyciskiem myszy certyfikat klienta, który chcesz wyeksportować, a następnie kliknij przycisk **wszystkie zadania** i opcję **eksportuj**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**.
+ 
+1. Aby wyeksportować certyfikat klienta, otwórz okno **Zarządzaj certyfikatami użytkowników**. Kliknij prawym przyciskiem myszy certyfikat klienta, który chcesz wyeksportować, kliknij pozycję **wszystkie zadania**, a następnie kliknij pozycję **eksportuj**, aby otworzyć **Kreatora eksportu certyfikatów**.
 2. W kreatorze kliknij pozycję **Dalej**, wybierz opcję **Tak, eksportuj klucz prywatny**, a następnie kliknij pozycję **Dalej**.
-3. Na stronie **Format pliku eksportu** pozostaw wybrane wartości domyślne. Upewnij się, że jest zaznaczona pozycja **Jeśli jest to możliwe, dołącz wszystkie certyfikaty do ścieżki certyfikacji**. Następnie kliknij przycisk **Next** (Dalej). 
-4. Na stronie **Zabezpieczenia** należy włączyć ochronę klucza prywatnego. Jeśli wybierzesz opcję użycia hasła, zapisz lub zapamiętaj hasło ustawione dla tego certyfikatu. Następnie kliknij przycisk **Next** (Dalej).
-5. W obszarze **Eksport pliku** wybierz pozycję **Przeglądaj**, aby przejść do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **Next** (Dalej).
+3. Na stronie **Format pliku eksportu** pozostaw wybrane wartości domyślne. Upewnij się, że jest zaznaczona opcja **Jeśli jest to możliwe, dołącz wszystkie certyfikaty ze ścieżki certyfikacji**, aby wyeksportować również wymagane informacje o certyfikacie głównym. Następnie kliknij przycisk **Dalej**.
+4. Na stronie **Zabezpieczenia** należy włączyć ochronę klucza prywatnego. Jeśli wybierzesz opcję użycia hasła, zapisz lub zapamiętaj hasło ustawione dla tego certyfikatu. Następnie kliknij przycisk **Dalej**.
+5. W obszarze **Eksport pliku** wybierz pozycję **Przeglądaj**, aby przejść do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **Dalej**.
 6. Kliknij przycisk **Zakończ**, aby wyeksportować certyfikat.   
 
 ## <a name="addresspool"></a>Część 7 — dodawanie puli adresów klienta
 1. Po utworzeniu bramy sieci wirtualnej przejdź do sekcji **Ustawienia** w bloku bramy sieci wirtualnej. W sekcji **Ustawienia** kliknij pozycję **Konfiguracja punktu do lokacji**, aby otworzyć blok **Konfiguracja**.
    
     ![Blok punkt-lokacja](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
-2. **Pula adresów** to pula adresów IP, z których łączące się klienty będą otrzymywać adresy IP. Dodaj pulę adresów, a następnie kliknij przycisk **Zapisz**.
+2. **Pula adresów** to pula adresów IP, z których łączące się klienty otrzymują adresy IP. Dodaj pulę adresów, a następnie kliknij przycisk **Zapisz**.
    
     ![Pula adresów klienta](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
@@ -160,7 +161,7 @@ Jeśli certyfikat klienta jest generowany na podstawie certyfikatu głównego z 
 Po utworzeniu bramy można przekazać plik cer dla zaufanego certyfikatu głównego platformy Azure. Można przekazać pliki dla maksymalnie 20 certyfikatów głównych. Nie przekazuj klucza prywatnego dla certyfikatu głównego do platformy Azure. Po przekazaniu pliku cer platforma Azure używa go do uwierzytelniania klientów łączących się z siecią wirtualną.
 
 1. Certyfikaty są dodawane w bloku **Konfiguracja punktu do lokacji** w sekcji **Certyfikat główny**.  
-2. Upewnij się, że certyfikat główny został wyeksportowany jako plik X.509 (cer) zaszyfrowany z użyciem algorytmu Base-64. Certyfikat główny należy wyeksportować w takim formacie, aby możliwe było jego otwarcie za pomocą edytora tekstów.
+2. Upewnij się, że certyfikat główny został wyeksportowany jako plik X.509 (cer) zaszyfrowany z użyciem algorytmu Base-64. Certyfikat należy wyeksportować w takim formacie, aby możliwe było jego otwarcie za pomocą edytora tekstów.
 3. Otwórz certyfikat za pomocą edytora tekstów, takiego jak Notatnik. Skopiuj tylko następującą sekcję jako jeden ciągły wiersz:
    
     ![Dane dotyczące certyfikatu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
@@ -179,58 +180,56 @@ Klienty łączące się z platformą Azure za pośrednictwem połączenia typu p
 
 Pakiet klienta VPN zawiera informacje umożliwiające skonfigurowanie oprogramowania klienta VPN wbudowanego w system Windows. Konfiguracja jest ściśle powiązana z siecią VPN, z którą ma zostać nawiązane połączenie. Instalacja pakietu nie powoduje instalacji dodatkowego oprogramowania.
 
-Tego samego pakietu konfiguracyjnego klienta VPN można użyć na każdym komputerze klienckim, pod warunkiem, że wersja jest zgodna z architekturą dla klienta.
+Tego samego pakietu konfiguracyjnego klienta VPN można użyć na każdym komputerze klienckim, o ile wersja jest zgodna z architekturą dla klienta.
 
 ### <a name="step-1---download-the-client-configuration-package"></a>Krok 1 — Pobieranie pakietu konfiguracji klienta
 
 1. W bloku **Konfiguracja punktu do lokacji** kliknij przycisk **Download VPN client** (Pobierz klienta VPN), aby otworzyć blok **Download VPN client** (Pobieranie klienta VPN). Wygenerowanie pakietu trwa minutę lub dwie.
    
     ![Pobieranie klienta VPN — sposób 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
-2. Wybierz właściwy pakiet dla klienta, a następnie kliknij przycisk **Pobierz**. Zapisz plik pakietu konfiguracyjnego. Zainstalujesz go na każdym komputerze klienckim, który będzie łączyć się z siecią wirtualną.
+2. Wybierz właściwy pakiet dla klienta, a następnie kliknij przycisk **Pobierz**. Zapisz plik pakietu konfiguracyjnego. Pakiet konfiguracyjny klienta VPN należy zainstalować na każdym komputerze klienckim, który łączy się z siecią wirtualną.
 
     ![Pobieranie klienta VPN — sposób 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
 ### <a name="step-2---install-the-client-configuration-package"></a>Krok 2 — Instalowanie pakietu konfiguracji klienta
 
 1. Skopiuj lokalnie plik konfiguracji na komputer, który chcesz połączyć z siecią wirtualną. 
-2. Kliknij dwukrotnie plik exe, aby zainstalować pakiet na komputerze klienckim. Ponieważ pakiet konfiguracji został utworzony przez Ciebie, nie jest podpisany. Oznacza to, że może pojawić się ostrzeżenie. Jeśli pojawi się okno podręczne Windows SmartScreen, kliknij pozycję **Więcej informacji** (z lewej strony), a następnie pozycję **Uruchom mimo to**, aby zainstalować pakiet.
-3. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie zostanie wyświetlone. Widoczna będzie nazwa sieci wirtualnej, z którą zostanie nawiązane połączenie. Powinno to wyglądać następująco:
+2. Kliknij dwukrotnie plik exe, aby zainstalować pakiet na komputerze klienckim. Ponieważ pakiet konfiguracji został utworzony przez Ciebie, nie jest podpisany i może zostać wyświetlone ostrzeżenie. Jeśli pojawi się okno podręczne Windows SmartScreen, kliknij pozycję **Więcej informacji** (z lewej strony), a następnie pozycję **Uruchom mimo to**, aby zainstalować pakiet.
 3. Zainstaluj pakiet na komputerze klienckim. Jeśli pojawi się okno podręczne Windows SmartScreen, kliknij pozycję **Więcej informacji** (z lewej strony), a następnie pozycję **Uruchom mimo to**, aby zainstalować pakiet.
-4. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie zostanie wyświetlone. Widoczna będzie nazwa sieci wirtualnej, z którą zostanie nawiązane połączenie. Powinno to wyglądać podobnie jak w tym przykładzie: 
-   
-    ![Klient sieci VPN](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpn.png)
+4. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie z siecią VPN zawiera nazwę sieci wirtualnej, z którą jest nawiązywane połączenie.
 
 
 ## <a name="installclientcert"></a>Część 10. Instalowanie wyeksportowanego certyfikatu klienta
 
-Jeśli chcesz utworzyć połączenie punkt-lokacja z komputerem klienckim innym niż użyty do wygenerowania certyfikatów klienta, należy zainstalować certyfikat klienta. Podczas instalowania certyfikatu klienta potrzebne będzie hasło, które zostało utworzone podczas eksportowania certyfikatu klienta. 
+Jeśli chcesz utworzyć połączenie punkt-lokacja z komputerem klienckim innym niż użyty do wygenerowania certyfikatów klienta, należy zainstalować certyfikat klienta. Podczas instalowania certyfikatu klienta potrzebne jest hasło, które zostało utworzone w trakcie eksportowania certyfikatu klienta.
 
-1. Znajdź plik *pfx* i skopiuj go na komputer kliencki. Na komputerze klienckim kliknij dwukrotnie plik *pfx*, aby go zainstalować. Pozostaw wartość pola **Lokalizacja magazynu** jako **Bieżący użytkownik**, a następnie kliknij pozycję **Dalej**.
+1. Znajdź plik *pfx* i skopiuj go na komputer kliencki. Na komputerze klienckim kliknij dwukrotnie plik *pfx*, aby go zainstalować. W polu **Lokalizacja magazynu** pozostaw wartość **Bieżący użytkownik**, a następnie kliknij pozycję **Dalej**.
 2. Na stronie importowania **Plik** nie wprowadzaj żadnych zmian. Kliknij przycisk **Dalej**.
-3. Na stronie **Ochrona klucza prywatnego** wprowadź hasło dla certyfikatu, jeśli zostało użyte, lub sprawdź, czy podmiot zabezpieczeń instalujący certyfikat jest poprawny, a następnie kliknij pozycję **Dalej**.
+3. Na stronie **Ochrona klucza prywatnego** wprowadź hasło dla certyfikatu lub sprawdź, czy podmiot zabezpieczeń jest poprawny, a następnie kliknij pozycję **Dalej**.
 4. Na stronie **Magazyn certyfikatów** pozostaw lokalizację domyślną, a następnie kliknij pozycję **Dalej**.
 5. Kliknij przycisk **Finish** (Zakończ). Na stronie **Ostrzeżenie o zabezpieczeniach** dla instalacji certyfikatu kliknij pozycję **Tak**. Możesz bez obaw kliknąć pozycję „Tak”, ponieważ wygenerowano certyfikat. Certyfikat został pomyślnie zaimportowany.
 
 ## <a name="connect"></a>Część 11 — nawiązywanie połączenia z platformą Azure
-1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Jeśli tak się stanie, kliknij przycisk **Kontynuuj**, aby skorzystać z podniesionych uprawnień. 
+ 
+ 1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Kliknij przycisk **Kontynuuj**, aby skorzystać z podwyższonego poziomu uprawnień.
+
 2. Na stronie stanu **Połączenie** kliknij przycisk **Połącz**, aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat**, sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli nie, kliknij strzałkę na liście rozwijanej, aby wybrać właściwy certyfikat, a następnie kliknij przycisk **OK**.
    
     ![Łączenie klienta sieci VPN z platformą Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
-
-    
-3. Połączenie powinno zostać nawiązane.
+3. Połączenie zostało ustanowione.
    
-    ![Klient sieci VPN połączony z platformą Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
-                                                                                                                                                                           
+    ![Ustanowiono połączenie](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-> [!NOTE]
-> Jeśli używasz certyfikatu wydanego przy użyciu rozwiązania dla przedsiębiorstwa proponowanego przez urząd certyfikacji i występują problemy z uwierzytelnianiem, sprawdź kolejność uwierzytelniania w certyfikacie klienta. Kolejność elementów na liście uwierzytelniania można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i przejście do pozycji **Szczegóły > Ulepszone użycie klucza**. Upewnij się, że pierwszym elementem na liście jest „Uwierzytelnienie klienta”. Jeśli tak nie jest, certyfikat klienta należy wydać na podstawie szablonu Użytkownik mającego Uwierzytelnienie klienta jako pierwszy element na liście. 
->
->
+Jeśli występują problemy z połączeniem, sprawdź następujące elementy:
+
+- Otwórz okno **Zarządzaj certyfikatami użytkowników** i przejdź do pozycji **Zaufane główne urzędy certyfikacji\Certyfikaty**. Sprawdź, czy certyfikat główny znajduje się na liście. Aby uwierzytelnianie działało, certyfikat główny musi być obecny. Podczas eksportowania pliku pfx certyfikatu klienta przy użyciu wartości domyślnej „Jeśli jest to możliwe, dołącz wszystkie certyfikaty ze ścieżki certyfikacji” eksportowane są również informacje o certyfikacie głównym. Następnie, gdy instalujesz certyfikat klienta, certyfikat główny jest również instalowany na komputerze klienckim. 
+
+- Jeśli używasz certyfikatu wydanego przy użyciu rozwiązania dla przedsiębiorstwa proponowanego przez urząd certyfikacji i występują problemy z uwierzytelnianiem, sprawdź kolejność uwierzytelniania w certyfikacie klienta. Kolejność elementów na liście uwierzytelniania można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i przejście do pozycji **Szczegóły > Ulepszone użycie klucza**. Upewnij się, że pierwszym elementem na liście jest „Uwierzytelnienie klienta”. Jeśli tak nie jest, certyfikat klienta należy wydać na podstawie szablonu Użytkownik mającego Uwierzytelnienie klienta jako pierwszy element na liście.
+
 
 ## <a name="verify"></a>Część 12 — weryfikowanie połączenia
 1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
-2. Przejrzyj wyniki. Zwróć uwagę na fakt, że otrzymany adres IP należy do określonej podczas konfiguracji połączenia punkt-lokacja puli adresów klienta sieci VPN. Wyniki powinny być podobne do poniższego kodu:
+2. Przejrzyj wyniki. Zwróć uwagę na fakt, że otrzymany adres IP należy do określonej podczas konfiguracji połączenia punkt-lokacja puli adresów klienta sieci VPN. Wyniki są podobne, jak w następującym przykładzie:
    
         PPP adapter VNet1:
             Connection-specific DNS Suffix .:
@@ -243,8 +242,11 @@ Jeśli chcesz utworzyć połączenie punkt-lokacja z komputerem klienckim innym 
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
 
+
+Jeśli występują problemy z nawiązaniem połączenia z maszyną wirtualną za pośrednictwem połączenia P2S, użyj narzędzia „ipconfig”, aby sprawdzić adres IPv4 przypisany do karty Ethernet na komputerze, z którego jest nawiązywane połączenie. Jeśli adres IP znajduje się w zakresie adresów sieci wirtualnej, z którą jest nawiązywane połączenie, lub w zakresie adresów puli VPNClientAddressPool, jest to określane jako nakładająca się przestrzeń adresowa. Kiedy przestrzeń adresowa nakłada się w ten sposób, ruch sieciowy nie dociera do platformy Azure, tylko pozostaje w sieci lokalnej. Jeśli przestrzenie adresowe sieci nie nakładają się i nadal nie można nawiązać połączenia z maszyną wirtualną, zobacz [Rozwiązywanie problemów z połączeniami pulpitu zdalnego z maszyną wirtualną](../virtual-machines/windows/troubleshoot-rdp-connection.md).
+
 ## <a name="add"></a>Dodawanie lub usuwanie zaufanych certyfikatów głównych
-Zaufane certyfikaty główne można dodawać do platformy Azure lub z niej usuwać. Usunięcie zaufanego certyfikatu spowoduje, że certyfikaty klienta wygenerowane na podstawie certyfikatu głównego nie będą już mogły nawiązać połączenia z platformą Azure przy pomocy połączenia punkt-lokacja. Jeśli chcesz, aby klienci mogli nawiązać połączenie, muszą oni zainstalować nowy certyfikat klienta wygenerowany na podstawie certyfikatu, który jest traktowany jako zaufany przez platformę Azure.
+Zaufane certyfikaty główne można dodawać do platformy Azure lub z niej usuwać. Usunięcie zaufanego certyfikatu powoduje, że certyfikaty klienta wygenerowane na podstawie certyfikatu głównego nie mogą nawiązać połączenia z platformą Azure przy pomocy połączenia punkt-lokacja. Jeśli chcesz, aby klienci mogli nawiązać połączenie, musisz zainstalować nowy certyfikat klienta wygenerowany na podstawie certyfikatu, który jest traktowany jako zaufany przez platformę Azure.
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Aby dodać zaufany certyfikat główny
 
@@ -257,7 +259,7 @@ Na platformie Azure można dodać maksymalnie 20 plików cer zaufanego certyfika
 3. Kliknij wielokropek obok certyfikatu, a następnie kliknij pozycję „Usuń”.
 
 ## <a name="revokeclient"></a>Odwoływanie certyfikatu klienta
-Certyfikaty klienta można odwołać. Lista odwołania certyfikatów umożliwia dokonanie selektywnej odmowy połączenia punkt-lokacja w oparciu o indywidualne certyfikaty klienta. Różni się to od usuwania zaufanego certyfikatu głównego. Jeśli usuniesz plik cer zaufanego certyfikatu głównego z platformy Azure, spowoduje to odwołanie dostępu dla wszystkich certyfikatów klienta wygenerowanych lub podpisanych przez odwołany certyfikat główny. Odwołanie certyfikatu klienta zamiast certyfikatu głównego pozwala dalej używać innych certyfikatów wygenerowanych na podstawie certyfikatu głównego do uwierzytelniania połączeń punkt-lokacja.
+Certyfikaty klienta można odwołać. Lista odwołania certyfikatów umożliwia dokonanie selektywnej odmowy połączenia punkt-lokacja w oparciu o indywidualne certyfikaty klienta. Różni się to od usuwania zaufanego certyfikatu głównego. Jeśli usuniesz plik cer zaufanego certyfikatu głównego z platformy Azure, spowoduje to odwołanie dostępu dla wszystkich certyfikatów klienta wygenerowanych lub podpisanych przez odwołany certyfikat główny. Odwołanie certyfikatu klienta zamiast certyfikatu głównego pozwala dalej używać innych certyfikatów wygenerowanych na podstawie certyfikatu głównego do uwierzytelniania.
 
 Częstą praktyką jest użycie certyfikatu głównego do zarządzania dostępem na poziomach zespołu lub organizacji przy jednoczesnym korzystaniu z odwołanych certyfikatów klienta dla bardziej precyzyjnej kontroli dostępu poszczególnych użytkowników.
 
@@ -267,7 +269,7 @@ Certyfikat klienta można odwołać przez dodanie odcisku palca do listy odwoła
 
 1. Pobierz odcisk palca certyfikatu klienta. Aby uzyskać więcej informacji, zobacz [Jak pobrać odcisk palca certyfikatu](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Skopiuj informacje do edytora tekstu i usuń wszelkie spacje, tak aby powstał ciąg bez odstępów.
-3. Przejdź do bloku **Konfiguracja punktu do lokacji** bramy sieci wirtualnej. Korzystając z tego bloku, [przekazano zaufany certyfikat główny](#uploadfile).
+3. Przejdź do bloku **Konfiguracja punktu do lokacji** bramy sieci wirtualnej. Korzystając z tego samego bloku, [przekazano zaufany certyfikat główny](#uploadfile).
 4. W sekcji **Odwołane certyfikaty** wprowadź przyjazną nazwę certyfikatu (nie musi to być nazwa pospolita certyfikatu).
 5. Skopiuj i wklej ciąg odcisku palca do pola **Odcisk palca**.
 6. Odcisk palca zostanie zweryfikowany i automatycznie dodany do listy odwołania. Na ekranie zobaczysz komunikat informujący o aktualizowaniu listy. 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9f1fd20c77b085a66487c83d8dcd902e8cc83e6d
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -36,35 +36,248 @@ Architektura raportowania w usłudze Azure Active Directory obejmuje następują
 
 Ten temat zawiera przegląd działań dotyczących inspekcji.
  
+
+
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 
-Dzienniki inspekcji w usłudze Azure Active Directory dostarczają informacji na temat aktywności systemu pod kątem zgodności.
+Dzienniki inspekcji w usłudze Azure Active Directory dostarczają informacji na temat aktywności systemu pod kątem zgodności.  
+Pierwszym punktem wejścia do wszystkich danych inspekcji jest pozycja **Dzienniki inspekcji** znajdująca się w sekcji **Aktywność** usługi **Azure Active Directory**.
 
-Istnieją trzy główne kategorie aktywności związanych z inspekcją w witrynie Azure Portal:
+![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/61.png "Dzienniki inspekcji")
 
-- Użytkownicy i grupy   
+Dziennik inspekcji zawiera domyślny widok listy, który pokazuje:
 
-- Aplikacje
+- datę i godzinę wystąpienia,
+- inicjatora/aktora (*kto*) działania, 
+- działanie (*co*), 
+- element docelowy.
 
-- Katalog   
+![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/18.png "Dzienniki inspekcji")
+
+Możesz dostosować widok listy, klikając pozycję **Kolumny** na pasku narzędzi.
+
+![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/19.png "Dzienniki inspekcji")
+
+Dzięki temu możesz wyświetlić dodatkowe pola lub usunąć pola, które są już wyświetlane.
+
+![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/21.png "Dzienniki inspekcji")
+
+
+Klikając pozycję w widoku listy, możesz uzyskać wszystkie szczegóły na jej temat.
+
+![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/22.png "Dzienniki inspekcji")
+
+
+## <a name="filtering-audit-logs"></a>Dzienniki inspekcji filtrowania
+
+Aby zawęzić zgłaszane dane do odpowiedniego poziomu, możesz odfiltrować dane inspekcji przy użyciu następujących pól:
+
+- Zakres dat
+- Zainicjowane przez
+- Kategoria
+- Kategoria
+- Typ zasobu działania
+- Działanie
+
+![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/23.png "Dzienniki inspekcji")
+
+
+Filtr **Zakres dat** umożliwia zdefiniowanie przedziału czasu dla zwracanych danych.  
+Możliwe wartości:
+
+- 1 miesiąc
+- 7 dni
+- 24 godziny
+- Niestandardowy
+
+Po wybraniu niestandardowego przedziału czasu możesz skonfigurować godzinę rozpoczęcia i zakończenia.
+
+Filtr **Zainicjowane przez** umożliwia określenie nazwy aktora lub jego głównej nazwy użytkownika (UPN, user principal name).
+
+Filtr **Kategoria** umożliwia wybranie jednego z następujących filtrów:
+
+- Wszystkie
+- Kategoria podstawowa
+- Katalog podstawowy
+- Samoobsługowe zarządzanie hasłami
+- Samoobsługowe zarządzanie grupami
+- Aprowizacja kont
+- Automatyczne przenoszenie haseł
+- Zaproszeni użytkownicy
+- Usługa MIM
+
+Filtr **Typ zasobu działania** umożliwia wybranie jednego z następujących filtrów:
+
+- Wszystkie 
+- Grupa
+- Katalog
+- Użytkownik
+- Aplikacja
+- Zasady
+- Urządzenie
+- Inne
+
+Jeśli wybierzesz opcję **Grupa** w pozycji **Typ zasobu działania**, uzyskasz dostęp do dodatkowej kategorii filtru umożliwiającej podanie wartości **Źródło**:
+
+- Azure AD
+- O365
+
+
+
+
+Filtr **Działanie** jest oparty na wybranej kategorii i typie zasobu działania. Możesz wybrać konkretne działanie, które chcesz zobaczyć, lub wybrać wszystkie działania. 
+
+| Kategoria działania| Typ zasobu działania| Działanie |
+| :-- | :-: | :-- |
+| Katalog podstawowy| Grupa| Usuń ustawienia grupy|
+| Katalog podstawowy| Katalog| Zaktualizuj domenę|
+| Katalog podstawowy| Katalog| Usuń partnera z firmy|
+| Katalog podstawowy| Użytkownik| Zaktualizuj rolę|
+| Katalog podstawowy| Użytkownik| Dodaj rolę z szablonu|
+| Katalog podstawowy| Grupa| Dodaj przypisanie roli aplikacji do grupy|
+| Katalog podstawowy| Grupa| Rozpocznij stosowanie licencji opartej na grupie wobec użytkowników|
+| Katalog podstawowy| Aplikacja| Dodaj nazwę główną usługi|
+| Katalog podstawowy| Zasady| Zaktualizuj zasady|
+| Katalog podstawowy| Zasady| Dodaj zasady do nazwy głównej usługi|
+| Katalog podstawowy| Urządzenie| Dodaj zarejestrowanego właściciela do urządzenia|
+| Katalog podstawowy| Urządzenie| Dodaj zarejestrowanych użytkowników do urządzenia|
+| Katalog podstawowy| Urządzenie| Zaktualizuj konfigurację urządzenia|
+| Samoobsługowe zarządzanie hasłami| Użytkownik| Resetuj hasło (samoobsługa)|
+| Samoobsługowe zarządzanie hasłami| Użytkownik| Odblokuj konto użytkownika (samoobsługa)|
+| Samoobsługowe zarządzanie hasłami| Użytkownik| Resetuj hasło (przez administratora)|
+| Samoobsługowe zarządzanie grupami| Grupa| Usuń oczekujące żądanie dołączenia do grupy|
+| Aprowizacja kont| Aplikacja| Przetwórz depozyt|
+| Automatyczne przenoszenie haseł| Aplikacja| Automatyczne przenoszenie haseł|
+| Zaproszeni użytkownicy| Inne| Zaproszenia zbiorcze przetworzone|
+| Katalog podstawowy| Katalog| Usuń zweryfikowaną domenę|
+| Katalog podstawowy| Katalog| Dodaj niezweryfikowaną domenę|
+| Katalog podstawowy| Katalog| Dodaj zweryfikowaną domenę|
+| Katalog podstawowy| Katalog| Ustaw funkcję katalogu w dzierżawie|
+| Katalog podstawowy| Katalog| Ustaw flagę Dirsyncenabled|
+| Katalog podstawowy| Katalog| Utwórz ustawienia firmy|
+| Katalog podstawowy| Katalog| Zaktualizuj ustawienia firmy|
+| Katalog podstawowy| Katalog| Usuń ustawienia firmy|
+| Katalog podstawowy| Katalog| Ustaw lokalizację danych dozwoloną przez firmę|
+| Katalog podstawowy| Katalog| Włącz funkcję międzynarodową firmy|
+| Katalog podstawowy| Użytkownik| Zaktualizuj użytkownika|
+| Katalog podstawowy| Użytkownik| Usuń użytkownika|
+| Katalog podstawowy| Grupa| Usuń element członkowski z grupy|
+| Katalog podstawowy| Grupa| Ustaw licencję grupy|
+| Katalog podstawowy| Grupa| Utwórz ustawienia grupy|
+| Katalog podstawowy| Aplikacja| Zaktualizuj nazwę główną usługi|
+| Katalog podstawowy| Aplikacja| Usuń aplikację|
+| Katalog podstawowy| Aplikacja| Zaktualizuj aplikację|
+| Katalog podstawowy| Aplikacja| Usuń nazwę główną usługi|
+| Katalog podstawowy| Aplikacja| Dodaj poświadczenia nazwy głównej usługi|
+| Katalog podstawowy| Aplikacja| Usuń przypisanie roli aplikacji z nazwy głównej usługi|
+| Katalog podstawowy| Aplikacja| Usuń właściciela z aplikacji|
+| Katalog podstawowy| Urządzenie| Usuń zarejestrowanego właściciela z urządzenia|
+| Samoobsługowe zarządzanie hasłami| Użytkownik| Postęp działania przepływu samoobsługowego resetowania hasła|
+| Aprowizacja kont| Aplikacja| Administracja|
+| Aprowizacja kont| Aplikacja| Operacja katalogu|
+| Usługa MIM| Grupa| Usuń element członkowski|
+| Katalog podstawowy| Zasady| Usuń zasady|
+| Zaproszeni użytkownicy| Użytkownik| Wirusowe tworzenie dzierżawy|
+| Katalog podstawowy| Katalog| Zaktualizuj zewnętrzne wpisy tajne|
+| Katalog podstawowy| Katalog| Ustaw właściwości usługi Rights Management|
+| Katalog podstawowy| Katalog| Zaktualizuj firmę|
+| Katalog podstawowy| Użytkownik| Dodaj użytkownika|
+| Katalog podstawowy| Użytkownik| Konwertuj użytkownika federacyjnego na zarządzanego|
+| Katalog podstawowy| Użytkownik| Utwórz hasło aplikacji dla użytkownika|
+| Katalog podstawowy| Grupa| Dodaj element członkowski do grupy|
+| Katalog podstawowy| Grupa| Dodaj grupę|
+| Katalog podstawowy| Aplikacja| Zgoda na aplikację|
+| Katalog podstawowy| Aplikacja| Dodaj aplikację|
+| Katalog podstawowy| Aplikacja| Dodaj właściciela do nazwy głównej usługi|
+| Katalog podstawowy| Aplikacja| Usuń element Oauth2Permissiongrant|
+| Katalog podstawowy| Zasady| Usuń poświadczenia zasad|
+| Katalog podstawowy| Urządzenie| Usuń konfigurację urządzenia|
+| Samoobsługowe zarządzanie grupami| Grupa| Ustaw właściwości grupy dynamicznej|
+| Samoobsługowe zarządzanie grupami| Grupa| Zaktualizuj zasady zarządzania cyklem życia|
+| Aprowizacja kont| Aplikacja| Akcja reguły synchronizacji|
+| Zaproszeni użytkownicy| Inne| Zaproszenia zbiorcze przekazane|
+| Usługa MIM| Grupa| Dodaj element członkowski|
+| Katalog podstawowy| Użytkownik| Ustaw właściwości licencji|
+| Katalog podstawowy| Użytkownik| Przywróć użytkownika|
+| Katalog podstawowy| Użytkownik| Usuń element członkowski z roli|
+| Katalog podstawowy| Użytkownik| Usuń przypisanie roli aplikacji z użytkownika|
+| Katalog podstawowy| Użytkownik| Usuń element członkowski w zakresie z roli|
+| Katalog podstawowy| Grupa| Zaktualizuj grupę|
+| Katalog podstawowy| Grupa| Dodaj właściciela do grupy|
+| Katalog podstawowy| Grupa| Zakończ stosowanie licencji opartej na grupie wobec użytkowników|
+| Katalog podstawowy| Grupa| Usuń przypisanie roli aplikacji z grupy|
+| Katalog podstawowy| Grupa| Ustaw grupę do zarządzania przez użytkownika|
+| Katalog podstawowy| Aplikacja| Dodaj element Oauth2Permissiongrant|
+| Katalog podstawowy| Aplikacja| Dodaj przypisanie roli aplikacji do nazwy głównej usługi|
+| Katalog podstawowy| Aplikacja| Usuń poświadczenia nazwy głównej usługi|
+| Katalog podstawowy| Zasady| Usuń zasady z nazwy głównej usługi|
+| Katalog podstawowy| Urządzenie| Zaktualizuj urządzenie|
+| Katalog podstawowy| Urządzenie| Dodaj urządzenie|
+| Katalog podstawowy| Urządzenie| Dodaj konfigurację urządzenia|
+| Samoobsługowe zarządzanie hasłami| Użytkownik| Zmień hasło (samoobsługa)|
+| Samoobsługowe zarządzanie hasłami| Użytkownik| Użytkownik zarejestrowany do samoobsługowego resetowania haseł|
+| Samoobsługowe zarządzanie grupami| Grupa| Zatwierdź oczekujące żądanie dołączenia do grupy|
+| Katalog podstawowy| Katalog| Usuń niezweryfikowaną domenę|
+| Katalog podstawowy| Katalog| Zweryfikuj domenę|
+| Katalog podstawowy| Katalog| Ustaw uwierzytelnianie domeny|
+| Katalog podstawowy| Katalog| Ustaw zasady haseł|
+| Katalog podstawowy| Katalog| Dodaj partnera do firmy|
+| Katalog podstawowy| Katalog| Podwyższ poziom firmy do partnera|
+| Katalog podstawowy| Katalog| Ustaw partnerstwo|
+| Katalog podstawowy| Katalog| Ustaw próg przypadkowego usunięcia|
+| Katalog podstawowy| Katalog| Obniż poziom partnera|
+| Zaproszeni użytkownicy| Użytkownik| Zaproś użytkownika zewnętrznego|
+| Aprowizacja kont| Aplikacja| Import|
+| Katalog podstawowy| Aplikacja| Usuń właściciela z nazwy głównej usługi|
+| Katalog podstawowy| Urządzenie| Usuń zarejestrowanych użytkowników z urządzenia|
+| Katalog podstawowy| Katalog| Ustaw informacje o firmie|
+| Katalog podstawowy| Katalog| Określ ustawienia federacyjne w domenie|
+| Katalog podstawowy| Katalog| Utwórz firmę|
+| Katalog podstawowy| Katalog| Przeczyść właściwości usługi Rights Management|
+| Katalog podstawowy| Katalog| Ustaw funkcję Dirsync|
+| Katalog podstawowy| Katalog| Sprawdź pocztę e-mail zweryfikowanej domeny|
+| Katalog podstawowy| Użytkownik| Zmień licencję użytkownika|
+| Katalog podstawowy| Użytkownik| Zmień hasło użytkownika|
+| Katalog podstawowy| Użytkownik| Zresetuj hasło użytkownika|
+| Katalog podstawowy| Użytkownik| Dodaj przypisanie roli aplikacji do użytkownika|
+| Katalog podstawowy| Użytkownik| Dodaj element członkowski do roli|
+| Katalog podstawowy| Użytkownik| Usuń hasło aplikacji dla użytkownika|
+| Katalog podstawowy| Użytkownik| Zaktualizuj poświadczenia użytkownika|
+| Katalog podstawowy| Użytkownik| Ustaw menedżera użytkowników|
+| Katalog podstawowy| Użytkownik| Dodaj element członkowski w zakresie do roli|
+| Katalog podstawowy| Grupa| Usuń grupę|
+| Katalog podstawowy| Grupa| Usuń właściciela z grupy|
+| Katalog podstawowy| Grupa| Zaktualizuj ustawienia grupy|
+| Katalog podstawowy| Aplikacja| Dodaj właściciela do aplikacji|
+| Katalog podstawowy| Aplikacja| Wycofaj zgodę|
+| Katalog podstawowy| Zasady| Dodaj zasady|
+| Katalog podstawowy| Urządzenie| Usuń urządzenie|
+| Samoobsługowe zarządzanie hasłami| Użytkownik| Zablokowano dostęp do samoobsługowego resetowania haseł|
+| Samoobsługowe zarządzanie grupami| Grupa| Zażądaj dołączenia do grupy|
+| Samoobsługowe zarządzanie grupami| Grupa| Utwórz zasady zarządzania cyklem życia|
+| Samoobsługowe zarządzanie grupami| Grupa| Odrzuć oczekujące żądanie dołączenia do grupy|
+| Samoobsługowe zarządzanie grupami| Grupa| Anuluj oczekujące żądanie dołączenia do grupy|
+| Samoobsługowe zarządzanie grupami| Grupa| Odnów grupę|
+| Aprowizacja kont| Aplikacja| Eksportowanie|
+| Aprowizacja kont| Aplikacja| Inne|
+| Zaproszeni użytkownicy| Użytkownik| Zrealizuj zaproszenie zewnętrznego użytkownika|
+| Zaproszeni użytkownicy| Użytkownik| Wirusowe tworzenie użytkownika|
+| Zaproszeni użytkownicy| Użytkownik| Przypisz użytkownika zewnętrznego do aplikacji|
+
+
+
+
+## <a name="audit-logs-shortcuts"></a>Skróty dzienników inspekcji
+
+Poza usługą **Azure Active Directory** witryna Azure Portal zapewnia dwa dodatkowe punkty wejścia do danych inspekcji:
+
+- Użytkownicy i grupy
+- Aplikacje dla przedsiębiorstw
 
 Pełną listę działań raportu z inspekcji można znaleźć na [liście zdarzeń raportu z inspekcji](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
-Punktem wejścia do wszystkich danych inspekcji jest pozycja **Dzienniki inspekcji** znajdująca się w sekcji **Aktywność** usługi **Azure Active Directory**.
-
-![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/61.png "Dzienniki inspekcji")
-
-Dziennik inspekcji zawiera widok listy aktorów (*kto*), aktywności (*co*) i celów.
-
-![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/345.png "Dzienniki inspekcji")
-
-Klikając pozycję w widoku listy, można uzyskać więcej szczegółów na jej temat.
-
-![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/873.png "Dzienniki inspekcji")
-
-
-## <a name="users-and-groups-audit-logs"></a>Dzienniki inspekcji użytkowników i grup
+### <a name="users-and-groups-audit-logs"></a>Dzienniki inspekcji użytkowników i grup
 
 Za pomocą raportów inspekcji opartych na użytkownikach i grupach można uzyskać odpowiedzi na pytania, takie jak:
 
@@ -84,11 +297,12 @@ Za pomocą raportów inspekcji opartych na użytkownikach i grupach można uzysk
 
 - Jakie licencje zostały przypisane do grupy lub użytkownika?
 
-Jeśli chcesz przeglądać dane inspekcji dotyczące użytkowników i grup, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** na stronie **Użytkownicy i grupy**.
+Jeśli chcesz przeglądać dane inspekcji dotyczące użytkowników i grup, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** na stronie **Użytkownicy i grupy**. Ten punkt wejścia ma wartość **Użytkownicy i grupy** wstępnie wybraną dla opcji **Typ zasobu działania**.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/93.png "Dzienniki inspekcji")
 
-## <a name="application-audit-logs"></a>Dzienniki inspekcji aplikacji
+### <a name="enterprise-applications-audit-logs"></a>Dzienniki inspekcji aplikacji dla przedsiębiorstw
+
 Za pomocą raportów inspekcji opartych na aplikacjach można uzyskać odpowiedzi na pytania, takie jak:
 
 * Jakie aplikacje zostały dodane lub zaktualizowane?
@@ -97,79 +311,13 @@ Za pomocą raportów inspekcji opartych na aplikacjach można uzyskać odpowiedz
 * Czy nazwy aplikacji zostały zmienione?
 * Kto udzielił zezwolenia dla aplikacji?
 
-Jeśli chcesz przeglądać dane inspekcji dotyczące aplikacji, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** strony **Aplikacje dla przedsiębiorstw**.
+Jeśli chcesz przeglądać dane inspekcji dotyczące aplikacji, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** bloku **Aplikacje dla przedsiębiorstw**. Ten punkt wejścia ma wartość **Aplikacja** wstępnie wybraną dla opcji **Typ zasobu działania**.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/134.png "Dzienniki inspekcji")
 
-## <a name="filtering-audit-logs"></a>Dzienniki inspekcji filtrowania
-Logowania można filtrować, aby ograniczyć ilość wyświetlanych danych, przy użyciu następujących pól:
+Możesz odfiltrować ten widok, aby wyświetlić tylko **grupy** lub **użytkowników**.
 
-- Data i godzina
-
-- Główna nazwa użytkownika aktora
-
-- Kategoria
-
-- Typ zasobu działania
-
-- Działanie
-
-![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/625.png "Dzienniki inspekcji")
-
-
-Filtr **Kategoria** umożliwia zawężenie zakresu raportu z inspekcji na podstawie następujących kategorii:
-
-- Katalog podstawowy
-
-- Samoobsługowe zarządzanie hasłami
-
-- Samoobsługowe zarządzanie grupami
-
-- Automatyczne przenoszenie haseł 
-
-![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/626.png "Dzienniki inspekcji")
-
-
-
-Zawartość listy **Typ zasobu działania** jest związana z punktem wejścia do tego bloku.  
-Jeśli punktem wejścia jest usługa Azure Active Directory, ta lista zawiera wszystkie możliwe typy działań:
-
-- Katalog
-
-- Użytkownik
-
-- Grupa 
-
-- Aplikacja 
-
-- Zasady
-
-- Urządzenie
-
-
-![Inspekcja](./media/active-directory-reporting-activity-audit-logs/627.png "Inspekcja")
-
-Działania wymienione na liście są podzielone na zakresy według typu działania.
-Jeśli na przykład ustawienie **Typ działania** ma wartość **Użytkownik**, lista **Działanie** zawiera tylko działania powiązane z grupą.   
-
-![Inspekcja](./media/active-directory-reporting-activity-audit-logs/628.png "Inspekcja")
-
-W przypadku wybrania dla ustawienia **Typ zasobu działania** wartości **Grupa** uzyskujesz dodatkową opcję umożliwiającą uwzględnienie podczas filtrowania także poniższych wartości opcji **Źródło działania**:
-
-- Azure AD
-
-- O365
-
-
-![Inspekcja](./media/active-directory-reporting-activity-audit-logs/629.png "Inspekcja")
-
-
-
-Inną metodą filtrowania wpisów dziennika inspekcji jest wyszukiwanie określonych wpisów.
-
-![Inspekcja](./media/active-directory-reporting-activity-audit-logs/237.png "Inspekcja")
-
-
+![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/25.png "Dzienniki inspekcji")
 
 
 ## <a name="next-steps"></a>Następne kroki

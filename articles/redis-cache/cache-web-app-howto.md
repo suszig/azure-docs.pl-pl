@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -70,7 +70,7 @@ Jeśli masz program Visual Studio 2013, możesz [pobrać najnowszy zestaw Azure 
 
     Upewnij się, że dla ustawienia **Uwierzytelnianie** wybrano pozycję **Bez uwierzytelniania**. Ustawienie domyślnie może być różne w różnych wersjach programu Visual Studio. Aby je zmienić, kliknij przycisk **Zmień uwierzytelnianie** i wybierz pozycję **Bez uwierzytelniania**.
 
-    Jeśli używasz programu Visual Studio 2015, wyczyść pole wyboru **Hostuj w chmurze**. W kolejnych krokach samouczka wykonasz [aprowizację zasobów platformy Azure](#provision-the-azure-resources) i [opublikujesz aplikację na platformie Azure](#publish-the-application-to-azure) Przykład aprowizacji aplikacji sieci Web usługi App Service z programu Visual Studio przez pozostawienie zaznaczonego pola wyboru **Hostuj w chmurze** opisano w artykule [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+    Jeśli używasz programu Visual Studio 2015, wyczyść pole wyboru **Hostuj w chmurze**. W kolejnych krokach samouczka wykonasz [aprowizację zasobów platformy Azure](#provision-the-azure-resources) i [opublikujesz aplikację na platformie Azure](#publish-the-application-to-azure) Przykład aprowizacji aplikacji sieci Web usługi App Service z programu Visual Studio przez pozostawienie zaznaczonego pola wyboru **Hostuj w chmurze** opisano w artykule [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
    
     ![Wybieranie szablonu projektu][cache-select-template]
 4. Kliknij przycisk **OK**, aby utworzyć projekt.
@@ -86,7 +86,7 @@ W tej części samouczka opisano tworzenie podstawowej aplikacji, która odczytu
 ### <a name="add-the-entity-framework-nuget-package"></a>Dodawanie pakietu NuGet programu Entity Framework
 
 1. W menu **Narzędzia** kliknij polecenie **Menedżer pakietów NuGet**, a następnie kliknij polecenie **Konsola menedżera pakietów**.
-2. W oknie `Package Manager Console` uruchom następujące polecenie.
+2. Uruchom następujące polecenie w oknie **Konsola menedżera pakietów**.
     
     ```
     Install-Package EntityFramework

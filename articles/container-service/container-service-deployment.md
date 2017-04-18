@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Wdrażanie rozwiązania hostingu kontenera platformy Docker w witrynie Azure Portal
@@ -36,7 +36,11 @@ Aby uzyskać ogólne informacje, zobacz [Wprowadzenie do usługi Azure Container
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**: jeśli jej nie masz, możesz utworzyć konto [bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Subskrypcja platformy Azure**: jeśli jej nie masz, możesz utworzyć konto [bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). W przypadku większego klastra warto rozważyć subskrypcję opartą na płatności zgodnie z rzeczywistym użyciem lub inne opcje zakupu.
+
+    > [!NOTE]
+    > Użycie subskrypcji platformy Azure i [limity przydziałów zasobów](../azure-subscription-service-limits.md), takie jak limity przydziałów rdzeni, mogą ograniczać rozmiar wdrażanego klastra. Aby zażądać zwiększenia limitu przydziału, otwórz bezpłatnie [żądanie obsługi klienta online](../azure-supportability/how-to-create-azure-support-request.md).
+    >
 
 * **Klucz publiczny SSH RSA**: podczas wdrażania za pośrednictwem portalu lub jednego z szablonów szybkiego startu platformy Azure musisz podać klucz publiczny na potrzeby uwierzytelniania na maszynach wirtualnych usługi Azure Container Service. Aby utworzyć klucze RSA Secure Shell (SSH), zobacz wskazówki dla systemów [OS X i Linux](../virtual-machines/linux/mac-create-ssh-keys.md) lub [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ Przeprowadzenie wdrożenia zajmuje kilka minut. Następnie klaster usługi Azure
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Tworzenie klastra przy użyciu szablonu szybkiego startu
 Na potrzeby wdrożenia klastra w usłudze Azure Container Service są dostępne szablony szybkiego startu platformy Azure. Udostępnione szablony szybkiego startu można modyfikować w celu włączenia dodatkowej lub zaawansowanej konfiguracji platformy Azure. Aby utworzyć klaster usługi Azure Container Service za pomocą szablonu szybkiego startu platformy Azure, potrzebna jest subskrypcja platformy Azure. Jeśli jej nie masz, utwórz konto [bezpłatnej wersji próbnej](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Wykonaj następujące kroki, aby wdrożyć klaster przy użyciu szablonu oraz interfejsu wiersza polecenia platformy Azure w wersji 2.0 (zobacz [instrukcje instalacji i konfigurowania](/cli/azure/install-az-cli2.md)).
+Wykonaj następujące kroki, aby wdrożyć klaster przy użyciu szablonu oraz interfejsu wiersza polecenia platformy Azure w wersji 2.0 (zobacz [instrukcje instalacji i konfigurowania](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > Jeśli korzystasz z systemu Windows, możesz użyć podobnych kroków, aby wdrożyć szablon przy użyciu programu Azure PowerShell. Zobacz kroki w dalszej części tej sekcji. Szablon możesz także wdrożyć za pośrednictwem [portalu](../azure-resource-manager/resource-group-template-deploy-portal.md) lub innych metod.

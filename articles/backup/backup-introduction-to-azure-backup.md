@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ W poniższej tabeli przedstawiono składniki usługi Azure Backup, które obsłu
 | Składnik | Obsługa w systemie Linux (zatwierdzonym przez Azure) |
 | --- | --- |
 | Agent usługi Azure Backup (MARS) |Nie (tylko agent oparty na systemie Windows) |
-| System Center DPM |Spójna na poziomie plików kopia zapasowa tylko dla funkcji Hyper-V<br/> (niedostępne dla maszyny wirtualnej platformy Azure) |
-| Azure Backup Server |Spójna na poziomie plików kopia zapasowa tylko dla funkcji Hyper-V<br/> (niedostępne dla maszyny wirtualnej platformy Azure) |
-| Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |Tak (spójna na poziomie aplikacji kopia zapasowa korzystająca ze [struktury skryptów uruchamianych przed utworzeniem i po utworzeniu kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
+| System Center DPM |Spójna na poziomie plików kopia zapasowa maszyn wirtualnych gościa z systemem Linux dla funkcji Hyper-V i programu VMWare<br/> (niedostępne dla maszyny wirtualnej platformy Azure)<br/> Przywracanie maszyn wirtualnych gościa z systemem Linux dla funkcji Hyper-V i programu VMWare |
+| Azure Backup Server |Spójna na poziomie plików kopia zapasowa maszyn wirtualnych gościa z systemem Linux dla funkcji Hyper-V i programu VMWare<br/> (niedostępne dla maszyny wirtualnej platformy Azure)<br/> Przywracanie maszyn wirtualnych gościa z systemem Linux dla funkcji Hyper-V i programu VMWare |
+| Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |Spójna na poziomie aplikacji kopia zapasowa korzystająca ze [struktury skryptów uruchamianych przed utworzeniem i po utworzeniu kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Szczegółowe odzyskiwanie plików](backup-azure-restore-files-from-vm.md)<br/> [Przywracanie wszystkich dysków maszyn wirtualnych](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [Przywracanie maszyny wirtualnej](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Korzystanie z maszyn wirtualnych usługi Premium Storage przy użyciu usługi Azure Backup
 Usługa Azure Backup chroni maszyny wirtualne usługi Premium Storage. Azure Premium Storage to magazyn oparty na dyskach SSD i zaprojektowany z myślą o obsłudze dużych obciążeń wejścia/wyjścia. Usługa Premium Storage jest atrakcyjna dla obciążeń maszyn wirtualnych. Aby uzyskać więcej informacji o usłudze Premium Storage, zobacz artykuł [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).

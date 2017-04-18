@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -106,7 +106,7 @@ Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usł
     ```PowerShell
     $azureAdApplication    
     ```
-    Zanotuj identyfikator aplikacji (**applicationID** z danych wyjściowych).
+    Zanotuj identyfikator aplikacji (applicationID) z danych wyjściowych.
 
 Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
 
@@ -184,7 +184,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
    > [!IMPORTANT]
    > Zastąp wartość **resourceGroupName** nazwą grupy zasobów platformy Azure.
    >
-   > Zaktualizuj nazwę fabryki danych (**dataFactoryName**), aby była unikatowa. Nazwa fabryki danych musi być globalnie unikatowa. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
+   > Zaktualizuj nazwę fabryki danych (dataFactoryName), aby była unikatowa. Nazwa fabryki danych musi być globalnie unikatowa. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
 
 7. Dodaj następujący kod, który tworzy **fabrykę danych**, do metody **Main**.
 
@@ -473,7 +473,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
     }
     ```
 
-15. W Eksploratorze rozwiązań rozwiń projekt (**DataFactoryAPITestApp**), kliknij prawym przyciskiem myszy pozycję **Odwołania** i kliknij polecenie **Dodaj odwołanie**. Zaznacz pole wyboru zestawu „**System.Configuration**” i kliknij przycisk **OK**.
+15. W Eksploratorze rozwiązań rozwiń projekt (DataFactoryAPITestApp), kliknij prawym przyciskiem myszy pozycję **Odwołania** i kliknij polecenie **Dodaj odwołanie**. Zaznacz pole wyboru zestawu **System.Configuration**. i kliknij przycisk **OK**.
 16. Skompiluj aplikację konsolową. Kliknij przycisk **Kompiluj** w menu i kliknij opcję **Kompiluj rozwiązanie**.
 17. Potwierdź, że istnieje co najmniej jeden plik w kontenerze **adftutorial** w magazynie obiektów blob platformy Azure. W przeciwnym razie utwórz w Notatniku plik **Emp.txt** o następującej treści i przekaż go do kontenera adftutorial.
 
@@ -486,7 +486,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
    * Połączona usługa: **LinkedService_AzureStorage**
    * Zestaw danych: **DatasetBlobSource** i **DatasetBlobDestination**.
    * Potok: **PipelineBlobSample**
-20. Sprawdź, czy w tabeli „**emp**” w określonej bazie danych SQL Azure zostały utworzone rekordy dwóch pracowników.
+20. Sprawdź, czy w tabeli **emp** w określonej bazie danych SQL Azure zostały utworzone rekordy dwóch pracowników.
 
 ## <a name="next-steps"></a>Następne kroki
 | Temat | Opis |

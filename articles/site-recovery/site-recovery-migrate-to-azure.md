@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ Możesz:
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migracja lokalnych maszyn wirtualnych i serwerów fizycznych
 
-Aby zmigrować lokalne maszyny wirtualne funkcji Hyper-V, maszyny wirtualne oprogramowania VMware i serwery fizyczne, należy wykonać prawie te same czynności co w przypadku zwykłej replikacji. Należy skonfigurować magazyn usługi Recovery Services, skonfigurować wymagane serwery zarządzania (w zależności od tego, co jest migrowane), dodać je do magazynu, a następnie określić ustawienia replikacji. Następnie należy włączyć replikację dla maszyn, które mają zostać zmigrowane, i uruchomić szybkie testowe przejście do trybu failover, aby upewnić się, że wszystko pracuje poprawnie.
+Aby zmigrować lokalne maszyny wirtualne funkcji Hyper-V, maszyny wirtualne oprogramowania VMware i serwery fizyczne, należy wykonać prawie te same czynności co w przypadku zwykłej replikacji.
 
-Po zweryfikowaniu, że środowisko replikacji działa, należy użyć planowanego lub nieplanowanego przejścia do trybu failover w zależności od tego, [co obsługuje](site-recovery-failover.md) scenariusz. W przypadku migracji nie jest koniecznie zatwierdzanie trybu failover. Zamiast tego należy wybrać opcję **Zakończ migrację** dla każdej maszyny, którą chcesz zmigrować. Akcja **Zakończ migrację** kończy proces migracji, usuwa replikację dla maszyny i zatrzymuje naliczanie opłat za usługę Site Recovery dla maszyny.
+1. Konfigurowanie magazynu usługi Recovery Services
+2. Skonfiguruj wymagane serwery zarządzania (VMware, VMM, Hyper-V — w zależności od tego, co jest migrowane), dodaj je do magazynu, a następnie określ ustawienia replikacji.
+3. Włączanie replikacji dla maszyn, które mają zostać zmigrowane
+4. Po początkowej migracji uruchom szybkie testowe przejście do trybu failover, aby się upewnić, że wszystko działa prawidłowo.
+5. Po zweryfikowaniu, że środowisko replikacji działa, należy użyć planowanego lub nieplanowanego przejścia do trybu failover w zależności od tego, [co obsługuje](site-recovery-failover.md) scenariusz. Zaleca się przeprowadzenie planowanego przejścia do trybu failover, jeśli jest to możliwe.
+6. W przypadku migracji nie jest koniecznie zatwierdzanie trybu failover ani jego usuwanie. Zamiast tego należy wybrać opcję **Zakończ migrację** dla każdej maszyny, którą chcesz zmigrować.
+     - W obszarze **Replikowane elementy** kliknij prawym przyciskiem myszy maszynę wirtualną i kliknij pozycję **Zakończ migrację**. Kliknij przycisk **OK**, aby zakończyć. Postęp można śledzić we właściwościach maszyny wirtualnej, monitorując zadanie kończenia migracji w obszarze **Zadania usługi Site Recovery**.
+     - Akcja **Zakończ migrację** kończy proces migracji, usuwa replikację dla maszyny i zatrzymuje naliczanie opłat za usługę Site Recovery dla maszyny.
 
 ![pełna_migracja](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
