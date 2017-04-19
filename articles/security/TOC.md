@@ -50,7 +50,7 @@
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń IoT](../iot-suite/iot-security-best-practices.md)
 
 ## Architektura zabezpieczeń
-### [Klasyfikacja danych](azure-security-data-classification.md)
+### [Klasyfikacja danych](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Odzyskiwanie po awarii aplikacji utworzonych na platformie Azure i ich wysoka dostępność](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Powiązane
