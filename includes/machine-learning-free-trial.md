@@ -1,13 +1,8 @@
 > [!NOTE]
 > 
 > **Wypróbuj bezpłatnie usługę Azure Machine Learning**
+>
+> Nie jest wymagana karta kredytowa ani subskrypcja platformy Azure. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Rozpocznij teraz >**</a>
 > 
-> Karta kredytowa ani subskrypcja platformy Azure nie jest wymagana. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Rozpocznij teraz >**</a>
 > 
-> 
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
