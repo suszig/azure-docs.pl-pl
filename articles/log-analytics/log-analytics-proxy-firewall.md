@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 04/12/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
-ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: cc3ff1ca5e638896df155b55145b300f70f7540a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,6 @@ Aby program Microsoft Monitoring Agent mógł nawiązać połączenie z usługą
 | \*.oms.opinsights.azure.com |443 |Tak |
 | \*.blob.core.windows.net |443 |Tak |
 | \*.azure-automation.net |443 |Tak |
-| ods.systemcenteradvisor.com |443 | |
 
 Poniższa procedura pozwala skonfigurować ustawienia serwera proxy dla programu Microsoft Monitoring Agent za pomocą Panelu sterowania. Należy użyć tej procedury dla każdego serwera. Jeśli masz wiele serwerów, które trzeba skonfigurować, łatwiejszym rozwiązaniem może być użycie skryptu automatyzującego ten proces. W takim przypadku zobacz następną procedurę [Aby skonfigurować ustawienia serwera proxy dla programu Microsoft Monitoring Agent za pomocą skryptu](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -102,7 +101,6 @@ Oto lista zasobów i portów agentów:<br>
 | \*.ods.opinsights.azure.com |443 |
 | \*.oms.opinsights.azure.com |443 |
 | \*.blob.core.windows.net/\* |443 |
-| ods.systemcenteradvisor.com |443 |
 
 <br>
 Oto lista zasobów i portów serwera zarządzania:<br>
@@ -112,8 +110,6 @@ Oto lista zasobów i portów serwera zarządzania:<br>
 | service.systemcenteradvisor.com |443 | |
 | \*.service.opinsights.azure.com |443 | |
 | \*.blob.core.windows.net |443 |Tak |
-| data.systemcenteradvisor.com |443 | |
-| ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Tak |
 | \*.azure-automation.net |443 |Tak |
 

@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 7224da31e71f3f6c912cd486198135945f90a8a4
-ms.openlocfilehash: aa639886ba3379ef30f9abef8f3dff4acb5b1181
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 1a0258e872449bf2f2f08345cbe86564e28d964e
+ms.lasthandoff: 04/17/2017
 
 
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Wprowadzenie do uwierzytelniania w usłudze Azure Automation  
-Usługa Azure Automation pozwala na zautomatyzowanie zadań w odniesieniu do zasobów platformy Azure, a także zasobów lokalnych oraz pochodzących od innych dostawców chmury, takich jak usługa Amazon Web Services (AWS).  Aby element Runbook mógł wykonać żądane działania, musi mieć uprawnienia do bezpiecznego dostępu do zasobów z minimalnymi prawami wymaganymi w ramach subskrypcji. 
- 
+Usługa Azure Automation pozwala na zautomatyzowanie zadań w odniesieniu do zasobów platformy Azure, a także zasobów lokalnych oraz pochodzących od innych dostawców chmury, takich jak usługa Amazon Web Services (AWS).  Aby element Runbook mógł wykonać żądane działania, musi mieć uprawnienia do bezpiecznego dostępu do zasobów z minimalnymi prawami wymaganymi w ramach subskrypcji.
+
 W tym artykule uwzględniono różne scenariusze uwierzytelniania obsługiwane przez usługę Azure Automation i opisano, w jaki sposób można rozpocząć pracę w zależności od środowiska lub środowisk, którymi trzeba zarządzać.  
 
 ## <a name="automation-account-overview"></a>Konto usługi Automation — omówienie
@@ -34,7 +34,7 @@ Zasoby usługi Automation na poszczególnych kontach są skojarzone z pojedynczy
 
 > [!NOTE]
 > Utworzone w witrynie Azure Portal konta usługi Automation i zawarte w nich zasoby nie są dostępne w klasycznym portalu Azure. Aby zarządzać tymi kontami lub ich zasobami za pomocą programu Windows PowerShell, należy skorzystać z modułów usługi Azure Resource Manager.
-> 
+>
 
 Wszystkie zadania, które wykonuje się w odniesieniu do zasobów za pomocą usługi Azure Resource Manager i poleceń cmdlet platformy Azure w usłudze Azure Automation, muszą zostać uwierzytelnione na platformie Azure przy użyciu funkcji uwierzytelniania opartego na poświadczeniu tożsamości organizacyjnej w usłudze Azure Active Directory.  Uwierzytelnianie oparte na certyfikatach było pierwotną metodą uwierzytelniania w trybie Azure Service Management, ale jego konfigurowanie było skomplikowane.  Uwierzytelnianie na platformie Azure za pomocą użytkownika usługi Azure AD zostało wprowadzone w 2014 roku nie tylko po to, aby uprościć proces konfigurowania konta usługi Automation, ale także po to, aby umożliwić uwierzytelnianie nieinteraktywne na platformie Azure za pomocą jednego konta użytkownika, które współdziała zarówno z usługą Azure Resource Manager, jak i zasobami klasycznymi.   
 
@@ -52,10 +52,9 @@ Poniższa tabela zawiera zestawienie różnych metod uwierzytelniania dla środo
 
 | Metoda | Środowisko | Artykuł |
 | --- | --- | --- |
-| Konto użytkownika usługi Azure AD |Azure Resource Manager i Azure Service Management |[Uwierzytelnianie elementów Runbook przy użyciu konta użytkownika usługi Azure AD](automation-sec-configure-aduser-account.md) |
+| Konto użytkownika usługi Azure AD |Azure Resource Manager i Azure Service Management |[Uwierzytelnianie elementów Runbook przy użyciu konta użytkownika usługi Azure AD](automation-create-aduser-account.md) |
 | Konto Uruchom jako platformy Azure |Azure Resource Manager |[Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md) |
 | Klasyczne konto Uruchom jako platformy Azure |Usługa Azure Service Management |[Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md) |
 | Uwierzytelnianie systemu Windows |Lokalne centrum danych |[Uwierzytelnianie elementów Runbook dla hybrydowych procesów roboczych Runbook](automation-hybrid-runbook-worker.md) |
-| Poświadczenia AWS |Amazon Web Services |[Uwierzytelnianie elementów Runbook w usłudze Amazon Web Services](automation-sec-configure-aws-account.md) |
-
+| Poświadczenia AWS |Amazon Web Services |[Uwierzytelnianie elementów Runbook w usłudze Amazon Web Services](automation-config-aws-account.md) |
 

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Wprowadzenie do zarządzania hasłami
 > [!IMPORTANT]
-> **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -70,9 +70,9 @@ Poniżej przedstawiono niektóre najważniejsze porady, które okazały się prz
 * [**Porada 9: ROZWIĄZYWANIE PROBLEMÓW** — Jeśli nadal potrzebujesz pomocy, przekaż nam wymagane informacje, abyśmy mogli Ci pomóc](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>NAJWAŻNIEJSZA PORADA: NAWIGOWANIE PO DOKUMENTACJI — Użyj spisu treści i funkcji wyszukiwania przeglądarki w celu znalezienia odpowiedzi
-W spisach treści poszczególnych tematów w naszej dokumentacji staramy się udostępnić szybkie linki do wszystkich miejsc, które mogą się okazać przydatne dla administratorów. 
+W spisach treści poszczególnych tematów w naszej dokumentacji staramy się udostępnić szybkie linki do wszystkich miejsc, które mogą się okazać przydatne dla administratorów.
 
-Zapoznaj się z poniższym spisem treści: 
+Zapoznaj się z poniższym spisem treści:
 * [Resetowania hasła usługi Azure AD: spis treści dokumentacji](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Porada 1: LICENCJONOWANIE — Zapoznaj się z wymaganiami dotyczącymi licencjonowania
@@ -94,9 +94,9 @@ Zasady skonfigurowane w administracyjnym środowisku użytkownika mają zastosow
  * ...przez pierwsze 30 dni od rozpoczęcia okresu próbnego **LUB**
  * ...jeśli nie ma domeny znaczącej **ORAZ** usługa Azure AD Connect nie synchronizuje tożsamości
  * **_Wymagania_**: obecność dowolnej wartości **jednego** z następujących elementów: Adres e-mail uwierzytelniania, Alternatywny adres e-mail, Numer telefonu uwierzytelniania, Telefon komórkowy lub Telefon w biurze
-* **Zasada dwóch bram ma zastosowanie...** 
+* **Zasada dwóch bram ma zastosowanie...**
  * ...po upłynięciu 30-dniowego okresu próbnego **LUB**
- * ...jeśli jest obecna domena znacząca **LUB** 
+ * ...jeśli jest obecna domena znacząca **LUB**
  * ... w usłudze Azure AD Connect włączono synchronizowanie tożsamości ze środowiska lokalnego
  * _**Wymagania**_: obecność dowolnej wartości **dwóch** z następujących elementów: Adres e-mail uwierzytelniania, Alternatywny adres e-mail, Numer telefonu uwierzytelniania, Telefon komórkowy lub Telefon w biurze
 
@@ -146,7 +146,7 @@ Aby uzyskać pełną listę wskazówek dotyczących rozwiązywania problemów or
 * [Wdrażanie zapisywania zwrotnego — Krok 3. Skonfigurowanie zapory](#step-3-configure-your-firewall)
 * [Wdrażanie zapisywania zwrotnego — Krok 4. Skonfigurowanie odpowiednich uprawnień](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Porada 7: RAPORTOWANIE — Zobacz w dziennikach inspekcji usługi Azure AD SSPR, kto rejestruje lub resetuje hasła 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Porada 7: RAPORTOWANIE — Zobacz w dziennikach inspekcji usługi Azure AD SSPR, kto rejestruje lub resetuje hasła
 Po wdrożeniu i przygotowaniu do działania funkcji resetowania haseł następnym logicznym krokiem jest sprawdzenie jej w działaniu i przeanalizowanie, kto nadal musi się zarejestrować, jakie są najczęstsze problemy, z jakimi spotykają się użytkownicy podczas resetowania, oraz jaki jest zwrot z inwestycji dla tej funkcji.
 
 Te wszystkie działania (i nie tylko te) można wykonać, korzystając z dzienników inspekcji resetowania haseł usługi Azure AD z poziomu witryny Azure Portal, z usługi Power BI, z interfejsu API raportowania zdarzeń usługi Azure AD lub z poziomu programu PowerShell.  Aby dowiedzieć się więcej o sposobie używania tych funkcji raportowania, zobacz:
@@ -496,7 +496,7 @@ Teraz, po włączeniu funkcji zapisywania zwrotnego haseł, możesz przetestowa�
 ## <a name="next-steps"></a>Następne kroki
 Poniżej podano linki do wszystkich stron dokumentacji związanych z resetowaniem haseł w usłudze Azure AD:
 
-* **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Jak to działa**](active-directory-passwords-how-it-works.md) — poznaj informacje o sześciu różnych komponentach usługi i dowiedz się, jak działają
 * [**Dostosowanie**](active-directory-passwords-customize.md) — dowiedz się, jak dostosować wygląd, sposób działania i zachowanie usługi do potrzeb organizacji
 * [**Najlepsze praktyki**](active-directory-passwords-best-practices.md) — dowiedz się, jak szybko wdrożyć i efektywnie zarządzać hasłami w organizacji

@@ -4,7 +4,7 @@ description: "Jak uzyskać dzierżawę usługi Azure Active Directory w celu rej
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ W tym celu wykonaj poniższe kroki.  Możesz też utworzyć nową dzierżawę i 
 3. Powinno nastąpić automatyczne zalogowanie do domyślnego katalogu. Jeśli tak się nie stanie, możesz przełączyć katalogi, klikając nazwę konta w prawym górnym rogu.
 4. W sekcji **Szybkie zadania** wybierz opcję **Dodaj użytkownika**.
 5. W formularzu Dodawanie użytkownika podaj następujące dane:
-   
+
    * Nazwa: (wybierz odpowiednią wartość).
    * Nazwa użytkownika: (wybierz nazwę użytkownika dla tego administratora).
    * Profil: (podaj odpowiednie wartości dla pól Imię, Nazwisko, Stanowisko i Dział).
@@ -57,16 +58,10 @@ W tym celu wykonaj poniższe kroki.  Możesz też utworzyć nową dzierżawę i 
 8. Aby zmienić hasło tymczasowe, zaloguj się na stronie [https://login.microsoftonline.com](https://login.microsoftonline.com), używając nowego konta użytkownika, i zmień hasło, gdy pojawi się stosowny monit.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Korzystanie z organizacyjnej subskrypcji platformy Azure
-Jeśli konto organizacyjne zostało wcześniej zarejestrowane w celu uzyskania subskrypcji platformy Azure, masz już dzierżawę.  W witrynie [Azure Portal](https://portal.azure.com) należy wyszukać dzierżawę po przejściu do sekcji „Więcej usług” i „Azure Active Directory”.  Z tej dzierżawy możesz korzystać zależnie od potrzeb. 
+Jeśli konto organizacyjne zostało wcześniej zarejestrowane w celu uzyskania subskrypcji platformy Azure, masz już dzierżawę.  W witrynie [Azure Portal](https://portal.azure.com) należy wyszukać dzierżawę po przejściu do sekcji „Więcej usług” i „Azure Active Directory”.  Z tej dzierżawy możesz korzystać zależnie od potrzeb.
 
 ## <a name="start-from-scratch"></a>Rozpoczynanie od zera
 Jeśli wszystkie powyższe informacje są dla Ciebie mało zrozumiałe, nie przejmuj się.  Po prostu odwiedź stronę [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization), aby zarejestrować się na platformie Azure jako nowa organizacja.  Po wykonaniu procesu będziesz dysponować własną dzierżawą usługi Azure AD wraz z nazwą domeny wybraną podczas rejestracji.  W witrynie [Azure Portal](https://portal.azure.com) możesz odnaleźć dzierżawę, przechodząc do obszaru „Azure Active Directory” w panelu nawigacyjnym po lewej stronie.
 
 Podczas procesu rejestracji na platformie Azure wymagane jest podanie danych karty kredytowej.  Możesz to zrobić bez obaw — nie będą naliczane opłaty ani za publikowanie aplikacji w usłudze Azure AD, ani za tworzenie nowych dzierżaw.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

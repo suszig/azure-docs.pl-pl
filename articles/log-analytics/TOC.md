@@ -48,6 +48,7 @@
 ### [Rozwiązanie do zarządzania alertami](log-analytics-solution-alert-management.md)
 ## Korzystanie z rozwiązań
 ### [Omówienie rozwiązań](log-analytics-add-solutions.md)
+### [Activity Log Analytics](log-analytics-activity.md)
 ### [Ocena usługi AD](log-analytics-ad-assessment.md)
 ### [Stan replikacji usługi AD](log-analytics-ad-replication-status.md)
 ### [Zarządzanie alertami](log-analytics-solution-alert-management.md)
