@@ -18,7 +18,7 @@ ms.author: syamk
 translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 03/08/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -559,7 +559,7 @@ Jeśli podczas próby wdrożenia aplikacji sieci Web pojawi się komunikat „Po
     - Region: wybierz region najbliższy użytkownikom aplikacji
     - Serwer bazy danych: kliknij pozycję „Brak bazy danych”, a następnie kliknij przycisk **Utwórz**. 
 
-4. Na ekranie „todo-net-app * screen” kliknij przycisk **Waliduj połączenie**. Po zweryfikowaniu połączenia kliknij pozycję **Publikuj**. 
+4. Na ekranie „todo-net-app **screen” kliknij przycisk**Waliduj połączenie. Po zweryfikowaniu połączenia kliknij pozycję **Publikuj***. 
     
     Aplikacja zostanie następnie wyświetlona w przeglądarce.
 

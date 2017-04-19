@@ -2,8 +2,3 @@
 
 ![Zrzut ekranu witryny Azure Portal przedstawiający konto usługi DocumentDB z przyciskiem KLUCZE wyróżnionym w bloku konta usługi DocumentDB oraz wartościami IDENTYFIKATOR URI, KLUCZ PODSTAWOWY i KLUCZ POMOCNICZY wyróżnionymi w bloku Klucze](./media/documentdb-keys/keys.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
