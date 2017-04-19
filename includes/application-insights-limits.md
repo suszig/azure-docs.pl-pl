@@ -1,20 +1,18 @@
-Istnieją pewne ograniczenia liczby metryk i zdarzeń na aplikację (czyli na klucz instrumentacji). Ograniczenia zależą od wybranego [planu cenowego](https://azure.microsoft.com/pricing/details/application-insights/).
+There are some limits on the number of metrics and events per application (that is, per instrumentation key). Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
 
-| **Zasób** | **Limit domyślny** | **Uwaga**
+| **Resource** | **Default limit** | **Note**
 | --- | --- | --- |
-| Łączna ilość danych na dzień | 500 GB | Ilość danych możesz zmniejszyć, ustawiając limit. Jeśli potrzebujesz większej ilości, wyślij wiadomość e-mail na adres AIDataCap@microsoft.com.
-| Ilość bezpłatnych danych na miesiąc<br/> (plan cenowy Podstawowa) | 1 GB | Opłaty za dodatkowe dane są naliczane za gigabajt.
-| Ograniczanie przepływności | 32 tys. zdarzeń na sekundę | Limit jest mierzony przez minutę.
-| Przechowywanie danych | 90 dni | Ten zasób jest przeznaczony na potrzeby [wyszukiwania](../articles/application-insights/app-insights-diagnostic-search.md), [analizy](../articles/application-insights/app-insights-analytics.md) i [Eksploratora metryk](../articles/application-insights/app-insights-metrics-explorer.md).
-| Przechowywanie szczegółowych wyników [wieloetapowego testu dostępności](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 dni | Ten zasób zapewnia szczegółowe wyniki każdego kroku.
-| Długość nazwy właściwości i metryki | 150 |
-| Długość ciągu wartości właściwości | 8192 |
-| Długość komunikatu śledzenia i wyjątku | 10 tys. |
-| Liczba [testów dostępności](../articles/application-insights/app-insights-monitor-web-app-availability.md) na aplikację  | 10 |
+| Total data per day | 500 GB | You can reduce data by setting a cap. If you need more, mail AIDataCap@microsoft.com.
+| Free data per month<br/> (Basic price plan) | 1 GB | Additional data is charged per gigabyte.
+| Throttling | 32 k events/second | The limit is measured over a minute.
+| Data retention | 90 days | This resource is for [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md), and [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).
+| [Availability multi-step test](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) detailed results retention | 90 days | This resource provides detailed results of each step.
+| Maximum event size | 64 K | 
+| Property and metric name length | 150 | see comment below for more informaiton
+| Property value string length | 8,192 | see comment below for more informaiton
+| Trace and exception message length | 10 k | see comment below for more informaiton
+| [Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) count per app  | 10 |
 
-Aby uzyskać informacje, zobacz [Informacje o zarządzaniu cenami i limitami przydziału dla usługi Application Insights](../articles/application-insights/app-insights-pricing.md).
+For more information, see [About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md).
 
-
-<!--HONumber=Feb17_HO2-->
-
-
+For more informaiton on data fields limits see [per type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
