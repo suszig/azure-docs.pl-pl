@@ -1,17 +1,20 @@
 # Omówienie
 ## [Co to jest Azure Automation?](automation-intro.md)
 # Rozpoczęcie pracy
+## [Rozpocznij pracę z usługą Azure Automation](automation-offering-get-started.md)
 ## Samouczek dotyczący elementów runbook
 ### [Tworzenie graficznego elementu runbook](automation-first-runbook-graphical.md)
 ### [Tworzenie elementu Runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
 ### [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
 # Instrukcje
 ## Uwierzytelnianie i zabezpieczenia
-### [Uwierzytelnianie w usłudze Azure Automation](automation-security-overview.md)
-### [Konfigurowanie konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md)
-### [Konfigurowanie konta użytkownika usługi Azure AD](automation-sec-configure-aduser-account.md)
-### [Konfigurowanie uwierzytelniania za pomocą usług AWS](automation-sec-configure-aws-account.md)
+### [Tworzenie autonomicznego konta usługi Automation](automation-create-standalone-account.md)
+### [Tworzenie konta użytkownika usługi Azure AD](automation-create-aduser-account.md)
+### [Konfigurowanie uwierzytelniania za pomocą usług AWS](automation-config-aws-account.md)
+### [Tworzenie konta Uruchom jako platformy Azure przy użyciu programu PowerShell](automation-update-account-powershell.md)
+### [Walidacja konfiguracji konta usługi Automation](automation-verify-runas-authentication.md)
 ### [Zarządzanie kontrolą dostępu opartą na rolach](automation-role-based-access-control.md)
+### [Zarządzanie kontem usługi Automation](automation-manage-account.md)
 ## Tworzenie elementów Runbook
 ### [Typy elementów Runbook](automation-runbook-types.md)
 ### [Tworzenie i importowanie elementów Runbook](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (klasyczny)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/azure/mt163781)
 # Zasoby
 ## [Informacje o wersji](https://azure.microsoft.com/updates/?product=automation)

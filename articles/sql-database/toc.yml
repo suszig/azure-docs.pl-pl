@@ -4,8 +4,6 @@
   items:
   - name: "Informacje o usłudze SQL DB"
     href: sql-database-technical-overview.md
-  - name: "Porównanie baz danych SQL"
-    href: sql-database-features.md
 - name: "Szybki start"
   expanded: true
   items:
@@ -69,8 +67,12 @@
       href: sql-database-benchmark-overview.md
     - name: "Limity"
       href: sql-database-resource-limits.md
-  - name: "Narzędzia"
-    href: sql-database-manage-overview.md
+    - name: "PaaS lub IaaS"
+      href: sql-database-paas-vs-sql-server-iaas.md  
+    - name: "Funkcje"
+      href: sql-database-features.md
+    - name: "Narzędzia"
+      href: sql-database-manage-overview.md
   - name: "Partycjonowanie danych"
     items:
     - name: "Bazy danych podzielone na fragmenty"
@@ -231,10 +233,6 @@
     items:
     - name: "Uwierzytelnianie usługi Azure AD"
       href: sql-database-aad-authentication-configure.md
-    - name: "Inspekcja"
-      href: sql-database-auditing-portal.md
-    - name: "Wykrywanie zagrożeń"
-      href: sql-database-threat-detection-portal.md
     - name: "Szyfrowanie — magazyn certyfikatów"
       href: sql-database-always-encrypted.md
     - name: "Szyfrowanie — magazyn kluczy"
@@ -388,6 +386,8 @@
   items:
   - name: "Często zadawane pytania"
     href: sql-database-faq.md
+  - name: "Publiczne zestawy danych"
+    href: sql-database-public-data-sets.md  
   - name: "Rozwiązywanie problemów z łącznością"
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: "Cennik"
@@ -414,3 +414,5 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: "Niestandardowy pulpit nawigacyjny puli elastycznej"
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+
+

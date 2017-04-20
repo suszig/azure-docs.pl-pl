@@ -1,7 +1,7 @@
 # Omówienie
 ## [Omówienie](active-directory-b2c-overview.md)
 ## [Typy aplikacji](active-directory-b2c-apps.md)
-## [Dzierżawy B2C w skali produkcyjnej a dzierżawy B2C w wersji zapoznawczej](active-directory-b2c-reference-tenant-type.md)
+## [Dostępność w poszczególnych regionach i rezydencja danych](active-directory-b2c-reference-tenant-type.md)
 
 # Wprowadzenie
 ## [Tworzenie katalogu usługi Azure AD B2C](active-directory-b2c-get-started.md)

@@ -74,6 +74,8 @@
 ### [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 ### [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
 ### [Wywoływanie skryptów języka R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+### [Ponowne przetwarzanie modeli w usługach Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+
 ## Programowanie
 ### [Szablon usługi Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
 ### [Przykłady](data-factory-samples.md)

@@ -25,6 +25,16 @@
 ### [Polecenia cmdlet programu PowerShell usługi Batch](batch-powershell-cmdlets-get-started.md)
 ### [Interfejs wiersza polecenia platformy Azure](batch-cli-get-started.md)
 ### [Dzienniki diagnostyczne usługi Batch](batch-diagnostics.md)
+### [Analiza danych usługi Batch](batch-analytics.md)
+#### [Zdarzenie utworzenia puli](batch-pool-create-event.md)
+#### [Zdarzenie rozpoczęcia usuwania puli](batch-pool-delete-start-event.md)
+#### [Zdarzenie zakończenia usuwania puli](batch-pool-delete-complete-event.md)
+#### [Zdarzenie rozpoczęcia zmiany rozmiaru puli](batch-pool-resize-start-event.md)
+#### [Zdarzenie zakończenia zmiany rozmiaru puli](batch-pool-resize-complete-event.md)
+#### [Zdarzenie rozpoczęcia zadania](batch-task-start-event.md)
+#### [Zdarzenie ukończenia zadania](batch-task-complete-event.md)
+#### [Zdarzenie niepowodzenia zadania](batch-task-fail-event.md)
+### [Zmienne środowiskowe węzła obliczeniowego usługi Azure Batch](batch-compute-node-environment-variables.md)
 
 # Dokumentacja
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

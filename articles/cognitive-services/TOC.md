@@ -287,10 +287,10 @@
 ### [Języki](Translator/languages.md)
 ### [Centrum](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### [Przegląd interfejsu API tłumaczenia mowy](Translator/speech-overview.md)
-### [Dokumentacja interfejsu API tłumaczenia mowy](http://docs.microsofttranslator.com/speech-translate.html)
-### [Przegląd interfejsu API tłumaczenia tekstu](Translator/text-overview.md)
-### [Dokumentacja interfejsu API tłumaczenia tekstu](http://docs.microsofttranslator.com/text-translate.html)
+### [Omówienie interfejsu API tłumaczenia mowy w usłudze Translator](Translator/speech-overview.md)
+### [Odwołanie do interfejsu API tłumaczenia mowy w usłudze Translator](http://docs.microsofttranslator.com/speech-translate.html)
+### [Omówienie interfejsu API tłumaczenia tekstu w usłudze Translator](Translator/text-overview.md)
+### [Odwołanie do interfejsu API tłumaczenia tekstu w usłudze Translator](http://docs.microsofttranslator.com/text-translate.html)
 
 ## Połączenia wideo
 ### [Omówienie](Video/Home.md)
