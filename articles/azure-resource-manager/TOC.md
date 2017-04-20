@@ -14,12 +14,15 @@
 ## Tworzenie szablonów
 ### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md) (Sekcje szablonu)
+### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
+### Pętla kopiowania umożliwiająca utworzenie wielu wystąpień
+#### [Podstawowa składnia](resource-group-create-multiple.md)
+#### [Pętla sekwencyjna](resource-manager-sequential-loop.md)
+#### [Kopiowanie właściwości](resource-manager-property-copy.md)
 ### [Ustawianie lokalizacji](resource-manager-template-location.md)
 ### [Przypisywanie tagów](resource-manager-template-tags.md)
 ### [Ustawianie nazwy i typu zasobu podrzędnego](resource-manager-template-child-resource.md)
-### [Tworzenie wielu wystąpień typu zasobu](resource-group-create-multiple.md)
-### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Udostępnianie stanu między połączonymi szablonami](best-practices-resource-manager-state.md)
 ### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
 ## Wdrażanie

@@ -2,16 +2,10 @@
 ## [Co to jest pakiet Operations Management Suite?](operations-management-suite-overview.md)
 ## [Architektura pakietu OMS](operations-management-suite-architecture.md)
 
-# Rozpoczynanie pracy
-## Wgląd w dane i analiza
-### [Tworzenie konta usługi Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Automatyzacja i kontrola
-### [Mój pierwszy element Runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Ochrona i odzyskiwanie
-### [Wprowadzenie do usługi Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Zabezpieczenia i zgodność
-### [Zabezpieczenia i inspekcja](oms-security-getting-started.md)
-### [Bezpieczeństwo danych](oms-security-data-security.md)
+# Rozpoczęcie pracy
+## Przewodniki
+### [Mapa usługi](operations-management-suite-walkthrough-servicemap.md)
+
 
 # Instrukcje
 

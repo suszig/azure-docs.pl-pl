@@ -28,7 +28,6 @@
 ## Korzystanie z usługi Hadoop dla zapytań wsadowych
 ### [Technologia Hive w usłudze Hadoop](hdinsight-use-hive.md)
 #### [Korzystanie z widoku Hive](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [Korzystanie z protokołu SSH](hdinsight-hadoop-use-hive-ssh.md)
 #### [Korzystanie z usługi Beeline](hdinsight-hadoop-use-hive-beeline.md)
 #### [Korzystanie z programu cURL](hdinsight-hadoop-use-hive-curl.md)
 #### [Korzystanie z programu PowerShell](hdinsight-hadoop-use-hive-powershell.md)
@@ -109,6 +108,7 @@
 ### [Używanie z platformą Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Używanie z systemem Storm](hdinsight-apache-storm-with-kafka.md)
 ## Programowanie
+### [Tworzenie programów MapReduce przesyłania strumieniowego w języku C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Opracowywanie programów MapReduce w języku Java](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Tworzenie zadań MapReduce w języku Scalding](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Tworzenie aplikacji Spark przy użyciu narzędzi usługi HDInsight](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -199,6 +199,7 @@
 # Powiązane
 ## Klastry systemu Windows
 ### [Migrowanie klastrów systemu Windows do klastrów systemu Linux](hdinsight-migrate-from-windows-to-linux.md)
+### [Migrowanie rozwiązań .NET do klastrów z systemem Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 ### [Uruchamianie przykładów technologii MapReduce w usłudze Hadoop](hdinsight-run-samples.md)
 ### [Korzystanie z platformy Solr w klastrach](hdinsight-hadoop-solr-install-linux.md)
 ### [Przetwarzanie dużych wykresów za pomocą systemu Giraph](hdinsight-hadoop-giraph-install.md)

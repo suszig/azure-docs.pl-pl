@@ -15,7 +15,6 @@
 ### [Dodawanie obrazu domyślnego](azure-stack-add-default-image.md)
 ### [Inicjowanie obsługi administracyjnej maszyny wirtualnej](azure-stack-provision-vm.md)
 ### [Tworzenie konta magazynu](azure-stack-provision-storage-account.md)
-### [Dodawanie dzierżawy usługi Azure Stack](azure-stack-add-new-user-aad.md)
 ### [Ponowne wdrażanie usługi Azure Stack POC](azure-stack-redeploy.md)
 
 # Zarządzanie
@@ -31,15 +30,17 @@
 ## Instrukcje
 ### [Zarządzanie aktualizacjami](azure-stack-updates.md)
 ### [Monitorowanie kondycji i alertów](azure-stack-monitor-health.md)
-### [Zarządzanie zasobami sieciowymi](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Zarządzanie zasobami sieciowymi](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Zarządzanie zasobami magazynu](azure-stack-manage-storage-accounts.md)
 ### [Manage Windows Azure Pack VMs](azure-stack-manage-windows-azure-pack.md) (Zarządzanie maszynami wirtualnymi pakietu Microsoft Azure Pack)
 
 # Zabezpieczenia i zgodność
 ## Instrukcje
 ### [Zarządzanie kontrolą dostępu opartą na rolach](azure-stack-manage-permissions.md)
+### [Dodawanie użytkowników do usługi Azure AD](azure-stack-add-new-user-aad.md)
 ### [Dodawanie użytkowników do usług AD FS](azure-stack-add-users-adfs.md)
 ### [Tworzenie jednostek usługi](Azure-stack-create-service-principals.md)
+### [Włączanie wielodostępu](azure-stack-enable-multitenancy.md)
 
 # Oferowanie usług
 ## Rozpoczęcie pracy

@@ -34,10 +34,11 @@
 ## Konfigurowanie wielu połączeń typu lokacja-lokacja
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
-## [Konfigurowanie protokołu BGP dla bram Azure VPN Gateway przy użyciu programu PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+## [Konfigurowanie protokołu BGP dla bramy sieci VPN](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Konfigurowanie połączeń typu aktywne-aktywne o wysokiej dostępności](vpn-gateway-activeactive-rm-powershell.md)
 ## [Modyfikowanie ustawień lokalnej bramy sieci przy użyciu programu PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Weryfikowanie połączenia z bramą VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
+## [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md)
 ## Usuwanie bramy VPN Gateway
 ### [Witryna Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)

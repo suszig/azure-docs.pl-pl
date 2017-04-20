@@ -5,9 +5,9 @@
 ## [Scenariusze aplikacji](service-fabric-application-scenarios.md)
 ## [Architektura](service-fabric-architecture.md)
 ## [Terminologia](service-fabric-technical-overview.md)
-## [Przewodnik po zawartości](service-fabric-content-roadmap.md)
+## [Podręcznik](service-fabric-content-roadmap.md)
 
-# Rozpoczęcie pracy
+# Wprowadzenie
 ## Konfigurowanie środowiska projektowego
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
@@ -17,7 +17,8 @@
 ### [Java w systemie Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# w systemie Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Wdrażanie aplikacji w klastrze lokalnym](service-fabric-get-started-with-a-local-cluster.md)
-## [Tworzenie klastra autonomicznego](service-fabric-get-started-standalone-cluster.md)
+## [Tworzenie pierwszego klastra na platformie Azure](service-fabric-get-started-azure-cluster.md)
+## [Tworzenie pierwszego autonomicznego klastra](service-fabric-get-started-standalone-cluster.md)
 
 # Instrukcje
 ## Tworzenie aplikacji
@@ -124,7 +125,6 @@
 #### [Kontrola dostępu](service-fabric-cluster-security-roles.md)
 #### [Konfigurowanie klastra](service-fabric-cluster-fabric-settings.md)
 #### [Dodawanie lub przerzucanie certyfikatów klastra](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Bezpłatne wypróbowywanie klastra testowego](http://aka.ms/tryservicefabric)
 
 ### Klastry autonomiczne
 #### [Planowanie i przygotowywanie wdrożenia](service-fabric-cluster-standalone-deployment-preparation.md)

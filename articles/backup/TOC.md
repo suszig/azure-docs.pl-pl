@@ -76,6 +76,7 @@
 ## [Usuwanie magazynu usługi Azure Backup](backup-azure-delete-vault.md)
 ## [Konfigurowanie tworzenia kopii zapasowej offline](backup-azure-backup-import-export.md)
 ## [Zastępowanie biblioteki taśm](backup-azure-backup-cloud-as-tape.md)
+## [Kopie zapasowe maszyn wirtualnych z systemem Linux spójne z aplikacjami](backup-azure-linux-app-consistent.md)
 
 # Dokumentacja
 ## [Program PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
