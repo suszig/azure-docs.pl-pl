@@ -5,9 +5,3 @@ Przechodząc w witrynie Azure Portal do połączenia, można sprawdzić stan po�
 3. Kliknij nazwę połączenia, które chcesz sprawdzić, aby otworzyć blok **Podstawy**. W bloku Podstawy możesz wyświetlić więcej informacji o połączeniu. Po pomyślnym nawiązaniu połączenia **Stan** jest wyświetlany jako „Powodzenie” i „Połączono”.
    
     ![Sprawdzanie połączenia bramy VPN Gateway za pomocą witryny Azure Portal](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-
