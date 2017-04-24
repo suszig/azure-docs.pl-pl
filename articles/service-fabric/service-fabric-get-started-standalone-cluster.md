@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6da8b21014966edd9f4cea0fd27f6973b2b820f0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/12/2017
 Autonomiczny klaster usługi Service Fabric można utworzyć na wszystkich maszynach wirtualnych lub komputerach z systemem Windows Server 2012 R2 lub Windows Server 2016 lokalnie lub w chmurze. Ten przewodnik szybkiego startu pomaga utworzyć autonomiczny klaster programowania w ciągu zaledwie kilku minut.  Po zakończeniu na pojedynczym komputerze będzie dostępny klaster z trzema węzłami, do którego można wdrażać aplikacje.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-Usługa Service Fabric udostępnia pakiet instalacyjny służący do tworzenia autonomicznych klastrów usługi Service Fabric.  [Pobierz pakiet instalacyjny](http://go.microsoft.com/fwlink/?LinkId=730690).  Rozpakuj go do folderu, na przykład *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*, na komputerze lub maszynie wirtualnej, na której zostanie skonfigurowany klaster programowania.  Zawartość pakietu instalacyjnego została szczegółowo opisana [tutaj](service-fabric-cluster-standalone-package-contents.md).
+Usługa Service Fabric udostępnia pakiet instalacyjny służący do tworzenia autonomicznych klastrów usługi Service Fabric.  [Pobierz pakiet instalacyjny](http://go.microsoft.com/fwlink/?LinkId=730690).  Rozpakuj pakiet instalacyjny do folderu na komputerze lub maszynie wirtualnej, na której przeprowadzasz konfigurację klastra programowania.  Zawartość pakietu instalacyjnego została szczegółowo opisana [tutaj](service-fabric-cluster-standalone-package-contents.md).
 
 Administrator klastra wdrażający i konfigurujący klaster musi mieć uprawnienia administratora na komputerze. Usługi Service Fabric nie można zainstalować na kontrolerze domeny.
 
@@ -37,7 +37,9 @@ Skrypt *TestConfiguration.ps1* w pakiecie autonomicznym jest używany jako anali
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
 ## <a name="create-the-cluster"></a>Tworzenie klastra
-W ramach pakietu instalacyjnego jest instalowanych kilka przykładowych plików konfiguracji klastra. *ClusterConfig.Unsecure.DevCluster.json* to najprostsza konfiguracja klastra: niezabezpieczony klaster z trzema węzłami działającymi na pojedynczym komputerze. Na potrzeby tego samouczka nie trzeba modyfikować żadnego z domyślnych ustawień konfiguracji.  Inne pliki konfiguracji zawierają opis klastrów dla jednej lub wielu maszyn, zabezpieczonych za pomocą certyfikatów X.509 lub zabezpieczeń systemu Windows.  Dalsze informacje na temat zabezpieczeń klastra usługi Service Fabric można znaleźć w temacie [Secure a cluster](service-fabric-cluster-security.md) (Zabezpieczanie klastra). 
+W ramach pakietu instalacyjnego jest instalowanych kilka przykładowych plików konfiguracji klastra. *ClusterConfig.Unsecure.DevCluster.json* to najprostsza konfiguracja klastra: niezabezpieczony klaster z trzema węzłami działającymi na pojedynczym komputerze.  Inne pliki konfiguracji zawierają opis klastrów dla jednej lub wielu maszyn, zabezpieczonych za pomocą certyfikatów X.509 lub zabezpieczeń systemu Windows.  Nie musisz modyfikować żadnych domyślnych ustawień konfiguracji w tym samouczku, ale przyjrzyj się plikowi konfiguracji i zapoznaj się z ustawieniami.  Sekcja **węzły** opisuje trzy węzły w klastrze: nazwę, adres IP, [typ węzła, domenę błędów i domenę uaktualnień](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  Sekcja **właściwości** definiuje [zabezpieczenia, poziom niezawodności, zbieranie diagnostyki i typy węzłów](service-fabric-cluster-manifest.md#cluster-properties) klastra.
+
+Ten klaster jest niezabezpieczony.  Każda osoba może połączyć się z nim anonimowo i przeprowadzić operacje związane z zarządzaniem. Dlatego też klastry produkcyjne należy zawsze zabezpieczać przy użyciu certyfikatów X.509 lub zabezpieczeń systemu Windows.  Zabezpieczenia są konfigurowane tylko w momencie tworzenia klastra. Nie można włączyć zabezpieczeń później, gdy klaster jest już utworzony.  Dalsze informacje na temat zabezpieczeń klastra usługi Service Fabric można znaleźć w temacie [Secure a cluster](service-fabric-cluster-security.md) (Zabezpieczanie klastra).  
 
 W celu utworzenia klastra programowania z trzema węzłami uruchom skrypt *CreateServiceFabricCluster.ps1* w sesji programu PowerShell administratora:
 
@@ -88,7 +90,7 @@ Aby usunąć środowisko uruchomieniowe usługi Service Fabric z komputera, uruc
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz po skonfigurowaniu autonomicznego klastra programowania możesz spróbować wykonać następujące czynności:
+Teraz po skonfigurowaniu autonomicznego klastra programowania możesz spróbować wykonać czynności opisane w następujących artykułach:
 * [Konfigurowanie autonomicznego klastra dla wielu maszyn](service-fabric-cluster-creation-for-windows-server.md) i włączanie zabezpieczeń
 * [Wdrażanie aplikacji przy użyciu programu PowerShell](service-fabric-deploy-remove-applications.md)
 

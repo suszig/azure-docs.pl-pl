@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
+ms.lasthandoff: 04/15/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Co to jest SQL Database? Wprowadzenie do usługi SQL Database
@@ -35,7 +35,7 @@ Aby uzyskać zestaw przykładów interfejsu wiersza polecenia platformy Azure i 
  - [Przykłady programu Azure PowerShell dla bazy danych Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Dostosowanie wydajności i skalowanie bez przestojów
-Usługa SQL Database oferuje trzy warstwy usługi: Podstawowa, Standardowa i Premium. Każdej warstwa usług oferuje [różne poziomy wydajności i możliwości](sql-database-service-tiers.md) w celu obsługi różnych obciążeń bazy danych, zarówno niewielkich, jak i ogromnych. Możesz utworzyć pierwszą aplikację na małej bazie danych za niewielką sumę miesięcznie, a następnie [zmienić warstwę usługi](sql-database-service-tiers.md) ręcznie lub programowo w dowolnym momencie, aby spełnić wymagania rozwiązania. Jest to możliwe bez przestoju aplikacji i przerwy w świadczeniu usługi klientom. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów oraz płacenie tylko za potrzebne zasoby i tylko gdy są używane.
+Usługa SQL Database oferuje następujące warstwy usługi: Podstawowa, Standardowa, Premium i Premium RS. Każdej warstwa usług oferuje [różne poziomy wydajności i możliwości](sql-database-service-tiers.md) w celu obsługi różnych obciążeń bazy danych, zarówno niewielkich, jak i ogromnych. Możesz utworzyć pierwszą aplikację na małej bazie danych za niewielką sumę miesięcznie, a następnie [zmienić warstwę usługi](sql-database-service-tiers.md) ręcznie lub programowo w dowolnym momencie, aby spełnić wymagania rozwiązania. Jest to możliwe bez przestoju aplikacji i przerwy w świadczeniu usługi klientom. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów oraz płacenie tylko za potrzebne zasoby i tylko gdy są używane.
 
 ## <a name="elastic-pools-to-maximize-resource-utilization"></a>Pule elastyczne umożliwiające zmaksymalizowanie wykorzystania zasobów
 W przypadku wielu firm i aplikacji możliwość tworzenia pojedynczych baz danych i dostosowywania wydajności na żądanie jest wystarczająca, zwłaszcza jeśli wzorce użycia są względnie przewidywalne. Jednak w przypadku nieprzewidywalnych wzorców zarządzanie kosztami i modelem biznesowym może być trudne. [Pule elastyczne](sql-database-elastic-pool.md) zostały zaprojektowane, aby rozwiązać ten problem. Koncepcja jest prosta. Przydzielasz zasoby wydajności do puli, a nie do pojedynczej bazy danych, i płacisz za zbiorczą wydajność puli, a nie za wydajność pojedynczej bazy danych. Pule elastyczne nie wymagają koncentrowania się na skalowaniu wydajności bazy danych w górę i w dół w miarę zmian zapotrzebowania na zasoby. Bazy danych w puli używają zasobów wydajności puli elastycznej w miarę potrzeb. Bazy danych w puli zużywają zasoby, ale nie przekraczają limitów puli, więc koszt pozostaje przewidywalny nawet wtedy, gdy nie można przewidzieć użycia poszczególnych baz danych. Ponadto możliwe jest [dodawanie i usuwanie baz danych w puli](sql-database-elastic-pool-manage-portal.md) i skalowanie aplikacji od kilku do tysięcy baz danych — wszystko w ramach kontrolowanego budżetu. W końcu możesz kontrolować minimum i maksimum zasobów dostępnych dla baz danych w puli w celu zapewnienia, że żadna baza danych w puli nie używa wszystkich zasobów, a każda baza danych w puli ma gwarantowaną minimalną ilość zasobów. Aby dowiedzieć się więcej na temat wzorców projektowych dla aplikacji SaaS wykorzystujących pule elastyczne, zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
@@ -61,6 +61,6 @@ Po przeczytaniu wprowadzenia do usługi SQL Database i zapoznaniu się z nią mo
 
 * Zapoznać się z [cennikiem](https://azure.microsoft.com/pricing/details/sql-database/) zawierającym porównania i kalkulatory kosztów dla pojedynczej bazy danych i pul elastycznych.
 * Poznać [pule elastyczne](sql-database-elastic-pool.md).
-* Rozpocząć [tworzenie pierwszej bazy danych](sql-database-get-started.md).
+* Rozpocząć [tworzenie pierwszej bazy danych](sql-database-get-started-portal.md).
 * Utworzyć pierwszą aplikację w języku C#, Java, Node.js, PHP, Python lub Ruby, korzystając z [bibliotek połączeń dla usługi SQL Database i programu SQL Server](sql-database-libraries.md)
 

@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 7f75b57c5d409ad9c4c79c48e4b7ee0021e7846b
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: bb8fcd907a03350dc21106944e72e6f06109b5f6
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -39,23 +39,43 @@ Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Add-AzureRmAcc
 Add-AzureRmAccount
 ```
 
+## <a name="create-variables"></a>Tworzenie zmiennych
+
+Zdefiniuj zmienne do wykorzystania w skryptach w tym przewodniku Szybki start.
+
+```powershell
+# The data center and resource name for your resources
+$resourcegroupname = "myResourceGroup"
+$location = "WestEurope"
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+$servername = "server-$(Get-Random)"
+# Set an admin login and password for your database
+# The login information for the server
+$adminlogin = "ServerAdmin"
+$password = "ChangeYourAdminPassword1"
+# The ip address range that you want to allow to access your server - change as appropriate
+$startip = "0.0.0.0"
+$endip = "0.0.0.1"
+# The database name
+$databasename = "mySampleDatabase"
+```
+
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) za pomocą polecenia [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myResourceGroup` w lokalizacji `westeurope`.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
+New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Tworzenie serwera logicznego
 
 Utwórz [serwer logiczny Azure SQL Database](sql-database-features.md) za pomocą polecenia [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Serwer logiczny zawiera grupę baz danych zarządzanych jako grupa. Poniższy przykład obejmuje tworzenie serwera o losowo wybranej nazwie w grupie zasobów za pomocą identyfikatora logowania administratora o nazwie `ServerAdmin` i z hasłem `ChangeYourAdminPassword1`. Zastąp te wstępnie zdefiniowane wartości zgodnie z potrzebami.
 
 ```powershell
-$servername = "server-$(Get-Random)"
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -Location "westeurope" `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ChangeYourAdminPassword1" -AsPlainText -Force))
+    -Location $location `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
 ## <a name="configure-a-server-firewall-rule"></a>Konfigurowanie reguły zapory serwera
@@ -63,9 +83,9 @@ New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
 Utwórz [regułę zapory na poziomie serwera Azure SQL Database](sql-database-firewall-configure.md) za pomocą polecenia [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Reguła zapory na poziomie serwera umożliwia zewnętrznej aplikacji, takiej jak SQL Server Management Studio lub narzędzie SQLCMD, nawiązanie połączenia z bazą danych SQL za pośrednictwem zapory usługi SQL Database. W poniższym przykładzie zapora jest otwarta tylko dla innych zasobów platformy Azure. Aby włączyć łączność zewnętrzną, zmień adres IP na adres odpowiedni dla danego środowiska. Aby otworzyć wszystkie adresy IP, użyj wartości 0.0.0.0 jako początkowego adresu IP i wartości 255.255.255.255 jako adresu końcowego.
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
+    -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
 
 > [!NOTE]
@@ -77,9 +97,9 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 Utwórz na serwerze pustą bazę danych SQL [z poziomem wydajności S0](sql-database-service-tiers.md) za pomocą polecenia [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). Poniższy przykład obejmuje tworzenie bazy danych o nazwie `mySampleDatabase`. Zastąp tę wstępnie zdefiniowaną wartość zgodnie z potrzebami.
 
 ```powershell
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
+    -DatabaseName databasename `
     -RequestedServiceObjectiveName "S0"
 ```
 
@@ -88,7 +108,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
 Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start lub samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, użyj poniższego polecenia, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki start.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Następne kroki
@@ -101,3 +121,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 - Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Java, zobacz [Connect and query with Java](sql-database-connect-query-java.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Java).
 - Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Python, zobacz [Connect and query with Python](sql-database-connect-query-python.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Python).
 - Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Ruby, zobacz [Connect and query with Ruby](sql-database-connect-query-ruby.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Ruby).
+

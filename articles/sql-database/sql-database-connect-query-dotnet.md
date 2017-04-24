@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -70,16 +70,18 @@ Pobierz parametry połączenia w witrynie Azure Portal. Możesz użyć parametr�
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. W okienku **Podstawy** bazy danych sprawdź w pełni kwalifikowaną nazwę serwera. 
+3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![nazwa-serwera](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Kliknij pozycję **Pokaż parametry połączenia bazy danych**.
+4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło.
 
-5. Sprawdź pełne parametry połączenia **ADO.NET**.
+5. Kliknij pozycję **Pokaż parametry połączenia bazy danych**.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Sprawdź pełne parametry połączenia **ADO.NET**.
+
+    ![Parametry połączenia sterownika ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## <a name="add-systemdatasqlclient"></a>Dodawanie elementu System.Data.SqlClient
 W przypadku korzystania z programu .NET Core dodaj element System.Data.SqlClient do pliku projektu ***csproj*** jako zależność.
 
@@ -94,8 +96,7 @@ W przypadku korzystania z programu .NET Core dodaj element System.Data.SqlClient
 1. W środowisku programistycznym otwórz pusty plik kodu.
 2. Dodaj element ```using System.Data.SqlClient``` do pliku z kodem ([przestrzeń nazw System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Użyj polecenia [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) z instrukcją Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx), aby wykonać zapytanie dotyczące danych w bazie danych Azure SQL. Dodaj odpowiednie wartości dla swojego serwera
-
+3. Użyj polecenia [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) z instrukcją Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx), aby wykonać zapytanie dotyczące danych w bazie danych Azure SQL. Dodaj odpowiednie wartości dla swojego serwera.
 ```csharp
 using System;
 using System.Data;

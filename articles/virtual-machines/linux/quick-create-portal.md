@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Maszyny wirtualne platformy Azure można utworzyć za pomocą witryny Azure Portal. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie i konfigurowanie maszyn wirtualnych oraz wszystkich pokrewnych zasobów. Ten przewodnik Szybki start przeprowadza użytkownika przez proces tworzenia maszyny wirtualnej za pomocą witryny Azure Portal.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 
@@ -52,9 +52,9 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
     ![Wprowadzanie podstawowych informacji o maszynie wirtualnej w bloku portalu](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Wybierz rozmiar maszyny wirtualnej i kliknij przycisk **Wybierz**. 
+4. Wybierz rozmiar maszyny wirtualnej. Aby wyświetlić więcej rozmiarów, wybierz pozycje **Wyświetl wszystkie** lub zmień filtr **Obsługiwany typ dysku**. 
 
-    ![Wybieranie rozmiaru maszyny wirtualnej w bloku portalu](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![Zrzut ekranu przedstawiający rozmiary maszyn wirtualnych](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. W bloku ustawień wybierz opcję **Tak** w obszarze **Używanie zarządzanych dysków**, zachowaj ustawienia domyślne dla pozostałych ustawień i kliknij przycisk **OK**.
 
@@ -71,7 +71,7 @@ Domyślnie dozwolone są tylko połączenia SSH z maszynami wirtualnymi z system
 2. W bloku grupy zasobów kliknij pozycję **Sieciowa grupa zabezpieczeń** na liście zasobów. Nazwa sieciowej grupy zabezpieczeń powinna być nazwą maszyny wirtualnej z dołączonym na końcu ciągiem -nsg.
 3. Kliknij nagłówek **Reguła zabezpieczeń dla ruchu przychodzącego**, aby otworzyć listę reguł ruchu przychodzącego. Na liście powinna już znajdować się reguła protokołu RDP.
 4. Kliknij pozycję **+ Dodaj**, aby otworzyć blok **Dodawanie reguły zabezpieczeń dla ruchu przychodzącego**.
-5. W polu **Nazwa** wpisz ciąg **nginx** i upewnij się, że w polu **Zakres portów** ustawiono wartość 80, a w polu **Akcja** — wartość **Zezwalaj**, a następnie kliknij przycisk **OK**.
+5. W polu **Nazwa** wpisz ciąg **nginx**. Upewnij się, że w polu **Zakres portów** ustawiono wartość 80, a w polu **Akcja** — wartość **Zezwalaj**. Kliknij przycisk **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Wyświetlanie strony powitalnej serwera NGINX
 
-Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej adresu `publicIpAddress`. 
+Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego adresu `publicIpAddress`. 
 
 ![Domyślna witryna serwera NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej

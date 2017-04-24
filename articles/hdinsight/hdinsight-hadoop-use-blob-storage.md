@@ -18,9 +18,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f85f6484db177285e0fd64a15991a7eb227cd29b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: f5c36624360b4a09819ea70f3ac23f943688c120
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -106,6 +106,9 @@ Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, tak
 Podczas tworzenia klastra usługi HDInsight za pomocą witryny Portal masz do wyboru dwa sposoby podania szczegółów konta magazynu, które przedstawiono poniżej. Możesz także określić, czy chcesz skojarzyć dodatkowe konto magazynu z klastrem, a jeśli tak, możesz wybrać usługę Data Lake Store lub inną usługę Azure Storage Blob jako magazyn dodatkowy.
 
 ![HDInsight, hadoop, tworzenie źródła danych](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+
+> [!WARNING]
+> Korzystanie z dodatkowego konta magazynu w innej lokalizacji niż klaster usługi HDInsight nie jest obsługiwane.
 
 #### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -285,6 +288,8 @@ $clusterName = "<HDInsightClusterName>"
 
 Podczas tworzenia klastra usługi HDInsight należy wskazać konto usługi Azure Storage, które zostanie powiązane z tym klastrem. Oprócz tego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania kolejnych kont magazynu, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
+> [!WARNING]
+> Korzystanie z dodatkowego konta magazynu w innej lokalizacji niż klaster usługi HDInsight nie jest obsługiwane.
 
 ## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Korzystanie z usługi Azure Data Lake Store w połączeniu z klastrami usługi HDInsight
 

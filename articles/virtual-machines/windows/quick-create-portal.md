@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 17fb538b33a4a4a2b333ff501e6e729f6000f623
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Maszyny wirtualne platformy Azure można utworzyć za pomocą witryny Azure Portal. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie i konfigurowanie maszyn wirtualnych oraz wszystkich pokrewnych zasobów. Ten przewodnik Szybki start przeprowadza użytkownika przez proces tworzenia maszyny wirtualnej za pomocą witryny Azure Portal. Po ukończeniu wdrożenia nawiążemy połączenie z serwerem i zainstalujemy usługi IIS.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -42,7 +42,9 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
     ![Wprowadzanie podstawowych informacji o maszynie wirtualnej w bloku portalu](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
-5. Wybierz rozmiar maszyny wirtualnej i kliknij przycisk **Wybierz**.
+5. Wybierz rozmiar maszyny wirtualnej. Aby wyświetlić więcej rozmiarów, wybierz pozycje **Wyświetl wszystkie** lub zmień filtr **Obsługiwany typ dysku**. 
+
+    ![Zrzut ekranu przedstawiający rozmiary maszyn wirtualnych](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
 6. W bloku ustawień wybierz opcję **Tak** w obszarze **Używanie zarządzanych dysków**, zachowaj ustawienia domyślne dla pozostałych ustawień i kliknij przycisk **OK**.
 
@@ -58,7 +60,7 @@ Aby zezwolić na ruch dla usług IIS, musisz otworzyć port 80 dla ruchu w sieci
 2. W bloku grupy zasobów kliknij pozycję **Sieciowa grupa zabezpieczeń** na liście zasobów. Nazwa sieciowej grupy zabezpieczeń powinna być nazwą maszyny wirtualnej z dołączonym na końcu ciągiem -nsg.
 3. Kliknij nagłówek **Reguła zabezpieczeń dla ruchu przychodzącego**, aby otworzyć listę reguł ruchu przychodzącego. Na liście powinna już znajdować się reguła protokołu RDP.
 4. Kliknij pozycję **+ Dodaj**, aby otworzyć blok **Dodawanie reguły zabezpieczeń dla ruchu przychodzącego**.
-5. W polu **Nazwa** wpisz ciąg **IIS** i upewnij się, że w polu **Zakres portów** ustawiono wartość 80, a w polu **Akcja** — wartość **Zezwalaj**, a następnie kliknij przycisk **OK**.
+5. W polu **Nazwa** wpisz ciąg **IIS**. Upewnij się, że w polu **Zakres portów** ustawiono wartość 80, a w polu **Akcja** — wartość **Zezwalaj**. Kliknij przycisk **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
@@ -73,12 +75,12 @@ Po zakończeniu wdrożenia utwórz połączenie pulpitu zdalnego z maszyną wirt
 
 3. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej, a następnie kliknij przycisk **OK**.
 
-4. Podczas logowania może się pojawić ostrzeżenie o certyfikacie. Kliknij przycisk **Tak** lub **Kontynuuj**, aby kontynuować nawiązywanie połączenia.
+4. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Kliknij przycisk **Tak** lub **Kontynuuj**, aby kontynuować nawiązywanie połączenia.
 
 
 ## <a name="install-iis-using-powershell"></a>Instalowanie usług IIS przy użyciu programu PowerShell
 
-Teraz po zalogowaniu do maszyny wirtualnej platformy Azure możesz użyć jednego wiersza w programie PowerShell, aby zainstalować usługi IIS i włączyć lokalną regułę zapory, która zezwala na ruch w sieci Web.  Otwórz wiersz polecenia programu PowerShell i uruchom następujące polecenie:
+W maszynie wirtualnej otwórz wiersz polecenia programu PowerShell i uruchom poniższe polecenie, aby zainstalować usługi IIS i włączyć regułę zapory lokalnej w celu zezwolenia na ruch w sieci Web:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -90,13 +92,6 @@ Po zainstalowaniu usług IIS i otwarciu portu 80 na maszynie wirtualnej z Intern
 
 ![Domyślna witryna usług IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej
-
-Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą następującego polecenia.
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
 ## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. W tym celu wybierz grupę zasobów z bloku maszyny wirtualnej, a następnie kliknij przycisk **Usuń**.

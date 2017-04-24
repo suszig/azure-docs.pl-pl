@@ -28,6 +28,8 @@ Brama sieci VPN będzie anonsować następujące trasy na urządzeniach lokalnyc
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Czy można anonsować trasę domyślną (0.0.0.0/0) do bram sieci VPN platformy Azure?
 Tak.
 
+Pamiętaj, że spowoduje to wymuszenie całego ruchu wychodzącego do lokacji lokalnej i uniemożliwi maszynom wirtualnym sieci wirtualnej akceptowanie publicznej komunikacji bezpośrednio z Internetu, na przykład za pomocą protokołu RDP lub SSH z Internetu do maszyn wirtualnych.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Czy można anonsować takie same prefiksy jak prefiksy mojej sieci wirtualnej?
 
 Nie, anonsowanie takich samych prefiksów jak prefiksy adresów Twojej sieci wirtualnej zostanie zablokowane lub odfiltrowane przez platformę Azure. Można jednak anonsować prefiks, który jest podzbiorem tego, co znajduje się wewnątrz sieci wirtualnej. 
@@ -65,9 +67,4 @@ Brama sieci lokalnej platformy Azure określa początkowe prefiksy adresów dla 
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Co należy dodać do lokalnego urządzenia sieci VPN dla sesji połączenia równorzędnego protokołu BGP?
 Na urządzeniu sieci VPN należy dodać trasę hosta dla adresu IP elementu równorzędnego protokołu BGP platformy Azure wskazującego tunel sieci VPN S2S protokołu IPsec. Na przykład jeśli adresem IP elementu równorzędnego sieci VPN platformy Azure jest „10.12.255.30”, należy dodać trasę hosta dla adresu „10.12.255.30” z interfejsem następnego skoku pasującym do interfejsu tunelu protokołu IPsec urządzenia sieci VPN użytkownika.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 3366348e6ea3ae296bc249090e75c16ebe9fc1fb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -50,18 +50,26 @@ Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane
    - Grupa zasobów: **myResourceGroup**
    - Źródło: **Przykład (AdventureWorksLT)**
 
-4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować serwer dla nowej bazy danych. Wypełnij **formularz Nowy serwer** określający globalnie unikatową nazwę serwera, podaj nazwę dla identyfikatora logowania administratora serwera, a następnie podaj dowolnie wybrane hasło. 
+   > [!IMPORTANT]
+   > Musisz wybrać przykładową bazę danych w tym formularzu, ponieważ jest ona używana w pozostałej części tego przewodnika Szybki start.
+   > 
+
+4. Kliknij pozycję **Serwer**, wypełnij **formularz Nowy serwer** określający globalnie unikatową nazwę serwera, podaj nazwę dla identyfikatora logowania administratora serwera, a następnie podaj dowolnie wybrane hasło. 
+
+   > [!IMPORTANT]
+   > Login i hasło administratora serwera określone w tym miejscu będą wymagane do logowania do serwera i jego baz danych w późniejszej części tego przewodnika Szybki start. Zapamiętaj lub zapisz te informacje do wykorzystania w przyszłości. 
+   >  
 
     ![tworzenie serwera bazy danych](./media/sql-database-get-started-portal/create-database-server.png)
-5. Kliknij pozycję **Wybierz**.
+5. Po wypełnieniu formularza kliknij pozycję **Wybierz**.
 
-6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi i poziom wydajności dla nowej bazy danych. Na potrzeby tego przewodnika Szybki start wybierz **20 jednostek DTU** i **250** GB magazynu
+6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi i poziom wydajności dla nowej bazy danych. Użyj suwaka, aby wybrać pozycję **20 DTU** i **250** GB pamięci masowej. Aby uzyskać więcej informacji o jednostkach DTU, zobacz [Co to jest jednostka DTU?](sql-database-what-is-a-dtu.md).
 
     ![tworzenie bazy danych s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Kliknij przycisk **Zastosuj**.  
+7. Po wybraniu liczby jednostek DTU kliknij przycisk **Zastosuj**.  
 
-8. Kliknij pozycję **Utwórz**, aby aprowizować bazę danych. Aprowizacja zajmuje kilka minut. 
+8. Teraz po uzupełnieniu formularza SQL Database kliknij przycisk **Utwórz**, aby aprowizować bazę danych. Aprowizacja zajmuje kilka minut. 
 
 9. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
 
@@ -72,13 +80,26 @@ Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane
 
 Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem i wszelkimi bazami danych na tym serwerze, chyba że zostanie utworzona reguła zapory otwierająca zaporę dla konkretnych adresów IP. Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera usługi SQL Database](sql-database-firewall-configure.md) dla podanego adresu IP klienta i włączyć zewnętrzną łączność przez zaporę usługi SQL Database wyłącznie dla konkretnego adresu IP. 
 
-1. Po zakończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170327.database.windows.net**) i opcje dalszej konfiguracji.
+> [!NOTE]
+> Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli zachodzi taka sytuacja, nie będzie można nawiązać połączenia z serwerem Azure SQL Database, chyba że dział IT otworzy port 1433.
+>
 
-      ![reguła zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+1. Po zakończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych **mySampleDatabase** na stronie Bazy danych SQL. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170411.database.windows.net**) i opcje dalszej konfiguracji.
+
+   > [!IMPORTANT]
+   > Ta w pełni kwalifikowana nazwa serwera będzie potrzebna do nawiązania połączenia z serwerem i jego bazami danych w kolejnych przewodnikach Szybki start.
+   > 
+
+      ![nazwa serwera](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi, tak jak pokazano to na wcześniejszej ilustracji. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
 
-3. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, a następnie kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera.
+      ![reguła zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+
+3. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
+
+4. Kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera otwierająca port 1433 na serwerze logicznym.
 
       ![ustawianie reguły zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
@@ -86,13 +107,12 @@ Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia ze
 
 Teraz można połączyć się z serwerem usługi SQL Database i jego bazami danych przy użyciu programu SQL Server Management Studio lub innego wybranego narzędzia z tego adresu IP przy użyciu poprzednio utworzonego konta administratora serwera.
 
-> [!NOTE]
-> Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli zachodzi taka sytuacja, nie będzie można nawiązać połączenia z serwerem Azure SQL Database, chyba że dział IT otworzy port 1433.
->
+> [!IMPORTANT]
+> Domyślnie dostęp za pośrednictwem zapory usługi SQL Database jest włączony dla wszystkich usług platformy Azure. Kliknij przycisk **WYŁ.** na tej stronie, aby wyłączyć tę opcję dla wszystkich usług platformy Azure.
 
 ## <a name="query-the-sql-database"></a>Wykonywanie zapytań względem bazy danych SQL
 
-Przy tworzeniu baza danych SQL została wypełniona danymi z przykładowej bazy danych **AdventureWorksLT** (była to jedna z opcji wybrana wcześniej w tym przewodniku Szybki start w interfejsie użytkownika do tworzenia). Teraz użyjemy wbudowanego narzędzia zapytań w witrynie Azure Portal do uruchamiania zapytań o dane. 
+Teraz, po utworzeniu przykładowej bazy danych na platformie Azure, użyjemy wbudowanego narzędzia do obsługi zapytań w witrynie Azure Portal, aby potwierdzić, że możesz nawiązać połączenie z bazą danych i wysłać zapytanie dotyczące danych. 
 
 1. Na stronie SQL Database dla konkretnej bazy danych kliknij pozycję **Narzędzia** na pasku narzędzi. Zostanie otwarta strona **Narzędzia**.
 

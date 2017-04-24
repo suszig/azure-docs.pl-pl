@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 28a14cc68f44a278274e60cf46d5344c85dcc777
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="what-is-azure-event-hubs"></a>Co to jest usługa Azure Event Hubs?
-Event Hubs to wysoce skalowana platforma do strumieniowego przesyłania danych, która jest w stanie zbierać miliony zdarzeń na sekundę. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Dzięki udostępnieniu możliwości publikowania/subskrypcji z niskim opóźnieniem i na bardzo dużą skalę usługa Event Hubs służy jako „wjazd” dla danych big data.
+# <a name="what-is-event-hubs"></a>Co to jest usługa Event Hubs?
+Azure Event Hubs to wysoce skalowana platforma do strumieniowego przesyłania danych, która jest w stanie zbierać miliony zdarzeń na sekundę. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Dzięki udostępnieniu możliwości publikowania/subskrypcji z niskim opóźnieniem i na bardzo dużą skalę usługa Event Hubs służy jako „wjazd” dla danych big data.
 
 ## <a name="why-use-event-hubs"></a>Dlaczego warto korzystać z usługi Event Hubs?
 Możliwości obsługi zdarzeń i telemetrii w usłudze Event Hubs czynią ją szczególnie użyteczną do:
@@ -96,7 +96,7 @@ Każda jednostka, która odczytuje dane zdarzenia z centrum zdarzeń, jest *odbi
 ### <a name="consumer-groups"></a>Grupy odbiorców
 Mechanizm publikowania/subskrypcji usługi Event Hubs jest włączany za pomocą *grup odbiorców*. Grupa odbiorców stanowi widok (stan, pozycja lub przesunięcie) całego centrum zdarzeń. Dzięki grupom odbiorców wiele aplikacji odbiorczych może mieć osobny widok strumienia zdarzeń i niezależnie odczytywać strumień we własnym tempie i przy użyciu własnego przesunięcia.
 
-W architekturze przetwarzania strumieni każda aplikacja podrzędna odpowiada grupie odbiorców. Jeśli chcesz zapisać dane zdarzenia do magazynu długoterminowego, to ta aplikacja edytora magazynu odpowiada grupie odbiorców. Przetwarzanie złożonych zdarzeń może być wtedy wykonywane przez inną, oddzielną grupę odbiorców. Dostęp do partycji można uzyskać tylko za pośrednictwem grupy odbiorców. Każda partycja może mieć tylko jeden aktywny czytnik **z danej grupy odbiorców** jednocześnie. W centrum zdarzeń zawsze istnieje domyślna grupa odbiorców, a w przypadku centrum zdarzeń warstwy standardowej można utworzyć maksymalnie 20 grup odbiorców.
+W architekturze przetwarzania strumieni każda aplikacja podrzędna odpowiada grupie odbiorców. Jeśli chcesz zapisać dane zdarzenia do magazynu długoterminowego, to ta aplikacja edytora magazynu odpowiada grupie odbiorców. Przetwarzanie złożonych zdarzeń może być wtedy wykonywane przez inną, oddzielną grupę odbiorców. Dostęp do partycji można uzyskać tylko za pośrednictwem grupy odbiorców. Każda partycja może mieć tylko jeden aktywny czytnik **z danej grupy odbiorców** jednocześnie. W centrum zdarzeń zawsze istnieje domyślna grupa odbiorców, a w przypadku centrum zdarzeń warstwy Standardowa można utworzyć maksymalnie 20 grup odbiorców.
 
 Oto przykłady konwencji identyfikatora URI grupy odbiorców:
 

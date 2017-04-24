@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Otwórz blok Przeglądarka, aby wyświetlić agregowane dane wydajności z przeg
 
 ![W witrynie portal.azure.com otwórz zasób swojej aplikacji, a następnie kliknij kolejno opcje Ustawienia, Przeglądarki](./media/app-insights-javascript/03.png)
 
-*Jeszcze nie ma danych? Kliknij przycisk**Odśwież**w górnej części strony. Nadal nic? Zobacz [Rozwiązywanie problemów ](app-insights-troubleshoot-faq.md).*
+*Jeszcze nie ma danych? Kliknij przycisk **Odśwież** w górnej części strony. Nadal nic? Zobacz [Rozwiązywanie problemów ](app-insights-troubleshoot-faq.md).*
 
 Blok Przeglądarka jest [blokiem Eksploratora metryk](app-insights-metrics-explorer.md) z wstępnie ustawionymi filtrami i wybranymi wykresami. Jeśli chcesz, możesz edytować przedział czasu, filtry i konfiguracje wykresów, a następnie zapisać wynik jako ulubiony. Kliknij przycisk **Przywróć domyślne**, aby wrócić do oryginalnej konfiguracji bloku.
 
@@ -230,6 +230,6 @@ Chcesz dowiedzieć się, w jaki sposób użytkownicy korzystają z aplikacji?
 ## <a name="next"></a> Następne kroki
 * [Śledzenie użycia](app-insights-web-track-usage.md)
 * [Niestandardowe zdarzenia i metryki](app-insights-api-custom-events-metrics.md)
-* [Tworzenie — pomiar— nauka](app-insights-overview-usage.md)
+* [Tworzenie — pomiar— nauka](app-insights-web-track-usage.md)
 
 
