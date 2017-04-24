@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -60,7 +60,7 @@ Jeśli używasz programu System Center Operations Manager, jedna grupa zarządza
 
 Szczegółowe informacje o obszarze roboczym można wyświetlić w witrynie Azure Portal. Szczegółowe informacje można również wyświetlić w portalu pakietu OMS.
 
-#### <a name="view-workspace-information-the-azure-portal"></a>Wyświetlanie informacji o obszarze roboczym w witrynie Azure Portal
+#### <a name="view-workspace-information-in-the-azure-portal"></a>Wyświetlanie informacji o obszarze roboczym w witrynie Azure Portal
 
 1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu subskrypcji platformy Azure.
 2. W menu **Centrum** kliknij pozycję **Więcej usług** i na liście zasobów wpisz ciąg **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij pozycję **Log Analytics**.  
@@ -177,7 +177,7 @@ Możesz zmienić rolę konta użytkownika skojarzonego z Twoim kontem pakietu OM
 4. W oknie dialogowym potwierdzenia kliknij przycisk **Tak**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Usuwanie użytkownika z obszaru roboczego
-Poniżej przedstawiono procedurę usuwania użytkownika z obszaru roboczego. Usunięcie użytkownika nie powoduje zamknięcia obszaru roboczego. Powoduje to natomiast usunięcie skojarzenia między użytkownikiem i obszarem roboczym. Jeśli użytkownik jest skojarzony z wieloma obszarami roboczymi, będzie on nadal miał możliwość zalogowania się do pakietu OMS i wyświetlania innych obszarów roboczych.
+Poniżej przedstawiono procedurę usuwania użytkownika z obszaru roboczego. Usunięcie użytkownika nie powoduje zamknięcia obszaru roboczego. Powoduje to natomiast usunięcie skojarzenia między użytkownikiem i obszarem roboczym. Jeśli użytkownik został skojarzony z wieloma obszarami roboczymi, będzie nadal mieć możliwość zalogowania się do pakietu OMS i wyświetlania innych obszarów roboczych.
 
 1. W portalu pakietu OMS kliknij kafelek **Ustawienia**.
 2. Kliknij kartę **Konta**, a następnie kliknij kartę **Zarządzanie użytkownikami**.
@@ -202,9 +202,6 @@ Wszystkie obszary robocze utworzone po 26 września 2016 roku muszą być w czas
     > [!IMPORTANT]
     > Aby można było połączyć obszar roboczy, konto platformy Azure musi już mieć dostęp do obszaru roboczego, który chcesz połączyć.  Oznacza to, że konto używane do uzyskiwania dostępu do witryny Azure Portal musi być **tym samym kontem**, za pomocą którego jest uzyskiwany dostęp do obszaru roboczego. Jeśli nie jest, zobacz [Dodawanie użytkownika do istniejącego obszaru roboczego](#add-a-user-to-an-existing-workspace).
 
-
-
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Aby połączyć obszar roboczy z subskrypcją platformy Azure w witrynie Azure Portal
 1. Zaloguj się do [Azure Portal](http://portal.azure.com).
 2. Wyszukaj pozycję **Log Analytics** i wybierz ją.
@@ -225,7 +222,7 @@ Wszystkie obszary robocze utworzone po 26 września 2016 roku muszą być w czas
 8. Kliknij przycisk **OK**. Obszar roboczy jest teraz połączony z kontem platformy Azure.
 
 > [!NOTE]
-> Jeśli obszar roboczy, który chcesz połączyć, nie jest wyświetlany, oznacza to, że subskrypcja platformy Azure nie ma dostępu do obszaru roboczego utworzonego przy użyciu witryny sieci Web pakietu OMS.  Aby udzielić dostępu do tego konta z poziomu portalu pakietu OMS, zobacz sekcję [Dodawanie użytkownika do istniejącego obszaru roboczego](#add-a-user-to-an-existing-workspace).
+> Jeśli obszar roboczy, który chcesz połączyć, nie jest wyświetlany, oznacza to, że subskrypcja platformy Azure nie ma dostępu do obszaru roboczego utworzonego przy użyciu portalu pakietu OMS.  Aby udzielić dostępu do tego konta z poziomu portalu pakietu OMS, zobacz sekcję [Dodawanie użytkownika do istniejącego obszaru roboczego](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -250,7 +247,7 @@ Aby upewnić się, że uprawnienia subskrypcji pakietu OMS są uwzględniane w d
 Uprawnienia subskrypcji pakietu OMS nie są widoczne w witrynie Azure Portal lub w portalu pakietu OMS. Uprawnienia i użycie są natomiast widoczne w witrynie Enterprise Portal.  
 
 Jeśli chcesz zmienić subskrypcję platformy Azure, z którą jest połączony obszar roboczy, możesz użyć polecenia cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) programu Azure PowerShell.
-na
+
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Korzystanie z zobowiązania platformy Azure w ramach umowy Enterprise Agreement
 Jeśli nie masz subskrypcji pakietu OMS, zapłacisz osobno za każdy składnik tego pakietu, a dane użycia będą widoczne na rachunku dotyczącym platformy Azure.
 

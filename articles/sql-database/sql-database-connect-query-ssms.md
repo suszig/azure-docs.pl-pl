@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w 
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. W okienku **Essentials** na stronie bazy danych w witrynie Azure Portal zlokalizuj i skopiuj **nazwę serwera**.
+3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**.
 
    ![informacje o połączeniu](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Łączenie z serwerem i nową bazą danych
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Łączenie z bazą danych na serwerze logicznym SQL Database
 
 Użyj programu SQL Server Management Studio, aby nawiązać połączenie z serwerem Azure SQL Database. 
 
@@ -65,7 +66,7 @@ Użyj programu SQL Server Management Studio, aby nawiązać połączenie z serwe
 
    ![łączenie z serwerem](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Kliknij pozycję **Opcje**. W sekcji **Nawiązywanie połączenia z bazą danych** wprowadź ciąg **mySampleDatabase**, aby nawiązać połączenie z utworzoną uprzednio bazą danych.
+3. Kliknij przycisk **Opcje** w oknie dialogowym **Połącz z serwerem**. W sekcji **Nawiązywanie połączenia z bazą danych** wprowadź ciąg **mySampleDatabase**, aby nawiązać połączenie z tą bazą danych.
 
    ![nawiązywanie połączenia z bazą danych na serwerze](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ Użyj programu SQL Server Management Studio, aby nawiązać połączenie z serwe
 
    ![nawiązane połączenie z serwerem](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. W Eksploratorze obiektów rozwiń pozycję **Bazy danych**, a następnie rozwiń pozycję **mySampleDatabase**, aby wyświetlić obiekty w przykładowej bazie danych.
+5. W Eksploratorze obiektów rozwiń pozycję **Bazy danych**, a następnie rozwiń pozycję **mySampleDatabase**, aby wyświetlić obiekty w przykładowej bazie danych.
 
 ## <a name="query-data"></a>Zapytania o dane
 
@@ -91,7 +92,7 @@ Użyj instrukcji Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms1894
 
 3. Na pasku narzędzi kliknij opcję **Wykonaj**, aby pobrać dane z tabel Product i ProductCategory.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Wstawianie danych
 

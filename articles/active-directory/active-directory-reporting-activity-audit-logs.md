@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ Klikając pozycję w widoku listy, możesz uzyskać wszystkie szczegóły na jej
 Aby zawęzić zgłaszane dane do odpowiedniego poziomu, możesz odfiltrować dane inspekcji przy użyciu następujących pól:
 
 - Zakres dat
-- Zainicjowane przez
-- Kategoria
+- Zainicjowane przez (aktor)
 - Kategoria
 - Typ zasobu działania
 - Działanie
@@ -311,7 +310,7 @@ Za pomocą raportów inspekcji opartych na aplikacjach można uzyskać odpowiedz
 * Czy nazwy aplikacji zostały zmienione?
 * Kto udzielił zezwolenia dla aplikacji?
 
-Jeśli chcesz przeglądać dane inspekcji dotyczące aplikacji, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** bloku **Aplikacje dla przedsiębiorstw**. Ten punkt wejścia ma wartość **Aplikacja** wstępnie wybraną dla opcji **Typ zasobu działania**.
+Jeśli chcesz przeglądać dane inspekcji dotyczące aplikacji, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** bloku **Aplikacje dla przedsiębiorstw**. Ten punkt wejścia ma wartość **Aplikacje dla przedsiębiorstw** wstępnie wybraną dla opcji **Typ zasobu działania**.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/134.png "Dzienniki inspekcji")
 

@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -39,11 +40,7 @@ Magazyny usługi Recovery Services obsługują oba modele.  Możliwe jest utworz
 Kopie zapasowe klasycznych maszyn wirtualnych w magazynie usługi Backup nie są migrowane automatycznie do magazynu usługi Recovery Services podczas migracji maszyn wirtualnych z trybu klasycznego do trybu usługi Resource Manager. Wykonaj poniższe działania, aby przeprowadzić migrację kopii zapasowych maszyn wirtualnych:
 
 1. W magazynie usługi Backup przejdź do karty **Elementy chronione** i wybierz maszynę wirtualną. Kliknij pozycję [Zatrzymaj ochronę](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Pozostaw opcję *Usuń powiązane dane kopii zapasowych* **niezaznaczoną**.
-2. Przeprowadź migrację maszyny wirtualnej z trybu klasycznego do trybu usługi Resource Manager. Upewnij się, że magazyn i sieć odpowiadające maszynie wirtualnej również zostały zmigrowane do trybu usługi Resource Manager.
-3. Utwórz magazyn usługi Recovery Services i skonfiguruj kopię zapasową w zmigrowanej maszynie wirtualnej przy użyciu akcji **Kopia zapasowa** w górnej części pulpitu nawigacyjnego magazynu. Dowiedz się więcej na temat [włączania kopii zapasowych w magazynie usługi Recovery Services](backup-azure-vms-first-look-arm.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+2. W witrynie [Azure Portal](https://portal.azure.com) przejdź do menu **Rozszerzenia** dla maszyny wirtualnej i odinstaluj rozszerzenie **VMSnapshot/VMSnapshotLinux**.
+3. Przeprowadź migrację maszyny wirtualnej z trybu klasycznego do trybu usługi Resource Manager. Upewnij się, że magazyn i sieć odpowiadające maszynie wirtualnej również zostały zmigrowane do trybu usługi Resource Manager.
+4. Utwórz magazyn usługi Recovery Services i skonfiguruj kopię zapasową w zmigrowanej maszynie wirtualnej przy użyciu akcji **Kopia zapasowa** w górnej części pulpitu nawigacyjnego magazynu. Dowiedz się więcej na temat [włączania kopii zapasowych w magazynie usługi Recovery Services](backup-azure-vms-first-look-arm.md)
 

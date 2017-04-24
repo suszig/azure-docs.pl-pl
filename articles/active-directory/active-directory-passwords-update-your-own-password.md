@@ -16,9 +16,9 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9b7735bbe8d3b2ffc78eba8f1489d70a02fe7342
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,7 +31,7 @@ Jeśli dotyczą Cię następujące scenariusze, możemy Ci pomóc
 * Nie masz pewności, jak uzyskać dostęp do konta i nie pamiętasz hasła
 * Hasło nie zostało przypisane i administrator skierował Cię tutaj
 
-## <a name="unlock-your-account"></a>Odblokowywanie konta
+## <a name="unlock-my-account"></a>Odblokowywanie mojego konta
 
 Jeśli chcesz odblokować konto, wykonaj poniższe kroki. Po wyświetleniu okna **Wybierz nowe hasło** w kroku 6 poniżej możesz odblokować konto lub zmienić hasło i je odblokować.
 
@@ -43,6 +43,11 @@ Aby ponownie uzyskać dostęp do swojego konta, wykonaj poniższe kroki.
     ![Nie możesz uzyskać dostępu do konta?][Login]
 
 2. Wprowadź służbowy **Identyfikator użytkownika** i udowodnij, że nie jesteś robotem, przechodząc weryfikację CAPTCHA przez wprowadzenie wyświetlonego tekstu, a następnie kliknij przycisk **Dalej**
+
+   > [!NOTE]
+   > Jeśli administrator nie włączył tej funkcji, w tym momencie zostanie wyświetlony link „Skontaktuj się z administratorem”, aby administrator pomógł w tej sprawie za pośrednictwem poczty e-mail lub własnego portalu sieci Web.
+   >
+
 3. W zależności od konfiguracji przeprowadzonej przez administratora zostanie wyświetlona co najmniej jedna z poniższych opcji
     * **Wyślij e-mail na alternatywny adres e-mail** — powoduje wysłanie wiadomości e-mail z 6-cyfrowym kodem na Twój alternatywny adres e-mail lub adres e-mail uwierzytelniania (do wyboru).
     * **Wyślij wiadomość SMS na mój telefon komórkowy** — powoduje wysłanie wiadomości SMS z 6-cyfrowym kodem na numer telefonu komórkowego lub numer telefonu uwierzytelniania (do wyboru).
@@ -61,10 +66,6 @@ Aby ponownie uzyskać dostęp do swojego konta, wykonaj poniższe kroki.
 7. Po wyświetleniu komunikatu **Hasło zostało zresetowane** możesz zalogować się przy użyciu nowego hasła.
 
     ![Hasło zostało zresetowane][Complete]
-
-> [!NOTE]
-> Jeśli administrator nie włączył tej funkcji, zostanie wyświetlony link „Skontaktuj się z administratorem”, aby administrator pomógł w tej sprawie za pośrednictwem poczty e-mail lub własnego portalu sieci Web.
->
 
 Po użyciu tej metody do odblokowania konta lub zresetowania hasła możesz otrzymać wiadomość e-mail z potwierdzeniem ukończenia tego procesu pochodzącą z konta takiego jak „Firma Microsoft w imieniu firmy nazwa_Twojej_organizacji”. Jeśli otrzymasz taką wiadomość e-mail, ale samoobsługowe resetowanie hasła nie było używane w celu odzyskania dostępu do konta, skontaktuj się z administratorem.
 

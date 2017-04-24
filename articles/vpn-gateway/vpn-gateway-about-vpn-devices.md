@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: d7c4c5b118dade39bd47ae2c7836157589fcb45a
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,21 +33,21 @@ Urządzenie sieci VPN jest niezbędne do skonfigurowania połączenia sieci VPN 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Kwestie, które należy wziąć pod uwagę podczas przeglądania tabeli:
 
-* Nastąpiła zmiana terminologii w zakresie bram Azure VPN Gateway. Nie nastąpiła żadna zmiana w zakresie funkcjonalności — zmieniły się jedynie nazwy.
+* Nastąpiła zmiana terminologii w zakresie bram Azure VPN Gateway. Nie nastąpiła żadna zmiana funkcjonalności. Zmieniane są tylko nazwy.
   * Routing statyczny = PolicyBased
   * Routing dynamiczny = RouteBased
 * Specyfikacje dotyczące bramy VPN o wysokiej wydajności i bramy VPN typu RouteBased są takie same, o ile nie określono inaczej. Np. urządzenia sieci VPN zweryfikowane pod kątem poprawności, które są zgodne z bramami sieci VPN typu RouteBased, są również zgodne z bramą VPN Azure o wysokiej wydajności.
 
 > [!NOTE]
-> Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.                                                                                                                                                                               
+> Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.
+>                
 
-
-## <a name="devicetable"></a>Zweryfikowane urządzenia sieci VPN
+## <a name="devicetable"></a>Zweryfikowane urządzenia sieci VPN i przewodniki konfiguracji urządzenia
 Zweryfikowaliśmy szereg standardowych urządzeń sieci VPN we współpracy z ich dostawcami. Wszystkie urządzenia z rodzin ujętych na poniższej liście powinny współpracować z bramami sieci VPN Azure. Aby sprawdzić typ bramy niezbędnej do utworzenia rozwiązania, które chcesz skonfigurować, zobacz artykuł [Bramy sieci VPN — informacje](vpn-gateway-about-vpngateways.md).
 
-Aby łatwiej skonfigurować urządzenie sieci VPN, zapoznaj się z linkami odpowiadającymi ich poszczególnym rodzinom.  Linki do instrukcji konfiguracji zostały podane na zasadzie największej staranności. W celu uzyskania pomocy technicznej w zakresie urządzenia sieci VPN należy skontaktować się z jego producentem.
+Aby łatwiej skonfigurować urządzenie sieci VPN, zapoznaj się z linkami odpowiadającymi ich poszczególnym rodzinom. Linki do instrukcji konfiguracji zostały podane na zasadzie największej staranności. W celu uzyskania pomocy technicznej w zakresie urządzenia sieci VPN należy skontaktować się z jego producentem.
 
-|**Dostawca**          |**Rodzina urządzeń**     |**Minimalna wersja systemu operacyjnego** |**PolicyBased** |**RouteBased** |
+|**Dostawca**          |**Rodzina urządzeń**     |**Minimalna wersja systemu operacyjnego** |**Instrukcje dotyczące konfiguracji typu PolicyBased** |**Instrukcje dotyczące konfiguracji typu RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Niezgodne  |[Przewodnik po konfiguracji](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
 | Allied Telesis     |Routery sieci VPN z serii AR |2.9.2                  |Wkrótce     |Niezgodne  |
@@ -81,7 +81,7 @@ Jeśli urządzenie nie zostało ujęte w tabeli zweryfikowanych urządzeń sieci
 ## <a name="editing"></a>Edytowanie przykładów konfiguracji urządzenia
 Po pobraniu dostarczonej przykładowej konfiguracji urządzenia sieci VPN należy zastąpić niektóre z wartości w celu odzwierciedlenia ustawień własnego środowiska.
 
-###<a name="to-edit-a-sample"></a>Aby edytować przykładową konfigurację:
+### <a name="to-edit-a-sample"></a>Aby edytować przykładową konfigurację:
 
 1. Otwórz przykładową konfigurację za pomocą Notatnika.
 2. Wyszukaj i zamień wszystkie ciągi <*text*> z wartościami, które odnoszą się do używanego środowiska. Nie zapomnij o nawiasach < i >. Podczas określenia nazwy należy zwrócić uwagę na to, aby była ona unikatowa. Jeśli polecenie nie działa, zapoznaj się z dokumentacją producenta urządzenia.
@@ -185,7 +185,7 @@ W poniższej tabeli znajduje się lista ofert skojarzeń zabezpieczeń protokoł
 >
 >
 
-###<a name="feb-16-2017"></a>16 lutego 2017 r.
+### <a name="feb-16-2017"></a>16 lutego 2017 r.
 
 **Urządzenia Palo Alto Networks z systemem w wersjach wcześniejszych niż 7.1.4** w przypadku sieci VPN na platformie Azure opartych na trasie: Jeśli korzystasz z urządzeń VPN firmy Palo Alto Networks z systemem PAN-OS w wersji wcześniejszej niż 7.1.4 i napotykasz problemy z połączeniem z bramami sieci VPN platformy Azure opartymi na trasie, wykonaj następujące czynności:
 

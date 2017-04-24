@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
-ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -57,6 +58,67 @@ Program Storage Explorer (wersja zapoznawcza) oferuje wiele sposobów łączenia
 4. W okienku po lewej stronie są wyświetlane wszystkie konta magazynu skojarzone z wybranymi subskrypcjami platformy Azure.
 
     ![Wybrane subskrypcje platformy Azure][4]
+
+## <a name="connect-to-an-azure-stack-subscription"></a>Łączenie z subskrypcją usługi Azure Stack
+
+1. Eksplorator usługi Storage wymaga połączenia VPN do zdalnego uzyskiwania dostępu do subskrypcji usługi Azure Stack. Aby dowiedzieć się, jak skonfigurować połączenie VPN do usługi Azure Stack, zapoznaj się z tematem [Connect to Azure Stack with VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn) (Łączenie z usługą Azure Stack przy użyciu sieci VPN)
+
+2. W celu przeprowadzenia weryfikacji koncepcji usługi Azure Stack musisz wyeksportować certyfikat główny urzędu usługi Azure Stack. Otwórz plik `mmc.exe` na maszynie CON01 MAS, czyli maszynie hosta usługi Azure Stack lub lokalnej maszynie z połączeniem VPN z usługą Azure Stack. W menu **Plik** wybierz pozycję **Dodaj/Usuń przystawkę** i dodaj pozycję **Certyfikaty**, aby zarządzać pozycją **Konto komputera** dla **komputera lokalnego**.
+
+   ![Ładowanie certyfikatu głównego usługi Azure Stack za pośrednictwem pliku mmc.exe][25]   
+
+   Znajdź element **AzureStackCertificationAuthority** w obszarze **Katalog główny konsoli\Certyfikowane (komputer lokalny)\Zaufane główne urzędy certyfikacji\Certyfikaty**. Kliknij prawym przyciskiem myszy ten element i wybierz pozycję **Wszystkie zadania -> Eksportuj**. Następnie postępuj zgodnie z instrukcjami w oknach dialogowych, aby wyeksportować **certyfikat X.509 szyfrowany algorytmem Base-64 (CER)**. Wyeksportowany certyfikat będzie używany w następnym kroku.   
+
+   ![Eksportowanie certyfikatu głównego urzędu usługi Azure Stack][26]   
+
+3. W Eksploratorze usługi Storage (wersja zapoznawcza) wybierz menu **Edytuj**, a następnie wybierz kolejno pozycje **Certyfikaty SSL** i **Importuj certyfikaty**. Użyj okna dialogowego selektora plików, aby wyszukać i otworzyć certyfikat eksplorowany w poprzednim kroku. Po zaimportowaniu zobaczysz monit o ponowne uruchomienie Eksploratora usługi Storage.
+
+   ![Importowanie certyfikatu do Eksploratora usługi Storage (wersja zapoznawcza)][27]
+
+4. Po ponownym uruchomieniu Eksploratora usługi Storage (wersja zapoznawcza) wybierz menu **Edytuj** i upewnij się, że pozycja **Oznacz usługę Azure Stack jako cel** została zaznaczona. W przeciwnym razie zaznacz ją i ponownie uruchom Eksploratora usługi Storage, aby zastosować zmiany. Ta konfiguracja jest wymagana w celu zachowania zgodności ze środowiskiem usługi Azure Stack.
+
+   ![Sprawdzanie, czy pozycja Oznacz usługę Azure Stack jako cel została zaznaczona][28]
+
+5. Na pasku po lewej stronie wybierz pozycję **Zarządzaj kontami**. W lewym okienku są wyświetlane wszystkie konta Microsoft, na których się zalogowano. Aby połączyć się z kontem usługi Azure Stack, wybierz pozycję **Dodaj konto**.
+
+   ![Dodawanie konta usługi Azure Stack][29]
+
+6. Wybierz pozycję **Utwórz środowisko niestandardowe** w obszarze **Środowisko platformy Azure** w oknie dialogowym **Dodawanie nowego konta**, a następnie kliknij przycisk **Dalej**.
+
+7. Wprowadź wszystkie wymagane informacje dotyczące środowiska niestandardowego usługi Azure Stack, a następnie kliknij pozycję **Zaloguj się**.  Wypełnij pola okna dialogowego **Logowanie do środowiska niestandardowego chmury**, aby zalogować się za pomocą konta usługi Storage, które zostało skojarzone z co najmniej jedną aktywną subskrypcją usługi Azure Stack. Szczegółowe informacje dotyczące każdego pola w oknie dialogowym:
+
+    * **Nazwa środowiska** — pole z możliwością dostosowywania przez użytkownika.
+    * **Urząd** — wymagana wartość to https://login.windows.net. W przypadku chińskiej wersji platformy Azure China (Mooncake) użyj adresu https://login.chinacloudapi.cn.
+    * **Identyfikator zasobu logowania** — wartość należy pobrać, wykonując następujące polecenia programu PowerShell:
+
+    Jeśli jesteś administratorem chmury:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    Jeśli pracujesz w dzierżawie:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Punkt końcowy programu Graph** — wymagana wartość to https://graph.windows.net. W przypadku chińskiej wersji platformy Azure China (Mooncake) użyj adresu https://graph.chinacloudapi.cn.
+    * **Identyfikator zasobu usługi ARM** — należy użyć wartości pola Identyfikator zasobu logowania.
+    * **Punkt końcowy zasobu usługi ARM** — przykłady punktu końcowego zasobu usługi ARM:
+
+    W przypadku administratora chmury: https://adminmanagement.local.azurestack.external   
+    W przypadku dzierżawy: https://management.local.azurestack.external
+ 
+    * **Identyfikatory dzierżawy** — pole opcjonalne. Zawiera ono wartość tylko wtedy, gdy należy określić katalog.
+
+8. Po pomyślnym zalogowaniu się przy użyciu konta usługi Azure Stack w okienku po lewej stronie zostaną wyświetlone wszystkie subskrypcje usługi Azure Stack skojarzone z tym kontem. Wybierz subskrypcję usługi Azure Stack, przy użyciu której chcesz pracować, a następnie wybierz przycisk **Zastosuj**. (Zaznaczenie pola **Wszystkie subskrypcje** powoduje przełączenie między wyświetlaniem wszystkich lub żadnej z wymienionych subskrypcji usługi Azure Stack).
+
+   ![Wybieranie subskrypcji usługi Azure Stack po wypełnieniu pól okna dialogowego Środowisko niestandardowe chmury][30]
+
+9. W okienku po lewej stronie są wyświetlane wszystkie konta magazynu skojarzone z wybranymi subskrypcjami usługi Azure Stack.
+
+   ![Lista kont magazynu, w tym kont subskrypcji usługi Azure Stack][31]
 
 ## <a name="work-with-local-development-storage"></a>Praca z lokalnym magazynem projektowym
 Eksplorator usługi Storage (wersja zapoznawcza) umożliwia obsługę magazynu lokalnego przy użyciu emulatora usługi Azure Storage. Dzięki temu można pisać kod dla magazynu i testować go bez konieczności posiadania konta magazynu wdrożonego na platformie Azure, ponieważ konto magazynu jest emulowane przez emulator usługi Azure Storage.
@@ -207,9 +269,11 @@ Aby wyczyścić wyszukiwanie, wybierz przycisk **x** w polu wyszukiwania.
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
 

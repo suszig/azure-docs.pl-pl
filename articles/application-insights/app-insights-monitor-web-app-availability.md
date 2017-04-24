@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -34,23 +34,26 @@ Istnieją dwa typy testów sieci Web:
 
 Można utworzyć maksymalnie 10 testów sieci Web na każdy zasób aplikacji.
 
-## <a name="create"></a>1. Tworzenie zasobu dla raportów testowych
-Pomiń ten krok, jeśli masz już [skonfigurowany zasób usługi Application Insights][start] dla tej aplikacji i chcesz zobaczyć raporty dostępności w tym samym miejscu.
+## <a name="create"></a>1. Otwieranie zasobu dla raportów testów sieci Web
 
-Zaloguj się do platformy [Microsoft Azure](http://azure.com), przejdź do witryny [Azure Portal](https://portal.azure.com) i utwórz zasób usługi Application Insights.
+**Jeśli już skonfigurowano usługę Application Insights** dla aplikacji sieci Web, otwórz zasób usługi Application Insights w witrynie [Azure Portal](https://portal.azure.com).
+
+**Lub jeśli chcesz zobaczyć raporty w nowym zasobie**, zaloguj się do platformy [Microsoft Azure](http://azure.com), przejdź do witryny [Azure Portal](https://portal.azure.com) i utwórz zasób usługi Application Insights.
 
 ![Nowy > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Kliknij pozycję **Wszystkie zasoby**, aby otworzyć blok Omówienie dla nowego zasobu.
 
 ## <a name="setup"></a>2. Tworzenie testu ping adresu URL
-W zasobie usługi Application Insights poszukaj kafelka Dostępność. Kliknij go, aby otworzyć blok Testy sieci Web dla aplikacji, a następnie dodaj test sieci Web.
+Otwórz blok Dostępność i dodaj test sieci Web.
 
 ![Podaj przynajmniej adres URL swojej witryny sieci Web](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **Adres URL** musi być widoczny z publicznej sieci Internet. Może zawierać ciąg zapytania &#151; umożliwi to np. szybkie sprawdzenie działania bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.
-* **Analizuj zależne żądania**: obrazy, skrypty, pliki stylów i inne zasoby strony są żądane w ramach testu, a zarejestrowany czas odpowiedzi uwzględnia te czasy. Test zakończy się niepowodzeniem, jeśli nie uda się pobrać tych zasobów w ramach limitu czasu dla całego testu.
-* **Włącz ponawianie próby**: jeśli test nie powiedzie się, zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. (To ustawienie jest zalecane. Średnio około 80% błędów znika po ponowieniu testu).
+* **Adres URL** może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania &#151; umożliwi to np. szybkie sprawdzenie działania bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.
+* **Analizuj zależne żądania**: po zaznaczeniu pola tej opcji test zażąda obrazów, skryptów, plików stylów i innych plików, które są częścią strony sieci Web podlegającej testowaniu. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test zakończy się niepowodzeniem, jeśli nie uda się pobrać tych zasobów w ramach limitu czasu dla całego testu. 
+
+    Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL.
+* **Włącz ponawianie próby**: zaznaczenie pola tej opcji spowoduje, że nieudany test zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. Ta opcja jest zalecana. Średnio około 80% błędów znika po ponowieniu testu.
 * **Częstotliwość testu**: określa, jak często wykonywane są testy w poszczególnych lokalizacjach testowych. Przy częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.
 * **Lokalizacje testu** są to miejsca, z których nasze serwery wysyłają żądania sieci Web do Twojego adresu URL. Wybierz więcej niż jedną lokalizację, aby móc odróżnić problemy z witryną od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
 * **Kryteria powodzenia**:
@@ -67,14 +70,23 @@ W zasobie usługi Application Insights poszukaj kafelka Dostępność. Kliknij g
 ### <a name="test-more-urls"></a>Testowanie większej liczby adresów URL
 Dodaj więcej testów. Na przykład oprócz testowania strony głównej możesz sprawdzić, czy działa baza danych, testując adres URL dla wyszukiwania.
 
+
 ## <a name="monitor"></a>3. Wyświetlanie wyników testu sieci Web
-Po 1–2 minutach wyniki są wyświetlane w bloku Test sieci Web.
+
+Po upływie 5 minut kliknij pozycję **Odśwież**, aby zobaczyć wyniki testu. 
 
 ![Podsumowanie wyników w bloku głównym](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
 Kliknij dowolny słupek na wykresie podsumowania, aby uzyskać bardziej szczegółowy widok tego okresu.
 
-Wykresy zawierają wyniki wszystkich testów sieci Web dotyczących tej aplikacji.
+## <a name="edit"></a> Sprawdzanie i edytowanie testów
+
+Na stronie podsumowania wybierz określony test. Strona ta będzie zawierać określone wyniki, można ją również edytować lub wyłączać.
+
+![Edytowanie lub wyłączanie testu sieci Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+
+Wyłączenie testów sieci Web może być wskazane, gdy w Twojej usłudze trwa konserwacja.
+
 
 ## <a name="failures"></a>Jeśli widzisz błędy
 Kliknij czerwoną kropkę.
@@ -103,7 +115,9 @@ Możliwe jest monitorowanie scenariusza, który obejmuje sekwencję adresów URL
 
 Aby utworzyć test wieloetapowy, nagraj scenariusz przy użyciu programu Visual Studio Enterprise, a następnie przekaż nagranie do usługi Application Insights. Usługa Application Insights odtwarza ten scenariusz w określonych odstępach czasu i weryfikuje odpowiedzi.
 
-Podczas testów nie można jednak używać zakodowanych funkcji. Kroki scenariusza muszą być umieszczone w pliku .webtest jako skrypt.
+> [!NOTE]
+> W testach nie można używać pętli ani funkcji kodowanych. Test musi być całkowicie zawarty w skrypcie webtest. Można jednak używać wtyczek standardowych.
+>
 
 #### <a name="1-record-a-scenario"></a>1. Nagrywanie scenariusza
 Nagraj sesję sieci Web w programie Visual Studio Enterprise.
@@ -144,13 +158,19 @@ Nagraj sesję sieci Web w programie Visual Studio Enterprise.
 
     Ustaw lokalizacje testu, częstotliwość i parametry alertu w taki sam sposób, jak w przypadku testów ping.
 
+#### <a name="3-see-the-results"></a>3. Zobacz wyniki
+
 Wyświetl wyniki testu i ewentualne błędy w taki sam sposób, jak w przypadku testów pojedynczego adresu URL.
 
-Typową przyczyną błędu jest to, że test trwa zbyt długo. Nie może trwać dłużej niż dwie minuty.
+Ponadto możesz pobrać wyniki testów, aby wyświetlić je w programie Visual Studio.
 
-Pamiętaj, że wszystkie zasoby strony (skrypty, arkusze stylów, obrazy itd.) muszą załadować się poprawnie, aby test zakończył się powodzeniem.
+#### <a name="too-many-failures"></a>Zbyt wiele niepowodzeń?
 
-Test sieci Web musi być całkowicie zawarty w pliku .webtest — w teście nie można użyć funkcji zakodowanych.
+* Typową przyczyną błędu jest to, że test trwa zbyt długo. Nie może trwać dłużej niż dwie minuty.
+
+* Pamiętaj, że wszystkie zasoby strony (skrypty, arkusze stylów, obrazy itd.) muszą załadować się poprawnie, aby test zakończył się powodzeniem.
+
+* Test sieci Web musi być całkowicie zawarty w skrypcie webtest — w teście nie można użyć funkcji zakodowanych.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Dodawanie wtyczek czasu i liczb losowych do testu wieloetapowego
 Załóżmy, że testujesz narzędzie, które pobiera dane zależne od czasu (np. ceny akcji) z zewnętrznego źródła. Podczas rejestrowania testu sieci Web należy używać określonych godzin, ale ustawionych jako parametry testu: StartTime (Godzina rozpoczęcia) i EndTime (Godzina zakończenia).
@@ -211,12 +231,6 @@ Jeśli w ramach testu należy zalogować się przy użyciu protokołu OAuth, og�
 * Sparametryzuj tokeny, ustawiając parametr, gdy token jest zwracany z witryny uwierzytelniającej i używając go w zapytaniu do tej witryny.
   Program Visual Studio podejmie próby parametryzacji testu, ale parametryzacja tokenów nie przebiegnie poprawnie.
 
-## <a name="edit"></a> Edytowanie lub wyłączanie testu
-Otwórz wybrany test, aby go edytować lub wyłączyć.
-
-![Edytowanie lub wyłączanie testu sieci Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-Wyłączenie testów sieci Web może być wskazane, gdy w Twojej usłudze trwa konserwacja.
 
 ## <a name="performance-tests"></a>Testy wydajności
 W witrynie sieci Web można uruchomić test obciążenia. Podobnie jak w przypadku testu dostępności można wysłać proste żądania lub żądania wieloetapowe z naszych punktów na całym świecie. W przeciwieństwie do testu dostępności wysyłanych jest wiele żądań symulujących wielu równoczesnych użytkowników.
@@ -229,7 +243,7 @@ Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzeni
 * Automatyczne [konfigurowanie testów sieci web za pomocą skryptów środowiska PowerShell](app-insights-powershell.md#add-an-availability-test).
 * Konfigurowanie [elementu webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) który jest wywoływany przy zgłaszaniu alertu.
 
-## <a name="questions-problems"></a>Pytania? Problemy?
+## <a name="qna"></a>Pytania? Problemy?
 * *Czy mogę wywołać kod z mojego testu sieci Web?*
 
     Nie. Kroki testu muszą być zawarte w pliku .webtest. Nie można też wywoływać innych testów sieci Web ani używać pętli. Istnieje jednak kilka wtyczek, które mogą być przydatne.

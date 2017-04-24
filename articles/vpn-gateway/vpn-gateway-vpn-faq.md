@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 04/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
-ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 49aeb711de73bf967f330ec54385fb8bb36dd7ca
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -29,23 +30,23 @@ Tak. Nie ma żadnych ograniczeń dotyczących regionów. Jedna sieć wirtualna m
 Tak.
 
 ### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network"></a>Czy można łączyć się z wieloma lokalizacjami z jednej sieci wirtualnej?
-Można nawiązać połączenie z wieloma lokalizacjami za pomocą programu Windows PowerShell oraz interfejsów API REST Azure. Zobacz sekcję często zadawanych pytań dotyczących [połączeń obejmujących wiele lokalizacji i połączeń między sieciami wirtualnymi](#V2VMulti).
+Można nawiązać połączenie z wieloma lokalizacjami za pomocą programu Windows PowerShell oraz interfejsów API REST Azure. Zobacz sekcję często zadawanych pytań dotyczących [połączeń obejmujących wiele lokacji i połączeń między sieciami wirtualnymi](#V2VMulti).
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Jakie są dostępne możliwości połączeń obejmujących wiele lokalizacji?
 Obsługiwane są następujące połączenia obejmujące wiele lokalizacji:
 
-* [Lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md) — połączenie sieci VPN nawiązywane za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). Ten typ połączenia wymaga urządzenia VPN lub usługi RRAS.
-* [Punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md) — połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol). To połączenie nie wymaga urządzenia VPN.
-* [Sieć wirtualna-sieć wirtualna](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) — tego typu połączenie odpowiada konfiguracji typu lokacja-lokacja. Połączenie typu sieć wirtualna-sieć wirtualna to połączenie sieci VPN nawiązywane za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). To połączenie nie wymaga urządzenia VPN.
-* [Obejmujące wiele lokalizacji](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) — konfiguracja typu lokacja-lokacja, która pozwala połączyć z siecią wirtualną wiele lokalizacji lokalnych.
-* [ExpressRoute](../expressroute/expressroute-introduction.md) — ExpressRoute to bezpośrednie połączenie z siecią Azure nawiązane z poziomu sieci WAN, a nie z publicznego Internetu. Więcej informacji zawierają tematy [ExpressRoute — opis techniczny](../expressroute/expressroute-introduction.md) i [Usługa ExpressRoute — często zadawane pytania](../expressroute/expressroute-faqs.md).
+* Lokacja-lokacja — połączenie sieci VPN nawiązywane za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). Ten typ połączenia wymaga urządzenia VPN lub usługi RRAS. Aby uzyskać więcej informacji, zobacz [Lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Punkt-lokacja — połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol). To połączenie nie wymaga urządzenia VPN. Aby uzyskać więcej informacji, zobacz [Punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Sieć wirtualna-sieć wirtualna — tego typu połączenie odpowiada konfiguracji typu lokacja-lokacja. Połączenie typu sieć wirtualna-sieć wirtualna to połączenie sieci VPN nawiązywane za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). To połączenie nie wymaga urządzenia VPN. Aby uzyskać więcej informacji, zobacz [Sieć wirtualna-sieć wirtualna](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* Obejmujące wiele lokacji — konfiguracja typu lokacja-lokacja, która pozwala połączyć wiele lokacji lokalnych z siecią wirtualną. Aby uzyskać więcej informacji, zobacz [Wiele lokacji](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+* ExpressRoute — ExpressRoute to bezpośrednie połączenie z platformą Azure nawiązywane z poziomu sieci WAN, a nie połączenie sieci VPN z publicznego Internetu. Więcej informacji zawierają tematy [ExpressRoute — opis techniczny](../expressroute/expressroute-introduction.md) i [Usługa ExpressRoute — często zadawane pytania](../expressroute/expressroute-faqs.md).
 
 Aby uzyskać więcej informacji na temat połączeń bramy sieci VPN, zobacz artykuł [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md).
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Jaka jest różnica między połączeniem typu lokacja-lokacja i połączeniem typu punkt-lokacja?
-Konfiguracje **lokacja-lokacja** dotyczą połączenia między lokalizacją lokalną a platformą Azure. Oznacza to, że z poziomu dowolnego lokalnego komputera możesz połączyć się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej, w zależności od wybranej konfiguracji routingu. To rozwiązanie doskonale sprawdza się w przypadku zawsze dostępnych połączeń obejmujących wiele lokalizacji; jest to także dobry wybór w przypadku konfiguracji hybrydowych. Ten typ połączenia jest oparty na urządzeniu VPN (sprzętowym lub programowym) z protokołem IPsec, które musi zostać wdrożone na granicy sieci. W celu utworzenia tego typu połączenia niezbędne jest posiadanie wymaganego sprzętu VPN oraz adresu IPv4 dostępnego z zewnątrz.
+Konfiguracje **lokacja-lokacja** (tunel VPN protokołu IPsec/IKE) dotyczą połączenia między lokalizacją lokalną a platformą Azure. Oznacza to, że z poziomu dowolnego lokalnego komputera możesz połączyć się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej, w zależności od wybranej konfiguracji routingu i uprawnień. To rozwiązanie doskonale sprawdza się w przypadku zawsze dostępnych połączeń obejmujących wiele lokalizacji; jest to także dobry wybór w przypadku konfiguracji hybrydowych. Ten typ połączenia jest oparty na urządzeniu VPN (sprzętowym lub programowym) z protokołem IPsec, które musi zostać wdrożone na granicy sieci. W celu utworzenia tego typu połączenia musisz mieć dostępny z zewnątrz adres IPv4, który nie znajduje się poza translatorem adresów sieciowych.
 
-Konfiguracje **punkt-lokacja** umożliwiają połączenie się z pojedynczego komputera znajdującego się w dowolnym miejscu z innym dowolnym miejscem w sieci wirtualnej. Korzystają z wewnętrznego klienta VPN systemu Windows. W ramach konfiguracji typu punkt-lokacja należy zainstalować certyfikat i pakiet konfiguracji klienta VPN, który zawiera ustawienia umożliwiające komputerowi połączenie się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej. Doskonale sprawdzają się podczas nawiązywania połączenia z siecią wirtualną spoza obszaru organizacji. To także dobra opcja w sytuacji braku dostępu do sprzętu VPN lub adresu IPv4 dostępnego z zewnątrz, które są wymagane w przypadku połączeń typu lokacja-lokacja.
+Konfiguracje **punkt-lokacja** (VPN z protokołem SSTP) umożliwiają połączenie się z pojedynczego komputera znajdującego się w dowolnym miejscu z innym dowolnym miejscem w sieci wirtualnej. Korzystają z wewnętrznego klienta VPN systemu Windows. W ramach konfiguracji typu punkt-lokacja należy zainstalować certyfikat i pakiet konfiguracji klienta VPN, który zawiera ustawienia umożliwiające komputerowi połączenie się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej. Doskonale sprawdzają się podczas nawiązywania połączenia z siecią wirtualną spoza obszaru organizacji. To także dobra opcja w sytuacji braku dostępu do sprzętu VPN lub adresu IPv4 dostępnego z zewnątrz, które są wymagane w przypadku połączeń typu lokacja-lokacja.
 
 Sieć wirtualną można skonfigurować pod kątem równoległego użycia metod lokacja-lokacja i punkt-lokacja, o ile połączenie lokacja-lokacja zostanie utworzone z użyciem bramy sieci VPN opartej na trasach. Typy bramy sieci VPN oparte na trasach są w klasycznym modelu wdrażania nazywane bramami dynamicznymi.
 
@@ -61,9 +62,9 @@ Bramy oparte na zasadach wdrażają sieci VPN oparte na zasadach. Sieci VPN opar
 Bramy oparte na trasach wdrażają sieci VPN oparte na trasach. Sieci VPN oparte na trasach używają „tras” w funkcji przesyłania dalej IP lub tabeli routingu do kierowania pakietów do odpowiednich interfejsów tuneli. W dalszej kolejności interfejsy tuneli szyfrują lub odszyfrowują pakiety wchodzące do tuneli lub wychodzące z nich. Zasady lub selektor ruchu dla sieci VPN opartych na trasach są skonfigurowane jako każdy z każdym (lub symbole wieloznaczne).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Czy potrzebuję podsieci „GatewaySubnet”?
-Tak. Podsieć bramy zawiera adresy IP używane przez usługi bramy sieci wirtualnej. Aby skonfigurować bramę sieci wirtualnej, należy utworzyć podsieć bramy dla sieci wirtualnej. Aby podsieć bramy działała prawidłowo, musi nosić nazwę „GatewaySubnet”. Nie należy nadawać podsieci bramy innej nazwy. Nie należy także wdrażać maszyn wirtualnych ani innych elementów w ramach podsieci bramy.
+Tak. Podsieć bramy zawiera adresy IP używane przez usługi bramy sieci wirtualnej. Aby skonfigurować bramę sieci wirtualnej, musisz utworzyć podsieć bramy dla sieci wirtualnej. Aby podsieć bramy działała prawidłowo, musi nosić nazwę „GatewaySubnet”. Nie należy nadawać podsieci bramy innej nazwy. Nie należy także wdrażać maszyn wirtualnych ani innych elementów w ramach podsieci bramy.
 
-Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzielone do usługi bramy. Niektóre konfiguracje wymagają przydzielenia większej liczby adresów IP do usług bramy niż inne. Warto się upewnić, że podsieć bramy zawiera wystarczającą liczbę adresów IP na potrzeby przyszłego rozwoju i możliwe dodatkowe, nowe konfiguracje połączeń. Dlatego, chociaż można utworzyć małą podsieć bramy o rozmiarze /29, zaleca się tworzenie podsieci bramy /28 i większych (/28, /27, /26 itp.). Zapoznaj się z wymaganiami konfiguracji, którą chcesz utworzyć, i sprawdź, czy Twoja brama podsieci je spełni.
+Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzielone do usługi bramy. Niektóre konfiguracje wymagają przydzielenia większej liczby adresów IP do usług bramy niż inne. Warto się upewnić, że podsieć bramy zawiera wystarczającą liczbę adresów IP na potrzeby przyszłego rozwoju i możliwe dodatkowe, nowe konfiguracje połączeń. Dlatego, chociaż można utworzyć małą podsieć bramy o rozmiarze /29, zaleca się tworzenie podsieci bramy /27 i większych (/27, /26, /25 itp.). Zapoznaj się z wymaganiami konfiguracji, którą chcesz utworzyć, i sprawdź, czy Twoja brama podsieci je spełni.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Czy można wdrożyć maszyny wirtualne lub wystąpienia roli w ramach podsieci bramy?
 Nie.
@@ -106,11 +107,23 @@ Brama sieci VPN to zasadniczo wieloadresowe urządzenie, w przypadku którego je
 Aby uzyskać więcej informacji, zobacz temat [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md) (Informacje o ustawieniach konfiguracji bramy VPN Gateway).
 
 ## <a name="site-to-site-connections-and-vpn-devices"></a>Połączenia typu lokacja-lokacja a urządzenia sieci VPN
-### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Co należy wziąć pod uwagę przy wyborze urządzenia sieci VPN?
-Zweryfikowaliśmy we współpracy z dostawcami urządzeń szereg standardowych urządzeń sieci VPN wykorzystywanych w ramach połączeń typu lokacja-lokacja. Listę znanych zgodnych urządzeń sieci VPN, odpowiednie instrukcje konfiguracji lub przykłady oraz dane techniczne urządzeń można znaleźć [tutaj](vpn-gateway-about-vpn-devices.md). Wszystkie urządzenia z rodzin wymienionych jako rodziny o znanej zgodności powinny współpracować z siecią wirtualną. Aby skonfigurować urządzenie sieci VPN, zapoznaj się z przykładową konfiguracją urządzenia lub łączem odpowiadającym odpowiedniej rodzinie urządzeń.
 
-### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isnt-in-the-known-compatible-device-list"></a>Co zrobić, jeśli posiadane urządzenie sieci VPN nie zostało ujęte na liście znanych zgodnych urządzeń?
-Jeśli urządzenie, którego chcesz użyć w celu nawiązania połączenia sieci VPN, nie znajduje się na liście znanych zgodnych urządzeń sieci VPN, sprawdź, czy jest ono zgodne z obsługiwanymi opcjami konfiguracji protokołu IPsec/IKE i parametrami wymienionymi [tutaj](vpn-gateway-about-vpn-devices.md). Urządzenia spełniające minimalne wymagania powinny działać z bramami sieci VPN. Dodatkową pomoc oraz instrukcje dotyczące konfiguracji można uzyskać, kontaktując się z producentem urządzenia.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Co należy wziąć pod uwagę przy wyborze urządzenia sieci VPN?
+Zweryfikowaliśmy we współpracy z dostawcami urządzeń szereg standardowych urządzeń sieci VPN wykorzystywanych w ramach połączeń typu lokacja-lokacja. Listę znanych zgodnych urządzeń sieci VPN, odpowiednie instrukcje konfiguracji lub przykłady oraz dane techniczne urządzeń można znaleźć w artykule [Informacje na temat urządzeń sieci VPN](vpn-gateway-about-vpn-devices.md). Wszystkie urządzenia z rodzin wymienionych jako rodziny o znanej zgodności powinny współpracować z siecią wirtualną. Aby skonfigurować urządzenie sieci VPN, zapoznaj się z przykładową konfiguracją urządzenia lub łączem odpowiadającym odpowiedniej rodzinie urządzeń.
+
+### <a name="where-can-i-find-configuration-settings-for-vpn-devices"></a>Gdzie można znaleźć ustawienia konfiguracji dla urządzeń sieci VPN?
+
+Aby uzyskać linki do ustawień konfiguracji urządzeń, zobacz [Zweryfikowane urządzenia sieci VPN](vpn-gateway-about-vpn-devices.md#devicetable). Linki do ustawień konfiguracji urządzeń zostały podane na zasadzie największej staranności. Zawsze najlepiej jest skontaktować się z producentem urządzenia, aby uzyskać najnowsze informacje o konfiguracji.
+
+Przed skonfigurowaniem urządzenia sieci VPN, którego zamierzasz użyć, sprawdź, czy istnieją dla niego [znane problemy dotyczące zgodności urządzeń](vpn-gateway-about-vpn-devices.md#known).
+
+### <a name="how-do-i-edit-vpn-device-configuration-samples"></a>Jak edytować przykłady konfiguracji urządzenia sieci VPN?
+
+Aby uzyskać informacje na temat edytowania przykładów konfiguracji urządzeń, zobacz [Edytowanie przykładów](vpn-gateway-about-vpn-devices.md#editing).
+
+### <a name="where-do-i-find-ipsec-and-ike-parameters"></a>Gdzie można znaleźć parametry protokołów IPsec i IKE?
+
+Aby zapoznać się z parametrami protokołów IPsec/IKE, zobacz [Parametry](vpn-gateway-about-vpn-devices.md#ipsec).
 
 ### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle"></a>Dlaczego mój oparty na zasadach tunel VPN przestaje działać, gdy ruch jest w stanie bezczynności?
 Jest to oczekiwane zachowanie bram sieci VPN opartych na zasadach (znanych także jako bramy o routingu statycznym). Jeśli ruch za pośrednictwem tunelu będzie pozostawał w stanie bezczynności przez więcej niż 5 minut, nastąpi jego usunięcie. Natychmiast po rozpoczęciu ruchu danych w dowolnym kierunku będzie można ponownie ustanowić tunel.
@@ -120,11 +133,11 @@ W ramach konfiguracji typu lokacja-lokacja obejmującej wiele lokalizacji obsłu
 
 Inne rozwiązania o charakterze oprogramowania pełniącego rolę sieci VPN powinny współpracować z bramą, o ile są one zgodne ze standardowymi implementacjami protokołu IPsec stosowanymi w branży. W celu uzyskania pomocy technicznej oraz instrukcji konfiguracji należy skontaktować się z dostawcą oprogramowania.
 
-## <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>Połączenia typu punkt-lokacja
+## <a name="P2S"></a>Połączenia typu punkt-lokacja
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="a-namev2vmultiavnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Połączenia między sieciami wirtualnymi i połączenia obejmujące wiele lokacji
+## <a name="V2VMulti"></a>Połączenia między sieciami wirtualnymi i połączenia obejmujące wiele lokacji
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
@@ -142,7 +155,7 @@ Nie. Platforma Azure domyślnie generuje różne klucze wstępne dla różnych p
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>Czy przy większej liczbie połączeń VPN typu lokacja-lokacja można uzyskać większą przepustowość niż przy pojedynczej sieci wirtualnej?
 Nie, wszystkie tunele VPN, w tym połączenia VPN typu punkt-lokacja, współdzielą tę samą bramę sieci VPN platformy Azure i dostępną przepustowość.
 
-### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Czy można skonfigurować wiele tuneli między siecią wirtualną i lokalną lokacją z użyciem sieci VPN obejmującej wiele lokalizacji?
+### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Czy można skonfigurować wiele tuneli między siecią wirtualną i lokalną lokacją z użyciem sieci VPN obejmującej wiele lokacji?
 Tak, ale należy skonfigurować protokół BGP w obu tunelach do tej samej lokalizacji.
 
 ### <a name="can-i-use-point-to-site-vpns-with-my-virtual-network-with-multiple-vpn-tunnels"></a>Czy można używać sieci VPN typu punkt-lokacja z siecią wirtualną z wieloma tunelami VPN?
@@ -151,7 +164,7 @@ Tak, sieci VPN typu punkt-lokacja (P2S) można używać z bramami sieci VPN łą
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>Czy można połączyć sieć wirtualną z sieciami VPN wykorzystującymi protokół IPsec z obwodem ExpressRoute?
 Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać więcej informacji, zobacz artykuł [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md) (Konfigurowanie obwodu ExpressRoute i współistniejących połączeń sieci VPN typu lokacja-lokacja).
 
-## <a name="a-namebgpabgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a>Połączenia obejmujące wiele lokalizacji a maszyny wirtualne
@@ -170,8 +183,3 @@ Dodatkowe informacje dotyczące sieci wirtualnej można znaleźć w artykule [Vi
 
 * Więcej informacji o usłudze VPN Gateway można znaleźć w artykule [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md).
 * Aby uzyskać więcej informacji o ustawieniach konfiguracji bramy VPN Gateway, zobacz temat [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md) (Informacje o ustawieniach konfiguracji bramy VPN Gateway).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

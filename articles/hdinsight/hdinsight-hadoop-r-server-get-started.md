@@ -13,34 +13,43 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f816a6972c0e80c6a7063705917ecf18debc75f6
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Wprowadzenie do korzystania z oprogramowania R Server w usłudze HDInsight
+
 Usługa HDInsight obejmuje opcję oprogramowania R Server, którą można zintegrować z klastrem usługi HDInsight. Dzięki temu skrypty R mogą używać aparatu Spark i funkcji MapReduce do wykonywania obliczeń rozproszonych. Ten dokument umożliwia poznanie procedury tworzenia oprogramowania R Server w klastrze usługi HDInsight, a następnie uruchamiania skryptu R, który demonstruje sposób użycia aparatu Spark na potrzeby wykonywania rozproszonych obliczeń przez kod R.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Subskrypcja platformy Azure**: przed rozpoczęciem tego samouczka musisz mieć subskrypcję platformy Azure. Przejdź na stronę [Get a Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Uzyskaj bezpłatną wersję próbną platformy Azure), aby uzyskać więcej informacji.
+
+* **Subskrypcja platformy Azure**: przed rozpoczęciem tego samouczka musisz mieć subskrypcję platformy Azure. Przejdź do artykułu [Get a Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Uzyskaj bezpłatną wersję próbną platformy Azure), aby uzyskać więcej informacji.
 * **Klient protokołu Secure Shell (SSH)**: klient SSH jest używany do zdalnego łączenia z klastrem usługi HDInsight i uruchamiania poleceń bezpośrednio w klastrze. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Klucze SSH (opcjonalnie)**: konto SSH użyte do nawiązania połączenia z klastrem można zabezpieczyć przy użyciu hasła lub klucza publicznego. Użycie hasła jest łatwiejsze i umożliwia rozpoczęcie pracy bez konieczności tworzenia pary kluczy publiczny-prywatny. Jednak użycie klucza jest bezpieczniejsze.
 
-  * **Klucze SSH (opcjonalnie)**: konto SSH użyte do nawiązania połączenia z klastrem można zabezpieczyć przy użyciu hasła lub klucza publicznego. Użycie hasła jest łatwiejsze i umożliwia rozpoczęcie pracy bez konieczności tworzenia pary kluczy publiczny-prywatny. Jednak użycie klucza jest bezpieczniejsze.
+> [!NOTE]
+> W krokach przedstawionych w tym dokumencie przyjęto założenie, że jest używane hasło.
 
-      W krokach przedstawionych w tym dokumencie przyjęto założenie, że jest używane hasło.
 
 ### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
+
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="create-the-cluster"></a>Tworzenie klastra
-> [!NOTE]
-> Kroki opisane w tym dokumencie przeprowadzą Cię przez proces tworzenia oprogramowania R Server w klastrze usługi HDInsight przy użyciu podstawowej konfiguracji. Inne ustawienia konfiguracji klastra (takie jak dodawanie kolejnych kont magazynu, używanie usługi Azure Virtual Network lub tworzenie magazynu metadanych programu Hive) są opisane w artykule [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów usługi HDInsight opartych na systemie Linux). Aby utworzyć serwer R Server za pomocą szablonu usługi Azure Resource Management, zobacz [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Wdrażanie klastra usługi HDInsight serwera R Server).
->
->
+## <a name="automated-cluster-creation"></a>Zautomatyzowane tworzenie klastra
+
+Aby zautomatyzować tworzenie serwerów HDInsight R Server, możesz użyć szablonów usług ARM, zestawu SDK oraz programu PowerShell.
+
+* Aby utworzyć serwer R Server za pomocą szablonu usługi Azure Resource Management, zobacz [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Wdrażanie klastra usługi HDInsight serwera R Server).
+* Aby utworzyć serwer R Server za pomocą zestawu .NET SDK, zobacz [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) (Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu zestawu .NET SDK).
+* Aby wdrożyć serwer R Server za pomocą programu PowerShell, zobacz [Creating an R Server on HDInsight with PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) (Tworzenie serwera R Server w usłudze HDInsight przy użyciu programu PowerShell).
+
+
+## <a name="create-the-cluster-using-the-azure-portal"></a>Tworzenie klastra przy użyciu witryny Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -164,6 +173,7 @@ Jeśli wybrano dołączenie programu RStudio Server Community Edition do instala
    > Niezależnie od metody, pierwsze logowanie wymaga dwukrotnego uwierzytelnienia.  Podczas pierwszego uwierzytelniania podaj identyfikator użytkownika i hasło administratora klastra. Przy drugim monicie podaj identyfikator użytkownika i hasło połączenia SSH. Podczas kolejnych logowań będzie wymagany tylko identyfikator użytkownika i hasło połączenia SSH.
 
 ## <a name="connect-to-the-r-server-edge-node"></a>Łączenie z węzłem krawędzi oprogramowania R Server
+
 Połącz się z węzłem krawędzi oprogramowania R Server klastra usługi HDInsight za pomocą protokołu SSH:
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
@@ -225,6 +235,7 @@ Dostępne jest także adresowanie w stylu WASB.
 `rxHadoopListFiles("wasbs:///")`
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Używanie oprogramowania R Server w usłudze HDI ze zdalnego wystąpienia oprogramowania Microsoft R Server lub programu Microsoft R Client
+
 Według informacji w powyższej sekcji dotyczących użycia pary kluczy publiczny-prywatny w celu uzyskania dostępu do klastra jest możliwe skonfigurowanie dostępu do kontekstu obliczeniowego aparatu Spark usługi Hadoop w usłudze HDI ze zdalnego wystąpienia oprogramowania Microsoft R Server lub programu Microsoft R Client uruchomionego na komputerze stacjonarnym lub przenośnym — zobacz temat Using Microsoft R Server as a Hadoop Client (Używanie oprogramowania Microsoft R Server jako klienta usługi Hadoop) w sekcji [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Tworzenie kontekstu obliczeniowego dla aparatu Spark) przewodnika online [RevoScaleR Hadoop Spark Getting Started](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) (Wprowadzenie do programu RevoScaleR w ramach aparatu Spark w usłudze Hadoop).  W tym celu należy określić następujące opcje podczas definiowania kontekstu obliczeniowego programu RxSpark na komputerze przenośnym: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches i sshProfileScript. Na przykład:
 
 ```
@@ -253,6 +264,7 @@ Według informacji w powyższej sekcji dotyczących użycia pary kluczy publiczn
 
 
 ## <a name="use-a-compute-context"></a>Używanie kontekstu obliczeniowego
+
 Kontekst obliczeniowy pozwala na kontrolowanie, czy obliczenia będą wykonywane lokalnie, na węźle krawędzi lub czy będą rozproszone na węzłach klastra usługi HDInsight.
 
 1. W programie RStudio Server lub w konsoli R (w ramach sesji SSH) użyj następującej procedury, aby załadować przykładowe dane do domyślnego magazynu usługi HDInsight.
@@ -376,6 +388,7 @@ Kontekst obliczeniowy pozwala na kontrolowanie, czy obliczenia będą wykonywane
 
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Dystrybucja kodu R do wielu węzłów
+
 Za pomocą oprogramowania R Server możesz w łatwy sposób uruchomić istniejący kod R na wielu węzłach klastra za pomocą programu `rxExec`. Jest to przydatne podczas czyszczenia parametrów lub symulacji. Poniżej znajduje się przykład sposobu użycia programu `rxExec`.
 
 `rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )`
@@ -402,6 +415,7 @@ Jeśli nadal używasz kontekstu Spark lub MapReduce, zostanie zwrócona wartoś�
     ```
 
 ## <a name="accessing-data-in-hive-and-parquet"></a>Dostęp do danych w usługach Hive i Parquet
+
 Nowa funkcja dostępna w oprogramowaniu R Server 9.0 i nowszym umożliwia bezpośredni dostęp do danych za pomocą technologii Hive i Parquet w celu użycia ich w funkcjach programu ScaleR w kontekście obliczeniowym aparatu Spark. Te możliwości są dostępne za pomocą nowych funkcji źródła danych programu ScaleR o nazwie RxHiveData i RxParquetData, które używają kodu Spark SQL do ładowania danych bezpośrednio do elementów DataFrame aparatu Spark na potrzeby analizy przez program ScaleR.  
 
 Poniżej przedstawiono przykładowy kod korzystający z nowych funkcji:
@@ -456,6 +470,7 @@ Dodatkowe informacje na temat tych nowych funkcji zawiera pomoc online oprogramo
 
 
 ## <a name="install-r-packages"></a>Instalowanie pakietów R
+
 Jeśli chcesz zainstalować dodatkowe pakiety R na węźle krawędzi, możesz użyć polecenia `install.packages()` bezpośrednio z konsoli R, gdy masz połączenie SSH z węzłem krawędzi. Jednak jeśli potrzebujesz zainstalować pakiety R na węzłach procesu roboczego klastra, musisz użyć akcji skryptu.
 
 Akcje skryptu są to skrypty powłoki Bash używane do wprowadzania zmian w konfiguracji klastra usługi HDInsight lub instalowania dodatkowego oprogramowania. W tym przypadku do instalowania dodatkowych pakietów R. Aby zainstalować dodatkowe pakiety przy użyciu akcji skryptu, wykonaj następujące kroki.
@@ -501,6 +516,7 @@ Akcje skryptu są to skrypty powłoki Bash używane do wprowadzania zmian w konf
 4. Wybierz polecenie **Utwórz**, aby uruchomić skrypt. Po zakończeniu działania skryptu pakiety R będą dostępne na wszystkich węzłach procesu roboczego.
 
 ## <a name="using-microsoft-r-server-operationalization"></a>Używanie funkcji opernacjonalizacji oprogramowania Microsoft R Server
+
 Po zakończeniu modelowania danych możesz zopernacjonalizować model, aby wykonywać prognozowanie. Aby skonfigurować funkcję opernacjonalizacji oprogramowania Microsoft R Server, wykonaj poniższe kroki.
 
 Nawiąż połączenie SSH z węzłem krawędzi. Na przykład ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
@@ -577,6 +593,7 @@ remoteLogin(
 
 
 ### <a name="decommission-the-worker-nodes"></a>Likwidowanie węzłów procesu roboczego
+
 Oprogramowanie Microsoft R Server nie jest aktualnie zarządzane za pomocą usługi Yarn. Jeśli węzły procesu roboczego nie zostaną zlikwidowane, menedżer zasobów usługi Yarn nie będzie działać w oczekiwany sposób, ponieważ nie będzie znał zasobów zajętych przez serwer. Aby tego uniknąć, zalecamy zlikwidowanie węzłów procesu roboczego, na które mają być skalowane węzły obliczeniowe.
 
 Kroki likwidowania węzłów procesu roboczego:
@@ -604,6 +621,7 @@ Kroki likwidowania węzłów procesu roboczego:
 * Zamknij narzędzie administracyjne
 
 ### <a name="add-compute-nodes-details-on-web-node"></a>Dodawanie szczegółów węzłów obliczeniowych na węźle sieci Web
+
 Po skonfigurowaniu wszystkich zlikwidowanych węzłów procesu roboczego pod kątem uruchamiania węzła obliczeniowego wróć do węzła krawędzi i dodaj adresy IP zlikwidowanych węzłów procesu roboczego do konfiguracji węzła sieci Web oprogramowania Microsoft R Server:
 
 * Połącz się z węzłem krawędzi za pomocą protokołu SSH
@@ -613,6 +631,7 @@ Po skonfigurowaniu wszystkich zlikwidowanych węzłów procesu roboczego pod ką
 ![wiersz polecenia likwidowania węzłów procesu roboczego](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 ## <a name="next-steps"></a>Następne kroki
+
 Teraz, gdy już wiesz, jak utworzyć nowy klaster usługi HDInsight z oprogramowaniem R Server i znasz podstawy korzystania z konsoli R w sesji SSH, użyj informacji w następujących sekcjach, aby poznać inne sposoby pracy z oprogramowaniem R Server w usłudze HDInsight.
 
 * [Add RStudio Server to HDInsight (if not installed during cluster creation)](hdinsight-hadoop-r-server-install-r-studio.md) (Dodawanie programu RStudio Server do usługi HDInsight — jeśli nie zainstalowano podczas tworzenia klastra)

@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: overview
+ms.custom: compare
 ms.workload: data-management
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 28edde3e70bca833d888cdf9831c1544d8cdd4bb
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 48e95d51cb9414fb5ff50e587645ee6fd46abd5b
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -82,7 +82,7 @@ Ograniczone fundusze są często podstawowym czynnikiem decydującym o wyborze s
 #### <a name="billing-and-licensing-basics"></a>Podstawowe informacje dotyczące rozliczeń i licencjonowania
 **Rozwiązanie SQL Database** jest sprzedawane klientom jako usługa, a nie z licencją.  [Program SQL Server w usłudze Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) jest sprzedawany z dołączoną licencją płatną według stawki minutowej. Możesz również użyć istniejącej licencji, jeśli ją masz.  
 
-Obecnie usługa **SQL Database** jest dostępna w kilku warstwach, z których wszystkie są rozliczane godzinowo według stałej stawki ustalanej na podstawie warstwy usługi i wybranego poziomu wydajności. Rozliczany jest również internetowy ruch wychodzący po zwykłych [stawkach transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/). Warstwy usług Podstawowa, Standardowa i Premium zapewniają przewidywalną wydajność i obejmują wiele poziomów wydajności, aby spełnić szczytowe wymagania aplikacji. Warstwy usług i poziomy wydajności można zmieniać, aby odpowiadały one zróżnicowanym potrzebom aplikacji związanym z przepływnością. Jeśli baza danych obejmuje dużą liczbę transakcji i musi obsługiwać wielu użytkowników równocześnie, zalecamy warstwę Premium. Najnowsze informacje dotyczące bieżących obsługiwanych warstw usług można znaleźć w temacie [Warstwy usług w usłudze Azure SQL Database](sql-database-service-tiers.md). Można również utworzyć [pule elastyczne](sql-database-elastic-pool.md) do udostępniania zasobów wydajności między wystąpieniami bazy danych.
+Obecnie usługa **SQL Database** jest dostępna w kilku warstwach, z których wszystkie są rozliczane godzinowo według stałej stawki ustalanej na podstawie warstwy usługi i wybranego poziomu wydajności. Rozliczany jest również internetowy ruch wychodzący po zwykłych [stawkach transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/). Warstwy usług Podstawowa, Standardowa, Premium i Premium RS zapewniają przewidywalną wydajność i obejmują wiele poziomów wydajności, aby spełnić szczytowe wymagania aplikacji. Warstwy usług i poziomy wydajności można zmieniać, aby odpowiadały one zróżnicowanym potrzebom aplikacji związanym z przepływnością. Jeśli baza danych obejmuje dużą liczbę transakcji i musi obsługiwać wielu użytkowników równocześnie, zalecamy warstwę Premium. Najnowsze informacje dotyczące bieżących obsługiwanych warstw usług można znaleźć w temacie [Warstwy usług w usłudze Azure SQL Database](sql-database-service-tiers.md). Można również utworzyć [pule elastyczne](sql-database-elastic-pool.md) do udostępniania zasobów wydajności między wystąpieniami bazy danych.
 
 W przypadku usługi **SQL Database** oprogramowanie bazy danych jest automatycznie konfigurowane, poprawiane i uaktualniane przez firmę Microsoft, co obniża koszty administracyjne. Ponadto [wbudowana funkcja tworzenia kopii zapasowych](sql-database-automated-backups.md) pozwala osiągnąć znaczne oszczędności kosztów, zwłaszcza w przypadku dużej liczby baz danych.
 
@@ -120,7 +120,7 @@ Dla wielu firm decyzja o przeniesieniu usług do usługi w chmurze wiąże się 
 ### <a name="service-level-agreement-sla"></a>Umowa dotycząca poziomu usług (SLA)
 Dla wielu działów IT wypełnienie zobowiązań wynikających z umowy dotyczącej poziomu usług (SLA) ma najwyższy priorytet. W tej sekcji opisano, jakie warunki umowy SLA stosuje się do poszczególnych opcji obsługi bazy danych.
 
-W przypadku warstw usług Podstawowej, Standardowej i Premium usługi **SQL Database** firma Microsoft gwarantuje dostępność na poziomie 99,99%. Najnowsze informacje można znaleźć w artykule [SQL Database — umowa SLA](https://azure.microsoft.com/support/legal/sla/sql-database/). Najnowsze informacje dotyczące warstw usługi SQL Database oraz obsługiwanych planów ciągłości działalności biznesowej znajdują się w temacie [Warstwy usług](sql-database-service-tiers.md).
+W przypadku warstw usług Podstawowej, Standardowej, Premium i Premium RS usługi **SQL Database** firma Microsoft gwarantuje dostępność na poziomie 99,99%. Najnowsze informacje można znaleźć w artykule [SQL Database — umowa SLA](https://azure.microsoft.com/support/legal/sla/sql-database/). Najnowsze informacje dotyczące warstw usługi SQL Database oraz obsługiwanych planów ciągłości działalności biznesowej znajdują się w temacie [Warstwy usług](sql-database-service-tiers.md).
 
 W przypadku **programu SQL Server uruchomionego na maszynach wirtualnych platformy Azure** firma Microsoft zapewnia dostępność na poziomie 99,95%, która obejmuje tylko maszyny wirtualne. Umowa SLA nie obejmuje procesów (np. programu SQL Server) uruchomionych na maszynie wirtualnej i wymaga obsługi przynajmniej dwóch wystąpień maszyny wirtualnej w zbiorze dostępności. Najnowsze informacje znajdują się w artykule [Maszyny wirtualne — umowa SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Aby uzyskać wysoką dostępność bazy danych w maszynach wirtualnych, należy skonfigurować jedną z obsługiwanych opcji wysokiej dostępności w programie SQL Server, np. [Zawsze włączone grupy dostępności](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Użycie obsługiwanej opcji wysokiej dostępności nie zapewnia dodatkowej umowy SLA, ale umożliwia osiągnięcie dostępności bazy danych na poziomie > 99,99%.
 
@@ -143,7 +143,7 @@ Wybierz rozwiązanie **SQL Server na maszynach wirtualnych Azure**, jeśli:
 * Masz istniejące zasoby IT i możesz ostatecznie samodzielnie zarządzać poprawkami, kopiami zapasowymi i wysoką dostępnością bazy danych. Należy zauważyć, że niektóre funkcje automatyczne umożliwiają znaczne uproszczenie tych operacji. 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby rozpocząć pracę z usługą SQL Database, zobacz [Your first Azure SQL Database](sql-database-get-started.md) (Twoja pierwsza baza danych Azure SQL Database).
+* Aby rozpocząć pracę z usługą SQL Database, zobacz [Your first Azure SQL Database](sql-database-get-started-portal.md) (Twoja pierwsza baza danych Azure SQL Database).
 * Zobacz [Cennik usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Aby rozpocząć pracę z programem SQL Server na maszynach wirtualnych platformy Azure, zobacz temat [Aprowizowanie maszyny wirtualnej programu SQL Server w Portalu Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
 

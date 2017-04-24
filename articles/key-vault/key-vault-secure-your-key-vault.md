@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -31,7 +31,7 @@ Na potrzeby uwierzytelniania płaszczyzna zarządzania i płaszczyzna danych uż
 
 Oto krótki przegląd omówionych tematów:
 
-[Uwierzytelnianie przy użyciu usługi Azure Active Directory](#authentication-using-azure-active-direcrory) — w tej sekcji opisano, jak obiekt wywołujący uwierzytelnia się za pomocą usługi Azure Active Directory w celu uzyskania dostępu do magazynu kluczy za pośrednictwem płaszczyzny zarządzania i płaszczyzny danych. 
+[Uwierzytelnianie przy użyciu usługi Azure Active Directory](#authentication-using-azure-active-directory) — w tej sekcji opisano, jak obiekt wywołujący uwierzytelnia się za pomocą usługi Azure Active Directory w celu uzyskania dostępu do magazynu kluczy za pośrednictwem płaszczyzny zarządzania i płaszczyzny danych. 
 
 [Płaszczyzna zarządzania i płaszczyzna danych](#management-plane-and-data-plane) — płaszczyzna zarządzania i płaszczyzna danych to dwie płaszczyzny używane do uzyskiwania dostępu do magazynu kluczy. Każda płaszczyzna dostępu obsługuje konkretne operacje. W tej sekcji opisano punkty końcowe dostępu, obsługiwane operacje i metody kontroli dostępu używane przez każdą płaszczyznę. 
 

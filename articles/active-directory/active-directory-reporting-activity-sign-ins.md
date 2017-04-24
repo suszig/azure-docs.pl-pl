@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -44,7 +44,7 @@ Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać o
 * Ilu użytkowników zalogowało się w ciągu tygodnia?
 * Jaki jest stan tych logowań?
 
-Pierwszym punktem wejścia do wszystkich danych dotyczących logowania jest pozycja **Logowania** w sekcji Działania usługi **Azure Active** Directory.
+Pierwszym punktem wejścia do wszystkich danych dotyczących logowania jest pozycja **Logowania** w sekcji Działania usługi **Azure Active**. Directory.
 
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/61.png "Działania związane z logowaniem")

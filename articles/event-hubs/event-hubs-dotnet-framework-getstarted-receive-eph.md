@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ Event Hubs to usługa, która przetwarza duże ilości danych zdarzeń (danych t
 
 W tym samouczku pokazano, jak napisać aplikację konsoli .NET Framework, która odbiera komunikaty z centrum zdarzeń za pomocą **[hosta procesora zdarzeń][EventProcessorHost]**. Aby wysyłać zdarzenia przy użyciu programu .NET Framework, zobacz artykuł [Wysyłanie zdarzeń do usługi Azure Event Hubs za pomocą programu .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) lub kliknij odpowiedni język wysyłający w spisie treści po lewej stronie.
 
-[Host procesora zdarzeń][EventProcessorHost] jest klasą .NET, która upraszcza odbieranie zdarzeń z usługi Event Hubs przez zarządzanie trwałymi punktami kontrolnymi i równoległymi odbiorami z tej usługi. Za pomocą [hosta procesora zdarzeń][Event Processor Host] można podzielić zdarzenia między wieloma odbiornikami, nawet w przypadku hostowania w różnych węzłach. W tym przykładzie przedstawiono, jak używać [hosta procesora zdarzeń][EventProcessorHost] dla jednego odbiornika. W przykładzie [Skalowanie przetwarzania zdarzeń][Scale out Event Processing with Event Hubs] przedstawiono instrukcje korzystania z [hosta procesora zdarzeń][EventProcessorHost] z wieloma odbiornikami.
+[Host procesora zdarzeń][EventProcessorHost] jest klasą .NET, która upraszcza odbieranie zdarzeń z centrów zdarzeń przez zarządzanie trwałymi punktami kontrolnymi i równoległymi odbiorami z tej usługi. Za pomocą [hosta procesora zdarzeń][Event Processor Host] można podzielić zdarzenia między wieloma odbiornikami, nawet w przypadku hostowania w różnych węzłach. W tym przykładzie przedstawiono, jak używać [hosta procesora zdarzeń][EventProcessorHost] dla jednego odbiornika. W przykładzie [Skalowanie przetwarzania zdarzeń][Scale out Event Processing with Event Hubs] przedstawiono instrukcje korzystania z [hosta procesora zdarzeń][EventProcessorHost] z wieloma odbiornikami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -119,14 +119,14 @@ Aby móc korzystać z [hosta procesora zdarzeń][EventProcessorHost], trzeba mie
      }
      ```
     
-     Klasa ta zostanie wywołana przez klasę **EventProcessorHost** do przetwarzania zdarzeń odebranych z Centrum zdarzeń. Należy pamiętać, że klasa `SimpleEventProcessor` używa stopera, aby okresowo wywoływać metodę punktu kontrolnego w kontekście klasy **EventProcessorHost**. Daje to gwarancję, że jeśli odbiornik zostanie ponownie uruchomiony, nie straci więcej niż pięć minut operacji przetwarzania.
+     Klasa ta zostanie wywołana przez klasę **EventProcessorHost** do przetwarzania zdarzeń odebranych z centrum zdarzeń. Należy pamiętać, że klasa `SimpleEventProcessor` używa stopera, aby okresowo wywoływać metodę punktu kontrolnego w kontekście klasy **EventProcessorHost**. Daje to gwarancję, że jeśli odbiornik zostanie ponownie uruchomiony, nie straci więcej niż pięć minut operacji przetwarzania.
 11. W klasie **Program** dodaj następującą instrukcję `using` w górnej części pliku:
     
      ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
-     Następnie zastąp metodę `Main` w klasie `Program` następującym kodem, zastępując nazwę Centrum zdarzeń i parametry połączenia na poziomie przestrzeni nazw, które zostały zapisane wcześniej, oraz konto magazynu i klucz skopiowane we wcześniejszych sekcjach. 
+     Następnie zastąp metodę `Main` w klasie `Program` następującym kodem, zastępując nazwę centrum zdarzeń i parametry połączenia na poziomie przestrzeni nazw, które zostały zapisane wcześniej, oraz konto magazynu i klucz skopiowane we wcześniejszych sekcjach. 
     
      ```csharp
      static void Main(string[] args)
@@ -168,7 +168,7 @@ Gratulacje! Odebrano komunikaty z centrum zdarzeń za pomocą hosta procesora zd
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarzeń oraz wysyła i odbiera dane, możesz dowiedzieć się więcej, przechodząc pod jeden z następujących linków:
+Teraz, gdy masz utworzoną działającą aplikację, która tworzy centrum zdarzeń oraz wysyła i odbiera dane, możesz dowiedzieć się więcej, odwiedzając jeden z następujących linków:
 
 * [hosta procesora zdarzeń](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Przegląd usługi Event Hubs][Event Hubs overview]
