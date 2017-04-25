@@ -40,8 +40,3 @@
     ![Podsumowanie](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia** > **Serwery** w magazynie.
-
-
-<!--HONumber=Feb17_HO4-->
-
-
