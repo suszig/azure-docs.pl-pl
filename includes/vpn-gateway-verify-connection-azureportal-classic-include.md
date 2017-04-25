@@ -11,7 +11,3 @@ Przechodząc w witrynie Azure Portal do połączenia, można sprawdzić stan po�
 5. Aby wyświetlić więcej informacji o połączeniu, kliknij nazwę połączenia w celu otwarcia bloku **Połączenia VPN lokacja-lokacja**.
 
     ![Więcej informacji o stanie połączenia](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Więcej informacji o stanie połączenia")
-
-<!--HONumber=Jan17_HO5-->
-
-
