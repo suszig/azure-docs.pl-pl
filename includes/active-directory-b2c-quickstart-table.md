@@ -6,8 +6,3 @@
 | [Wywoływanie interfejsu API sieci Web z aplikacji sieci Web platformy .NET](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md) | [Dodawanie funkcji rejestracji i logowania do aplikacji jednostronicowej Javascript (NodeJS)](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)| |
 | [Dodawanie funkcji rejestracji i logowania do aplikacji ASP.NET Core](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | | |
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

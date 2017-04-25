@@ -10,7 +10,3 @@ Ta opcja szybkiego startu przedstawia proste wykonywanie podstawowej funkcji wyz
   Omówienie planów usług dostępnych w środowisku Azure Functions, w tym planu hostingowego zużycia, oraz sposobu wybierania właściwego planu. 
 * [Co to jest usługa Azure App Service?](../articles/app-service/app-service-value-prop-what-is.md)  
   Środowisko Azure Functions używa platformy Azure App Service na potrzeby funkcji podstawowych, takich jak wdrożenia, zmienne środowiskowe i diagnostyka. 
-
-<!--HONumber=Feb17_HO1-->
-
-
