@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/25/2017
+ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -53,7 +54,7 @@ W tym kroku opisano użycie programu Azure PowerShell do utworzenia fabryki dany
     ```    
    * Uruchom poniższe polecenie, aby wyświetlić wszystkie subskrypcje dla tego konta.
     ```PowerShell
-    Get-AzureRmSubscription 
+    Get-AzureRmSubscription    
     ```
    * Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Ta subskrypcja powinna być taka sama jak używana w witrynie Azure Portal.
     ```PowerShell
@@ -413,9 +414,4 @@ W tym artykule opisano tworzenie potoku za pomocą działania przekształcania (
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

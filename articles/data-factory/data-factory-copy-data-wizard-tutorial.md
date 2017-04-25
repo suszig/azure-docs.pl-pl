@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/24/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -159,10 +160,5 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
 | [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem konstruowania za ich pomocą przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
