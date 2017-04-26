@@ -3,8 +3,3 @@
 > [PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > [Interfejs wiersza polecenia platformy Azure](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > [Szablon](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

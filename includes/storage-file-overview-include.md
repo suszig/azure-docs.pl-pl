@@ -5,8 +5,3 @@ Ponieważ udział usługi File Storage to standardowy udział plików SMB, aplik
 
 Udziały plików platformy Azure można tworzyć przy użyciu witryny [Azure Portal](https://portal.azure.com), poleceń cmdlet programu PowerShell usługi Azure Storage, bibliotek klienckich usługi Azure Storage lub interfejsu API REST usługi Azure Storage. Ponadto ponieważ te udziały plików są udziałami SMB, można z nich korzystać za pośrednictwem standardowych i znanych interfejsów API systemu plików.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-
