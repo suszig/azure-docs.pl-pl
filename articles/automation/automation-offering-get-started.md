@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -211,7 +211,7 @@ Po pomyślnym utworzeniu konta usługi Automation automatycznie zostanie utworzo
 | AzureClassicAutomationTutorial Runbook | Przykładowy graficzny element runbook, który pobiera wszystkie maszyny wirtualne tworzone za pomocą klasycznego modelu wdrożenia w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikatu), a następnie zapisuje nazwę i stan maszyny wirtualnej. |
 | AzureClassicAutomationTutorial Script Runbook | Przykładowy element runbook programu PowerShell, który pobiera wszystkie klasyczne maszyny wirtualne w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikatu), a następnie zapisuje nazwę i stan maszyny wirtualnej. |
 | AzureClassicRunAsCertificate | Automatycznie utworzony zasób certyfikatu, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów runbook. Certyfikat ma roczny okres obowiązywania. |
-| AzureClassicRunAsConnection | Automatycznie utworzony zasób połączenia, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów runbook. |uwierzytelnianie za pomocą platformy Azure, aby można było zarządzać zasobami klasycznej platformy Azure z poziomu elementów Runbook. |
+| AzureClassicRunAsConnection | Automatycznie utworzony zasób połączenia, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów runbook.|
 
 ## <a name="next-steps"></a>Następne kroki
 * Możesz potwierdzić, że Twoje nowe konto usługi Automation może uwierzytelniać względem zasobów platformy Azure, sprawdzając [test uwierzytelniania konta Uruchom jako usługi Azure Automation](automation-verify-runas-authentication.md).

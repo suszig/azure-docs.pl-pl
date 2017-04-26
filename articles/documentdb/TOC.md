@@ -4,6 +4,7 @@
 ## [Co to jest usługa DocumentDB: interfejs API dla bazy danych MongoDB?](documentdb-protocol-mongodb.md)
 ## [Kluczowe pojęcia](documentdb-resources.md)
 ## [Dystrybucja globalna](documentdb-distribute-data-globally.md)
+## [Praca w trybie failover w regionach](documentdb-regional-failovers.md)
 ## [Bezpieczeństwo](documentdb-nosql-database-security.md)
 ## [Analiza NoSQL całkowitego kosztu posiadania](https://aka.ms/documentdb-tco-paper)
 ## Scenariusze
@@ -47,7 +48,6 @@
 ### [Modelowanie danych](documentdb-modeling-data.md)
 ### [Automatyczne wygaszanie danych](documentdb-time-to-live.md)
 ### [Tworzenie kopii zapasowej i przywracanie](documentdb-online-backup-and-restore.md)
-### [Praca w trybie failover w regionach](documentdb-regional-failovers.md)
 ### Automatyzacja
 #### [Interfejs wiersza polecenia platformy Azure 2.0](documentdb-automation-resource-manager-cli.md)
 #### [Interfejs wiersza polecenia platformy Azure 1.0: tworzenie konta](documentdb-automation-resource-manager-cli-nodejs.md)

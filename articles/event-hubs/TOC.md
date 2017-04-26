@@ -29,7 +29,6 @@
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Dzienniki diagnostyczne](event-hubs-diagnostic-logs.md)
-### [Uwierzytelnianie i autoryzacja](../service-bus-messaging/service-bus-sas.md)
 ### [Przewodnik dotyczący protokołu AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Zarządzanie
 ### [Biblioteki zarządzania usługi Event Hubs](event-hubs-management-libraries.md)

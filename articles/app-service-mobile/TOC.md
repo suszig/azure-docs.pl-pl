@@ -22,7 +22,7 @@
 
 ## Tworzenie aplikacji sieci Web
 ### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [PHP](../app-service-web/app-service-web-get-started-php.md)
 ### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
 ### [Java](../app-service-web/app-service-web-get-started-java.md)
 ### [Python](../app-service-web/app-service-web-get-started-python.md)
@@ -68,7 +68,7 @@
 #### [Dodawanie powiadomień wypychanych](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [Praca z zestawem SDK klienta](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Xamarin.Android 
+### Xamarin.Android
 #### [Włączanie synchronizacji offline](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Dodawanie uwierzytelniania](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Dodawanie powiadomień wypychanych](app-service-mobile-xamarin-android-get-started-push.md)
@@ -78,7 +78,6 @@
 #### [Włączanie synchronizacji offline](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Dodawanie uwierzytelniania](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Dodawanie powiadomień wypychanych](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Nawiązywanie połączenia z usługą Azure Storage w aplikacji platformy Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [Praca z zestawem SDK klienta](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -194,7 +193,6 @@
 ### [Zarządzanie aplikacjami za pomocą usługi Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integracja
-### [Nawiązywanie połączenia z usługą Azure Storage w aplikacji platformy Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
 ### [Dostęp do zasobów lokalnych za pomocą połączeń hybrydowych](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Jak wysyłać pocztę e-mail przy użyciu usługi SendGrid platformy Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -219,10 +217,10 @@
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
-## [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Cennik](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Przykłady
 ### [Field Engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Synchronizacja danych strukturalnych](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
