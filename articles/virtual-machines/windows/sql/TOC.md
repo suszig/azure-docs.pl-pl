@@ -1,6 +1,6 @@
 # Omówienie
 ## [What is SQL Server on Azure VMs?](virtual-machines-windows-sql-server-iaas-overview.md) (Co to jest program SQL Server na maszynach wirtualnych platformy Azure?) 
-## [Cennik](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [Cennik](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Często zadawane pytania](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Rozpoczęcie pracy
@@ -48,9 +48,4 @@
 ## [Narzędzia programu SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
