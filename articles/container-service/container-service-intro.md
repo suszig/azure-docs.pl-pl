@@ -74,6 +74,8 @@ Koordynator Docker Swarm zapewnia natywne klastrowanie dla platformy Docker. Pon
 
 ![Usługa Azure Container Service skoordynowana do użycia platformy Swarm.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Do narzędzi do zarządzania kontenerami w klastrze Swarm należą, między innymi, następujące narzędzia:
 
 * Dokku
