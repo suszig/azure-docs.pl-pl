@@ -1,6 +1,8 @@
 # Omówienie
 ## [Co to jest usługa Azure DNS?](dns-overview.md)
 ## [Strefy i rekordy DNS](dns-zones-records.md)
+## [Delegowanie DNS za pomocą systemu DNS platformy Azure](dns-domain-delegation.md)
+## [Często zadawane pytania na temat systemu DNS](dns-faq.md)
 
 # Wprowadzenie
 
@@ -10,7 +12,7 @@
 ### [Interfejs wiersza polecenia platformy Azure 1.0](dns-getstarted-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure 2.0](dns-getstarted-cli.md)
 
-## [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md)
+## [Delegowanie domeny do usługi Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Tworzenie niestandardowych rekordów DNS aplikacji sieci Web](dns-web-sites-custom-domain.md)
 
 # Instrukcje

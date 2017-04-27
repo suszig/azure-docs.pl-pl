@@ -13,20 +13,30 @@
     href: quick-create-portal.md
   - name: "Tworzenie maszyny wirtualnej — PowerShell"
     href: quick-create-powershell.md
+- name: "Samouczki"
+  items:
+  - name: "1 — Tworzenie maszyn wirtualnych/zarządzanie nimi"
+    href: tutorial-manage-vm.md
+  - name: "2 — Tworzenie dysków/zarządzanie nimi"
+    href: tutorial-manage-disks.md
+  - name: "3 — Automatyzowanie konfiguracji"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 — Tworzenie obrazów maszyn wirtualnych"
+    href: tutorial-custom-images.md
+  - name: "5 — Maszyny wirtualne o wysokiej dostępności"
+    href: tutorial-availability-sets.md
+  - name: "6 — Tworzenie zestawu skalowania maszyn wirtualnych"
+    href: tutorial-create-vmss.md
+  - name: "7 — Równoważnie obciążenia maszyn wirtualnych"
+    href: tutorial-load-balancer.md
+  - name: "8 — Zarządzanie siecią"
+    href: tutorial-virtual-network.md
 - name: "Przykłady"
   items:
   - name: "Interfejs wiersza polecenia platformy Azure"
     href: cli-samples.md
   - name: "PowerShell"
     href: powershell-samples.md
-- name: "Samouczki"
-  items:
-  - name: "Tworzenie maszyny wirtualnej i zarządzanie nią"
-    href: tutorial-manage-vm.md
-  - name: "Równoważenie obciążenia maszyn wirtualnych o wysokiej dostępności"
-    href: tutorial-load-balance-nodejs.md
-  - name: "Tworzenie zestawu skalowania maszyny wirtualnej"
-    href: tutorial-create-vmss.md
 - name: "Pojęcia"
   items:
   - name: "Dystrybucje zatwierdzone dla platformy Azure"

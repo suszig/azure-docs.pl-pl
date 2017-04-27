@@ -1,10 +1,11 @@
 # Omówienie
+## [Integracja z usługą Azure AD](active-directory-how-to-integrate.md)
 ## [Przewodnik dla deweloperów](active-directory-developers-guide.md)
 ## [Aplikacje i usługa Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Słownik deweloperów](active-directory-dev-glossary.md)
-## [Interfejs API funkcji AAD Graph](active-directory-graph-api.md)
+## [Interfejs API funkcji Azure AD Graph](active-directory-graph-api.md)
 # Przewodniki Szybki start
-## [Jak uzyskać dzierżawę usługi AAD](active-directory-howto-tenant.md)
+## [Jak uzyskać dzierżawę usługi Azure AD](active-directory-howto-tenant.md)
 ## [Integrowanie aplikacji z usługą AAD](active-directory-integrating-applications.md)
 ## Aplikacje dla urządzeń przenośnych i komputerów
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Interfejs API sieci Web
 ### [Interfejs API sieci Web i .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [Interfejs API funkcji AAD Graph](active-directory-graph-api-quickstart.md)
+## [Interfejs API funkcji Azure AD Graph](active-directory-graph-api-quickstart.md)
 # Przewodniki
-## [Wzorce uwierzytelniania](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Wzorce uwierzytelniania](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Aplikacje natywne](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Aplikacje sieci Web](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Interfejs API sieci Web](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [Protokół SAML logowania jednokrotnego](active-directory-single-sign-on-protocol-reference.md)
 ### [Protokół SAML wylogowania jednokrotnego](active-directory-single-sign-out-protocol-reference.md)
 ## Praca z programem Visual Studio
-### [Wprowadzenie do usługi Azure Active Directory i usług połączonych programu Visual Studio (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [Wprowadzenie do usług połączonych programu Visual Studio (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Wystąpił błąd podczas wykrywania uwierzytelniania](vs-active-directory-error.md)
 ### [Wprowadzenie do interfejsu API sieci Web](vs-active-directory-webapi-getting-started.md)
 ### [Co się stało z moim projektem interfejsu API sieci Web](vs-active-directory-webapi-what-happened.md)

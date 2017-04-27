@@ -1,7 +1,6 @@
 # Omówienie
-## [Co to jest usługa DevTest Labs?](devtest-lab-overview.md)
-## [Dlaczego usługa DevTest Labs?](devtest-lab-why.md)
-## [DevTest Labs — pojęcia](devtest-lab-concepts.md)
+## [Informacje o usłudze Azure DevTest Labs](devtest-lab-overview.md)
+## [Pojęcia](devtest-lab-concepts.md)
 
 # Wprowadzenie
 ## [Tworzenie laboratorium](devtest-lab-create-lab.md)
