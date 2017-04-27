@@ -1,10 +1,9 @@
 # Omówienie
 ## [Wprowadzenie do usługi Azure Data Factory](data-factory-introduction.md)
 ## Pojęcia
-### [Zestawy danych](data-factory-create-datasets.md)
 ### [Potoki i działania](data-factory-create-pipelines.md)
+### [Zestawy danych](data-factory-create-datasets.md)
 ### [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md)
-### [Usługi połączone usługi Compute](data-factory-compute-linked-services.md)
 
 # Wprowadzenie
 ## [Samouczek: tworzenie potoku w celu kopiowania danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,6 +20,7 @@
 ### [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Szablon usługi Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 ### [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Samouczek: Przenoszenie danych między środowiskiem lokalnym i chmurą](data-factory-move-data-between-onprem-and-cloud.md)
 ## [Często zadawane pytania](data-factory-faq.md)
 
 # Instrukcje
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Tabela sieci Web](data-factory-web-table-connector.md)
 ### [Brama zarządzania danymi](data-factory-data-management-gateway.md)
-### [Przenoszenie danych między komputerem lokalnym i chmurą](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Przekształcanie danych](data-factory-data-transformation-activities.md)
 ### [Działania technologii Hive w usłudze HDInsight](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
 ### [Wywoływanie skryptów języka R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Ponowne przetwarzanie modeli w usługach Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Usługi połączone usługi Compute](data-factory-compute-linked-services.md)
 
 ## Programowanie
 ### [Szablon usługi Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)

@@ -8,6 +8,7 @@
 ## [Wprowadzenie do wstępnie skonfigurowanych rozwiązań](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Uprawnienia w witrynie azureiotsuite.com](iot-suite-permissions.md)
 ## [Omówienie rozwiązania do konserwacji zapobiegawczej](iot-suite-predictive-overview.md)
+## [Omówienie rozwiązania połączonej fabryki](iot-suite-connected-factory-overview.md)
 ## [Przewodnik po rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Przewodnik po rozwiązaniu do konserwacji zapobiegawczej](iot-suite-predictive-walkthrough.md)
 
@@ -21,6 +22,7 @@
 ## [Korzystanie z telemetrii dynamicznej z rozwiązaniem do zdalnego monitorowania](iot-suite-dynamic-telemetry.md)
 ## [Tworzenie reguły niestandardowej w rozwiązaniu do zdalnego monitorowania](iot-suite-custom-rule.md)
 ## [Informacje o urządzeniu w rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-device-info.md)
+## [Wdrażanie bramy dla połączonej fabryki](iot-suite-connected-factory-gateway-deployment.md)
 
 # Dokumentacja
 ## [Architektura zabezpieczeń](iot-security-architecture.md)
@@ -39,10 +41,5 @@
 ## [Ścieżka szkoleniowa dla Pakietu IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

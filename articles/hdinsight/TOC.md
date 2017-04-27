@@ -105,6 +105,7 @@
 ### [Konfigurowanie zasad technologii Hive](hdinsight-domain-joined-run-hive.md)
 ## Korzystanie z oprogramowania Kafka (wersja zapoznawcza)
 ### [Replikowanie danych oprogramowania Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Używanie z sieciami wirtualnymi](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Używanie z platformą Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Używanie z systemem Storm](hdinsight-apache-storm-with-kafka.md)
 ## Programowanie

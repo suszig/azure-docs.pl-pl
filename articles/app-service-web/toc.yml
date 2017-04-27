@@ -21,18 +21,22 @@
     href: app-service-web-get-started-python.md
   - name: "Tworzenie statycznej witryny HTML"
     href: app-service-web-get-started-html.md
+- name: "Samouczki"
+  items:
+  - name: "1 — .NET z SQL DB"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "1 — Node.js z MongoDB"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "2 — Mapowanie domeny niestandardowej"
+    href: app-service-web-tutorial-custom-domain.md
+  - name: "3 — Powiązywanie certyfikatu SSL"
+    href: app-service-web-tutorial-custom-ssl.md
 - name: "Przykłady"
   items:
   - name: "Interfejs wiersza polecenia platformy Azure"
     href: app-service-cli-samples.md
   - name: "PowerShell"
     href: app-service-powershell-samples.md
-- name: "Samouczki"
-  items:
-  - name: "Platforma .NET z usługą SQL Database"
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "Środowisko Node.js z bazą danych MongoDB"
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: "Pojęcia"
   items:
   - name: "Jak działa usługa App Service"
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: "Przypisywanie niestandardowego połączenia SSL"
       items:
-      - name: "Kupowanie certyfikatu SSL"
-        href: web-sites-purchase-ssl-web-site.md
       - name: "Konfigurowanie certyfikatu SSL innej firmy"
         href: web-sites-configure-ssl-certificate.md
     - name: "Wymuszanie protokołu HTTPS"

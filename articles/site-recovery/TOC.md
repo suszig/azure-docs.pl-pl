@@ -9,16 +9,17 @@
 
 # Wprowadzenie
 ## [Replikacja maszyn wirtualnych VMware do platformy Azure](site-recovery-vmware-to-azure.md)
-## [Replikacja maszyn wirtualnych VMware do platformy Azure we wdrożeniu wielodostępnym (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replikacja serwerów fizycznych do platformy Azure](site-recovery-physical-servers-to-azure.md) 
 ## [Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure (z programem VMM)](site-recovery-vmm-to-azure.md)
 ## [Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure](site-recovery-hyper-v-site-to-azure.md)
-## [Replikacja maszyn wirtualnych VMware i serwerów fizycznych do lokacji dodatkowej](site-recovery-vmware-to-vmware.md)
 ## [Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej (z programem VMM)](site-recovery-vmm-to-vmm.md)
+## [Replikacja maszyn wirtualnych VMware i serwerów fizycznych do lokacji dodatkowej](site-recovery-vmware-to-vmware.md)
+## [Replikacja maszyn wirtualnych VMware do platformy Azure we wdrożeniu wielodostępnym (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # Instrukcje
 ## Planowanie
 ### [Wymagania wstępne dotyczące wdrożenia](site-recovery-prereq.md)
-### [Zagadnienia związane z infrastrukturą sieciową](site-recovery-network-design.md)
+### [Planowanie infrastruktury sieci](site-recovery-network-design.md)
 ### [Planowanie wydajności i skalowanie replikacji oprogramowania VMware do platformy Azure](site-recovery-plan-capacity-vmware.md)
 ### [Planista wdrożenia na potrzeby replikacji oprogramowania VMware na platformie Azure](site-recovery-deployment-planner.md)
 ### [Planista wydajności na potrzeby replikacji funkcji Hyper-V](site-recovery-capacity-planner.md)
@@ -31,7 +32,7 @@
 #### [Wdrażanie usługi mobilności za pomocą programu System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Wdrażanie usługi mobilności przy użyciu usługi Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
 ### [Włączanie replikacji](site-recovery-replicate-vmware-to-azure.md)
-## Praca w trybie failover i powrót po awarii
+## Przechodzenie do trybu failover i powrót po awarii
 ### [Przełączanie chronionych maszyn w tryb failover](site-recovery-failover.md)
 ### [Konfigurowanie planów odzyskiwania](site-recovery-create-recovery-plans.md)
 #### [Dodawanie elementów Runbook platformy Azure do planów odzyskiwania](site-recovery-runbook-automation.md)

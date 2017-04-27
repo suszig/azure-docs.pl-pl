@@ -10,6 +10,12 @@
 ## [Create your first template](resource-manager-create-first-template.md) (Tworzenie pierwszego szablonu)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Przykłady
+## PowerShell
+### [Wdrażanie szablonu](resource-manager-samples-powershell-deploy.md)
+## Interfejs wiersza polecenia platformy Azure
+### [Wdrażanie szablonu](resource-manager-samples-cli-deploy.md)
+
 # Instrukcje
 ## Tworzenie szablonów
 ### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Udostępnianie stanu między połączonymi szablonami](best-practices-resource-manager-state.md)
 ### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
 ## Wdrażanie
-### [Program PowerShell](resource-group-template-deploy.md)
-### [Interfejs wiersza polecenia platformy Azure](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Wdrażanie szablonu](resource-group-template-deploy.md)
+#### [Wdrażanie szablonu prywatnego przy użyciu tokenu sygnatury dostępu współdzielonego](resource-manager-powershell-sas-token.md)
+### Interfejs wiersza polecenia platformy Azure
+#### [Wdrażanie szablonu](resource-group-template-deploy-cli.md)
+#### [Wdrażanie szablonu prywatnego przy użyciu tokenu sygnatury dostępu współdzielonego](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
 ### [Ciągła integracja z usługą Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

@@ -33,18 +33,19 @@
       href: sql-database-connect-query-python.md
     - name: "Ruby"
       href: sql-database-connect-query-ruby.md
+- name: "Samouczki"
+  items:
+  - name: "1 — Tworzenie/projektowanie nowej bazy danych SQL"
+    href: sql-database-design-first-database.md
+  - name: "2 — Migrowanie istniejącego programu SQL Server"
+    href: sql-database-migrate-your-sql-server-database.md 
 - name: "Przykłady"
   items:
   - name: "Interfejs wiersza polecenia platformy Azure"
     href: sql-database-cli-samples.md
   - name: "PowerShell"
     href: sql-database-powershell-samples.md
-- name: "Samouczki"
-  items:
-  - name: "Projektowanie bazy danych"
-    href: sql-database-design-first-database.md
-  - name: "Migrowanie bazy danych"
-    href: sql-database-migrate-your-sql-server-database.md  
+ 
 - name: "Pojęcia"
   items:
   - name: "Bazy danych i serwery"
@@ -55,8 +56,6 @@
       href: sql-database-server-overview.md
     - name: "Pule elastyczne"
       href: sql-database-elastic-pool.md
-    - name: "Czy używać puli elastycznej?"
-      href: sql-database-elastic-pool-guidance.md
   - name: "Zasoby"
     items:
     - name: "Warstwy usług"
