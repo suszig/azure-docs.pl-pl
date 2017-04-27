@@ -8,8 +8,3 @@
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Kliknij kartę **Cloud Messaging** (Obsługa komunikatów w chmurze) w ustawieniach projektu, a następnie skopiuj wartość **Server key** (Klucz serwera) i **Sender ID** (Identyfikator nadawcy). Te wartości będą potrzebne później do skonfigurowania zasad dostępu do centrum powiadomień oraz obsługi powiadomień w aplikacji.
-
-
-<!--HONumber=Dec16_HO2-->
-
-
