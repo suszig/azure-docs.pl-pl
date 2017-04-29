@@ -14,8 +14,3 @@ Użyj poniższego polecenia cmdlet, aby ponownie uruchomić urządzenie wirtualn
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

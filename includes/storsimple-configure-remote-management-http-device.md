@@ -7,8 +7,3 @@
 5. Kliknij opcję **Pobierz certyfikat zdalnego zarządzania**, aby pobrać certyfikat zdalnego zarządzania. Określ lokalizację, w której chcesz zapisać plik. Certyfikat trzeba zainstalować na kliencie lub urządzeniu hosta, które zostanie użyte do nawiązania połączenia z urządzeniem wirtualnym.
 6. Kliknij przycisk **Zapisz** w dolnej części strony.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -4,8 +4,3 @@
 2. Kliknij pozycję **Maszyny wirtualne**, a następnie wybierz urządzenie wirtualne.
 3. Kliknij pozycję **Usuń** i wybierz opcję usunięcia wszystkich dysków maszyny wirtualnej.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

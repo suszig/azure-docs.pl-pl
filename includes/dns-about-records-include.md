@@ -22,7 +22,3 @@ System DNS platformy Azure zarządza wszystkimi rekordami DNS za pomocą *zestaw
 Na przykład załóżmy, że utworzono wcześniej rekord A „www” w strefie „contoso.com” wskazujący na adres IP „134.170.185.46” (pierwszy rekord powyżej).  W celu utworzenia drugiego rekordu ten rekord zostanie dodany do istniejącego zestawu rekordów zamiast tworzenia dodatkowego zestawu rekordów.
 
 Typy rekordów SOA i CNAME stanowią wyjątki. Standardy systemu DNS nie zezwalają na występowanie wielu rekordów tych typów o takiej samej nazwie, w związku z czym te zestawy rekordów mogą zawierać tylko jeden rekord.
-
-<!--HONumber=Jan17_HO1-->
-
-

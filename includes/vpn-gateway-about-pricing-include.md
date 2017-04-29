@@ -8,8 +8,3 @@ Płatność dotyczy dwóch składników: kosztu godzin obliczeniowych bramy siec
 * Jeśli ruch jest wysyłany między sieciami wirtualnymi w różnych regionach, cena zależy od regionu.
 * Jeśli ruch jest wysyłany tylko między sieciami wirtualnymi w tym samym regionie, nie ma żadnych kosztów danych. Ruch między sieciami wirtualnymi w tym samym regionie jest bezpłatny.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

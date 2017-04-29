@@ -12,8 +12,3 @@
 
 Po utworzeniu punktu końcowego można wyświetlić jego szczegóły, aby ustalić adres publiczny wirtualnego adresu IP (VIP). Zapisz ten adres.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
