@@ -8,8 +8,3 @@ W tym scenariuszu utworzysz sieć wirtualną o nazwie **TestVNet** z zarezerwowa
 * **FrontEnd**, używająca bloku CIDR **192.168.1.0/24**.
 * **BackEnd**, używająca bloku CIDR **192.168.2.0/24**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

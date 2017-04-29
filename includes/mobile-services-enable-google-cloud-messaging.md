@@ -21,8 +21,3 @@
    
     Ta wartość klucza interfejsu API zostanie użyta do włączenia na platformie Azure funkcji uwierzytelniania za pomocą usługi GCM i wysyłania powiadomień wypychanych w imieniu aplikacji.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

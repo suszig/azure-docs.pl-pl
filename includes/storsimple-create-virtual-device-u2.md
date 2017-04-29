@@ -26,8 +26,3 @@
       
       ![Etap tworzenia urządzenia wirtualnego StorSimple](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

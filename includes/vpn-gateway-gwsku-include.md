@@ -15,8 +15,3 @@ Podczas wybierania jednostki SKU należy wziąć pod uwagę następujące zagadn
 * Współistniejące konfiguracje bramy sieci VPN usługi ExpressRoute nie są obsługiwane w ramach podstawowej jednostki SKU.
 * Połączenia usługi VPN Gateway typu lokacja do lokacji (S2S) aktywne-aktywne można skonfigurować tylko w ramach jednostki SKU o wysokiej wydajności.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

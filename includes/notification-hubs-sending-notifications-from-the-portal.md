@@ -11,8 +11,3 @@ Poniższa lista zawiera kilka innych samouczków, z którymi warto się zapozna�
 
 Następna sekcja samouczka zawiera instrukcje korzystania z [interfejsu REST Centrum powiadomień](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) w celu wysyłania komunikatu powiadomienia bezpośrednio w aplikacji. Wszystkie zarejestrowane urządzenia odbierają powiadomienia wysłane z dowolnego urządzenia.  
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
