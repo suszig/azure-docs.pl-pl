@@ -34,8 +34,3 @@ Po skonfigurowaniu opcji nowej pamięci podręcznej kliknij przycisk **Utwórz**
 
 ![Utworzono pamięć podręczną](media/redis-cache-create/redis-cache-cache-created.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
