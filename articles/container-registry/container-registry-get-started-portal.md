@@ -49,12 +49,11 @@ Podstawy oraz pojęcia zostały przedstawione w części [omówienie](container-
 
     d. **Administrator**: jeśli chcesz, umożliw administratorowi dostęp do rejestru. Po utworzeniu rejestru można zmienić to ustawienie.
 
-    > [!IMPORTANT]
-    > Oprócz zapewniania dostępu za pośrednictwem konta administratora rejestry kontenerów obsługują uwierzytelnianie wspierane przez nazwy główne usług w usłudze Azure Active Directory. Więcej informacji i zagadnień do rozważenia znajduje się w temacie [Authenticate with a container registry](container-registry-authentication.md) (Uwierzytelnianie za pomocą rejestru kontenerów).
-
+      > [!IMPORTANT]
+      > Oprócz zapewniania dostępu za pośrednictwem konta administratora rejestry kontenerów obsługują uwierzytelnianie wspierane przez nazwy główne usług w usłudze Azure Active Directory. Więcej informacji i zagadnień do rozważenia znajduje się w temacie [Authenticate with a container registry](container-registry-authentication.md) (Uwierzytelnianie za pomocą rejestru kontenerów).
+      >
 
     e. **Konto magazynu**: użyj ustawienia domyślnego, aby utworzyć [konto magazynu](../storage/storage-introduction.md), lub wybierz istniejące konto magazynu w tej samej lokalizacji. Usługa Premium Storage nie jest obecnie obsługiwana.
-
 
 ## <a name="manage-registry-settings"></a>Zarządzanie ustawieniami rejestru
 Po utworzeniu rejestru znajdź ustawienia rejestru, uruchamiając blok **Rejestry kontenerów** w portalu. Ustawienia mogą być konieczne na przykład w celu zalogowania się do rejestru lub włączenia albo wyłączenia administratora.
