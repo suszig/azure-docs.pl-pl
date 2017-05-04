@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 24ddf0d81e52960bd582861d324585b8ba0ca357
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -132,7 +132,7 @@ Gratulacje, Twoja pierwsza aplikacja sieci Web platformy ASP.NET działa na żyw
 
 ## <a name="update-the-app-and-redeploy"></a>Aktualizowanie aplikacji i ponowne wdrażanie
 
-Ponowne wdrożenie aktualizacji na platformie Azure jest bardzo proste. Wprowadźmy aktualizację na stronie głównej.
+Aktualizacja i ponowne wdrożenie na platformie Azure są bardzo proste. Wprowadźmy aktualizację na stronie głównej.
 
 Za pomocą **Eksploratora rozwiązań** otwórz plik **Views\Home\Index.cshtml**.
 

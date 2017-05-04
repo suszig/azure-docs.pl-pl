@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ W dzisiejszych czasach ogromne ilości danych z dużą prędkością przepływaj
 * **Łączność:** usługa Stream Analytics łączy się bezpośrednio z usługami Azure Event Hubs i Azure IoT Hubs Azure w celu pozyskiwania strumieni oraz z usługą Azure Blob Service w celu pozyskiwania danych historycznych. Wyniki mogą być zapisywane z usługi Stream Analytics do usług Azure Storage Blobs lub Tables, AzureSQL DB, Azure Data Lake Store, DocumentDB, Event Hubs, tematów lub kolejek usługi Azure Service Bus i usługi Power BI, gdzie mogą być następnie wizualizowane, dalej przetwarzane przez przepływy pracy, wykorzystywane w analizach wsadowych za pomocą usługi [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) lub przetwarzane ponownie jako szereg zdarzeń. W przypadku korzystania z usługi Event Hubs istnieje możliwość łączenia wielu usług Stream Analytics z innymi źródłami danych i aparatami przetwarzania bez utraty strumieniowej natury obliczeń.  
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
-Aby uzyskać dalszą pomoc, skorzystaj z naszego [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Aby uzyskać dalszą pomoc, skorzystaj z naszego [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
 W niniejszym artykule przedstawiono usługę Stream Analytics — zarządzaną usługę służącą do analizy danych przesyłanych strumieniowo z Internetu rzeczy. Aby dowiedzieć się więcej na temat tej usługi, zobacz:

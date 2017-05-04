@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Istnieje wiele metod konfigurowania wymagań wstępnych i konfigurowania szyfrow
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Instalowanie i konfigurowanie programu Azure PowerShell
-Na komputerze musi być zainstalowany program Azure PowerShell w wersji 1.2.1 lub nowszej. Artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs) zawiera opis wszystkich kroków aprowizacji komputera do pracy z programem Azure PowerShell. Najprostszym rozwiązaniem jest użycie Instalatora platformy sieci Web wspomnianego w tym artykule. Nawet jeśli program Azure PowerShell jest już zainstalowany, zainstaluj go ponownie przy użyciu Instalatora platformy sieci Web, aby dysponować najnowszą wersją programu Azure PowerShell.
+Na komputerze musi być zainstalowany program Azure PowerShell w wersji 1.2.1 lub nowszej. Artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) zawiera opis wszystkich kroków aprowizacji komputera do pracy z programem Azure PowerShell. Najprostszym rozwiązaniem jest użycie Instalatora platformy sieci Web wspomnianego w tym artykule. Nawet jeśli program Azure PowerShell jest już zainstalowany, zainstaluj go ponownie przy użyciu Instalatora platformy sieci Web, aby dysponować najnowszą wersją programu Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Uzyskanie i uruchomienie skryptu konfiguracji wymagań wstępnych szyfrowania dysków Azure
 Skrypt konfiguracji wymagań wstępnych szyfrowania dysków Azure umożliwia skonfigurowanie wszystkich wymagań wstępnych dotyczących szyfrowania maszyn wirtualnych platformy Azure.

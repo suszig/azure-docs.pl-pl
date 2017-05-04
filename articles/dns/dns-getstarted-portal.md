@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/29/2017
 
 W tym artykule przedstawiono kroki umożliwiające utworzenie po raz pierwszy strefy i rekordu DNS przy użyciu witryny Azure Portal. Te kroki można również wykonać przy użyciu programu Azure PowerShell lub wieloplatformowego interfejsu wiersza polecenia platformy Azure.
 
-Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby na koniec opublikować strefę DNS w Internecie, należy skonfigurować serwery nazw dla domeny. Poniżej opisano każdy z tych kroków.
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby na koniec opublikować strefę DNS w Internecie, należy skonfigurować serwery nazw dla domeny. Wszystkie wymienione kroki zostały opisane poniżej.
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
@@ -41,41 +41,36 @@ Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby
 
     ![Strefa DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. W bloku **Tworzenie strefy DNS** nadaj nazwę strefie DNS. Na przykład *contoso.com*.
- 
-    ![Tworzenie strefy](./media/dns-getstarted-portal/newzone250.png)
+4. W bloku **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
 
-5. Następnie określ grupę zasobów, która ma być używana. Możesz utworzyć nową grupę zasobów lub wybrać już istniejącą. Jeśli wybierzesz opcję utworzenia nowej grupy zasobów, użyj listy rozwijanej **Lokalizacja**, aby określić lokalizację grupy zasobów. Pamiętaj, że to ustawienie dotyczy lokalizacji grupy zasobów i nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
 
-6. Możesz pozostawić zaznaczone pole wyboru **Przypnij do pulpitu nawigacyjnego**, jeśli chcesz w łatwy sposób zlokalizować nową strefę na pulpicie nawigacyjnym. Następnie kliknij pozycję **Utwórz**.
+   | **Ustawienie** | **Wartość** | **Szczegóły** |
+   |---|---|---|
+   |**Nazwa**|contoso.com|Nazwa strefy DNS|
+   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć bramę aplikacji.|
+   |**Grupa zasobów**|**Utwórz nową:** contosoDNSRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Lokalizacja**|Zachodnie stany USA||
 
-    ![Przypnij do pulpitu nawigacyjnego](./media/dns-getstarted-portal/pindashboard150.png)
-
-7. Po kliknięciu pozycji Utwórz wyświetlone zostanie konfigurowanie nowej strefy na pulpicie nawigacyjnym.
-
-    ![Tworzenie](./media/dns-getstarted-portal/creating150.png)
-
-8. Po utworzeniu nowej strefy na pulpicie nawigacyjnym zostanie wyświetlony nowy blok.
-
+> [!NOTE]
+> Ustawienie Grupa zasobów dotyczy lokalizacji grupy zasobów i nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
 
 ## <a name="create-a-dns-record"></a>Tworzenie rekordu DNS
 
 W tym przykładzie przedstawiono proces tworzenia nowego rekordu „A”. Aby uzyskać informacje o innych typach rekordów oraz sposobie modyfikowania istniejących rekordów, zobacz [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md) (Zarządzanie rekordami i zestawami rekordów DNS przy użyciu witryny Azure Portal). 
 
+1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku Wszystkie zasoby kliknij strefę DNS **contoso.com**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contoso.com** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do strefy DNS.
 
 1. W górnej części bloku **Strefa DNS** wybierz pozycję **+ Zestaw rekordów**, aby otworzyć blok **Dodawanie zestawu rekordów**.
 
-    ![Nowy zestaw rekordów](./media/dns-getstarted-portal/newrecordset500.png)
+1. W bloku **Dodaj zestaw rekordów** wprowadź następujące wartości, a następnie kliknij przycisk **OK**. W tym przykładzie jest tworzony rekord A.
 
-4. W bloku **Dodawanie zestawu rekordów** nazwij zestaw rekordów. Zestaw rekordów można na przykład nazwać „**www**”.
-
-    ![Dodawanie zestawu rekordów](./media/dns-getstarted-portal/addrecordset500.png)
-
-5. Wybierz typ rekordu do utworzenia. Na potrzeby tego przykładu wybierz wartość **A**.
-6. Ustaw wartość dla pozycji **Czas wygaśnięcia**. Domyślny czas wygaśnięcia to jedna godzina.
-7. Dodaj adres IP rekordu.
-8. Kliknij przycisk **OK** na dole bloku, aby utworzyć rekord DNS.
-
+   |**Ustawienie** | **Wartość** | **Szczegóły** |
+   |---|---|---|
+   |**Nazwa**|www|Nazwa rekordu|
+   |**Typ**|A| Typ tworzonego rekordu DNS, dozwolone wartości to A, AAAA, CNAME, MX, NS, SRV, TXT i PTR.  Aby uzyskać więcej informacji na temat typów rekordów, odwiedź stronę [Omówienie stref i rekordów DNS](dns-zones-records.md).|
+   |**Czas wygaśnięcia**|1|Czas wygaśnięcia żądania DNS.|
+   |**Jednostka czasu wygaśnięcia**|Godziny|Pomiar wartości czasu wygaśnięcia.|
+   |**Adres IP**|{ipAddressValue| Ta wartość jest adresem IP rozpoznawanym przez rekord DNS.|
 
 ## <a name="view-records"></a>Wyświetlanie rekordów
 
@@ -92,7 +87,15 @@ Serwery nazw dla strefy są podane w witrynie Azure Portal:
 
 ![strefa](./media/dns-getstarted-portal/viewzonens500.png)
 
-Te serwery nazw powinny zostać skonfigurowane u rejestratora nazw domen (w miejscu zakupu nazwy domeny). Rejestrator zaoferuje opcję skonfigurowania serwerów nazw na potrzeby domeny. Aby uzyskać więcej informacji, zobacz [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md).
+Te serwery nazw powinny zostać skonfigurowane u rejestratora nazw domen (w miejscu zakupu nazwy domeny). Rejestrator zaproponuje opcję skonfigurowania serwerów nazw na potrzeby domeny. Aby uzyskać więcej informacji, zobacz [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md).
+
+## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
+
+Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
+
+1. W okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku Wszystkie zasoby kliknij grupę zasobów **MyResourceGroup**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **MyResourceGroup** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do grupy zasobów.
+1. W bloku **MyResourceGroup** kliknij przycisk **Usuń**.
+1. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Kliknij pozycję **Usuń**, wpisz *MyResourceGroup* jako nazwę grupy zasobów, a następnie kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
 
 
 ## <a name="next-steps"></a>Następne kroki

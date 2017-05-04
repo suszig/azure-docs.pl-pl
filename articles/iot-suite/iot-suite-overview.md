@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 04/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: ecae2cb9c0cdc78226c100cd287b840b6b2a6bb8
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 309a36b1aa5db95a287b7a6b21449f9d61880cf4
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="overview-of-azure-iot-suite"></a>Przegląd Pakietu IoT Azure
+
 Usługi Internetu rzeczy (IoT) platformy Azure oferują szeroką gamę możliwości. Są to usługi klasy korporacyjnej, które pozwalają wykonywać następujące operacje:
 
 * Zbieranie danych z urządzeń
@@ -52,9 +53,11 @@ Wstępnie skonfigurowane rozwiązania zwykle korzystają z następujących usłu
 Omówienie architektury typowego rozwiązania IoT można znaleźć w artykule [Platforma Microsoft Azure i Internet rzeczy][iot-suite-what-is-azure-iot].
 
 ## <a name="preconfigured-solutions"></a>Wstępnie skonfigurowane rozwiązania
-Pakiet IoT zawiera wstępnie skonfigurowane rozwiązania, które pozwalają na szybkie rozpoczęcie pracy i zapoznanie się z typowymi scenariuszami IoT obejmującymi na przykład *zdalne monitorowanie* i *konserwację predykcyjną*. Rozwiązania te można wdrożyć w swojej subskrypcji platformy Azure, a następnie uruchomić kompletny, uniwersalny scenariusz IoT.
+
+Pakiet IoT zawiera wstępnie skonfigurowane rozwiązania, które pozwalają na szybkie rozpoczęcie pracy i zapoznanie się z typowymi scenariuszami IoT obejmującymi na przykład *zdalne monitorowanie*, *konserwację predykcyjną* i *połączoną fabrykę*. Rozwiązania te można wdrożyć w swojej subskrypcji platformy Azure, a następnie uruchomić kompletny, uniwersalny scenariusz IoT.
 
 ## <a name="next-steps"></a>Następne kroki
+
 Teraz, gdy masz już pojęcie o możliwościach Pakietu IoT i jego głównych składnikach, możesz dowiedzieć się więcej o wstępnie skonfigurowanych rozwiązaniach Pakietu IoT. Aby uzyskać więcej informacji na ten temat, zobacz [Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/

@@ -16,15 +16,16 @@ ms.workload: na
 ms.date: 02/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
-ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1c8703d64ff45e589a7ce93f1f2176681e1bf331
+ms.lasthandoff: 04/25/2017
 
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Pakiet IoT Azure
-Pakiet IoT Azure firmy Microsoft jest rozwiązaniem klasy korporacyjnej, które umożliwia szybkie rozpoczęcie pracy dzięki zestawowi rozszerzalnych, wstępnie skonfigurowanych rozwiązań. Rozwiązania te umożliwiają obsługę typowych scenariuszy IoT, takich jak [zdalne monitorowanie][lnk-preconfigured-solutions] i [konserwacja zapobiegawcza][lnk-predictive-maintenance]. Rozwiązania te stanowią implementacje opisanej w tym artykule architektury IoT.
+Pakiet IoT Azure firmy Microsoft jest rozwiązaniem klasy korporacyjnej, które umożliwia szybkie rozpoczęcie pracy dzięki zestawowi rozszerzalnych, wstępnie skonfigurowanych rozwiązań. Rozwiązania te umożliwiają obsługę typowych scenariuszy IoT, takich jak [zdalne monitorowanie][lnk-preconfigured-solutions], [konserwacja zapobiegawcza][lnk-predictive-maintenance] i [połączona fabryka][lnk-connected-factory]. Rozwiązania te stanowią implementacje opisanej w tym artykule architektury IoT.
 
 Te wstępnie skonfigurowane rozwiązania są kompletne, niezawodne i uniwersalne. Obejmują:
 
@@ -52,9 +53,4 @@ Przejrzyj te zasoby, aby kontynuować poznawanie Pakietu IoT i wstępnie skonfig
 [Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[lnk-connected-factory]: iot-suite-connected-factory-overview.md

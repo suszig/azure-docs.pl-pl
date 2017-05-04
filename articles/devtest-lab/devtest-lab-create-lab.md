@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -40,9 +41,11 @@ Następujące kroki ilustrują tworzenie laboratorium w usłudze Azure DevTest L
    2. W pozycji **Subskrypcja** wybierz subskrypcję do skojarzenia z laboratorium.
    3. W pozycji **Lokalizacja** wybierz lokalizację do przechowywania laboratorium.
    4. Wybierz pozycję **Automatyczne zamykanie**, aby włączyć opcję i określić parametry automatycznego zamykania wszystkich maszyn wirtualnych laboratorium. 
-   5. Wybierz pozycję **Utwórz**.
-      
-      ![Blok tworzenia laboratorium](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego**, jeśli chcesz, aby na pulpicie nawigacyjnym portalu był wyświetlany skrót do laboratorium.
+   6. Wybierz pozycję **Opcje automatyzacji**, aby uzyskać szablony usługi Azure Resource Manager dotyczące automatyzacji konfiguracji. 
+   7. Wybierz pozycję **Utwórz**.
+    
+    ![Blok tworzenia laboratorium](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +57,5 @@ Po utworzeniu laboratorium warto rozważyć poniższe kroki:
 * [Create a lab template](devtest-lab-create-template.md) (Tworzenie szablonu laboratorium).
 * [Create custom artifacts for your VMs](devtest-lab-artifact-author.md) (Tworzenie niestandardowych artefaktów dla maszyn wirtualnych).
 * [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md) (Dodawanie maszyny wirtualnej z artefaktami do laboratorium).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

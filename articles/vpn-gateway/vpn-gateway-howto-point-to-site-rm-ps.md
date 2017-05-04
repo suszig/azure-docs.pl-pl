@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ W celu przeprowadzenia konfiguracji należy zastosować następujące wartości.
 
 ## <a name="before-beginning"></a>Przed rozpoczęciem
 * Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
-* Zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Część 1 — Logowanie się i ustawianie zmiennych
 W tej sekcji należy zalogować się i zadeklarować wartości używane dla tej konfiguracji. Zadeklarowane wartości są używane w przykładowych skryptach. Można zmienić wartości, aby odzwierciedlić własne środowisko. Ale można też użyć zadeklarowanych wartości i postępować zgodnie z opisanymi krokami tylko w celach szkoleniowych.
@@ -284,7 +284,7 @@ Jeśli występują problemy z połączeniem, sprawdź następujące elementy:
 
 ## <a name="connectVM"></a>Nawiązywanie połączenia z maszyną wirtualną
 
-1. Po nawiązaniu połączenia z siecią wirtualną możesz połączyć się z maszyną wirtualną za pośrednictwem połączenia punkt-lokacja. Aby można było połączyć się z maszyną wirtualną, potrzebny jest prywatny adres IP tej maszyny wirtualnej. Poniższy przykład pomoże Ci w uzyskaniu prywatnego adresu IP za pomocą polecenia [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). Wyniki zwracają listę maszyn wirtualnych z ich prywatnymi adresami IP we wszystkich grupach zasobów. 
+1. Po nawiązaniu połączenia z siecią wirtualną możesz połączyć się z maszyną wirtualną za pośrednictwem połączenia punkt-lokacja. Aby można było połączyć się z maszyną wirtualną, potrzebny jest prywatny adres IP tej maszyny wirtualnej. Poniższy przykład pomoże Ci w uzyskaniu prywatnego adresu IP za pomocą polecenia [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). Wyniki zwracają listę maszyn wirtualnych z ich prywatnymi adresami IP we wszystkich grupach zasobów. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -424,3 +424,4 @@ Certyfikat klienta można przywrócić przez usunięcie odcisku palca z listy od
 
 ## <a name="next-steps"></a>Następne kroki
 Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne). Aby dowiedzieć się więcej o sieci i maszynach wirtualnych, zobacz [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Omówienie sieci maszyny wirtualnej z systemem Linux i platformy Azure).
+

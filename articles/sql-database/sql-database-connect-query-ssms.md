@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -37,7 +37,7 @@ Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu 
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 
-Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w witrynie Azure Portal. W pełni kwalifikowanej nazwy serwera używa się do nawiązywania połączenia z serwerem przy użyciu programu SQL Server Management Studio.
+Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera, nazwa bazy danych i informacje logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
@@ -78,7 +78,7 @@ Użyj programu SQL Server Management Studio, aby nawiązać połączenie z serwe
 
 ## <a name="query-data"></a>Zapytania o dane
 
-Użyj instrukcji Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx), aby wykonać zapytanie dotyczące danych w bazie danych Azure SQL.
+Użyj następującego kodu, aby wykonać zapytanie o 20 najpopularniejszych produktów według kategorii, używając instrukcji [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) języka Transact-SQL.
 
 1. W Eksploratorze obiektów kliknij prawym przyciskiem myszy pozycję **mySampleDatabase** i kliknij opcję **Nowe zapytanie**. Zostanie otwarte puste okno zapytania, które jest połączone z Twoją bazą danych.
 2. W oknie zapytania wprowadź następujące zapytanie:
@@ -96,7 +96,7 @@ Użyj instrukcji Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms1894
 
 ## <a name="insert-data"></a>Wstawianie danych
 
-Użyj instrukcji Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), aby wstawić dane do bazy danych Azure SQL.
+Użyj następującego kodu, aby wstawić nowy produkt do tabeli SalesLT.Product przy użyciu instrukcji [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) języka Transact-SQL.
 
 1. W oknie zapytania zastąp poprzednie zapytanie następującym zapytaniem:
 
@@ -126,7 +126,7 @@ Użyj instrukcji Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms1743
 
 ## <a name="update-data"></a>Aktualizowanie danych
 
-Użyj instrukcji Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx), aby zaktualizować dane w bazie danych Azure SQL.
+Użyj następującego kodu, aby zaktualizować nowy, wcześniej dodany produkt przy użyciu instrukcji [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) języka Transact-SQL.
 
 1. W oknie zapytania zastąp poprzednie zapytanie następującym zapytaniem:
 
@@ -142,7 +142,7 @@ Użyj instrukcji Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms1775
 
 ## <a name="delete-data"></a>Usuwanie danych
 
-Użyj instrukcji Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx), aby usunąć dane w bazie danych Azure SQL.
+Użyj następującego kodu, aby usunąć nowy, wcześniej dodany produkt przy użyciu instrukcji [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) języka Transact-SQL.
 
 1. W oknie zapytania zastąp poprzednie zapytanie następującym zapytaniem:
 

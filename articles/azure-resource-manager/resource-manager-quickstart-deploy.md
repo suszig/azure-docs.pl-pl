@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/16/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 41d9476d4ce6b7afc2ba9c757e96db7e8e72d5ae
-ms.openlocfilehash: a77354d0719240e5916b5ec945dad75e534802d3
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3b3162c335be43c9bf2a3d1c14b86cdd9b5d46b9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ W poniższych sekcjach opisano sposób wykonywania tych kroków przy użyciu [pr
 
 ## <a name="powershell"></a>PowerShell
 
-1. Aby zainstalować program Azure PowerShell, zobacz [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Rozpoczynanie pracy z poleceniami cmdlet programu Azure PowerShell).
+1. Aby zainstalować program Azure PowerShell, zobacz [Get started with Azure PowerShell cmdlets](/powershell/azure/overview) (Rozpoczynanie pracy z poleceniami cmdlet programu Azure PowerShell).
 
 2. Aby szybko rozpocząć wdrożenie, użyj następujących poleceń cmdlet:
 
@@ -186,10 +187,5 @@ Użyj następującego przykładowego szablonu, aby wdrożyć konto magazynu w su
 * Aby uzyskać szczegółowe informacje na temat wdrażania szablonów przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Deploy resources with Resource Manager templates and Azure CLI](/azure/azure-resource-manager/resource-group-template-deploy-cli) (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure).
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 1bd099ee9154e920fef5b99e27d2a9711c1d75d1
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 10840ee4ff070436e2c21d51846ea6363825abac
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -66,10 +67,13 @@ Program SQL Server uruchomiony na maszynach wirtualnych platformy Azure stanowi 
 ## <a name="create-a-new-sql-vm"></a>Tworzenie nowej maszyny wirtualnej SQL
 Poniższe sekcje zawierają bezpośrednie linki do obrazów maszyn wirtualnych programu SQL Server w galerii witryny Azure Portal. Zależnie od wybranego obrazu można płacić za koszty licencji programu SQL Server naliczane proporcjonalnie do liczby minut lub skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL).
 
-Samouczek [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md) zawiera wskazówki krok po krok dotyczące tego procesu. Sprawdź również temat [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności maszyn wirtualnych z programem SQL Server), który wyjaśnia, w jaki sposób wybrać odpowiedni rozmiar maszyny i inne funkcje dostępne podczas aprowizacji.
+Samouczek [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md) zawiera wskazówki krok po krok dotyczące tworzenia nowej maszyny wirtualnej SQL. Sprawdź również temat [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności maszyn wirtualnych z programem SQL Server), który wyjaśnia, w jaki sposób wybrać odpowiedni rozmiar maszyny i inne funkcje dostępne podczas aprowizacji.
 
 ## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>Opcja 1. Tworzenie maszyny wirtualnej SQL z licencją płatną według stawki minutowej
 Poniższa tabela zawiera macierz najnowszych obrazów programu SQL Server w galerii maszyn wirtualnych. Kliknij dowolny link, aby rozpocząć tworzenie nowej maszyny wirtualnej z programem SQL o określonej wersji, wybranym wydaniu i z danym systemem operacyjnym. 
+
+> [!TIP]
+> Aby zapoznać się z cennikiem tych obrazów maszyn wirtualnych i oprogramowania SQL, zobacz [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
 | Wersja | System operacyjny | Wersja |
 | --- | --- | --- |
@@ -80,8 +84,11 @@ Poniższa tabela zawiera macierz najnowszych obrazów programu SQL Server w gale
 
 Oprócz tej listy dostępne są inne kombinacje wersji programu SQL Server i systemów operacyjnych. Znajdź inne obrazy za pomocą funkcji wyszukiwania w portalu Marketplace w witrynie Azure Portal. 
 
-## <a name="a-idbyola-option-2-create-a-sql-vm-with-an-existing-license"></a><a id="BYOL"></a>Opcja 2. Tworzenie maszyny wirtualnej SQL przy użyciu istniejącej licencji
+## <a id="BYOL"></a>Opcja 2. Tworzenie maszyny wirtualnej SQL przy użyciu istniejącej licencji
 Możesz również skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server. Aby użyć własnej licencji, skorzystaj z macierzy wersji i wydań programu SQL Server oraz systemów operacyjnych. W portalu takie nazwy obrazów mają prefiks **{BYOL}**.
+
+> [!TIP]
+> Użycie własnej licencji może w dłuższym okresie przynieść oszczędności w przypadku ciągłych obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
 | Wersja | System operacyjny | Wersja |
 | --- | --- | --- |
@@ -92,8 +99,7 @@ Możesz również skorzystać z modelu dostarczania własnej licencji (Bring You
 Oprócz tej listy dostępne są inne kombinacje wersji programu SQL Server i systemów operacyjnych. Znajdź inne obrazy za pomocą funkcji wyszukiwania w portalu Marketplace w witrynie Azure Portal (szukaj wyrażenia „{BYOL} SQL Server”).
 
 > [!IMPORTANT]
-> Aby używać obrazów maszyn wirtualnych w modelu BYOL, musisz mieć umowę Enterprise Agreement z opcją [Przenośność licencji za pośrednictwem programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/). Musisz również mieć ważną licencję dla wersji/wydania programu SQL Server, którego chcesz użyć. W ciągu **10** dni od aprowizacji maszyny wirtualnej musisz [przekazać firmie Microsoft informacje niezbędne do korzystania z modelu BYOL](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf).
-> 
+> Aby używać obrazów maszyn wirtualnych w modelu BYOL, musisz mieć umowę Enterprise Agreement z opcją [Przenośność licencji za pośrednictwem programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/). Musisz również mieć ważną licencję dla wersji/wydania programu SQL Server, którego chcesz użyć. W ciągu **10** dni od aprowizacji maszyny wirtualnej musisz [przekazać firmie Microsoft informacje niezbędne do korzystania z modelu BYOL](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf). 
 
 > [!NOTE]
 > Nie można zmienić modelu licencjonowania maszyny wirtualnej z programem SQL Server opłacanej za minuty użycia na własną licencję. W takim przypadku należy utworzyć nową maszynę wirtualną w modelu BYOL i zmigrować bazy danych do tej nowej maszyny wirtualnej. 
@@ -126,13 +132,8 @@ Aby uzyskać więcej informacji, zapoznaj się z poświęconą programowi popraw
 ## <a name="next-steps"></a>Następne kroki
 [Zbadaj ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) dla programu SQL Server na maszynach wirtualnych Azure.
 
-Aby uzyskać informacje o cenach, zobacz [Cennik](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Wybierz docelową wersję programu SQL Server z listy **System operacyjny/oprogramowanie**. Następnie wyświetl ceny dla maszyn wirtualnych o różnych rozmiarach. 
+Jeśli masz pytania dotyczące cen, zobacz temat [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server) i [stronę z cennikiem platformy Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Wybierz docelową wersję programu SQL Server z listy **System operacyjny/oprogramowanie**. Następnie wyświetl ceny dla maszyn wirtualnych o różnych rozmiarach.
 
 Masz więcej pytań? Najpierw zobacz [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md) (Często zadawane pytania dotyczące programu SQL Server w usłudze Azure Virtual Machines). Możesz też dodać pytania lub komentarze na końcu dowolnego tematu dotyczącego maszyn wirtualnych z programem SQL, aby porozmawiać z przedstawicielem firmy Microsoft i społecznością.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

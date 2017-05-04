@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 22966659db3951316dca11fd555e07a183114062
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Tworzenie aplikacji w języku Node.js w usłudze Web App
@@ -148,7 +148,7 @@ Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Az
 
 Teraz, gdy został utworzony plan usługi App Service, utwórz aplikację sieci Web w ramach planu usługi App Service `quickStartPlan`. Aplikacja sieci Web zapewnia miejsce hostowania do wdrożenia kodu oraz udostępnia adres URL w celu wyświetlania wdrożonej aplikacji. Użyj polecenia [az appservice web create](/cli/azure/appservice/web#create), aby utworzyć aplikację sieci Web.
 
-W poniższym poleceniu wstaw własną unikatową nazwę aplikacji tam, gdzie zobaczysz symbol zastępczy <app_name>. Nazwa <app_name> będzie używana jako domyślna witryna DNS aplikacji sieci Web, więc nazwa ta musi być unikatowa wśród wszystkich aplikacji na platformie Azure. Później możesz zamapować dowolny niestandardowy wpis DNS na aplikację sieci Web, zanim udostępnisz ją użytkownikom.
+W poniższym poleceniu wstaw własną unikatową nazwę aplikacji w miejsce symbolu zastępczego `<app_name>`. Nazwa `<app_name>` będzie używana jako domyślna witryna DNS aplikacji sieci Web, więc nazwa ta musi być unikatowa wśród wszystkich aplikacji na platformie Azure. Później możesz zamapować dowolny niestandardowy wpis DNS na aplikację sieci Web, zanim udostępnisz ją użytkownikom.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -296,7 +296,7 @@ Przejdź do witryny Azure Portal, aby przyjrzeć się właśnie utworzonej aplik
 
 W tym celu zaloguj się do witryny [https://portal.azure.com](https://portal.azure.com).
 
-W lewym menu kliknij pozycję **App Service**, a następnie kliknij nazwę swojej aplikacji sieci Web platformy Azure.
+W lewym menu kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji sieci Web platformy Azure.
 
 ![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -321,3 +321,4 @@ Te karty w bloku pokazują wiele doskonałych funkcji, które możesz dodać do 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z wcześniej utworzonymi [skryptami interfejsu wiersza polecenia aplikacji sieci Web](app-service-cli-samples.md).
+

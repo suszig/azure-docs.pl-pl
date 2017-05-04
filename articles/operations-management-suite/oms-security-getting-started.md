@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -33,14 +33,14 @@ Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia kompleksowy wgl�
 
 1. Na głównym pulpicie nawigacyjnym pakietu **Microsoft Operations Management Suite** kliknij kafelek **Ustawienia** po lewej stronie.
 2. W bloku **Ustawienia**, w obszarze **Rozwiązania** kliknij opcję **Zabezpieczenia i inspekcja**.
-3. Pojawi się pulpit nawigacyjny **Zabezpieczenia i inspekcja**:
+3. Zostanie wyświetlony pulpit nawigacyjny **Zabezpieczenia i inspekcja**:
    
     ![Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
 Jeśli korzystasz z tego pulpitu nawigacyjnego po raz pierwszy i nie monitorujesz jeszcze żadnych urządzeń przy użyciu rozwiązania OMS, kafelki nie będą wypełnione danymi uzyskanymi od agenta. Po zainstalowaniu agenta może minąć trochę czasu, zanim dane pojawią się na pulpicie nawigacyjnym. W związku z tym początkowo niektóre informacje nie będą widoczne, dopóki nie zostaną przesłane do chmury.  W takiej sytuacji jest normalnym zjawiskiem, że niektóre kafelki nie zawierają wymiernych informacji. Artykuł [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) (Podłączanie komputerów z systemem Windows bezpośrednio do pakietu OMS) zawiera więcej informacji na temat sposobu instalowania agenta OMS w systemie Windows. Artykuł [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) (Podłączanie komputerów z systemem Linux do pakietu OMS) zawiera więcej informacji dotyczących wykonywania tego zadania w systemie Linux.
 
 > [!NOTE]
-> Agent będzie zbierać informacje oparte na bieżących włączonych zdarzeniach, takie jak nazwa komputera, nazwa użytkownika i adres IP. Nie są jednak gromadzone żadne dokumenty bądź pliki, nazwy baz danych ani dane prywatne.   
+> Agent zbiera informacje oparte na bieżących włączonych zdarzeniach, takie jak nazwa komputera, nazwa użytkownika i adres IP. Nie są jednak gromadzone żadne dokumenty bądź pliki, nazwy baz danych ani dane prywatne.   
 > 
 > 
 
@@ -99,12 +99,12 @@ Podobnie jak w przypadku innych kafelków dynamicznych dostępnych na pulpicie n
 Gdy klikniesz nazwę komputera, pojawi się chronologiczny widok stanu ochrony danego komputera. Jest to bardzo przydatne w scenariuszach, w których należy ustalić, czy oprogramowanie chroniące przed złośliwym kodem było wcześniej zainstalowane, a w pewnym momencie zostało usunięte.   
 
 ### <a name="update-assessment"></a>Ocena aktualizacji
-Ta opcja umożliwia szybkie ustalenie ogólnego narażenia na potencjalne problemy z zabezpieczeniami oraz stopnia krytyczności tych problemów dla danego środowiska. Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia tylko wizualizację tych aktualizacji. Rzeczywiste dane pochodzą z rozwiązania [Aktualizacje systemu](https://technet.microsoft.com/library/mt484096.aspx), które jest oddzielnym modułem pakietu OMS. Oto przykład aktualizacji:
+Ta opcja umożliwia szybkie ustalenie ogólnego narażenia na potencjalne problemy z zabezpieczeniami oraz stopnia krytyczności tych problemów dla danego środowiska. Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia tylko wizualizację tych aktualizacji. Rzeczywiste dane pochodzą z rozwiązania [Zarządzanie aktualizacjami](oms-solution-update-management.md), które jest oddzielnym modułem pakietu OMS. Oto przykład aktualizacji:
 
-![Aktualizacje systemu](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![Aktualizacje systemu](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> Więcej informacji na temat rozwiązania Aktualizacje systemu zawiera artykuł [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx) (Aktualizowanie serwerów przy użyciu rozwiązania Aktualizacje systemu).
+> Aby uzyskać więcej informacji na temat rozwiązania Zarządzanie aktualizacjami, przeczytaj temat [Rozwiązanie do zarządzania aktualizacjami w usłudze OMS](oms-solution-update-management.md).
 > 
 > 
 
@@ -135,6 +135,14 @@ Ten kafelek umożliwia dostęp do wszystkich komputerów, na których istnieją 
 
 Można kontynuować badania, klikając wybrany komputer i przeglądając oznaczone zdarzenia zabezpieczeń.
 
+### <a name="threat-intelligence"></a>Analiza zagrożeń
+
+Używając opcji Analiza zagrożeń dostępnej w rozwiązaniu Zabezpieczenia i inspekcja usługi OMS, administratorzy IT mogą identyfikować zagrożenia dla bezpieczeństwa środowiska, na przykład wykrywać, czy dany komputer jest częścią botnetu. Komputery mogą stać się węzłami w botnecie, gdy osoby atakujące bezprawnie zainstalują złośliwe oprogramowanie, które potajemnie łączy ten komputer z centrum sterowania. Może także identyfikować potencjalne zagrożenia pochodzące z tajnych kanałów komunikacji, takich jak darknet. Dowiedz się więcej na temat funkcji Analiza zagrożeń, czytając artykuł [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md).
+
+### <a name="baseline-assessment"></a>Ocena linii bazowej
+
+Firma Microsoft, wraz z instytucjami branżowymi i rządowymi na całym świecie, zdefiniowała konfigurację systemu Windows, która reprezentuje wdrożenia serwera o wysokim poziomie zabezpieczeń. Konfiguracja ta stanowi zestaw kluczy rejestru, ustawień zasad inspekcji i ustawień zasad zabezpieczeń wraz z zalecanymi przez firmę Microsoft wartościami tych ustawień. Ten zestaw reguł jest określany jako linia bazowa zabezpieczeń. Przeczytaj temat [Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-baseline.md), aby uzyskać więcej informacji na temat tej opcji.
+
 ### <a name="azure-security-center"></a>Azure Security Center
 Ten kafelek jest po prostu skrótem do pulpitu nawigacyjnego Azure Security Center. Więcej informacji na temat tego rozwiązania zawiera artykuł [Przewodnik Szybki start dotyczący Centrum zabezpieczeń Azure](../security-center/security-center-get-started.md).
 
@@ -153,7 +161,7 @@ Ta opcja służy przede wszystkim do szybkiego identyfikowania potencjalnych zag
 Z tej opcji można również skorzystać podczas [analizy reakcji na zdarzenia](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) w celu przeprowadzenia oceny i uzyskania dalszych informacji o ataku.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat reagowania na zdarzenia przy użyciu pakietu OMS, obejrzyj prezentację [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagować na zdarzenia przy użyciu rozwiązania Azure Security Center i pakietu Microsoft Operations Management Suite).
+> Aby uzyskać więcej informacji na temat reagowania na zdarzenia przy użyciu pakietu OMS, obejrzyj to wideo: [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagować na zdarzenia przy użyciu rozwiązania Azure Security Center i pakietu Microsoft Operations Management Suite).
 > 
 > 
 

@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -73,11 +73,12 @@ Konto usługi Batch jest jednoznacznie zdefiniowanym obiektem w ramach usługi B
 
 Konto usługi Azure Batch możesz utworzyć za pomocą witryny [Azure Portal](batch-account-create-portal.md) lub programowo, na przykład za pomocą [biblioteki Batch Management .NET](batch-management-dotnet.md). Podczas tworzenia konta możesz skojarzyć konto magazynu platformy Azure.
 
-Usługa Batch obsługuje dwie konfiguracje konta oparte na właściwości *Tryb alokacji puli*. Te dwie konfiguracje udostępniają różne opcje uwierzytelniania za pomocą usługi Batch oraz aprowizacji i zarządzania [pulami](#pool) usługi Batch (zobacz w dalszej części tego artykułu). 
+Usługa Batch obsługuje dwie konfiguracje konta oparte na właściwości *Tryb alokacji puli*. Te dwie konfiguracje dają dostęp do różnych możliwości związanych z [pulami](#pool) usługi Batch (zobacz dalszą część tego artykułu). 
 
 
-* **Usługa Batch** (domyślnie): możesz uzyskać dostęp do interfejsów API usługi Batch przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). Zasoby obliczeniowe usługi Batch są przydzielane w tle dla konta zarządzanego przez platformę Azure.   
-* **Subskrypcja użytkownika**: możesz uzyskać dostęp tylko do interfejsów API usługi Batch przy użyciu [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). Zasoby obliczeniowe usługi Batch są przydzielane bezpośrednio w subskrypcji platformy Azure. Ten tryb zapewnia większą elastyczność konfigurowania węzłów obliczeniowych i integracji z innymi usługami. Ten tryb wymaga skonfigurowania dodatkowego magazynu Azure Key Vault dla konta usługi Batch.
+* **Usługa Batch**: opcja domyślna, z maszynami wirtualnymi pul usługi Batch przydzielanymi w tle w subskrypcjach zarządzanych przez usługę Azure. Tej konfiguracji konta należy użyć, jeśli wymagane są pule usług Cloud Services, ale nie można jej używać, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). 
+
+* **Subskrypcja użytkownika**: tej konfiguracji konta należy użyć, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać tylko przy użyciu [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md), a pule usługi Cloud Services nie są obsługiwane. Obliczeniowe maszyny wirtualne usługi Batch są przydzielane bezpośrednio w subskrypcji platformy Azure. Ten tryb wymaga skonfigurowania usługi Azure Key Vault dla konta usługi Batch.
  
 
 ## <a name="compute-node"></a>Węzeł obliczeniowy

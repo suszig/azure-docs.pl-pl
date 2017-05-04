@@ -21,7 +21,7 @@
 ### [Uwierzytelnianie danych wychodzących](scheduler-outbound-authentication.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [Program PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Zasoby
