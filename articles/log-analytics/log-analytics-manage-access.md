@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -94,13 +94,15 @@ Poniższa tabela zawiera podsumowanie dostępu, który można ustawić za pomoc�
 
 Starsze role użytkownika usługi Log Analytics mogą kontrolować tylko dostęp do działań wykonywanych w [portalu usługi Log Analytics](https://mms.microsoft.com).
 
-Następujące działania w portalu usługi Log Analytics również wymagają uprawnień platformy Azure:
+Następujące działania również wymagają uprawnień platformy Azure:
 
 | Akcja                                                          | Wymagane uprawnienia platformy Azure | Uwagi |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Dodawanie i usuwanie rozwiązań do zarządzania                        | Zapis w grupie zasobów <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Dodawanie i usuwanie rozwiązań do zarządzania                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Zmienianie warstwy cenowej                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Wyświetlanie danych w kafelkach rozwiązań *Backup* i *Site Recovery* | Administrator/współadministrator | Uzyskuje dostęp do zasobów wdrożonych przy użyciu klasycznego modelu wdrażania |
+| Tworzenie obszaru roboczego w witrynie Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Zarządzanie dostępem do usługi Log Analytics przy użyciu uprawnień platformy Azure
 Aby udzielić dostępu do obszaru roboczego usługi Log Analytics przy użyciu uprawnień platformy Azure, wykonaj kroki opisane w części [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../active-directory/role-based-access-control-configure.md).
@@ -177,7 +179,7 @@ Możesz zmienić rolę konta użytkownika skojarzonego z Twoim kontem pakietu OM
 4. W oknie dialogowym potwierdzenia kliknij przycisk **Tak**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Usuwanie użytkownika z obszaru roboczego
-Poniżej przedstawiono procedurę usuwania użytkownika z obszaru roboczego. Usunięcie użytkownika nie powoduje zamknięcia obszaru roboczego. Powoduje to natomiast usunięcie skojarzenia między użytkownikiem i obszarem roboczym. Jeśli użytkownik został skojarzony z wieloma obszarami roboczymi, będzie nadal mieć możliwość zalogowania się do pakietu OMS i wyświetlania innych obszarów roboczych.
+Poniżej przedstawiono procedurę usuwania użytkownika z obszaru roboczego. Usunięcie użytkownika nie powoduje zamknięcia obszaru roboczego. Powoduje to natomiast usunięcie skojarzenia między użytkownikiem i obszarem roboczym. Jeśli użytkownik jest skojarzony z wieloma obszarami roboczymi, będzie on nadal miał możliwość zalogowania się do pakietu OMS i wyświetlania innych obszarów roboczych.
 
 1. W portalu pakietu OMS kliknij kafelek **Ustawienia**.
 2. Kliknij kartę **Konta**, a następnie kliknij kartę **Zarządzanie użytkownikami**.

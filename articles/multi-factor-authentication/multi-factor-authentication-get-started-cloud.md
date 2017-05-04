@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ Aby włączyć usługę MFA dla użytkowników, postępuj zgodnie z poniższą p
 Po włączeniu użytkowników należy ich o tym powiadomić za pośrednictwem poczty e-mail. Przy następnej próbie logowania zostaną poproszeni o zarejestrowanie swojego konta w celu korzystania z weryfikacji dwuetapowej. Po rozpoczęciu używania weryfikacji dwuetapowej będą również musieli skonfigurować hasła aplikacji, aby uniknąć zablokowania dostępu do aplikacji niekorzystających z przeglądarki.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Automatyczne włączanie weryfikacji dwuetapowej za pomocą programu PowerShell
-Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [programu PowerShell usługi Azure AD](/powershell/azureps-cmdlets-docs), skorzystaj z następującej metody.  Możesz zmienić właściwość `$st.State`, przypisując jej jeden z następujących stanów:
+Aby zmienić [stan](multi-factor-authentication-whats-next.md) przy użyciu [programu PowerShell usługi Azure AD](/powershell/azure/overview), skorzystaj z następującej metody.  Możesz zmienić właściwość `$st.State`, przypisując jej jeden z następujących stanów:
 
 * Enabled (Włączony)
 * Enforced (Wymuszony)

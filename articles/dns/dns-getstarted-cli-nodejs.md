@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: f84ac7f1fa20af2e495df89609c810107c65583a
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -36,6 +36,13 @@ Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby
 
 W tych instrukcjach założono, że już zainstalowano interfejs wiersza polecenia platformy Azure 1.0 i zalogowano się do niego. Aby uzyskać pomoc, zobacz [How to manage DNS zones using Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) (Jak zarządzać strefami systemu DNS przy użyciu interfejsu wiersza polecenia platformy Azure 1.0).
 
+## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
+
+Przed utworzeniem strefy DNS należy utworzyć dla niej grupę zasobów. Poniżej przedstawiono polecenia.
+
+```azurecli
+azure group create --name MyResourceGroup --location "West US"
+```
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
@@ -98,6 +105,13 @@ info:    network dns zone show command OK
 
 Te serwery nazw powinny zostać skonfigurowane u rejestratora nazw domen (w miejscu zakupu nazwy domeny). Rejestrator zaoferuje opcję skonfigurowania serwerów nazw na potrzeby domeny. Aby uzyskać więcej informacji, zobacz [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
+ 
+Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
+
+```azurecli
+azure group delete --name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

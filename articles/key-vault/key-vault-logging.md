@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,11 +35,11 @@ Dostęp do informacji rejestrowania będzie możliwy maksymalnie po 10 minutach 
 Ten samouczek ułatwi rozpoczęcie pracy z funkcją rejestrowania usługi Azure Key Vault. Pomoże utworzyć konto magazynu, włączyć funkcję rejestrowania i zinterpretować zebrane informacje rejestrowania.  
 
 > [!NOTE]
-> Ten samouczek nie zawiera instrukcji dotyczących sposobu tworzenia magazynów kluczy, kluczy ani kluczy tajnych. Te informacje można znaleźć w temacie [Rozpoczynanie pracy z usługą Azure Key Vault](key-vault-get-started.md). Instrukcje dotyczące wieloplatformowego interfejsu wiersza polecenia znajdują się w [tym równoważnym samouczku](key-vault-manage-with-cli.md).
-> 
+> Ten samouczek nie zawiera instrukcji dotyczących sposobu tworzenia magazynów kluczy, kluczy ani kluczy tajnych. Te informacje można znaleźć w temacie [Rozpoczynanie pracy z usługą Azure Key Vault](key-vault-get-started.md). Instrukcje dotyczące wieloplatformowego interfejsu wiersza polecenia znajdują się w [tym równoważnym samouczku](key-vault-manage-with-cli2.md).
+>
 > Obecnie nie można skonfigurować usługi Azure Key Vault w portalu Azure. Zamiast tego użyj tych instrukcji usługi Azure PowerShell.
-> 
-> 
+>
+>
 
 Aby uzyskać ogólne informacje na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](key-vault-whatis.md)
 
@@ -47,7 +47,7 @@ Aby uzyskać ogólne informacje na temat usługi Azure Key Vault, zobacz [Co to 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Istniejący magazyn kluczy, który był przez Ciebie używany.  
-* Usługa Azure PowerShell w **minimalnej wersji 1.0.1**. Aby zainstalować program Azure PowerShell i skojarzyć go z subskrypcją platformy Azure, zobacz [Sposób instalowania i konfigurowania programu Azure PowerShell](/powershell/azureps-cmdlets-docs). Jeśli masz już zainstalowany program Azure PowerShell, ale nie wiesz, z jakiej wersji korzystasz, w konsoli programu Azure PowerShell wpisz polecenie `(Get-Module azure -ListAvailable).Version`.  
+* Usługa Azure PowerShell w **minimalnej wersji 1.0.1**. Aby zainstalować program Azure PowerShell i skojarzyć go z subskrypcją platformy Azure, zobacz [Sposób instalowania i konfigurowania programu Azure PowerShell](/powershell/azure/overview). Jeśli masz już zainstalowany program Azure PowerShell, ale nie wiesz, z jakiej wersji korzystasz, w konsoli programu Azure PowerShell wpisz polecenie `(Get-Module azure -ListAvailable).Version`.  
 * Wystarczająca ilość miejsca w magazynie platformy Azure dla dzienników usługi Key Vault.
 
 ## <a id="connect"></a>Nawiązywanie połączenia z subskrypcjami
@@ -66,11 +66,11 @@ Następnie, aby określić subskrypcję skojarzoną z Twoim magazynem kluczy, kt
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
-> To jest ważny krok, szczególnie przydatny, jeśli masz wiele subskrypcji skojarzonych z Twoim kontem. Może wystąpić błąd rejestrowania usługi Microsoft.Insights, jeśli ten krok zostanie pominięty. 
+> To jest ważny krok, szczególnie przydatny, jeśli masz wiele subskrypcji skojarzonych z Twoim kontem. Może wystąpić błąd rejestrowania usługi Microsoft.Insights, jeśli ten krok zostanie pominięty.
 >   
 >
 
-Aby uzyskać więcej informacji na temat konfigurowania programu Azure PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Aby uzyskać więcej informacji na temat konfigurowania programu Azure PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="storage"></a>Tworzenie nowego konta magazynu dla dzienników
 Chociaż można użyć istniejącego konta magazynu dla dzienników, utworzymy nowe konto magazynu, które będzie przeznaczone dla dzienników usługi Key Vault. Aby później można było wygodnie określić wszystkie szczegóły, będą one przechowywane w zmiennej o nazwie **sa**.
@@ -82,8 +82,8 @@ W celu ułatwienia zarządzania użyjemy tej grupy zasobów, która zawiera nasz
 
 > [!NOTE]
 > Jeśli zdecydujesz się używać istniejącego konta magazynu, należy użyć tej samej subskrypcji, której użyto dla magazynu kluczy. Musi ona korzystać z modelu wdrażania przy użyciu usługi Resource Manager, a nie klasycznego modelu wdrażania.
-> 
-> 
+>
+>
 
 ## <a id="identify"></a>Identyfikowanie magazynu kluczy dla dzienników
 W naszym samouczku wprowadzającym magazyn kluczy został nazwany **ContosoKeyVault**, dlatego dalej będziemy używać tej nazwy, a szczegóły będziemy przechowywać w zmiennej o nazwie **kv**:
@@ -168,13 +168,13 @@ Po uruchomieniu tego drugiego polecenia ogranicznik **/** w nazwach obiektów bl
 Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Na przykład:
 
 * Jeśli masz wiele magazynów kluczy i chcesz pobrać dzienniki dla tylko jednego magazynu kluczy o nazwie CONTOSOKEYVAULT3:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 * Jeśli masz wiele grup zasobów i chcesz pobrać dzienniki dla tylko jednej grupy zasobów, użyj parametru `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 * Jeśli chcesz pobrać wszystkie dzienniki ze stycznia 2016 roku, użyj parametru `-Blob '*/year=2016/m=01/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
 Teraz możesz rozpocząć wyszukiwanie informacji zawartych w dziennikach. Jednak zanim do tego przystąpimy, warto zapoznać się jeszcze z dwoma parametrami polecenia Get-AzureRmDiagnosticSetting:
@@ -272,8 +272,7 @@ Aby zapoznać się z samouczkiem, w którym użyto usługi Azure Key Vault w apl
 
 Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).
 
-Aby zapoznać się z listą poleceń cmdlet usługi Azure PowerShell 1.0 dla usługi Azure Key Vault, zobacz artykuł [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Polecenia cmdlet w usłudze Azure Key Vault).
+Aby zapoznać się z listą poleceń cmdlet usługi Azure PowerShell 1.0 dla usługi Azure Key Vault, zobacz artykuł [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault) (Polecenia cmdlet w usłudze Azure Key Vault).
 
 Aby znaleźć samouczek dotyczący rotacji kluczy i inspekcji dzienników w usłudze Azure Key Vault, zobacz [Jak skonfigurować usługę Key Vault na potrzeby rotacji i inspekcji typu end-to-end](key-vault-key-rotation-log-monitoring.md).
-
 

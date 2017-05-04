@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
-ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,8 +36,8 @@ Aby wybrać odpowiednie rozwiązanie weryfikacji dwuetapowej, najpierw należy o
 | Co chcesz zabezpieczyć | Usługa MFA w chmurze | Serwer MFA |
 | --- |:---:|:---:|
 | Aplikacje firmy Microsoft |● |● |
-| Aplikacje SaaS w galerii aplikacji |● |● |
-| Aplikacje sieci Web opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD |● |● |
+| Aplikacje SaaS w galerii aplikacji |● |  |
+| Aplikacje sieci Web opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD |● |  |
 | Aplikacje usług IIS, które nie zostały opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD | |● |
 | Dostęp zdalny, np. sieć VPN lub brama usług pulpitu zdalnego | |● |
 
@@ -84,9 +85,4 @@ Gdy już udało się ustalić, czy będzie używane uwierzytelnianie wieloskład
 
 [![Chmura](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Weryfikacja](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

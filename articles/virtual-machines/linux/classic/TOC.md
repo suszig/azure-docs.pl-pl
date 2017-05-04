@@ -66,7 +66,7 @@
 ### [Ponowne uruchamianie maszyny wirtualnej lub zmienianie jej rozmiaru](restart-resize-error-troubleshooting.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Tworzenie szablonów usługi Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

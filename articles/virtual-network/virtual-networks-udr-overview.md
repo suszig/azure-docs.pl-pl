@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ Na poniższym rysunku przedstawiono przykład tras zdefiniowanych przez użytkow
 ![Trasy systemowe platformy Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Trasy zdefiniowane przez użytkownika dotyczą tylko ruchu wychodzącego z podsieci. Na przykład nie można utworzyć trasy, aby określić, w jaki sposób ruch z sieci Internet trafia do podsieci. Ponadto urządzenie, które przekazuje ruch dalej, nie może znajdować się w tej samej podsieci, z której pochodzą dane. Dla urządzeń zawsze należy utworzyć oddzielne podsieci. 
+> Trasy zdefiniowane przez użytkownika dotyczą ruchu wychodzącego z dowolnego zasobu w podsieci (na przykład interfejsów sieciowych dołączonych do maszyn wirtualnych). Na przykład nie można tworzyć tras określających, w jaki sposób ruch z Internetu trafia do podsieci. Urządzenie, do którego jest kierowany ruch, nie może znajdować się w tej samej podsieci, z której pochodzą dane. Dla urządzeń zawsze należy utworzyć oddzielne podsieci. 
 > 
 > 
 

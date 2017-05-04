@@ -24,7 +24,7 @@
 ### [Zabezpieczenia na poziomie wierszy w usłudze Power BI Embedded](power-bi-embedded-rls.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [Usługa Azure Resource Manager dla platformy .NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Zestaw SDK dla platformy .NET do pobrania](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)

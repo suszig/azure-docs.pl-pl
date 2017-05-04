@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 02/28/2017
 
 Za pomocą poleceń cmdlet PowerShell usługi Azure Batch można wykonywać oraz tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz interfejsu wiersza polecenia Azure (CLI). Oto krótkie wprowadzenie do poleceń cmdlet, których można używać do zarządzania kontami usługi Batch oraz pracy z zasobami usługi Batch, np. pulami i zadaniami.
 
-Pełna lista poleceń cmdlet w usłudze Batch oraz szczegółowa składnia poleceń cmdlet znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Pełna lista poleceń cmdlet w usłudze Batch oraz szczegółowa składnia poleceń cmdlet znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](/powershell/module/azurerm.batch/#batch).
 
 Informacje w tym artykule dotyczą poleceń cmdlet programu Azure PowerShell w wersji 3.0.0. Zaleca się częstą aktualizację programu Azure PowerShell, aby mieć możliwość korzystania z aktualizacji i rozszerzeń usługi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Wykonaj poniższe operacje, aby używać programu Azure PowerShell do zarządzania zasobami usługi Batch.
 
-* [Zainstaluj i skonfiguruj program Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Zainstaluj i skonfiguruj program Azure PowerShell](/powershell/azure/overview)
 * Uruchom polecenie cmdlet **Login-AzureRmAccount**, aby podłączyć się do subskrypcji (polecenia cmdlet usługi Azure Batch są dostarczane w module usługi Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -43,7 +43,7 @@ Wykonaj poniższe operacje, aby używać programu Azure PowerShell do zarządzan
 
 ## <a name="manage-batch-accounts-and-keys"></a>Zarządzanie kontami i kluczami usługi Batch
 ### <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
-Polecenie **New-AzureRmBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Na przykład:
+Polecenie **New-AzureRmBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Na przykład:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -237,7 +237,7 @@ Właściwości puli w usłudze Batch zostały zaktualizowane. Jednak aby rzeczyw
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-* Szczegóły składni poleceń cmdlet oraz przykłady znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* Szczegóły składni poleceń cmdlet oraz przykłady znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](/powershell/module/azurerm.batch/#batch).
 * Aby uzyskać więcej informacji na temat aplikacji i pakietów aplikacji w usłudze Batch, zobacz [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji usługi Azure Batch).
 
 

@@ -9,7 +9,7 @@
 # Rozpoczęcie pracy
 ## [Tworzenie maszyny wirtualnej przy użyciu portalu](tutorial.md)
 ## [Logowanie do maszyny wirtualnej](connect-logon.md)
-## [Instalowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Instalowanie programu Azure PowerShell](/powershell/azure/overview)
 ## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md)
 
 # Instrukcje
@@ -88,7 +88,7 @@
 ## [Resetowanie hasła protokołu RDP](reset-rdp.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

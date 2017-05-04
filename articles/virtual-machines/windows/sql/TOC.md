@@ -36,7 +36,7 @@
 ## [Application patterns](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md) (Wzorce aplikacji)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Sterowniki programu SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

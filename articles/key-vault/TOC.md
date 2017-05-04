@@ -28,7 +28,7 @@
 ### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia 2.0](key-vault-manage-with-cli2.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)

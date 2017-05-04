@@ -1,41 +1,31 @@
-Rozmiary serii NC i NV są również nazywane wystąpieniami z włączonymi procesorami GPU. Są to wyspecjalizowane maszyny wirtualne zawierające karty procesorów GPU firmy NVIDIA, zoptymalizowane pod kątem różnych scenariuszy i przypadków użycia. Rozmiary serii NV są zoptymalizowane i zaprojektowane na potrzeby scenariuszy zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania oraz infrastruktury pulpitu wirtualnego (VDI) wykorzystujących platformy takie jak OpenGL i DirectX. Rozmiary NC są bardziej zoptymalizowane pod kątem aplikacji intensywnie korzystających z mocy obliczeniowej i sieci, takich jak aplikacje i symulacje oparte na strukturach CUDA i OpenCL. 
+The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations. 
 
 
-Wystąpienia NV korzystają z karty procesorów GPU Tesla M60 firmy NVIDIA oraz technologii NVIDIA GRID dla przyspieszonych aplikacji komputerowych i pulpitów wirtualnych, na których klienci będą mogli wizualizować swoje dane lub symulacje. Użytkownicy będą mogli wizualizować swoje przepływy pracy o dużych obciążeniach graficznych na wystąpieniach NV, aby uzyskać doskonałe możliwości grafiki oraz dodatkowo uruchamiać obciążenia o pojedynczej precyzji, takie jak kodowanie i renderowanie. Karta Tesla M60 zapewnia 4096 rdzeni CUDA w konstrukcji z dwoma procesorami GPU z maksymalnie 36 strumieniami H.264 1080p. 
+The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264. 
 
-Wystąpienia NC są obsługiwane przez kartę Tesla K80 firmy NVIDIA. Użytkownicy mogą teraz przetwarzać dane znacznie szybciej dzięki wykorzystaniu architektury CUDA dla aplikacji takich jak eksploracja zasobów energetycznych, symulacje zderzeń, renderowanie metodą śledzenia promieni, uczenie głębokie i wiele innych. Wyposażona w dwa procesory GPU karta Tesla K80 dostarcza 4992 rdzeni CUDA, maksymalnie 2,91 teraflopa wydajności obliczeń o podwójnej precyzji i maksymalnie 8,93 teraflopa wydajności obliczeń o pojedynczej precyzji.
+The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance.
 
-## <a name="nv-instances"></a>Wystąpienia NV
+## <a name="nv-instances"></a>NV instances
 
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Procesory GPU |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
-| Standardowa_NV6 |6 |56 |380 | 1 |
-| Standardowa_NV12 |12 |112 |680 | 2 |
-| Standardowa_NV24 |24 |224 |1440 | 4 |
+| Standard_NV6 |6 |56 |380 | 1 |
+| Standard_NV12 |12 |112 |680 | 2 |
+| Standard_NV24 |24 |224 |1440 | 4 |
 
-1 procesor GPU = połowa karty M60.
+1 GPU = one-half M60 card.
 
-**Obsługiwane systemy operacyjne**
+## <a name="nc-instances"></a>NC instances
 
-* Windows Server 2016, Windows Server 2012 R2 — zobacz artykuł [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Windows)
-
-## <a name="nc-instances"></a>Wystąpienia NC
-
-| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Procesory GPU |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
-| Standardowa_NC6 |6 |56 | 380 | 1 |
-| Standardowa_NC12 |12 |112 | 680 | 2 |
-| Standardowa_NC24 |24 |224 | 1440 | 4 |
-| Standardowa_NC24r* |24 |224 | 1440 | 4 |
+| Standard_NC6 |6 |56 | 380 | 1 |
+| Standard_NC12 |12 |112 | 680 | 2 |
+| Standard_NC24 |24 |224 | 1440 | 4 |
+| Standard_NC24r* |24 |224 | 1440 | 4 |
 
-1 procesor GPU = połowa karty K80.
+1 GPU = one-half K80 card.
 
-* Obsługa technologii RDMA
+*RDMA capable
 
-**Obsługiwane systemy operacyjne**
-
-* Windows Server 2016, Windows Server 2012 R2 — zobacz artykuł [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Windows)
-* Ubuntu 16.04 LTS — zobacz artykuł [N-series driver setup for Linux](../articles/virtual-machines/linux/n-series-driver-setup.md) (Konfiguracja sterowników serii N dla systemu Linux)
-
-<br>
 

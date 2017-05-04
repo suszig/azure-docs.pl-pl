@@ -173,7 +173,7 @@
 
 # Dokumentacja
 
-## [Moduł programu PowerShell (nowy)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [Moduł programu PowerShell (nowy)](/powershell/module/azurerm.machinelearning)
 ## [Moduł programu PowerShell (klasyczny)](machine-learning-powershell-module.md)
 ## [Dokumentacja algorytmów i modułu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [Dokumentacja interfejsu API REST](/rest/api/machinelearning)

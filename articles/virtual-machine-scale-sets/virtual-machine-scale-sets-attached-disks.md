@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 4/25/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Zestawy skalowania maszyn wirtualnych platformy Azure i dołączone dyski danych
-[Zestawy skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/) platformy Azure obsługują teraz maszyny wirtualne z dołączonymi dyskami danych. Dyski danych można zdefiniować w profilu magazynu dla zestawów skalowania utworzonych przy użyciu usługi Azure Managed Disks. Wcześniej jedynymi opcjami bezpośrednio dołączonego magazynu dostępnymi dla maszyn wirtualnych w zestawach skalowania były dysk systemu operacyjnego oraz dyski tymczasowe.
+[Zestawy skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/) platformy Azure obsługują teraz maszyny wirtualne z dołączonymi dyskami danych. Dla zestawów skalowania utworzonych przy użyciu usługi Azure Managed Disks można zdefiniować dyski danych w profilu magazynu. Wcześniej jedynymi opcjami bezpośrednio dołączonego magazynu dostępnymi dla maszyn wirtualnych w zestawach skalowania były dysk systemu operacyjnego oraz dyski tymczasowe.
 
 > [!NOTE]
 >  Podczas tworzenia zestawu skalowania ze zdefiniowanymi dołączonymi dyskami danych nadal konieczne jest zainstalowanie i sformatowanie tych dysków z poziomu maszyny wirtualnej w celu ich użycia (podobnie jak w przypadku autonomicznych maszyn wirtualnych platformy Azure). Wygodnym sposobem wykonania tych czynności jest użycie rozszerzenia niestandardowego skryptu, które wywołuje skrypt standardowy w celu podzielenia na partycje i sformatowania wszystkich dysków danych na maszynie wirtualnej.
@@ -58,10 +58,21 @@ Innym sposobem tworzenia zestawu skalowania z dołączonymi dyskami danych jest 
 Kompletny, gotowy do wdrożenia przykład szablonu zestawu skalowania ze zdefiniowanym dyskiem dołączonym można zobaczyć tutaj: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Dodawanie dysku danych do istniejącego zestawu skalowania
+> [!NOTE]
+>  Dyski danych można dołączać tylko do zestawu skalowania, który został utworzony za pomocą usługi [Azure Managed Disks](./virtual-machine-scale-sets-managed-disks.md).
+
 Dysk danych można dodać do zestawu skalowania maszyn wirtualnych przy użyciu polecenia _az vmss disk attach_ interfejsu wiersza polecenia platformy Azure. Należy pamiętać o określeniu właściwości lun, która nie jest jeszcze używana. W poniższym przykładzie z interfejsu wiersza polecenia do właściwości lun 3 zostaje dodany dysk o rozmiarze 50 GB:
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
+
+W poniższym przykładzie przy użyciu programu PowerShell do właściwości lun 3 zostaje dodany dysk o rozmiarze 50 GB:
+```powershell
+$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
+$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
+Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
+```
+
 > [!NOTE]
 > Różne rozmiary maszyn wirtualnych mają różne limity dotyczące obsługiwanej przez nie liczby dysków dołączonych. Przed dodaniem nowego dysku zapoznaj się z [charakterystyką rozmiarów maszyn wirtualnych](../virtual-machines/windows/sizes.md).
 

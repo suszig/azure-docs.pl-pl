@@ -48,7 +48,7 @@
 ### [Rozwiązywanie problemów z usługą Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)

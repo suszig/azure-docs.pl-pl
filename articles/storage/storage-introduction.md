@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Usługa Azure Storage to rozwiązanie magazynu w chmurze dla nowoczesnych aplika
 * Jak jest zapewniana trwałość danych usługi Azure Storage za pomocą nadmiarowości i replikacji
 * Gdzie możesz skompilować swoją pierwszą aplikację usługi Azure Storage
 
-Aby szybko rozpocząć pracę z usługą Azure Storage, zobacz [Szybkie wprowadzenie do usługi Azure Storage](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Aby uzyskać szczegółowe informacje dotyczące narzędzi, bibliotek i innych zasobów dotyczących pracy z usługą Azure Storage, zobacz [Następne kroki](#next-steps) poniżej.
 
@@ -185,12 +187,12 @@ Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który 
 * [Biblioteka klienta usługi Storage dla języka PHP](https://azure.microsoft.com/develop/php/)
 * [Biblioteka klienta usługi Storage dla języka Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Biblioteka klienta usługi Storage dla języka Python](https://azure.microsoft.com/develop/python/)
-* [Polecenia cmdlet usługi Storage dla programu PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Polecenia cmdlet usługi Storage dla programu PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Usługi zarządzania usługi Azure Storage
 * [Dokumentacja interfejsu API REST dostawcy zasobów usługi Storage](/rest/api/storagerp/)
 * [Biblioteka klienta dostawcy zasobów usługi Storage dla platformy .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Polecenia cmdlet dostawcy zasobów usługi Storage dla programu PowerShell 1.0](/powershell/storage/)
+* [Polecenia cmdlet dostawcy zasobów usługi Storage dla programu PowerShell 1.0](/powershell/module/azure.storage)
 * [Interfejs API REST zarządzania usługą Storage (klasyczny)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Usługi przenoszenia danych usługi Azure Storage
@@ -202,7 +204,7 @@ Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który 
 * [Azure Storage Client Tools](storage-explorers.md)
 * [Zestawy SDK i narzędzia platformy Azure](https://azure.microsoft.com/tools/)
 * [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Narzędzie wiersza polecenia AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Następne kroki
@@ -211,7 +213,11 @@ Aby dowiedzieć się więcej na temat usługi Azure Storage, zapoznaj się z tym
 ### <a name="documentation"></a>Dokumentacja
 * [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Tworzenie konta magazynu](storage-create-storage-account.md)
-* [Szybkie wprowadzenie do usługi Azure Storage](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>Dla administratorów
 * [Używanie programu Azure PowerShell z usługą Azure Storage](storage-powershell-guide-full.md)

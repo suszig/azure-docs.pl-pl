@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: e16792bb762287bc16c280386981a4d442448674
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -42,11 +42,10 @@ W tym samouczku zostaną wykonane następujące czynności:
 
 ## <a name="select-a-sql-vm-image-from-the-gallery"></a>Wybieranie obrazu maszyny wirtualnej SQL z galerii
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu swojego konta.
-   
+
    > [!NOTE]
    > Jeśli nie masz konta platformy Azure, odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-   > 
-   > 
+
 2. W witrynie Azure Portal kliknij pozycję **Nowe**. Portal otworzy blok **Nowe**. Zasoby maszyny wirtualnej z programem SQL Server znajdują się w grupie **Obliczeniowe** witryny Marketplace.
 3. W bloku **Nowy** kliknij grupę **Obliczeniowe**, a następnie kliknij pozycję **Zobacz wszystko**.
 4. W polu tekstowym **Filtr** wpisz SQL Server i naciśnij klawisz ENTER.
@@ -58,13 +57,13 @@ W tym samouczku zostaną wykonane następujące czynności:
 
    > [!TIP]
    > W tym samouczku jest używana wersja Developer — w pełni funkcjonalna wersja programu SQL Server, bezpłatna w przypadku zastosowań obejmujących tworzenie i testowanie. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej.
-   
+
    > [!NOTE]
-   > W przypadku obrazów maszyn wirtualnych SQL koszty licencji programu SQL Server zostały uwzględnione w cenie za minutę dla tworzonej maszyny wirtualnej (z wyjątkiem wersji Developer i Express). Z programu SQL Server Developer można korzystać bezpłatnie w środowiskach tworzenia i testowania (nie produkcyjnych). Z programu SQL Express można korzystać bezpłatnie na potrzeby obsługi małych obciążeń (mniej niż 1 GB pamięci i mniej niż 10 GB magazynu). Drugą opcją jest używanie własnej licencji (BYOL, bring your own license) i płatność tylko za maszynę wirtualną. Nazwy tych obrazów mają prefiks {BYOL}. Aby uzyskać więcej informacji na temat tej opcji, zobacz temat [Wprowadzenie do programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
-   > 
-   > 
+   > W przypadku obrazów maszyn wirtualnych SQL koszty licencji programu SQL Server zostały uwzględnione w cenie za minutę dla tworzonej maszyny wirtualnej (z wyjątkiem wersji Developer i Express). Z programu SQL Server Developer można korzystać bezpłatnie w środowiskach tworzenia i testowania (nie produkcyjnych). Z programu SQL Express można korzystać bezpłatnie na potrzeby obsługi małych obciążeń (mniej niż 1 GB pamięci i mniej niż 10 GB magazynu).
+   > Drugą opcją jest używanie własnej licencji (BYOL, bring your own license) i płatność tylko za maszynę wirtualną. Nazwy tych obrazów mają prefiks {BYOL}. Aby uzyskać więcej informacji na temat tych opcji, zobacz [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
+
 7. W obszarze **Wybierz model wdrożenia** sprawdź, czy pozycja **Resource Manager** została zaznaczona. Wdrażanie przy użyciu usługi Resource Manager jest zalecanym modelem wdrożenia dla nowych maszyn wirtualnych. Kliknij przycisk **Utwórz**.
-   
+
     ![Tworzenie maszyny wirtualnej SQL przy użyciu usługi Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>Konfigurowanie maszyny wirtualnej
@@ -100,7 +99,7 @@ W bloku **Podstawowe** podaj następujące informacje:
 W kroku **Rozmiar** wybierz rozmiar maszyny wirtualnej w bloku **Wybierz rozmiar**. W tym bloku początkowo wyświetlane są rozmiary maszyn zalecane zgodnie z wybranym obrazem.
 
 > [!IMPORTANT]
-> Szacowany koszt miesięczny wyświetlany w bloku **Wybieranie rozmiaru** nie uwzględnia kosztów licencjonowania programu SQL Server. Jest to koszt samej maszyny wirtualnej. W przypadku wersji Express i Developer programu SQL Server jest to szacowany łączny koszt. W przypadku innych wersji zobacz [cennik maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) i wybierz docelową wersję programu SQL Server. 
+> Szacowany koszt miesięczny wyświetlany w bloku **Wybieranie rozmiaru** nie uwzględnia kosztów licencjonowania programu SQL Server. Jest to koszt samej maszyny wirtualnej. W przypadku wersji Express i Developer programu SQL Server jest to szacowany łączny koszt. W przypadku innych wersji zobacz [cennik maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) i wybierz docelową wersję programu SQL Server. Zobacz również [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
 ![Opcje rozmiaru maszyny wirtualnej SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -108,8 +107,6 @@ W przypadku obciążeń produkcyjnych zalecane jest wybranie rozmiaru maszyny wi
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat rozmiarów maszyny wirtualnej, zobacz [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozmiary maszyn wirtualnych). Aby zapoznać się z zagadnieniami związanymi z rozmiarami maszyn wirtualnych programu SQL Server, zobacz [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md) (Najlepsze rozwiązania umożliwiające zwiększenie wydajności programu SQL Server w usłudze Azure Virtual Machines).
-> 
-> 
 
 Wybierz rozmiar maszyny wirtualnej, a następnie kliknij pozycję **Wybierz**.
 

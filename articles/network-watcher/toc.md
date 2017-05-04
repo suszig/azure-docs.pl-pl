@@ -54,7 +54,7 @@
 ## [Wykrywanie włamań przy użyciu narzędzi typu „open source”](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analizowanie dzienników usługi Application Gateway w usłudze Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Dokumentacja
-## [Program PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Program PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # Powiązane
