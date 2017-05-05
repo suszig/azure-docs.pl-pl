@@ -1,11 +1,11 @@
 # Omówienie
 ## [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
 ## [Wybieranie wersji](active-directory-editions.md)
-## [Informacje o zarządzaniu tożsamościami na platformie Azure](fundamentals-identity.md)
-## [Omówienie portalu usługi Azure AD](active-directory-preview-explainer.md)
 
+## [Informacje o zarządzaniu tożsamościami na platformie Azure](identity-fundamentals.md)
+## [Omówienie witryny Azure Portal](active-directory-preview-explainer.md)
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Uzyskiwanie dzierżawy usługi Azure AD](active-directory-howto-tenant.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Kojarzenie subskrypcji usługi Azure](active-directory-how-subscriptions-associated-directory.md)
@@ -58,6 +58,7 @@
 ### [Wyświetlanie wszystkich grup](active-directory-groups-view-azure-portal.md)
 ### [Włączanie dedykowanych grup](active-directory-accessmanagement-dedicated-groups.md)
 ### [Dodawanie dostępu grupowego do aplikacji SaaS](active-directory-accessmanagement-group-saasapps.md)
+### [Przywracanie usuniętej grupy usługi Office 365](active-directory-groups-restore-azure-portal.md)
 ### Zarządzenie ustawieniami grup
 #### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Polecenia cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
@@ -110,24 +111,27 @@
 ##### [Nieznane źródła](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Nieprawidłowe logowanie](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Zarządzanie hasłami](active-directory-manage-passwords.md)
-### [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
-### [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
-### [Administratorzy włączają funkcję samoobsługowego resetowania haseł](active-directory-passwords.md)
-### [Objaśnienie zarządzania hasłami](active-directory-passwords-how-it-works.md)
-### [Objaśnienie zasad i ograniczeń](active-directory-passwords-policy.md)
-### Resetowanie haseł
-#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [Portal klasyczny](active-directory-create-users-reset-password.md)
-### [Konfigurowanie zasad wygasania haseł](active-directory-passwords-set-expiration-policy.md)
-### Włączanie zarządzania hasłami
-#### [Wprowadzenie](active-directory-passwords-getting-started.md)
-#### [Wdrażanie](active-directory-passwords-best-practices.md)
-#### [Dostosowywanie](active-directory-passwords-customize.md)
-#### [Wyświetlanie raportów](active-directory-passwords-get-insights.md)
-#### [Dowiedz się więcej](active-directory-passwords-learn-more.md)
-#### [Często zadawane pytania](active-directory-passwords-faq.md)
-#### [Rozwiązywanie problemów](active-directory-passwords-troubleshoot.md)
+## [Zarządzanie hasłami](active-directory-passwords.md)
+### Dokumenty użytkowników
+#### [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
+#### [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
+### [Szybki start: samoobsługowe resetowanie haseł](active-directory-passwords-getting-started.md)
+### [Licencjonowanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-licensing.md)
+### [Wdrażanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-best-practices.md)
+### Administratorzy IT: resetowanie haseł
+#### [Witryna Azure Portal](active-directory-users-reset-password-azure-portal.md)
+#### [Klasyczna witryna Azure Portal](active-directory-create-users-reset-password.md)
+### [Omówienie zasad samoobsługowego resetowania haseł](active-directory-passwords-policy.md)
+### [Objaśnienie resetowania haseł](active-directory-passwords-how-it-works.md)
+### [Dostosowywanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-customize.md)
+### [Dane używane przez funkcję samoobsługowego resetowania haseł](active-directory-passwords-data.md)
+### [Raportowanie dotyczące samoobsługowego resetowania haseł](active-directory-passwords-reporting.md)
+### [Program Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Zapisywanie zwrotne haseł](active-directory-passwords-writeback.md)
+### [Synchronizacja skrótów haseł](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
+### [Rozwiązywanie problemów](active-directory-passwords-troubleshoot.md)
+### [Często zadawane pytania](active-directory-passwords-faq.md)
+
 
 ## Zarządzanie urządzeniami
 ### [Rejestrowanie urządzeń](active-directory-device-registration-overview.md)
@@ -289,6 +293,7 @@
 ##### [Program PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Rozwiązywanie problemów](role-based-access-control-troubleshooting.md)
+#### [Operacje dostawcy zasobów](role-based-access-control-resource-provider-operations.md)
 ### [Konfigurowanie okresów istnienia tokenu](active-directory-configurable-token-lifetimes.md)
 
 ## Zabezpieczanie tożsamości
@@ -341,7 +346,7 @@
 
 
 # Dokumentacja
-## [Polecenia cmdlet programu PowerShell](/powershell/ )
+## [Polecenia cmdlet programu PowerShell](/powershell/azure/overview)
 ## [Dokumentacja interfejsu API języka Java](/java/api)
 ## [Interfejs API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Ograniczenia i limity usługi](active-directory-service-limits-restrictions.md)

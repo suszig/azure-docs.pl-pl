@@ -12,7 +12,6 @@
 ## [Wymagania wstępne](expressroute-prerequisites.md)
 ## [Przepływy pracy](expressroute-workflows.md)
 ## [Wymagania dotyczące routingu](expressroute-routing.md)
-## [Wymagania translatora adresów sieciowych](expressroute-nat.md)
 ## [Wymagania funkcji QoS](expressroute-qos.md)
 ## [Informacje o przenoszeniu obwodów z wersji klasycznej do usługi Resource Manager](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## Najlepsze rozwiązania
 ### [Najlepsze rozwiązania z zakresu bezpieczeństwa sieci i usług w chmurze](../best-practices-network-security.md)
-## [Optymalizowanie routingu](expressroute-optimize-routing.md)
+### [Optymalizowanie routingu](expressroute-optimize-routing.md)
 ### [Routing asymetryczny](expressroute-asymmetric-routing.md)
+### [Translator adresów sieciowych dla usługi ExpressRoute](expressroute-routing-nat.md)
 
 ## Rozwiązywanie problemów
 ### [Weryfikowanie połączenia usługi ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [Pobieranie tabel ARP (wersja klasyczna)](expressroute-troubleshooting-arp-classic.md)
 
 # Dokumentacja
-## [Program PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [Program PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/azure/dn606310)
 

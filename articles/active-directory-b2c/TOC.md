@@ -9,14 +9,14 @@
 ## Przewodniki szybkiego startu
 ### [Kompilowanie aplikacji dla systemu iOS](active-directory-b2c-devquickstarts-ios.md)
 ### [Kompilowanie aplikacji dla systemu Android](active-directory-b2c-devquickstarts-android.md)
-### [Kompilowanie interfejsu API sieci Web w środowisku Node.js](active-directory-b2c-devquickstarts-api-node.md)
-### [Kompilowanie aplikacji sieci Web platformy .NET](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Rejestrowanie i logowanie się w aplikacji sieci Web programu ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### Tworzenie aplikacji sieci Web platformy .NET
+#### [Rejestrowanie i logowanie się w aplikacji sieci Web platformy .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Wywoływanie interfejsu API sieci Web z aplikacji sieci Web platformy .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ### [Kompilowanie interfejsu API sieci Web platformy .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Kompilowanie aplikacji klasycznej dla systemu Windows](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Wywoływanie interfejsu API sieci Web z aplikacji sieci Web platformy .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Tworzenie aplikacji sieci Web w środowisku Node.js](active-directory-b2c-devquickstarts-web-node.md)
+### [Kompilowanie interfejsu API sieci Web w środowisku Node.js](active-directory-b2c-devquickstarts-api-node.md)
+### [Tworzenie aplikacji klasycznej platformy .NET](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Korzystanie z interfejsu API programu Graph usługi Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Dodawanie funkcji logowania się do aplikacji sieci Web w środowisku Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## [Często zadawane pytania](active-directory-b2c-faqs.md)
 
 # Instrukcje
@@ -53,7 +53,7 @@
 
 # Zasoby
 ## [Cennik](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Forum z opiniami na temat platformy Azure](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Forum z opiniami na temat usługi Azure AD B2C](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Pomoc techniczna](active-directory-b2c-support.md)

@@ -37,21 +37,23 @@
 ### [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
 ## [Konfigurowanie protokołu BGP dla bramy sieci VPN](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Konfigurowanie połączeń typu aktywne-aktywne o wysokiej dostępności](vpn-gateway-activeactive-rm-powershell.md)
-## [Modyfikowanie ustawień lokalnej bramy sieci przy użyciu programu PowerShell](vpn-gateway-modify-local-network-gateway.md)
+## Modyfikowanie ustawień lokalnej bramy sieci
+### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+### [Interfejs wiersza polecenia](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Weryfikowanie połączenia z bramą VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md)
 ## Usuwanie bramy VPN Gateway
 ### [Witryna Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Tworzenie certyfikatów głównych z podpisem własnym dla połączeń P2S](vpn-gateway-certificates-point-to-site.md)
+## [Tworzenie certyfikatów z podpisem własnym dla połączeń punkt-lokacja](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Rozwiązywanie problemów
 ### [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
-## [PowerShell (klasyczny)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell (klasyczny)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/jj154113)
 ## [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network)

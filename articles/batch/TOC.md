@@ -7,11 +7,14 @@
 ## [Tworzenie konta usługi Batch](batch-account-create-portal.md)
 ## [Samouczek platformy .NET dla usługi Batch](batch-dotnet-get-started.md)
 ## [Samouczek języka Python dla usługi Batch](batch-python-tutorial.md)
+## [Samouczek środowiska Node.js dla usługi Batch](batch-nodejs-get-started.md)
 # Instrukcje
 ## Programowanie
 ### [Pakiety aplikacji](batch-application-packages.md)
 ### [Automatyczne skalowanie węzłów obliczeniowych](batch-automatic-scaling.md)
-### [Uwierzytelnianie w usłudze Azure AD](batch-aad-auth.md)
+### Uwierzytelnianie w usłudze Azure AD
+#### [Usługa Azure AD z usługą Batch](batch-aad-auth.md)
+#### [Usługa Azure AD z zarządzaniem usługą Batch](batch-aad-auth-management.md)
 ### [Równoczesne zadania w węzłach](batch-parallel-node-tasks.md)
 ### [Wydajne zapytania dotyczące list](batch-efficient-list-queries.md)
 ### [Zadania związane z przygotowywaniem i kończeniem prac](batch-job-prep-release.md)
@@ -27,7 +30,7 @@
 ### [Interfejs wiersza polecenia platformy Azure](batch-cli-get-started.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

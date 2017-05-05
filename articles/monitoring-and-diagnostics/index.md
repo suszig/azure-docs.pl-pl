@@ -1,5 +1,5 @@
 ---
-title: "Dokumentacja monitorowania i diagnostyki platformy Azure — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+title: "Dokumentacja usługi Azure Monitor — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie korzystania z usług monitorowania i diagnostyki do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Dokumentacja interfejsu API, najlepsze rozwiązania i inne materiały."
 services: monitoring-and-diagnostics
 author: carolz
@@ -13,12 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d57ccb26a3dde16c50d2e837d392ab8e6fea979
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 475353f5a5abca1e9d6b5fdf4980d0cf33acc744
+ms.lasthandoff: 05/03/2017
 
 ---
-# <a name="monitoring-and-diagnostics-documentation"></a>Dokumentacja monitorowania i diagnostyki
+# <a name="azure-monitor-documentation"></a>Dokumentacja usługi Azure Monitor
 
 Informacje o sposobie korzystania z usług monitorowania i diagnostyki platformy Azure do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Samouczki, dokumentacja interfejsu API, najlepsze rozwiązania oraz inne dokumenty, które ułatwiają zapoznanie się z zastosowaniami monitorowania i diagnostyki oraz planowanie i wdrażanie skalowalnych i niezawodnych rozwiązań.
 

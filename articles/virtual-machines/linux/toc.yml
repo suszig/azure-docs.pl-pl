@@ -4,7 +4,7 @@
   items:
   - name: "Informacje o maszynach wirtualnych"
     href: overview.md
-- name: "Szybki start"
+- name: "Przewodniki Szybki start"
   expanded: true
   items:
   - name: "Tworzenie maszyny wirtualnej — interfejs wiersza polecenia platformy Azure"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8 — Zarządzanie siecią"
     href: tutorial-virtual-network.md
+  - name: "9 — Zarządzanie zabezpieczeniami maszyn wirtualnych"
+    href: tutorial-azure-security.md
 - name: "Przykłady"
   items:
   - name: "Interfejs wiersza polecenia platformy Azure"
