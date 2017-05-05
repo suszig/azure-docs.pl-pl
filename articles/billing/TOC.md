@@ -33,6 +33,7 @@
 
 # Dokumentacja
 ## [Przegląd interfejsu API](billing-usage-rate-card-overview.md)
+## [Przegląd interfejsu API raportowania korporacyjnego](billing-enterprise-api.md)
 ## [Architektura REST dla faktur](/rest/api/billing)
 ## [Architektura REST dotycząca użycia i usługi RateCard](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Rozwiązanie partnera: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)

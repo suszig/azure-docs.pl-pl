@@ -8,19 +8,19 @@
 ## [Integracja z oprogramowaniem SAP Netweaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [Integracja z oprogramowaniem SAP Business ByDesign](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 # Rozwiązania SAP na platformie Azure
-## SAP HANA
+## SAP HANA — duże wystąpienia
 ### [Omówienie i architektura](hana-overview-architecture.md)
 ### [Infrastruktura i łączność](hana-overview-infrastructure-connectivity.md)
 ### [Instalowanie platformy SAP HANA](hana-installation.md)
 ### [Wysoka dostępność i odzyskiwanie po awarii](hana-overview-high-availability-disaster-recovery.md)
 ### [Rozwiązywanie problemów i monitorowanie](troubleshooting-monitoring.md)
+## Oprogramowanie SAP HANA na maszynach wirtualnych
 ### [Platforma SAP HANA z pojedynczym wystąpieniem](hana-get-started.md)
 ### [S/4 HANA lub BW/4 HANA — podręcznik wdrażania](cal-s4h.md)
-### Backup
-#### [Omówienie](sap-hana-backup-guide.md)
-#### [Kopia zapasowa na poziomie pliku](sap-hana-backup-file-level.md)
-#### [Migawki magazynu](sap-hana-backup-storage-snapshots.md)
-
+### [Wysoka dostępność na maszynach wirtualnych] (sap-hana-high-availability.md)
+### [Omówienie usługi Backup](sap-hana-backup-guide.md)
+### [Kopia zapasowa na poziomie pliku](sap-hana-backup-file-level.md)
+### [Kopie zapasowe migawek magazynu](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
 ### [Omówienie i architektura](suse-quickstart.md)
 ### [Planowanie i implementowanie](planning-guide.md)

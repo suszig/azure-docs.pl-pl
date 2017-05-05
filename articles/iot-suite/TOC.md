@@ -11,12 +11,22 @@
 ## [Omówienie rozwiązania połączonej fabryki](iot-suite-connected-factory-overview.md)
 ## [Przewodnik po rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Przewodnik po rozwiązaniu do konserwacji zapobiegawczej](iot-suite-predictive-walkthrough.md)
+## [Łączenie urządzenia Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### Korzystanie z języka C
+#### [Symulowane dane](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Korzystanie z rzeczywistych czujników](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Wdrażanie aktualizacji oprogramowania układowego](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Korzystanie ze środowiska Node.js
+#### [Symulowane dane](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Korzystanie z rzeczywistych czujników](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Wdrażanie aktualizacji oprogramowania układowego](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # Instrukcje
-## [Łączenie urządzenia z rozwiązaniem do zdalnego monitorowania (Windows)](iot-suite-connecting-devices.md)
-## [Łączenie urządzenia z rozwiązaniem do zdalnego monitorowania (Linux)](iot-suite-connecting-devices-linux.md)
-## [Łączenie urządzenia z rozwiązaniem do zdalnego monitorowania (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Łączenie urządzenia z rozwiązaniem do zdalnego monitorowania (Node)](iot-suite-connecting-devices-node.md)
+## Podłączanie symulowanego urządzenia
+### [C w systemie Windows](iot-suite-connecting-devices.md)
+### [C w systemie Linux](iot-suite-connecting-devices-linux.md)
+### [Node.js](iot-suite-connecting-devices-node.md)
+## [Łączenie urządzenia mbed](iot-suite-connecting-devices-mbed.md)
 ## [Łączenie aplikacji logiki z rozwiązaniem do zdalnego monitorowania](iot-suite-logic-apps-tutorial.md)
 ## [Dostosowanie wstępnie skonfigurowanego rozwiązania](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Korzystanie z telemetrii dynamicznej z rozwiązaniem do zdalnego monitorowania](iot-suite-dynamic-telemetry.md)

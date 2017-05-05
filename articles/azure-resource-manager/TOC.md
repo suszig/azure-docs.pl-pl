@@ -29,15 +29,19 @@
 ### [Ustawianie lokalizacji](resource-manager-template-location.md)
 ### [Przypisywanie tagów](resource-manager-template-tags.md)
 ### [Ustawianie nazwy i typu zasobu podrzędnego](resource-manager-template-child-resource.md)
+### [Aktualizowanie zasobu](resource-manager-update.md)
+### [Używanie obiektów dla parametrów](resource-manager-objects-as-parameters.md)
 ### [Udostępnianie stanu między połączonymi szablonami](best-practices-resource-manager-state.md)
 ### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
 ## Wdrażanie
 ### PowerShell
 #### [Wdrażanie szablonu](resource-group-template-deploy.md)
 #### [Wdrażanie szablonu prywatnego przy użyciu tokenu sygnatury dostępu współdzielonego](resource-manager-powershell-sas-token.md)
+#### [Eksportowanie szablonu i ponowne wdrażanie](resource-manager-export-template-powershell.md)
 ### Interfejs wiersza polecenia platformy Azure
 #### [Wdrażanie szablonu](resource-group-template-deploy-cli.md)
 #### [Wdrażanie szablonu prywatnego przy użyciu tokenu sygnatury dostępu współdzielonego](resource-manager-cli-sas-token.md)
+#### [Eksportowanie szablonu i ponowne wdrażanie](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
 ### [Ciągła integracja z usługą Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # Dokumentacja
 ## [Funkcje szablonów](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Funkcje tablicy i obiektów](resource-group-template-functions-array.md)
+### [Funkcje porównania](resource-group-template-functions-comparison.md)
+### [Funkcje wdrażania](resource-group-template-functions-deployment.md)
+### [Funkcje liczbowe](resource-group-template-functions-numeric.md)
+### [Funkcje zasobów](resource-group-template-functions-resource.md)
+### [Funkcje ciągów](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

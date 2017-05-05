@@ -4,7 +4,7 @@
   items:
   - name: "Informacje o usłudze SQL DB"
     href: sql-database-technical-overview.md
-- name: "Szybki start"
+- name: "Przewodniki Szybki start"
   expanded: true
   items:
   - name: "Tworzenie bazy danych — portal"
@@ -38,7 +38,9 @@
   - name: "1 — Tworzenie/projektowanie nowej bazy danych SQL"
     href: sql-database-design-first-database.md
   - name: "2 — Migrowanie istniejącego programu SQL Server"
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: "3 — Zabezpieczanie bazy danych SQL"
+    href: sql-database-security-tutorial.md
 - name: "Przykłady"
   items:
   - name: "Interfejs wiersza polecenia platformy Azure"
