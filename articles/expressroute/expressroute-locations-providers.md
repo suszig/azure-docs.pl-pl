@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 32b8cd51c983b2a66f3631ec399aa88e34555196
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: b7cb18fcfda5b829b72b2ded6a1ea9e996e771d7
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
@@ -41,7 +42,7 @@ Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokaliza
 
 | **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
 | --- | --- | --- |
-| **Ameryka Północna** |Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Zachodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Środkowo-zachodnie stany USA, Kanada Środkowa, Kanada Wschodnia |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton, Montreal, Miasto Quebec, Toronto |
+| **Ameryka Północna** |Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Zachodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Środkowo-zachodnie stany USA, Kanada Środkowa, Kanada Wschodnia |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton, Montreal, Miasto Quebec, Toronto |
 | **Ameryka Południowa** |Brazylia Południowa |Sao Paulo |
 | **Europa** |Europa Północna, Europa Zachodnia, Zjednoczone Królestwo (zachód), Zjednoczone Królestwo (południe) |Amsterdam, Dublin, Londyn, Newport (Walia), Paryż |
 | **Azja** |Azja Wschodnia, Azja Południowo-Wschodnia |Hongkong, Singapur |
@@ -55,7 +56,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 
 | **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
 | --- | --- | --- | --- |
-| **Chmura administracji USA** |Administracja USA — Iowa, Administracja USA — Wirginia, US DoD — środkowe stany, US DoD — wschodnie stany  |Chicago, Dallas, Nowy Jork, Dolina Krzemowa, Waszyngton |
+| **Chmura administracji USA** |Administracja USA — Iowa, Administracja USA — Wirginia, US DoD — środkowe stany, US DoD — wschodnie stany  |Chicago, Dallas, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton |
 | **Chiny** |Chiny Północne, Chiny Wschodnie |Pekin, Szanghaj |
 | **Niemcy** |Niemcy Środkowe, Niemcy Wschodnie |Berlin, Frankfurt |
 
@@ -109,7 +110,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Dallas** |Equinix, Megaport, Verizon |
 | **Nowy Jork** |Equinix, Level 3 Communications+, Verizon |
 | **Dolina Krzemowa** | Equinix |
-| **Seattle** | Equinix+ |
+| **Seattle** | Equinix |
 | **Waszyngton** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Chiny

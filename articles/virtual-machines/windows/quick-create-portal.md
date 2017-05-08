@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 2. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-3. W bloku **Nowy** wybierz pozycję **Obliczeniowe**, w bloku **Obliczeniowe** wybierz pozycję **Windows Server 2016 Datacenter**, a następnie kliknij przycisk **Utwórz**.
+3. W bloku **Nowy** wybierz pozycję **Obliczeniowe**, w bloku **Obliczeniowe** wybierz pozycję *Windows Server 2016 Datacenter*, a następnie kliknij przycisk **Utwórz**.
 
 4. Wypełnij formularz **Podstawy** maszyny wirtualnej. Nazwa użytkownika i hasło wprowadzone w tym miejscu są używane na potrzeby logowania się do maszyny wirtualnej. W obszarze **Grupa zasobów** utwórz nową. Grupa zasobów to logiczny kontener, w którym są tworzone i zbiorczo zarządzane zasoby platformy Azure. Po zakończeniu kliknij przycisk **OK**.
 
@@ -46,21 +47,21 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
     ![Zrzut ekranu przedstawiający rozmiary maszyn wirtualnych](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. W bloku ustawień wybierz opcję **Tak** w obszarze **Używanie zarządzanych dysków**, zachowaj ustawienia domyślne dla pozostałych ustawień i kliknij przycisk **OK**.
+6. W bloku ustawień wybierz opcję *Tak* w obszarze **Używanie zarządzanych dysków**, zachowaj ustawienia domyślne dla pozostałych ustawień i kliknij przycisk **OK**.
 
 7. Na stronie podsumowania kliknij przycisk **OK**, aby rozpocząć wdrażanie maszyny wirtualnej.
 
-8. Aby monitorować stan wdrożenia, kliknij maszynę wirtualną. Maszynę wirtualną można znaleźć na pulpicie nawigacyjnym witryny Azure Portal. Można też wybrać pozycję **Maszyny wirtualne** w menu po lewej stronie. Po utworzeniu maszyny wirtualnej jej stan zmieni się z **Wdrażanie** na **Uruchomiona**.
+8. Aby monitorować stan wdrożenia, kliknij maszynę wirtualną. Maszynę wirtualną można znaleźć na pulpicie nawigacyjnym witryny Azure Portal. Można też wybrać pozycję **Maszyny wirtualne** w menu po lewej stronie. Po utworzeniu maszyny wirtualnej jej stan zmieni się z *Wdrażanie* na *Uruchomiona*.
 
 ## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
 Aby zezwolić na ruch dla usług IIS, musisz otworzyć port 80 dla ruchu w sieci Web. Ten krok przeprowadzi Cię przez proces tworzenia reguły sieciowej grupy zabezpieczeń w celu zezwolenia na połączenia przychodzące w porcie 80.
 
 1. W sekcji **Podstawowe elementy** bloku maszyny wirtualnej kliknij nazwę **grupy zasobów**.
-2. W bloku grupy zasobów kliknij pozycję **Sieciowa grupa zabezpieczeń** na liście zasobów. Nazwa sieciowej grupy zabezpieczeń powinna być nazwą maszyny wirtualnej z dołączonym na końcu ciągiem -nsg.
+2. W bloku grupy zasobów kliknij pozycję **Sieciowa grupa zabezpieczeń** na liście zasobów. Nazwa sieciowej grupy zabezpieczeń powinna być nazwą maszyny wirtualnej z dołączonym na końcu ciągiem *-nsg*.
 3. Kliknij nagłówek **Reguła zabezpieczeń dla ruchu przychodzącego**, aby otworzyć listę reguł ruchu przychodzącego. Na liście powinna już znajdować się reguła protokołu RDP.
 4. Kliknij pozycję **+ Dodaj**, aby otworzyć blok **Dodawanie reguły zabezpieczeń dla ruchu przychodzącego**.
-5. W polu **Nazwa** wpisz ciąg **IIS**. Upewnij się, że w polu **Zakres portów** ustawiono wartość 80, a w polu **Akcja** — wartość **Zezwalaj**. Kliknij przycisk **OK**.
+5. W polu **Nazwa** wpisz ciąg *IIS*. Upewnij się, że w polu **Zakres portów** ustawiono wartość *80*, a w polu **Akcja** — wartość *Zezwalaj*. Kliknij przycisk **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Wyświetlanie strony powitalnej usług IIS
 
-Po zainstalowaniu usług IIS i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki usług IIS. Pobierz **publiczny adres IP** z bloku maszyny wirtualnej i użyj go w celu odwiedzenia domyślnej strony sieci Web. 
+Po zainstalowaniu usług IIS i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki usług IIS. Pobierz *publiczny adres IP* z bloku maszyny wirtualnej i użyj go w celu odwiedzenia domyślnej strony sieci Web. 
 
 ![Domyślna witryna usług IIS](./media/quick-create-powershell/default-iis-website.png) 
 

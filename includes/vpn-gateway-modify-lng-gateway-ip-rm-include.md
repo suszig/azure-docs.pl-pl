@@ -1,9 +1,8 @@
-Aby zmodyfikować adres IP bramy, użyj polecenia cmdlet „New-AzureRmVirtualNetworkGatewayConnection”. Obecnie polecenie cmdlet „Set” nie obsługuje modyfikowania adresu IP bramy.
+### <a name="gwipnoconnection"></a>Aby zmodyfikować element „GatewayIpAddress” bramy sieci lokalnej — brak połączenia bramy
 
-### <a name="gwipnoconnection"></a>Modyfikowanie adresu IP bramy — brak połączenia bramy
-Aby zmodyfikować adres IP bramy dla bramy sieci lokalnej, która nie ma jeszcze połączenia, skorzystaj z poniższego przykładu. Jednocześnie możesz również zmodyfikować prefiksy adresów. Pamiętaj, aby użyć istniejącej nazwy bramy sieci lokalnej w celu zastąpienia bieżących ustawień. Jeśli tego nie zrobisz, utworzysz nową bramę sieci lokalnej, a nie zastąpisz istniejącej.
+W przypadku zmiany publicznego adresu IP urządzenia sieci VPN, z którym chcesz nawiązać połączenie, musisz zmodyfikować bramę sieci lokalnej w celu odzwierciedlenia tej zmiany. Użyj przykładu, aby zmodyfikować bramę sieci lokalnej bez połączenia bramy.
 
-Użyj poniższego przykładu, zastępując wartości swoimi własnymi:
+Podczas modyfikowania tej wartości możesz również zmodyfikować prefiksy adresów. Użyj istniejącej nazwy bramy sieci lokalnej w celu zastąpienia bieżących ustawień. Jeśli użyjesz innej nazwy, utworzysz nową bramę sieci lokalnej, a nie zastąpisz istniejącej.
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
@@ -11,13 +10,10 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 ```
 
-### <a name="gwipwithconnection"></a>Modyfikowanie adresu IP bramy — istnieje połączenie bramy
-Jeśli istnieje już połączenie bramy, musisz je najpierw usunąć. Po usunięciu połączenia możesz zmodyfikować adres IP bramy i ponownie utworzyć nowe połączenie. Jednocześnie możesz również zmodyfikować prefiksy adresów. Spowoduje to pewien przestój połączenia sieci VPN.
+### <a name="gwipwithconnection"></a>Aby zmodyfikować element „GatewayIpAddress” bramy sieci lokalnej — istniejące połączenie bramy
 
-> [!IMPORTANT]
-> Nie należy usuwać bramy sieci VPN. Jeśli zostanie ona usunięta, trzeba będzie wrócić do poprzednich kroków, aby utworzyć ją ponownie. Ponadto musisz zaktualizować lokalne urządzenie sieci VPN o nowy adres IP bramy sieci VPN.
-> 
-> 
+W przypadku zmiany publicznego adresu IP urządzenia sieci VPN, z którym chcesz nawiązać połączenie, musisz zmodyfikować bramę sieci lokalnej w celu odzwierciedlenia tej zmiany. Jeśli istnieje już połączenie bramy, musisz je najpierw usunąć. Po usunięciu połączenia możesz zmodyfikować adres IP bramy i ponownie utworzyć nowe połączenie. Jednocześnie możesz również zmodyfikować prefiksy adresów. Spowoduje to pewien przestój połączenia sieci VPN. W przypadku modyfikowania adresu IP bramy nie musisz usuwać bramy sieci VPN. Musisz usunąć tylko połączenie.
+ 
 
 1. Usuń połączenie. Nazwę połączenia możesz znaleźć przy użyciu polecenia cmdlet „Get-AzureRmVirtualNetworkGatewayConnection”.
 

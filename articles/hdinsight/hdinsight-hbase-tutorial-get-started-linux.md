@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/22/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 4e9ee21a7eac240cccdfac650992063244364185
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,9 +36,6 @@ Przed rozpoczęciem korzystania z tego samouczka HBase należy dysponować nast�
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Bezpieczna powłoka (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [Program curl](http://curl.haxx.se/download.html).
-
-### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-hbase-cluster"></a>Tworzenie klastra HBase
 W poniższej procedurze użyto szablonu usługi Azure Resource Manager do utworzenia klastra HBase opartego na systemie Linux w wersji 3.4 i zależnego domyślnego konta usługi Azure Storage. Aby zapoznać się z parametrami używanymi w tej procedurze oraz innymi metodami tworzenia klastra, zobacz temat [Tworzenie opartych na systemie Linux klastrów Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
@@ -253,6 +251,10 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
 Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
+
+W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z [wymaganiami dotyczącymi kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku HBase dotyczącym usługi HDInsight pokazano, jak utworzyć klaster HBase i tabele oraz jak wyświetlać dane w tych tabelach z poziomu powłoki HBase. Przedstawiono również sposób wykonywania zapytań programu Hive względem danych w tabelach HBase oraz korzystania z interfejsów API REST HBase w języku C# w celu tworzenia tabel HBase i pobierania danych z tabeli.

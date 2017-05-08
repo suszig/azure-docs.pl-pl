@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: pl-pl
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ Po zaktualizowaniu źródeł można zainstalować zestaw SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    W celu zautomatyzowania instalacji można pominąć monit o zaakceptowanie umowy licencyjnej, ustawiając opcje wyboru debconf dla pakietów usługi Service Fabric. Można uruchomić dwa następujące polecenia
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Uruchom skrypt instalacji zestawu SDK.
 
     ```bash
@@ -203,6 +211,11 @@ Aby zaktualizować zestaw SDK i środowisko uruchomieniowe do najnowszej wersji,
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> Zaktualizowanie powyższych pakietów może spowodować zatrzymanie lokalnego klastra programowania. Po uaktualnieniu należy uruchomić ponownie lokalny klaster, postępując zgodnie z instrukcjami opisanymi na tej stronie.
+>
+>
 
 Aby zaktualizować interfejs wiersza polecenia, przejdź do katalogu, w którym sklonowano interfejs wiersza polecenia, i uruchom polecenie `git pull` w celu rozpoczęcia aktualizacji.  Jeśli w celu przeprowadzenia aktualizacji trzeba wykonać dodatkowe kroki, zostaną one podane w informacjach o wersji. 
 

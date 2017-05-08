@@ -1,5 +1,5 @@
 ---
-title: "Omówienie warstw cenowych Premium i Standardowa komunikatów usługi Service Bus | Microsoft Docs"
+title: "Omówienie warstw cenowych Premium i Standardowa komunikatów usługi Azure Service Bus | Microsoft Docs"
 description: "Warstwy Premium i Standardowa komunikatów usługi Service Bus"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/19/2017
+ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +48,7 @@ W poniższych sekcjach omówiono niektóre różnice między komunikatami w wars
 
 ### <a name="partitioned-queues-and-topics"></a>Partycjonowane kolejki i tematy
 
-Partycjonowane kolejki i tematy są obsługiwane przez komunikaty w warstwie Premium, ale nie działają tak samo jak w przypadku komunikatów usługi Service Bus w warstwie Standardowa i Podstawowa. Komunikaty w warstwie Premium nie używają bazy danych SQL jako magazynu danych i nie występuje już potencjalne konkurowanie o zasoby typowe dla platformy współdzielonej. W związku z tym partycjonowanie nie jest konieczne, aby zapewnić wydajność. Ponadto liczba partycji została zmieniona z szesnastu partycji w przypadku komunikatów w warstwie Standardowa do dwóch partycji w warstwie Premium. Istnienie dwóch partycji gwarantuje dostępność i jest to bardziej odpowiednia liczba dla środowiska uruchomieniowego w warstwie Premium. Aby uzyskać więcej informacji na temat partycjonowania, zobacz [Partitioned queues and topics](service-bus-partitioning.md) (Partycjonowane kolejki i tematy).
+Partycjonowane kolejki i tematy są obsługiwane przez komunikaty w warstwie Premium; w rzeczywistości te jednostki są zawsze partycjonowane (i nie można ich wyłączyć). Jednak partycjonowane kolejki i tematy w warstwie Premium nie działają tak samo jak w przypadku komunikatów usługi Service Bus w warstwie Standardowa i Podstawowa. Komunikaty w warstwie Premium nie używają bazy danych SQL jako magazynu danych i nie występuje już potencjalne konkurowanie o zasoby typowe dla platformy współdzielonej. W związku z tym partycjonowanie nie jest konieczne, aby zwiększyć wydajność. Ponadto liczba partycji została zmieniona z szesnastu partycji w przypadku komunikatów w warstwie Standardowa do dwóch partycji w warstwie Premium. Istnienie dwóch partycji gwarantuje dostępność i jest to bardziej odpowiednia liczba dla środowiska uruchomieniowego w warstwie Premium. Aby uzyskać więcej informacji na temat partycjonowania, zobacz [Partitioned queues and topics](service-bus-partitioning.md) (Partycjonowane kolejki i tematy).
 
 ### <a name="express-entities"></a>Jednostki ekspresowe
 

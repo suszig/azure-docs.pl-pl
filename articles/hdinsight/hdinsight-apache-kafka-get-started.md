@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: ceedbd6436e819a090e2033aec024034790dbecf
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 695c6bd0a08e88be2d8e28eb15d903f3ae1eccaf
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Wprowadzenie do platformy Apache Kafka (wersja zapoznawcza) w usłudze HDInsight
@@ -41,10 +42,6 @@ Do pomyślnego ukończenia samouczka platformy Apache Kafka potrzebne są:
 * [Zestaw Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) lub równoważny, taki jak OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
-
-### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-kafka-cluster"></a>Tworzenie klastra platformy Kafka
 
@@ -332,6 +329,10 @@ Interfejs API przesyłania strumieniowego został dodany do platformy Kafka w we
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
+
+W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z [wymaganiami dotyczącymi kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Następne kroki
 

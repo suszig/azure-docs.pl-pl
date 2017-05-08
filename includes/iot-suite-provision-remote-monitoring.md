@@ -1,4 +1,7 @@
 ## <a name="provision-the-solution"></a>Aprowizacja rozwiązania
+
+Jeśli jeszcze nie przeprowadzono aprowizacji wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego na Twoim koncie:
+
 1. Zaloguj się w witrynie [azureiotsuite.com][lnk-azureiotsuite] przy użyciu poświadczeń konta platformy Azure i kliknij pozycję **+**, aby utworzyć rozwiązanie.
 2. Kliknij pozycję **Wybierz** na kafelku **Zdalne monitorowanie**.
 3. W polu **Nazwa rozwiązania** wprowadź nazwę wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego.

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: a1ccebd6d53c7f02517c7655bdfb5b3ce3f26090
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7461a0006e57608d9baa538175174788692db5f5
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -42,7 +43,7 @@ az login
 
 Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myResourceGroup` w lokalizacji `westeurope`.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *westeurope*.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -52,13 +53,17 @@ az group create --name myResourceGroup --location westeurope
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). 
 
-W poniższym przykładzie utworzono maszynę wirtualną o nazwie `myVM`. W tym przykładzie `azureuser` to nazwa użytkownika administracyjnego, a ` myPassword12` to hasło. Zmień te wartości, aby pasowały do Twojego środowiska. Te wartości są wymagane podczas tworzenia połączenia z maszyną wirtualną.
+W poniższym przykładzie utworzono maszynę wirtualną o nazwie *myVM*. W tym przykładzie *azureuser* to nazwa użytkownika administracyjnego, a *myPassword12* to hasło. Zmień te wartości, aby pasowały do Twojego środowiska. Te wartości są wymagane podczas tworzenia połączenia z maszyną wirtualną.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+az vm create `
+  --resource-group myResourceGroup `
+  --name myVM --image win2016datacenter `
+  --admin-username azureuser `
+  --admin-password myPassword12
 ```
 
-Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostanie wyświetlona informacja podobna do następującej. Zanotuj publiczny adres IP. Ten adres jest używany na potrzeby uzyskiwania dostępu do maszyny wirtualnej.
+Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostanie wyświetlona informacja podobna do następującej. Zwróć uwagę na element `publicIpAaddress`. Ten adres jest używany na potrzeby uzyskiwania dostępu do maszyny wirtualnej.
 
 ```azurecli
 {
@@ -75,7 +80,7 @@ Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure
 
 ## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
-Domyślnie dozwolone są tylko połączenia RDP z maszynami wirtualnymi z systemem Windows wdrożonymi na platformie Azure. Jeśli ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu.  Do otwarcia żądanego portu wymagane jest pojedyncze polecenie.  
+Domyślnie dozwolone są tylko połączenia RDP z maszynami wirtualnymi z systemem Windows wdrożonymi na platformie Azure. Jeśli ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu. Otwórz odpowiedni port za pomocą polecenia [az vm open-port](/cli/azure/vm#open-port).  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -92,7 +97,7 @@ mstsc /v:<Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Instalowanie usług IIS przy użyciu programu PowerShell
 
-Teraz po zalogowaniu do maszyny wirtualnej platformy Azure możesz użyć jednego wiersza w programie PowerShell, aby zainstalować usługi IIS i włączyć lokalną regułę zapory, która zezwala na ruch w sieci Web.  Otwórz wiersz polecenia programu PowerShell i uruchom następujące polecenie:
+Teraz po zalogowaniu do maszyny wirtualnej platformy Azure możesz użyć jednego wiersza w programie PowerShell, aby zainstalować usługi IIS i włączyć lokalną regułę zapory, która zezwala na ruch w sieci Web. Otwórz wiersz polecenia programu PowerShell i uruchom następujące polecenie:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -100,12 +105,12 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Wyświetlanie strony powitalnej usług IIS
 
-Po zainstalowaniu usług IIS i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki usług IIS. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej adresu `publicIpAddress`. 
+Po zainstalowaniu usług IIS i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki usług IIS. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej publicznego adresu IP. 
 
 ![Domyślna witryna usług IIS](./media/quick-create-powershell/default-iis-website.png) 
 ## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej
 
-Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą następującego polecenia.
+Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete](/cli/azure/group#delete).
 
 ```azurecli
 az group delete --name myResourceGroup

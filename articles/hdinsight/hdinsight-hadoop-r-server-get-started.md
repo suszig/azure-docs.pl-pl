@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ Usługa HDInsight obejmuje opcję oprogramowania R Server, którą można zinteg
 > W krokach przedstawionych w tym dokumencie przyjęto założenie, że jest używane hasło.
 
 
-### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Zautomatyzowane tworzenie klastra
 
-Aby zautomatyzować tworzenie serwerów HDInsight R Server, możesz użyć szablonów usług ARM, zestawu SDK oraz programu PowerShell.
+Aby zautomatyzować tworzenie serwerów HDInsight R Server, możesz użyć szablonów usługi Azure Resource Manager, zestawu SDK oraz programu PowerShell.
 
 * Aby utworzyć serwer R Server za pomocą szablonu usługi Azure Resource Management, zobacz [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Wdrażanie klastra usługi HDInsight serwera R Server).
 * Aby utworzyć serwer R Server za pomocą zestawu .NET SDK, zobacz [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) (Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu zestawu .NET SDK).
@@ -589,7 +586,7 @@ remoteLogin(
 )
 ```
 
-## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Jak skalować węzły obliczeniowe opernacjonalizacji oprogramowania Microsoft R Server na węzłach procesu roboczego usługi HDInsight?
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Jak skalować węzły obliczeniowe operacjonalizacji oprogramowania Microsoft R Server na węzłach procesu roboczego usługi HDInsight
 
 
 ### <a name="decommission-the-worker-nodes"></a>Likwidowanie węzłów procesu roboczego
@@ -629,6 +626,10 @@ Po skonfigurowaniu wszystkich zlikwidowanych węzłów procesu roboczego pod ką
 * W sekcji „URIs” (Identyfikatory URI) dodaj adres IP i port węzła procesu roboczego.
 
 ![wiersz polecenia likwidowania węzłów procesu roboczego](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
+
+W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z [wymaganiami dotyczącymi kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Następne kroki
 

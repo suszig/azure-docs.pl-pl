@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c3563f3a3fa46d40ba02fe97b3b0ebe3c45caddd
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: af85e4921a2b81c71f1d132c6df591acbe5d3764
+ms.contentlocale: pl-pl
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Tworzenie sieci wirtualnej z wykorzystaniem połączenia sieci VPN typu lokacja-lokacja przy użyciu interfejsu wiersza polecenia
 
-Ten artykuł pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia połączenia bramy sieci VPN lokacja-lokacja z Twojej sieci lokalnej do sieci wirtualnej. Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
+Ten artykuł pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia połączenia bramy sieci VPN lokacja-lokacja z Twojej sieci lokalnej do sieci wirtualnej. Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:<br>
 
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -48,7 +49,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 * Zgodne urządzenie sieci VPN i osoba, która umie je skonfigurować. Aby uzyskać więcej informacji o zgodnych urządzeniach sieci VPN i konfiguracji urządzeń, zobacz artykuł [Informacje o urządzeniach sieci VPN](vpn-gateway-about-vpn-devices.md).
 * Dostępny zewnętrznie publiczny adres IPv4 urządzenia sieci VPN. Ten adres IP nie może się znajdować za translatorem adresów sieciowych.
 * Jeśli nie znasz zakresów adresów IP w konfiguracji swojej sieci lokalnej, skontaktuj się z osobą, która może podać Ci te dane. Tworząc tę konfigurację, musisz określić prefiksy zakresu adresów IP, które platforma Azure będzie kierować do Twojej lokalizacji lokalnej. Żadna z podsieci sieci lokalnej nie może się nakładać na podsieci sieci wirtualnej, z którymi chcesz nawiązać połączenie. 
-* Najnowsza wersja poleceń interfejsu wiersza polecenia (interfejs wiersza polecenia w wersji 2.0 lub nowszy). Aby uzyskać informacje o instalowaniu poleceń interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Najnowsza wersja poleceń interfejsu wiersza polecenia (interfejs wiersza polecenia w wersji 2.0 lub nowszy). Aby uzyskać informacje o instalowaniu poleceń interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-azure-cli) i [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure 2.0](/cli/azure/get-started-with-azure-cli).
 
 ### <a name="example-values"></a>Przykładowe wartości
 
@@ -75,42 +76,26 @@ GatewayType             = Vpn
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Zaloguj się do platformy Azure.
+## <a name="Login"></a>1. Nawiązywanie połączenia z subskrypcją
 
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
-
-```azurecli
-az login
-```
-
-Jeśli masz więcej niż jedną subskrypcję platformy Azure, wyświetl subskrypcje dla konta.
-
-```azurecli
-Az account list --all
-```
-
-Wskaż subskrypcję, której chcesz użyć.
-
-```azurecli
-Az account set --subscription <replace_with_your_subscription_id>
-```
+[!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
 ## <a name="2-create-a-resource-group"></a>2. Tworzenie grupy zasobów
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie „TestRG1” w lokalizacji „eastus”. Jeśli masz już grupę zasobów w regionie, w którym chcesz utworzyć swoją sieć wirtualną, możesz jej użyć zamiast tej.
 
 ```azurecli
-az group create -n TestRG1 -l eastus
+az group create --name TestRG1 --location eastus
 ```
 
 ## <a name="VNet"></a>3. Tworzenie sieci wirtualnej
 
-Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją. Podczas tworzenia sieci wirtualnej upewnij się, że określone przestrzenie adresowe nie nakładają się na żadne inne przestrzenie adresowe w obrębie sieci lokalnej. 
+Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją przy użyciu polecenia [az network vnet create](/cli/azure/network/vnet#create). Podczas tworzenia sieci wirtualnej upewnij się, że określone przestrzenie adresowe nie nakładają się na żadne inne przestrzenie adresowe w obrębie sieci lokalnej. 
 
 Poniższy przykład obejmuje tworzenie sieci wirtualnej o nazwie „TestVNet1” i podsieci „Subnet1”.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.12.0.0/16 -l eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Tworzenie podsieci bramy
@@ -121,9 +106,11 @@ Dla tej konfiguracji potrzebna jest również podsieć bramy. Brama sieci wirtua
 
 Rozmiar określanej podsieci bramy zależy od konfiguracji bramy sieci VPN, którą chcesz utworzyć. Chociaż możliwe jest utworzenie podsieci bramy tak małej, jak /29, zaleca się wybranie większej podsieci /27 lub /28, aby zawierała więcej adresów. Zastosowanie większej podsieci bramy daje wystarczającą liczbę adresów IP, aby uwzględnić możliwe przyszłe konfiguracje.
 
+Użyj polecenia [az network vnet subnet create](/cli/azure/network/vnet/subnet#create), aby utworzyć podsieć bramy.
+
 
 ```azurecli
-az network vnet subnet create --address-prefix 10.12.255.0/27 -n GatewaySubnet -g TestRG1 --vnet-name TestVNet1
+az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
 ## <a name="localnet"></a>5. Tworzenie bramy sieci lokalnej
@@ -135,20 +122,20 @@ Wprowadź następujące wartości:
 * *--gateway-ip-address* to adres IP lokalnego urządzenia sieci VPN. Urządzenie sieci VPN nie może znajdować się za translatorem adresów sieciowych.
 * *--local-address-prefixes* to Twoje lokalne przestrzenie adresowe.
 
-Następujący przykład pokazuje, jak dodać bramę sieci lokalnej z wieloma prefiksami adresów:
+Użyj polecenia [az network local-gateway create](/cli/azure/network/local-gateway#create), aby dodać bramę sieci lokalnej z wieloma prefiksami adresów:
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-## <a name="PublicIP"></a>6. Przesłanie żądania dotyczącego publicznego adresu IP
+## <a name="PublicIP"></a>6. Żądanie publicznego adresu IP
 
-Prześlij żądanie przydzielenia publicznego adresu IP, który zostanie przypisany do Twojej bramy sieci VPN sieci wirtualnej. Jest to adres IP, do łączenia z którym jest konfigurowane Twoje urządzenie sieci VPN.
+Brama sieci VPN musi mieć publiczny adres IP. Najpierw żąda się zasobu adresu IP, a następnie odwołuje do niego podczas tworzenia bramy sieci wirtualnej. Adres IP jest dynamicznie przypisywany do zasobu podczas tworzenia bramy sieci VPN. Brama sieci VPN aktualnie obsługuje tylko *dynamiczne* przypisywanie publicznych adresów IP. Nie można zażądać przypisania statycznego publicznego adresu IP. Nie oznacza to jednak, że adres IP zmienia się po przypisaniu go do bramy sieci VPN. Jedyną sytuacją, w której ma miejsce zmiana publicznego adresu IP, jest usunięcie bramy i jej ponowne utworzenie. Nie zmienia się on w przypadku zmiany rozmiaru, zresetowania ani przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN.
 
-Brama sieci wirtualnej dla modelu wdrażania przy użyciu usługi Resource Manager obsługuje obecnie tylko publiczne adresy IP z wykorzystaniem metody dynamicznej alokacji. Nie oznacza to jednak, że adres IP się zmienia. Jedyną sytuacją, w której ma miejsce zmiana adresu IP bramy sieci VPN, jest usunięcie bramy i jej ponowne utworzenie. Publiczny adres IP bramy sieci wirtualnej nie zmienia się w przypadku zmiany rozmiaru, zresetowania ani w przypadku przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN. 
+Użyj polecenia [az network public-ip create](/cli/azure/network/public-ip#create), aby zażądać dynamicznego publicznego adresu IP.
 
 ```azurecli
-az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
+az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
 ## <a name="CreateGateway"></a>7. Tworzenie bramy sieci VPN
@@ -157,31 +144,33 @@ Utwórz bramę sieci VPN sieci wirtualnej. Tworzenie bramy sieci VPN może potrw
 
 Wprowadź następujące wartości:
 
-* Wartość *-gateway-type* dla konfiguracji lokacja-lokacja to *Vpn*. Typ bramy zawsze zależy od wdrażanej konfiguracji. Aby uzyskać więcej informacji, zobacz [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype) (Typy bram)
+* Wartość *-gateway-type* dla konfiguracji lokacja-lokacja to *Vpn*. Typ bramy zawsze zależy od wdrażanej konfiguracji. Aby uzyskać więcej informacji, zobacz [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype) (Typy bram).
 * Dla pozycji *-vpn-type* określającej typ sieci VPN można wybrać opcję *RouteBased* (oparta na trasach; w dokumentacji używa się czasem określenia „brama dynamiczna”) lub *PolicyBased* (oparta na zasadach; w dokumentacji używa się czasem określenia „brama statyczna”). To ustawienie zależy od wymagań urządzenia, z którym nawiązujesz połączenie. Aby uzyskać więcej informacji o typach bram sieci VPN, zobacz [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype) (Informacje o ustawieniach konfiguracji bramy sieci VPN).
 * Dla opcji *-sku* można wybrać wartość Basic (Podstawowa), Standard (Standardowa) lub HighPerformance (Wysoka wydajność). Dla niektórych jednostek SKU istnieją ograniczenia konfiguracji. Aby uzyskać więcej informacji, zobacz [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus) (Jednostki SKU bramy).
 
-Po uruchomieniu tego polecenia nie zobaczysz żadnych informacji zwrotnych ani danych wyjściowych. Utworzenie bramy trwa około 45 minut.
+Utwórz bramę sieci VPN za pomocą polecenia [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create). Jeśli to polecenie zostanie uruchomione z parametrem „--no-wait”, nie będą widoczne żadne informacje zwrotne ani dane wyjściowe. Ten parametr umożliwia utworzenie bramy w tle. Utworzenie bramy trwa około 45 minut.
 
 ```azurecli
-az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. Konfiguracja urządzenia sieci VPN
 
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
-  Aby znaleźć publiczny adres IP bramy sieci wirtualnej, skorzystaj z poniższego przykładu, zastępując wartości własnymi. W celu poprawienia czytelności dane wyjściowe są sformatowane do wyświetlania listy publicznych adresów IP w formacie tabeli.
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+  Aby znaleźć publiczny adres IP swojej bramy sieci wirtualnej, użyj polecenia [az network public-ip list](/cli/azure/network/public-ip#list). W celu poprawienia czytelności dane wyjściowe są sformatowane do wyświetlania listy publicznych adresów IP w formacie tabeli.
 
-  ```azurecli
-  az network public-ip list -g TestRG1 -o table
-  ```
+```azurecli
+az network public-ip list --resource-group TestRG1 --output table
+```
 
 ## <a name="CreateConnection"></a>9. Tworzenie połączenia sieci VPN
 
 Utwórz połączenie sieci VPN typu lokacja-lokacja między bramą sieci wirtualnej a lokalnym urządzeniem sieci VPN. Zwróć szczególną uwagę na wartość udostępnionego klucza, która musi być zgodna ze skonfigurowaną wartością klucza współużytkowanego dla Twojego urządzenia sieci VPN.
 
+Utwórz połączenie za pomocą polecenia [az network vpn-connection create](/cli/azure/network/vpn-connection#create).
+
 ```azurecli
-az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 Po chwili zostanie nawiązane połączenie.
@@ -194,65 +183,9 @@ Jeśli chcesz użyć innej metody, aby sprawdzić swoje połączenie, zobacz [We
 
 ## <a name="common-tasks"></a>Typowe zadania
 
-### <a name="to-view-local-network-gateways"></a>Aby wyświetlić bramy sieci lokalnej
+Ta sekcja zawiera typowe polecenia, które są przydatne przy pracy z konfiguracjami lokacja-lokacja. Aby uzyskać pełną listę poleceń sieciowych interfejsu wiersza polecenia, zobacz [Interfejs wiersza polecenia platformy Azure — sieć](/cli/azure/network).
 
-```azurecli
-az network local-gateway list --resource-group TestRG1
-```
-
-### <a name="modify"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej
-Jeśli zajdzie potrzeba zmiany prefiksów bramy sieci lokalnej, należy wykonać czynności opisane poniżej. Po wprowadzeniu każdej zmiany należy określić całą listę prefiksów, a nie tylko prefiksy, które chcesz zmienić.
-
-- **Jeśli masz określone połączenie**, użyj poniższego przykładu. Określ całą listę prefiksów zawierającą istniejące prefiksy i te, które chcesz dodać. W tym przykładzie już istnieją prefiksy 10.0.0.0/24 i 20.0.0.0/24. Dodamy prefiksy 30.0.0.0/24 i 40.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 -n VNet1toSite2 -g TestRG1
-  ```
-
-- **Jeśli nie masz określonego połączenia**, użyj tego samego polecenia co do tworzenia bramy sieci lokalnej. To polecenie umożliwia również zaktualizowanie adresu IP bramy dla urządzenia sieci VPN. Tego polecenia używaj tylko wtedy, gdy nie masz jeszcze połączenia. W tym przykładzie istnieją prefiksy 10.0.0.0/24, 20.0.0.0/24, 30.0.0.0/24 i 40.0.0.0/24. Określimy tylko prefiksy, które chcemy zachować. W tym przypadku są to 10.0.0.0/24 i 20.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
-  ```
-
-### <a name="modifygwipaddress"></a>Aby zmodyfikować adres IP bramy dla bramy sieci lokalnej
-
-Adres IP w tej konfiguracji to adres IP urządzenia sieci VPN, z którym tworzysz połączenie. Jeśli zmieni się adres IP urządzenia sieci VPN, możesz zmodyfikować tę wartość. Adres IP można zmienić nawet wtedy, gdy istnieje połączenie bramy.
-
-```azurecli
-az network local-gateway update --gateway-ip-address 23.99.222.170 -n Site2 -g TestRG1
-```
-
-Podczas przeglądania wyniku sprawdź, czy są uwzględnione prefiksy adresów IP.
-
-  ```azurecli
-  "localNetworkAddressSpace": { 
-    "addressPrefixes": [ 
-      "10.0.0.0/24", 
-      "20.0.0.0/24", 
-      "30.0.0.0/24" 
-    ] 
-  }, 
-  "location": "eastus", 
-  "name": "Site2", 
-  "provisioningState": "Succeeded",  
-  ```
-
-### <a name="to-view-the-virtual-network-gateway-public-ip-address"></a>Aby wyświetlić publiczny adres IP bramy sieci wirtualnej
-
-Aby znaleźć publiczny adres IP swojej bramy sieci wirtualnej, skorzystaj z poniższego przykładu. W celu poprawienia czytelności dane wyjściowe są sformatowane do wyświetlania listy publicznych adresów IP w formacie tabeli.
-
-```azurecli
-az network public-ip list -g TestRG1 -o table
-```
-
-### <a name="to-verify-the-shared-key-values"></a>Aby sprawdzić wartości klucza współużytkowanego
-
-Sprawdź, czy wartość klucza współużytkowanego jest taka sama jak wartość użyta do konfiguracji urządzenia sieci VPN. Jeśli nie, ponownie uruchom połączenie przy użyciu wartości z urządzenia lub zaktualizuj urządzenie wartością ze zwracanych danych. Wartości muszą być zgodne.
-
-```azurecli
-az network vpn-connection shared-key show --connection-name VNet1toSite2 -g TestRG1
-```
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
 
 ## <a name="next-steps"></a>Następne kroki
 

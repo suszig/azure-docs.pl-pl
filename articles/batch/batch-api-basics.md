@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -337,7 +338,7 @@ Podczas tworzenia puli węzłów obliczeniowych w usłudze Azure Batch możesz u
 
 * Określona podsieć musi zezwalać na komunikację z usługą Batch, aby umożliwiać planowanie zadań w węzłach obliczeniowych. Jeśli komunikacja z węzłami obliczeniowymi zostanie odrzucona przez **sieciową grupę zabezpieczeń** skojarzoną z siecią wirtualną, usługa Batch ustawia stan węzłów obliczeniowych na **nienadające się do użytku**. 
 
-* Jeśli określona sieć wirtualna ma jakiekolwiek skojarzone sieciowe grupy zabezpieczeń, musi być włączona komunikacja przychodząca. Dla puli systemu Linux muszą być włączone porty 29876, 29877 i 22. Dla puli systemu Windows musi być włączony port 3389.
+* Jeśli określona sieć wirtualna ma jakiekolwiek skojarzone sieciowe grupy zabezpieczeń, musi być włączona komunikacja przychodząca. W przypadku pul systemów Linux i Windows porty 29876 i 29877 muszą być włączone. Opcjonalnie można też włączyć (lub selektywnie filtrować) port 22 dla protokołu SSH w pulach systemu Linux lub port 3389 dla protokołu RDP w pulach systemu Windows.
 
 Dodatkowe ustawienia sieci wirtualnej zależą od trybu alokacji puli konta usługi Batch.
 

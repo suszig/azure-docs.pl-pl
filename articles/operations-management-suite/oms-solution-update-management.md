@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ Włączenie tego rozwiązania powoduje automatyczne skonfigurowanie każdego kom
 Możesz jednak dodać komputery z systemem Windows do grupy hybrydowych procesów roboczych elementów runbook na Twoim koncie usługi Automation w celu obsługi elementów runbook usługi Automation, o ile używasz tego samego konta zarówno dla tego rozwiązania, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementów runbook.  Ta funkcjonalność została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.  
 
 ## <a name="configuration"></a>Konfiguracja
-Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS, a także potwierdzić, że agenci wykonują raportowanie. Agenci systemu Windows są dodawani automatycznie bez dodatkowej konfiguracji. 
+Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS, a także potwierdzić, że agenci wykonują raportowanie. Agenci systemu Windows, którzy są już połączeni z obszarem roboczym, są dodawani automatycznie bez dodatkowej konfiguracji. 
 
-Istnieją trzy sposoby na dodanie tego rozwiązania: z witryny Azure Marketplace w witrynie Azure Portal, przez wybranie oferty Automation & Control lub rozwiązania Zarządzanie aktualizacjami, lub z galerii rozwiązań usługi OMS w obszarze roboczym usługi OMS.  Jeśli masz już konto usługi Automation i obszar roboczy usługi OMS połączone ze sobą w tej samej grupie zasobów i w tym samym regionie, wybranie pozycji Automation & Control spowoduje sprawdzenie Twojej konfiguracji i zainstalowanie samego rozwiązania oraz skonfigurowanie go w obu usługach.  Wybranie rozwiązania Zarządzanie aktualizacjami z witryny Azure Marketplace ma taki sam skutek.  Jeśli którejś z usług nie masz wdrożonej w swojej subskrypcji, wykonaj kroki w bloku **Tworzenie nowego rozwiązania** i potwierdź, że chcesz zainstalować inne wstępnie wybrane, zalecane rozwiązania.  Opcjonalnie możesz dodać rozwiązanie Zarządzanie aktualizacjami do swojego obszaru roboczego usługi OMS przy użyciu kroków opisanych w artykule [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) (Dodawanie rozwiązań usługi OMS) z galerii rozwiązań.  
+Możesz wdrożyć rozwiązanie za pomocą następujących metod:
+
+* W witrynie Azure Marketplace w witrynie Azure Portal przez wybranie oferty Automation & Control lub rozwiązania do zarządzania aktualizacjami
+* W galerii rozwiązań pakietu OMS w obszarze roboczym pakietu OMS
+
+Jeśli masz już konto usługi Automation i obszar roboczy usługi OMS połączone ze sobą w tej samej grupie zasobów i w tym samym regionie, wybranie pozycji Automation & Control spowoduje sprawdzenie Twojej konfiguracji i zainstalowanie samego rozwiązania oraz skonfigurowanie go w obu usługach.  Wybranie rozwiązania Zarządzanie aktualizacjami z witryny Azure Marketplace ma taki sam skutek.  Jeśli którejś z usług nie masz wdrożonej w swojej subskrypcji, wykonaj kroki w bloku **Tworzenie nowego rozwiązania** i potwierdź, że chcesz zainstalować inne wstępnie wybrane, zalecane rozwiązania.  Opcjonalnie możesz dodać rozwiązanie Zarządzanie aktualizacjami do swojego obszaru roboczego usługi OMS przy użyciu kroków opisanych w artykule [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) (Dodawanie rozwiązań usługi OMS) z galerii rozwiązań.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Potwierdzanie, że agenci usługi OMS i grupa zarządzania programu Operations Manager są połączone z usługą OMS
 
@@ -144,7 +150,7 @@ Gdy aktualizacje zostaną ocenione dla wszystkich komputerów z systemami Window
 > [!NOTE]
 > Maszyny wirtualne z systemem Windows wdrożone z witryny Azure Marketplace są domyślnie ustawione do automatycznego odbierania aktualizacji z usługi Windows Update.  To zachowanie nie zmienia się po dodaniu tego rozwiązania lub maszyny wirtualnej z systemem Windows do obszaru roboczego.  Jeśli nie będziesz aktywnie zarządzać aktualizacjami za pomocą tego rozwiązania, będzie miało zastosowanie zachowanie domyślne (czyli automatyczne stosowanie aktualizacji).  
 
-W przypadku maszyn wirtualnych utworzonych na podstawie z obrazów systemu Red Hat Enterprise Linux (RHEL) na żądanie dostępnych w witrynie Azure Marketplace są one rejestrowane w celu uzyskiwania dostępu do [infrastruktury aktualizacji systemu Red Hat (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) wdrożonej na platformie Azure.  Inne dystrybucje systemu Linux należy aktualizować przy użyciu repozytorium plików online dystrybucji i odpowiadających im metod.  
+W przypadku maszyn wirtualnych utworzonych na podstawie z obrazów systemu Red Hat Enterprise Linux (RHEL) na żądanie dostępnych w witrynie Azure Marketplace są one rejestrowane w celu uzyskiwania dostępu do [infrastruktury aktualizacji systemu Red Hat (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) wdrożonej na platformie Azure.  Inne dystrybucje systemu Linux należy aktualizować przy użyciu repozytorium plików online dystrybucji i odpowiadających im metod.  
 
 ### <a name="viewing-update-deployments"></a>Wyświetlanie wdrożeń aktualizacji
 Kliknij kafelek **Wdrożenia aktualizacji**, aby wyświetlić listę istniejących wdrożeń aktualizacji.  Są one pogrupowane według stanu — **Zaplanowano**, **Uruchomiono** i **Ukończono**.<br><br> ![Strona harmonogramu wdrożenia aktualizacji](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

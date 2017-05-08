@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4787928ed066b9aed51a8512deeda6cd49897d82
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2ab0818646626577a23fb4096fbe863d7525a8f2
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Wprowadzenie do przykładów z projektu Storm Starter dotyczących analizy danych big data w usłudze HDInsight opartej na systemie Linux
@@ -36,10 +37,6 @@ Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * **Znajomość protokołów SSH i SCP**. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-storm-cluster"></a>Tworzenie klastra Storm
 
@@ -190,6 +187,8 @@ Wróć do strony **Topology summary** (Podsumowanie topologii) dla topologii Wor
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+W razie problemów podczas tworzenia klastra usługi HDInsight zapoznaj się z [wymaganiami dotyczącymi kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a id="next"></a>Następne kroki
 

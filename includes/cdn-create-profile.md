@@ -1,6 +1,6 @@
 **Aby utworzyć nowy profil CDN**
 
-1. W witrynie [Azure Portal](https://portal.azure.com) w lewym górnym rogu kliknij opcję **Nowy**.  W bloku **Nowy** wybierz opcję **Nośnik + CDN**, a następnie opcję **CDN**.
+1. W witrynie [Azure Portal](https://portal.azure.com) w lewym górnym rogu kliknij opcję **Nowy**.  W bloku **Nowy** wybierz opcję **Sieci Web i aplikacje mobilne**, a następnie opcję **CDN**.
    
     Zostanie wyświetlony nowy blok profilu CDN.
    
@@ -13,9 +13,4 @@
     ![Wybór warstwy cenowej CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 6. Wybierz **subskrypcję** dla tego profilu CDN.
 7. Kliknij przycisk **Utwórz**, aby utworzyć nowy profil. 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
