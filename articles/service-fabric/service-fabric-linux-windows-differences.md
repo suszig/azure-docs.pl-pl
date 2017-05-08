@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5faf7dc0b544f6fe2f83565cc368e218c6df35af
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Różnice między usługą Service Fabric w systemie Linux (wersja zapoznawcza) i w systemie Windows (wersja ogólnie dostępna)
 
-Ponieważ usługa Service Fabric w systemie Linux jest w wersji zapoznawczej, pewne funkcje, które są obsługiwane w systemie Windows, nie są obsługiwane w systemie Linux. Gdy usługa Service Fabric w systemie Linux stanie się ogólnie dostępna, zestawy funkcji będą takie same.
+Ponieważ usługa Service Fabric w systemie Linux jest w wersji zapoznawczej, pewne funkcje, które są obsługiwane w systemie Windows, nie są jeszcze obsługiwane w systemie Linux. Gdy usługa Service Fabric w systemie Linux stanie się ogólnie dostępna, zestawy funkcji będą takie same.
 
 * Niezawodne kolekcje (i niezawodne usługi stanowe) nie są obsługiwane w systemie Linux.
 * Zwrotny serwer proxy nie jest dostępny w systemie Linux.
@@ -38,7 +39,7 @@ Ponieważ usługa Service Fabric w systemie Linux jest w wersji zapoznawczej, pe
 >[!NOTE]
 >Przekierowywanie konsoli nie jest obsługiwane w klastrach produkcyjnych, nawet w systemie Windows.
 
-Używane są inne narzędzia programistyczne. W systemie Windows są to: Visual Studio, PowerShell, VSTS i ETW, natomiast w systemie Linux: Yeoman, Eclipse, Jenkins i LTTng.
+Narzędzia programistyczne używane w systemie Windows różnią się także od tych używanych w systemie Linux. W systemie Windows można korzystać z narzędzi VisualStudio, Powershell, VSTS i ETW, a w systemie Linux z narzędzi Yeoman, Eclipse, Jenkins i LTTng.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Polecenia cmdlet programu PowerShell, które nie działają względem klastra usługi Service Fabric z systemem Linux
 

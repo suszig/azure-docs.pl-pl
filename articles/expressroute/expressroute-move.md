@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/02/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Przenoszenie obwodów usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager | Microsoft Azure
 W tym artykule wyjaśniono przenoszenie obwodu usługi Azure ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Azure Resource Manager.
-
-[!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Można użyć jednego obwodu usługi ExpressRoute do łączenia się z sieciami wirtualnymi, które są wdrażane zarówno w klasycznym modelu wdrażania, jak i w modelu wdrażania usługi Resource Manager. Obwód usługi ExpressRoute, niezależnie od tego, w jaki sposób jest tworzony, może teraz połączyć się z sieciami wirtualnymi w obu modelach wdrażania.
 
@@ -87,11 +87,11 @@ W tej sekcji opisano, jakie operacje są obsługiwane dla obwodów usługi Expre
 * Po przeniesieniu obwodu usługi ExpressRoute do modelu wdrażania usługi Resource Manager możesz zarządzać cyklem życiowym obwodu tylko używając modelu wdrażania usługi Resource Manager. Oznacza to, że takie operacje jak dodawanie/aktualizowanie/usuwanie komunikacji równorzędnej, aktualizowanie właściwości obwodu (np. przepustowości, jednostki SKU i typu rozliczeń) oraz usuwanie obwodów można wykonać tylko w modelu wdrażania usługi Resource Manager. 
 * Obwód usługi ExpressRoute zachowuje się jak most między klasycznym modelem wdrażania a modelem wdrażania usługi Resource Manager. Ruch między maszynami wirtualnymi w sieciach wirtualnych w klasycznym modelu wdrażania oraz tymi w sieciach wirtualnych w modelu wdrażania usługi Resource Manager odbywa się za pośrednictwem usługi ExpressRoute, jeśli obie sieci wirtualne są połączone z tym samym obwodem usługi ExpressRoute.
 * Łączność obejmująca wiele subskrypcji jest obsługiwana zarówno w klasycznym modelu wdrażania, jak i w modelu wdrażania usługi Resource Manager.
+* Po przeniesieniu obwodu usługi ExpressRoute z modelu klasycznego do modelu usługi Azure Resource Manager możesz [migrować sieci wirtualne połączone z obwodem usługi ExpressRoute](expressroute-migration-classic-resource-manager.md).
 
 ## <a name="whats-not-supported"></a>Jakie operacje nie są obsługiwane
 W tej sekcji opisano, jakie operacje nie są obsługiwane dla obwodów usługi ExpressRoute:
 
-* Przenoszenie linków obwodu, bram i sieci wirtualnych z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager.
 * Zarządzanie cyklem życia obwodu usługi ExpressRoute z klasycznego modelu wdrażania.
 * Obsługa kontroli dostępu opartej na rolach (RBAC) dla klasycznego modelu wdrażania. W klasycznym modelu wdrażania nie można wykonywać kontrolek RBAC do obwodu. Dowolny administrator/współadministrator subskrypcji może połączyć sieci wirtualne z obwodem lub je od niego odłączyć.
 
@@ -99,16 +99,12 @@ W tej sekcji opisano, jakie operacje nie są obsługiwane dla obwodów usługi E
 Wykonaj instrukcje opisane w artykule [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md) (Przenoszenie obwodu usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager).
 
 ## <a name="next-steps"></a>Następne kroki
+* [Migrowanie sieci wirtualnych połączonych z obwodem usługi ExpressRoute z modelu klasycznego do modelu usługi Azure Resource Manager](expressroute-migration-classic-resource-manager.md)
 * Informacje o przepływach pracy można znaleźć w artykule [ExpressRoute circuit provisioning workflows and circuit states](expressroute-workflows.md) (Przepływy pracy inicjowania obsługi obwodu i stany obwodu usługi ExpressRoute).
 * Konfigurowanie połączenia usługi ExpressRoute:
   
   * [Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](expressroute-howto-circuit-arm.md)
   * [Configure routing (Konfigurowanie routingu)](expressroute-howto-routing-arm.md)
   * [Link a virtual network to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

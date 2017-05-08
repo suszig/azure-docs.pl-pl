@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 00ee90b6d264c1aee4b488cd1c2a5447809a1e3c
-ms.openlocfilehash: 0981be75b9caffb29b10c70ce528209984986ce2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 28aede545c738137ff04257214e4a3f42792d85c
+ms.contentlocale: pl-pl
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -40,7 +42,7 @@ Zastrzeżenia dotyczące haseł aplikacji używanych przez użytkowników federa
 * Hasła aplikacji są weryfikowane przy użyciu uwierzytelniania w chmurze, co pozwala pominąć federację. Federacja jest aktywnie używana tylko podczas konfigurowania hasła aplikacji.
 * Ustawienia lokalnej kontroli dostępu klienta nie są uznawane przez hasła aplikacji.
 * Nie będzie można lokalnie rejestrować uwierzytelniania haseł aplikacji.
-* Wyłączenie/usunięcie konta przy użyciu narzędzia do synchronizacji katalogów może potrwać do&3; godzin, powodując opóźnienie wyłączenia/usunięcia haseł aplikacji w tożsamości w chmurze.
+* Wyłączenie/usunięcie konta przy użyciu narzędzia do synchronizacji katalogów może potrwać do 3 godzin, powodując opóźnienie wyłączenia/usunięcia haseł aplikacji w tożsamości w chmurze.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje dotyczące konfigurowania usługi Azure Multi-Factor Authentication lub serwera usługi Azure Multi-Factor Authentication z usługami AD FS, zobacz poniższe artykuły:
@@ -48,9 +50,4 @@ Aby uzyskać informacje dotyczące konfigurowania usługi Azure Multi-Factor Aut
 * [Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
 * [Zabezpieczanie zasobów w chmurze i lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS systemu Windows Server 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md)
 * [Zabezpieczanie zasobów w chmurze i zasobów lokalnych przy użyciu serwera usługi Azure Multi-Factor Authentication i usług AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

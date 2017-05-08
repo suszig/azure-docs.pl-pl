@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a7b3f8addbba21e60be0076784ae954f4cedb0b8
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d29cf81747390fe153c3c6dc330ef738de0cd83a
+ms.contentlocale: pl-pl
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +49,7 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Wymagania dotyczące translatora adresów sieciowych dla komunikacji równorzędnej firmy Microsoft
-Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft, które nie są obsługiwane przez ścieżkę publicznej komunikacji równorzędnej Azure. Lista usług obejmuje usługi Office 365, np. Exchange Online, SharePoint Online, Skype dla firm i CRM Online. Firma Microsoft planuje obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany usług w chmurze firmy Microsoft musi zostać podłączony do funkcji SNAT i uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft. Ruch skierowany do sieci użytkownika z usług w chmurze firmy Microsoft należy przetworzyć za pomocą translatora SNAT, zanim wejdzie do sieci użytkownika. Poniższy rysunek przedstawia w jaki sposób na wysokim poziomie powinien być skonfigurowany translator adresów sieciowych na potrzeby komunikacji równorzędnej firmy Microsoft.
+Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft, które nie są obsługiwane przez ścieżkę publicznej komunikacji równorzędnej Azure. Lista usług obejmuje usługi Office 365, np. Exchange Online, SharePoint Online, Skype dla firm i CRM Online. Firma Microsoft planuje obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany usług w chmurze firmy Microsoft musi zostać podłączony do funkcji SNAT i uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft. Ruch skierowany do Twojej sieci z usług w chmurze firmy Microsoft należy przetworzyć na granicy Internetu, aby zapobiec [routingowi asymetrycznemu](expressroute-asymmetric-routing.md). Poniższy rysunek przedstawia w jaki sposób na wysokim poziomie powinien być skonfigurowany translator adresów sieciowych na potrzeby komunikacji równorzędnej firmy Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -63,7 +64,9 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Ruch pochodzący z firmy Microsoft skierowany do sieci
 * Niektóre scenariusze wymagają od firmy Microsoft zainicjowania połączenia z punktami końcowymi usługi obsługiwanymi w ramach sieci użytkownika. Typowym przykładem takiego scenariusza jest łączność z serwerami usług AD FS obsługiwanymi w sieci użytkownika z poziomu usługi Office 365. W takich przypadkach należy przefiltrować odpowiednie prefiksy z sieci użytkownika do komunikacji równorzędnej firmy Microsoft. 
-* Należy użyć funkcji SNAT względem ruchu z firmy Microsoft skierowanego do adresów IP w ramach sieci użytkownika. 
+* Należy użyć funkcji SNAT względem ruchu z firmy Microsoft na granicy Internetu w punktach końcowych usługi w Twojej sieci, aby zapobiec [routingowi asymetrycznemu](expressroute-asymmetric-routing.md). Żądania **i odpowiedzi** z docelowym adresem IP zgodne z trasą odebraną za pomocą usługi ExpressRoute będą zawsze wysyłane przy użyciu usługi ExpressRoute. Routing asymetryczny występuje w przypadku odebrania żądania przez Internet z odpowiedzią wysłaną za pomocą usługi ExpressRoute. Użycie funkcji SNAT względem ruchu przychodzącego z firmy Microsoft na granicy Internetu wymusza zwrócenie ruchu odpowiedzi do granicy Internetu, co rozwiązuje problem.
+
+![Routing asymetryczny przy użyciu usługi ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 * Zapoznaj się z wymaganiami dotyczącymi [routingu](expressroute-routing.md) i technologii [QoS](expressroute-qos.md).

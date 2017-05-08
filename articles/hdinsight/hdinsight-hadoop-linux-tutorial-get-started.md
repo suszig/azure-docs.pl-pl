@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 24bb7e2ffd212594f50bab735e86d74ab95d8c62
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bef6754f5ffd2b004af01a2e26edeeed63793b6e
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,13 +29,11 @@ ms.lasthandoff: 03/28/2017
 Informacje o sposobie tworzenia klastrów [Hadoop](http://hadoop.apache.org/) w usłudze HDInsight i uruchamiania zadań Hive w usłudze HDInsight. [Apache Hive](https://hive.apache.org/) jest najbardziej popularnym składnikiem w ekosystemie usługi Hadoop. Obecnie usługa HDInsight obejmuje sześć różnych typów klastrów: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (wersja zapoznawcza)](hdinsight-hadoop-use-interactive-hive.md) i [R Server](hdinsight-hadoop-r-server-overview.md).  Każdy typ klastra obsługuje inny zestaw składników. Wszystkie sześć typów klastrów obsługuje program Hive. Aby uzyskać listę obsługiwanych składników w usłudze HDInsight, zobacz artykuł [Nowości w wersjach klastra Hadoop dostarczanych z usługą HDInsight](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka potrzebna będzie:
 
 * **Subskrypcja platformy Azure**: aby utworzyć bezpłatne konto próbne na jeden miesiąc, przejdź do [azure.microsoft.com/free](https://azure.microsoft.com/free).
-
-### <a name="access-control-requirements"></a>Wymagania dotyczące kontroli dostępu
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>Tworzenie klastra
 
@@ -123,6 +122,10 @@ Po ukończeniu korzystania z samouczka warto usunąć klaster. Dzięki usłudze 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na pulpicie nawigacyjnym portalu kliknij kafelek z nazwą grupy zasobów użytą podczas tworzenia klastra.
 3. Kliknij przycisk **Usuń** w bloku zasobów, aby usunąć grupę zasobów, zawierającą klaster i domyślne konto magazynu; lub kliknij nazwę klastra na kafelku **Zasoby**, a następnie kliknij przycisk **Usuń** w bloku klastra. Uwaga: usunięcie grupy zasobów powoduje usunięcie konta magazynu. Jeśli chcesz zachować konta magazynu, wybierz opcję usunięcia tylko klastra.
+
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
+
+W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z [wymaganiami dotyczącymi kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Następne kroki
 Po przeczytaniu tego samouczka umiesz utworzyć oparty na systemie Linux klaster usługi HDInsight przy użyciu szablonu usługi Resource Manager oraz wykonywać podstawowe zapytania Hive.

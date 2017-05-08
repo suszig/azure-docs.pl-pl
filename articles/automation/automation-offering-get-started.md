@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -98,8 +99,6 @@ Podczas tworzenia konta usługi Automation w witrynie Azure Portal automatycznie
 
 Dostępna w usłudze Azure Resource Manager kontrola dostępu oparta na rolach umożliwia przypisywanie praw wykonywania dozwolonych akcji do konta użytkownika usługi Azure AD i konta Uruchom jako oraz pozwala na uwierzytelnianie tego obiektu głównego usługi.  Dalsze informacje pomagające w tworzeniu modelu zarządzania uprawnieniami w usłudze Automation można znaleźć w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).  
 
-
-
 #### <a name="authentication-methods"></a>Metody uwierzytelniania
 Poniższa tabela zawiera zestawienie różnych metod uwierzytelniania dla środowisk obsługiwanych przez usługę Azure Automation.
 
@@ -136,6 +135,13 @@ Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu i chc
 | Australia Południowo-Wschodnia |ase-jobruntimedata-prod-su1.azure-automation.net |
 | Południowe Zjednoczone Królestwo | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Administracja USA — Wirginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Aby zamiast nazw uzyskać listę adresów IP, pobierz plik xml [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) (Adres IP centrum danych platformy Azure) z Centrum pobierania Microsoft i przejrzyj jego zawartość. 
+
+> [!NOTE]
+> Ten plik zawiera zakresy adresów IP (w tym zakresy zasobów obliczeniowych, bazy danych SQL i magazynu) używane w centrach danych platformy Microsoft Azure. Co tydzień jest publikowany zaktualizowany plik odzwierciedlający aktualnie wdrożone zakresy i wszystkie nadchodzące zmiany w zakresach adresów IP. Nowe zakresy pojawiające się w pliku nie będą używane w centrach danych przez co najmniej tydzień. Nowy plik xml należy pobierać co tydzień i wykonywać niezbędne zmiany w witrynie, aby prawidłowo identyfikować usługi uruchomione na platformie Azure. Użytkownicy usługi ExpressRoute mogą zwrócić uwagę na to, że wcześniej ten plik aktualizował anonsowania BGP platformy Azure w pierwszym tygodniu każdego miesiąca. 
+> 
+
 
 ## <a name="implementation"></a>Wdrażanie
 
@@ -191,27 +197,6 @@ Zalecana metoda uwzględnienia usługi Automation polega na wybraniu oferty auto
 8. Kliknij przycisk **Utwórz**, aby kontynuować dołączanie usługi Automation i obszaru roboczego OMS. Wszystkie ustawienia są sprawdzane, a następnie jest podejmowana próba wdrożenia oferty w Twojej subskrypcji.  Ten proces może potrwać kilka sekund. Możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu. 
 
 Po dołączeniu tej oferty możesz rozpocząć tworzenie elementów Runbook, pracę z włączonymi przez Ciebie rozwiązaniami do zarządzania lub rozpocząć pracę z usługą [Log Analytics](https://docs.microsoft.com/azure/log-analytics), aby zebrać dane wygenerowane przez zasoby w Twojej chmurze lub lokalnych środowiskach.   
-
-### <a name="resources-included"></a>Zasoby dołączone
-Po pomyślnym utworzeniu konta usługi Automation automatycznie zostanie utworzonych kilka zasobów. Zasoby są podsumowywane w dwóch następujących tabelach:<br>
-
-#### <a name="run-as-account-resources"></a>Zasoby konta Uruchom jako
-
-| Zasób | Opis |
-| --- | --- |
-| AzureAutomationTutorial Runbook | Przykładowy graficzny element runbook, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako i pobiera wszystkie zasoby usługi Resource Manager. |
-| AzureAutomationTutorialScript Runbook | Przykładowy element runbook programu PowerShell, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako i pobiera wszystkie zasoby usługi Resource Manager. |
-| AzureRunAsCertificate | Zasób certyfikatu tworzony automatycznie podczas tworzenia konta usługi Automation lub używania poniższego skryptu programu PowerShell dla istniejącego konta. Certyfikat umożliwia uwierzytelnianie za pomocą platformy Azure, aby można było zarządzać zasobami usługi Azure Resource Manager z poziomu elementów runbook. Certyfikat ma roczny okres obowiązywania. |
-| AzureRunAsConnection | Zasób połączenia tworzony automatycznie podczas tworzenia konta usługi Automation lub używania skryptu programu PowerShell dla istniejącego konta. |
-
-#### <a name="classic-run-as-account-resources"></a>Zasoby klasycznego konta Uruchom jako
-
-| Zasób | Opis |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook | Przykładowy graficzny element runbook, który pobiera wszystkie maszyny wirtualne tworzone za pomocą klasycznego modelu wdrożenia w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikatu), a następnie zapisuje nazwę i stan maszyny wirtualnej. |
-| AzureClassicAutomationTutorial Script Runbook | Przykładowy element runbook programu PowerShell, który pobiera wszystkie klasyczne maszyny wirtualne w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikatu), a następnie zapisuje nazwę i stan maszyny wirtualnej. |
-| AzureClassicRunAsCertificate | Automatycznie utworzony zasób certyfikatu, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów runbook. Certyfikat ma roczny okres obowiązywania. |
-| AzureClassicRunAsConnection | Automatycznie utworzony zasób połączenia, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów runbook.|
 
 ## <a name="next-steps"></a>Następne kroki
 * Możesz potwierdzić, że Twoje nowe konto usługi Automation może uwierzytelniać względem zasobów platformy Azure, sprawdzając [test uwierzytelniania konta Uruchom jako usługi Azure Automation](automation-verify-runas-authentication.md).

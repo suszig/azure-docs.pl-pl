@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8bfc4892343dd62c958ce6937c4879a2b029cb88
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -46,9 +47,9 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-2. W bloku **Nowy** wybierz pozycję **Obliczeniowe**, w bloku **Obliczeniowe** wybierz pozycję **Ubuntu Server 16.04 LTS**, a następnie kliknij przycisk **Utwórz**.
+2. W bloku **Nowy** wybierz pozycję **Obliczeniowe**, w bloku **Obliczeniowe** wybierz pozycję *Ubuntu Server 16.04 LTS*, a następnie kliknij przycisk **Utwórz**.
 
-3. Wypełnij formularz **Podstawy** maszyny wirtualnej. W obszarze **Typ uwierzytelniania** wybierz pozycję **SSH**. Podczas wklejania wartości w polu **Klucz publiczny SSH** pamiętaj, aby usunąć wszystkie wiodące i końcowe białe znaki. W obszarze **Grupa zasobów** utwórz nową. Grupa zasobów to logiczny kontener, w którym są tworzone i zbiorczo zarządzane zasoby platformy Azure. Po zakończeniu kliknij przycisk **OK**.
+3. Wypełnij formularz **Podstawy** maszyny wirtualnej. W obszarze **Typ uwierzytelniania** wybierz pozycję *SSH*. Podczas wklejania wartości w polu **Klucz publiczny SSH** pamiętaj, aby usunąć wszystkie wiodące i końcowe białe znaki. W obszarze **Grupa zasobów** utwórz nową. Grupa zasobów to logiczny kontener, w którym są tworzone i zbiorczo zarządzane zasoby platformy Azure. Po zakończeniu kliknij przycisk **OK**.
 
     ![Wprowadzanie podstawowych informacji o maszynie wirtualnej w bloku portalu](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
@@ -56,11 +57,11 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
     ![Zrzut ekranu przedstawiający rozmiary maszyn wirtualnych](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. W bloku ustawień wybierz opcję **Tak** w obszarze **Używanie zarządzanych dysków**, zachowaj ustawienia domyślne dla pozostałych ustawień i kliknij przycisk **OK**.
+5. W bloku ustawień wybierz opcję *Tak* w obszarze **Używanie zarządzanych dysków**, zachowaj ustawienia domyślne dla pozostałych ustawień i kliknij przycisk **OK**.
 
 6. Na stronie podsumowania kliknij przycisk **OK**, aby rozpocząć wdrażanie maszyny wirtualnej.
 
-7. Aby monitorować stan wdrożenia, kliknij maszynę wirtualną. Maszynę wirtualną można znaleźć na pulpicie nawigacyjnym witryny Azure Portal. Można też wybrać pozycję **Maszyny wirtualne** w menu po lewej stronie. Po utworzeniu maszyny wirtualnej jej stan zmieni się z **Wdrażanie** na **Uruchomiona**.
+7. Aby monitorować stan wdrożenia, kliknij maszynę wirtualną. Maszynę wirtualną można znaleźć na pulpicie nawigacyjnym witryny Azure Portal. Można też wybrać pozycję **Maszyny wirtualne** w menu po lewej stronie. Po utworzeniu maszyny wirtualnej jej stan zmieni się z *Wdrażanie* na *Uruchomiona*.
 
 
 ## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
@@ -68,10 +69,10 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 Domyślnie dozwolone są tylko połączenia SSH z maszynami wirtualnymi z systemem Linux wdrożonymi na platformie Azure. Jeśli ta maszyna wirtualna ma być serwerem sieci Web, należy otworzyć port 80 na potrzeby ruchu sieciowego. Ten krok przeprowadzi Cię przez proces tworzenia reguły sieciowej grupy zabezpieczeń w celu zezwolenia na połączenia przychodzące w porcie 80.
 
 1. W sekcji **Podstawowe elementy** bloku maszyny wirtualnej kliknij nazwę **grupy zasobów**.
-2. W bloku grupy zasobów kliknij pozycję **Sieciowa grupa zabezpieczeń** na liście zasobów. Nazwa sieciowej grupy zabezpieczeń powinna być nazwą maszyny wirtualnej z dołączonym na końcu ciągiem -nsg.
+2. W bloku grupy zasobów kliknij pozycję **Sieciowa grupa zabezpieczeń** na liście zasobów. Nazwa sieciowej grupy zabezpieczeń powinna być nazwą maszyny wirtualnej z dołączonym na końcu ciągiem *-nsg*.
 3. Kliknij nagłówek **Reguła zabezpieczeń dla ruchu przychodzącego**, aby otworzyć listę reguł ruchu przychodzącego. Na liście powinna już znajdować się reguła protokołu RDP.
 4. Kliknij pozycję **+ Dodaj**, aby otworzyć blok **Dodawanie reguły zabezpieczeń dla ruchu przychodzącego**.
-5. W polu **Nazwa** wpisz ciąg **nginx**. Upewnij się, że w polu **Zakres portów** ustawiono wartość 80, a w polu **Akcja** — wartość **Zezwalaj**. Kliknij przycisk **OK**.
+5. W polu **Nazwa** wpisz ciąg *nginx*. Upewnij się, że w polu **Zakres portów** ustawiono wartość *80*, a w polu **Akcja** — wartość *Zezwalaj*. Kliknij przycisk **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
@@ -104,7 +105,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Wyświetlanie strony powitalnej serwera NGINX
 
-Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego adresu `publicIpAddress`. 
+Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Pobierz *publiczny adres IP* z bloku maszyny wirtualnej i użyj go w celu odwiedzenia domyślnej strony sieci Web.
 
 ![Domyślna witryna serwera NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej

@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Modyfikowanie prefiksów — brak połączenia bramy
+### <a name="noconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — brak połączenia bramy
 
 - Aby dodać dodatkowe prefiksy adresów:
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Aby usunąć prefiks adresu:<br>
+- Aby usunąć prefiksy adresów:<br>
   Opuść prefiksy, które nie są już potrzebne. W tym przykładzie nie są już potrzebne prefiksy 20.0.0.0/24 (z poprzedniego przykładu), dlatego zaktualizujemy bramę sieci lokalnej, wykluczając ten prefiks.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Modyfikowanie prefiksów — istnieje połączenie bramy
-Jeśli istnieje już połączenie bramy i chcesz dodać lub usunąć prefiksy adresów IP zawarte w bramie Twojej sieci lokalnej, wykonaj kolejno następujące kroki. Spowoduje to pewien przestój połączenia sieci VPN.
+### <a name="withconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — istniejące połączenie bramy
 
-> [!IMPORTANT]
-> Nie należy usuwać bramy sieci VPN. Jeśli zostanie ona usunięta, trzeba będzie wrócić do poprzednich kroków, aby utworzyć ją ponownie. Ponadto musisz zaktualizować lokalne urządzenie sieci VPN o nowy adres IP bramy sieci VPN.
-> 
-> 
+Jeśli istnieje już połączenie bramy i chcesz dodać lub usunąć prefiksy adresów IP zawarte w bramie Twojej sieci lokalnej, wykonaj kolejno następujące kroki. Spowoduje to pewien przestój połączenia sieci VPN. W przypadku modyfikowania prefiksów adresów IP nie musisz usuwać bramy sieci VPN. Musisz usunąć tylko połączenie.
+
 
 1. Usuń połączenie.
 

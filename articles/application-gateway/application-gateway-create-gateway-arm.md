@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ W powyższym przykładzie utworzyliśmy grupę zasobów o nazwie **appgw-RG** i 
 > [!NOTE]
 > Jeśli musisz skonfigurować niestandardową sondę bramy aplikacji, odwiedź: [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Tworzenie bramy aplikacji z sondami niestandardowymi przy użyciu programu PowerShell). Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat [sond niestandardowych i monitorowania kondycji](application-gateway-probe-overview.md).
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Tworzenie sieci wirtualnej i podsieci dla bramy aplikacji
+## <a name="create-a-virtual-network-and-a-subnet"></a>Tworzenie sieci wirtualnej i podsieci
 
 W poniższym przykładzie pokazano, jak utworzyć sieć wirtualną przy użyciu usługi Resource Manager. W tym przykładzie tworzona jest sieć wirtualna dla usługi Application Gateway. Usługa Application Gateway wymaga własnej podsieci, z tego powodu podsieć tworzona dla usługi Application Gateway jest mniejsza niż przestrzeń adresowa sieci wirtualnej. Użycie mniejszych podsieci pozwala, aby inne zasoby, w tym, ale nie tylko, serwery sieci Web, były skonfigurowane w tej samej sieci wirtualnej.
 
@@ -135,7 +136,7 @@ Przypisz zmienną podsieci dla następnych kroków; ta zmienna jest przekazywana
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Tworzenie publicznego adresu IP dla konfiguracji frontonu
+## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
 Utwórz zasób publicznego adresu IP **publicIP01** w grupie zasobów **appgw-rg** dla regionu Zachodnie stany USA. Do odbierania żądań zrównoważenia obciążenia usługa Application Gateway może korzystać z publicznego adresu IP, wewnętrznego adresu IP lub obu z nich.  W tym przykładzie używany jest tylko publiczny adres IP. W poniższym przykładzie nie jest konfigurowana nazwa DNS na potrzeby utworzenia publicznego adresu IP.  Usługa Application Gateway nie obsługuje niestandardowych nazw DNS dla publicznych adresów IP.  Jeżeli dla publicznego punktu końcowego wymagana jest nazwa niestandardowa, należy utworzyć rekord CNAME wskazujący automatycznie wygenerowaną nazwę DNS dla publicznego adresu IP.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > Wartość domyślna parametru **InstanceCount** to 2, a wartość maksymalna — 10. Wartość domyślna parametru **GatewaySize** to Medium (Średnia). Możesz wybrać następujące wartości: **Standard_Small**, **Standard_Medium** i **Standard_Large**.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Tworzenie bramy aplikacji przy użyciu polecenia New-AzureRmApplicationGateway
+## <a name="create-the-application-gateway"></a>Tworzenie bramy aplikacji
 
 Utwórz bramę aplikacji przy użyciu wszystkich elementów konfiguracji z powyższych kroków. W tym przykładzie brama aplikacji ma nazwę **appgwtest**.
 
@@ -233,7 +234,7 @@ Pobierz szczegóły adresów DNS i VIP bramy aplikacji z zasobu publicznego adre
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Usuwanie bramy aplikacji
+## <a name="delete-the-application-gateway"></a>Usuwanie bramy aplikacji
 
 Aby usunąć bramę aplikacji, wykonaj następujące kroki:
 
@@ -296,6 +297,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
+
+Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## <a name="next-steps"></a>Następne kroki

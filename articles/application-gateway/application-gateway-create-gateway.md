@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 79e373a69f3b899dea1f10ac447a0284931648f4
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 02/28/2017
 > * [Szablon usługi Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
 
-Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy&7;. Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn. Aby uzyskać pełną listę obsługiwanych funkcji, odwiedź stronę [Application Gateway — omówienie](application-gateway-introduction.md)
+Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn. Aby uzyskać pełną listę obsługiwanych funkcji, odwiedź stronę [Application Gateway — omówienie](application-gateway-introduction.md)
 
 W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, uruchamianie i usuwanie bramy aplikacji.
 
@@ -106,11 +107,11 @@ Parametry *VirtualIPs* (Wirtualne adresy IP) i *DnsName* (Nazwa serwera DNS) są
 
 Bramę aplikacji możesz skonfigurować za pomocą pliku XML lub obiektu konfiguracji.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>Konfigurowanie bramy aplikacji za pomocą pliku XML
+### <a name="configure-the-application-gateway-by-using-xml"></a>Konfigurowanie bramy aplikacji za pomocą pliku XML
 
 W poniższym przykładzie używany jest plik XML, aby skonfigurować wszystkie ustawienia bramy aplikacji i zatwierdzić je w zasobie bramy aplikacji.  
 
-### <a name="step-1"></a>Krok 1
+#### <a name="step-1"></a>Krok 1
 
 Skopiuj poniższy tekst do Notatnika.
 
@@ -211,7 +212,7 @@ Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy uży
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>Krok 2
+#### <a name="step-2"></a>Krok 2
 
 Następnym etapem jest skonfigurowanie bramy aplikacji. Użyj polecenia cmdlet `Set-AzureApplicationGatewayConfig` z plikiem konfiguracyjnym XML.
 
@@ -219,14 +220,14 @@ Następnym etapem jest skonfigurowanie bramy aplikacji. Użyj polecenia cmdlet `
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Skonfiguruj bramę aplikacji za pomocą obiektu konfiguracji.
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Skonfiguruj bramę aplikacji za pomocą obiektu konfiguracji.
 
 Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu obiektów konfiguracji. Wszystkie elementy konfiguracji muszą być skonfigurowane indywidualnie, a następnie dodane do obiektu konfiguracji bramy aplikacji. Po utworzeniu obiektu konfiguracji użyte zostanie polecenie cmdlet `Set-AzureApplicationGateway`, aby zatwierdzić konfigurację we wcześniej utworzonym zasobie bramy aplikacji.
 
 > [!NOTE]
 > Przed przypisaniem wartości do poszczególnych obiektów konfiguracji trzeba zadeklarować rodzaj obiektu używanego przez program PowerShell jako magazyn. Pierwszy krok procesu tworzenia elementów polega na zdefiniowaniu elementów `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` do użycia.
 
-### <a name="step-1"></a>Krok 1
+#### <a name="step-1"></a>Krok 1
 
 Utwórz wszystkie poszczególne elementy konfiguracji.
 
@@ -297,7 +298,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>Krok 2
+#### <a name="step-2"></a>Krok 2
 
 Przypisz wszystkie poszczególne elementy konfiguracji do obiektu konfiguracji bramy aplikacji ($appgwconfig).
 
@@ -385,7 +386,7 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>Usuwanie bramy aplikacji
+## <a name="delete-the-application-gateway"></a>Usuwanie bramy aplikacji
 
 Aby usunąć bramę aplikacji:
 

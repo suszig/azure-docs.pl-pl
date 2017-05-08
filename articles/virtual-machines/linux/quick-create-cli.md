@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b26d3952adc4d0bb1993bb46cabf6c7d0850666a
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 08fcde4f5bddccb9de5564455937a637054ebb60
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/20/2017
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku zawarto szczegółowe instrukcje korzystania z interfejsu wiersza polecenia platformy Azure w celu wdrożenia maszyny wirtualnej z systemem Ubuntu 16.04 LTS. Po wdrożeniu serwera połączymy się z maszyną wirtualną za pomocą protokołu SSH, aby zainstalować rozwiązanie NGINX. 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Upewnij się również, że interfejs wiersza polecenia platformy Azure został zainstalowany. Aby uzyskać więcej informacji, zobacz [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli) (Przewodnik instalacji interfejsu wiersza polecenia platformy Azure). 
 
@@ -42,7 +43,7 @@ az login
 
 Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myResourceGroup` w lokalizacji `westeurope`.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *westeurope*.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -52,7 +53,7 @@ az group create --name myResourceGroup --location westeurope
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). 
 
-Następujący przykład umożliwia utworzenie maszyny wirtualnej o nazwie `myVM` i kluczy SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji kluczy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
+Następujący przykład umożliwia utworzenie maszyny wirtualnej o nazwie *myVM* i kluczy SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji kluczy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -75,7 +76,7 @@ Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure
 
 ## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
-Domyślnie dozwolone są tylko połączenia SSH z maszynami wirtualnymi z systemem Linux wdrożonymi na platformie Azure. Jeśli ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu.  Do otwarcia żądanego portu wymagane jest pojedyncze polecenie.  
+Domyślnie dozwolone są tylko połączenia SSH z maszynami wirtualnymi z systemem Linux wdrożonymi na platformie Azure. Jeśli ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu. Otwórz odpowiedni port za pomocą polecenia [az vm open-port](/cli/azure/vm#open-port).  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -83,7 +84,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="ssh-into-your-vm"></a>Łączenie z maszyną wirtualną za pośrednictwem protokołu SSH
 
-Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną. Pamiętaj o zastąpieniu elementu `<publicIpAddress>` prawidłowym publicznym adresem IP swojej maszyny wirtualnej.  W naszym powyższym przykładzie adres IP to `40.68.254.142`.
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną. Pamiętaj o zamianie elementu *<publicIpAddress>* na prawidłowy publiczny adres IP swojej maszyny wirtualnej.  W naszym powyższym przykładzie adres IP to *40.68.254.142*.
 
 ```bash 
 ssh <publicIpAddress>
@@ -105,14 +106,14 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Wyświetlanie strony powitalnej serwera NGINX
 
-Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej adresu `publicIpAddress`. 
+Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej *publicznego adresu IP*. 
 
 ![Domyślna witryna serwera NGINX](./media/quick-create-cli/nginx.png) 
 
 
 ## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej
 
-Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą następującego polecenia.
+Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete](/cli/azure/group#delete).
 
 ```azurecli
 az group delete --name myResourceGroup

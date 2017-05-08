@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: bffbeb5238ec69d763e1cc7ad3c8a6e4fad34306
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: cfbd863ca7e65ddad585d4305d5e24b8f6bb744a
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -29,9 +30,9 @@ Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządz
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
 
-Upewnij się również, że masz zainstalowaną najnowszą wersję modułu Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Upewnij się również, że masz zainstalowaną najnowszą wersję modułu Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
-Na koniec zapisz publiczny klucz SSH o nazwie `id_rsa.pub` w katalogu `.ssh` profilu użytkownika systemu Windows. Aby uzyskać szczegółowe informacje na temat tworzenia kluczy SSH dla platformy Azure, zobacz [Tworzenie kluczy SSH dla platformy Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Na koniec zapisz publiczny klucz SSH o nazwie *id_rsa.pub* w katalogu *.ssh* profilu użytkownika systemu Windows. Aby uzyskać szczegółowe informacje na temat tworzenia kluczy SSH dla platformy Azure, zobacz [Tworzenie kluczy SSH dla platformy Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -43,10 +44,10 @@ Login-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów platformy Azure. Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Utwórz grupę zasobów platformy Azure za pomocą polecenia [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
+New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
 ```
 
 ## <a name="create-networking-resources"></a>Tworzenie zasobów sieciowych
@@ -58,11 +59,11 @@ Utwórz sieć wirtualną, podsieć i publiczny adres IP. Te zasoby są używane 
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope `
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus `
 -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus `
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
@@ -80,15 +81,15 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus `
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Utwórz kartę sieciową dla maszyny wirtualnej. Karta sieciowa łączy maszynę wirtualną z podsiecią, sieciową grupą zabezpieczeń i publicznym adresem IP.
+Utwórz kartę sieciową maszyny wirtualnej za pomocą polecenia [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Karta sieciowa łączy maszynę wirtualną z podsiecią, sieciową grupą zabezpieczeń i publicznym adresem IP.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location westeurope `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
@@ -112,17 +113,17 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Utwórz maszynę wirtualną.
+Utwórz maszynę wirtualną za pomocą polecenia [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus -VM $vmConfig
 ```
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
 Po zakończeniu wdrożenia utwórz połączenie SSH z maszyną wirtualną.
 
-Uruchom następujące polecenia, aby zwrócić publiczny adres IP maszyny wirtualnej.
+Wróć do publicznego adresu IP maszyny wirtualnej za pomocą polecenia [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress).
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -134,7 +135,7 @@ Z poziomu systemu z zainstalowanym protokołem SSH użyj następującego polecen
 ssh <Public IP Address>
 ```
 
-Po wyświetleniu monitu podaj nazwę logowania użytkownika `azureuser`. Jeśli podczas tworzenia kluczy SSH wprowadzono hasło, należy je również wprowadzić tutaj.
+Po wyświetleniu monitu podaj nazwę logowania użytkownika *azureuser*. Jeśli podczas tworzenia kluczy SSH wprowadzono hasło, należy je również wprowadzić tutaj.
 
 
 ## <a name="install-nginx"></a>Instalowanie serwera NGINX
@@ -153,12 +154,12 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Wyświetlanie strony powitalnej serwera NGINX
 
-Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej adresu `publicIpAddress`. 
+Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej publicznego adresu IP. 
 
 ![Domyślna witryna serwera NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej
 
-Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą następującego polecenia.
+Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

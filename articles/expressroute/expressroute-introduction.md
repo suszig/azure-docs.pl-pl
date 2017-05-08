@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 2fc966e7c93e44007f15c3129fbe709beddb21af
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 43f18fb3ce873eef5c2d96a89ab41fc6efc443d8
+ms.contentlocale: pl-pl
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -97,6 +98,10 @@ Możesz wybrać najlepszy dla siebie model rozliczeń. Wybierz z modeli rozlicze
   * Zwiększone limity tras dla publicznej i prywatnej komunikacji równorzędnej Azure z 4000 do 10 000 tras.
   * Globalna łączność dla usług. Obwód usługi ExpressRoute utworzony w dowolnym regionie (z wyłączeniem chmur krajowych) będzie miał dostęp do zasobów we wszystkich innych regionach na świecie. Na przykład dostęp do sieci wirtualnej utworzonej w Europie Zachodniej można uzyskać za pośrednictwem obwodu usługi ExpressRoute zainicjowanego w Dolinie Krzemowej.
   * Zwiększona liczba łączy sieci wirtualnej na obwód usługi ExpressRoute z 10 do większego limitu, w zależności od przepustowości obwodu.
+
+## <a name="faq"></a>Często zadawane pytania
+
+Często zadawane pytania dotyczące usługi ExpressRoute można znaleźć na stronie [Usługa ExpressRoute — często zadawane pytania](expressroute-faqs.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
