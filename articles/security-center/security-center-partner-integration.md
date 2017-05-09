@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 05/08/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
@@ -58,7 +58,7 @@ W zależności od konfiguracji środowiska platformy Azure i zdefiniowanych prze
 
 Po wdrożeniu rozwiązania partnerskiego można wyświetlić informacje o kondycji rozwiązania i wykonywać podstawowe zadania w zakresie zarządzania na kafelku rozwiązania partnerskiego na głównym pulpicie nawigacyjnym usługi Security Center. Aby uzyskać więcej informacji na temat zarządzania rozwiązaniami partnerskimi w usłudze Security Center, przeczytaj artykuł [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md).
 
-![Integracja z partnerami](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
+![Integracja z partnerami](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
 
 
 ## <a name="see-also"></a>Zobacz też
