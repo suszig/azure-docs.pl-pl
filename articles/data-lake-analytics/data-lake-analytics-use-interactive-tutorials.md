@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ca88b355416b4ae4785bc69244185a67756ca916
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Korzystanie z interaktywnych samouczków usługi Azure Data Lake Analytics
 Witryna Azure Portal oferuje interaktywny samouczek ułatwiający rozpoczęcie pracy z usługą Data Lake Analytics. W tym artykule przedstawiono sposób wykonywania kroków samouczka w celu analizowania dzienników witryn sieci Web.
-
-> [!NOTE]
-> Jeśli chcesz wykonać kroki tego samouczka przy użyciu programu Visual Studio, zobacz temat [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-> Planowane jest dodanie do portalu kolejnych interaktywnych samouczków.
-> 
-> 
 
 Aby znaleźć więcej samouczków, zobacz tematy:
 
@@ -87,10 +83,5 @@ Każde konto usługi Data Lake Analytics jest w relacji zależności z kontem us
 * [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu programu Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
