@@ -106,6 +106,7 @@
 ### Konfigurowanie przekazywania plików
 #### [Korzystanie z portalu](iot-hub-configure-file-upload.md)
 #### [Korzystanie z programu PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Korzystanie z interfejsu wiersza polecenia 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Zbiorcze zarządzanie urządzeniami IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Metryki użycia](iot-hub-metrics.md)
 ### [Monitorowanie operacji](iot-hub-operations-monitoring.md)
