@@ -50,10 +50,4 @@
 
     ![aktualizowanie urządzenia](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. Po pomyślnym zainstalowaniu aktualizacji w bloku **Aktualizacje urządzenia** zostanie wyświetlony odpowiedni komunikat. Wersja oprogramowania zostanie zmieniona na **10.0.10289.0**.
-
-    ![aktualizowanie urządzenia](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
-
-<!--HONumber=Feb17_HO1-->
-
-
+9. Po pomyślnym zainstalowaniu aktualizacji w bloku **Aktualizacje urządzenia** zostanie wyświetlony odpowiedni komunikat. 
