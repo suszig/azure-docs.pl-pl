@@ -17,7 +17,7 @@
 ## Oprogramowanie SAP HANA na maszynach wirtualnych
 ### [Platforma SAP HANA z pojedynczym wystąpieniem](hana-get-started.md)
 ### [S/4 HANA lub BW/4 HANA — podręcznik wdrażania](cal-s4h.md)
-### [Wysoka dostępność na maszynach wirtualnych] (sap-hana-high-availability.md)
+### [Wysoka dostępność na maszynach wirtualnych](sap-hana-high-availability.md)
 ### [Omówienie usługi Backup](sap-hana-backup-guide.md)
 ### [Kopia zapasowa na poziomie pliku](sap-hana-backup-file-level.md)
 ### [Kopie zapasowe migawek magazynu](sap-hana-backup-storage-snapshots.md)
