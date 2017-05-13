@@ -63,7 +63,7 @@
 ## [Blog na temat sieci](https://azure.microsoft.com/blog/topics/networking/)
 ## [Analizy przypadków](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)
-## [Limity usług i subskrypcji](../azure-subscription-service-limits.md)
+## [Limity usług i subskrypcji](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Tworzenie obwodu usługi ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Jak skonfigurować prywatną komunikację równorzędną dla obwodu](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)

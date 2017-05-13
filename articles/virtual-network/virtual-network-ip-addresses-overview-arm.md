@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -72,7 +73,7 @@ Możesz określić etykietę nazwy domeny DNS dla publicznego zasobu adresu IP, 
 >
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
-Możesz skojarzyć publiczny adres IP z maszyną wirtualną systemu [Windows](../virtual-machines/windows/about.md) lub [Linux](../virtual-machines/virtual-machines-linux-about.md), przypisując go do **interfejsu sieciowego**. W przypadku maszyny wirtualnej mającej wiele interfejsów sieciowych możesz przypisać go tylko do *głównego* interfejsu sieciowego. Do maszyny wirtualnej możesz przypisać dynamiczny lub statyczny publiczny adres IP.
+Możesz skojarzyć publiczny adres IP z maszyną wirtualną systemu [Windows](../virtual-machines/windows/overview.md) lub [Linux](../virtual-machines/virtual-machines-linux-about.md), przypisując go do **interfejsu sieciowego**. W przypadku maszyny wirtualnej mającej wiele interfejsów sieciowych możesz przypisać go tylko do *głównego* interfejsu sieciowego. Do maszyny wirtualnej możesz przypisać dynamiczny lub statyczny publiczny adres IP.
 
 ### <a name="internet-facing-load-balancers"></a>Moduły równoważenia obciążenia dostępne z Internetu
 Publiczny adres IP możesz skojarzyć z usługą [Azure Load Balancer](../load-balancer/load-balancer-overview.md), przypisując go do konfiguracji **frontonu** modułu równoważenia obciążenia. Ten publiczny adres IP służy jako wirtualny adres IP (VIP) o zrównoważonym obciążeniu. Do frontonu modułu równoważenia obciążenia możesz przypisać dynamiczny lub statyczny publiczny adres IP. Do frontonu modułu równoważenia obciążenia możesz także przypisać wiele publicznych adresów IP, co umożliwiają scenariusze [wielu VIP](../load-balancer/load-balancer-multivip.md), takie jak środowisko wielodostępne z witrynami sieci Web opartymi na protokole SSL.
@@ -116,7 +117,7 @@ Statyczne prywatne adresy IP są powszechnie używane do:
 * Zasoby dostępne dla innych aplikacji/zasobów za pomocą adresu IP.
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
-Prywatny adres IP jest przypisywany do **interfejsu sieciowego** maszyny wirtualnej z systemem [Windows](../virtual-machines/windows/about.md) lub [Linux](../virtual-machines/virtual-machines-linux-about.md). W przypadku maszyny wirtualnej z wieloma interfejsami sieciowymi każdy interfejs otrzymuje przypisany prywatny adres IP. Metodę alokacji dla interfejsu sieciowego możesz określić jako dynamiczną lub statyczną.
+Prywatny adres IP jest przypisywany do **interfejsu sieciowego** maszyny wirtualnej z systemem [Windows](../virtual-machines/windows/overview.md) lub [Linux](../virtual-machines/virtual-machines-linux-about.md). W przypadku maszyny wirtualnej z wieloma interfejsami sieciowymi każdy interfejs otrzymuje przypisany prywatny adres IP. Metodę alokacji dla interfejsu sieciowego możesz określić jako dynamiczną lub statyczną.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Wewnętrzne rozpoznawanie nazwy hosta DNS (dla maszyn wirtualnych)
 Wszystkie maszyny wirtualne platformy Azure są domyślnie skonfigurowane z [serwerami DNS zarządzanymi przez platformę Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution), chyba że jawnie skonfigurujesz niestandardowe serwery DNS. Te serwery DNS zapewniają rozpoznawanie nazw wewnętrznych maszyn wirtualnych znajdujących się w tej samej sieci wirtualnej.
