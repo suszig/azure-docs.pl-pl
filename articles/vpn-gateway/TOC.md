@@ -1,7 +1,7 @@
 # Omówienie
 ## [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway — często zadawane pytania](vpn-gateway-vpn-faq.md)
-## [Limity usług i subskrypcji](../azure-subscription-service-limits.md)
+## [Limity usług i subskrypcji](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Wprowadzenie
 ## [Planowanie i projektowanie dla usługi VPN Gateway](vpn-gateway-plan-design.md)
@@ -46,7 +46,9 @@
 ### [Witryna Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Tworzenie certyfikatów z podpisem własnym dla połączeń punkt-lokacja](vpn-gateway-certificates-point-to-site.md)
+## Tworzenie certyfikatów z podpisem własnym dla połączeń punkt-lokacja
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Rozwiązywanie problemów
 ### [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)

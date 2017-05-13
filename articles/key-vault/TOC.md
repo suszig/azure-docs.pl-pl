@@ -24,15 +24,16 @@
 
 ## Automatyzacja
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia](key-vault-manage-with-cli.md)
 ### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia 2.0](key-vault-manage-with-cli2.md)
 
 # Dokumentacja
 ## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/keyvault)
+## [Interfejs wiersza polecenia platformy Azure 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## Node.js
+### [Zarządzanie magazynem](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [Zarządzanie zawartością magazynu](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](/rest/api/keyvault)
 
 # Powiązane
