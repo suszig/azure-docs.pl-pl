@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="about-azure-storage-accounts"></a>Informacje o kontach magazynu Azure
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Omówienie
 Konto usługi Azure Storage zapewnia unikatową przestrzeń nazw do przechowywania i umożliwiania dostępu do obiektów danych usługi Azure Storage. Wszystkie obiekty w koncie magazynu są rozliczane wspólnie jako grupa. Domyślnie dane na Twoim koncie są dostępne tylko dla Ciebie, tj. właściciela konta.
@@ -153,15 +155,11 @@ Jeśli konto magazynu korzysta z modelu wdrożenia klasycznego, można usunąć 
 Zobacz [dokumentację maszyn wirtualnych Azure](http://azure.microsoft.com/documentation/services/virtual-machines/), aby uzyskać więcej informacji.
 
 ## <a name="next-steps"></a>Następne kroki
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 * [Azure Blob Storage: warstwy Chłodna i Gorąca](storage-blob-storage-tiers.md)
 * [Replikacja usługi Azure Storage](storage-redundancy.md)
 * [Konfiguracja parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md)
 * [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
 * Odwiedź [Blog zespołu odpowiedzialnego za usługę Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
