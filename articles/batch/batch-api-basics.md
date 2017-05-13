@@ -16,10 +16,10 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/03/2017
 
 W tym omówieniu podstawowych składników usługi Azure Batch przedstawiamy główne funkcje oraz zasoby, z których deweloperzy usługi Batch mogą korzystać w przypadku kompilowania rozwiązań do przetwarzania równoległego na dużą skalę.
 
-Bez względu na to, czy tworzysz aplikację do przetwarzania rozproszonego, usługę obsługującą bezpośrednie wywołania interfejsu [API REST][batch_rest_api], czy też korzystasz z jednego z [zestawów SDK usługi Batch](batch-apis-tools.md#batch-development-apis), będziesz używać wielu zasobów oraz funkcji omówionych w tym artykule.
+Bez względu na to, czy tworzysz aplikację do przetwarzania rozproszonego, usługę obsługującą bezpośrednie wywołania interfejsu [API REST][batch_rest_api], czy też korzystasz z jednego z [zestawów SDK usługi Batch](batch-apis-tools.md#azure-accounts-for-batch-development), będziesz używać wielu zasobów oraz funkcji omówionych w tym artykule.
 
 > [!TIP]
 > Bardziej szczegółowe wprowadzenie do usługi Batch można znaleźć w temacie [Podstawy usługi Azure Batch](batch-technical-overview.md).
@@ -74,13 +74,13 @@ Konto usługi Batch jest jednoznacznie zdefiniowanym obiektem w ramach usługi B
 
 Konto usługi Azure Batch możesz utworzyć za pomocą witryny [Azure Portal](batch-account-create-portal.md) lub programowo, na przykład za pomocą [biblioteki Batch Management .NET](batch-management-dotnet.md). Podczas tworzenia konta możesz skojarzyć konto magazynu platformy Azure.
 
-Usługa Batch obsługuje dwie konfiguracje konta oparte na właściwości *Tryb alokacji puli*. Te dwie konfiguracje dają dostęp do różnych możliwości związanych z [pulami](#pool) usługi Batch (zobacz dalszą część tego artykułu). 
+Usługa Batch obsługuje dwie konfiguracje konta oparte na właściwości *Tryb alokacji puli*. Te dwie konfiguracje dają dostęp do różnych możliwości związanych z [pulami](#pool) usługi Batch (zobacz dalszą część tego artykułu).
 
 
-* **Usługa Batch**: opcja domyślna, z maszynami wirtualnymi pul usługi Batch przydzielanymi w tle w subskrypcjach zarządzanych przez usługę Azure. Tej konfiguracji konta należy użyć, jeśli wymagane są pule usług Cloud Services, ale nie można jej używać, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). 
+* **Usługa Batch**: opcja domyślna, z maszynami wirtualnymi pul usługi Batch przydzielanymi w tle w subskrypcjach zarządzanych przez usługę Azure. Tej konfiguracji konta należy użyć, jeśli wymagane są pule usług Cloud Services, ale nie można jej używać, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md).
 
 * **Subskrypcja użytkownika**: tej konfiguracji konta należy użyć, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać tylko przy użyciu [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md), a pule usługi Cloud Services nie są obsługiwane. Obliczeniowe maszyny wirtualne usługi Batch są przydzielane bezpośrednio w subskrypcji platformy Azure. Ten tryb wymaga skonfigurowania usługi Azure Key Vault dla konta usługi Batch.
- 
+
 
 ## <a name="compute-node"></a>Węzeł obliczeniowy
 Węzeł obliczeniowy jest maszyną wirtualną platformy Azure przeznaczoną do przetwarzania części obciążenia danej aplikacji. Rozmiar węzła określa liczbę rdzeni procesora, pojemność pamięci oraz rozmiar lokalnego systemu plików przydzielony do tego węzła. Pule węzłów systemu Windows lub Linux można tworzyć przy użyciu obrazów witryny Marketplace dla usług Azure Cloud Services lub Virtual Machines. Aby uzyskać więcej informacji na temat tych opcji, zobacz poniżej sekcję [Pula](#pool).
@@ -336,7 +336,7 @@ Podczas tworzenia puli węzłów obliczeniowych w usłudze Azure Batch możesz u
 
 * Sieci wirtualne powinny mieć dostatecznie dużo wolnych **adresów IP**, aby pomieścić właściwość `targetDedicated` puli. Jeśli podsieć nie ma wystarczającej liczby wolnych adresów IP, usługa Batch częściowo przydzieli węzły obliczeniowe w puli, a następnie zwróci błąd dotyczący zmiany rozmiaru.
 
-* Określona podsieć musi zezwalać na komunikację z usługą Batch, aby umożliwiać planowanie zadań w węzłach obliczeniowych. Jeśli komunikacja z węzłami obliczeniowymi zostanie odrzucona przez **sieciową grupę zabezpieczeń** skojarzoną z siecią wirtualną, usługa Batch ustawia stan węzłów obliczeniowych na **nienadające się do użytku**. 
+* Określona podsieć musi zezwalać na komunikację z usługą Batch, aby umożliwiać planowanie zadań w węzłach obliczeniowych. Jeśli komunikacja z węzłami obliczeniowymi zostanie odrzucona przez **sieciową grupę zabezpieczeń** skojarzoną z siecią wirtualną, usługa Batch ustawia stan węzłów obliczeniowych na **nienadające się do użytku**.
 
 * Jeśli określona sieć wirtualna ma jakiekolwiek skojarzone sieciowe grupy zabezpieczeń, musi być włączona komunikacja przychodząca. W przypadku pul systemów Linux i Windows porty 29876 i 29877 muszą być włączone. Opcjonalnie można też włączyć (lub selektywnie filtrować) port 22 dla protokołu SSH w pulach systemu Linux lub port 3389 dla protokołu RDP w pulach systemu Windows.
 
@@ -345,7 +345,7 @@ Dodatkowe ustawienia sieci wirtualnej zależą od trybu alokacji puli konta usł
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Sieci wirtualne dla pul aprowizowanych w usłudze Batch
 
 W trybie aplikacji usługi Batch sieć wirtualną można przypisać tylko do pul **konfiguracji usług Cloud Services**. Ponadto określona sieć wirtualna musi być **klasyczną** siecią wirtualną. Sieci wirtualne utworzone w modelu wdrażania przy użyciu usługi Azure Resource Manager nie są obsługiwane.
-   
+
 
 
 * Jednostka usługi *MicrosoftAzureBatch* musi mieć rolę [współautora klasycznej maszyny wirtualnej](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) z kontrolą dostępu opartą na rolach (RBAC) dla określonej sieci wirtualnej. W witrynie Azure Portal:
@@ -368,7 +368,7 @@ W trybie alokacji subskrypcji użytkownika są obsługiwane tylko pule **konfigu
 
 Automatyczne skalowanie można włączyć, pisząc [formułę automatycznego skalowania](batch-automatic-scaling.md#automatic-scaling-formulas) i kojarząc ją z pulą. Usługa Batch używa formuły do określenia docelowej liczby węzłów w puli dla kolejnego interwału skalowania (interwału, który możesz skonfigurować). Ustawienia automatycznego skalowania puli można wybrać podczas jej tworzenia. Można również włączyć skalowanie puli później. Masz również możliwość aktualizowania ustawień skalowania już włączonych w puli.
 
-Na przykład być może zadanie wymaga przesyłania dużej liczby zadań podrzędnych do wykonania. Do puli można przypisać formułę skalowania, która dostosowuje liczbę węzłów w puli w oparciu o bieżącą liczbę zadań podrzędnych w kolejce oraz szybkość ich wykonywania w ramach zadania. Usługa Batch okresowo ocenia formułę i zmienia rozmiar puli w oparciu o obciążenie i innych ustawień formuły. Usługa dodaje węzły w przypadku dużej liczby zadań podrzędnych w kolejce i usuwa węzły w przypadku braku zadań podrzędnych, które znajdują się w kolejce lub są uruchomione. 
+Na przykład być może zadanie wymaga przesyłania dużej liczby zadań podrzędnych do wykonania. Do puli można przypisać formułę skalowania, która dostosowuje liczbę węzłów w puli w oparciu o bieżącą liczbę zadań podrzędnych w kolejce oraz szybkość ich wykonywania w ramach zadania. Usługa Batch okresowo ocenia formułę i zmienia rozmiar puli w oparciu o obciążenie i innych ustawień formuły. Usługa dodaje węzły w przypadku dużej liczby zadań podrzędnych w kolejce i usuwa węzły w przypadku braku zadań podrzędnych, które znajdują się w kolejce lub są uruchomione.
 
 Formuła skalowania może opierać się na następujących metrykach:
 
