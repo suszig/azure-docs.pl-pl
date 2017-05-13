@@ -19,6 +19,7 @@
 ### [Wydajne zapytania dotyczące list](batch-efficient-list-queries.md)
 ### [Zadania związane z przygotowywaniem i kończeniem prac](batch-job-prep-release.md)
 ### [Węzły obliczeniowe z systemem Linux](batch-linux-nodes.md)
+### [Maszyny wirtualne o niskim priorytecie](batch-low-pri-vms.md)
 ### [Zarządzanie kontami usługi Batch przy użyciu funkcji zarządzania partiami platformy .NET](batch-management-dotnet.md)
 ### [Utrwalanie danych wyjściowych zadań i zadań podrzędnych](batch-task-output.md)
 ### [Uruchamianie zadań MPI w usłudze Batch](batch-mpi.md)

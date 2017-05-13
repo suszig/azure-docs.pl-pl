@@ -43,7 +43,7 @@
 ### [Indeksator usługi Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 ### [Indeksator usługi Azure Table Storage](search-howto-indexing-azure-tables.md)
 ### [Indeksator usługi Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indeksator usługi Azure DocumentDB](search-howto-index-documentdb.md)
+### [Indeksator usługi Azure Cosmos DB](search-howto-index-documentdb.md)
 ### [Indeksowanie obiektów blob CSV](search-howto-index-csv-blobs.md)
 ### [Indeksowanie obiektów blob JSON](search-howto-index-json-blobs.md)
 ### [Konfigurowanie połączeń indeksatora z programem SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)

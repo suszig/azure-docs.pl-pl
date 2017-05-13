@@ -31,7 +31,11 @@
     href: tutorial-load-balancer.md
   - name: "8 — Zarządzanie siecią"
     href: tutorial-virtual-network.md
-  - name: "9 — Zarządzanie zabezpieczeniami maszyn wirtualnych"
+  - name: "9 — Tworzenie kopii zapasowych maszyn wirtualnych"
+    href: tutorial-backup-vms.md
+  - name: "10 — Monitorowanie maszyn wirtualnych"
+    href: tutorial-monitoring.md
+  - name: "11 — Zarządzanie zabezpieczeniami maszyn wirtualnych"
     href: tutorial-azure-security.md
 
 - name: "Przykłady"
@@ -202,7 +206,7 @@
       - name: "Azure PowerShell"
         href: attach-disk-ps.md
       - name: "Azure Portal"
-        href: attach-disk-portal.md
+        href: attach-managed-disk-portal.md
     - name: "Dołączanie dysku danych"
       href: detach-disk.md
     - name: "Rozszerzanie dysku systemu operacyjnego"
@@ -223,6 +227,8 @@
         href: vhd-copy.md
       - name: "Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego"
         href: create-vm-specialized.md
+      - name: "Podłączanie niezarządzanego dysku danych"
+        href: attach-disk-portal.md
   - name: "Sieć maszyn wirtualnych"
     href: ps-common-network-ref.md
     items:
@@ -392,9 +398,9 @@
   - name: "Java"
     href: /java/api
   - name: "Node.js"
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: "Python"
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: "Architektura REST — usługa Compute"
     href: /rest/api/compute
   - name: "Architektura REST — usługa Managed Disks"
