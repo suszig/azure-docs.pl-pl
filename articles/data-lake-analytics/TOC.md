@@ -15,12 +15,14 @@
 
 # Instrukcje
 ## Programowanie
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Podstawy języka U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Wykaz języka U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Parametry języka U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funkcje okien języka U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Definiowane przez użytkownika operatory języka U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Rozszerzenia U-SQL dla języka Python](data-lake-analytics-u-sql-python-extensions.md)
 ### [Rozszerzenia U-SQL dla języka R](data-lake-analytics-u-sql-r-extensions.md)
-### [Możliwości poznawcze języka U SQL](data-lake-analytics-u-sql-cognitive.md)
+### [Rozszerzenia kognitywne języka U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Tworzenie rozwiązań
 ### [Analizowanie dzienników witryn sieci Web](data-lake-analytics-analyze-weblogs.md)

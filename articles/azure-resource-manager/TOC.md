@@ -53,6 +53,7 @@
 ### [Interfejs API REST](resource-manager-rest-api.md)
 ### [Organizowanie zasobów przy użyciu tagów](resource-group-using-tags.md)
 ### [Przenoszenie zasobów do nowej grupy lub subskrypcji](resource-group-move-resources.md)
+### [Tworzenie definicji interfejsu użytkownika](managed-application-createuidefinition-overview.md)
 ## Kontrola dostępu
 ### [Tworzenie jednostki usługi przy użyciu programu PowerShell](resource-group-authenticate-service-principal.md)
 ### [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -82,6 +83,7 @@
 ### [Funkcje liczbowe](resource-group-template-functions-numeric.md)
 ### [Funkcje zasobów](resource-group-template-functions-resource.md)
 ### [Funkcje ciągów](resource-group-template-functions-string.md)
+## [Funkcje definicji interfejsu użytkownika](managed-application-createuidefinition-functions.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

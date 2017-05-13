@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Dokumentacja usługi Azure Functions"
+metadata:
+  title: "Dokumentacja usługi Azure Functions — samouczki | Microsoft Docs"
+  description: "Dowiedz się, jak opracować i wdrożyć funkcje w wybranym języku, aby umożliwić uruchamianie zadań w tle lub zgodnie z harmonogramem bez specjalnej infrastruktury."
+  services: functions
+  author: apexprodleads
+  manager: carolz
+  ms.service: virtual-machines\linux
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01-23-2017
+  ms.author: carolz
+abstract:
+  description: "Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu na żądanie bez konieczności jawnego przydzielania infrastruktury ani zarządzania tą infrastrukturą. Za pomocą usługi Azure Functions można uruchamiać skrypty lub fragmenty kodu w reakcji na różne zdarzenia. Dowiedz się, jak używać usługi Azure Functions, korzystając z przewodników Szybki Start, samouczków i przykładów."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/get-started-with-azure-functions.png
+      width: 250  
+    title: "Rozpoczynanie pracy z usługą Azure Functions. (2:39)"
+    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    width: 250
+sections:
+- title: "5-minutowe przewodniki Szybki start"
+  items:
+  - type: paragraph
+    text: 'Learn how to create a Hello World function using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure portal
+      href: /azure/azure-functions/functions-create-first-azure-function
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
+- title: "Samouczki krok po kroku"
+  items:
+  - type: paragraph
+    text: 'Learn how to build and manage Azure Functions'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
+    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
+- title: "Przykłady"
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+- title: "Dokumentacja"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Wiersz polecenia"
+      html: <p><a href="/cli/azure">Azure CLI</a></p>

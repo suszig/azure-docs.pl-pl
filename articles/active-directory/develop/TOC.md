@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Wywołania od usługi do usługi](active-directory-protocols-oauth-service-to-service.md)
+### [Przepływ „w imieniu”](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Obsługiwane typy tokenów i oświadczeń](active-directory-token-and-claims.md)
 ### [Przerzucanie klucza podpisywania](active-directory-signing-key-rollover.md)
 ### [Metadane federacji](active-directory-federation-metadata.md)
@@ -77,31 +78,27 @@
 ## [Limity usługi](../active-directory-service-limits-restrictions.md)
 # Punkt końcowy v2.0
 ## [Omówienie](active-directory-appmodel-v2-overview.md)
-### [Różnice](active-directory-v2-compare.md)
 ### [Typy aplikacji](active-directory-v2-flows.md)
 ### [Ograniczenia](active-directory-v2-limitations.md)
-## Przewodniki Szybki start
-### Mobile Apps
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Aplikacje sieci Web i interfejsy API
-#### [Moduł AngularJS z platformą Node JS](active-directory-v2-devquickstarts-angular-node.md)
-#### [Moduł Angular JS z platformą .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [Aplikacja sieci Web platformy .NET](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [Interfejs API sieci Web platformy .NET](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [Interfejs API platformy NodeJS](active-directory-v2-devquickstarts-node-api.md)
+### [Porównanie wersji 1 i wersji 2](active-directory-v2-compare.md)
+## Wprowadzenie
+### Aplikacje mobilne i klasyczne
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
+### Aplikacje sieci Web
+#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Serwer sieci Web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [Aplikacja sieci Web platformy NodeJS](active-directory-v2-devquickstarts-node-web.md)
-#### [Interfejs API sieci Web z aplikacji sieci Web platformy .NET](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Przewodniki
 ### [Rejestracja aplikacji](active-directory-v2-app-registration.md)
 ## Dokumentacja
-### [Dokumentacja rejestracji aplikacji](active-directory-v2-registration-portal.md)
 ### [Biblioteki uwierzytelniania](active-directory-v2-libraries.md)
 ### [Protokoły uwierzytelniania w wersji 2.0](active-directory-v2-protocols.md)
-#### [Odwołanie do tokenu](active-directory-v2-tokens.md)
-#### [Przepływ kodu autoryzacji OAuth2.0](active-directory-v2-protocols-oauth-code.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [Niejawny przepływ](active-directory-v2-protocols-implicit.md)
-#### [Poświadczenia klienta OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Przyznawanie kodu autoryzacji OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
+#### [Przyznawanie niejawne protokołu OAuth 2.0](active-directory-v2-protocols-implicit.md)
+#### [Przyznawanie poświadczeń klienta Oauth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Przepływ OAuth 2.0 „w imieniu”](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Odwołanie do tokenu](active-directory-v2-tokens.md)
 ### [Zakresy](active-directory-v2-scopes.md)

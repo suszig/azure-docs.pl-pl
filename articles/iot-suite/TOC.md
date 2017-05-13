@@ -20,6 +20,9 @@
 #### [Symulowane dane](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Korzystanie z rzeczywistych czujników](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Wdrażanie aktualizacji oprogramowania układowego](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Łączenie bramy Intel NUC
+### [Symulowane dane](iot-suite-gateway-kit-get-started-simulator.md)
+### [Korzystanie z rzeczywistego czujnika](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Instrukcje
 ## Podłączanie symulowanego urządzenia
@@ -33,6 +36,7 @@
 ## [Tworzenie reguły niestandardowej w rozwiązaniu do zdalnego monitorowania](iot-suite-custom-rule.md)
 ## [Informacje o urządzeniu w rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-device-info.md)
 ## [Wdrażanie bramy dla połączonej fabryki](iot-suite-connected-factory-gateway-deployment.md)
+## [Dostosowywanie połączonej fabryki](iot-suite-connected-factory-customize.md)
 
 # Dokumentacja
 ## [Architektura zabezpieczeń](iot-security-architecture.md)

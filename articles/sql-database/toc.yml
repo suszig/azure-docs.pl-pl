@@ -41,6 +41,26 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3 — Zabezpieczanie bazy danych SQL"
     href: sql-database-security-tutorial.md
+  - name: "4 — Poprawa wydajności bazy danych SQL"
+    href: sql-database-performance-tutorial.md
+  - name: "5 — Implementowanie aplikacji wielodostępnej"
+    href: sql-database-multi-tenant-application.md
+  - name: "6 — Wdrażanie aplikacji wielodostępnej"
+    href: sql-database-saas-tutorial.md
+  - name: "7 — Aprowizowanie/dodawanie do wykazu nowych dzierżaw"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8 — Monitorowanie wydajności"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9 — Przywracanie jednej dzierżawy"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10 — Zarządzanie schematami dzierżawy"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11 — Uruchamianie analizy ad-hoc"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12 — Monitorowanie za pomocą usługi Log Analytics"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13 — Zarządzanie analizą dzierżawy"
+
 - name: "Przykłady"
   items:
   - name: "Interfejs wiersza polecenia platformy Azure"
@@ -142,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Odzyskiwanie bazy danych"
       href: sql-database-recovery-using-backups.md
-    - name: "Replikacja geograficzna"
+    - name: "Automatyczny tryb failover i replikacja geograficzna"
       href: sql-database-geo-replication-overview.md
     - name: "Dane logowania"
       href: sql-database-geo-replication-security-config.md
