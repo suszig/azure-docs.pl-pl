@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 186bbc75211988f51dc91e2227472f6369b3bfdd
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 0f25dc9d8a70fb0638c0e734952af0bb00cbc30b
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/04/2017
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Dokumentacja usługi Azure Resource Manager
@@ -142,7 +143,7 @@ Dowiedz się, jak używać usługi Resource Manager w celu wdrażania i monitoro
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
                         <p><a href="/azure/templates/">Template format</a> (Format szablonu)</p>
-                        <p><a href="/resource-group-template-functions.md">Funkcje szablonów</a></p>
+                        <p><a href="/azure/resource-group-template-functions">Funkcje szablonów</a></p>
                     </div>
                 </div>
             </div>

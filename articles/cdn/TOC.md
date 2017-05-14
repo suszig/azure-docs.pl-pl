@@ -29,6 +29,7 @@
 ### [Monitorowanie zasobów](cdn-resource-health.md)
 ### [Zastępowanie zachowania przy użyciu reguł](cdn-rules-engine.md)
 ### [Uzyskiwanie alertów w czasie rzeczywistym](cdn-real-time-alerts.md)
+### [Obsługa protokołu HTTP/2](cdn-http2.md)
 
 ## Analiza
 ### [Analizowanie wzorców użycia](cdn-analyze-usage-patterns.md)
