@@ -1,9 +1,9 @@
 # Omówienie
 ## [Co to jest usługa Resource Manager?](resource-group-overview.md)
-## [Obsługiwane usługi, regiony i wersje interfejsów API](resource-manager-supported-services.md)
-## [Omówienie wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego](resource-manager-deployment-model.md)
-## [Narzucony ład dotyczący subskrypcji](resource-manager-subscription-governance.md)
-## [Przykłady ładu dla przedsiębiorstw](resource-manager-subscription-examples.md)
+## [Obsługiwane usługi](resource-manager-supported-services.md)
+## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
+## [Nadzór subskrypcji](resource-manager-subscription-governance.md)
+## [Aplikacje zarządzane](managed-application-overview.md)
 
 # Rozpoczęcie pracy
 ## [Eksportowanie szablonu](resource-manager-export-template.md)
@@ -13,6 +13,7 @@
 # Przykłady
 ## PowerShell
 ### [Wdrażanie szablonu](resource-manager-samples-powershell-deploy.md)
+
 ## Interfejs wiersza polecenia platformy Azure
 ### [Wdrażanie szablonu](resource-manager-samples-cli-deploy.md)
 
@@ -22,10 +23,8 @@
 ### [Template sections](resource-group-authoring-templates.md) (Sekcje szablonu)
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
-### Pętla kopiowania umożliwiająca utworzenie wielu wystąpień
-#### [Podstawowa składnia](resource-group-create-multiple.md)
-#### [Pętla sekwencyjna](resource-manager-sequential-loop.md)
-#### [Kopiowanie właściwości](resource-manager-property-copy.md)
+### [Tworzenie wielu wystąpień](resource-group-create-multiple.md)
+### [Pętla sekwencyjna](resource-manager-sequential-loop.md)
 ### [Ustawianie lokalizacji](resource-manager-template-location.md)
 ### [Przypisywanie tagów](resource-manager-template-tags.md)
 ### [Ustawianie nazwy i typu zasobu podrzędnego](resource-manager-template-child-resource.md)
@@ -33,6 +32,7 @@
 ### [Używanie obiektów dla parametrów](resource-manager-objects-as-parameters.md)
 ### [Udostępnianie stanu między połączonymi szablonami](best-practices-resource-manager-state.md)
 ### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
+
 ## Wdrażanie
 ### PowerShell
 #### [Wdrażanie szablonu](resource-group-template-deploy.md)
@@ -44,8 +44,10 @@
 #### [Eksportowanie szablonu i ponowne wdrażanie](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
+### [Wdrażanie wielu grup zasobów](resource-manager-cross-resource-group-deployment.md)
 ### [Ciągła integracja z usługą Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Przekazywanie bezpiecznych wartości podczas wdrażania](resource-manager-keyvault-parameter.md)
+
 ## Zarządzanie
 ### [Program PowerShell](powershell-azure-resource-manager.md)
 ### [Interfejs wiersza polecenia platformy Azure](xplat-cli-azure-resource-manager.md)
@@ -53,15 +55,18 @@
 ### [Interfejs API REST](resource-manager-rest-api.md)
 ### [Organizowanie zasobów przy użyciu tagów](resource-group-using-tags.md)
 ### [Przenoszenie zasobów do nowej grupy lub subskrypcji](resource-group-move-resources.md)
-### [Tworzenie definicji interfejsu użytkownika](managed-application-createuidefinition-overview.md)
+### [Przykłady nadzoru](resource-manager-subscription-examples.md)
+
 ## Kontrola dostępu
-### [Tworzenie jednostki usługi przy użyciu programu PowerShell](resource-group-authenticate-service-principal.md)
-### [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure 1.0](resource-group-authenticate-service-principal-cli.md)
-### [Tworzenie jednostki usługi przy użyciu portalu](resource-group-create-service-principal-portal.md)
+### Tworzenie jednostki usługi
+#### [PowerShell](resource-group-authenticate-service-principal.md)
+#### [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Interfejs wiersza polecenia platformy Azure 1.0](resource-group-authenticate-service-principal-cli.md)
+#### [Portal](resource-group-create-service-principal-portal.md)
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)
 ### [Zagadnienia związane z zabezpieczeniami](best-practices-resource-manager-security.md)
+
 ## Ustawianie zasad zasobów
 ### [Co to są zasady zasobów?](resource-manager-policy.md)
 ### [Przypisanie zasad portalu](resource-manager-policy-portal.md)
@@ -70,12 +75,21 @@
 ### [Zasady magazynu](resource-manager-policy-storage.md)
 ### [Zasady maszyn wirtualnych z systemem Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Zasady maszyn wirtualnych z systemem Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Przeprowadzanie inspekcji i rozwiązywanie problemów
-### [Rozwiązywanie typowych błędów związanych z wdrażaniem](resource-manager-common-deployment-errors.md)
+
+## Korzystanie z aplikacji zarządzanych
+### [Publikowanie aplikacji zarządzanych](managed-application-publishing.md)
+### [Używanie aplikacji zarządzanych](managed-application-consumption.md)
+### [Tworzenie definicji interfejsu użytkownika](managed-application-createuidefinition-overview.md)
+
+## Inspekcja
 ### [Wyświetlanie dzienników aktywności](resource-group-audit.md)
 ### [Wyświetlanie operacji wdrażania](resource-manager-deployment-operations.md)
 
+## Rozwiązywanie problemów
+### [Typowe błędy związane z wdrażaniem](resource-manager-common-deployment-errors.md)
+
 # Dokumentacja
+## [Template format](/azure/templates/) (Format szablonu)
 ## [Funkcje szablonów](resource-group-template-functions.md)
 ### [Funkcje tablicy i obiektów](resource-group-template-functions-array.md)
 ### [Funkcje porównania](resource-group-template-functions-comparison.md)
@@ -84,12 +98,25 @@
 ### [Funkcje zasobów](resource-group-template-functions-resource.md)
 ### [Funkcje ciągów](resource-group-template-functions-string.md)
 ## [Funkcje definicji interfejsu użytkownika](managed-application-createuidefinition-functions.md)
+## [Elementy definicji interfejsu użytkownika](managed-application-createuidefinition-elements.md)
+### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
+### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
+### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
+### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
+### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
+### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
+### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
+### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
+### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
+### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
+### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
+### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
+### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
-## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/resource)
+## [Interfejs wiersza polecenia platformy Azure](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Template format](/azure/templates/) (Format szablonu)
 ## [REST](/rest/api/resources/)
 
 # Zasoby
