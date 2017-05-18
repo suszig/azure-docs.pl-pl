@@ -1,4 +1,4 @@
---- 
+---
 title: "Rozpoczynanie pracy z usługą Azure Automation | Microsoft Docs"
 description: "Ten artykuł zawiera omówienie usługi Azure Automation oparte na przeglądzie podstawowych pojęć i szczegółów implementacji w ramach przygotowania do dołączenia oferty z platformy Azure Marketplace."
 services: automation
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 9b4982ffece9283304ad3ab3c82a471ac1dbd463
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
 ## <a name="getting-started-with-azure-automation"></a>Rozpoczynanie pracy z usługą Azure Automation
 
-Ten przewodnik Wprowadzenie opisuje podstawowe pojęcia związane z wdrażaniem usługi Azure Automation. Jeśli usługa Automation na platformie Azure nie była wcześniej używana lub masz doświadczenie z oprogramowaniem do automatyzacji przepływu pracy, takim jak System Center Orchestrator, ten przewodnik ułatwi Ci rozpoczęcie pracy z pojęciami i szczegółami wdrożenia. 
+Ten przewodnik Wprowadzenie opisuje podstawowe pojęcia związane z wdrażaniem usługi Azure Automation. Jeśli usługa Automation na platformie Azure nie była wcześniej używana lub masz doświadczenie z oprogramowaniem do automatyzacji przepływu pracy, takim jak System Center Orchestrator, ten przewodnik ułatwi Ci rozpoczęcie pracy z pojęciami i szczegółami wdrożenia.
 
 ## <a name="key-concepts"></a>Kluczowe pojęcia
 
@@ -83,14 +83,14 @@ Podczas wyznaczania komputera do uruchamiania zadań hybrydowych elementów Runb
 ## <a name="security"></a>Bezpieczeństwo
 Usługa Azure Automation pozwala na zautomatyzowanie zadań w odniesieniu do zasobów platformy Azure, a także zasobów lokalnych oraz pochodzących od innych dostawców chmury.  Aby element Runbook mógł wykonać żądane działania, musi mieć uprawnienia do bezpiecznego dostępu do zasobów z minimalnymi prawami wymaganymi w ramach subskrypcji.  
 
-### <a name="automation-account"></a>Konto usługi Automation 
+### <a name="automation-account"></a>Konto usługi Automation
 Wszystkie zadania automatyzacji, które wykonujesz w odniesieniu do zasobów przy użyciu poleceń cmdlet platformy Azure w usłudze Azure Automation, są uwierzytelniane na platformie Azure przy użyciu funkcji uwierzytelniania opartego na poświadczeniu tożsamości organizacyjnej w usłudze Azure Active Directory.  Konto usługi Automation jest oddzielone od konta, którego używasz do logowania się do portalu w celu skonfigurowania i używania zasobów platformy Azure.  
 
 Zasoby usługi Automation na poszczególnych kontach są skojarzone z pojedynczym regionem świadczenia usługi Azure, ale za pomocą kont usługi Automation można zarządzać wszystkimi zasobami w ramach subskrypcji. Utwórz konta usługi Automation w różnych regionach, jeśli masz zasady, które wymagają, aby dane i zasoby były izolowane w określonym regionie.
 
 > [!NOTE]
 > Utworzone w witrynie Azure Portal konta usługi Automation i zawarte w nich zasoby nie są dostępne w klasycznym portalu Azure. Aby zarządzać tymi kontami lub ich zasobami za pomocą programu Windows PowerShell, należy skorzystać z modułów usługi Azure Resource Manager.
-> 
+>
 
 Podczas tworzenia konta usługi Automation w witrynie Azure Portal automatycznie utworzysz dwie jednostki uwierzytelniania:
 
@@ -102,17 +102,17 @@ Dostępna w usłudze Azure Resource Manager kontrola dostępu oparta na rolach u
 #### <a name="authentication-methods"></a>Metody uwierzytelniania
 Poniższa tabela zawiera zestawienie różnych metod uwierzytelniania dla środowisk obsługiwanych przez usługę Azure Automation.
 
-| Metoda | Środowisko 
-| --- | --- | 
+| Metoda | Środowisko
+| --- | --- |
 | Konto Uruchom jako platformy Azure i klasyczne konto Uruchom jako |Wdrożenie usługi Azure Resource Manager i klasycznej platformy Azure |  
 | Konto użytkownika usługi Azure AD |Wdrożenie usługi Azure Resource Manager i klasycznej platformy Azure |  
 | Uwierzytelnianie systemu Windows |Lokalne centrum danych lub inny dostawca usług w chmurze z wykorzystaniem hybrydowego procesu roboczego elementu Runbook |  
 | Poświadczenia AWS |Amazon Web Services |  
 
 W sekcji **Instrukcje\Uwierzytelnianie i zabezpieczenia** znajdują się pomocne artykuły zawierające omówienie i kroki implementacji w celu skonfigurowania uwierzytelniania dla tych środowisk przy użyciu istniejącego albo nowego konta przeznaczonego dla tego środowiska.  W przypadku konta Uruchom jako platformy Azure i klasycznego konta Uruchom jako temat [Aktualizacja konta Uruchom jako usługi Automation przy użyciu programu PowerShell](automation-update-account-powershell.md) opisuje sposób aktualizacji istniejącego konta usługi Automation za pomocą kont Uruchom jako przy użyciu programu PowerShell, jeśli nie zostało ono pierwotnie skonfigurowane przy użyciu konta Uruchom jako lub klasycznego konta Uruchom jako.   
- 
+
 ## <a name="network"></a>Sieć
-Aby hybrydowy proces roboczy elementu Runbook mógł nawiązać połączenie i zarejestrować się za pomocą pakietu Microsoft Operations Management Suite (OMS), musi on mieć dostęp do numeru portu i opisanych poniżej adresów URL.  Jest to uzupełnienie [portów i adresów URL wymaganych przez agenta Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) do nawiązania połączenia z pakietem OMS. Jeśli na potrzeby komunikacji między agentem i pakietem OMS używasz serwera proxy, konieczne będzie zapewnienie dostępności odpowiednich zasobów. W przypadku ograniczania dostępu do Internetu za pomocą zapory musisz skonfigurować w zaporze zezwalanie na dostęp.
+Aby hybrydowy proces roboczy elementu Runbook mógł nawiązać połączenie i zarejestrować się za pomocą pakietu Microsoft Operations Management Suite (OMS), musi on mieć dostęp do numeru portu i opisanych poniżej adresów URL.  Jest to uzupełnienie [portów i adresów URL wymaganych przez agenta Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md) do nawiązania połączenia z pakietem OMS. Jeśli na potrzeby komunikacji między agentem i pakietem OMS używasz serwera proxy, konieczne będzie zapewnienie dostępności odpowiednich zasobów. W przypadku ograniczania dostępu do Internetu za pomocą zapory musisz skonfigurować w zaporze zezwalanie na dostęp.
 
 Poniższe informacje zawierają listę portów i adresów URL, które są wymagane przez hybrydowy proces roboczy elementu Runbook do komunikacji z usługą Automation.
 
@@ -136,11 +136,11 @@ Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu i chc
 | Południowe Zjednoczone Królestwo | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Administracja USA — Wirginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Aby zamiast nazw uzyskać listę adresów IP, pobierz plik xml [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) (Adres IP centrum danych platformy Azure) z Centrum pobierania Microsoft i przejrzyj jego zawartość. 
+Aby zamiast nazw uzyskać listę adresów IP, pobierz plik xml [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) (Adres IP centrum danych platformy Azure) z Centrum pobierania Microsoft i przejrzyj jego zawartość.
 
 > [!NOTE]
-> Ten plik zawiera zakresy adresów IP (w tym zakresy zasobów obliczeniowych, bazy danych SQL i magazynu) używane w centrach danych platformy Microsoft Azure. Co tydzień jest publikowany zaktualizowany plik odzwierciedlający aktualnie wdrożone zakresy i wszystkie nadchodzące zmiany w zakresach adresów IP. Nowe zakresy pojawiające się w pliku nie będą używane w centrach danych przez co najmniej tydzień. Nowy plik xml należy pobierać co tydzień i wykonywać niezbędne zmiany w witrynie, aby prawidłowo identyfikować usługi uruchomione na platformie Azure. Użytkownicy usługi ExpressRoute mogą zwrócić uwagę na to, że wcześniej ten plik aktualizował anonsowania BGP platformy Azure w pierwszym tygodniu każdego miesiąca. 
-> 
+> Ten plik zawiera zakresy adresów IP (w tym zakresy zasobów obliczeniowych, bazy danych SQL i magazynu) używane w centrach danych platformy Microsoft Azure. Co tydzień jest publikowany zaktualizowany plik odzwierciedlający aktualnie wdrożone zakresy i wszystkie nadchodzące zmiany w zakresach adresów IP. Nowe zakresy pojawiające się w pliku nie będą używane w centrach danych przez co najmniej tydzień. Nowy plik xml należy pobierać co tydzień i wykonywać niezbędne zmiany w witrynie, aby prawidłowo identyfikować usługi uruchomione na platformie Azure. Użytkownicy usługi ExpressRoute mogą zwrócić uwagę na to, że wcześniej ten plik aktualizował anonsowania BGP platformy Azure w pierwszym tygodniu każdego miesiąca.
+>
 
 
 ## <a name="implementation"></a>Wdrażanie
@@ -175,16 +175,16 @@ Zalecana metoda uwzględnienia usługi Automation polega na wybraniu oferty auto
 
 4. Po przeczytaniu opisu oferty kliknij przycisk **Utwórz**.  
 
-5. W bloku ustawień **Automatyzacja i kontrola** wybierz pozycję **Obszar roboczy OMS**.  W bloku **Obszary robocze OMS** wybierz obszar roboczy OMS połączony z tą samą subskrypcją platformy Azure, w której znajduje się konto usługi Automation, lub utwórz obszar roboczy OMS.  Jeśli nie masz obszaru roboczego OMS, wybierz pozycję **Utwórz nowy obszar roboczy** i wykonaj następujące czynności w bloku **Obszar roboczy OMS**: 
+5. W bloku ustawień **Automatyzacja i kontrola** wybierz pozycję **Obszar roboczy OMS**.  W bloku **Obszary robocze OMS** wybierz obszar roboczy OMS połączony z tą samą subskrypcją platformy Azure, w której znajduje się konto usługi Automation, lub utwórz obszar roboczy OMS.  Jeśli nie masz obszaru roboczego OMS, wybierz pozycję **Utwórz nowy obszar roboczy** i wykonaj następujące czynności w bloku **Obszar roboczy OMS**:
    - Określ nazwę dla nowego **Obszaru roboczego OMS**.
    - Wybierz **Subskrypcję** do połączenia poprzez wybór subskrypcji z listy rozwijanej, jeśli domyślnie wybrana subskrypcja jest niewłaściwa.
    - W pozycji **Grupa zasobów** możesz utworzyć grupę zasobów lub wybrać istniejącą grupę zasobów.  
    - Wybierz **lokalizację**.  Obecnie jedynymi dostępnymi lokalizacjami są: **Australia Południowo-Wschodnia**, **Wschodnie stany USA**, **Azja Południowo-Wschodnia**, **Środkowo-zachodnie stany USA** oraz **Europa Zachodnia**.
    - Wybierz **warstwę cenową**.  Rozwiązanie jest oferowane w dwóch warstwach: bezpłatnej i warstwie na węzeł (OMS).  W warstwie bezpłatnej obowiązuje dzienny limit ilości zbieranych danych, a także limit okresu przechowywania oraz minut czasu wykonywania zadania elementu Runbook.  W warstwie na węzeł (OMS) nie stosuje się dziennego limitu ilości zbieranych danych.  
-   - Wybierz pozycję **Konto usługi Automation**.  Jeśli tworzysz nowy obszar roboczy OMS, wymagane będzie również utworzenie konta usługi Automation, które jest skojarzone z nowym wcześniej określonym obszarem roboczym OMS, włącznie z subskrypcją platformy Azure, grupą zasobów i regionem.  Możesz wybrać pozycję **Utwórz konto usługi Automation** i podać następujące dane w bloku **Konto usługi Automation**: 
+   - Wybierz pozycję **Konto usługi Automation**.  Jeśli tworzysz nowy obszar roboczy OMS, wymagane będzie również utworzenie konta usługi Automation, które jest skojarzone z nowym wcześniej określonym obszarem roboczym OMS, włącznie z subskrypcją platformy Azure, grupą zasobów i regionem.  Możesz wybrać pozycję **Utwórz konto usługi Automation** i podać następujące dane w bloku **Konto usługi Automation**:
   - W polu **Nazwa** wprowadź nazwę konta usługi Automation.
 
-    Wszystkie inne opcje są automatycznie uzupełniane w oparciu o wybrany obszar roboczy OMS. Nie można zmodyfikować tych opcji.  Konto Uruchom jako platformy Azure jest domyślną metodą uwierzytelniania dla oferty.  Gdy klikniesz przycisk **OK**, opcje konfiguracji zostaną sprawdzone, a konto usługi Automation zostanie utworzone.  Postęp możesz śledzić w sekcji **Powiadomienia** z poziomu menu. 
+    Wszystkie inne opcje są automatycznie uzupełniane w oparciu o wybrany obszar roboczy OMS. Nie można zmodyfikować tych opcji.  Konto Uruchom jako platformy Azure jest domyślną metodą uwierzytelniania dla oferty.  Gdy klikniesz przycisk **OK**, opcje konfiguracji zostaną sprawdzone, a konto usługi Automation zostanie utworzone.  Postęp możesz śledzić w sekcji **Powiadomienia** z poziomu menu.
 
     W przeciwnym razie wybierz istniejące konto Uruchom jako usługi Automation.  Wybrane konto nie może być już połączone z innym obszarem roboczym OMS. W przeciwnym razie w bloku zostanie wyświetlony komunikat powiadomienia.  Jeśli konto jest już połączone, musisz wybrać inne konto Uruchom jako usługi Automation lub utworzyć konto.
 
@@ -194,7 +194,7 @@ Zalecana metoda uwzględnienia usługi Automation polega na wybraniu oferty auto
 
 7. W bloku ustawień **Automatyzacja i kontrola** potwierdź chęć zainstalowania zalecanych wcześniej wybranych rozwiązań. Jeśli usuniesz wybór któregokolwiek z nich, możesz zainstalować je oddzielnie później.  
 
-8. Kliknij przycisk **Utwórz**, aby kontynuować dołączanie usługi Automation i obszaru roboczego OMS. Wszystkie ustawienia są sprawdzane, a następnie jest podejmowana próba wdrożenia oferty w Twojej subskrypcji.  Ten proces może potrwać kilka sekund. Możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu. 
+8. Kliknij przycisk **Utwórz**, aby kontynuować dołączanie usługi Automation i obszaru roboczego OMS. Wszystkie ustawienia są sprawdzane, a następnie jest podejmowana próba wdrożenia oferty w Twojej subskrypcji.  Ten proces może potrwać kilka sekund. Możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu.
 
 Po dołączeniu tej oferty możesz rozpocząć tworzenie elementów Runbook, pracę z włączonymi przez Ciebie rozwiązaniami do zarządzania lub rozpocząć pracę z usługą [Log Analytics](https://docs.microsoft.com/azure/log-analytics), aby zebrać dane wygenerowane przez zasoby w Twojej chmurze lub lokalnych środowiskach.   
 
@@ -202,5 +202,4 @@ Po dołączeniu tej oferty możesz rozpocząć tworzenie elementów Runbook, pra
 * Możesz potwierdzić, że Twoje nowe konto usługi Automation może uwierzytelniać względem zasobów platformy Azure, sprawdzając [test uwierzytelniania konta Uruchom jako usługi Azure Automation](automation-verify-runas-authentication.md).
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
 * Aby dowiedzieć się więcej na temat tworzenia elementów graficznych, zobacz [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Tworzenie elementów graficznych w usłudze Azure Automation).
-
 
