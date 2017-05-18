@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 2673a9c0d91510756a97b2dba3801d2925905c9a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -44,11 +45,9 @@ Do wykonania czynności w tym samouczku potrzebna będzie także subskrypcja pla
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Tworzenie dynamicznego projektu sieci Web w środowisku Eclipse
 
-W środowisku IDE programu Eclipse kliknij menu **File** (Plik), polecenie **New** (Nowy), a następnie pozycję **Dynamic Web Project** (Dynamiczny projekt sieci Web).
+W menu **File** (Plik) środowiska Eclipse wybierz kolejno pozycje **New** (Nowy), **Dynamic Web Project** (Dynamiczny projekt sieci Web).
 
-![Nowy dynamiczny projekt sieci Web](./media/app-service-web-get-started-java/file-new-dynamic-web-project-menu.png)
-
-Gdy pojawi się okno dialogowe Dynamic Web Project (Dynamiczny projekt sieci Web), podaj nazwę aplikacji **MyFirstJavaOnAzureWebApp**, a następnie kliknij przycisk **Finish** (Zakończ).
+W oknie dialogowym **New Dynamic Web Project** (Nowy dynamiczny projekt sieci Web) wpisz nazwę projektu **MyFirstJavaOnAzureWebApp** i wybierz pozycję **Finish** (Zakończ).
    
 ![Okno dialogowe Dynamic Web Project (Dynamiczny projekt sieci Web)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -73,13 +72,11 @@ Po otwarciu nowej strony w środowisku Eclipse zastąp istniejącą sekcję `<bo
 
 ```jsp
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
 
 Zapisz zmiany na stronie.
-
-![Edytowanie kodu JSP](./media/app-service-web-get-started-java/creating-index-jsp-page.png)
 
 ## <a name="publish-your-web-app-to-azure"></a>Publikowanie aplikacji sieci Web na platformie Azure
 
@@ -183,14 +180,12 @@ Najpierw należy zmienić przykładowy kod JSP z wcześniejszego, tak aby tytuł
 <title><% out.println(date.format(new Date())); %></title>
 </head>
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 </html>
 ```
 
-![Aktualizowanie kodu JSP](./media/app-service-web-get-started-java/updating-index-jsp-page.png)
-
-Po zapisaniu zmian strony kliknij prawym przyciskiem myszy projekt w obszarze **Project Explorer** (Eksplorator projektów), kliknij pozycję **Azure**, a następnie kliknij pozycję **Publish as Azure Web App** (Publikuj jako aplikację sieci Web platformy Azure).
+Po zapisaniu zmian kliknij prawym przyciskiem myszy projekt w obszarze **Project Explorer** (Eksplorator projektów) środowiska Eclipse, kliknij pozycję **Azure**, a następnie kliknij pozycję **Publish as Azure Web App** (Publikuj jako aplikację sieci Web platformy Azure).
 
 ![Publikowanie zaktualizowanej aplikacji sieci Web](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
 
@@ -207,9 +202,9 @@ Po opublikowaniu zmian można zauważyć, że tytuł strony został zmieniony na
 
 ![Przechodzenie do aplikacji sieci Web](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## <a name="deleting-your-web-app"></a>Usuwanie aplikacji sieci Web
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Aby usunąć aplikację sieci Web, możesz użyć programu **Azure Explorer**, który jest częścią zestawu narzędzi platformy Azure. Jeśli widok **Azure Explorer** nie jest jeszcze wyświetlany w środowisku Eclipse, skorzystaj z następujących kroków, aby go wyświetlić:
+Aby usunąć aplikację sieci Web, użyj widoku **Azure Explorer** dołączonego do zestawu narzędzi platformy Azure. Jeśli widok **Azure Explorer** nie jest jeszcze wyświetlany w środowisku Eclipse, skorzystaj z następujących kroków, aby go wyświetlić:
 
 1. Kliknij menu **Window** (Okno), kliknij polecenie **Show View** (Pokaż widok), a następnie kliknij pozycję **Other** (Inne).
 
