@@ -15,127 +15,129 @@ ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 9bd9996a4a22b2f57510b6f3b6625e22b3183b1c
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/08/2017
 
 ---
 
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Szyfrowanie danych w usłudze Azure Data Lake Store
 
-## <a name="overview-of-encryption-in-azure-data-lake-store"></a>Omówienie szyfrowania w usłudze Azure Data Lake Store
+Szyfrowanie w usłudze Azure Data Lake Store pomaga chronić dane, implementować zasady bezpieczeństwa w przedsiębiorstwie i spełniać prawne wymagania dotyczące zgodności. Ten artykuł zawiera omówienie projektu i niektórych technicznych aspektów implementacji.
 
-Szyfrowanie w usłudze Azure Data Lake Store (ADLS) zapewnia możliwość ochrony danych, wdrażania zasad bezpieczeństwa w przedsiębiorstwie i spełniania prawnych wymagań dotyczących zgodności. Ten artykuł zawiera omówienie projektu oraz technicznych aspektów dotyczących sposobu wdrażania szyfrowania danych przez usługę Data Lake Store.
+Usługa Data Lake Store obsługuje szyfrowanie danych zarówno magazynowanych, jak i przesyłanych. W przypadku danych magazynowanych usługa Data Lake Store obsługuje domyślnie włączone szyfrowanie przezroczyste. Poniżej przedstawiono bardziej szczegółowe wyjaśnienie tych terminów:
 
-Usługa Azure Data Lake Store domyślnie obsługuje przezroczyste szyfrowanie danych magazynowanych. Poniżej przedstawiono bardziej szczegółowe wyjaśnienie tych terminów:
+* **Domyślnie włączone**: po utworzeniu nowego konta usługi Data Lake Store domyślne ustawienie włącza szyfrowanie. Dzięki temu dane przechowywane w usłudze Data Lake Store są zawsze szyfrowane jeszcze przed zapisaniem na nośniku trwałym. Takie działanie dotyczy wszystkich danych i nie można go zmienić po utworzeniu konta.
+* **Przezroczyste**: usługa Data Lake Store automatycznie szyfruje dane przed utrwaleniem i odszyfrowuje przed pobraniem. Szyfrowanie jest konfigurowane i zarządzane na poziomie usługi Data Lake Store przez administratora. W interfejsach API dostępu do danych nie są wprowadzane żadne zmiany. W związku z tym z powodu szyfrowania nie ma konieczności wprowadzania żadnych zmian w aplikacjach i usługach, które współdziałają z usługą Data Lake Store.
 
-* Domyślnie włączone: podczas tworzenia nowego konta usługi Azure Data Lake Store domyślne ustawienie włącza szyfrowanie. Dzięki temu dane przechowywane w usłudze Data Lake Store są zawsze szyfrowane jeszcze przed zapisaniem ich na nośniku trwałym. Takie działanie dotyczy wszystkich danych i nie można tego zmienić po utworzeniu konta.
-* Przezroczyste: usługa Azure Data Lake Store automatycznie szyfruje dane przed utrwaleniem i odszyfrowuje przed pobraniem. Szyfrowanie jest konfigurowane i zarządzane na poziomie usługi Data Lake Store przez administratora. Żadne zmiany nie są wprowadzane w interfejsach API dostępu do danych, w związku z tym nie ma konieczności wprowadzania zmian w aplikacjach i usługach, które współdziałają z usługą Data Lake Store w kwestii szyfrowania.
+Dane przesyłane (inaczej dane w ruchu) również są zawsze szyfrowane w usłudze Data Lake Store. Oprócz tego, że dane są szyfrowane przed zapisaniem na nośniku trwałym, są również zawsze zabezpieczane podczas przesyłania przy użyciu protokołu HTTPS. Protokół HTTPS jest jedynym protokołem obsługiwanym przez interfejsy REST usługi Data Lake Store. Na poniższym diagramie przedstawiono sposób szyfrowania danych w usłudze Data Lake Store:
 
-Dane przesyłane (inaczej dane w ruchu) również są zawsze szyfrowane w usłudze Data Lake Store. Oprócz tego, że dane są szyfrowane przed zapisaniem na nośniku trwałym, są również zawsze zabezpieczane podczas przesyłania lub w ruchu przy użyciu protokołu HTTPS. Protokół HTTPS jest jedynym protokołem obsługiwanym przez interfejsy REST usługi Data Lake Store.
-
-![Rysunek 1.](./media/data-lake-store-encryption/fig1.png)
+![Diagram szyfrowania danych w usłudze Data Lake Store](./media/data-lake-store-encryption/fig1.png)
 
 
-## <a name="setting-up-encryption-with-azure-data-lake-store"></a>Konfigurowanie szyfrowania przy użyciu usługi Azure Data Lake Store
+## <a name="set-up-encryption-with-data-lake-store"></a>Konfigurowanie szyfrowania przy użyciu usługi Data Lake Store
 
-Szyfrowanie w usłudze Azure Data Lake Store konfiguruje się podczas tworzenia konta i zawsze jest domyślnie włączone. Klienci mogą sami zarządzać kluczami lub zezwolić usłudze Azure Data Lake Store (domyślnie) na zarządzanie kluczami w ich imieniu.
+Szyfrowanie w usłudze Data Lake Store konfiguruje się podczas tworzenia konta i zawsze jest domyślnie włączone. Kluczami możesz zarządzać samodzielnie lub zezwolić na to usłudze Data Lake Store (jest to opcja domyślna).
 
-Aby dowiedzieć się, jak skonfigurować szyfrowanie za pomocą usługi Azure Data Lake Store, zobacz [Wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)
+Aby uzyskać więcej informacji, zobacz [Wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-## <a name="under-the-hood--how-encryption-works-in-azure-data-lake-store"></a>Za kulisami — jak działa szyfrowanie w usłudze Azure Data Lake Store
+## <a name="how-encryption-works-in-data-lake-store"></a>Jak działa szyfrowanie w usłudze Data Lake Store
+
+W poniższej sekcji omówiono sposób zarządzania głównymi kluczami szyfrowania oraz opisano trzy różne typy kluczy, których można używać na potrzeby szyfrowania danych w usłudze Data Lake Store.
 
 ### <a name="master-encryption-keys"></a>Główne klucze szyfrowania
 
-Usługa Azure Data Lake Store udostępnia dwa tryby zarządzania głównymi kluczami szyfrowania. Użycie głównych kluczy szyfrowania opisano szczegółowo w dalszej części artykułu. Na razie załóżmy, że główny klucz szyfrowania jest kluczem najwyższego poziomu. Aby móc odszyfrować dowolne dane przechowywane w usłudze Data Lake Store, wymagany jest dostęp do głównego klucza szyfrowania.
+Usługa Data Lake Store udostępnia dwa tryby zarządzania głównymi kluczami szyfrowania. Na razie załóżmy, że główny klucz szyfrowania jest kluczem najwyższego poziomu. Aby móc odszyfrować dowolne dane przechowywane w usłudze Data Lake Store, wymagany jest dostęp do głównego klucza szyfrowania.
 
 Oto dwa tryby zarządzania głównym kluczem szyfrowania:
 
-1.    Klucze zarządzane przez usługę
-2.    Klucze zarządzane przez klienta
+*    Klucze zarządzane przez usługę
+*    Klucze zarządzane przez klienta
 
-W obu trybach główny klucz szyfrowania jest zabezpieczony dzięki przechowywaniu go w usłudze Azure Key Vault. Azure Key Vault to w pełni zarządzana, wysoce bezpieczna usługa platformy Azure, która może służyć do ochrony kluczy kryptograficznych. Więcej informacji na temat usługi Azure Key Vault jest dostępnych [tutaj](https://azure.microsoft.com/services/key-vault)
+W obu trybach główny klucz szyfrowania jest zabezpieczony dzięki przechowywaniu go w usłudze Azure Key Vault. Key Vault to w pełni zarządzana, wysoce bezpieczna usługa platformy Azure, która może służyć do ochrony kluczy kryptograficznych. Aby uzyskać więcej informacji, zobacz [Key Vault](https://azure.microsoft.com/services/key-vault).
 
 Oto krótkie porównanie możliwości oferowanych przez dwa tryby zarządzania głównymi kluczami szyfrowania.
 
 |  | Klucze zarządzane przez usługę | Klucze zarządzane przez klienta |
 | --- | --- | --- |
-|W jaki sposób przechowywane są dane?|Są zawsze szyfrowane przed zapisaniem|Są zawsze szyfrowane przed zapisaniem|
-|Gdzie jest przechowywany główny klucz szyfrowania?|W usłudze Azure Key Vault|W usłudze Azure Key Vault|
-|Czy niektóre główne klucze szyfrowania są przechowywane poza usługą Azure Key Vault?|Nie|Nie|
-|Czy można pobrać główny klucz szyfrowania z usługi Azure Key Vault?|Nie. Po umieszczeniu klucza w magazynie kluczy można go używać tylko do szyfrowania i odszyfrowywania.|Nie. Po umieszczeniu klucza w magazynie kluczy można go używać tylko do szyfrowania i odszyfrowywania.|
-|Kto jest właścicielem usługi Azure Key Vault i głównego klucza szyfrowania?|Usługa Azure Data Lake Store.|Właścicielem usługi Azure Key Vault, która należy do subskrypcji platformy Azure, jest klient. Główny klucz szyfrowania w magazynie kluczy może być zarządzany z poziomu oprogramowania lub sprzętu (moduł HSM).|
-|Czy klient może odwołać dostęp usługi Azure Data Lake Store do głównego klucza szyfrowania?|Nie|Tak. Klient może zarządzać listami kontroli dostępu w usłudze Azure Key Vault i usuwać pozycje kontroli dostępu do tożsamości usługi w ramach usługi Azure Data Lake Store.|
-|Czy klient może trwale usunąć główny klucz szyfrowania?|Nie|Tak. Jeśli klient usunie główny klucz szyfrowania z usługi Azure Key Vault, dane na koncie usługi Azure Data Lake Store nie będą mogły być odszyfrowane przez nikogo, łącznie z usługą Azure Data Lake Store. <br><br> Jeśli przed usunięciem głównego klucza szyfrowania z usługi Azure Key Vault klient utworzył jego jawną kopię zapasową, to można go przywrócić i odzyskać dane. Jednak jeśli przed usunięciem głównego klucza szyfrowania z usługi Azure Key Vault nie utworzono jego kopii zapasowej, dane na koncie usługi Azure Data Lake Store nigdy już nie będą mogły być odszyfrowane.|
+|W jaki sposób przechowywane są dane?|Są zawsze szyfrowane przed zapisaniem.|Są zawsze szyfrowane przed zapisaniem.|
+|Gdzie jest przechowywany główny klucz szyfrowania?|Usługa Key Vault|Usługa Key Vault|
+|Czy jakiekolwiek klucze szyfrowania są przechowywane poza usługą Key Vault? |Nie|Nie|
+|Czy można pobrać główny klucz szyfrowania za pomocą usługi Key Vault?|Nie. Po umieszczeniu głównego klucza szyfrowania w usłudze Key Vault można go używać tylko do szyfrowania i odszyfrowywania.|Nie. Po umieszczeniu głównego klucza szyfrowania w usłudze Key Vault można go używać tylko do szyfrowania i odszyfrowywania.|
+|Kto jest właścicielem wystąpienia usługi Key Vault i głównego klucza szyfrowania?|Usługa Data Lake Store|Ty jesteś właścicielem wystąpienia usługi Key Vault, które znajduje się w Twojej subskrypcji platformy Azure. Głównym kluczem szyfrowania w usłudze Key Vault można zarządzać programowo lub sprzętowo.|
+|Czy można odwołać dostęp usługi Data Lake Store do głównego klucza szyfrowania?|Nie|Tak. Możesz zarządzać listami kontroli dostępu w usłudze Key Vault i usuwać pozycje kontroli dostępu dla tożsamości usługi w ramach usługi Data Lake Store.|
+|Czy można trwale usunąć główny klucz szyfrowania?|Nie|Tak. Jeśli usuniesz główny klucz szyfrowania z usługi Key Vault, dane na koncie usługi Data Lake Store nie będą mogły być odszyfrowane przez nikogo, łącznie z usługą Data Lake Store. <br><br> Jeśli przed usunięciem głównego klucza szyfrowania z usługi Key Vault jawnie utworzono jego kopię zapasową, to można go przywrócić i odzyskać dane. Jednak jeśli przed usunięciem głównego klucza szyfrowania z usługi Key Vault nie utworzono jego kopii zapasowej, dane na koncie usługi Data Lake Store nigdy już nie będą mogły być odszyfrowane.|
 
 
-Poza różnicą dotyczącą sposobu zarządzania głównym kluczem szyfrowania i magazynem kluczy, w którym ten klucz się znajduje, pozostałe elementy projektu są takie same dla obu trybów.
+Poza różnicą dotyczącą sposobu zarządzania głównym kluczem szyfrowania i wystąpieniem usługi Key Vault, w którym ten klucz się znajduje, pozostałe elementy projektu są takie same dla obu trybów.
 
-Wybierając tryb zarządzania głównym kluczem szyfrowania, należy pamiętać o kilku kwestiach.
+Podczas wybierania trybu głównych kluczy szyfrowania należy pamiętać o następujących kwestiach:
 
-1.    Podczas aprowizacji konta usługi Azure Data Lake Store można wybrać między kluczami zarządzanymi przez klienta, a kluczami zarządzanymi przez usługę Azure Data Lake Store
-2.    Po aprowizacji konta usługi Azure Data Lake Store nie można zmienić trybu
+*    Podczas aprowizacji konta usługi Data Lake Store można wybrać między kluczami zarządzanymi przez klienta i kluczami zarządzanymi przez usługę.
+*    Po aprowizacji konta usługi Data Lake Store nie można zmienić trybu.
 
 ### <a name="encryption-and-decryption-of-data"></a>Szyfrowanie i odszyfrowywanie danych
 
-W projekcie szyfrowania danych w usłudze Azure Data Lake Store używane są trzy typy kluczy. W poniższej tabeli przedstawiono, jakie pełnią role:
+W projekcie szyfrowania danych używane są trzy typy kluczy. Poniższa tabela zawiera podsumowanie:
 
 | Klucz                   | Skrót | Skojarzony z | Lokalizacja magazynu                             | Typ       | Uwagi                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Główny klucz szyfrowania | GKS          | Konto usługi Azure Data Lake Store | W usłudze Azure Key Vault                              | Asymetryczny | Może być zarządzany przez usługę Azure Data Lake Store lub przez klienta                                                              |
-| Klucz szyfrowania danych   | KSD          | Konto usługi Azure Data Lake Store | Magazyn trwały — zarządzany przez usługę Azure Data Lake Store | Symetryczny  | Klucza szyfrowania danych — szyfrowany przez główny klucz szyfrowania — jest przechowywany na nośniku trwałym usługi |
-| Klucz szyfrowania bloków  | KSB          | Blok danych | Brak                                         | Symetryczny  | Klucz szyfrowania bloków jest tworzony na podstawie klucza szyfrowania danych i bloków danych                                                      |
+| Główny klucz szyfrowania | GKS          | Konto usługi Data Lake Store | Usługa Key Vault                              | Asymetryczny | Może nim zarządzać usługa Data Lake Store lub można to robić samodzielnie.                                                              |
+| Klucz szyfrowania danych   | KSD          | Konto usługi Data Lake Store | Magazyn trwały zarządzany przez usługę Data Lake Store | Symetryczny  | Klucz szyfrowania danych jest szyfrowany przy użyciu głównego klucza szyfrowania. Na nośniku trwałym jest zapisywany zaszyfrowany klucz szyfrowania danych. |
+| Klucz szyfrowania bloków  | KSB          | Blok danych | Brak                                         | Symetryczny  | Klucz szyfrowania bloków jest tworzony na podstawie klucza szyfrowania danych i bloku danych.                                                      |
 
 Poniższy diagram przedstawia te koncepcje:
 
-![Rysunek 2](./media/data-lake-store-encryption/fig2.png)
+![Klucze używane do szyfrowania danych](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudoalgorytm stosowany w przypadku odszyfrowywania pliku:
-1.    Sprawdź, czy klucz szyfrowania danych dla konta usługi Azure Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
-    * Jeśli nie, odczytaj zaszyfrowany klucz szyfrowania danych z magazynu trwałego i prześlij go do usługi Azure Key Vault w celu odszyfrowania. Zapisz w pamięci podręcznej odszyfrowany klucz szyfrowania danych. Teraz jest gotowy do użycia.
-2.    Dotyczy każdego bloku danych w pliku
-    * Odczytaj zaszyfrowany blok danych z magazynu trwałego
-    * Wygeneruj klucz szyfrowania bloków na podstawie klucza szyfrowania danych i zaszyfrowanego bloku danych
-    * Użyj klucza szyfrowania bloków w celu odszyfrowania danych
+1.    Sprawdź, czy klucz szyfrowania danych dla konta usługi Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
+    - Jeśli nie, odczytaj zaszyfrowany klucz szyfrowania danych z magazynu trwałego i prześlij go do usługi Key Vault w celu odszyfrowania. Odszyfrowany klucz szyfrowania danych zapisz w pamięci podręcznej. Jest on teraz gotowy do użycia.
+2.    Dotyczy każdego bloku danych w pliku:
+    - Odczytaj zaszyfrowany blok danych z magazynu trwałego.
+    - Wygeneruj klucz szyfrowania bloków na podstawie klucza szyfrowania danych i zaszyfrowanego bloku danych.
+    - Użyj klucza szyfrowania bloków w celu odszyfrowania danych.
+
+
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudoalgorytm stosowany w przypadku szyfrowania bloku danych:
-1.    Sprawdź, czy klucz szyfrowania danych dla konta usługi Azure Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
-    * Jeśli nie, odczytaj zaszyfrowany klucz szyfrowania danych z magazynu trwałego i prześlij go do usługi Azure Key Vault w celu odszyfrowania. Zapisz w pamięci podręcznej odszyfrowany klucz szyfrowania danych. Teraz jest gotowy do użycia.
+1.    Sprawdź, czy klucz szyfrowania danych dla konta usługi Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
+    - Jeśli nie, odczytaj zaszyfrowany klucz szyfrowania danych z magazynu trwałego i prześlij go do usługi Key Vault w celu odszyfrowania. Odszyfrowany klucz szyfrowania danych zapisz w pamięci podręcznej. Jest on teraz gotowy do użycia.
 2.    Wygeneruj unikatowy klucz szyfrowania bloków dla bloku danych na podstawie klucza szyfrowania danych.
-3.    Przy użyciu algorytmu AES-256 zaszyfruj blok danych kluczem szyfrowania bloków.
-4.    Zapisz zaszyfrowany blok danych w magazynie trwałym
+3.    Zaszyfruj blok danych przy użyciu klucza szyfrowania bloków, korzystając z algorytmu AES-256.
+4.    Zapisz zaszyfrowany blok danych w magazynie trwałym.
 
 > [!NOTE] 
-> Ze względu na wydajność odszyfrowany klucz szyfrowania danych jest zapisywany w pamięci podręcznej przez krótki czas i natychmiast usuwany po jego upływie. W przypadku nośnika trwałego klucz szyfrowania danych jest zawsze przechowywany w postaci zaszyfrowanej przez główny klucz szyfrowania.
+> Ze względów wydajności klucz szyfrowania danych w formie niezaszyfrowanej jest przez krótki czas buforowany w pamięci, a następnie natychmiast usuwany. Na nośniku trwałym klucz szyfrowania danych jest zawsze przechowywany w postaci zaszyfrowanej przez główny klucz szyfrowania.
 
 ## <a name="key-rotation"></a>Wymiana kluczy
 
-W przypadku trybu zarządzania kluczami przez klienta usługa Azure Data Lake Store umożliwia wymianę głównego klucza szyfrowania. Aby dowiedzieć się, jak skonfigurować konto usługi Azure Data Lake Store z kluczami zarządzanymi przez klienta, zobacz stronę [Wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+W przypadku korzystania z kluczy zarządzanych przez klienta można wymienić główny klucz szyfrowania. Aby dowiedzieć się, jak skonfigurować konto usługi Data Lake Store korzystające z kluczy zarządzanych przez klienta, zobacz [Wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="pre-requisites"></a>Wymagania wstępne
+### <a name="prerequisites"></a>Wymagania wstępne
 
-Podczas konfigurowania konta usługi Azure Data Lake klienci zdecydowali się skorzystać z własnych kluczy. Po utworzeniu konta ta opcja nie może zostać zmieniona. Jeśli używasz domyślnych opcji szyfrowania, Twoje dane będą zawsze szyfrowane przy użyciu kluczy zarządzanych przez usługę Azure Data Lake — w przypadku tej opcji klient nie ma możliwości wymiany kluczy. W poniższych krokach przyjęto, że używasz kluczy zarządzanych przez klienta (masz wybrane własne klucze z magazynu kluczy).
+Podczas konfigurowania konta usługi Data Lake Store wybrano opcję użycia własnych kluczy. Po utworzeniu konta ta opcja nie może zostać zmieniona. W poniższych krokach przyjęto, że używasz kluczy zarządzanych przez klienta (tzn. wybrano własne klucze z usługi Key Vault).
 
-### <a name="how-to-rotate-the-key-mek-in-azure-data-lake-store"></a>Jak wymienić główny klucz szyfrowania w usłudze Azure Data Lake Store
+Pamiętaj, że jeśli użyjesz domyślnych opcji szyfrowania, dane będą zawsze szyfrowane za pomocą kluczy zarządzanych przez usługę Data Lake Store. W przypadku tej opcji nie ma możliwości wymiany kluczy, ponieważ są one zarządzane przez usługę Data Lake Store.
 
-1. Zaloguj się w nowej witrynie [Azure Portal](https://portal.azure.com/)
-2. Przejdź do magazynu kluczy, który przechowuje klucze skojarzone z Twoim kontem usługi Azure Data Lake Store, a następnie wybierz pozycję Klucze.
+### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Jak wymienić główny klucz szyfrowania w usłudze Data Lake Store
 
-    ![Klucze](./media/data-lake-store-encryption/keyvault.png)
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Przejdź do wystąpienia usługi Key Vault, w którym są przechowywane klucze skojarzone z Twoim kontem usługi Data Lake Store. Wybierz pozycję **Klucze**.
 
-3.    Wybierz klucz skojarzony z kontem usługi Azure Data Lake Store i utwórz nową wersję tego klucza.
-  
-   W tym momencie usługa Azure Data Lake obsługuje wyłącznie wymianę kluczy na nową wersję klucza, wymiana na inny klucz nie jest obsługiwana
+    ![Zrzut ekranu usługi Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-   ![Nowa wersja](./media/data-lake-store-encryption/keynewversion.png)
+3.    Wybierz klucz skojarzony z kontem usługi Data Lake Store i utwórz nową wersję tego klucza. Pamiętaj, że usługa Data Lake Store obecnie obsługuje wymianę tylko na nową wersję klucza. Wymiana na inny klucz nie jest obsługiwana.
 
-4.    Przejdź do konta usługi Azure Data Lake Store i wybierz pozycję Szyfrowanie
+   ![Zrzut ekranu okna Klucze z wyróżnionym przyciskiem Nowa wersja](./media/data-lake-store-encryption/keynewversion.png)
 
-    ![Nowa wersja](./media/data-lake-store-encryption/select-encryption.png)
+4.    Przejdź do konta magazynu usługi Data Lake Store i wybierz pozycję **Szyfrowanie**.
 
-5.    Pojawi się uwaga informująca o dostępności nowej wersji klucza oraz przycisk umożliwiający wymianę obecnego klucza na nowy. Kliknij polecenie Wymień klucz, aby zaktualizować klucz do nowej wersji.
+    ![Zrzut ekranu okna konta magazynu usługi Data Lake Store z wyróżnioną pozycją Szyfrowanie](./media/data-lake-store-encryption/select-encryption.png)
 
-    ![Gotowe](./media/data-lake-store-encryption/rotatekey.png)
+5.    Zostanie wyświetlony komunikat informujący o dostępności nowej wersji klucza. Kliknij pozycję **Wymień klucz**, aby zaktualizować klucz do nowej wersji.
 
-6. Ta operacja powinna zająć mniej niż 2 minuty i nie powinna powodować przestoju. Po zakończeniu operacji używana jest nowa wersja klucza.
+    ![Zrzut ekranu okna usługi Data Lake Store z komunikatem i wyróżnioną pozycją Wymień klucz](./media/data-lake-store-encryption/rotatekey.png)
+
+Ta operacja powinna zająć mniej niż dwie minuty i nie powinna powodować żadnego przestoju. Po zakończeniu operacji jest używana nowa wersja klucza.
 
