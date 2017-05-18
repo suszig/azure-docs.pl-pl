@@ -9,7 +9,7 @@
 
 # Wprowadzenie
 ## [Replikacja maszyn wirtualnych VMware do platformy Azure](site-recovery-vmware-to-azure.md)
-## [Replikacja serwerów fizycznych do platformy Azure](site-recovery-physical-servers-to-azure.md) 
+## [Replikacja serwerów fizycznych do platformy Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure (z programem VMM)](site-recovery-vmm-to-azure.md)
 ## [Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej (z programem VMM)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Planowanie wydajności i skalowanie replikacji oprogramowania VMware do platformy Azure](site-recovery-plan-capacity-vmware.md)
 ### [Planista wdrożenia na potrzeby replikacji oprogramowania VMware na platformie Azure](site-recovery-deployment-planner.md)
 ### [Planista wydajności na potrzeby replikacji funkcji Hyper-V](site-recovery-capacity-planner.md)
+### [Kontrola dostępu oparta na rolach](site-recovery-role-based-linked-access-control.md)
 
 ## Konfigurowanie
 ### [Konfigurowanie środowiska źródłowego](site-recovery-set-up-vmware-to-azure.md)
