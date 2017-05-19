@@ -3,7 +3,7 @@ title: "Monitorowanie witryny programu SharePoint za pomocą usługi Application
 description: "Rozpocznij monitorowanie nowej aplikacji przy użyciu nowego klucza instrumentacji"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
