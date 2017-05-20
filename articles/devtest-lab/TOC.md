@@ -4,12 +4,12 @@
 ## Scenariusze
 ### [Korzystanie z laboratoriów na potrzeby szkolenia](devtest-lab-training-lab.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Tworzenie laboratorium](devtest-lab-create-lab.md)
 ## [Tworzenie pierwszej maszyny wirtualnej](devtest-lab-create-first-vm.md)
 ## [Ustawianie podstawowych zasad](devtest-lab-get-started-with-lab-policies.md)
 
-# Instrukcje
+# Przewodniki z instrukcjami
 ## Korzystanie z maszyn wirtualnych w laboratorium
 ### [Tworzenie maszyn wirtualnych](devtest-lab-add-vm.md)
 ### [Create claimable VM](devtest-lab-add-claimable-vm.md) (Tworzenie maszyn wirtualnych, które można zajmować)
@@ -44,6 +44,8 @@
 ## Zarządzanie sieciami wirtualnymi
 ### [Konfigurowanie sieci wirtualnych](devtest-lab-configure-vnet.md)
 ### [Wybieranie opcji konfiguracji adresu IP](devtest-lab-shared-ip.md)
+
+## [Skalowanie laboratorium](devtest-lab-scale-lab.md)
 
 # Dokumentacja
 ## [Interfejs wiersza polecenia 2.0](/cli/azure/lab)

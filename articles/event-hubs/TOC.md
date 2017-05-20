@@ -1,5 +1,6 @@
 # Omówienie
 ## [Co to jest usługa Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Funkcje usługi Event Hubs](event-hubs-features.md)
 ## [Często zadawane pytania](event-hubs-faq.md)
 
 # Wprowadzenie

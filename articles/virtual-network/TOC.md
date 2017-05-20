@@ -16,15 +16,18 @@
 ### [Sieci wirtualne](virtual-network-vnet-plan-design-arm.md)
 ### [Sieciowe grupy zabezpieczeń](virtual-networks-nsg.md)
 
-## Wdrożenie
+## Wdrażanie
 ### Sieci wirtualne
-#### [Portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [Program PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Interfejs wiersza polecenia](virtual-networks-create-vnet-arm-cli.md)
-#### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portal (klasyczny)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (klasyczny)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [Interfejs wiersza polecenia (klasyczny)](virtual-networks-create-vnet-classic-cli.md)
+#### [Tworzenie, zmienianie lub usuwanie sieci wirtualnych](virtual-network-manage-network.md)
+#### [Tworzenie, zmienianie lub usuwanie podsieci](virtual-network-manage-subnet.md)
+#### [Tworzenie sieci wirtualnej — wiele podsieci](virtual-networks-create-vnet-arm-pportal.md) 
+##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+##### [Interfejs wiersza polecenia](virtual-networks-create-vnet-arm-cli.md)
+##### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
+#### Tworzenie sieci wirtualnej — wiele podsieci (model klasyczny)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [Program PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [Interfejs wiersza polecenia](virtual-networks-create-vnet-classic-cli.md)
 
 ### Grupy zabezpieczeń sieci
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -46,20 +49,22 @@
 #### [Program PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Szablon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [Interfejsy sieciowe](virtual-network-network-interface.md)
+### Interfejsy sieciowe
+#### [Tworzenie, zmienianie lub usuwanie interfejsów sieciowych](virtual-network-network-interface.md)
+#### [Dodawanie, zmienianie lub usuwanie adresów IP](virtual-network-network-interface-addresses.md)
 
 ### [Publiczne adresy IP](virtual-network-public-ip-address.md)
 
 ### Maszyny wirtualne
-
-#### Statyczne publiczne adresy IP
+#### [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md) 
+#### Tworzenie maszyny wirtualnej ze statycznym publicznym adresem IP
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Program PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [Interfejs wiersza polecenia](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Szablon](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell (klasyczny)](virtual-networks-reserved-public-ip.md)
 
-#### Statyczne prywatne adresy IP
+#### Tworzenie maszyny wirtualnej ze statycznym prywatnym adresem IP
 ##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Program PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [Interfejs wiersza polecenia](virtual-networks-static-private-ip-arm-cli.md)
@@ -67,18 +72,19 @@
 ##### [PowerShell (klasyczny)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [Interfejs wiersza polecenia (klasyczny)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Wiele interfejsów sieciowych
-##### [Program PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [Interfejs wiersza polecenia](virtual-network-deploy-multinic-arm-cli.md)
-##### [Szablon](virtual-network-deploy-multinic-arm-template.md)
+#### Tworzenie maszyny wirtualnej z wieloma interfejsami sieciowymi
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Interfejs wiersza polecenia](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (klasyczny)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [Interfejs wiersza polecenia (klasyczny)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Wiele adresów IP
-##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
+#### Tworzenie maszyny wirtualnej z wieloma adresami IP
+##### [Witryna Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [Interfejs wiersza polecenia](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Szablon](virtual-network-multiple-ip-addresses-template.md)
+
+#### [Tworzenie maszyny wirtualnej z wydajniejszą siecią](virtual-network-create-vm-accelerated-networking.md)
 
 ### Scenariusze łączności
 #### [Z sieci wirtualnej do sieci wirtualnej](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -97,9 +103,6 @@
 ##### [Przykładowa aplikacja](virtual-networks-sample-app.md)
 
 ## Konfigurowanie
-### Wydajniejsze sieci dla maszyn wirtualnych
-#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
-#### [Program PowerShell](virtual-network-accelerated-networking-powershell.md)
 ### [Optymalizowanie przepływności sieci maszyny wirtualnej](virtual-network-optimize-network-bandwidth.md)
 ### Listy kontroli dostępu
 #### [Portal klasyczny](virtual-networks-acl.md)

@@ -29,6 +29,10 @@
 ## Zarządzaj
 ### [Polecenia cmdlet programu PowerShell usługi Batch](batch-powershell-cmdlets-get-started.md)
 ### [Interfejs wiersza polecenia platformy Azure](batch-cli-get-started.md)
+#### [Tworzenie konta usługi Batch](./scripts/batch-cli-sample-create-account.md)
+#### [Dodawanie aplikacji](./scripts/batch-cli-sample-add-application.md)
+#### [Zarządzanie pulami](./scripts/batch-cli-sample-manage-pool.md)
+#### [Uruchamianie zadań i podzadań](./scripts/batch-cli-sample-run-job.md)
 
 # Dokumentacja
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -63,7 +67,6 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Przykłady kodu języka C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Przykłady kodu języka Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Przykłady interfejsu wiersza polecenia](batch-cli-samples.md)
 ## [Zasoby dużych wystąpień obliczeniowych](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

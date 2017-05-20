@@ -24,7 +24,6 @@
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
 ### [Tworzenie wielu wystąpień](resource-group-create-multiple.md)
-### [Pętla sekwencyjna](resource-manager-sequential-loop.md)
 ### [Ustawianie lokalizacji](resource-manager-template-location.md)
 ### [Przypisywanie tagów](resource-manager-template-tags.md)
 ### [Ustawianie nazwy i typu zasobu podrzędnego](resource-manager-template-child-resource.md)
@@ -44,7 +43,7 @@
 #### [Eksportowanie szablonu i ponowne wdrażanie](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
-### [Wdrażanie wielu grup zasobów](resource-manager-cross-resource-group-deployment.md)
+### [Wdrażanie krzyżowe w grupach zasobów](resource-manager-cross-resource-group-deployment.md)
 ### [Ciągła integracja z usługą Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Przekazywanie bezpiecznych wartości podczas wdrażania](resource-manager-keyvault-parameter.md)
 

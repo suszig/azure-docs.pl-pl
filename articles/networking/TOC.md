@@ -3,6 +3,7 @@
 ## Architektura
 ### [Routing asymetryczny z wieloma ścieżkami sieciowymi](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Projekty bezpiecznych sieci](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Topologia piasty i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń sieci](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Urządzenia wirtualne sieci o wysokiej dostępności](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Łączenie metod równoważenia obciążenia](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)

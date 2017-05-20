@@ -70,9 +70,9 @@
 ##### [Java w systemie Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Cykl życia usług Reliable Services
-#### [Konfigurowanie](service-fabric-reliable-services-configuration.md)
-#### [Wysyłanie powiadomień](service-fabric-reliable-services-notifications.md)
-#### [Tworzenie kopii zapasowej i przywracanie](service-fabric-reliable-services-backup-restore.md)
+##### [Konfigurowanie](service-fabric-reliable-services-configuration.md)
+##### [Wysyłanie powiadomień](service-fabric-reliable-services-notifications.md)
+##### [Tworzenie kopii zapasowej i przywracanie](service-fabric-reliable-services-backup-restore.md)
 
 #### Komunikacja z usługami
 ##### [Komunikacja przy użyciu usług Reliable Services](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md)
 
 ### [Zarządzanie klastrem przy użyciu interfejsu wiersza polecenia platformy Azure](service-fabric-azure-cli.md)
+### [Stosowanie poprawek do węzłów klastra](service-fabric-patch-orchestration-application.md)
 
 ### Organizowanie zasobów klastra i zarządzanie nimi
 #### [Omówienie usługi Resource Manager dla klastra](service-fabric-cluster-resource-manager-introduction.md)
@@ -249,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Zbieranie dzienników z procesu usługi](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Monitorowanie kontenerów systemu Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnostyka stanowych usług Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostyka w elementach Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Rozwiązywanie problemów z klastrem lokalnym](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Dokumentacja
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Interfejs API języka Java](/java/api/)
 ## [.NET](/dotnet/api/)
