@@ -71,9 +71,11 @@
 ### [Powolne tworzenie kopii zapasowych plików i folderów w usłudze Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Pojęcia
+## [Omówienie magazynów usługi Recovery Services](backup-azure-recovery-services-vault-overview.md)
+## [Uaktualnienie magazynu usługi Backup do magazynu usługi Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Usuwanie magazynu usługi Azure Backup](backup-azure-delete-vault.md)
 ## [Kontrola dostępu oparta na rolach](backup-rbac-rs-vault.md)
 ## [Zabezpieczenia hybrydowych kopii zapasowych](backup-azure-security-feature.md)
-## [Usuwanie magazynu usługi Azure Backup](backup-azure-delete-vault.md)
 ## [Konfigurowanie tworzenia kopii zapasowej offline](backup-azure-backup-import-export.md)
 ## [Zastępowanie biblioteki taśm](backup-azure-backup-cloud-as-tape.md)
 ## [Kopie zapasowe maszyn wirtualnych z systemem Linux spójne z aplikacjami](backup-azure-linux-app-consistent.md)

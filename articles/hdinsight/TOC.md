@@ -1,5 +1,5 @@
 # Omówienie
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [Informacje o usługach HDInsight i Hadoop](hdinsight-hadoop-introduction.md)
 ## [Składniki usługi Hadoop w usłudze HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -133,6 +133,7 @@
 ### [Dostosowywanie klastrów za pomocą narzędzia Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Dostosowywanie klastrów za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Opracowywanie akcji skryptu](hdinsight-hadoop-script-actions-linux.md)
+### [Instalowanie i używanie środowiska Presto](hdinsight-hadoop-install-presto.md)
 ### [Instalowanie i aktualizowanie środowiska Mono](hdinsight-hadoop-install-mono.md)
 ### [Dodawanie bibliotek technologii Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Korzystanie z systemu Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -166,6 +167,7 @@
 #### [Korzystanie z interfejsu API REST systemu Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Dodawanie kont magazynu](hdinsight-hadoop-add-storage.md)
 ### [Przekazywanie danych na potrzeby zadań usługi Hadoop](hdinsight-upload-data.md)
+### [Wiele klastrów HDInsight z usługą Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Importowanie i eksportowanie danych za pomocą narzędzia Sqoop](hdinsight-use-sqoop.md)
 #### [Nawiązywanie połączenia przy użyciu protokołu SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Uruchamianie przy użyciu programu cURL](hdinsight-hadoop-use-sqoop-curl.md)
@@ -220,5 +222,6 @@
 ### [Monitorowanie klastrów za pomocą interfejsu API systemu Ambari](hdinsight-monitor-use-ambari-api.md)
 
 # Zasoby
+## [Narzędzia systemu Windows dla usługi HDInsight](hdinsight-hadoop-windows-tools.md)
 ## [Uzyskiwanie pomocy na forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

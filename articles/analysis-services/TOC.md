@@ -1,15 +1,36 @@
 # Omówienie
 ## [Co to jest Azure Analysis Services?](analysis-services-overview.md)
 
-# Rozpoczęcie pracy
-## [Tworzenie serwera](analysis-services-create-server.md)
-## [Wdrażanie na serwerze](analysis-services-deploy.md)
-## [Połączenie](analysis-services-connect.md)
+# Przewodniki Szybki start
+## [Tworzenie serwera — portal](analysis-services-create-server.md)
+## [Wdrażanie modelu — SSDT](analysis-services-deploy.md)
+
+
+# Samouczki
+## Tworzenie i wdrażanie modelu
+### [Samouczek Adventure Works](tutorials/aas-adventure-works-tutorial.md)
+### [Lekcja 1. Tworzenie nowego projektu modelu tabelarycznego](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
+### [Lekcja 2. Pobieranie danych](tutorials/aas-lesson-2-get-data.md)
+### [Lekcja 3. Oznaczanie jako tabeli dat](tutorials/aas-lesson-3-mark-as-date-table.md) 
+### [Lekcja 4. Tworzenie relacji](tutorials/aas-lesson-4-create-relationships.md) 
+### [Lekcja 5. Tworzenie kolumn obliczeniowych](tutorials/aas-lesson-5-create-calculated-columns.md)
+### [Lekcja 6. Tworzenie miar](tutorials/aas-lesson-6-create-measures.md)  
+### [Lekcja 7. Tworzenie kluczowych wskaźników wydajności](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+### [Lekcja 8. Tworzenie perspektyw](tutorials/aas-lesson-8-create-perspectives.md) 
+### [Lekcja 9. Tworzenie hierarchii](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [Lekcja 10. Tworzenie partycji](tutorials/aas-lesson-10-create-partitions.md) 
+### [Lekcja 11. Tworzenie ról](tutorials/aas-lesson-11-create-roles.md)
+### [Lekcja 12. Analiza w programie Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
+### [Lekcja 13. Wdrażanie](tutorials/aas-lesson-13-deploy.md)
+### [Lekcja uzupełniająca — wiersze szczegółów](tutorials/aas-supplemental-lesson-detail-rows.md)
+### [Lekcja uzupełniająca — zabezpieczenia dynamiczne](tutorials/aas-supplemental-lesson-dynamic-security.md)
+### [Lekcja uzupełniająca — niewyrównane hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Porady 
 ## [Zarządzanie serwerem](analysis-services-manage.md)
 ## [Zarządzanie użytkownikami](analysis-services-manage-users.md)
 ## [Integrowanie bramy danych lokalnych](analysis-services-gateway.md)
+## [Łączenie z serwerami](analysis-services-connect.md)
 ## [Łączenie z programem Excel](analysis-services-connect-excel.md)
 ## [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
 ## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
@@ -20,7 +41,7 @@
 
 # Dokumentacja
 ## [Program PowerShell](analysis-services-powershell.md)
-## [REST](https://docs.microsoft.com/rest/api/analysisservices/)
+## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
