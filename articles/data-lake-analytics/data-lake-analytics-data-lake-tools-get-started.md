@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca, yanacai
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.contentlocale: pl-pl
 ms.lasthandoff: 04/07/2017
 
 
@@ -128,7 +129,7 @@ Zadania usługi Data Lake Analytics są napisane w języku U-SQL. Aby dowiedzie�
        Nastąpi wyświetlenie automatycznie wypełnianej nazwy i członków dla zestawu wierszy, klas, baz danych, schematów i obiektów zdefiniowanych przez użytkownika (UDO).
 
        Funkcja IntelliSense dla obiektów katalogu (baz danych, schematów, tabel, obiektów UDO itp.) jest powiązana z kontem obliczeniowym. Możesz sprawdzić bieżące aktywne konto obliczeniowe, bazę danych i schemat na górnym pasku narzędzi oraz przełączać je za pomocą list rozwijanych.
-   * **Rozwijanie kolumn oznaczonych symbolem ***
+   * **Rozwijanie * kolumn oznaczonych symbolem**
 
        Kliknij z prawej strony symbolu *. Poniżej symbolu * będzie widoczne niebieskie podkreślenie. Umieść kursor myszy na niebieskim podkreśleniu, a następnie kliknij strzałkę w dół.
        ![Rozwijanie narzędzi programu Visual Studio w usłudze Data Lake za pomocą symbolu *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
