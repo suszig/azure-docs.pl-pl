@@ -3,9 +3,9 @@ title: "Usługa Azure Active Directory B2C: przegląd | Microsoft Docs"
 description: "Tworzenie aplikacji dla użytkowników za pomocą usługi Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: saeeda
+manager: krassk
+editor: parja
 ms.assetid: c465dbde-f800-4f2e-8814-0ff5f5dae610
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,47 +13,61 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
-ms.author: swkrish
+ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 2f64c905d2304bfc94415e871012a783cd2cf328
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ca9dc5a2c0e7de46ebc29cce0ea7e667b7aa3093
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications"></a>Usługa Azure Active Directory B2C: rejestrowanie i logowanie użytkowników w aplikacjach
-Usługa Azure Active Directory B2C to kompleksowe rozwiązanie przeznaczone do zarządzania tożsamością w chmurze w aplikacjach internetowych i mobilnych użytkownika. Stanowi globalną usługę o wysokiej dostępności, która może obsłużyć setki milionów tożsamości użytkowników. Oparta na bezpiecznej platformie klasy korporacyjnej usługa Azure Active Directory B2C chroni Twoje aplikacje, procesy biznesowe i użytkowników.
+# <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: Skup się na swojej aplikacji — pozwól nam zająć się rejestrowaniem i logowaniem
 
-W przeszłości deweloperzy aplikacji, którzy chcieli wprowadzić funkcje tworzenia kont i logowania użytkowników w swoich aplikacjach, musieli napisać własny kod. Musieli korzystać z lokalnych baz danych lub systemów do przechowywania nazw i haseł użytkowników. Usługa Azure Active Directory B2C oferuje deweloperom lepszy sposób integracji funkcji zarządzania tożsamością użytkowników z aplikacjami za pomocą bezpiecznej, spełniającej standardy platformy i bogatego zestawu rozszerzalnych zasad. W przypadku korzystania z usługi Azure Active Directory B2C użytkownicy mogą rejestrować się w aplikacjach za pomocą istniejących kont społecznościowych (Facebook, Google, Amazon, LinkedIn) lub tworząc nowe poświadczenia (adres e-mail i hasło lub nazwa użytkownika i hasło); te drugie nazywamy „kontami lokalnymi”.
+Usługa Azure AD B2C to chmurowe rozwiązanie do zarządzania tożsamościami dla Twoich aplikacji sieci Web i aplikacji mobilnych. Stanowi globalną usługę o wysokiej dostępności, która może obsłużyć setki milionów tożsamości. Oparta na bezpiecznej platformie klasy korporacyjnej usługa Azure AD B2C chroni Twoje aplikacje, procesy biznesowe i użytkowników.
 
-## <a name="get-started"></a>Rozpoczynanie pracy
-Aby utworzyć aplikację umożliwiającą tworzenie kont i logowanie użytkowników, musisz najpierw zarejestrować aplikację za pomocą dzierżawy usługi Azure Active Directory B2C. Aby utworzyć własną dzierżawę, wykonaj kroki opisane w temacie [Tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md).
+Wymagając minimalnej konfiguracji, usługa Azure AD B2C umożliwia Twojej aplikacji uwierzytelnianie następujących obiektów:
 
-Aplikacja korzystająca z usługi Azure Active Directory B2C może bezpośrednio wysyłać wiadomości protokołu za pomocą protokołu [OAuth 2.0 lub Open ID Connect](active-directory-b2c-reference-protocols.md) albo skorzystać z bibliotek, które wykonają tę pracę za nią. Wybierz preferowaną platformę z poniższej tabeli i rozpocznij pracę.
+* **Konta społecznościowe** (np. Facebook, Google i LinkedIn)
+* **Konta przedsiębiorstwa** (za pomocą standardowych protokołów uwierzytelniania OpenID Connect lub SAML)
+* **Konta lokalne** (adres e-mail i hasło lub nazwa użytkownika i hasło)
 
-[!INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
+## <a name="get-started"></a>Rozpoczęcie pracy
+
+W pierwszej kolejności utwórz własną dzierżawę, wykonując kroki opisane w temacie [Tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md).
+
+Następnie wybierz scenariusz tworzenia aplikacji:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| <center>![Aplikacje mobilne i klasyczne](../active-directory/develop/media/active-directory-developers-guide/NativeApp_Icon.png)<br />Aplikacje mobilne i klasyczne</center> | [Omówienie](active-directory-b2c-reference-oauth-code.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />[iOS](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)<br /><br />[Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)<br /><br />[Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) |  |
+| <center>![Aplikacje sieci Web](../active-directory/develop/media/active-directory-developers-guide/Web_app.png)<br />Aplikacje sieci Web</center> | [Omówienie](active-directory-b2c-reference-oidc.md)<br /><br />[ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)<br /><br />[ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | [Node.js](active-directory-b2c-devquickstarts-web-node.md) |  |
+| <center>![Aplikacje jednostronicowe](../active-directory/develop/media/active-directory-developers-guide/SPA.png)<br />Aplikacje jednostronicowe</center> | [Omówienie](active-directory-b2c-reference-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)<br /><br /> |  |  |
+| <center>![Interfejsy API sieci Web](../active-directory/develop/media/active-directory-developers-guide/Web_API.png)<br />Interfejsy API sieci Web</center> | [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)<br /><br />[Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)<br /><br />[Wywoływanie interfejsu API sieci Web platformy .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) | &nbsp; |
 
 ## <a name="whats-new"></a>Co nowego
-Zaglądaj tu często, aby dowiadywać się o nadchodzących zmianach w usłudze Azure Active Directory B2C. Będziemy również tweetować o wszystkich aktualizacjach, korzystając z @AzureAD.
 
-* Dowiedz się więcej o naszym [środowisku rozszerzalnych zasad](active-directory-b2c-reference-policies.md) i rodzajach zasad tworzonych i używanych w aplikacjach użytkownika.
-* Dodaj do zakładek [blog na temat usługi](https://blogs.msdn.microsoft.com/azureadb2c/), aby otrzymywać powiadomienia dotyczące niewielkich problemów z usługą, aktualizacji, stanu i środków bezpieczeństwa. Śledź też [pulpit nawigacyjny stanu platformy Azure](https://azure.microsoft.com/status/).
-* Bieżące [ograniczenia dotyczące usługi](active-directory-b2c-limitations.md).
-* Oraz [przykładowy kod](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) z użyciem usługi Azure AD B2C i platformy ASP.NET Core.
+Zaglądaj tu często, aby dowiadywać się o nadchodzących zmianach w usłudze Azure Active Directory B2C. Tweetujemy również o wszystkich aktualizacjach, używając konta @AzureAD.
+
+* Oprócz „zasad wbudowanych” (ogólna dostępność) w publicznej wersji zapoznawczej jest teraz dostępna funkcja [„zasad niestandardowych”](active-directory-b2c-overview-custom.md).  Zasady niestandardowe są przeznaczone dla specjalistów ds. tożsamości, którzy potrzebują kontroli nad strukturą środowiska obsługi tożsamości.
+* Funkcja [tokenu dostępu](https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview) jest teraz dostępna w publicznej wersji zapoznawczej.
+* Ogłoszono [ogólną dostępność europejskich katalogów usługi Azure AD B2C](https://azure.microsoft.com/en-us/blog/azuread-b2c-ga-eu/).
+* Zapoznaj się z naszą rosnącą biblioteką [przykładów kodu w usłudze GitHub](https://github.com/Azure-Samples?q=b2c)!
 
 ## <a name="how-to-articles"></a>Instrukcje
+
 Informacje o sposobie korzystania z określonych funkcji usługi Azure Active Directory B2C:
 
 * Skonfiguruj swoje konta [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [konto Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) i [LinkedIn](active-directory-b2c-setup-li-app.md) do użycia w aplikacjach użytkownika.
 * [Wykorzystaj niestandardowe atrybuty do zbierania informacji o użytkownikach](active-directory-b2c-reference-custom-attr.md).
 * [Włącz funkcję Multi-Factor Authentication platformy Azure w aplikacjach użytkownika](active-directory-b2c-reference-mfa.md).
 * [Skonfiguruj funkcję samodzielnego resetowania hasła przez użytkowników](active-directory-b2c-reference-sspr.md).
-* [Dostosuj wygląd i obsługę funkcji tworzenia kont i logowania oraz innych stron dla użytkownika](active-directory-b2c-reference-ui-customization.md) obsługiwanych przez usługę Azure Active Directory B2C.
+* [Dostosuj wygląd i obsługę funkcji rejestrowania i logowania oraz innych stron dla użytkownika](active-directory-b2c-reference-ui-customization.md) obsługiwanych przez usługę Azure Active Directory B2C.
 * [Skorzystaj z interfejsu API Azure Active Directory programu Graph do programowego tworzenia, odczytywania, aktualizowania i usuwania użytkowników](active-directory-b2c-devquickstarts-graph-dotnet.md) w swojej dzierżawie usługi Azure Active Directory B2C.
 
 ## <a name="next-steps"></a>Następne kroki
-Poniższe linki przydadzą się podczas szczegółowego eksplorowania usługi:
+
+Poniższe linki pozwalają szczegółowo eksplorować usługę:
 
 * Zobacz [Informacje o cenach usługi Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Przejrzyj nasze [przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) dla usługi Azure Active Directory B2C. 
@@ -65,6 +79,7 @@ Poniższe linki przydadzą się podczas szczegółowego eksplorowania usługi:
 * [Żądania pomocy technicznej dotyczące plików dla usługi Azure Active Directory B2C](active-directory-b2c-support.md).
 
 ## <a name="get-security-updates-for-our-products"></a>Pobierz aktualizacje zabezpieczeń naszych produktów
+
 Firma Microsoft zachęca do przekazywania powiadomień o występujących incydentach zabezpieczeń poprzez wizytę na [tej stronie](https://technet.microsoft.com/security/dd252948) i subskrybowanie Doradczych alertów zabezpieczeń.
 
 
