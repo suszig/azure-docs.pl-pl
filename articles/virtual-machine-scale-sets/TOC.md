@@ -13,6 +13,7 @@
 ## Tworzenie szablonu
 ### [Informacje na temat szablonów zestawów dostępności](virtual-machine-scale-sets-mvss-start.md)
 ### [Dodawanie sieci wirtualnej](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Korzystanie z obrazu niestandardowego](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Wdrażanie
 ### [Tworzenie przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)

@@ -5,7 +5,6 @@
 # Wprowadzenie
 ## [Tworzenie konta usługi Log Analytics](log-analytics-get-started.md)
 ## [Zarządzanie dostępem](log-analytics-manage-access.md)
-## [Serwer proxy i zapora](log-analytics-proxy-firewall.md)
 ## [Dane użycia](log-analytics-usage.md)
 ## [Log Analytics — często zadawane pytania](log-analytics-faq.md)
 ## [Dostawcy usług](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Zbieranie danych
 ### Połączone źródła
 #### [Agenci dla systemu Windows](log-analytics-windows-agents.md)
-#### [Agenci dla systemu Linux](log-analytics-linux-agents.md)
+#### [Agenci dla systemu Linux](log-analytics-agent-linux.md)
 #### [Maszyny wirtualne platformy Azure](log-analytics-azure-vm-extension.md)
 #### [Zasoby platformy Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Źródła danych
 #### [Omówienie źródeł danych](log-analytics-data-sources.md)
 #### [Zdarzenia systemu Windows](log-analytics-data-sources-windows-events.md)
+#### [Niestandardowe dane JSON](log-analytics-data-sources-json.md)
+#### [Zebrane dane wydajności](log-analytics-data-sources-collectd.md)
+#### [Alerty programów Nagios i Zabbix](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Dziennik systemu](log-analytics-data-sources-syslog.md)
 #### [Liczniki wydajności](log-analytics-data-sources-performance-counters.md)
+#### [Wydajność aplikacji dla systemu Linux](log-analytics-data-sources-linux-applications.md)
 #### [Dzienniki usług IIS](log-analytics-data-sources-iis-logs.md)
 #### [Niestandardowe dzienniki](log-analytics-data-sources-custom-logs.md)
 #### [Niestandardowe pola](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Wyszukiwanie w dzienniku — omówienie](log-analytics-log-searches.md)
 ### [Dokumentacja wyszukiwania](log-analytics-search-reference.md)
 #### [Wyrażenia regularne](log-analytics-log-searches-regex.md)
+### [Podejmowanie akcji z poziomu wyników wyszukiwania](log-analytics-log-search-takeaction.md)
 ### [Grupy komputerów](log-analytics-computer-groups.md)
 ## Analizowanie danych
 ### [Pulpity nawigacyjne](log-analytics-dashboards.md)
@@ -54,6 +58,7 @@
 ### [Stan replikacji usługi AD](log-analytics-ad-replication-status.md)
 ### [Zarządzanie alertami](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
+### [Analiza w usłudze Azure Web Apps](log-analytics-azure-web-apps-analytics.md)
 ### [Pojemność i wydajność](log-analytics-capacity.md)
 ### [Śledzenie zmian](log-analytics-change-tracking.md)
 ### [Kontenery](log-analytics-containers.md)

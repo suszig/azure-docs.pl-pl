@@ -11,6 +11,7 @@
 ## [Omówienie rozwiązania połączonej fabryki](iot-suite-connected-factory-overview.md)
 ## [Przewodnik po rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Przewodnik po rozwiązaniu do konserwacji zapobiegawczej](iot-suite-predictive-walkthrough.md)
+## [Przewodnik po rozwiązaniu połączonej fabryki](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Łączenie urządzenia Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### Korzystanie z języka C
 #### [Symulowane dane](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)

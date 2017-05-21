@@ -36,6 +36,7 @@
 ### [Generowanie zaawansowanych raportów HTTP](cdn-advanced-http-reports.md)
 ### [Wyświetlanie statystyk w czasie rzeczywistym](cdn-real-time-stats.md)
 ### [Analizowanie wydajności węzła krawędzi](cdn-edge-performance.md)
+### [Eksportowanie metryk z dziennikami diagnostyki](cdn-log-analysis.md)
 
 ## Programowanie
 ### [.NET](cdn-app-dev-net.md)

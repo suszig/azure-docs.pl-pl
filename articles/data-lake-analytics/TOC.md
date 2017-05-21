@@ -17,6 +17,7 @@
 ## Programowanie
 ### [Podstawy języka U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [Wykaz języka U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Sprzężenia w języku U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
 ### [Parametry języka U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funkcje okien języka U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Definiowane przez użytkownika operatory języka U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
