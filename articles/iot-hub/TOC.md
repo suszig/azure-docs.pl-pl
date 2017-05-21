@@ -116,7 +116,7 @@
 ### [Najlepsze rozwiązania dotyczące zabezpieczeń](iot-hub-security-best-practices.md)
 ### [Architektura zabezpieczeń](iot-hub-security-architecture.md)
 ### [Zabezpieczanie wdrożenia IoT](iot-hub-security-deployment.md)
-## Zestaw SDK bramy
+## IoT Edge
 ### Symulowanie urządzenia
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -129,7 +129,7 @@
 ## [Java (usługa)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (urządzenia)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Zestawy SDK usługi Azure IoT](http://azure.github.io/azure-iot-sdks/)
-## [Zestaw SDK bramy](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (dostawca zasobów)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (tożsamości urządzeń)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST (bliźniacze reprezentacje urządzeń)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)

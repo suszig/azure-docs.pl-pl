@@ -1,4 +1,4 @@
-# [Omówienie](security-get-started-overview.md)
+# [Omówienie](azure-security.md)
 ## [Bezpieczeństwo sieci](security-network-overview.md)
 ## [Zabezpieczenia magazynu](security-storage-overview.md)
 ## [Bezpieczeństwo obliczeń](security-virtual-machines-overview.md)
@@ -6,6 +6,10 @@
 ## [Zarządzanie tożsamościami](security-identity-management-overview.md)
 ## [Zabezpieczenia IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Architektura zabezpieczeń](azure-security-architecture-overview.md)
+### [Bezpieczeństwo działania](azure-operational-security.md)
+### [Zaawansowane wykrywanie zagrożeń](azure-threat-detection.md)
+### [Rejestrowanie i przeprowadzanie inspekcji](azure-log-audit.md)
+### [Izolacja w chmurze publicznej](azure-isolation.md)
 
 # Wprowadzenie
 ## [Rozpoczynanie pracy z zabezpieczeniami platformy Azure](azure-security-getting-started.md)
