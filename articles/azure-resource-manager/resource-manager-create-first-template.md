@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ Ponownie program VS Code zapewni pomoc w postaci sugerowanych dostępnych funkcj
 
 ![wyświetlanie funkcji](./media/resource-manager-create-first-template/show-functions.png)
 
-Zauważ, że funkcja jest ujęta w nawiasy kwadratowe. Funkcja [resourceGroup](resource-group-template-functions.md#resourcegroup) zwraca obiekt z właściwością o nazwie `location`. Grupa zasobów zawiera wszystkie zasoby dotyczące danego rozwiązania. Możesz zakodować właściwość lokalizacji na wartość taką jak „Środkowe stany USA”, ale będzie konieczna ręczna zmiana szablonu w celu jego ponownego wdrożenia w innej lokalizacji. Użycie funkcji `resourceGroup` ułatwia ponowne wdrażanie tego szablonu w innej grupie zasobów w innej lokalizacji.
+Zauważ, że funkcja jest ujęta w nawiasy kwadratowe. Funkcja [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) zwraca obiekt z właściwością o nazwie `location`. Grupa zasobów zawiera wszystkie zasoby dotyczące danego rozwiązania. Możesz zakodować właściwość lokalizacji na wartość taką jak „Środkowe stany USA”, ale będzie konieczna ręczna zmiana szablonu w celu jego ponownego wdrożenia w innej lokalizacji. Użycie funkcji `resourceGroup` ułatwia ponowne wdrażanie tego szablonu w innej grupie zasobów w innej lokalizacji.
 
 Twój szablon wygląda teraz następująco:
 
@@ -216,7 +217,7 @@ Twój szablon wygląda teraz następująco:
 ## <a name="add-parameters-and-variables"></a>Dodawanie parametrów i zmiennych
 Pozostały już tylko dwie wartości do ustawienia w tym szablonie — **name** i **sku.name**. W przypadku tych właściwości należy dodać parametry, które umożliwiają konfigurowanie tych wartości podczas wdrożenia. 
 
-Nazwy kont magazynu podlegają kilku ograniczeniom, które utrudniają ich skonfigurowanie. Nazwa musi mieć od 3 do 24 znaków długości, zawierać wyłącznie cyfry i małe litery oraz musi być unikatowa. Zamiast próbowania odgadnięcia unikatowej wartości spełniającej te ograniczenia, możesz użyć funkcji [uniqueString](resource-group-template-functions.md#uniquestring), aby wygenerować wartość skrótu. Aby wartość skrótu była znacząca, dodaj prefiks, dzięki któremu zidentyfikujesz ją jako konto magazynu po wdrożeniu. 
+Nazwy kont magazynu podlegają kilku ograniczeniom, które utrudniają ich skonfigurowanie. Nazwa musi mieć od 3 do 24 znaków długości, zawierać wyłącznie cyfry i małe litery oraz musi być unikatowa. Zamiast próbowania odgadnięcia unikatowej wartości spełniającej te ograniczenia, możesz użyć funkcji [uniqueString](resource-group-template-functions-string.md#uniquestring), aby wygenerować wartość skrótu. Aby wartość skrótu była znacząca, dodaj prefiks, dzięki któremu zidentyfikujesz ją jako konto magazynu po wdrożeniu. 
 
 1. Aby przekazać nazwie prefiks spełniający stosowane konwencje nazewnictwa, przejdź do sekcji **parameters** szablonu. Dodaj parametr do szablonu, który akceptuje prefiks dla nazwy konta magazynu:
 
