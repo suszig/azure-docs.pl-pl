@@ -4,7 +4,7 @@ description: "Informacje zawarte w tym artykule ułatwiają rozpoczęcie korzyst
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -28,18 +29,17 @@ Informacje zawarte w tym artykule ułatwiają korzystanie z funkcji monitorowani
 Monitorowanie jest często postrzegane jako obserwowanie i oczekiwanie na wystąpienie zdarzenia, aby można było zareagować na zaistniałą sytuację. Monitorowanie zabezpieczeń polega na wdrożeniu aktywnej strategii przeprowadzania inspekcji zasobów w celu zidentyfikowania systemów, które nie spełniają standardów organizacji lub są niezgodne z najlepszymi rozwiązaniami.
 
 ## <a name="monitoring-security-health"></a>Monitorowanie kondycji zabezpieczeń
-Po włączeniu [zasad zabezpieczeń](security-center-policies.md) dla zasobów subskrypcji usługa Security Center analizuje zabezpieczenia zasobów, aby zidentyfikować potencjalne luki. Informacje o konfiguracji sieci są dostępne natychmiast. Informacje o konfiguracji maszyny wirtualnej — np. o stanie aktualizacji zabezpieczeń i konfiguracji systemu operacyjnego — mogą zostać udostępnione dopiero po godzinie lub jeszcze dłuższym czasie. Stan zabezpieczeń zasobów oraz informacje o problemach można wyświetlić w bloku **Kondycja zabezpieczeń zasobów**. Listę tych problemów można również wyświetlić w bloku **Zalecenia**.
+Po włączeniu [zasad zabezpieczeń](security-center-policies.md) dla zasobów subskrypcji usługa Security Center analizuje zabezpieczenia zasobów, aby zidentyfikować potencjalne luki. Informacje o konfiguracji sieci są dostępne natychmiast. Informacje o konfiguracji maszyny wirtualnej — np. o stanie aktualizacji zabezpieczeń i konfiguracji systemu operacyjnego — mogą zostać udostępnione dopiero po godzinie lub jeszcze dłuższym czasie. Stan zabezpieczeń zasobów oraz informacje o problemach można wyświetlić w sekcji **Zapobieganie**. Listę tych problemów można również wyświetlić na kafelku **Zalecenia**.
 
 Więcej informacji dotyczących stosowania zaleceń można znaleźć w temacie [Wdrażanie zaleceń dotyczących zabezpieczeń w usłudze Azure Security Center](security-center-recommendations.md).
 
-Na kafelku **Kondycja zabezpieczeń zasobów** można monitorować stan zabezpieczeń zasobów. W poniższym przykładzie widać szereg problemów o wysokiej i średniej ważności, które wymagają uwagi. Włączone zasady zabezpieczeń wpływają na typy monitorowanych środków kontroli.
+W sekcji **Zapobieganie** można monitorować stan zabezpieczeń zasobów. W poniższym przykładzie widać, że na kafelkach poszczególnych zasobów (Compute, Sieć, Storage i dane oraz Aplikacja) jest wyświetlana łączna liczba zidentyfikowanych problemów.
 
-![Kafelek Kondycja zabezpieczeń zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![Kafelek Kondycja zabezpieczeń zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-Jeśli w usłudze Security Center zostanie zidentyfikowana luka w zabezpieczeniach, którą trzeba usunąć, np. maszyna wirtualna z brakującymi aktualizacjami zabezpieczeń lub podsieć bez [sieciowej grupy zabezpieczeń](/virtual-network/virtual-networks-nsg.md), zostanie ona wyświetlona na tej liście.
 
 ### <a name="monitor-compute"></a>Monitorowanie mocy obliczeniowej
-Kliknięcie pozycji **Obliczanie** na kafelku **Kondycja zabezpieczeń zasobów** spowoduje otwarcie bloku **Obliczanie** z trzema kartami:
+Kliknięcie kafelka **Compute** powoduje otwarcie bloku **Compute** z trzema kartami:
 
 - **Omówienie**: zalecenia dotyczące monitorowania i maszyny wirtualnej.
 - **Maszyny wirtualne**: lista wszystkich maszyn wirtualnych i bieżącego stanu zabezpieczeń.
@@ -119,7 +119,7 @@ Aby zobaczyć więcej normatywnych wyjaśnień dotyczących tego zalecenia, klik
 ![Zalecenia dotyczące usług w chmurze](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Monitorowanie sieci wirtualnych
-Po kliknięciu opcji **Sieć** na kafelku **Kondycja zabezpieczeń zasobów** zostanie otwarty blok **Sieć** zawierający więcej szczegółowych informacji, jak pokazano na poniższym zrzucie ekranu:
+Kliknięcie kafelka **Sieć** powoduje otwarcie bloku **Sieć** zawierającego więcej szczegółowych informacji, jak pokazano na poniższym zrzucie ekranu:
 
 ![Blok Sieć](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -170,11 +170,11 @@ W tym widoku topologii pierwszy poziom obejmuje pozycje [sieci wirtualne](../vir
 
 W dolnej części tego bloku znajdują się zalecenia dotyczące tej maszyny wirtualnej, co jest podobne do powyższego opisu. Kliknij zalecenie, aby dowiedzieć się więcej i ewentualnie zastosować odpowiednie środki kontroli lub konfigurację zabezpieczeń.
 
-### <a name="monitor-data"></a>Monitorowanie danych
+### <a name="monitor-storage--data"></a>Monitorowanie usługi Storage i danych
 
-Po kliknięciu pozycji **SQL i Dane** na kafelku **Kondycja zabezpieczeń zasobów** zostanie otwarty blok **Zasoby danych** z zaleceniami dotyczącymi usług SQL i Storage. Przedstawia on także [zalecenia](security-center-sql-service-recommendations.md) dotyczące ogólnej kondycji bazy danych. Aby uzyskać więcej informacji dotyczących szyfrowania magazynu, przeczytaj artykuł [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md) (Włączanie szyfrowania dla konta usługi Azure Storage w usłudze Azure Security Center).
+Po kliknięciu pozycji **Storage i dane** w sekcji **Zapobieganie** zostanie otwarty blok **Zasoby danych** z zaleceniami dotyczącymi usług SQL i Storage. Przedstawia on także [zalecenia](security-center-sql-service-recommendations.md) dotyczące ogólnej kondycji bazy danych. Aby uzyskać więcej informacji dotyczących szyfrowania magazynu, przeczytaj artykuł [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md) (Włączanie szyfrowania dla konta usługi Azure Storage w usłudze Azure Security Center).
 
-![Zasoby danych](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Zasoby danych](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 W obszarze **Zalecenia SQL** można kliknąć dowolne zalecenie i uzyskać więcej szczegółów na temat dalszych działań w celu rozwiązania problemu. Poniższy przykład pokazuje rozszerzenie zalecenia **Inspekcja bazy danych i wykrywanie zagrożeń w bazach danych SQL**.
 

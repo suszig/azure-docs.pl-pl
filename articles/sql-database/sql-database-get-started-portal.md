@@ -14,12 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/03/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 90761317944b935b76df65d25a2035bfabe71c09
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: dbed7fe1f6ffdb40d445a66890b63baaf7a57f54
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -143,11 +144,8 @@ Teraz, po utworzeniu przykładowej bazy danych na platformie Azure, użyjemy wbu
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. 
+Jeśli nie potrzebujesz tych zasobów w innym przewodniku szybkiego startu lub samouczku (zobacz [Następne kroki](#next-steps)), możesz je usunąć, wykonując następujące czynności:
 
-> [!TIP]
-> Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego szybkiego startu.
->
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij pozycję **myResourceGroup**. 
 2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę **myResourceGroup**, a następnie kliknij pozycję **Usuń**.

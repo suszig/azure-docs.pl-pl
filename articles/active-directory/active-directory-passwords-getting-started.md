@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d138f4135d008c746bd5501680392b80a51786fa
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -61,15 +61,15 @@ W tym przewodniku założono, że masz już działającą dzierżawę usługi Az
 **W tym momencie skonfigurowano samoobsługowe resetowanie haseł dla dzierżawy usługi Azure AD**. Możesz się zatrzymać w tym miejscu albo kontynuować w celu skonfigurowania synchronizacji haseł z lokalną domeną usługi AD.
 
 > [!NOTE]
-> Przetestuj samoobsługowe resetowanie haseł na koncie użytkownika. Nie rób tego na koncie administratora, ponieważ firma Microsoft narzuca silne wymagania w zakresie uwierzytelniania dla kont administratorów platformy Azure. Aby uzyskać więcej informacji na temat zasad haseł administratorów, zobacz nasz [szczegółowy artykuł](active-directory-passwords-how-it-works.md).
+> Przetestuj samoobsługowe resetowanie haseł na koncie użytkownika. Nie rób tego na koncie administratora, ponieważ firma Microsoft narzuca silne wymagania w zakresie uwierzytelniania dla kont administratorów platformy Azure. Aby uzyskać więcej informacji na temat zasad haseł administratorów, zobacz nasz [artykuł na temat zasad haseł](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>Konfigurowanie synchronizacji z istniejącym źródłem tożsamości
 
-Aby włączyć synchronizację lokalnych tożsamości z usługą Azure AD, musisz zainstalować i skonfigurować aplikację [Azure AD Connect](/connect/active-directory-aadconnect.md) na serwerze w swojej organizacji. Ta aplikacja zajmuje się synchronizowaniem użytkowników oraz grup w istniejącym źródle tożsamości i domenie usługi Azure AD.
+Aby włączyć synchronizację lokalnych tożsamości z usługą Azure AD, musisz zainstalować i skonfigurować aplikację [Azure AD Connect](./connect/active-directory-aadconnect.md) na serwerze w swojej organizacji. Ta aplikacja zajmuje się synchronizowaniem użytkowników oraz grup w istniejącym źródle tożsamości i domenie usługi Azure AD.
 
-[Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych](/connect/active-directory-aadconnect-get-started-express.md)
+[Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych](./connect/active-directory-aadconnect-get-started-express.md)
 
-[Uaktualnienie z programu DirSync lub Azure AD Sync do programu Azure AD Connect](/connect/active-directory-aadconnect-dirsync-deprecated.md)
+[Uaktualnienie z programu DirSync lub Azure AD Sync do programu Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 
 ## <a name="disabling-self-service-password-reset"></a>Wyłączanie samoobsługowego resetowania haseł
 

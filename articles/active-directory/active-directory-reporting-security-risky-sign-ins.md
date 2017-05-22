@@ -1,6 +1,7 @@
 ---
-title: "Raport dotyczący ryzykownych logowań w portalu Azure Active Directory — wersja zapoznawcza | Microsoft Docs"
-description: "Dowiedz się więcej o raporcie dotyczącym ryzykownych logowań w portalu Azure Active Directory — wersja zapoznawcza."
+
+title: "Raport dotyczący ryzykownych logowań w portalu usługi Azure Active Directory | Microsoft Docs"
+description: "Dowiedz się więcej o raporcie dotyczącym ryzykownych logowań w portalu usługi Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,20 +11,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 69b2166dcbc3e4abd99084b47907c90e157791de
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal---preview"></a>Raport dotyczący ryzykownych logowań w portalu Azure Active Directory — wersja zapoznawcza
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Raport dotyczący ryzykownych logowań w portalu usługi Azure Active Directory
 
-Dzięki raportom o zabezpieczeniach w ramach [podglądu](active-directory-preview-explainer.md) usługi Azure Active Directory możesz uzyskać wgląd w prawdopodobieństwo naruszenia bezpieczeństwa kont użytkowników w środowisku. 
+Dzięki raportom o zabezpieczeniach w usłudze Azure Active Directory (Azure AD) możesz uzyskać wgląd w prawdopodobieństwo naruszenia bezpieczeństwa kont użytkowników w środowisku. 
 
-Usługa Azure Active Directory wykrywa podejrzane akcje powiązane z kontami użytkowników. Dla każdej wykrytej akcji jest tworzony wpis nazywany *zdarzeniem o podwyższonym ryzyku*. Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usłudze Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+Usługa Azure AD wykrywa podejrzane akcje powiązane z kontami użytkowników. Dla każdej wykrytej akcji jest tworzony wpis nazywany *zdarzeniem o podwyższonym ryzyku*. Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usłudze Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
 Za pomocą wykrytych zdarzeń o podwyższonym ryzyku obliczane są:
 
@@ -31,7 +33,7 @@ Za pomocą wykrytych zdarzeń o podwyższonym ryzyku obliczane są:
 
 - **Użytkownicy oflagowani w związku z ryzykiem** — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. Aby uzyskać więcej informacji, zobacz [Użytkownicy oflagowani w związku z ryzykiem](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-W witrynie Azure Portal raporty dotyczące zabezpieczeń można znaleźć w bloku **Azure Active Directory** w sekcji **Zabezpieczenia**. 
+W witrynie [Azure Portal](https://portal.azure.com) raporty dotyczące zabezpieczeń można znaleźć w bloku **Azure Active Directory** w sekcji **Zabezpieczenia**. 
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 

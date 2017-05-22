@@ -1,6 +1,7 @@
 ---
-title: "Raporty usługi Azure Active Directory — podgląd | Microsoft Docs"
-description: "Lista raportów dostępnych w ramach podglądu usługi Azure Active Directory"
+
+title: "Raporty usługi Azure Active Directory | Microsoft Docs"
+description: "Lista raportów dostępnych w ramach usługi Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Raporty usługi Azure Active Directory — podgląd
+# <a name="azure-active-directory-reporting"></a>Raporty w usłudze Azure Active Directory
 
 
 *Ta dokumentacja jest częścią [Przewodnika po raportach usługi Azure Active Directory](active-directory-reporting-guide.md).*
 
-Dzięki raportom w ramach podglądu usługi Azure Active Directory, otrzymasz wszystkie informacje, które pomogą ustalić działanie środowiska. [Co znajduje się w podglądzie?](active-directory-preview-explainer.md)
+Dzięki raportom w usłudze Azure Active Directory (Azure AD) możesz uzyskać wszystkie informacje, które pomogą ustalić działanie środowiska.
 
 Istnieją dwa główne obszary raportowania:
 

@@ -1,6 +1,7 @@
 ---
-title: "Raport o zabezpieczeniach dotyczący narażonych użytkowników w portalu Azure Active Directory — wersja zapoznawcza | Microsoft Docs"
-description: "Dowiedz się więcej o raporcie o zabezpieczeniach dotyczącym narażonych użytkowników w portalu Azure Active Directory — wersja zapoznawcza."
+
+title: "Raport o zabezpieczeniach dotyczący narażonych użytkowników w portalu usługi Azure Active Directory | Microsoft Docs"
+description: "Dowiedz się więcej o raporcie o zabezpieczeniach dotyczącym narażonych użytkowników w portalu usługi Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,18 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Raport o zabezpieczeniach dotyczący narażonych użytkowników w portalu Azure Active Directory — wersja zapoznawcza
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Raport o zabezpieczeniach dotyczący narażonych użytkowników w portalu usługi Azure Active Directory
 
-Dzięki raportom o zabezpieczeniach w ramach [podglądu](active-directory-preview-explainer.md) usługi Azure Active Directory możesz uzyskać wgląd w prawdopodobieństwo naruszenia bezpieczeństwa kont użytkowników w środowisku. 
+Dzięki raportom o zabezpieczeniach w usłudze Azure Active Directory (Azure AD) możesz uzyskać wgląd w prawdopodobieństwo naruszenia bezpieczeństwa kont użytkowników w środowisku. 
 
 Usługa Azure Active Directory wykrywa podejrzane akcje powiązane z kontami użytkowników. Dla każdej wykrytej akcji jest tworzony wpis nazywany *zdarzeniem o podwyższonym ryzyku*. Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usłudze Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 

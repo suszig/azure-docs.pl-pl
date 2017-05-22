@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ Maszyny wirtualne usługi Premium Storage można przywrócić do usługi Premium
 Usługa Azure Backup chroni maszyny wirtualne dysku zarządzanego. Dzięki dyskom zarządzanym nie musisz zarządzać kontami magazynu maszyn wirtualnych, a aprowizowanie maszyny wirtualnej jest znacznie prostsze.
 
 ### <a name="back-up-managed-disk-vms"></a>Tworzenie kopii zapasowej maszyn wirtualnych dysku zarządzanego
-Proces tworzenia kopii zapasowych maszyn wirtualnych na dyskach zarządzanych nie różni się niczym od tworzenia kopii zapasowych maszyn wirtualnych w usłudze Resource Manager. W witrynie Azure Portal możesz skonfigurować zadanie tworzenia kopii zapasowej bezpośrednio w widoku maszyny wirtualnej lub widoku magazynu usługi Recovery Services. Kopie zapasowe maszyn wirtualnych możesz tworzyć na dyskach zarządzanych za pomocą kolekcji RestorePoint tworzonych na tych dyskach. Usługa Azure Backup nie obsługuje obecnie tworzenia kopii zapasowych maszyn wirtualnych z dyskami zarządzanymi zaszyfrowanymi za pomocą usługi Azure Disk Encryption (ADE).
+Proces tworzenia kopii zapasowych maszyn wirtualnych na dyskach zarządzanych nie różni się niczym od tworzenia kopii zapasowych maszyn wirtualnych w usłudze Resource Manager. W witrynie Azure Portal możesz skonfigurować zadanie tworzenia kopii zapasowej bezpośrednio w widoku maszyny wirtualnej lub widoku magazynu usługi Recovery Services. Kopie zapasowe maszyn wirtualnych możesz tworzyć na dyskach zarządzanych za pomocą kolekcji RestorePoint tworzonych na tych dyskach. Usługa Azure Backup obsługuje także tworzenie kopii zapasowych maszyn wirtualnych z dyskami zarządzanymi zaszyfrowanymi za pomocą usługi Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Przywracanie maszyn wirtualnych dysku zarządzanego
-Usługa Azure Backup umożliwia przywracanie kompletnej maszyny wirtualnej z dyskami zarządzanymi lub przywracanie dysków zarządzanych do konta magazynu usługi Resource Manager. Platforma Azure zarządza dyskami zarządzanymi podczas procesu przywracania. Natomiast to klient (czyli Ty) zarządza kontem magazynu utworzonym w ramach procesu przywracania.
+Usługa Azure Backup umożliwia przywracanie kompletnej maszyny wirtualnej z dyskami zarządzanymi lub przywracanie dysków zarządzanych do konta magazynu usługi Resource Manager. Platforma Azure zarządza dyskami zarządzanymi podczas procesu przywracania. Natomiast to klient (czyli Ty) zarządza kontem magazynu utworzonym w ramach procesu przywracania. Aby przywracać zarządzane zaszyfrowane maszyny wirtualne, klucze i wpisy tajne maszyn wirtualnych powinny już istnieć w magazynie kluczy przed przystąpieniem do przywracania.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Jakie są funkcje każdego składnika usługi Azure Backup?
 Poniższe sekcje zawierają tabele podsumowujące dostępność lub obsługę różnych funkcji w każdym składniku usługi Azure Backup. W informacjach podanych po każdej tabeli znajdziesz dodatkowe wsparcie lub szczegóły.

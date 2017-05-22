@@ -1,6 +1,7 @@
 ---
-title: "Raport dotyczący logowań w portalu Azure Active Directory — wersja zapoznawcza | Microsoft Docs"
-description: "Wprowadzenie do raportów dotyczących logowań w portalu Azure Active Directory — wersja zapoznawcza"
+
+title: "Raporty dotyczące logowań w portalu usługi Azure Active Directory | Microsoft Docs"
+description: "Wprowadzenie do raportów dotyczących logowań w portalu Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Raporty dotyczące logowań w portalu Azure Active Directory — wersja zapoznawcza
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
 
-Dzięki raportom w ramach [wersji zapoznawczej](active-directory-preview-explainer.md) usługi Azure Active Directory, otrzymasz wszystkie informacje, które pomogą ustalić działanie środowiska.
+Dzięki raportom usługi Azure Active Directory (Azure AD) w witrynie [Azure Portal](https://portal.azure.com) możesz uzyskać wszystkie informacje, które pomogą ustalić, jak działa środowisko.
 
 Architektura raportowania w usłudze Azure Active Directory obejmuje następujące składniki:
 
@@ -44,7 +46,7 @@ Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać o
 * Ilu użytkowników zalogowało się w ciągu tygodnia?
 * Jaki jest stan tych logowań?
 
-Pierwszym punktem wejścia do wszystkich danych dotyczących logowania jest pozycja **Logowania** w sekcji Działania usługi **Azure Active**. Directory.
+Pierwszym punktem wejścia do wszystkich danych dotyczących logowania jest pozycja **Logowania** w sekcji Działania usługi **Azure Active**.
 
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/61.png "Działania związane z logowaniem")

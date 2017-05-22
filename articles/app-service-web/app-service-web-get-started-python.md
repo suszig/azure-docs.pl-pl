@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Ten samouczek szybkiego startu poprowadzi Cię przez tworzenie i wdrażanie apli
 
 Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux. Wykonanie wszystkich poniższych czynności powinno zająć tylko około 5 minut.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed uruchomieniem tego przykładu zainstaluj lokalnie następujące wymagania wstępne:
 
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Tworzenie usługi Azure App Service
 
-Utwórz plan usługi App Service opartej na systemie Linux za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#create).
+Utwórz plan usługi App Service za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#create).
 
 > [!NOTE]
 > Plan usługi App Service reprezentuje kolekcję zasobów fizycznych służących do hostowania aplikacji. Wszystkie aplikacje przypisane do planu usługi App Service współdzielą zasoby przez niego zdefiniowane, ograniczając koszt hostowania wielu aplikacji.
@@ -119,7 +120,7 @@ Utwórz plan usługi App Service opartej na systemie Linux za pomocą polecenia 
 > * Jednostka magazynowa (Bezpłatna, Współdzielona, Podstawowa, Standardowa, Premium)
 >
 
-Poniższy przykład tworzy plan usługi App Service dla procesów roboczych systemu Linux o nazwie `quickStartPlan` przy użyciu warstwy cenowej **Bezpłatna**.
+Poniższy przykład tworzy plan usługi App Service o nazwie `quickStartPlan` przy użyciu warstwy cenowej **Bezpłatna**.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -193,7 +194,7 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
-Utworzyliśmy pustą nową aplikację sieci Web na platformie Azure. Skonfigurujmy teraz aplikację sieci Web do używania środowiska Python i przeprowadźmy wdrożenie aplikacji w nim.
+Utworzyliśmy pustą nową aplikację sieci Web na platformie Azure. Skonfigurujmy teraz aplikację sieci Web do używania środowiska Python i przeprowadźmy w nim jej wdrożenie.
 
 ## <a name="configure-to-use-python"></a>Konfigurowanie do używania środowiska Python
 
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 Tym razem strona, która wyświetla komunikat Witaj, świecie, jest uruchomiona przy użyciu kodu języka Python działającego jako aplikacja sieci Web usługi Azure App Service.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>Aktualizowanie i wdrażanie kodu
 
@@ -309,7 +310,7 @@ git push azure master
 
 Po zakończeniu wdrożenia przejdź z powrotem do okna przeglądarki otwartego w kroku przechodzenia do aplikacji, a następnie kliknij przycisk Odśwież.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Zarządzanie nową aplikacją sieci Web platformy Azure
 
@@ -319,13 +320,13 @@ W tym celu zaloguj się do witryny [https://portal.azure.com](https://portal.azu
 
 W lewym menu kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji sieci Web platformy Azure.
 
-![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/app-service-web-get-started-python/app-service-list.png)
 
 Jesteś teraz w _bloku_ aplikacji sieci Web (stronie portalu, która jest otwierana w poziomie).
 
 Domyślnie blok aplikacji sieci Web wyświetla stronę **Przegląd**. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. Karty po lewej stronie bloku pokazują różne strony konfiguracji, które można otworzyć.
 
-![Blok usługi App Service w witrynie Azure Portal](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Blok usługi App Service w witrynie Azure Portal](media/app-service-web-get-started-python/app-service-detail.png)
 
 Te karty w bloku pokazują wiele doskonałych funkcji, które możesz dodać do aplikacji sieci Web. Poniższa lista zawiera tylko kilka możliwości:
 
@@ -341,4 +342,6 @@ Te karty w bloku pokazują wiele doskonałych funkcji, które możesz dodać do 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z wcześniej utworzonymi [skryptami interfejsu wiersza polecenia aplikacji sieci Web](app-service-cli-samples.md).
+> [!div class="nextstepaction"]
+> [Zapoznaj się z przykładowymi skryptami interfejsu wiersza polecenia w usługach Web Apps](app-service-cli-samples.md)
+
