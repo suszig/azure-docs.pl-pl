@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Ten przewodnik szybkiego startu pomaga w ciągu kilku minut wdrożyć pierwszą 
 
 ![Aplikacja sieci Web platformy ASP.NET w usłudze Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Ten samouczek pokazuje sposób używania programu Visual Studio 2017 do tworzenia i wdrażania aplikacji sieci Web platformy ASP.NET na platformie Azure. Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pobrać program [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) i używać go **bezpłatnie**. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
@@ -37,7 +38,7 @@ Ten samouczek pokazuje sposób używania programu Visual Studio 2017 do tworzeni
 
 ## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji sieci Web platformy ASP.NET
 
-W programie Visual Studio utwórz nowy projekt za pomocą kombinacji `Ctrl` + `Shift` + `N`.
+W programie Visual Studio utwórz projekt za pomocą kombinacji `Ctrl` + `Shift` + `N`.
 
 W oknie dialogowym **Nowy projekt** kliknij pozycje **Visual C# > Sieć Web > Aplikacja sieci Web ASP.NET (program .NET Framework)**.
 
@@ -110,7 +111,7 @@ W oknie dialogowym **Konfiguruj plan usługi App Service** skonfiguruj nowy plan
 
 Kliknij przycisk **OK**.
 
-![Tworzenie nowego planu usługi App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Tworzenie planu usługi App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>Tworzenie i publikowanie aplikacji sieci Web
 
@@ -165,11 +166,11 @@ W lewym menu kliknij pozycję **App Services**, a następnie kliknij nazwę swoj
 
 Jesteś teraz w _bloku_ aplikacji sieci Web (stronie portalu, która jest otwierana w poziomie). 
 
-Domyślnie blok aplikacji sieci Web wyświetla stronę **Przegląd**. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. Karty po lewej stronie bloku pokazują różne strony konfiguracji, które można otworzyć. 
+Domyślnie blok aplikacji sieci Web wyświetla stronę **Przegląd**. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie.  
 
 ![Blok usługi App Service w witrynie Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Te karty w bloku pokazują wiele doskonałych funkcji, które możesz dodać do aplikacji sieci Web. Poniższa lista zawiera tylko kilka możliwości:
+Karty po lewej stronie bloku pokazują różne strony konfiguracji, które można otworzyć. Poniższa lista zawiera tylko kilka możliwości:
 
 - Mapowanie niestandardowej nazwy DNS
 - Tworzenie powiązania niestandardowego certyfikatu SSL
@@ -193,5 +194,9 @@ W bloku potwierdzenia potwierdź operację, wpisując nazwę grupy zasobów **my
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z wstępnie utworzonymi [skryptami programu PowerShell aplikacji sieci Web](app-service-powershell-samples.md).
+> [!div class="nextstepaction"]
+> [Dowiedz się, jak zbudować aplikację ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Zapoznaj się z przykładowymi skryptami programu PowerShell w usługach Web Apps](app-service-powershell-samples.md)
 

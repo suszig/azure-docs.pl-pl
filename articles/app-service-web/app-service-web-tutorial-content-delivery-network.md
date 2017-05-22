@@ -1,148 +1,300 @@
 ---
-title: "Dodawanie usługi Content Delivery Network w usłudze Azure App Service | Microsoft Docs"
-description: "Dodaj usługę Content Delivery Network w usłudze Azure App Service w celu dostarczania plików statycznych z węzłów krawędzi."
+title: "Dodawanie usługi Content Delivery Network (CDN) do usługi Azure App Service | Microsoft Docs"
+description: "Dodaj usługę Content Delivery Network (CDN) do usługi Azure App Service, aby buforować i dostarczać pliki statyczne z serwerów znajdujących się blisko klientów na całym świecie."
 services: app-service
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/03/2017
+ms.date: 05/01/2017
 ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 7ba3737566401152a3171e8926beca188045230c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 ---
-# <a name="add-a-content-deliver-network-on-an-azure-app-service"></a>Dodawanie usługi Content Delivery Network w usłudze Azure App Service
+# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Dodawanie usługi Content Delivery Network (CDN) do usługi Azure App Service
 
-W tym samouczku dodasz usługę Content Delivery Network do usługi Azure App Service w celu udostępniania zawartości statycznej na serwerze krawędzi. Utworzysz profil CDN, który jest zbiorem maksymalnie 10 punktów końcowych usługi CDN.
+Usługa [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) buforuje zawartość statyczną sieci Web w strategicznie rozmieszczonych lokalizacjach w celu zapewnienia maksymalnej przepływności dostarczania zawartości dla użytkowników. Usługa CDN zmniejsza również obciążenie serwera w aplikacji sieci Web. W tym samouczku przedstawiono sposób dodawania usługi Azure CDN do [aplikacji sieci Web w usłudze Azure App Service](app-service-web-overview.md). 
 
-Usługa Content Delivery Network (CDN) buforuje zawartość statyczną sieci Web w strategicznie rozmieszczonych lokalizacjach w celu zapewnienia maksymalnej przepływności dostarczania zawartości dla użytkowników. Zalety używania usługi CDN do buforowania zasobów witryny sieci Web obejmują:
+Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-* Lepszą wydajność i środowisko dla użytkowników końcowych, zwłaszcza w przypadku korzystania z aplikacji, w których wymagane jest wiele rund do załadowania zawartości.
-* Duże skalowanie, aby lepiej obsługiwać natychmiastowe wysokie obciążenie, na przykład na początku zdarzenia uruchamiania produktu.
-* Dystrybucję żądań użytkowników i obsługę zawartości z serwerów krawędzi, dzięki czemu mniej ruchu jest wysyłane do punktu początkowego.
+> [!div class="checklist"]
+> * Tworzenie punktu końcowego usługi CDN.
+> * Odświeżanie elementów zawartości zapisanych w pamięci podręcznej.
+> * Używanie ciągów zapytań do sterowania zbuforowanymi wersjami.
+> * Używanie domeny niestandardowej na potrzeby punktu końcowego usługi CDN.
 
-> [!TIP]
-> Przejrzyj aktualną listę [lokalizacji punktów obecności usługi Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
->
+Oto strona główna przykładowej statycznej witryny HTML, z którą będziesz pracować:
 
-## <a name="deploy-the-sample"></a>Wdrażanie przykładu
+![Strona główna przykładowej aplikacji](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
-Do wykonania kroków tego samouczka potrzebna będzie aplikacja wdrożona w aplikacji sieci Web. Postępuj zgodnie z instrukcjami [tworzenie statycznej witryny HTML — szybki start](app-service-web-get-started-html.md), aby zapewnić podstawę dla tego samouczka.
+## <a name="create-the-web-app"></a>Tworzenie aplikacji sieci Web
 
-## <a name="step-1---login-to-azure-portal"></a>Krok 1 — Logowanie do witryny Azure Portal
+Aby utworzyć aplikację sieci Web, z którą będziesz pracować, postępuj zgodnie z instrukcjami [tworzenie statycznej witryny HTML — szybki start](app-service-web-get-started-html.md), ale nie wykonuj kroku **Oczyszczanie zasobów**.
 
-Najpierw otwórz ulubioną przeglądarkę i przejdź do witryny [Azure Portal](https://portal.azure.com).
+Po ukończeniu samouczka nie zamykaj wiersza polecenia, aby można było wdrożyć dodatkowe zmiany w aplikacji sieci Web w dalszej części tego samouczka.
 
-## <a name="step-2---create-a-cdn-profile"></a>Krok 2 — Tworzenie profilu CDN
+### <a name="have-a-custom-domain-ready"></a>Przygotowywanie domeny niestandardowej
 
-Kliknij przycisk `+ New` znajdujący się w obszarze nawigacji po lewej stronie, a następnie kliknij pozycję **Sieć Web i mobilność**. W kategorii Sieć Web i aplikacje mobilne wybierz pozycję **CDN**.
+Do ukończenia etapu tworzenia domeny niestandardowej w tym samouczku musisz mieć dostęp do rejestru systemu DNS dostawcy domeny (np. GoDaddy). Aby na przykład dodać wpisy DNS dla domen `contoso.com` i `www.contoso.com`, musisz mieć możliwość skonfigurowania ustawień DNS dla domeny głównej `contoso.com`.
 
-Określ następujące pola:
+Jeśli nie masz jeszcze nazwy domeny, możesz postępować według instrukcji zawartych w [samouczku dotyczącym domeny usługi App Service](custom-dns-web-site-buydomains-web-app.md) w celu zakupienia domeny za pośrednictwem witryny Azure Portal. 
 
-| Pole | Wartość przykładowa | Opis |
-|---|---|---|
-| Nazwa | myCDNProfile | Nazwa profilu CDN. |
-| Lokalizacja | Europa Zachodnia | To jest lokalizacja platformy Azure, w której będą przechowywane informacje o profilu CDN. Nie ma ona wpływu na lokalizacje punktów końcowych CDN. |
-| Grupa zasobów | myResourceGroup | Więcej informacji na temat grup zasobów znajduje się w temacie [Usługa Azure Resource Manager — omówienie](../azure-resource-manager/resource-group-overview.md#resource-groups). |
-| Warstwa cenowa | Standard Akamai | Porównanie warstw cenowych znajduje się w temacie [Omówienie CDN](../cdn/cdn-overview.md#azure-cdn-features). |
+## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
-Kliknij przycisk **Utwórz**.
+Otwórz przeglądarkę i przejdź do witryny [Azure Portal](https://portal.azure.com).
 
-Otwórz centrum grup zasobów w obszarze nawigacji po lewej stronie i wybierz pozycję **myResourceGroup**. Z listy zasobów wybierz pozycję **myCDNProfile**.
+## <a name="create-a-cdn-profile-and-endpoint"></a>Tworzenie profilu i punktu końcowego usługi CDN
 
-![azure-cdn-profile-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-profile-created.png)
+Na lewym panelu nawigacyjnym wybierz pozycję **App Services**, a następnie wybierz aplikację utworzoną w samouczku [tworzenie statycznej witryny HTML — szybki start](app-service-web-get-started-html.md).
 
-## <a name="step-3---create-a-cdn-endpoint"></a>Krok 3 — Tworzenie punktu końcowego CDN
+![Wybieranie aplikacji usługi App Service w portalu](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-Kliknij pozycję **+ Punkt końcowy** wśród poleceń obok pola wyszukiwania, co spowoduje uruchomienie bloku tworzenia punktu końcowego.
+Na stronie **App Service** w sekcji **Ustawienia** wybierz pozycję **Sieć > Skonfiguruj usługę Azure CDN dla aplikacji**.
 
-Określ następujące pola:
+![Wybieranie usługi CDN w portalu](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
-| Pole | Wartość przykładowa | Opis |
-|---|---|
-| Nazwa |  | Ta nazwa będzie używana do uzyskiwania dostępu do buforowanych zasobów w domenie `<endpointname>.azureedge.net`. |
-| Typ źródła | Aplikacja sieci Web | Wybranie typu źródła zapewnia menu kontekstowe dla pozostałych pól. Wybranie źródła niestandardowego udostępni pole tekstowe do wprowadzenia nazwy hosta źródła. |
-| Nazwa hosta źródła | |  Na liście rozwijanej będą wyświetlane wszystkie dostępne źródła określonego typu. W przypadku wybrania w polu Typ źródła opcji Źródło niestandardowe wpisz domenę źródła niestandardowego.  |
+Na stronie **Azure Content Delivery Network** określ ustawienia dla **nowego punktu końcowego** zgodnie z informacjami podanymi w tabeli.
 
-Kliknij pozycję **Add** (Dodaj).
+![Tworzenie profilu i punktu końcowego w portalu](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
-Punkt końcowy zostanie utworzony. Po utworzeniu punktu końcowego usługi Content Delivery Network stan zostanie zaktualizowany na **uruchomiono**.
+| Ustawienie | Sugerowana wartość | Opis |
+| ------- | --------------- | ----------- |
+| **Profil CDN** | myCDNProfile | Wybierz pozycję **Utwórz nowy**, aby utworzyć nowy profil CDN. Profil CDN jest kolekcją punktów końcowych usługi CDN znajdujących się w tej samej warstwie cenowej. |
+| **Warstwa cenowa** | Standard Akamai | [Warstwa cenowa](../cdn/cdn-overview.md#azure-cdn-features) określa dostawcę i dostępne funkcje. W tym samouczku użyto warstwy Standard Akamai. |
+| **Nazwa punktu końcowego usługi CDN** | Dowolna unikatowa nazwa w domenie azureedge.net | Dostęp do zbuforowanych zasobów można uzyskać w domenie *\<nazwapunktukoncowego>.azureedge.net*.
 
-![azure-cdn-endpoint-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-endpoint-created.png)
+Wybierz pozycję **Utwórz**.
 
-## <a name="step-4---serve-from-azure-cdn"></a>Krok 4 — Udostępnianie z usługi Azure CDN
+Na platformie Azure zostanie utworzony profil i punkt końcowy. Nowy punkt końcowy zostanie wyświetlony na liście **Punkty końcowe**, a kiedy zostanie zaprowizowany, będzie miał stan **Uruchomiono**.
 
-Teraz, gdy punkt końcowy usługi CDN ma stan **uruchomiono**, powinno być możliwe uzyskanie dostępu do zawartości z punktu końcowego usługi CDN.
+![Nowy punkt końcowy na liście](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
-Biorąc pod uwagę, że jako podstawy dla tego samouczka użyliśmy instrukcji [tworzenie statycznej witryny HTML — szybki start](app-service-web-get-started-html.md), w usłudze CDN powinny być dostępne następujące foldery: `css`, `img`, `js`.
+### <a name="test-the-cdn-endpoint"></a>Testowanie punktu końcowego usługi CDN
 
-Ścieżki zawartości między adresem URL aplikacji sieci Web `http://<app_name>.azurewebsites.net/img/` i adresem URL punktu końcowego usługi CDN `http://<endpointname>.azureedge.net/img/` są takie same, co oznacza, że możesz po prostu zastąpić domenę punktu końcowego CDN dla dowolnej zawartości statycznej, aby mogła być udostępniana z usługi CDN.
+W przypadku wybrania warstwy cenowej Verizon propagacja punktu końcowego trwa zwykle około 90 minut. W przypadku warstwy Akamai propagacja zajmuje kilka minut.
 
-Ściągnijmy nasz pierwszy obraz z punktu końcowego CDN, przechodząc do następującego adresu URL w przeglądarce sieci Web:
+Przykładowa aplikacja ma plik `index.html` i foldery *css*, *img* oraz *js*, które zawierają inne statyczne elementy zawartości. Ścieżki zawartości dla wszystkich tych plików są takie same w punkcie końcowym usługi CDN. Na przykład oba następujące adresy URL umożliwiają dostęp do pliku *bootstrap.css* w folderze *css*:
 
-```bash
-http://<endpointname>.azureedge.net/img/03-enterprise.png
+```
+http://<appname>.azurewebsites.net/css/bootstrap.css
 ```
 
-Teraz, kiedy zawartość statyczna jest dostępna w usłudze CDN, możesz zaktualizować aplikację, aby używać punktu końcowego usługi CDN do dostarczania zawartości do użytkownika końcowego.
+```
+http://<endpointname>.azureedge.net/css/bootstrap.css
+```
 
-W zależności od języka użytego do utworzenia lokacji dostępnych może być wiele struktur ułatwiających przełączanie rezerwowe usługi CDN. Na przykład platforma ASP.NET zapewnia obsługę [tworzenia pakietów i minifikacji](https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification#using-a-cdn), które zapewniają także możliwości przełączania rezerwowego usługi CDN.
+Jeśli w przeglądarce przejdziesz do następującego adresu URL, zobaczysz tę samą stronę, którą uruchomiono wcześniej w aplikacji sieci Web platformy Azure, ale teraz będzie ona udostępniana przez usługę CDN.
 
-Jeśli dany język nie ma wbudowanej możliwości lub biblioteki do obsługi przełączania awaryjnego usługi CDN, możesz skorzystać ze środowiska JavaScript, na przykład [FallbackJS](http://fallback.io/), które obsługuje ładowanie [skryptów](https://github.com/dolox/fallback/tree/master/examples/loading-scripts), [arkuszy stylów](https://github.com/dolox/fallback/tree/master/examples/loading-stylesheets) i [obrazów](https://github.com/dolox/fallback/tree/master/examples/loading-images).
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-## <a name="step-5---purge-the-cdn"></a>Krok 5 — Przeczyszczanie usługi CDN
+![Strona główna aplikacji przykładowej udostępnianej przez usługę CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
-Czasami może być konieczne wymuszenie przeczyszczenia usługi CDN, jeśli chcesz, aby zawartość wygasła przed czasem wygaśnięcia (TTL, time to live).
+Na ilustracji widać, że usługa Azure CDN pobrała elementy zawartości oryginalnej aplikacji sieci Web i udostępnia je za pośrednictwem punktu końcowego usługi CDN. 
 
-Istnieje możliwość ręcznego przeczyszczenia usługi Azure CDN z poziomu bloku Profil CDN lub bloku punktu końcowego usługi CDN. W przypadku wybrania przeczyszczania z poziomu strony profilu CDN konieczne będzie wybranie punktu końcowego, który ma zostać przeczyszczony.
+Odśwież tę stronę, aby się upewnić, że jest ona buforowana w usłudze CDN. Aby usługa CDN umieściła żądaną zawartość w pamięci podręcznej, czasami wymagane są dwa żądania tego samego elementu zawartości.
 
-Aby przeczyścić zawartość, wpisz ścieżki zawartości, które chcesz przeczyścić. Możesz podać pełną ścieżkę, aby przeczyścić pojedynczy plik, lub segment ścieżki, aby przeczyścić i odświeżyć zawartość z konkretnego folderu.
+Aby uzyskać więcej informacji o sposobie tworzenia profilów i punktów końcowych usługi Azure CDN, zobacz [Wprowadzenie do usługi Azure CDN](../cdn/cdn-create-new-endpoint.md).
 
-Po podaniu wszystkich ścieżek zawartości do przeczyszczenia kliknij przycisk **Przeczyść**.
+## <a name="purge-the-cdn"></a>Przeczyszczanie usługi CDN
 
-![app-service-web-purge-cdn](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+Usługa CDN okresowo odświeża swoje zasoby z oryginalnej aplikacji sieci Web zgodnie z konfiguracją czasu wygaśnięcia (TTL). Domyślny czas wygaśnięcia wynosi 7 dni.
 
-## <a name="step-6---map-a-custom-domain"></a>Krok 6 — Mapowanie domeny niestandardowej
+Czasami może zajść konieczność odświeżenia usługi CDN przed upływem czasu wygaśnięcia — na przykład podczas wdrażania zaktualizowanej zawartości w aplikacji sieci Web. Aby wyzwolić odświeżanie, można ręcznie przeczyścić zasoby usługi CDN. 
 
-Mapowanie domeny niestandardowej na punkt końcowy usługi CDN zapewnia jednolitą domenę dla aplikacji sieci Web.
+W tej części samouczka zostanie wdrożona zmiana w aplikacji sieci Web i nastąpi przeczyszczenie usługi CDN w celu wyzwolenia odświeżenia pamięci podręcznej tej usługi.
 
-Aby zamapować domenę niestandardową na punkt końcowy usługi CDN, należy utworzyć rekord CNAME u rejestratora domen.
+### <a name="deploy-a-change-to-the-web-app"></a>Wdrażanie zmiany w aplikacji sieci Web
 
-> [!NOTE]
-> Rekord CNAME jest funkcją systemu DNS, która mapuje domenę źródłową, taką jak `www.contosocdn.com` lub `static.contosocdn.com`, na domenę docelową.
+Otwórz plik `index.html` i dodaj ciąg „-V2” do nagłówka H1, jak pokazano w poniższym przykładzie: 
 
-W tym przypadku zostanie dodana domena źródłowa `static.contosocdn.com` i wskazana domena docelowa, która jest punktem końcowym usługi CDN.
+```
+<h1>Azure App Service - Sample Static HTML Site - V2</h1>
+```
 
-| domena źródłowa | domena docelowa |
-|---|---|
-| static.contosocdn.com | &lt;nazwa punktu końcowego&gt;.azureedge.net |
+Zatwierdź zmianę i wdróż ją w aplikacji sieci Web.
 
-W bloku Przegląd punktu końcowego CDN kliknij przycisk `+ Custom domain`.
+```bash
+git commit -am "version 2"
+git push azure master
+```
 
-W bloku Dodawanie domeny niestandardowej wprowadź w oknie dialogowym domenę niestandardową, w tym poddomenę. Na przykład wprowadź nazwę domeny w formacie `static.contosocdn.com`.
+Po zakończeniu wdrażania przejdź do adresu URL aplikacji sieci Web i zobacz, czy zmiana jest widoczna.
 
-Kliknij pozycję **Add** (Dodaj).
+```
+http://<appname>.azurewebsites.net/index.html
+```
 
-## <a name="step-7---version-content"></a>Krok 7 — Wersja zawartości
+![Ciąg V2 w tytule aplikacji sieci Web](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
 
-W obszarze nawigacji po lewej stronie punktu końcowego usługi CDN wybierz pozycję **Pamięć podręczna** poniżej nagłówka Ustawienia.
+Po przejściu do adresu URL punktu końcowego usługi CDN dla strony głównej zobaczysz, że wprowadzona zmiana nie jest widoczna, ponieważ wersja zbuforowana w usłudze CDN jeszcze nie wygasła. 
 
-Blok **Pamięć podręczna** umożliwia skonfigurowanie sposobu, w jaki usługa CDN obsługuje ciągi zapytań w żądaniu.
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-> [!NOTE]
-> Opis opcji zachowania buforowania ciągów zapytań znajduje się w temacie [Control Azure CDN caching behavior with query strings](../cdn/cdn-query-string.md) (Sterowanie zachowaniem buforowania usługi CDN dla ciągów zapytań).
+![Brak ciągu V2 w tytule w usłudze CDN](media/app-service-web-tutorial-content-delivery-network/no-v2-in-cdn-title.png)
 
-Wybierz pozycję **Buforuj każdy unikatowy adres URL** z listy rozwijanej dla zachowania pamięci podręcznej ciągów zapytań.
+### <a name="purge-the-cdn-in-the-portal"></a>Przeczyszczanie usługi CDN w portalu
 
-Kliknij pozycję **Zapisz**.
+Aby w usłudze CDN wyzwolić zaktualizowanie zbuforowanej wersji, przeczyść usługę CDN.
+
+Na lewym panelu nawigacyjnym portalu wybierz pozycję **Grupy zasobów**, a następnie wybierz grupę zasobów utworzoną na potrzeby aplikacji sieci Web (myResourceGroup).
+
+![Wybieranie grupy zasobów](media/app-service-web-tutorial-content-delivery-network/portal-select-group.png)
+
+Na liście zasobów wybierz punkt końcowy usługi CDN.
+
+![Wybieranie punktu końcowego](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
+
+W górnej części strony **Punkt końcowy** kliknij pozycję **Przeczyść**.
+
+![Wybieranie pozycji Przeczyść](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
+
+Wprowadź ścieżki zawartości, które chcesz przeczyścić. Możesz podać pełną ścieżkę, aby przeczyścić pojedynczy plik, lub segment ścieżki, aby przeczyścić i odświeżyć całą zawartość folderu. Ponieważ zmieniono plik `index.html`, upewnij się, że znajduje się on w jednej ze ścieżek.
+
+W dolnej części strony wybierz pozycję **Przeczyść**.
+
+![Strona przeczyszczania](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+
+### <a name="verify-that-the-cdn-is-updated"></a>Sprawdzanie zaktualizowania usługi CDN
+
+Poczekaj na zakończenie przetwarzania żądania przeczyszczenia (zwykle trwa to kilka minut). Aby wyświetlić bieżący stan, wybierz ikonę dzwonka w górnej części strony. 
+
+![Powiadomienie o przeczyszczaniu](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
+
+Przejdź do adresu URL punktu końcowego usługi CDN dla pliku `index.html`, a zobaczysz, że teraz ciąg V2 jest już widoczny w tytule strony głównej. Oznacza to, że pamięć podręczna usługi CDN została odświeżona.
+
+```
+http://<endpointname>.azureedge.net/index.html
+```
+
+![Ciąg V2 w tytule w usłudze CDN](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title.png)
+
+Aby uzyskać więcej informacji, zobacz [Przeczyszczanie punktu końcowego usługi Azure CDN](../cdn/cdn-purge-endpoint.md). 
+
+## <a name="use-query-strings-to-version-content"></a>Używanie ciągów zapytań do sterowania wersjami zawartości
+
+Usługa Azure CDN oferuje następujące opcje zachowania podczas buforowania:
+
+* Ignoruj ciągi zapytań
+* Pomiń buforowanie dla ciągów zapytań
+* Buforuj każdy unikatowy adres URL 
+
+Pierwsze zachowanie jest zachowaniem domyślnym. W tym przypadku istnieje tylko jedna zbuforowana wersja elementu zawartości, niezależnie od tego, jakiego ciągu zapytania użyto w adresie URL w celu uzyskania dostępu do elementu. 
+
+W tej części samouczka zostanie zmienione zachowanie buforowania w taki sposób, że w pamięci podręcznej będzie umieszczany każdy unikatowy adres URL.
+
+### <a name="change-the-cache-behavior"></a>Zmienianie zachowania buforowania
+
+W witrynie Azure Portal na stronie **Punkt końcowy usługi CDN** wybierz pozycję **Pamięć podręczna**.
+
+Z listy rozwijanej **Zachowanie buforowania ciągu kwerendy** wybierz pozycję **Buforuj każdy unikatowy adres URL**.
+
+Wybierz pozycję **Zapisz**.
+
+![Wybieranie zachowania buforowania ciągów zapytań](media/app-service-web-tutorial-content-delivery-network/portal-select-caching-behavior.png)
+
+### <a name="verify-that-unique-urls-are-cached-separately"></a>Sprawdzanie, czy unikatowe adresy URL są buforowane osobno
+
+W przeglądarce przejdź do strony głównej w punkcie końcowym usługi CDN, ale dołącz ciąg zapytania: 
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+Usługa CDN zwraca bieżącą zawartość aplikacji sieci Web, w tym ciąg „V2” w nagłówku. 
+
+Odśwież tę stronę, aby się upewnić, że jest ona buforowana w usłudze CDN. 
+
+Otwórz plik `index.html` i zamień ciąg „V2” na „V3”, a następnie wdróż tę zmianę. 
+
+```bash
+git commit -am "version 3"
+git push azure master
+```
+
+W przeglądarce przejdź do adresu URL punktu końcowego usługi CDN, korzystając z nowego ciągu zapytania, na przykład `q=2`. Usługa CDN pobierze bieżący plik `index.html` i wyświetli ciąg „V3”.  Jednak jeśli przejdziesz do punktu końcowego usługi CDN, korzystając z ciągu zapytania `q=1`, zobaczysz ciąg „V2”.
+
+```
+http://<endpointname>.azureedge.net/index.html?q=2
+```
+
+![V3 w tytule w usłudze CDN, ciąg zapytania 2](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs2.png)
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+![V2 w tytule w usłudze CDN, ciąg zapytania 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
+
+W tych danych wyjściowych widać, że każdy ciąg zapytania jest traktowany inaczej. Wcześniej użyto ciągu q=1, dlatego zwrócona została zbuforowana zawartość (V2). Ciąg q=2 jest nowy, więc pobierana i zwracana jest najnowsza zawartość aplikacji sieci Web (V3).
+
+Aby uzyskać więcej informacji, zobacz [Control Azure CDN caching behavior with query strings](../cdn/cdn-query-string.md) (Sterowanie zachowaniem buforowania usługi CDN za pomocą ciągów zapytań).
+
+## <a name="map-a-custom-domain-to-a-cdn-endpoint"></a>Mapowanie domeny niestandardowej na punkt końcowy usługi CDN
+
+Mapowanie domeny niestandardowej na punkt końcowy usługi CDN odbywa się przez utworzenie rekordu CNAME. Rekord CNAME jest funkcją systemu DNS, która mapuje domenę źródłową na domenę docelową. Na przykład można mapować domenę `cdn.contoso.com` lub `static.contoso.com` na `contoso.azureedge.net`.
+
+Jeśli nie masz domeny niestandardowej, możesz postępować według instrukcji zawartych w [samouczku dotyczącym domeny usługi App Service](custom-dns-web-site-buydomains-web-app.md) w celu zakupienia domeny za pośrednictwem witryny Azure Portal. 
+
+### <a name="find-the-hostname-to-use-with-the-cname"></a>Znajdowanie nazwy hosta do użycia z rekordem CNAME
+
+W witrynie Azure Portal na stronie **Punkt końcowy** wybierz na lewym panelu nawigacyjnym pozycję **Przegląd** i w górnej części strony wybierz przycisk **+ Domena niestandardowa**.
+
+![Wybieranie opcji dodawania domeny niestandardowej](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
+
+Na stronie **Dodaj domenę niestandardową** zobaczysz nazwę hosta punktu końcowego do użycia w celu utworzenia rekordu CNAME. Nazwa hosta jest tworzona na podstawie adresu URL punktu końcowego usługi CDN:  **&lt;NazwaPunktuKoncowego>.azureedge.net**. 
+
+![Strona dodawania domeny](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
+
+### <a name="configure-the-cname-with-your-domain-registrar"></a>Konfigurowanie rekordu CNAME u rejestratora domen
+
+Przejdź do witryny sieci Web swojego rejestratora domen i znajdź sekcję tworzenia rekordów DNS. Może ona być zlokalizowana w sekcjach, takich jak **Domain Name** (Nazwa domeny), **DNS** (System DNS) lub **Name Server Management** (Zarządzanie serwerem nazw).
+
+Znajdź sekcję zarządzania rekordami CNAME. W tym celu może być konieczne przejście do strony ustawień zaawansowanych i poszukanie słów CNAME, Alias lub Subdomains (Poddomeny).
+
+Utwórz nowy rekord CNAME mapujący wybraną poddomenę (na przykład **static** lub **cdn**) na **nazwę hosta punktu końcowego** wyświetlaną wcześniej w portalu. 
+
+### <a name="enter-the-custom-domain-in-azure"></a>Wprowadzanie domeny niestandardowej na platformie Azure
+
+Powróć do strony **Dodaj domenę niestandardową** i wprowadź w oknie dialogowym domenę niestandardową, w tym poddomenę. Na przykład wprowadź wartość `cdn.contoso.com`.   
+   
+Platforma Azure sprawdzi, czy dla wprowadzonej nazwy domeny istnieje rekord CNAME. Jeśli rekord CNAME jest poprawny, domena niestandardowa jest weryfikowana.
+
+Może upłynąć trochę czasu, zanim rekord CNAME zostanie rozpropagowany do serwerów nazw w Internecie. Jeśli domena nie zostanie zweryfikowana natychmiast, ale uważasz, że rekord CNAME jest poprawny, zaczekaj kilka minut i spróbuj ponownie.
+
+### <a name="test-the-custom-domain"></a>Testowanie domeny niestandardowej
+
+W przeglądarce przejdź do pliku `index.html`, korzystając z domeny niestandardowej (na przykład `cdn.contoso.com/index.html`), aby sprawdzić, czy wynik jest taki sam jak podczas bezpośredniego przechodzenia do adresu `<endpointname>azureedge.net/index.html`.
+
+![Strona główna przykładowej aplikacji wyświetlona przy użyciu adresu URL domeny niestandardowej](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
+
+Aby uzyskać więcej informacji, zobacz [Map Azure CDN content to a custom domain](../cdn/cdn-map-content-to-custom-domain.md) (Mapowanie zawartości usługi Azure CDN na domenę niestandardową).
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Co to jest Azure CDN](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-* [Włączanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN](../cdn/cdn-custom-ssl.md)
-* [Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN](../cdn/cdn-improve-performance.md)
-* [Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN](../cdn/cdn-preload-endpoint.md)
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
+
+> [!div class="checklist"]
+> * Tworzenie punktu końcowego usługi CDN.
+> * Odświeżanie elementów zawartości zapisanych w pamięci podręcznej.
+> * Używanie ciągów zapytań do sterowania zbuforowanymi wersjami.
+> * Używanie domeny niestandardowej na potrzeby punktu końcowego usługi CDN.
+
+Zapoznaj się z następującymi artykułami, aby dowiedzieć się, jak zoptymalizować wydajność usługi CDN.
+
+> [!div class="nextstepaction"]
+> [Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN](../cdn/cdn-improve-performance.md)
+
+> [!div class="nextstepaction"]
+> [Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN](../cdn/cdn-preload-endpoint.md)
+
 

@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Planista wdrożenia usługi Azure Site Recovery
-Ten artykuł to podręcznik użytkownika dotyczący planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
+Ten artykuł to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
 
 ## <a name="overview"></a>Omówienie
 
@@ -36,7 +37,7 @@ Narzędzie udostępnia następujące szczegóły:
 
 **Ocena zgodności**
 
-* Ocena uprawnień maszyny wirtualnej na podstawie liczby dysków, rozmiaru dysku, liczby operacji we/wy na sekundę i współczynnika zmian
+* Ocena uprawnień maszyny wirtualnej na podstawie liczby dysków, rozmiaru dysku, liczby operacji we/wy na sekundę, współczynnika zmian i typu rozruchu (EFI/BIOS)
 * Szacowana przepustowość sieci wymagana na potrzeby replikacji przyrostowej
 
 **Zapotrzebowanie na przepustowość sieci w porównaniu z oceną celu punktu odzyskiwania**
@@ -204,6 +205,10 @@ Po zakończeniu profilowania możesz uruchomić narzędzie w trybie generowania 
 | -StartDate | (Opcjonalnie) Data i godzina rozpoczęcia w formacie DD-MM-RRRR:GG:MM (format 24-godzinny). Oprócz parametru *StartDate* należy także określić parametr *EndDate*. W przypadku określenia wartości parametru StartDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
 | -EndDate | (Opcjonalnie) Data i godzina zakończenia w 24-godzinnym formacie DD-MM-RRRR:GG:MM. Oprócz parametru *EndDate* należy także określić parametr *StartDate*. W przypadku określenia wartości parametru EndDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
 | -GrowthFactor | (Opcjonalnie) Współczynnik wzrostu wyrażony jako wartość procentowa. Wartość domyślna to 30 procent. |
+| -UseManagedDisks | (Opcjonalnie) UseManagedDisks — Yes/No. Wartość domyślna to Yes. Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana na podstawie tego, czy dla pracy w trybie failover/testu pracy w trybie failover wybrano dysk zarządzany. |
+
+Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana, biorąc pod uwagę, czy na potrzeby pracy w trybie failover/testu pracy w trybie failover jest używany dysk zarządzany, czy niezarządzany. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Przykład 1: generowanie raportu przy użyciu wartości domyślnych, gdy profilowane dane znajdują się na dysku lokalnym
 ```
@@ -480,7 +485,7 @@ Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii 
 
 **Karty sieciowe**: liczba kart sieciowych maszyny wirtualnej.
 
-**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych. 
+**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych.
 
 **Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
 
@@ -517,7 +522,7 @@ Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii 
 
 **Karty sieciowe**: liczba kart sieciowych maszyny wirtualnej.
 
-**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych. 
+**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych.
 
 **Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
 
@@ -558,6 +563,15 @@ Aby zaktualizować planistę wdrożenia, wykonaj następujące czynności:
 
 
 ## <a name="version-history"></a>Historia wersji
+
+### <a name="13"></a>1.3
+Aktualizacja: 9 maja 2017 r.
+
+Dodano następującą nową funkcję:
+
+* Dodano obsługę dysku zarządzanego na potrzeby generowania raportów. Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana na podstawie tego, czy dla pracy w trybie failover/testu pracy w trybie failover wybrano dysk zarządzany.        
+
+
 ### <a name="12"></a>1.2
 Zaktualizowano: 7 kwietnia 2017 r.
 

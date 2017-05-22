@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -66,7 +67,7 @@ Zasady zabezpieczeń można skonfigurować dla każdej subskrypcji lub grupy zas
    >
 9. W bloku **Zasady zabezpieczeń** kliknij przycisk **Wł.**, aby włączyć zalecenia dotyczące zabezpieczeń, których chcesz użyć dla tej subskrypcji. Kliknij pozycję **Zasady zapobiegania**, aby wyświetlić opcje, jak te na poniższym zrzucie ekranu:
 
-    ![Wybieranie zasad zabezpieczeń](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Wybieranie zasad zabezpieczeń](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Użyj poniższej tabeli jako źródła informacji, aby zrozumieć do czego służą poszczególne opcje:
 
@@ -82,6 +83,7 @@ Użyj poniższej tabeli jako źródła informacji, aby zrozumieć do czego słu�
 | Inspekcja SQL i wykrywanie zagrożeń |Zaleca się, by inspekcja dostępu do bazy danych Azure była włączona w celu zapewnienia zgodności, umożliwienia zaawansowanego wykrywania zagrożeń i na potrzeby analizy. |
 | Niewidoczne szyfrowanie danych SQL |Zaleca się, aby funkcja szyfrowania nieaktywnych danych była włączona dla usługi Azure SQL Database, powiązanych kopii zapasowych i plików dziennika transakcji. Dzięki temu nawet w przypadku włamania się do danych, nie będzie można ich odczytać. |
 | Ocena luk w zabezpieczeniach |Zaleca się zainstalowanie na maszynie wirtualnej rozwiązania do oceny luk w zabezpieczeniach. |
+| Szyfrowanie w usłudze Storage |Obecnie ta funkcja jest dostępna dla plików i obiektów blob Azure. Należy pamiętać, że po włączeniu szyfrowania w usłudze Storage szyfrowane będą tylko nowe dane, a wszystkie pliki istniejące już na tym koncie magazynu pozostaną niezaszyfrowane. |
 
 Po skonfigurowaniu wszystkich opcji kliknij przycisk **OK** w bloku **Zasady zabezpieczeń**, który zawiera zalecenia, a następnie kliknij pozycję **Zapisz** w bloku **Zasady zabezpieczeń**, który zawiera ustawienia początkowe.
 

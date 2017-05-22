@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 19cd1cf60a14f4a2087bcfdbb4b223039c82dec3
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 8f370918b86c5519f370b0042866d2cc089655d4
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -68,7 +69,7 @@ Kroki opisane w tym artykule używają zmiennych, które są zadeklarowane na po
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 Niezbędne jest zainstalowanie poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell). 
 
-### <a name="Step1"></a>Krok 1 — planowanie zakresów adresów IP
+### <a name="Step1"></a>Krok 1 — Planowanie zakresów adresów IP
 W poniższych krokach utworzymy dwie sieci wirtualne wraz z odpowiednimi konfiguracjami oraz podsieciami bram. Następnie utworzymy połączenie sieci VPN między dwiema sieciami wirtualnymi. Ważne, aby zaplanować zakresy adresów IP dla konfiguracji sieci. Niezbędne jest upewnienie się, że zakresy sieci wirtualnej ani sieci lokalnej nie zachodzą na siebie w jakikolwiek sposób.
 
 W przykładach stosujemy następujące wartości:
@@ -106,7 +107,7 @@ W przykładach stosujemy następujące wartości:
 * Połączenie: VNet4toVNet1
 * ConnectionType: VNet2VNet
 
-### <a name="Step2"></a>Krok 2 — tworzenie i konfigurowanie sieci TestVNet1
+### <a name="Step2"></a>Krok 2 — Tworzenie i konfigurowanie sieci TestVNet1
 1. Zadeklaruj swoje zmienne.
    
     Rozpocznij od zadeklarowania zmiennych. W poniższym przykładzie zmienne są deklarowane przy użyciu wartości podanych dla tego ćwiczenia. W większości przypadków należy zastąpić wartości własnymi. Można jednak użyć tych zmiennych, aby wykonać opisane kroki w celu zapoznania się z tego typu konfiguracją. Jeśli jest taka konieczność, zmodyfikuj zmienne, a następnie skopiuj je i wklej do konsoli programu PowerShell.
@@ -201,7 +202,7 @@ W przykładach stosujemy następujące wartości:
   -VpnType RouteBased -GatewaySku Standard
   ```
 
-### <a name="step-3---create-and-configure-testvnet4"></a>Krok 3 — tworzenie i konfigurowanie sieci TestVNet4
+### <a name="step-3---create-and-configure-testvnet4"></a>Krok 3 — Tworzenie i konfigurowanie sieci TestVNet4
 Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki opisane poniżej, w razie potrzeby zastępując podane wartości własnymi. Ten krok można przeprowadzić w tej samej sesji programu PowerShell ze względu na przynależność do tej samej subskrypcji.
 
 1. Zadeklaruj swoje zmienne.
@@ -267,7 +268,7 @@ Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki opisan
   -VpnType RouteBased -GatewaySku Standard
   ```
 
-### <a name="step-4---connect-the-gateways"></a>Krok 4 — połączenie bram
+### <a name="step-4---connect-the-gateways"></a>Krok 4 — Połączenie bram
 1. Użyj obu bram sieci wirtualnej.
    
     Jako że obie bramy należą do tej samej subskrypcji, w tym przykładzie omawiany krok można wykonać w ramach tej samej sesji programu PowerShell.
@@ -307,7 +308,7 @@ W tym przykładzie różnica polega na tym, że w kontekście drugiej subskrypcj
 
 Poniższe instrukcje stanowią ciąg dalszy kroków wymienionych powyżej. Należy wykonać [Krok 1](#Step1) i [Krok 2](#Step2), aby utworzyć i skonfigurować sieć TestVNet1 i bramę VPN Gateway dla tej sieci. Po ukończeniu kroków 1 i 2 kontynuuj krok 5, aby utworzyć sieć wirtualną TestVNet5.
 
-### <a name="step-5---verify-the-additional-ip-address-ranges"></a>Krok 5 — sprawdzenie dodatkowych zakresów adresów IP
+### <a name="step-5---verify-the-additional-ip-address-ranges"></a>Krok 5 — Sprawdzenie dodatkowych zakresów adresów IP
 Należy upewnić się, że przestrzeń adresów IP nowej sieci wirtualnej o nazwie TestVNet5 nie nakłada się na żaden z zakresów sieci wirtualnych ani na żaden z zakresów bramy sieci lokalnej. 
 
 W tym przykładzie sieci wirtualne mogą należeć do różnych organizacji. Na potrzeby tego ćwiczenia można zastosować następujące wartości dla sieci wirtualnej TestVNet5:
@@ -332,7 +333,7 @@ W tym przykładzie sieci wirtualne mogą należeć do różnych organizacji. Na 
 
 * Połączenie: VNet1toVNet5
 
-### <a name="step-6---create-and-configure-testvnet5"></a>Krok 6 — tworzenie i konfigurowanie sieci TestVNet5
+### <a name="step-6---create-and-configure-testvnet5"></a>Krok 6 — Tworzenie i konfigurowanie sieci TestVNet5
 Ten krok należy wykonać w kontekście nowej subskrypcji. Tę część procedury może wykonać administrator w innej organizacji, która jest właścicielem subskrypcji.
 
 1. Zadeklaruj swoje zmienne.
@@ -382,7 +383,7 @@ Ten krok należy wykonać w kontekście nowej subskrypcji. Tę część procedur
   ```powershell
   New-AzureRmResourceGroup -Name $RG5 -Location $Location5
   ```
-4. Utwórz konfiguracje podsieci dla sieci TestVNet4.
+4. Utwórz konfiguracje podsieci dla sieci TestVNet5.
 
   ```powershell
   $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
@@ -415,7 +416,7 @@ Ten krok należy wykonać w kontekście nowej subskrypcji. Tę część procedur
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
   ```
 
-### <a name="step-7---connecting-the-gateways"></a>Krok 7 — połączenie bram
+### <a name="step-7---connecting-the-gateways"></a>Krok 7 — Połączenie bram
 Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano rozbicie na dwie sesje programu PowerShell oznaczone jako [Subskrypcja 1] i [Subskrypcja 5].
 
 1. **[Subskrypcja 1]** Pobierz bramę sieci wirtualnej dla Subskrypcji 1.

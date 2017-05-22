@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,9 +31,7 @@ ms.lasthandoff: 04/28/2017
 Serwer proxy aplikacji usługi Azure AD pomaga wspierać pracowników zdalnych przez publikowanie lokalnych aplikacji w celu umożliwienia dostępu do nich za pośrednictwem Internetu. Przed rozpoczęciem pracy należy [włączyć serwer proxy aplikacji w klasycznym portalu Azure](active-directory-application-proxy-enable.md). W tym artykule przedstawiono kroki publikowania aplikacji działających w sieci lokalnej i zapewniania bezpiecznego dostępu zdalnego spoza tej sieci. Po ukończeniu tego artykułu możesz przystąpić do konfigurowania aplikacji przy użyciu spersonalizowanych informacji lub wymagań dotyczących zabezpieczeń.
 
 > [!NOTE]
-> Serwer proxy aplikacji jest funkcją dostępną tylko w przypadku uaktualnienia do wersji usługi Azure Active Directory w warstwie Premium lub Podstawowa. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
-
-Jeśli chcesz używać publicznej wersji zapoznawczej serwera proxy aplikacji, możesz [publikować aplikacje w witrynie Azure Portal](application-proxy-publish-azure-portal.md).
+> Serwer proxy aplikacji jest funkcją dostępną tylko w przypadku uaktualnienia do wersji usługi Azure Active Directory w warstwie Premium lub Podstawowa. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md). Jeśli chcesz używać serwera proxy aplikacji, możesz [publikować aplikacje w witrynie Azure Portal](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Publikowanie aplikacji za pomocą kreatora
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com/) jako administrator.

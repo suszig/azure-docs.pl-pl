@@ -1,7 +1,7 @@
 ---
 title: "Rozpoczynanie pracy z bazą danych HBase w usłudze Azure HDInsight | Microsoft Docs"
 description: "Postępuj zgodnie z tym samouczkiem bazy danych HBase, aby rozpocząć korzystanie z bazy danych Apache HBase na platformie Hadoop w usłudze HDInsight. Utwórz tabele z poziomu powłoki HBase i wykonuj zapytania przy użyciu aplikacji Hive."
-keywords: apache hbase,hbase,hbase shell,hbase tutorial
+keywords: apache hbase,hbase,hbase shell,hbase tutorial,beeline
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2017
+ms.date: 05/08/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 4e9ee21a7eac240cccdfac650992063244364185
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -43,12 +43,12 @@ W poniższej procedurze użyto szablonu usługi Azure Resource Manager do utworz
 1. Kliknij poniższy obraz, aby otworzyć szablon w usłudze Azure Portal. Szablon znajduje się w publicznym kontenerze obiektów blob. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. W bloku **Wdrożenie niestandardowe** wprowadź wartości następujących opcji:
+2. W bloku **Wdrożenie niestandardowe** wprowadź następujące wartości:
    
-   * **Subskrypcja**: wybierz subskrypcję platformy Azure, które zostanie użyta do utworzenia klastra.
-   * **Grupa zasobów**: utwórz nową grupę usługi Azure Resource Management lub użyj istniejącej.
+   * **Subskrypcja**: wybierz subskrypcję platformy Azure używaną do utworzenia klastra.
+   * **Grupa zasobów**: utwórz grupę usługi Azure Resource Management lub użyj istniejącej.
    * **Lokalizacja**: określ lokalizację grupy zasobów. 
-   * **ClusterName**: wprowadź nazwę tworzonego klastra HBase.
+   * **ClusterName**: wprowadź nazwę klastra HBase.
    * **Nazwa logowania i hasło klastra**: domyślna nazwa logowania to **admin**.
    * **Nazwa użytkownika i hasło SSH**: domyślna nazwa użytkownika to **sshuser**.  Tę nazwę można zmienić.
      
@@ -73,7 +73,6 @@ W bazie danych HBase, która jest implementacją BigTable, te same dane wygląda
 
 ![Dane BigTable usługi HDInsight HBase][img-hbase-sample-data-bigtable]
 
-Stanie się to bardziej zrozumiałe po zakończeniu następnej procedury.  
 
 **Aby użyć powłoki HBase**
 
@@ -121,7 +120,7 @@ Przykładowy plik danych został przekazany do publicznego kontenera obiektów b
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzyskać instrukcje, zobacz [Przekazywanie danych dla zadań Hadoop w usłudze HDInsight][hdinsight-upload-data].
+Opcjonalnie możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzyskać instrukcje, zobacz [Przekazywanie danych dla zadań Hadoop w usłudze HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > W tej procedurze jest używana tabela kontaktów HBase utworzona w poprzedniej procedurze.
@@ -137,19 +136,14 @@ Możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzy
 3. Możesz otworzyć powłokę HBase i użyć polecenia scan w celu wyświetlenia zawartości tabeli.
 
 ## <a name="use-hive-to-query-hbase"></a>Uruchamianie zapytania bazy danych HBase przy użyciu programu Hive
+
 Korzystając z programu Hive, można wykonywać zapytania dotyczące danych w tabelach HBase. W tej sekcji zostanie utworzona tabela programu Hive odwzorowująca dane w tabeli HBase, która będzie używana do wykonywania zapytań o dane w tabeli HBase.
 
-> [!NOTE]
-> Jeśli program Hive i baza danych HBase znajdują się w różnych klastrach w tej samej sieci wirtualnej, należy przekazać kworum dozorcy podczas wywoływania powłoki usługi Hive:
->
->       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
->
->
-
 1. Otwórz program **PuTTY** i połącz się z klastrem.  Zapoznaj się z instrukcjami w poprzedniej procedurze.
-2. Otwórz powłokę programu Hive.
-   
-       hive
+2. W sesji SSH wpisz następujące polecenie, aby uruchomić usługę Beeline:
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    Aby uzyskać więcej informacji o usłudze Beeline, zobacz [Używanie technologii Hive z usługą Hadoop w usłudze HDInsight z usługą Beeline](hdinsight-hadoop-use-hive-beeline.md).
        
 3. Uruchom poniższy skrypt HiveQL, aby utworzyć tabelę programu Hive, która mapuje dane na tabelę HBase. Upewnij się, że utworzono wspomnianą wcześniej w tym samouczku tabelę przykładową, używając powłoki HBase przed uruchomieniem tej instrukcji.
    
@@ -159,31 +153,12 @@ Korzystając z programu Hive, można wykonywać zapytania dotyczące danych w ta
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Uruchom poniższy skrypt HiveQL, aby wykonać zapytanie o dane w tabeli HBase:
    
-         SELECT count(*) FROM hbasecontacts;
+         SELECT * FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Korzystanie z interfejsów API REST HBase przy użyciu programu Curl
-> [!NOTE]
-> Używając programu Curl lub innego połączenia REST z usługą WebHCat, należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra usługi HDInsight. Należy również użyć nazwy klastra jako części identyfikatora URI stosowanego przy wysyłaniu żądań do serwera.
-> 
-> W przypadku poleceń w tej sekcji należy zastąpić ciąg **USERNAME** nazwą użytkownika w celu dokonania uwierzytelnienia w klastrze oraz zastąpić ciąg **PASSWORD** hasłem do konta użytkownika. Zastąp ciąg **CLUSTERNAME** nazwą klastra.
-> 
-> Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](http://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS (HTTP Secure), aby mieć pewność, że poświadczenia są bezpiecznie wysyłane do serwera.
-> 
-> 
 
-1. W wierszu polecenia wpisz następujące polecenie, aby sprawdzić możliwość nawiązania połączenia z klastrem usługi HDInsight:
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
-   
-    Użytkownik powinien otrzymywać odpowiedź podobną do następującej:
-   
-        {"status":"ok","version":"v1"}
-   
-    W tym poleceniu są używane następujące parametry:
-   
-   * **-u** — nazwa użytkownika i hasło używane do uwierzytelnienia żądania.
-   * **-G** — parametr wskazujący, że jest to żądanie GET.
+Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](http://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS (HTTP Secure), aby mieć pewność, że poświadczenia są bezpiecznie wysyłane do serwera.
+
 2. Użyj następującego polecenia, aby wyświetlić listę istniejących tabel HBase:
    
         curl -u <UserName>:<Password> \
@@ -223,10 +198,20 @@ Korzystając z programu Hive, można wykonywać zapytania dotyczące danych w ta
 
 Aby uzyskać więcej informacji o interfejsie Rest HBase, zobacz [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest) (Podręcznik referencyjny Apache HBase).
 
->
 > [!NOTE]
 > Platforma Thrift nie jest obsługiwana przez bazę danych HBase w usłudze HDInsight.
 >
+> Używając programu Curl lub innego połączenia REST z usługą WebHCat, należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra usługi HDInsight. Należy również użyć nazwy klastra jako części identyfikatora URI stosowanego przy wysyłaniu żądań do serwera:
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+>   
+>    Powinna zostać zwrócona odpowiedź podobna do następującej:
+>   
+>        {"status":"ok","version":"v1"}
+   
+
 
 ## <a name="check-cluster-status"></a>Sprawdzanie stanu klastra
 Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkownika sieci Web służącym do monitorowania klastrów. Za pośrednictwem interfejsu użytkownika sieci Web możesz przesyłać żądania dotyczące statystyk lub informacji o regionach.

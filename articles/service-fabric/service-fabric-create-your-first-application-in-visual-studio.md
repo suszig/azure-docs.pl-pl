@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -116,7 +117,18 @@ Teraz, gdy masz już aplikację, spróbuj ją uruchomić.
    
     ![Szczegóły w podglądzie zdarzeń diagnostycznych po przełączeniu do trybu failover][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>Przełączanie trybu klastra
+## <a name="cleaning-up-the-local-cluster-optional"></a>Czyszczenie klastra lokalnego (opcjonalnie)
+Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Istnieje kilka możliwości zarządzania klastrem:
+
+1. Aby zamknąć klaster, zachowując dane i ślady aplikacji, kliknij opcję **Zatrzymaj klaster lokalny** na pasku zadań systemu.
+2. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Klaster lokalny należy usunąć tylko wtedy, gdy nie będziesz go używać przez pewien czas lub gdy chcesz odzyskać zasoby.
+
+## <a name="deploy-your-application-to-an-azure-cluster"></a>Wdrażanie aplikacji w klastrze platformy Azure
+Teraz, gdy wdrożono aplikację lokalnie, można wdrożyć tę samą aplikację na platformie Azure. W dokumencie [Tworzenie pierwszego klastra usługi Service Fabric na platformie Azure](service-fabric-get-started-azure-cluster.md) przedstawiono kroki użycia środowiska Azure PowerShell lub portalu.
+
+Po skonfigurowaniu klastra platformy Azure możesz opublikować w nim tę aplikację z poziomu programu Visual Studio. W tym celu wykonaj instrukcje zawarte w artykule [Publish to an Azure cluster](service-fabric-publish-app-remote-cluster.md) (Publikowanie w klastrze platformy Azure).  
+
+## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>Przełączanie trybu lokalnego klastra projektowego
 Domyślnie lokalny klaster projektowy jest skonfigurowany do uruchamiania jako klaster z pięcioma węzłami, co ułatwia debugowanie usług wdrożonych w wielu węzłach. Wdrożenie aplikacji w klastrze projektowym z pięcioma węzłami może być jednak czasochłonne. Jeśli chcesz szybko iterować zmiany kodu bez uruchamiania aplikacji w pięciu węzłach, przełącz klaster projektowy do trybu jednego węzła. Aby uruchomić kod w klastrze z jednym węzłem, kliknij prawym przyciskiem myszy ikonę Menedżer klastra lokalnego na pasku zadań i wybierz polecenie **Przełącz tryb klastra -> 1 węzeł**.  
 
 ![Przełączanie trybu klastra][switch-cluster-mode]
@@ -136,11 +148,7 @@ Możesz też zmienić tryb klastra przy użyciu programu PowerShell:
    
     ![Dane wyjściowe instalacji klastra][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>Czyszczenie
-Przed zakończeniem należy pamiętać, że klaster lokalny jest prawdziwy. Zatrzymanie debugera powoduje usunięcie wystąpienia aplikacji i wyrejestrowanie typu aplikacji. Klaster będzie jednak nadal uruchomiony w tle. Istnieje kilka możliwości zarządzania klastrem:
 
-1. Aby zamknąć klaster, zachowując dane i ślady aplikacji, kliknij opcję **Zatrzymaj klaster lokalny** na pasku zadań systemu.
-2. Aby całkowicie usunąć klaster, kliknij opcję **Usuń klaster lokalny** na pasku zadań systemu. Zastosowanie tej opcji spowoduje powolne wdrożenie po następnym naciśnięciu klawisza F5 w programie Visual Studio. Klaster lokalny należy usunąć tylko wtedy, gdy nie będziesz go używać przez pewien czas lub gdy chcesz odzyskać zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak utworzyć [klaster na platformie Azure](service-fabric-cluster-creation-via-portal.md) lub [autonomiczny klaster w systemie Windows](service-fabric-cluster-creation-for-windows-server.md).
