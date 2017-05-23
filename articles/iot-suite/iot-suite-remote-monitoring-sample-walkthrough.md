@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc8ee6a0f17c20c5255d95c7b6f636d89ffe3aee
-ms.openlocfilehash: 9bd4232670256ec7889dd367ea2ea01a2845e789
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 57544151cc020e5170ebd231b5e4d8f424aeada0
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ Każde symulowane urządzenie może wysyłać do usługi IoT Hub następujące t
 | Telemetria |Urządzenie okresowo wysyła komunikat **telemetry**, który zgłasza symulowane wartości temperatury i wilgotności zebrane z symulowanych czujników urządzenia. |
 
 > [!NOTE]
-> Rozwiązanie przechowuje listę poleceń obsługiwanych przez urządzenie w bazie danych DocumentDB, a nie w bliźniaczej reprezentacji urządzenia.
+> Rozwiązanie przechowuje listę poleceń obsługiwanych przez urządzenie w bazie danych Cosmos DB, a nie w bliźniaczej reprezentacji urządzenia.
 > 
 > 
 
@@ -229,10 +230,10 @@ Zadania ASA **informacje o urządzeniu** i **reguły** przesyłają dane wyjści
 Rozwiązanie korzysta z magazynu obiektów blob platformy Azure, aby utrwalić wszystkie nieprzetworzone i podsumowane dane telemetryczne z urządzeń w rozwiązaniu. Portal odczytuje dane telemetryczne z magazynu obiektów blob w celu wypełnienia wykresów. Aby wyświetlić alerty, portal rozwiązania odczytuje dane z magazynu obiektów blob, który rejestruje, kiedy wartości telemetryczne przekraczają skonfigurowane wartości progowe. Rozwiązanie używa również magazynu obiektów blob do rejestrowania wartości progowych określonych w portalu rozwiązania.
 
 ## <a name="webjobs"></a>Zadania WebJob
-Oprócz hostowania symulatorów urządzenia zadania WebJob w rozwiązaniu hostują także **procesor zdarzeń** uruchomiony w zadaniu WebJob platformy Azure, które obsługuje odpowiedzi na polecenia. Używa on komunikatów z odpowiedziami na polecenia umożliwiających aktualizację historii poleceń urządzenia (przechowywanej w bazie danych DocumentDB).
+Oprócz hostowania symulatorów urządzenia zadania WebJob w rozwiązaniu hostują także **procesor zdarzeń** uruchomiony w zadaniu WebJob platformy Azure, które obsługuje odpowiedzi na polecenia. Używa on komunikatów odpowiedzi na polecenia w celu aktualizacji historii poleceń urządzenia (przechowywanej w bazie danych Cosmos DB).
 
-## <a name="documentdb"></a>DocumentDB
-Rozwiązanie przechowuje informacje o urządzeniach połączonych z rozwiązaniem, używając bazy danych DocumentDB. Te informacje uwzględniają historię poleceń wysłanych do urządzeń z portalu rozwiązania i metod wywołanych z portalu rozwiązania.
+## <a name="cosmos-db"></a>Cosmos DB
+Rozwiązanie przechowuje informacje o połączonych z nim urządzeniach w bazie danych Cosmos DB. Te informacje uwzględniają historię poleceń wysłanych do urządzeń z portalu rozwiązania i metod wywołanych z portalu rozwiązania.
 
 ## <a name="solution-portal"></a>Portal rozwiązania
 
@@ -244,7 +245,7 @@ Na tej stronie aplikacji sieci Web są używane kontrolki JavaScript usługi Pow
 ### <a name="device-list"></a>Lista urządzeń
 Na tej stronie w portalu rozwiązania możesz wykonywać następujące czynności:
 
-* Aprowizacja nowego urządzenia. Ta czynność obejmuje określenie unikatowego identyfikatora urządzenia i wygenerowanie klucza uwierzytelniania. Zapisuje ona informacje o urządzeniu w rejestrze tożsamości usługi IoT Hub oraz w bazie danych DocumentDB określonego rozwiązania.
+* Aprowizacja nowego urządzenia. Ta czynność obejmuje określenie unikatowego identyfikatora urządzenia i wygenerowanie klucza uwierzytelniania. Zapisuje ona informacje o urządzeniu w rejestrze tożsamości usługi IoT Hub oraz w bazie danych Cosmos DB określonego rozwiązania.
 * Zarządzanie właściwościami urządzenia. Ta czynność obejmuje wyświetlanie istniejących właściwości i aktualizowanie ich.
 * Wysyłanie poleceń do urządzenia.
 * Wyświetlanie historii poleceń dla urządzenia.
@@ -271,3 +272,4 @@ Możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+

@@ -1,7 +1,7 @@
 ---
 title: "Czym jest baza danych HBase w usłudze HDInsight? | Microsoft Docs"
 description: "Wprowadzenie do bazy danych Apache HBase w usłudze HDInsight — bazy danych NoSQL opartej na platformie Hadoop. Dowiedz się więcej o przypadkach użycia i porównaj bazę danych HBase z innymi klastrami Hadoop."
-keywords: bigtable,nosql,what is hbase
+keywords: bigtable,nosql,what is hbase,apache hbase,hbase,habase overview,
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -17,10 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/22/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 45fb85f83570ed7d79e70dc6fb8f0fdabb7ea191
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8f0472425be8dd244cc5c24b585185b07007f4eb
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---

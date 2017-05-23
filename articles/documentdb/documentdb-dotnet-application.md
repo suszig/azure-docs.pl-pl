@@ -1,28 +1,29 @@
 ---
-title: "Samouczek platformy ASP.NET MVC dla usługi DocumentDB: opracowywanie aplikacji sieci Web | Microsoft Docs"
-description: "Samouczek platformy ASP.NET MVC, który umożliwia utworzenie aplikacji sieci Web MVC za pomocą usługi DocumentDB. Zapiszesz dane w postaci kodu JSON i uzyskasz do nich dostęp za pomocą aplikacji listy rzeczy do zrobienia hostowanej w usłudze Azure Websites — szczegółowy samouczek dla platformy ASP.NET MVC."
+title: "Samouczek platformy ASP.NET MVC dla usługi Azure Cosmos DB: opracowywanie aplikacji internetowych | Microsoft Docs"
+description: "Samouczek platformy ASP.NET MVC, który umożliwia utworzenie aplikacji internetowych MVC za pomocą usługi Azure Cosmos DB. Zapiszesz dane w postaci kodu JSON i uzyskasz do nich dostęp za pomocą aplikacji listy rzeczy do zrobienia hostowanej w usłudze Azure Websites — szczegółowy samouczek dla platformy ASP.NET MVC."
 keywords: samouczek asp.net mvc, programowanie aplikacji sieci web, aplikacja sieci web mvc, samouczek krok po kroku asp.net mvc
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 48736ab63a74c78a7d111011faf135f32c0c4f9e
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395809351"></a>Samouczek platformy ASP.NET MVC: opracowywanie aplikacji sieci Web za pomocą usługi DocumentDB
+# <a name="_Toc395809351"></a>Samouczek platformy ASP.NET MVC: Opracowywanie aplikacji internetowych za pomocą usługi Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET dla MongoDB](documentdb-mongodb-application.md)
@@ -32,11 +33,11 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Aby podkreślić, jak możesz efektywnie wykorzystać usługę Azure DocumentDB do zapisywania i odpytywania dokumentów JSON, ten artykuł przedstawia kompletny przewodnik tworzenia aplikacji listy rzeczy do zrobienia używającej usługi Azure DocumentDB. Zadania będą przechowywane jako dokumenty JSON w usłudze Azure DocumentDB.
+Aby podkreślić, jak możesz efektywnie wykorzystać usługę Azure Cosmos DB do zapisywania i odpytywania dokumentów JSON, ten artykuł przedstawia kompletny przewodnik tworzenia aplikacji listy rzeczy do zrobienia używającej usługi Azure Cosmos DB. Zadania będą przechowywane jako dokumenty JSON w usłudze Azure Cosmos DB.
 
 ![Zrzut ekranu aplikacji sieci Web MVC listy rzeczy do zrobienia utworzonej w ramach tego samouczka — szczegółowy samouczek dla platformy ASP.NET MVC](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
-Ten przewodnik przedstawia, w jaki sposób należy korzystać z usługi DocumentDB na platformie Azure do zapisywania danych i uzyskiwania do nich dostępu za pomocą aplikacji sieci Web platformy ASP.NET MVC hostowanej na platformie Azure. Jeśli szukasz samouczka, który koncentruje się tylko na usłudze DocumentDB, a nie na składnikach platformy ASP.NET MVC, zobacz [Build a DocumentDB C# console application](documentdb-get-started.md) (Tworzenie aplikacji konsolowej w języku C# dla usługi DocumentDB).
+Ten przewodnik przedstawia, w jaki sposób należy korzystać z usługi Azure Cosmos DB na platformie Azure do zapisywania danych i uzyskiwania do nich dostępu za pomocą aplikacji internetowej platformy ASP.NET MVC hostowanej na platformie Azure. Jeśli szukasz samouczka, który koncentruje się tylko na usłudze Azure Cosmos DB, a nie na składnikach platformy ASP.NET MVC, zobacz [Build an Azure Cosmos DB C# console application](documentdb-get-started.md) (Tworzenie aplikacji konsolowej w języku C# dla usługi Azure Cosmos DB).
 
 > [!TIP]
 > Ten samouczek zakłada, że masz już pewne doświadczenie w korzystaniu z platformy ASP.NET MVC i usługi Azure Websites. Jeśli nie znasz platformy ASP.NET lub [wstępnie wymaganych narzędzi](#_Toc395637760), zalecamy pobranie kompletnego przykładowego projektu z usługi [GitHub][GitHub] i postępowanie zgodnie z instrukcjami zawartymi w tym przykładzie. Po jego skompilowaniu możesz przejrzeć ten artykuł, aby przeanalizować kod w kontekście projektu.
@@ -50,14 +51,14 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 
     LUB
 
-    Lokalna instalacja [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    Lokalna instalacja [emulatora usługi Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) albo Visual Studio 2013 Update 4 lub nowszy. W przypadku korzystania z pakietu Visual Studio 2013 należy zainstalować [pakiet NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/), aby zapewnić obsługę języka C# 6.0. 
 * Zestaw Azure SDK dla platformy .NET w wersji 2.5.1 lub nowszej, który jest dostępny za pośrednictwem [Instalatora platformy Microsoft Web][Microsoft Web Platform Installer].
 
 Wszystkie zrzuty ekranu w tym artykule wykonano za pomocą programu Visual Studio 2013 z aktualizacją Update 4 i zestawu Azure SDK dla platformy .NET w wersji 2.5.1. Jeśli w Twoim systemie są skonfigurowane inne wersje, możliwe, że Twoje ekrany i opcje nie będą całkiem zgodne, lecz jeśli spełniasz powyższe wymagania wstępne, to rozwiązanie powinno działać.
 
-## <a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
-Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi DocumentDB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Tworzenie nowej aplikacji platformy ASP.NET MVC](#_Toc395637762).
+## <a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi Azure Cosmos DB
+Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Tworzenie nowej aplikacji platformy ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -89,26 +90,26 @@ Teraz, gdy masz konto, utwórzmy nowy projekt platformy ASP.NET.
 
 8. W przypadku wybrania hostowania w chmurze zostanie wyświetlone co najmniej jedno dodatkowe okno z monitem o zalogowanie na konto Azure i podanie kilku wartości dotyczących nowej witryny sieci Web. Podaj wszystkie dodatkowe wartości i kontynuuj. 
    
-      Pozycja „Serwer bazy danych” nie została tu wybrana, ponieważ nie używamy serwera bazy danych SQL Azure. Zamierzamy utworzyć nowe konto usługi Azure DocumentDB później w witrynie Azure Portal.
+      Pozycja „Serwer bazy danych” nie została tu wybrana, ponieważ nie używamy serwera usługi Azure SQL Database. Zamierzamy utworzyć nowe konto usługi Azure Cosmos DB później w witrynie Azure Portal.
    
     Aby uzyskać więcej informacji o wybieraniu **planu usługi App Service** i **grupy zasobów**, zobacz [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) (Szczegółowe omówienie planów usługi Azure App Service).
    
       ![Zrzut ekranu okna dialogowego Konfigurowanie witryny sieci Web platformy Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 9. Po zakończeniu tworzenia standardowej aplikacji MVC przez program Visual Studio będzie dostępna pusta aplikacja platformy ASP.NET, którą można uruchomić lokalnie.
    
-    Pominiemy uruchamianie projektu lokalnie, ponieważ na pewno wszyscy widzieliśmy aplikację „Hello World” platformy ASP.NET. Przejdźmy prosto do dodawania usługi DocumentDB do tego projektu i tworzenia aplikacji.
+    Pominiemy uruchamianie projektu lokalnie, ponieważ na pewno wszyscy widzieliśmy aplikację „Hello World” platformy ASP.NET. Przejdźmy prosto do dodawania usługi Azure Cosmos DB do tego projektu i tworzenia aplikacji.
 
-## <a name="_Toc395637767"></a>Krok 3. Dodawanie usługi DocumentDB do projektu aplikacji sieci Web MVC
-Teraz większość podstaw dotyczących platformy ASP.NET MVC potrzebnych dla rozwiązania jest już gotowa. Możemy przejść do rzeczywistego celu tego samouczka, to znaczy dodania usługi Azure DocumentDB do naszej aplikacji sieci Web MVC.
+## <a name="_Toc395637767"></a>Krok 3. Dodawanie usługi Azure Cosmos DB do projektu aplikacji internetowej MVC
+Teraz większość podstaw dotyczących platformy ASP.NET MVC potrzebnych dla rozwiązania jest już gotowa. Możemy przejść do rzeczywistego celu tego samouczka, to znaczy dodania usługi Azure Cosmos DB do naszej aplikacji internetowej MVC.
 
 1. Zestaw SDK platformy .NET dla usługi DocumentDB ma postać pakietu NuGet i jest dystrybuowany jako taki pakiet. Aby pobrać pakiet NuGet w programie Visual Studio, użyj menedżera pakietów NuGet w programie Visual Studio, klikając prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań**, a następnie klikając pozycję **Zarządzaj pakietami NuGet**.
    
-      ![Zrzut ekranu opcji dostępnych w menu otwieranym prawym przyciskiem myszy dla projektu aplikacji sieci Web w Eksploratorze rozwiązań z wyróżnioną pozycją Zarządzaj pakietami NuGet.](./media/documentdb-dotnet-application/image21.png)
+      ![Zrzut ekranu opcji dostępnych w menu otwieranym prawym przyciskiem myszy dla projektu aplikacji internetowej w Eksploratorze rozwiązań z wyróżnioną pozycją Zarządzaj pakietami NuGet.](./media/documentdb-dotnet-application/image21.png)
    
     Zostanie wyświetlone okno dialogowe **Zarządzanie pakietami NuGet**.
-2. W polu **Przeglądaj** wpisz ciąg ***Azure DocumentDB***.
+2. W polu **Przeglądaj** obszaru pakietów NuGet wpisz ciąg ***Azure Cosmos DB***.
    
-    Korzystając z wyników, zainstaluj pakiet **Biblioteka kliencka usługi Microsoft Azure DocumentDB**. Pakiet usługi DocumentDB zostanie pobrany i zainstalowany razem z wszystkimi zależnościami, takimi jak pakiet Newtonsoft.Json. Kliknij przycisk **OK** w oknie **Podgląd** i **Akceptuję** w oknie **Akceptacja licencji**, aby zakończyć instalację.
+    Korzystając z wyników, zainstaluj pakiet **Biblioteka kliencka usługi Microsoft Azure Cosmos DB**. Pakiet usługi Azure Cosmos DB zostanie pobrany i zainstalowany razem z wszystkimi zależnościami, takimi jak pakiet Newtonsoft.Json. Kliknij przycisk **OK** w oknie **Podgląd** i **Akceptuję** w oknie **Akceptacja licencji**, aby zakończyć instalację.
    
       ![Zrzut ekranu okna Zarządzanie pakietami NuGet z wyróżnioną pozycją Biblioteka kliencka usługi Microsoft Azure DocumentDB](./media/documentdb-dotnet-application/nuget.png)
    
@@ -159,7 +160,7 @@ Zacznijmy od utworzenia części reprezentowanej przez literę **M** w nazwie wz
             public bool Completed { get; set; }
         }
    
-    Wszystkie dane w usłudze DocumentDB zostaną przekazane i zapisane w formacie JSON. Aby kontrolować sposób serializacji/deserializacji obiektów przez program JSON.NET, możesz użyć atrybutu **JsonProperty**, tak jak przedstawiono w klasie **Item**, którą właśnie utworzyliśmy. Nie **musisz** tego robić, lecz chcemy się upewnić, że właściwości są zgodne z konwencją nazewnictwa formatu JSON (camelCase). 
+    Wszystkie dane w usłudze Azure Cosmos DB zostaną przekazane i zapisane w formacie JSON. Aby kontrolować sposób serializacji/deserializacji obiektów przez program JSON.NET, możesz użyć atrybutu **JsonProperty**, tak jak przedstawiono w klasie **Item**, którą właśnie utworzyliśmy. Nie **musisz** tego robić, lecz chcemy się upewnić, że właściwości są zgodne z konwencją nazewnictwa formatu JSON (camelCase). 
    
     Możesz nie tylko kontrolować format nazwy właściwości umieszczanej w kodzie JSON, ale także całkowicie zmienić nazwy właściwości platformy .NET, tak jak to zrobiono w przypadku właściwości **Description**. 
 
@@ -232,8 +233,8 @@ I w końcu dodaj ostatni widok — na potrzeby edytowania elementu **Item** — 
 
 Po zakończeniu zamknij wszystkie dokumenty cshtml w programie Visual Studio. Wrócimy do tych widoków później.
 
-## <a name="_Toc395637769"></a>Krok 5. Podłączanie usługi DocumentDB
-Po przygotowaniu standardowych zasobów wzorca MVC możemy zacząć dodawać kod dla usługi DocumentDB. 
+## <a name="_Toc395637769"></a>Krok 5. Podłączanie usługi Azure Cosmos DB
+Po przygotowaniu standardowych zasobów wzorca MVC możemy zacząć dodawać kod dla usługi Azure Cosmos DB. 
 
 W tej sekcji dodamy kod obsługujący następujące operacje:
 
@@ -242,7 +243,7 @@ W tej sekcji dodamy kod obsługujący następujące operacje:
 * [Edytowanie elementów](#_Toc395637772).
 
 ### <a name="_Toc395637770"></a>Wyświetlanie niezakończonych elementów w aplikacji sieci Web MVC
-Najpierw musisz tutaj dodać klasę, która zawiera całą logikę umożliwiającą połączenie z usługą DocumentDB i używanie jej. Na potrzeby tego samouczka umieściliśmy całą tę logikę w klasie repozytorium o nazwie DocumentDBRepository. 
+Najpierw musisz tutaj dodać klasę, która zawiera całą logikę umożliwiającą połączenie z usługą Azure Cosmos DB i używanie jej. Na potrzeby tego samouczka umieściliśmy całą tę logikę w klasie repozytorium o nazwie DocumentDBRepository. 
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt, kliknij polecenie **Dodaj**, a następnie kliknij pozycję **Klasa**. Nadaj nowej klasie nazwę **DocumentDBRepository** i kliknij polecenie **Dodaj**.
 2. W nowo utworzonej klasie **DocumentDBRepository** dodaj następujące instrukcje *using* powyżej deklaracji *namespace*.
@@ -318,7 +319,7 @@ Najpierw musisz tutaj dodać klasę, która zawiera całą logikę umożliwiają
         }
    
    > [!TIP]
-   > Podczas tworzenia nowego elementu DocumentCollection możesz podać opcjonalny parametr RequestOptions o wartości OfferType, co umożliwia określenie poziomu wydajności nowej kolekcji. Jeśli ten parametr nie zostanie przekazany, zostanie użyty domyślny typ oferty. Więcej informacji na temat typów oferty usługi DocumentDB można znaleźć w artykule [Poziomy wydajności usługi DocumentDB](documentdb-performance-levels.md).
+   > Podczas tworzenia nowego elementu DocumentCollection możesz podać opcjonalny parametr RequestOptions o wartości OfferType, co umożliwia określenie poziomu wydajności nowej kolekcji. Jeśli ten parametr nie zostanie przekazany, zostanie użyty domyślny typ oferty. Więcej informacji na temat typów oferty usługi Azure Cosmos DB zawiera temat [Poziomy wydajności usługi Azure Cosmos DB](documentdb-performance-levels.md)
    > 
    > 
 3. Odczytujemy niektóre wartości z konfiguracji, więc otwórz plik **Web.config** aplikacji i dodaj następujące wiersze w sekcji `<AppSettings>`.
@@ -395,7 +396,7 @@ Jeśli skompilujesz i uruchomisz projekt teraz, zobaczysz stronę podobną do na
 ### <a name="_Toc395637771"></a>Dodawanie elementów
 Umieśćmy kilka elementów w naszej bazie danych, dzięki czemu będziemy mogli zobaczyć coś więcej niż pustą siatkę.
 
-Dodajmy trochę kodu do elementów DocumentDBRepository i ItemController, aby utrwalić rekord w usłudze DocumentDB.
+Dodajmy trochę kodu do elementów DBRepository i ItemController w usłudze Azure Cosmos DB, aby utrwalić rekord w tej usłudze.
 
 1. Dodaj następującą metodę do klasy **DocumentDBRepository**.
    
@@ -468,9 +469,9 @@ Ostatnia rzecz do zrobienia to dodanie możliwości edytowania elementów **Item
             }
         }
    
-    Pierwsza z tych metod, **GetItem**, pobiera z usługi DocumentDB element Item, który jest przekazywany z powrotem do kontrolera **ItemController**, a następnie do widoku **Edit** (Edycja).
+    Pierwsza z tych metod, **GetItem**, pobiera z usługi Azure Cosmos DB element Item, który jest przekazywany z powrotem do kontrolera **ItemController**, a następnie do widoku **Edit** (Edycja).
    
-    Druga metoda, którą właśnie dodaliśmy, zastępuje element **Document** w usłudze DocumentDB wersją elementu **Document** przekazaną z kontrolera **ItemController**.
+    Druga metoda, którą właśnie dodaliśmy, zastępuje element **Document** w usłudze Azure Cosmos DB wersją elementu **Document** przekazaną z kontrolera **ItemController**.
 2. Dodaj następujący kod do klasy **ItemController**.
    
         [HttpPost]
@@ -504,11 +505,11 @@ Ostatnia rzecz do zrobienia to dodanie możliwości edytowania elementów **Item
             return View(item);
         }
    
-    Pierwsza metoda obsługuje akcję GET protokołu HTTP, która jest wywoływana po kliknięciu przez użytkownika linku **Edit** (Edytuj) w widoku **Index** (Indeks). Ta metoda pobiera element [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) z usługi DocumentDB i przekazuje go do widoku **Edit** (Edycja).
+    Pierwsza metoda obsługuje akcję GET protokołu HTTP, która jest wywoływana po kliknięciu przez użytkownika linku **Edit** (Edytuj) w widoku **Index** (Indeks). Ta metoda pobiera element [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) z usługi Azure Cosmos DB i przekazuje go do widoku **Edit** (Edycja).
    
     Widok **Edit** (Edycja) wykona następnie akcję POST protokołu HTTP dla kontrolera **IndexController**. 
    
-    Druga dodana metoda obsługuje przekazywanie zaktualizowanego obiektu do usługi DocumentDB w celu jego utrwalenia w bazie danych.
+    Druga dodana metoda obsługuje przekazywanie zaktualizowanego obiektu do usługi Azure Cosmos DB w celu jego utrwalenia w bazie danych.
 
 I gotowe — to wszystko, czego potrzebujemy, aby uruchomić aplikację, wyświetlić niezakończone **elementy**, dodać nowe **elementy** i edytować **elementy**.
 
@@ -534,7 +535,7 @@ Aby przetestować aplikację na lokalnej maszynie, wykonaj następujące czynno�
 5. Po przetestowaniu aplikacji naciśnij klawisze Ctrl+F5, aby zatrzymać jej debugowanie. Wszystko jest gotowe do wdrożenia.
 
 ## <a name="_Toc395637774"></a>Krok 7. Wdrażanie aplikacji w usłudze Azure Websites
-Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożymy tę aplikację sieci Web w usłudze Azure Websites. Jeśli wybrano pozycję **Hostuj w chmurze** podczas tworzenia pustego projektu platformy ASP.NET MVC, program Visual Studio zdecydowanie ułatwi pracę i wykona większość zadań za Ciebie. 
+Teraz, gdy kompletna aplikacja działa poprawnie z usługą Azure Cosmos DB, wdrożymy tę aplikację internetową w usłudze Azure Websites. Jeśli wybrano pozycję **Hostuj w chmurze** podczas tworzenia pustego projektu platformy ASP.NET MVC, program Visual Studio zdecydowanie ułatwi pracę i wykona większość zadań za Ciebie. 
 
 1. Aby opublikować aplikację, musisz tylko kliknąć prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i kliknąć polecenie **Publikuj**.
    
@@ -559,13 +560,13 @@ Jeśli podczas próby wdrożenia aplikacji sieci Web pojawi się komunikat „Po
     - Region: wybierz region najbliższy użytkownikom aplikacji
     - Serwer bazy danych: kliknij pozycję „Brak bazy danych”, a następnie kliknij przycisk **Utwórz**. 
 
-4. Na ekranie „todo-net-app **screen” kliknij przycisk**Waliduj połączenie. Po zweryfikowaniu połączenia kliknij pozycję **Publikuj***. 
+4. Na ekranie „todo-net-app  **screen” kliknij przycisk** Waliduj połączenie. Po zweryfikowaniu połączenia kliknij pozycję **Publikuj***. 
     
     Aplikacja zostanie następnie wyświetlona w przeglądarce.
 
 
 ## <a name="_Toc395637775"></a>Następne kroki
-Gratulacje! Udało Ci się utworzyć Twoją pierwszą aplikację sieci Web dla platformy ASP.NET MVC używającą usługi Azure DocumentDB i opublikować ją w usłudze Azure Websites. Kod źródłowy kompletnej aplikacji, w tym funkcji szczegółów i usuwania, które nie zostały uwzględnione w tym samouczku, można pobrać lub sklonować z usługi [GitHub][GitHub]. Jeśli chcesz dodać go do swojej aplikacji, wystarczy pobrać kod i to zrobić.
+Gratulacje! Udało Ci się utworzyć Twoją pierwszą aplikację internetową dla platformy ASP.NET MVC używającą usługi Azure Cosmos DB i opublikować ją w usłudze Azure Websites. Kod źródłowy kompletnej aplikacji, w tym funkcji szczegółów i usuwania, które nie zostały uwzględnione w tym samouczku, można pobrać lub sklonować z usługi [GitHub][GitHub]. Jeśli chcesz dodać go do swojej aplikacji, wystarczy pobrać kod i to zrobić.
 
 Aby dodać kolejne funkcje do aplikacji, zapoznaj się z interfejsami API dostępnymi w [bibliotece usługi DocumentDB dla platformy .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx). Możesz ją także współtworzyć za pomocą usługi [GitHub][GitHub]. 
 

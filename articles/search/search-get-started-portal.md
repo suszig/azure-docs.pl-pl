@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ Dysponujesz już indeksem wyszukiwania, którego możesz używać do wykonywania
 
   Aby wyświetlić poszczególne składniki, kliknij kafelek **Indeks**, **Indeksator** lub **Źródła danych** na pulpicie nawigacyjnym w celu wyświetlenia listy istniejących obiektów. Aby dowiedzieć się więcej na temat operacji edytowania indeksu, które nie wymagają ponownej kompilacji, zobacz [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) (Aktualizowanie indeksu — interfejs API REST usługi Azure Search).
 
-+ Wypróbuj te narzędzia i kroki z innymi źródłami danych. Przykładowy zestaw danych, `realestate-us-sample`, pochodzi z bazy danych Azure SQL Database, którą można przeszukiwać za pomocą usługi Azure Search. Oprócz usługi Azure SQL Database usługa Azure Search może przeszukiwać płaskie struktury danych w usłudze Azure Table Storage, w usłudze Blob Storage, na serwerze SQL Server na maszynie wirtualnej platformy Azure oraz w usłudze DocumentDB. Na ich podstawie jest też tworzony indeks. Wszystkie te źródła danych są obsługiwane w kreatorze. W kodzie można w łatwy sposób wypełnić indeks przy użyciu *indeksatora*.
++ Wypróbuj te narzędzia i kroki z innymi źródłami danych. Przykładowy zestaw danych, `realestate-us-sample`, pochodzi z bazy danych Azure SQL Database, którą można przeszukiwać za pomocą usługi Azure Search. Oprócz usługi Azure SQL Database usługa Azure Search może przeszukiwać płaskie struktury danych w usługach Azure Table Storage, Blob Storage i Azure Cosmos DB oraz w programie SQL Server na maszynie wirtualnej platformy Azure. Na ich podstawie jest też tworzony indeks. Wszystkie te źródła danych są obsługiwane w kreatorze. W kodzie można w łatwy sposób wypełnić indeks przy użyciu *indeksatora*.
 
 + Wszystkie inne źródła danych niebędące indeksatorami są obsługiwane za pośrednictwem modelu wypychania, w ramach którego za pomocą kodu do indeksu wypychane są nowe i zmienione zestawy wierszy w formacie JSON. Aby uzyskać więcej informacji, zobacz [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Dodawanie, aktualizowanie lub usuwanie dokumentów w usłudze Azure Search).
 

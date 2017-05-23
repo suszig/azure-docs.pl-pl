@@ -1,28 +1,29 @@
 ---
-title: "Poznaj środowisko Node.js — samouczek środowiska Node.js dla usługi DocumentDB | Microsoft Docs"
-description: "Poznaj środowisko Node.js! W tym samouczku przedstawiono, jak przy użyciu usługi Microsoft Azure DocumentDB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji sieci Web Node.js Express hostowanej przez usługę Azure Websites."
+title: "Poznaj środowisko Node.js — samouczek środowiska Node.js dla usługi Azure Cosmos DB | Microsoft Docs"
+description: "Poznaj środowisko Node.js! W tym samouczku przedstawiono, jak przy użyciu usługi Microsoft Azure Cosmos DB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji internetowej Node.js Express hostowanej w usłudze Azure Websites."
 keywords: Programowanie aplikacji, samouczek bazy danych, nauka node.js, samouczek node.js, DocumentDB, Azure, Microsoft Azure
-services: documentdb
+services: cosmosdb
 documentationcenter: nodejs
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 6c84c21a0a61ab3e4d043e85d48780fc23f23a08
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 20b04f07581354144ef3dd3fc98da10cbff78e63
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395783175"></a>Tworzenie aplikacji sieci Web Node.js za pomocą usługi DocumentDB
+# <a name="_Toc395783175"></a>Tworzenie aplikacji internetowej Node.js za pomocą usługi Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET dla MongoDB](documentdb-mongodb-application.md)
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-W tym samouczku środowiska Node.js pokazano, jak przy użyciu usługi Azure DocumentDB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji Node.js Express hostowanej przez usługę Azure Websites. Utworzysz prostą, opartą na sieci Web aplikację do zarządzania zadaniami (aplikację ToDo), która umożliwia tworzenie, pobieranie i kończenie zadań. Zadania są przechowywane jako dokumenty JSON w usłudze Azure DocumentDB. Ten samouczek zawiera szczegółowe omówienie tworzenia i rozwoju aplikacji oraz objaśnienie poszczególnych fragmentów kodu.
+W tym samouczku środowiska Node.js pokazano, jak przy użyciu usługi Azure Cosmos DB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji Node.js Express hostowanej w usłudze Azure Websites. Utworzysz prostą, opartą na sieci Web aplikację do zarządzania zadaniami (aplikację ToDo), która umożliwia tworzenie, pobieranie i kończenie zadań. Zadania są przechowywane jako dokumenty JSON w usłudze Azure Cosmos DB. Ten samouczek zawiera szczegółowe omówienie tworzenia i rozwoju aplikacji oraz objaśnienie poszczególnych fragmentów kodu.
 
 ![Zrzut ekranu aplikacji My Todo List utworzonej w tym samouczku środowiska Node.js](./media/documentdb-nodejs-application/image1.png)
 
@@ -50,13 +51,13 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 
    LUB
 
-   Lokalna instalacja [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
+   Lokalna instalacja [emulatora usługi Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Node.js][Node.js] w wersji 0.10.29 lub nowszej.
 * [Generator Express](http://www.expressjs.com/starter/generator.html) (można go zainstalować za pomocą polecenia `npm install express-generator -g`)
 * [Git][Git].
 
-## <a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
-Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi DocumentDB na potrzeby tego samouczka, możesz od razu przejść do etapu [Krok 2. Tworzenie nowej aplikacji Node.js](#_Toc395783178).
+## <a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi Azure Cosmos DB
+Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie nowej aplikacji Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,8 +117,8 @@ Plik **package.json** jest jednym z plików utworzonych w folderze głównym pro
    
     W ten sposób węzeł (a potem platforma Azure) otrzyma informacje o tym, że aplikacja zależy od dodatkowych modułów.
 
-## <a name="_Toc395783180"></a>Krok 4. Korzystanie z usługi DocumentDB w aplikacji Node
-To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do tego, po co tutaj jesteśmy, czyli napisania kodu za pomocą usługi Azure DocumentDB.
+## <a name="_Toc395783180"></a>Krok 4. Korzystanie z usługi Azure Cosmos DB w aplikacji Node
+To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do najważniejszej części tego samouczka, czyli napisania kodu za pomocą usługi Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Tworzenie modelu
 1. W katalogu projektu utwórz nowy katalog o nazwie **models** w tym samym katalogu, w którym znajduje się plik package.json.
@@ -194,7 +195,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
    > [!TIP]
    > Funkcja createCollection przyjmuje opcjonalny parametr requestOptions, który może służyć do określania typu oferty dla kolekcji. Jeśli nie podano żadnej wartości requestOptions.offerType, kolekcja zostanie utworzona przy użyciu domyślnego typu oferty.
    > 
-   > Więcej informacji na temat typów oferty usługi DocumentDB można znaleźć w artykule [Performance levels in DocumentDB](documentdb-performance-levels.md)(Poziomy wydajności w usługi DocumentDB). 
+   > Więcej informacji na temat typów oferty usługi Azure Cosmos DB, zawiera temat [Performance levels in Azure Cosmos DB](documentdb-performance-levels.md) (Poziomy wydajności w usłudze Azure Cosmos DB) 
    > 
    > 
 5. Zapisz i zamknij plik **docdbUtils.js**.
@@ -214,7 +215,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
         }
    
         module.exports = TaskDao;
-8. Następnie dodaj poniższy kod, aby zdefiniować dodatkowe metody dla obiektu Task umożliwiające interakcje z danymi przechowywanymi w usłudze DocumentDB.
+8. Następnie dodaj poniższy kod, aby zdefiniować dodatkowe metody dla obiektu Task umożliwiające interakcje z danymi przechowywanymi w usłudze Azure Cosmos DB.
    
         TaskDao.prototype = {
             init: function (callback) {
@@ -397,7 +398,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
         config.collectionId = "Items";
    
         module.exports = config;
-3. W pliku **config.js** zaktualizuj wartości kluczy HOST i AUTH_KEY przy użyciu wartości znajdujących się w bloku Klucze Twojego konta usługi DocumentDB w witrynie [Microsoft Azure Portal](https://portal.azure.com).
+3. W pliku **config.js** zaktualizuj wartości kluczy HOST i AUTH_KEY przy użyciu wartości znajdujących się w bloku Klucze Twojego konta usługi Azure Cosmos DB w witrynie [Microsoft Azure Portal](https://portal.azure.com).
 4. Zapisz i zamknij plik **config.js**.
 
 ### <a name="modify-appjs"></a>Modyfikowanie pliku app.js
@@ -427,7 +428,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do teg
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
         app.set('view engine', 'jade');
-5. Te wiersze definiują nowe wystąpienie obiektu **TaskDao**, z nowym połączeniem z usługą DocumentDB (przy użyciu wartości odczytanych z pliku **config.js**), inicjują obiekt zadania, a następnie wiążą akcje formularza z metodami w kontrolerze **TaskList**. 
+5. Te wiersze definiują nowe wystąpienie obiektu **TaskDao** z nowym połączeniem z usługą Azure Cosmos DB (przy użyciu wartości odczytanych z pliku **config.js**), inicjują obiekt zadania, a następnie wiążą akcje formularza z metodami w kontrolerze **TaskList**. 
 6. Na koniec zapisz i zamknij plik **app.js**. To już prawie koniec.
 
 ## <a name="_Toc395783181"></a>Krok 5. Tworzenie interfejsu użytkownika
@@ -529,7 +530,7 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
     > [!TIP]
     > W przypadku wystąpienia błędu dotyczącego wcięcia w pliku layout.jade bądź index.jade upewnij się, że dwa pierwsze wiersze w obu plikach są wyrównane do lewej, bez spacji. Jeśli przed dwoma pierwszymi wierszami występują spacje, usuń je, zapisz oba pliki, a następnie odśwież okno przeglądarki. 
 
-2. Wprowadź nowe zadanie przy użyciu pól Item (Element), Item Name (Nazwa elementu) i Category (Kategoria), a następnie kliknij przycisk **Add Item** (Dodaj element). Spowoduje to utworzenie w usłudze DocumentDB dokumentu z tymi właściwościami. 
+2. Wprowadź nowe zadanie przy użyciu pól Item (Element), Item Name (Nazwa elementu) i Category (Kategoria), a następnie kliknij przycisk **Add Item** (Dodaj element). Spowoduje to utworzenie w usłudze Azure Cosmos DB dokumentu z tymi właściwościami. 
 3. Ta strona powinna zostać zaktualizowana w celu wyświetlenia nowo utworzonego elementu na liście ToDo.
    
     ![Zrzut ekranu aplikacji z nowym elementem na liście ToDo](./media/documentdb-nodejs-application/image19.png)
@@ -547,16 +548,16 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
         git push azure master
 4. W ciągu kilku sekund narzędzie Git zakończy publikowanie aplikacji sieci Web i uruchomi przeglądarkę, w której możesz zobaczyć swoje dzieło uruchomione na platformie Azure!
 
-    Gratulacje! Udało Ci się utworzyć swoją pierwszą aplikację sieci Web Node.js Express za pomocą usługi Azure DocumentDB i opublikować ją w usłudze Azure Websites.
+    Gratulacje! Udało Ci się utworzyć swoją pierwszą aplikację internetową Node.js Express za pomocą usługi Azure Cosmos DB i opublikować ją w usłudze Azure Websites.
 
     Jeśli chcesz pobrać kompletną aplikację referencyjną dla tego samouczka lub się do niej odwołać, to jest ona dostępna do pobrania w repozytorium [GitHub][GitHub].
 
 ## <a name="_Toc395637775"></a>Następne kroki
 
-* Czy chcesz wykonać testowanie wydajności i skalowania w usłudze DocumentDB? Zobacz [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Testowanie wydajności i skali w usłudze Azure DocumentDB).
-* Dowiedz się, jak [monitorować konto usługi DocumentDB](documentdb-monitor-accounts.md).
+* Czy chcesz wykonać testowanie wydajności i skalowania przy użyciu usługi Azure Cosmos DB? Zobacz [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md) (Testowanie wydajności i skali w usłudze Azure Cosmos DB)
+* Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).
-* Zapoznaj się z [dokumentacją usługi DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/).
+* Zapoznaj się z [dokumentacją usługi Azure Cosmos DB](https://docs.microsoft.com/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

@@ -1,6 +1,7 @@
 ---
 title: "Samouczek Hadoop: wprowadzenie do usług Hadoop i Hive w usłudze HDInsight | Microsoft Docs"
 description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Hadoop w usłudze HDInsight. Dowiedz się, jak tworzyć klastry systemu Linux i wykonywać zapytania na danych przy użyciu technologii Hive."
+keywords: hadoop getting started, hadoop linux, hadoop quick start
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -17,10 +18,10 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: bef6754f5ffd2b004af01a2e26edeeed63793b6e
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0e3be94d661359cb8040c5a5c95952c1b9fac7f2
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---

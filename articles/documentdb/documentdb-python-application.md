@@ -1,14 +1,14 @@
 ---
-title: "Samouczek dotyczący aplikacji sieci Web platformy Python Flask dla usługi Azure DocumentDB | Microsoft Docs"
-description: "Przejrzyj samouczek bazy danych na temat korzystania z usługi DocumentDB w celu przechowywania i uzyskiwania dostępu do danych z aplikacji sieci Web platformy Python Flask hostowanej na platformie Azure. Znajdź rozwiązania do tworzenia aplikacji."
+title: "Samouczek dotyczący aplikacji internetowej platformy Python Flask dla usługi Azure Cosmos DB | Microsoft Docs"
+description: "Przejrzyj samouczek bazy danych na temat korzystania z usługi Azure Cosmos DB w celu przechowywania i uzyskiwania dostępu do danych z aplikacji internetowej platformy Python Flask hostowanej na platformie Azure. Znajdź rozwiązania do tworzenia aplikacji."
 keywords: Application development, python flask, python web application, python web development
-services: documentdb
+services: cosmosdb
 documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,14 +16,15 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68b3fd109291551294b58b3cda75fd6a9619b4b4
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-python-flask-web-application-using-documentdb"></a>Kompilowanie aplikacji sieci Web platformy Python Flask za pomocą usługi DocumentDB
+# <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Tworzenie aplikacji internetowej platformy Python Flask za pomocą usługi Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET dla MongoDB](documentdb-mongodb-application.md)
@@ -33,13 +34,13 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Ten samouczek pokazuje, jak używać usługi Azure DocumentDB do przechowywania i uzyskiwania dostępu do danych aplikacji sieci Web utworzonej w języku Python i hostowanej na platformie Azure. Przyjęto w nim założenie, że użytkownik posiada już pewne doświadczenie związane z używaniem języka Python i witryn sieci Web platformy Azure.
+Ten samouczek pokazuje, jak używać usługi Azure Cosmos DB do przechowywania i uzyskiwania dostępu do danych aplikacji internetowej utworzonej w języku Python i hostowanej na platformie Azure. Przyjęto w nim założenie, że użytkownik posiada już pewne doświadczenie związane z używaniem języka Python i witryn internetowych platformy Azure.
 
 Ten samouczek bazy danych obejmuje następujące zagadnienia:
 
-1. Tworzenie i aprowizacja konta usługi DocumentDB.
+1. Tworzenie i aprowizacja konta usługi Cosmos DB.
 2. Tworzenie aplikacji MVC Python.
-3. Nawiązywanie połączenia z usługą Azure DocumentDB i korzystanie z niej z poziomu aplikacji sieci Web.
+3. Nawiązywanie połączenia z usługą Azure Cosmos DB i korzystanie z niej z poziomu aplikacji internetowej.
 4. Wdrażanie aplikacji sieci Web w usłudze Azure Websites.
 
 Wykonując poszczególne kroki tego samouczka, utworzysz prostą aplikację do głosowania, która umożliwia głosowanie w ankiecie.
@@ -53,7 +54,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
  
     LUB 
 
-    Lokalna instalacja [emulatora usługi Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    Lokalna instalacja [emulatora usługi Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * Program [Visual Studio 2013](http://www.visualstudio.com/) lub nowszy albo [Visual Studio Express](), który jest bezpłatną wersją. Instrukcje w tym samouczku zostały napisane specjalnie dla programu Visual Studio 2015. 
 * Narzędzia Python Tools for Visual Studio pobrane z witryny [GitHub](http://microsoft.github.io/PTVS/). W tym samouczku są używane narzędzia Python Tools for VS 2015. 
 * Zestaw SDK Python platformy Azure dla programu Visual Studio w wersji 2.4 lub wyższej, dostępny w witrynie [azure.com](https://azure.microsoft.com/downloads/). My używamy zestawu SDK platformy Microsoft Azure dla języka Python w wersji 2.7.
@@ -68,8 +69,8 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 
 * Kompilator Microsoft Visual C++ dla języka Python 2.7 z [Centrum pobierania Microsoft][3].
 
-## <a name="step-1-create-a-documentdb-database-account"></a>Krok 1. Tworzenie konta bazy danych usługi DocumentDB
-Zacznijmy od utworzenia konta usługi DocumentDB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi DocumentDB na potrzeby tego samouczka, możesz od razu przejść do następnego etapu [Krok 2. Tworzenie nowej aplikacji sieci Web platformy Python Flask](#step-2:-create-a-new-python-flask-web-application).
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Krok 1. Tworzenie konta bazy danych usługi Azure Cosmos DB
+Zacznijmy od utworzenia konta usługi Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie nowej aplikacji internetowej platformy Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -155,7 +156,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>Dodawanie wymaganych importów do pliku views.py
 1. W Eksploratorze rozwiązań rozwiń folder **tutorial**, a następnie otwórz plik **views.py**. 
-2. Dodaj następujące instrukcje importu u góry pliku **views.py**, a następnie zapisz plik. Spowoduje to zaimportowanie zestawu SDK Python usługi DocumentDB oraz pakietów platformy Flask.
+2. Dodaj następujące instrukcje importu u góry pliku **views.py**, a następnie zapisz plik. Spowoduje to zaimportowanie zestawu SDK Python usługi Cosmos DB oraz pakietów platformy Flask.
    
     ```python
     from forms import VoteForm
@@ -202,7 +203,7 @@ def create():
 ```
 
 > [!TIP]
-> Metoda **CreateCollection** przyjmuje opcjonalny parametr **RequestOptions** jako trzeci parametr. W ten sposób można określić typ oferty dla kolekcji. Jeśli nie podano żadnej wartości offerType, kolekcja zostanie utworzona przy użyciu domyślnego typu oferty. Więcej informacji na temat typów oferty usługi DocumentDB można znaleźć w artykule [Performance levels in DocumentDB](documentdb-performance-levels.md) (Poziomy wydajności w usłudze DocumentDB).
+> Metoda **CreateCollection** przyjmuje opcjonalny parametr **RequestOptions** jako trzeci parametr. W ten sposób można określić typ oferty dla kolekcji. Jeśli nie podano żadnej wartości offerType, kolekcja zostanie utworzona przy użyciu domyślnego typu oferty. Więcej informacji na temat typów oferty usługi Cosmos DB można znaleźć w artykule [Performance levels in Azure Cosmos DB](documentdb-performance-levels.md) (Poziomy wydajności w usłudze Azure Cosmos DB).
 > 
 > 
 
@@ -314,7 +315,7 @@ def vote():
     ```html
     {% extends "layout.html" %}
     {% block content %}
-    <h2>Python + DocumentDB Voting Application.</h2>
+    <h2>Python + Azure Cosmos DB Voting Application.</h2>
     <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
     <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
@@ -336,7 +337,7 @@ def vote():
     DOCUMENTDB_COLLECTION = 'voting collection'
     DOCUMENTDB_DOCUMENT = 'voting document'
     ```
-3. W witrynie [Azure Portal](https://portal.azure.com/) przejdź do bloku **Klucze**, klikając pozycję **Przeglądaj**, **Konta usługi DocumentDB**, kliknij dwukrotnie nazwę konta, którego chcesz użyć, a następnie kliknij przycisk **Klucze** w obszarze **Podstawy**. W bloku **Klucze** skopiuj wartość **URI** i wklej ją do pliku **config.py** jako wartość właściwości **DOCUMENTDB\_HOST**. 
+3. W witrynie [Azure Portal](https://portal.azure.com/) przejdź do bloku **Klucze**, klikając pozycję **Przeglądaj**, **Konta usługi Azure Cosmos DB**, kliknij dwukrotnie nazwę konta, którego chcesz użyć, a następnie kliknij przycisk **Klucze** w obszarze **Podstawy**. W bloku **Klucze** skopiuj wartość **URI** i wklej ją do pliku **config.py** jako wartość właściwości **DOCUMENTDB\_HOST**. 
 4. W witrynie Azure Portal, w bloku **Klucze** skopiuj wartość **Klucz podstawowy** lub **Klucz pomocniczy** i wklej ją do pliku **config.py** jako wartość właściwości **DOCUMENTDB\_KEY**.
 5. W pliku **\_\_init\_\_.py** dodaj następujący wiersz. 
    
@@ -358,7 +359,7 @@ def vote():
 1. Skompiluj rozwiązanie, naciskając klawisze **Ctrl**+**Shift**+**B**.
 2. Gdy kompilacja zakończy się powodzeniem, uruchom witrynę sieci Web, naciskając klawisz **F5**. Na ekranie powinna być widoczna następująca strona.
    
-    ![Zrzut ekranu aplikacji do głosowania opartej na języku Python i usłudze DocumentDB wyświetlonej w przeglądarce sieci Web](./media/documentdb-python-application/image16.png)
+    ![Zrzut ekranu aplikacji do głosowania opartej na języku Python i usłudze Azure Cosmos DB wyświetlonej w przeglądarce internetowej](./media/documentdb-python-application/image16.png)
 3. Kliknij przycisk **Create/Clear the Voting Database** (Utwórz/wyczyść bazę danych głosowania), aby wygenerować bazę danych.
    
     ![Zrzut ekranu strony tworzenia w aplikacji sieci Web — szczegóły programowania](./media/documentdb-python-application/image17.png)
@@ -371,7 +372,7 @@ def vote():
 6. Zatrzymaj debugowanie projektu przez naciśnięcie klawiszy Shift+F5.
 
 ## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Krok 5. Wdrażanie aplikacji sieci Web w usłudze Azure Websites
-Teraz, gdy kompletna aplikacja działa poprawnie z usługą DocumentDB, wdrożymy ją w usłudze Azure Websites.
+Teraz, gdy kompletna aplikacja działa poprawnie z usługą Cosmos DB, wdrożymy ją w usłudze Azure Websites.
 
 1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań (upewnij się, że nie jest uruchomiony lokalnie) i wybierz polecenie **Publikuj**.  
    
@@ -398,7 +399,7 @@ Jeśli jest to pierwsza aplikacja napisana w języku Python uruchomiona na Twoim
 Jeśli wystąpi błąd na stronie głosowania, a nazwa projektu jest inna niż **tutorial**, upewnij się, że plik **\_\_init\_\_.py** odwołuje się do właściwej nazwy projektu w wierszu: `import tutorial.view`.
 
 ## <a name="next-steps"></a>Następne kroki
-Gratulacje! Udało Ci się utworzyć swoją pierwszą aplikację sieci Web w języku Python za pomocą usługi Azure DocumentDB i opublikować ją w usłudze Azure Websites.
+Gratulacje! Udało Ci się utworzyć swoją pierwszą aplikację internetową w języku Python za pomocą usługi Cosmos DB i opublikować ją w usłudze Azure Websites.
 
 Często aktualizujemy i poprawiamy ten temat na podstawie opinii czytelników.  Po ukończeniu samouczka użyj przycisków głosowania znajdujących się u góry i u dołu tej strony oraz napisz swoją opinię na temat tego, co możemy ulepszyć. Jeśli chcesz, abyśmy skontaktowali się z Tobą bezpośrednio, możesz w komentarzach podać swój adres e-mail.
 
