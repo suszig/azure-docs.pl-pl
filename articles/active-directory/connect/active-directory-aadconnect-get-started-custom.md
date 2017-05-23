@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 5120b3f11549c936daacdfab37190a7193fde89f
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -74,9 +75,19 @@ Jeśli wystąpi błąd lub problemy z łącznością, zobacz [Rozwiązywanie pro
 ## <a name="pages-under-the-section-sync"></a>Strony w sekcji Synchronizacja
 
 ### <a name="connect-your-directories"></a>Podłączanie katalogów
-Aby połączyć się z usługą domeny usługi Active Directory, program Azure AD Connect potrzebuje poświadczeń konta z wystarczającymi uprawnieniami. Możesz wprowadzić domenę w formacie NetBios lub FQDN, tj. FABRIKAM\syncuser lub fabrikam.com\syncuser. To konto może być kontem zwykłego użytkownika, ponieważ wymaga tylko domyślnych uprawnień odczytu. Jednak w zależności od scenariusza, mogą być potrzebne większe uprawnienia. Więcej informacji znajduje się w temacie [Konta i uprawnienia w programie Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+Aby połączyć się z usługami Active Directory Domain Services, program Azure AD Connect potrzebuje nazwy lasu i poświadczeń konta z wystarczającymi uprawnieniami.
 
-![Podłączanie katalogu](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+![Podłączanie katalogu](./media/active-directory-aadconnect-get-started-custom/connectdir01.png)
+
+Po wprowadzeniu nazwy lasu i kliknięciu pozycji **Dodaj katalog** zostanie wyświetlone podręczne okno dialogowe z prośbą o wybranie odpowiedniej opcji:
+
+| Opcja | Opis |
+| --- | --- |
+| Użyj istniejącego konta | Wybierz tę opcję, jeśli chcesz, aby podczas synchronizacji katalogów do nawiązywania połączenia z lasem usługi AD program Azure AD Connect używał istniejącego konta usługi AD DS. Możesz wprowadzić domenę w formacie NetBios lub FQDN, tj. FABRIKAM\syncuser lub fabrikam.com\syncuser. To konto może być kontem zwykłego użytkownika, ponieważ wymaga tylko domyślnych uprawnień odczytu. Jednak w zależności od scenariusza, mogą być potrzebne większe uprawnienia. Więcej informacji znajduje się w temacie [Konta i uprawnienia w programie Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
+| Utwórz nowe konto | Wybierz tę opcję, jeśli chcesz, aby kreator programu Azure AD Connect utworzył konto usługi AD DS wymagane przez program Azure AD Connect na potrzeby nawiązywania połączenia z lasem usługi AD podczas synchronizacji katalogów. Jeśli wybierzesz tę opcję, wprowadź nazwę użytkownika i hasło konta administratora przedsiębiorstwa. Podane konto administratora przedsiębiorstwa będzie używane przez kreatora programu Azure AD Connect do utworzenia wymaganego konta usługi AD DS. Możesz wprowadzić domenę w formacie NetBios lub FQDN, czyli FABRIKAM\administrator lub fabrikam.com\administrator. |
+
+![Podłączanie katalogu](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
+
 
 ### <a name="azure-ad-sign-in-configuration"></a>Konfiguracja logowania się w usłudze Azure AD
 Ta strona umożliwia przeglądanie domen UPN obecnych w lokalnych usługach AD DS oraz tych, które zostały zweryfikowane w usłudze Azure AD. Umożliwia również skonfigurowanie atrybutu dla właściwości userPrincipalName.
@@ -99,7 +110,7 @@ Domyślnie wszystkie domeny i jednostki organizacyjne są zsynchronizowane. Jeś
 ![Filtrowanie domen i jednostek organizacyjnych](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
 Ta strona kreatora służy do konfigurowania filtrowania opartego na domenie i jednostce organizacyjnej. Jeżeli planujesz wprowadzić zmiany, zobacz [filtrowanie oparte na domenie](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) i [filtrowanie oparte na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) przed wprowadzeniem tych zmian. Niektóre jednostki organizacyjne są niezbędne do działania i powinny pozostać zaznaczone.
 
-Jeśli używasz filtrowania opartego na jednostce organizacyjnej, nowe jednostki organizacyjne dodane później są domyślnie synchronizowane. Aby nowe jednostki organizacyjne nie były synchronizowane, możesz skonfigurować odpowiednie ustawienie po zakończeniu działania kreatora w zakresie [filtrowania opartego na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+Jeśli używasz filtrowania opartego na jednostce organizacyjnej z programem Azure AD Connect w wersji wcześniejszej niż 1.1.524.0, nowe jednostki organizacyjne dodane później są domyślnie synchronizowane. Aby nowe jednostki organizacyjne nie były synchronizowane, możesz skonfigurować odpowiednie ustawienie po zakończeniu działania kreatora w zakresie [filtrowania opartego na jednostce organizacyjnej](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). W przypadku programu Azure AD Connect w wersji 1.1.524.0 lub nowszej można wskazać, czy nowe jednostki organizacyjne mają być synchronizowane.
 
 Jeśli planujesz używać [filtrowania opartego na grupie](#sync-filtering-based-on-groups), upewnij się, że jednostka organizacyjna z grupą jest uwzględniona i nie została odfiltrowana przy użyciu filtrowania opartego na jednostce organizacyjnej. Filtrowanie oparte na jednostce organizacyjnej jest stosowane przed filtrowaniem opartym na grupie.
 
@@ -108,6 +119,8 @@ Istnieje również możliwość, że niektóre domeny są niedostępne z powodu 
 Jeśli takie ostrzeżenie zostanie wyświetlone, sprawdź, czy te domeny są rzeczywiście niedostępne i ostrzeżenie jest oczekiwane.
 
 ### <a name="uniquely-identifying-your-users"></a>Unikatowa identyfikacja użytkowników
+
+#### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Wybieranie sposobu identyfikowania użytkowników w katalogach lokalnych
 Funkcja dopasowywania w lasach umożliwia określenie, jak użytkownicy z lasów usługi AD DS są wyświetlani w usłudze Azure AD. Użytkownik może być wyświetlany tylko jeden raz we wszystkich lasach lub mieć kombinację włączonych i wyłączonych kont. W niektórych lasach użytkownik może być także wyświetlany jako kontakt.
 
 ![Unikatowe](./media/active-directory-aadconnect-get-started-custom/unique.png)
@@ -120,7 +133,15 @@ Funkcja dopasowywania w lasach umożliwia określenie, jak użytkownicy z lasów
 | Atrybuty sAMAccountName i MailNickName |Ta opcja łączy atrybuty w przypadku, gdy oczekiwane jest znalezienie identyfikatora logowania dla użytkownika. |
 | Określony atrybut |Ta opcja umożliwia wybranie własnego atrybutu. **Ograniczenie:** należy pamiętać, aby wybrać atrybut, który znajduje się już w magazynie metaverse. W przypadku wybrania atrybutu niestandardowego (który nie znajduje się w magazynie metaverse) nie można ukończyć działania kreatora. |
 
-**Zakotwiczenie źródła** — atrybut sourceAnchor jest niezmienialny w okresie istnienia obiektu użytkownika. Jest kluczem podstawowym łączącym użytkownika lokalnego z użytkownikiem w usłudze Azure AD. Ze względu na to, że atrybutu nie można zmienić należy zaplanować użycie właściwego atrybutu. Dobrym wyborem jest atrybut objectGUID. Tego atrybutu nie można zmienić, chyba że konto użytkownika jest przenoszone między lasami/domenami. W środowisku wielu lasów, w którym konta są przenoszone między lasami, należy użyć innego atrybutu, np. atrybutu z identyfikatorem employeeID. Należy unikać atrybutów, które mogą ulec zmianie po zmianie stanu cywilnego lub zmianie zadań. Nie można używać atrybutów ze znakiem @-sign, więc nie można używać adresu e-mail ani atrybutu userPrincipalName. W tym atrybucie uwzględniana jest również wielkość liter, więc w przypadku przenoszenia obiektu między lasami należy pamiętać o zachowaniu wielkich/małych liter. Atrybuty binarne są zakodowane przy użyciu standardu base64, ale inne typy atrybutów pozostają w stanie niezakodowanym. W scenariuszach federacji i niektórych interfejsach usługi Azure AD ten atrybut nosi również nazwę immutableID. Więcej informacji na temat zakotwiczenia źródła znajduje się w temacie, w którym opisano [zagadnienia dotyczące projektowania](active-directory-aadconnect-design-concepts.md#sourceanchor).
+#### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Wybieranie sposobu identyfikowania użytkowników z usługą Azure AD — zakotwiczenie źródła
+Atrybut sourceAnchor jest niezmienialny w okresie istnienia obiektu użytkownika. Jest kluczem podstawowym łączącym użytkownika lokalnego z użytkownikiem w usłudze Azure AD.
+
+| Ustawienie | Opis |
+| --- | --- |
+| Pozwól, aby platforma Azure zarządzała zakotwiczeniem źródła | Wybierz tę opcję, jeśli chcesz, aby usługa Azure AD wybierała ten atrybut za Ciebie. |
+| Określony atrybut | Wybierz tę opcję, jeśli chcesz określić istniejący atrybut usługi AD jako atrybut sourceAnchor. |
+
+Ze względu na to, że atrybutu nie można zmienić należy zaplanować użycie właściwego atrybutu. Dobrym wyborem jest atrybut objectGUID. Tego atrybutu nie można zmienić, chyba że konto użytkownika jest przenoszone między lasami/domenami. W środowisku wielu lasów, w którym konta są przenoszone między lasami, należy użyć innego atrybutu, np. atrybutu z identyfikatorem employeeID. Należy unikać atrybutów, które mogą ulec zmianie po zmianie stanu cywilnego lub zmianie zadań. Nie można używać atrybutów ze znakiem @-sign, więc nie można używać adresu e-mail ani atrybutu userPrincipalName. W tym atrybucie uwzględniana jest również wielkość liter, więc w przypadku przenoszenia obiektu między lasami należy pamiętać o zachowaniu wielkich/małych liter. Atrybuty binarne są zakodowane przy użyciu standardu base64, ale inne typy atrybutów pozostają w stanie niezakodowanym. W scenariuszach federacji i niektórych interfejsach usługi Azure AD ten atrybut nosi również nazwę immutableID. Więcej informacji na temat zakotwiczenia źródła znajduje się w temacie, w którym opisano [zagadnienia dotyczące projektowania](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtrowanie synchronizacji na podstawie grup
 Funkcja filtrowania grup umożliwia synchronizowanie tylko małego podzbioru obiektów do celów wdrożenia pilotażowego. Aby użyć tej funkcji, należy utworzyć w tym celu grupę w lokalnej usłudze Active Directory. Następnie należy dodać użytkowników i grupy, którzy mają zostać zsynchronizowani z usługą Azure AD jako bezpośrednie elementy członkowskie. Później można dodawać i usuwać użytkowników tej grupy, aby opracować listę obiektów, które powinny znajdować się w usłudze Azure AD. Wszystkie obiekty przeznaczone do synchronizacji powinny być bezpośrednimi elementami członkowskimi grupy. Wszyscy użytkownicy i wszystkie grupy, kontakty, komputery/urządzenia muszą być bezpośrednimi elementami członkowskimi. Członkostwo grup zagnieżdżonych nie jest rozpoznawane. W przypadku dodania grupy jako elementu członkowskiego dodawana jest tylko sama grupa, a nie jej elementy członkowskie.
@@ -147,6 +168,7 @@ Na tym ekranie można wybrać funkcje opcjonalne dla określonych scenariuszy.
 | Funkcje opcjonalne | Opis |
 | --- | --- |
 | Wdrożenie hybrydowe programu Exchange |Funkcja wdrożenia hybrydowego programu Exchange umożliwia jednoczesne istnienie skrzynek pocztowych programu Exchange lokalnie i w usłudze Office 365. Program Azure AD Connect synchronizuje określony zbiór [atrybutów](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) z usługi Azure AD z katalogiem lokalnym. |
+| Foldery publiczne poczty programu Exchange | Funkcja Foldery publiczne poczty programu Exchange umożliwia synchronizowanie obiektów z folderu publicznego wykorzystującego pocztę z lokalnej usługi Active Directory do usługi Azure AD. |
 | Filtrowanie atrybutów i aplikacji usługi Azure AD |Przez włączenie filtrowania atrybutów i aplikacji usługi Azure AD można dostosować zestaw synchronizowanych atrybutów. Ta opcja dodaje do kreatora dwie dodatkowe strony konfiguracji. Więcej informacji znajduje się w temacie [Filtrowanie atrybutów i aplikacji usługi Azure AD](#azure-ad-app-and-attribute-filtering). |
 | Synchronizacja haseł |Te opcję można włączyć, jeśli jako metodę logowania wybrano federację. Synchronizacja haseł może być następnie użyta jako opcja tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja haseł](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>W przypadku wybrania uwierzytelniania przekazywanego ta opcja jest domyślnie włączona, aby zapewnić obsługę starszych klientów i opcję tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja haseł](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Zapisywanie zwrotne haseł |Po włączeniu zapisywania zwrotnego haseł zmiany hasła, które pochodzą z usługi Azure AD, są ponownie zapisywane w katalogu lokalnym. Więcej informacji można znaleźć w temacie [Wprowadzenie do zarządzania hasłami](../active-directory-passwords-getting-started.md) |
@@ -253,7 +275,7 @@ Zostanie wyświetlony monit o podanie poświadczeń, aby serwer aplikacji sieci 
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>Określanie konta usługi dla usług AD FS
 Usługi AD FS wymagają konta usług domeny do uwierzytelniania użytkowników i sprawdzania informacji o użytkownikach w usłudze Active Directory. Obsługiwane są dwa typy kont usługi:
 
-* **Konto usługi zarządzane przez grupę** — wprowadzone w usługach domenowych Active Directory w systemie Windows Server 2012. Ten typ konta zapewnia usługom, takim jak usługi AD FS, pojedyncze konto bez konieczności regularnego aktualizowania hasła do konta. Opcja ta powinna być używana, jeśli kontrolery domeny systemu Windows Server 2012 znajdują się już w domenie, do której należą serwery usług AD FS.
+* **Konto usługi zarządzane przez grupę** — wprowadzone w usługach Active Directory Domain Services w systemie Windows Server 2012. Ten typ konta zapewnia usługom, takim jak usługi AD FS, pojedyncze konto bez konieczności regularnego aktualizowania hasła do konta. Opcja ta powinna być używana, jeśli kontrolery domeny systemu Windows Server 2012 znajdują się już w domenie, do której należą serwery usług AD FS.
 * **Konto użytkownika domeny** — ten typ konta wymaga podawania hasła i regularnego aktualizowania hasła w przypadku jego zmiany lub wygaśnięcia. Tej opcji należy używać tylko, jeśli w domenie, do której należą serwery usług AD FS, nie ma kontrolerów domeny systemu Windows Server 2012.
 
 Jeśli zostało wybrane konto usługi zarządzane przez grupę i funkcja ta nie była nigdy używana w usłudze Active Directory, zostanie wyświetlony monit o poświadczenia administratora przedsiębiorstwa. Poświadczenia te służą do inicjowania magazynu kluczy i włączania funkcji w usłudze Active Directory.

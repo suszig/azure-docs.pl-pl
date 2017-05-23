@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 83b72b046605f6076302d4347afa70707060929e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 2bf0fa92b4f0a54738da86e2c8f26a51d053cfac
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -29,7 +29,7 @@ Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Dla tego samouczka wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
+Dla tego przewodnika Szybki start wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure. 
 
@@ -104,7 +104,7 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>Wyświetlanie strony powitalnej serwera NGINX
+## <a name="view-the-nginx-welcome-page"></a>Wyświetlanie strony powitalnej serwera NGINX
 
 Po zainstalowaniu serwera NGINX i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki serwera NGINX. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej *publicznego adresu IP*. 
 

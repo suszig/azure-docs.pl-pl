@@ -1,6 +1,6 @@
 ---
-title: "Monitorowanie wydajności aplikacji WTP (przykładowa aplikacja SaaS korzystająca z usługi Azure SQL Database) | Dokumentacja firmy Microsoft"
-description: "Monitorowanie wydajności przykładowej aplikacji SaaS korzystającej z usługi Azure SQL Database"
+title: "Monitorowanie wydajności aplikacji SaaS usługi SQL Database | Microsoft Docs"
+description: "Monitorowanie wydajności i zarządzanie nią na przykładzie aplikacji Wingtip Tickets (WTP) korzystającej z usługi Azure SQL Database"
 keywords: "samouczek usługi sql database"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1698a06dc326b1d215bb635c40724f914ba82442
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: af9511978718af10c97bee6af3a2835c9d2c1ff4
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -66,7 +66,7 @@ W scenariuszach dotyczących dużych ilości danych można użyć usługi Log An
 
 ## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
 
-Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w folderze [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
+Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w [folderze Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
 
 ## <a name="provision-additional-tenants"></a>Aprowizacja dodatkowych dzierżaw
 

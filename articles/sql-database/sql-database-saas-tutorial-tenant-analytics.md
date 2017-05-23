@@ -1,6 +1,6 @@
 ---
-title: "Uruchamianie zapytań analitycznych dla wielu dzierżaw (przykładowa aplikacja SaaS korzystająca z usługi Azure SQL Database) | Dokumentacja firmy Microsoft"
-description: "Uruchamianie zapytań analitycznych dla wielu dzierżaw"
+title: "Uruchamianie analitycznych zapytań w wielu bazach danych Azure SQL | Microsoft Docs"
+description: "Uruchamianie rozproszonych zapytań w wielu bazach danych Azure SQL"
 keywords: "samouczek usługi sql database"
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Uruchamianie zapytań analitycznych dla wielu dzierżaw
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Uruchamianie rozproszonych zapytań w wielu bazach danych Azure SQL
 
 W tym samouczku wykonywane są zapytania analityczne dla każdej dzierżawy w wykazie. Tworzone jest elastyczne zadanie, które uruchamia zapytania. To zadanie pobiera dane i ładuje je do oddzielnej analitycznej bazy danych utworzonej na serwerze wykazu. Na tej bazie danych można wykonywać zapytania, aby wydobyć informacje ukryte pośród codziennych danych operacyjnych pochodzących od wszystkich dzierżaw. Danymi wyjściowymi tego zadania jest tabela utworzona na podstawie zwracających wyniki zapytań wewnątrz analitycznej bazy danych dzierżaw.
 
@@ -47,7 +47,7 @@ Jedną z najważniejszych zalet aplikacji SaaS jest możliwość użycia dużych
 
 ## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
 
-Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w folderze [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
+Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w [folderze Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Wdrażanie bazy danych dla wyników analizy dzierżawy
 

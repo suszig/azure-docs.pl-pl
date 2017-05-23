@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -32,7 +33,7 @@ Microsoft Azure Portal to centralne miejsce, w którym możliwe jest aprowizowan
   ![Orientacja interfejsu użytkownika witryny Azure Portal][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Przed rozpoczęciem
-Konieczne będzie posiadanie ważnej subskrypcji platformy Azure, aby móc skorzystać z tego samouczka.  Jeśli nie masz ważnej subskrypcji, [utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) już dzisiaj.  Po utworzeniu subskrypcji dostęp do portalu można uzyskać pod adresem [https://portal.azure.com].
+Konieczne będzie posiadanie ważnej subskrypcji platformy Azure, aby móc skorzystać z tego samouczka.  Jeśli nie masz ważnej subskrypcji, [utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) już dzisiaj.  Po utworzeniu subskrypcji dostęp do portalu można uzyskać pod adresem <https://portal.azure.com>.
 
 ## <a name="how-to-create-a-resource"></a>Tworzenie zasobu
 Platforma Azure zawiera portal Marketplace z tysiącami elementów, które można utworzyć w jednym miejscu.  Załóżmy, że chcesz utworzyć nową maszynę wirtualną systemu Windows Server 2012.  Nowe centrum jest punktem wejścia do nadzorowanego zestawu polecanych kategorii z portalu Marketplace.  Każda kategoria ma niewielki zestaw polecanych elementów wraz z linkiem do pełnego portalu Marketplace, w którym są wyświetlane wszystkie kategorie i jest możliwe wyszukiwanie. Aby utworzyć tę nową maszynę wirtualną systemu Windows Server 2012, wykonaj następujące czynności:  
