@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -77,13 +77,12 @@ Konto usługi Azure Batch możesz utworzyć za pomocą witryny [Azure Portal](ba
 Usługa Batch obsługuje dwie konfiguracje konta oparte na właściwości *Tryb alokacji puli*. Te dwie konfiguracje dają dostęp do różnych możliwości związanych z [pulami](#pool) usługi Batch (zobacz dalszą część tego artykułu).
 
 
-* **Usługa Batch**: opcja domyślna, z maszynami wirtualnymi pul usługi Batch przydzielanymi w tle w subskrypcjach zarządzanych przez usługę Azure. Tej konfiguracji konta należy użyć, jeśli wymagane są pule usług Cloud Services, ale nie można jej używać, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md).
+* **Usługa Batch**: opcja domyślna, z maszynami wirtualnymi pul usługi Batch przydzielanymi w tle w subskrypcjach zarządzanych przez usługę Azure. Tej konfiguracji konta należy użyć, jeśli wymagane są pule usług Cloud Services, ale nie można jej używać, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). W pulach w konfiguracji konta usługi Batch można używać dowolnych węzłów obliczeniowych — dedykowanych lub o niskim priorytecie.
 
-* **Subskrypcja użytkownika**: tej konfiguracji konta należy użyć, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać tylko przy użyciu [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md), a pule usługi Cloud Services nie są obsługiwane. Obliczeniowe maszyny wirtualne usługi Batch są przydzielane bezpośrednio w subskrypcji platformy Azure. Ten tryb wymaga skonfigurowania usługi Azure Key Vault dla konta usługi Batch.
-
+* **Subskrypcja użytkownika**: tej konfiguracji konta należy użyć, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać tylko przy użyciu [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md), a pule usługi Cloud Services nie są obsługiwane. Obliczeniowe maszyny wirtualne usługi Batch są przydzielane bezpośrednio w subskrypcji platformy Azure. Ten tryb wymaga skonfigurowania usługi Azure Key Vault dla konta usługi Batch. W pulach w konfiguracji konta subskrypcji użytkownika można używać tylko dedykowanych węzłów obliczeniowych. 
 
 ## <a name="compute-node"></a>Węzeł obliczeniowy
-Węzeł obliczeniowy jest maszyną wirtualną platformy Azure przeznaczoną do przetwarzania części obciążenia danej aplikacji. Rozmiar węzła określa liczbę rdzeni procesora, pojemność pamięci oraz rozmiar lokalnego systemu plików przydzielony do tego węzła. Pule węzłów systemu Windows lub Linux można tworzyć przy użyciu obrazów witryny Marketplace dla usług Azure Cloud Services lub Virtual Machines. Aby uzyskać więcej informacji na temat tych opcji, zobacz poniżej sekcję [Pula](#pool).
+Węzeł obliczeniowy jest maszyną wirtualną platformy Azure lub maszyną wirtualną dla usługi w chmurze przeznaczoną do przetwarzania części obciążenia danej aplikacji. Rozmiar węzła określa liczbę rdzeni procesora, pojemność pamięci oraz rozmiar lokalnego systemu plików przydzielony do tego węzła. Pule węzłów systemu Windows lub Linux można tworzyć przy użyciu obrazów witryny Marketplace dla usług Azure Cloud Services lub Virtual Machines. Aby uzyskać więcej informacji na temat tych opcji, zobacz poniżej sekcję [Pula](#pool).
 
 Węzły można uruchamiać przy użyciu dowolnego pliku wykonywalnego lub skryptu, który jest obsługiwany przez środowisko systemu operacyjnego węzła. Dotyczy to plików \*EXE, \*CMD, \*BAT i skryptów programu PowerShell dla systemu Windows — oraz plików binarnych, powłoki i skryptów języka Python dla systemu Linux.
 
@@ -117,6 +116,25 @@ Podczas tworzenia puli możesz określić następujące atrybuty. Niektóre usta
   * *Rodzina systemów operacyjnych* określa też, które wersje platformy .NET są instalowane z systemem operacyjnym.
   * Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services można określić *wersję systemu operacyjnego* (więcej informacji o rolach procesów roboczych można znaleźć w sekcji [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) (Więcej informacji o usługach Cloud Services) w temacie [Compute Hosting Options Provided by Azure](../cloud-services/cloud-services-choose-me.md) (Opcje hostingu obliczeniowego dostępne na platformie Azure)).
   * Tak samo jak w przypadku ról procesów roboczych zaleca się określenie `*` dla *wersji systemu operacyjnego*, aby węzły były uaktualniane automatycznie, a niedawno wydane wersje nie wymagały żadnej pracy. Podstawowym warunkiem wybrania określonej wersji systemu operacyjnego jest upewnienie się, czy została zachowana zgodność aplikacji, przez zezwolenie na testowanie zgodności z poprzednimi wersjami przed zezwoleniem na aktualizację wersji. Po zakończeniu walidacji można zaktualizować *wersję systemu operacyjnego* dla puli i zainstalować nowy obraz systemu operacyjnego — wszystkie uruchomione zadania podrzędne zostaną przerwane i ponownie umieszczone w kolejce.
+
+* **Typ węzła obliczeniowego** i **docelowa liczba węzłów**
+
+    Podczas tworzenia puli można określić pożądane typy węzłów obliczeniowych i docelową liczbę każdego z nich. Istnieją dwa typy węzłów obliczeniowych:
+
+    - **Węzły obliczeniowe o niskim priorytecie.** Węzły o niskim priorytecie wykorzystują nadwyżkę wydajności na platformie Azure do uruchamiania obciążeń usługi Batch. Węzły o niskim priorytecie są tańsze niż węzły dedykowane i umożliwiają obsługiwanie obciążeń wymagających dużej mocy obliczeniowej. Aby uzyskać więcej informacji, zobacz [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Korzystanie z maszyn wirtualnych o niskim priorytecie z usługą Batch).
+
+        Węzły obliczeniowe o niskim priorytecie mogą być przerywane, jeśli na platformie Azure nie będzie wystarczającej nadwyżki wydajności. Jeśli węzeł zostanie przerwany podczas przetwarzania zadań, zadania te są ponownie umieszczane w kolejce, a następnie ponownie uruchamiane, kiedy węzeł obliczeniowy znowu stanie się dostępny. Węzły o niskim priorytecie są dobrą opcją w przypadku obciążeń, dla których czas ukończenia zadania jest elastyczny, a praca jest rozproszona na wielu węzłach.
+
+        Węzły obliczeniowe o niskim priorytecie są dostępne tylko dla kont usługi Batch, które zostały utworzone z trybem alokacji puli ustawionym na wartość **Usługa Batch**.
+
+    - **Dedykowane węzły obliczeniowe.** Dedykowane węzły obliczeniowe są zarezerwowane dla konkretnych obciążeń. Są one droższe niż węzły o niskim priorytecie, ale mają gwarancję, że nigdy nie zostaną przerwane.    
+
+    W tej samej puli mogą istnieć węzły obliczeniowe o niskim priorytecie i węzły dedykowane. Każdy typ węzła &mdash; o niskim priorytecie i dedykowany &mdash; ma swoje własne ustawienie docelowe, dla którego można określić żądaną liczbę węzłów. 
+        
+    Liczbę węzłów obliczeniowych określa się jako *docelową*, ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Na przykład pula może nie osiągnąć wartości docelowej, jeśli wcześniej zostanie osiągnięty [podstawowy przydział](batch-quota-limit.md) dla konta usługi Batch. Pula może również nie osiągnąć wartości docelowej, jeśli zastosowano formułę skalowania automatycznego do puli, która ogranicza maksymalną liczbę węzłów.
+
+    Aby uzyskać informacje dotyczące cen węzłów obliczeniowych o niskim priorytecie i dedykowanych węzłów obliczeniowych, zobacz [Batch — cennik](https://azure.microsoft.com/pricing/details/batch/).
+
 * **Rozmiar węzłów**
 
     Lista rozmiarów węzłów obliczeniowych **konfiguracji usług Cloud Serivces** znajduje się w temacie [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Rozmiary dla usługi Cloud Services). Usługa Batch obsługuje wszystkie rozmiary usług Cloud Services oprócz `ExtraSmall`, `STANDARD_A1_V2` i `STANDARD_A2_V2`.
@@ -126,12 +144,11 @@ Podczas tworzenia puli możesz określić następujące atrybuty. Niektóre usta
     Podczas wybierania rozmiaru węzła obliczeniowego należy wziąć pod uwagę charakterystyki i wymagania aplikacji, które będą uruchamiane w poszczególnych węzłach. Takie czynniki jak to, czy aplikacja jest wielowątkowa oraz ile pamięci zużywa, mogą pomóc w wyborze najbardziej odpowiedniego i ekonomicznego rozmiar węzła. Rozmiar węzła jest zazwyczaj wybierany w oparciu o założenie, że w węźle będzie uruchamiane w danym momencie jedno zadanie. Podczas wykonywania zadania można jednak [równolegle uruchomić](batch-parallel-node-tasks.md) wiele zadań podrzędnych, a co za tym idzie — wielu wystąpień aplikacji. W takiej sytuacji zwykle wybiera się większy rozmiar węzła w celu sprostania zwiększonemu zapotrzebowaniu na równoległe wykonywanie zadań podrzędnych. Aby uzyskać więcej informacji, zobacz [Zasady planowania zadań podrzędnych](#task-scheduling-policy).
 
     Wszystkie węzły w puli mają taki sam rozmiar. Jeśli planujesz uruchamiać aplikacje z różnymi wymaganiami systemowymi i/lub poziomami obciążenia, zalecamy użycie oddzielnych pul.
-* **Docelowa liczba węzłów**
 
-    Jest to liczba węzłów obliczeniowych, które chcesz wdrożyć w puli. Określa się ją jako *docelową*, ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Może zdarzyć się tak na przykład w przypadku osiągnięcia limitu [przydziału rdzeni](batch-quota-limit.md) dla konta usługi Batch lub jeśli istnieje formuła automatycznego skalowania, którą zastosowano do puli ograniczającej maksymalną liczbę węzłów (zobacz poniżej sekcję „Zasady skalowania”).
 * **Zasady skalowania**
 
     W przypadku obciążeń dynamicznych można zapisać i zastosować do puli [formułę automatycznego skalowania](#scaling-compute-resources). Usługa Batch okresowo oblicza formułę i dostosowuje liczbę węzłów w ramach puli na podstawie różnych wybieranych parametrów puli, zadań i zadań podrzędnych.
+
 * **Zasady planowania zadań podrzędnych**
 
     Opcja konfiguracji [maksymalnej liczby zadań podrzędnych na węzeł](batch-parallel-node-tasks.md) określa maksymalną liczbę zadań podrzędnych, które można uruchomić równolegle na poszczególnych węzłach obliczeniowych w ramach puli.
