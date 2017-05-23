@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie aplikacji w języku PHP w usłudze Web App | Microsoft Docs"
+title: "Tworzenie aplikacji w języku PHP w usłudze Web App platformy Azure | Microsoft Docs"
 description: "Wdróż swoją pierwszą aplikację Hello World w języku PHP w usłudze App Service Web App w ciągi kilku minut."
 services: app-service\web
 documentationcenter: 
@@ -12,30 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/31/2017
+ms.date: 05/04/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d5126f3b9fa92ff95eaa8bc06554c49f9836bab9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0541778e07193c4903a90ce0b91db224bdf60342
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-php-application-on-web-app"></a>Tworzenie aplikacji w języku PHP w usłudze Web App
 
-Ten samouczek szybkiego startu poprowadzi Cię przez tworzenie i wdrażanie aplikacji w języku PHP na platformie Azure. Uruchomimy aplikację za pomocą opartej na systemie Linux usługi Azure App Service oraz utworzymy i skonfigurujemy w niej nową aplikację sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure. Następnie użyjemy narzędzia Git do wdrożenia aplikacji w języku PHP na platformie Azure.
+Ten samouczek szybkiego startu poprowadzi Cię przez tworzenie i wdrażanie aplikacji w języku PHP na platformie Azure. Uruchomimy aplikację za pomocą [planu usługi Azure App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) oraz utworzymy i skonfigurujemy w niej nową aplikację sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure. Następnie użyjemy narzędzia Git do wdrożenia aplikacji w języku PHP na platformie Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux. Wykonanie wszystkich poniższych czynności powinno zająć tylko około 5 minut.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed uruchomieniem tego przykładu zainstaluj lokalnie następujące wymagania wstępne:
+Przed utworzeniem tego przykładu pobierz i zainstaluj poniższe:
 
-1. [Pobierz i zainstaluj narzędzie Git](https://git-scm.com/)
-1. [Pobierz i zainstaluj środowisko PHP](https://php.net)
-1. Pobierz i zainstaluj [interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Git](https://git-scm.com/)
+* [PHP](https://php.net)
+* [Interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,9 +47,6 @@ Sklonuj repozytorium przykładowej aplikacji Hello World na komputer lokalny.
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 ```
-
-> [!TIP]
-> Alternatywnie możesz [pobrać przykład](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) jako plik zip i wyodrębnić go.
 
 Przejdź do katalogu, który zawiera przykładowy kod.
 
@@ -84,20 +82,8 @@ Teraz użyjemy interfejsu wiersza polecenia platformy Azure 2.0 w oknie terminal
 az login
 ```
 
-## <a name="configure-a-deployment-user"></a>Konfigurowanie użytkownika wdrożenia
-
-Dla protokołu FTP i lokalnego narzędzia Git należy mieć użytkownika wdrożenia skonfigurowanego na serwerze w celu uwierzytelnienia wdrożenia. Tworzenie użytkownika wdrożenia to konfiguracja jednorazowa, przy czym należy zanotować nazwę użytkownika i hasło, ponieważ zostaną one użyte w kroku poniżej.
-
-> [!NOTE]
-> Użytkownik wdrożenia jest wymagany do wdrożenia protokołu FTP i lokalnego narzędzia Git w aplikacji sieci Web.
-> Wartości `username` i `password` dotyczą poziomu konta i jako takie różnią się od poświadczeń subskrypcji platformy Azure. **Te poświadczenia wystarczy utworzyć tylko raz**.
->
-
-Użyj polecenia [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set), aby utworzyć swoje poświadczenia na poziomie konta.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
+<!-- ## Configure a Deployment User -->
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -107,24 +93,19 @@ Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-an-azure-app-service"></a>Tworzenie usługi Azure App Service
+## <a name="create-an-azure-app-service-plan"></a>Tworzenie planu usługi Azure App Service
 
-Utwórz plan usługi App Service opartej na systemie Linux za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#create).
+Utwórz „BEZPŁATNY” [plan usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> Plan usługi App Service reprezentuje kolekcję zasobów fizycznych służących do hostowania aplikacji. Wszystkie aplikacje przypisane do planu usługi App Service współdzielą zasoby przez niego zdefiniowane, ograniczając koszt hostowania wielu aplikacji.
->
-> Plany usługi App Service definiują następujące elementy:
-> * Region (Europa Północna, Wschodnie stany USA, Azja Południowo-Wschodnia)
-> * Rozmiar wystąpienia (mały, średni, duży)
-> * Wartość licznika skali (jedno, dwa lub trzy wystąpienia itp.)
-> * Jednostka magazynowa (Bezpłatna, Współdzielona, Podstawowa, Standardowa, Premium)
->
+<!--
+ An App Service plan represents the collection of physical resources used to ..
+-->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Poniższy przykład tworzy plan usługi App Service dla procesów roboczych systemu Linux o nazwie `quickStartPlan` przy użyciu warstwy cenowej **Standardowa**.
+Poniższy przykład tworzy plan usługi App Service o nazwie `quickStartPlan` przy użyciu warstwy cenowej **Bezpłatna**.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następujących.
@@ -132,7 +113,6 @@ Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Az
 ```json
 {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
     "location": "West Europe",
     "sku": {
     "capacity": 1,
@@ -147,9 +127,13 @@ Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Az
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
-Teraz, gdy został utworzony plan usługi App Service, utwórz aplikację sieci Web w ramach planu usługi App Service `quickStartPlan`. Aplikacja sieci Web zapewnia miejsce hostowania do wdrożenia kodu oraz udostępnia adres URL w celu wyświetlania wdrożonej aplikacji. Użyj polecenia [az appservice web create](/cli/azure/appservice/web#create), aby utworzyć aplikację sieci Web.
+Teraz, gdy został utworzony plan usługi App Service, utwórz [aplikację sieci Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) w ramach planu usługi App Service `quickStartPlan`. Aplikacja sieci Web zapewnia miejsce hostowania do wdrożenia kodu oraz udostępnia adres URL w celu wyświetlania wdrożonej aplikacji. Użyj polecenia [az appservice web create](/cli/azure/appservice/web#create), aby utworzyć aplikację sieci Web.
 
-W poniższym poleceniu wstaw własną unikatową nazwę aplikacji tam, gdzie zobaczysz symbol zastępczy <app_name>. Nazwa <app_name> będzie używana jako domyślna witryna DNS aplikacji sieci Web, więc nazwa ta musi być unikatowa wśród wszystkich aplikacji na platformie Azure. Później możesz zamapować dowolny niestandardowy wpis DNS na aplikację sieci Web, zanim udostępnisz ją użytkownikom.
+W poniższym poleceniu wstaw własną unikatową nazwę aplikacji w miejsce symbolu zastępczego `<app_name>`. Aplikacja `<app_name>` jest używana w witrynie DNS domyślnej dla aplikacji sieci Web. Jeśli nazwa `<app_name>` nie jest unikatowa, zostanie wyświetlony przyjazny komunikat o błędzie „Witryna sieci Web o nazwie <app_name> już istnieje”.
+
+<!-- removed per https://github.com/Microsoft/azure-docs-pr/issues/11878
+You can later map any custom DNS entry to the web app before you expose it to your users.
+-->
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -183,18 +167,7 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-Utworzyliśmy pustą nową aplikację sieci Web na platformie Azure. Skonfigurujmy teraz aplikację sieci Web do używania środowiska PHP i przeprowadźmy wdrożenie aplikacji w nim.
-
-## <a name="configure-to-use-php"></a>Konfigurowanie do używania środowiska PHP
-
-Użyj polecenia [az appservice web config update](/cli/azure/app-service/web/config#update), aby skonfigurować aplikację sieci Web do używania środowiska PHP w wersji `7.0.x`.
-
-> [!TIP]
-> Ustawienie wersji środowiska PHP w ten sposób powoduje używanie domyślnego kontenera dostarczonego przez platformę. Jeśli chcesz użyć własnego kontenera, zapoznaj się z dokumentacją interfejsu wiersza polecenia dla polecenia [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
-
-```azurecli
-az appservice web config update --linux-fx-version "PHP|7.0" --name <app_name> --resource-group myResourceGroup
-```
+Utworzyliśmy pustą nową aplikację sieci Web na platformie Azure.
 
 ## <a name="configure-local-git-deployment"></a>Konfigurowanie lokalnego wdrożenia narzędzia Git
 
@@ -220,9 +193,9 @@ Dodaj zdalną platformę Azure do lokalnego repozytorium Git.
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Wypchnij na zdalną platformę Azure w celu wdrożenia aplikacji. Zostanie wyświetlony monit o podanie hasła określonego wcześniej w ramach tworzenia użytkownika wdrożenia.
+Wypchnij na zdalną platformę Azure w celu wdrożenia aplikacji. Zostanie wyświetlony monit o podanie hasła określonego wcześniej podczas tworzenia użytkownika wdrożenia. Upewnij się, że zostało wprowadzone hasło utworzone w [konfiguracji użytkownika wdrożenia](#configure-a-deployment-user), a nie hasło, którego używasz do logowania się w witrynie Azure Portal.
 
-```azurecli
+```bash
 git push azure master
 ```
 
@@ -280,7 +253,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Po zakończeniu wdrożenia przejdź z powrotem do okna przeglądarki otwartego w kroku przechodzenia do aplikacji, a następnie kliknij przycisk Odśwież.
+Po zakończeniu wdrożenia przejdź z powrotem do okna przeglądarki otwartego w kroku **przechodzenia do aplikacji**, a następnie kliknij przycisk Odśwież.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -312,6 +285,7 @@ Te karty w bloku pokazują wiele doskonałych funkcji, które możesz dodać do 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Następne kroki
+> [!div class="nextstepaction"]
+> [Zapoznaj się z przykładowymi skryptami interfejsu wiersza polecenia w usługach Web Apps](app-service-cli-samples.md)
 
-Zapoznaj się z wcześniej utworzonymi [skryptami interfejsu wiersza polecenia aplikacji sieci Web](app-service-cli-samples.md).
+
