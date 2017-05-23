@@ -1,6 +1,6 @@
 ---
-title: "Aprowizowanie nowych dzierżaw i rejestrowanie ich w wykazie (przykładowa aplikacja SaaS korzystająca z usługi Azure SQL Database) | Dokumentacja firmy Microsoft"
-description: "Aprowizowanie nowych dzierżaw i rejestrowanie ich w wykazie"
+title: "Aprowizacja nowych dzierżaw w aplikacji z wieloma dzierżawami przy użyciu usługi Azure SQL Database | Microsoft Docs"
+description: "Aprowizowanie nowych dzierżaw i rejestrowanie ich w wykazie w przykładowej aplikacji SaaS o nazwie Wingtip Tickets (WTP) przy użyciu usługi SQL Database"
 keywords: "samouczek usługi sql database"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4eeada941f8615fa04624bc725efcb44f05d56c7
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -57,7 +57,7 @@ Aplikacja SaaS o nazwie Wingtip aprowizuje nowe dzierżawy, kopiując *wzorcową
 
 ## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
 
-Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w folderze [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
+Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w [folderze Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
 
 ## <a name="provision-a-new-tenant"></a>Aprowizacja nowej dzierżawy
 

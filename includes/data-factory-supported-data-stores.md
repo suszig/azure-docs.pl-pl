@@ -1,8 +1,8 @@
 | Kategoria | Magazyn danych | Obsługiwany jako źródło | Obsługiwany jako ujście |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/data-factory-azure-blob-connector.md) |✓ |✓ |
+| &nbsp; |[Azure Cosmos DB (interfejs API DocumentDB)](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Data Lake Store](../articles/data-factory/data-factory-azure-datalake-connector.md) |✓ |✓ |
-| &nbsp; |[Azure DocumentDB](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Magazyn danych SQL Azure](../articles/data-factory/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
 | &nbsp; |[Indeks usługi Azure Search](../articles/data-factory/data-factory-azure-search-connector.md) | |✓ |

@@ -13,77 +13,95 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d4354546f3342d65353a86a4cec7d02547ab92e7
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 7423ef26a4a1c49245a1f8df79bbcaabea222596
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Tworzenie funkcji wyzwalanej przez element webhook GitHub
 
-Dowiedz się, jak utworzyć funkcję, która jest wyzwalana przez element webhook GitHub. 
+Dowiedz się, jak utworzyć funkcję wyzwalaną przez żądanie elementu webhook protokołu HTTP z ładunkiem specyficznym dla usługi GitHub.
 
-![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
-
-Do wykonania czynności przedstawionych w tym temacie są wymagane zasoby utworzone w temacie [Tworzenie pierwszej funkcji w witrynie Azure Portal](functions-create-first-azure-function.md).
-
-Potrzebne jest także konto usługi GitHub. Jeśli jeszcze nie masz konta usługi GitHub, [możesz je założyć bezpłatnie](https://github.com/join). 
+![Funkcja wyzwalana przez element webhook GitHub w witrynie Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 Wykonanie wszystkich czynności opisanych w tym temacie powinno zająć mniej niż pięć minut.
 
-## <a name="find-your-function-app"></a>Znajdowanie aplikacji funkcji    
+## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/). 
+Przed uruchomieniem tego przykładu należy dysponować następującymi elementami:
 
-2. Na pasku wyszukiwania w górnej części portalu wpisz nazwę aplikacji funkcji i wybierz ją z listy.
+- Konto w usłudze GitHub z przynajmniej jednym projektem.
 
-## <a name="create-function"></a>Tworzenie funkcji wyzwalanej przez element webhook GitHub
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-1. W aplikacji funkcji kliknij przycisk **+** obok pozycji **Funkcje**, kliknij szablon **GitHubWebHook** dla odpowiedniego języka, a następnie kliknij przycisk **Utwórz**.
-   
-    ![Tworzenie funkcji wyzwalanej przez element webhook GitHub w witrynie Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-2. Kliknij pozycję **</> Pobierz adres URL funkcji**, po czym skopiuj i zapisz wartości. Powtórz te czynności po kliknięciu pozycji **</> Pobierz wpis tajny usługi GitHub**. Wartości te będą potrzebne podczas konfigurowania elementu webhook w usłudze GitHub. 
+## <a name="create-an-azure-function-app"></a>Tworzenie aplikacji funkcji platformy Azure
 
-    ![Sprawdzanie kodu funkcji](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png) 
-         
-W następnym kroku zostanie utworzony element webhook w repozytorium GitHub. 
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+
+![Pomyślnie utworzona aplikacja funkcji.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
+
+<a name="create-function"></a>
+
+## <a name="create-a-github-webhook-triggered-function"></a>Tworzenie funkcji wyzwalanej przez element webhook GitHub
+
+1. Rozwiń swoją aplikację funkcji, kliknij przycisk **+** obok pozycji **Funkcje** i kliknij szablon **GitHubWebHook** dla odpowiedniego języka. **Nadaj nazwę funkcji**, a następnie kliknij pozycję **Utwórz**.
+
+1. W nowej funkcji kliknij pozycję **</> Pobierz adres URL funkcji**, po czym skopiuj i zapisz wartości. Powtórz te czynności po kliknięciu pozycji **</> Pobierz wpis tajny usługi GitHub**. Wartości te będą potrzebne podczas konfigurowania elementu webhook w usłudze GitHub.
+
+    ![Sprawdzanie kodu funkcji](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
+
+W następnym kroku zostanie utworzony element webhook w repozytorium GitHub.
 
 ## <a name="configure-the-webhook"></a>Konfigurowanie elementu webhook
-1. W usłudze GitHub przejdź do repozytorium, którego jesteś właścicielem. Możesz też użyć dowolnego rozwidlonego repozytorium.
- 
-2. Kliknij kolejno pozycje **Ustawienia**, **Elementy webhook** i **Dodaj element webhook**.
-   
+
+1. W usłudze GitHub przejdź do repozytorium, którego jesteś właścicielem. Możesz też użyć dowolnego rozwidlonego repozytorium. Jeśli konieczne będzie rozwidlenie repozytorium, skorzystaj z informacji pod adresem <https://github.com/Azure-Samples/functions-quickstart>.
+
+1. Kliknij kolejno pozycje **Ustawienia**, **Elementy webhook** i **Dodaj element webhook**.
+
     ![Dodawanie elementu webhook GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-3. Wklej adres URL funkcji i wpis tajny do pól **Adres URL ładunku** i **Wpis tajny**, a następnie wybierz wartość **application/json** dla ustawienia **Typ zawartości**.
+1. Użyj ustawień określonych w tabeli i kliknij pozycję **Dodaj element webhook**.
 
-4. Kliknij pozycję **Pozwól mi wybrać pojedyncze zdarzenia**, wybierz pozycję **Komentarz dotyczący problemu** i kliknij pozycję **Dodaj element webhook**.
-   
     ![Ustawianie adresu URL i wpisu tajnego elementu webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-Element webhook został skonfigurowany do wyzwolenia funkcji po dodaniu nowego komentarza dotyczącego problemu. 
+| Ustawienie | Sugerowana wartość | Opis |
+|---|---|---|
+| **Adres URL ładunku** | Skopiowana wartość | Użyj wartości zwróconej po kliknięciu pozycji **</> Pobierz adres URL funkcji**. |
+| **Wpis tajny**   | Skopiowana wartość | Użyj wartości zwróconej po kliknięciu pozycji **</> Pobierz wpis tajny usługi GitHub**. |
+| **Typ zawartości** | application/json | Funkcja oczekuje ładunku JSON. |
+| Wyzwalacze zdarzeń | Pozwól mi wybrać pojedyncze zdarzenia | Wyzwalacz ma być uruchamiany tylko w przypadku zdarzeń z komentarzami dotyczącymi problemów.  |
+| | Komentarz dotyczący problemu |  |
+
+Element webhook został skonfigurowany do wyzwolenia funkcji po dodaniu nowego komentarza dotyczącego problemu.
 
 ## <a name="test-the-function"></a>Testowanie funkcji
+
 1. W swoim repozytorium GitHub otwórz kartę **Problemy** w nowym oknie przeglądarki.
 
-2. W nowym oknie kliknij pozycję **Nowy problem**, wpisz tytuł i kliknij pozycję **Prześlij nowy problem**. 
+1. W nowym oknie kliknij pozycję **Nowy problem**, wpisz tytuł, a następnie kliknij pozycję **Prześlij nowy problem**.
 
-2. W obszarze problemu wpisz komentarz i kliknij pozycję **Komentarz**. 
+1. W obszarze problemu wpisz komentarz i kliknij pozycję **Komentarz**.
 
-3. W innym oknie usługi GitHub kliknij pozycję **Edytuj** obok nowego elementu webhook, przewiń ekran do pozycji **Ostatnie dostawy** i sprawdź, czy żądanie elementu webhook zostało przetworzone przez funkcję. 
- 
-    ![Ustawianie adresu URL i wpisu tajnego elementu webhook](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-triggered.png)
+    ![Dodawanie komentarza dotyczącego problemu w usłudze GitHub.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png)
 
-   Odpowiedź funkcji powinna zawierać tekst `New GitHub comment: <Your issue comment text>`.
+1. Wróć do portalu i wyświetl dzienniki. Powinien zostać wyświetlony wpis śledzenia z nowym tekstem komentarza.
+
+     ![Wyświetlanie tekstu komentarza w dziennikach.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
-
-
+Utworzono funkcję, która jest uruchamiana w momencie otrzymania żądania od elementu webhook GitHub. 
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Aby uzyskać więcej informacji na temat wyzwalaczy elementów webhook, zobacz [Powiązania protokołu HTTP i elementów webhook w usłudze Azure Functions](functions-bindings-http-webhook.md).

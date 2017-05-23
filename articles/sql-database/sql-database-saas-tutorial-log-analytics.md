@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie i uruchamianie programu Log Analytics (przykładowa aplikacja SaaS korzystająca z usługi Azure SQL Database) | Dokumentacja firmy Microsoft"
-description: "Konfigurowanie i używanie programu Log Analytics dla przykładowej aplikacji SaaS o nazwie WTP"
+title: "Używanie programu Log Analytics dla aplikacji SQL Database z wieloma dzierżawami | Microsoft Docs"
+description: "Konfigurowanie i używanie programu Log Analytics (OMS) dla przykładowej aplikacji Wingtip Tickets (WTP) usługi Azure SQL Database"
 keywords: "samouczek usługi sql database"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7cb9b7dd90123a91cabe66fd8efa8ae4c9e2fa01
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 4ff4519ca40f036d58f82993db78fe08aa7d5733
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -61,7 +61,7 @@ Obszary robocze programu Log Analytics i rozwiązania analityczne można otwiera
 
 ## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
 
-Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w folderze [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
+Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w [folderze Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalowanie i konfigurowanie programu Log Analytics i rozwiązania Azure SQL Analytics
 
