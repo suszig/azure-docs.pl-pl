@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -107,7 +108,7 @@ Funkcja zarządzania urządzeniami w usłudze IoT Hub umożliwia zarządzanie w�
 ## <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 Filtrowanie strumienia danych telemetrycznych pochodzących z urządzeń we wstępnie skonfigurowanym rozwiązaniu odbywa się za pomocą trzech zadań usługi [Azure Stream Analytics][lnk-asa] (ASA).
 
-* *Zadanie dotyczące informacji o urządzeniach* — wysyła dane do Centrum zdarzeń, które przekazuje komunikaty dotyczące rejestracji urządzeń do rejestru urządzeń rozwiązania (bazy danych DocumentDB). Ten komunikat jest wysyłany przy pierwszym połączeniu z urządzeniem lub w odpowiedzi na polecenie **Change device state**.
+* *Zadanie DeviceInfo* — wyprowadza dane do centrum zdarzeń, które kieruje komunikaty dotyczące rejestracji urządzeń do rejestru urządzeń rozwiązania (bazy danych Azure Cosmos DB). Ten komunikat jest wysyłany przy pierwszym połączeniu z urządzeniem lub w odpowiedzi na polecenie **Change device state**.
 * *Zadanie dotyczące telemetrii* — wysyła wszystkie nieprzetworzone dane telemetryczne do magazynu obiektów blob Azure w celu przechowania i oblicza zagregowane wartości danych telemetrycznych wyświetlane na pulpicie nawigacyjnym rozwiązania.
 * *Zadanie dotyczące reguł* — filtruje strumień danych telemetrycznych w poszukiwaniu danych przekraczających wartości progowe reguł i przesyła dane do centrum zdarzeń. Gdy reguła jest wyzwalana, w widoku pulpitu nawigacyjnego portalu rozwiązania to zdarzenie jest wyświetlane jako nowy wiersz w tabeli historii alarmów. Te reguły mogą również wyzwalać akcję na podstawie ustawień zdefiniowanych w widokach **Reguły** i **Akcje** w portalu rozwiązania.
 
@@ -117,10 +118,10 @@ W tym wstępnie skonfigurowanym rozwiązaniu zadania usługi ASA stanowią czę�
 W tym wstępnie skonfigurowanym rozwiązaniu procesor zdarzeń stanowi część **zaplecza rozwiązania IoT** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
 
 Zadania usługi ASA dotyczące **reguł** i **informacji o urządzeniach** wysyłają dane wyjściowe do centrów zdarzeń, z których dane są przekazywane do innych usług zaplecza. Do odczytu komunikatów z centrów zdarzeń jest używane wystąpienie klasy [EventProcessorHost][lnk-event-processor] uruchomione w zadaniu [WebJob][lnk-web-job]. Klasa **EventProcessorHost** korzysta z następujących elementów:
-- Dane obiektu **DeviceInfo** do aktualizowania danych urządzenia w bazie danych DocumentDB.
+- Dane obiektu **DeviceInfo** do aktualizowania danych urządzenia w bazie danych Cosmos DB.
 - Dane obiektu **Rules** do wywoływania aplikacji logiki i aktualizowania alertów wyświetlanych w portalu rozwiązania.
 
-## <a name="device-identity-registry-device-twin-and-documentdb"></a>Rejestr tożsamości urządzeń, bliźniacza reprezentacja urządzenia i baza danych DocumentDB
+## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Rejestr tożsamości urządzeń, bliźniacza reprezentacja urządzenia i usługa Cosmos DB
 Każde wystąpienie usługi IoT Hub zawiera [rejestr tożsamości urządzeń][lnk-identity-registry], który przechowuje klucze urządzeń. Usługa IoT Hub używa tych informacji do uwierzytelniania urządzeń — dane urządzenie musi być zarejestrowane i mieć prawidłowy klucz, zanim będzie mogło połączyć się z centrum.
 
 [Bliźniacza reprezentacja urządzenia][lnk-device-twin] to dokument JSON zarządzany przez usługę IoT Hub. Bliźniacza reprezentacja urządzenia zawiera następujące elementy:
@@ -129,9 +130,9 @@ Każde wystąpienie usługi IoT Hub zawiera [rejestr tożsamości urządzeń][ln
 - Żądane właściwości, które mają być wysyłane do urządzenia. Te właściwości można ustawić w portalu rozwiązania.
 - Tagi, które istnieją tylko w bliźniaczej reprezentacji urządzenia, a nie na urządzeniu. Tych tagów można używać do filtrowania list urządzeń w portalu rozwiązania.
 
-To rozwiązanie korzysta z bliźniaczych reprezentacji urządzeń do zarządzania metadanymi urządzenia. Rozwiązanie korzysta również z bazy danych DocumentDB do przechowywania dodatkowych danych urządzeń specyficznych dla rozwiązania, takich jak polecenia obsługiwane przez poszczególne urządzenia i historia poleceń.
+To rozwiązanie korzysta z bliźniaczych reprezentacji urządzeń do zarządzania metadanymi urządzenia. Rozwiązanie korzysta również z bazy danych Cosmos DB do przechowywania dodatkowych danych urządzeń specyficznych dla rozwiązania, takich jak polecenia obsługiwane przez poszczególne urządzenia i historia poleceń.
 
-Informacje przechowywane w rejestrze tożsamości urządzeń muszą być zsynchronizowane z zawartością bazy danych DocumentDB. Klasa **EventProcessorHost** zarządza synchronizacją przy użyciu danych z zadania analizy strumienia dotyczącego **informacji o urządzeniach**.
+Informacje przechowywane w rejestrze tożsamości urządzeń muszą być także synchronizowane z zawartością bazy danych Cosmos DB. Klasa **EventProcessorHost** zarządza synchronizacją przy użyciu danych z zadania analizy strumienia dotyczącego **informacji o urządzeniach**.
 
 ## <a name="solution-portal"></a>Portal rozwiązania
 ![portal rozwiązania][img-dashboard]
@@ -168,3 +169,4 @@ Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możes
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+

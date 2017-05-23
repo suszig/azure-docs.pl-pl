@@ -1,6 +1,6 @@
 ---
 title: "Importowanie danych do usługi Azure Search w portalu | Microsoft Docs"
-description: "Używaj kreatora Importuj dane usługi Azure Search w witrynie Azure Portal w celu przeszukiwania danych platformy Azure z usługi NoSQL DocumentDB, magazynu Blob Storage, magazynu Table Storage, usługi SQL Database oraz programu SQL Server na maszynach wirtualnych platformy Azure."
+description: "Za pomocą kreatora importowania danych usługi Azure Search w witrynie Azure Portal przeszukuj dane platformy Azure z usługi NoSQL Azure Cosmos DB, Blob Storage, Table Storage i SQL Database oraz programu SQL Server na maszynach wirtualnych platformy Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
-ms.openlocfilehash: c03c26d0e5ea2529162262664412f4f8f7e854dc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,17 +34,17 @@ Kreator wewnętrznie konfiguruje i wywołuje *indeksator*, automatyzując kilka 
 * Generowanie modyfikowalnego schematu indeksu na podstawie struktury źródła danych
 * Ładowanie dokumentów JSON do indeksu za pomocą zestawu wierszy pobranego ze źródła danych
 
-Ten przepływ pracy można wypróbować przy użyciu przykładowych danych w bazie DocumentDB. Instrukcje znajdziesz na stronie [Wprowadzenie do usługi Azure Search w witrynie Azure Portal](search-get-started-portal.md).
+Ten przepływ pracy można wypróbować przy użyciu przykładowych danych w usłudze Azure Cosmos DB. Instrukcje znajdziesz na stronie [Wprowadzenie do usługi Azure Search w witrynie Azure Portal](search-get-started-portal.md).
 
 > [!NOTE]
-> W celu uproszczenia indeksowania dla danego źródła danych można uruchomić kreator **Importuj dane** na pulpicie nawigacyjnym usługi DocumentDB. Aby rozpocząć, w obszarze nawigacyjnym po lewej stronie przejdź do pozycji **Kolekcje** > **Dodaj usługę Azure Search**.
+> W celu uproszczenia indeksowania dla danego źródła danych można uruchomić kreator **Importuj dane** na pulpicie nawigacyjnym usługi Azure Cosmos DB. Aby rozpocząć, w obszarze nawigacyjnym po lewej stronie przejdź do pozycji **Kolekcje** > **Dodaj usługę Azure Search**.
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Źródła danych obsługiwane przez Kreatora importu danych
 Kreator importu danych obsługuje następujące źródła danych: 
 
 * Usługa Azure SQL Database
 * Dane relacyjne programu SQL Server na maszynie wirtualnej platformy Azure
-* Azure DocumentDB
+* Azure Cosmos DB
 * Azure Blob Storage
 * Azure Table Storage
 
@@ -58,7 +60,7 @@ Wymaganymi danymi wejściowymi jest spłaszczony zestaw danych. Importu można d
 | **Istniejące źródło danych** |Jeśli masz już zdefiniowane indeksatory w usłudze wyszukiwania, możesz użyć istniejącej definicji źródła danych na potrzeby innego importu. |
 | **Azure SQL Database** |Nazwę usługi, poświadczenia użytkownika z uprawnieniem do odczytu bazy danych i nazwę bazy danych można określić na stronie lub przy użyciu parametrów połączenia ADO.NET. Wybierz opcję parametrów połączenia, aby wyświetlić lub dostosować właściwości. <br/><br/>Na stronie należy określić tabelę lub widok zawierające zestaw wierszy. Ta opcja jest dostępna po udanym nawiązaniu połączenia. Pojawia się wtedy lista rozwijana, z której można dokonać wyboru. |
 | **Program SQL Server na maszynie wirtualnej platformy Azure** |Jako parametry połączenia określ w pełni kwalifikowaną nazwę usługi, identyfikator użytkownika, hasło oraz bazę danych. Aby użyć tego źródła danych, należy wcześniej zainstalować w magazynie lokalnym certyfikat szyfrujący połączenie. Aby uzyskać instrukcje, zobacz [SQL VM connection to Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) (Połączenie maszyny wirtualnej bazy danych SQL z usługą Azure Search). <br/><br/>Na stronie należy określić tabelę lub widok zawierające zestaw wierszy. Ta opcja jest dostępna po udanym nawiązaniu połączenia. Pojawia się wtedy lista rozwijana, z której można dokonać wyboru. |
-| **DocumentDB** |Wymagane jest konto, baza danych i kolekcja. Wszystkie dokumenty w kolekcji zostaną uwzględnione w indeksie. Można zdefiniować zapytanie w celu spłaszczenia lub filtrowania zestawu wierszy bądź wykrywania zmienionych dokumentów na potrzeby późniejszych operacji odświeżania danych. |
+| **Azure Cosmos DB** |Wymagane jest konto, baza danych i kolekcja. Wszystkie dokumenty w kolekcji zostaną uwzględnione w indeksie. Można zdefiniować zapytanie w celu spłaszczenia lub filtrowania zestawu wierszy bądź wykrywania zmienionych dokumentów na potrzeby późniejszych operacji odświeżania danych. |
 | **Azure Blob Storage** |Wymagane jest miedzy innymi konto magazynu i kontener. Opcjonalnie, jeśli nazwa obiektu blob jest zgodna z konwencją nazw wirtualnych do celów grupowania, można określić część nazwy oznaczającą katalog wirtualny jako folder w kontenerze. Więcej informacji zawiera artykuł [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) (Indeksowanie w usłudze Blob Storage). |
 | **Azure Table Storage** |Wymagane jest miedzy innymi konto magazynu i nazwa tabeli. Opcjonalnie można określić zapytanie w celu pobrania podzbioru tabel. Więcej informacji zawiera artykuł [Indexing Table Storage](search-howto-indexing-azure-tables.md) (Indeksowanie w usłudze Table Storage). |
 
@@ -113,16 +115,11 @@ Do zmian, które nie wymagają odbudowania indeksu, należą: dodanie nowego pol
 Przejrzyj następujące linki, aby dowiedzieć się więcej o indeksatorach:
 
 * [Indeksowanie w usłudze Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indeksowanie w usłudze DocumentDB](search-howto-index-documentdb.md)
+* [Indexing Azure Cosmos DB](search-howto-index-documentdb.md) (Indeksowanie w usłudze Azure Cosmos DB)
 * [Indeksowanie w usłudze Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indeksowanie w usłudze Table Storage](search-howto-indexing-azure-tables.md)
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

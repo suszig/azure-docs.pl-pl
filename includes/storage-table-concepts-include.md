@@ -11,12 +11,12 @@ Usługa Table service służy do przechowywania i wykonywania zapytań dotycząc
 ## <a name="table-service-concepts"></a>Pojęcia dotyczące usługi Table service
 Usługa Table service zawiera następujące składniki:
 
-![Table1][Table1]
+![Diagram składników usługi Table service][Table1]
 
 * **Format adresu URL:** kod odwołuje się do tabel na koncie przy użyciu następującego formatu adresu:   
   http://`<storage account>`.table.core.windows.net/`<table>`  
   
-  Możesz odwołać się do tabel platformy Azure bezpośrednio przy użyciu tego adresu i protokołu OData. Więcej informacji znajduje się na stronie [OData.org][OData.org]
+  Możesz odwołać się do tabel platformy Azure bezpośrednio przy użyciu tego adresu i protokołu OData. Więcej informacji znajduje się w witrynie [OData.org][OData.org]
 * **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Aby uzyskać szczegółowe informacje na temat pojemności konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](../articles/storage/storage-scalability-targets.md).
 * **Tabela**: tabela jest kolekcją obiektów. Tabele nie wymuszają schematu na obiektach, co oznacza, że jedna tabela może zawierać obiekty o różnych zestawach właściwości. Liczba tabel, którą może zawierać konto magazynu, jest ograniczona tylko limitem pojemności konta magazynu.
 * **Obiekt**: obiekt jest zestawem właściwości podobnym do wiersza bazy danych. Maksymalny rozmiar obiektu wynosi 1 MB.
@@ -26,8 +26,3 @@ Szczegółowe informacje na temat nazewnictwa tabel i właściwości można znal
 
 [Table1]: ./media/storage-table-concepts-include/table1.png
 [OData.org]: http://www.odata.org/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

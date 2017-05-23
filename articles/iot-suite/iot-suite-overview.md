@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 309a36b1aa5db95a287b7a6b21449f9d61880cf4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -47,7 +48,7 @@ Wstępnie skonfigurowane rozwiązania zwykle korzystają z następujących usłu
 
 * Podstawowym elementem Pakietu IoT Azure jest usługa [Azure IoT Hub][lnk-iot-hub]. Umożliwia ona dwukierunkowe przesyłanie komunikatów między urządzeniami a chmurą i działa jako brama chmury i innych kluczowych usług Pakietu IoT. Usługa ta pozwala odbierać komunikaty z urządzeń na dużą skalę i wysyłać polecenia do urządzeń. Usługa ta umożliwia także [zarządzanie urządzeniami][lnk-device-management]. Na przykład możesz skonfigurować jedno lub większą liczbę urządzeń połączonych z tą usługą, przeprowadzić ich ponowny rozruch lub je zresetować do ustawień fabrycznych.
 * Usługa [Azure Stream Analytics][lnk-asa] umożliwia analizowanie danych w ruchu. Pakiet IoT korzysta z niej w celu przetwarzania przychodzących danych telemetrycznych, przeprowadzania agregacji danych i wykrywania zdarzeń. Wstępnie skonfigurowane rozwiązania używają również analizy strumienia do przetwarzania komunikatów informacyjnych, które zawierają metadane lub odpowiedzi urządzeń na wysyłane polecenia. Usługa Stream Analytics przetwarza komunikaty pochodzące z urządzeń i przekazuje je do innych usług.
-* Usługi [Azure Storage][lnk-azure-storage] i [Azure DocumentDB][lnk-document-db] umożliwiają przechowywanie danych. Wstępnie skonfigurowane rozwiązania korzystają z magazynu obiektów blob do przechowywania danych telemetrycznych i udostępniania ich w celu analizy. Usługa DocumentDB służy do przechowywania metadanych urządzeń, a także umożliwia zarządzanie urządzeniami w ramach rozwiązań.
+* Usługi [Azure Storage][lnk-azure-storage] i [Azure Cosmos DB][lnk-document-db] umożliwiają przechowywanie danych. Wstępnie skonfigurowane rozwiązania korzystają z magazynu obiektów blob do przechowywania danych telemetrycznych i udostępniania ich w celu analizy. Usługa Cosmos DB służy do przechowywania metadanych urządzeń, a także umożliwia zarządzanie urządzeniami w ramach rozwiązań.
 * Usługi [Azure Web Apps][lnk-web-apps] i [Microsoft Power BI][lnk-power-bi] pozwalają na przeprowadzanie wizualizacji danych. Elastyczność zapewniana przez usługę Power BI umożliwia szybkie tworzenie własnych interaktywnych pulpitów nawigacyjnych korzystających z danych Pakietu IoT.
 
 Omówienie architektury typowego rozwiązania IoT można znaleźć w artykule [Platforma Microsoft Azure i Internet rzeczy][iot-suite-what-is-azure-iot].

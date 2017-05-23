@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e773fd4917c7a96201d94d31b2098a3486d27900
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4e2422e8651d6fd17df2670e78606d1caeaf64ce
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -676,14 +676,11 @@ Aby uzyskać kompleksowe wskazówki dotyczące rozwiązywania problemów, można
     
     Aby uzyskać kompleksowe wskazówki dotyczące rozwiązywania problemów, można zajrzeć do [artykułu na temat rozwiązywania problemów z usługą Azure Files](storage-troubleshoot-file-connection-problems.md).               
 
-18. **Jak mogę włączyć szyfrowanie po stronie serwera dla usługi Azure Files?**
-> [!NOTE]
-> [Szyfrowanie po stronie serwera](storage-service-encryption.md) dla usługi Azure Files jest obecnie dostępne w wersji zapoznawczej. Jeśli w trakcie korzystania z wersji zapoznawczej będziesz mieć problemy, możesz napisać na adres [SSEDiscussion](mailto:ssediscussions@microsoft.com).
-
-    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+18. **Jak mogę włączyć szyfrowanie po stronie serwera dla usługi Azure File Storage?**
     
-    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
-    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
+    [Szyfrowanie po stronie serwera](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) dla usługi Azure File Storage jest ogólnie dostępne we wszystkich regionach oraz chmurach publicznych i krajowych. Szyfrowanie po stronie serwera dla usługi File Storage możesz włączyć przy użyciu [witryny Azure Portal](https://ms.portal.azure.com/), [interfejsu API dostawcy zasobów usługi Microsoft Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [programu Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) lub [interfejsu wiersza polecenia platformy Azure](https://azure.microsoft.com/en-us/documentation/articles/storage-azure-cli/).
+    
+    Po włączeniu szyfrowania po stronie serwera w usłudze Azure File Storage wszelkie nowe dane zapisywane w magazynie plików na tym koncie magazynu będą automatycznie szyfrowane. Funkcja ta jest dostępna dla wszystkich nowych danych zapisywanych w istniejących lub nowych udziałach na istniejącym lub nowym koncie magazynu. Włączenie tej funkcji nie wiąże się z żadną dodatkową opłatą. Dowiedz się więcej o [sposobie włączania szyfrowania po stronie serwera w usłudze Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 ## <a name="next-steps"></a>Następne kroki
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Magazyn plików Azure.
