@@ -1,6 +1,8 @@
 --- 
 layout: HubPage
 hide_bc: true
+experimental: true
+experiment_id: d6155f71-baae-45
 title: Dokumentacja platformy Microsoft Azure
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 ms.translationtype: Human Translation
