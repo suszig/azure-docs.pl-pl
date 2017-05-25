@@ -76,7 +76,6 @@
 ### Usługa Reach
 #### [Rozpoczęcie korzystania z wypchnięć i zarządzania nimi](mobile-engagement-how-tos.md)
 #### [Wysyłanie ikon emoji w powiadomieniach](mobile-engagement-use-emoji-with-push.md)
-#### [Wysyłanie spersonalizowanych powiadomień](mobile-engagement-send-personalized-notifications.md)
 
 ### Uzyskiwanie dostępu do interfejsów API usług
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)

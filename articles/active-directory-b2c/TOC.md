@@ -47,7 +47,7 @@
 ## [Dostosowywanie interfejsu użytkownika](active-directory-b2c-reference-ui-customization.md)
 ### [Narzędzie pomocnika na potrzeby dostosowywania](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Dostosowywanie języka](active-directory-b2c-reference-language-customization.md)
-## [Korzystanie z interfejsu API raportowania](active-directory-b2c-refererence-usage-reporting-api.md)
+## [Korzystanie z interfejsu API raportowania](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Konfigurowanie samoobsługowego resetowania haseł](active-directory-b2c-reference-sspr.md)
 
 # Platforma obsługi tożsamości
@@ -59,8 +59,8 @@
 ### Konfigurowanie dostawców SAML
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrowanie interfejsów API RESTful
-#### [Uzyskiwanie dodatkowych oświadczeń](active-directory-b2c-rest-api-step-custom.md)
 #### [Weryfikowanie danych wejściowych użytkownika](active-directory-b2c-rest-api-validation-custom.md)
+#### [Uzyskiwanie dodatkowych oświadczeń](active-directory-b2c-rest-api-step-custom.md)
 ### Dostosowywanie logowania
 #### [Konfigurowanie danych wejściowych użytkownika](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Dostosowywanie interfejsu użytkownika](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [Dostępność w poszczególnych regionach i rezydencja danych](active-directory-b2c-reference-tenant-type.md)
 ## [Włączanie rozliczeń](active-directory-b2c-how-to-enable-billing.md)
 ## [Zarządzanie zagrożeniami](active-directory-b2c-reference-threat-management.md)
-## [Ograniczenia](active-directory-b2c-limitations.md)
 ## [Problemy podczas tworzenia katalogu](active-directory-b2c-support-create-directory.md)
 
 # Powiązane
