@@ -30,7 +30,6 @@
 ### [C w systemie Windows](iot-suite-connecting-devices.md)
 ### [C w systemie Linux](iot-suite-connecting-devices-linux.md)
 ### [Node.js](iot-suite-connecting-devices-node.md)
-## [Łączenie urządzenia mbed](iot-suite-connecting-devices-mbed.md)
 ## [Łączenie aplikacji logiki z rozwiązaniem do zdalnego monitorowania](iot-suite-logic-apps-tutorial.md)
 ## [Dostosowanie wstępnie skonfigurowanego rozwiązania](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Korzystanie z telemetrii dynamicznej z rozwiązaniem do zdalnego monitorowania](iot-suite-dynamic-telemetry.md)
