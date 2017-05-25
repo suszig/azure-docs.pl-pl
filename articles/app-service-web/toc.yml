@@ -141,9 +141,9 @@
     href: web-sites-deploy.md
     items:
     - name: Wdrażanie przy użyciu protokołu FTP
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: Wdrażanie za pośrednictwem synchronizacji chmury
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: Ciągłe wdrażanie
       href: app-service-continuous-deployment.md
     - name: Wdrażanie w środowisku przejściowym
