@@ -21,9 +21,13 @@
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Portal Azure (klasyczny)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Generowanie certyfikatów z podpisem własnym dla połączeń punkt-lokacja
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Konfigurowanie połączenia sieć wirtualna-sieć wirtualna
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Konfigurowanie połączenia sieć wirtualna-sieć wirtualna między modelami wdrażania
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,9 +50,6 @@
 ### [Witryna Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## Tworzenie certyfikatów z podpisem własnym dla połączeń punkt-lokacja
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Rozwiązywanie problemów
 ### [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
@@ -56,9 +57,9 @@
 # Dokumentacja
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell (klasyczny)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/jj154113)
-## [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network)
+## [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # Powiązane
 ## [Virtual Network](/azure/virtual-network/)

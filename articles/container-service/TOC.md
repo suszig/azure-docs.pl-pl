@@ -10,7 +10,6 @@
 ## [Wdrażanie klastra — portal](container-service-deployment.md)
 ## [Wdrażanie klastra — interfejs wiersza polecenia platformy Azure](container-service-create-acs-cluster-cli.md)
 ## [Ciągła integracja/ciągłe dostarczanie z usługami Kubernetes i Jenkins](container-service-kubernetes-jenkins.md)
-## [Ciągła integracja/ciągłe dostarczanie z usługami DC/OS i VSTS](container-service-setup-ci-cd.md)
 ## [Ciągła integracja/ciągłe dostarczanie z usługami Swarm i VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Pojęcia
@@ -44,6 +43,7 @@
 #### [Monitorowanie za pomocą pakietu OMS](container-service-kubernetes-oms.md)
 #### [Monitorowanie za pomocą usługi Datadog](container-service-kubernetes-datadog.md)
 #### [Monitorowanie za pomocą narzędzia Sysdig](container-service-kubernetes-sysdig.md)
+#### [Monitorowanie za pomocą usługi CoScale](container-service-kubernetes-coscale.md)
 ## Zarządzanie przy użyciu koordynatora Docker Swarm
 ### [Platforma Docker i narzędzie Docker Compose](container-service-docker-swarm.md)
 

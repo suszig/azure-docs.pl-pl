@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Zasoby
     items:
-    - name: Warstwy usług
+    - name: Warstwy cenowe
       href: concepts-service-tiers.md
-    - name: Jednostki obliczeniowe i jednostki magazynowe
+    - name: Jednostki obliczeniowe
       href: concepts-compute-unit-and-storage.md
     - name: Limity
       href: concepts-limits.md

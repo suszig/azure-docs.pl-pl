@@ -5,7 +5,7 @@
   - name: Informacje o usłudze Azure Cosmos DB
     href: introduction.md
   - name: Klienci usługi DocumentDB — Zapraszamy!
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -236,14 +236,17 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Praca w trybie failover w regionach
       href: ../documentdb/documentdb-regional-failovers.md
+    - name: Ustawianie przepływności
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: Monitorowanie umów SLA
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Zarządzanie kluczami i spójnością
+      href: ../documentdb/documentdb-manage-account.md
     - name: Automatyzacja
       items:
       - name: Interfejs wiersza polecenia platformy Azure 1.0 — tworzenie konta
         href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
-      - name: >-
-          Interfejs wiersza polecenia platformy Azure 1.0 — dodawanie lub usuwanie
-          regionów
-
+      - name: Interfejs wiersza polecenia platformy Azure 1.0 — dodawanie lub usuwanie regionów
         href: ../documentdb/documentdb-automation-region-management.md
       - name: Azure PowerShell
         href: ../documentdb/documentdb-manage-account-with-powershell.md
@@ -253,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Obsługa zapory
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Zabezpieczanie dostępu do danych
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Integracja
     items:
     - name: Łączenie z platformą Spark
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Łączenie z programem Spark GraphX
+      href: spark-connector-graph.md      
     - name: Wdrażanie witryny sieci Web za pomocą usługi Azure App Service
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Rejestrowanie aplikacji za pomocą usługi Logic Apps
