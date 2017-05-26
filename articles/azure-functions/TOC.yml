@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Pojęcia
   items:
-  - name: Plany hostingu
+  - name: Zużycie a plany usługi App Service
     href: functions-scale.md
   - name: Wyzwalacze i powiązania
     href: functions-triggers-bindings.md
+  - name: Języki
+    items:
+    - name: 'Pojęcia dotyczące funkcji w języku C#'
+      href: functions-reference-csharp.md
+    - name: 'Pojęcia dotyczące funkcji w języku F#'
+      href: functions-reference-fsharp.md
+    - name: Pojęcia dotyczące funkcji w języku JavaScript
+      href: functions-reference-node.md    
 - name: Przewodniki z instrukcjami
   items:
+  - name: Przewodnik dla deweloperów
+    href: functions-reference.md
   - name: Testowanie usługi Azure Functions
     href: functions-test-a-function.md
   - name: Programowanie i debugowanie lokalnie
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Instalowanie środowiska uruchomieniowego funkcji
     href: functions-runtime-install.md
+  - name: Łączenie z usługą SQL Database
+    href: functions-scenario-database-table-cleanup.md
+  - name: Tworzenie definicji interfejsu Open API 2.0
+    href: functions-api-definition-getting-started.md     
+  - name: Najlepsze rozwiązania dotyczące usługi Azure Functions
+    href: functions-best-practices.md     
 - name: Dokumentacja
   items:
-  - name: Tworzenie aplikacji funkcji
-    href: functions-reference.md
-    items:
-    - name: Open API 2.0
-      href: functions-api-definition.md
-  - name: Najlepsze rozwiązania dotyczące usługi Azure Functions
-    href: functions-best-practices.md
   - name: Powiązania
     items:
     - name: Powiązania usługi Cosmos DB
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Powiązanie danych wyjściowych usługi Twilio
       href: functions-bindings-twilio.md
-  - name: Struktury
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: Dokumentacja interfejsu OpenAPI
+    href: functions-api-definition.md     
 - name: Zasoby
   items:
   - name: Cennik

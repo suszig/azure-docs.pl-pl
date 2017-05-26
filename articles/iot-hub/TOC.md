@@ -12,9 +12,9 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Korzystanie z symulowanej bramy 
-#### [Symulacja w systemie Linux](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Symulacja w systemie Windows](iot-hub-windows-gateway-sdk-get-started.md)
+### Korzystanie z symulowanej bramy
+#### [Symulacja w systemie Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Symulacja w systemie Windows](iot-hub-windows-iot-edge-get-started.md)
 
 ### Korzystanie z urządzenia fizycznego
 #### [Urządzenie Raspberry Pi w środowisku Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Urządzenie Adafruit Feather M0 w środowisku IDE Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Korzystanie z pakietu startowego bramy IoT
-##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) (Konfigurowanie urządzenia Intel NUC jako bramy IoT)
-##### [Łączenie bramy IoT z usługą IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Używanie bramy IoT na potrzeby konwersji danych](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Konfigurowanie urządzenia Intel NUC jako bramy](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Łączenie bramy z usługą IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Używanie bramy do konwersji danych](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [Zarządzanie przesyłaniem komunikatów między chmurą a urządzeniem za pomocą narzędzia iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Zapisywanie komunikatów usługi IoT Hub w magazynie danych platformy Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -78,6 +78,7 @@
 ### Wprowadzenie do zarządzania bliźniaczymi reprezentacjami urządzeń
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-getstarted.md)
+#### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Korzystanie z metod bezpośrednich
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-direct-methods.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +86,7 @@
 ### Wprowadzenie do zarządzania urządzeniami
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-device-management-getstarted.md)
 ### Korzystanie z właściwości bliźniaczych reprezentacji
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -118,9 +120,9 @@
 ### [Zabezpieczanie wdrożenia IoT](iot-hub-security-deployment.md)
 ## IoT Edge
 ### Symulowanie urządzenia
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Korzystanie z rzeczywistego urządzenia](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Korzystanie z rzeczywistego urządzenia](iot-hub-iot-edge-physical-device.md)
 
 # Dokumentacja
 ## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/iot)
@@ -154,3 +156,4 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centrum deweloperów Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń](https://catalog.azureiotsuite.com/)
+## [Analizy przypadków technicznych](https://microsoft.github.io/techcasestudies/#technology=IoT)

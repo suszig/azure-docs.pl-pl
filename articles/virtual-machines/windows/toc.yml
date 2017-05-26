@@ -55,7 +55,8 @@
     href: network-overview.md
   - name: Zestawy skalowania maszyn wirtualnych
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Tworzenie wystąpienia usługi metadanych 
+  - name: Tworzenie wystąpienia usługi metadanych
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Kontenery
     href: containers.md
@@ -103,10 +104,7 @@
       href: acu.md
     - name: Wyniki testów porównawczych wystąpień obliczeniowych
       href: compute-benchmark-scores.md
-    - name: >-
-        Najlepsze rozwiązania dotyczące uruchamiania maszyny wirtualnej z systemem
-        Windows
-
+    - name: Najlepsze rozwiązania dotyczące uruchamiania maszyny wirtualnej z systemem Windows
       href: guidance-compute-single-vm.md
   - name: Zagadnienia dotyczące wdrażania
     items:
@@ -183,10 +181,7 @@
       href: prepare-for-upload-vhd-image.md
     - name: Tworzenie obrazu dysku zarządzanego
       href: capture-image-resource.md
-    - name: >-
-        Tworzenie maszyny wirtualnej na podstawie uogólnionego obrazu dysku
-        zarządzanego
-
+    - name: Tworzenie maszyny wirtualnej na podstawie uogólnionego obrazu dysku zarządzanego
       href: create-vm-generalized-managed.md
   - name: Zarządzanie magazynem maszyn wirtualnych
     items:
@@ -226,17 +221,11 @@
         href: upload-image.md
       - name: Tworzenie obrazu niezarządzanego
         href: capture-image.md
-      - name: >-
-          Tworzenie niezarządzanej maszyny wirtualnej na podstawie uogólnionego
-          wirtualnego dysku twardego
-
+      - name: Tworzenie niezarządzanej maszyny wirtualnej na podstawie uogólnionego wirtualnego dysku twardego
         href: create-vm-generalized.md
       - name: Kopiowanie maszyny wirtualnej
         href: vhd-copy.md
-      - name: >-
-          Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku
-          twardego
-
+      - name: Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego
         href: create-vm-specialized.md
       - name: Podłączanie niezarządzanego dysku danych
         href: attach-disk-portal.md
@@ -333,15 +322,9 @@
       href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
     - name: Sharepoint
       href: sharepoint-farm.md
-    - name: >-
-        Konfigurowanie aplikacji biznesowej opartej na sieci Web w chmurze hybrydowej
-        na potrzeby testowania
-
+    - name: Konfigurowanie aplikacji biznesowej opartej na sieci Web w chmurze hybrydowej na potrzeby testowania
       href: ps-hybrid-cloud-test-env-lob.md
-    - name: >-
-        Konfigurowanie symulowanego środowiska chmury hybrydowej na potrzeby
-        testowania
-
+    - name: Konfigurowanie symulowanego środowiska chmury hybrydowej na potrzeby testowania
       href: ps-hybrid-cloud-test-env-sim.md
     - name: MongoDB
       href: install-mongodb.md
@@ -353,23 +336,14 @@
       href: ../workloads/sap/get-started.md
   - name: Migrowanie maszyn wirtualnych
     items:
-    - name: >-
-        Omówienie migrowania lokalnych maszyn wirtualnych i maszyn wirtualnych usług
-        AWS na platformę Azure
-
+    - name: Omówienie migrowania lokalnych maszyn wirtualnych i maszyn wirtualnych usług AWS na platformę Azure
       href: on-prem-to-azure.md
       items:
       - name: Migrowanie z usług Amazon Web Services (AWS) na platformę Azure
         href: aws-to-azure.md
-    - name: >-
-        Przekazywanie i tworzenie maszyny wirtualnej na podstawie uogólnionego
-        wirtualnego dysku twardego
-
+    - name: Przekazywanie i tworzenie maszyny wirtualnej na podstawie uogólnionego wirtualnego dysku twardego
       href: upload-generalized-managed.md
-    - name: >-
-        Przekazywanie i tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego
-        wirtualnego dysku twardego
-
+    - name: Przekazywanie i tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego wirtualnego dysku twardego
       href: upload-specialized.md
     - name: Migrowanie z wersji klasycznej do usługi Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
@@ -397,6 +371,9 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Resetowanie hasła protokołu RDP
       href: reset-rdp.md
+    - name: Diagnostyka rozruchu
+ 
+      href: boot-diagnostics.md
     - name: Tworzenie maszyny wirtualnej
       href: troubleshoot-deployment-new-vm.md
     - name: Ponowne uruchamianie maszyny wirtualnej lub zmienianie jej rozmiaru
@@ -407,10 +384,9 @@
       href: allocation-failure.md
     - name: Ponowne wdrażanie maszyny wirtualnej
       href: redeploy-to-new-node.md
-    - name: >-
-        Dołączanie wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania
-        problemów
-
+    - name: Typowe komunikaty o błędach
+      href: error-messages.md
+    - name: Dołączanie wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów
       items:
       - name: Azure PowerShell
         href: troubleshoot-recovery-disks.md

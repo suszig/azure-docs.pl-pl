@@ -44,6 +44,7 @@
 
 ## Zarządzanie
 ### [Rejestracje](notification-hubs-push-notification-registration-management.md)
+### [Uwierzytelnianie oparte na tokenach usługi APNS](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Bezpieczeństwo](notification-hubs-push-notification-security.md)
 ### Bezpieczne wypychanie

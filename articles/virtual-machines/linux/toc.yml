@@ -297,6 +297,8 @@
       href: extensions-customscript.md
     - name: Rozszerzenie agenta OMS
       href: extensions-oms.md
+    - name: Rozszerzenie diagnostyczne systemu Linux
+      href: diagnostic-extension.md
   - name: Uruchamianie aplikacji
     items:
     - name: Cloud Foundry
@@ -354,19 +356,24 @@
       href: migration-classic-resource-manager-faq.md
   - name: Rozwiązywanie problemów
     items:
-    - name: Rozwiązywanie problemów z połączeniami SSH
+    - name: Połączenia SSH
       href: troubleshoot-ssh-connection.md
       items:
       - name: Szczegółowe kroki rozwiązywania problemów
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Rozwiązywanie problemów z dostępem do aplikacji
+    - name: Diagnostyka rozruchu
+ 
+      href: boot-diagnostics.md
+    - name: Dostęp do aplikacji
       href: troubleshoot-app-connection.md
-    - name: Rozwiązywanie problemów z błędami alokacji
+    - name: Błędy alokacji
       href: allocation-failure.md
-    - name: Rozwiązywanie problemów dotyczących wdrożenia
+    - name: Problemy z wdrażaniem
       href: troubleshoot-deployment-new-vm.md
     - name: Ponowne wdrożenie maszyny wirtualnej w nowym węźle platformy Azure
       href: redeploy-to-new-node.md
+    - name: Typowe komunikaty o błędach
+      href: error-messages.md
     - name: Dołączanie wirtualnego dysku twardego na potrzeby rozwiązywania problemów
       items:
       - name: Interfejs wiersza polecenia platformy Azure

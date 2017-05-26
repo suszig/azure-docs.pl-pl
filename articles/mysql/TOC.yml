@@ -39,9 +39,9 @@
       href: concepts-supported-versions.md
   - name: Zasoby
     items:
-    - name: Warstwy usług
+    - name: Warstwy cenowe
       href: concepts-service-tiers.md
-    - name: Jednostki obliczeniowe i jednostki magazynowe
+    - name: Jednostki obliczeniowe
       href: concepts-compute-unit-and-storage.md
     - name: Limity
       href: concepts-limits.md
@@ -85,6 +85,8 @@
       href: howto-connection-string.md
     - name: Konfigurowanie protokołu SSL
       href: howto-configure-ssl.md
+    - name: Aplikacja sieci Web
+      href: howto-connect-webapp.md
 - name: Dokumentacja
   items:
   - name: Interfejs wiersza polecenia platformy Azure

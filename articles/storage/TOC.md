@@ -117,6 +117,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitorowanie i rozwiązywanie problemów
+### [Rozwiązywanie problemów z Eksploratorem magazynu](storage-explorer-troubleshooting.md)
 ### Metryki i rejestrowanie
 #### [Analityka magazynu](storage-analytics.md)
 #### [Włączanie i wyświetlanie metryk](storage-enable-and-view-metrics.md)

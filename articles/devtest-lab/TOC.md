@@ -13,6 +13,7 @@
 ## Korzystanie z maszyn wirtualnych w laboratorium
 ### [Tworzenie maszyn wirtualnych](devtest-lab-add-vm.md)
 ### [Create claimable VM](devtest-lab-add-claimable-vm.md) (Tworzenie maszyn wirtualnych, które można zajmować)
+### [Tworzenie maszyn wirtualnych i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure](devtest-lab-vmcli.md)
 
 ## Korzystanie ze środowisk w laboratorium
 ### [Tworzenie środowiska](devtest-lab-create-environment-from-arm.md)

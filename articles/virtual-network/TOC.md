@@ -17,17 +17,13 @@
 ### [Sieciowe grupy zabezpieczeń](virtual-networks-nsg.md)
 
 ## Wdrażanie
-### Sieci wirtualne
-#### [Tworzenie, zmienianie lub usuwanie sieci wirtualnych](virtual-network-manage-network.md)
-#### [Tworzenie, zmienianie lub usuwanie podsieci](virtual-network-manage-subnet.md)
-#### [Tworzenie sieci wirtualnej — wiele podsieci](virtual-networks-create-vnet-arm-pportal.md) 
-##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-##### [Interfejs wiersza polecenia](virtual-networks-create-vnet-arm-cli.md)
-##### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
-#### Tworzenie sieci wirtualnej — wiele podsieci (model klasyczny)
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [Program PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [Interfejs wiersza polecenia](virtual-networks-create-vnet-classic-cli.md)
+### [Sieci wirtualne](virtual-networks-create-vnet-arm-pportal.md)
+#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [Interfejs wiersza polecenia](virtual-networks-create-vnet-arm-cli.md)
+#### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
+#### [Portal (klasyczny)](virtual-networks-create-vnet-classic-pportal.md)
+#### [PowerShell (klasyczny)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+#### [Interfejs wiersza polecenia (klasyczny)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Grupy zabezpieczeń sieci
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -49,14 +45,9 @@
 #### [Program PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Szablon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Interfejsy sieciowe
-#### [Tworzenie, zmienianie lub usuwanie interfejsów sieciowych](virtual-network-network-interface.md)
-#### [Dodawanie, zmienianie lub usuwanie adresów IP](virtual-network-network-interface-addresses.md)
-
 ### [Publiczne adresy IP](virtual-network-public-ip-address.md)
 
 ### Maszyny wirtualne
-#### [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md) 
 #### Tworzenie maszyny wirtualnej ze statycznym publicznym adresem IP
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Program PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -103,20 +94,29 @@
 ##### [Przykładowa aplikacja](virtual-networks-sample-app.md)
 
 ## Konfigurowanie
-### [Optymalizowanie przepływności sieci maszyny wirtualnej](virtual-network-optimize-network-bandwidth.md)
+
 ### Listy kontroli dostępu
 #### [Portal klasyczny](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md) (Rozpoznawanie nazw dla maszyn wirtualnych i usług w chmurze)
+### Maszyny wirtualne
+#### [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md)
+#### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md) (Rozpoznawanie nazw dla maszyn wirtualnych i usług w chmurze)
+#### [Optymalizowanie przepływności sieci](virtual-network-optimize-network-bandwidth.md)
+#### [Wyświetlanie i modyfikowanie nazw hostów](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## Zarządzanie
+### [Sieci wirtualne](virtual-network-manage-network.md)
+#### [Podsieci](virtual-network-manage-subnet.md)
+#### [Komunikacja równorzędna](virtual-network-manage-peering.md)
 ### Grupy zabezpieczeń sieci
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Program PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [Interfejs wiersza polecenia](virtual-network-manage-nsg-arm-cli.md)
 #### [Dzienniki](virtual-network-nsg-manage-log.md)
+### Interfejsy sieciowe
+#### [Tworzenie, zmienianie lub usuwanie interfejsów sieciowych](virtual-network-network-interface.md)
+#### [Dodawanie, zmienianie lub usuwanie adresów IP](virtual-network-network-interface-addresses.md)
 ### Maszyny wirtualne
-#### [Wyświetlanie i modyfikowanie nazw hostów](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Przenoszenie maszyny wirtualnej do innej podsieci](virtual-networks-move-vm-role-to-subnet.md)
 
 ## Rozwiązywanie problemów
