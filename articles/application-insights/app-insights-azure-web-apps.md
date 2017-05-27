@@ -3,7 +3,7 @@ title: "Monitorowanie wydajności aplikacji sieci Web platformy Azure | Microsof
 description: "Monitorowanie wydajności aplikacji dla aplikacji sieci Web platformy Azure. Udostępnianie wykresów czasu ładowania i odpowiedzi oraz informacji o zależnościach oraz ustawianie alertów dotyczących wydajności."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
@@ -11,12 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,9 +41,19 @@ Jeśli już masz uruchomioną aplikację sieci Web na platformie Azure, otrzymuj
 2. **Zastosuj instrumentację aplikacji sieci Web** po zainstalowaniu usługi Application Insights. 
    
     ![Instrumentacja aplikacji sieci Web](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+   **Włącz monitorowanie po stronie klienta** dla telemetrii widoku strony i użytkownika.
+
+   * Wybierz kolejno pozycje Ustawienia > Ustawienia aplikacji
+   * W obszarze Ustawienia aplikacji dodaj nową parę klucz-wartość: 
+   
+    Klucz: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Wartość:`true`
+   * **Zapisz** ustawienia i **ponownie uruchom** aplikację.
 3. **Monitoruj aplikację**.  [Eksploruj dane](#explore-the-data).
 
-W razie potrzeby możesz później utworzyć i ponownie wdrożyć aplikację za pomocą usługi Application Insights.
+W razie potrzeby możesz później utworzyć aplikację za pomocą usługi Application Insights.
 
 *Jak usunąć usługę Application Insights lub przełączyć się na wysyłanie do innego zasobu?*
 
@@ -104,6 +115,7 @@ Aby skorzystać z bardziej zaawansowanego wyszukiwania w ramach telemetrii, uży
 
 ## <a name="next-steps"></a>Następne kroki
 * [Uruchom profilera aplikacji na żywo](app-insights-profiler.md).
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) — monitorowanie usługi Azure Functions za pomocą usługi Application Insights
 * [Włącz diagnostykę platformy Azure](app-insights-azure-diagnostics.md), która ma być wysyłana do usługi Application Insights.
 * [Monitoruj metryki kondycji usługi](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md), aby upewnić się, że usługa jest dostępna i szybko reaguje.
 * [Odbieraj powiadomienia o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) zawsze, gdy wystąpią zdarzenia operacyjne lub metryki przekroczą próg.
