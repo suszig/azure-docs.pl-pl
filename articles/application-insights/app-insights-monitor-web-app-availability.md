@@ -3,7 +3,7 @@ title: "Monitorowanie dostępności i czasu odpowiedzi dowolnej witryny sieci We
 description: "Konfigurowanie testów sieci Web w usłudze Application Insights. Otrzymywanie alertów, kiedy witryna sieci Web staje się niedostępna lub wolno odpowiada."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -11,30 +11,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
-ms.lasthandoff: 04/13/2017
+ms.date: 04/26/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorowanie dostępności i czasu odpowiedzi dowolnej witryny sieci Web
-Po wdrożeniu aplikacji sieci Web lub witryny sieci Web na dowolnym serwerze można skonfigurować testy sieci Web, aby monitorować jej dostępność i czas odpowiedzi. Usługa [Azure Application Insights](app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa powiadomi Cię o tym za pomocą alertu.
+Po wdrożeniu aplikacji sieci Web lub witryny sieci Web na dowolnym serwerze możesz skonfigurować testy, aby monitorować jej dostępność i czas odpowiedzi. Usługa [Azure Application Insights](app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa powiadomi Cię o tym za pomocą alertu.
 
-![Przykład testu sieci Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+Testy dostępności możesz skonfigurować dla dowolnego punktu końcowego protokołów HTTP lub HTTPS, który jest dostępny za pośrednictwem publicznej sieci Internet. Do testowanej witryny sieci Web nie trzeba niczego dodawać. Nie musi być to nawet Twoja witryna: możesz testować usługę interfejsu API REST, od której zależy Twoja praca.
 
-Testy sieci Web można skonfigurować dla dowolnego punktu końcowego protokołów HTTP lub HTTPS, który jest dostępny za pośrednictwem publicznej sieci Internet. Do testowanej witryny sieci Web nie trzeba niczego dodawać. Nie musi być to nawet Twoja witryna: możesz testować usługę interfejsu API REST, od której zależy Twoja praca.
-
-Istnieją dwa typy testów sieci Web:
+Istnieją dwa rodzaje testów dostępności:
 
 * [Test ping adresu URL](#create): prosty test, który można utworzyć w portalu Azure.
 * [Wieloetapowy test sieci Web](#multi-step-web-tests): tworzony w programie Visual Studio Enterprise i przekazywany do portalu.
 
-Można utworzyć maksymalnie 10 testów sieci Web na każdy zasób aplikacji.
+Dla każdego zasobu aplikacji możesz utworzyć maksymalnie 25 testów dostępności.
 
-## <a name="create"></a>1. Otwieranie zasobu dla raportów testów sieci Web
+## <a name="create"></a>1. Otwieranie zasobu dla własnych raportów testów dostępności
 
 **Jeśli już skonfigurowano usługę Application Insights** dla aplikacji sieci Web, otwórz zasób usługi Application Insights w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -45,12 +44,12 @@ Można utworzyć maksymalnie 10 testów sieci Web na każdy zasób aplikacji.
 Kliknij pozycję **Wszystkie zasoby**, aby otworzyć blok Omówienie dla nowego zasobu.
 
 ## <a name="setup"></a>2. Tworzenie testu ping adresu URL
-Otwórz blok Dostępność i dodaj test sieci Web.
+Otwórz blok Dostępność i dodaj test.
 
 ![Podaj przynajmniej adres URL swojej witryny sieci Web](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **Adres URL** może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania &#151; umożliwi to np. szybkie sprawdzenie działania bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.
-* **Analizuj zależne żądania**: po zaznaczeniu pola tej opcji test zażąda obrazów, skryptów, plików stylów i innych plików, które są częścią strony sieci Web podlegającej testowaniu. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test zakończy się niepowodzeniem, jeśli nie uda się pobrać tych zasobów w ramach limitu czasu dla całego testu. 
+* **Adres URL** może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania. Możesz więc np. szybko sprawdzić działanie bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.
+* **Analizuj zależne żądania**: po zaznaczeniu tej opcji test zażąda obrazów, skryptów, plików stylów i innych plików, które są częścią testowanej strony sieci Web. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test zakończy się niepowodzeniem, jeśli nie uda się pobrać tych zasobów w ramach limitu czasu dla całego testu. 
 
     Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL.
 * **Włącz ponawianie próby**: zaznaczenie pola tej opcji spowoduje, że nieudany test zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. Ta opcja jest zalecana. Średnio około 80% błędów znika po ponowieniu testu.
@@ -71,30 +70,38 @@ Otwórz blok Dostępność i dodaj test sieci Web.
 Dodaj więcej testów. Na przykład oprócz testowania strony głównej możesz sprawdzić, czy działa baza danych, testując adres URL dla wyszukiwania.
 
 
-## <a name="monitor"></a>3. Wyświetlanie wyników testu sieci Web
+## <a name="monitor"></a>3. Wyświetlanie wyników testów dostępności
 
-Po upływie 5 minut kliknij pozycję **Odśwież**, aby zobaczyć wyniki testu. 
+Po kilku minutach kliknij pozycję **Odśwież**, aby zobaczyć wyniki testu. 
 
-![Podsumowanie wyników w bloku głównym](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![Podsumowanie wyników w bloku głównym](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Kliknij dowolny słupek na wykresie podsumowania, aby uzyskać bardziej szczegółowy widok tego okresu.
+Wykres punktowy przedstawia przykłady wyników testów, które zawierają szczegóły diagnostycznego kroku testu. Aparat testowy przechowuje szczegółowe informacje diagnostyczne dla testów z błędami. W przypadku udanych testów szczegółowe informacje diagnostyczne są przechowywane dla podzbioru wykonań. Umieść kursor na zielonych/czerwonych kropkach, aby zobaczyć sygnaturę czasową testu, czas trwania testu, lokalizację i nazwę testu. Kliknij dowolną kropkę na wykresie punktowym, aby wyświetlić szczegóły wyniku testu.  
+
+Wybierz określony test, lokalizację lub skróć okres czasu, aby zobaczyć więcej wyników w okolicy interesującego okresu czasu. Użyj Eksploratora wyszukiwania, aby zobaczyć wyniki z wszystkich wykonań, lub użyj zapytań analitycznych w celu uruchomienia niestandardowych raportów dla tych danych.
+
+Oprócz nieprzetworzonych wyników w Eksploratorze metryk istnieją dwie metryki dostępności: 
+
+1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów. 
+2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
+
+Filtry możesz zastosować do nazwy testu, lokalizacji, aby przeanalizować trendy określonego testu lub lokalizacji.
 
 ## <a name="edit"></a> Sprawdzanie i edytowanie testów
 
 Na stronie podsumowania wybierz określony test. Strona ta będzie zawierać określone wyniki, można ją również edytować lub wyłączać.
 
-![Edytowanie lub wyłączanie testu sieci Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![Edytowanie lub wyłączanie testu sieci Web](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-Wyłączenie testów sieci Web może być wskazane, gdy w Twojej usłudze trwa konserwacja.
-
+Podczas przeprowadzania konserwacji swojej usługi możesz wyłączyć testy dostępności lub skojarzone z nimi reguły alertów. 
 
 ## <a name="failures"></a>Jeśli widzisz błędy
 Kliknij czerwoną kropkę.
 
-![Kliknij czerwoną kropkę](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![Kliknij czerwoną kropkę](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-Z poziomu wyniku testu sieci Web można wykonać następujące czynności:
+Na podstawie wyniku testu dostępności możesz:
 
 * Zbadać odpowiedź odebraną z serwera.
 * Otworzyć telemetrię wysłaną przez aplikację serwera podczas przetwarzania wystąpienia żądań zakończonych niepowodzeniem.
@@ -104,7 +111,7 @@ Z poziomu wyniku testu sieci Web można wykonać następujące czynności:
 
 *Test wygląda dobrze, ale jest raportowany jako błąd?* Sprawdź wszystkie obrazy, skrypty, arkusze stylów i inne pliki ładowane przez stronę. Jeśli pobranie dowolnego z nich nie powiedzie się, test zostanie zgłoszony jako nieudany — nawet wtedy, gdy główna strona HTML ładuje się poprawnie.
 
-*Brak powiązanych elementów?* Może się tak zdarzyć, ponieważ trwa [próbkowanie](app-insights-sampling.md).
+*Brak powiązanych elementów?* Jeśli usługa Application Insights została skonfigurowana dla aplikacji po stronie serwera, może to być spowodowane trwaniem [próbkowania](app-insights-sampling.md). 
 
 ## <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
 Możliwe jest monitorowanie scenariusza, który obejmuje sekwencję adresów URL. Jeśli na przykład monitorujesz witrynę sklepu, możesz sprawdzić, czy dodawanie towarów do koszyka działa prawidłowo.
@@ -149,7 +156,7 @@ Nagraj sesję sieci Web w programie Visual Studio Enterprise.
     ![Otwórz plik .webtest w programie Visual Studio i kliknij przycisk Uruchom.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### <a name="2-upload-the-web-test-to-application-insights"></a>2. Przekaż test sieci Web do usługi Application Insights
-1. W portalu Application Insights utwórz nowy test sieci Web.
+1. W portalu Application Insights utwórz test sieci Web.
 
     ![W bloku Testy sieci Web wybierz przycisk Dodaj.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 2. Wybierz test wieloetapowy i przekaż plik .webtest.
@@ -240,7 +247,7 @@ Z poziomu bloku Przegląd otwórz pozycję **Ustawienia**, **Testy wydajności**
 Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzenia.
 
 ## <a name="automation"></a>Automatyzacja
-* Automatyczne [konfigurowanie testów sieci web za pomocą skryptów środowiska PowerShell](app-insights-powershell.md#add-an-availability-test).
+* Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](app-insights-powershell.md#add-an-availability-test).
 * Konfigurowanie [elementu webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) który jest wywoływany przy zgłaszaniu alertu.
 
 ## <a name="qna"></a>Pytania? Problemy?
@@ -252,13 +259,13 @@ Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzeni
     Obsługujemy protokół TLS 1.1 i TLS 1.2.
 * *Czym różnią się „testy sieci Web” i „testy dostępności”?*
 
-    Używamy tych terminów zamiennie.
+    Te dwa terminy mogą być używane zamiennie. Testy dostępności to bardziej ogólny termin, który, oprócz wieloetapowych testów witryny, obejmuje testy ping pojedynczego adresu URL.
 * *Chcę użyć testów dostępności na naszym serwerze wewnętrznym działającym za zaporą.*
 
     Istnieją dwa możliwe rozwiązania:
     
     * Skonfiguruj zaporę, aby zezwolić na żądania przychodzące z [adresów IP naszych agentów testów sieci Web](app-insights-ip-addresses.md).
-    * Napisz własny kod do okresowego testowania wewnętrznego serwera. Uruchom kod jako proces w tle na serwerze testowym za zaporą. Proces testowania może wysyłać wyniki do usługi Application Insights za pomocą interfejsu API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) w podstawowym zestawie SDK. Wymaga to, aby serwer testowy miał dostęp do połączeń wychodzących punktu końcowego pozyskiwania usługi Application Insights, ale stanowi to dużo mniejsze zagrożenie bezpieczeństwa niż alternatywne dopuszczenie żądań przychodzących. Wyniki nie będą widoczne w blokach testów dostępności sieci Web, ale pojawią się jako wyniki dostępności w obszarach analizy, wyszukiwania i eksploratora metryki.
+    * Napisz własny kod do okresowego testowania wewnętrznego serwera. Uruchom kod jako proces w tle na serwerze testowym za zaporą. Proces testowania może wysyłać wyniki do usługi Application Insights za pomocą interfejsu API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) w podstawowym zestawie SDK. Wymaga to, aby serwer testowy miał dostęp do połączeń wychodzących punktu końcowego pozyskiwania usługi Application Insights, ale stanowi to dużo mniejsze zagrożenie bezpieczeństwa niż alternatywne dopuszczenie żądań przychodzących. Wyniki nie będą widoczne w blokach testów dostępności sieci Web, ale są wyświetlane jako wyniki dostępności w obszarach analizy, wyszukiwania i eksploratora metryk.
 * *Przekazywanie wieloetapowego testu sieci Web kończy się niepowodzeniem*
 
     Limit rozmiaru to 300 KB.
@@ -291,4 +298,3 @@ Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzeni
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
