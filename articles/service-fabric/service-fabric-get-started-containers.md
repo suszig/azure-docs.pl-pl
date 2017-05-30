@@ -111,7 +111,7 @@ Przed wypchnięciem obrazu do rejestru kontenerów należy lokalnie sprawdzić j
     docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
     ```
 
-3. Nawiąż połączenie z działającym kontenerem.  Otwórz przeglądarkę sieci Web i wpisz adres IP zwrócony na porcie 8000, na przykład „http://172.31.194.61:8000”. W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
+3. Nawiąż połączenie z działającym kontenerem.  Otwórz przeglądarkę sieci Web i wpisz adres IP zwrócony na porcie 8000, na przykład „ http://172.31.194.61:8000 ”. W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
 
 4. Aby zatrzymać kontener, uruchom polecenie:
 
