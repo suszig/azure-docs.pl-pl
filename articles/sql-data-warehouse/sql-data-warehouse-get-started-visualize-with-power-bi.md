@@ -3,7 +3,7 @@ title: "Wizualizacja danych usługi SQL Data Warehouse przy użyciu usługi Powe
 description: "Wizualizacja danych usługi SQL Data Warehouse przy użyciu usługi Power BI"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
