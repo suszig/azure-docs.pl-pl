@@ -130,6 +130,8 @@
     items:
     - name: Omówienie tworzenia maszyny wirtualnej
       href: creation-choices.md
+    - name: Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego
+      href: create-vm-specialized.md
     - name: Tworzenie maszyny wirtualnej przy użyciu szablonu
       href: ps-template.md
     - name: 'Tworzenie maszyny wirtualnej przy użyciu języka C#'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: 'Używanie dysku D: jako dysku danych'
       href: change-drive-letter.md
-    - name: Tworzenie maszyn wirtualnych przy użyciu dysków niezarządzanych
-      items:
-      - name: Przekazywanie wirtualnego dysku twardego
-        href: upload-image.md
-      - name: Tworzenie obrazu niezarządzanego
-        href: capture-image.md
-      - name: Tworzenie niezarządzanej maszyny wirtualnej na podstawie uogólnionego wirtualnego dysku twardego
-        href: create-vm-generalized.md
-      - name: Kopiowanie maszyny wirtualnej
-        href: vhd-copy.md
-      - name: Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego
-        href: create-vm-specialized.md
-      - name: Podłączanie niezarządzanego dysku danych
-        href: attach-disk-portal.md
   - name: Sieć maszyn wirtualnych
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Migrowanie z usług Amazon Web Services (AWS) na platformę Azure
         href: aws-to-azure.md
-    - name: Przekazywanie i tworzenie maszyny wirtualnej na podstawie uogólnionego wirtualnego dysku twardego
-      href: upload-generalized-managed.md
-    - name: Przekazywanie i tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego wirtualnego dysku twardego
-      href: upload-specialized.md
+      - name: Przekazywanie i tworzenie maszyny wirtualnej na podstawie uogólnionego wirtualnego dysku twardego
+        href: upload-generalized-managed.md
     - name: Migrowanie z wersji klasycznej do usługi Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:

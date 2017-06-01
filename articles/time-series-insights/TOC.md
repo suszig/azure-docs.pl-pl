@@ -12,7 +12,9 @@
 ## [Tworzenie źródła zdarzeń centrum IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [Skalowanie środowiska](time-series-insights-how-to-scale-your-environment.md)
 ## [Diagnozowanie i rozwiązywanie problemów](time-series-insights-diagnose-and-solve-problems.md)
-## [Wykonywanie zapytań o dane przy użyciu języka C#](time-series-insights-query-data-csharp.md)
+## Programowanie
+### [Uwierzytelnianie i autoryzacja](time-series-insights-authentication-and-authorization.md)
+### [Wykonywanie zapytań o dane przy użyciu języka C#](time-series-insights-query-data-csharp.md)
 
 # Dokumentacja
 ## [Interfejs API zapytań](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
