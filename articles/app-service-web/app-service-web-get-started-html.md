@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/08/2017
 ms.author: riande
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 895906e1ab4bc50093ed3b18f043c3dd515ca054
 ms.contentlocale: pl-pl
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="create-a-static-html-web-app-in-azure-in-five-minutes"></a>Tworzenie pierwszej statycznej aplikacji sieci Web w języku HTML na platformie Azure w ciągu pięciu minut
