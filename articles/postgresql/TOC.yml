@@ -11,10 +11,12 @@
     href: quickstart-create-server-database-portal.md
   - name: Tworzenie bazy danych — interfejs wiersza polecenia platformy Azure
     href: quickstart-create-server-database-azure-cli.md
-- name: Przykładowe skrypty
-  items:
-  - name: Interfejs wiersza polecenia platformy Azure
-    href: sample-scripts-azure-cli.md
+  - name: Połączenie
+    items:
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Python
+      href: connect-python.md
 - name: Samouczki
   items:
   - name: 1 — Projektowanie bazy danych
@@ -55,6 +57,10 @@
     items:
     - name: Biblioteki połączeń
       href: concepts-connection-libraries.md
+- name: Przykłady
+  items:
+  - name: Interfejs wiersza polecenia platformy Azure
+    href: sample-scripts-azure-cli.md
 - name: Przewodniki z instrukcjami
   items:
   - name: Reguły zapory

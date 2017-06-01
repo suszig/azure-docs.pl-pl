@@ -2,8 +2,7 @@
 ## [Co to jest usługa Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Rozpoczęcie pracy
-## [Interaktywny samouczek: analizowanie dzienników witryn sieci Web](data-lake-analytics-use-interactive-tutorials.md)
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+## [Witryna Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Program PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Zestaw SDK platformy .NET](data-lake-analytics-get-started-net-sdk.md)
 ## [Zestaw SDK Java](data-lake-analytics-get-started-java-sdk.md)
@@ -27,8 +26,10 @@
 
 ## Tworzenie rozwiązań
 ### [Analizowanie dzienników witryn sieci Web](data-lake-analytics-analyze-weblogs.md)
+### [Interaktywny samouczek: analizowanie dzienników witryn sieci Web](data-lake-analytics-use-interactive-tutorials.md)
 
-## Zarządzaj
+
+## Zarządzanie
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [Interfejs wiersza polecenia platformy Azure](data-lake-analytics-manage-use-cli.md)
 ### [Program PowerShell](data-lake-analytics-manage-use-powershell.md)
