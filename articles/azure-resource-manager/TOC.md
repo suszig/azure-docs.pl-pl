@@ -7,7 +7,7 @@
 
 # Rozpoczęcie pracy
 ## [Eksportowanie szablonu](resource-manager-export-template.md)
-## [Create your first template](resource-manager-create-first-template.md) (Tworzenie pierwszego szablonu)
+## [Tworzenie pierwszego szablonu](resource-manager-create-first-template.md)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Przykłady
@@ -20,7 +20,7 @@
 # Instrukcje
 ## Tworzenie szablonów
 ### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
-### [Template sections](resource-group-authoring-templates.md) (Sekcje szablonu)
+### [Sekcje szablonu](resource-group-authoring-templates.md)
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
 ### [Tworzenie wielu wystąpień](resource-group-create-multiple.md)
@@ -64,7 +64,6 @@
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)
-### [Zagadnienia związane z zabezpieczeniami](best-practices-resource-manager-security.md)
 
 ## Ustawianie zasad zasobów
 ### [Co to są zasady zasobów?](resource-manager-policy.md)
@@ -88,7 +87,7 @@
 ### [Typowe błędy związane z wdrażaniem](resource-manager-common-deployment-errors.md)
 
 # Dokumentacja
-## [Template format](/azure/templates/) (Format szablonu)
+## [Format szablonu](/azure/templates/)
 ## [Funkcje szablonów](resource-group-template-functions.md)
 ### [Funkcje tablicy i obiektów](resource-group-template-functions-array.md)
 ### [Funkcje porównania](resource-group-template-functions-comparison.md)

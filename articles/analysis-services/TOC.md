@@ -1,5 +1,6 @@
 # Omówienie
 ## [Co to jest Azure Analysis Services?](analysis-services-overview.md)
+## [Obsługiwane źródła danych](analysis-services-datasource.md)
 
 # Przewodniki Szybki start
 ## [Tworzenie serwera — portal](analysis-services-create-server.md)
@@ -17,7 +18,7 @@
 ### [Lekcja 6. Tworzenie miar](tutorials/aas-lesson-6-create-measures.md)  
 ### [Lekcja 7. Tworzenie kluczowych wskaźników wydajności](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 ### [Lekcja 8. Tworzenie perspektyw](tutorials/aas-lesson-8-create-perspectives.md) 
-### [Lekcja 9. Tworzenie hierarchii](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [Lekcja 9. Tworzenie hierarchii](tutorials/aas-lesson-9-create-hierarchies.md) 
 ### [Lekcja 10. Tworzenie partycji](tutorials/aas-lesson-10-create-partitions.md) 
 ### [Lekcja 11. Tworzenie ról](tutorials/aas-lesson-11-create-roles.md)
 ### [Lekcja 12. Analiza w programie Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
@@ -36,8 +37,7 @@
 ## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
 ## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
 ## [Wysoka dostępność](analysis-services-bcdr.md)
-## [Połączenia źródła danych](analysis-services-datasource.md)
-## [Create an .odc file](analysis-services-odc.md) (Tworzenie pliku odc)
+## [Tworzenie pliku odc](analysis-services-odc.md)
 
 # Dokumentacja
 ## [Program PowerShell](analysis-services-powershell.md)
