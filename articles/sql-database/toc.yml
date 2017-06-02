@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: Tworzenie bazy danych — PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Zarządzanie
+  - name: Nawiązywanie połączeń i wykonywanie zapytań
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-  - name: Połączenie
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1 — Tworzenie/projektowanie nowej bazy danych SQL
     href: sql-database-design-first-database.md
-  - name: 2 — Migrowanie istniejącego programu SQL Server
+  - name: 2 — Migracja bazy danych SQL Server
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 — Zabezpieczanie bazy danych SQL
     href: sql-database-security-tutorial.md
@@ -45,6 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: 5 — Implementowanie aplikacji wielodostępnej
     href: sql-database-multi-tenant-application.md
+  - name: 6 — Implementowanie rozproszonej geograficznie bazy danych
+    href: sql-database-implement-geo-distributed-database.md 
   - name: Samouczki dla aplikacji Wingtip SaaS
     items:
     - name: Wprowadzenie do aplikacji Wingtip SaaS
@@ -55,15 +55,15 @@
       href: sql-database-saas-tutorial-provision-and-catalog.md
     - name: Monitorowanie wydajności
       href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Monitorowanie za pomocą usługi Log Analytics
+      href: sql-database-saas-tutorial-log-analytics.md
     - name: Przywracanie pojedynczej dzierżawy
       href: sql-database-saas-tutorial-restore-single-tenant.md
     - name: Zarządzanie schematami dzierżaw
       href: sql-database-saas-tutorial-schema-management.md
     - name: Uruchamianie analizy ad-hoc
       href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Monitorowanie za pomocą usługi Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Zarządzanie analizą dzierżawy
+    - name: Uruchamianie analizy dzierżawy
       href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Przykłady
   items:
@@ -145,7 +145,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Inspekcja
       href: sql-database-auditing.md
-    - name: Inspekcje i protokół TDS
+    - name: Inspekcje tabel i protokół TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Wykrywanie zagrożeń
       href: sql-database-threat-detection.md
@@ -355,6 +355,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: Rozszerzone zdarzenia — bufor cykliczny
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Rejestrowanie diagnostyczne
+      href: sql-database-metrics-diag-logging.md
   - name: Zarządzanie
     items:
     - name: Azure Automation
