@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Ciągłe wdrażanie dla usługi Azure Functions
     href: functions-continuous-deployment.md
-  - name: Wdrażanie funkcji przy użyciu infrastruktury jako kodu
+  - name: Automatyzowanie wdrażania zasobów
     href: functions-infrastructure-as-code.md
   - name: Monitorowanie usługi Azure Functions
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Powiązania
     items:
-    - name: Powiązania usługi Cosmos DB
+    - name: Blob Storage
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Powiązania centrum zdarzeń
+    - name: Centrum zdarzeń
       href: functions-bindings-event-hubs.md
-    - name: Powiązania protokołu HTTP i elementu webhook
+    - name: Plik zewnętrzny
+      href: functions-bindings-external-file.md
+    - name: HTTP i elementy webhook
       href: functions-bindings-http-webhook.md
-    - name: Powiązania funkcji Mobile Apps
+    - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
-    - name: Powiązanie danych wyjściowych centrum powiadomień
+    - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
-    - name: Wyzwalacze i powiązania usługi Service Bus dla kolejek i tematów
+    - name: Queue Storage
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: Powiązania usługi SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Powiązania magazynu
-      items:
-      - name: Powiązania obiektu blob
-        href: functions-bindings-storage-blob.md
-      - name: Powiązania kolejki
-        href: functions-bindings-storage-queue.md
-      - name: Powiązania tabeli
-        href: functions-bindings-storage-table.md
-      - name: Powiązania pliku zewnętrznego
-        href: functions-bindings-external-file.md
-    - name: Powiązania usługi SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Wyzwalacz czasomierza
+    - name: Magazyn tabel
+      href: functions-bindings-storage-table.md
+    - name: Czasomierz
       href: functions-bindings-timer.md
-    - name: Powiązanie danych wyjściowych usługi Twilio
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: Dokumentacja interfejsu OpenAPI
     href: functions-api-definition.md     
