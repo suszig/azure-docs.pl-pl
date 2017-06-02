@@ -140,6 +140,14 @@
       href: move-vm.md
     - name: Tworzenie maszyn wirtualnych o wysokiej dostępności
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Instalowanie i konfigurowanie
+        href: ansible-install-configure.md
+      - name: Tworzenie podstawowej maszyny wirtualnej
+        href: ansible-create-vm.md
+      - name: Tworzenie pełnej maszyny wirtualnej
+        href: ansible-create-complete-vm.md
     - name: Wdrażanie aplikacji za pomocą szablonu maszyny wirtualnej
       items:
       - name: Omówienie samouczka
@@ -194,7 +202,7 @@
       href: upload-vhd.md
     - name: Przechwytywanie istniejącej maszyny wirtualnej do obrazu
       href: capture-image.md
-    - name: Tworzenie obrazów zatwierdzonych dla platformy Azure
+    - name: Tworzenie obrazów platformy Azure
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -206,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Zarządzanie magazynem maszyn wirtualnych
     items:
     - name: Azure Managed Disks

@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Przekazywanie istniejącej aplikacji
         href: web-sites-java-add-app.md
-      - name: Zdalne debugowanie środowiska Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Zdalne debugowanie środowiska IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Aplikacja Django z rozwiązaniem MySQL
@@ -162,8 +158,6 @@
       items:
       - name: Kupowanie domeny
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Mapowanie domeny innej firmy
-        href: web-sites-custom-domain-name.md
       - name: Mapowanie domen za pomocą usługi Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Mapowanie domen GoDaddy
@@ -182,15 +176,9 @@
       href: web-sites-hybrid-connection-get-started.md
     - name: Nawiązywanie połączenia z siecią wirtualną platformy Azure
       href: web-sites-integrate-with-vnet.md
-    - name: >-
-        Nawiązywanie połączenia z siecią wirtualną platformy Azure przy użyciu
-        programu PowerShell
-
+    - name: Nawiązywanie połączenia z siecią wirtualną platformy Azure przy użyciu programu PowerShell
       href: app-service-vnet-integration-powershell.md
-    - name: >-
-        Nawiązywanie połączenia z bazą danych MongoDB na maszynie wirtualnej platformy
-        Azure
-
+    - name: Nawiązywanie połączenia z bazą danych MongoDB na maszynie wirtualnej platformy Azure
       href: web-sites-dotnet-store-data-mongodb-vm.md
   - name: Zabezpieczanie aplikacji
     items:
@@ -210,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: Aplikacja z wielodostępną bazą danych
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Przypisywanie niestandardowego połączenia SSL
-      items:
-      - name: Konfigurowanie certyfikatu SSL innej firmy
-        href: web-sites-configure-ssl-certificate.md
     - name: Wymuszanie protokołu HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Konfigurowanie wzajemnego uwierzytelniania protokołu TLS
@@ -230,10 +214,7 @@
       href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Używanie usługi Azure CDN w celu uzyskania zasięgu globalnego
       href: cdn-websites-with-cdn.md
-    - name: >-
-        Nawiązywanie połączenia z pamięcią podręczną Redis Cache za pośrednictwem
-        protokołu Memcache
-
+    - name: Nawiązywanie połączenia z pamięcią podręczną Redis Cache za pośrednictwem protokołu Memcache
       href: web-sites-connect-to-redis-using-memcache-protocol.md
     - name: Tworzenie pamięci podręcznej Redis Cache
       href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
@@ -287,6 +268,18 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Rozwiązywanie problemów z wydajnością
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: Często zadawane pytania
+      items:
+      - name: 'Często zadawane pytania dotyczące dostępności, wydajności i aplikacji'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Często zadawane pytania dotyczące wdrażania
+        href: app-service-web-deployment-faq.md
+      - name: Często zadawane pytania dotyczące technologii typu open source
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Często zadawane pytania dotyczące konfiguracji i zarządzania
+        href: app-service-web-configuration-and-management-faq.md
+      - name: Inne często zadawane pytania
+        href: app-service-web-others-faq.md
   - name: Cennik
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Informacje o limitach przydziału
