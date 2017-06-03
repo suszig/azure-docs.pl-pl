@@ -1,21 +1,21 @@
 ### <a name="noconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — brak połączenia bramy
 
-- Aby dodać dodatkowe prefiksy adresów:
+Aby dodać dodatkowe prefiksy adresów:
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-  ```
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+```
 
-- Aby usunąć prefiksy adresów:<br>
-  Opuść prefiksy, które nie są już potrzebne. W tym przykładzie nie są już potrzebne prefiksy 20.0.0.0/24 (z poprzedniego przykładu), dlatego zaktualizujemy bramę sieci lokalnej, wykluczając ten prefiks.
+Aby usunąć prefiksy adresów:<br>
+Opuść prefiksy, które nie są już potrzebne. W tym przykładzie nie są już potrzebne prefiksy 20.0.0.0/24 (z poprzedniego przykładu), dlatego zaktualizujemy bramę sieci lokalnej, wykluczając ten prefiks.
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-  ```
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+```
 
 ### <a name="withconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — istniejące połączenie bramy
 
