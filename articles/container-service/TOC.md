@@ -11,6 +11,7 @@
 ## [Wdrażanie klastra — interfejs wiersza polecenia platformy Azure](container-service-create-acs-cluster-cli.md)
 ## [Ciągła integracja/ciągłe dostarczanie z usługami Kubernetes i Jenkins](container-service-kubernetes-jenkins.md)
 ## [Ciągła integracja/ciągłe dostarczanie z usługami Swarm i VSTS](container-service-docker-swarm-setup-ci-cd.md)
+## [Ciągła integracja/ciągłe dostarczanie przy użyciu trybu Docker Swarm i usługi VSTS z wykorzystaniem aparatu ACS](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # Pojęcia
 ## [Bezpieczne kontenery](container-service-security.md)
@@ -26,7 +27,7 @@
 ### [Włączanie dostępu publicznego do platformy DC/OS](container-service-enable-public-access.md)
 ### [Kontenery równoważenia obciążenia platformy DC/OS](container-service-load-balancing.md)
 ### [Koordynator specyficzny dla aplikacji/użytkownika na platformie DC/OS](container-service-application-specific-marathon.md)
-### [Add a file share](container-service-dcos-fileshare.md) (Dodawanie udziału plików)
+### [Dodawanie udziału plików](container-service-dcos-fileshare.md)
 ### [Korzystanie z usługi Azure Container Registry](container-service-dcos-acr.md)
 ### [Wydania Canary za pomocą systemu Vamp](container-service-dcos-vamp-canary-release.md)
 ### Monitorowanie platformy DC/OS

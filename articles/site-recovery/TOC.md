@@ -1,13 +1,14 @@
 # Omówienie
 ## [Co to jest usługa Site Recovery?](site-recovery-overview.md)
-## [W jaki sposób działa usługa Site Recovery?](site-recovery-components.md)
+## [W jaki sposób działa usługa Site Recovery?](site-recovery-azure-to-azure-architecture.md)
 ## [Jak działa replikacja funkcji Hyper-V na platformie Azure?](site-recovery-hyper-v-azure-architecture.md)
 ## [Jakie obciążenia można chronić?](site-recovery-workload.md)
-## [Macierz obsługi usługi Site Recovery](site-recovery-support-matrix-to-azure.md)
+## [Macierz obsługi usługi Site Recovery](site-recovery-support-matrix-azure-to-azure.md)
 ## [Często zadawane pytania](site-recovery-faq.md)
 ## [Obejrzyj wprowadzenie](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
+## [Replikowanie maszyn wirtualnych platformy Azure (wersja zapoznawcza)](site-recovery-azure-to-azure.md)
 ## [Replikacja maszyn wirtualnych VMware do platformy Azure](site-recovery-vmware-to-azure.md)
 ## [Replikacja serwerów fizycznych do platformy Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure (z programem VMM)](site-recovery-vmm-to-azure.md)
@@ -18,9 +19,10 @@
 
 # Instrukcje
 ## Planowanie
-### [Wymagania wstępne dla replikacji platformy Azure](site-recovery-prereq.md)
-### [Planowanie infrastruktury sieci](site-recovery-network-design.md)
-### [Planowanie mapowania sieci](site-recovery-network-mapping.md)
+### [Wymagania wstępne dla replikacji platformy Azure](site-recovery-azure-to-azure-prereq.md)
+### [Planowanie wychodzących połączeń sieciowych dla maszyn wirtualnych platformy Azure (wersja zapoznawcza)](site-recovery-azure-to-azure-networking-guidance.md)
+### [Planowanie infrastruktury sieciowej dla maszyn lokalnych](site-recovery-network-design.md)
+### [Planowanie mapowania sieci](site-recovery-network-mapping-azure-to-azure.md)
 ### [Planowanie wydajności i skalowanie replikacji oprogramowania VMware do platformy Azure](site-recovery-plan-capacity-vmware.md)
 ### [Planista wdrożenia na potrzeby replikacji oprogramowania VMware na platformie Azure](site-recovery-deployment-planner.md)
 ### [Planista wydajności na potrzeby replikacji funkcji Hyper-V](site-recovery-capacity-planner.md)
@@ -33,19 +35,21 @@
 ### [Wdrażanie usługi mobilności na potrzeby replikacji oprogramowania VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Wdrażanie usługi mobilności za pomocą programu System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Wdrażanie usługi mobilności przy użyciu usługi Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Włączanie replikacji](site-recovery-replicate-vmware-to-azure.md)
-## Przechodzenie do trybu failover i powrót po awarii
-### [Przełączanie chronionych maszyn w tryb failover](site-recovery-failover.md)
+### [Włączanie replikacji](site-recovery-replicate-azure-to-azure.md)
+## Praca w trybie failover i powrót po awarii
 ### [Konfigurowanie planów odzyskiwania](site-recovery-create-recovery-plans.md)
 #### [Dodawanie elementów Runbook platformy Azure do planów odzyskiwania](site-recovery-runbook-automation.md)
 ### [Wykonywanie testu przejścia w tryb failover](site-recovery-test-failover-to-azure.md)
-### [Ponowne włączanie ochrony maszyn po zakończeniu pracy w trybie failover](site-recovery-how-to-reprotect.md)
+### [Przełączanie chronionych maszyn w tryb failover](site-recovery-failover.md)
+### [Ponowne włączanie ochrony maszyn po zakończeniu pracy w trybie failover](site-recovery-how-to-reprotect-azure-to-azure.md)
 ### [Powrót po awarii z platformy Azure](site-recovery-failback-azure-to-vmware.md)
 
 ## Migracja
 ### [Migracja na platformę Azure](site-recovery-migrate-to-azure.md)
 ### [Migracja między regionami platformy Azure](site-recovery-migrate-azure-to-azure.md)
 ### [Migracja wystąpień usługi AWS dla systemu Windows na platformę Azure](site-recovery-migrate-aws-to-azure.md)
+### [Replikowanie migrowanych maszyn do innych regionów świadczenia usługi Azure](site-recovery-azure-to-azure-after-migration.md)
+
 ## Obciążenia
 ### [Usługi Active Directory i DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -62,13 +66,15 @@
 ### [Automatyzowanie replikacji funkcji Hyper-V na platformie Azure (z programem VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automatyzowanie replikacji funkcji Hyper-V w lokacji dodatkowej (z programem VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Zarządzanie
-### [Edit replication settings](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md) (Edytowanie ustawień replikacji)
+### [Edytowanie ustawień replikacji](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md)
 ### [Zarządzanie serwerami przetwarzania na platformie Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Zarządzanie serwerem konfiguracji](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Zarządzanie serwerami przetwarzania skalowanymi w poziomie](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Zarządzanie serwerami vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Usuwanie serwerów i wyłączanie ochrony](site-recovery-manage-registration-and-protection.md)
-## [Monitorowanie i rozwiązywanie problemów](site-recovery-monitoring-and-troubleshooting.md)
+## Monitorowanie i rozwiązywanie problemów
+### [Problemy dotyczące replikacji maszyny wirtualnej platformy Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [Problemy dotyczące replikacji ze środowiska lokalnego do platformy Azure](site-recovery-monitoring-and-troubleshooting.md)
 
 # Dokumentacja
 ## [Program PowerShell](/powershell/module/azurerm.siterecovery)

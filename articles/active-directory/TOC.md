@@ -5,6 +5,7 @@
 ## [Omówienie rozwiązań do obsługi tożsamości na platformie Azure](understand-azure-identity-solutions.md)
 ## [Omówienie witryny Azure Portal](active-directory-preview-explainer.md)
 
+
 # Rozpoczęcie pracy
 ## [Uzyskiwanie dzierżawy usługi Azure AD](active-directory-howto-tenant.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
@@ -14,7 +15,8 @@
 ### [Portal klasyczny](active-directory-licensing-what-is.md)
 ## [Uzyskiwanie dostępu do platformy Azure dla swojej organizacji](sign-up-organization.md)
 ## [Często zadawane pytania](active-directory-faq.md)
-## [Samouczki aplikacji SaaS](active-directory-saas-tutorial-list.md)
+## [Jak uzyskać pomoc techniczną dla usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Samouczki integracji aplikacji SaaS](active-directory-saas-tutorial-list.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
@@ -83,7 +85,7 @@
 ### [Ryzykowne logowania](active-directory-reporting-security-risky-sign-ins.md)
 ### [Zdarzenia ryzyka](active-directory-reporting-risk-events.md)
 ### [Nazwane lokalizacje](active-directory-named-locations.md)
-### [Report migration](active-directory-reporting-migration.md) (Migracja raportów)
+### [Migracja raportów](active-directory-reporting-migration.md)
 ### [Przechowywanie](active-directory-reporting-retention.md)
 ### [Czasy oczekiwania](active-directory-reporting-latencies-azure-portal.md)
 ### [Często zadawane pytania](active-directory-reporting-faq.md)
@@ -288,8 +290,8 @@
 ### [Dostęp do zasobów na platformie Azure](active-directory-understanding-resource-access.md)
 ### [Kontrola dostępu oparta na rolach](role-based-access-control-what-is.md)
 #### Zarządzanie przypisaniami dostępu
-##### [By user](role-based-access-control-manage-assignments.md) (Według użytkownika)
-##### [By resource](role-based-access-control-configure.md) (Według zasobu)
+##### [Według użytkownika](role-based-access-control-manage-assignments.md)
+##### [Według zasobu](role-based-access-control-configure.md)
 #### [Role wbudowane](role-based-access-built-in-roles.md)
 #### [Role niestandardowe](role-based-access-control-custom-roles.md)
 #### [Przypisywanie ról niestandardowych dla użytkowników wewnętrznych i zewnętrznych](role-based-access-control-create-custom-roles-for-internal-external-users.md)

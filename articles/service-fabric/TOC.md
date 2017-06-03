@@ -167,8 +167,8 @@
 #### [Testowanie obciążenia aplikacji](service-fabric-vso-load-test.md)
 
 ### Konfiguracja integracji ciągłej
-#### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md) (Konfiguracja integracji ciągłej za pomocą usługi VSTS)
-#### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md) (Wdrażanie aplikacji Java w systemie Linux przy użyciu narzędzia Jenkins)
+#### [Konfiguracja integracji ciągłej za pomocą usługi VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Wdrażanie aplikacji Java w systemie Linux przy użyciu narzędzia Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Tworzenie klastrów i zarządzanie nimi
 
@@ -235,25 +235,27 @@
 
 ### [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md)
 
-## Inspekcja kondycji aplikacji i klastra
-### [Monitorowanie kondycji usługi Service Fabric](service-fabric-health-introduction.md)
-### [Tworzenie raportów i sprawdzanie kondycji usług](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Dodawanie niestandardowych raportów o kondycji](service-fabric-report-health.md)
-### [Rozwiązywanie problemów z raportami kondycji systemu](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [Wyświetlanie raportów o kondycji](service-fabric-view-entities-aggregated-health.md)
-
 ## Monitorowanie i diagnozowanie
 ### [Monitorowanie i diagnozowanie aplikacji](service-fabric-diagnostics-overview.md)
-### Lokalne monitorowanie i diagnozowanie usług
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Dzienniki diagnostyczne platformy Azure
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Zbieranie dzienników z procesu usługi](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Monitorowanie kontenerów systemu Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
-### [Diagnostyka stanowych usług Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Diagnostyka w elementach Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### Generowanie zdarzeń
+#### [Generowanie zdarzeń na poziomie infrastruktury](service-fabric-diagnostics-event-generation-infra.md)
+##### [Zdarzenia interfejsu Reliable Services](service-fabric-reliable-services-diagnostics.md)
+##### [Zdarzenia dotyczące elementów Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+#### [Generowanie zdarzeń na poziomie aplikacji](service-fabric-diagnostics-event-generation-app.md)
+### Inspekcja kondycji aplikacji i klastra
+#### [Monitorowanie kondycji usługi Service Fabric](service-fabric-health-introduction.md)
+#### [Tworzenie raportów i sprawdzanie kondycji usług](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Dodawanie niestandardowych raportów o kondycji](service-fabric-report-health.md)
+#### [Rozwiązywanie problemów z raportami kondycji systemu](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Wyświetlanie raportów o kondycji](service-fabric-view-entities-aggregated-health.md)
+### Agregowanie zdarzeń
+#### [Agregowanie zdarzeń przy użyciu struktury EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Agregowanie zdarzeń przy użyciu Diagnostyki Azure
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analiza zdarzeń
+#### [Analizowanie zdarzeń za pomocą usługi Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analizowanie zdarzeń za pomocą pakietu OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Rozwiązywanie problemów z klastrem lokalnym](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Dokumentacja
