@@ -6,7 +6,7 @@
 
 # Instrukcje
 ## Integracja
-### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Współużytkowanie zasobów między źródłami](cdn-cors.md)
@@ -53,10 +53,10 @@
 ## [REST](/rest/api/cdn/)
 
 # Zasoby
-##  [Rules Engine reference](cdn-rules-engine-reference.md) (Dokumentacja aparatu reguł)
-### [Rules Engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md) (Wyrażenia warunkowe aparatu reguł)
-### [Rules Engine match conditions](cdn-rules-engine-reference-match-conditions.md) (Warunki dopasowań aparatu reguł)
-### [Rules Engine features](cdn-rules-engine-reference-features.md) (Funkcje aparatu reguł)
+##  [Dokumentacja aparatu reguł](cdn-rules-engine-reference.md)
+### [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
+### [Warunki dopasowań aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
+### [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
 ## [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cdn)
 ## [Cennik](https://azure.microsoft.com/pricing/details/cdn/)

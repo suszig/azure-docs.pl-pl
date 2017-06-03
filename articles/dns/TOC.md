@@ -1,4 +1,5 @@
 # Omówienie
+
 ## [Co to jest usługa Azure DNS?](dns-overview.md)
 ## [Strefy i rekordy DNS](dns-zones-records.md)
 ## [Delegowanie DNS za pomocą systemu DNS platformy Azure](dns-domain-delegation.md)
@@ -18,17 +19,21 @@
 # Instrukcje
 
 ## Zarządzanie strefami DNS
+### [Portal](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md)
+### [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-dnszones-cli.md)
 
-
-## [Zarządzanie rekordami DNS](dns-operations-recordsets-portal.md)
+## Zarządzanie rekordami DNS
+### [Portal](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Interfejs wiersza polecenia platformy Azure](dns-operations-recordsets-cli.md)
+### [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-recordsets-cli.md)
 
-## [Zarządzanie rekordami odwrotnego systemu DNS](dns-reverse-dns-record-operations-ps.md)
-### [Interfejs wiersza polecenia platformy Azure](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## Zarządzanie odwrotnym systemem DNS
+### [Omówienie](dns-reverse-dns-overview.md)
+### [Hostowanie stref wyszukiwania wstecznego w usłudze Azure DNS](dns-reverse-dns-hosting.md)
+### [Zarządzanie rekordami odwrotnego systemu DNS na potrzeby usług Azure](dns-reverse-dns-for-azure-services.md)
 
 ## [Importowanie i eksportowanie pliku strefy systemu DNS](dns-import-export.md)
 ## [Integracja z innymi usługami platformy Azure](dns-for-azure-services.md)

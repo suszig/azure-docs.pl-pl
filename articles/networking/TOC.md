@@ -1,6 +1,7 @@
 # Omówienie
 ## [Sieci platformy Azure — informacje](networking-overview.md)
 ## Architektura
+### [Wirtualne centra danych](networking-virtual-datacenter.md)
 ### [Routing asymetryczny z wieloma ścieżkami sieciowymi](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Projekty bezpiecznych sieci](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topologia piasty i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,6 +45,7 @@
 ### [Sprawdzanie przepływów adresów IP dla maszyny wirtualnej](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Przykładowe skrypty
 ### [Interfejs wiersza polecenia platformy Azure](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Samouczki
 ### [Równoważenie obciążenia maszyn wirtualnych](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Łączenie komputera z siecią wirtualną](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)

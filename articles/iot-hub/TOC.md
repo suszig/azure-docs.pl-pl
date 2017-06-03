@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Korzystanie z symulowanej bramy
-#### [Symulacja w systemie Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Symulacja w systemie Windows](iot-hub-windows-iot-edge-get-started.md)
-
 ### Korzystanie z urządzenia fizycznego
 #### [Urządzenie Raspberry Pi w środowisku Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Urządzenie Raspberry Pi w środowisku C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Konfigurowanie urządzenia Intel NUC jako bramy](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Łączenie bramy z usługą IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Używanie bramy do konwersji danych](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Użyj symulatora urządzeń w trybie online](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Zarządzanie przesyłaniem komunikatów między chmurą a urządzeniem za pomocą narzędzia iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Zapisywanie komunikatów usługi IoT Hub w magazynie danych platformy Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Obsługa dodatkowych protokołów](iot-hub-protocol-gateway.md)
 ## [Opracowywanie](iot-hub-how-to.md)
 ### [Przewodnik dla deweloperów](iot-hub-devguide.md)
-#### [Wysyłanie i odbieranie komunikatów](iot-hub-devguide-messaging.md)
 #### [Przewodnik po funkcjach przesyłania z urządzenia do chmury](iot-hub-devguide-d2c-guidance.md)
 #### [Przewodnik po funkcjach przesyłania z chmury do urządzeń](iot-hub-devguide-c2d-guidance.md)
+#### [Wysyłanie i odbieranie komunikatów](iot-hub-devguide-messaging.md)
+##### [Wysyłanie komunikatów z urządzeń do chmury do usługi IoT Hub](iot-hub-devguide-messages-d2c.md)
+##### [Odczytywanie komunikatów przesyłanych z urządzeń do chmury z wbudowanego punktu końcowego](iot-hub-devguide-messages-read-builtin.md)
+##### [Stosowanie niestandardowych punktów końcowych i reguł routingu na potrzeby komunikatów przesyłanych z urządzeń do chmury](iot-hub-devguide-messages-read-custom.md)
+##### [Wysyłanie komunikatów z chmury do urządzeń z usługi IoT Hub](iot-hub-devguide-messages-c2d.md)
+##### [Tworzenie i odczytywanie komunikatów usługi IoT Hub](iot-hub-devguide-messages-construct.md)
 #### [Przekazywanie plików z urządzenia](iot-hub-devguide-file-upload.md)
 #### [Zarządzanie tożsamościami urządzeń](iot-hub-devguide-identity-registry.md)
 #### [Kontrola dostępu do usługi IoT Hub](iot-hub-devguide-security.md)
 #### [Opis bliźniaczych reprezentacji urządzeń](iot-hub-devguide-device-twins.md)
 #### [Wywoływanie metod bezpośrednich na urządzeniu](iot-hub-devguide-direct-methods.md)
 #### [Planowanie zadań na wielu urządzeniach](iot-hub-devguide-jobs.md)
+#### [Wybór protokołu komunikacyjnego](iot-hub-devguide-protocols.md)
 #### [Punkty końcowe usługi IoT Hub](iot-hub-devguide-endpoints.md)
 #### [Język zapytań](iot-hub-devguide-query-language.md)
 #### [Limity przydziału i ograniczanie przepływności](iot-hub-devguide-quotas-throttling.md)
@@ -103,7 +107,7 @@
 #### [Korzystanie z interfejsu wiersza polecenia 2.0](iot-hub-create-using-cli.md)
 #### [Korzystanie z interfejsu wiersza polecenia](iot-hub-create-using-cli-nodejs.md)
 #### [Korzystanie z interfejsu API REST](iot-hub-rm-rest.md)
-#### [Use a template from PowerShell](iot-hub-rm-template-powershell.md) (Korzystanie z szablonu programu PowerShell)
+#### [Korzystanie z szablonu programu PowerShell](iot-hub-rm-template-powershell.md)
 #### [Korzystanie z szablonu platformy .NET](iot-hub-rm-template.md)
 ### Konfigurowanie przekazywania plików
 #### [Korzystanie z portalu](iot-hub-configure-file-upload.md)
@@ -119,18 +123,22 @@
 ### [Architektura zabezpieczeń](iot-hub-security-architecture.md)
 ### [Zabezpieczanie wdrożenia IoT](iot-hub-security-deployment.md)
 ## IoT Edge
+### Rozpoczęcie pracy
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Symulowanie urządzenia
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Korzystanie z rzeczywistego urządzenia](iot-hub-iot-edge-physical-device.md)
 
 # Dokumentacja
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/iot)
+## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/iot)
 ## [.NET (usługa)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (urządzenia)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (usługa)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (urządzenia)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Zestawy SDK usługi Azure IoT](http://azure.github.io/azure-iot-sdks/)
+## [Zestawy SDK dla języka Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [Zestaw SDK urządzeń dla języka C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (dostawca zasobów)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (tożsamości urządzeń)](https://docs.microsoft.com/rest/api/iothub/deviceapi)

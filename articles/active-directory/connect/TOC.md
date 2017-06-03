@@ -32,6 +32,7 @@
 ### [Opcje logowania użytkowników](active-directory-aadconnect-user-signin.md)
 ### [Obsługa wielu domen do federowania](active-directory-aadconnect-multiple-domains.md)
 ### [Automatycznie uaktualnianie](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Korzystanie z dostawcy tożsamości SAML 2.0 na potrzeby logowania jednokrotnego](active-directory-aadconnect-federation-saml-idp.md)
 
 
 

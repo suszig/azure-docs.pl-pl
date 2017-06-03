@@ -2,6 +2,7 @@
 ## [Informacje o usłudze Azure DevTest Labs](devtest-lab-overview.md)
 ## [Pojęcia](devtest-lab-concepts.md)
 ## Scenariusze
+### [Korzystanie z laboratoriów na potrzeby deweloperów](devtest-lab-developer-lab.md)
 ### [Korzystanie z laboratoriów na potrzeby szkolenia](devtest-lab-training-lab.md)
 
 # Rozpoczęcie pracy
@@ -12,7 +13,7 @@
 # Przewodniki z instrukcjami
 ## Korzystanie z maszyn wirtualnych w laboratorium
 ### [Tworzenie maszyn wirtualnych](devtest-lab-add-vm.md)
-### [Create claimable VM](devtest-lab-add-claimable-vm.md) (Tworzenie maszyn wirtualnych, które można zajmować)
+### [Tworzenie maszyn wirtualnych, które można zajmować](devtest-lab-add-claimable-vm.md)
 ### [Tworzenie maszyn wirtualnych i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure](devtest-lab-vmcli.md)
 
 ## Korzystanie ze środowisk w laboratorium

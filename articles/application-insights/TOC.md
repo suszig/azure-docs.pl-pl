@@ -116,7 +116,7 @@
 ### [Próbkowanie](app-insights-sampling.md)
 
 ## Zarządzanie
-### [Zarządzanie cenami i przydziałami](app-insights-pricing.md)
+### [Zarządzanie cenami i ilością danych](app-insights-pricing.md)
 ### [Monitorowanie wydajności aplikacji za pomocą usługi Application Insights dla oprogramowania SCOM](app-insights-scom.md)
 
 ## Eksportowanie

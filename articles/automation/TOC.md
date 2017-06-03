@@ -41,6 +41,7 @@
 ### [Dołączanie maszyn w celu zarządzania](automation-dsc-onboarding.md)
 ### [Kompilowanie konfiguracji DSC](automation-dsc-compile.md)
 ### [Ciągłe wdrażanie za pomocą narzędzia Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Przekazywanie danych raportów usługi Azure Automation DSC do usługi OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Zarządzanie zasobami usługi Automation
 ### [Certyfikaty](automation-certificates.md)
 ### [Połączenia](automation-connections.md)
@@ -56,8 +57,8 @@
 ### [Uruchamianie/zatrzymywanie maszyny wirtualnej przy użyciu tagów JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Usuwanie grupy zasobów](automation-scenario-remove-resourcegroup.md)
 ### [Uruchamianie/zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
-### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) (Integracja kontroli źródła z usługą GitHub Enterprise)
-### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md) (Integracja kontroli źródła z usługą VSTS)
+### [Integracja kontroli źródła z usługą GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Integracja kontroli źródła z usługą VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Rozwiązania
 ### [Śledzenie zmian](../log-analytics/log-analytics-change-tracking.md)
 ### [Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md)

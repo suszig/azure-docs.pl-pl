@@ -10,14 +10,16 @@
 ### [Zaawansowane wykrywanie zagrożeń](azure-threat-detection.md)
 ### [Rejestrowanie i przeprowadzanie inspekcji](azure-log-audit.md)
 ### [Izolacja w chmurze publicznej](azure-isolation.md)
+### [Możliwości techniczne zabezpieczeń](azure-security-technical-capabilities.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z zabezpieczeniami platformy Azure](azure-security-getting-started.md)
 ## [Najlepsze rozwiązania i wzorce dotyczące zabezpieczeń](security-best-practices-and-patterns.md)
 ## [Usługi i technologie zabezpieczeń](azure-security-services-technologies.md)
 
 ## Bezpieczeństwo sieci
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń sieci](azure-security-network-security-best-practices.md)
+###[Zabezpieczenia sieci na platformie Azure](azure-network-security.md)
 ### [Zabezpieczenia graniczne](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Bezpieczna hybrydowa architektura sieci](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
@@ -74,14 +76,14 @@
 ## [Doradztwo z zakresu cyberbezpieczeństwa](azure-security-cyber-services.md)
 ## [Kursy Virtual Academy z zakresu zabezpieczeń](security-microsoft-virtual-academy.md)
 ## [Film wideo na temat zabezpieczeń w witrynie Channel 9](security-channel-nine.md)
-## [Threat modeling tool](azure-security-threat-modeling-tool.md) (Narzędzie do modelowania zagrożeń)
-###[Auditing and logging](azure-security-threat-modeling-tool-auditing-and-logging.md) (Inspekcja i rejestrowanie)
+## [Narzędzie do modelowania zagrożeń](azure-security-threat-modeling-tool.md)
+###[Inspekcja i rejestrowanie](azure-security-threat-modeling-tool-auditing-and-logging.md)
 ###[Uwierzytelnianie](azure-security-threat-modeling-tool-authentication.md)
 ###[Autoryzacja](azure-security-threat-modeling-tool-authorization.md)
-###[Communication security](azure-security-threat-modeling-tool-communication-security.md) (Bezpieczeństwo komunikacji)
-###[Configuration management](azure-security-threat-modeling-tool-configuration-management.md) (Zarządzanie konfiguracją)
-###[Cryptography](azure-security-threat-modeling-tool-cryptography.md) (Kryptografia)
-###[Exception management](azure-security-threat-modeling-tool-exception-management.md) (Zarządzanie wyjątkami)
-###[Input validation](azure-security-threat-modeling-tool-input-validation.md) (Walidacja danych wejściowych)
-###[Sensitive data](azure-security-threat-modeling-tool-sensitive-data.md) (Dane poufne)
-###[Session management](azure-security-threat-modeling-tool-session-management.md) (Zarządzanie sesjami)
+###[Bezpieczeństwo komunikacji](azure-security-threat-modeling-tool-communication-security.md)
+###[Zarządzanie konfiguracją](azure-security-threat-modeling-tool-configuration-management.md)
+###[Kryptografia](azure-security-threat-modeling-tool-cryptography.md)
+###[Zarządzanie wyjątkami](azure-security-threat-modeling-tool-exception-management.md)
+###[Walidacja danych wejściowych](azure-security-threat-modeling-tool-input-validation.md)
+###[Dane poufne](azure-security-threat-modeling-tool-sensitive-data.md)
+###[Zarządzanie sesjami](azure-security-threat-modeling-tool-session-management.md)

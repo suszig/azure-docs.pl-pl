@@ -26,7 +26,7 @@
 ### [Ocena linii bazowej](oms-security-baseline.md)
 ### [Ocena złośliwego oprogramowania](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Ocena aktualizacji systemu](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Connect security products](oms-security-connect-products.md) (Łączenie produktów zabezpieczeń)
+### [Łączenie produktów zabezpieczeń](oms-security-connect-products.md)
 
 ## Korzystanie z rozwiązań
 ### [Rozwiązania do zarządzania](operations-management-suite-solutions.md)
@@ -54,12 +54,15 @@
 #### [Ocena oprogramowania chroniącego przed złośliwym kodem](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Tworzenie rozwiązań
-### [Design and build](operations-management-suite-solutions-creating.md) (Projektowanie i tworzenie)
-### [Solution file](operations-management-suite-solutions-solution-file.md) (Plik rozwiązania)
+### [Projektowanie i tworzenie](operations-management-suite-solutions-creating.md)
+### [Plik rozwiązania](operations-management-suite-solutions-solution-file.md)
 ### [Zasoby do automatyzacji](operations-management-suite-solutions-resources-automation.md)
 ### [Wyszukiwanie w dzienniku i alerty](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Widoki](operations-management-suite-solutions-resources-views.md)
-### [Najlepsze rozwiązania](operations-management-suite-solutions-best-practices.md)
+### [Najlepsze praktyki](operations-management-suite-solutions-best-practices.md)
+
+## Scenariusze zarządzania
+### [Zbieranie danych analitycznych z elementu runbook](operations-management-suite-runbook-datacollect.md)
 
 ## [Integracja z usługą OMS](operations-management-suite-integration.md)
 
