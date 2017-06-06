@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
-ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c558bd5f2b7fae91483cc2c6724c40442bb65045
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -205,12 +205,12 @@ Niektóre elementy dostosowywalne w usłudze Azure AD mają wiele zastosowań. M
 
 | Nazwa | Opis | Ograniczenia | Zalecenia |
 | --- | --- | --- | --- |
-| Baner logo |Baner logo jest wyświetlany na stronie logowania i stronie panelu dostępu. |<p>JPG lub PNG</p><p>60 x&280; pikseli</p><p>10 KB</p> |<p>Użyj pełnego logo organizacji (piktogram i logo)</p><p>Utrzymaj wysokość poniżej 30 pikseli, aby uniknąć wprowadzenia pasków przewijania na urządzeniach przenośnych.</p><p>Utrzymaj rozmiar poniżej 4 KB</p><p>Użyj przezroczystego obrazu PNG (nie zakładaj, że strona logowania ma zawsze białe tło)</p> |
-| Logo kafelka |(aktualnie nieużywane na stronie logowania). W przyszłości ten tekst może być używany do zastąpienia ogólnego piktogramu „konto służbowe” w różnych miejscach w środowisku. |<p>JPG lub PNG</p><p>120 x&120; pikseli</p><p>10 KB</p> |<p>Zachowaj prostotę (brak małego tekstu), ponieważ rozmiar tego obrazu można zmienić do 50% |
+| Baner logo |Baner logo jest wyświetlany na stronie logowania i stronie panelu dostępu. |<p>JPG lub PNG</p><p>60 x 280 pikseli</p><p>10 KB</p> |<p>Użyj pełnego logo organizacji (piktogram i logo)</p><p>Utrzymaj wysokość poniżej 30 pikseli, aby uniknąć wprowadzenia pasków przewijania na urządzeniach przenośnych.</p><p>Utrzymaj rozmiar poniżej 4 KB</p><p>Użyj przezroczystego obrazu PNG (nie zakładaj, że strona logowania ma zawsze białe tło)</p> |
+| Logo kafelka |(aktualnie nieużywane na stronie logowania). W przyszłości ten tekst może być używany do zastąpienia ogólnego piktogramu „konto służbowe” w różnych miejscach w środowisku. |<p>JPG lub PNG</p><p>120 x 120 pikseli</p><p>10 KB</p> |<p>Zachowaj prostotę (brak małego tekstu), ponieważ rozmiar tego obrazu można zmienić do 50% |
 | </p> | | | |
 | Etykieta nazwy użytkownika strony logowania |(aktualnie nieużywana na stronie logowania). W przyszłości ten tekst może być używany do zastąpienia ogólnego ciągu „konto służbowe” w różnych miejscach w środowisku. Można ustawić tekst w rodzaju „Konto Contoso” lub „Identyfikator Contoso”. |<p>Tekst Unicode, maksymalnie 50 znaków</p><p>Tylko zwykły tekst (bez linków lub tagów HTML)</p> |<p>Powinna być krótka i prosta</p><p>Zapytaj użytkowników, jak zwykle nazywają udostępnione im konto służbowe.</p> |
 | Tekst strony logowania |Ten tekst „standardowy” pojawia się poniżej formularza strony logowania i może służyć do przekazania dodatkowych instrukcji lub informacji o pomocy i obsłudze technicznej. |<p>Tekst Unicode, maksymalnie 256 znaków</p><p>Tylko zwykły tekst (bez linków lub tagów HTML)</p> |Zachowaj długość nie więcej niż 250 znaków (około 3 wiersze tekstu) |
-| Ilustracja strony logowania |Ilustracja to duży obraz wyświetlany na stronie logowania na lewo od formularza strony logowania. |<p>JPG lub PNG</p><p>1420 x&1200;</p><p>500 KB</p> |<p>1420 x&1200; pikseli</p><p>Ważne: zachowaj jak najmniejszy rozmiar, najlepiej poniżej 200 KB. Jeśli ten obraz jest za duży, pogarsza to wydajność strony logowania, gdy obraz nie jest buforowany</p><p>Ten obraz jest często przycinany w celu dopasowania do różnych współczynników proporcji ekranu. Zachowaj podstawowe elementy wizualne w lewym górnym rogu (prawym górnym dla języków z zapisem od prawej do lewej), ponieważ zmiana rozmiaru podczas zmniejszania okna przeglądarki następuje od prawego dolnego rogu w kierunku do góry/do lewej.</p> |
+| Ilustracja strony logowania |Ilustracja to duży obraz wyświetlany na stronie logowania na lewo od formularza strony logowania. |<p>JPG lub PNG</p><p>1420 x 1200</p><p>500 KB</p> |<p>1420 x 1200 pikseli</p><p>Ważne: zachowaj jak najmniejszy rozmiar, najlepiej poniżej 200 KB. Jeśli ten obraz jest za duży, pogarsza to wydajność strony logowania, gdy obraz nie jest buforowany</p><p>Ten obraz jest często przycinany w celu dopasowania do różnych współczynników proporcji ekranu. Zachowaj podstawowe elementy wizualne w lewym górnym rogu (prawym górnym dla języków z zapisem od prawej do lewej), ponieważ zmiana rozmiaru podczas zmniejszania okna przeglądarki następuje od prawego dolnego rogu w kierunku do góry/do lewej.</p> |
 | Kolor tła strony logowania |Kolor tła strony logowania jest używany w obszarze na lewo od formularza strony logowania. |Wymagany jest kolor RGB w postaci szesnastkowej (przykład: #FFFFFF) |<p>W przypadku połączeń o niskiej przepustowości zamiast dużej ilustracji może być wyświetlany kolor tła.</p><p>Sugerujemy wybranie podstawowego koloru baneru logo</p> |
 
 ## <a name="next-steps"></a>Następne kroki
