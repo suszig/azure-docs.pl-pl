@@ -2,6 +2,6 @@
 
 Aby wyczyścić zasoby, uruchom następujące polecenie:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
