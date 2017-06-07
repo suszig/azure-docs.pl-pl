@@ -313,7 +313,7 @@
 - name: Zasoby
   items:
   - name: Cennik
-    href: https://azure.microsoft.com/pricing/details/documentdb/
+    href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: Często zadawane pytania
     href: faq.md
   - name: Stack Overflow
