@@ -56,7 +56,7 @@ ms.lasthandoff: 02/21/2017
 ![Kojarzenie serwera konfiguracji](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
 3. Z listy serwerów wybierz serwer konfiguracji.
-4. Kliknij przycisk **OK**. Kojarzenie serwera konfiguracji powinno potrwać od&1; do&2; minut.
+4. Kliknij przycisk **OK**. Kojarzenie serwera konfiguracji powinno potrwać od 1 do 2 minut.
 
 ![Kojarzenie serwera konfiguracji](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/21/2017
 ![Edytowanie ustawień zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Zmień ustawienia zgodnie z Twoimi wymaganiami.
-4. Kliknij pozycję **Zapisz**. Zapisywanie zasad powinno potrwać od&2; do&5; minut w zależności od tego, ile maszyn wirtualnych korzysta z tych zasad replikacji.
+4. Kliknij pozycję **Zapisz**. Zapisywanie zasad powinno potrwać od 2 do 5 minut w zależności od tego, ile maszyn wirtualnych korzysta z tych zasad replikacji.
 
 ![Zapisywanie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/21/2017
 1. Wybierz zasady replikacji, z którymi chcesz skojarzyć serwer konfiguracji.
 2. Kliknij pozycję **Usuń skojarzenie**.
 3. Z listy serwerów wybierz serwer konfiguracji.
-4. Kliknij przycisk **OK**. Usuwanie skojarzenia serwera konfiguracji powinno potrwać od&1; do&2; minut.
+4. Kliknij przycisk **OK**. Usuwanie skojarzenia serwera konfiguracji powinno potrwać od 1 do 2 minut.
 
     > [!NOTE]
     > Nie można usunąć skojarzenia serwera konfiguracji, jeśli co najmniej jeden zreplikowany element korzysta z zasad. Przed usunięciem skojarzenia serwera konfiguracji upewnij się, że żadne zreplikowane elementy nie korzystają z zasad.
