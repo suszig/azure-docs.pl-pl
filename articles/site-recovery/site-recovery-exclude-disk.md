@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ Dyski na maszynie wirtualnej platformy Azure po przełączeniu w tryb failover b
 
 **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | ---
-DYSK0 |    C:\ | Dysk systemu operacyjnego
-Dysk1 |    E:\ | Magazyn tymczasowy</br /> </br />Platforma Azure dodaje ten dysk i przypisuje mu pierwszą dostępną literę dysku.
+DYSK0 | C:\ | Dysk systemu operacyjnego
+Dysk1 | E:\ | Magazyn tymczasowy</br /> </br />Platforma Azure dodaje ten dysk i przypisuje mu pierwszą dostępną literę dysku.
 Dysk2 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
 Dysk3 | G:\ | Baza danych użytkownika 2
 
@@ -141,13 +141,13 @@ Istnieją dwa sposoby utworzenia tej ścieżki:
 3. Uruchom następujące polecenie sqlcmd, aby zmienić ścieżkę bazy danych tempdb na nową ścieżkę.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ W poprzednim przykładzie konfiguracja dysków maszyny wirtualnej platformy Azur
 **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | ---
 DYSK0 | C:\ | Dysk systemu operacyjnego
-Dysk1 |    E:\ | Magazyn tymczasowy</br /> </br />Platforma Azure dodaje ten dysk i przypisuje mu pierwszą dostępną literę dysku.
-Dysk2 |    D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
-Dysk3 |    G:\ | Baza danych użytkownika 2
+Dysk1 | E:\ | Magazyn tymczasowy</br /> </br />Platforma Azure dodaje ten dysk i przypisuje mu pierwszą dostępną literę dysku.
+Dysk2 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
+Dysk3 | G:\ | Baza danych użytkownika 2
 
 
 #### <a name="vmware-to-azure"></a>Z programu VMware do platformy Azure
@@ -186,8 +186,8 @@ Dyski na maszynie wirtualnej programu VMware (oryginalna lokalizacja) po zaplano
 **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | ---
 DYSK0 | C:\ | Dysk systemu operacyjnego
-Dysk1 |    D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
-Dysk2 |    G:\ | Baza danych użytkownika 2
+Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
+Dysk2 | G:\ | Baza danych użytkownika 2
 
 #### <a name="hyper-v-to-azure"></a>Z funkcji Hyper-V do platformy Azure
 Jeśli powrót po awarii jest wykonywany do oryginalnej lokalizacji, konfiguracja dysków maszyny wirtualnej powrotu po awarii pozostaje taka sama jak w przypadku oryginalnej konfiguracji dysków maszyny wirtualnej dla funkcji Hyper-V. Dyski wykluczone z replikacji z lokacji funkcji Hyper-V do platformy Azure nie będą dostępne na maszynie wirtualnej powrotu po awarii.
@@ -196,7 +196,7 @@ Dyski na maszynie wirtualnej funkcji Hyper-V (oryginalna lokalizacja) po zaplano
 
 **Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
-DB-Disk0-OS | DYSK0 |    C:\ | Dysk systemu operacyjnego
+DB-Disk0-OS | DYSK0 |   C:\ | Dysk systemu operacyjnego
 DB-Disk1 | Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
 DB-Disk2 (dysk wykluczony) | Dysk2 | E:\ | Pliki tymczasowe
 DB-Disk3 (dysk wykluczony) | Dysk3 | F:\ | Baza danych SQL tempdb — ścieżka folderu (F:\MSSQL\Data\)
