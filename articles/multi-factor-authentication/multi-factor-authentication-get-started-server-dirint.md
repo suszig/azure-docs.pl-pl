@@ -5,19 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
 ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
-
+ms.contentlocale: pl-pl
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integracja katalogu między serwerem Azure MFA i usługą Active Directory
@@ -94,7 +96,7 @@ Atrybuty mogą być wprowadzane ręcznie i nie muszą odpowiadać atrybutom na l
 | Wewnętrzny |Wprowadź nazwę atrybutu, który zawiera numer wewnętrzny w rekordzie użytkownika.  Wartość pola numeru wewnętrznego jest używana wyłącznie dla podstawowego numeru telefonu.  Pole jest domyślnie puste. <br><br>Jeśli nie określono atrybutu Wewnętrzny, numer wewnętrzny można uwzględnić w atrybucie numeru telefonu. W takim przypadku poprzedź rozszerzenie znakiem „x”, aby zostało poprawnie przeanalizowane.  Na przykład wartość 555-123-4567 x890 zostanie zinterpretowana jako numer telefonu 555-123-4567 i numer wewnętrzny 890. |
 | Przycisk Przywróć domyślne |Kliknij przycisk **Przywróć domyślne**, aby przywrócić wartości domyślne wszystkich atrybutów.  Ustawienia domyślne powinny działać prawidłowo z normalnym schematem usługi Active Directory lub ADAM. |
 
-Aby edytować atrybuty, kliknij przycisk **Edytuj** na karcie Atrybuty.  Spowoduje to otworzenie okna umożliwiającego edytowanie atrybutów. Wybierz przycisk **...** obok dowolnego atrybutu, aby otworzyć okno, w którym można określić atrybuty do wyświetlenia. 
+Aby edytować atrybuty, kliknij przycisk **Edytuj** na karcie Atrybuty.  Spowoduje to otworzenie okna umożliwiającego edytowanie atrybutów. Wybierz przycisk **...** obok dowolnego atrybutu, aby otworzyć okno, w którym można określić atrybuty do wyświetlenia.
 
 ![Edytuj atrybuty](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -137,10 +139,4 @@ Przyciski Przenieś w górę i Przenieś w dół umożliwiają administratorowi 
 Można skonfigurować dodatkowe serwery Multi-Factor Auth, które będą pełnić rolę zapasowych serwerów proxy LDAP wykorzystywanych do uwierzytelniania RADIUS lub uwierzytelniania w usługach IIS. Konfiguracja synchronizacji jest współdzielona przez wszystkich agentów. Usługę Multi-Factor Auth Server można jednak uruchomić tylko na jednym z tych agentów. Na tej karcie można wybrać serwer usługi Multi-Factor Auth, dla którego ma zostać włączona synchronizacja.
 
 ![Serwery usługi Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
