@@ -7,15 +7,15 @@
 ## [Wybieranie miejsca wdrożenia](multi-factor-authentication-get-started.md)
 ## [Usługa MFA w chmurze](multi-factor-authentication-get-started-cloud.md)
 ## [Lokalna usługa MFA](multi-factor-authentication-get-started-server.md)
-## [Usługa MFA dla użytkowników usługi O365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [Usługa MFA dla użytkowników usługi O365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Najlepsze rozwiązania dotyczące zabezpieczeń](multi-factor-authentication-security-best-practices.md)
 
 # Instrukcje
 ## Wdrażanie i używanie
-### [Tworzenie dostawcy uwierzytelniania](multi-factor-authentication-get-started-auth-provider.md)
 ### [Konfigurowanie ustawień](multi-factor-authentication-whats-next.md)
 ### [Raporty w usłudze MFA](multi-factor-authentication-manage-reports.md)
 ### [Używanie istniejących serwerów zasad sieciowych](multi-factor-authentication-nps-extension.md)
+### [Tworzenie dostawcy uwierzytelniania](multi-factor-authentication-get-started-auth-provider.md)
 ### Lokalna usługa Azure MFA
 #### [Instalowanie portalu użytkowników](multi-factor-authentication-get-started-portal.md)
 #### [Zaawansowane konfiguracje sieci VPN](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -27,7 +27,7 @@
 ## Zarządzanie użytkownikami
 ### [Włączanie lub wyłączanie usługi MFA](multi-factor-authentication-get-started-user-states.md)
 ### [Ustawienia użytkownika i urządzenia](multi-factor-authentication-manage-users-and-devices.md)
-### [MFA user guide](./end-user/multi-factor-authentication-end-user.md) (Podręcznik użytkownika uwierzytelniania wieloskładnikowego)
+### [Podręcznik użytkownika uwierzytelniania wieloskładnikowego](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integracja
 ### [Usługi Federation Services](multi-factor-authentication-get-started-adfs.md)
