@@ -34,6 +34,7 @@
 ### [Interfejs wiersza polecenia 2.0](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Rozwiązywanie problemów z usługą VPN Gateway i połączeniami
+### [Portal](network-watcher-troubleshoot-manage-portal.md)
 ### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Interfejs wiersza polecenia 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [Interfejs wiersza polecenia 2.0](network-watcher-troubleshoot-manage-cli.md)

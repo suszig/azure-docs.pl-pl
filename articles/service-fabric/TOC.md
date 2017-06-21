@@ -200,13 +200,13 @@
 #### [Usuwanie](service-fabric-cluster-delete.md)
 
 ### Klastry autonomiczne
-#### [Zawartość pakietu autonomicznego](service-fabric-cluster-standalone-package-contents.md)
 #### [Planowanie i przygotowywanie wdrożenia](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Przycisk Utwórz
 ##### [Tworzenie lokalnie](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Tworzenie na maszynach wirtualnych platformy Azure](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Zabezpieczenie przy użyciu certyfikatów](service-fabric-windows-cluster-x509-security.md)  
 ##### [Zabezpieczenie przy użyciu zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md)
+##### [Zawartość pakietu autonomicznego](service-fabric-cluster-standalone-package-contents.md)
 #### [Skalowanie](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Ustawianie kontroli dostępu](service-fabric-cluster-security-roles.md)
 #### [Konfigurowanie](service-fabric-cluster-manifest.md)
@@ -232,8 +232,6 @@
 #### [Równoważenie klastra](service-fabric-cluster-resource-manager-balancing.md)
 #### [Ograniczanie przepływności](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Przenoszenie usług](service-fabric-cluster-resource-manager-movement-cost.md)
-
-### [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md)
 
 ## Monitorowanie i diagnozowanie
 ### [Monitorowanie i diagnozowanie aplikacji](service-fabric-diagnostics-overview.md)
@@ -261,8 +259,9 @@
 # Dokumentacja
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Interfejs API języka Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [Interfejs wiersza polecenia platformy Azure](/cli/azure/sf)
+## [Interfejs API języka Java](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Zasoby
