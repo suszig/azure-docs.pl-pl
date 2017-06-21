@@ -40,12 +40,7 @@
 #### [PowerShell (klasyczny)](virtual-network-create-udr-classic-ps.md)
 #### [Interfejs wiersza polecenia (klasyczny)](virtual-network-create-udr-classic-cli.md)
 
-### Wirtualne sieci równorzędne
-#### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [Program PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Szablon](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Publiczne adresy IP](virtual-network-public-ip-address.md)
+### [Wirtualne sieci równorzędne](virtual-network-create-peering.md)
 
 ### Maszyny wirtualne
 #### Tworzenie maszyny wirtualnej ze statycznym publicznym adresem IP
@@ -100,7 +95,7 @@
 #### [PowerShell](virtual-networks-acl-powershell.md)
 ### Maszyny wirtualne
 #### [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md)
-#### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md) (Rozpoznawanie nazw dla maszyn wirtualnych i usług w chmurze)
+#### [Rozpoznawanie nazw dla maszyn wirtualnych i usług w chmurze](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 #### [Optymalizowanie przepływności sieci](virtual-network-optimize-network-bandwidth.md)
 #### [Wyświetlanie i modyfikowanie nazw hostów](virtual-networks-viewing-and-modifying-hostnames.md)
 
@@ -118,6 +113,7 @@
 #### [Dodawanie, zmienianie lub usuwanie adresów IP](virtual-network-network-interface-addresses.md)
 ### Maszyny wirtualne
 #### [Przenoszenie maszyny wirtualnej do innej podsieci](virtual-networks-move-vm-role-to-subnet.md)
+### [Publiczne adresy IP](virtual-network-public-ip-address.md)
 
 ## Rozwiązywanie problemów
 ### Grupy zabezpieczeń sieci
