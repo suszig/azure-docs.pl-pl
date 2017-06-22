@@ -45,26 +45,6 @@
     href: sql-database-multi-tenant-application.md
   - name: 6 — Implementowanie rozproszonej geograficznie bazy danych
     href: sql-database-implement-geo-distributed-database.md 
-  - name: Samouczki dla aplikacji Wingtip SaaS
-    items:
-    - name: Wprowadzenie do aplikacji Wingtip SaaS
-      href: sql-database-wtp-overview.md
-    - name: Wdrażanie przykładowej aplikacji Wingtip SaaS
-      href: sql-database-saas-tutorial.md
-    - name: Aprowizowanie/dodawanie do wykazu nowych dzierżaw
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Monitorowanie wydajności
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: Monitorowanie za pomocą usługi Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Przywracanie pojedynczej dzierżawy
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: Zarządzanie schematami dzierżaw
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: Uruchamianie analizy ad-hoc
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Uruchamianie analizy dzierżawy
-      href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Przykłady
   items:
   - name: Interfejs wiersza polecenia platformy Azure
@@ -175,25 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: Uaktualnienia aplikacji
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Opracowywanie zawartości
+  - name: Tworzenie baz danych
     items:
     - name: Omówienie
       href: sql-database-develop-overview.md
     - name: Łączność
       href: sql-database-libraries.md
-    - name: Projekt aplikacji — SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: Zabezpieczenia — SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Porty — ADO.NET
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: Uwierzytelnianie aplikacji
- 
-      href: sql-database-client-id-keys.md
-    - name: Komunikaty o błędach
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: Dane JSON
       href: sql-database-json-features.md
     - name: W pamięci
@@ -231,8 +198,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Wskazówki dotyczące wydajności
       href: sql-database-performance-guidance.md
-    - name: Tworzenie partii
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Zdarzenia rozszerzone
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Poziomy zgodności
@@ -365,6 +330,25 @@
       href: sql-database-ssms-remoteapp.md
     - name: SSMS — uwierzytelnianie wieloskładnikowe
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: Tworzenie aplikacji
+    items:
+    - name: Porty — ADO.NET
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: Uwierzytelnianie aplikacji
+ 
+      href: sql-database-client-id-keys.md
+    - name: Komunikaty o błędach
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Dzielenie na partie w celu poprawy wydajności
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: Projekt aplikacji SaaS
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: Zabezpieczenia aplikacji SaaS
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: Samouczek aplikacji SaaS
+      href: sql-database-wtp-overview.md
 - name: Dokumentacja
   items:
   - name: PowerShell
@@ -444,5 +428,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Niestandardowy pulpit nawigacyjny puli elastycznej
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-

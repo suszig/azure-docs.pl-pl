@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8252bc979fdeb034384fc65e416643de8ef97031
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 02c0d1834ee5e4b6aeebccc0d25bba49f8e5afe2
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -145,7 +145,7 @@ Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Inter
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/cli/azure/iot">Interfejs wiersza polecenia platformy Azure</a></p>
+                        <p><a href="/cli/azure/iot">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -159,11 +159,10 @@ Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Inter
                         <h3>Języki</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (usługa)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (urządzenia)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">Zestaw SDK urządzenia dla języka C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (usługa)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (urządzenia)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.11/index.html">Node (Service)</a> (Node — usługa)</p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.12/index.html">Node (Devices)</a> (Node — urządzenia)</p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">Zestawy SDK usługi Azure IoT</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">Zestawy SDK dla środowiska Node.js</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
@@ -178,6 +177,7 @@ Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Inter
                         <h3>REST</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST (dostawca zasobów)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST (tożsamości urządzeń)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (bliźniacze reprezentacje urządzeń)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST (komunikaty urządzeń)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST (zadania)</a></p>
                     </div>

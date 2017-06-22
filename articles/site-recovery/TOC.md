@@ -72,9 +72,10 @@
 ### [Zarządzanie serwerami przetwarzania skalowanymi w poziomie](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Zarządzanie serwerami vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Usuwanie serwerów i wyłączanie ochrony](site-recovery-manage-registration-and-protection.md)
-## Monitorowanie i rozwiązywanie problemów
+## Rozwiązywanie problemów
+### [Zbieranie dzienników](site-recovery-monitoring-and-troubleshooting.md)
 ### [Problemy dotyczące replikacji maszyny wirtualnej platformy Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
-### [Problemy dotyczące replikacji ze środowiska lokalnego do platformy Azure](site-recovery-monitoring-and-troubleshooting.md)
+### [Problemy dotyczące replikacji ze środowiska lokalnego do platformy Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Dokumentacja
 ## [Program PowerShell](/powershell/module/azurerm.siterecovery)

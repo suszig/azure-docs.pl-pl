@@ -17,6 +17,7 @@
 
 ## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
+## [Nagłówki telemetrii](container-registry-headers.md)
 
 # Powiązane
 
