@@ -12,14 +12,14 @@
 
 ## Tworzenie szablonu
 ### [Informacje na temat szablonów zestawów dostępności](virtual-machine-scale-sets-mvss-start.md)
-### [Dodawanie sieci wirtualnej](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Korzystanie z istniejącej sieci wirtualnej](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Korzystanie z obrazu niestandardowego](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Wdrażanie
 ### [Tworzenie przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)
 ### [Tworzenie przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Tworzenie przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
-### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md) (Zestaw skalowania z dyskami zarządzanymi)
+### [Zestaw skalowania z dyskami zarządzanymi](virtual-machine-scale-sets-managed-disks.md)
 ### [Zestaw skalowania systemu Linux z funkcją automatycznego skalowania](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Zestaw skalowania systemu Windows z funkcją automatycznego skalowania](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplikacje w zestawach skalowania](virtual-machine-scale-sets-deploy-app.md)
