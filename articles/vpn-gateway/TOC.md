@@ -30,31 +30,34 @@
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-## Konfigurowanie zasad IPsec/IKE dla połączeń
-### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Konfigurowanie połączenia sieć wirtualna-sieć wirtualna między modelami wdrażania
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [Konfigurowanie połączeń między lokacjami i współistniejących połączeń usługi ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## Konfigurowanie połączeń między lokacjami i współistniejących połączeń usługi ExpressRoute
+### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Konfigurowanie wielu połączeń typu lokacja-lokacja
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
 ## Łączenie wielu urządzeń sieci VPN opartej na zasadach
 ### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
-## [Konfigurowanie protokołu BGP dla bramy sieci VPN](vpn-gateway-bgp-resource-manager-ps.md)
+## Konfigurowanie zasad IPsec/IKE dla połączeń
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+## Konfigurowanie połączeń typu aktywne-aktywne o wysokiej dostępności
+### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
+## Konfigurowanie protokołu BGP dla bramy sieci VPN
+### [PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## Konfigurowanie wymuszonego tunelowania
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (klasyczny)](vpn-gateway-about-forced-tunneling.md)
-## [Konfigurowanie połączeń typu aktywne-aktywne o wysokiej dostępności](vpn-gateway-activeactive-rm-powershell.md)
-## Zarządzanie bramami usługi Azure VPN Gateway
-### [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md)
-### [Usuwanie bramy za pomocą witryny Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-### [Usuwanie bramy za pomocą programu PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Usuwanie bramy za pomocą klasycznego programu PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## Modyfikowanie ustawień lokalnej bramy sieci
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-### [Interfejs wiersza polecenia](vpn-gateway-modify-local-network-gateway-cli.md)
+### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Weryfikowanie połączenia z bramą VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
+## [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md)
+## Usuwanie bramy VPN Gateway
+### [Witryna Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Rozwiązywanie problemów
 ### [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
