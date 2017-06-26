@@ -37,12 +37,12 @@
 ### [Konfigurowanie alertów dotyczących zdarzenia dziennika aktywności](monitoring-activity-log-alerts.md)
 ### [Archiwizowanie dziennika aktywności](monitoring-archive-activity-log.md)
 ### [Strumieniowe przesyłanie dzienników aktywności do usługi Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
-### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json) (Operacje inspekcji w usłudze Resource Manager)
+### [Operacje inspekcji w usłudze Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Tworzenie alertów dziennika aktywności przy użyciu usługi Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Powiadomienia dotyczące usług
+## Korzystanie z powiadomień dotyczących usług
 ### [Wyświetlanie powiadomień dotyczących usług](monitoring-service-notifications.md)
 ### [Konfigurowanie alertów dla powiadomień dotyczących usług](monitoring-activity-log-alerts-on-service-notifications.md)
-## Grupy akcji
+## Korzystanie z grup akcji
 ### [Informacje dotyczące schematu elementu webhook](monitoring-activity-log-alerts-webhook.md)
 ### [Zachowanie alertów SMS](monitoring-sms-alert-behavior.md)
 ### [Ograniczanie częstotliwości alertów](monitoring-alerts-rate-limiting.md)
@@ -55,12 +55,12 @@
 ### [Przewodnik po korzystaniu z interfejsu API REST](monitoring-rest-api-walkthrough.md)
 ## Używanie rozszerzenia diagnostyki platformy Azure
 ### [Wysyłanie do usługi Application Insights](azure-diagnostics-configure-application-insights.md)
-### [Send to Event Hubs](azure-diagnostics-streaming-event-hubs.md) (Wysyłanie do usługi Event Hubs)
+### [Wysyłanie do usługi Event Hubs](azure-diagnostics-streaming-event-hubs.md) 
 ### [Rozwiązywanie problemów](azure-diagnostics-troubleshooting.md)
 
 # Dokumentacja
 ## [Lista obsługiwanych metryk](monitoring-supported-metrics.md)
-## [Sources of monitoring data](monitoring-data-sources.md) (Źródła danych monitorowania)
+## [Źródła danych monitorowania](monitoring-data-sources.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
