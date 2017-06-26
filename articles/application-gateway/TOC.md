@@ -1,6 +1,6 @@
 # Omówienie
 ## [Co to jest usługa Application Gateway?](application-gateway-introduction.md)
-## [Application Gateway FAQ](application-gateway-faq.md) (Często zadawane pytania dotyczące usługi Application Gateway)
+## [Często zadawane pytania dotyczące usługi Application Gateway](application-gateway-faq.md)
 ## [Zapora aplikacji sieci Web](application-gateway-web-application-firewall-overview.md)
 ### [Podstawowe zestawy reguł i reguły](application-gateway-crs-rulegroups-rules.md)
 ## [Monitorowanie kondycji](application-gateway-probe-overview.md)
@@ -41,6 +41,7 @@
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (klasyczny)](application-gateway-create-probe-classic-ps.md)
+## [Integracja z usługą Azure Security Center](application-gateway-integration-security-center.md)
 ## [Łączenie usług równoważenia obciążenia](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Rozwiązywanie problemów
 ### [Rozwiązywanie problemów z błędami w usłudze Application Gateway](application-gateway-troubleshooting-502.md)

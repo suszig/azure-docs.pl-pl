@@ -54,13 +54,13 @@
 #### [Prosta składnia zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Przykłady zapytań składni Lucene](search-query-lucene-examples.md)
-#### [Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia wyrażenia filtru)
+#### [Składnia wyrażenia filtru](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### Wyszukiwanie niestandardowe
 #### [Analizatory języków](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analizatory niestandardowe](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Stronicowanie wyników](search-pagination-page-layout.md)
-### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) (Ocenianie)
-### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters) (Sugestie)
+### [Ocenianie](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Sugestie](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Nawigacja aspektowa](search-faceted-navigation.md)
 ### [Synonimy — wersja zapoznawcza](search-synonyms.md)
 
@@ -78,6 +78,7 @@
 ## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/search/)
 ## Witryny demonstracyjne
+### [Wersja demonstracyjna analizatora wyszukiwania](http://alice.unearth.ai/)
 ### [Aplikacja prezentująca listę zadań](http://aka.ms/azjobsdemo)
 ### [Aplikacje z pokazem na żywo](https://searchsamples.azurewebsites.net/)
 ## Oprogramowanie edukacyjne i samouczki
