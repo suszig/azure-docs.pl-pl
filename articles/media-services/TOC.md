@@ -6,7 +6,13 @@
 ## [Konfigurowanie środowiska deweloperskiego](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-## Połączenie programowe
+## [Używanie uwierzytelniania usługi AAD do uzyskiwania dostępu do interfejsu API](media-services-use-aad-auth-to-access-ams-api.md)
+###[Zarządzanie uwierzytelnianiem usługi AAD za pomocą portalu](media-services-portal-get-started-with-aad.md)
+###[Dostęp do interfejsu API za pomocą platformy .NET](media-services-dotnet-get-started-with-aad.md)
+###[Dostęp do interfejsu API za pomocą architektury REST](media-services-rest-connect-with-aad.md)
+###[Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą interfejsu wiersza polecenia](media-services-cli-create-and-configure-aad-app.md)
+###[Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą programu PowerShell](media-services-powershell-create-and-configure-aad-app.md)
+## Programowe łączenie się z kluczami usługi ACS
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST](media-services-rest-connect-programmatically.md)
 
@@ -201,8 +207,8 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Monitor job notifications with queue storage](media-services-dotnet-check-job-progress-with-queues.md) (Monitorowanie powiadomień dotyczących zadań przy użyciu magazynu kolejek)
-### [Monitor job notifications with webhooks](media-services-dotnet-check-job-progress-with-webhooks.md) (Monitorowanie powiadomień dotyczących zadań przy użyciu elementów webhook)
+### [Monitorowanie powiadomień dotyczących zadań przy użyciu magazynu kolejek](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitorowanie powiadomień dotyczących zadań przy użyciu elementów webhook](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Rozwiązywanie problemów
 ### [Często zadawane pytania](media-services-frequently-asked-questions.md)
@@ -214,7 +220,7 @@
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (zarządzanie usługami)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Zasoby
 ## [Informacje o wersji](media-services-release-notes.md)
