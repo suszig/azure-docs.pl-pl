@@ -1,4 +1,5 @@
 # [Omówienie](active-directory-developers-guide.md)
+## [Dlaczego warto wybrać usługę Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Podstawowe informacje o uwierzytelnianiu](active-directory-authentication-scenarios.md)
 ## [Typy aplikacji](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Wprowadzenie
@@ -71,6 +72,7 @@
 ### [Obsługiwane typy tokenów i oświadczeń](active-directory-token-and-claims.md)
 ### [Przerzucanie klucza podpisywania](active-directory-signing-key-rollover.md)
 ### [Metadane federacji](active-directory-federation-metadata.md)
+### [Poświadczenia certyfikatu](active-directory-certificate-credentials.md)
 ## [Obiekty aplikacji](active-directory-application-objects.md)
 ### [Aplikacje i usługa Azure AD](active-directory-how-applications-are-added.md)
 ## [Manifest aplikacji](active-directory-application-manifest.md)
@@ -101,4 +103,5 @@
 #### [Przyznawanie poświadczeń klienta Oauth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Przepływ OAuth 2.0 „w imieniu”](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Odwołanie do tokenu](active-directory-v2-tokens.md)
+#### [Poświadczenia certyfikatu](active-directory-certificate-credentials.md)
 ### [Zakresy](active-directory-v2-scopes.md)

@@ -11,7 +11,7 @@
 ### [Tworzenie autonomicznego konta usługi Automation](automation-create-standalone-account.md)
 ### [Tworzenie konta użytkownika usługi Azure AD](automation-create-aduser-account.md)
 ### [Konfigurowanie uwierzytelniania za pomocą usług AWS](automation-config-aws-account.md)
-### [Tworzenie konta Uruchom jako platformy Azure przy użyciu programu PowerShell](automation-update-account-powershell.md)
+### [Tworzenie konta Uruchom jako usługi Automation](automation-create-runas-account.md)
 ### [Walidacja konfiguracji konta usługi Automation](automation-verify-runas-authentication.md)
 ### [Zarządzanie kontrolą dostępu opartą na rolach](automation-role-based-access-control.md)
 ### [Zarządzanie kontem usługi Automation](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Rozwiązywanie problemów dotyczących alertów maszyny wirtualnej platformy Azure](automation-azure-vm-alert-integration.md)
 ### [Uruchamianie/zatrzymywanie maszyny wirtualnej przy użyciu tagów JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Usuwanie grupy zasobów](automation-scenario-remove-resourcegroup.md)
-### [Uruchamianie/zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
 ### [Integracja kontroli źródła z usługą GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Integracja kontroli źródła z usługą VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Rozwiązania
 ### [Śledzenie zmian](../log-analytics/log-analytics-change-tracking.md)
 ### [Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md)
+### [Uruchamianie/zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
 ## Monitorowanie
 ### [Przekazywanie danych zadania usługi Azure Automation do usługi Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Odłączanie konta usługi Azure Automation od usługi Log Analytics](automation-unlink-from-log-analytics.md)

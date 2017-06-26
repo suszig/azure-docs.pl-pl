@@ -1,6 +1,7 @@
 # Omówienie
 
 ## [Wprowadzenie](storage-introduction.md)
+## [Wybieranie obiektów blob, plików i dysków danych](storage-decide-blobs-files-disks.md)
 
 # Wprowadzenie
 
@@ -50,6 +51,7 @@
 ### [Dodawanie dysku zarządzanego do maszyny wirtualnej z systemem Linux](../virtual-machines/linux/add-disk.md)
 ### [Tworzenie kopii wirtualnego dysku twardego przechowywanej jako dysk zarządzany przy użyciu migawek w systemie Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Tworzenie kopii wirtualnego dysku twardego przechowywanej jako dysk zarządzany przy użyciu migawek w systemie Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Korzystanie z dysków zarządzanych w szablonach usługi Resource Manager](storage-using-managed-disks-template-deployments.md)
 
 # Instrukcje
 ## [Tworzenie konta magazynu](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [Przykłady](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Korzystanie z plików
 ### [Omówienie](/rest/api/storageservices/File-Service-Concepts)
-### [Rozwiązywanie problemów z plikami platformy Azure](storage-troubleshoot-file-connection-problems.md)
+### [Rozwiązywanie problemów z usługą Azure Files — system Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Rozwiązywanie problemów z usługą Azure Files — system Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Przykłady](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Korzystanie z dysków
 ### [Dyski i wirtualne dyski twarde dla maszyn wirtualnych z systemem Windows](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Bezpieczeństwo
 ### [Przewodnik dotyczący zabezpieczeń](storage-security-guide.md)
 ### [Szyfrowanie nieużywanych danych](storage-service-encryption.md)
+### [Szyfrowanie nieużywanych danych za pomocą kluczy klienta](storage-service-encryption-customer-managed-keys.md)
 ### [Uwierzytelnianie klucza współużytkowanego](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Sygnatury dostępu współdzielonego (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Samouczek: Szyfrowanie i odszyfrowywanie obiektów blob za pomocą usługi Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Wskazówki dotyczące odzyskiwania po awarii](storage-disaster-recovery-guidance.md)
 ## Transfer danych
 ### [Przenoszenie danych do magazynu i poza magazyn](storage-moving-data.md)
-### [Narzędzie wiersza polecenia AzCopy](storage-use-azcopy.md)
+### [Narzędzie AzCopy w systemie Windows](storage-use-azcopy.md)
+### [Narzędzie AzCopy w systemie Linux](storage-use-azcopy-linux.md)
 ### [Korzystanie z usługi Import/Export](storage-import-export-service.md)
 ### [Korzystanie z narzędzia Import/Export](storage-import-export-tool-how-to.md)
 #### [Konfigurowanie narzędzia Import/Export](storage-import-export-tool-setup.md)

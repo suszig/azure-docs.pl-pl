@@ -22,6 +22,8 @@
 ### [Maszyny wirtualne o niskim priorytecie](batch-low-pri-vms.md)
 ### [Zarządzanie kontami usługi Batch przy użyciu funkcji zarządzania partiami platformy .NET](batch-management-dotnet.md)
 ### [Utrwalanie danych wyjściowych zadań i zadań podrzędnych](batch-task-output.md)
+#### [Utrwalanie danych wyjściowych za pomocą interfejsu API usługi Batch](batch-task-output-files.md)
+#### [Utrwalanie danych wyjściowych za pomocą biblioteki konwencji plików](batch-task-output-file-conventions.md)
 ### [Uruchamianie zadań MPI w usłudze Batch](batch-mpi.md)
 ### [Zależności zadań podrzędnych](batch-task-dependencies.md)
 ### [Konta użytkowników do uruchamiania zadań](batch-user-accounts.md)

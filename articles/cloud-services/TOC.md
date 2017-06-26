@@ -102,7 +102,11 @@
 ### [Typowe problemy z wdrażaniem](cloud-services-troubleshoot-deployment-problems.md)
 ### [Nie można uruchomić roli](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Wskazówki dotyczące odzyskiwania](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services — często zadawane pytania](cloud-services-faq.md)
+### Cloud Services — często zadawane pytania
+#### [Często zadawane pytania dotyczące dostępności aplikacji i usług](cloud-services-application-and-service-availability-faq.md)
+#### [Często zadawane pytania dotyczące konfiguracji i zarządzania](cloud-services-configuration-and-management-faq.md)
+#### [Często zadawane pytania dotyczące łączności i sieci](cloud-services-connectivity-and-networking-faq.md)
+#### [Często zadawane pytania dotyczące wdrażania](cloud-services-deployment-faq.md)
 
 # Dokumentacja
 ## [Schemat XML .csdef](https://msdn.microsoft.com/library/azure/ee758711)

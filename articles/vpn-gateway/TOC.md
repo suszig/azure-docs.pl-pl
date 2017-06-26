@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (klasyczny)](vpn-gateway-about-forced-tunneling.md)
 ## Modyfikowanie ustawień lokalnej bramy sieci
+### [Witryna Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Weryfikowanie połączenia z bramą VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
@@ -59,6 +60,7 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [Jednostki SKU bramy (stare)](vpn-gateway-about-skus-legacy.md)
 ## Rozwiązywanie problemów
 ### [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
 

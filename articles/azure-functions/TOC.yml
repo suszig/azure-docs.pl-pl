@@ -4,8 +4,6 @@
   items:
   - name: Informacje o funkcjach
     href: functions-overview.md
-  - name: Środowisko uruchomieniowe funkcji
-    href: functions-runtime-overview.md
   - name: 'Wybieranie między przepływem, aplikacjami logiki, funkcjami a zadaniami WebJob'
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Przewodniki Szybki start
@@ -15,8 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: Tworzenie funkcji — interfejs wiersza polecenia platformy Azure
     href: functions-create-first-azure-function-azure-cli.md
-#  - name: Create function - Visual Studio
-#    href: functions-create-your-first-function-visual-studio.md
+  - name: Tworzenie funkcji — program Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Wyzwalacze
     items:
     - name: Czasomierz
@@ -33,16 +31,16 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: Przykłady
-  items:
-  - name: Interfejs wiersza polecenia platformy Azure
-    href: functions-cli-samples.md
 - name: Samouczki
   items:
   - name: 1 — Funkcje z aplikacjami logiki
     href: functions-twitter-email.md
   - name: 2 — Tworzenie bezserwerowego interfejsu API
     href: functions-create-serverless-api.md
+- name: Przykłady
+  items:
+  - name: Interfejs wiersza polecenia platformy Azure
+    href: functions-cli-samples.md
 - name: Pojęcia
   items:
   - name: Zużycie a plany usługi App Service
@@ -51,36 +49,49 @@
     href: functions-triggers-bindings.md
   - name: Języki
     items:
-    - name: 'Pojęcia dotyczące funkcji w języku C#'
+    - name: 'Skrypt języka C#'
+ 
       href: functions-reference-csharp.md
-    - name: 'Pojęcia dotyczące funkcji w języku F#'
+    - name: Biblioteka klas programu .NET
+      href: functions-dotnet-class-library.md
+    - name: 'F#'
       href: functions-reference-fsharp.md
-    - name: Pojęcia dotyczące funkcji w języku JavaScript
+    - name: JavaScript
       href: functions-reference-node.md    
+  - name: Zagadnienia dotyczące wydajności
+    href: functions-best-practices.md 
+  - name: Serwery proxy usługi Functions
+    href: functions-proxies.md 
+  - name: Środowisko uruchomieniowe funkcji
+    href: functions-runtime-overview.md
 - name: Przewodniki z instrukcjami
   items:
-  - name: Przewodnik dla deweloperów
-    href: functions-reference.md
-  - name: Testowanie usługi Azure Functions
-    href: functions-test-a-function.md
-  - name: Programowanie i debugowanie lokalnie
-    href: functions-run-local.md
-  - name: Konfigurowanie ustawień na potrzeby aplikacji funkcji
+  - name: Programowanie
+    items: 
+     - name: Przewodnik dla deweloperów
+       href: functions-reference.md
+     - name: Testowanie funkcji
+       href: functions-test-a-function.md
+     - name: Programowanie i debugowanie lokalnie
+       href: functions-run-local.md
+  - name: Wdrażanie
+    items:
+    - name: Ciągłe wdrażanie
+      href: functions-continuous-deployment.md
+    - name: Automatyzowanie wdrażania zasobów
+      href: functions-infrastructure-as-code.md
+    - name: Funkcje lokalne
+      href: functions-runtime-install.md
+  - name: Konfigurowanie
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: Ciągłe wdrażanie dla usługi Azure Functions
-    href: functions-continuous-deployment.md
-  - name: Automatyzowanie wdrażania zasobów
-    href: functions-infrastructure-as-code.md
-  - name: Monitorowanie usługi Azure Functions
+  - name: Monitorowanie
     href: functions-monitoring.md
-  - name: Instalowanie środowiska uruchomieniowego funkcji
-    href: functions-runtime-install.md
-  - name: Łączenie z usługą SQL Database
-    href: functions-scenario-database-table-cleanup.md
-  - name: Tworzenie definicji interfejsu Open API 2.0
-    href: functions-api-definition-getting-started.md     
-  - name: Najlepsze rozwiązania dotyczące usługi Azure Functions
-    href: functions-best-practices.md     
+  - name: Integracja
+    items:   
+    - name: Łączenie z usługą SQL Database
+      href: functions-scenario-database-table-cleanup.md
+    - name: Tworzenie definicji interfejsu Open API 2.0
+      href: functions-api-definition-getting-started.md         
 - name: Dokumentacja
   items:
   - name: Powiązania
@@ -117,10 +128,14 @@
   items:
   - name: Cennik
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Dostępność regionalna
+    href: https://azure.microsoft.com/regions/services/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
   - name: Repozytorium GitHub usługi Azure Functions
     href: https://github.com/Azure/Azure-Functions/
   - name: Aktualizacje usług

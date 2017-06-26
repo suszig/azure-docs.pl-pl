@@ -48,7 +48,7 @@
 #### [Przygotowywanie maszyn wirtualnych wdrożonych przez usługę Resource Manager](backup-azure-arm-vms-prepare.md)
 ### Planowanie środowiska
 #### [Planowanie infrastruktury kopii zapasowych maszyn wirtualnych](backup-azure-vms-introduction.md)
-### Tworzenie kopii zapasowych serwerów i obciążeń
+### Tworzenie kopii zapasowej maszyn wirtualnych
 #### [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie kopii zapasowych](backup-azure-vms.md)
 #### [Tworzenie kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services](backup-azure-arm-vms.md)
 #### [Tworzenie kopii zapasowych zaszyfrowanych maszyn wirtualnych](backup-azure-vms-encryption.md)
