@@ -16,12 +16,13 @@
 ### [Rozwiązywanie problemów i monitorowanie](troubleshooting-monitoring.md)
 ## Oprogramowanie SAP HANA na maszynach wirtualnych
 ### [Platforma SAP HANA z pojedynczym wystąpieniem](hana-get-started.md)
-### [S/4 HANA lub BW/4 HANA — podręcznik wdrażania](cal-s4h.md)
+### [Rozwiązanie S/4 HANA lub BW/4 HANA SAP CAL — podręcznik wdrażania](cal-s4h.md)
 ### [Wysoka dostępność na maszynach wirtualnych](sap-hana-high-availability.md)
 ### [Omówienie usługi Backup](sap-hana-backup-guide.md)
 ### [Kopia zapasowa na poziomie pliku](sap-hana-backup-file-level.md)
 ### [Kopie zapasowe migawek magazynu](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
+### [Rozwiązanie SAP IDES na platformie Windows/SQL Server SAP CAL — podręcznik wdrażania](sap-cal-ides-erp6-ehp7-sp3-sql.md)
 ### [Omówienie i architektura](suse-quickstart.md)
 ### [Planowanie i implementowanie](planning-guide.md)
 ### [Wysoka dostępność](high-availability-guide.md)

@@ -21,6 +21,9 @@
 ### [Zmiana identyfikatora dzierżawy](key-vault-subscription-move-fix.md)
 ### [Dostępność i nadmiarowość](key-vault-disaster-recovery-guidance.md)
 ### [Zabezpieczanie własnego magazynu kluczy](key-vault-secure-your-key-vault.md)
+### [Omówienie środowisk zabezpieczeń](key-vault-ovw-security-worlds.md)
+### [Omówienie usuwania nietrwałego](key-vault-ovw-soft-delete.md)
+### [Omówienie kluczy konta magazynu](key-vault-ovw-storage-keys.md)
 
 ## Automatyzacja
 ### [Azure Automation](automation-manage-key-vault.md)
@@ -43,7 +46,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Zasoby
-## [Informacje o kluczach i wpisach tajnych](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Informacje o kluczach, wpisach tajnych i certyfikatach](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Przykłady kodu](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Cennik](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)

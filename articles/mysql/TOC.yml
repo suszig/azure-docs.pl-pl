@@ -11,6 +11,12 @@
     href: quickstart-create-mysql-server-database-using-azure-portal.md
   - name: Tworzenie bazy danych — interfejs wiersza polecenia platformy Azure
     href: quickstart-create-mysql-server-database-using-azure-cli.md
+  - name: Nawiązywanie połączeń i wykonywanie zapytań
+    items:
+    - name: PHP
+      href: connect-php.md
+    - name: Java
+      href: connect-java.md
 - name: Samouczki
   items:
   - name: 1 — Projektowanie bazy danych
@@ -81,12 +87,16 @@
       href: howto-restore-server-portal.md
   - name: Łączenie aplikacji
     items:
-    - name: Parametry połączenia
+    - name: Parametry połączeń
       href: howto-connection-string.md
     - name: Konfigurowanie protokołu SSL
       href: howto-configure-ssl.md
-    - name: Aplikacja sieci Web
+    - name: Aplikacje sieci Web
       href: howto-connect-webapp.md
+  - name: Konfigurowanie parametrów serwera
+    items:
+    - name: Azure Portal
+      href: howto-server-parameters.md
 - name: Dokumentacja
   items:
   - name: Interfejs wiersza polecenia platformy Azure
@@ -99,6 +109,8 @@
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Filmy wideo
+    href: videos.md
   - name: Prośba o funkcję
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Dostępność w danym regionie

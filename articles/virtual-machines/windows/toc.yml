@@ -140,6 +140,14 @@
       href: csharp-template.md
     - name: Tworzenie maszyny wirtualnej przy użyciu programu Chef
       href: chef-automation.md
+    - name: Tworzenie maszyny wirtualnej przy użyciu języka Python
+      href: python.md
+    - name: Tworzenie maszyny wirtualnej przy użyciu programu Terraform
+      items:
+      - name: Instalowanie i konfigurowanie
+        href: ../terraform-install-configure.md
+      - name: Tworzenie podstawowej infrastruktury
+        href: ../terraform-create-complete-vm.md      
     - name: Tworzenie maszyny wirtualnej z popularnymi platformami aplikacji
       href: app-frameworks.md
     - name: Przenoszenie maszyny wirtualnej między subskrypcjami
@@ -185,13 +193,10 @@
       href: capture-image-resource.md
     - name: Tworzenie maszyny wirtualnej na podstawie uogólnionego obrazu dysku zarządzanego
       href: create-vm-generalized-managed.md
+    - name: Tworzenie obrazu za pomocą usługi Packer
+      href: build-image-with-packer.md
   - name: Zarządzanie magazynem maszyn wirtualnych
     items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: Często zadawane pytania
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Tworzenie dysku zarządzanego
       href: create-managed-disk-ps.md
     - name: Migrowanie maszyn wirtualnych do usługi Managed Disks
@@ -215,6 +220,8 @@
       href: expand-os-disk.md
     - name: Rozszerzanie dysku danych
       href: expand-data-disks.md
+    - name: Korzystanie z udziału plików
+      href: mount-azure-file-storage.md
     - name: 'Używanie dysku D: jako dysku danych'
       href: change-drive-letter.md
   - name: Sieć maszyn wirtualnych
@@ -348,6 +355,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Rozwiązywanie problemów
     items:
+    - name: Omówienie ponownego uruchamiania systemu
+      href: understand-vm-reboot.md
     - name: Podłączanie pulpitu zdalnego
       href: troubleshoot-rdp-connection.md
       items:

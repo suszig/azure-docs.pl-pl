@@ -5,6 +5,7 @@
 # Wprowadzenie
 ## [Tworzenie rejestru w portalu](container-registry-get-started-portal.md)
 ## [Tworzenie rejestru przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-registry-get-started-azure-cli.md)
+## [Tworzenie rejestru przy użyciu programu Azure PowerShell](container-registry-get-started-powershell.md)
 ## [Wypychanie i ściąganie obrazu](container-registry-get-started-docker-cli.md)
 ## [Wyświetlanie repozytoriów](container-registry-repositories.md)
 

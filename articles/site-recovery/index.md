@@ -10,17 +10,18 @@ ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 06/05/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 491bbfe61cf387f18b903caa45529be206876d49
-ms.openlocfilehash: fe253f5d95b0b9351d6ffd382cbba0c490074f15
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/05/2017
 
 ---
 # <a name="site-recovery-documentation"></a>Dokumentacja usługi Site Recovery
 
-Dowiedz się, jak używać usługi Site Recovery na potrzeby strategii ciągłości działania i odzyskiwania po awarii w chmurach prywatnych. W samouczkach i innych dokumentach pokazano, jak zaplanować i wdrożyć organizowanie replikacji lokalnych serwerów fizycznych i maszyn wirtualnych do chmury lub do dodatkowego centrum danych oraz jak zarządzać tym procesem.
+Dowiedz się, jak wpisać usługę Site Recovery w strategię ciągłej działalności firmy i odzyskiwania sprawności po awarii, tak aby aplikacje i obciążenia były dostępne podczas przestojów. W samouczkach i innych artykułach pokazano, jak planować i wdrażać replikację, przełączanie do trybu failover i odzyskiwanie maszyn lokalnych oraz maszyn wirtualnych na platformie Azure, a także zarządzać nimi.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -42,7 +43,7 @@ Dowiedz się, jak używać usługi Site Recovery na potrzeby strategii ciągło�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=site-recovery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -145,6 +146,4 @@ Dowiedz się, jak używać usługi Site Recovery na potrzeby strategii ciągło�
         </div>
     </li>
 </ul>
-
-
 

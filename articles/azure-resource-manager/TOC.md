@@ -1,6 +1,6 @@
 # Omówienie
 ## [Co to jest usługa Resource Manager?](resource-group-overview.md)
-## [Obsługiwane usługi](resource-manager-supported-services.md)
+## [Dostawcy zasobów i ich typy](resource-manager-supported-services.md)
 ## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
 ## [Nadzór subskrypcji](resource-manager-subscription-governance.md)
 ## [Aplikacje zarządzane](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Ustawianie zasad zasobów
 ### [Co to są zasady zasobów?](resource-manager-policy.md)
-### [Przypisanie zasad portalu](resource-manager-policy-portal.md)
-### [Przypisanie zasad skryptu](resource-manager-policy-create-assign.md)
-### [Zasady tagów zasobów](resource-manager-policy-tags.md)
-### [Zasady magazynu](resource-manager-policy-storage.md)
-### [Zasady maszyn wirtualnych z systemem Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Zasady maszyn wirtualnych z systemem Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Przypisywanie zasad za pomocą portalu](resource-manager-policy-portal.md)
+### [Przypisywanie zasad za pomocą skryptów](resource-manager-policy-create-assign.md)
+### Przykłady
+#### [Tagi zasobów](resource-manager-policy-tags.md)
+#### [Storage](resource-manager-policy-storage.md)
+#### [Maszyna wirtualna z systemem Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Maszyna wirtualna z systemem Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Korzystanie z aplikacji zarządzanych
 ### [Publikowanie aplikacji zarządzanych](managed-application-publishing.md)

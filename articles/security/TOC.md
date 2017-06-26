@@ -11,8 +11,9 @@
 ### [Rejestrowanie i przeprowadzanie inspekcji](azure-log-audit.md)
 ### [Izolacja w chmurze publicznej](azure-isolation.md)
 ### [Możliwości techniczne zabezpieczeń](azure-security-technical-capabilities.md)
+### [Nadzór na platformie Azure](governance-in-azure.md)
 
-# Rozpoczęcie pracy
+# Wprowadzenie
 ## [Rozpoczynanie pracy z zabezpieczeniami platformy Azure](azure-security-getting-started.md)
 ## [Najlepsze rozwiązania i wzorce dotyczące zabezpieczeń](security-best-practices-and-patterns.md)
 ## [Usługi i technologie zabezpieczeń](azure-security-services-technologies.md)

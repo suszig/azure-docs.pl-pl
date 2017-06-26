@@ -1,6 +1,5 @@
 # Omówienie
 ## [Wersje](biztalk-editions-feature-chart.md)
-## [Połączenia hybrydowe — informacje](integration-hybrid-connection-overview.md)
 
 # Wprowadzenie
 ## [Tworzenie usług BizTalk Services](biztalk-provision-services.md)
@@ -12,15 +11,16 @@
 ## Konfigurowanie
 ### [Ograniczanie przepływności](biztalk-throttling-thresholds.md)
 ### [Ustawienia usługi i monitorowania](biztalk-dashboard-monitor-scale-tabs.md)
-## Integracja
-### [Połączenia hybrydowe](integration-hybrid-connection-create-manage.md)
-## Migrate (Migracja)
+## Migracja
 ### [Rozwiązań EDI serwera BizTalk Server do usługi BizTalk Services](biztalk-migrating-to-edi-guide.md)
 ## Monitorowanie
 ### [Zadania, które zależą od stanu usługi](biztalk-service-state-chart.md)
 ## Bezpieczeństwo
 ### [Kontrola dostępu](biztalk-issuer-name-issuer-key.md)
 ## [Rozwiązywanie problemów](biztalk-troubleshoot-using-ops-logs.md)
+## Połączenia hybrydowe
+### [Omówienie](integration-hybrid-connection-overview.md)
+### [Tworzenie i zarządzanie](integration-hybrid-connection-create-manage.md)
 
 # Zasoby
 ## [Informacje o wersji](biztalk-release-notes.md)
