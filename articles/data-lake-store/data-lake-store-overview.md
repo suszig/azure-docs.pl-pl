@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: pl-pl
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -55,7 +57,7 @@ Usługa Azure Data Lake Store może przechowywać wszystkie dane w ich natywnym 
 
 Kontenerami danych usługi Azure Data Lake Store są zasadniczo foldery i pliki. Przechowywane dane można obsługiwać przy użyciu zestawów SDK, witryny Azure Portal i programu Azure Powershell. Dopóki dane są umieszczane w magazynie usługi za pomocą tych interfejsów i przy użyciu odpowiednich kontenerów, można w niej przechowywać dane dowolnego typu. Usługa Data Lake Store nie wykonuje żadnej specjalnej obsługi danych na podstawie typu danych, które przechowuje.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Zabezpieczanie danych w usłudze Azure Data Lake Store
+## <a name="DataLakeStoreSecurity"></a>Zabezpieczanie danych w usłudze Azure Data Lake Store
 Usługa Azure Data Lake Store używa usługi Azure Active Directory na potrzeby uwierzytelniania oraz list kontroli dostępu (ACL, access control list) w celu zarządzania dostępem do danych.
 
 | Funkcja | Opis |
@@ -101,10 +103,5 @@ Jeśli wolisz obejrzeć filmy wideo, aby nauczyć się korzystać z usługi, us�
 * [Przenoszenie danych między źródłami relacyjnymi i usługą Azure Data Lake Store z wykorzystaniem narzędzia Apache Sqoop](https://mix.office.com/watch/1butcdjxmu114)
 * [Organizowanie danych za pomocą usługi Azure Data Factory dla usługi Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Zabezpieczanie danych w usłudze Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
