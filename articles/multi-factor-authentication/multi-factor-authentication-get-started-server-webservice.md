@@ -39,9 +39,9 @@ Zainstalowanie portalu użytkowników na serwerze innym niż serwer usługi Azur
 
 Aby korzystać z aplikacji Microsoft Authenticator, wymagane jest spełnienie następujących warunków w celu umożliwienia skutecznej komunikacji aplikacji z usługą sieci Web aplikacji mobilnej:
 
-* Korzystanie z serwera usługi Azure Multi-Factor Authentication w wersji&6;.0 lub nowszej.
+* Korzystanie z serwera usługi Azure Multi-Factor Authentication w wersji 6.0 lub nowszej.
 * Zainstalowanie usługi sieci Web aplikacji mobilnej na dostępnym z Internetu serwerze sieci Web z uruchomionymi usługami Microsoft® [Internet Information Services (IIS) w wersji 7.x lub nowszej](http://www.iis.net/).
-* Zainstalowanie i zarejestrowanie programu ASP.NET w wersji&4;.0.30319 oraz wybranie dla niego opcji Dozwolone.
+* Zainstalowanie i zarejestrowanie programu ASP.NET w wersji 4.0.30319 oraz wybranie dla niego opcji Dozwolone.
 * Wymagane usługi ról obejmują usługę ASP.NET oraz usługę zgodności z metabazą usług IIS 6.
 * Udostępnienie usługi sieci Web aplikacji mobilnej za pośrednictwem publicznego adresu URL.
 * Zabezpieczenie usługi sieci Web aplikacji mobilnej za pomocą certyfikatu SSL.
