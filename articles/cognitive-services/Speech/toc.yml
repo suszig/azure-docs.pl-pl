@@ -1,33 +1,37 @@
-- name: Dokumentacja usługi rozpoznawania mowy Bing
+- name: Bing Speech Documentation
   href: ../index.md
-- name: Omówienie
+- name: Overview
   href: Home.md
-- name: Rozpoczęcie pracy
+- name: Get started
   items:
-  - name: "C# (interfejs API REST)\_\_"
+  - name: 'C#(REST API)  '
     href: GetStarted/GetStartedREST.md
-  - name: cURL(interfejs API REST)
+  - name: cURL(REST API)
     href: GetStarted/GetStarted-cURL.md
-  - name: "JavaScript (interfejs API Websocket)\_\_\_"
+  - name: 'JavaScript(Websocket API)   '
  
     href: GetStarted/GetStartedJSWebsockets.md
-  - name: 'C# (biblioteka kliencka)'
+  - name: 'C#(Client Library)'
     href: GetStarted/GetStartedCSharpDesktop.md
-  - name: 'C# (biblioteka usługi)'
+  - name: 'C#(Service Library)'
     href: GetStarted/GetStartedCSharpServiceLibrary.md
-  - name: "Język Objective C w systemie iOS (biblioteka kliencka)\_\_\_"
+  - name: 'Objective C on iOS(Client Library)   '
     href: GetStarted/Get-Started-ObjectiveC-iOS.md
-  - name: Język Java w systemie Android (biblioteka kliencka)
+  - name: Java on Android(Client Library)
     href: GetStarted/GetStartedJavaAndroid.md
-- name: Dokumentacja
+- name: Reference
   items: 
-  - name: Dokumentacja interfejsu API rozpoznawania mowy
+  - name: Speech recognition API reference
     href: API-Reference-REST/BingVoiceRecognition.md
-  - name: Dokumentacja interfejsu API zamiany tekstu na mowę
+  - name: Text-to-speech API reference
     href: API-Reference-REST/BingVoiceOutput.md
-  - name: Protokół Websocket
+  - name: Websocket Protocol
     href: API-Reference-REST/websocketprotocol.md
-  - name: Zestawy SDK i przykłady
+  - name: SDKs & Samples
     items:
     - name: JavaScript
       href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
