@@ -21,7 +21,7 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md) (Tworzenie wielowarstwowej aplikacji usługi Service Bus)
+## [Tworzenie wielowarstwowej aplikacji usługi Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
@@ -66,14 +66,15 @@
 ## [Składnia elementu SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 
 # Zasoby
-## [Szczegóły cennika](service-bus-pricing-billing.md)
-## [Przykłady](service-bus-samples.md)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Fora MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Szczegóły cennika](service-bus-pricing-billing.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Przykłady](service-bus-samples.md)
 ## [Eksplorator usługi Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-bus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

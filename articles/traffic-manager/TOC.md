@@ -1,9 +1,9 @@
 # Omówienie
 ## [Co to jest usługa Traffic Manager?](traffic-manager-overview.md)
-## [Routing methods](traffic-manager-routing-methods.md) (Metody routingu)
-### [Country/Region hierarchy used by Traffic Manager](traffic-manager-geographic-regions.md) (Hierarchia krajów/regionów używana przez usługę Traffic Manager)
+## [Metody routingu](traffic-manager-routing-methods.md)
+### [Hierarchia krajów/regionów używana przez usługę Traffic Manager](traffic-manager-geographic-regions.md)
 ## [Zagnieżdżone profile usługi Traffic Manager](traffic-manager-nested-profiles.md)
-## [Endpoint types](traffic-manager-endpoint-types.md) (Typy punktów końcowych)
+## [Typy punktów końcowych](traffic-manager-endpoint-types.md)
 ## [Monitorowanie punktu końcowego](traffic-manager-monitoring.md)
 ## [Często zadawane pytania](traffic-manager-FAQs.md)
 
@@ -12,16 +12,16 @@
 
 # Instrukcje
 
-## [Configure geographic routing method](traffic-manager-configure-geographic-routing-method.md) (Konfigurowanie metody routingu geograficznego)
-## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md) (Konfigurowanie metody routingu opartego na priorytecie)
-## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md) (Konfigurowanie metody routingu ważonego)
+## [Konfigurowanie metody routingu geograficznego](traffic-manager-configure-geographic-routing-method.md)
+## [Konfigurowanie metody routingu opartego na priorytecie](traffic-manager-configure-priority-routing-method.md)
+## [Konfigurowanie metody routingu ważonego](traffic-manager-configure-weighted-routing-method.md)
 ## [Konfigurowanie metody routingu opartego na wydajności](traffic-manager-configure-performance-routing-method.md)
 ## [Zarządzanie punktami końcowymi](traffic-manager-manage-endpoints.md)
 ## [Zarządzanie profilami](traffic-manager-manage-profiles.md)
-## [Verify Traffic Manager settings](traffic-manager-testing-settings.md) (Weryfikowanie ustawień usługi Traffic Manager)
+## [Weryfikowanie ustawień usługi Traffic Manager](traffic-manager-testing-settings.md)
 ## [Łączenie usług równoważenia obciążenia](traffic-manager-load-balancing-azure.md)
-## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md) (Pomiar wydajności usługi Traffic Manager)
-## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md) (Zarządzanie usługą Traffic Manager za pomocą programu PowerShell)
+## [Pomiar wydajności usługi Traffic Manager](traffic-manager-performance-considerations.md)
+## [Zarządzanie usługą Traffic Manager za pomocą programu PowerShell](traffic-manager-powershell-arm.md)
 ## [Wskazywanie usługi Traffic Manager dla domeny internetowej](traffic-manager-point-internet-domain.md)
 ## Rozwiązywanie problemów
 ### [Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
@@ -41,10 +41,11 @@
 ## [System DNS platformy Azure](/azure/dns/)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/pricing/details/traffic-manager/)
-## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-## [Limity usługi](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Cennik](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Limity usługi](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

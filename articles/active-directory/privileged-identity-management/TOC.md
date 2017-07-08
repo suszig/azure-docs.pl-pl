@@ -5,7 +5,7 @@
 ## [Przepływy pracy zatwierdzania usługi Privileged Identity Management](azure-ad-pim-approval-workflow.md)
 
 # Rozpoczęcie pracy
-## [Subscription requirements](subscription-requirements.md) (Wymagania dotyczące subskrypcji)
+## [Wymagania dotyczące subskrypcji](subscription-requirements.md)
 ## [Rozpoczęcie pracy w portalu](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Kreator zabezpieczeń](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Udzielanie dostępu do usługi PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
@@ -26,3 +26,5 @@
 # Powiązane
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Kontrola dostępu oparta na rolach](../role-based-access-control-what-is.md)
+# Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)

@@ -128,13 +128,13 @@
 ##### [Korzystanie z akcji przystawki MMC w programie StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Tworzenie rozwiązań
-#### [StorSimple with Veeam](storsimple-configure-backup-target-veeam.md) (Usługa StorSimple z oprogramowaniem Veeam)
-#### [StorSimple with Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md) (Usługa StorSimple z oprogramowaniem Veritas Backup Exec)
-#### [StorSimple with Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md) (Usługa StorSimple z oprogramowaniem Veritas NetBackup)
+#### [Usługa StorSimple z oprogramowaniem Veeam](storsimple-configure-backup-target-veeam.md)
+#### [Usługa StorSimple z oprogramowaniem Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [Usługa StorSimple z oprogramowaniem Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
 #### [Automatyzowanie odzyskiwania po awarii serwera plików na platformie Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Usługa StorSimple z usługą Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
-#### [StorSimple with VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463) (Usługa StorSimple z oprogramowaniem VMware)
-#### [StorSimple with Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6) (Usługa StorSimple z funkcją Hyper-V)
+#### [Usługa StorSimple z oprogramowaniem VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
+#### [Usługa StorSimple z funkcją Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
 #### [Rozproszona globalna przestrzeń nazw](https://www.microsoft.com/download/details.aspx?id=45507)
 
 ### Monitorowanie
@@ -147,7 +147,7 @@
 
 ### Rozwiązywanie problemów
 #### [Problemy z wdrażaniem](storsimple-troubleshoot-deployment.md)
-#### [Using diagnostics tool](storsimple-8000-diagnostics.md) (Korzystanie z narzędzia diagnostycznego)
+#### [Korzystanie z narzędzia diagnostycznego](storsimple-8000-diagnostics.md)
 #### [Problemy operacyjne](storsimple-troubleshoot-operational-device.md)
 #### [Wymiana sprzętu](storsimple-hardware-component-replacement.md)
 ##### [Wymiana kontrolera urządzeń](storsimple-controller-replacement.md)
@@ -184,7 +184,7 @@
 
 ## Dokumentacja
 ### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
-### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx) (Polecenia cmdlet programu Windows PowerShell dla usługi StorSimple)
+### [Polecenia cmdlet programu Windows PowerShell dla usługi StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 # Usługa StorSimple Data Manager (prywatna wersja zapoznawcza)
 
@@ -192,12 +192,12 @@
 ### [Jakie jest rozwiązanie?](storsimple-data-manager-overview.md)
 
 ## Rozpoczęcie pracy
-### [Using StorSimple Data Manager](storsimple-data-manager-ui.md) (Korzystanie z usługi StorSimple Data Manager)
+### [Korzystanie z usługi StorSimple Data Manager](storsimple-data-manager-ui.md)
 
 ## Instrukcje
-### [Use .NET to start jobs](storsimple-data-manager-dotnet-jobs.md) (Rozpoczynanie zadań przy użyciu programu .NET)
-### [Use Automation to start jobs](storsimple-data-manager-job-using-automation.md) (Rozpoczynanie zadań przy użyciu usługi Automation)
-### [Change default blob path](storsimple-data-manager-change-default-blob-path.md) (Zmienianie domyślnej ścieżki obiektu blob)
+### [Rozpoczynanie zadań przy użyciu programu .NET](storsimple-data-manager-dotnet-jobs.md)
+### [Rozpoczynanie zadań przy użyciu usługi Automation](storsimple-data-manager-job-using-automation.md)
+### [Zmienianie domyślnej ścieżki obiektu blob](storsimple-data-manager-change-default-blob-path.md)
 
 # Usługa StorSimple dla partnerów
 
@@ -216,14 +216,15 @@
 ## [StorSimple 5000–7000 Series](http://onlinehelp.storsimple.com)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=storsimple)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog marketingowy](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Cennik](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Blog pomocy technicznej](http://blogs.msdn.com/b/storsimple/)
 ## [Uwagi dotyczące innych firm](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 

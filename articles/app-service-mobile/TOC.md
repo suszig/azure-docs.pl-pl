@@ -102,7 +102,7 @@
 ### Środowisko usługi App Service
 #### [Tworzenie aplikacji sieci Web w środowisku usługi App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Jak tworzyć środowisko ASE wewnętrznego modułu równoważenia przy użyciu szablonów usługi Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Using an Internal Load Balancer](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json) (Korzystanie z wewnętrznego modułu równoważenia obciążenia)
+#### [Korzystanie z wewnętrznego modułu równoważenia obciążenia](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Wdrażanie](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Wdrażanie do usługi App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -217,21 +217,22 @@
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Najlepsze praktyki związane z usługą App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Lista zasobów zadań WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Cennik](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Przykłady
 ### [Field Engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Synchronizacja danych strukturalnych](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
 ### Ukończono szybki start
-#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
-#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
 #### [Zaplecze platformy .NET](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
 #### [Zaplecze środowiska Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=mobile-services)
-## [Najlepsze praktyki związane z usługą App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Lista zasobów zadań WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
 
 
 
