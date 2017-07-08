@@ -41,7 +41,7 @@
 ## [Łączenie usług równoważenia obciążenia](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Używanie wielu konfiguracji adresu IP](load-balancer-multiple-ip.md)
 ### [Używanie wielu konfiguracji adresu IP (interfejs wiersza polecenia)](load-balancer-multiple-ip-cli.md)
-### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md) (Używanie wielu konfiguracji adresu IP — PowerShell)
+### [Używanie wielu konfiguracji adresu IP — PowerShell](load-balancer-multiple-ip-powershell.md)
 ## [Analiza dzienników dotyczących usługi Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurowanie protokołu DHCPv6 dla maszyn wirtualnych z systemem Linux](load-balancer-ipv6-for-linux.md)
 ## Rozwiązywanie problemów
@@ -67,5 +67,6 @@
 ## [DNS](/azure/dns/)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=load-balancer)

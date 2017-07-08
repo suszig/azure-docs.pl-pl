@@ -89,7 +89,7 @@
 ### [Potoki usługi Azure Data Factory](data-factory-monitor-manage-pipelines.md)
 ### [Korzystanie z zestawu SDK dla platformy .NET](data-factory-create-data-factories-programmatically.md)
 ### [Rozwiązywanie problemów z usługą Data Factory](data-factory-troubleshoot.md)
-### [Troubleshoot issues with using Data Management Gateway](data-factory-troubleshoot-gateway-issues.md) (Rozwiązywanie problemów z używaniem bramy zarządzania danymi)
+### [Rozwiązywanie problemów z używaniem bramy zarządzania danymi](data-factory-troubleshoot-gateway-issues.md)
 
 # Dokumentacja
 ## [Program PowerShell](/powershell/module/azurerm.datafactories)
@@ -98,15 +98,16 @@
 ## [JSON](data-factory-json-scripting-reference.md)
 
 # Zasoby
-## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md) (Informacje o wersji bramy zarządzania danymi)
-## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/data-factory)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Analizy przypadków](data-factory-customer-case-studies.md)
-### [Rekomendacje produktów](data-factory-product-reco-usecase.md)
-### [Profilowanie klientów](data-factory-customer-profiling-usecase.md)
-### [Przetwarzanie dużych ilości danych za pomocą usług Data Factory i Batch](data-factory-data-processing-using-batch.md)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-factory)
-## [Cennik](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
+## [Cennik](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Informacje o wersji bramy zarządzania danymi](data-factory-gateway-release-notes.md)
+## [Prośba o funkcję](https://feedback.azure.com/forums/270578-azure-data-factory)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-factory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
-## [Prośba o funkcję](https://feedback.azure.com/forums/270578-azure-data-factory)
+### [Profilowanie klientów](data-factory-customer-profiling-usecase.md)
+### [Przetwarzanie dużych ilości danych za pomocą usług Data Factory i Batch](data-factory-data-processing-using-batch.md)
+### [Rekomendacje produktów](data-factory-product-reco-usecase.md)

@@ -58,7 +58,7 @@
 ### Środowisko usługi App Service
 #### [Tworzenie aplikacji sieci Web w środowisku usługi App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Jak tworzyć środowisko ASE wewnętrznego modułu równoważenia przy użyciu szablonów usługi Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Using an Internal Load Balancer](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-api%2ftoc.json) (Korzystanie z wewnętrznego modułu równoważenia obciążenia)
+#### [Korzystanie z wewnętrznego modułu równoważenia obciążenia](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Wdrażanie](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Wdrażanie do usługi App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -153,11 +153,12 @@
 ### [Rozwiązywanie problemów za pomocą programu Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 # Zasoby
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-## [Informacje ogólne o usłudze App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-## [Zestaw SDK usługi WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Najlepsze praktyki związane z usługą App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [Informacje ogólne o usłudze App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [Witryna Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Lista zasobów zadań WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [Zestaw SDK zadań WebJob](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 
 

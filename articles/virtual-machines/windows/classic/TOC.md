@@ -42,7 +42,7 @@
 ### [Instalowanie i konfigurowanie rozwiązania Symantec Endpoint Protection](install-symantec.md)
 ### [Instalowanie i konfigurowanie rozwiązania Security as a Service o nazwie Trend Micro Deep](install-trend.md)
 ### [Konfigurowanie zestawu dostępności](configure-availability.md)
-### [Resize a Windows VM created in the classic deployment model](resize-vm.md) (Zmienianie rozmiaru maszyny wirtualnej z systemem Windows utworzonej w klasycznym modelu wdrażania)
+### [Zmienianie rozmiaru maszyny wirtualnej z systemem Windows utworzonej w klasycznym modelu wdrażania](resize-vm.md)
 
 ## Zarządzanie
 ### [Migrowanie z wersji klasycznej do usługi Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -81,7 +81,7 @@
 
 ## Rozwiązywanie problemów
 ### [Podłączanie pulpitu zdalnego](../../virtual-machines-windows-troubleshoot-rdp-connection.md)
-####[Detailed troubleshooting steps for remote desktop connection issues](../../virtual-machines-windows-detailed-troubleshoot-rdp.md) (Szczegółowe procedury rozwiązywania problemów z połączeniem pulpitu zdalnego)
+####[Szczegółowe procedury rozwiązywania problemów z połączeniem pulpitu zdalnego](../../virtual-machines-windows-detailed-troubleshoot-rdp.md)
 ### [Dostęp do aplikacji](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Problemy z klasycznym wdrożeniem przy tworzeniu nowej maszyny wirtualnej](troubleshoot-deployment-new-vm.md)
 ### [Problemy z klasycznym wdrożeniem przy ponownym uruchamianiu lub zmienianiu rozmiaru istniejącej maszyny wirtualnej](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
@@ -99,6 +99,7 @@
 ## [Architektura REST — usługa Storage](/rest/api/storageservices)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Dostępność regionalna](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
