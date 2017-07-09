@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Wolisz obejrzeć film niż przeczytać artykuł? Obejrzyj poniższy film z nagra
 [Konfiguracja DSC usługi Azure Automation](automation-dsc-overview.md) to oparte na chmurze rozwiązanie dla konfiguracji PowerShell DSC, które świadczy usługi wymagane w środowiskach przedsiębiorstw.  Możesz zarządzać zasobami konfiguracji DSC w usłudze Azure Automation i stosować konfiguracje na maszynach wirtualnych lub fizycznych, które pobierają je z serwera ściągania konfiguracji DSC w chmurze platformy Azure.  Rozwiązanie to udostępnia również usługi raportowania, które informują Cię o ważnych zdarzeniach, takich jak odchylenie węzłów od ich przypisanej konfiguracji lub zastosowanie nowej konfiguracji. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Tworzenie własnych konfiguracji DSC przy użyciu funkcji Azure Automation
-[Konfiguracje DSC](automation-dsc-overview.md#azure-automation-dsc-terms) określają żądany stan węzła.  Można stosować taką samą konfigurację w wielu węzłach, by dzięki temu zyskać pewność, że będą mieć identyczny stan.  Konfigurację można utworzyć przy użyciu dowolnego edytora tekstów na komputerze lokalnym, a następnie zaimportować ją do usługi Azure Automation w celu jej skompilowania i zastosowania w węzłach.
+[Konfiguracje DSC](automation-dsc-overview.md) określają żądany stan węzła.  Można stosować taką samą konfigurację w wielu węzłach, by dzięki temu zyskać pewność, że będą mieć identyczny stan.  Konfigurację można utworzyć przy użyciu dowolnego edytora tekstów na komputerze lokalnym, a następnie zaimportować ją do usługi Azure Automation w celu jej skompilowania i zastosowania w węzłach.
 
 ## <a name="getting-modules-and-configurations"></a>Pobieranie modułów i konfiguracji
 [Moduły programu PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) zawierające polecenia cmdlet do użycia w elementach Runbook i konfiguracjach DSC można pobrać z [galerii programu PowerShell](http://www.powershellgallery.com/). Tę galerię można uruchomić w portalu Azure i zaimportować moduły bezpośrednio do usługi Azure Automation albo pobrać i zaimportować je ręcznie. Nie można zainstalować modułów bezpośrednio z portalu Azure, ale można je pobrać i zainstalować tak jak każdy inny moduł. 
@@ -83,10 +85,5 @@ Aby dowiedzieć się więcej na temat usługi Azure Automation i tworzenia włas
 
 ## <a name="can-i-provide-feedback"></a>Czy mogę przekazać opinię?
 **Przekaż nam swoją opinię.** Jeśli szukasz rozwiązania dotyczącego elementów Runbook usługi Azure Automation lub modułu integracji, opublikuj żądanie skryptu w Centrum skryptów. Jeśli chcesz przekazać opinię na temat żądań funkcji usługi Azure Automation, opublikuj ją w witrynie [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Dziękujemy. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

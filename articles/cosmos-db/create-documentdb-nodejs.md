@@ -1,14 +1,14 @@
 ---
 title: "Azure Cosmos DB: Budowanie aplikacji za pomocą oprogramowania Node.js i interfejsu API usługi DocumentDB | Microsoft Docs"
 description: "Przykładowy kod platformy Node.js, którego można użyć do nawiązywania połączenia z interfejsem API usługi DocumentDB usługi Azure Cosmos DB i do wykonywania w niej zapytań"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 9c0f033c-240e-4fee-8421-08907231087f
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: deab76fadee7b825cb359d0cebf7f84b26fcf3a8
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 26e3548bf6aacbc60c4c46a5cc88749ca14cec01
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
 
-Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych dokumentów i kolekcji przy użyciu witryny Azure Portal. Następnie za pomocą [interfejsu API usługi DocumentDB oprogramowania Node.js](../documentdb/documentdb-sdk-node.md) zbudujesz i uruchomisz aplikację konsoli.
+Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych dokumentów i kolekcji przy użyciu witryny Azure Portal. Następnie za pomocą [interfejsu API usługi DocumentDB oprogramowania Node.js](documentdb-sdk-node.md) zbudujesz i uruchomisz aplikację konsoli.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,11 +39,11 @@ Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Co
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Dodawanie kolekcji
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
@@ -59,7 +59,7 @@ Teraz sklonujemy aplikację interfejsu API usługi DocumentDB z repozytorium git
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik `app.js` i zobacz, że następujące wiersze kodu tworzą zasoby usługi Azure Cosmos DB. 
+Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Gdy otworzysz plik `app.js`, zobaczysz, że następujące wiersze kodu tworzą zasoby usługi Azure Cosmos DB. 
 
 * Inicjowanie obiektu `documentClient`.
 
@@ -140,7 +140,7 @@ Teraz można wrócić do Eksploratora danych i zobaczyć, jak się pracuje z now
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -154,7 +154,7 @@ Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj nastę
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia kolekcji za pomocą Eksploratora danych i uruchamiania aplikacji. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importowanie danych do usługi Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importowanie danych do usługi Azure Cosmos DB](import-data.md)
 
 
 
