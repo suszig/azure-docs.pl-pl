@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7fc69510ee07f8a0c50fa7ab59c7e1fac38fc5bb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 4317cf84760289ca29d8d5a78e2adef99c4cedf2
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -31,7 +33,12 @@ Po utworzeniu nowego magazynu kluczy w subskrypcji zostaje on automatycznie powi
 Jeśli na przykład masz magazyn kluczy „myvault” w subskrypcji przeniesionej z dzierżawy a do dzierżawy B, oto jak zmienić identyfikator dzierżawy dla tego magazynu kluczy i usunąć stare zasady dostępu.
 
 <pre>
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId $vault.Properties.AccessPolicies = @() Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
+$Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
+$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
+$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
+$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.Id
+$vault.Properties.AccessPolicies = @()
+Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
 Ponieważ ten magazyn przed przeniesieniem był w dzierżawie A, pierwotna wartość właściwości **$vault.Properties.TenantId** to dzierżawa A, podczas gdy wartość właściwości **(Get-AzureRmContext).Tenant.TenantId** to dzierżawa B.
@@ -40,10 +47,5 @@ Po skojarzeniu magazynu z poprawnym identyfikatorem dzierżawy i usunięciu star
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli masz pytania dotyczące usługi Azure Key Vault, odwiedź [forum usługi Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

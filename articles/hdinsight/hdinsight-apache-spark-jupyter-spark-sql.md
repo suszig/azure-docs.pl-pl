@@ -18,10 +18,10 @@ ms.topic: get-started-article
 ms.date: 05/25/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 0c59792423bfe2848ab5773746db466890228ddc
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 925dbf5e595941da58e7d705175d0cc63bbf6a16
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -177,7 +177,7 @@ W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z
 ### <a name="tools-and-extensions"></a>Narzędzia i rozszerzenia
 * [Tworzenie i przesyłanie aplikacji Spark Scala przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Zdalne debugowanie aplikacji Spark przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Korzystanie z notesów Zeppelin w klastrze Spark w usłudze HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Korzystanie z notesów Zeppelin w klastrze Spark w usłudze HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Jądra dostępne dla notesu Jupyter w klastrze Spark w usłudze HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Korzystanie z zewnętrznych pakietów z notesami Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

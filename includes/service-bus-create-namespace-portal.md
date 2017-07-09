@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Tworzenie przestrzeni nazw usługi
-
 Aby rozpocząć korzystanie z kolejek usługi Service Bus na platformie Azure, należy najpierw utworzyć przestrzeń nazw. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji. 
 
 Aby utworzyć przestrzeń nazw:
@@ -16,6 +14,7 @@ Aby utworzyć przestrzeń nazw:
 8. Kliknij pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
 
 ### <a name="obtain-the-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
+
 1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
 2. W bloku przestrzeni nazw usługi Service Bus kliknij pozycję **Zasady dostępu współdzielonego**.
 3. W bloku **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.

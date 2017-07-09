@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -35,8 +37,7 @@ Obecnie wiele scenariuszy w usłudze [Microsoft Cloud w Niemczech](https://www.m
 * Następujące funkcje nie są dostępne:
   * Azure AD Connect Health
   * Automatyczne aktualizacje
-  * Zapisywanie zwrotne haseł
-
+ 
 ## <a name="download"></a>Do pobrania
 Usługę Azure AD Connect można pobrać z bloku programu Azure AD Connect w portalu.  Znajdź blok programu Azure AD Connect, korzystając z poniższych instrukcji.
 
@@ -64,10 +65,5 @@ Możesz zainstalować program Azure AD Connect, korzystając z dokumentacji znaj
 
 ## <a name="advanced-features-and-additional-information"></a>Funkcje zaawansowane i dodatkowe informacje
 Aby uzyskać dodatkowe informacje i wskazówki dotyczące ustawień niestandardowych lub zaawansowanych konfiguracji, na początek zapoznaj się z artykułem [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).  Ta strona zawiera informacje i linki do dodatkowych wskazówek.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

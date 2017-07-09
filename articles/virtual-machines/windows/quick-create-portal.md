@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/03/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 8d64ede4fd5f442cbfc88a61e2ad8388e0df2a7b
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -97,7 +98,7 @@ Po zainstalowaniu usług IIS i otwarciu portu 80 dla maszyny wirtualnej można u
 
 ![Domyślna witryna usług IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. W tym celu wybierz grupę zasobów z bloku maszyny wirtualnej, a następnie kliknij przycisk **Usuń**.
 

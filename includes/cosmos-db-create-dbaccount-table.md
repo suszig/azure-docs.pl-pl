@@ -1,7 +1,7 @@
 1. W nowym oknie zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. W menu po lewej stronie kliknij pozycję **Nowy**, kliknij pozycję **Bazy danych**, a następnie kliknij pozycję **Azure Cosmos DB**.
    
-   ![Zrzut ekranu przedstawiający witrynę Azure Portal z wyróżnionymi poleceniami Więcej usług i Azure Cosmos DB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![Zrzut ekranu przedstawiający witrynę Azure Portal z wyróżnionymi poleceniami Więcej usług i Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 
 3. W bloku **Nowe konto** określ odpowiednią konfigurację konta usługi Azure Cosmos DB. 
 
@@ -11,7 +11,7 @@
 
     Wypełnij blok Nowe konto, używając informacji przedstawionych na zrzucie ekranu jako wskazówki. Podczas konfigurowania konta wybierzesz unikatowe wartości, więc będą one nieco inne niż wartości przedstawione na zrzucie ekranu. 
  
-    ![Zrzut ekranu bloku Nowa usługa Azure Cosmos DB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Zrzut ekranu bloku Nowa usługa Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
@@ -24,8 +24,8 @@
 4. Kliknij przycisk **Utwórz**, aby utworzyć konto.
 5. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
 
-    ![Powiadomienie Wdrażanie rozpoczęte](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
+    ![Powiadomienie Wdrażanie rozpoczęte](./media/cosmos-db-create-dbaccount-table/notification.png)
 
 6.  Po zakończeniu wdrażania otwórz nowe konto przy użyciu kafelka Wszystkie zasoby. 
 
-    ![Konto usługi DocumentDB na kafelku Wszystkie zasoby](./media/documentdb-create-dbaccount/azure-documentdb-all-resources.png)
+    ![Konto usługi DocumentDB na kafelku Wszystkie zasoby](./media/cosmos-db-create-dbaccount-table/all-resources.png)

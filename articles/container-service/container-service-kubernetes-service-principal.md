@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 48b3a3090573718ff5d3ba70e93567e6428ff59b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 33a1ab822f2900fd51d801f94ad8679fe65ba21f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -104,7 +104,7 @@ Poniższy przykład przedstawia sposób przekazania parametrów poprzez interfej
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opcja 2. Wygenerowanie jednostki usługi podczas tworzenia klastra przy użyciu polecenia `az acs create`
 
-Jeśli uruchamiasz polecenie [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) w celu utworzenia klastra Kubernetes, masz możliwość automatycznego wygenerowania jednostki usługi.
+Jeśli uruchamiasz polecenie [`az acs create`](/cli/azure/acs#create) w celu utworzenia klastra Kubernetes, masz możliwość automatycznego wygenerowania jednostki usługi.
 
 Tak jak w przypadku innych opcji tworzenia klastra Kubernetes, parametry istniejącej nazwy głównej usługi można określić po uruchomieniu polecenia `az acs create`. Jednak w przypadku pominięcia tych parametrów interfejs wiersza polecenia platformy Azure automatycznie tworzy jednostkę usługi do użycia z usługą Container Service. Podczas wdrażania dzieje się to w sposób niewidoczny dla użytkownika. 
 

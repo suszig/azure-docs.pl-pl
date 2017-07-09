@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e041a4d88d93b5ea9fcd792800c4a12a6a44ce36
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1cab34785d6e4f7751245ebf77b29fa8dc3c685b
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -91,7 +91,10 @@ Magazyn obiektów blob udostępnia trzy typy obiektów blob: blokowe obiekty blo
 W wypadku bardzo dużych zestawów danych, gdy ograniczenia sieci mogą w praktyce uniemożliwić przekazanie lub pobranie danych do Magazynu obiektów blob, możesz przesłać dysk twardy do firmy Microsoft, aby zaimportować dane bezpośrednio do centrum danych lub wyeksportować je stamtąd. Zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](storage-import-export-service.md).
 
 ## <a name="table-storage"></a>Magazyn tabel
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)] Nowoczesne aplikacje często wymagają bardziej skalowalnego i elastycznego magazynu danych niż poprzednie generacje oprogramowania. Magazyn tabel jest skalowalny na ogromną skalę i oferuje wysoką dostępność, dzięki czemu aplikacja może automatycznie skalować się, aby spełnić wymagania użytkownika. Usługa Table Storage to magazyn typu NoSQL (par klucz-atrybut) firmy Microsoft — nie korzysta ze schematów, czym różni się od tradycyjnych relacyjnych baz danych. W wypadku magazynu danych bez schematów można łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Magazyn tabel jest łatwy w użyciu, dzięki czemu deweloperzy mogą szybko tworzyć aplikacje. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji.  Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
+
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
+Nowoczesne aplikacje często wymagają magazynu, który jest bardziej skalowalny i elastyczny, niż określają to wymagania poprzedniej generacji oprogramowania. Magazyn tabel jest skalowalny na ogromną skalę i oferuje wysoką dostępność, dzięki czemu aplikacja może automatycznie skalować się, aby spełnić wymagania użytkownika. Usługa Table Storage to magazyn typu NoSQL (par klucz-atrybut) firmy Microsoft — nie korzysta ze schematów, czym różni się od tradycyjnych relacyjnych baz danych. W wypadku magazynu danych bez schematów można łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Magazyn tabel jest łatwy w użyciu, dzięki czemu deweloperzy mogą szybko tworzyć aplikacje. Dostęp do danych jest szybki i ekonomiczny dla wszystkich rodzajów aplikacji.  Magazyn tabel jest zwykle znacznie tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
 
 Magazyn tabel to magazyn zawierający pary klucz-atrybut, co oznacza, że każda wartość w tabeli jest przechowywana razem z nazwą właściwości z określonym typem. Nazwa właściwości może służyć do filtrowania i określania kryteriów wyboru. Kolekcja właściwości i ich wartości stanowi jednostkę. Ponieważ Magazyn tabel nie korzysta ze schematów, dwie jednostki w tej samej tabeli mogą zawierać różne kolekcje właściwości, a te właściwości mogą być różnych typów.
 
