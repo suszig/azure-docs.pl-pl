@@ -5,81 +5,87 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.workload: 
-ms.date: 05/10/2017
+ms.date: 06/13/2017
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 574299dd64120d75a1a36cb2ded0fdd269292570
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 04fc441aee7a4c8adc4f02d5e51b2d9e64400f55
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure
-W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MySQL w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure w czasie około pięciu minut. Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów.
+<a id="create-an-azure-database-for-mysql-server-using-azure-cli" class="xliff"></a>
 
-Aby wykonać instrukcje podane w tym przewodniku Szybki start, upewnij się, że zainstalowano najnowszy [interfejs wiersza polecenia platformy Azure w wersji 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+# Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure
+W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MySQL w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure w czasie około pięciu minut. Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
+Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w której zasób istnieje lub dla której są za niego naliczane opłaty. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account#set).
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-Postępuj zgodnie z instrukcjami wiersza polecenia, aby otworzyć stronę https://aka.ms/devicelog w przeglądarce, a następnie wprowadź kod wygenerowany w **wierszu polecenia**.
 
-## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
+<a id="create-a-resource-group" class="xliff"></a>
+
+## Tworzenie grupy zasobów
 Utwórz [grupę zasobów platformy Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) za pomocą polecenia [az group create](https://docs.microsoft.com/cli/azure/group#create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `mycliresource` w lokalizacji `westus`.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `westus`.
 
-```azurecli
-az group create --name mycliresource --location westus
+```azurecli-interactive
+az group create --name myresourcegroup --location westus
 ```
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Tworzenie serwera usługi Azure Database for MySQL
+<a id="create-an-azure-database-for-mysql-server" class="xliff"></a>
+
+## Tworzenie serwera usługi Azure Database for MySQL
 Utwórz serwer usługi Azure Database for MySQL za pomocą polecenia **az mysql server create**. Serwer umożliwia zarządzanie wieloma bazami danych. Zwykle dla każdego projektu lub użytkownika używana jest oddzielna baza danych.
 
-W poniższym przykładzie w regionie `westus` w grupie zasobów `mycliresource` jest tworzony serwer usługi Azure Database for MySQL o nazwie `mycliserver`. Serwer ma identyfikator logowania administratora o nazwie `myadmin` i hasło `Password01!`. Serwer jest tworzony w ramach warstwy wydajności **Podstawowa** i z użyciem **50** jednostek obliczeniowych współdzielonych między wszystkimi bazami danych na tym serwerze. Możesz skalować zasoby obliczeniowe i magazyn w górę lub w dół w zależności od potrzeb aplikacji.
+W poniższym przykładzie w regionie `westus` w grupie zasobów `myresourcegroup` jest tworzony serwer usługi Azure Database for MySQL o nazwie `myserver4demo`. Serwer ma identyfikator logowania administratora o nazwie `myadmin` i hasło `Password01!`. Serwer jest tworzony w ramach warstwy wydajności **Podstawowa** i z użyciem **50** jednostek obliczeniowych współdzielonych między wszystkimi bazami danych na tym serwerze. Możesz skalować zasoby obliczeniowe i magazyn w górę lub w dół w zależności od potrzeb aplikacji.
 
-```azurecli
-az mysql server create --resource-group mycliresource --name mycliserver--location westus --user myadmin --password Password01! --performance-tier Basic --compute-units 50
+```azurecli-interactive
+az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
-![Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
+<a id="configure-firewall-rule" class="xliff"></a>
 
-## <a name="configure-firewall-rule"></a>Konfigurowanie reguły zapory
+## Konfigurowanie reguły zapory
 Utwórz regułę zapory na poziomie serwera usługi Azure Database for MySQL za pomocą polecenia **az mysql server firewall-rule create**. Reguła zapory na poziomie serwera pozwala aplikacji zewnętrznej, takiej jak narzędzie wiersza polecenia **mysql.exe** lub program MySQL Workbench, na nawiązywanie połączeń z Twoim serwerem przez zaporę usługi Azure MySQL. 
 
 W poniższym przykładzie jest tworzona reguła zapory dla wstępnie zdefiniowanego zakresu adresów, który w tym przypadku jest całym możliwym zakresem adresów IP.
 
-```azurecli
-az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
-## <a name="configure-ssl-settings"></a>Konfigurowanie ustawień SSL
-Domyślnie połączenia SSL między Twoim serwerem i aplikacjami klienckimi są wymuszane.  Zapewnia to bezpieczeństwo danych „w ruchu” przez szyfrowanie strumienia danych przesyłanych przez Internet.  Aby uprościć ten przewodnik Szybki start, wyłączymy połączenia SSL dla Twojego serwera.  Nie jest to zalecane w przypadku serwerów produkcyjnych.  Aby uzyskać więcej informacji, zobacz [Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL](./howto-configure-ssl.md).
+<a id="configure-ssl-settings" class="xliff"></a>
+
+## Konfigurowanie ustawień SSL
+Domyślnie połączenia SSL między Twoim serwerem i aplikacjami klienckimi są wymuszane.  Zapewnia to bezpieczeństwo danych „w ruchu” przez szyfrowanie strumienia danych przesyłanych przez Internet.  Aby uprościć ten przewodnik Szybki start, wyłączamy połączenia SSL dla Twojego serwera.  Nie jest to zalecane w przypadku serwerów produkcyjnych.  Aby uzyskać więcej informacji, zobacz [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL (Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL)](./howto-configure-ssl.md).
 
 W poniższym przykładzie jest wyłączane wymuszanie protokołu SSL na Twoim serwerze MySQL.
  
- ```azurecli
- az mysql server update --resource-group mycliresource --name mycliserver -g -n --ssl-enforcement Disabled
+ ```azurecli-interactive
+ az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
  ```
 
-## <a name="get-the-connection-information"></a>Pobieranie informacji o połączeniu
+<a id="get-the-connection-information" class="xliff"></a>
+
+## Uzyskiwanie informacji o połączeniu
 
 Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i poświadczenia dostępu.
 
-```azurecli
-az mysql server show --resource-group mycliresource --name mycliserver
+```azurecli-interactive
+az mysql server show --resource-group myresourcegroup --name myserver4demo
 ```
 
 Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin**.
@@ -87,11 +93,11 @@ Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **a
 {
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mycliserver.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/mycliserver",
+  "fullyQualifiedDomainName": "myserver4demo.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver4demo",
   "location": "westus",
-  "name": "mycliserver",
-  "resourceGroup": "mycliresource",
+  "name": "myserver4demo",
+  "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 50,
     "family": null,
@@ -107,24 +113,26 @@ Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **a
 }
 ```
 
-## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>Nawiązywanie połączenia z serwerem za pomocą narzędzia wiersza polecenia mysql.exe
-Aby nawiązać połączenie z serwerem za pomocą narzędzia wiersza polecenia **mysql.exe**, upewnij się, że na Twoim komputerze jest zainstalowany program MySQL.  Program MySQL możesz pobrać [tutaj](https://dev.mysql.com/downloads/).
+<a id="connect-to-the-server-using-the-mysqlexe-command-line-tool" class="xliff"></a>
 
-Otwórz wiersz polecenia i wpisz następujące polecenie: 
+## Nawiązywanie połączenia z serwerem za pomocą narzędzia wiersza polecenia mysql.exe
+Nawiąż połączenia z serwerem za pomocą narzędzia wiersza polecenia **mysql.exe**. Program MySQL możesz pobrać [stąd](https://dev.mysql.com/downloads/) i zainstalować go na swoim komputerze. Zamiast tego możesz też kliknąć przycisk **Wypróbuj** przy przykładach kodu lub przycisk `>_` na pasku narzędzi po prawej stronie u góry w witrynie Azure Portal i uruchomić usługę **Azure Cloud Shell**.
+
+Wpisz kolejne polecenia: 
 
 1. Nawiąż połączenie z serwerem za pomocą narzędzia wiersza polecenia **mysql**:
-```dos
- mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+```azurecli-interactive
+ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
 2. Wyświetl stan serwera:
-```dos
+```sql
  mysql> status
 ```
-Jeśli wszystko pójdzie dobrze, narzędzie wiersza polecenia powinno zwrócić następujące dane wyjściowe:
+Jeśli wszystko pójdzie dobrze, narzędzie wiersza polecenia powinno zwrócić następujący tekst:
 
 ```dos
-C:\Users\v-chenyh>mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -149,7 +157,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             mycliserver.database.windows.net via TCP/IP
+Connection:             myserver4demo.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -164,38 +172,42 @@ mysql>
 ```
 
 > [!TIP]
-> Aby zapoznać się z dodatkowymi poleceniami, zobacz [Podręcznik programu MySQL 5.6 — Rozdział 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
+> Aby zapoznać się z dodatkowymi poleceniami, zobacz [MySQL 5.7 Reference Manual - Chapter 4.5.1 (Podręcznik programu MySQL 5.7 — Rozdział 4.5.1)](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Nawiązywanie połączenia z serwerem za pomocą narzędzia z graficznym interfejsem użytkownika MySQL Workbench
-1.    Uruchom aplikację MySQL Workbench na swoim komputerze klienckim. Aplikację MySQL Workbench możesz pobrać i zainstalować [stąd](https://dev.mysql.com/downloads/workbench/).
+<a id="connect-to-the-server-using-the-mysql-workbench-gui-tool" class="xliff"></a>
 
-2.    W oknie dialogowym **Konfigurowanie nowego połączenia** wprowadź poniższe informacje na karcie **Parametry**:
+## Nawiązywanie połączenia z serwerem za pomocą narzędzia z graficznym interfejsem użytkownika MySQL Workbench
+1.  Uruchom aplikację MySQL Workbench na swoim komputerze klienckim. Aplikację MySQL Workbench możesz pobrać i zainstalować [stąd](https://dev.mysql.com/downloads/workbench/).
 
-| **Parametry** | **Opis** |
-|----------------|-----------------|
-|    *Nazwa połączenia* | podaj nazwę tego połączenia (może to być dowolna nazwa) |
-| *Metoda połączenia* | wybierz standard (TCP/IP) |
-| *Nazwa hosta* | mycliserver.database.windows.net (NAZWA SERWERA zanotowana przez Ciebie wcześniej) |
-| *Port* | 3306 |
-| *Nazwa użytkownika* | myadmin@mycliserver (IDENTYFIKATOR LOGOWANIA ADMINISTRATORA SERWERA zanotowany przez Ciebie wcześniej) |
-| *Hasło* | możesz przechowywać hasło konta administratora w magazynie |
+2.  W oknie dialogowym **Konfigurowanie nowego połączenia** wprowadź poniższe informacje na karcie **Parametry**:
 
-![konfiguruj nowe połączenie](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+   ![konfigurowanie nowego połączenia](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
-3.    Kliknij przycisk **Testuj połączenie**, aby sprawdzić, czy wszystkie parametry zostały prawidłowo skonfigurowane.
+| **Ustawienie** | **Sugerowana wartość** | **Opis** |
+|---|---|---|
+|   Nazwa połączenia | Moje połączenie | Podaj etykietę dla tego połączenia (może to być dowolny tekst) |
+| Metoda połączenia | wybierz opcję Standardowa (TCP/IP) | Użyj protokołu TCP/IP do nawiązania połączenia z bazą danych platformy Azure Database dla programu MySQL |
+| Nazwa hosta | myserver4demo.mysql.database.azure.com | Wcześniej zanotowana nazwa serwera. |
+| Port | 3306 | Używany jest domyślny port dla programu MySQL. |
+| Nazwa użytkownika | myadmin@myserver4demo | Identyfikator logowania administratora serwera zanotowany przez Ciebie wcześniej. |
+| Hasło | **** | Użyj hasła do konta administratora, które zostało ustawione wcześniej. |
 
-4.    Teraz możesz kliknąć właśnie utworzone połączenie, aby pomyślnie nawiązać połączenie z serwerem.
+Kliknij przycisk **Testuj połączenie**, aby sprawdzić, czy wszystkie parametry zostały prawidłowo skonfigurowane.
+Teraz możesz kliknąć połączenie, aby pomyślnie nawiązać połączenie z serwerem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+<a id="clean-up-resources" class="xliff"></a>
 
-Jeśli te zasoby nie są Ci potrzebne do pracy z innym przewodnikiem Szybki start lub samouczkiem, możesz je usunąć, wykonując następujące czynności: 
+## Oczyszczanie zasobów
+Jeśli te zasoby nie są Ci potrzebne do pracy z innym przewodnikiem Szybki start lub samouczkiem, możesz je usunąć, uruchamiając następujące polecenie: 
 
-```azurecli
-az group delete --name mycliresource
+```azurecli-interactive
+az group delete --name myresourcegroup
 ```
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 
 > [!div class="nextstepaction"]
-> [Projektowanie bazy danych MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./tutorial-design-database-using-cli.md).
+> [Projektowanie bazy danych MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./tutorial-design-database-using-cli.md)
 

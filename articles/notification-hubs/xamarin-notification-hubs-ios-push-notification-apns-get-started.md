@@ -15,16 +15,22 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 426294e0dc3e877565bd57e899fdc79a1bd31c21
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="ios-push-notifications-with-notification-hubs-for-xamarin-apps"></a>Wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin dla systemu iOS przy użyciu usługi Notification Hubs
+<a id="ios-push-notifications-with-notification-hubs-for-xamarin-apps" class="xliff"></a>
+
+# Wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin dla systemu iOS przy użyciu usługi Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Omówienie
+<a id="overview" class="xliff"></a>
+
+## Omówienie
 > [!IMPORTANT]
 > Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
@@ -35,10 +41,12 @@ Utworzysz pustą aplikację platformy Xamarin.iOS służącą do odbierania powi
 
 W tym samouczku został omówiony prosty scenariusz wysyłania powiadomień wypychanych przy użyciu usługi Notification Hubs.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+<a id="prerequisites" class="xliff"></a>
+
+## Wymagania wstępne
 Dla tego samouczka wymagane są następujące elementy:
 
-* [Program Xcode 6.0][Zainstaluj program Xcode]
+* [Xcode 6.0][Install Xcode]
 * Urządzenie zgodne z systemem iOS 7.0 (lub nowszą wersją)
 * Członkostwo w programie dla deweloperów systemu iOS
 * [Program Xamarin Studio]
@@ -52,7 +60,9 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## <a name="configure-your-notification-hub"></a>Konfigurowanie centrum powiadomień
+<a id="configure-your-notification-hub" class="xliff"></a>
+
+## Konfigurowanie centrum powiadomień
 W tej sekcji opisano kroki tworzenia nowego centrum powiadomień i konfigurowania uwierzytelniania w usłudze APNs przy użyciu utworzonego przez Ciebie certyfikatu powiadomień wypychanych **.p12**. Jeśli chcesz użyć już utworzonego centrum powiadomień, możesz przejść do kroku 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -72,11 +82,15 @@ W tej sekcji opisano kroki tworzenia nowego centrum powiadomień i konfigurowani
 
 Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą APNs i uzyskano parametry połączenia służące do rejestrowania aplikacji w celu wysyłania powiadomień wypychanych.
 
-## <a name="connect-your-app-to-the-notification-hub"></a>Łączenie aplikacji z centrum powiadomień
-#### <a name="create-a-new-project"></a>Tworzenie nowego projektu
+<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
+
+## Łączenie aplikacji z centrum powiadomień
+<a id="create-a-new-project" class="xliff"></a>
+
+#### Tworzenie nowego projektu
 1. W programie Xamarin Studio utwórz nowy projekt dla systemu iOS i wybierz szablon **Unified API (Standaryzowany interfejs API)** > **Single View Application (Aplikacja z jednym widokiem)**.
    
-       ![Xamarin Studio - Select Application Type][31]
+     ![Xamarin Studio — wybieranie typu aplikacji][31]
 2. Dodaj odniesienie do składnika Azure Messaging. W widoku Solution (Rozwiązanie) kliknij prawym przyciskiem myszy folder **Components** (Składniki) w projekcie i wybierz polecenie **Get More Components** (Uzyskaj więcej składników). Wyszukaj składnik **Azure Messaging** i dodaj go do projektu.
 3. W pliku **AppDelegate.cs** dodaj następującą instrukcję using:
    
@@ -175,7 +189,9 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą APNs i 
    > 
 10. Uruchom aplikację na urządzeniu.
 
-## <a name="sending-push-notifications"></a>Wysyłanie powiadomień wypychanych
+<a id="sending-push-notifications" class="xliff"></a>
+
+## Wysyłanie powiadomień wypychanych
 Możesz przetestować odbieranie powiadomień wypychanych w aplikacji, wysyłając powiadomienia w witrynie [Azure Portal] za pomocą funkcji **Wyślij testowe** w zestawie narzędzi **Rozwiązywanie problemów** na stronie centrum powiadomień, jak pokazano na poniższym zrzucie ekranu.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-test-send.png)
@@ -192,7 +208,9 @@ W tym samouczku dla uproszczenia przedstawiono testowanie aplikacji klienckiej p
 
 * **Java/PHP**: aby zapoznać się z przykładem wysyłania powiadomień wypychanych przy użyciu interfejsów API REST, zobacz „Jak używać usługi Notification Hubs za pomocą języka Java/PHP” ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-#### <a name="optional-send-push-notifications-from-a-net-console-app"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych z poziomu aplikacji konsoli .NET
+<a id="optional-send-push-notifications-from-a-net-console-app" class="xliff"></a>
+
+#### (Opcjonalnie) Wysyłanie powiadomień wypychanych z poziomu aplikacji konsoli .NET
 W tej sekcji wyślemy powiadomienia wypychane za pomocą prostej aplikacji konsoli .NET. Na potrzeby tego przykładu przeniesiemy się do środowiska projektowego systemu Windows, w którym jest już zainstalowany program Visual Studio.
 
 1. W programie Visual Studio utwórz nową aplikację konsoli języka Visual C#:
@@ -227,7 +245,9 @@ W tej sekcji wyślemy powiadomienia wypychane za pomocą prostej aplikacji konso
 
 Wszystkie możliwe ładunki można znaleźć w [Podręczniku programowania powiadomień lokalnych i wypychanych] firmy Apple.
 
-#### <a name="optional-send-notifications-from-a-mobile-service"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych z poziomu usługi mobilnej
+<a id="optional-send-notifications-from-a-mobile-service" class="xliff"></a>
+
+#### (Opcjonalnie) Wysyłanie powiadomień wypychanych z poziomu usługi mobilnej
 W tej sekcji wyślemy powiadomienia wypychane za pomocą usługi mobilnej, za pośrednictwem skryptu węzła.
 
 Aby wysłać powiadomienie przy użyciu usługi mobilnej, wykonaj czynności opisane w temacie [Wprowadzenie do usług Mobile Services], a następnie:
@@ -260,7 +280,9 @@ Aby wysłać powiadomienie przy użyciu usługi mobilnej, wykonaj czynności opi
         );
 6. Kliknij pozycję **Uruchom raz** na dolnym pasku. Na urządzeniu powinien zostać wyświetlony alert.
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 W tym prostym przykładzie wysłano powiadomienia wypychane do wszystkich urządzeń z systemem iOS. Aby skierować je do określonych użytkowników, zapoznaj się z samouczkiem [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]. Jeśli chcesz podzielić użytkowników na grupy zainteresowań, zobacz [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]. Aby uzyskać więcej informacji na temat korzystania z usługi Notification Hubs, zobacz [Wskazówki dotyczące usługi Notification Hubs] oraz [Poradnik dotyczący usługi Notification Hubs dla systemu iOS].
 
 <!-- Images. -->
@@ -277,17 +299,17 @@ W tym prostym przykładzie wysłano powiadomienia wypychane do wszystkich urząd
 
 
 <!-- URLs. -->
-[Zestaw SDK usług Mobile Services systemu iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Strona przesyłania aplikacji]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Moje aplikacje]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Zestaw Live SDK dla systemu Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Wprowadzenie do usług Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
 [klasyczny portal Azure]: https://manage.windowsazure.com/
 [Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Poradnik dotyczący usługi Notification Hubs dla systemu iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Zainstaluj program Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portal aprowizowania dla systemu iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
 [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: /manage/services/notification-hubs/breaking-news-dotnet
@@ -295,14 +317,9 @@ W tym prostym przykładzie wysłano powiadomienia wypychane do wszystkich urząd
 [Podręczniku programowania powiadomień lokalnych i wypychanych]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
-[Składnik Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Program Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

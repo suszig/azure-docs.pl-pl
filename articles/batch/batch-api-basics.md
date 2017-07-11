@@ -12,18 +12,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0120a63ed398cf3e0e91cd4329c4024ba2fbfdca
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
+<a id="develop-large-scale-parallel-compute-solutions-with-batch" class="xliff"></a>
+
+# Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
 
 W tym omówieniu podstawowych składników usługi Azure Batch przedstawiamy główne funkcje oraz zasoby, z których deweloperzy usługi Batch mogą korzystać w przypadku kompilowania rozwiązań do przetwarzania równoległego na dużą skalę.
 
@@ -34,7 +36,9 @@ Bez względu na to, czy tworzysz aplikację do przetwarzania rozproszonego, usł
 >
 >
 
-## <a name="batch-service-workflow"></a>Przepływ pracy usługi Batch
+<a id="batch-service-workflow" class="xliff"></a>
+
+## Przepływ pracy usługi Batch
 Poniższy ogólny przepływ pracy to typowy przykład dla niemal wszystkich aplikacji i usług, które korzystają z usługi Batch w przypadku obciążeń przetwarzania równoległego:
 
 1. Przekaż **pliki danych** do przetworzenia na konto usługi [Azure Storage][azure_storage]. Usługa Batch oferuje wbudowaną obsługę dostępu do usługi Azure Blob Storage, a podczas wykonywania zadań podrzędnych można pobierać te pliki do [węzłów obliczeniowych](#compute-node).
@@ -51,7 +55,9 @@ W poniższych sekcjach omówiono te i inne zasoby usługi Batch, które umożliw
 >
 >
 
-## <a name="batch-service-resources"></a>Zasoby usługi Batch
+<a id="batch-service-resources" class="xliff"></a>
+
+## Zasoby usługi Batch
 Niektóre z poniższych zasobów — konta, węzły obliczeniowe, pule, zadania i zadania podrzędne — są wymagane przez wszystkie rozwiązania, które korzystają z usługi Batch. Inne, takie jak harmonogramy zadań i pakiety aplikacji, to funkcje przydatne, ale opcjonalne.
 
 * [Konto](#account)
@@ -69,19 +75,43 @@ Niektóre z poniższych zasobów — konta, węzły obliczeniowe, pule, zadania 
   * [Zależności zadań podrzędnych](#task-dependencies)
 * [Pakiety aplikacji](#application-packages)
 
-## <a name="account"></a>Konto
+<a id="account" class="xliff"></a>
+
+## Konto
 Konto usługi Batch jest jednoznacznie zdefiniowanym obiektem w ramach usługi Batch. Całe przetwarzanie jest skojarzone z kontem usługi Batch.
 
 Konto usługi Azure Batch możesz utworzyć za pomocą witryny [Azure Portal](batch-account-create-portal.md) lub programowo, na przykład za pomocą [biblioteki Batch Management .NET](batch-management-dotnet.md). Podczas tworzenia konta możesz skojarzyć konto magazynu platformy Azure.
 
-Usługa Batch obsługuje dwie konfiguracje konta oparte na właściwości *Tryb alokacji puli*. Te dwie konfiguracje dają dostęp do różnych możliwości związanych z [pulami](#pool) usługi Batch (zobacz dalszą część tego artykułu).
+Usługa Batch obsługuje dwie konfiguracje konta — musisz wybrać odpowiednią konfigurację podczas tworzenia konta usługi Batch. Różnica między dwiema konfiguracjami kont jest związana ze sposobem przydzielania [pul](#pool) usługi Batch dla konta. Możesz przydzielać pule węzłów obliczeniowych w ramach subskrypcji zarządzanej przez usługę Azure Batch lub przydzielać je w ramach własnej subskrypcji. Właściwość *Tryb alokacji puli* dla konta określa używaną konfigurację. 
+
+Aby zdecydować, której konfiguracji konta użyć, rozważ, która najlepiej pasuje do Twojego scenariusza:
+
+* **Usługa Batch**: usługa Batch to domyślna konfiguracja konta. W przypadku konta utworzonego przy użyciu tej konfiguracji pule usługi Batch są przydzielane w tle w ramach subskrypcji zarządzanych przez platformę Azure. Pamiętaj o tych kluczowych zagadnieniach związanych z konfiguracją konta usługi Batch:
+
+    - Konfiguracja konta usługi Batch obsługuje pule usług Cloud Services i Virtual Machines.
+    - Konfiguracja konta usługi Batch obsługuje dostęp do interfejsów API usługi Batch przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). 
+    - W pulach w konfiguracji konta usługi Batch można używać dowolnych węzłów obliczeniowych — dedykowanych lub o niskim priorytecie.
+    - Nie używaj konfiguracji konta usługi Batch, jeśli zamierzasz utworzyć pule maszyn wirtualnych platformy Azure na podstawie niestandardowych obrazów maszyn wirtualnych lub jeśli planujesz użyć sieci wirtualnej. Zamiast tego utwórz konto, korzystając z konfiguracji konta subskrypcji użytkownika.
+    - Pule maszyn wirtualnych aprowizowane na koncie przy użyciu konfiguracji konta usługi Batch musi zostać utworzona na podstawie obrazów witryny [Azure Virtual Machines Marketplace][vm_marketplace].
+
+* **Subskrypcja użytkownika**: w przypadku konfiguracji konta subskrypcji użytkownika pule usługi Batch są przydzielane w subskrypcji platformy Azure, w której tworzone jest konto. Pamiętaj o tych kluczowych zagadnieniach związanych z konfiguracją konta subskrypcji użytkownika:
+     
+    - Konfiguracja konta subskrypcji użytkownika obsługuje tylko pule usługi Virtual Machines. Nie obsługuje ona pul usług w chmurze.
+    - Aby utworzyć pule maszyn wirtualnych na podstawie niestandardowych obrazów maszyn wirtualnych lub użyć sieci wirtualnej z pulami maszyn wirtualnych, możesz skorzystać z konfiguracji subskrypcji użytkownika.  
+    - Musisz uwierzytelnić żądania w usłudze Batch przy użyciu [uwierzytelniania usługi Azure Active Directory](batch-aad-auth.md). 
+    - Konfiguracja konta subskrypcji użytkownika wymaga skonfigurowania magazynu kluczy platformy Azure dla konta usługi Batch. 
+    - W pulach konta utworzonych przy użyciu konfiguracji subskrypcji użytkownika można używać tylko dedykowanych węzłów obliczeniowych. Węzły o niskim priorytecie nie są obsługiwane.
+    - Pule maszyn wirtualnych aprowizowane na koncie przy użyciu konfiguracji konta subskrypcji użytkownika musi zostać utworzona na podstawie obrazów witryny [Azure Virtual Machines Marketplace][vm_marketplace] lub na podstawie własnych obrazów niestandardowych.
+
+> [!IMPORTANT]
+> Usługa Batch obsługuje obecnie tylko typ konta magazynu ogólnego przeznaczenia, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach usługi Azure Storage](../storage/storage-create-storage-account.md). Zadania podrzędne usługi Batch (w tym standardowe, uruchamiania oraz przygotowania i zwolnienia zadań) muszą określać pliki zasobów, które znajdują się na kontach magazynu ogólnego przeznaczenia.
+>
+>
 
 
-* **Usługa Batch**: opcja domyślna, z maszynami wirtualnymi pul usługi Batch przydzielanymi w tle w subskrypcjach zarządzanych przez usługę Azure. Tej konfiguracji konta należy użyć, jeśli wymagane są pule usług Cloud Services, ale nie można jej używać, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać przy użyciu uwierzytelniania za pomocą klucza współużytkowanego lub [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md). W pulach w konfiguracji konta usługi Batch można używać dowolnych węzłów obliczeniowych — dedykowanych lub o niskim priorytecie.
+<a id="compute-node" class="xliff"></a>
 
-* **Subskrypcja użytkownika**: tej konfiguracji konta należy użyć, jeśli wymagane są pule maszyn wirtualnych utworzone z niestandardowych obrazów maszyn wirtualnych lub korzystające z sieci wirtualnej. Dostęp do interfejsów API usługi Batch możesz uzyskać tylko przy użyciu [uwierzytelniania za pomocą usługi Azure Active Directory](batch-aad-auth.md), a pule usługi Cloud Services nie są obsługiwane. Obliczeniowe maszyny wirtualne usługi Batch są przydzielane bezpośrednio w subskrypcji platformy Azure. Ten tryb wymaga skonfigurowania usługi Azure Key Vault dla konta usługi Batch. W pulach w konfiguracji konta subskrypcji użytkownika można używać tylko dedykowanych węzłów obliczeniowych. 
-
-## <a name="compute-node"></a>Węzeł obliczeniowy
+## Węzeł obliczeniowy
 Węzeł obliczeniowy jest maszyną wirtualną platformy Azure lub maszyną wirtualną dla usługi w chmurze przeznaczoną do przetwarzania części obciążenia danej aplikacji. Rozmiar węzła określa liczbę rdzeni procesora, pojemność pamięci oraz rozmiar lokalnego systemu plików przydzielony do tego węzła. Pule węzłów systemu Windows lub Linux można tworzyć przy użyciu obrazów witryny Marketplace dla usług Azure Cloud Services lub Virtual Machines. Aby uzyskać więcej informacji na temat tych opcji, zobacz poniżej sekcję [Pula](#pool).
 
 Węzły można uruchamiać przy użyciu dowolnego pliku wykonywalnego lub skryptu, który jest obsługiwany przez środowisko systemu operacyjnego węzła. Dotyczy to plików \*EXE, \*CMD, \*BAT i skryptów programu PowerShell dla systemu Windows — oraz plików binarnych, powłoki i skryptów języka Python dla systemu Linux.
@@ -92,93 +122,163 @@ Wszystkie węzły obliczeniowe usługi Batch obejmują również:
 * Ustawienia **Zapory** skonfigurowane do kontroli dostępu.
 * [Dostęp zdalny](#connecting-to-compute-nodes) do węzłów systemu Windows (protokół RDP (Remote Desktop)) i Linux (SSH (Secure Shell)).
 
-## <a name="pool"></a>Pula
+<a id="pool" class="xliff"></a>
+
+## Pula
 Pula to kolekcja węzłów, w których jest uruchamiana aplikacja. Pula może być tworzona ręcznie przez użytkownika lub przez usługę Batch automatycznie po określeniu pracy do wykonania. Możesz utworzyć pulę spełniającą wymagania dotyczące zasobów aplikacji i zarządzać nią. Pula może być używana tylko na koncie usługi Batch, w ramach którego ją utworzono. Konto usługi Batch może zawierać więcej niż jedną pulę.
 
 Pule usługi Batch są oparte na podstawowej platformie obliczeniowej Azure. Oferują one alokację na dużą skalę, instalowanie aplikacji, dystrybucję danych i monitorowanie kondycji, jak również elastyczne dostosowanie liczby węzłów obliczeniowych w puli ([skalowanie](#scaling-compute-resources)).
 
 Do każdego węzła, który jest dodawany do puli zostaje przypisana unikatowa nazwa i adres IP. Gdy węzeł zostanie usunięty z puli, wszelkie zmiany wprowadzone w systemie operacyjnym lub w plikach zostaną utracone, a jego nazwa i adres IP zostaną zwolnione do użytku w przyszłości. Gdy węzeł opuści pulę, oznacza to, że zakończył się jego okres istnienia.
 
-Podczas tworzenia puli możesz określić następujące atrybuty. Niektóre ustawienia różnią się w zależności od trybu alokacji puli [konta](#account) usługi Batch.
+Podczas tworzenia puli możesz określić następujące atrybuty. Niektóre ustawienia różnią się w zależności od trybu alokacji puli [konta](#account) usługi Batch:
 
-* **System operacyjny** i **wersja** węzła obliczeniowego
+- Wersja i system operacyjny węzła obliczeniowego
+- Typ węzła obliczeniowego i docelowa liczba węzłów
+- Rozmiar węzłów obliczeniowych
+- Zasady skalowania
+- Zasady planowania zadań podrzędnych
+- Stan komunikacji węzłów obliczeniowych
+- Zadanie podrzędne uruchamiania dla węzłów obliczeniowych
+- Pakiety aplikacji
+- Konfiguracja sieci
 
-    > [!NOTE]
-    > W trybie alokacji puli usługi Batch masz dwie opcje podczas wybierania systemu operacyjnego dla węzłów w puli: **konfiguracja maszyny wirtualnej** i **konfiguracja usług Cloud Services**. W trybie subskrypcji użytkownika możesz użyć tylko konfiguracji maszyny wirtualnej.
-    >
-
-    **Konfiguracja maszyny wirtualnej** udostępnia obrazy zarówno systemu Linux, jak i Windows dla węzłów obliczeniowych z [portalu Marketplace usługi Azure Virtual Machines][vm_marketplace] oraz, w trybie alokacji subskrypcji użytkownika, opcję wykorzystania niestandardowych obrazów maszyny wirtualnej.
-
-    Podczas tworzenia puli, która zawiera węzły konfiguracji usługi Virtual Machines, należy określić nie tylko rozmiar węzłów, ale także **odwołanie do obrazu maszyny wirtualnej** i **jednostkę SKU węzła agenta** usługi Batch do zainstalowania w węzłach. Więcej informacji na temat określania powyższych właściwości puli znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizowanie węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
-
-    **Konfiguracja usług Cloud Services** oferuje *tylko* węzły obliczeniowe systemu Windows. Listę systemów operacyjnych dostępnych dla pul konfiguracji usług Cloud Services można znaleźć w temacie [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md) (Macierz zgodności zestawów SDK i wersji systemów operacyjnych gościa platformy Azure). Podczas tworzenia puli, która zawiera węzły usług Cloud Services, należy określić tylko rozmiar węzła i jego *rodzinę systemów operacyjnych*. Podczas tworzenia pul węzłów obliczeniowych systemu Windows najczęściej stosuje się usługi Cloud Services.
-
-  * *Rodzina systemów operacyjnych* określa też, które wersje platformy .NET są instalowane z systemem operacyjnym.
-  * Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services można określić *wersję systemu operacyjnego* (więcej informacji o rolach procesów roboczych można znaleźć w sekcji [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) (Więcej informacji o usługach Cloud Services) w temacie [Compute Hosting Options Provided by Azure](../cloud-services/cloud-services-choose-me.md) (Opcje hostingu obliczeniowego dostępne na platformie Azure)).
-  * Tak samo jak w przypadku ról procesów roboczych zaleca się określenie `*` dla *wersji systemu operacyjnego*, aby węzły były uaktualniane automatycznie, a niedawno wydane wersje nie wymagały żadnej pracy. Podstawowym warunkiem wybrania określonej wersji systemu operacyjnego jest upewnienie się, czy została zachowana zgodność aplikacji, przez zezwolenie na testowanie zgodności z poprzednimi wersjami przed zezwoleniem na aktualizację wersji. Po zakończeniu walidacji można zaktualizować *wersję systemu operacyjnego* dla puli i zainstalować nowy obraz systemu operacyjnego — wszystkie uruchomione zadania podrzędne zostaną przerwane i ponownie umieszczone w kolejce.
-
-* **Typ węzła obliczeniowego** i **docelowa liczba węzłów**
-
-    Podczas tworzenia puli można określić pożądane typy węzłów obliczeniowych i docelową liczbę każdego z nich. Istnieją dwa typy węzłów obliczeniowych:
-
-    - **Węzły obliczeniowe o niskim priorytecie.** Węzły o niskim priorytecie wykorzystują nadwyżkę wydajności na platformie Azure do uruchamiania obciążeń usługi Batch. Węzły o niskim priorytecie są tańsze niż węzły dedykowane i umożliwiają obsługiwanie obciążeń wymagających dużej mocy obliczeniowej. Aby uzyskać więcej informacji, zobacz [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Korzystanie z maszyn wirtualnych o niskim priorytecie z usługą Batch).
-
-        Węzły obliczeniowe o niskim priorytecie mogą być przerywane, jeśli na platformie Azure nie będzie wystarczającej nadwyżki wydajności. Jeśli węzeł zostanie przerwany podczas przetwarzania zadań, zadania te są ponownie umieszczane w kolejce, a następnie ponownie uruchamiane, kiedy węzeł obliczeniowy znowu stanie się dostępny. Węzły o niskim priorytecie są dobrą opcją w przypadku obciążeń, dla których czas ukończenia zadania jest elastyczny, a praca jest rozproszona na wielu węzłach.
-
-        Węzły obliczeniowe o niskim priorytecie są dostępne tylko dla kont usługi Batch, które zostały utworzone z trybem alokacji puli ustawionym na wartość **Usługa Batch**.
-
-    - **Dedykowane węzły obliczeniowe.** Dedykowane węzły obliczeniowe są zarezerwowane dla konkretnych obciążeń. Są one droższe niż węzły o niskim priorytecie, ale mają gwarancję, że nigdy nie zostaną przerwane.    
-
-    W tej samej puli mogą istnieć węzły obliczeniowe o niskim priorytecie i węzły dedykowane. Każdy typ węzła &mdash; o niskim priorytecie i dedykowany &mdash; ma swoje własne ustawienie docelowe, dla którego można określić żądaną liczbę węzłów. 
-        
-    Liczbę węzłów obliczeniowych określa się jako *docelową*, ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Na przykład pula może nie osiągnąć wartości docelowej, jeśli wcześniej zostanie osiągnięty [podstawowy przydział](batch-quota-limit.md) dla konta usługi Batch. Pula może również nie osiągnąć wartości docelowej, jeśli zastosowano formułę skalowania automatycznego do puli, która ogranicza maksymalną liczbę węzłów.
-
-    Aby uzyskać informacje dotyczące cen węzłów obliczeniowych o niskim priorytecie i dedykowanych węzłów obliczeniowych, zobacz [Batch — cennik](https://azure.microsoft.com/pricing/details/batch/).
-
-* **Rozmiar węzłów**
-
-    Lista rozmiarów węzłów obliczeniowych **konfiguracji usług Cloud Serivces** znajduje się w temacie [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Rozmiary dla usługi Cloud Services). Usługa Batch obsługuje wszystkie rozmiary usług Cloud Services oprócz `ExtraSmall`, `STANDARD_A1_V2` i `STANDARD_A2_V2`.
-
-    Listę rozmiarów obliczeniowych **konfiguracji usługi Virtual Machines** można znaleźć w tematach [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md) (Linux) (Rozmiary maszyn wirtualnych na platformie Azure) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md) (Windows) (Rozmiary maszyn wirtualnych na platformie Azure) (Windows). Usługa Batch obsługuje wszystkie rozmiary maszyn wirtualnych platformy Azure oprócz `STANDARD_A0` i maszyn z usługi Premium Storage (seria `STANDARD_GS`, `STANDARD_DS` i `STANDARD_DSV2`).
-
-    Podczas wybierania rozmiaru węzła obliczeniowego należy wziąć pod uwagę charakterystyki i wymagania aplikacji, które będą uruchamiane w poszczególnych węzłach. Takie czynniki jak to, czy aplikacja jest wielowątkowa oraz ile pamięci zużywa, mogą pomóc w wyborze najbardziej odpowiedniego i ekonomicznego rozmiar węzła. Rozmiar węzła jest zazwyczaj wybierany w oparciu o założenie, że w węźle będzie uruchamiane w danym momencie jedno zadanie. Podczas wykonywania zadania można jednak [równolegle uruchomić](batch-parallel-node-tasks.md) wiele zadań podrzędnych, a co za tym idzie — wielu wystąpień aplikacji. W takiej sytuacji zwykle wybiera się większy rozmiar węzła w celu sprostania zwiększonemu zapotrzebowaniu na równoległe wykonywanie zadań podrzędnych. Aby uzyskać więcej informacji, zobacz [Zasady planowania zadań podrzędnych](#task-scheduling-policy).
-
-    Wszystkie węzły w puli mają taki sam rozmiar. Jeśli planujesz uruchamiać aplikacje z różnymi wymaganiami systemowymi i/lub poziomami obciążenia, zalecamy użycie oddzielnych pul.
-
-* **Zasady skalowania**
-
-    W przypadku obciążeń dynamicznych można zapisać i zastosować do puli [formułę automatycznego skalowania](#scaling-compute-resources). Usługa Batch okresowo oblicza formułę i dostosowuje liczbę węzłów w ramach puli na podstawie różnych wybieranych parametrów puli, zadań i zadań podrzędnych.
-
-* **Zasady planowania zadań podrzędnych**
-
-    Opcja konfiguracji [maksymalnej liczby zadań podrzędnych na węzeł](batch-parallel-node-tasks.md) określa maksymalną liczbę zadań podrzędnych, które można uruchomić równolegle na poszczególnych węzłach obliczeniowych w ramach puli.
-
-    Domyślna konfiguracja polega na tym, że w danym momencie w węźle jest uruchamiane jedno zadanie podrzędne, ale istnieją scenariusze, w których korzystne jest, aby w danym momencie w węźle było wykonywanych więcej zadań podrzędnych. Zobacz [przykładowy scenariusz](batch-parallel-node-tasks.md#example-scenario) w artykule dotyczącym [równoczesnych zadań podrzędnych węzła](batch-parallel-node-tasks.md), aby dowiedzieć się, jak można korzystać z wielu zadań podrzędnych w jednym węźle.
-
-    Można również określić *typ wypełnienia*, który decyduje o tym, czy usługa Batch rozdziela zadania równomiernie we wszystkich węzłach w puli, czy też zapełnia poszczególne węzły maksymalną liczbą zadań przed przypisaniem zadań do innego węzła.
-* **Stan komunikacji** węzłów obliczeniowych
-
-    W większości przypadków zadania podrzędne działają niezależnie i nie muszą komunikować się ze sobą. Jednak w niektórych aplikacjach będzie wymagana komunikacja między zadaniami podrzędnymi (np. w [scenariuszach MPI](batch-mpi.md)).
-
-    Możesz skonfigurować pulę w celu umożliwienia **komunikacji międzywęzłowej**, aby węzły w danej puli mogły komunikować się w czasie wykonywania. Po włączeniu komunikacji międzywęzłowej węzły w pulach konfiguracji usług Cloud Services mogą komunikować się ze sobą na portach większych niż 1100, a w przypadku pul konfiguracji usługi Virtual Machines ruch nie jest ograniczony do żadnego portu.
-
-    Warto zauważyć, że włączenie komunikacji międzywęzłowej również ma wpływ na rozmieszczenie węzłów w ramach klastrów i może ograniczać maksymalną liczbę węzłów w puli z powodu ograniczeń wdrożenia. Jeśli aplikacja nie wymaga komunikacji między węzłami, usługa Batch może przydzielić potencjalnie dużą liczbę węzłów do puli z wielu różnych klastrów i centrów danych, aby umożliwić zwiększenie mocy przetwarzania równoległego.
-* **Zadanie podrzędne uruchamiania** dla węzłów obliczeniowych
-
-    Opcjonalne *zadanie podrzędne uruchamiania* jest wykonywane w każdym węźle po dołączeniu go do puli oraz za każdym razem, gdy węzeł zostanie ponownie uruchomiony lub odtworzony z obrazu. Zadanie podrzędne uruchamiania jest szczególnie przydatne w przypadku przygotowywania węzłów obliczeniowych do wykonywania zadań podrzędnych, takich jak instalowanie aplikacji, które będą uruchamiane przez zadania podrzędne w tych węzłach.
-* **Pakiety aplikacji**
-
-    Można wybrać [pakiety aplikacji](#application-packages) do wdrożenia w węzłach obliczeniowych w puli. Pakiety aplikacji umożliwiają uproszczone wdrażanie aplikacji uruchamianych w ramach zadań podrzędnych oraz zarządzanie ich wersjami. Pakiety aplikacji wybrane dla puli są instalowane w każdym węźle dołączanym do puli oraz za każdym razem, gdy węzeł jest ponownie uruchamiany lub odtwarzany z obrazu. Pakiety aplikacji nie są obecnie obsługiwane w węzłach obliczeniowych z systemem Linux.
-* **Konfiguracja sieci**
-
-    Możesz określić identyfikator [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure, w której powinny zostać utworzone węzły obliczeniowe puli. Zobacz sekcję [Konfiguracja sieciowa puli](#pool-network-configuration), aby uzyskać więcej informacji.
+Każde z tych ustawień zostało dokładniej opisane w poniższych sekcjach.
 
 > [!IMPORTANT]
-> Wszystkie konta usługi Batch mają domyślny **przydział**, który ogranicza liczbę **rdzeni** (a tym samym węzłów obliczeniowych) na koncie usługi Batch. Domyślne limity przydziału oraz instrukcje [zwiększania limitów przydziału](batch-quota-limit.md#increase-a-quota) (np. maksymalnej liczby rdzeni na koncie usługi Batch) znajdują się w artykule [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Limity przydziału i limity dla usługi Azure Batch). Jeśli zaczniesz zastanawiać się: „Dlaczego moja pula nie może przekroczyć X rdzeni?”, przyczyną może być ten przydział rdzeni.
+> Wszystkie konta usługi Batch utworzone przy użyciu konfiguracji usługi Batch mają domyślny przydział, który ogranicza liczbę rdzeni na koncie usługi Batch. Liczba rdzeni odpowiada liczbie węzłów obliczeniowych. Domyślne limity przydziału oraz instrukcje dotyczące [zwiększania limitów przydziału](batch-quota-limit.md#increase-a-quota) znajdują się w artykule [Quotas and limits for the Azure Batch service (Limity przydziału i limity dla usługi Azure Batch)](batch-quota-limit.md). Przyczyną tego, że pula nie osiągnęła docelowej liczby węzłów, może być przydział rdzeni.
 >
->
+>Na kontach usługi Batch utworzone przy użyciu konfiguracji subskrypcji użytkownika nie obowiązują przydziały usługi Batch. Zamiast tego współużytkują one przydział rdzeni określonej subskrypcji. Aby uzyskać więcej informacji, zobacz sekcję [Virtual Machines limits (Limity maszyn wirtualnych)](../azure-subscription-service-limits.md#virtual-machines-limits) w artykule [Azure subscription and service limits, quotas, and constraints (Ograniczenia, przydziały i limity usług i subskrypcji platformy Azure)](../azure-subscription-service-limits.md).
 
-## <a name="job"></a>Zadanie
+<a id="compute-node-operating-system-and-version" class="xliff"></a>
+
+### Wersja i system operacyjny węzła obliczeniowego
+
+Podczas tworzenia puli usługi Batch można określić konfigurację maszyny wirtualnej platformy Azure i typ systemu operacyjnego, który chcesz uruchomić w każdym węźle obliczeniowym w puli. Dwa typy konfiguracji dostępne w usłudze Batch to:
+
+- **Konfiguracja maszyny wirtualnej**, która określa, że pula składa się z maszyn wirtualnych platformy Azure. Te maszyny wirtualne można tworzyć na podstawie obrazów systemu Windows albo Linux. 
+
+    Podczas tworzenia puli na podstawie konfiguracji usługi Virtual Machines należy określić nie tylko rozmiar węzłów i obrazów użytych do ich utworzenia, ale także **odwołanie do obrazu maszyny wirtualnej** i **jednostkę SKU węzła agenta** usługi Batch do zainstalowania w węzłach. Więcej informacji na temat określania powyższych właściwości puli znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizowanie węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
+
+- **Konfiguracja maszyny wirtualnej**, która określa, że pula składa się z węzłów usługi Azure Cloud Services. Usługi Cloud Services oferują *tylko* węzły obliczeniowe systemu Windows.
+
+    Listę systemów operacyjnych dostępnych dla pul konfiguracji usług Cloud Services można znaleźć w temacie [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md) (Macierz zgodności zestawów SDK i wersji systemów operacyjnych gościa platformy Azure). Podczas tworzenia puli, która zawiera węzły usług Cloud Services, należy określić rozmiar węzła i jego *rodzinę systemów operacyjnych*. Usługi Cloud Services są wdrażane na platformie Azure szybciej niż maszyny wirtualne z systemem Windows. Jeśli potrzebujesz pul systemu Windows, może się okazać, że usługi Cloud Services oferują korzystną wydajność związaną z czasem wdrażania.
+
+    * *Rodzina systemów operacyjnych* określa też, które wersje platformy .NET są instalowane z systemem operacyjnym.
+    * Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services można określić *wersję systemu operacyjnego* (więcej informacji o rolach procesów roboczych można znaleźć w sekcji [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) (Więcej informacji o usługach Cloud Services) w temacie [Compute Hosting Options Provided by Azure](../cloud-services/cloud-services-choose-me.md) (Opcje hostingu obliczeniowego dostępne na platformie Azure)).
+    * Tak samo jak w przypadku ról procesów roboczych zaleca się określenie `*` dla *wersji systemu operacyjnego*, aby węzły były uaktualniane automatycznie, a niedawno wydane wersje nie wymagały żadnej pracy. Podstawowym warunkiem wybrania określonej wersji systemu operacyjnego jest upewnienie się, czy została zachowana zgodność aplikacji, przez zezwolenie na testowanie zgodności z poprzednimi wersjami przed zezwoleniem na aktualizację wersji. Po zakończeniu walidacji można zaktualizować *wersję systemu operacyjnego* dla puli i zainstalować nowy obraz systemu operacyjnego — wszystkie uruchomione zadania podrzędne zostaną przerwane i ponownie umieszczone w kolejce.
+
+Zobacz sekcję [Account (Konto)](#account), aby uzyskać informacje na temat ustawiania trybu alokacji puli podczas tworzenia konta usługi Batch.
+
+<a id="custom-images-for-virtual-machine-pools" class="xliff"></a>
+
+#### Niestandardowe obrazy dla pul usługi Virtual Machines
+
+Aby używać obrazów niestandardowych dla pul usługi Virtual Machines, utwórz konto usługi Batch przy użyciu konfiguracji konta użytkownika subskrypcji. W tej konfiguracji pule usługi Batch są przydzielane do subskrypcji, w której znajduje się konto. Zobacz sekcję [Account (Konto)](#account), aby uzyskać informacje na temat ustawiania trybu alokacji puli podczas tworzenia konta usługi Batch.
+
+Aby utworzyć pulę konfiguracji usługi Virtual Machines przy użyciu niestandardowego obrazu, będziesz potrzebować co najmniej jednego standardowego konta usługi Azure Storage do przechowywania niestandardowych obrazów wirtualnego dysku twardego. Obrazy niestandardowe są przechowywane jako obiekty blob. Aby odwoływać się do obrazów niestandardowych podczas tworzenia puli, określ identyfikatory URI obiektów blob dysku VHD obrazu niestandardowego dla właściwości [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) właściwości [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
+
+Upewnij się, że konta magazynu spełniają następujące kryteria:   
+
+- Konta magazynu zawierające obiekty blob niestandardowych obrazów dysku VHD muszą znajdować się w tej samej subskrypcji, co konto usługi Batch (subskrypcja użytkownika).
+- Wybrane konta magazynu kont muszą znajdować się w tym samym regionie, co konto usługi Batch.
+- Obecnie są obsługiwane tylko standardowe konta magazynu. Usługa Azure Premium Storage będzie obsługiwana w przyszłości.
+- Możesz określić jedno konto magazynu z wieloma niestandardowymi obiektami blob dysku VHD lub wiele kont magazynu, każde z pojedynczym obiektem blob. W celu uzyskania lepszej wydajności zalecamy użycie wielu kont magazynu.
+- Jeden unikatowy obiekt blob obrazu niestandardowego dysku VHD może obsługiwać maksymalnie 40 wystąpień maszyny wirtualnej z systemem Linux lub 20 wystąpień maszyny wirtualnej z systemem Windows. Trzeba utworzyć kopie obiektu blob dysku VHD, aby utworzyć pule z większą liczbą maszyn wirtualnych. Na przykład pula 200 maszyn wirtualnych z systemem Windows wymaga określenia 10 unikatowych obiektów blob dysku VHD we właściwości **osDisk**.
+
+W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId**w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Aby uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła do ich odwołań obrazu systemu operacyjnego, można wywołać operację [Tworzenie listy obsługiwanych jednostek SKU agenta węzła](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+
+Aby utworzyć pule na podstawie obrazu niestandardowego za pomocą witryny Azure Portal:
+
+1. W witrynie Azure Portal przejdź do swojego konta usługi Batch.
+2. W bloku **Ustawienia** wybierz element menu **Pule**.
+3. W bloku **Pule** wybierz polecenie **Dodaj**. Zostanie wyświetlony blok **Dodawanie puli**.
+4. Wybierz pozycję **Obraz niestandardowy (Linux/Windows)** z listy rozwijanej **Typ obrazu**. Portal zawiera selektor **Obraz niestandardowy**. Wybierz co najmniej jeden dysk VHD z tego samego kontenera i kliknij przycisk **Wybierz**. 
+    Obsługa wielu dysków VHD z poziomu różnych kont magazynu i różnych kontenerów zostanie dodana w przyszłości.
+5. Wybierz poprawnego **wydawcę/ofertę/jednostkę SKU** dla niestandardowych dysków VHD, wybierz żądany tryb **buforowania**, a następnie wypełnij wszystkie inne parametry puli.
+6. Aby sprawdzić, czy pula jest oparta na obrazie niestandardowym, zobacz właściwość **System operacyjny** w sekcji podsumowania zasobów w bloku **Pula**. Wymagana wartość tej właściwości to **Niestandardowy obraz maszyny wirtualnej**.
+7. Wszystkie niestandardowe dyski VHD skojarzone z pulą są wyświetlane w bloku **Właściwości** puli.
+
+<a id="compute-node-type-and-target-number-of-nodes" class="xliff"></a>
+
+### Typ węzła obliczeniowego i docelowa liczba węzłów
+
+Podczas tworzenia puli można określić pożądane typy węzłów obliczeniowych i docelową liczbę każdego z nich. Istnieją dwa typy węzłów obliczeniowych:
+
+- **Dedykowane węzły obliczeniowe.** Dedykowane węzły obliczeniowe są zarezerwowane dla konkretnych obciążeń. Są one droższe niż węzły o niskim priorytecie, ale mają gwarancję, że nigdy nie zostaną przerwane.
+
+- **Węzły obliczeniowe o niskim priorytecie.** Węzły o niskim priorytecie wykorzystują nadwyżkę wydajności na platformie Azure do uruchamiania obciążeń usługi Batch. Węzły o niskim priorytecie są tańsze (niższe stawki za godzinę) niż węzły dedykowane i umożliwiają obsługiwanie obciążeń wymagających dużej mocy obliczeniowej. Aby uzyskać więcej informacji, zobacz [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Korzystanie z maszyn wirtualnych o niskim priorytecie z usługą Batch).
+
+    Węzły obliczeniowe o niskim priorytecie mogą być przerywane, jeśli na platformie Azure nie będzie wystarczającej nadwyżki wydajności. Jeśli węzeł zostanie przerwany podczas przetwarzania zadań, zadania te są ponownie umieszczane w kolejce, a następnie ponownie uruchamiane, kiedy węzeł obliczeniowy znowu stanie się dostępny. Węzły o niskim priorytecie są dobrą opcją w przypadku obciążeń, dla których czas ukończenia zadania jest elastyczny, a praca jest rozproszona na wielu węzłach. Przed podjęciem decyzji o użyciu węzłów niskiego priorytetu dla danego scenariusza upewnij się, że w wyniku nadpisania praca zostanie utracona w minimalnym zakresie i że będzie można ją łatwo odtworzyć.
+
+    Węzły obliczeniowe o niskim priorytecie są dostępne tylko dla kont usługi Batch, które zostały utworzone z trybem alokacji puli ustawionym na wartość **Usługa Batch**.
+
+W tej samej puli mogą istnieć węzły obliczeniowe o niskim priorytecie i węzły dedykowane. Każdy typ węzła &mdash; o niskim priorytecie i dedykowany &mdash; ma swoje własne ustawienie docelowe, dla którego można określić żądaną liczbę węzłów. 
+    
+Liczbę węzłów obliczeniowych określa się jako *docelową*, ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Na przykład pula może nie osiągnąć wartości docelowej, jeśli wcześniej zostanie osiągnięty [podstawowy przydział](batch-quota-limit.md) dla konta usługi Batch. Pula może również nie osiągnąć wartości docelowej, jeśli zastosowano formułę skalowania automatycznego do puli, która ogranicza maksymalną liczbę węzłów.
+
+Aby uzyskać informacje dotyczące cen węzłów obliczeniowych o niskim priorytecie i dedykowanych węzłów obliczeniowych, zobacz [Batch — cennik](https://azure.microsoft.com/pricing/details/batch/).
+
+<a id="size-of-the-compute-nodes" class="xliff"></a>
+
+### Rozmiar węzłów obliczeniowych
+
+Lista rozmiarów węzłów obliczeniowych **konfiguracji usług Cloud Serivces** znajduje się w temacie [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Rozmiary dla usługi Cloud Services). Usługa Batch obsługuje wszystkie rozmiary usług Cloud Services oprócz `ExtraSmall`, `STANDARD_A1_V2` i `STANDARD_A2_V2`.
+
+Listę rozmiarów obliczeniowych **konfiguracji usługi Virtual Machines** można znaleźć w tematach [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md) (Linux) (Rozmiary maszyn wirtualnych na platformie Azure) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md) (Windows) (Rozmiary maszyn wirtualnych na platformie Azure) (Windows). Usługa Batch obsługuje wszystkie rozmiary maszyn wirtualnych platformy Azure oprócz `STANDARD_A0` i maszyn z usługi Premium Storage (seria `STANDARD_GS`, `STANDARD_DS` i `STANDARD_DSV2`).
+
+Podczas wybierania rozmiaru węzła obliczeniowego należy wziąć pod uwagę charakterystyki i wymagania aplikacji, które będą uruchamiane w poszczególnych węzłach. Takie czynniki jak to, czy aplikacja jest wielowątkowa oraz ile pamięci zużywa, mogą pomóc w wyborze najbardziej odpowiedniego i ekonomicznego rozmiar węzła. Rozmiar węzła jest zazwyczaj wybierany w oparciu o założenie, że w węźle będzie uruchamiane w danym momencie jedno zadanie. Podczas wykonywania zadania można jednak [równolegle uruchomić](batch-parallel-node-tasks.md) wiele zadań podrzędnych, a co za tym idzie — wielu wystąpień aplikacji. W takiej sytuacji zwykle wybiera się większy rozmiar węzła w celu sprostania zwiększonemu zapotrzebowaniu na równoległe wykonywanie zadań podrzędnych. Aby uzyskać więcej informacji, zobacz [Zasady planowania zadań podrzędnych](#task-scheduling-policy).
+
+Wszystkie węzły w puli mają taki sam rozmiar. Jeśli planujesz uruchamiać aplikacje z różnymi wymaganiami systemowymi i/lub poziomami obciążenia, zalecamy użycie oddzielnych pul.
+
+<a id="scaling-policy" class="xliff"></a>
+
+### Zasady skalowania
+
+W przypadku obciążeń dynamicznych można zapisać i zastosować do puli [formułę automatycznego skalowania](#scaling-compute-resources). Usługa Batch okresowo oblicza formułę i dostosowuje liczbę węzłów w ramach puli na podstawie różnych wybieranych parametrów puli, zadań i zadań podrzędnych.
+
+<a id="task-scheduling-policy" class="xliff"></a>
+
+### Zasady planowania zadań podrzędnych
+
+Opcja konfiguracji [maksymalnej liczby zadań podrzędnych na węzeł](batch-parallel-node-tasks.md) określa maksymalną liczbę zadań podrzędnych, które można uruchomić równolegle na poszczególnych węzłach obliczeniowych w ramach puli.
+
+Domyślna konfiguracja polega na tym, że w danym momencie w węźle jest uruchamiane jedno zadanie podrzędne, ale istnieją scenariusze, w których korzystne jest, aby w danym momencie w węźle było wykonywanych więcej zadań podrzędnych. Zobacz [przykładowy scenariusz](batch-parallel-node-tasks.md#example-scenario) w artykule dotyczącym [równoczesnych zadań podrzędnych węzła](batch-parallel-node-tasks.md), aby dowiedzieć się, jak można korzystać z wielu zadań podrzędnych w jednym węźle.
+
+Można również określić *typ wypełnienia*, który decyduje o tym, czy usługa Batch rozdziela zadania równomiernie we wszystkich węzłach w puli, czy też zapełnia poszczególne węzły maksymalną liczbą zadań przed przypisaniem zadań do innego węzła.
+
+<a id="communication-status-for-compute-nodes" class="xliff"></a>
+
+### Stan komunikacji węzłów obliczeniowych
+
+W większości przypadków zadania podrzędne działają niezależnie i nie muszą komunikować się ze sobą. Jednak w niektórych aplikacjach będzie wymagana komunikacja między zadaniami podrzędnymi (np. w [scenariuszach MPI](batch-mpi.md)).
+
+Możesz skonfigurować pulę w celu umożliwienia **komunikacji międzywęzłowej**, aby węzły w danej puli mogły komunikować się w czasie wykonywania. Po włączeniu komunikacji międzywęzłowej węzły w pulach konfiguracji usług Cloud Services mogą komunikować się ze sobą na portach większych niż 1100, a w przypadku pul konfiguracji usługi Virtual Machines ruch nie jest ograniczony do żadnego portu.
+
+Warto zauważyć, że włączenie komunikacji międzywęzłowej również ma wpływ na rozmieszczenie węzłów w ramach klastrów i może ograniczać maksymalną liczbę węzłów w puli z powodu ograniczeń wdrożenia. Jeśli aplikacja nie wymaga komunikacji między węzłami, usługa Batch może przydzielić potencjalnie dużą liczbę węzłów do puli z wielu różnych klastrów i centrów danych, aby umożliwić zwiększenie mocy przetwarzania równoległego.
+
+<a id="start-tasks-for-compute-nodes" class="xliff"></a>
+
+### Zadanie podrzędne uruchamiania dla węzłów obliczeniowych
+
+Opcjonalne *zadanie podrzędne uruchamiania* jest wykonywane w każdym węźle po dołączeniu go do puli oraz za każdym razem, gdy węzeł zostanie ponownie uruchomiony lub odtworzony z obrazu. Zadanie podrzędne uruchamiania jest szczególnie przydatne w przypadku przygotowywania węzłów obliczeniowych do wykonywania zadań podrzędnych, takich jak instalowanie aplikacji, które będą uruchamiane przez zadania podrzędne w tych węzłach.
+
+<a id="application-packages" class="xliff"></a>
+
+### Pakiety aplikacji
+
+Można wybrać [pakiety aplikacji](#application-packages) do wdrożenia w węzłach obliczeniowych w puli. Pakiety aplikacji umożliwiają uproszczone wdrażanie aplikacji uruchamianych w ramach zadań podrzędnych oraz zarządzanie ich wersjami. Pakiety aplikacji wybrane dla puli są instalowane w każdym węźle dołączanym do puli oraz za każdym razem, gdy węzeł jest ponownie uruchamiany lub odtwarzany z obrazu. Pakiety aplikacji nie są obecnie obsługiwane w węzłach obliczeniowych z systemem Linux.
+
+<a id="network-configuration" class="xliff"></a>
+
+### Konfiguracja sieci
+
+Możesz określić podsieć [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure, w której powinny zostać utworzone węzły obliczeniowe puli. Zobacz sekcję [Konfiguracja sieciowa puli](#pool-network-configuration), aby uzyskać więcej informacji.
+
+
+<a id="job" class="xliff"></a>
+
+## Zadanie
 Zadanie to kolekcja zadań podrzędnych. Umożliwia ono zarządzanie sposobem wykonywania obliczeń przez zadania podrzędne w węzłach obliczeniowych puli.
 
 * Zadanie określa **pulę**, w której będzie uruchamiana praca. Możesz utworzyć nową pulę dla każdego zadania lub używać jednej puli dla wielu zadań. Możesz utworzyć pulę dla każdego zadania skojarzonego z harmonogramem zadań lub dla wszystkich zadań skojarzonych z harmonogramem zadań.
@@ -193,17 +293,23 @@ Zadanie to kolekcja zadań podrzędnych. Umożliwia ono zarządzanie sposobem wy
 
     Pamiętaj, że usługa Batch traktuje zadanie *bez* zadań podrzędnych, jakby wszystkie zadania podrzędne zostały ukończone. W związku z tym ta opcja jest najczęściej używana w przypadku [zadania podrzędnego Menedżera zadań](#job-manager-task). Jeśli chcesz użyć opcji automatycznego przerywania zadań bez Menedżera zadań, musisz początkowo ustawić właściwość **onAllTasksComplete** nowego zadania na wartość *noaction*. Po dodaniu wszystkich podrzędnych do zadania zmień tę wartość na *terminatejob*.
 
-### <a name="job-priority"></a>Priorytet zadań
+<a id="job-priority" class="xliff"></a>
+
+### Priorytet zadań
 Zadaniom tworzonym w usłudze Batch można nadać priorytet. Usługa Batch używa wartości priorytetu zadania do określania kolejności planowania zadań w ramach konta (nie należy mylić tego pojęcia z [zadaniem zaplanowanym](#scheduled-jobs)). Wartości priorytetu mieszczą się w zakresie od -1000 do 1000, gdzie -1000 oznacza najniższy priorytet, a 1000 najwyższy. Aby zaktualizować priorytet zadania, wywołaj operację [Aktualizuj właściwości zadania][rest_update_job] (interfejs REST usługi Batch) lub zmień właściwość [CloudJob.Priority][net_cloudjob_priority] (platforma .NET usługi Batch).
 
 W ramach tego samego konta zadania o wyższym priorytecie mają pierwszeństwo planowania nad zadaniami o niższym priorytecie. Zadanie o wyższym priorytecie na jednym koncie nie ma pierwszeństwa planowania nad innym zadaniem o niższym priorytecie na innym koncie.
 
 Planowanie zadań między pulami odbywa się niezależnie. Między różnymi pulami nie ma żadnej gwarancji, że zadanie o wyższym priorytecie zostanie zaplanowane jako pierwsze, jeśli w skojarzonej z nim puli brakuje bezczynnych węzłów. W tej samej puli zadania o tym samym priorytecie mają równe szanse na zaplanowanie.
 
-### <a name="scheduled-jobs"></a>Zaplanowane zadania
+<a id="scheduled-jobs" class="xliff"></a>
+
+### Zaplanowane zadania
 [Harmonogramy zadań][rest_job_schedules] umożliwiają tworzenie zadań cyklicznych w ramach usługi Batch. Harmonogram zadań określa, kiedy uruchamiać zadania i zawiera specyfikacje zadań do uruchomienia. Możesz wybrać czas trwania harmonogramu — jak długo i kiedy obowiązuje harmonogram — oraz jak często w tym okresie powinny być tworzone zadania.
 
-## <a name="task"></a>Zadanie
+<a id="task" class="xliff"></a>
+
+## Zadanie
 Zadanie podrzędne to jednostka obliczeniowa skojarzona z zadaniem. Jest ono uruchamiane w węźle. Zadania są przypisywane do węzła w celu wykonania lub są umieszczane w kolejce, dopóki węzeł nie zostanie zwolniony. Mówiąc prosto, zadanie podrzędne służy do uruchamiania co najmniej jednego programu lub skryptu w węźle obliczeniowym w celu wykonania założonej pracy.
 
 Podczas tworzenia zadania podrzędnego można określić:
@@ -230,7 +336,9 @@ Oprócz zadań podrzędnych zdefiniowanych do wykonywania obliczeń w węźle w 
 * [Zadania podrzędne obejmujące wiele wystąpień (MPI)](#multi-instance-tasks)
 * [Zależności zadań podrzędnych](#task-dependencies)
 
-### <a name="start-task"></a>Zadanie uruchamiania
+<a id="start-task" class="xliff"></a>
+
+### Zadanie uruchamiania
 Kojarząc **zadanie podrzędne uruchamiania** z pulą, można przygotować środowisko operacyjne dla jego węzłów. Na przykład można wykonać akcje, takie jak instalowanie aplikacji, które są uruchamiane w ramach zadań podrzędnych, i uruchamianie procesów w tle. Zadanie podrzędne uruchamiania jest uruchamiane za każdym razem, gdy zostaje uruchomiony węzeł, pod warunkiem, że pozostaje on w puli, również w przypadku gdy węzeł zostaje dodany do puli po raz pierwszy albo jest ponownie uruchamiany bądź odtwarzany z obrazu.
 
 Główną korzyścią płynącą z zadania podrzędnego uruchamiania jest to, że może ono zawierać wszystkie informacje niezbędne do konfiguracji węzła obliczeniowego oraz instalacji aplikacji potrzebnych do wykonania zadania podrzędnego. Dlatego zwiększenie liczby węzłów w puli jest proste jak określenie nowej liczby węzłów docelowych. Zadanie podrzędne uruchamiania udostępnia usłudze Batch informacje wymagane do skonfigurowania nowych węzłów i przygotowania ich do akceptowania zadań podrzędnych.
@@ -239,18 +347,25 @@ Podobnie jak w przypadku dowolnego zadania podrzędnego usługi Azure Batch, mo�
 
 Jednak zadanie podrzędne uruchamiania może również uwzględnić dane odwołania do użycia przez wszystkie zadania podrzędne, które są uruchamiane w węźle obliczeniowym. Można na przykład w wierszu polecenia zadania podrzędnego uruchamiania wykonać operację `robocopy` w celu skopiowania plików aplikacji (które zostały określone jako pliki zasobów i pobrane do węzła) z poziomu [katalogu roboczego](#files-and-directories) zadania podrzędnego uruchamiania do [folderu udostępnionego](#files-and-directories), a następnie uruchomić instalatora MSI lub `setup.exe`.
 
-> [!IMPORTANT]
-> Usługa Batch obsługuje obecnie *tylko* typ konta magazynu **ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach usługi Azure Storage](../storage/storage-create-storage-account.md). Zadania podrzędne usługi Batch (w tym standardowe, uruchamiania oraz przygotowania i zwolnienia zadań) muszą określać pliki zasobów, które znajdują się *tylko* na kontach magazynu **ogólnego przeznaczenia**.
->
->
-
 Zwykle najlepiej jest, jeśli usługa Batch będzie oczekiwać na zakończenie zadania podrzędnego uruchamiania, zanim będzie można uznać węzeł za gotowy do przypisania do niego zadań podrzędnych, ale można to ustawienie skonfigurować.
 
 Jeśli zadanie podrzędne uruchamiania w węźle obliczeniowym zakończy się niepowodzeniem, stan węzła zostanie zaktualizowany w celu poinformowania o awarii i węzeł nie będzie przypisany do żadnych zadań podrzędnych. Zadanie podrzędne uruchamiania może zakończyć się niepowodzeniem, jeśli wystąpi problem z kopiowaniem plików zasobów z magazynu lub jeśli proces wykonywany przez wiersz polecenia zwróci kod zakończenia różny od zera.
 
-W przypadku dodawania lub aktualizacji zadania podrzędnego uruchamiania do *istniejącej* puli należy ponownie uruchomić jego węzły obliczeniowe w celu zastosowania zadania podrzędnego uruchamiania do węzłów.
+W przypadku dodawania lub aktualizacji zadania podrzędnego uruchamiania do istniejącej puli należy ponownie uruchomić jego węzły obliczeniowe w celu zastosowania zadania podrzędnego uruchamiania do węzłów.
 
-### <a name="job-manager-task"></a>Zadanie Menedżera zadań
+>[!NOTE]
+> Całkowity rozmiar zadania podrzędnego uruchamiania musi wynosić 32 768 znaków, w tym pliki zasobów lub zmienne środowiskowe, lub być mniejszy. Aby upewnić się, że zadanie podrzędne uruchamiania spełnia to wymaganie, można użyć jednej z dwóch metod:
+>
+> 1. Można rozpowszechniać dane lub aplikacje w poszczególnych węzłach puli usługi Batch za pomocą aplikacji. Aby uzyskać więcej informacji na temat pakietów aplikacji, zobacz [Application deployment with Azure Batch application packages (Wdrażanie aplikacji za pomocą pakietów aplikacji usługi Azure Batch)](batch-application-packages.md).
+> 2. Możesz ręcznie utworzyć skompresowane archiwum zawierające pliki aplikacji. Przekaż skompresowane archiwum do usługi Azure Storage jako obiekt blob. Określ skompresowane archiwum jako plik zasobów dla zadania podrzędnego uruchamiania. Przed uruchomieniem wiersza polecenia zadania podrzędnego uruchamiania rozpakuj archiwum z wiersza polecenia. 
+>
+>    Aby rozpakować archiwum, można użyć wybranego narzędzia do archiwizacji. Narzędzie użyte do rozpakowywania archiwum trzeba będzie uwzględnić jako plik zasobów zadania podrzędnego uruchamiania.
+>
+>
+
+<a id="job-manager-task" class="xliff"></a>
+
+### Zadanie Menedżera zadań
 **Zadanie podrzędne Menedżera zadań** jest zazwyczaj używane do kontrolowania i/lub monitorowania wykonywania zadań — na przykład w celu utworzenia i przesłania zadań podrzędnych powiązanych z zadaniem należy określić dodatkowe zadania podrzędne do uruchomienia i wybrać termin zakończenia pracy. Zadanie podrzędne Menedżera zadań nie jest jednak ograniczone do tych działań. Jest to w pełni użyteczne zadanie podrzędne, które może wykonywać wszystkie akcje wymagane dla zadania. Na przykład zadanie podrzędne Menedżera zadań może pobrać plik określony jako parametr, przeanalizować zawartość tego pliku i przesłać dodatkowe zadania podrzędne na podstawie tej zawartości.
 
 Zadanie podrzędne Menedżera zadań jest uruchamiane przed innymi zadaniami podrzędnymi. Oferuje ono następujące funkcje:
@@ -262,7 +377,9 @@ Zadanie podrzędne Menedżera zadań jest uruchamiane przed innymi zadaniami pod
 * Zadanie podrzędne Menedżera zadań otrzymuje najwyższy priorytet, jeśli musi zostać ponownie uruchomione. Jeśli węzeł bezczynny jest niedostępny, usługa Batch może przerwać jedno z innych uruchomionych zadań podrzędnych w puli, aby zwolnić miejsce na uruchomienie zadania podrzędnego Menedżera zadań.
 * Zadanie Menedżera zadań w ramach jednego zadania nie ma pierwszeństwa przed zadaniami innych zadań. W zadaniach przestrzegane są tylko priorytety na poziomie zadań.
 
-### <a name="job-preparation-and-release-tasks"></a>Zadania przygotowania i zwolnienia zadań
+<a id="job-preparation-and-release-tasks" class="xliff"></a>
+
+### Zadania przygotowania i zwolnienia zadań
 Usługa Batch oferuje zadania podrzędne przygotowywania zadania na potrzeby konfiguracji przed wykonaniem zadania. Zadania podrzędne zwolnienia zadania to zadania konserwacji lub czyszczenia po wykonaniu zadania.
 
 * **Zadanie podrzędne przygotowania zadania** — zadanie podrzędne przygotowania zadania jest uruchamiane na wszystkich węzłach obliczeniowych zaplanowanych do uruchamiania zadań podrzędnych, zanim zostaną wykonane inne zadania podrzędne zadania. Zadanie podrzędne przygotowania zadania umożliwia kopiowanie danych udostępnionych wszystkim zadaniom podrzędnym, ale na przykład unikatowych dla zadania.
@@ -272,12 +389,16 @@ Zadania podrzędne przygotowania i zwolnienia zadania pozwalają na wybranie wie
 
 Więcej informacji na temat zadań przygotowania i zwolnienia zadań znajduje się w temacie [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md) (Uruchamianie zadań przygotowania i ukończenia zadań w węzłach obliczeniowych w usłudze Azure Batch).
 
-### <a name="multi-instance-task"></a>Zadanie podrzędne obejmujące wiele wystąpień
+<a id="multi-instance-task" class="xliff"></a>
+
+### Zadanie podrzędne obejmujące wiele wystąpień
 [Zadanie obejmujące wiele wystąpień](batch-mpi.md) jest zadaniem, które jest konfigurowane do uruchamiania w więcej niż jednym węźle obliczeniowym równocześnie. Zadania podrzędne obejmujące wiele wystąpień umożliwiają wdrożenie scenariuszy obliczeń o wysokiej wydajności, które wymagają grupy węzłów obliczeniowych alokowanych wspólnie do przetwarzania pojedynczego obciążenia (np. interfejs MPI).
 
 Szczegółowe omówienie dotyczące uruchamiania zadań MPI w usłudze Batch przy użyciu biblioteki usługi Batch dla platformy .NET znajdują się w temacie [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md) (Używanie zadań podrzędnych obejmujących wiele wystąpień do uruchamiania aplikacji MPI w usłudze Azure Batch).
 
-### <a name="task-dependencies"></a>Zależności zadań
+<a id="task-dependencies" class="xliff"></a>
+
+### Zależności zadań
 [Zależności zadań podrzędnych](batch-task-dependencies.md), jak sama nazwa wskazuje, pozwalają na określenie, że wykonanie zadania podrzędnego zależy od ukończenia innych zadań tego typu. Ta funkcja zapewnia obsługę w sytuacjach, w których zadanie „podrzędne” pobiera dane wyjściowe zadania „nadrzędnego” lub gdy zadanie nadrzędne wykonuje inicjowanie wymagane przez zadanie podrzędne. Aby użyć tej funkcji, należy najpierw włączyć zależności zadania w zadaniu w usłudze Batch. Następnie dla każdego zadania, które jest zależne od innego (lub wielu innych) określ zadania, od których zadanie zależy.
 
 Zależności zadań podrzędnych umożliwiają konfigurację takich scenariuszy jak poniższe:
@@ -288,7 +409,9 @@ Zależności zadań podrzędnych umożliwiają konfigurację takich scenariuszy 
 
 Zapoznaj się z tematem [Task dependencies in Azure Batch](batch-task-dependencies.md) (Zależności zadań podrzędnych w usłudze Azure Batch) oraz przykładem kodu [TaskDependencies][github_sample_taskdeps] w repozytorium GitHub [azure-batch-samples][github_samples] w celu uzyskania szczegółowych informacji o tej funkcji.
 
-## <a name="environment-settings-for-tasks"></a>Ustawienia środowiska dla zadań
+<a id="environment-settings-for-tasks" class="xliff"></a>
+
+## Ustawienia środowiska dla zadań
 Każde zadanie podrzędne wykonywane przez usługę Batch ma dostęp do zmiennych środowiskowych ustawionych w węzłach obliczeniowych. Obejmuje to zmienne środowiskowe zdefiniowane przez usługę Batch ([zdefiniowane przez usługę][msdn_env_vars]) i niestandardowe zmienne środowiskowe, które można zdefiniować dla zadań podrzędnych. Aplikacje i skrypty wykonywane przez zadania podrzędne mają dostęp do tych zmiennych środowiskowych podczas wykonywania.
 
 Można ustawić niestandardowe zmienne środowiskowe na poziomie zadania podrzędnego lub zadania, podając informacje o właściwości *ustawień środowiska* dla tych jednostek. Zobacz na przykład operację [Dodaj zadanie podrzędne do zadania][rest_add_task] (interfejs API REST usługi Batch) lub właściwości [CloudTask.EnvironmentSettings][net_cloudtask_env] i [CloudJob.CommonEnvironmentSettings][net_job_env] na platformie .NET usługi Batch.
@@ -297,7 +420,9 @@ Usługa lub aplikacja kliencka może pobrać zmienne środowiskowe zadania podrz
 
 Pełna lista wszystkich zmiennych środowiskowych zdefiniowanych przez usługę jest dostępna w artykule dotyczącym [zmiennych środowiskowych węzłów obliczeniowych][msdn_env_vars].
 
-## <a name="files-and-directories"></a>Pliki i katalogi
+<a id="files-and-directories" class="xliff"></a>
+
+## Pliki i katalogi
 Każde zadanie podrzędne ma *katalog roboczy*, w którym tworzy pliki i katalogi (ich liczba może również wynosić zero). Ten katalog roboczy może służyć do przechowywania programu uruchamianego przez zadanie podrzędne, przetwarzania danych oraz danych końcowych przetwarzania. Wszystkie pliki i katalogi zadania podrzędnego należą do użytkownika zadania podrzędnego.
 
 Usługa Batch przedstawia część systemu plików w węźle w postaci *katalogu głównego*. Zadania podrzędne mogą uzyskać dostęp do katalogu głównego, odwołując się do zmiennej środowiskowej `AZ_BATCH_NODE_ROOT_DIR`. Więcej informacji na temat korzystania ze zmiennych środowiskowych znajduje się w temacie[Environment settings for tasks](#environment-settings-for-tasks) (Ustawienia środowiska dla zadań).
@@ -319,7 +444,9 @@ Katalog główny zawiera następującą strukturę katalogu:
 >
 >
 
-## <a name="application-packages"></a>Pakiety aplikacji
+<a id="application-packages" class="xliff"></a>
+
+## Pakiety aplikacji
 Funkcja [pakietów aplikacji](batch-application-packages.md) umożliwia łatwe zarządzanie aplikacjami oraz ich wdrażanie do węzłów obliczeniowych w pulach. Można przekazywać wiele wersji aplikacji uruchamianych przez zadania podrzędne, w tym pliki binarne i pliki obsługi, oraz zarządzać tymi wersjami. Następnie można automatycznie wdrożyć co najmniej jedną z tych aplikacji w węzłach obliczeniowych puli.
 
 Pakiety aplikacji może wybierać na poziomie puli i zadania podrzędnego. Po określeniu pakietów aplikacji w puli aplikacja jest wdrażana w każdym węźle puli. Po określeniu zadań pakietów aplikacji dla zadania podrzędnego aplikacja jest wdrażana tylko w węzłach, w których zaplanowano co najmniej jedno z zadań podrzędnych zadania, przed uruchomieniem wiersza polecenia zadania podrzędnego.
@@ -333,7 +460,9 @@ Więcej informacji na temat funkcji pakietu aplikacji znajduje się w temacie [A
 >
 >
 
-## <a name="pool-and-compute-node-lifetime"></a>Okres istnienia puli i węzła obliczeniowego
+<a id="pool-and-compute-node-lifetime" class="xliff"></a>
+
+## Okres istnienia puli i węzła obliczeniowego
 Podczas opracowywania rozwiązania usługi Azure Batch należy podjąć decyzję projektową dotyczącą tego, jak i kiedy będą tworzone pule i jak długo będą dostępne w tych pulach węzły obliczeniowe.
 
 Z jednej strony można utworzyć pulę dla każdego przesyłanego zadania i usunąć pulę, gdy tylko zakończy się wykonywanie zadań podrzędnych. Pozwala to maksymalnie zwiększyć użycie, ponieważ węzły są przydzielane tylko wtedy, gdy to konieczne, i są zamykane, gdy tylko przejdą w stan bezczynności. Oznacza to, że zadanie musi oczekiwać na przydzielenie węzłów, jednak należy pamiętać, że zadania podrzędne zostaną zaplanowane do wykonania, gdy tylko poszczególne węzły zostaną udostępnione, przydzielone, a zadanie podrzędne uruchamiania zostanie ukończone. Usługa Batch *nie* oczekuje, aż wszystkie węzły w puli zostaną udostępnione przed przypisaniem zadań podrzędnych do węzłów. Dzięki temu zapewnia maksymalne wykorzystanie wszystkich dostępnych węzłów.
@@ -342,24 +471,48 @@ Z drugiej strony, jeśli natychmiastowe uruchomienie zadań ma najwyższy priory
 
 W przypadku zmiennego, ale ciągłego obciążenia zwykle jest stosowane rozwiązanie mieszane. Możesz korzystać z puli, do której przesyła się wiele zadań, ale która może skalować liczbę węzłów w górę lub w dół zgodnie z obciążeniem zadania (zobacz [Skalowanie zasobów obliczeniowych](#scaling-compute-resources) w poniższej sekcji). Można to zrobić w sposób reaktywny, w oparciu o bieżące obciążenie, lub aktywny, jeśli obciążenie można przewidzieć.
 
-## <a name="pool-network-configuration"></a>Konfiguracja sieciowa puli
+<a id="pool-network-configuration" class="xliff"></a>
 
-Podczas tworzenia puli węzłów obliczeniowych w usłudze Azure Batch możesz użyć interfejsów API, aby określić identyfikator [sieci wirtualnej (VNet)](../virtual-network/virtual-networks-overview.md) platformy Azure, w której powinny zostać utworzone węzły obliczeniowe puli.
+## Konfiguracja sieciowa puli
+
+Podczas tworzenia puli węzłów obliczeniowych w usłudze Azure Batch możesz określić identyfikator podsieci [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure, w której powinny zostać utworzone węzły obliczeniowe puli.
 
 * Sieć wirtualna musi być:
 
    * W tym samym **regionie** świadczenia usługi Azure jako konto usługi Azure Batch.
    * W tej samej **subskrypcji** platformy Azure jako konto usługi Azure Batch.
 
-* Sieci wirtualne powinny mieć dostatecznie dużo wolnych **adresów IP**, aby pomieścić właściwość `targetDedicated` puli. Jeśli podsieć nie ma wystarczającej liczby wolnych adresów IP, usługa Batch częściowo przydzieli węzły obliczeniowe w puli, a następnie zwróci błąd dotyczący zmiany rozmiaru.
+* Obsługiwany typ sieci wirtualnej zależy od sposobu przydzielania pul dla konta usługi Batch:
+    - Jeśli konto usługi Batch zostało utworzone z odpowiednią właściwością **poolAllocationMode** ustawioną na „BatchService”, wybrana sieć wirtualna musi być klasyczną siecią wirtualną.
+    - Jeśli konto usługi Batch zostało utworzone z odpowiednią właściwością **poolAllocationMode** ustawioną na „UserSubscription”, wybrana sieć wirtualna musi być klasyczną siecią wirtualną lub siecią wirtualną usługi Azure Resource Manager. Aby korzystać z sieci wirtualnej, należy utworzyć pule przy użyciu konfiguracji maszyny wirtualnej. Pule utworzone przy użyciu konfiguracji usługi w chmurze nie są obsługiwane.
+
+* Jeśli konto usługi Batch zostało utworzone z odpowiednią właściwością **poolAllocationMode** ustawioną na „BatchService”, musisz udostępnić uprawnienia dla jednostki usługi Batch w celu uzyskania dostępu do sieci wirtualnej. Jednostka usługi Batch o nazwie „Microsoft Azure Batch” lub „MicrosoftAzureBatch” musi mieć rolę [współautora klasycznej maszyny wirtualnej z kontrolą dostępu opartą na rolach (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) dla określonej sieci wirtualnej. Jeśli wybrana rola RBAC jest niedostępna, usługa Batch zwraca wartość 400 (nieprawidłowe żądanie).
+
+* Określona podsieć powinna mieć wystarczającą liczbę wolnych **adresów IP**, aby uwzględnić łączną liczbę węzłów docelowych, czyli sumę właściwości `targetDedicatedNodes` i `targetLowPriorityNodes` puli. Jeśli podsieć nie ma wystarczającej liczby wolnych adresów IP, usługa Batch częściowo przydzieli węzły obliczeniowe w puli, a następnie zwróci błąd dotyczący zmiany rozmiaru.
 
 * Określona podsieć musi zezwalać na komunikację z usługą Batch, aby umożliwiać planowanie zadań w węzłach obliczeniowych. Jeśli komunikacja z węzłami obliczeniowymi zostanie odrzucona przez **sieciową grupę zabezpieczeń** skojarzoną z siecią wirtualną, usługa Batch ustawia stan węzłów obliczeniowych na **nienadające się do użytku**.
 
-* Jeśli określona sieć wirtualna ma jakiekolwiek skojarzone sieciowe grupy zabezpieczeń, musi być włączona komunikacja przychodząca. W przypadku pul systemów Linux i Windows porty 29876 i 29877 muszą być włączone. Opcjonalnie można też włączyć (lub selektywnie filtrować) port 22 dla protokołu SSH w pulach systemu Linux lub port 3389 dla protokołu RDP w pulach systemu Windows.
+* Jeśli określona sieć wirtualna ma skojarzone sieciowe grupy zabezpieczeń, należy włączyć kilka zarezerwowanych portów systemu na potrzeby komunikacji przychodzącej. W przypadku pul utworzonych za pomocą konfiguracji maszyny wirtualnej włącz porty 29876 i 29877 oraz port 22 dla systemu Linux i port 3389 dla systemu Windows. W przypadku pul utworzonych za pomocą konfiguracji usługi w chmurze włącz porty 10100, 20100 i 30100. Ponadto włącz połączenia wychodzące do usługi Azure Storage w porcie 443.
+
+    W poniższej tabeli opisano porty dla ruchu przychodzącego, które należy włączyć w przypadku pul utworzonych za pomocą konfiguracji maszyny wirtualnej:
+
+    |    Porty docelowe    |    Źródłowy adres IP      |    Czy usługa Batch dodaje sieciowe grupy zabezpieczeń?    |    Wymagane do korzystania z maszyny wirtualnej?    |    Akcja użytkownika   |
+    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
+    |    <ul><li>W przypadku pul utworzonych za pomocą konfiguracji maszyny wirtualnej: 29876, 29877</li><li>W przypadku pul utworzonych za pomocą konfiguracji usługi w chmurze: 10100, 20100, 30100</li></ul>         |    Tylko adresy IP roli usługi Batch |    Tak. Usługa Batch dodaje sieciowe grupy zabezpieczeń na poziomie interfejsów sieciowych (kart sieciowych) dołączonych do maszyn wirtualnych. Te sieciowe grupy zabezpieczeń zezwalają tylko na ruch z adresów IP roli usługi Batch. Nawet jeśli otworzysz te porty dla całego Internetu, ruch zostanie zablokowany na poziomie karty sieciowej. |    Tak  |  Nie musisz określać sieciowej grupy zabezpieczeń, ponieważ usługa Batch zezwala tylko na adresy IP usługi Batch. <br /><br /> Jeśli jednak określisz sieciową grupę zabezpieczeń, upewnij się, że te porty zostały otwarte na potrzeby ruchu przychodzącego. <br /><br /> Jeśli wybierzesz * jako źródłowy adres IP w sieciowej grupie zabezpieczeń, usługa Batch również doda sieciowe grupy zabezpieczeń na poziomie kart sieciowych dołączonych do maszyn wirtualnych. |
+    |    3389, 22               |    Maszyny użytkownika używane dla celów debugowania, dzięki czemu można uzyskiwać zdalny dostęp do maszyny wirtualnej.    |    Nie                                    |    Nie                     |    Dodaj sieciowe grupy zabezpieczeń, jeśli chcesz zezwolić na zdalny dostęp (RDP/SSH) do maszyny wirtualnej.   |                 
+
+    W poniższej tabeli opisano port ruchu wychodzącego, który należy włączyć, aby zezwolić na dostęp do usługi Azure Storage:
+
+    |    Porty ruchu wychodzącego    |    Element docelowy    |    Czy usługa Batch dodaje sieciowe grupy zabezpieczeń?    |    Wymagane do korzystania z maszyny wirtualnej?    |    Akcja użytkownika    |
+    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
+    |    443    |    Azure Storage    |    Nie    |    Tak    |    Jeśli dodasz sieciowe grupy zabezpieczeń, sprawdź, czy ten port został otwarty na potrzeby ruchu wychodzącego.    |
+
 
 Dodatkowe ustawienia sieci wirtualnej zależą od trybu alokacji puli konta usługi Batch.
 
-### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Sieci wirtualne dla pul aprowizowanych w usłudze Batch
+<a id="vnets-for-pools-provisioned-in-the-batch-service" class="xliff"></a>
+
+### Sieci wirtualne dla pul aprowizowanych w usłudze Batch
 
 W trybie aplikacji usługi Batch sieć wirtualną można przypisać tylko do pul **konfiguracji usług Cloud Services**. Ponadto określona sieć wirtualna musi być **klasyczną** siecią wirtualną. Sieci wirtualne utworzone w modelu wdrażania przy użyciu usługi Azure Resource Manager nie są obsługiwane.
 
@@ -374,13 +527,17 @@ W trybie aplikacji usługi Batch sieć wirtualną można przypisać tylko do pul
 
 
 
-### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>Sieci wirtualne dla pul aprowizowanych w subskrypcji użytkownika
+<a id="vnets-for-pools-provisioned-in-a-user-subscription" class="xliff"></a>
+
+### Sieci wirtualne dla pul aprowizowanych w subskrypcji użytkownika
 
 W trybie alokacji subskrypcji użytkownika są obsługiwane tylko pule **konfiguracji maszyny wirtualnej**, do których można przypisać sieci wirtualne. Ponadto określona sieć wirtualna musi być siecią wirtualną opartą na usłudze **Resource Manager**. Sieci wirtualne utworzone za pomocą klasycznego modelu wdrażania nie są obsługiwane.
 
 
 
-## <a name="scaling-compute-resources"></a>Skalowanie zasobów obliczeniowych
+<a id="scaling-compute-resources" class="xliff"></a>
+
+## Skalowanie zasobów obliczeniowych
 [Skalowanie automatyczne](batch-automatic-scaling.md) pozwala na to, by usługa Batch dynamicznie dostosowywała liczbę węzłów obliczeniowych w puli zgodnie z bieżącym obciążeniem i użyciem zasobów w ramach scenariusza obliczeniowego. Dzięki temu można zmniejszyć całkowity koszt działania aplikacji przy użyciu tylko potrzebnych zasobów, zwalniając te zbędne.
 
 Automatyczne skalowanie można włączyć, pisząc [formułę automatycznego skalowania](batch-automatic-scaling.md#automatic-scaling-formulas) i kojarząc ją z pulą. Usługa Batch używa formuły do określenia docelowej liczby węzłów w puli dla kolejnego interwału skalowania (interwału, który możesz skonfigurować). Ustawienia automatycznego skalowania puli można wybrać podczas jej tworzenia. Można również włączyć skalowanie puli później. Masz również możliwość aktualizowania ustawień skalowania już włączonych w puli.
@@ -402,57 +559,80 @@ Więcej informacji na temat automatycznego skalowania aplikacji znajduje się w 
 >
 >
 
-## <a name="security-with-certificates"></a>Zabezpieczenia oparte na certyfikatach
+<a id="security-with-certificates" class="xliff"></a>
+
+## Zabezpieczenia oparte na certyfikatach
 Zazwyczaj certyfikatów należy użyć podczas szyfrowania i odszyfrowywania poufnych informacji dotyczących zadań podrzędnych, np. klucza [konta usługi Azure Storage][azure_storage]. Aby to umożliwić, można zainstalować certyfikaty w węzłach. Zaszyfrowane klucze tajne są przekazywane do zadań za pomocą parametrów wiersza polecenia lub osadzane w jednym z zasobów zadań, a zainstalowanych certyfikatów można użyć do ich odszyfrowania.
 
 Aby dodać certyfikat do konta usługi Batch, należy użyć operacji [Dodaj certyfikat][rest_add_cert] (interfejs API REST usługi Batch) lub metody [CertificateOperations.CreateCertificate][net_create_cert] (platforma .NET usługi Batch). Następnie można skojarzyć certyfikat z nową lub istniejącą pulą. Gdy certyfikat zostaje skojarzony z pulą, usługa Batch instaluje certyfikat w każdym węźle w puli. Usługa Batch instaluje odpowiednie certyfikaty podczas uruchamiania węzła przed uruchomieniem dowolnych zadań podrzędnych (w tym zadania podrzędnego uruchamiania i zadania podrzędnego Menedżera zadań).
 
 W przypadku dodawania certyfikatów do *istniejącej* puli należy ponownie uruchomić jej węzły obliczeniowe w celu zastosowania certyfikatów do węzłów.
 
-## <a name="error-handling"></a>Obsługa błędów
+<a id="error-handling" class="xliff"></a>
+
+## Obsługa błędów
 Może okazać się konieczne, aby obsługiwać błędy zadań i aplikacji w ramach rozwiązania usługi Batch.
 
-### <a name="task-failure-handling"></a>Obsługa błędów zadań
+<a id="task-failure-handling" class="xliff"></a>
+
+### Obsługa błędów zadań
 Błędy zadań można podzielić na następujące kategorie:
 
-* **Błędy planowania**
+* **Błędy przetwarzania wstępnego**
 
-    Jeśli transfer plików określony dla zadania podrzędnego nie powiedzie się z jakiegokolwiek powodu, dla tego zadania zostanie ustawiony *błąd planowania*.
+    Jeśli nie można uruchomić zadania, dla tego zadania zostanie ustawiony błąd przetwarzania wstępnego.  
 
-    Błędy planowania mogą być spowodowane tym, że pliki zasobów zadania podrzędnego zostały przeniesione, konto usługi Storage nie jest już dostępne lub wystąpił inny problem uniemożliwiający pomyślne skopiowanie plików do węzła.
+    Błędy przetwarzania wstępnego mogą być spowodowane tym, że pliki zasobów zadania podrzędnego zostały przeniesione, konto usługi Storage nie jest już dostępne lub wystąpił inny problem uniemożliwiający pomyślne skopiowanie plików do węzła.
+
+* **Błędy przekazywania plików**
+
+    Jeśli przekazywanie plików określonych dla zadania podrzędnego nie powiedzie się z jakiegokolwiek powodu, dla tego zadania zostanie ustawiony błąd przekazywania plików.
+
+    Błędy przekazywania plików mogą wystąpić, jeśli sygnatura dostępu współdzielonego podana na potrzeby dostępu do usługi Azure Storage jest nieprawidłowa lub nie oferuje uprawnień do zapisu, jeśli konto magazynu jest już niedostępne, lub jeśli wystąpił inny problem uniemożliwiający pomyślne skopiowanie plików z węzła.    
+
 * **Błędy aplikacji**
 
     Proces określony przez wiersz polecenia zadania podrzędnego może również zakończyć się niepowodzeniem. Proces zostaje uznany za nieudany, gdy proces wykonywany w ramach zadania zwróci kod zakończenia różny od zera (zobacz *Kody zakończenia zadania podrzędnego* w następnej sekcji).
 
     W przypadku błędów aplikacji można skonfigurować usługę Batch do automatycznego ponawiania próby wykonania zadania podrzędnego określoną liczbę razy.
+
 * **Błędy ograniczenia**
 
     Można ustawić ograniczenie określające maksymalny czas trwania zadania, *maxWallClockTime*. Może to być przydatne do zakończenia zadań, które nie mogą kontynuować działania.
 
     Po przekroczeniu maksymalnego czasu zadanie podrzędne jest oznaczane jako *ukończone*, ale kod zakończenia ma wartość `0xC000013A`, a pole *schedulingError* jest oznaczane jako `{ category:"ServerError", code="TaskEnded"}`.
 
-### <a name="debugging-application-failures"></a>Błędy debugowania aplikacji
+<a id="debugging-application-failures" class="xliff"></a>
+
+### Błędy debugowania aplikacji
 * `stderr` i `stdout`
 
     W czasie wykonywania aplikacja może tworzyć diagnostyczne dane wyjściowe, których można użyć do rozwiązywania problemów. Jak wspomniano we wcześniejszej sekcji [Pliki i katalogi](#files-and-directories), usługa Batch wysyła zapisuje standardowe dane wyjściowe i standardowe dane wyjściowe błędów w plikach `stdout.txt` i `stderr.txt` znajdujących się w katalogu zadań podrzędnych w węźle obliczeniowym. Aby pobrać te pliki, można użyć portalu Azure lub jednego z zestawów SDK usługi Batch. Te pliki można pobrać w celu rozwiązania problemów za pomocą elementów [ComputeNode.GetNodeFile][net_getfile_node] i [CloudTask.GetNodeFile][net_getfile_task] w bibliotece platformy .NET usługi Batch.
+
 * **Kody zakończenia zadania podrzędnego**
 
     Jak wspomniano wcześniej, zadanie podrzędne jest oznaczone jako nieudane przez usługę Batch, jeśli proces wykonywany przez zadanie podrzędne zwraca kod zakończenia różny od zera. Gdy zadanie podrzędne wykonuje proces, usługa Batch wypełnia właściwości kodu zakończenia zadania podrzędnego przy użyciu *zwracanego kodu procesu*. Należy pamiętać, że kod zakończenia zadania podrzędnego **nie** jest określany przez usługę Batch. Kod zakończenia zadania podrzędnego jest określany przez sam proces lub system operacyjny, w którym proces jest wykonywany.
 
-### <a name="accounting-for-task-failures-or-interruptions"></a>Uwzględnianie błędów zadań lub przerw w zadaniach 
+<a id="accounting-for-task-failures-or-interruptions" class="xliff"></a>
+
+### Uwzględnianie błędów zadań lub przerw w zadaniach 
 Od czasu do czasu zadania podrzędne mogą zakończyć się niepowodzeniem lub zostać przerwane. Awarii może ulec sama aplikacja zadania podrzędnego, może zostać przeprowadzony ponowny rozruch węzła, w którym zostało uruchomione zadanie podrzędne lub węzeł może zostać usunięty z puli podczas operacji zmiany rozmiaru, jeśli zasady cofania alokacji puli zostały ustawione na natychmiastowe usuwanie węzłów bez oczekiwania na zakończenie zadań podrzędnych. We wszystkich przypadkach zadanie podrzędne może zostać automatycznie ponownie umieszczone w kolejce przy użyciu usługi Batch do wykonania w innym węźle.
 
 Istnieje również możliwość wystąpienia sporadycznie problemu polegającego na tym, że zadanie zawiesza się lub jego wykonanie zajmuje za dużo czasu. Można ustawić maksymalny interwał wykonywania zadania podrzędnego. Po jego przekroczeniu usługa Batch przerywa działanie aplikacji zadania podrzędnego.
 
-### <a name="connecting-to-compute-nodes"></a>Nawiązywanie połączenia z węzłami obliczeniowymi
-Aby przeprowadzić dodatkowe debugowanie i rozwiązywanie problemów, można zalogować się zdalnie do węzła obliczeniowego. W portalu Azure można pobrać plik protokołu RDP w przypadku węzłów systemu Windows oraz uzyskać informacje o połączeniu z protokołem SSH w przypadku węzłów systemu Linux. Można to również zrobić przy użyciu interfejsów API usługi Batch — na przykład przy użyciu [platformy .NET w usłudze Batch][net_rdpfile] lub [języka Python w usłudze Batch](batch-linux-nodes.md#connect-to-linux-nodes).
+<a id="connecting-to-compute-nodes" class="xliff"></a>
+
+### Nawiązywanie połączenia z węzłami obliczeniowymi
+Aby przeprowadzić dodatkowe debugowanie i rozwiązywanie problemów, można zalogować się zdalnie do węzła obliczeniowego. W portalu Azure można pobrać plik protokołu RDP w przypadku węzłów systemu Windows oraz uzyskać informacje o połączeniu z protokołem SSH w przypadku węzłów systemu Linux. Można to również zrobić przy użyciu interfejsów API usługi Batch — na przykład przy użyciu [platformy .NET w usłudze Batch][net_rdpfile] lub [języka Python w usłudze Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > Aby połączyć się z węzłem za pośrednictwem protokołu RDP lub SSH, musisz najpierw utworzyć użytkownika w węźle. W tym celu możesz użyć witryny Azure Portal, [dodać konto użytkownika do węzła][rest_create_user] za pomocą interfejsu API REST usługi Batch, wywołać metodę [ComputeNode.CreateComputeNodeUser][net_create_user] na platformie .NET usługi Batch lub wywołać metodę [add_user][py_add_user] w module języka Python usługi Batch.
 >
 >
 
-### <a name="troubleshooting-problematic-compute-nodes"></a>Rozwiązywanie problemów z węzłami obliczeniowymi
+<a id="troubleshooting-problematic-compute-nodes" class="xliff"></a>
+
+### Rozwiązywanie problemów z węzłami obliczeniowymi
 W sytuacjach, w których niektóre z zadań kończą się niepowodzeniem, aplikacja kliencka lub usługa Batch mogą badać metadane nieudanych zadań w celu identyfikacji nieprawidłowo funkcjonującego węzła. Każdemu węzłowi w puli zostaje nadany unikatowy identyfikator i węzeł, w którym jest uruchomione zadanie jest dołączony do metadanych zadania. Po zidentyfikowaniu problemu dotyczącego węzła można wykonać kilka powiązanych czynności:
 
 * **Ponownie uruchom węzeł** ([REST][rest_reboot] | [.NET][net_reboot])
@@ -473,7 +653,9 @@ W sytuacjach, w których niektóre z zadań kończą się niepowodzeniem, aplika
 >
 >
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 * Dowiedz się więcej o [interfejsach API i narzędziach usługi Batch](batch-apis-tools.md) umożliwiających tworzenie rozwiązań usługi Batch.
 * Zapoznaj się ze szczegółowym opisem przykładowej aplikacji usługi Batch w temacie [Wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET](batch-dotnet-get-started.md). Udostępniono również samouczek w [wersji dla języka Python](batch-python-tutorial.md), który umożliwia uruchamianie obciążenia w węzłach obliczeniowych systemu Linux.
 * Pobierz i skompiluj przykładowy projekt programu [Batch Explorer][github_batchexplorer] do użycia podczas tworzenia rozwiązań usługi Batch. Za pomocą programu Batch Explorer można wykonywać m.in. następujące czynności:

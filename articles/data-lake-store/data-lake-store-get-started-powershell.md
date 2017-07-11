@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bdb06783d0ec7db867381504d89e76db179be78d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: f78385e8ce96567f5a1e669ecf4a6c2efce3aaeb
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Rozpoczynanie pracy z usługą Azure Data Lake Store przy użyciu programu Azure PowerShell
+<a id="get-started-with-azure-data-lake-store-using-azure-powershell" class="xliff"></a>
+
+# Rozpoczynanie pracy z usługą Azure Data Lake Store przy użyciu programu Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Zestaw SDK platformy .NET](data-lake-store-get-started-net-sdk.md)
 > * [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [Interfejs API REST](data-lake-store-get-started-rest-api.md)
-> * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -37,16 +39,22 @@ ms.lasthandoff: 04/27/2017
 
 Dowiedz się, jak przy użyciu programu Azure PowerShell utworzyć konto usługi Azure Data Lake Store i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake Store, zobacz [Omówienie usługi Data Lake Store](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Wymagania wstępne
+<a id="prerequisites" class="xliff"></a>
+
+## Wymagania wstępne
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Program Azure PowerShell 1.0 lub nowszy**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
-## <a name="authentication"></a>Authentication
-W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Store, w przypadku której jest wyświetlany monit o wprowadzenie poświadczeń konta platformy Azure. Poziom dostępu do konta i systemu plików usługi Data Lake Store jest określany przez poziom dostępu zalogowanego użytkownika. Istnieją jednak inne metody uwierzytelniania w usłudze Data Lake Store: **uwierzytelnianie użytkowników końcowych** i **uwierzytelnianie między usługami**. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w artykule [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie w usłudze Data Lake Store przy użyciu usługi Azure Active Directory).
+<a id="authentication" class="xliff"></a>
 
-## <a name="create-an-azure-data-lake-store-account"></a>Tworzenie konta usługi Azure Data Lake Store
+## Authentication
+W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Store, w przypadku której jest wyświetlany monit o wprowadzenie poświadczeń konta platformy Azure. Poziom dostępu do konta i systemu plików usługi Data Lake Store jest określany przez poziom dostępu zalogowanego użytkownika. Istnieją jednak inne metody uwierzytelniania w usłudze Data Lake Store: **uwierzytelnianie użytkowników końcowych** i **uwierzytelnianie między usługami**. Aby uzyskać instrukcje i więcej informacji na temat uwierzytelniania, zobacz [Uwierzytelnianie użytkowników końcowych](data-lake-store-end-user-authenticate-using-active-directory.md) lub [Uwierzytelnianie między usługami](data-lake-store-authenticate-using-active-directory.md).
+
+<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
+
+## Tworzenie konta usługi Azure Data Lake Store
 1. Na pulpicie otwórz nowe okno programu Windows PowerShell, a następnie wprowadź poniższy fragment kodu, aby zalogować się do konta platformy Azure, skonfigurować subskrypcję i zarejestrować dostawcę usługi Data Lake Store. Po wyświetleniu monitu zaloguj się jako jeden z administratorów/właścicieli subskrypcji:
 
         # Log in to your Azure account
@@ -78,7 +86,9 @@ W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Sto
 
     Dane wyjściowe powinny mieć wartość **True**.
 
-## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Tworzenie struktur katalogów w usłudze Azure Data Lake Store
+<a id="create-directory-structures-in-your-azure-data-lake-store" class="xliff"></a>
+
+## Tworzenie struktur katalogów w usłudze Azure Data Lake Store
 W ramach konta usługi Azure Data Lake Store można tworzyć katalogi w celu przechowywania danych i zarządzania nimi.
 
 1. Określ katalog główny.
@@ -95,7 +105,9 @@ W ramach konta usługi Azure Data Lake Store można tworzyć katalogi w celu prz
 
     ![Weryfikowanie katalogu](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Weryfikowanie katalogu")
 
-## <a name="upload-data-to-your-azure-data-lake-store"></a>Przekazywanie danych do usługi Azure Data Lake Store
+<a id="upload-data-to-your-azure-data-lake-store" class="xliff"></a>
+
+## Przekazywanie danych do usługi Azure Data Lake Store
 Dane można przekazywać do usługi Data Lake Store bezpośrednio do katalogu głównego lub do katalogu utworzonego w ramach konta. Poniższe fragmenty kodu przedstawiają sposób przekazywania przykładowych danych do katalogu (**mynewdirectory**), który został utworzony w poprzedniej sekcji.
 
 Jeśli szukasz przykładowych danych do przekazania, możesz pobrać folder **Ambulance Data** z [repozytorium Git usługi Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Pobierz plik i zapisz go w katalogu lokalnym na komputerze, na przykład C:\sampledata\.
@@ -103,7 +115,9 @@ Jeśli szukasz przykładowych danych do przekazania, możesz pobrać folder **Am
     Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
 
-## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Zmienianie nazwy, pobieranie i usuwanie danych z usługi Data Lake Store
+<a id="rename-download-and-delete-data-from-your-data-lake-store" class="xliff"></a>
+
+## Zmienianie nazwy, pobieranie i usuwanie danych z usługi Data Lake Store
 Aby zmienić nazwę pliku, użyj następującego polecenia:
 
     Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
@@ -120,14 +134,18 @@ Po wyświetleniu monitu wpisz **Y**, aby usunąć element. Jeśli masz więcej n
 
     Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
-## <a name="delete-your-azure-data-lake-store-account"></a>Usuwanie konta usługi Azure Data Lake Store
+<a id="delete-your-azure-data-lake-store-account" class="xliff"></a>
+
+## Usuwanie konta usługi Azure Data Lake Store
 Użyj poniższego polecenia, aby usunąć konto usługi Data Lake Store.
 
     Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
 Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 
-## <a name="performance-guidance-while-using-powershell"></a>Wskazówki dotyczące wydajności podczas korzystania z programu PowerShell
+<a id="performance-guidance-while-using-powershell" class="xliff"></a>
+
+## Wskazówki dotyczące wydajności podczas korzystania z programu PowerShell
 
 Poniżej przedstawiono najważniejsze ustawienia, których dostosowanie pozwala uzyskać najlepszą wydajność podczas pracy z usługą Data Lake Store przy użyciu programu PowerShell:
 
@@ -142,7 +160,9 @@ To polecenie pobiera pliki z usługi Azure Data Lake Store na dysk lokalny użyt
 
     Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
-### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Jak określić wartości, jakie należy nadać tym parametrom?
+<a id="how-do-i-determine-the-value-to-set-for-these-parameters" class="xliff"></a>
+
+### Jak określić wartości, jakie należy nadać tym parametrom?
 
 Oto kilka użytecznych wskazówek.
 
@@ -179,7 +199,9 @@ Oto kilka użytecznych wskazówek.
 
     Wartość parametru **ConcurrentFileCount** wynosi zatem **2,4**, co możemy zaokrąglić do **2**.
 
-### <a name="further-tuning"></a>Dalsze dostosowywanie
+<a id="further-tuning" class="xliff"></a>
+
+### Dalsze dostosowywanie
 
 Ze względu na zakres rozmiarów plików, z jakimi można pracować, może być konieczne dalsze dostosowanie. Powyższe obliczenie sprawdza się w przypadku, gdy wszystkie pliki lub ich większość ma rozmiar ok. 10 GB. Jeśli natomiast istnieje wiele różnych rozmiarów plików, z czego wiele plików jest mniejszych, można zmniejszyć wartość parametru PerFileThreadCount. Dzięki zmniejszeniu wartości parametru PerFileThreadCount można zwiększyć wartość parametru ConcurrentFileCount. Przy założeniu, że większość naszych plików jest mniejszych (ok. 5 GB), możemy ponownie wykonać nasze obliczenie:
 
@@ -189,7 +211,9 @@ Teraz wartość parametru **ConcurrentFileCount** wynosi 96/20, czyli 4,8, co mo
 
 Te ustawienia można jeszcze bardziej dostosować, zwiększając lub zmniejszając wartość parametru **PerFileThreadCount** zależnie od rozkładu rozmiarów plików.
 
-### <a name="limitation"></a>Ograniczenia
+<a id="limitation" class="xliff"></a>
+
+### Ograniczenia
 
 * **Liczba plików jest mniejsza niż wartość parametru ConcurrentFileCount**: jeśli liczba przekazywanych plików jest mniejsza niż obliczona wartość parametru **ConcurrentFileCount**, należy zmniejszyć wartość parametru **ConcurrentFileCount** tak, aby była równa liczbie plików. Przy użyciu pozostałych wątków można zwiększyć wartość parametru **PerFileThreadCount**.
 
@@ -199,7 +223,9 @@ Te ustawienia można jeszcze bardziej dostosować, zwiększając lub zmniejszaj�
 
 * **Błędy ograniczania przepływności**: błędy ograniczania przepływności mogą wystąpić wówczas, gdy współbieżność jest zbyt wysoka. W przypadku błędów ograniczania przepływności należy albo zmniejszyć współbieżność, albo skontaktować się z nami.
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 * [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

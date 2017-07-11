@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: Włączanie usług Azure Active Directory Domain Services | Microsoft Docs"
-description: "Wprowadzenie do usługi Active Directory Domain Services"
+description: "Włączanie usług Azure Active Directory Domain Services przy użyciu klasycznej witryny Azure Portal"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,18 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e5f1fe51d8931985fa55b2d8c0a3fd25bb93f20f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="enable-azure-active-directory-domain-services"></a>Włączanie usług Azure Active Directory Domain Services
-## <a name="task-3-enable-azure-active-directory-domain-services"></a>Zadanie 3. Włączanie usług Azure Active Directory Domain Services
-W tym zadaniu należy włączyć usługi Azure Active Directory Domain Services (Azure AD DS) dla katalogu, wykonując następujące czynności:
+<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+
+# Włączanie usług Azure Active Directory Domain Services przy użyciu klasycznej witryny Azure Portal
+
+<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+
+## Zadanie 3. Włączanie usług Azure Active Directory Domain Services
+W tym zadaniu należy włączyć usługi Azure Active Directory Domain Services (Azure AD DS) dla katalogu, wykonując następujące kroki:
 
 1. Przejdź do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
 2. W lewym okienku wybierz przycisk **Active Directory**.
@@ -70,7 +76,7 @@ W tym zadaniu należy włączyć usługi Azure Active Directory Domain Services 
    * Użyj dedykowanej podsieci w obrębie sieci wirtualnej dla usług Azure Active Directory Domain Services. *Nie* wybieraj podsieci bramy. Zobacz [zagadnienia dotyczące pracy w sieci](active-directory-ds-networking.md).
 
    * Podobnie sieci wirtualne, które zostały utworzone przy użyciu usługi Azure Resource Manager, nie pojawiają się na liście rozwijanej. Sieci wirtualne oparte na usłudze Resource Manager nie są obecnie obsługiwane przez usługi Azure Active Directory Domain Services.
-9. Aby włączyć usługi Azure Active Directory Domain Services, kliknij pozycję **Zapisz** w okienku zadań w dolnej części strony. 
+9. Aby włączyć usługi Azure Active Directory Domain Services, kliknij pozycję **Zapisz** w okienku zadań w dolnej części strony.
     * Gdy usługi Azure Active Directory Domain Services są włączane dla katalogu, strona będzie wyświetlać stan *Oczekujące*.
 
         ![Okno włączania usług domenowych](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
@@ -82,8 +88,8 @@ W tym zadaniu należy włączyć usługi Azure Active Directory Domain Services 
     * Po około 20–30 minutach w polu **Adres IP** na stronie **Konfigurowanie** zobaczysz pierwszy adres IP, pod którym są dostępne usługi domenowe.
 
         ![Okno usług domenowych wyświetlające pierwszy aprowizowany adres IP](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-    * Gdy domena oferuje działającą opcję wysokiej dostępności, na stronie są wyświetlane dwa adresy IP. Twoja domena zarządzana jest dostępna w wybranej sieci wirtualnej pod tymi dwoma adresami IP. 
-    
+    * Gdy domena oferuje działającą opcję wysokiej dostępności, na stronie są wyświetlane dwa adresy IP. Twoja domena zarządzana jest dostępna w wybranej sieci wirtualnej pod tymi dwoma adresami IP.
+
 10. Zanotuj te dwa adresy IP, aby zaktualizować ustawienia DNS sieci wirtualnej. Ten krok umożliwia łączenie maszyn wirtualnych w sieci wirtualnej z domeną w celu wykonywania operacji takich jak przyłączanie do domeny.
 
     ![Okno usług domenowych wyświetlające oba aprowizowane adresy IP](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
@@ -93,6 +99,8 @@ W tym zadaniu należy włączyć usługi Azure Active Directory Domain Services 
 >
 >
 
-## <a name="next-steps"></a>Następne kroki
-Zadanie 4. [Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure](active-directory-ds-getting-started-dns.md)
+<a id="next-step" class="xliff"></a>
+
+## Następny krok
+[Zadanie 4. Aktualizowanie ustawień usługi DNS dla sieci wirtualnej platformy Azure](active-directory-ds-getting-started-update-dns.md)
 

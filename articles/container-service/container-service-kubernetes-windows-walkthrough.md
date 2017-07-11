@@ -1,7 +1,6 @@
 ---
-title: Klaster Azure Kubernetes dla systemu Windows | Microsoft Docs
-description: "Wdrażanie klastra Kubernetes dla kontenerów systemu Windows i rozpoczynanie z nim pracy w usłudze Azure Container Service"
-services: container-service
+title: "Szybki start — klaster Azure Kubernetes dla systemu Windows | Microsoft Docs"
+description: "Szybka nauka tworzenia klastra Kubernetes dla kontenerów systemu Windows w usłudze Azure Container Service za pomocą interfejsu wiersza polecenia platformy Azure."
 documentationcenter: 
 author: dlepow
 manager: timlt
@@ -14,218 +13,223 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 05/31/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 4e730b65a98af05ea00c5f8ebd9914e3367b66a7
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 929a4dec638da9488dd0b43fd123ed0cce77bcf3
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 
-# <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Rozpoczynanie pracy z kontenerami Kubernetes i Windows w usłudze Container Service
+<a id="deploy-kubernetes-cluster-for-windows-containers" class="xliff"></a>
 
+# Wdrażanie klastra Kubernetes dla kontenerów systemu Windows
 
-W tym artykule przedstawiono sposób tworzenia w usłudze Azure Container Service klastra Kubernetes, który zawiera węzły systemu Windows umożliwiające uruchamianie kontenerów systemu Windows. Zacznij korzystać z poleceń `az acs` interfejsu wiersza polecenia platformy Azure 2.0 w celu utworzenia klastra Kubernetes w usłudze Azure Container Service. Następnie za pomocą narzędzia wiersza polecenia Kubernetes `kubectl` zacznij korzystać z kontenerów systemu Windows utworzonych z obrazów platformy Docker. 
+Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku zawarto szczegółowe informacje dotyczące korzystania z interfejsu wiersza polecenia platformy Azure w celu wdrożenia klastra [Kubernetes](https://kubernetes.io/docs/home/) w [usłudze Azure Container Service](container-service-intro.md). Po wdrożeniu klastra nawiążesz z nim połączenie za pomocą narzędzia wiersza polecenia `kubectl` usługi Kubernetes i wdrożysz swój pierwszy kontener systemu Windows.
+
+Dla tego samouczka wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 > [!NOTE]
-> Obsługa kontenerów systemu Windows przy użyciu usługi Kubernetes w usłudze Azure Container Service jest dostępna w wersji zapoznawczej. 
+> Obsługa kontenerów systemu Windows w rozwiązaniu Kubernetes w usłudze Azure Container Service jest dostępna w wersji zapoznawczej. 
 >
 
+<a id="log-in-to-azure" class="xliff"></a>
 
+## Zaloguj się do platformy Azure. 
 
-Na poniższej ilustracji przedstawiono architekturę klastra Kubernetes w usłudze Azure Container Service z jednym węzłem głównym systemu Linux i dwoma węzłami agenta systemu Windows. 
+Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
-![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
-
-* Węzeł główny systemu Linux obsługuje interfejs API REST usługi Kubernetes i jest dostępny za pośrednictwem protokołu SSH w porcie 22 lub za pomocą narzędzia `kubectl` w porcie 443. 
-* Węzły agenta systemu Windows są zgrupowane w zestawie dostępności platformy Azure i odpowiadają za uruchamianie kontenerów. Węzły systemu Windows są dostępne przez tunel protokołu RDP SSH za pośrednictwem węzła głównego. Reguły usługi Azure Load Balancer są dodawane dynamicznie do klastra w zależności od uwidocznionych usług.
-
-
-
-Wszystkie maszyny wirtualne znajdują w tej samej prywatnej sieci wirtualnej i są dla siebie w pełni dostępne. Wszystkie maszyny wirtualne uruchamiają agenta kubelet, usługę Docker i serwer proxy.
-
-Aby uzyskać więcej ogólnych informacji, zobacz [Wprowadzenie do usługi Azure Container Service](container-service-intro.md) i [Dokumentacja rozwiązania Kubernetes](https://kubernetes.io/docs/home/).
-
-## <a name="prerequisites"></a>Wymagania wstępne
-Aby utworzyć klaster usługi Azure Container Service przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0, należy:
-* posiadać konto platformy Azure ([skorzystaj z bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/)),
-* mieć zainstalowany [interfejs wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-az-cli2) i zalogować się do niego.
-
-W przypadku klastra Kubernetes potrzebne są także następujące elementy. Możesz je przygotować wcześniej lub wygenerować automatycznie podczas wdrażania klastra za pomocą opcji polecenia `az acs create`. 
-
-* **Klucz publiczny SSH RSA**: jeśli chcesz utworzyć klucze Secure Shell (SSH) RSA, zobacz wskazówki dla systemów [macOS i Linux](../virtual-machines/linux/mac-create-ssh-keys.md) lub [Windows](../virtual-machines/linux/ssh-from-windows.md). 
-
-* **Wpis tajny i identyfikator klienta jednostki usługi**: aby uzyskać więcej informacji oraz wskazówki dotyczące tworzenia jednostki usługi Azure Active Directory, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o jednostce usługi dla klastra Kubernetes).
-
-Przykładowe polecenie w tym artykule automatycznie generuje klucze SSH i jednostkę usługi.
-  
-## <a name="create-your-kubernetes-cluster"></a>Tworzenie klastra Kubernetes
-
-Oto polecenia interfejsu wiersza polecenia platformy Azure 2.0 umożliwiające utworzenie klastra. 
-
-### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
-Utwórz grupę zasobów w lokalizacji, w której usługa Azure Container Service jest [dostępna](https://azure.microsoft.com/regions/services/). Poniższe polecenie tworzy grupę zasobów o nazwie *myKubernetesResourceGroup* w lokalizacji *westus*:
-
-```azurecli
-az group create --name=myKubernetesResourceGroup --location=westus
+```azurecli-interactive 
+az login
 ```
 
-### <a name="create-a-kubernetes-cluster-with-windows-agent-nodes"></a>Tworzenie klastra Kubernetes z węzłami agenta systemu Windows
+<a id="create-a-resource-group" class="xliff"></a>
 
-Utwórz klaster Kubernetes w swojej grupie zasobów przy użyciu polecenia `az acs create` z opcją agenta `--orchestrator-type=kubernetes` i `--windows`. Zobacz [pomoc](/cli/azure/acs#create) dotyczącą polecenia `az acs create`, aby poznać jego składnię.
+## Tworzenie grupy zasobów
 
-Poniższe polecenie tworzy klaster usługi Container Service o nazwie *myKubernetesClusterName* z prefiksem DNS *myPrefix* dla węzła zarządzania i podanych poświadczeń umożliwiających dotarcie do węzłów systemu Windows. Ta wersja polecenia automatycznie generuje klucze SSH RSA i jednostkę usługi dla klastra Kubernetes.
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. 
+
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
+
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
+```
+
+<a id="create-kubernetes-cluster" class="xliff"></a>
+
+## Tworzenie klastra Kubernetes
+Utwórz klaster Kubernetes w usłudze Azure Container Service za pomocą polecenia [az acs create](/cli/azure/acs#create). 
+
+W poniższym przykładzie tworzony jest klaster o nazwie *myK8sCluster* z jednym węzłem głównym systemu Linux i dwoma węzłami agenta systemu Windows. Ten przykład tworzy klucze SSH potrzebne do nawiązania połączenia z węzłem głównym systemu Linux. W tym przykładzie *azureuser* to nazwa użytkownika administracyjnego, a *myPassword12* to hasło w węzłach systemu Windows. Zmień te wartości, aby pasowały do Twojego środowiska. 
 
 
-```azurecli
+
+```azurecli-interactive 
 az acs create --orchestrator-type=kubernetes \
-    --resource-group myKubernetesResourceGroup \
-    --name=myKubernetesClusterName \
-    --dns-prefix=myPrefix \
+    --resource-group myResourceGroup \
+    --name=myK8sCluster \
     --agent-count=2 \
     --generate-ssh-keys \
-    --windows --admin-username myWindowsAdminName \
-    --admin-password myWindowsAdminPassword
+    --windows --admin-username azureuser \
+    --admin-password myPassword12
 ```
 
-Po kilku minutach, po zakończeniu tego polecenia, powinien zostać utworzony działający klaster Kubernetes.
+Po kilku minutach polecenie zostanie zakończone i wyświetlone zostaną informacje o wdrożeniu.
 
-> [!IMPORTANT]
-> Jeśli Twoje konto nie ma uprawnień do utworzenia jednostki usługi Azure AD, polecenie spowoduje wygenerowanie błędu podobnego do następującego: `Insufficient privileges to complete the operation.`. Aby uzyskać więcej informacji, zobacz [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informacje o jednostce usługi dla klastra Kubernetes). 
-> 
+<a id="install-kubectl" class="xliff"></a>
 
-## <a name="connect-to-the-cluster-with-kubectl"></a>Łączenie z klastrem za pomocą narzędzia kubectl
+## Instalowanie narzędzia kubectl
 
 Aby nawiązać połączenie z klastrem Kubernetes z komputera klienckiego, należy użyć klienta wiersza polecenia usługi Kubernetes [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/). 
 
-Jeśli narzędzie `kubectl` nie jest zainstalowane lokalnie, możesz je zainstalować przy użyciu polecenia `az acs kubernetes install-cli`. (Możesz je także pobrać z [witryny rozwiązania Kubernetes](https://kubernetes.io/docs/tasks/kubectl/install/)).
+Jeśli korzystasz z usługi Azure CloudShell, narzędzie `kubectl` jest już zainstalowane. Jeśli chcesz zainstalować je lokalnie, możesz użyć polecenia [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
 
-**Linux lub macOS**
+Poniższy przykład interfejsu wiersza polecenia platformy Azure instaluje narzędzie `kubectl` w systemie. W systemie Windows należy uruchomić to polecenie jako administrator.
 
-```azurecli
-sudo az acs kubernetes install-cli
-```
-
-**Windows**
-```azurecli
+```azurecli-interactive 
 az acs kubernetes install-cli
 ```
 
-> [!TIP]
-> Domyślnie to polecenie powoduje zainstalowanie pliku binarnego narzędzia `kubectl` w katalogu `/usr/local/bin/kubectl` w systemie Linux lub macOS bądź pliku `C:\Program Files (x86)\kubectl.exe` w systemie Windows. Aby określić inną ścieżkę instalacji, użyj parametru `--install-location`.
->
-> Po zainstalowaniu narzędzia `kubectl` upewnij się, że jego katalog znajduje się w ścieżce systemowej lub dodaj go do tej ścieżki. 
 
+<a id="connect-with-kubectl" class="xliff"></a>
 
-Następnie uruchom poniższe polecenie, aby pobrać główną konfigurację klastra Kubernetes do pliku lokalnego `~/.kube/config`:
+## Nawiązywanie połączenia przy użyciu narzędzia kubectl
 
-```azurecli
-az acs kubernetes get-credentials --resource-group=myKubernetesResourceGroup --name=myKubernetesClusterName
+Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, uruchom polecenie [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Poniższy przykład pobiera konfigurację klastra dla klastra Kubernetes.
+
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Na tym etapie klaster jest dostępny z poziomu Twojej maszyny. Spróbuj uruchomić polecenie:
+Aby sprawdzić połączenie z klastrem ze swojej maszyny, spróbuj uruchomić następujące polecenie:
 
-```bash
+```azurecli-interactive
 kubectl get nodes
 ```
 
-Sprawdź, czy lista maszyn są jest widoczna w klastrze.
+`kubectl` wyświetli węzeł główny i węzły agenta.
 
-![Węzły działające w klastrze Kubernetes](media/container-service-kubernetes-windows-walkthrough/kubectl-get-nodes.png)
+```azurecli-interactive
+NAME                    STATUS                     AGE       VERSION
+k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
+k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
+k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
-## <a name="create-your-first-kubernetes-service"></a>Tworzenie pierwszej usługi Kubernetes
+```
 
-Po utworzeniu klastra i nawiązaniu połączenia z narzędziem `kubectl` spróbuj uruchomić aplikację systemu Windows i udostępnić ją w Internecie. W tym podstawowym przykładzie użyto pliku JSON do określenia kontenera Microsoft Internet Information Server (IIS), a następnie utworzono go przy użyciu polecenia `kubctl apply`. 
+<a id="deploy-a-windows-iis-container" class="xliff"></a>
 
-1. Utwórz plik lokalny o nazwie `iis.json` i skopiuj następujące dane. Ten plik nakazuje rozwiązaniu Kubernetes uruchomienie usług IIS w systemie Windows Server 2016 Server Core przy użyciu obrazu publicznego z witryny [Docker Hub](https://hub.docker.com/r/microsoft/iis/). Kontener korzysta z portu 80, ale początkowo jest dostępny tylko w ramach sieci klastra.
+## Wdrażanie kontenera usług IIS systemu Windows
 
-  ```JSON
-  {
-    "apiVersion": "v1",
-    "kind": "Pod",
-    "metadata": {
-      "name": "iis",
-      "labels": {
-        "name": "iis"
-      }
-    },
-    "spec": {
-      "containers": [
-        {
-          "name": "iis",
-          "image": "microsoft/iis",
-          "ports": [
-            {
-            "containerPort": 80
-            }
-          ]
-        }
-      ],
-      "nodeSelector": {
-        "beta.kubernetes.io/os": "windows"
-      }
+Kontener platformy Docker można uruchomić wewnątrz *zasobnika* rozwiązania Kubernetes zawierającego co najmniej jeden kontener. 
+
+W tym podstawowym przykładzie użyto pliku JSON do określenia kontenera usług Microsoft Internet Information Server (IIS), a następnie utworzono zasobnik przy użyciu polecenia `kubctl apply`. 
+
+Utwórz plik lokalny o nazwie `iis.json` i skopiuj poniższy tekst. Ten plik nakazuje rozwiązaniu Kubernetes uruchomienie usług IIS w systemie Windows Server 2016 Nano Server przy użyciu obrazu publicznego kontenera z witryny [Docker Hub](https://hub.docker.com/r/nanoserver/iis/). Kontener korzysta z portu 80, ale początkowo jest dostępny tylko w ramach sieci klastra.
+
+ ```JSON
+ {
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "iis",
+    "labels": {
+      "name": "iis"
     }
-  }
-  ```
-2. Aby uruchomić aplikację, wpisz:  
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "iis",
+        "image": "nanoserver/iis",
+        "ports": [
+          {
+          "containerPort": 80
+          }
+        ]
+      }
+    ],
+    "nodeSelector": {
+     "beta.kubernetes.io/os": "windows"
+     }
+   }
+ }
+ ```
+
+Aby uruchomić zasobnik, wpisz:
   
-  ```bash
-  kubectl apply -f iis.json
-  ```  
-3. Aby śledzić wdrażanie kontenera, wpisz:  
-  ```bash
-  kubectl get pods
-  ```
-  Podczas wdrażania kontenera jego stan zmieni się na `ContainerCreating`. 
+```azurecli-interactive
+kubectl apply -f iis.json
+```  
 
-  ![Kontener IIS w stanie ContainerCreating](media/container-service-kubernetes-windows-walkthrough/iis-pod-creating.png)   
-
-  Ze względu na rozmiar obrazu IIS przejście kontenera do stanu `Running` może potrwać kilka minut.
-
-  ![Kontener IIS w stanie Uruchomiony](media/container-service-kubernetes-windows-walkthrough/iis-pod-running.png)
-
-4. Aby udostępnić kontener dla całego świata, wpisz następujące polecenie:
-
-  ```bash
-  kubectl expose pods iis --port=80 --type=LoadBalancer
-  ```
-
-  To polecenie spowoduje utworzenie przez rozwiązanie Kubernetes reguły usługi Azure Load Balancer z publicznym adresem IP. Zmiana ta zajmuje kilka minut i powoduje przeprowadzenie propagacji do modułu równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md) (Kontenery równoważenia obciążenia w klastrze Kubernetes w usłudze Azure Container Service).
-
-5. Uruchom poniższe polecenie, aby wyświetlić stan usługi.
-
-  ```bash
-  kubectl get svc
-  ```
-
-  Początkowo adres IP będzie widoczny jako `pending`:
-
-  ![Oczekujący zewnętrzny adres IP](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose.png)
-
-  Po kilku minutach adres IP zostanie ustawiony:
+Aby śledzić wdrożenie, wpisz:
   
-  ![Zewnętrzny adres IP dla usług IIS](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose-public.png)
+```azurecli-interactive
+kubectl get pods
+```
+
+Podczas wdrażania zasobnika ustawiany jest stan `ContainerCreating`. Może upłynąć kilka minut, zanim stan kontenera zmieni się na `Running`.
+
+```azurecli-interactive
+NAME     READY        STATUS        RESTARTS    AGE
+iis      1/1          Running       0           32s
+```
+
+<a id="view-the-iis-welcome-page" class="xliff"></a>
+
+## Wyświetlanie strony powitalnej usług IIS
+
+Aby udostępnić zasobnik światu z publicznym adresem IP, wpisz następujące polecenie:
+
+```azurecli-interactive
+kubectl expose pods iis --port=80 --type=LoadBalancer
+```
+
+To polecenie spowoduje utworzenie przez rozwiązanie Kubernetes usługi i [reguły usługi Azure Load Balancer](container-service-kubernetes-load-balancing.md) z publicznym adresem IP usługi. 
+
+Uruchom poniższe polecenie, aby wyświetlić stan usługi.
+
+```azurecli-interactive
+kubectl get svc
+```
+
+Początkowo adres IP będzie widoczny jako `pending`. Po kilku minutach zostanie ustawiony zewnętrzny adres IP zasobnika `iis`:
+  
+```azurecli-interactive
+NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
+kubernetes   10.0.0.1       <none>          443/TCP        21h       
+iis          10.0.111.25    13.64.158.233   80/TCP         22m
+```
+
+Możesz użyć wybranej przeglądarki internetowej, aby wyświetlić domyślną stronę powitalną usług IIS pod zewnętrznym adresem IP:
+
+![Obraz przedstawiający przechodzenie do usług IIS](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
 
-6. Gdy zewnętrzny adres IP zostanie udostępniony, możesz przejść do niego w przeglądarce:
+<a id="delete-cluster" class="xliff"></a>
 
-  ![Obraz przedstawiający przechodzenie do usług IIS](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
+## Usuwanie klastra
+Gdy klaster nie będzie już potrzebny, możesz usunąć grupę zasobów, usługę kontenera i wszystkie pokrewne zasoby za pomocą polecenia [az group delete](/cli/azure/group#delete).
 
-7. Aby usunąć zasobnik IIS, wpisz:
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
 
-  ```bash
-  kubectl delete pods iis
-  ```
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
 
-* Aby korzystać z interfejsu użytkownika rozwiązania Kubernetes, uruchom polecenie `kubectl proxy`. Następnie przejdź pod adres http://localhost:8001/ui.
+## Następne kroki
 
-* Procedurę utworzenia niestandardowej witryny sieci Web usług IIS i uruchomienia jej w kontenerze systemu Windows można znaleźć w witrynie [Docker Hub](https://hub.docker.com/r/microsoft/iis/).
+W tym przewodniku Szybki start wdrożono klaster Kubernetes, nawiązano połączenie z narzędziem `kubectl` i wdrożono zasobnik za pomocą kontenera usług IIS. Aby dowiedzieć się więcej na temat usługi Azure Container Service, przejdź do samouczka dotyczącego rozwiązania Kubernetes.
 
-* Aby uzyskać dostęp do węzłów systemu Windows przez tunel SSH protokołu RDP do węzła głównego przy użyciu programu PuTTy, zobacz [dokumentację usługi ACS-Engine](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#create-port-80-tunnel-to-the-master). 
+> [!div class="nextstepaction"]
+> [Zarządzanie klastrem Kubernetes usługi ASC](./container-service-tutorial-kubernetes-prepare-app.md)
 

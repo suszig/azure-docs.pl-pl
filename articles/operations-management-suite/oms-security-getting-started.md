@@ -4,7 +4,7 @@ description: "Ten dokument ułatwia rozpoczęcie korzystania z rozwiązania Zabe
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,22 +13,29 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Wprowadzenie do korzystania z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
+<a id="getting-started-with-operations-management-suite-security-and-audit-solution" class="xliff"></a>
+
+# Wprowadzenie do korzystania z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
 Ten dokument pomaga szybko rozpocząć korzystanie z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS), objaśniając działanie poszczególnych opcji.
 
-## <a name="what-is-oms"></a>Co to jest pakiet OMS?
+<a id="what-is-oms" class="xliff"></a>
+
+## Co to jest pakiet OMS?
 Pakiet Microsoft Operations Management Suite (OMS) to oparte na chmurze rozwiązanie firmy Microsoft do zarządzania systemami IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. Aby uzyskać więcej informacji na temat pakietu OMS, przeczytaj artykuł [Omówienie pakietu Operations Management Suite (OMS)](https://technet.microsoft.com/library/mt484091.aspx).
 
-## <a name="oms-security-and-audit-dashboard"></a>Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS
+<a id="oms-security-and-audit-dashboard" class="xliff"></a>
+
+## Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS
 Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia kompleksowy wgląd w stan zabezpieczeń IT organizacji za pomocą wbudowanych zapytań wyszukujących istotne problemy, które wymagają uwagi. Pulpit nawigacyjny **Zabezpieczenia i inspekcja** jest głównym ekranem prezentujące wszystkie funkcje pakietu OMS związane z bezpieczeństwem. Zawiera ogólne informacje o stanie zabezpieczeń komputerów. Daje również możliwość wyświetlenia wszystkich zdarzeń z ostatnich 24 godzin, 7 dni lub dowolnego innego przedziału czasu. Aby uzyskać dostęp do pulpitu nawigacyjnego **Zabezpieczenia i inspekcja**, wykonaj następujące kroki:
 
 1. Na głównym pulpicie nawigacyjnym pakietu **Microsoft Operations Management Suite** kliknij kafelek **Ustawienia** po lewej stronie.
@@ -59,7 +66,9 @@ Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS jest podzielony na 
 > 
 > 
 
-## <a name="security-domains"></a>Domeny zabezpieczeń
+<a id="security-domains" class="xliff"></a>
+
+## Domeny zabezpieczeń
 Podczas monitorowania zasobów ważna jest możliwość szybkiej oceny bieżącego stanu środowiska. Jednak warto również śledzić zdarzenia, które wystąpiły w przeszłości, a mogą prowadzić do lepszego zrozumienia tego, co dzieje się w środowisku w danym momencie. 
 
 > [!NOTE]
@@ -82,7 +91,9 @@ Wyniki wyszukiwania są podzielone na dwa okienka: okienko po lewej stronie zawi
 > 
 > 
 
-### <a name="antimalware-assessment"></a>Ocena oprogramowania chroniącego przed złośliwym kodem
+<a id="antimalware-assessment" class="xliff"></a>
+
+### Ocena oprogramowania chroniącego przed złośliwym kodem
 Ta opcja umożliwia szybką identyfikację komputerów z niedostateczną ochroną i komputerów, których zabezpieczenia zostały naruszone na skutek działania złośliwego kodu. Informacje o stanie oceny złośliwego oprogramowania i wykrytych zagrożeń na monitorowanych serwerach są odczytywane i przesyłane do usługi OMS w chmurze w celu przetworzenia. Serwery z wykrytymi zagrożeniami lub niedostateczną ochroną są widoczne na pulpicie nawigacyjnym oceny oprogramowania chroniącego przed złośliwym kodem, który jest dostępny po kliknięciu kafelka **Ocena oprogramowania chroniącego przed złośliwym kodem**. 
 
 ![Ocena oprogramowania chroniącego przed złośliwym kodem](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
@@ -98,7 +109,9 @@ Podobnie jak w przypadku innych kafelków dynamicznych dostępnych na pulpicie n
 
 Gdy klikniesz nazwę komputera, pojawi się chronologiczny widok stanu ochrony danego komputera. Jest to bardzo przydatne w scenariuszach, w których należy ustalić, czy oprogramowanie chroniące przed złośliwym kodem było wcześniej zainstalowane, a w pewnym momencie zostało usunięte.   
 
-### <a name="update-assessment"></a>Ocena aktualizacji
+<a id="update-assessment" class="xliff"></a>
+
+### Ocena aktualizacji
 Ta opcja umożliwia szybkie ustalenie ogólnego narażenia na potencjalne problemy z zabezpieczeniami oraz stopnia krytyczności tych problemów dla danego środowiska. Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia tylko wizualizację tych aktualizacji. Rzeczywiste dane pochodzą z rozwiązania [Zarządzanie aktualizacjami](oms-solution-update-management.md), które jest oddzielnym modułem pakietu OMS. Oto przykład aktualizacji:
 
 ![Aktualizacje systemu](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
@@ -108,7 +121,9 @@ Ta opcja umożliwia szybkie ustalenie ogólnego narażenia na potencjalne proble
 > 
 > 
 
-### <a name="identity-and-access"></a>Tożsamość i dostęp
+<a id="identity-and-access" class="xliff"></a>
+
+### Tożsamość i dostęp
 Tożsamość powinna być warstwą kontroli w przedsiębiorstwie. Ochrona tożsamości powinna stanowić najwyższy priorytet. W przeszłości organizacja była otoczona granicami pełniącymi rolę podstawowych stref obronnych. Obecnie jednak coraz więcej danych i aplikacji jest przenoszonych do chmury, przez co nową strefą ochronną staje się tożsamość. 
 
 > [!NOTE]
@@ -128,32 +143,50 @@ Informacje zawarte na tym pulpicie nawigacyjnym mogą bezpośrednio pomóc w zid
 
 Raport szczegółowy zawiera ważne informacje dotyczące tego zdarzenia, w tym: komputer docelowy, typ logowania (w tym przypadku logowanie sieciowe), działanie (w tym przypadku zdarzenie o identyfikatorze 4625) oraz szczegółowy przebieg prób w czasie. 
 
-### <a name="computers"></a>Komputery
+<a id="computers" class="xliff"></a>
+
+### Komputery
 Ten kafelek umożliwia dostęp do wszystkich komputerów, na których istnieją aktywne zdarzenia zabezpieczeń. Po kliknięciu tego kafelka pojawia się lista komputerów ze zdarzeniami zabezpieczeń oraz liczba zdarzeń na każdym komputerze:
 
 ![Komputery](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
 Można kontynuować badania, klikając wybrany komputer i przeglądając oznaczone zdarzenia zabezpieczeń.
 
-### <a name="threat-intelligence"></a>Analiza zagrożeń
+<a id="threat-intelligence" class="xliff"></a>
+
+### Analiza zagrożeń
 
 Używając opcji Analiza zagrożeń dostępnej w rozwiązaniu Zabezpieczenia i inspekcja usługi OMS, administratorzy IT mogą identyfikować zagrożenia dla bezpieczeństwa środowiska, na przykład wykrywać, czy dany komputer jest częścią botnetu. Komputery mogą stać się węzłami w botnecie, gdy osoby atakujące bezprawnie zainstalują złośliwe oprogramowanie, które potajemnie łączy ten komputer z centrum sterowania. Może także identyfikować potencjalne zagrożenia pochodzące z tajnych kanałów komunikacji, takich jak darknet. Dowiedz się więcej na temat funkcji Analiza zagrożeń, czytając artykuł [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md).
 
-### <a name="baseline-assessment"></a>Ocena linii bazowej
+W niektórych scenariuszach możesz zauważyć potencjalnie złośliwy adres IP, do którego uzyskano dostęp z jednego z monitorowanych komputerów:
+
+![Mapa analizy zagrożeń](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Ten alert i inne w tej samej kategorii są generowane przez rozwiązanie OMS Security z wykorzystaniem [funkcji analizy zagrożeń firmy Microsoft](https://youtu.be/O4WtxgUrDc8). Dane funkcji analizy zagrożeń są gromadzone przez firmę Microsoft, a także kupowane od czołowych dostawców analizy zagrożeń. Te dane są często aktualizowane i adaptowane do szybko zmieniających się zagrożeń. Ze względu na ich charakter podczas [badania](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) alertu zabezpieczeń powinny być one łączone z innymi źródłami informacji o zabezpieczeniach. 
+
+<a id="baseline-assessment" class="xliff"></a>
+
+### Ocena linii bazowej
 
 Firma Microsoft, wraz z instytucjami branżowymi i rządowymi na całym świecie, zdefiniowała konfigurację systemu Windows, która reprezentuje wdrożenia serwera o wysokim poziomie zabezpieczeń. Konfiguracja ta stanowi zestaw kluczy rejestru, ustawień zasad inspekcji i ustawień zasad zabezpieczeń wraz z zalecanymi przez firmę Microsoft wartościami tych ustawień. Ten zestaw reguł jest określany jako linia bazowa zabezpieczeń. Przeczytaj temat [Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-baseline.md), aby uzyskać więcej informacji na temat tej opcji.
 
-### <a name="azure-security-center"></a>Azure Security Center
+<a id="azure-security-center" class="xliff"></a>
+
+### Azure Security Center
 Ten kafelek jest po prostu skrótem do pulpitu nawigacyjnego Azure Security Center. Więcej informacji na temat tego rozwiązania zawiera artykuł [Przewodnik Szybki start dotyczący Centrum zabezpieczeń Azure](../security-center/security-center-get-started.md).
 
-## <a name="notable-issues"></a>Problemy godne uwagi
+<a id="notable-issues" class="xliff"></a>
+
+## Problemy godne uwagi
 Głównym przeznaczeniem tej grupy opcji jest zapewnianie szybkiego wglądu w problemy występujące w danym środowisku oraz ich podział na problemy krytyczne, ostrzegawcze oraz informacyjne. Kafelek typu aktywnego problemu oferuje wizualizację tych problemów, ale nie podaje szczegółowych informacji. Służy do tego dolna część tego kafelka, na której widać nazwę problemu (NAZWA), liczbę obiektów, których dotyczy (LICZBA) i stopień ich ważności (WAŻNOŚĆ).
 
 ![Problemy godne uwagi](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
 Widać, że te problemy zostały już przedstawione w innych obszarach grupy **Domeny zabezpieczeń**, co podkreśla przeznaczenie tego widoku, jakim jest wizualizacja najważniejszych problemów w środowisku w jednym miejscu.
 
-## <a name="detections-preview"></a>Wykrycia (podgląd)
+<a id="detections-preview" class="xliff"></a>
+
+## Wykrycia (podgląd)
 Ta opcja służy przede wszystkim do szybkiego identyfikowania potencjalnych zagrożeń w środowisku oraz określania ich ważności.
 
 ![Analiza zagrożeń](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -165,14 +198,18 @@ Z tej opcji można również skorzystać podczas [analizy reakcji na zdarzenia](
 > 
 > 
 
-## <a name="threat-intelligence"></a>Analiza zagrożeń
+<a id="threat-intelligence" class="xliff"></a>
+
+## Analiza zagrożeń
 Nowa sekcja analizy zagrożeń w rozwiązaniu Zabezpieczenia i inspekcja umożliwia wizualizację możliwych schematów ataku na kilka sposobów: całkowita liczba serwerów z wychodzącym złośliwym ruchem IP, typ złośliwego kodu oraz mapa pochodzenia tych adresów IP. Mapa jest interaktywna: klikając adres IP, można uzyskać więcej informacji.
 
 Żółte pinezki na mapie wskazują ruch przychodzący ze złośliwych adresów IP. Nie jest niczym niezwykłym, że serwery połączone z Internetem odbierają złośliwy ruch przychodzący, ale warto przeglądać te próby, aby upewnić się, że żadna z nich nie zakończyła się pomyślnie. Wskaźniki te są oparte na dziennikach usług IIS i zapory systemu Windows oraz danych WireData.  
 
 ![Analiza zagrożeń](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
-## <a name="common-security-queries"></a>Typowe zapytania dotyczące zabezpieczeń
+<a id="common-security-queries" class="xliff"></a>
+
+## Typowe zapytania dotyczące zabezpieczeń
 Lista typowych zapytań dotyczących zabezpieczeń może ułatwiać szybki dostęp do informacji o zasobach i dostosowanie ich do wymagań danego środowiska. Typowe zapytania obejmują:
 
 * Wszystkie działania dotyczące zabezpieczeń
@@ -186,7 +223,9 @@ Lista typowych zapytań dotyczących zabezpieczeń może ułatwiać szybki dost�
 * Działania logowania według konta
 * Konta, przy użyciu których wykonano zdalne logowanie do komputera „computer01.contoso.com” (zastąp własną nazwą komputera)
 
-## <a name="see-also"></a>Zobacz też
+<a id="see-also" class="xliff"></a>
+
+## Zobacz też
 Ten dokument przedstawia wprowadzenie do rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS. Więcej informacji na temat zabezpieczeń w pakiecie OMS zawierają następujące artykuły:
 
 * [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)

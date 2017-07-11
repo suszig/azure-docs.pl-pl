@@ -12,25 +12,32 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 06/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 391870380280d6783223849ce383113bf1dd6d31
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/13/2017
 
 
 ---
-# <a name="what-is-log-analytics"></a>Co to jest usługa Log Analytics?
+<a id="what-is-log-analytics" class="xliff"></a>
+
+# Co to jest usługa Log Analytics?
 Log Analytics to usługa należąca do pakietu [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md), która monitoruje środowiska chmurowe i lokalne w celu zachowania ich dostępności i wydajności.  Zbiera ona dane generowane przez zasoby w środowiskach chmurowych i lokalnych oraz inne narzędzia do monitorowania, aby przeprowadzać analizę na podstawie wielu źródeł.  Ten artykuł zawiera krótkie omówienie wartości oferowanej przez usługę Log Analytics i sposobu jej działania oraz linki do bardziej szczegółowej zawartości, dzięki której możesz dowiedzieć się więcej na ten temat.
 
-## <a name="is-log-analytics-for-you"></a>Czy usługa Log Analytics jest przeznaczona dla Ciebie?
-Jeśli obecnie środowisko platformy Azure nie jest monitorowane, warto rozpocząć od pracy z usługą [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), która zbiera i analizuje dane monitorowania zasobów platformy Azure.  Usługa Log Analytics może zbierać dane z usługi Azure Monitor, aby korelować je z innymi danymi i przeprowadzać dodatkowe analizy.
+<a id="is-log-analytics-for-you" class="xliff"></a>
+
+## Czy usługa Log Analytics jest przeznaczona dla Ciebie?
+Jeśli obecnie środowisko platformy Azure nie jest monitorowane, warto rozpocząć od pracy z usługą [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), która zbiera i analizuje dane monitorowania zasobów platformy Azure.  Usługa Log Analytics może [zbierać dane z usługi Azure Monitor](log-analytics-azure-storage.md), aby korelować je z innymi danymi i przeprowadzać dodatkowe analizy.
 
 Jeśli chcesz monitorować środowiska lokalnie lub obecnie przeprowadzasz monitorowanie za pomocą usług, takich jak Azure Monitor lub System Center Operations Manager, usługa Log Analytics może mieć dla Ciebie dużą wartość.  Może ona zbierać dane bezpośrednio od agentów oraz innych narzędzi w obrębie pojedynczego repozytorium.  Narzędzia analityczne w usłudze Log Analytics, takie jak operacje wyszukiwania w dziennikach, widoki i rozwiązania, działają na wszystkich zebranych danych i oferują scentralizowaną analizę całego środowiska.
 
 
-## <a name="using-log-analytics"></a>Korzystanie z usługi Log Analytics
+<a id="using-log-analytics" class="xliff"></a>
+
+## Korzystanie z usługi Log Analytics
 Dostęp do usługi Log Analytics można uzyskiwać za pośrednictwem portalu pakietu OMS lub witryny Azure Portal, które działają w dowolnej przeglądarce i zapewniają dostęp do ustawień konfiguracji oraz wielu narzędzi służących do analizowania zebranych danych i przeprowadzania na nich działań.  Z poziomu portalu można wykorzystać [wyszukiwanie w dziennikach](log-analytics-log-searches.md), za pomocą którego można tworzyć zapytania służące do analizowania zebranych danych, [pulpity nawigacyjne](log-analytics-dashboards.md), które można dostosować za pomocą widoków graficznych dotyczących najbardziej wartościowych wyszukiwań, i [rozwiązania](log-analytics-add-solutions.md) zapewniające dodatkowe funkcje i narzędzia analizy.
 
 Poniższy obraz pochodzi z portalu pakietu OMS i przedstawia pulpit nawigacyjny ze zbiorczymi informacjami na temat [rozwiązań](#add-functionality-with-management-solutions) instalowanych w obszarze roboczym.  Aby uzyskać dostęp do szczegółowych danych wybranego rozwiązania, można kliknąć odpowiedni kafelek.
@@ -47,7 +54,9 @@ Aby w szybki sposób uzyskać widok graficzny kondycji całego środowiska, moż
 
 Aby analizować dane poza usługą Log Analytics, można wyeksportować dane z repozytorium pakietu OMS do narzędzi takich jak usługa [Power BI](log-analytics-powerbi.md) lub program Excel.  Możesz również wykorzystywać [interfejs API wyszukiwania w dzienniku](log-analytics-log-search-api.md), aby tworzyć niestandardowe rozwiązania korzystające z danych usługi Log Analytics lub przeprowadzać integrację z innymi systemami.
 
-## <a name="add-functionality-with-management-solutions"></a>Dodawanie funkcjonalności dzięki rozwiązaniom do zarządzania
+<a id="add-functionality-with-management-solutions" class="xliff"></a>
+
+## Dodawanie funkcjonalności dzięki rozwiązaniom do zarządzania
 [Rozwiązania do zarządzania](log-analytics-add-solutions.md) dodają funkcjonalność pakietu OMS i udostępniają usłudze Log Analytics dodatkowe narzędzia do obsługi danych i analizy.  Mogą również definiować nowe typy rekordów do pobrania, które można przeanalizować za pomocą funkcji wyszukiwań w dziennikach lub przy użyciu dodatkowego interfejsu użytkownika udostępnionego przez rozwiązanie w ramach pulpitu nawigacyjnego.  Na poniższym obrazie przedstawiono przykładowe [rozwiązanie do śledzenia zmian](log-analytics-change-tracking.md)
 
 ![Rozwiązanie do śledzenia zmian](media/log-analytics-overview/change-tracking.png)
@@ -56,7 +65,9 @@ Dostępne są już rozwiązania związane z różnorodnymi funkcjami i cały cza
 
 ![Galeria rozwiązań](media/log-analytics-overview/solution-gallery.png)
 
-## <a name="log-analytics-components"></a>Składniki usługi Log Analytics
+<a id="log-analytics-components" class="xliff"></a>
+
+## Składniki usługi Log Analytics
 Centralnym punktem usługi Log Analytics jest repozytorium pakietu OMS, które jest hostowane w chmurze platformy Azure.  Dane są zbierane do repozytorium z połączonych źródeł przez konfigurowanie źródeł danych i dodawanie rozwiązań do subskrypcji.  Za pomocą źródeł danych i rozwiązań będą tworzone różne typy rekordów mających własne zestawy właściwości, ale które mogą być analizowane razem w zapytaniach do repozytorium.  Pozwala to korzystać z tych samych narzędzi i metod do pracy z różnymi rodzajami danych zbieranych przez różne źródła.
 
 ![Repozytorium pakietu OMS](media/log-analytics-overview/overview.png)
@@ -67,7 +78,9 @@ Połączone źródła to komputery i inne zasoby, które generują dane zbierane
 
 Jeśli masz wymagania niestandardowe, a następnie możesz użyć [interfejsu API modułu zbierającego dane HTTP](log-analytics-data-collector-api.md) w celu zapisania danych do repozytorium z klienta interfejsu API REST.
 
-## <a name="log-analytics-architecture"></a>Architektura usługi Log Analytics
+<a id="log-analytics-architecture" class="xliff"></a>
+
+## Architektura usługi Log Analytics
 Wymagania dotyczące wdrażania usługi Log Analytics są minimalne, ponieważ centralne składniki są hostowane w chmurze platformy Azure.  Oprócz repozytorium obejmuje to usługi, które umożliwiają korelowanie i analizowanie zebranych danych.  Do portalu można uzyskać dostęp z dowolnej przeglądarki, więc nie jest wymagane żadne oprogramowanie klienckie.
 
 Konieczne jest zainstalowanie agentów na komputerach z systemem [Windows](log-analytics-windows-agents.md) i [Linux](log-analytics-linux-agents.md), ale dla komputerów, które są już elementami członkowskimi [podłączonej grupy zarządzania SCOM](log-analytics-om-agents.md), nie są wymagani żadni dodatkowi agenci.  Agenci SCOM będą nadal komunikować się z serwerami zarządzania, które będą przekazywać swoje dane do usługi Log Analytics.  Niektóre rozwiązania będą jednak wymagać agentów w celu bezpośredniego komunikowania się z usługą Log Analytics.  W dokumentacji poszczególnych rozwiązań będą określone ich wymagania dotyczące komunikacji.
@@ -76,7 +89,9 @@ Po [utworzeniu konta usługi Log Analytics](log-analytics-get-started.md) zostan
 
 ![Architektura usługi Log Analytics](media/log-analytics-overview/architecture.png)
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 * [Załóż bezpłatne konto usługi Log Analytics](log-analytics-get-started.md), aby przetestować ją we własnym środowisku.
 * Wyświetl poszczególne [źródła danych](log-analytics-data-sources.md), za pomocą których można zbierać dane do repozytorium pakietu OMS.
 * [Przeglądaj dostępne rozwiązania w galerii rozwiązań](log-analytics-add-solutions.md), aby dodać funkcje do usługi Log Analytics.

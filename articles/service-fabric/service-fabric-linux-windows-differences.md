@@ -12,28 +12,33 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 68c7e1f3f51ca5bec30a0f71aaccbafa58078e69
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Różnice między usługą Service Fabric w systemie Linux (wersja zapoznawcza) i w systemie Windows (wersja ogólnie dostępna)
+<a id="differences-between-service-fabric-on-linux-preview-and-windows-generally-available" class="xliff"></a>
 
-Ponieważ usługa Service Fabric w systemie Linux jest w wersji zapoznawczej, pewne funkcje, które są obsługiwane w systemie Windows, nie są jeszcze obsługiwane w systemie Linux. Gdy usługa Service Fabric w systemie Linux stanie się ogólnie dostępna, zestawy funkcji będą takie same.
+# Różnice między usługą Service Fabric w systemie Linux (wersja zapoznawcza) i w systemie Windows (wersja ogólnie dostępna)
 
-* Niezawodne kolekcje (i niezawodne usługi stanowe) nie są obsługiwane w systemie Linux.
-* Zwrotny serwer proxy nie jest dostępny w systemie Linux.
-* Autonomiczny instalator nie jest dostępny w systemie Linux.
-* Walidacja schematu XML dla plików manifestu nie jest wykonywana w systemie Linux. 
-* Przekierowywanie konsoli nie jest obsługiwane w systemie Linux. 
-* Usługa analizy błędów nie jest dostępna w systemie Linux.
-* Obsługa usługi Azure Active Directory nie jest dostępna w systemie Linux.
-* Niektóre polecenia interfejsu wiersza polecenia będące odpowiednikami poleceń programu PowerShell nie są dostępne.
+Ponieważ usługa Service Fabric w systemie Linux jest w wersji zapoznawczej, pewne funkcje, które są obsługiwane w systemie Windows, nie są jeszcze obsługiwane w systemie Linux. Gdy usługa Service Fabric w systemie Linux stanie się ogólnie dostępna, zestawy funkcji będą takie same. Różnica między funkcjami będzie się zmniejszać wraz z udostępnianiem kolejnych wersji. Oto różnice między najnowszymi dostępnymi wersjami (to znaczy między wersją 5.6 w systemie Windows i wersją 5.5 w systemie Linux): 
+
+* Niezawodne kolekcje (i niezawodne usługi stanowe) 
+* Zwrotny serwer proxy 
+* Autonomiczny instalator 
+* Weryfikacja schematu XML dla plików manifestu 
+* Przekierowywanie konsoli 
+* Usługa analizy błędów
+* Narzędzie Docker Compose oraz sterowniki woluminów i rejestrowania dla kontenerów 
+* Nadzór nad zasobami dla kontenerów i usług 
+* Usługa DNS
+* Obsługa usługi Azure Active Directory
+* Polecenia interfejsu wiersza polecenia będące odpowiednikami niektórych poleceń programu PowerShell 
 * Względem klastra z systemem Linux można wykonywać tylko podzbiór poleceń programu PowerShell (więcej informacji na ten temat znajduje się w następnej sekcji).
 
 >[!NOTE]
@@ -41,7 +46,9 @@ Ponieważ usługa Service Fabric w systemie Linux jest w wersji zapoznawczej, pe
 
 Narzędzia programistyczne używane w systemie Windows różnią się także od tych używanych w systemie Linux. W systemie Windows można korzystać z narzędzi VisualStudio, Powershell, VSTS i ETW, a w systemie Linux z narzędzi Yeoman, Eclipse, Jenkins i LTTng.
 
-## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Polecenia cmdlet programu PowerShell, które nie działają względem klastra usługi Service Fabric z systemem Linux
+<a id="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster" class="xliff"></a>
+
+## Polecenia cmdlet programu PowerShell, które nie działają względem klastra usługi Service Fabric z systemem Linux
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario
@@ -99,7 +106,9 @@ Narzędzia programistyczne używane w systemie Windows różnią się także od 
 
 
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 * [Przygotowywanie środowiska projektowego w systemie Linux](service-fabric-get-started-linux.md)
 * [Przygotowywanie środowiska projektowego w systemie OSX](service-fabric-get-started-mac.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md) (Tworzenie i wdrażanie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu programu Yeoman)

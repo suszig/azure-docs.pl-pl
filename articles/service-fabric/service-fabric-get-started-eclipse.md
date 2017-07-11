@@ -12,20 +12,25 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 06/29/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f0f6d6399d53ae2ef81454e4d686e6cc59151c2
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/30/2017
 
 
 ---
 
-# <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse
+<a id="service-fabric-plug-in-for-eclipse-java-application-development" class="xliff"></a>
+
+# Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse
 Eclipse jest jednym z najczęściej używanych zintegrowanych środowisk projektowych (IDE, integrated development environment) przez programistów języka Java. W tym artykule omówiono konfigurowanie środowiska projektowego Eclipse do pracy z usługą Azure Service Fabric. Dowiedz się, jak zainstalować wtyczkę usługi Service Fabric oraz utworzyć aplikację usługi Service Fabric i wdrożyć ją w lokalnym lub zdalnym klastrze usługi Service Fabric w środowisku Eclipse Neon.
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Instalowanie lub aktualizowanie wtyczki usługi Service Fabric w środowisku Eclipse Neon
+<a id="install-or-update-the-service-fabric-plug-in-in-eclipse-neon" class="xliff"></a>
+
+## Instalowanie lub aktualizowanie wtyczki usługi Service Fabric w środowisku Eclipse Neon
 W środowisku Eclipse można zainstalować wtyczkę usługi Service Fabric. Wtyczka może pomóc w uproszczeniu procesu kompilowania i wdrażania usług Java.
 
 1.  Upewnij się, że masz zainstalowaną najnowszą wersję środowiska Eclipse Neon i zestawu Buildship (wersję 1.0.17 lub nowszą):
@@ -34,18 +39,21 @@ W środowisku Eclipse można zainstalować wtyczkę usługi Service Fabric. Wtyc
     -   Aby sprawdzić i zainstalować aktualizacje środowiska Eclipse Neon, wybierz opcję **Help** > **Check for Updates** (Pomoc — Sprawdź dostępność aktualizacji).
 
 2.  Aby zainstalować wtyczkę usługi Service Fabric, w środowisku Eclipse Neon wybierz pozycję **Help** > **Install New Software** (Pomoc — Instaluj nowe oprogramowanie).
-  1.    W polu **Work with** (Pracuj z) wprowadź adres **http://dl.windowsazure.com/eclipse/servicefabric**.
+  1.    W polu **Work with** (Pracuj z) wprowadź adres **http://dl.microsoft.com/eclipse**.
   2.    Kliknij pozycję **Dodaj**.
-    ![Wtyczka usługi Service Fabric dla środowiska Eclipse Neon][sf-eclipse-plugin-install]
+
+         ![Wtyczka usługi Service Fabric dla środowiska Eclipse Neon][sf-eclipse-plugin-install]
   3.    Wybierz wtyczkę usługi Service Fabric, a następnie kliknij przycisk **Next** (Dalej).
   4.    Wykonaj kroki instalacji, a następnie zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft.
 
 Jeśli wtyczka usługi Service Fabric jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Aby sprawdzić, czy są dostępne aktualizacje, wybierz pozycję **Help** > **Installation Details** (Pomoc — Szczegóły instalacji). Na liście zainstalowanych wtyczek wybierz usługę Service Fabric, a następnie kliknij pozycję **Update** (Aktualizuj). Dostępne aktualizacje zostaną zainstalowane.
 
 > [!NOTE]
-> Jeśli instalowanie lub aktualizowanie wtyczki usługi Service Fabric przebiega wolno, przyczyną może być ustawienie środowiska Eclipse. Środowisko Eclipse zbiera metadane dotyczące wszystkich zmian w witrynach aktualizowania, które są zarejestrowane w wystąpieniu środowiska Eclipse. Aby przyspieszyć proces sprawdzania i instalowania aktualizacji wtyczki usługi Service Fabric, wybierz pozycję **Available Software Sites** (Dostępne witryny z oprogramowaniem). Usuń zaznaczenie pól wyboru dla wszystkich witryn poza witryną wskazującą lokalizację wtyczki usługi Service Fabric (http://dl.windowsazure.com/eclipse/servicefabric).
+> Jeśli instalowanie lub aktualizowanie wtyczki usługi Service Fabric przebiega wolno, przyczyną może być ustawienie środowiska Eclipse. Środowisko Eclipse zbiera metadane dotyczące wszystkich zmian w witrynach aktualizowania, które są zarejestrowane w wystąpieniu środowiska Eclipse. Aby przyspieszyć proces sprawdzania i instalowania aktualizacji wtyczki usługi Service Fabric, wybierz pozycję **Available Software Sites** (Dostępne witryny z oprogramowaniem). Usuń zaznaczenie pól wyboru dla wszystkich witryn poza witryną wskazującą lokalizację wtyczki usługi Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
 
-## <a name="create-a-service-fabric-application-in-eclipse"></a>Tworzenie aplikacji usługi Service Fabric w środowisku Eclipse
+<a id="create-a-service-fabric-application-in-eclipse" class="xliff"></a>
+
+## Tworzenie aplikacji usługi Service Fabric w środowisku Eclipse
 
 1.  W środowisku Eclipse Neon wybierz opcję **File** > **New** > **Other** (Plik — Nowy — Inne). Wybierz pozycję **Service Fabric Project** (Projekt usługi Service Fabric), a następnie kliknij przycisk **Next** (Dalej).
 
@@ -71,7 +79,9 @@ Jeśli wtyczka usługi Service Fabric jest już zainstalowana, upewnij się, że
 
     ![Nowy projekt usługi Service Fabric — strona 6][create-application/p6]
 
-## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Kompilowanie i wdrażanie aplikacji usługi Service Fabric w środowisku Eclipse
+<a id="build-and-deploy-a-service-fabric-application-in-eclipse" class="xliff"></a>
+
+## Kompilowanie i wdrażanie aplikacji usługi Service Fabric w środowisku Eclipse
 
 1.  Kliknij prawym przyciskiem myszy nową aplikację usługi Service Fabric, a następnie wybierz polecenie **Service Fabric**.
 
@@ -103,7 +113,9 @@ Alternatywnym sposobem wdrażania aplikacji usługi Service Fabric jest użycie 
 
 Aplikacja zostanie skompilowana i wdrożona w ciągu kilku minut. Stan wdrażania możesz monitorować w narzędziu Service Fabric Explorer.  
 
-## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Dodawanie usługi Service Fabric do aplikacji usługi Service Fabric
+<a id="add-a-service-fabric-service-to-your-service-fabric-application" class="xliff"></a>
+
+## Dodawanie usługi Service Fabric do aplikacji usługi Service Fabric
 
 Aby dodać usługę Service Fabric do istniejącej aplikacji usługi Service Fabric, wykonaj następujące kroki:
 
@@ -124,7 +136,17 @@ Aby dodać usługę Service Fabric do istniejącej aplikacji usługi Service Fab
 
     ![Dodawanie usługi Service Fabric — strona 4][add-service/p4]
 
-## <a name="upgrade-your-service-fabric-java-application"></a>Uaktualnianie aplikacji Java usługi Service Fabric
+<a id="edit-manifest-versions-of-your-service-fabric-java-application" class="xliff"></a>
+
+## Edytowanie wersji manifestu aplikacji Java usługi Service Fabric
+
+Aby edytować wersje manifestu, kliknij prawym przyciskiem myszy projekt, przejdź do lokalizacji **Service Fabric** i wybierz z menu rozwijanego pozycję **Edytuj wersje manifestu**. W kreatorze możesz zaktualizować wersje manifestu aplikacji i manifestu usługi oraz wersje pakietów **Kod**, **Konfiguracja** i **Dane**.
+
+Jeśli zaznaczysz opcję **Automatycznie aktualizuj wersje aplikacji i usługi**, a następnie zaktualizujesz wersję, wersje manifestu zostaną automatycznie zaktualizowane. Przykład: najpierw musisz zaznaczyć pole wyboru, a następnie zaktualizować wersję pakietu **Kod** z 0.0.0 na 0.0.1 i kliknąć przycisk **Zakończ**. Następnie wersja manifestu usługi i wersja manifestu aplikacji zostaną automatycznie zaktualizowane do wersji 0.0.1.
+
+<a id="upgrade-your-service-fabric-java-application" class="xliff"></a>
+
+## Uaktualnianie aplikacji Java usługi Service Fabric
 
 Na potrzeby scenariusza uaktualniania przyjmijmy, że utworzono projekt **App1** za pomocą wtyczki usługi Service Fabric w środowisku Eclipse. Wdrożono go za pomocą wtyczki w celu utworzenia aplikacji o nazwie **fabric:/App1Application**. Typ aplikacji to **App1ApplicationType**, a jej wersja to 1.0. Teraz chcesz uaktualnić aplikację bez przerw w dostępności.
 
@@ -142,7 +164,7 @@ Uaktualnienie aplikacji zajmuje kilka minut. Narzędzie Service Fabric Explorer 
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png
