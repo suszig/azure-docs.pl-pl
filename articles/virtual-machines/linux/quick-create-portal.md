@@ -15,21 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ff4bf9c9e3bfbd0e51cdb91be85dec15db6cd758
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
-# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Tworzenie maszyny wirtualnej z systemem Linux za pomocą witryny Azure Portal
+<a id="create-a-linux-virtual-machine-with-the-azure-portal" class="xliff"></a>
+
+# Tworzenie maszyny wirtualnej z systemem Linux za pomocą witryny Azure Portal
 
 Maszyny wirtualne platformy Azure można utworzyć za pomocą witryny Azure Portal. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie i konfigurowanie maszyn wirtualnych oraz wszystkich pokrewnych zasobów. Ten przewodnik Szybki start opisuje proces tworzenia maszyny wirtualnej i instalowania serwera sieci Web na tej maszynie wirtualnej.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-ssh-key-pair"></a>Tworzenie pary kluczy SSH
+<a id="create-ssh-key-pair" class="xliff"></a>
+
+## Tworzenie pary kluczy SSH
 
 Do wykonania kroków tego przewodnika Szybki start konieczne jest posiadanie pary kluczy SSH. Jeśli masz już parę kluczy SSH, możesz pominąć ten krok.
 
@@ -39,11 +44,15 @@ Korzystając z powłoki Bash, uruchom to polecenie i wykonaj instrukcje wyświet
 ssh-keygen -t rsa -b 2048
 ```
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure. 
+<a id="log-in-to-azure" class="xliff"></a>
+
+## Zaloguj się do platformy Azure. 
 
 Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
+<a id="create-virtual-machine" class="xliff"></a>
+
+## Tworzenie maszyny wirtualnej
 
 1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
@@ -64,7 +73,9 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 7. Maszyna wirtualna zostanie przypięta do pulpitu nawigacyjnego witryny Azure Portal. Po zakończeniu wdrożenia zostanie automatycznie otwarty blok podsumowania maszyny wirtualnej.
 
 
-## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
+<a id="connect-to-virtual-machine" class="xliff"></a>
+
+## Nawiązywanie połączenia z maszyną wirtualną
 
 Utwórz połączenie SSH z maszyną wirtualną.
 
@@ -78,7 +89,9 @@ Utwórz połączenie SSH z maszyną wirtualną.
 ssh azureuser@40.112.21.50
 ```
 
-## <a name="install-nginx"></a>Instalowanie serwera NGINX
+<a id="install-nginx" class="xliff"></a>
+
+## Instalowanie serwera NGINX
 
 Użyj poniższego skryptu powłoki systemowej w celu zaktualizowania źródeł pakietów i zainstalowania najnowszego pakietu NGINX. 
 
@@ -95,7 +108,9 @@ sudo apt-get -y install nginx
 Po zakończeniu zamknij sesję SSH i wróć do właściwości maszyny wirtualnej w witrynie Azure Portal.
 
 
-## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
+<a id="open-port-80-for-web-traffic" class="xliff"></a>
+
+## Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
 Sieciowa grupa zabezpieczeń zabezpiecza ruch przychodzący i wychodzący. Po utworzeniu maszyny wirtualnej z poziomu witryny Azure Portal na porcie 22 jest tworzona reguła ruchu przychodzącego dla połączeń SSH. Ponieważ maszyna wirtualna hostuje serwer sieci Web, należy utworzyć regułę sieciowej grupy zabezpieczeń dla portu 80.
 
@@ -107,17 +122,23 @@ Sieciowa grupa zabezpieczeń zabezpiecza ruch przychodzący i wychodzący. Po ut
 6. Kliknij przycisk **OK**.
 
 
-## <a name="view-the-ngix-welcome-page"></a>Wyświetlanie strony powitalnej serwera NGINX
+<a id="view-the-nginx-welcome-page" class="xliff"></a>
+
+## Wyświetlanie strony powitalnej serwera NGINX
 
 Po zainstalowaniu serwera NGINX i otwarciu portu 80 dla maszyny wirtualnej można uzyskać dostęp do serwera sieci Web z Internetu. Otwórz przeglądarkę internetową i wpisz publiczny adres IP maszyny wirtualnej. Publiczny adres IP można znaleźć w bloku maszyny wirtualnej w witrynie Azure Portal.
 
 ![Domyślna witryna serwera NGINX](./media/quick-create-cli/nginx.png) 
 
-## <a name="delete-virtual-machine"></a>Usuwanie maszyny wirtualnej
+<a id="clean-up-resources" class="xliff"></a>
+
+## Oczyszczanie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. W tym celu wybierz grupę zasobów z bloku maszyny wirtualnej, a następnie kliknij przycisk **Usuń**.
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 
 W tym przewodniku Szybki start została wdrożona prosta maszyna wirtualna i reguła sieciowej grupy zabezpieczeń oraz zainstalowano serwer sieci Web. Aby dowiedzieć się więcej o maszynach wirtualnych platformy Azure, przejdź do samouczka dla maszyn wirtualnych z systemem Linux.
 

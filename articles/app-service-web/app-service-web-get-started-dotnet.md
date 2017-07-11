@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie pierwszej aplikacji sieci Web platformy ASP.NET na platformie Azure w ciągu pięciu minut | Microsoft Docs"
-description: "Dowiedz się, jak łatwo można uruchamiać aplikacje sieci Web w usłudze App Service, wdrażając prostą aplikację platformy ASP.NET."
+title: Tworzenie aplikacji internetowej ASP.NET na platformie Azure | Microsoft Docs
+description: "Dowiedz się, jak uruchamiać aplikacje internetowe w usłudze Azure App Service, wdrażając przykładową aplikację internetową ASP.NET."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -12,132 +12,146 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 06/14/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 2b447bcc5930550af3996cb40925ab59d203dc7c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="create-your-first-aspnet-web-app-in-azure-in-five-minutes"></a>Tworzenie pierwszej aplikacji sieci Web platformy ASP.NET na platformie Azure w ciągu pięciu minut
+<a id="create-an-aspnet-web-app-in-azure" class="xliff"></a>
 
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
+# Tworzenie aplikacji sieci Web platformy ASP.NET na platformie Azure
 
-Ten przewodnik szybkiego startu pomaga w ciągu kilku minut wdrożyć pierwszą aplikację sieci Web platformy ASP.NET w [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md). Po zakończeniu będziesz mieć prostą aplikację sieci Web uruchomioną w chmurze.
+Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten przewodnik Szybki start zawiera informacje dotyczące sposobu wdrożenia pierwszej aplikacji internetowej ASP.NET w usłudze Azure App Service. Po zakończeniu będzie istnieć grupa zasobów składająca się z planu usługi App Service i aplikacji internetowej platformy Azure wraz z wdrożoną aplikacją internetową.
 
 ![Aplikacja sieci Web platformy ASP.NET w usłudze Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="prerequisites"></a>Wymagania wstępne
+<a id="prerequisites" class="xliff"></a>
 
-Ten samouczek pokazuje sposób używania programu Visual Studio 2017 do tworzenia i wdrażania aplikacji sieci Web platformy ASP.NET na platformie Azure. Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pobrać program [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) i używać go **bezpłatnie**. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+## Wymagania wstępne
+
+W celu ukończenia tego samouczka:
+
+* Zainstaluj program [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) z następującymi pakietami roboczymi:
+    - **Tworzenie aplikacji na platformie ASP.NET i tworzenie aplikacji internetowych**
+    - **Tworzenie aplikacji na platformie Azure**
+
+    ![Tworzenie aplikacji na platformie ASP.NET i tworzenie aplikacji internetowych oraz tworzenie aplikacji na platformie Azure (w ramach Internetu i chmury)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji sieci Web platformy ASP.NET
+<a id="create-an-aspnet-web-app" class="xliff"></a>
 
-W programie Visual Studio utwórz projekt za pomocą kombinacji `Ctrl` + `Shift` + `N`.
+## Tworzenie aplikacji sieci Web platformy ASP.NET
 
-W oknie dialogowym **Nowy projekt** kliknij pozycje **Visual C# > Sieć Web > Aplikacja sieci Web ASP.NET (program .NET Framework)**.
+W programie Visual Studio utwórz nowy projekt, wybierając pozycję **Plik > Nowy > Projekt**. 
 
-Podaj nazwę aplikacji **myFirstAzureWebApp**, a następnie kliknij przycisk **OK**.
+W oknie dialogowym **Nowy projekt** kliknij pozycję **Visual C# > Sieć Web > Aplikacja sieci Web ASP.NET (program .NET Framework)**.
+
+Nadaj aplikacji nazwę _myFirstAzureWebApp_, a następnie kliknij przycisk **OK**.
    
 ![Okno dialogowe Nowy projekt](./media/app-service-web-get-started-dotnet/new-project.png)
 
-Na platformie Azure można wdrożyć dowolny typ aplikacji sieci Web platformy ASP.NET. Do celów tego samouczka wybierz szablon **MVC** i upewnij się, że uwierzytelnianie jest ustawione na **Bez uwierzytelniania**.
+Na platformie Azure można wdrożyć dowolny typ aplikacji sieci Web platformy ASP.NET. Do celów tego przewodnika Szybki start wybierz szablon **MVC** i upewnij się, że uwierzytelnianie jest ustawione na wartość **Bez uwierzytelniania**.
       
 Kliknij przycisk **OK**.
 
 ![Okno dialogowe Nowy projekt ASP.NET](./media/app-service-web-get-started-dotnet/select-mvc-template.png)
 
-## <a name="publish-to-azure"></a>Publikowanie na platformie Azure
+Z menu wybierz pozycję **Debuguj > Uruchom bez debugowania**, aby lokalnie uruchomić aplikację internetową.
 
-W obszarze **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **myFirstAzureWebApp** i wybierz polecenie **Publikuj**.
+![Uruchamianie aplikacji lokalnie](./media/app-service-web-get-started-dotnet/local-web-app.png)
+
+<a id="publish-to-azure" class="xliff"></a>
+
+## Publikowanie na platformie Azure
+
+W obszarze **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **myFirstAzureWebApp**, a następnie wybierz polecenie **Publikuj**.
 
 ![Publikowanie z Eksploratora rozwiązań](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
 
-Upewnij się, że jest zaznaczona usługa **Microsoft Azure App Service**, a następnie kliknij przycisk **Publikuj**.
+Upewnij się, że pozycja **Microsoft Azure App Service** jest zaznaczona, a następnie kliknij przycisk **Publikuj**.
 
 ![Publikowanie ze strony przeglądu projektu](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Spowoduje to otwarcie okna dialogowego **Tworzenie usługi App Service**, które ułatwia tworzenie wszystkich zasobów platformy Azure potrzebnych do uruchomienia aplikacji sieci Web platformy ASP.NET na platformie Azure.
+Spowoduje to otwarcie okna dialogowego **Tworzenie usługi App Service**, które ułatwia tworzenie wszystkich zasobów platformy Azure niezbędnych do uruchomienia aplikacji internetowej ASP.NET na platformie Azure.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+<a id="sign-in-to-azure" class="xliff"></a>
 
-W oknie dialogowym **Tworzenie usługi App Service** kliknij pozycję **Dodaj konto**, a następnie zaloguj się do swojej subskrypcji platformy Azure. Jeśli zalogowano się już do konta Microsoft, upewnij się, że to konto zawiera Twoją subskrypcję platformy Azure. Jeśli użyte do logowania konto Microsoft nie ma subskrypcji platformy Azure, kliknij je, aby dodać prawidłowe konto.
+## Logowanie do platformy Azure
+
+W oknie dialogowym **Tworzenie usługi App Service** wybierz pozycję **Dodaj konto**, a następnie zaloguj się do swojej subskrypcji platformy Azure. Jeśli przeprowadzono już logowanie, upewnij się, że konto zawiera Twoją subskrypcję platformy Azure. Możesz wybrać konto logowania, aby dodać odpowiednie konto.
+
+> [!NOTE]
+> Jeśli przeprowadzono już logowanie, nie wybieraj jeszcze pozycji **Utwórz**.
+>
+>
    
 ![Logowanie do platformy Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
-Po zalogowaniu możesz w tym oknie dialogowym utworzyć wszystkie zasoby potrzebne dla aplikacji sieci Web platformy Azure.
+Po zalogowaniu się możesz w tym oknie dialogowym utworzyć wszystkie zasoby wymagane dla aplikacji internetowej platformy Azure.
 
-## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
+<a id="create-a-resource-group" class="xliff"></a>
 
-Najpierw potrzebna będzie _grupa zasobów_. 
+## Tworzenie grupy zasobów
 
-> [!NOTE] 
-> Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure, takich jak aplikacje sieci Web, bazy danych i konta magazynu, oraz zarządzania nimi.
->
->
+[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-Obok pozycji **Grupa zasobów** kliknij przycisk **Nowa**.
+Obok pozycji **Grupa zasobów** wybierz pozycję **Nowa**.
 
 Nadaj grupie zasobów nazwę **myResourceGroup**, a następnie kliknij przycisk **OK**.
 
-## <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
+<a id="create-an-app-service-plan" class="xliff"></a>
 
-Aplikacja sieci Web platformy Azure wymaga też _planu usługi App Service_. 
+## Tworzenie planu usługi App Service
 
-> [!NOTE]
-> Plan usługi App Service reprezentuje kolekcję zasobów fizycznych służących do hostowania aplikacji. Wszystkie aplikacje przypisane do planu usługi App Service współdzielą zasoby przez niego zdefiniowane, co pozwala zmniejszyć koszty hostowania wielu aplikacji. 
->
-> Plany usługi App Service definiują następujące elementy:
->
-> - Region (Europa Północna, Wschodnie stany USA, Azja Południowo-Wschodnia)
-> - Rozmiar wystąpienia (mały, średni, duży)
-> - Wartość licznika skali (jedno, dwa lub trzy wystąpienia itp.) 
-> - Jednostka magazynowa (Bezpłatna, Współdzielona, Podstawowa, Standardowa, Premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Obok pozycji **Plan usługi App Service** kliknij przycisk **Nowy**. 
+Obok pozycji **Plan usługi App Service** wybierz pozycję **Nowy**. 
 
-W oknie dialogowym **Konfiguruj plan usługi App Service** skonfiguruj nowy plan usługi App Service przy użyciu następujących ustawień:
-
-- **Plan usługi App Service**: wpisz wartość **myAppServicePlan**. 
-- **Lokalizacja**: wybierz pozycję **Europa Zachodnia** lub inny odpowiedni region.
-- **Rozmiar**: wybierz **Bezpłatna** lub inną odpowiednią [warstwę cenową](https://azure.microsoft.com/pricing/details/app-service/).
-
-Kliknij przycisk **OK**.
+W oknie dialogowym **Konfiguruj plan usługi App Service** użyj ustawień znajdujących się w tabeli poniżej zrzutu ekranu.
 
 ![Tworzenie planu usługi App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
-## <a name="create-and-publish-the-web-app"></a>Tworzenie i publikowanie aplikacji sieci Web
+| Ustawienie | Sugerowana wartość | Opis |
+|-|-|-|
+|Plan usługi App Service| myAppServicePlan | Nazwa planu usługi App Service. |
+| Lokalizacja | Europa Zachodnia | Centrum danych, w którym hostowana jest aplikacja internetowa. |
+| Rozmiar | Bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/) określa funkcje hostowania. |
 
-Pozostało jedynie nadanie nazwy aplikacji sieci Web. W polu **Nazwa aplikacji sieci Web** wpisz unikatową nazwę aplikacji. Ta nazwa będzie używana jako część domyślnej nazwy DNS dla aplikacji (`<app_name>.azurewebsites.net`), więc musi być unikatowa dla wszystkich aplikacji na platformie Azure. Później możesz zamapować niestandardową nazwę domeny na aplikację, zanim udostępnisz ją użytkownikom.
+Kliknij przycisk **OK**.
 
-Możesz również zaakceptować automatycznie wygenerowaną nazwę, która już jest unikatowa.
+<a id="create-and-publish-the-web-app" class="xliff"></a>
 
-Kliknij przycisk **Utwórz**, aby rozpocząć tworzenie zasobów platformy Azure.
+## Tworzenie i publikowanie aplikacji sieci Web
+
+W polu **Nazwa aplikacji sieci Web** wpisz unikatową nazwę aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Adres URL aplikacji internetowej to `http://<app_name>.azurewebsites.net`, gdzie `<app_name>` to nazwa aplikacji internetowej. 
+
+Możesz zaakceptować automatycznie wygenerowaną nazwę, która jest unikatowa.
+
+Wybierz pozycję **Utwórz**, aby rozpocząć tworzenie zasobów platformy Azure.
 
 ![Konfigurowanie nazwy aplikacji sieci Web](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-Po zakończeniu tworzenia zasobów platformy Azure przez kreator automatycznie opublikuje on po raz pierwszy aplikację sieci Web platformy ASP.NET na platformie Azure, a następnie uruchomi opublikowaną aplikację sieci Web platformy Azure w domyślnej przeglądarce.
+Po zakończeniu działania kreatora aplikacja internetowa ASP.NET zostanie opublikowana na platformie Azure, a następnie uruchomiona w domyślnej przeglądarce.
 
 ![Opublikowana aplikacja sieci Web platformy ASP.NET na platformie Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
 Adres URL używa określonej wcześniej nazwy aplikacji sieci Web w formacie `http://<app_name>.azurewebsites.net`. 
 
-Gratulacje, Twoja pierwsza aplikacja sieci Web platformy ASP.NET działa na żywo w usłudze Azure App Service.
+Gratulacje, Twoja aplikacja internetowa ASP.NET działa w usłudze Azure App Service.
 
-## <a name="update-the-app-and-redeploy"></a>Aktualizowanie aplikacji i ponowne wdrażanie
+<a id="update-the-app-and-redeploy" class="xliff"></a>
 
-Aktualizacja i ponowne wdrożenie na platformie Azure są bardzo proste. Wprowadźmy aktualizację na stronie głównej.
+## Aktualizowanie aplikacji i ponowne wdrażanie
 
-Za pomocą **Eksploratora rozwiązań** otwórz plik **Views\Home\Index.cshtml**.
+Za pomocą **Eksploratora rozwiązań** otwórz plik _Views\Home\Index.cshtml_.
 
-Znajdź tag HTML `<div class="jumbotron">` u góry i zastąp cały tag następującym kodem:
+Znajdź tag HTML `<div class="jumbotron">` u góry i zastąp cały element następującym kodem:
 
 ```HTML
 <div class="jumbotron">
@@ -146,57 +160,36 @@ Znajdź tag HTML `<div class="jumbotron">` u góry i zastąp cały tag następuj
 </div>
 ```
 
-Aby przeprowadzić ponowne wdrożenie na platformie Azure, kliknij prawym przyciskiem myszy swój projekt **myFirstAzureWebApp** w **Eksploratorze rozwiązań**, a następnie wybierz pozycję **Publikuj**.
+Aby przeprowadzić ponowne wdrożenie na platformie Azure, kliknij prawym przyciskiem myszy projekt **myFirstAzureWebApp** w **Eksploratorze rozwiązań**, a następnie wybierz polecenie **Publikuj**.
 
-Na stronie publikowania kliknij przycisk **Publikuj**.
+Na stronie publikowania wybierz pozycję **Publikuj**.
 
-Po zakończeniu operacji program Visual Studio uruchomi zaktualizowaną aplikację sieci Web na platformie Azure w przeglądarce.
+Po zakończeniu publikowania program Visual Studio otworzy w przeglądarce adres URL aplikacji internetowej.
 
 ![Zaktualizowana aplikacja sieci Web platformy ASP.NET na platformie Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Zarządzanie nową aplikacją sieci Web platformy Azure
+<a id="manage-the-azure-web-app" class="xliff"></a>
 
-Przejdź do witryny Azure Portal, aby przyjrzeć się właśnie utworzonej aplikacji sieci Web. 
+## Zarządzanie aplikacją internetową platformy Azure
 
-W tym celu zaloguj się do witryny [https://portal.azure.com](https://portal.azure.com).
+Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać aplikacją internetową.
 
-W lewym menu kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji sieci Web platformy Azure.
+W lewym menu wybierz pozycję **App Services**, a następnie wybierz nazwę swojej aplikacji sieci Web platformy Azure.
 
 ![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/app-service-web-get-started-dotnet/access-portal.png)
 
-Jesteś teraz w _bloku_ aplikacji sieci Web (stronie portalu, która jest otwierana w poziomie). 
-
-Domyślnie blok aplikacji sieci Web wyświetla stronę **Przegląd**. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie.  
+Zostanie wyświetlona strona Omówienie aplikacji internetowej. Tutaj możesz wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. 
 
 ![Blok usługi App Service w witrynie Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Karty po lewej stronie bloku pokazują różne strony konfiguracji, które można otworzyć. Poniższa lista zawiera tylko kilka możliwości:
+Menu po lewej stronie zawiera różne strony służące do konfigurowania aplikacji. 
 
-- Mapowanie niestandardowej nazwy DNS
-- Tworzenie powiązania niestandardowego certyfikatu SSL
-- Konfigurowanie ciągłego wdrażania
-- Skalowanie w górę i w dół
-- Dodawanie uwierzytelniania użytkownika
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+<a id="next-steps" class="xliff"></a>
 
-Aby usunąć swoją pierwszą aplikację sieci Web platformy Azure, możesz kliknąć przycisk **Usuń** na stronie **Przegląd**. Jest jednak lepszy sposób, aby usunąć wszystkie elementy utworzone w ramach tego samouczka szybkiego startu. Na stronie **Przegląd** aplikacji sieci Web kliknij grupę zasobów, aby otworzyć jej blok. 
-
-![Dostęp do grupy zasobów z bloku usługi App Service](./media/app-service-web-get-started-dotnet/access-resource-group.png)
-
-W bloku grupy zasobów można zobaczyć zarówno plan usługi App Service, jak i aplikację usługi App Service, która została utworzona przez program Visual Studio. 
-
-W górnej części bloku kliknij pozycję **Usuń**. 
-
-<!--![Delete resource group in Azure portal](./media/app-service-web-get-started-dotnet/delete-resource-group.png)-->
-
-W bloku potwierdzenia potwierdź operację, wpisując nazwę grupy zasobów **myResourceGroup** w polu tekstowym i klikając przycisk **Usuń**.
-
-## <a name="next-steps"></a>Następne kroki
+## Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak zbudować aplikację ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-
-> [!div class="nextstepaction"]
-> [Zapoznaj się z przykładowymi skryptami programu PowerShell w usługach Web Apps](app-service-powershell-samples.md)
+> [Platforma .ASP.NET z usługą SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 

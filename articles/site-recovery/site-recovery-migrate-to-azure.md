@@ -8,20 +8,23 @@ manager: jwhit
 editor: 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="migrate-to-azure-with-site-recovery"></a>Migrowanie na platformę Azure za pomocą usługi Site Recovery
+<a id="migrate-to-azure-with-site-recovery" class="xliff"></a>
+
+# Migrowanie na platformę Azure za pomocą usługi Site Recovery
 
 Przeczytaj ten artykuł, aby zapoznać się z usługą Azure Site Recovery pod kątem migrowania maszyn wirtualnych i serwerów fizycznych.
 
@@ -35,11 +38,15 @@ W tym artykule opisano wdrażanie w witrynie [Azure Portal](https://portal.azure
 Komentarze możesz zamieścić na dole tego artykułu. Zadawaj pytania techniczne na [Forum Usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="what-do-we-mean-by-migration"></a>Co mamy na myśli przez migrację?
+<a id="what-do-we-mean-by-migration" class="xliff"></a>
+
+## Co mamy na myśli przez migrację?
 
 Usługę Site Recovery można wdrożyć na potrzeby replikacji lokalnych maszyn wirtualnych i serwerów fizycznych na platformę Azure lub do lokacji dodatkowej. Maszyny są duplikowane, przechodzą do trybu failover z lokacji głównej, gdy wystąpi awaria, i z powrotem do lokacji głównej, gdy zostanie wykonane odzyskiwanie. Oprócz tego usługa Site Recovery umożliwia migrowanie maszyn wirtualnych i serwerów fizycznych na platformę Azure, dzięki czemu użytkownicy mają do nich dostęp jako do maszyn wirtualnych na platformie Azure. Migracja obejmuje replikację i przejście do trybu failover z lokacji głównej na platformę Azure oraz pełną migrację.
 
-## <a name="what-can-site-recovery-migrate"></a>Co może migrować usługa Site Recovery?
+<a id="what-can-site-recovery-migrate" class="xliff"></a>
+
+## Co może migrować usługa Site Recovery?
 
 Możesz:
 
@@ -47,7 +54,9 @@ Możesz:
 - Przeprowadzić migrację [maszyn wirtualnych IaaS platformy Azure](site-recovery-migrate-azure-to-azure.md) między regionami platformy Azure. W tym scenariuszu aktualnie jest obsługiwana tylko migracja, co oznacza, że powrót po awarii nie jest obsługiwany.
 - Przeprowadzić migrację [wystąpień usługi AWS dla systemu Windows](site-recovery-migrate-aws-to-azure.md) do maszyn wirtualnych IaaS platformy Azure. W tym scenariuszu aktualnie jest obsługiwana tylko migracja, co oznacza, że powrót po awarii nie jest obsługiwany.
 
-## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migracja lokalnych maszyn wirtualnych i serwerów fizycznych
+<a id="migrate-on-premises-vms-and-physical-servers" class="xliff"></a>
+
+## Migracja lokalnych maszyn wirtualnych i serwerów fizycznych
 
 Aby zmigrować lokalne maszyny wirtualne funkcji Hyper-V, maszyny wirtualne oprogramowania VMware i serwery fizyczne, należy wykonać prawie te same czynności co w przypadku zwykłej replikacji.
 
@@ -62,22 +71,30 @@ Aby zmigrować lokalne maszyny wirtualne funkcji Hyper-V, maszyny wirtualne opro
 
 ![pełna_migracja](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
-## <a name="migrate-between-azure-regions"></a>Migracja między regionami platformy Azure
+<a id="migrate-between-azure-regions" class="xliff"></a>
+
+## Migracja między regionami platformy Azure
 
 Maszyny wirtualne platformy Azure można migrować między regionami przy użyciu usługi Site Recovery. W tym scenariuszu jest obsługiwana tylko migracja. Inaczej mówiąc, możesz zreplikować maszyny wirtualne platformy Azure i przełączyć je w tryb failover do innego regionu, ale nie możesz wykonać powrotu po awarii. W ramach tego scenariusza należy skonfigurować magazyn usługi Recovery Services, wdrożyć lokalny serwer konfiguracji na potrzeby zarządzania replikacją, dodać go do magazynu i określić ustawienia replikacji. Następnie należy włączyć replikację dla maszyn, które mają zostać zmigrowane, i uruchomić szybkie testowe przejście do trybu failover. Potem należy uruchomić nieplanowane przejście do trybu failover z opcją **Zakończ migrację**.
 
-## <a name="migrate-aws-to-azure"></a>Migracja usługi AWS na platformę Azure
+<a id="migrate-aws-to-azure" class="xliff"></a>
+
+## Migracja usługi AWS na platformę Azure
 
 Możesz zmigrować wystąpienia usługi AWS na maszyny wirtualne platformy Azure. W tym scenariuszu jest obsługiwana tylko migracja. Inaczej mówiąc, możesz zreplikować wystąpienia usługi AWS i przełączyć je w tryb failover na platformę Azure, ale nie możesz wykonać powrotu po awarii. Na potrzeby migracji wystąpienia usługi AWS są obsługiwane w taki sam sposób jak serwery fizyczne. Należy skonfigurować magazyn usługi Recovery Services, wdrożyć lokalny serwer konfiguracji na potrzeby zarządzania replikacją, dodać go do magazynu i określić ustawienia replikacji. Następnie należy włączyć replikację dla maszyn, które mają zostać zmigrowane, i uruchomić szybkie testowe przejście do trybu failover. Potem należy uruchomić nieplanowane przejście do trybu failover z opcją **Zakończ migrację**.
 
 
 
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 
 - [Migrowanie maszyn wirtualnych programu VMware na platformę Azure](site-recovery-vmware-to-azure.md)
 - [Migrowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM na platformę Azure](site-recovery-vmm-to-azure.md)
 - [Migrowanie maszyn wirtualnych funkcji Hyper-V (bez programu VMM) na platformę Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrowanie maszyn wirtualnych platformy Azure między regionami platformy Azure](site-recovery-migrate-azure-to-azure.md)
 - [Migrowanie wystąpień usługi AWS na platformę Azure](site-recovery-migrate-aws-to-azure.md)
+- [Przygotuj migrowane maszyny do włączenia replikacji](site-recovery-azure-to-azure-after-migration.md) do innego regionu na potrzeby odzyskiwania po awarii.
+- Zacznij chronić obciążenia, [replikując maszyny wirtualne platformy Azure.](site-recovery-azure-to-azure.md)
 

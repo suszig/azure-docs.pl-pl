@@ -12,18 +12,20 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="create-a-batch-account-with-the-azure-portal"></a>Tworzenie konta usługi Batch w witrynie Azure Portal
+<a id="create-a-batch-account-with-the-azure-portal" class="xliff"></a>
+
+# Tworzenie konta usługi Batch w witrynie Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](batch-account-create-portal.md)
@@ -37,11 +39,15 @@ Ogólne informacje o kontach usługi Batch i scenariuszach można znaleźć w [o
 
 
 
-## <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
+<a id="create-a-batch-account" class="xliff"></a>
+
+## Tworzenie konta usługi Batch
 
 Aby utworzyć konto usługi Batch, użyj portalu w jednym z dwóch *trybów alokacji puli*: trybu **usługi Batch** lub nowszego trybu **subskrypcji użytkownika**, który wymaga większej liczby czynności konfiguracyjnych. Informacje o tych dwóch trybach można znaleźć w [omówieniu funkcji](batch-api-basics.md#account). W przypadku funkcji trybu subskrypcji użytkownika zobacz też [wpis w blogu](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/).
 
-## <a name="batch-service-mode"></a>Tryb usługi Batch
+<a id="batch-service-mode" class="xliff"></a>
+
+## Tryb usługi Batch
 
 
 
@@ -69,9 +75,13 @@ Aby utworzyć konto usługi Batch, użyj portalu w jednym z dwóch *trybów alok
 
    Portal wskazuje, że wdrożenie jest w toku. Po zakończeniu w obszarze **Powiadomienia** pojawia się powiadomienie **Wdrożenie zakończyło się pomyślnie**.
 
-## <a name="user-subscription-mode"></a>Tryb subskrypcji użytkownika
+<a id="user-subscription-mode" class="xliff"></a>
 
-### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Umożliwia usłudze Azure Batch dostęp do subskrypcji (jednorazowa operacja)
+## Tryb subskrypcji użytkownika
+
+<a id="allow-azure-batch-to-access-the-subscription-one-time-operation" class="xliff"></a>
+
+### Umożliwia usłudze Azure Batch dostęp do subskrypcji (jednorazowa operacja)
 Podczas tworzenia pierwszego konta usługi Batch w trybie subskrypcji użytkownika wykonaj następujące czynności, aby zarejestrować subskrypcję w usłudze Batch. (Jeśli wcześniej zostało to już zrobione, przejdź do następnej sekcji).
 
 1. Zaloguj się w witrynie [Azure Portal][azure_portal].
@@ -82,18 +92,27 @@ Podczas tworzenia pierwszego konta usługi Batch w trybie subskrypcji użytkowni
 
     ![Kontrola dostępu do subskrypcji][subscription_access]
 
-4. W bloku **Dodawanie uprawnień** wybierz rolę **Współautor** i wyszukaj ciąg **MicrosoftAzureBatch** (bez spacji). Wybierz pozycję **MicrosoftAzureBatch**, a następnie kliknij przycisk **Zapisz**.
+4. W bloku **Dodawanie uprawnień** wybierz rolę **Współautor** i wyszukaj interfejs API usługi Batch. Wyszukuj następujące ciągi, aż znajdziesz odpowiedni interfejs API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. W przypadku nowszych dzierżaw usługi Azure AD może być używana ta nazwa.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** to identyfikator interfejsu API usługi Batch. 
+
+5. Po odnalezieniu interfejsu API usługi Batch wybierz jego pozycję i kliknij przycisk **Zapisz**.
 
     ![Dodawanie uprawnień usługi Batch][add_permission]
 
-### <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
+<a id="create-a-key-vault" class="xliff"></a>
+
+### Tworzenie magazynu kluczy
 W trybie subskrypcji użytkownika wymagana jest usługa Azure Key Vault należąca do tej samej grupy zasobów, co konto usługi Batch, które ma zostać utworzone. Upewnij się, że grupa zasobów znajduje się w regionie, gdzie usługa Batch jest [dostępna](https://azure.microsoft.com/regions/services/) i który obsługuje Twoja subskrypcja.
 
 1. W witrynie [Azure Portal][azure_portal] kliknij pozycję **Nowy** > **Bezpieczeństwo i obsługa tożsamości** > **Key Vault**.
 
 2. W bloku **Tworzenie magazynu Key Vault** wprowadź nazwę magazynu Key Vault i utwórz grupę zasobów w wymaganym regionie konta usługi Batch. Pozostaw wartości domyślne pozostałych ustawień, a następnie kliknij przycisk **Utwórz**.
 
-### <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
+<a id="create-a-batch-account" class="xliff"></a>
+
+### Tworzenie konta usługi Batch
 
 1. W witrynie [Azure Portal][azure_portal] kliknij pozycje **Nowy** > **Obliczanie** > **Usługa Batch**.
 
@@ -122,7 +141,9 @@ W trybie subskrypcji użytkownika wymagana jest usługa Azure Key Vault należą
 
 
 
-## <a name="view-batch-account-properties"></a>Wyświetlanie właściwości konta usługi Batch
+<a id="view-batch-account-properties" class="xliff"></a>
+
+## Wyświetlanie właściwości konta usługi Batch
 Po utworzeniu konta możesz otworzyć **Blok konta usługi Batch**, aby uzyskać dostęp do jego ustawień i właściwości. Menu po lewej stronie bloku konta usługi Batch zapewnia dostęp do wszystkich ustawień i właściwości konta.
 
 ![Blok konta usługi Batch w witrynie Azure Portal][account_blade]
@@ -141,7 +162,9 @@ Po utworzeniu konta możesz otworzyć **Blok konta usługi Batch**, aby uzyskać
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
-## <a name="linked-azure-storage-account"></a>Połączone konto usługi Azure Storage
+<a id="linked-azure-storage-account" class="xliff"></a>
+
+## Połączone konto usługi Azure Storage
 
 Możesz opcjonalnie połączyć konto usługi Azure Storage ogólnego przeznaczenia z kontem usługi Batch. Funkcja [pakietów aplikacji](batch-application-packages.md) usługi Batch korzysta z usługi Azure Blob Storage, podobnie jak biblioteka [.NET Batch File Conventions](batch-task-output.md). Te opcjonalne funkcje pomagają we wdrażaniu aplikacji uruchamianych przez zadania usługi Batch oraz utrwalaniu wytwarzanych przez nich danych.
 
@@ -161,23 +184,29 @@ Zaleca się utworzenie nowego konta usługi Storage do wyłącznego użytku prze
 
 ![Ponowne generowanie kluczy konta magazynu][4]
 
-## <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
+<a id="batch-service-quotas-and-limits" class="xliff"></a>
+
+## Limity przydziału i limity usługi Batch
 Należy pamiętać, że podobnie jak w przypadku subskrypcji i innych usług Azure, do kont usługi Batch mają zastosowanie określone [limity przydziału i limity](batch-quota-limit.md). Bieżące limity przydziału dla konta usługi Batch są wyświetlane w portalu w obszarze **Właściwości** konta.
 
 ![Limity przydziału konta usługi Batch w witrynie Azure Portal][quotas]
 
 
 
-Ponadto wiele z tych limitów przydziału można powiększyć po prostu przy użyciu bezpłatnego żądania pomocy technicznej przesłanego w witrynie Azure Portal. Szczegóły dotyczące żądań zwiększenia limitów przydziału zamieszczono w artykule [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Limity przydziału i limity dla usługi Azure Batch).
+Ponadto wiele z tych limitów przydziału można powiększyć po prostu przy użyciu bezpłatnego żądania obsługi przesłanego w witrynie Azure Portal. Szczegóły dotyczące żądań zwiększenia limitów przydziału zamieszczono w artykule [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Limity przydziału i limity dla usługi Azure Batch).
 
-## <a name="other-batch-account-management-options"></a>Inne opcje zarządzania kontem usługi Batch
+<a id="other-batch-account-management-options" class="xliff"></a>
+
+## Inne opcje zarządzania kontem usługi Batch
 Poza korzystaniem z witryny Azure Portal można również utworzyć konta usługi Batch i zarządzać nimi przy użyciu następujących opcji:
 
 * [Polecenia cmdlet programu PowerShell usługi Batch](batch-powershell-cmdlets-get-started.md)
 * [Interfejs wiersza polecenia platformy Azure](batch-cli-get-started.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 * Aby dowiedzieć się więcej o zasadach działania i funkcjach usługi Batch, zobacz temat [Omówienie funkcji usługi Batch](batch-api-basics.md). W artykule omówiono podstawowe zasoby usługi Batch, takie jak pule, węzły obliczeniowe i zadania, oraz opisano funkcje, które umożliwiają wykonywanie obciążeń zasobów obliczeniowych na dużą skalę.
 * Poznaj podstawy tworzenia aplikacji wykorzystujących usługę Batch za pomocą biblioteki klienta [Batch .NET](batch-dotnet-get-started.md) lub języka [Python](batch-python-tutorial.md). Niniejsze artykuły wprowadzające zawierają omówienie działającej aplikacji, która korzysta z usługi Batch do wykonywania obciążenia na wielu węzłach obliczeniowych i stosuje usługę Azure Storage do tymczasowego przechowywania i pobierania pliku obciążenia.
 

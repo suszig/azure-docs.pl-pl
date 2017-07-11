@@ -16,31 +16,39 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="get-started-with-sql-data-warehouse"></a>Rozpoczynanie pracy z usługą SQL Data Warehouse
+<a id="get-started-with-sql-data-warehouse" class="xliff"></a>
+
+# Rozpoczynanie pracy z usługą SQL Data Warehouse
 
 W tym samouczku pokazano, jak aprowizować usługę Azure SQL Data Warehouse i ładować do niej dane. Przedstawiono w nim też podstawowe informacje dotyczące skalowania, wstrzymywania i dostosowywania. Ten samouczek przygotuje Cię do eksplorowania magazynu danych i wykonywania w nim zapytań.
 
 **Szacowany czas trwania:** jest to kompleksowy samouczek z przykładowym kodem, który trwa około 30 minut, gdy spełniono wymagania wstępne. 
 
-## <a name="prerequisites"></a>Wymagania wstępne
+<a id="prerequisites" class="xliff"></a>
+
+## Wymagania wstępne
 
 W samouczku przyjęto założenie, że znasz podstawowe pojęcia związane z usługą SQL Data Warehouse. Wprowadzenie można znaleźć na stronie [Co to jest usługa SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) 
 
-### <a name="sign-up-for-microsoft-azure"></a>Utwórz konto na platformie Microsoft Azure
+<a id="sign-up-for-microsoft-azure" class="xliff"></a>
+
+### Utwórz konto na platformie Microsoft Azure
 Jeśli nie masz jeszcze konta platformy Microsoft Azure, musisz je utworzyć, aby móc używać tej usługi. Jeśli masz już konto platformy Azure, pomiń ten krok. 
 
 1. Przejdź do strony konta [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Utwórz bezpłatne konto platformy Azure lub zakup konto.
 3. Postępuj zgodnie z instrukcjami
 
-### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Instalowanie odpowiednich sterowników i narzędzi klienta SQL
+<a id="install-appropriate-sql-client-drivers-and-tools" class="xliff"></a>
+
+### Instalowanie odpowiednich sterowników i narzędzi klienta SQL
 
 Większość narzędzi klienta SQL może nawiązywać połączenie z usługą SQL Data Warehouse przy użyciu sterownika JDBC, ODBC lub ADO.NET. Z powodu dużej liczby funkcji w języku T-SQL obsługiwanych przez usługę SQL Data Warehouse niektóre aplikacje klienckie nie są w pełni zgodne z usługą SQL Data Warehouse.
 
@@ -50,7 +58,9 @@ Jeśli używasz systemu operacyjnego Windows, zalecamy użycie programu [Visual 
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## <a name="create-a-sql-data-warehouse"></a>Tworzenie bazy danych w usłudze SQL Data Warehouse
+<a id="create-a-sql-data-warehouse" class="xliff"></a>
+
+## Tworzenie bazy danych w usłudze SQL Data Warehouse
 
 Magazyn danych SQL Data Warehouse to specjalny typ bazy danych zaprojektowany z myślą o masowym przetwarzaniu równoległym. Baza danych jest rozpowszechniana w wielu węzłach i przetwarza zapytania równolegle. Magazyn danych SQL Data Warehouse zawiera węzeł kontrolny, który organizuje działania wszystkich węzłów. Węzły zarządzają danymi przy użyciu bazy danych SQL Database.  
 
@@ -58,7 +68,9 @@ Magazyn danych SQL Data Warehouse to specjalny typ bazy danych zaprojektowany z 
 > Utworzenie bazy danych w usłudze SQL Data Warehouse może skutkować powstaniem nowej usługi płatnej.  Aby uzyskać więcej informacji, zobacz [Cennik usługi SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
-### <a name="create-a-data-warehouse"></a>Tworzenie magazynu danych
+<a id="create-a-data-warehouse" class="xliff"></a>
+
+### Tworzenie magazynu danych
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Nowy** > **Bazy danych** > **SQL Data Warehouse**.
@@ -89,12 +101,16 @@ Magazyn danych SQL Data Warehouse to specjalny typ bazy danych zaprojektowany z 
 
 5. Zaczekaj na wdrożenie magazynu danych. Zwykle ten proces trwa kilka minut. W portalu zostanie wyświetlone powiadomienie, gdy magazyn danych będzie gotowy do użycia. 
 
-## <a name="connect-to-sql-data-warehouse"></a>Nawiązywanie połączenia z usługą SQL Data Warehouse
+<a id="connect-to-sql-data-warehouse" class="xliff"></a>
+
+## Nawiązywanie połączenia z usługą SQL Data Warehouse
 
 W tym samouczku do nawiązania połączenia z magazynem danych jest używany program SQL Server Management Studio (SSMS). Możesz nawiązać połączenie z usługą SQL Data Warehouse za pomocą następujących obsługiwanych łączników: ADO.NET, JDBC, ODBC i PHP. W przypadku narzędzi nieobsługiwanych przez firmę Microsoft funkcjonalność może być ograniczona.
 
 
-### <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
+<a id="get-connection-information" class="xliff"></a>
+
+### Pobieranie informacji o połączeniu
 
 Aby nawiązać połączenie z magazynem danych, musisz nawiązać połączenie za pośrednictwem serwera logicznego SQL utworzonego w sekcji [Wymagania wstępne].
 
@@ -119,11 +135,15 @@ Możesz również mieć konto administratora usługi Azure Active Directory. Nie
 Następnym tematem jest tworzenie dodatkowych kont logowania i użytkowników.
 
 
-## <a name="create-a-database-user"></a>Tworzenie użytkownika bazy danych
+<a id="create-a-database-user" class="xliff"></a>
+
+## Tworzenie użytkownika bazy danych
 
 W tym kroku opisano tworzenie konta użytkownika umożliwiającego uzyskiwanie dostępu do magazynu danych. Ponadto pokazano, jak umożliwić użytkownikowi wykonywanie zapytań przy dużej ilości pamięci i zasobów procesora CPU.
 
-### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Uwagi dotyczące klas zasobów na potrzeby przydzielania zasobów do zapytań
+<a id="notes-about-resource-classes-for-allocating-resources-to-queries" class="xliff"></a>
+
+### Uwagi dotyczące klas zasobów na potrzeby przydzielania zasobów do zapytań
 
 - Aby zapewnić bezpieczeństwo danych, nie uruchamiaj zapytań w produkcyjnych bazach danych przy użyciu konta administratora serwera. To konto ma największe uprawnienia spośród wszystkich użytkowników i używanie go do wykonywania operacji na danych użytkowników naraża dane na niebezpieczeństwo. Ponadto administrator serwera powinien wykonywać operacje związane z zarządzaniem, dlatego podczas wykonywania operacji ma do dyspozycji małą ilość pamięci i zasobów procesora CPU. 
 
@@ -131,7 +151,9 @@ W tym kroku opisano tworzenie konta użytkownika umożliwiającego uzyskiwanie d
 
 - W celu uzyskania optymalnej kompresji danych użytkownik może wymagać obciążenia z przydziałem dużej lub bardzo dużej ilości zasobów. Więcej o klasach zasobów może dowiedzieć się [tutaj](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
-### <a name="create-an-account-that-can-control-a-database"></a>Tworzenie konta z możliwością sterowania bazą danych
+<a id="create-an-account-that-can-control-a-database" class="xliff"></a>
+
+### Tworzenie konta z możliwością sterowania bazą danych
 
 Obecnie logujesz się jako administrator serwera, dlatego masz uprawnienia do tworzenia kont logowania i użytkowników.
 
@@ -163,7 +185,9 @@ Obecnie logujesz się jako administrator serwera, dlatego masz uprawnienia do tw
     > Jeśli nazwa bazy danych zawiera łączniki, pamiętaj, aby ująć je w nawiasy kwadratowe. 
     >
 
-### <a name="give-the-user-medium-resource-allocations"></a>Przydzielanie użytkownikowi średniej ilości zasobów
+<a id="give-the-user-medium-resource-allocations" class="xliff"></a>
+
+### Przydzielanie użytkownikowi średniej ilości zasobów
 
 1. Uruchom to polecenie T-SQL, aby dodać użytkownika do klasy średniej ilości zasobów o nazwie mediumrc. 
 
@@ -179,7 +203,9 @@ Obecnie logujesz się jako administrator serwera, dlatego masz uprawnienia do tw
     ![Zaloguj się za pomocą nowego identyfikatora logowania](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## <a name="load-data-from-azure-blob-storage"></a>Ładowanie danych usługi Azure Blob Storage
+<a id="load-data-from-azure-blob-storage" class="xliff"></a>
+
+## Ładowanie danych usługi Azure Blob Storage
 
 Teraz możesz zacząć ładować dane do magazynu danych. W tym kroku pokazano, jak załadować dane taksówek w Nowym Jorku z obiektu blob w publicznym magazynie platformy Azure. 
 
@@ -188,7 +214,9 @@ Teraz możesz zacząć ładować dane do magazynu danych. W tym kroku pokazano, 
 - Aby dowiedzieć się, jak przesłać dane do usługi Azure Blob Storage lub załadować je bezpośrednio ze źródła do usługi SQL Data Warehouse, zobacz [omówienie ładowania](sql-data-warehouse-overview-load.md).
 
 
-### <a name="define-external-data"></a>Definiowanie danych zewnętrznych
+<a id="define-external-data" class="xliff"></a>
+
+### Definiowanie danych zewnętrznych
 
 1. Utwórz klucz główny. Musisz utworzyć klucz główny tylko raz dla danej bazy danych. 
 
@@ -419,7 +447,9 @@ Teraz możesz zacząć ładować dane do magazynu danych. W tym kroku pokazano, 
     ;
 ```
 
-### <a name="import-the-data-from-azure-blob-storage"></a>Zaimportuj dane z usługi Azure Blob Storage.
+<a id="import-the-data-from-azure-blob-storage" class="xliff"></a>
+
+### Zaimportuj dane z usługi Azure Blob Storage.
 
 Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABLE AS SELECT (CTAS). Ta instrukcja tworzy nową tabelę na podstawie wyników instrukcji select. Nowa tabela ma takie same kolumny i typy danych jak wyniki instrukcji select.  Jest to elegancki sposób importowania danych z usługi Azure Blob Storage do usługi SQL Data Warehouse.
 
@@ -541,11 +571,15 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
     ![Wyświetl załadowane dane](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## <a name="improve-query-performance"></a>Zwiększanie wydajności zapytań
+<a id="improve-query-performance" class="xliff"></a>
+
+## Zwiększanie wydajności zapytań
 
 Istnieje kilka sposobów na zwiększenie szybkości przetwarzania zapytań i osiągnięcie wysokiej wydajności, do zapewniania której usługa SQL Data Warehouse została zaprojektowana.  
 
-### <a name="see-the-effect-of-scaling-on-query-performance"></a>Zobacz efekt skalowania wydajności zapytań 
+<a id="see-the-effect-of-scaling-on-query-performance" class="xliff"></a>
+
+### Zobacz efekt skalowania wydajności zapytań 
 
 Jednym ze sposobów poprawy wydajności zapytań jest skalowanie zasobów przez zmianę poziomu usługi jednostek DWU dla magazynu danych. Poszczególne poziomy usług są coraz droższe, ale w dowolnej chwili można przeprowadzić skalowanie w dół lub wstrzymać zasoby. 
 
@@ -578,11 +612,16 @@ Najpierw zostanie przeprowadzone skalowanie w dół do 100 jednostek DWU, dzięk
 
 7. Uruchom zapytanie ponownie. Powinna być zauważalna istotna różnica. 
 
+    > [!NOTE]
+    > Ponieważ zapytanie zwraca dużą ilość danych, przepustowość maszyny z uruchomionym programem SSMS może stanowić wąskie gardło. Może to spowodować, że użytkownik nie odczuje jakiegokolwiek zwiększenia wydajności.
+
 > [!NOTE]
 > Usługa SQL Data Warehouse korzysta bowiem z masowego przetwarzania równoległego. Zapytania przeprowadzające skanowanie milionów wierszy lub wykonujące na nich funkcje analityczne ujawniają prawdziwą moc usługi Azure SQL Data Warehouse.
 >
 
-### <a name="see-the-effect-of-statistics-on-query-performance"></a>Zobacz efekt statystyczny wydajności zapytań
+<a id="see-the-effect-of-statistics-on-query-performance" class="xliff"></a>
+
+### Zobacz efekt statystyczny wydajności zapytań
 
 1. Uruchom zapytanie powodujące sprzężenie tabeli Date z tabelą Trip
 
@@ -634,7 +673,9 @@ Najpierw zostanie przeprowadzone skalowanie w dół do 100 jednostek DWU, dzięk
 
 3. Uruchom zapytanie ponownie z poziomu sekcji Wymagania wstępne i obserwuj różnice wydajności. Mimo że różnice w wydajności zapytania nie będą tak znaczące jak w przypadku skalowania w górę, przyspieszenie powinno być odczuwalne. 
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 
 Wszystko jest teraz gotowe do tworzenia zapytań i eksplorowania. Zapoznaj się z naszymi najlepszymi praktykami i poradami.
 
@@ -642,7 +683,9 @@ Po zakończeniu eksplorowania pamiętaj, aby wstrzymać wystąpienie. W środowi
 
 ![Wstrzymaj](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## <a name="useful-readings"></a>Przydatne zasoby
+<a id="useful-readings" class="xliff"></a>
+
+## Przydatne zasoby
 
 [Współbieżność i zarządzanie obciążeniami][]
 

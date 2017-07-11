@@ -1,0 +1,1 @@
+[Grupa zasobów](../articles/azure-resource-manager/resource-group-overview.md#terminology) to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure, takich jak aplikacje internetowe, bazy danych i konta magazynu, oraz zarządzania nimi.

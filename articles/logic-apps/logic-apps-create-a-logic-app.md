@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/17/2017
 
 ---
 
-# <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Tworzenie pierwszego przepływu pracy aplikacji logiki w celu automatyzacji procesów między aplikacjami w chmurze a usługami w chmurze
+<a id="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services" class="xliff"></a>
+
+# Tworzenie pierwszego przepływu pracy aplikacji logiki w celu automatyzacji procesów między aplikacjami w chmurze a usługami w chmurze
 
 Procesy biznesowe możesz zautomatyzować bez konieczności pisania kodu łatwiej i szybciej, jeśli utworzysz i uruchomisz przepływy pracy za pomocą usługi [Azure Logic Apps](logic-apps-what-are-logic-apps.md). W pierwszym przykładzie przedstawiono tworzenie przepływu pracy podstawowej aplikacji logiki, który sprawdza kanał informacyjny RSS w poszukiwaniu nowej zawartości w witrynie sieci Web. Gdy w kanale informacyjnym witryny sieci Web pojawi się nowy element, aplikacja logiki wysyła wiadomość e-mail z konta programu Outlook lub usługi Gmail.
 
@@ -39,9 +42,11 @@ Przykład wymaga także następujących elementów:
     > [!TIP]
     > Jeśli masz osobiste [konto Microsoft](https://account.microsoft.com/account), masz także konto usługi Outlook.com. W przeciwnym razie, jeśli masz służbowe konto platformy Azure, masz konto usługi **Office 365 Outlook**.
 
-* Link do kanału informacyjnego RSS witryny sieci Web. W tym przykładzie użyto kanału informacyjnego RSS [witryny sieci Web MSDN Channel 9](https://channel9.msdn.com/): `https://s.ch9.ms/Feeds/RSS`
+* Link do kanału informacyjnego RSS witryny sieci Web. W tym przykładzie użyto [kanału informacyjnego RSS z najciekawszymi wiadomościami z witryny internetowej CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`
 
-## <a name="add-a-trigger-that-starts-your-workflow"></a>Dodawanie wyzwalacza uruchamiającego przepływ pracy
+<a id="add-a-trigger-that-starts-your-workflow" class="xliff"></a>
+
+## Dodawanie wyzwalacza uruchamiającego przepływ pracy
 
 [*Wyzwalacz*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) jest zdarzeniem uruchamiającym przepływ pracy aplikacji logiki i jest pierwszym elementem, którego potrzebuje aplikacja logiki.
 
@@ -74,7 +79,7 @@ Przykład wymaga także następujących elementów:
      Dodatkowo możesz zmienić **Częstotliwość** i **Interwał**. 
      Te ustawienia umożliwiają określenie, jak często aplikacja logiki ma sprawdzać istnienie nowych elementów i zwracać wszystkie elementy z tego okresu.
 
-     W tym przykładzie będziemy każdego dnia sprawdzać istnienie nowych elementów opublikowanych w witrynie sieci Web MSDN Channel 9.
+     W tym przykładzie będziemy każdego dnia sprawdzać najciekawsze artykuły opublikowane w witrynie internetowej CNN.
 
      ![Konfigurowanie kanału informacyjnego RSS, częstotliwości i interwału dla wyzwalacza](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
@@ -85,7 +90,9 @@ Przykład wymaga także następujących elementów:
    Po zapisaniu aplikacja zostanie udostępniona, ale obecnie aplikacja logiki sprawdza istnienie nowych elementów tylko w określonym kanale informacyjnym RSS. 
    Aby ten przykład był bardziej użyteczny, dodamy akcję, którą aplikacja logiki wykona po uruchomieniu wyzwalacza.
 
-## <a name="add-an-action-that-responds-to-your-trigger"></a>Dodawanie akcji reagującej na wyzwalacz
+<a id="add-an-action-that-responds-to-your-trigger" class="xliff"></a>
+
+## Dodawanie akcji reagującej na wyzwalacz
 
 [*Akcja*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) to zadanie wykonywane przez przepływ pracy aplikacji logiki. Po dodaniu wyzwalacza do aplikacji logiki możesz dodać akcję, aby wykonywać operacje na danych generowanych przez ten wyzwalacz. W tym przykładzie dodamy akcję wysyłającą wiadomość e-mail, gdy w kanale informacyjnym RSS witryny sieci Web pojawi się nowy element.
 
@@ -138,7 +145,9 @@ Przykład wymaga także następujących elementów:
 
 Gratulacje, udało Ci się skonfigurować i uruchomić Twoją pierwszą podstawową aplikację logiki. Wiesz już, jak łatwe jest tworzenie przepływów pracy automatyzujących procesy oraz integrowanie aplikacji w chmurze i usług w chmurze — a wszystko to bez konieczności pisania kodu.
 
-## <a name="manage-your-logic-app"></a>Zarządzanie aplikacją logiki
+<a id="manage-your-logic-app" class="xliff"></a>
+
+## Zarządzanie aplikacją logiki
 
 Aby zarządzać aplikacją logiki, możesz wykonywać zadania takie jak sprawdzanie stanu, edytowanie, wyświetlanie historii, wyłączanie lub usuwanie aplikacji logiki.
 
@@ -158,13 +167,17 @@ Aby zarządzać aplikacją logiki, możesz wykonywać zadania takie jak sprawdza
    | Tymczasowe wyłączenie aplikacji | Wybierz pozycję **Przegląd**, a następnie na pasku poleceń wybierz pozycję **Wyłącz**. | 
    | Usunięcie aplikacji | Wybierz pozycję **Przegląd**, a następnie na pasku poleceń wybierz pozycję **Usuń**. Wprowadź nazwę aplikacji logiki, a następnie wybierz pozycję **Usuń**. | 
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+<a id="get-help" class="xliff"></a>
+
+## Uzyskiwanie pomocy
 
 Aby zadawać pytania, odpowiadać na nie i patrzeć, co robią inni użytkownicy usługi Azure Logic Apps, odwiedź [forum usługi Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 Aby pomóc w ulepszaniu usługi Azure Logic Apps, przesyłaj pomysły lub głosuj na nie w [witrynie opinii użytkowników usługi Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 
 *  [Dodawanie warunków i uruchamianie przepływów pracy](../logic-apps/logic-apps-use-logic-app-features.md)
 *     [Szablony aplikacji logiki](../logic-apps/logic-apps-use-logic-app-templates.md)
