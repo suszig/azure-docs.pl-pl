@@ -16,15 +16,19 @@ ms.topic: get-started-article
 ms.date: 04/21/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: c27123ad54bbd6e1d2b416c6bffd4c8560514cdc
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 537bdee67ed9648c3cba2099553d847399609705
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory 
-## <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory?
+<a id="introduction-to-azure-data-factory" class="xliff"></a>
+
+# Wprowadzenie do usługi Azure Data Factory 
+<a id="what-is-azure-data-factory" class="xliff"></a>
+
+## Czym jest usługa Azure Data Factory?
 W jaki sposób istniejące dane są wykorzystywane w biznesowej rzeczywistości opartej na danych big data? Czy można wzbogacić informacje wygenerowane w chmurze danymi referencyjnymi, pochodzącymi z lokalnych — lub innych, różnorodnych — źródeł danych? Na przykład firma tworząca gry zbiera wiele dzienników generowanych przez gry w chmurze. Chce analizować te dzienniki w celu uzyskania wglądu w preferencje klientów, dane demograficzne, sposób użytkowania itp., aby zidentyfikować szanse sprzedaży dodatkowej i wiązanej, opracować nowe ciekawe funkcje pomagające w rozwoju firmy i zapewnić lepsze doświadczenia klientom. 
 
 Do analizy tych dzienników firma musi użyć danych referencyjnych, np. informacji o kliencie, grze i kampanii marketingowej, które znajdują się w lokalnym magazynie danych. W związku z tym firma chce pozyskać dane dzienników z magazynu danych w chmurze oraz dane referencyjne z lokalnego magazynu danych. Następnie dane mają zostać przetworzone za pomocą usługi Hadoop w chmurze (Azure HDInsight), a dane wynikowe mają zostać opublikowane w magazynie danych w chmurze, takim jak Azure SQL Data Warehouse, lub lokalnym magazynie danych, np. SQL Server. Ten przepływ pracy ma być uruchamiany raz na tydzień. 
@@ -40,52 +44,76 @@ To bardziej platforma, która najpierw wyodrębnia i ładuje, a następnie przek
 Obecnie dane używane w usłudze Azure Data Factory i generowane przez nią to dane z **określonego przedziału czasu** (godzina, dzień, tydzień itd.). Na przykład potok może odczytać dane wejściowe, przetworzyć je i wygenerować dane wyjściowe raz dziennie. Przepływ pracy można także uruchomić tylko jeden raz.  
   
 
-## <a name="how-does-it-work"></a>Jak to działa? 
+<a id="how-does-it-work" class="xliff"></a>
+
+## Jak to działa? 
 Potoki (oparte na danych przepływy pracy) w usłudze Azure Data Factory zwykle wykonują następujące trzy kroki:
 
 ![Trzy etapy działania usługi Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)
 
-### <a name="connect-and-collect"></a>Łączenie i zbieranie
+<a id="connect-and-collect" class="xliff"></a>
+
+### Łączenie i zbieranie
 Dane używane w przedsiębiorstwach mają różne typy i znajdują się w rozproszonych źródłach. Pierwszy etap tworzenia systemu uzyskiwania informacji polega na połączeniu wszystkich wymaganych źródeł danych i systemów przetwarzania, takich jak usługi SaaS, udziały plików, serwery FTP oraz usługi sieci Web, i przeniesieniu danych w miarę potrzeb do centralnej lokalizacji w celu ich dalszego przetwarzania.
 
 Firmy, które nie korzystają z usługi Data Factory, muszą tworzyć niestandardowe składniki umożliwiające przepływ danych lub projektować własne usługi, aby zintegrować źródła danych i systemy przetwarzania. Takie podejście jest kosztowne, a integracja i utrzymanie systemów stwarza trudności. Ponadto rozwiązanie to rzadko zapewnia mechanizmy kontrolne oraz funkcje monitorowania i wysyłania alertów na poziomie korporacyjnym. Możliwości te są natomiast dostępne w przypadku w pełni zarządzanej usługi.
 
 Usługa Data Factory udostępnia działanie kopiowania w potoku danych, które pozwala przenosić dane z lokalnych magazynów danych i źródeł danych w chmurze do centralnego magazynu danych w chmurze w celu przeprowadzenia kolejnych etapów analizy. Na przykład można pobrać dane z usługi Azure Data Lake Store i przekształcić je później za pomocą usługi obliczeniowej Azure Data Lake Analytics. Można też pobrać dane z usługi Azure Blob Storage, aby przekształcić je przy użyciu klastra usługi Azure HDInsight na platformie Hadoop.
 
-### <a name="transform-and-enrich"></a>Przekształcanie i wzbogacanie
+<a id="transform-and-enrich" class="xliff"></a>
+
+### Przekształcanie i wzbogacanie
 Po umieszczeniu danych w centralnym magazynie danych w chmurze zebrane dane należy przetworzyć lub przekształcić za pomocą usług obliczeniowych, takich jak HDInsight Hadoop, Spark, Data Lake Analytics i Machine Learning. Przekształcone dane powinny być generowane niezawodnie i zgodnie z możliwym do utrzymania i kontrolowania harmonogramem, aby zapewnić środowiskom produkcyjnym zaufane dane. 
 
-### <a name="publish"></a>Publikowanie 
-Przekształcone dane można dostarczać z chmury do źródeł lokalnych, takich jak program SQL Server, lub zachować te dane w źródłach magazynowania w chmurze do użycia przez narzędzia analizy biznesowej i narzędzia analityczne oraz inne aplikacje
+<a id="publish" class="xliff"></a>
 
-## <a name="key-components"></a>Główne składniki
+### Publikowanie 
+Przekształcone dane można dostarczać z chmury do źródeł lokalnych, takich jak program SQL Server, lub zachować te dane w źródłach magazynowania w chmurze do użycia przez narzędzia analizy biznesowej i narzędzia analityczne oraz inne aplikacje.
+
+<a id="key-components" class="xliff"></a>
+
+## Główne składniki
 Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usługi Azure Data Factory (lub fabryk danych). Usługa Azure Data Factory składa się z czterech kluczowych składników. Ich współdziałanie pozwala udostępnić platformę umożliwiającą tworzenie opartych na danych przepływów pracy wraz z etapami służącymi do przenoszenia i przekształcania danych. 
 
-### <a name="pipeline"></a>Potok
+<a id="pipeline" class="xliff"></a>
+
+### Potok
 Fabryka danych może obejmować jeden lub wiele potoków. Potok jest grupą działań, które umożliwiają wykonanie zadania. Na przykład potok może zawierać grupę działań, które pozwalają pozyskać dane z obiektu blob platformy Azure, a następnie uruchomić zapytanie programu Hive w klastrze usługi HDInsight w celu podzielenia danych. Zaletą korzystania z potoku jest możliwość zarządzania zestawem działań. Na przykład zamiast zarządzać poszczególnymi działaniami można wdrożyć i zaplanować potok. 
 
-### <a name="activity"></a>Działanie
+<a id="activity" class="xliff"></a>
+
+### Działanie
 Potok może obejmować jedno lub wiele działań. Działania definiują akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z jednego magazynu danych do drugiego. Podobnie można użyć działania programu Hive, które uruchomi zapytanie programu Hive w klastrze usługi Azure HDInsight, aby przekształcić lub przeanalizować dane. Usługa Data Factory obsługuje dwa typy działań — w zakresie przekształcania oraz przenoszenia danych.
 
-### <a name="data-movement-activities"></a>Działania dotyczące przenoszenia danych
+<a id="data-movement-activities" class="xliff"></a>
+
+### Działania dotyczące przenoszenia danych
 Działanie kopiowania w usłudze Data Factory kopiuje dane z magazynu danych źródła do magazynu danych ujścia. Usługa Data Factory obsługuje następujące magazyny danych. Dane z dowolnego źródła można zapisać do dowolnego ujścia. Kliknij magazyn danych, aby dowiedzieć się, jak kopiować dane do i z tego magazynu.
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 Aby uzyskać więcej informacji, zobacz artykuł [Działania dotyczące przenoszenia danych](data-factory-data-movement-activities.md).
 
-### <a name="data-transformation-activities"></a>Działania dotyczące przekształcania danych
+<a id="data-transformation-activities" class="xliff"></a>
+
+### Działania dotyczące przekształcania danych
 [!INCLUDE [data-factory-transformation-activities](../../includes/data-factory-transformation-activities.md)]
 
 Aby uzyskać więcej informacji, zobacz artykuł [Działania dotyczące przekształcania danych](data-factory-data-transformation-activities.md).
 
-### <a name="custom-net-activities"></a>Niestandardowe działania programu .NET
+<a id="custom-net-activities" class="xliff"></a>
+
+### Niestandardowe działania programu .NET
 Jeśli musisz przenieść dane do/z magazynu danych nieobsługiwanego przez działanie kopiowania lub przekształcić dane za pomocą własnej logiki, utwórz **niestandardowe działanie platformy .NET**. Aby uzyskać szczegółowe informacje na temat tworzenia i używania niestandardowego działania, zobacz artykuł [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md) (Korzystanie z niestandardowych działań w potoku usługi Azure Data Factory).
 
-### <a name="datasets"></a>Zestawy danych
+<a id="datasets" class="xliff"></a>
+
+### Zestawy danych
 Każde działanie pobiera 0 lub więcej zestawów danych jako dane wejściowe i generuje co najmniej jeden zestaw danych jako dane wyjściowe. Zestawy danych reprezentują struktury w magazynach danych. Struktury te po prostu wskazują na dane, które mają być używane w działaniach jako dane wejściowe lub wyjściowe. Na przykład zestaw danych usługi Azure Blob określa kontener obiektów blob i folder w usłudze Azure Blob Storage, z których potok ma odczytywać dane. Alternatywnie zestaw danych tabeli SQL Azure określa tabelę, w której działanie zapisuje dane wyjściowe. 
 
-### <a name="linked-services"></a>Połączone usługi
+<a id="linked-services" class="xliff"></a>
+
+### Połączone usługi
 Połączone usługi działają podobnie do parametrów połączenia, umożliwiając definiowanie informacji wymaganych przez usługę Data Factory do nawiązywania połączeń z zasobami zewnętrznymi. Mechanizm ten działa następująco: połączona usługa zawiera definicję połączenia ze źródłem danych, a zestaw danych reprezentuje strukturę danych. Na przykład połączona usługa Azure Storage określa parametry połączenia, które umożliwiają połączenie z kontem usługi Azure Storage. Natomiast zestaw danych usługi Azure Blob określa kontener obiektów blob oraz folder, który zawiera dane.   
 
 Połączone usługi w usłudze Fabryka danych służą do dwóch celów:
@@ -93,11 +121,15 @@ Połączone usługi w usłudze Fabryka danych służą do dwóch celów:
 * Reprezentowanie **magazynu danych**, w tym między innymi lokalnego serwera SQL Server, bazy danych Oracle, udziału plików lub konta usługi Azure Blob Storage. Listę obsługiwanych magazynów danych można znaleźć w sekcji [Data movement activities](#data-movement-activities) (Działania przenoszenia danych).
 * Reprezentowanie **zasobu obliczeniowego**, który może hostować wykonywanie działania. Na przykład działanie HDInsightHive jest wykonywane w klastrze HDInsight na platformie Hadoop. Listę obsługiwanych środowisk obliczeniowych można znaleźć w sekcji [Data transformation activities](#data-transformation-activities) (Działania przekształcania danych).
 
-### <a name="relationship-between-data-factory-entities"></a>Relacje między obiektami usługi Data Factory
+<a id="relationship-between-data-factory-entities" class="xliff"></a>
+
+### Relacje między obiektami usługi Data Factory
 ![Diagram: Data Factory, usługa integracji danych w chmurze — najważniejsze pojęcia](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 **Rysunek 2.** Relacje między elementami Zestaw danych, Działanie, Potok i Połączona usługa
 
-## <a name="supported-regions"></a>Obsługiwane regiony
+<a id="supported-regions" class="xliff"></a>
+
+## Obsługiwane regiony
 Obecnie można tworzyć fabryki danych w regionach **Zachodnie stany USA**, **Wschodnie stany USA** oraz **Europa Północna**. Jednak fabryka danych może mieć dostęp do magazynów danych i usług obliczeniowych w innych regionach świadczenia usługi Azure, aby przenosić dane między magazynami danych lub przetwarzać dane przy użyciu usług obliczeniowych.
 
 Sama usługa Fabryka danych Azure nie przechowuje żadnych danych. Usługa umożliwia tworzenie opartych na danych przepływów pracy do aranżowania przenoszenia danych między [obsługiwanymi magazynami danych](#data-movement-activities) oraz przetwarzania danych przy użyciu [usług obliczeniowych](#data-transformation-activities) w innych regionach lub w środowisku lokalnym. Umożliwia także [monitorowanie przepływów pracy i zarządzanie nimi](data-factory-monitor-manage-pipelines.md) przy użyciu zarówno mechanizmów programowych, jaki i interfejsu użytkownika.
@@ -106,7 +138,9 @@ Chociaż usługa Data Factory jest dostępna tylko w regionach **Zachodnie stany
 
 Załóżmy na przykład, że środowiska obliczeniowe, takie jak klaster usługi Azure HDInsight i usługa Azure Machine Learning, są uruchamiane z regionu Europa Zachodnia. Można utworzyć i wykorzystać wystąpienie usługi Azure Data Factory w regionie Europa Północna oraz użyć go do planowania zadań wykonywanych w środowiskach obliczeniowych w regionie Europa Zachodnia. Wyzwolenie zadania w środowisku obliczeniowym zajmuje usłudze Data Factory kilka milisekund, ale czas uruchomienia zadania w środowisku obliczeniowym nie zmienia się.
 
-## <a name="get-started-with-creating-a-pipeline"></a>Rozpoczynanie tworzenia potoku
+<a id="get-started-with-creating-a-pipeline" class="xliff"></a>
+
+## Rozpoczynanie tworzenia potoku
 Potoki danych w usłudze Azure Data Factory można tworzyć za pomocą następujących narzędzi lub interfejsów API: 
 
 - Azure Portal

@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8dbc951416d577fa7f534c2eab1605c6bee61fce
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Wprowadzenie do tworzenia wewnętrznego modułu równoważenia obciążenia (klasycznego) dla usług w chmurze
+<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
+
+# Wprowadzenie do tworzenia wewnętrznego modułu równoważenia obciążenia (klasycznego) dla usług w chmurze
 
 > [!div class="op_single_selector"]
 > * [Program PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -30,7 +34,9 @@ ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
 > [!IMPORTANT]
 > Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../azure-resource-manager/resource-manager-deployment-model.md).  Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak [wykonać te kroki przy użyciu modelu usługi Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
-## <a name="configure-internal-load-balancer-for-cloud-services"></a>Konfigurowanie wewnętrznego modułu równoważenia obciążenia dla usług w chmurze
+<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
+
+## Konfigurowanie wewnętrznego modułu równoważenia obciążenia dla usług w chmurze
 
 Wewnętrzny moduł równoważenia obciążenia może być zastosowany zarówno do maszyn wirtualnych, jak i usług w chmurze. Punkt końcowy wewnętrznego modułu równoważenia obciążenia utworzony w usłudze w chmurze, poza regionalną siecią wirtualną, będzie dostępny tylko w ramach usługi w chmurze.
 
@@ -39,7 +45,9 @@ Konfigurację wewnętrznego modułu równoważenia obciążenia należy ustawić
 > [!IMPORTANT]
 > Wstępnym wymogiem do wykonania poniższych kroków jest posiadanie utworzonej sieci wirtualnej w celu wdrożenia chmury. Do utworzenia wewnętrznego równoważenia obciążenia potrzebna będzie nazwa sieci wirtualnej i podsieci.
 
-### <a name="step-1"></a>Krok 1
+<a id="step-1" class="xliff"></a>
+
+### Krok 1
 
 Otwórz plik konfiguracji usługi (.cscfg) dla danego wdrożenia chmury w programie Visual Studio i dodaj następującą sekcję, aby utworzyć wewnętrzne równoważenie obciążenia w ramach ostatniego elementu „`</Role>`” konfiguracji sieciowej.
 
@@ -53,7 +61,7 @@ Otwórz plik konfiguracji usługi (.cscfg) dla danego wdrożenia chmury w progra
 </NetworkConfiguration>
 ```
 
-Na tym etapie dodawane są wartości pliku konfiguracji sieci, aby pokazać efekt końcowy. W przykładzie przyjęto założenie, że utworzono podsieć o nazwie „test_vnet” z podsiecią 10.0.0.0/24 o nazwie „test_subnet” i statyczny adres IP 10.0.0.4. Moduł równoważenia obciążenia będzie miał nazwę „testLB”.
+Na tym etapie dodawane są wartości pliku konfiguracji sieci, aby pokazać efekt końcowy. W przykładzie przyjęto założenie, że utworzono sieć wirtualną o nazwie „test_vnet” z podsiecią 10.0.0.0/24 o nazwie „test_subnet” i statycznym adresie IP 10.0.0.4. Moduł równoważenia obciążenia będzie miał nazwę „testLB”.
 
 ```xml
 <NetworkConfiguration>
@@ -67,7 +75,9 @@ Na tym etapie dodawane są wartości pliku konfiguracji sieci, aby pokazać efek
 
 Aby uzyskać więcej informacji o schemacie modułu równoważenia obciążenia, zobacz [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx) (Dodawanie modułu równoważenia obciążenia).
 
-### <a name="step-2"></a>Krok 2
+<a id="step-2" class="xliff"></a>
+
+### Krok 2
 
 Zmień plik definicji usługi (.csdef) tak, aby dodać punkty końcowe do wewnętrznego równoważenia obciążenia. W momencie utworzenia wystąpienia roli plik definicji usługi spowoduje dodanie wystąpień roli do wewnętrznego równoważenia obciążenia.
 
@@ -91,15 +101,12 @@ Wykorzystując wartości użyte w powyższym przykładzie, dodaj wartości do pl
 
 Obciążenie ruchu sieciowego zostanie zrównoważone przy użyciu modułu równoważenia obciążenia „testLB” za pomocą portu 80 dla żądań przychodzących przez przesłanie do wystąpień roli procesu roboczego również na port 80.
 
-## <a name="next-steps"></a>Następne kroki
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
 
 [Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia przy użyciu koligacji źródłowych adresów IP)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

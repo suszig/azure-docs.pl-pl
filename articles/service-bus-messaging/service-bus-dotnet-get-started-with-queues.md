@@ -1,6 +1,6 @@
 ---
-title: "Napisz program, który używa kolejek usługi Azure Service Bus | Microsoft Docs"
-description: "Jak napisać aplikację konsolową w języku C# na potrzeby obsługi komunikatów w usłudze Service Bus"
+title: "Wprowadzenie do kolejek usługi Azure Service Bus | Microsoft Docs"
+description: "Napisz aplikację konsolową w języku C#, która korzysta z kolejek komunikatów w usłudze Service Bus."
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,112 +12,150 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/26/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 83649bdad1d369cdfe4edf3c2bdaa67180db8668
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: pl-pl
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="get-started-with-service-bus-queues"></a>Wprowadzenie do kolejek usługi Service Bus
+<a id="get-started-with-service-bus-queues" class="xliff"></a>
+
+# Wprowadzenie do kolejek usługi Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## <a name="what-will-be-accomplished"></a>Co zostanie osiągnięte?
-W ramach tego samouczka zostaną wykonane następujące czynności:
+<a id="what-will-be-accomplished" class="xliff"></a>
+
+## Co zostanie osiągnięte?
+Ten samouczek obejmuje następujące kroki:
 
 1. Utworzenie przestrzeni nazw usługi Service Bus za pomocą usługi Azure Portal.
-2. Utworzenie kolejki obsługi komunikatów usługi Service Bus za pomocą usługi Azure Portal.
+2. Utworzenie kolejki usługi Service Bus przy użyciu witryny Azure Portal.
 3. Napisanie aplikacji konsolowej służącej do wysyłania komunikatu.
-4. Napisanie aplikacji konsolowej służącej do odbierania komunikatów.
+4. Napisanie aplikacji konsolowej służącej do odbierania komunikatów wysyłanych w poprzednim kroku.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-1. [Program Visual Studio w wersji 2015 lub nowszej](http://www.visualstudio.com). W przykładach znajdujących się w tym samouczku używany jest program Visual Studio 2015.
+<a id="prerequisites" class="xliff"></a>
+
+## Wymagania wstępne
+1. [Program Visual Studio w wersji 2015 lub nowszej](http://www.visualstudio.com). W przykładach znajdujących się w tym samouczku używany jest program Visual Studio 2017.
 2. Subskrypcja platformy Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
-Jeśli przestrzeń nazw usługi Service Bus została już utworzona, przejdź do sekcji [Tworzenie kolejki za pomocą usługi Azure Portal](#2-create-a-queue-using-the-azure-portal).
+<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
+
+## 1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
+Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już utworzona, przejdź do sekcji [Tworzenie kolejki za pomocą usługi Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Tworzenie kolejki za pomocą usługi Azure Portal
+<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
+
+## 2. Tworzenie kolejki za pomocą usługi Azure Portal
 Jeśli kolejka usługi Service Bus została już utworzona, przejdź do sekcji [Wysyłanie komunikatów do kolejki](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-to-the-queue"></a>3. Wysyłanie komunikatów do kolejki
-Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w języku C# za pomocą programu Visual Studio.
+<a id="3-send-messages-to-the-queue" class="xliff"></a>
 
-### <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
+## 3. Wysyłanie komunikatów do kolejki
+Aby wysyłać komunikaty do kolejki, napiszemy aplikację konsolową w języku C# za pomocą programu Visual Studio.
 
-- Otwórz program Visual Studio i utwórz nową aplikację konsolową.
+<a id="create-a-console-application" class="xliff"></a>
 
-### <a name="add-the-service-bus-nuget-package"></a>Dodawanie pakietu NuGet usługi Service Bus
+### Tworzenie aplikacji konsolowej
+
+Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET Framework)**.
+
+<a id="add-the-service-bus-nuget-package" class="xliff"></a>
+
+### Dodawanie pakietu NuGet usługi Service Bus
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
-2. Kliknij pozycję **Przeglądaj**, wyszukaj ciąg „Microsoft Azure Service Bus”, a następnie wybierz pozycję **Microsoft Azure Service Bus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
+2. Kliknij kartę **Przeglądaj**, wyszukaj ciąg **Microsoft Azure Service Bus**, a następnie wybierz element **WindowsAzure.ServiceBus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
    
     ![Wybieranie pakietu NuGet][nuget-pkg]
 
-### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Pisanie kodu służącego do wysyłania komunikatów do kolejki
-1. Dodaj następującą instrukcję using na początku pliku Program.cs.
+<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
+
+### Pisanie kodu służącego do wysyłania komunikatów do kolejki
+1. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-2. Dodaj następujący kod do metody `Main`, ustaw zmienną **connectionString** jako parametry połączenia, które zostały uzyskane podczas tworzenia przestrzeni nazw, a następnie ustaw zmienną **queueName** jako nazwę kolejki użytą podczas tworzenia kolejki.
+2. Dodaj następujący kod do metody `Main`: Ustaw jako zmienną `connectionString` parametry połączenia, które zostały uzyskane podczas tworzenia przestrzeni nazw, a następnie ustaw jako zmienną `queueName` nazwę kolejki użytą podczas tworzenia kolejki.
    
     ```csharp
-    var connectionString = "<Your connection string>";
-    var queueName = "<Your queue name>";
+    var connectionString = "<your connection string>";
+    var queueName = "<your queue name>";
    
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
+
+    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+    Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+
     client.Send(message);
+
+    Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+    Console.ReadLine();
     ```
    
-    Oto jak powinien wyglądać plik Program.cs.
+    Oto jak powinien wyglądać plik Program.cs:
    
     ```csharp
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using Microsoft.ServiceBus.Messaging;
-   
-    namespace GettingStartedWithQueues
+
+    namespace qsend
     {
         class Program
         {
             static void Main(string[] args)
             {
-                var connectionString = "<Your connection string>";
-                var queueName = "<Your queue name>";
-   
+                var connectionString = "Endpoint=sb://<your namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your key>";
+                var queueName = "<your queue name>";
+
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
-   
+
+                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+                Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+
                 client.Send(message);
+
+                Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+                Console.ReadLine();
             }
         }
     }
     ```
-3. Uruchom program i sprawdź usługę Azure Portal. Kliknij nazwę kolejki w bloku **Przegląd** przestrzeni nazw. Zauważ, że wartość **Liczba aktywnych komunikatów** powinna teraz wynosić 1.
+3. Uruchom program i sprawdź witrynę Azure Portal: kliknij nazwę swojej kolejki w bloku **Przegląd** przestrzeni nazw. Zostanie wyświetlony blok **Podstawowe elementy** kolejki. Zauważ, że wartość **Liczba aktywnych komunikatów** powinna teraz wynosić 1. Przy każdym uruchomieniu aplikacji nadawcy bez pobierania komunikatów ta wartość zwiększa się o 1. Należy również pamiętać, że bieżący rozmiar kolejki rośnie za każdym razem, gdy aplikacja dodaje komunikat do kolejki.
    
-      ![Liczba komunikatów][queue-message]
+      ![Rozmiar komunikatu][queue-message]
 
-## <a name="4-receive-messages-from-the-queue"></a>4. Odbieranie komunikatów z kolejki
-1. Utwórz nową aplikację konsolową i dodaj odwołanie do pakietu NuGet usługi Service Bus, podobnie jak w przypadku poprzedniej aplikacji wysyłającej.
+<a id="4-receive-messages-from-the-queue" class="xliff"></a>
+
+## 4. Odbieranie komunikatów z kolejki
+
+1. Aby odbierać komunikaty wysłane w poprzednim kroku, utwórz nową aplikację konsolową i dodaj odwołanie do pakietu NuGet usługi Service Bus, podobnie jak w przypadku poprzedniej aplikacji nadawcy.
 2. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Dodaj następujący kod do metody `Main`, ustaw zmienną **connectionString** jako parametry połączenia, które zostały uzyskane podczas tworzenia przestrzeni nazw, a następnie ustaw zmienną **queueName** jako nazwę kolejki użytą podczas tworzenia kolejki.
+3. Dodaj następujący kod do metody `Main`: Ustaw jako zmienną `connectionString` parametry połączenia, które zostały uzyskane podczas tworzenia przestrzeni nazw, a następnie ustaw jako zmienną `queueName` nazwę kolejki użytą podczas tworzenia kolejki.
    
     ```csharp
-    var connectionString = "";
-    var queueName = "samplequeue";
+    var connectionString = "<your connection string>";
+    var queueName = "<your queue name>";
    
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
    
@@ -127,6 +165,7 @@ Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w ję
       Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
     });
    
+    Console.WriteLine("Press ENTER to exit program");
     Console.ReadLine();
     ```
    
@@ -142,8 +181,8 @@ Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w ję
       {
         static void Main(string[] args)
         {
-          var connectionString = "";
-          var queueName = "samplequeue";
+          var connectionString = "Endpoint=sb://<your namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your key>";;
+          var queueName = "<your queue name>";
    
           var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
    
@@ -152,20 +191,24 @@ Aby wysyłać komunikaty do kolejki, zostanie napisana aplikacja konsolowa w ję
             Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
             Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
           });
-   
+
+          Console.WriteLine("Press ENTER to exit program");   
           Console.ReadLine();
         }
       }
     }
     ```
-4. Uruchom program i sprawdź portal. Zauważ, że wartość **Długość kolejki** powinna teraz wynosić 0.
+4. Uruchom program i ponownie sprawdź portal. Zauważ, że wartości **Liczba aktywnych komunikatów** i **Bieżące** powinny teraz wynosić 0.
    
     ![Długość kolejki][queue-message-receive]
 
 Gratulacje! Utworzono kolejkę, wysłano komunikat i odebrano komunikat.
 
-## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z naszym [repozytorium GitHub zawierającym przykłady](https://github.com/Azure-Samples/azure-servicebus-messaging-samples), które pokazują niektóre bardziej zaawansowane funkcje obsługi komunikatów usługi Azure Service Bus.
+<a id="next-steps" class="xliff"></a>
+
+## Następne kroki
+
+Zapoznaj się z naszym [repozytorium GitHub zawierającym przykłady](https://github.com/Azure/azure-service-bus/tree/master/samples), które pokazują niektóre bardziej zaawansowane funkcje obsługi komunikatów usługi Service Bus.
 
 <!--Image references-->
 
