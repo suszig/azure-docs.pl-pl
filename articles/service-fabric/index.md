@@ -19,7 +19,9 @@ ms.contentlocale: pl-pl
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Dokumentacja usługi Service Fabric
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Dokumentacja usługi Service Fabric
 
 Dowiedz się, jak za pomocą usługi Service Fabric wdrażać skalowalne i niezawodne mikrousługi, umieszczać je w pakietach oraz zarządzać nimi. Samouczki, dokumentacja interfejsu API i przykładowy kod przedstawiające sposób używania platformy oprogramowania pośredniczącego do tworzenia aplikacji w skali chmury oraz zarządzania nimi.
 
