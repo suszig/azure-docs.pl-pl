@@ -1,6 +1,6 @@
 ---
-title: "Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu witryny Azure Portal | Microsoft Docs"
-description: "Ten samouczek zawiera instrukcje tworzenia potoku usługi Azure Data Factory za pomocą działania kopiowania przy użyciu Edytora fabryki danych w witrynie Azure Portal."
+title: "Samouczek: tworzenie potoku usługi Azure Data Factory w celu kopiowania danych (witryna Azure Portal) | Microsoft Docs"
+description: "W tym samouczku opisano korzystanie z witryny Azure Portal w celu utworzenia potoku usługi Azure Data Factory z działaniem kopiowania, aby skopiować dane z magazynu obiektów blob Azure do bazy danych Azure SQL."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 079cb3e69954a9b02e26e005ad4bb1b7ef14c909
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: c7815a02bd0eab6b87a1b1b97258c9006a3542e4
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu witryny Azure Portal
+# <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Samouczek: korzystanie z witryny Azure Portal, aby utworzyć potok usługi Data Factory w celu kopiowania danych 
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
@@ -34,32 +35,46 @@ ms.lasthandoff: 04/12/2017
 > 
 > 
 
-Ten samouczek pokazuje, jak utworzyć i monitorować fabrykę danych Azure przy użyciu witryny Azure Portal. Potok w fabryce danych używa działania kopiowania w celu kopiowania danych z usługi Azure Blob Storage do usługi Azure SQL Database.
+W tym artykule wyjaśniono, jak używać witryny [Azure Portal](https://portal.azure.com) do tworzenia fabryki danych obejmującej potok, który kopiuje dane z magazynu obiektów blob w usłudze Azure do bazy danych Azure SQL. Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, przed wykonaniem instrukcji z tego samouczka zapoznaj się z artykułem [Wprowadzenie do usługi Azure Data Factory](data-factory-introduction.md).   
 
-> [!NOTE]
-> Potok danych przedstawiony w tym samouczku kopiuje dane ze źródłowego do docelowego magazynu danych. Nie przekształca on danych wejściowych w celu wygenerowania danych wyjściowych. Aby zapoznać się z samouczkiem dotyczącym przekształcania danych za pomocą usługi Azure Data Factory, zobacz [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Samouczek: Tworzenie potoku przekształcającego dane przy użyciu klastra Hadoop).
-> 
-> Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Szczegółowe informacje znajdują się w artykule [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Planowanie i wykonywanie w usłudze Data Factory). 
+W tym samouczku opisano tworzenie potoku z jednym działaniem (Działanie kopiowania). Działanie kopiowania kopiuje dane z obsługiwanego magazynu danych do obsługiwanego magazynu danych ujścia. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Działanie jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Więcej informacji o działaniu kopiowania znajduje się w artykule dotyczącym [działań związanych z przenoszeniem danych](data-factory-data-movement-activities.md).
 
-Poniżej przedstawiono kroki do wykonania w ramach tego samouczka:
+Potok może obejmować więcej niż jedno działanie. Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [wielu działań w potoku](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
-| Krok | Opis |
-| --- | --- |
-| [Tworzenie fabryki danych Azure Data Factory](#create-data-factory) |W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFactory**. |
-| [Tworzenie połączonych usług](#create-linked-services) |W tym kroku opisano tworzenie dwóch połączonych usług: **AzureStorageLinkedService** i **AzureSqlLinkedService**. <br/><br/>Usługa AzureStorageLinkedService łączy magazyn Azure, a usługa AzureSqlLinkedService — bazę danych Azure SQL z parametrem ADFTutorialDataFactory. Dane wejściowe dla potoku znajdują się w kontenerze obiektów blob w usłudze magazynie obiektów blob Azure, a dane wyjściowe będą przechowywane w tabeli w bazie danych SQL Azure. Te dwa magazyny danych są więc dodawane jako połączone usługi do fabryki danych. |
-| [Tworzenie wejściowych i wyjściowych zestawów danych](#create-datasets) |W poprzednim kroku utworzono połączone usługi, które odwołują się do magazynów danych zawierających dane wejściowe i wyjściowe. W tym kroku opisano definiowanie dwóch zestawów danych — **InputDataset** i **OutputDataset** — zawierających dane wejściowe i wyjściowe przechowywane w magazynach danych. <br/><br/>Dla zestawu InputDataset zostanie określony kontener obiektów blob zawierający obiekt blob z danymi źródłowymi, a dla zestawu OutputDataset zostanie określona tabela SQL, w której będą przechowywane dane wyjściowe. Należy określić również inne właściwości, takie jak struktura, dostępność i zasady. |
-| [Tworzenie potoku](#create-pipeline) |W tym kroku opisano tworzenie potoku o nazwie **ADFTutorialPipeline** w fabryce ADFTutorialDataFactory. <br/><br/>Do potoku zostanie dodane **działanie kopiowania**, które będzie kopiować dane wejściowe z obiektu blob platformy Azure do tabeli wyjściowej SQL Azure. Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Data Factory. Jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Szczegółowe informacje dotyczące działania kopiowania znajdują się w artykule [Data Movement Activities](data-factory-data-movement-activities.md) (Działania przenoszenia danych). |
-| [Monitorowanie potoku](#monitor-pipeline) |W tym kroku opisano monitorowanie wycinków tabel wejściowych i wyjściowych przy użyciu witryny Azure Portal. |
+> [!NOTE] 
+> Potok danych przedstawiony w tym samouczku kopiuje dane ze źródłowego do docelowego magazynu danych. Aby zapoznać się z samouczkiem dotyczącym przekształcania danych za pomocą usługi Azure Data Factory, zobacz [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Samouczek: Tworzenie potoku przekształcającego dane przy użyciu klastra Hadoop).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed wykonaniem instrukcji z tego samouczka wykonaj działania dotyczące wymagań wstępnych podane w artykule [Omówienie samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Przed wykonaniem instrukcji z tego samouczka należy spełnić wymagania wstępne podane w artykule dotyczącym [wymagań wstępnych samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+
+## <a name="steps"></a>Kroki
+Poniżej przedstawiono kroki do wykonania w ramach tego samouczka:
+
+1. Utworzenie **fabryki danych** na platformie Azure. W tym kroku opisano tworzenie fabryki danych o nazwie ADFTutorialDataFactory. 
+2. Utworzenie **połączonych usług** w fabryce danych. Ten krok polega na utworzeniu dwóch połączonych usług: Azure Storage i Azure SQL Database. 
+    
+    Polecenie AzureStorageLinkedService łączy konto usługi Azure Storage z fabryką danych. W ramach [wymagań wstępnych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) utworzono kontener i przekazano dane na to konto magazynu.   
+
+    Polecenie AzureSqlLinkedService łączy bazę danych SQL na platformie Azure z fabryką danych. W tej bazie danych są przechowywane dane skopiowane z magazynu obiektów blob. W ramach [wymagań wstępnych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) w tej bazie danych została utworzona tabela SQL.   
+3. Utworzenie wejściowych i wyjściowych **zestawów danych** w fabryce danych.  
+    
+    Połączona usługa magazynu Azure określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z kontem magazynu Azure. Natomiast wejściowy zestaw danych obiektów blob określa kontener oraz folder, który zawiera dane wejściowe.  
+
+    W analogiczny sposób połączona usługa Azure SQL Database określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z bazą danych SQL usługi Azure. Wyjściowy zestaw danych tabeli SQL określa tabelę w bazie danych, do której są kopiowane dane z magazynu obiektów blob.
+4. Utworzenie **potoku** w fabryce danych. W tym kroku jest tworzony potok za pomocą działania kopiowania.   
+    
+    Działanie kopiowania kopiuje dane z obiektu blob w magazynie obiektów blob platformy Azure do tabeli w bazie danych SQL na platformie Azure. Działania kopiowania w potoku można użyć do kopiowania danych z dowolnego obsługiwanego źródła do dowolnej obsługiwanej lokalizacji docelowej. Listę obsługiwanych magazynów danych można znaleźć w artykule [Działania związane z przenoszeniem danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
+5. Monitorowanie potoku. Ten krok polega na **monitorowaniu** wycinków wejściowych i wyjściowych zestawów danych przy użyciu witryny Azure Portal. 
 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
-W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFactory** przy użyciu witryny Azure Portal.
+> [!IMPORTANT]
+> Jeśli jeszcze nie zostało to zrobione, spełnij [wymagania wstępne dotyczące samouczka](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-1. Po zalogowaniu się w witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Nowy**, wybierz pozycję **Zbieranie danych i analiza** i kliknij pozycję **Fabryka danych**. 
+Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania może służyć do skopiowania danych ze źródła do docelowego magazynu danych, a działanie programu Hive w usłudze HDInsight do uruchomienia skryptu programu Hive, który przekształci dane wejściowe w dane wyjściowe produktu. Zacznijmy tworzenie fabryki danych w tym kroku.
+
+1. Po zalogowaniu się w witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Nowy** w menu po lewej stronie, kliknij **Dane + Analiza** i kliknij pozycję **Fabryka danych**. 
    
-   ![Nowy->Fabryka danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
+   ![Nowy-> Fabryka danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. W bloku **Nowa fabryka danych**:
    
    1. Wprowadź wartość **ADFTutorialDataFactory** dla opcji **Nazwa**. 
@@ -71,15 +86,15 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
            Data factory name “ADFTutorialDataFactory” is not available  
       
        ![Nazwa fabryki danych jest niedostępna](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)
-   2. Wybierz swoją **subskrypcję** platformy Azure.
-   3. Wykonaj jedną z następujących czynności dotyczącą grupy zasobów:
+   2. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych. 
+   3. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
       
       - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej. 
       - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
          
           W niektórych krokach w tym samouczku zakłada się, że nazwa grupy zasobów to **ADFTutorialResourceGroup**. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
    4. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko regiony obsługiwane przez usługę Data Factory.
-   5. Wybierz pozycję **Przypnij do tablicy startowej**.     
+   5. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
    6. Kliknij przycisk **Utwórz**.
       
       > [!IMPORTANT]
@@ -88,23 +103,32 @@ W tym kroku opisano tworzenie fabryki danych Azure o nazwie **ADFTutorialDataFac
       > W przyszłości nazwa fabryki danych może zostać zarejestrowana jako nazwa DNS, a wówczas stanie się widoczna publicznie.                
       > 
       > 
-3. Aby wyświetlić powiadomienia i komunikaty dotyczące stanu, kliknij ikonę dzwonka na pasku narzędzi. 
-   
-   ![Powiadomienia](./media/data-factory-copy-activity-tutorial-using-azure-portal/Notifications.png) 
+3. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **Wdrażanie fabryki danych**. 
+
+    ![kafelek Wdrażanie fabryki danych](media/data-factory-copy-activity-tutorial-using-azure-portal/deploying-data-factory.png)
 4. Po zakończeniu tworzenia zostanie wyświetlony blok **Fabryka danych**, jak pokazano na poniższej ilustracji.
    
    ![Strona główna fabryki danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
-Połączone usługi łączą magazyny danych lub usługi obliczeniowe z fabryką danych Azure. Artykuł [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Obsługiwane magazyny danych) zawiera listę wszystkich źródeł i ujść obsługiwanych przez działanie kopiowania. Artykuł [compute linked services](data-factory-compute-linked-services.md) (Obliczanie połączonych usług) zawiera listę usług obliczeniowych obsługiwanych przez usługę Data Factory. Ten samouczek nie obejmuje używania żadnej usługi obliczeniowej. 
+Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tym samouczku nie przedstawiono korzystania z żadnych usług obliczeniowych, takich jak Azure HDInsight czy Azure Data Lake Analytics. Zostają użyte dwa magazyny danych typu Azure Storage (źródło) i Azure SQL Database (lokalizacja docelowa). 
 
-W tym kroku opisano tworzenie dwóch połączonych usług: **AzureStorageLinkedService** i **AzureSqlLinkedService**. Połączona usługa AzureStorageLinkedService łączy konto usługi Magazyn Azure, a AzureSqlLinkedService — bazę danych SQL Azure z parametrem **ADFTutorialDataFactory**. W dalszej części tego samouczka opisano tworzenie potoku, który kopiuje dane z kontenera obiektów blob w usłudze AzureStorageLinkedService do tabeli SQL w usłudze AzureSqlLinkedService.
+W związku z tym tworzy się dwie połączone usługi o nazwie AzureStorageLinkedService i AzureSqlLinkedService typu: AzureStorage i AzureSqlDatabase.  
 
-### <a name="create-a-linked-service-for-the-azure-storage-account"></a>Tworzenie połączonej usługi dla konta magazynu Azure
-1. W bloku **Fabryka danych** kliknij kafelek **Utwórz i wdróż**, aby uruchomić **edytor** dla fabryki danych.
+Polecenie AzureStorageLinkedService łączy konto usługi Azure Storage z fabryką danych. Na tym koncie magazynu utworzono kontener i przekazano na nie dane w ramach [wymagań wstępnych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+
+Polecenie AzureSqlLinkedService łączy bazę danych SQL na platformie Azure z fabryką danych. W tej bazie danych są przechowywane dane skopiowane z magazynu obiektów blob. Tabelę emp w tej bazie danych utworzono w ramach [wymagań wstępnych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
+
+### <a name="create-azure-storage-linked-service"></a>Tworzenie połączonej usługi Azure Storage
+W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych. W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure.  
+
+1. W bloku **Fabryka danych** kliknij kafelek **Utwórz i wdróż**.
    
    ![Kafelek Utwórz i wdróż](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png) 
-2. W **edytorze** kliknij przycisk **Nowy magazyn danych** na pasku narzędzi i wybierz opcję **Magazyn Azure** z menu rozwijanego. W okienku po prawej stronie powinien zostać wyświetlony szablon JSON do tworzenia połączonej usługi magazynu Azure. 
+2. Zostanie wyświetlony **Edytor fabryki danych** — jak widać na poniższej ilustracji: 
+
+    ![Edytor fabryki danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/data-factory-editor.png)
+3. W edytorze kliknij przycisk **Nowy magazyn danych** na pasku narzędzi i z menu rozwijanego wybierz opcję **Magazyn Azure**. W okienku po prawej stronie powinien zostać wyświetlony szablon JSON do tworzenia połączonej usługi magazynu Azure. 
    
     ![Przycisk Nowy magazyn danych w edytorze](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
 3. Zastąp parametry `<accountname>` i `<accountkey>` wartościami nazwy konta i klucza konta magazynu Azure. 
@@ -114,34 +138,34 @@ W tym kroku opisano tworzenie dwóch połączonych usług: **AzureStorageLinkedS
    
     ![Przycisk Wdróż w edytorze usługi Blob Storage](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
-> [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) (Przenoszenie danych do i z usługi Azure Blob).
-> 
-> 
+    Aby uzyskać więcej informacji na temat właściwości JSON w definicji połączonej usługi, zobacz artykuł dotyczący [łącznika usługi Azure Blob Storage](data-factory-azure-blob-connector.md#linked-service-properties).
 
 ### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Tworzenie połączonej usługi dla bazy danych SQL Azure
+W tym kroku opisano łączenie bazy danych Azure SQL Database z fabryką danych. W tej sekcji określa się nazwę serwera usługi Azure SQL, nazwę bazy danych, nazwę użytkownika i hasło użytkownika. 
+
 1. W **Edytorze fabryki danych** kliknij przycisk **Nowy magazyn danych** na pasku narzędzi i wybierz opcję **Baza danych SQL Azure** z menu rozwijanego. W okienku po prawej stronie powinien zostać wyświetlony szablon JSON do tworzenia połączonej usługi serwera SQL Azure.
 2. Zastąp parametry `<servername>`, `<databasename>`, `<username>@<servername>` i `<password>`, wpisując nazwy serwera SQL Azure, bazy danych i konta użytkownika oraz hasło. 
 3. Kliknij przycisk **Wdróż** na pasku narzędzi, aby utworzyć i wdrożyć usługę **AzureSqlLinkedService**.
-4. Upewnij się, że w widoku drzewa jest wyświetlana nazwa usługi **AzureSqlLinkedService**. 
+4. Upewnij się, że w widoku drzewa w obszarze **Połączone usługi** jest wyświetlana nazwa usługi **AzureSqlLinkedService**.  
 
-> [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
-> 
-> 
+    Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz artykuł dotyczący [łącznika usługi Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties).
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
-W poprzednim kroku utworzono połączone usługi **AzureStorageLinkedService** i **AzureSqlLinkedService** w celu powiązania konta usługi Azure Storage i bazy danych SQL Azure z fabryką danych **ADFTutorialDataFactory**. W tym kroku opisano definiowanie dwóch zestawów danych — **InputDataset** i **OutputDataset** — zawierających dane wejściowe i wyjściowe przechowywane w magazynach danych, do których odwołują się usługi AzureStorageLinkedService i AzureSqlLinkedService. Dla zestawu InputDataset zostanie określony kontener obiektów blob zawierający obiekt blob z danymi źródłowymi, a dla zestawu OutputDataset zostanie określona tabela SQL, w której będą przechowywane dane wyjściowe. 
+W poprzednim kroku zostały utworzone połączone usługi używane do połączenia konta usługi Azure Storage i bazy danych Azure SQL z fabryką danych. W tym kroku zostaną zdefiniowane dwa zestawy danych o nazwach InputDataset i OutputDataset zawierające dane wejściowe i wyjściowe przechowywane w magazynach danych, do których odwołują się usługi AzureStorageLinkedService i AzureSqlLinkedService.
+
+Połączona usługa magazynu Azure określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z kontem magazynu Azure. Natomiast wejściowy zestaw danych obiektów blob (InputDataset) określa kontener oraz folder, który zawiera dane wejściowe.  
+
+W analogiczny sposób połączona usługa Azure SQL Database określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z bazą danych SQL usługi Azure. Wyjściowy zestaw danych tabeli SQL (OutputDataset) określa tabelę w bazie danych, do której są kopiowane dane z magazynu obiektów blob. 
 
 ### <a name="create-input-dataset"></a>Tworzenie wejściowego zestawu danych
-W tym kroku opisano tworzenie zestawu danych o nazwie **InputDataset** wskazującego na kontener obiektów blob w usłudze Azure Storage reprezentowany przez połączoną usługę **AzureStorageLinkedService**.
+W tym kroku opisano tworzenie zestawu danych o nazwie InputDataset wskazującego na plik obiektów blob (emp.txt) w katalogu głównym kontenera obiektów blob (adftutorial) w usłudze Azure Storage reprezentowany przez połączoną usługę AzureStorageLinkedService. Jeśli nie określisz wartości obiektu fileName lub ją pominiesz, dane ze wszystkich obiektów blob w folderze wejściowym zostaną skopiowane do lokalizacji docelowej. W tym samouczku wartość obiektu fileName jest określona. 
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia **Więcej**, **Nowy zestaw danych** i **Azure Blob Storage** w menu rozwijanym. 
+1. W **edytorze** fabryki danych kliknij kolejno polecenia  **Więcej**, **Nowy zestaw danych** i **Azure Blob Storage** w menu rozwijanym. 
    
     ![Menu Nowy zestaw danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON: 
    
-    ```JSON
+    ```json
     {
       "name": "InputDataset",
       "properties": {
@@ -173,46 +197,30 @@ W tym kroku opisano tworzenie zestawu danych o nazwie **InputDataset** wskazują
       }
     }
     ```   
-    Pamiętaj o następujących kwestiach: 
-   
-    - parametr **type** zestawu danych został ustawiony na **AzureBlob**.
-    - parametr **linkedServiceName** został ustawiony na **AzureStorageLinkedService**. Ta połączona usługa została utworzona w kroku 2.
-    - Parametr **folderPath** został ustawiony na kontener **adftutorial**. Możesz również określić nazwę obiektu blob znajdującego się w folderze przy użyciu właściwości **fileName**. Ponieważ nie określasz nazwy obiektu blob, dane z wszystkich obiektów blob w kontenerze są traktowane jako dane wejściowe.
-    - parametr **type** formatu został ustawiony na **TextFormat**
-    - W pliku tekstowym znajdują się dwa pola — **FirstName** i **LastName** — oddzielone przecinkiem (**columnDelimiter**)
-    - Parametr **availability** został ustawiony na wartość **hourly** (parametr **frequency** ma wartość **hour**, a **interval** — **1**). W związku z tym usługa Data Factory szuka danych wejściowych co godzinę w folderze głównym określonego kontenera obiektów blob (**adftutorial**). 
-     
-     Jeśli nie określisz parametru **fileName** dla **wejściowego** zestawu danych, wszystkie pliki/obiekty blob z folderu danych wejściowych (**folderPath**) będą traktowane jako dane wejściowe. Jeśli określisz parametr fileName w kodzie JSON, tylko określony plik/obiekt blob będzie traktowany jako dane wejściowe.
-     
-     Jeśli nie określisz parametru **fileName** dla **tabeli wyjściowej**, wygenerowane pliki w lokalizacji **folderPath** otrzymają nazwy w następującym formacie: Data.&lt;Guid&gt;.txt (np. Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
-     
-     Aby ustawić parametry **folderPath** i **fileName** dynamicznie w oparciu o czas **SliceStart**, użyj właściwości **partitionedBy**. W poniższym przykładzie parametr folderPath używa elementów Year, Month i Day z parametru SliceStart (czas rozpoczęcia przetwarzania wycinka), a parametr fileName używa elementu Hour z parametru SliceStart. Na przykład jeśli wycinek jest generowany dla czasu 2016-09-20T08:00:00, parametr folderName zostaje ustawiony na wartość wikidatagateway/wikisampledataout/2016/09/20, a parametr fileName zostaje ustawiony na wartość 08.csv. 
 
-    ```JSON     
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy": 
-    [
-       { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-       { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-       { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-       { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-    ],
-    ```
+    Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie kodu:
+
+    | Właściwość | Opis |
+    |:--- |:--- |
+    | type | Właściwość typu jest ustawiona na wartość **AzureBlob**, ponieważ dane znajdują się w magazynie obiektów blob na platformie Azure. |
+    | linkedServiceName | Odnosi się do utworzonego wcześniej elementu **AzureStorageLinkedService**. |
+    | folderPath | Określa **kontener** obiektów blob oraz **folder**, który zawiera wejściowe obiekty blob. W tym samouczku kontenerem obiektów blob jest adftutorial, a folderem — katalog główny. | 
+    | fileName | Ta właściwość jest opcjonalna. Jeśli pominiesz tę właściwość, zostaną wybrane wszystkie pliki z folderu folderPath. W tym samouczku dla fileName określono plik **emp.txt**, więc tylko on zostanie wybrany do przetwarzania. |
+    | format -> type |Plik wejściowy jest w formacie tekstowym, więc należy użyć właściwości **TextFormat**. |
+    | columnDelimiter | Kolumny w pliku wejściowym są rozdzielane **przecinkami (`,`)**. |
+    | frequency/interval | Właściwość frequency (częstotliwość) jest ustawiona na wartość **Hour** (Godzina), a wartość interwału wynosi **1**, co oznacza, że wycinki wejściowe są dostępne **co godzinę**. Innymi słowy, usługa Data Factory szuka danych wejściowych co godzinę w folderze głównym określonego kontenera obiektów blob (**adftutorial**). Wyszukuje dane między godzinami rozpoczęcia i zakończenia potoku, a nie przed nimi ani po nich.  |
+    | external | Ta właściwość ma wartość **true** (prawda), jeśli dane nie są generowane przez ten potok. Dane wejściowe w tym samouczku znajdują się w pliku emp.txt, który nie jest generowany w tym potoku, więc możemy ustawić tę właściwość na true. |
+
+    Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz [artykuł dotyczący łącznika obiektu blob platformy Azure](data-factory-azure-blob-connector.md#dataset-properties).      
 3. Kliknij przycisk **Wdróż** na pasku narzędzi, aby utworzyć i wdrożyć zestaw danych **InputDataset**. Upewnij się, że zestaw **InputDataset** jest wyświetlany w widoku drzewa.
 
-> [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) (Przenoszenie danych do i z usługi Azure Blob).
-> 
-> 
-
 ### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
-W tej części kroku tworzony jest wyjściowy zestaw danych o nazwie **OutputDataset**. Ten zestaw danych wskazuje tabelę SQL w bazie danych SQL Azure reprezentowanej przez usługę **AzureSqlLinkedService**. 
+Połączona usługa Azure SQL Database określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z bazą danych SQL usługi Azure. Wyjściowy zestaw danych tabeli SQL (OutputDataset) tworzony w tym kroku określa tabelę w bazie danych, do której są kopiowane dane z magazynu obiektów blob.
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia **Więcej**, **Nowy zestaw danych** i **SQL Azure** w menu rozwijanym. 
+1. W **edytorze** fabryki danych kliknij kolejno polecenia  **Więcej**, **Nowy zestaw danych** i **SQL Azure** w menu rozwijanym. 
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON:
 
-    ```JSON   
+    ```json   
     {
       "name": "OutputDataset",
       "properties": {
@@ -237,28 +245,31 @@ W tej części kroku tworzony jest wyjściowy zestaw danych o nazwie **OutputDat
         }
       }
     }
-    ```       
-    Pamiętaj o następujących kwestiach: 
-   
-    - parametr **type** zestawu danych został ustawiony na wartość **AzureSQLTable**.
-    - Parametr **linkedServiceName** został ustawiony na wartość **AzureSqlLinkedService** (ta połączona usługa została utworzona w kroku 2).
-    - Parametr **tablename** został ustawiony na wartość **emp**.
-    - Tabela emp bazy danych zawiera trzy kolumny — **ID**, **FirstName** i **LastName**. ID to kolumna tożsamości, więc należy określić tylko wartości **FirstName** i **LastName**.
-    - Parametr **availability** (dostępność) został ustawiony na wartość **hourly** (co godzinę) (parametr **frequency** [częstotliwość] został ustawiony na **hour** [godzinę], a **interval** [interwał] został ustawiony na wartość **1**).  Usługa Data Factory co godzinę generuje wycinek danych wyjściowych w tabeli **emp** w bazie danych Azure SQL Database.
-3. Kliknij przycisk **Wdróż** na pasku narzędzi, aby utworzyć i wdrożyć zestaw danych **OutputDataset**. Upewnij się, że zestaw **OutputDataset** jest wyświetlany w widoku drzewa. 
+    ```     
 
-> [!NOTE]
-> Szczegółowe informacje na temat właściwości JSON zawiera artykuł [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) (Przenoszenie danych do i z usługi Azure SQL Database).
-> 
-> 
+    Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie kodu:
+
+    | Właściwość | Opis |
+    |:--- |:--- |
+    | type | Właściwość typu jest ustawiona na **AzureSqlTable**, ponieważ dane są kopiowane do tabeli w bazie danych SQL na platformie Azure. |
+    | linkedServiceName | Odnosi się do utworzonego wcześniej elementu **AzureSqlLinkedService**. |
+    | tableName | Określa **tabelę** , do której są kopiowane dane. | 
+    | frequency/interval | Właściwość frequency (częstotliwość) jest ustawiona na wartość **Hour** (Godzina), a wartość interwału wynosi **1**, co oznacza, że wycinki wyjściowe są tworzone **co godzinę** między godziną rozpoczęcia i zakończenia potoku, a nie przed tą godziną lub po niej.  |
+
+    Tabela emp bazy danych zawiera trzy kolumny — **ID**, **FirstName** i **LastName**. ID to kolumna tożsamości, więc należy określić tylko wartości **FirstName** i **LastName**.
+
+    Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz [artykuł dotyczący łącznika usługi Azure SQL](data-factory-azure-sql-connector.md#dataset-properties).
+3. Kliknij przycisk **Wdróż** na pasku narzędzi, aby utworzyć i wdrożyć zestaw danych **OutputDataset**. Upewnij się, że zestaw **OutputDataset** jest wyświetlany w widoku drzewa w obszarze **Datasets**. 
 
 ## <a name="create-pipeline"></a>Tworzenie potoku
 W tym kroku opisano tworzenie potoku za pomocą **działania kopiowania**, w którym parametr **InputDataset** jest używany jako dane wejściowe, a parametr **OutputDataset** jako dane wyjściowe.
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia **Więcej** i **Nowy potok**. Możesz również kliknąć prawym przyciskiem myszy opcję **Potoki** w widoku drzewa i kliknąć opcję **Nowy potok**.
+Obecnie harmonogram jest prowadzony przy użyciu wyjściowego zestawu danych. W tym samouczku wyjściowy zestaw danych jest konfigurowany do tworzenia wycinka co godzinę. Potok ma godzinę rozpoczęcia i zakończenia, między którymi następuje jeden dzień różnicy (dokładnie 24 godziny). Potok tworzy więc 24 wycinki wyjściowego zestawu danych. 
+
+1. W **edytorze** fabryki danych kliknij kolejno polecenia  **Więcej** i **Nowy potok**. Możesz również kliknąć prawym przyciskiem myszy opcję **Potoki** w widoku drzewa i kliknąć opcję **Nowy potok**.
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON: 
 
-    ```JSON   
+    ```json   
     {
       "name": "ADFTutorialPipeline",
       "properties": {
@@ -295,83 +306,82 @@ W tym kroku opisano tworzenie potoku za pomocą **działania kopiowania**, w kt�
             }
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "start": "2017-05-11T00:00:00Z",
+        "end": "2017-05-12T00:00:00Z"
       }
     } 
     ```   
     
     Pamiętaj o następujących kwestiach:
    
-    - W sekcji działań jest tylko jedno działanie, którego parametr **type** (typ) został ustawiony na wartość **Copy**.
-    - Dane wejściowe dla działania mają ustawienie **InputDataset**, a dane wyjściowe — **OutputDataset**.
-    - W sekcji **typeProperties** parametr **BlobSource** został określony jako typ źródłowy, a parametr **SqlSink** został określony jako typ ujścia.
-     
-    Zastąp wartość właściwości **start** datą bieżącą, a wartość **end** datą jutrzejszą. Możesz określić tylko część daty i pominąć część godziny parametru data/godzina. Na przykład „2016-02-03” jest odpowiednikiem „2016-02-03T00:00:00Z”.
-     
-    Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). Przykładowo: 2016-10-14T16:32:41Z. Czas **end** jest opcjonalny, ale w tym samouczku zostanie użyty. 
-     
-    Jeśli nie określisz wartości dla właściwości **end**, zostanie ona obliczona jako „**czas rozpoczęcia + 48 godzin**”. Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end**.
+    - W sekcji działań jest tylko jedno działanie, którego parametr **type** (typ) został ustawiony na wartość **Copy**. Więcej informacji o działaniu kopiowania znajduje się w artykule dotyczącym [działań związanych z przenoszeniem danych](data-factory-data-movement-activities.md). W rozwiązaniach usługi Data Factory można również użyć [działań dotyczących przekształcania danych](data-factory-data-transformation-activities.md).
+    - Dane wejściowe dla działania mają ustawienie **InputDataset**, a dane wyjściowe — **OutputDataset**. 
+    - W sekcji **typeProperties** parametr **BlobSource** został określony jako typ źródłowy, a parametr **SqlSink** został określony jako typ ujścia. Aby uzyskać pełną listę magazynów danych obsługiwanych przez działanie kopiowania jako źródła i ujścia, zobacz informacje dotyczące [obsługiwanych magazynów danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aby dowiedzieć się, jak używać określonego obsługiwanego magazynu danych jako źródła/ujścia, kliknij link w tabeli.
+    - Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](http://en.wikipedia.org/wiki/ISO_8601). Przykładowo: 2016-10-14T16:32:41Z. Czas **end** jest opcjonalny, ale w tym samouczku zostanie użyty. Jeśli nie określisz wartości dla właściwości **end**, zostanie ona obliczona jako „**czas rozpoczęcia + 48 godzin**”. Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end**.
      
     W powyższym przykładzie występują 24 wycinki danych, gdyż poszczególne wycinki są generowane co godzinę.
+
+    Opisy właściwości JSON w definicji potoku znajdują się w artykule dotyczącym [tworzenia potoków](data-factory-create-pipelines.md). Opisy właściwości JSON w definicji działania kopiowania znajdują się w artykule dotyczącym [działań związanych z przenoszeniem danych](data-factory-data-movement-activities.md). Opisy właściwości JSON obsługiwanych przez BlobSource można znaleźć w [artykule dotyczącym łącznika usługi Azure Blob](data-factory-azure-blob-connector.md). Opisy właściwości JSON obsługiwanych przez SqlSink można znaleźć w artykule [dotyczącym łącznika usługi Azure SQL Database](data-factory-azure-sql-connector.md).
 3. Kliknij przycisk **Wdróż** na pasku narzędzi, aby utworzyć i wdrożyć element **ADFTutorialPipeline**. Upewnij się, że potok jest wyświetlany w widoku drzewa. 
 4. Teraz zamknij blok **Edytor**, klikając przycisk **X**. Kliknij ponownie przycisk **X**, aby wyświetlić stronę główną **fabryki danych** dla fabryki **ADFTutorialDataFactory**.
 
-**Gratulacje!** Udało Ci się utworzyć fabrykę danych Azure, połączone usługi, tabele i potok oraz zaplanować potok.   
+**Gratulacje!** Fabryka danych Azure z potokiem kopiującym dane z usługi Azure Blob Storage do bazy danych Azure SQL została pomyślnie utworzona. 
 
-### <a name="view-the-data-factory-in-a-diagram-view"></a>Wyświetlanie fabryki danych w widoku diagramu
+
+## <a name="monitor-pipeline"></a>Monitorowanie potoku
+W tym kroku opisano użycie witryny Azure Portal do monitorowania tego, co dzieje się w fabryce danych Azure.    
+
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorowanie potoku przy użyciu aplikacji Monitorowanie i zarządzanie
+Poniższe kroki pokazują, jak monitorować potoki w fabryce danych za pomocą aplikacji Monitorowanie i zarządzanie: 
+
+1. Kliknij kafelek **Monitorowanie i zarządzanie** na stronie głównej fabryki danych.
+   
+    ![Kafelek Monitorowanie i zarządzanie](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
+2. **Aplikacja Monitorowanie i zarządzanie** powinna zostać wyświetlona na osobnej karcie. 
+
+    > [!NOTE]
+    > Jeśli przeglądarka internetowa wyświetla cały czas komunikat „Autoryzowanie...”, wykonaj jedną z następujących czynności: wyczyść pole wyboru **Blokuj pliki cookie i dane witryn innych firm** (lub) utwórz wyjątek dla witryny **login.microsoftonline.com**, a następnie spróbuj ponownie otworzyć aplikację.
+
+    ![Aplikacja Monitorowanie i zarządzanie](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png)
+3. Zmień **godzinę rozpoczęcia** i **godzinę zakończenia** na termin rozpoczęcia (2017-05-11) i zakończenia (2017-05-12) potoku, a następnie kliknij przycisk **Zastosuj**.       
+3. Zostaną wyświetlone **okna działania** skojarzone z każdą godziną w zakresie od godziny rozpoczęcia do godziny zakończenia potoku na liście w środkowym okienku. 
+4. Aby wyświetlić szczegóły okna działania, wyświetl to okno na liście **Okno działania**. 
+    ![Szczegóły okna działania](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
+
+    W Eksploratorze okien działania po prawej stronie można zobaczyć, że wszystkie wycinki do bieżącej godziny w strefie UTC (20:12) są przetwarzane (kolor zielony). Wycinki 20–21, 21–22, 22–23, 23–12 nie zostały jeszcze przetworzone.
+
+    Sekcja **Próby** w okienku po prawej stronie zawiera informacje o przebiegu działania dla wycinka danych. Jeśli wystąpił błąd, dostępne są szczegółowe informacje o nim. Na przykład: jeśli folder wejściowy lub kontener nie istnieje i przetwarzanie wycinka kończy się niepowodzeniem, pojawi się komunikat o błędzie zawierający informację o tym, że kontener lub folder nie istnieje.
+
+    ![Próby uruchomienia działania](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-run-attempts.png) 
+4. Uruchom program **SQL Server Management Studio**, połącz się z usługą Azure SQL Database i upewnij się, że wiersze zostały wstawione do tabeli **emp** w bazie danych.
+    
+    ![wyniki zapytania sql](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
+
+Szczegółowe informacje dotyczące korzystania z aplikacji znajdują się w artykule [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md) (Monitorowanie potoków usługi Fabryka danych Azure oraz zarządzanie nimi za pomocą aplikacji Monitorowanie i zarządzanie).
+
+### <a name="monitor-pipeline-using-diagram-view"></a>Monitorowanie potoku przy użyciu widoku diagramu
+Można również monitorować potoki danych, korzystając z widoku diagramu.  
+
 1. W bloku **Fabryka danych** kliknij opcję **Diagram**.
    
     ![Blok Fabryka danych — kafelek Diagram](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
 2. Powinien zostać wyświetlony diagram podobny do tego na poniższej ilustracji: 
    
-    ![Widok diagramu](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)
-   
-    Możesz powiększyć, pomniejszyć, powiększyć do 100%, powiększyć do dopasowania, automatycznie rozmieścić potoki i tabele oraz wyświetlić informacje dotyczące elementów powiązanych (powoduje wyróżnienie elementów nadrzędnych i podrzędnych wybranych elementów).  Możesz kliknąć dwukrotnie obiekt (tabelę wejściową/wyjściową lub potok), aby wyświetlić jego właściwości. 
-3. Kliknij prawym przyciskiem myszy potok **ADFTutorialPipeline** w widoku diagramu i kliknij przycisk **Otwórz potok**. 
-   
-    ![Otwieranie potoku](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)
-4. Powinny zostać wyświetlone działania w potoku razem ze swoimi wejściowymi i wyjściowymi zestawami danych. W tym samouczku w potoku znajduje się tylko jedno działanie (działanie kopiowania) obejmujące obiekt InputDataset jako wejściowy zestaw danych i obiekt OutputDataset jako wyjściowy zestaw danych.   
-   
-    ![Widok otwartego potoku](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenedPipeline.png)
-5. Kliknij przycisk **Fabryka danych** w obszarze nawigacji w lewym górnym rogu, aby wrócić do widoku diagramu. W widoku diagramu są wyświetlane wszystkie potoki. W tym przykładzie utworzono tylko jeden potok.   
-
-## <a name="monitor-pipeline"></a>Monitorowanie potoku
-W tym kroku opisano użycie witryny Azure Portal do monitorowania tego, co dzieje się w fabryce danych Azure. 
-
-### <a name="monitor-pipeline-using-diagram-view"></a>Monitorowanie potoku przy użyciu widoku diagramu
-1. Kliknij przycisk **X**, aby zamknąć widok **Diagram** i wyświetlić stronę główną usługi Data Factory dla fabryki danych. Jeśli zamknięto przeglądarkę sieci Web, wykonaj następujące czynności: 
-   1. Przejdź do witryny [Azure Portal](https://portal.azure.com/). 
-   2. Kliknij dwukrotnie opcję **ADFTutorialDataFactory** na **tablicy startowej** lub kliknij pozycję **Fabryki danych** w menu po lewej stronie, a następnie wyszukaj nazwę ADFTutorialDataFactory. 
-2. Powinna zostać wyświetlona liczba tabel i potoków utworzonych w tym bloku oraz ich nazwy.
-   
-    ![strona główna z nazwami](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactory-home-page-pipeline-tables.png)
-3. Kliknij kafelek **Zestawy danych**.
-4. W bloku **Zestawy danych** kliknij zestaw **InputDataset**. Ten zestaw danych to wejściowy zestaw danych dla potoku **ADFTutorialPipeline**.
+    ![Widok diagramu](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)  
+5. W widoku diagramu kliknij dwukrotnie pozycję **InputDataset**, aby wyświetlić wycinki dla zestawu danych.  
    
     ![Zestawy danych z wybranym zestawem InputDataset](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)   
-5. Kliknij przycisk **... (wielokropek)**, aby wyświetlić wszystkie wycinki danych.
+5. Kliknij link **Zobacz więcej**, aby wyświetlić wszystkie wycinki danych. Zostaną wyświetlone wycinki w zakresie 24 godzin od czasu rozpoczęcia do zakończenia potoku. 
    
     ![Wszystkie wycinki danych wejściowych](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
    
-    Zwróć uwagę, że wszystkie wycinki danych do bieżącego czasu są w stanie **Gotowe**, ponieważ plik **emp.txt** znajduje się cały czas w kontenerze obiektów blob **adftutorial\input**. Upewnij się, że żadne wycinki nie są wyświetlane w sekcji **Ostatnie wycinki z błędami** na dole.
-   
-    Obie listy — **Ostatnio zaktualizowane wycinki** i **Ostatnie wycinki z błędami** — są posortowane według parametru **CZAS OSTATNIEJ AKTUALIZACJI**. 
-   
-    Kliknij przycisk **Filtruj** na pasku narzędzi, aby filtrować wycinki.  
-   
-    ![Filtrowanie wycinków wejściowych](./media/data-factory-copy-activity-tutorial-using-azure-portal/filter-input-slices.png)
-6. Zamknij bloki, pozostawiając blok **Zestawy danych**. Kliknij zestaw **OutputDataset**. Ten zestaw danych to wyjściowy zestaw danych dla potoku **ADFTutorialPipeline**.
-   
-    ![blok zestawów danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png)
-7. Powinien zostać wyświetlony blok **OutputDataset**, jak pokazano na poniższej ilustracji:
-   
-    ![blok tabeli](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png) 
-8. Zwróć uwagę, że wycinki danych do bieżącego czasu zostały już wygenerowane i są w stanie **Gotowe**. W sekcji **Wycinki z problemami** na dole nie są wyświetlane żadne wycinki.
-9. Kliknij przycisk **... (wielokropek)**, aby wyświetlić wszystkie wycinki.
-   
-    ![blok Wycinki danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png)
-10. Po kliknięciu dowolnego wycinka danych na liście powinien zostać wyświetlony blok **Wycinek danych**.
+    Należy zwrócić uwagę na to, że wszystkie wycinki danych do bieżącego czasu UTC są w stanie **Gotowe**, ponieważ plik **emp.txt** znajduje się cały czas w kontenerze obiektów blob **adftutorial\input**. Wycinki dla godzin w przyszłości nie są jeszcze w stanie Gotowe. Upewnij się, że żadne wycinki nie są wyświetlane w sekcji **Ostatnie wycinki z błędami** na dole.
+6. Zamknij bloki, aż zostanie wyświetlony widok diagramu (lub) przewiń w lewo, aby wyświetlić widok diagramu. Następnie kliknij dwukrotnie pozycję **OutputDataset**. 
+8. Kliknij link **Zobacz więcej** w bloku **Tabela** dla **OutputDataset**, aby wyświetlić wszystkie wycinki.
+
+    ![blok Wycinki danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png) 
+9. Należy zwrócić uwagę na to, że wszystkie wycinki do bieżącej godziny UTC są przenoszone ze stanu **oczekiwanie na wykonanie** => do stanu **W toku** ==> **Gotowe**. Wycinki wcześniejsze (przed bieżącą godziną) są domyślnie przetwarzane od najnowszych do najstarszych. Na przykład: jeśli bieżąca godzina to 20:12 UTC, wycinek 19–20 będzie przetwarzany przed wycinkiem 18–19. Wycinek 20–21 jest domyślnie przetwarzany na końcu interwału, tj. po godzinie 21:00.  
+10. Po kliknięciu dowolnego wycinka danych na liście powinien zostać wyświetlony blok **Wycinek danych**. Element danych skojarzony z oknem działania jest nazywany wycinkiem. Wycinkiem może być jeden plik lub wiele plików.  
     
      ![blok Wycinek danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
     
@@ -379,23 +389,14 @@ W tym kroku opisano użycie witryny Azure Portal do monitorowania tego, co dziej
 11. W bloku **WYCINEK DANYCH** na liście u dołu powinny zostać wyświetlone wszystkie uruchomienia działania. Kliknij pozycję **uruchomienie działania**, aby wyświetlić blok **Szczegóły uruchamiania działania**. 
     
     ![Szczegóły uruchamiania działania](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
+
+    W tym bloku znajdują się informacje dotyczące tego, ile czasu trwała operacja kopiowania, jaka jest przepływność, ile bajtów danych zostało odczytanych i zapisanych, godzina rozpoczęcia przebiegu, godzina zakończenia przebiegu itd.  
 12. Kliknij przycisk **X**, aby zamknąć wszystkie bloki przed powrotem do bloku głównego fabryki **ADFTutorialDataFactory**.
-13. (opcjonalnie) Kliknij przycisk **Potoki** na stronie głównej fabryki **ADFTutorialDataFactory**, kliknij potok **ADFTutorialPipeline** w bloku **Potoki** i przeglądaj tabele wejściowe (**Wykorzystane**) lub wyjściowe (**Utworzone**).
+13. (Opcjonalnie) kliknij kafelek **Datasets** lub **Potoki**, aby wyświetlić bloki z poprzednich plików. 
 14. Uruchom program **SQL Server Management Studio**, połącz się z usługą Azure SQL Database i upewnij się, że wiersze zostały wstawione do tabeli **emp** w bazie danych.
     
     ![wyniki zapytania sql](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorowanie potoku przy użyciu aplikacji Monitorowanie i zarządzanie
-Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i zarządzanie. Szczegółowe informacje dotyczące korzystania z aplikacji znajdują się w artykule [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md) (Monitorowanie potoków usługi Azure Data Factory oraz zarządzanie nimi za pomocą aplikacji Monitorowanie i zarządzanie).
-
-1. Kliknij kafelek **Monitorowanie i zarządzanie** na stronie głównej fabryki danych.
-   
-    ![Kafelek Monitorowanie i zarządzanie](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
-2. Powinna zostać wyświetlona **aplikacja Monitorowanie i zarządzanie**. Zmień **godzinę rozpoczęcia** i **godzinę zakończenia** na godzinę rozpoczęcia (2016-07-12) i godzinę zakończenia (2016-07-13) potoku i kliknij przycisk **Zastosuj**. 
-   
-    ![Aplikacja Monitorowanie i zarządzanie](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png) 
-3. Wybierz okno działania z listy **okien działania**, aby zobaczyć szczegółowe informacje o nim. 
-    ![Szczegóły okna działania](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
 ## <a name="summary"></a>Podsumowanie
 W tym samouczku opisano tworzenie fabryki danych Azure w celu kopiowania danych z obiektu blob Azure do bazy danych SQL Azure. Portal Azure został użyty do utworzenia fabryki danych, połączonych usług, zestawów danych oraz potoku. Główne kroki opisane w tym samouczku:  
@@ -407,10 +408,9 @@ W tym samouczku opisano tworzenie fabryki danych Azure w celu kopiowania danych 
 3. Tworzenie **zestawów danych** opisujących dane wejściowe i wyjściowe dla potoków.
 4. Tworzenie **potoku** za pomocą **działania kopiowania**, w którym źródłem jest element **BlobSource**, a ujściem element **SqlSink**.  
 
-## <a name="see-also"></a>Zobacz też
-| Temat | Opis |
-|:--- |:--- |
-| [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory. |
-| [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
-| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
+## <a name="next-steps"></a>Następne kroki
+W tym samouczku użyto magazynu obiektów blob platformy Azure jako magazynu danych źródła oraz bazy danych SQL na platformie Azure jako magazynu danych docelowych w operacji kopiowania. Poniższa tabela zawiera listę magazynów danych obsługiwanych przez działanie kopiowania jako źródła i lokalizacje docelowe: 
 
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+Aby uzyskać informacje dotyczące kopiowania danych do/z magazynu danych, kliknij link do magazynu danych w tabeli.

@@ -140,10 +140,11 @@
 ## [Polecenia cmdlet programu PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Cennik](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partnerzy

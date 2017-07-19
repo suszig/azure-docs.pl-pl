@@ -20,7 +20,8 @@
 ### [Wyłączanie bazy danych Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
+## [Cennik](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)

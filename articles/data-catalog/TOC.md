@@ -28,10 +28,11 @@
 ## [Przykłady dla deweloperów](data-catalog-samples.md)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Skróty klawiaturowe usługi Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminologia](data-catalog-terminology.md)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Cennik](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Informacje o wersji](data-catalog-whats-new.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Cennik](https://azure.microsoft.com/pricing/details/data-catalog/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Terminologia](data-catalog-terminology.md)

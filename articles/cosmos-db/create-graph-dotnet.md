@@ -1,25 +1,25 @@
 ---
 title: "Tworzenie aplikacji .NET usługi Azure Cosmos DB za pomocą interfejsu API programu Graph | Microsoft Docs"
 description: "Przykładowy kod programu .NET, którego można używać do nawiązywania połączeń z usługą Azure Cosmos DB i wykonywania w niej zapytań"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 07a13c3e9e2baefe0be7ed417ba105dd23a3708d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -37,23 +37,11 @@ Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pob
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Dodawanie grafu
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## <a name="add-sample-data"></a>Dodawanie danych przykładowych
-
-Teraz możesz dodać dane do nowego grafu za pomocą Eksploratora danych.
-
-1. W Eksploratorze danych rozwiń węzeł **sample-database**, **sample-graph**, kliknij pozycję **Graf**, a następnie kliknij pozycję **Nowy wierzchołek** i **Nowa krawędź**, aby dodać elementy do grafu. W Eksploratorze danych możesz również skalować przepływność oraz dodawać do kontenera procedury składowane, funkcje zdefiniowane przez użytkownika i wyzwalacze.
-
-    ![Dodawanie wierzchołków i krawędzi do grafu w Eksploratorze danych](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Po dodaniu elementów kliknij przycisk **Zastosuj filtr** lub kliknij prawym przyciskiem myszy pozycję **Graf** i kliknij polecenie **Nowe zapytanie grafu**, aby wyświetlić wizualizację grafu danych. Aby zmienić etykiety danych i ich styl, kliknij przycisk **Styl** i zmień ustawienia. Oto przykładowy graf w Eksploratorze danych. Wszystkie wyświetlane etykiety, kolory i dane można modyfikować.
-
-    ![Wizualny eksplorator grafu w Eksploratorze danych w witrynie Azure Portal](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
@@ -73,7 +61,7 @@ Teraz sklonujemy aplikację interfejsu API programu Graph z repozytorium GitHub,
 
 Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik Program.cs i zobacz, że następujące wiersze kodu tworzą zasoby usługi Azure Cosmos DB. 
 
-* Inicjowanie klienta DocumentClient. W wersji zapoznawczej dodaliśmy interfejs API rozszerzenia grafu w kliencie usługi DocumentDB. Pracujemy nad autonomicznym klientem grafu całkowicie niezależnym od zasobów i klienta usługi DocumentDB.
+* Inicjowanie klienta DocumentClient. W wersji zapoznawczej dodaliśmy interfejs API rozszerzenia grafu w kliencie usługi Azure Cosmos DB. Pracujemy nad autonomicznym klientem grafu całkowicie niezależnym od zasobów i klienta usługi Azure Cosmos DB.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -154,7 +142,7 @@ Teraz możesz wrócić do Eksploratora danych w witrynie Azure Portal, aby przeg
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

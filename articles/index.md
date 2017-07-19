@@ -4,10 +4,10 @@ hide_bc: true
 title: Dokumentacja platformy Microsoft Azure
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1379795f656d741cb43d2f34793f05ff88852646
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 235bc72f9e72ba44c872bc3a3f8dc2abef7454c5
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 <div id="main" class="v2">
@@ -33,17 +33,17 @@ ms.lasthandoff: 05/10/2017
                 </a>
             </li>
             <li>
-                <a href="http://aka.ms/azureitgetstarted/">
+                <a href="/azure/architecture/guide/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-architecture.png" src="media/index/getstarted-architecture.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Wprowadzenie — przewodnik dla operatorów IT platformy Azure</span>
+                                    <span class="likeAnH3">Przewodnik dotyczący architektury aplikacji na platformie Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -106,13 +106,13 @@ ms.lasthandoff: 05/10/2017
                                             <div class="cardText">
                                                 <h3>Tworzenie aplikacji</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
+                                                    <a href="/dotnet/azure/?view=azure-dotnet">
                                                         <img src="media/index/logo_NET.svg" alt="">
                                                         <span>.NET</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
+                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">
                                                         <img src="media/index/logo_nodejs.svg" alt="">
                                                         <span>Node.js</span>
                                                     </a>
@@ -124,13 +124,13 @@ ms.lasthandoff: 05/10/2017
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-java">
+                                                    <a href="/java/azure/">
                                                         <img src="media/index/logo_java.svg" alt="">
                                                         <span>Java</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-python">
+                                                    <a href="/python/azure/">
                                                         <img src="media/index/logo_python.svg" alt="">
                                                         <span>Python</span>
                                                     </a>
@@ -140,6 +140,7 @@ ms.lasthandoff: 05/10/2017
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Funkcje bezserwerowe</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/">Kubernetes</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -196,7 +197,29 @@ ms.lasthandoff: 05/10/2017
                                     </div>
                                 </div>
                             </li>
-                            <li></li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>DevOps</h3>
+                                                <div class="ico48Link">
+                                                    <a href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
+                                                        <img src="/media/logos/logo_visual-studio.svg" alt="">
+                                                        <span>Visual Studio<br />Team Services</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
+                                                        <img src="/media/logos/logo_jenkins.svg" alt="">
+                                                        <span>Usługa Jenkins na<br />maszynach wirtualnych platformy Azure</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li></li>
                             <li></li>
                             <li></li>
@@ -261,8 +284,7 @@ ms.lasthandoff: 05/10/2017
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
-                                        </li>
-                                        
+                                        </li>                                        
                                         <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
@@ -3120,10 +3142,10 @@ ms.lasthandoff: 05/10/2017
                                                     <a href="/dotnet/azure/dotnet-sdk-azure-install">Uzyskiwanie bibliotek platformy Azure dla platformy .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Wprowadzenie</a>
+                                                    <a href="/dotnet/azure">Wprowadzenie</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/azure/?view=azure-dotnet">Dokumentacja interfejsu API</a>
+                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">Dokumentacja interfejsu API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3141,19 +3163,13 @@ ms.lasthandoff: 05/10/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://pypi.python.org/pypi/azure">Uzyskaj zestaw Python SDK</a>
+                                                    <a href="/python/azure/python-sdk-azure-install">Uzyskiwanie bibliotek platformy Azure dla języka Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Wprowadzenie</a>
+                                                    <a href="/python/azure">Wprowadzenie</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Dokumentacja interfejsu API</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Uzyskaj przykłady</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">Dowiedz się więcej</a>
+                                                    <a href="/python/api/overview/azure/">Dokumentacja interfejsu API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3171,19 +3187,13 @@ ms.lasthandoff: 05/10/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.npmjs.com/package/azure">Uzyskaj zestaw Node.js SDK</a>
+                                                    <a href="/nodejs/azure/node-sdk-azure-install">Uzyskiwanie bibliotek platformy Azure dla aplikacji Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Wprowadzenie</a>
+                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Wprowadzenie</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Dokumentacja interfejsu API</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Uzyskaj przykłady</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">Dowiedz się więcej</a>
+                                                    <a href="/nodejs/api/overview/azure">Dokumentacja interfejsu API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3204,10 +3214,10 @@ ms.lasthandoff: 05/10/2017
                                                     <a href="/java/azure/java-sdk-azure-install">Uzyskiwanie bibliotek platformy Azure dla języka Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Wprowadzenie</a>
+                                                    <a href="/java/azure">Wprowadzenie</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/">Dokumentacja interfejsu API</a>
+                                                    <a href="/java/api/overview/azure">Dokumentacja interfejsu API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3501,7 +3511,7 @@ ms.lasthandoff: 05/10/2017
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/">
+                                <a href="/azure/architecture/guide/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3511,7 +3521,7 @@ ms.lasthandoff: 05/10/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Podstawy chmury</h3>
+                                                    <h3>Przewodnik dotyczący architektury aplikacji na platformie Azure</h3>
                                                     <p>Podstawowa wiedza pozwalająca osiągnąć sukces w chmurze. Jeśli nie znasz jeszcze chmury lub platformy Azure, zacznij od tego miejsca.</p>
                                                 </div>
                                             </div>

@@ -10,17 +10,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 06/20/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: bc43936310c48f4dad54c829c7511cf2ad5f83af
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -28,10 +29,13 @@ ms.lasthandoff: 04/19/2017
 
 [Visual Studio Code](https://code.visualstudio.com/docs) to graficzny edytor kodu dla systemów Linux, macOS i Windows obsługujący rozszerzenia, w tym [rozszerzenie mssql](https://aka.ms/mssql-marketplace), używany do wysyłania zapytań do programów Microsoft SQL Server, Azure SQL Database i SQL Data Warehouse. W tym przewodniku Szybki start pokazano, jak używać edytora Visual Studio Code w celu nawiązywania połączenia z usługą Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane, a także wstawiać, aktualizować i usuwać dane z bazy danych.
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
 Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonych w jednym z poniższych przewodników Szybki start:
 
 - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
+- [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md)
 
 Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowano [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalacji rozszerzenia mssql, zobacz [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) (Instalacja programu VS Code) i [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (Rozszerzenie mssql dla programu Visual Studio Code). 
 
@@ -65,7 +69,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
 3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**.
 
-   ![informacje o połączeniu](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informacje o połączeniu](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło. 
 
@@ -80,7 +84,7 @@ Ustaw tryb języka na **SQL** w programie Visual Studio Code, aby włączyć pol
 
    ![Tryb języka SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Łączenie z bazą danych na serwerze logicznym SQL Database
+## <a name="connect-to-your-database"></a>Nawiązywanie połączenia z bazą danych
 
 Użyj programu Visual Studio Code, aby nawiązać połączenie z serwerem Azure SQL Database.
 
@@ -96,17 +100,15 @@ Użyj programu Visual Studio Code, aby nawiązać połączenie z serwerem Azure 
 
 4. Postępuj zgodnie z monitami, aby określić właściwości połączenia dla nowego profilu połączenia. Po określeniu każdej wartości naciśnij klawisz **ENTER**, aby kontynuować. 
 
-   Poniższa tabela opisuje właściwości profilu połączenia.
-
-   | Ustawienie | Opis |
-   |-----|-----|
-   | **Nazwa serwera** | Wprowadź w pełni kwalifikowaną nazwę serwera, np. **mynewserver20170313.database.windows.net** |
-   | **Nazwa bazy danych** | Wprowadź nazwę bazy danych, np. **mySampleDatabase** |
-   | **Uwierzytelnianie** | Wybierz identyfikator logowania SQL |
-   | **Nazwa użytkownika** | Wprowadź nazwę konta administratora serwera |
-   | **Hasło (identyfikator logowania SQL)** | Wprowadź hasło konta administratora serwera | 
-   | **Zapisać hasło?** | Wybierz opcję **Tak** lub **Nie** |
-   | **[Opcjonalnie] Wprowadź nazwę dla tego profilu** | Wprowadź nazwę profilu połączenia, np. **mySampleDatabase**. 
+   | Ustawienie       | Sugerowana wartość | Opis |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nazwa serwera | W pełni kwalifikowana nazwa serwera | Nazwa może mieć taką formę: **mynewserver20170313.database.windows.net**. |
+   | **Nazwa bazy danych** | mySampleDatabase | Nazwa bazy danych, z którą chcesz się połączyć. |
+   | **Uwierzytelnianie** | Identyfikator logowania SQL| Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+   | **Nazwa użytkownika** | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
+   | **Hasło (identyfikator logowania SQL)** | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
+   | **Zapisać hasło?** | Tak lub Nie | Wybierz opcję Tak, jeśli nie chcesz wprowadzać hasła za każdym razem. |
+   | **Wprowadź nazwę dla tego profilu** | Nazwa profilu, np. **mySampleDatabase** | Zapisana nazwa profilu przyspiesza połączenie podczas kolejnych logowań. | 
 
 5. Naciśnij klawisz **ESC**, aby zamknąć komunikat z informacją o utworzeniu profilu i nawiązaniu z nim połączenia.
 
@@ -188,11 +190,6 @@ Użyj następującego kodu, aby usunąć nowy, wcześniej dodany produkt przy u�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu SQL Server Management Studio, zobacz [Connect and query with SSMS](sql-database-connect-query-ssms.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu SSMS).
-- Aby nawiązywać połączenia i wykonywać zapytania za pomocą platformy .NET, zobacz [Connect and query with .NET](sql-database-connect-query-dotnet.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą platformy .NET).
-- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka PHP, zobacz [Connect and query with PHP](sql-database-connect-query-php.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka PHP).
-- Aby nawiązywać połączenia i wykonywać zapytania za pomocą oprogramowania Node.js, zobacz [Connect and query with Node.js](sql-database-connect-query-nodejs.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą oprogramowania Node.js).
-- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Java, zobacz [Connect and query with Java](sql-database-connect-query-java.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Java).
-- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Python, zobacz [Connect and query with Python](sql-database-connect-query-python.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Python).
-- Aby nawiązywać połączenia i wykonywać zapytania za pomocą języka Ruby, zobacz [Connect and query with Ruby](sql-database-connect-query-ruby.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą języka Ruby).
+- Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu SQL Server Management Studio, zobacz artykuł [Connect and query with SSMS](sql-database-connect-query-ssms.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu SSMS).
+- Aby zapoznać się z artykułem w magazynie MSDN dotyczącym programu Visual Studio Code, zobacz temat [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115) (Tworzenie bazy danych w środowisku IDE, korzystając z wpisu na blogu dotyczącym rozszerzenia MSSQL).
 

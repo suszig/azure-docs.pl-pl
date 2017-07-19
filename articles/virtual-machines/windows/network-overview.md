@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: cda53c43d4524ddcc8139f60f6b605a1f26c2658
+ms.contentlocale: pl-pl
 ms.lasthandoff: 04/27/2017
-
 
 ---
 
@@ -97,7 +97,7 @@ Jeśli w Twojej organizacji sieciami wewnętrznymi zajmuje się inna osoba, poro
 
 Domyślnie między podsieciami nie ma zabezpieczeń granicznych, co pozwala maszynom wirtualnym znajdującym się w poszczególnych podsieciach komunikować się ze sobą. Można jednak skonfigurować sieciowe grupy zabezpieczeń (NSG), które umożliwiają kontrolowanie ruchu przychodzącego do podsieci i maszyn wirtualnych oraz ruchu wychodzącego. 
 
-Poniższa tabela zawiera listę metod, których można użyć do utworzenia sieci wirtualnej i podsieci.    
+Poniższa tabela zawiera listę metod, których można użyć do utworzenia sieci wirtualnej i podsieci. 
 
 | Metoda | Opis |
 | ------ | ----------- |

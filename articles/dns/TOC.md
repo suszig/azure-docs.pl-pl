@@ -62,8 +62,9 @@
 ## [Aplikacje sieci Web](/azure/app-service-web/)
 
 # Zasoby
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=dns)
-## [Cennik](https://azure.microsoft.com/pricing/details/dns/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Żądania funkcji](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)
-## [Żądania funkcji](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
+## [Cennik](https://azure.microsoft.com/pricing/details/dns/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=dns)

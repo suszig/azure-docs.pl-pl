@@ -12,18 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
-ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](active-directory-users-create-external-azure-portal.md)
+> * [Witryna Azure Portal](active-directory-users-create-external-azure-portal.md )
 > * [Klasyczna witryna Azure Portal](active-directory-create-users-external.md)
 >
 >
@@ -44,9 +45,8 @@ W tym artykule opisano sposób dodawania użytkowników z innych katalogów w us
 > [!IMPORTANT]
 > Jeśli Twoja organizacja korzysta z więcej niż jednej domeny, podczas dodawania konta użytkownika musisz wiedzieć o następujących kwestiach:
 >
-> * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com,, **a następnie** geoffgrisso@contoso.com.
-> * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com. Ta kolejność jest ważna, a jej cofnięcie może być kłopotliwe.
->
+> * Aby dodać konta użytkowników z tą samą główną nazwą użytkownika (UPN) między domenami, **najpierw** dodaj np. adres geoffgrisso@contoso.onmicrosoft.com, **a następnie** geoffgrisso@contoso.com.
+> * **Nie** dodawaj adresu geoffgrisso@contoso.com przed dodaniem adresu geoffgrisso@contoso.onmicrosoft.com.
 >
 
 Jeśli wprowadzasz zmiany w informacjach dla użytkownika, którego tożsamość jest zsynchronizowana z lokalną usługą Active Directory, nie możesz wprowadzać zmian w informacjach o użytkowniku w klasycznym portalu Azure. Aby zmienić informacje o użytkowniku, użyj narzędzi zarządzania lokalnej usługi Active Directory.
@@ -74,15 +74,7 @@ Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje
 * **Dynamics CRM**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics CRM, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell.
 * **Dynamics AX**: umożliwia użytkownikowi zewnętrznemu dostęp do autoryzowanych zasobów programu Dynamics AX, jeśli użytkownik ma licencję za pośrednictwem programu PowerShell. Ograniczenia dotyczące [użytkowników zewnętrznych usługi Azure AD](#known-limitations-of-azure-ad-external-users) mają również zastosowanie w przypadku użytkowników zewnętrznych programu Dynamics AX.
 
-### <a name="known-limitations-of-azure-ad-external-users"></a>Znane ograniczenia dotyczące użytkowników zewnętrznych usługi Azure AD
-* Użytkownicy zewnętrzni, którzy są administratorami, nie mogą dodawać użytkowników z firm partnerskich do katalogów (współpraca B2B) poza katalogiem macierzystym
-* Użytkownicy zewnętrzni nie mogą wyrazić zgody na aplikacje wielodostępne w katalogach poza katalogiem macierzystym
-* Usługa Power BI nie obsługuje obecnie dostępu użytkowników zewnętrznych
-* Portal pakietu Office nie obsługuje licencji użytkowników zewnętrznych
-* W odniesieniu do programu PowerShell usługi Azure AD użytkownicy zewnętrzni logują się do katalogu macierzystego i nie mogą zarządzać katalogami, w których występują jako użytkownicy zewnętrzni
-* Podczas konfigurowania wtyczki aplikacji Dynamics CRM dla programu Outlook istnieje możliwość, że użytkownicy zewnętrzni będę musieli ręcznie wprowadzić adres URL dzierżawy usługi Dynamics CRM Online zamiast wybrać opcję „CRM Online”
-
-## <a name="whats-next"></a>Co dalej
+## <a name="next-steps"></a>Następne kroki
 * [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md)
 * [Administrowanie usługą Azure AD](active-directory-administer.md)
 * [Zarządzanie hasłami w usłudze Azure AD](active-directory-manage-passwords.md)

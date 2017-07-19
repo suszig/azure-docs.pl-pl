@@ -1,16 +1,15 @@
-W poniższej tabeli przedstawiono typy bram i szacowaną agregowaną przepływność według jednostek SKU bramy. Ta tabela ma zastosowanie w obu modelach wdrażania — przy użyciu usługi Resource Manager i klasycznym. Ceny różnych jednostek SKU bramy są różne. Aby uzyskać więcej informacji, zobacz temat [VPN Gateway — cennik](https://azure.microsoft.com/pricing/details/vpn-gateway).
+Platforma Azure oferuje następujące jednostki SKU bramy sieci VPN:
 
-Zwróć uwagę, że w tej tabeli nie przedstawiono jednostki SKU bramy UltraPerformance. Informacje o jednostce SKU UltraPerformance można znaleźć w dokumentacji dotyczącej usługi [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+|**SKU**   | **Połączenia typu lokacja-lokacja/Połączenia między sieciami wirtualnymi<br>Tunele** | **Połączenia<br>punkt-lokacja** | **Agregacja<br>przepływności** |
+|---       | ---                             | ---                    | ---                         |
+|**VpnGw1**| Maksymalnie z 30                         | Maksymalnie z 128               | 500 Mb/s                    |
+|**VpnGw2**| Maksymalnie z 30                         | Maksymalnie z 128               | 1 Gb/s                      |
+|**VpnGw3**| Maksymalnie z 30                         | Maksymalnie z 128               | 1,25 Gb/s                   |
+|**Podstawowa** | Maksymalnie z 10                         | Maksymalnie z 128               | 100 Mb/s                    | 
+|          |                                 |                        |                             | 
 
-|  | **Przepływność usługi VPN Gateway (1)** | **Maksymalna liczba tuneli protokołu IPsec usługi VPN Gateway (2)** | **Przepływność bramy ExpressRoute** | **Usługi VPN Gateway i ExpressRoute współistnieją** |
-| --- | --- | --- | --- | --- |
-| **Podstawowa jednostka SKU (3)(5)(6)** |100 Mb/s |10 |500 Mb/s (6) |Nie |
-| **Standardowa jednostka SKU (4)(5)** |100 Mb/s |10 |1000 Mb/s |Tak |
-| **Jednostka SKU wysokiej wydajności (4)** |200 Mb/s |30 |2000 Mb/s |Tak |
+- Przepływność opiera się na pomiarach wielu tuneli zagregowanych za pośrednictwem jednej bramy. Ze względu na warunki ruchu internetowego i zachowania aplikacji nie jest to przepływność gwarantowana.
 
-* (1) Przepływność sieci VPN została wstępnie oszacowana na podstawie pomiarów między sieciami wirtualnymi w ramach tego samego regionu systemu Azure. Nie jest to gwarantowana przepływność dla połączeń obejmujących wiele lokalizacji za pośrednictwem sieci Internet. Jest to maksymalna możliwa przepustowość.
-* (2) Liczba tuneli dotyczy sieci VPN opartych na trasie. Sieć VPN oparta na zasadach może obsługiwać tylko jeden tunel VPN typu lokacja-lokacja.
-* (3) Protokół BGP nie jest obsługiwany w ramach podstawowej jednostki SKU.
-* (4) Sieci VPN oparte na zasadach nie są obsługiwane w ramach tej jednostki SKU. Są one obsługiwane tylko w ramach podstawowej jednostki SKU.
-* (5) Połączenia usługi VPN Gateway typu lokacja do lokacji (S2S) aktywne-aktywne nie są obsługiwane w ramach tej jednostki SKU. Połączenie typu aktywne-aktywne jest obsługiwane tylko dla jednostki SKU o wysokiej wydajności.
-* (6) Podstawowa jednostka do użycia z usługą ExpressRoute jest przestarzała.
+- Informacje o cenach znajdują się na stronie [Cennik](https://azure.microsoft.com/pricing/details/vpn-gateway).
+
+- Informacje na temat umowy SLA (Service Level Agreement) można znaleźć na stronie [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/).

@@ -1,7 +1,7 @@
 ---
-title: "Rozpoczynanie pracy z platformą Apache Storm w usłudze Azure HDInsight | Microsoft Docs"
-description: "Wprowadzenie do analizy danych big data na platformie Apache Storm i przykłady z projektu Storm Starter w usłudze HDInsight opartej na systemie Linux. Dowiedz się, jak używać systemu Storm do przetwarzania danych w czasie rzeczywistym."
-keywords: apache storm,apache storm tutorial,big data analytics,storm starter
+title: "Przykłady z projektu Storm Starter dotyczące pracy z platformą Apache Storm w usłudze HDInsight — Azure | Microsoft Docs"
+description: "Dowiedz się, jak przeprowadzać analizę danych big data i przetwarzać dane w czasie rzeczywistym przy użyciu platformy Apache Storm i przykładów z projektu Storm Starter w usłudze HDInsight."
+keywords: "projekt Storm Starter, przykład z platformy Apache Storm"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,22 +13,24 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 05/25/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 2ab0818646626577a23fb4096fbe863d7525a8f2
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 5936a45973eb41d2c5b3a1a47c663e393e628f54
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/09/2017
 
 ---
-#<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Wprowadzenie do przykładów z projektu Storm Starter dotyczących analizy danych big data w usłudze HDInsight opartej na systemie Linux
+#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Wprowadzenie do platformy Apache Storm w usłudze HDInsight przy użyciu przykładów z projektu Storm Starter
+
+Dowiedz się, jak używać platformy Apache Storm w usłudze HDInsight przy użyciu przykładów z projektu Storm Starter.
 
 Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy działający w czasie rzeczywistym do przetwarzania strumieni danych. Dzięki platformie Storm w usłudze Azure HDInsight można utworzyć oparty na chmurze klaster Storm do wykonywania analizy danych big data w czasie rzeczywistym.
 
 > [!IMPORTANT]
-> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date) (Zakończenie obsługi usługi HDInsight w systemie Windows).
+> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date) (Wycofanie usługi HDInsight w systemie Windows).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -206,7 +208,6 @@ Aby uzyskać przykładowe topologie, które mogą być używane z narzędziem St
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
-[azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/
 

@@ -105,3 +105,5 @@
 #### [Odwołanie do tokenu](active-directory-v2-tokens.md)
 #### [Poświadczenia certyfikatu](active-directory-certificate-credentials.md)
 ### [Zakresy](active-directory-v2-scopes.md)
+# Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)

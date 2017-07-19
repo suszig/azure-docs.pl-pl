@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: e6440522ced33a48925cfabc64da055b8700b253
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -34,8 +36,8 @@ W tej chwili obsługiwane są:
 
 ## <a name="features"></a>Funkcje
 * Zarządzanie kontami: tworzenie, pobieranie, wyświetlanie, aktualizowanie i usuwanie.
-* Zarządzanie zadaniami: przesyłanie, pobieranie, wyświetlanie, anulowanie.
-* Zarządzanie katalogami: pobieranie, wyświetlanie, tworzenie (hasła), aktualizowanie (hasła), usuwanie (hasła).
+* Zarządzanie zadaniami: przesyłanie, pobieranie, wyświetlanie i anulowanie.
+* Zarządzanie katalogami: pobieranie i wyświetlanie.
 
 ## <a name="how-to-install"></a>Jak zainstalować
 ```bash
@@ -137,10 +139,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 ## <a name="see-also"></a>Zobacz też
 * [Zestaw Microsoft Azure SDK dla środowiska Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Zestaw Microsoft Azure SDK dla środowiska Node.js — Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

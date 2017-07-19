@@ -1,5 +1,8 @@
-1. Na stronie **Ustawienia** sieci wirtualnej przejdź do opcji **Serwery DNS** i kliknij, aby otworzyć blok serwerów DNS.
-2. Na stronie **Serwery DNS** w obszarze **Serwery DNS** wybierz opcję **Niestandardowe**.
-3. W polu **Serwer DNS** w polu **Dodaj serwer DNS** wprowadź adres IP serwera DNS, który ma być używany do rozpoznawania nazw. Po zakończeniu dodawania serwerów DNS kliknij przycisk **Zapisz** znajdujący się na górze bloku, aby zapisać konfigurację.
+1. Na stronie **Ustawienia** sieci wirtualnej przejdź do opcji **Serwery DNS** i kliknij blok **Serwery DNS**, aby go otworzyć.
 
-  ![Niestandardowe DNS](./media/vpn-gateway-add-dns-rm-portal/add_dns.png)
+    ![Dodaj serwer DNS](./media/vpn-gateway-add-dns-rm-portal/add_dns_server.png "Dodaj serwer DNS")
+
+  - **Serwery DNS:** wybierz pozycję **Niestandardowy**.
+  - **Dodaj serwer DNS:** wprowadź adres IP serwera DNS, który ma być używany do rozpoznawania nazw.
+
+2. Po zakończeniu dodawania serwerów DNS kliknij przycisk **Zapisz** znajdujący się na górze bloku.

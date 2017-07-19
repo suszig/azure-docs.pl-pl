@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 05/30/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 015782373e59d1aaf10a7b089c84c982031b36b2
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Tworzenie laboratorium w usłudze Azure DevTest Labs
+Azure DevTest Labs to infrastruktura, która obejmuje wiele różnych zasobów (np. maszyn wirtualnych) i umożliwia lepsze zarządzanie tymi zasobami przez określenie ograniczeń i przydziałów. W tym artykule szczegółowo omówiono proces tworzenia laboratorium przy użyciu witryny Azure Portal.
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby utworzyć laboratorium, potrzebne są:
 
@@ -31,19 +34,24 @@ Aby utworzyć laboratorium, potrzebne są:
 Następujące kroki ilustrują tworzenie laboratorium w usłudze Azure DevTest Labs przy użyciu witryny Azure Portal. 
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.
-3. W bloku **DevTest Labs** wybierz pozycję **Dodaj**.
+1. Z menu głównego po lewej stronie wybierz pozycję **Więcej usług** (w dolnej części listy).
+
+    ![Opcja menu Więcej usług](./media/devtest-lab-create-lab/more-services-menu-option.png)
+
+1. Z listy dostępnych usług wybierz pozycję **DevTest Labs**.
+1. W bloku **DevTest Labs** wybierz pozycję **Dodaj**.
    
     ![Dodawanie laboratorium](./media/devtest-lab-create-lab/add-lab-button.png)
-4. W bloku **Utwórz laboratorium DevTest Lab**:
+
+1. W bloku **Utwórz laboratorium DevTest Lab**:
    
-   1. W polu **Nazwa laboratorium** wprowadź nazwę dla nowego laboratorium.
-   2. W pozycji **Subskrypcja** wybierz subskrypcję do skojarzenia z laboratorium.
-   3. W pozycji **Lokalizacja** wybierz lokalizację do przechowywania laboratorium.
-   4. Wybierz pozycję **Automatyczne zamykanie**, aby włączyć opcję i określić parametry automatycznego zamykania wszystkich maszyn wirtualnych laboratorium. 
-   5. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego**, jeśli chcesz, aby na pulpicie nawigacyjnym portalu był wyświetlany skrót do laboratorium.
-   6. Wybierz pozycję **Opcje automatyzacji**, aby uzyskać szablony usługi Azure Resource Manager dotyczące automatyzacji konfiguracji. 
-   7. Wybierz pozycję **Utwórz**.
+    1. W polu **Nazwa laboratorium** wprowadź nazwę dla nowego laboratorium.
+    2. W pozycji **Subskrypcja** wybierz subskrypcję do skojarzenia z laboratorium.
+    3. W pozycji **Lokalizacja** wybierz lokalizację do przechowywania laboratorium.
+    4. Wybierz pozycję **Automatyczne zamykanie**, aby włączyć opcję i określić parametry automatycznego zamykania wszystkich maszyn wirtualnych laboratorium. Funkcja automatycznego zamykania służy głównie do osiągnięcia oszczędności. Pozwala określić, kiedy ma dojść do automatycznego zamknięcia maszyny wirtualnej. Ustawienia automatycznego zamykania można zmienić po utworzeniu laboratorium, wykonując kroki opisane w artykule [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown) (Zarządzanie wszystkimi zasadami dla laboratorium w usłudze Azure DevTest Labs).
+    5. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego**, jeśli chcesz, aby na pulpicie nawigacyjnym portalu był wyświetlany skrót do laboratorium.
+    6. Wybierz pozycję **Opcje automatyzacji**, aby uzyskać szablony usługi Azure Resource Manager dotyczące automatyzacji konfiguracji. 
+    7. Wybierz pozycję **Utwórz**. Po wybraniu opcji **Utwórz** zostanie wyświetlony blok **DevTest Labs**. Stan procesu tworzenia laboratorium można monitorować, obserwując obszar **Powiadomienia**. Po ukończeniu odśwież stronę, aby wyświetlić nowo utworzone laboratorium na liście laboratoriów.  
     
     ![Blok tworzenia laboratorium](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 

@@ -7,6 +7,7 @@ Usługa Azure IoT Hub stanowi kluczowy element podczas wdrażania tej architektu
 
 * Rozwiązanie do *monitorowania zdalnego* umożliwia monitorowanie stanu urządzeń, takich jak automaty do sprzedaży.
 * Rozwiązanie do *konserwacji predykcyjnej* pomaga przewidywać wymagania związane z konserwacją urządzeń, na przykład pomp w zdalnych przepompowniach, oraz unikać nieplanowanych przestojów.
+* Rozwiązanie *połączonej fabryki* ułatwia łączenie z urządzeniami przemysłowymi oraz ich monitorowanie.
 
 ## <a name="iot-solution-architecture"></a>Architektura rozwiązania IoT
 

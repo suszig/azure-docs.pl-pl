@@ -6,3 +6,5 @@
 ## [Configuring Oracle ASM](configure-oracle-asm.md) (Konfigurowanie programu Oracle ASM)
 ## [Configuring Oracle DataGuard](configuring-oracle-dataguard.md) (Konfigurowanie programu Oracle DataGuard)
 ## [Konfigurowanie środowiska Oracle GoldenGate](configure-oracle-golden-gate.md)
+# Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)

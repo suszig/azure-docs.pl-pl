@@ -68,10 +68,11 @@
 ## [Interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/dls)
 
 # Zasoby
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-lake-store)
-## [Cennik](https://azure.microsoft.com/pricing/details/data-lake-store/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Forum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Prześlij opinię na platformie UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog usługi Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Prześlij opinię na platformie UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Cennik](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Forum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

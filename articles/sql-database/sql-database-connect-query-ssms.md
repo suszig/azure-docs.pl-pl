@@ -10,28 +10,32 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/15/2017
+ms.date: 05/26/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 29883e37f1f506f33f44cf02dbf08221274e109d
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: używanie programu SQL Server Management Studio do nawiązywania połączenia i wykonywania zapytań dotyczących danych
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to narzędzie do zarządzania umożliwiające tworzenie zasobów SQL Server i zarządzanie nimi z poziomu interfejsu użytkownika lub w skryptach. W tym przewodniku Szybki start pokazano, jak używać narzędzia SSMS w celu nawiązywania połączenia z usługą Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane, a także wstawiać, aktualizować i usuwać dane z bazy danych. 
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to zintegrowane środowisko do zarządzania dowolną infrastrukturą SQL — od programu SQL Server po usługę SQL Database dla systemu Microsoft Windows. W tym przewodniku Szybki start pokazano, jak używać narzędzia SSMS w celu nawiązywania połączenia z usługą Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane, a także wstawiać, aktualizować i usuwać dane z bazy danych. 
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonych w jednym z poniższych przewodników Szybki start:
 
 - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
+- [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md)
 
 Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
@@ -43,11 +47,11 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
 3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**.
 
-   ![informacje o połączeniu](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informacje o połączeniu](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło. 
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Łączenie z bazą danych na serwerze logicznym SQL Database
+## <a name="connect-to-your-database"></a>Nawiązywanie połączenia z bazą danych
 
 Użyj programu SQL Server Management Studio, aby nawiązać połączenie z serwerem Azure SQL Database. 
 
@@ -58,11 +62,14 @@ Użyj programu SQL Server Management Studio, aby nawiązać połączenie z serwe
 1. Otwórz program SQL Server Management Studio.
 
 2. W oknie dialogowym **Połącz z serwerem** wprowadź następujące informacje:
-   - **Typ serwera**: określ aparat bazy danych
-   - **Nazwa serwera**: wprowadź w pełni kwalifikowaną nazwę serwera, na przykład **mynewserver20170313.database.windows.net**
-   - **Uwierzytelnianie**: określ uwierzytelnianie programu SQL Server
-   - **Logowanie**: wprowadź nazwę konta administratora serwera
-   - **Hasło**: wprowadź hasło konta administratora serwera
+
+   | Ustawienie       | Sugerowana wartość | Opis | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Typ serwera** | Aparat bazy danych | Ta wartość jest wymagana. |
+   | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Nazwa może mieć taką formę: **mynewserver20170313.database.windows.net**. |
+   | **Uwierzytelnianie** | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+   | **Logowanie** | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
+   | **Hasło** | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
 
    ![łączenie z serwerem](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -157,6 +164,7 @@ Użyj następującego kodu, aby usunąć nowy, wcześniej dodany produkt przy u�
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Aby dowiedzieć się więcej na temat tworzenia serwerów i baz danych oraz zarządzania nimi przy użyciu języka Transact-SQL, zobacz [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md) (Informacje na temat serwerów i baz danych usługi Azure SQL Database).
 - Aby uzyskać więcej informacji o programie SSMS, zobacz [Korzystanie z programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu Visual Studio Code, zobacz [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu Visual Studio Code).
 - Aby nawiązywać połączenia i wykonywać zapytania za pomocą platformy .NET, zobacz [Connect and query with .NET](sql-database-connect-query-dotnet.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą platformy .NET).

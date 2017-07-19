@@ -113,9 +113,10 @@
 ### [Przewodnik dotyczący zabezpieczeń](storage-security-guide.md)
 ### [Szyfrowanie nieużywanych danych](storage-service-encryption.md)
 ### [Szyfrowanie nieużywanych danych za pomocą kluczy klienta](storage-service-encryption-customer-managed-keys.md)
-### [Uwierzytelnianie klucza współużytkowanego](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Uwierzytelnianie klucza współużytkowanego](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Sygnatury dostępu współdzielonego (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Samouczek: Szyfrowanie i odszyfrowywanie obiektów blob za pomocą usługi Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Żądanie bezpiecznego transferu](storage-require-secure-transfer.md)
 ### Szyfrowania po stronie klienta
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
@@ -201,12 +202,13 @@
 ### [Samouczek dotyczący rozwiązywania problemów](storage-e2e-troubleshooting-classic-portal.md)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Azure Storage Client Tools](storage-explorers.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=storage)
-## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=storage)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
+## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Eksplorator usługi Azure Storage
 ### [Eksplorator usługi Storage (wersja zapoznawcza)](../vs-azure-tools-storage-manage-with-storage-explorer.md)

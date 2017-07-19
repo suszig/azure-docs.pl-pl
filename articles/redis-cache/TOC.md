@@ -55,6 +55,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Zasoby
-## [Przykłady użycia pamięci podręcznej Redis](cache-redis-samples.md)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/cache/)
+## [Przykłady użycia pamięci podręcznej Redis](cache-redis-samples.md)
 

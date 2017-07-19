@@ -3,7 +3,7 @@ title: "Konfigurowanie analizy aplikacji sieci Web w technologii ASP.NET za pomo
 description: "Konfigurowanie analizy wydajności, dostępności i użycia witryny sieci Web w technologii ASP.NET hostowanej lokalnie lub na platformie Azure."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 04bac05363f0f7468e41ccfd96a85e4bd7bf761c
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 8a3789d293a93aab19eab92ffefddf0b3d2f9242
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -52,7 +52,12 @@ Przejdź do strony konfiguracji usługi Application Insights:
 
 **a.** Wybierz konto i subskrypcję używane do uzyskiwania dostępu do platformy Azure.
 
-**b.** Wybierz zasób na platformie Azure, w którym mają być wyświetlane dane z aplikacji. Zazwyczaj należy utworzyć osobny zasób dla każdej aplikacji. Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są przechowywane, kliknij pozycję **Konfiguruj ustawienia**. Grupy zasobów są używane do kontrolowania dostępu do danych. Jeśli na przykład masz kilka aplikacji, które stanowią część tego samego systemu, możesz umieścić ich dane usługi Application Insights w tej samej grupie zasobów.
+**b.** Wybierz zasób na platformie Azure, w którym mają być wyświetlane dane z aplikacji. Zazwyczaj:
+
+* Używaj [pojedynczego zasobu dla różnych składników](app-insights-monitor-multi-role-apps.md) pojedynczej aplikacji. 
+* Utwórz oddzielne zasoby dla aplikacji niezwiązanych ze sobą.
+ 
+Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są przechowywane, kliknij pozycję **Konfiguruj ustawienia**. Grupy zasobów są używane do kontrolowania dostępu do danych. Jeśli na przykład masz kilka aplikacji, które stanowią część tego samego systemu, możesz umieścić ich dane usługi Application Insights w tej samej grupie zasobów.
 
 **c.** Ustaw ograniczenie limitu bezpłatnej ilości danych, aby uniknąć naliczania opłat. Usługa Application Insights jest bezpłatna do pewnej ilości danych telemetrycznych. Po utworzeniu zasobu możesz zmienić wybór w portalu, wybierając pozycję **Funkcje i cennik** > **Zarządzanie ilością danych** > **Dzienny limit ilości**.
 

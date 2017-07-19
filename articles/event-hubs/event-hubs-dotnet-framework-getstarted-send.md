@@ -12,33 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 06/12/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 306c9c5cb06caa186bc0b7f431a5412dfe810722
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 4eb0e7bcc14722010121c2a5945509d6ed736f4f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Wysyłanie zdarzeń do usługi Azure Event Hubs za pomocą programu .NET Framework
 
 ## <a name="introduction"></a>Wprowadzenie
+
 Event Hubs to usługa, która przetwarza duże ilości danych zdarzeń (danych telemetrycznych) z podłączonych urządzeń i aplikacji. Po zebraniu danych w usłudze Event Hubs można przechowywać dane przy użyciu klastra magazynu lub przekształcać je za pomocą dostawcy analiz w czasie rzeczywistym. Ta możliwość zbierania i przetwarzania zdarzeń na wielką skalę jest kluczowym składnikiem architektur nowoczesnych aplikacji, w tym Internetu rzeczy (IoT).
 
 W tym samouczku pokazano, jak utworzyć centrum zdarzeń za pomocą witryny [Azure Portal](https://portal.azure.com). Pokazano w nim także, jak wysyłać zdarzenia do centrum zdarzeń za pomocą aplikacji konsoli napisanej w języku C# w programie .NET Framework. Aby odbierać zdarzenia przy użyciu programu .NET Framework, zobacz artykuł [Receive events using the .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md) (Odbieranie zdarzeń za pomocą programu .NET Framework) lub kliknij odpowiedni język odbierający w spisie treści po lewej stronie.
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
 
 * [Program Microsoft Visual Studio w wersji 2015 lub nowszej](http://visualstudio.com). Na zrzutach ekranów przedstawionych w tym samouczku używany jest program Visual Studio 2017.
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Tworzenie przestrzeni nazw usługi Event Hubs i centrum zdarzeń
 
-Pierwszym krokiem jest skorzystanie z witryny [Azure Portal](https://portal.azure.com) w celu utworzenia przestrzeni nazw typu Event Hubs i uzyskania poświadczeń zarządzania wymaganych przez aplikację do komunikacji z centrum zdarzeń. Aby utworzyć obszar nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md), a następnie wykonaj następujące czynności.
+Pierwszym krokiem jest skorzystanie z witryny [Azure Portal](https://portal.azure.com) w celu utworzenia przestrzeni nazw typu Event Hubs i uzyskania poświadczeń zarządzania wymaganych przez aplikację do komunikacji z centrum zdarzeń. Aby utworzyć obszar nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md), a następnie wykonaj następujące czynności z tego samouczka.
 
-## <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
+## <a name="create-a-sender-console-application"></a>Tworzenie aplikacji konsolowej nadawcy
+
 W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która wysyła zdarzenia do centrum zdarzeń.
 
 1. W programie Visual Studio utwórz nowy projekt aplikacji klasycznej Visual C# za pomocą szablonu projektu **Aplikacja konsoli**. Nazwij projekt **Nadawca**.
@@ -52,51 +54,51 @@ W tej sekcji przedstawiono tworzenie aplikacji konsoli systemu Windows, która w
     Program Visual Studio pobierze, zainstaluje i doda odniesienia do [pakietu NuGet biblioteki usługi Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Dodaj następujące instrukcje `using` w górnej części pliku **Program.cs**:
    
-    ```csharp
-    using System.Threading;
-    using Microsoft.ServiceBus.Messaging;
-    ```
+  ```csharp
+  using System.Threading;
+  using Microsoft.ServiceBus.Messaging;
+  ```
 5. Dodaj następujące pola do klasy **Program**, zastępując symbole zastępcze nazwą centrum zdarzeń utworzonego w poprzedniej sekcji oraz zapisanymi wcześniej parametrami połączenia na poziomie przestrzeni nazw.
    
-    ```csharp
-    static string eventHubName = "{Event Hub name}";
-    static string connectionString = "{send connection string}";
-    ```
+  ```csharp
+  static string eventHubName = "{Event Hub name}";
+  static string connectionString = "{send connection string}";
+  ```
 6. Dodaj następującą metodę do klasy **Program**:
    
-    ```csharp
-    static void SendingRandomMessages()
-    {
-        var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-        while (true)
-        {
-            try
-            {
-                var message = Guid.NewGuid().ToString();
-                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-                eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
-            }
-            catch (Exception exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
-                Console.ResetColor();
-            }
+  ```csharp
+  static void SendingRandomMessages()
+  {
+      var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
+      while (true)
+      {
+          try
+          {
+              var message = Guid.NewGuid().ToString();
+              Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+              eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+          }
+          catch (Exception exception)
+          {
+              Console.ForegroundColor = ConsoleColor.Red;
+              Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+              Console.ResetColor();
+          }
    
-            Thread.Sleep(200);
-        }
-    }
-    ```
+          Thread.Sleep(200);
+      }
+  }
+  ```
    
-    Ta metoda stale wysyła zdarzenia do centrum zdarzeń z opóźnieniem 200 ms.
+  Ta metoda stale wysyła zdarzenia do centrum zdarzeń z opóźnieniem 200 ms.
 7. Na koniec dodaj następujące wiersze do metody **Główne**:
    
-    ```csharp
-    Console.WriteLine("Press Ctrl-C to stop the sender process");
-    Console.WriteLine("Press Enter to start now");
-    Console.ReadLine();
-    SendingRandomMessages();
-    ```
+  ```csharp
+  Console.WriteLine("Press Ctrl-C to stop the sender process");
+  Console.WriteLine("Press Enter to start now");
+  Console.ReadLine();
+  SendingRandomMessages();
+  ```
 8. Uruchom program i upewnij się, że nie ma w nim żadnych błędów.
   
 Gratulacje! Wysłano komunikaty do centrum zdarzeń.

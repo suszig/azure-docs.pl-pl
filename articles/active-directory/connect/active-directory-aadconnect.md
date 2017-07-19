@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 209f8869e9ed681285865154bdd4d2d7a0f22456
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7701d46be70901d361f8a045c386bfa4cdaf98b6
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -145,6 +146,7 @@ Jeśli serwer usług AD FS nie został skonfigurowany tak, aby automatycznie akt
 |Historia wersji | [Historia wersji](active-directory-aadconnect-version-history.md)|
 |Porównanie narzędzi DirSync, Azure ADSync i Azure AD Connect | [Porównanie narzędzi do integracji katalogów](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Lista zgodności usługi Azure AD z usługami innymi niż AD FS | [Lista zgodności usługi Azure AD z usługami federacyjnymi](active-directory-aadconnect-federation-compatibility.md)|
+|Konfigurowanie dostawcy tożsamości SAML 2.0|[Korzystanie z dostawcy tożsamości SAML 2.0 do celów rejestracji jednokrotnej](active-directory-aadconnect-federation-saml-idp.md)|
 |Synchronizowane atrybuty | [Synchronizowane atrybuty](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Monitorowanie za pomocą narzędzia Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Często zadawane pytania | [Azure AD Connect — Często zadawane pytania](active-directory-aadconnect-faq.md)|

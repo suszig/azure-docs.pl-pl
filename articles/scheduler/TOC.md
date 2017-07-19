@@ -25,11 +25,12 @@
 ## [REST](/rest/api/scheduler)
 
 # Zasoby
-## [Cennik](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Cennik](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=scheduler)
 
 
 

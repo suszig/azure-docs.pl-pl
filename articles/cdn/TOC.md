@@ -10,8 +10,12 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Współużytkowanie zasobów między źródłami](cdn-cors.md)
-
-## Zarządzanie
+## Optymalizowanie zawartości
+### [Omówienie optymalizacji](cdn-optimization-overview.md)
+####[Optymalizacja dużych plików](cdn-large-file-optimization.md)
+####[Optymalizacja przesyłania strumieniowego multimediów](cdn-media-streaming-optimization.md)
+ 
+## Zarządzaj
 ### [Włączanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
 ### [Zarządzanie przy użyciu programu PowerShell](cdn-manage-powershell.md)
 ### Konfigurowanie czasu wygaśnięcia
@@ -54,12 +58,13 @@
 
 # Zasoby
 ##  [Dokumentacja aparatu reguł](cdn-rules-engine-reference.md)
-### [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
-### [Warunki dopasowań aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
-### [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
 ## [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cdn)
-## [Cennik](https://azure.microsoft.com/pricing/details/cdn/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Cennik](https://azure.microsoft.com/pricing/details/cdn/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+### [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
+### [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
+### [Warunki dopasowań aparatu reguł](cdn-rules-engine-reference-match-conditions.md)

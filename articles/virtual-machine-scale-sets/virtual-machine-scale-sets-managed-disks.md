@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
+ms.date: 6/01/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -45,7 +46,7 @@ Ewentualnie można poszukać w [repozytorium szablonów z pakietu Azure Quicksta
 
 ## <a name="api-versions"></a>Wersje interfejsu API
 
-Bieżąca wersja ogólnie dostępnego interfejsu API dla zestawów skalowania z dyskami zarządzanymi to `2016-04-30-preview`. Zestawy skalowania z dyskami niezarządzanymi będą nadal działać jak obecnie, nawet w nowych wersjach interfejsu API, które obsługują dyski zarządzane. Jednak zestawy skalowania z dyskami niezarządzanymi nie udostępniają korzyści związanych z dyskami zarządzanymi, nawet w tych nowszych wersjach interfejsu API.
+Zestawy skalowania z dyskami zarządzanymi wymagają interfejsu API Microsoft.Compute w wersji `2016-04-30-preview` lub nowszej. Zestawy skalowania z dyskami niezarządzanymi będą nadal działać jak obecnie, nawet w nowych wersjach interfejsu API, które obsługują dyski zarządzane. Jednak zestawy skalowania z dyskami niezarządzanymi nie udostępniają korzyści związanych z dyskami zarządzanymi, nawet w tych nowszych wersjach interfejsu API.
 
 ## <a name="next-steps"></a>Następne kroki
 

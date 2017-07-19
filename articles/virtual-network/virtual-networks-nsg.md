@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: dfa9f6e4bc95a1cd99f84e58167192d951960a7a
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -182,7 +183,7 @@ Na diagramie maszyny wirtualne *Web1* i *Web2* są połączone z podsiecią *Fro
 1. Rozdzielenie ruchu między serwerami WEB i DB.
 2. Reguły równoważenia obciążenia powodują przesyłanie ruchu z modułu równoważenia obciążenia do wszystkich serwerów sieci Web na porcie 80.
 3. Reguły NAT modułu równoważenia obciążenia powodują przesyłanie ruchu przeznaczonego dla modułu równoważenia obciążenia na porcie 50001 do portu 3389 na maszynie wirtualnej WEB1.
-4. Brak dostępu do maszyn wirtualnych frontonu lub zaplecza z Internetu, z wyjątkiem wymagań numer 1 i 3.
+4. Brak dostępu do maszyn wirtualnych frontonu lub zaplecza z Internetu, z wyjątkiem wymagań numer 2 i 3.
 5. Brak wychodzącego dostępu do Internetu z serwerów WEB i DB.
 6. Dostęp z podsieci FrontEnd jest dozwolony do portu 3389 dowolnego serwera sieci Web.
 7. Dostęp z podsieci FrontEnd jest dozwolony do portu 3389 dowolnego serwera DB.

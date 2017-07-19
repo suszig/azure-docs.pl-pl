@@ -40,4 +40,5 @@
 ## [Rozwiązanie partnera: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Kontakt z pomocą techniczną](../azure-supportability/how-to-create-azure-support-request.md)

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 3d30024920295298ad2a8a6e22e11ef829934255
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -45,7 +45,7 @@ Profil usługi Traffic Manager można utworzyć za pomocą witryny Azure Portal.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Wyłączanie, włączanie lub usuwanie profilu
 
-Istniejący profil można wyłączyć, aby w usłudze Traffic Manager żądania użytkowników nie odwoływały się do skonfigurowanych punktów końcowych. Po wyłączeniu profilu usługi Traffic Manager profil i informacje w nim zawarte pozostają nienaruszone i można je edytować w interfejsie usługi Traffic Manager.  Działanie odwołań zostaje wznowione po ponownym włączeniu profilu. Po utworzeniu profilu usługi Traffic Manager w klasycznym portalu Azure utworzony profil zostaje automatycznie włączony. Jeśli zdecydujesz, że profil nie będzie już potrzebny, możesz go usunąć.
+Istniejący profil można wyłączyć, aby w usłudze Traffic Manager żądania użytkowników nie odwoływały się do skonfigurowanych punktów końcowych. Po wyłączeniu profilu usługi Traffic Manager profil i informacje w nim zawarte pozostają nienaruszone i można je edytować w interfejsie usługi Traffic Manager.  Działanie odwołań zostaje wznowione po ponownym włączeniu profilu. Po utworzeniu w witrynie Azure Portal profil usługi Traffic Manager zostanie automatycznie włączony. Jeśli zdecydujesz, że profil nie będzie już potrzebny, możesz go usunąć.
 
 ### <a name="to-disable-a-profile"></a>Aby wyłączyć profil
 

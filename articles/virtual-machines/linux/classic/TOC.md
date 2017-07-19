@@ -78,6 +78,7 @@
 
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Dostępność regionalna](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

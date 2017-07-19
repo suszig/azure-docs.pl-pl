@@ -3,6 +3,7 @@ title: "Usługa Application Insights dla usług Azure Cloud Services | Microsoft
 description: "Skutecznie monitoruj role sieci Web i procesu roboczego za pomocą usługi Application Insights"
 services: application-insights
 documentationcenter: 
+keywords: WAD2AI, diagnostyka platformy Azure
 author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
@@ -15,15 +16,15 @@ ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bfae0fcf992c38d7afef6140fdd79d87ab0ecb4f
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a5e5cc37c4635b78279a5e240603b6a728922eb8
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Usługa Application Insights dla usług Azure Cloud Services
-[Aplikacje usług Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) mogą być monitorowane przez usługę [Application Insights][start] pod kątem dostępności, wydajności, błędów i użycia. Dzięki uzyskiwanym opiniom dotyczącym wydajności i skuteczności aplikacji możesz dokonać opartych na informacjach wyborów dotyczących kierunku projektu w każdym cyklu życia.
+[Aplikacje usługi Microsoft Azure Cloud](https://azure.microsoft.com/services/cloud-services/) mogą być monitorowane przez [usługi Application Insights] [ start] w celu sprawdzania ich dostępności, wydajności, błędów i użycia. W tym celu dane z zestawów SDK usługi Application Insights są łączone z danymi z usługi [Azure Diagnotics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) pochodzącymi z usług w chmurze. Dzięki uzyskiwanym opiniom dotyczącym wydajności i skuteczności aplikacji możesz dokonać opartych na informacjach wyborów dotyczących kierunku projektu w każdym cyklu życia.
 
 ![Przykład](./media/app-insights-cloudservices/sample.png)
 
@@ -143,7 +144,7 @@ Dodaj więcej funkcji telemetrii — zobacz sekcje poniżej — a następnie opu
 * Zobacz [Rozwiązywanie problemów][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Wyświetlanie zdarzeń diagnostycznych platformy Azure
-Gdzie można znaleźć diagnostykę:
+Informacje o usłudze [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) dostępne w usłudze Application Insights:
 
 * Liczniki wydajności są wyświetlane jako metryki niestandardowe. 
 * Dzienniki zdarzeń systemu Windows są wyświetlane jako ślady i zdarzenia niestandardowe.

@@ -74,6 +74,8 @@
        href: functions-test-a-function.md
      - name: Programowanie i debugowanie lokalnie
        href: functions-run-local.md
+     - name: Opracowywanie zawartości w programie Visual Studio
+       href: functions-develop-vs.md
   - name: Wdrażanie
     items:
     - name: Ciągłe wdrażanie
@@ -100,7 +102,7 @@
       href: functions-bindings-storage-blob.md
     - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Centrum zdarzeń
+    - name: Usługa Event Hubs
       href: functions-bindings-event-hubs.md
     - name: Plik zewnętrzny
       href: functions-bindings-external-file.md
@@ -126,6 +128,8 @@
     href: functions-api-definition.md     
 - name: Zasoby
   items:
+  - name: Harmonogram działania dla platformy Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Cennik
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Dostępność regionalna

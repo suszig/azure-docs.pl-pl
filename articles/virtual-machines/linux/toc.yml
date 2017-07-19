@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 — Zarządzanie zabezpieczeniami maszyn wirtualnych
     href: tutorial-azure-security.md
-  - name: 12 — Ciągła integracja/ciągłe dostarczanie za pomocą usługi Jenkins
+  - name: 12 — Wdrażanie usługi Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
 - name: Przykłady
   items:
@@ -204,6 +204,8 @@
       href: cli-ps-findimage.md
     - name: Tworzenie niestandardowych obrazów maszyn wirtualnych
       href: create-upload-generic.md
+    - name: Pobieranie wirtualnego dysku twardego
+      href: download-vhd.md
     - name: Przekazywanie niestandardowych obrazów maszyn wirtualnych
       href: upload-vhd.md
     - name: Przechwytywanie istniejącej maszyny wirtualnej do obrazu
@@ -331,6 +333,8 @@
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: Wdrażanie stosu LAMP
@@ -378,6 +382,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Rozwiązywanie problemów
     items:
+    - name: Resetowanie hasła maszyny wirtualnej z systemem Linux
+      href: virtual-machines-linux-reset-password.md
     - name: Omówienie ponownego uruchamiania systemu
       href: understand-vm-reboot.md
     - name: Połączenia SSH
@@ -393,6 +399,8 @@
     - name: Błędy alokacji
       href: allocation-failure.md
     - name: Problemy z wdrażaniem
+      href: troubleshoot-deploy-vm.md
+    - name: Tworzenie maszyny wirtualnej
       href: troubleshoot-deployment-new-vm.md
     - name: Ponowne wdrożenie maszyny wirtualnej w nowym węźle platformy Azure
       href: redeploy-to-new-node.md
@@ -424,6 +432,8 @@
   items:
   - name: Tworzenie szablonów
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Harmonogram działania dla platformy Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Szablony społeczności
     href: https://azure.microsoft.com/documentation/templates
   - name: Cennik

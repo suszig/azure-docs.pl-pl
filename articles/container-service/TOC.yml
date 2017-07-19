@@ -1,0 +1,137 @@
+- name: Dokumentacja usługi ACS
+  href: ./index.yml
+- name: Omówienie
+  items:
+  - name: Informacje o usłudze Container Service
+    href: container-service-intro.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+  - name: Rozwiązanie Kubernetes w systemie Linux
+    href: container-service-kubernetes-walkthrough.md
+  - name: Rozwiązanie Kubernetes w systemie Windows
+    href: container-service-kubernetes-windows-walkthrough.md
+  - name: Platforma DC/OS w systemie Linux
+    href: container-service-dcos-quickstart.md
+- name: Samouczki
+  items:
+  - name: Kubernetes
+    items:
+    - name: 1 — Tworzenie obrazów kontenerów
+      href: container-service-tutorial-kubernetes-prepare-app.md
+    - name: 2 — Tworzenie rejestru kontenerów
+      href: container-service-tutorial-kubernetes-prepare-acr.md
+    - name: 3 — Tworzenie klastra rozwiązania Kubernetes
+      href: container-service-tutorial-kubernetes-deploy-cluster.md
+    - name: 4 — Uruchamianie aplikacji
+      href: container-service-tutorial-kubernetes-deploy-application.md
+    - name: 5 — Skalowanie aplikacji
+      href: container-service-tutorial-kubernetes-scale.md
+    - name: 6 — Aktualizowanie aplikacji
+      href: container-service-tutorial-kubernetes-app-update.md
+    - name: 7 — Monitorowanie za pomocą usługi OMS
+      href: container-service-tutorial-kubernetes-monitor.md
+  - name: DC/OS
+    items:
+    - name: Tworzenie klastra i zarządzanie nim
+      href: container-service-dcos-manage-tutorial.md
+    - name: Równoważenie obciążenia aplikacji
+      href: container-service-load-balancing.md
+    - name: Tworzenie woluminów danych i zarządzanie nimi
+      href: container-service-dcos-fileshare.md
+    - name: Integracja z usługą ACR
+      href: container-service-dcos-acr.md
+- name: Przykłady
+  items:
+  - name: Interfejs wiersza polecenia platformy Azure
+    href: cli-samples.md
+- name: Pojęcia
+  items:
+  - name: Zabezpieczanie kontenerów
+    href: container-service-security.md
+  - name: Jednostka usługi — usługa Kubernetes
+    href: container-service-kubernetes-service-principal.md
+- name: Przewodniki z instrukcjami
+  items:
+  - name: Łączenie z klastrem ACS
+    href: container-service-connect.md
+  - name: Skalowanie klastra ACS
+    href: container-service-scale.md
+  - name: Tworzenie wersji roboczych za pomocą usług ACR i ACS
+    href: container-service-draft-up.md
+  - name: Zarządzanie przy użyciu platformy DC/OS
+    items:
+    - name: Zarządzanie kontenerem — interfejs użytkownika platformy DC/OS
+      href: container-service-mesos-marathon-ui.md
+    - name: Zarządzanie kontenerem — interfejs API REST platformy DC/OS
+      href: container-service-mesos-marathon-rest.md
+    - name: Pule agentów platformy DC/OS
+      href: container-service-dcos-agents.md
+    - name: Włączanie dostępu publicznego do platformy DC/OS
+      href: container-service-enable-public-access.md
+    - name: Koordynator specyficzny dla aplikacji/użytkownika na platformie DC/OS
+      href: container-service-application-specific-marathon.md
+    - name: Wydania Canary za pomocą systemu Vamp
+      href: container-service-dcos-vamp-canary-release.md
+    - name: Monitorowanie platformy DC/OS
+      items:
+      - name: Monitorowanie za pomocą rozwiązania ELK
+        href: container-service-monitoring-elk.md
+      - name: Monitorowanie za pomocą usługi OMS
+        href: container-service-monitoring-oms.md
+      - name: Monitorowanie za pomocą usługi Datadog
+        href: container-service-monitoring.md
+      - name: Monitorowanie za pomocą narzędzia Sysdig
+        href: container-service-monitoring-sysdig.md
+      - name: Monitorowanie za pomocą rozwiązania Dynatrace
+        href: container-service-monitoring-dynatrace.md
+  - name: Zarządzanie przy użyciu rozwiązania Kubernetes
+    items:
+    - name: Zarządzanie kontenerem — interfejs użytkownika rozwiązania Kubernetes
+      href: container-service-kubernetes-ui.md
+    - name: Wdrażanie wykresów rozwiązania Helm
+      href: container-service-kubernetes-helm.md
+    - name: Ciągła integracja/ciągłe dostarczanie z usługami Kubernetes i Jenkins
+      href: container-service-kubernetes-jenkins.md
+    - name: Monitorowanie rozwiązania Kubernetes
+      items:
+      - name: Monitorowanie za pomocą usługi Datadog
+        href: container-service-kubernetes-datadog.md
+      - name: Monitorowanie za pomocą narzędzia Sysdig
+        href: container-service-kubernetes-sysdig.md
+      - name: Monitorowanie za pomocą usługi CoScale
+        href: container-service-kubernetes-coscale.md
+  - name: Zarządzanie przy użyciu koordynatora Docker Swarm
+    items:
+    - name: Platforma Docker i narzędzie Docker Compose
+      href: container-service-docker-swarm.md
+    - name: Ciągła integracja/ciągłe dostarczanie z usługami Docker Swarm i VSTS
+      href: container-service-docker-swarm-setup-ci-cd.md
+  - name: Wdrażanie aplikacji platformy Spring Boot
+    items:
+    - name: Wdrażanie aplikacji platformy Spring Boot w systemie Linux w usłudze Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-linux.md
+    - name: Wdrażanie aplikacji platformy Spring Boot w klastrze Kubernetes w usłudze Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-kubernetes.md
+- name: Dokumentacja
+  items:
+  - name: Interfejs wiersza polecenia platformy Azure 2.0
+    href: /cli/azure/acs
+  - name: REST
+    href: /rest/api/compute/containerservices
+- name: Zasoby
+  items:
+  - name: Harmonogram działania dla platformy Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Często zadawane pytania
+    href: container-service-faq.md
+  - name: Szablony — aparat ACS
+    href: https://github.com/Azure/acs-engine
+  - name: Cennik
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Dostępność w danym regionie
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-service
+  - name: Filmy wideo
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest

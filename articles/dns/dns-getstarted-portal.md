@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -47,7 +48,7 @@ Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
    |**Nazwa**|contoso.com|Nazwa strefy DNS|
-   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć bramę aplikacji.|
+   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, aby utworzyć w jej ramach strefę DNS.|
    |**Grupa zasobów**|**Utwórz nową:** contosoDNSRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Lokalizacja**|Zachodnie stany USA||
 
@@ -70,7 +71,7 @@ W tym przykładzie przedstawiono proces tworzenia nowego rekordu „A”. Aby uz
    |**Typ**|A| Typ tworzonego rekordu DNS, dozwolone wartości to A, AAAA, CNAME, MX, NS, SRV, TXT i PTR.  Aby uzyskać więcej informacji na temat typów rekordów, odwiedź stronę [Omówienie stref i rekordów DNS](dns-zones-records.md).|
    |**Czas wygaśnięcia**|1|Czas wygaśnięcia żądania DNS.|
    |**Jednostka czasu wygaśnięcia**|Godziny|Pomiar wartości czasu wygaśnięcia.|
-   |**Adres IP**|{ipAddressValue| Ta wartość jest adresem IP rozpoznawanym przez rekord DNS.|
+   |**Adres IP**|ipAddressValue| Ta wartość jest adresem IP rozpoznawanym przez rekord DNS.|
 
 ## <a name="view-records"></a>Wyświetlanie rekordów
 

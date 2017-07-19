@@ -2,11 +2,11 @@
 # Omówienie
 ## [Co to jest Service Fabric?](service-fabric-overview.md)
 ## [Opis mikrousług](service-fabric-overview-microservices.md)
+## [Duży obraz](service-fabric-content-roadmap.md)
 ## [Scenariusze aplikacji](service-fabric-application-scenarios.md)
 ## [Wzorce i scenariusze](service-fabric-patterns-and-scenarios.md)
 ## [Architektura](service-fabric-architecture.md)
 ## [Terminologia](service-fabric-technical-overview.md)
-## [Podręcznik](service-fabric-content-roadmap.md)
 
 # Rozpoczęcie pracy
 ## Konfigurowanie środowiska projektowego
@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### Integrowanie z usługą API Management
+#### [Omówienie](service-fabric-api-management-overview.md)
+#### [Szybki start](service-fabric-api-management-quick-start.md)
+
 ### Migrowanie z usług Cloud Services
 #### [Porównanie usług Cloud Services i Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Migracja do usługi Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -141,7 +145,8 @@
 ### [Tworzenie pakietu aplikacji](service-fabric-package-apps.md)
 ### [Omówienie ustawienia ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Wdrażanie lub usuwanie aplikacji
-#### [Program PowerShell](service-fabric-deploy-remove-applications.md)
+#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Interfejs wiersza polecenia platformy Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Program Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [Interfejsy API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Uaktualnianie aplikacji
@@ -215,7 +220,8 @@
 ### [Wizualizacja klastra](service-fabric-visualizing-your-cluster.md)
 ### [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md)
 
-### [Zarządzanie klastrem przy użyciu interfejsu wiersza polecenia platformy Azure](service-fabric-azure-cli.md)
+### [Zarządzanie klastrem przy użyciu interfejsu wiersza polecenia XPlat](service-fabric-azure-cli.md)
+### [Zarządzanie klastrem przy użyciu poleceń interfejsu wiersza polecenia platformy Azure 2.0](service-fabric-azure-cli-2-0.md)
 ### [Stosowanie poprawek do węzłów klastra](service-fabric-patch-orchestration-application.md)
 
 ### Organizowanie zasobów klastra i zarządzanie nimi
@@ -258,18 +264,19 @@
 
 # Dokumentacja
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/sf)
 ## [Interfejs API języka Java](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Często zadawane pytania dotyczące usługi Service Fabric](service-fabric-common-questions.md)
-## [Opcje pomocy technicznej usługi Service Fabric](service-fabric-support.md)
-## [Przykładowy kod](http://aka.ms/servicefabricsamples)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Cennik](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Cennik](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Przykładowy kod](http://aka.ms/servicefabricsamples)
+## [Opcje pomocy technicznej usługi Service Fabric](service-fabric-support.md)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

@@ -127,17 +127,18 @@
 ### [Zestaw SDK programu Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
 
 # Zasoby
+## [Przykład interfejsu API programu .NET](mobile-engagement-dotnet-sdk-service-api.md)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Cennik](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Przykładowe aplikacje demonstracyjne](mobile-engagement-demo-apps.md)
+## [Umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+## [Wideo i aktualizacje](https://azure.microsoft.com/documentation/services/mobile-engagement/)
 ## Informacje o wersji
 ### [Zestaw SDK systemu Android](mobile-engagement-android-release-notes.md)
 ### [Zestaw SDK systemu iOS](mobile-engagement-ios-release-notes.md)
 ### [Zestaw SDK sieci Web](mobile-engagement-web-release-notes.md)
-### [Zestaw SDK uniwersalnych aplikacji systemu Windows](mobile-engagement-windows-store-release-notes.md)
 ### [Zestaw SDK programu Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
-## [Cennik](https://azure.microsoft.com/pricing/details/mobile-engagement/)
-## [Przykładowe aplikacje demonstracyjne](mobile-engagement-demo-apps.md)
-## [Przykład interfejsu API programu .NET](mobile-engagement-dotnet-sdk-service-api.md)
-## [Wideo i aktualizacje](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+### [Zestaw SDK uniwersalnych aplikacji systemu Windows](mobile-engagement-windows-store-release-notes.md)
 
 
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 06/27/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 10840ee4ff070436e2c21d51846ea6363825abac
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -52,7 +53,7 @@ Flm wideo obejmuje następujące zagadnienia:
 | 08:32 |Pokaz: tworzenie maszyny wirtualnej programu SQL Server 2016 |
 
 > [!NOTE]
-> Film wideo opiera się na programie SQL Server 2016, ale platforma Azure udostępnia obrazy maszyny wirtualnej dla wielu wersji programu SQL Server, w tym dla wersji 2008, 2012, 2014 i 2016. 
+> Film wideo opiera się na programie SQL Server 2016, ale platforma Azure udostępnia obrazy maszyny wirtualnej dla wielu wersji programu SQL Server, w tym dla wersji 2012, 2014 i 2016. 
 > 
 > 
 
@@ -80,7 +81,6 @@ Poniższa tabela zawiera macierz najnowszych obrazów programu SQL Server w gale
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
-| **SQL Server 2008 R2 SP3** |Windows Server 2008 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2) |
 
 Oprócz tej listy dostępne są inne kombinacje wersji programu SQL Server i systemów operacyjnych. Znajdź inne obrazy za pomocą funkcji wyszukiwania w portalu Marketplace w witrynie Azure Portal. 
 
@@ -130,10 +130,8 @@ Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on
 Aby uzyskać więcej informacji, zapoznaj się z poświęconą programowi poprawy jakości obsługi klienta częścią tematu [Accept License Terms](https://msdn.microsoft.com/library/ms143343.aspx) (Akceptacja postanowień licencyjnych). 
 
 ## <a name="next-steps"></a>Następne kroki
-[Zbadaj ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) dla programu SQL Server na maszynach wirtualnych Azure.
 
 Jeśli masz pytania dotyczące cen, zobacz temat [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server) i [stronę z cennikiem platformy Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Wybierz docelową wersję programu SQL Server z listy **System operacyjny/oprogramowanie**. Następnie wyświetl ceny dla maszyn wirtualnych o różnych rozmiarach.
 
 Masz więcej pytań? Najpierw zobacz [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md) (Często zadawane pytania dotyczące programu SQL Server w usłudze Azure Virtual Machines). Możesz też dodać pytania lub komentarze na końcu dowolnego tematu dotyczącego maszyn wirtualnych z programem SQL, aby porozmawiać z przedstawicielem firmy Microsoft i społecznością.
-
 

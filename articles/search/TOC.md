@@ -31,6 +31,7 @@
 ### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
 ### [Uaktualnianie interfejsu API REST](search-api-migration.md)
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
+
 ## Zarządzaj
 ### Administrowanie usługą Azure Search
 #### [Witryna Azure Portal](search-manage.md)
@@ -73,21 +74,22 @@
 ## [REST (zarządzanie)](/rest/api/searchmanagement)
 
 # Zasoby
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=search)
 ## [Wersje interfejsu API](search-api-versions.md)
-## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/search/)
+## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=search)
+## Oprogramowanie edukacyjne i samouczki
 ## Witryny demonstracyjne
-### [Wersja demonstracyjna analizatora wyszukiwania](http://alice.unearth.ai/)
+## Partner i społeczność
+### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Aplikacja prezentująca listę zadań](http://aka.ms/azjobsdemo)
 ### [Aplikacje z pokazem na żywo](https://searchsamples.azurewebsites.net/)
-## Oprogramowanie edukacyjne i samouczki
-### [Wirtualna akademia](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
-### [Materiały wideo i samouczki](search-video-demo-tutorial-list.md)
-### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-## Partner i społeczność
 ### [Dane relacyjne modelu](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Kategoryzowanie wielopoziomowe](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Wersja demonstracyjna analizatora wyszukiwania](http://alice.unearth.ai/)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
-### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Materiały wideo i samouczki](search-video-demo-tutorial-list.md)
+### [Wirtualna akademia](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)

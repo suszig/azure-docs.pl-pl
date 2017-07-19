@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 07/03/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 14a5da0430b4eaaa61ef875e59454e2b6d88de91
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -40,7 +41,7 @@ Zestawy skalowania można definiować i wdrażać za pomocą szablonów JSON ora
 
 Zestaw przykładowych szablonów dla zestawów skalowania maszyn wirtualnych znajduje się w [repozytorium szablonów szybkiego startu platformy Azure w witrynie GitHub](https://github.com/Azure/azure-quickstart-templates). (Poszukaj szablonów z ciągiem **vmss** w nazwie).
 
-Na stronach szczegółów tych szablonów jest dostępny przycisk, który prowadzi do funkcji wdrażania w portalu. Aby wdrożyć zestaw skalowania, kliknij ten przycisk, a następnie wypełnij wymagane parametry w portalu. Jeśli nie wiesz, czy dany zasób obsługuje wielkie lub małe i wielkie litery, lepiej użyć wartości parametrów składających się z małych liter i cyfr. Dostępna jest również przydatna [analiza wideo szablonu zestawu skalowania](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player).
+W przykładach szablonów w przewodniku Szybki start przycisk „Wdróż na platformie Azure” w pliku Readme dla każdego szablonu odsyła do funkcji wdrażania w portalu. Aby wdrożyć zestaw skalowania, kliknij ten przycisk, a następnie wypełnij wymagane parametry w portalu. 
 
 ## <a name="scaling-a-scale-set-out-and-in"></a>Skalowanie zestawu skalowania do wewnątrz i na zewnątrz
 Pojemność zestawu skalowania można zmienić w witrynie Azure Portal, klikając sekcję **Skalowanie** w obszarze **Ustawienia**. 
@@ -82,7 +83,7 @@ $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -
 Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
 ```
 
- Listę prawidłowych metryk skalowania można znaleźć w artykule [Metryki obsługiwane z usługą Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) pod nagłówkiem „Microsoft.Compute/virtualMachineScaleSets”. Dostępne są również bardziej zaawansowane opcje automatycznego skalowania, w tym automatyczne skalowanie na podstawie harmonogramu oraz integracja z systemami alertów przy użyciu elementów webhook.
+Listę prawidłowych metryk skalowania można znaleźć w artykule [Metryki obsługiwane z usługą Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) pod nagłówkiem „Microsoft.Compute/virtualMachineScaleSets”. Dostępne są również bardziej zaawansowane opcje automatycznego skalowania, w tym automatyczne skalowanie na podstawie harmonogramu oraz integracja z systemami alertów przy użyciu elementów webhook.
 
 ## <a name="monitoring-your-scale-set"></a>Monitorowanie zestawu skalowania
 W witrynie [Azure Portal](https://portal.azure.com) znajduje się lista zestawów skalowania oraz ich właściwości. Witryna obsługuje również operacje zarządzania. Operacje zarządzania można wykonywać zarówno na zestawach skalowania, jak i na poszczególnych maszynach wirtualnych w zestawie skalowania. Witryna zawiera także dostosowywalny wykres użycia zasobów. 
@@ -94,7 +95,7 @@ Jeśli chcesz wyświetlić lub edytować podstawową definicję JSON zasobu plat
 ## <a name="scale-set-scenarios"></a>Scenariusze dotyczące zestawów skalowania
 W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów skalowania. Te scenariusze mają zastosowanie w przypadku niektórych usług platformy Azure wyższego poziomu (np. Batch, Service Fabric i Container Service).
 
-* **Nawiązywanie połączenia z wystąpieniami zestawów skalowania przy użyciu protokołu RDP lub SSH** — zestaw skalowania jest tworzony w sieci wirtualnej, a poszczególnym maszynom wirtualnym w zestawie skalowania nie są przydzielane publiczne adresy IP. Dzięki tej zasadzie unika się wydatków i nakładów pracy związanych z przydzielaniem osobnych publicznych adresów IP wszystkim węzłom w sieci obliczeniowej. Połączenie z tymi maszynami wirtualnymi możesz nawiązać z innych zasobów w sieci wirtualnej, na przykład modułów równoważenia obciążenia i autonomicznych maszyn wirtualnych, którym można przydzielić publiczne adresy IP.
+* **Nawiązywanie połączenia z wystąpieniami zestawów skalowania przy użyciu protokołu RDP lub SSH** — zestaw skalowania jest tworzony w sieci wirtualnej, a poszczególnym maszynom wirtualnym w zestawie skalowania nie są domyślnie przydzielane publiczne adresy IP. Dzięki tej zasadzie unika się wydatków i nakładów pracy związanych z przydzielaniem osobnych publicznych adresów IP wszystkim węzłom w sieci obliczeniowej. Jeśli konieczne są bezpośrednie połączenia zewnętrzne do maszyn wirtualnych zestawu skalowania, można skonfigurować zestaw skalowania, aby automatycznie przypisywać publiczne adresy IP do nowych maszyn wirtualnych. Inna możliwość to nawiązywanie połączeń z maszynami wirtualnymi z innych zasobów w sieci wirtualnej, którym można przydzielić publiczne adresy IP, na przykład z modułów równoważenia obciążenia i autonomicznych maszyn wirtualnych. 
 * **Nawiązywanie połączenia z maszynami wirtualnymi za pomocą reguł NAT** — można utworzyć publiczny adres IP, przypisać go do modułu równoważenia obciążenia i zdefiniować pulę NAT dla ruchu przychodzącego. Te akcje spowodują zamapowanie portów pod adresem IP na port maszyny wirtualnej w zestawie skalowania. Na przykład:
   
   | Element źródłowy | Port źródłowy | Element docelowy | Port docelowy |
@@ -160,7 +161,7 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
 
 **PYTANIE** Czy mogę wymusić sekwencję wykonywania w przypadku korzystania z wielu rozszerzeń w zestawie skalowania?
 
-**ODPOWIEDŹ** Nie można tego zrobić bezpośrednio, ale w przypadku rozszerzenia customScript skrypt może poczekać na ukończenie działania innego rozszerzenia (na przykład przez [monitorowanie dziennika rozszerzeń](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Dodatkowe wytyczne dotyczące sekwencjonowania rozszerzeń można znaleźć we wpisie w blogu: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sekwencjonowanie rozszerzeń w zestawach skalowania maszyn wirtualnych platformy Azure).
+**ODPOWIEDŹ** Nie można tego zrobić bezpośrednio, ale w przypadku rozszerzenia customScript skrypt może poczekać na ukończenie działania innego rozszerzenia. Dodatkowe wytyczne dotyczące sekwencjonowania rozszerzeń można znaleźć we wpisie w blogu: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sekwencjonowanie rozszerzeń w zestawach skalowania maszyn wirtualnych platformy Azure).
 
 **PYTANIE** Czy zestawy skalowania współdziałają z zestawami dostępności platformy Azure?
 
