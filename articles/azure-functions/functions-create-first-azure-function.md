@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: abd508631787ba5f839a4ae2ea82e76c4bfab425
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -30,8 +31,6 @@ Usługa Azure Functions umożliwia wykonywanie kodu w środowisku bezserwerowym 
 ![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Wykonanie wszystkich czynności opisanych w tym temacie powinno zająć mniej niż pięć minut.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -53,7 +52,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
 1. Rozwiń nową aplikację funkcji, a następnie kliknij przycisk **+** obok pozycji **Funkcje**.
 
-2.  Na stronie **Szybkie rozpoczynanie pracy** kliknij pozycję **Element webhook i interfejs API**, wybierz język funkcji i kliknij pozycję **Utwórz tę funkcję**. 
+2.  Na stronie **Szybkie rozpoczynanie pracy** wybierz pozycję **Element webhook i interfejs API**, wybierz język funkcji i kliknij pozycję **Utwórz tę funkcję**. 
    
     ![Szybkie rozpoczynanie pracy z usługą Functions w witrynie Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -61,7 +60,7 @@ Funkcja zostanie utworzona w wybranym języku i przy użyciu szablonu funkcji wy
 
 ## <a name="test-the-function"></a>Testowanie funkcji
 
-1. W nowej funkcji kliknij pozycję **</> Pobierz adres URL funkcji** i skopiuj wartość pola **Adres URL funkcji**. 
+1. W nowej funkcji kliknij przycisk **</> Pobierz adres URL funkcji**, wybierz pozycję **domyślne (klawisz funkcji)**, a następnie kliknij przycisk **Kopiuj**. 
 
     ![Kopiowanie adresu URL funkcji z witryny Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 

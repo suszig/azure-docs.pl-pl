@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do platformy Apache Kafka w usłudze HDInsight | Microsoft Docs"
-description: "W tym artykule przedstawiono informacje dotyczące platformy Apache Kafka w usłudze HDInsight. Artykuł zawiera opis platformy, opis jej działania oraz informacje o tym, gdzie można znaleźć przykłady i informacje ułatwiające rozpoczęcie pracy."
+title: "Wprowadzenie do platformy Apache Kafka w usłudze HDInsight Azure | Microsoft Docs"
+description: "Uzyskaj informacje o platformie Apache Kafka w usłudze HDInsight: artykuł zawiera opis platformy, jej działania oraz informacje o tym, gdzie można znaleźć przykłady i informacje ułatwiające rozpoczęcie pracy."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 06/15/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Wprowadzenie do platformy Apache Kafka w usłudze HDInsight (wersja zapoznawcza)
@@ -39,6 +39,12 @@ Platforma Kafka oferuje następujące funkcje:
 * Dostarczanie w określonej kolejności: rekordy na każdej partycji są przechowywane w strumieniu w tej samej kolejności, w której zostały odebrane. Skojarzenie jednego procesu klienta z jedną partycją pozwala zagwarantować, że rekordy są przetwarzane we właściwej kolejności.
 
 * Odporność na uszkodzenia: partycje mogą być replikowane między węzłami w celu zapewnienia odporności na uszkodzenia.
+
+* Integracja z usługą Azure Managed Disks: usługa Managed Disks zapewnia wyższą skalowalność i przepływność dysków używanych przez maszyny wirtualne w klastrze usługi HDInsight.
+
+    Usługa Managed Disks jest włączana domyślnie dla platformy Kafka w usłudze HDInsight. Liczbę dysków używanych w każdym węźle można skonfigurować podczas tworzenia usługi HDInsight. Aby uzyskać więcej informacji o usłudze Managed Disks, zobacz artykuł [Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+
+    Aby uzyskać informacje dotyczące konfigurowania usługi Managed Disks na platformie Kafka w usłudze HDInsight, zobacz artykuł [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Zwiększanie skalowalności platformy Kafka w usłudze HDInsight).
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 

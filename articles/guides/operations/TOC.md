@@ -99,3 +99,5 @@
 #### [Łączenie komputera z siecią wirtualną](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Następne kroki](azure-operations-guide.md#next-steps)
+# Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)

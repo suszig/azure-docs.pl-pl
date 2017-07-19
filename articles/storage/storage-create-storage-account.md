@@ -12,13 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 16d9fa8a7b7593f222976897bddf615c28109540
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -89,7 +91,7 @@ Możesz również skonfigurować niestandardową nazwę domeny do użycia ze swo
 
 ## <a name="manage-your-storage-account"></a>Zarządzanie kontem magazynu
 ### <a name="change-your-account-configuration"></a>Zmiana konfiguracji konta
-Po utworzeniu konta magazynu możesz zmodyfikować jego konfigurację, np. zmienić opcję replikacji używaną wobec konta lub zmienić warstwę dostępu do konta usługi Blob Storage. W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojego konta magazynu, kliknij pozycję **Wszystkie ustawienia**, a następnie kliknij pozycję **Konfiguracja**, aby wyświetlić lub zmienić konfigurację konta.
+Po utworzeniu konta magazynu możesz zmodyfikować jego konfigurację, np. zmienić opcję replikacji używaną wobec konta lub zmienić warstwę dostępu do konta usługi Blob Storage. W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojego konta magazynu, znajdź i kliknij pozycję **Konfiguracja** w obszarze **USTAWIENIA**, aby wyświetlić i/lub zmienić konfigurację konta.
 
 > [!NOTE]
 > W zależności od warstwy wydajności wybranej podczas tworzenia konta magazynu niektóre opcje replikacji mogą być niedostępne.
@@ -107,7 +109,7 @@ Podczas tworzenia konta magazynu platforma Azure generuje dwa 512-bitowe klucze 
 > Nie zaleca się udostępniania kluczy dostępu do magazynu innym osobom. Aby zezwolić na dostęp do zasobów magazynu bez przekazywania kluczy dostępu, możesz użyć *sygnatury dostępu współdzielonego*. Sygnatura dostępu współdzielonego zapewnia dostęp do zasobów na koncie przez określony czas i z określonymi uprawnieniami. Zobacz [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji.
 > 
 > 
-
+<a id="view-and-copy-storage-access-keys"/></a>
 #### <a name="view-and-copy-storage-access-keys"></a>Wyświetlanie i kopiowanie kluczy dostępu do magazynu
 W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojego konta magazynu, kliknij pozycję **Wszystkie ustawienia**, a następnie kliknij pozycję **Klucze dostępu**, aby wyświetlić, skopiować lub ponownie wygenerować klucze dostępu do konta. Blok **Klucze dostępu** zawiera również wstępnie skonfigurowane parametry połączenia wykorzystujące Twoje klucze podstawowe i pomocnicze, które możesz skopiować do wykorzystania w aplikacjach.
 
@@ -146,7 +148,7 @@ Aby usunąć konto magazynu powiązane z maszyną wirtualną platformy Azure, mu
 
 Jeśli konto magazynu korzysta z modelu wdrożenia klasycznego, można usunąć dysk maszyny wirtualnej, wykonując następujące kroki w witrynie [Azure Portal](https://manage.windowsazure.com):
 
-1. Przejdź do [klasycznej witrynty Azure Portal](https://manage.windowsazure.com).
+1. Przejdź do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
 2. Przejdź do karty Virtual Machines.
 3. Kliknij kartę Dyski.
 4. Wybierz dysk danych, a następnie kliknij polecenie Usuń dysk.

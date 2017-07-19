@@ -1,18 +1,13 @@
-Aby utworzyć pamięć podręczną w warstwie Premium, zaloguj się do witryny [Azure Portal](https://portal.azure.com), a następnie kliknij kolejno pozycje **Nowy** > **Bazy danych** > **Pamięć podręczna Redis Cache**.
+To create a premium cache, sign-in to the [Azure portal](https://portal.azure.com) and click **New** > **Databases** > **Redis Cache**.
 
-![Tworzenie pamięci podręcznej](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
+![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> Oprócz tworzenia pamięci podręcznych w witrynie Azure Portal, możesz również utworzyć je przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure oraz szablonów usługi Resource Manager. Aby uzyskać więcej informacji o tworzeniu pamięci podręcznej Azure Redis Cache, zobacz [Tworzenie pamięci podręcznej](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+> In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Redis Cache, see [Create a cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 
-Aby skonfigurować funkcje w warstwie Premium, najpierw wybierz jedną z warstw cenowych Premium w bloku **Wybieranie warstwy cenowej**.
+To configure premium features, first select one of the premium pricing tiers in the **Pricing tier** drop-down list. For more information about each pricing tier, click **View full pricing details** and select a pricing tier from the **Choose your pricing tier** blade.
 
-![Wybieranie warstwy cenowej](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+![Choose your pricing tier](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

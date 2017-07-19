@@ -4,17 +4,14 @@
 # Rozpoczęcie pracy
 ## [Tworzenie konta i zarządzanie nim](media-services-portal-create-account.md)
 ## [Konfigurowanie środowiska deweloperskiego](media-services-set-up-computer.md)
-###[.NET](media-services-dotnet-how-to-use.md)
-###[REST](media-services-rest-how-to-use.md)  
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
 ## [Używanie uwierzytelniania usługi AAD do uzyskiwania dostępu do interfejsu API](media-services-use-aad-auth-to-access-ams-api.md)
-###[Zarządzanie uwierzytelnianiem usługi AAD za pomocą portalu](media-services-portal-get-started-with-aad.md)
-###[Dostęp do interfejsu API za pomocą platformy .NET](media-services-dotnet-get-started-with-aad.md)
-###[Dostęp do interfejsu API za pomocą architektury REST](media-services-rest-connect-with-aad.md)
-###[Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą interfejsu wiersza polecenia](media-services-cli-create-and-configure-aad-app.md)
-###[Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą programu PowerShell](media-services-powershell-create-and-configure-aad-app.md)
-## Programowe łączenie się z kluczami usługi ACS
-### [.NET](media-services-dotnet-connect-programmatically.md)
-### [REST](media-services-rest-connect-programmatically.md)
+### [Zarządzanie uwierzytelnianiem usługi AAD za pomocą portalu](media-services-portal-get-started-with-aad.md)
+### [Dostęp do interfejsu API za pomocą platformy .NET](media-services-dotnet-get-started-with-aad.md)
+### [Dostęp do interfejsu API za pomocą architektury REST](media-services-rest-connect-with-aad.md)
+### [Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą interfejsu wiersza polecenia](media-services-cli-create-and-configure-aad-app.md)
+### [Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą programu PowerShell](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Dostarczanie wideo na żądanie
 ### [Portal](media-services-portal-vod-get-started.md)
@@ -223,7 +220,8 @@
 ## [REST](/rest/api/media/mediaservice)  
 
 # Zasoby
-## [Informacje o wersji](media-services-release-notes.md)
-## [Cennik](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Społeczność usługi Azure Media Services](media-services-community.md)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Cennik](https://azure.microsoft.com/pricing/details/media-services/)
+## [Informacje o wersji](media-services-release-notes.md)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=media-services)

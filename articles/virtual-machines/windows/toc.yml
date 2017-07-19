@@ -134,13 +134,13 @@
       href: create-vm-specialized.md
     - name: Tworzenie maszyny wirtualnej przy użyciu szablonu
       href: ps-template.md
-    - name: 'Tworzenie maszyny wirtualnej przy użyciu języka C#'
+    - name: 'Tworzenie maszyn wirtualnych/zarządzanie nimi przy użyciu języka C#'
       href: csharp.md
     - name: 'Tworzenie maszyny wirtualnej przy użyciu języka C# i szablonu'
       href: csharp-template.md
     - name: Tworzenie maszyny wirtualnej przy użyciu programu Chef
       href: chef-automation.md
-    - name: Tworzenie maszyny wirtualnej przy użyciu języka Python
+    - name: Tworzenie maszyn wirtualnych/zarządzanie nimi przy użyciu języka Python
       href: python.md
     - name: Tworzenie maszyny wirtualnej przy użyciu programu Terraform
       items:
@@ -173,8 +173,6 @@
       href: cli-manage.md
     - name: Zarządzanie maszynami wirtualnymi za pomocą interfejsu wiersza polecenia
       href: cli-deploy-templates.md
-    - name: 'Zarządzanie maszynami wirtualnymi przy użyciu języka C#'
-      href: csharp-manage.md
   - name: Nawiązywanie połączenia przy użyciu protokołu RDP
     items:
     - name: Logowanie do maszyny wirtualnej
@@ -187,6 +185,8 @@
       href: hybrid-use-benefit-licensing.md
     - name: Korzystanie z obrazów klientów systemu Windows
       href: client-images.md
+    - name: Pobieranie wirtualnego dysku twardego
+      href: download-vhd.md
     - name: Przygotowywanie wirtualnego dysku twardego do przekazywania
       href: prepare-for-upload-vhd-image.md
     - name: Tworzenie obrazu dysku zarządzanego
@@ -366,15 +366,22 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Resetowanie hasła protokołu RDP
       href: reset-rdp.md
+    - name: Resetowanie karty sieciowej
+      href: reset-network-interface.md
     - name: Diagnostyka rozruchu
  
       href: boot-diagnostics.md
     - name: Tworzenie maszyny wirtualnej
       href: troubleshoot-deployment-new-vm.md
+    - name: Problemy z wdrażaniem
+ 
+      href: troubleshoot-deploy-vm.md
     - name: Ponowne uruchamianie maszyny wirtualnej lub zmienianie jej rozmiaru
       href: restart-resize-error-troubleshooting.md
     - name: Dostęp do aplikacji
       href: troubleshoot-app-connection.md
+    - name: Problemy z aktywacją
+      href: troubleshoot-activation-problems.md
     - name: Błędy alokacji
       href: allocation-failure.md
     - name: Ponowne wdrażanie maszyny wirtualnej
@@ -409,6 +416,8 @@
   items:
   - name: Tworzenie szablonów
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Harmonogram działania dla platformy Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Szablony społeczności
     href: https://azure.microsoft.com/documentation/templates
   - name: Cennik

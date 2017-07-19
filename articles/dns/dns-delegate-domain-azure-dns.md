@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 992b08a1e88062923d0775c59b8baf93fee5364b
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -300,7 +301,7 @@ Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące cz
 
 1. W okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku Wszystkie zasoby kliknij grupę zasobów **contosorg**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contosorg** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do grupy zasobów.
 1. W bloku **contosorg** kliknij przycisk **Usuń**.
-1. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Kliknij pozycję **Usuń**, wpisz *contosorg* jako nazwę grupy zasobów, a następnie kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
+1. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Wpisz nazwę grupy zasobów *contosorg*, po czym kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
 

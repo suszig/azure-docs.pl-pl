@@ -70,7 +70,8 @@
 ### [Przypisywanie zasad za pomocą portalu](resource-manager-policy-portal.md)
 ### [Przypisywanie zasad za pomocą skryptów](resource-manager-policy-create-assign.md)
 ### Przykłady
-#### [Tagi zasobów](resource-manager-policy-tags.md)
+#### [Tagi](resource-manager-policy-tags.md)
+#### [Konwencje nazewnictwa](resource-manager-policy-naming-convention.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Maszyna wirtualna z systemem Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Maszyna wirtualna z systemem Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -119,8 +120,9 @@
 ## [REST](/rest/api/resources/)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Ograniczanie żądań](resource-manager-request-limits.md)
 ## [Śledzenie operacji asynchronicznych](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=azure-resource-manager)

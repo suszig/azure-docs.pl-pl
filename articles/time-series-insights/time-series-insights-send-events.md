@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: venkatja
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 92e3e64f235e165a6a1772b6e1724789f3ec3049
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/01/2017
 
 ---
 # <a name="send-events-to-a-time-series-insights-environment-via-event-hub"></a>Wysyłanie zdarzeń do środowiska usługi Time Series Insights za pośrednictwem centrum zdarzeń
 
-W tym samouczku wyjaśniono, jak utworzyć i skonfigurować centrum zdarzeń oraz jak uruchomić przykładową aplikację do wypychania zdarzeń. Jeśli masz już centrum zdarzeń, które zawiera zdarzenia w formacie JSON, możesz pominąć ten samouczek i wyświetlić swoje środowisko w [eksploratorze szeregów czasowych](https://insights.timeseries.azure.com).
+W tym samouczku wyjaśniono, jak utworzyć i skonfigurować centrum zdarzeń oraz jak uruchomić przykładową aplikację do wypychania zdarzeń. Jeśli masz już centrum zdarzeń, które zawiera zdarzenia w formacie JSON, możesz pominąć ten samouczek i wyświetlić swoje środowisko, korzystając z [wglądu w dane szeregów czasowych](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Konfigurowanie centrum zdarzeń
 1. Aby utworzyć centrum zdarzeń, wykonaj instrukcje zawarte w [dokumentacji](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) centrum zdarzeń.
@@ -35,7 +36,7 @@ W tym samouczku wyjaśniono, jak utworzyć i skonfigurować centrum zdarzeń ora
 
   ![Wybieranie grupy odbiorców centrum zdarzeń](media/send-events/consumer-group.png)
 
-3. W centrum zdarzeń utwórz zasady „Moje_zasady_wysyłania”, które będą używane do wysyłania zdarzeń w poniższym przykładzie.
+3. W centrum zdarzeń utwórz zasady „Moje_zasady_wysyłania”, które w poniższym przykładzie w języku csharp będą używane do wysyłania zdarzeń.
 
   ![Wybieranie zasad dostępu współdzielonego i klikanie przycisku Dodaj](media/send-events/shared-access-policy.png)  
 
@@ -44,11 +45,11 @@ W tym samouczku wyjaśniono, jak utworzyć i skonfigurować centrum zdarzeń ora
 ## <a name="create-time-series-insights-event-source"></a>Tworzenie źródła zdarzeń usługi Time Series Insights
 1. Jeśli nie utworzono źródła zdarzeń, postępuj zgodnie z [tymi](time-series-insights-add-event-source.md) instrukcjami, aby je utworzyć.
 
-2. Wpisz „deviceTimestamp” jako nazwę właściwości sygnatury czasowej — właściwość ta jest używana jako rzeczywista sygnatura czasowa w poniższym przykładzie. W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter. Wartości wysyłane do centrum zdarzeń jako dane JSON powinny mieć format __rrrr-MM-ddTGG:mm:ss.FFFFFFFK__. Jeśli w zdarzeniu nie ma tej właściwości, używany jest czas umieszczenia zdarzenia w kolejce w centrum zdarzeń.
+2. Wpisz „deviceTimestamp” jako nazwę właściwości sygnatury czasowej — właściwość ta jest używana w przykładzie w języku csharp jako rzeczywista sygnatura czasowa. W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter. Wartości wysyłane do centrum zdarzeń jako dane JSON powinny mieć format __rrrr-MM-ddTGG:mm:ss.FFFFFFFK__. Jeśli w zdarzeniu nie ma tej właściwości, używany jest czas umieszczenia zdarzenia w kolejce w centrum zdarzeń.
 
   ![Tworzenie źródła zdarzeń](media/send-events/event-source-1.png)
 
-## <a name="run-sample-code-to-push-events"></a>Uruchamianie przykładowego kodu umożliwiającego wypychanie zdarzeń
+## <a name="sample-code-to-push-events"></a>Przykładowy kod umożliwiający wypychanie zdarzeń
 1. Przejdź do zasad centrum zdarzeń „Moje_zasady_wysyłania” i skopiuj parametry połączenia z kluczem zasad.
 
   ![Kopiowanie parametrów połączenia Moja_zasada_wysyłania](media/send-events/sample-code-connection-string.png)
@@ -131,13 +132,13 @@ Prosty obiekt JSON.
 
 ```json
 {
-    "deviceId":"device1",
-    "deviceTimestamp":"2016-01-08T01:08:00Z"
+    "id":"device1",
+    "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
 #### <a name="output---1-event"></a>Dane wyjściowe — jedno zdarzenie
 
-|deviceId|deviceTimestamp|
+|id|sygnatura czasowa|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
@@ -148,22 +149,21 @@ Tablica JSON z dwoma obiektami JSON. Każdy obiekt JSON zostanie przekształcony
 ```json
 [
     {
-        "deviceId":"device1",
-        "deviceTimestamp":"2016-01-08T01:08:00Z"
+        "id":"device1",
+        "timestamp":"2016-01-08T01:08:00Z"
     },
     {
-        "deviceId":"device2",
-        "deviceTimestamp":"2016-01-17T01:17:00Z"
+        "id":"device2",
+        "timestamp":"2016-01-17T01:17:00Z"
     }
 ]
 ```
 #### <a name="output---2-events"></a>Dane wyjściowe — dwa zdarzenia
 
-|deviceId|deviceTimestamp|
+|id|sygnatura czasowa|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
-
 ### <a name="sample-3"></a>Przykład 3
 
 #### <a name="input"></a>Dane wejściowe
@@ -174,12 +174,12 @@ Obiekt JSON z zagnieżdżoną tablicą JSON zawierającą dwa obiekty JSON.
     "location":"WestUs",
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z"
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z"
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z"
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
 }
@@ -188,7 +188,7 @@ Obiekt JSON z zagnieżdżoną tablicą JSON zawierającą dwa obiekty JSON.
 #### <a name="output---2-events"></a>Dane wyjściowe — dwa zdarzenia
 Zwróć uwagę na to, że właściwość „location” jest kopiowana do każdego zdarzenia.
 
-|location|events.deviceId|events.deviceTimestamp|
+|location|events.id|events.timestamp|
 |--------|---------------|----------------------|
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
@@ -197,27 +197,29 @@ Zwróć uwagę na to, że właściwość „location” jest kopiowana do każde
 
 #### <a name="input"></a>Dane wejściowe
 
+Obiekt JSON z zagnieżdżoną tablicą JSON zawierającą dwa obiekty JSON. Te dane wejściowe pokazują, że globalne właściwości mogą być reprezentowane przez złożony obiekt JSON.
+
 ```json
 {
     "location":"WestUs",
-    "manufacturerInfo":{
+    "manufacturer":{
         "name":"manufacturer1",
         "location":"EastUs"
     },
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z",
-            "deviceData":{
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z",
+            "data":{
                 "type":"pressure",
                 "units":"psi",
                 "value":108.09
             }
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z",
-            "deviceData":{
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z",
+            "data":{
                 "type":"vibration",
                 "units":"abs G",
                 "value":217.09
@@ -228,10 +230,10 @@ Zwróć uwagę na to, że właściwość „location” jest kopiowana do każde
 ```
 #### <a name="output---2-events"></a>Dane wyjściowe — dwa zdarzenia
 
-|location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
+|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Następne kroki
 

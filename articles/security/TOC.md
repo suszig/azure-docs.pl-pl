@@ -42,6 +42,7 @@
 #### [Pierwsze kroki z integracją dzienników platformy Azure](security-azure-log-integration-get-started.md)
 #### [Integrowanie usługi Azure Active Directory z dziennikami inspekcji](security-azure-log-integration-ad.md)
 #### [Integrowanie alertów usługi Security Center](security-azure-log-integration-security-center.md)
+#### [Integrowanie dzienników usługi Key Vault przy użyciu usługi Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Często zadawane pytania](security-azure-log-integration-faq.md)
 
 ## Zarządzanie tożsamościami
@@ -72,9 +73,10 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Zasoby
-## [Blog poświęcony zabezpieczeniom i zgodności](http://blogs.msdn.com/b/azuresecurity/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Program MVP dotyczący zabezpieczeń platformy Azure](azure-security-mvp.md)
 ## [Doradztwo z zakresu cyberbezpieczeństwa](azure-security-cyber-services.md)
+## [Blog poświęcony zabezpieczeniom i zgodności](http://blogs.msdn.com/b/azuresecurity/)
 ## [Kursy Virtual Academy z zakresu zabezpieczeń](security-microsoft-virtual-academy.md)
 ## [Film wideo na temat zabezpieczeń w witrynie Channel 9](security-channel-nine.md)
 ## [Narzędzie do modelowania zagrożeń](azure-security-threat-modeling-tool.md)

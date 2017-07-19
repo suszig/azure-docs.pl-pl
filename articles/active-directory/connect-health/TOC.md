@@ -20,5 +20,6 @@
 ## [Podręcznik projektowania tożsamości hybrydowej](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ##[Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 

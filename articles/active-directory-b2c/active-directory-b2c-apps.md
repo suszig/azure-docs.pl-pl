@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 762af7e09342f1bb51352e6c3d104bd4d8944e65
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -120,7 +122,7 @@ W tym przepływie aplikacja wykonuje [zasady](active-directory-b2c-reference-pol
 ![Obraz ścieżek aplikacji natywnej](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
-Usługa Azure AD B2C nie obsługuje obecnie poniższych typów aplikacji, ale są one w planach. Dodatkowe ograniczenia zawiązane z usługą Azure AD B2C opisano w temacie [Ograniczenia](active-directory-b2c-limitations.md).
+Usługa Azure AD B2C nie obsługuje obecnie poniższych typów aplikacji, ale są one w planach. 
 
 ### <a name="daemonsserver-side-apps"></a>Demony/aplikacje po stronie serwera
 Aplikacje obejmujące procesy długotrwałe lub niewymagające obecności użytkownika również potrzebują sposobu uzyskiwania dostępu do zabezpieczonych zasobów, np. interfejsów API sieci Web. Te aplikacje mogą uwierzytelniać i uzyskiwać tokeny przy użyciu tożsamości aplikacji (zamiast delegowanej tożsamości użytkownika) oraz przy użyciu przepływu poświadczeń klienta OAuth 2.0.
@@ -131,9 +133,4 @@ Ten przepływ nie jest obecnie obsługiwany w usłudze Azure AD B2C. Te aplikacj
 Wiele architektur obejmuje interfejs API sieci Web, który musi wywołać inny podrzędny interfejs API sieci Web, przy czym oba interfejsy są zabezpieczane przez usługę Azure AD B2C. Ten scenariusz jest często spotykany w klientach natywnych, którzy mają zaplecza interfejsu API sieci Web. Następnie następuje wywołanie usługi online firmy Microsoft, np. interfejsu API Azure AD Graph.
 
 Ten scenariusz obejmujący łańcuch interfejsów API sieci Web może być obsługiwany przy użyciu przyznania poświadczeń elementu nośnego OAuth 2.0 JWT, określanego również jako przepływ „w imieniu”.  Jednak przepływ „w imieniu” nie jest obecnie wdrażany w usłudze Azure AD B2C.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

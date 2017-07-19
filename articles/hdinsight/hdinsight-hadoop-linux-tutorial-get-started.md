@@ -1,7 +1,7 @@
 ---
-title: "Samouczek Hadoop: wprowadzenie do usług Hadoop i Hive w usłudze HDInsight | Microsoft Docs"
-description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z usługi Hadoop w usłudze HDInsight. Dowiedz się, jak tworzyć klastry systemu Linux i wykonywać zapytania na danych przy użyciu technologii Hive."
-keywords: hadoop getting started, hadoop linux, hadoop quick start
+title: "Wprowadzenie do usług Hadoop i Hive w usłudze Azure HDInsight | Microsoft Docs"
+description: "Dowiedz się, jak tworzyć klastry usługi HDInsight i wykonywać zapytania na danych przy użyciu technologii Hive."
+keywords: "wprowadzenie do usługi hadoop,hadoop linux,hadoop szybki start,wprowadzenie do usługi hive,hive szybki start"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -10,18 +10,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 05/12/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0e3be94d661359cb8040c5a5c95952c1b9fac7f2
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: f2a97c32e9f1a286102e0800db57107e041d1990
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -38,7 +38,7 @@ Przed rozpoczęciem tego samouczka potrzebna będzie:
 
 ## <a name="create-cluster"></a>Tworzenie klastra
 
-Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, uruchamiasz pewne zadania, a następnie usuwasz klaster. W tej sekcji tworzysz klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Szablon usługi Resource Manager jest w pełni dostosowywalny. Dzięki niemu tworzenie zasobów platformy Azure, takich jak usługa HDInsight, jest proste. Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Użyj selektora u góry strony, aby wybrać opcje tworzenia klastra.
+Większość zadań usługi Hadoop to zadania wsadowe. Tworzysz klaster, uruchamiasz pewne zadania, a następnie usuwasz klaster. W tej sekcji tworzysz klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Użyj selektora u góry strony, aby wybrać opcje tworzenia klastra.
 
 Użyty w tym samouczku szablon usługi Resource Manager znajduje się w serwisie [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
@@ -47,10 +47,10 @@ Użyty w tym samouczku szablon usługi Resource Manager znajduje się w serwisie
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Wprowadź lub wybierz poniższe wartości:
    
-    ![HDInsight Linux wprowadzenie do używania szablonu usługi Resource Manager w portalu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![Szablon Menedżera zasobów wprowadzenia do usługi HDInsight Linux w portalu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Wdrażanie klastra Hadoop w usłudze HDInsight przy użyciu witryny Azure Portal i szablonu menedżera grupy zasobów").
    
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: utwórz nową grupę zasobów lub wybierz istniejącą.  Grupa zasobów jest kontenerem składników platformy Azure.  W tym przypadku grupa zasobów zawiera klaster usługi HDInsight i zależne konto usługi Azure Storage. 
+    * **Grupa zasobów**: utwórz grupę zasobów lub wybierz istniejącą.  Grupa zasobów jest kontenerem składników platformy Azure.  W tym przypadku grupa zasobów zawiera klaster usługi HDInsight i zależne konto usługi Azure Storage. 
     * **Lokalizacja**: wybierz lokalizację platformy Azure, w której chcesz utworzyć klaster.  Wybierz lokalizację znajdującą się blisko, aby zapewnić lepszą wydajność. 
     * **Typ klastra**: na potrzeby tego samouczka wybierz opcję **hadoop**.
     * **Nazwa klastra**: wprowadź nazwę klastra Hadoop.
@@ -64,17 +64,17 @@ Użyty w tym samouczku szablon usługi Resource Manager znajduje się w serwisie
     * **Typ systemu operacyjnego**: Linux
     * **Liczba węzłów procesu roboczego**: 2
 
-     Każdy klaster zależy od konta usługi Azure Storage. Zwykle jest ono określane jako domyślne konto magazynu. Klaster usługi HDInsight i jego domyślne konto magazynu muszą znajdować się wspólnie w tym samym regionie Azure. Usunięcie klastrów nie powoduje usunięcia konta magazynu. 
+     Każdy klaster zależy od konta usługi Azure Storage. Jest ono określane jako domyślne konto magazynu. Klaster usługi HDInsight i jego domyślne konto magazynu muszą znajdować się wspólnie w tym samym regionie Azure. Usunięcie klastrów nie powoduje usunięcia konta magazynu. 
      
      Aby uzyskać więcej informacji o tych właściwościach, zobacz [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów platformy Hadoop w usłudze HDInsight).
 
 3. Wybierz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia** i pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij przycisk **Kup**. Na pulpicie nawigacyjnym portalu powinien zostać wyświetlony nowy kafelek zatytułowany **Wdrażanie szablonu wdrożenia**. Utworzenie klastra trwa około 20 minut. Po utworzeniu klastra napis na kafelku zmieni się na podaną nazwę grupy zasobów. Portal automatycznie otworzy grupę zasobów w nowym bloku. Na liście jest wyświetlany klaster i domyślny magazyn.
    
-    ![HDInsight Linux — wprowadzenie do grupy zasobów](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+    ![Grupa zasobów wprowadzenia do usługi HDInsight Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Grupa zasobów klastra usługi Azure HDInsight").
 
 4. Kliknij nazwę klastra, aby otworzyć klaster w nowym bloku.
 
-   ![HDInsight Linux wprowadzenie do ustawień klastra](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+   ![Ustawienia klastra wprowadzenia do usługi HDInsight Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "Właściwości klastra usługi HDInsight")
 
 
 ## <a name="run-hive-queries"></a>Uruchamianie zapytań Hive
@@ -84,7 +84,7 @@ Użyty w tym samouczku szablon usługi Resource Manager znajduje się w serwisie
 2. Wprowadź nazwę użytkownika Hadoop i hasło określone w poprzedniej części. Domyślna nazwa użytkownika to **admin**.
 3. Otwórz widok **Hive View** pokazany na poniższym zrzucie ekranu:
    
-    ![Wybieranie widoków Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
+    ![Wybieranie widoków Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png "Menu przeglądarki HDInsight Hive").
 4. W części strony **Query Editor** (Edytor zapytań) wklej poniższe instrukcje HiveQL do arkusza:
    
         SHOW TABLES;
@@ -97,7 +97,7 @@ Użyty w tym samouczku szablon usługi Resource Manager znajduje się w serwisie
    
     Po zakończeniu przetwarzania zapytania sekcja **Query Process Results** (Wyniki przetwarzania zapytania) będzie prezentować wyniki operacji. Powinna być widoczna jedna tabela o nazwie **hivesampletable**. Ta przykładowa tabela składnika Hive jest dostarczana z wszystkimi klastrami usługi HDInsight.
    
-    ![Widoki Hive usługi HDInsight](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png).
+    ![Widoki usługi HDInsight Hive](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png "Edytor zapytań widoku usługi HDInsight Hive").
 6. Powtórz kroki 4 i 5, aby uruchomić następujące zapytanie:
    
         SELECT * FROM hivesampletable;
@@ -122,7 +122,7 @@ Po ukończeniu korzystania z samouczka warto usunąć klaster. Dzięki usłudze 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na pulpicie nawigacyjnym portalu kliknij kafelek z nazwą grupy zasobów użytą podczas tworzenia klastra.
-3. Kliknij przycisk **Usuń** w bloku zasobów, aby usunąć grupę zasobów, zawierającą klaster i domyślne konto magazynu; lub kliknij nazwę klastra na kafelku **Zasoby**, a następnie kliknij przycisk **Usuń** w bloku klastra. Uwaga: usunięcie grupy zasobów powoduje usunięcie konta magazynu. Jeśli chcesz zachować konta magazynu, wybierz opcję usunięcia tylko klastra.
+3. Kliknij przycisk **Usuń** w bloku zasobów, aby usunąć grupę zasobów zawierającą klaster i domyślne konto magazynu, lub kliknij nazwę klastra na kafelku **Zasoby**, a następnie kliknij przycisk **Usuń** w bloku klastra. Uwaga: usunięcie grupy zasobów powoduje usunięcie konta magazynu. Jeśli chcesz zachować konta magazynu, wybierz opcję usunięcia tylko klastra.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -131,7 +131,7 @@ W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z
 ## <a name="next-steps"></a>Następne kroki
 Po przeczytaniu tego samouczka umiesz utworzyć oparty na systemie Linux klaster usługi HDInsight przy użyciu szablonu usługi Resource Manager oraz wykonywać podstawowe zapytania Hive.
 
-Aby dowiedzieć się więcej na temat analizowania danych za pomocą usługi HDInsight, zobacz następujące tematy:
+Aby dowiedzieć się więcej na temat analizowania danych za pomocą usługi HDInsight, zobacz następujące artykuły:
 
 * Aby dowiedzieć się więcej o korzystaniu z programu Hive z usługą HDInsight, w tym poznać sposoby wykonywania zapytań Hive z programu Visual Studio, zobacz artykuł [Korzystanie z programu Hive z usługą HDInsight][hdinsight-use-hive].
 * Aby dowiedzieć się więcej na temat języka Pig, używanego do przekształcania danych, zobacz [Korzystanie z języka Pig z usługą HDInsight][hdinsight-use-pig].

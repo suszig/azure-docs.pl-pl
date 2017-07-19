@@ -1,13 +1,8 @@
-**Niezarządzane dyski maszyny wirtualnej w warstwie Standardowa: limity poszczególnych dysków**
+**Standard unmanaged virtual machine disks: per disk limits**
 
-| Warstwa maszyny wirtualnej | Maszyna wirtualna w warstwie Podstawowa | Maszyna wirtualna w warstwie Standardowa |
+| VM Tier | Basic Tier VM | Standard Tier VM |
 | --- | --- | --- |
-| Rozmiar dysku |1023 GB |1023 GB |
-| Maksymalna liczba operacji wejścia/wyjścia (8 KB) na sekundę na dysk trwały |300 |500 |
-| Maksymalna liczba dysków wykonujących maksymalną liczbę operacji wejścia/wyjścia na sekundę |66 |40 |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+| Disk size |4095 GB |4095 GB |
+| Max 8 KB IOPS per persistent disk |300 |500 |
+| Max number of disks performing max IOPS |66 |40 |
 

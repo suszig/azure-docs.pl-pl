@@ -193,6 +193,10 @@
 ### [Kolekcje](machine-learning-gallery-collections.md)
 ### [Moduły niestandardowe](machine-learning-gallery-custom-modules.md)
 
+## Rozwiązania partnerów dla pakietu Cortana Intelligence
+### [Podręcznik publikowania pakietu Cortana Intelligence](cortana-intelligence-appsource-publishing-guide.md)
+### [Narzędzie oceny rozwiązania Cortana Intelligence](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
 ### Interfejsy API
 #### [Wykrywanie anomalii](machine-learning-apps-anomaly-detection-api.md)
@@ -207,6 +211,7 @@
 ##### [Konfigurowanie](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 
 ## [Język programowania sieci neuronowych Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/machine-learning/)

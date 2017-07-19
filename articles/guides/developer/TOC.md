@@ -111,5 +111,6 @@
 
 # Zasoby
 ## [Regiony platformy Azure](https://azure.microsoft.com/regions/)
-## [Filmy wideo](https://azure.microsoft.com/resources/videos/home/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Przykłady](https://azure.microsoft.com/resources/samples/)
+## [Filmy wideo](https://azure.microsoft.com/resources/videos/home/)

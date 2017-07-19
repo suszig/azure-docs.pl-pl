@@ -103,6 +103,8 @@
     href: /cli/azure/mysql
 - name: Zasoby
   items:
+  - name: Harmonogram działania dla platformy Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Cennik
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Forum MSDN

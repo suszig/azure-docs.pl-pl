@@ -12,15 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: c9f2e3beafd19e0d4d62e409a80da336be17b90b
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dac2b51cb48f76a88fc592c0fac50414da641777
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/14/2017
 
 
 ---
+
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Samouczek: tworzenie pierwszej fabryki danych platformy Azure przy użyciu witryny Azure Portal
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
@@ -33,17 +35,19 @@ ms.lasthandoff: 02/03/2017
 
 Ten artykuł zawiera instrukcje korzystania z witryny [Azure Portal](https://portal.azure.com/) w celu utworzenia pierwszej fabryki danych Azure. Aby wykonać instrukcje z tego samouczka przy użyciu innych narzędzi/zestawów SDK, wybierz jedną z opcji z listy rozwijanej. 
 
+Potok w tym samouczku zawiera jedno działanie: **działanie Hive usługi HDInsight**. To działanie uruchamia skrypt Hive w klastrze Azure HDInsight, który przekształca dane wejściowe, aby wygenerować dane wyjściowe. Uruchamianie potoku zaplanowano raz w miesiącu między określonym czasem rozpoczęcia i zakończenia. 
+
 > [!NOTE]
-> Potok danych przedstawiony w tym samouczku przekształca dane wejściowe w celu wygenerowania danych wyjściowych. Nie kopiuje on danych ze źródłowego do docelowego magazynu danych. Aby zapoznać się z samouczkiem dotyczącym kopiowania danych przy użyciu usługi Azure Data Factory, zobacz [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Kopiowanie danych z usługi Blob Storage do usługi SQL Database).
+> Potok danych przedstawiony w tym samouczku przekształca dane wejściowe w celu wygenerowania danych wyjściowych. Aby zapoznać się z samouczkiem dotyczącym kopiowania danych przy użyciu usługi Azure Data Factory, zobacz [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Kopiowanie danych z usługi Blob Storage do usługi SQL Database).
 > 
-> Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Szczegółowe informacje znajdują się w artykule [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Planowanie i wykonywanie w usłudze Data Factory). 
+> Potok może obejmować więcej niż jedno działanie. Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Więcej informacji znajduje się w artykule dotyczącym [planowania i wykonywania w usłudze Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 1. Przeczytanie artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków **wymagań wstępnych**.
 2. Ten artykuł nie zawiera omówienia koncepcyjnego usługi Fabryka danych Azure. Aby zapoznać się ze szczegółowym omówieniem usługi, zalecamy przeczytanie artykułu [Wprowadzenie do usługi Fabryka danych Azure](data-factory-introduction.md).  
 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
-Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania w celu kopiowania danych ze źródła do docelowego magazynu danych oraz działanie programu Hive w usłudze HDInsight w celu uruchamiania skryptu programu Hive służącego do przekształcania danych wejściowych w dane wyjściowe produktu. Zacznijmy tworzenie fabryki danych w tym kroku.
+Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania może służyć do skopiowania danych ze źródła do docelowego magazynu danych, a działanie programu Hive w usłudze HDInsight do uruchomienia skryptu programu Hive, który przekształci dane wejściowe w dane wyjściowe produktu. Zacznijmy tworzenie fabryki danych w tym kroku.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Kliknij przycisk **NOWY** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij przycisk **Data Factory**.
@@ -61,13 +65,15 @@ Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować
    >
 4. Wybierz **subskrypcję Azure**, w ramach której chcesz utworzyć fabrykę danych.
 5. Wybierz istniejącą **grupę zasobów** lub utwórz grupę zasobów. Na potrzeby tego samouczka utwórz grupę zasobów o nazwie: **ADFGetStartedRG**.
-6. Kliknij przycisk **Utwórz** w bloku **Nowa fabryka danych**.
+6. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko regiony obsługiwane przez usługę Data Factory.
+7. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**. 
+8. Kliknij przycisk **Utwórz** w bloku **Nowa fabryka danych**.
 
    > [!IMPORTANT]
    > Aby utworzyć wystąpienia usługi Data Factory, użytkownik musi być członkiem roli [współautora usługi Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.
    >
    >
-7. Tworzenie fabryki danych będzie widoczne na **tablicy startowej** w witrynie Azure Portal jak poniżej:   
+7. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: Wdrażanie fabryki danych.    
 
    ![Stan tworzenia fabryki danych](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 8. Gratulacje! Udało Ci się utworzyć pierwszą fabrykę danych. Po pomyślnym utworzeniu fabryki danych zostanie wyświetlona strona fabryki danych z zawartością fabryki danych.     
@@ -114,7 +120,6 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "AzureStorageLinkedService"
@@ -127,7 +132,6 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
 
    | Właściwość | Opis |
    |:--- |:--- |
-   | Wersja |Oznacza, że wersja utworzonej usługi HDInsight to 3.2. |
    | ClusterSize |Określa rozmiar klastra usługi HDInsight. |
    | TimeToLive |Określa czas bezczynności, po którym klaster usługi HDInsight zostanie usunięty. |
    | linkedServiceName |Określa konto magazynu używane do przechowywania dzienników generowanych w usłudze HDInsight. |
@@ -184,13 +188,16 @@ W tym kroku opisano tworzenie zestawów danych do reprezentowania danych wejści
 
    | Właściwość | Opis |
    |:--- |:--- |
-   | type |Właściwość type jest ustawiona na wartość AzureBlob, ponieważ dane znajdują się w magazynie obiektów blob Azure. |
-   | linkedServiceName |Odnosi się do elementu AzureStorageLinkedService utworzonego wcześniej. |
-   | fileName |Ta właściwość jest opcjonalna. Jeśli tę właściwość pominiesz, zostaną wybrane wszystkie pliki z folderu folderPath. W tym przypadku zostanie przetworzony tylko plik input.log. |
-   | type |Pliki dziennika są w formacie tekstowym, więc używana jest wartość TextFormat. |
-   | columnDelimiter |Kolumny w plikach dziennika są rozdzielane przecinkami (,) |
-   | frequency/interval |Właściwość frequency (częstotliwość) jest ustawiona na wartość Month (Miesiąc), a wartość interwału wynosi 1, co oznacza, że wycinki wejściowe są dostępne co miesiąc. |
-   | external |Ta właściwość ma wartość true (prawda), jeśli dane wejściowe nie są generowane przez usługę Fabryka danych. |
+   | type |Właściwość typu jest ustawiona na wartość **AzureBlob**, ponieważ dane znajdują się w magazynie obiektów blob na platformie Azure. |
+   | linkedServiceName |Odnosi się do utworzonego wcześniej elementu **AzureStorageLinkedService** . |
+   | folderPath | Określa **kontener** obiektów blob oraz **folder**, który zawiera wejściowe obiekty blob. | 
+   | fileName |Ta właściwość jest opcjonalna. Jeśli tę właściwość pominiesz, zostaną wybrane wszystkie pliki z folderu folderPath. W tym samouczku zostanie przetworzony tylko plik **input.log**. |
+   | type |Pliki dziennika są w formacie tekstowym, więc używana jest wartość **TextFormat**. |
+   | columnDelimiter |Kolumny w plikach dziennika są rozdzielane **znakiem przecinka (`,`)** |
+   | frequency/interval |Właściwość frequency (częstotliwość) jest ustawiona na wartość **Miesiąc**, a wartość interwału wynosi **1**, co oznacza, że wycinki wejściowe są dostępne co miesiąc. |
+   | external | Ta właściwość ma wartość **true** (prawda), jeśli dane wejściowe nie są generowane przez ten potok. W tym samouczku plik input.log nie jest generowany w tym potoku, dlatego możemy ustawić właściwość na true. |
+
+    Aby uzyskać więcej informacji o tych właściwościach JSON, zobacz [artykuł dotyczący łącznika obiektu blob platformy Azure](data-factory-azure-blob-connector.md#dataset-properties).
 3. Kliknij przycisk **Wdróż** na pasku poleceń, aby wdrożyć nowo utworzony zestaw danych. Zestaw danych powinien zostać wyświetlony w widoku drzewa po lewej stronie.
 
 ### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych

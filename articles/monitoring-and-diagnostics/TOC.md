@@ -70,6 +70,7 @@
 ### [1.3 lub nowszy](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Zasoby
-## [Przykłady programu PowerShell](insights-powershell-samples.md)
 ## [Przykłady interfejsu wiersza polecenia platformy Azure 1.0](insights-cli-samples.md)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Przykłady programu PowerShell](insights-powershell-samples.md)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=monitor)

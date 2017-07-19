@@ -17,8 +17,16 @@
       href: connect-python.md
     - name: Node.js
       href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
     - name: .NET
       href: connect-csharp.md
+    - name: Przejdź
+      href: connect-go.md
 - name: Samouczki
   items:
   - name: 1 — Projektowanie bazy danych
@@ -97,6 +105,8 @@
     href: /cli/azure/postgres
 - name: Zasoby
   items:
+  - name: Harmonogram działania dla platformy Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Cennik
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: Forum MSDN

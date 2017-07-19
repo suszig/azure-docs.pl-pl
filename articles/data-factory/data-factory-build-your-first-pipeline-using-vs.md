@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 0ceba4142fd7b0e6edc1b7a6c14470d21806004a
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7ea9988b02bc09626a11efb5e95c2349b378256a
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -36,6 +37,8 @@ Potok w tym samouczku zawiera jedno działanie: **działanie Hive usługi HDInsi
 
 > [!NOTE]
 > W tym samouczku nie pokazano, jak skopiować dane za pomocą usługi Azure Data Factory. Aby zapoznać się z samouczkiem dotyczącym kopiowania danych przy użyciu usługi Azure Data Factory, zobacz [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Kopiowanie danych z usługi Blob Storage do usługi SQL Database).
+> 
+> Potok może obejmować więcej niż jedno działanie. Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Więcej informacji znajduje się w artykule dotyczącym [planowania i wykonywania w usłudze Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>Przewodnik: Tworzenie i publikowanie jednostek usługi Data Factory
@@ -54,8 +57,8 @@ Poniżej przedstawiono kroki do wykonania w ramach tego przewodnika:
 5. Po opublikowaniu będziesz monitorować potok za pomocą bloków witryny Azure Portal i aplikacji do monitorowania i zarządzania. 
   
 ### <a name="prerequisites"></a>Wymagania wstępne
-1. Przeczytaj artykuł [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonaj kroki **wymagań wstępnych**. Aby przejść do artykułu, możesz również wybrać opcję **Przegląd i wymagania wstępne** z listy rozwijanej w górnej części strony. Po spełnieniu wymagań wstępnych przejdź z powrotem do tego artykułu, wybierając opcję **Visual Studio** z listy rozwijanej.  
-2. Aby publikować jednostki fabryki danych w usłudze Fabryka danych Azure przy użyciu programu Visual Studio, musisz być **administratorem subskrypcji platformy Azure**. 
+1. Przeczytaj artykuł [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonaj kroki **wymagań wstępnych**. Aby przejść do artykułu, możesz również wybrać opcję **Przegląd i wymagania wstępne** z listy rozwijanej w górnej części strony. Po spełnieniu wymagań wstępnych przejdź z powrotem do tego artykułu, wybierając opcję **Visual Studio** z listy rozwijanej.
+2. Aby utworzyć wystąpienia usługi Data Factory, użytkownik musi być członkiem roli [współautora usługi Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.  
 3. Na komputerze muszą być zainstalowane następujące elementy:
    * Visual Studio 2013 lub Visual Studio 2015
    * Pobierz zestaw Azure SDK dla programu Visual Studio 2013 lub Visual Studio 2015. Przejdź do [strony plików do pobrania Azure](https://azure.microsoft.com/downloads/) i kliknij pozycję **VS 2013** lub **VS 2015** w sekcji **.NET**.
@@ -101,7 +104,6 @@ Za pomocą połączonej usługi HDInsight na żądanie klaster usługi HDInsight
         "properties": {
         "type": "HDInsightOnDemand",
             "typeProperties": {
-                "version": "3.2",
                 "clusterSize": 1,
                 "timeToLive": "00:30:00",
                 "linkedServiceName": "AzureStorageLinkedService1"
@@ -114,7 +116,6 @@ Za pomocą połączonej usługi HDInsight na żądanie klaster usługi HDInsight
 
     Właściwość | Opis
     -------- | ----------- 
-    Wersja | Określa wersję klastra usługi HDInsight na platformie Hadoop do utworzenia.
     ClusterSize | Określa rozmiar klastra usługi HDInsight na platformie Hadoop.
     TimeToLive | Określa czas bezczynności, po którym klaster usługi HDInsight zostanie usunięty.
     linkedServiceName | Określa konto magazynu używane do przechowywania dzienników generowanych przez klaster usługi HDInsight na platformie Hadoop. 
@@ -201,7 +202,7 @@ Teraz utworzysz wyjściowy zestaw danych do reprezentowania danych wyjściowych 
     }
     ```
     Fragment kodu JSON definiuje zestaw danych o nazwie **AzureBlobOutput**, który reprezentuje dane wyjściowe generowane przez działanie Hive w potoku. Określasz, że dane wyjściowe tworzone przez działanie Hive są umieszczane w kontenerze obiektów blob o nazwie `adfgetstarted` oraz folderze o nazwie `partitioneddata`. 
-     
+    
     W sekcji **availability** (dostępność) określono, że wyjściowy zestaw danych jest generowany co miesiąc. Wyjściowy zestaw danych kieruje harmonogramem potoku. Potok jest uruchamiany co miesiąc między czasem rozpoczęcia i zakończenia. 
 
     Opisy tych właściwości znajdują się w części **Tworzenie wejściowego zestawu danych**. Dla wyjściowego zestawu danych nie ustawia się właściwości external, ponieważ zestaw danych jest generowany przez potok.
@@ -319,7 +320,7 @@ Ważne rzeczy, na które należy zwrócić uwagę:
 
 - Jeśli zostanie wyświetlony komunikat o błędzie **Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw Microsoft.DataFactory**, wykonaj jedną z następujących czynności i spróbuj opublikować ponownie:
     - W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Fabryka danych.
-        ```PowerShell    
+        ```PowerShell   
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Można uruchomić następujące polecenie, aby potwierdzić, że dostawca usługi Data Factory jest zarejestrowany.
@@ -399,7 +400,7 @@ Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i z
 > Po pomyślnym przetworzeniu wycinka plik wejściowy zostanie usunięty. Tak więc, jeśli chcesz ponownie uruchomić wycinek lub ponownie wykonać instrukcje z tego samouczka, przekaż plik wejściowy (input.log) do folderu `inputdata` kontenera `adfgetstarted`.
 
 ### <a name="additional-notes"></a>Uwagi dodatkowe
-- Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania w celu kopiowania danych ze źródła do docelowego magazynu danych oraz działanie programu Hive w usłudze HDInsight w celu uruchamiania skryptu programu Hive służącego do przekształcania danych wejściowych. Artykuł [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Obsługiwane magazyny danych) zawiera listę wszystkich źródeł i ujść obsługiwanych przez działanie kopiowania. Artykuł [compute linked services](data-factory-compute-linked-services.md) (Obliczanie połączonych usług) zawiera listę usług obliczeniowych obsługiwanych przez usługę Data Factory.
+- Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania może służyć do skopiowania danych ze źródła do docelowego magazynu danych, a działanie programu Hive w usłudze HDInsight do uruchomienia skryptu programu Hive, który przekształci dane wejściowe. Artykuł [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Obsługiwane magazyny danych) zawiera listę wszystkich źródeł i ujść obsługiwanych przez działanie kopiowania. Artykuł [compute linked services](data-factory-compute-linked-services.md) (Obliczanie połączonych usług) zawiera listę usług obliczeniowych obsługiwanych przez usługę Data Factory.
 - Połączone usługi łączą magazyny danych lub usługi obliczeniowe z fabryką danych Azure. Artykuł [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Obsługiwane magazyny danych) zawiera listę wszystkich źródeł i ujść obsługiwanych przez działanie kopiowania. Artykuł [Compute linked services](data-factory-compute-linked-services.md) (Połączone usługi na potrzeby obliczeń) zawiera listę usług obliczeniowych obsługiwanych przez usługę Data Factory i listę [działań przekształcania](data-factory-data-transformation-activities.md), które mogą być w nich wykonywane.
 - Zobacz [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) (Przenoszenie danych z/do obiektów blob Azure), aby uzyskać szczegółowe informacje na temat właściwości JSON używanych w definicji połączonej usługi Azure Storage.
 - Możesz użyć własnego klastra usługi HDInsight zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [Compute Linked Services](data-factory-compute-linked-services.md) (Połączone usługi obliczeniowe).

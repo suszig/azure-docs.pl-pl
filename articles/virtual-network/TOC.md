@@ -21,24 +21,27 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Interfejs wiersza polecenia](virtual-networks-create-vnet-arm-cli.md)
 #### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portal (klasyczny)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (klasyczny)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [Interfejs wiersza polecenia (klasyczny)](virtual-networks-create-vnet-classic-cli.md)
+#### Wdrożenie klasyczne
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [Program PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [Interfejs wiersza polecenia](virtual-networks-create-vnet-classic-cli.md)
 
 ### Grupy zabezpieczeń sieci
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [Program PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [Interfejs wiersza polecenia](virtual-networks-create-nsg-arm-cli.md)
 #### [Szablon](virtual-networks-create-nsg-arm-template.md)
-#### [PowerShell (klasyczny)](virtual-networks-create-nsg-classic-ps.md)
-#### [Interfejs wiersza polecenia (klasyczny)](virtual-networks-create-nsg-classic-cli.md)
+#### Wdrożenie klasyczne
+##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
+##### [Interfejs wiersza polecenia](virtual-networks-create-nsg-classic-cli.md)
 
 ### Trasy definiowane przez użytkownika
 #### [Program PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [Interfejs wiersza polecenia](virtual-network-create-udr-arm-cli.md)
 #### [Szablon](virtual-network-create-udr-arm-template.md)
-#### [PowerShell (klasyczny)](virtual-network-create-udr-classic-ps.md)
-#### [Interfejs wiersza polecenia (klasyczny)](virtual-network-create-udr-classic-cli.md)
+#### Wdrożenie klasyczne
+##### [PowerShell](virtual-network-create-udr-classic-ps.md)
+##### [Interfejs wiersza polecenia](virtual-network-create-udr-classic-cli.md)
 
 ### [Wirtualne sieci równorzędne](virtual-network-create-peering.md)
 
@@ -48,21 +51,24 @@
 ##### [Program PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [Interfejs wiersza polecenia](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Szablon](virtual-network-deploy-static-pip-arm-template.md)
-##### [PowerShell (klasyczny)](virtual-networks-reserved-public-ip.md)
+##### Wdrożenie klasyczne
+###### [PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### Tworzenie maszyny wirtualnej ze statycznym prywatnym adresem IP
 ##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Program PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [Interfejs wiersza polecenia](virtual-networks-static-private-ip-arm-cli.md)
-##### [Portal (klasyczny)](virtual-networks-static-private-ip-classic-pportal.md)
-##### [PowerShell (klasyczny)](virtual-networks-static-private-ip-classic-ps.md)
-##### [Interfejs wiersza polecenia (klasyczny)](virtual-networks-static-private-ip-classic-cli.md)
+##### Wdrożenie klasyczne
+###### [Portal](virtual-networks-static-private-ip-classic-pportal.md)
+###### [Program PowerShell](virtual-networks-static-private-ip-classic-ps.md)
+###### [Interfejs wiersza polecenia](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Tworzenie maszyny wirtualnej z wieloma interfejsami sieciowymi
 ##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Interfejs wiersza polecenia](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [PowerShell (klasyczny)](virtual-network-deploy-multinic-classic-ps.md)
-##### [Interfejs wiersza polecenia (klasyczny)](virtual-network-deploy-multinic-classic-cli.md)
+##### Wdrożenie klasyczne
+###### [PowerShell](virtual-network-deploy-multinic-classic-ps.md)
+###### [Interfejs wiersza polecenia](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Tworzenie maszyny wirtualnej z wieloma adresami IP
 ##### [Witryna Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
@@ -103,6 +109,9 @@
 ### [Sieci wirtualne](virtual-network-manage-network.md)
 #### [Podsieci](virtual-network-manage-subnet.md)
 #### [Komunikacja równorzędna](virtual-network-manage-peering.md)
+#### Wdrożenie klasyczne
+##### [Plik konfiguracji sieci](virtual-networks-using-network-configuration-file.md)
+##### [Migrowanie z grupy koligacji do regionu](virtual-networks-migrate-to-regional-vnet.md)
 ### Grupy zabezpieczeń sieci
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Program PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -126,7 +135,7 @@
 
 # Dokumentacja
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
-## [PowerShell (klasyczny)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [PowerShell (klasyczny)](/powershell/module/azure/)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
@@ -143,6 +152,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)
 ## [Forum sieci](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-network)

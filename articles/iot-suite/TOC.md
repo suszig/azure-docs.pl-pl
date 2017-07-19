@@ -51,6 +51,7 @@
 ## [Machine Learning](/azure/machine-learning/)
 
 # Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Często zadawane pytania](iot-suite-faq.md)
 ## [Ścieżka szkoleniowa dla Pakietu IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 

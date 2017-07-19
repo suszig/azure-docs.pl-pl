@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0e2501b0eb218d3c8a62dd4959b08ff85ec565eb
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Dodawanie komunikatów do kolejki usługi Azure Storage przy użyciu funkcji
@@ -29,13 +29,11 @@ W usłudze Azure Functions powiązania danych wejściowych i wyjściowych zapewn
 
 ![Wyświetlanie komunikatu w dziennikach.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-Wykonanie wszystkich czynności opisanych w tym temacie powinno zająć mniej niż pięć minut.
-
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
-Należy także pobrać i zainstalować program [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+* Zainstaluj program [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
@@ -43,11 +41,11 @@ Należy także pobrać i zainstalować program [Microsoft Azure Storage Explorer
  
 1. Rozwiń aplikację funkcji i funkcję.
 
-2. Kliknij przyciski **Integracja** i **+ Nowe dane wyjściowe**, a następnie pozycję **Azure Queue Storage** i **Wybierz**.
+2. Wybierz pozycje **Integracja** i **+ Nowe dane wyjściowe**, a następnie wybierz pozycję **Azure Queue Storage** i kliknij przycisk **Wybierz**.
     
     ![Dodaj powiązanie danych wyjściowych kolejki magazynu do funkcji w witrynie Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Użyj ustawień określonych w tabeli i kliknij pozycję **Zapisz**: 
+3. Użyj ustawień określonych w tabeli i wybierz przycisk **Zapisz**: 
 
     ![Dodaj powiązanie danych wyjściowych kolejki magazynu do funkcji w witrynie Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -61,7 +59,7 @@ Po zdefiniowaniu powiązania danych wyjściowych musisz zaktualizować kod, tak 
 
 ## <a name="update-the-function-code"></a>Aktualizacja kodu funkcji
 
-1. Kliknij funkcję, aby wyświetlić kod funkcji w edytorze. 
+1. Wybierz funkcję,której kod ma zostać wyświetlony w edytorze. 
 
 2. W przypadku funkcji C# zaktualizuj definicję funkcji w następujący sposób, aby dodać parametr powiązania magazynu **outQueueItem**. Pomiń ten krok w przypadku funkcji JavaScript.
 
@@ -84,13 +82,13 @@ Po zdefiniowaniu powiązania danych wyjściowych musisz zaktualizować kod, tak 
     outQueueItem.Add("Name passed to the function: " + name);     
     ```
 
-4. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+4. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
 
 Wartość przekazana do wyzwalacza HTTP jest uwzględniona w komunikacie dodanym do kolejki.
  
 ## <a name="test-the-function"></a>Testowanie funkcji 
 
-1. Po zapisaniu zmian w kodzie kliknij przycisk **Uruchom**. 
+1. Po zapisaniu zmian w kodzie wybierz przycisk **Uruchom**. 
 
     ![Dodaj powiązanie danych wyjściowych kolejki magazynu do funkcji w witrynie Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
@@ -102,17 +100,17 @@ Następnie możesz nawiązać połączenie z kontem magazynu, aby sprawdzić now
 
 Pomiń pierwsze trzy kroki, jeśli już zainstalowano program Storage Explorer i połączono go z kontem magazynu.    
 
-1. W funkcji kliknij przycisk **Integracja** i nowe powiązanie danych wyjściowych usługi **Azure Queue Storage**, a następnie rozwiń pozycję **Dokumentacja**. Skopiuj wartości **Nazwa konta** i **Klucz konta**. Te poświadczenia służą do nawiązywania połączenia z kontem magazynu.
+1. W funkcji wybierz przycisk **Integracja** i nowe powiązanie danych wyjściowych usługi **Azure Queue Storage**, a następnie rozwiń pozycję **Dokumentacja**. Skopiuj wartości **Nazwa konta** i **Klucz konta**. Te poświadczenia służą do nawiązywania połączenia z kontem magazynu.
  
     ![Uzyskiwanie poświadczeń połączenia konta magazynu.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
-2. Uruchom narzędzie [Microsoft Azure Storage Explorer](http://storageexplorer.com/), kliknij ikonę połączenia po lewej stronie, wybierz pozycję **Użyj klucza i nazwy konta magazynu** i kliknij przycisk **Dalej**.
+2. Uruchom narzędzie [Microsoft Azure Storage Explorer](http://storageexplorer.com/), wybierz ikonę połączenia po lewej stronie, wybierz pozycję **Użyj klucza i nazwy konta magazynu** i wybierz przycisk **Dalej**.
 
     ![Uruchamianie narzędzia Storage Account Explorer.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. Wprowadź wartości **Nazwa konta** i **Klucz konta** z kroku 1, kliknij przycisk **Dalej**, a następnie przycisk **Połącz**. 
+3. Wklej pozycje **Nazwa konta** i **Klucz konta** z kroku 1 w odpowiednie pola, a następnie wybierz przyciski **Dalej** i **Połącz**. 
   
-    ![Wprowadzanie poświadczeń magazynu i nawiązywanie połączenia.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+    ![Wklej poświadczenia magazynu i nawiąż połączenie.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 4. Rozwiń powiązane konto magazynu, kliknij prawym przyciskiem myszy pozycję **Kolejki** i sprawdź, czy istnieje kolejka o nazwie **myqueue-items**. Komunikat powinien być już także widoczny w kolejce.  
  

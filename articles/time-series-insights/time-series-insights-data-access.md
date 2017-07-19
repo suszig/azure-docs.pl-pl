@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/20/2017
 
 ---
 
@@ -36,7 +36,7 @@ Zasady dostępu do zarządzania pozwalają przyznawać uprawnienia związane z k
 *    tworzenie i usuwanie środowiska, źródła zdarzeń, zestawy danych referencyjnych i
 *    zarządzanie zasadami dostępu do danych.
 
-Zasady dostępu do danych umożliwiają przyznawanie uprawnień do wysyłania zapytań dotyczących danych, manipulowania danymi referencyjnymi w środowisku oraz zapisywania udostępnionych zapytań i perspektyw powiązanych ze środowiskiem.
+Zasady dostępu do danych umożliwiają przyznawanie uprawnień do wysyłania zapytań dotyczących danych, manipulowania danymi referencyjnymi w środowisku oraz udostępniania zapisanych zapytań i perspektyw skojarzonych ze środowiskiem.
 
 Dwa rodzaje zasad pozwalają wyraźnie oddzielić dostęp do zarządzania środowiskiem od dostępu do danych znajdujących się w tym środowisku. Można na przykład tak skonfigurować środowisko, aby jego właściciel/twórca nie miał dostępu do danych. Ponadto użytkownicy i usługi z uprawnieniami do odczytu danych w środowisku mogą nie mieć dostępu do konfiguracji tego środowiska.
 

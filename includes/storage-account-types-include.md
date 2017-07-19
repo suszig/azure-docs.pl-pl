@@ -1,6 +1,6 @@
 Istnieją dwa typy kont magazynu:
 
-### <a name="generalpurpose-storage-accounts"></a>Konta magazynu ogólnego przeznaczenia
+### <a name="general-purpose-storage-accounts"></a>Konta magazynu ogólnego przeznaczenia
 Konto magazynu ogólnego przeznaczenia zapewnia dostęp do usług Azure Storage, takich jak Tables, Queues, Files i Blobs oraz dysków maszyn wirtualnych Azure, w ramach jednego konta. Ten typ konta magazynu ma dwie warstwy wydajności:
 
 * Warstwę wydajności magazynu standardowego umożliwiającą przechowywanie tabel, kolejek, plików, obiektów blob i dysków maszyny wirtualnej Azure.
@@ -25,10 +25,5 @@ Więcej szczegółowych informacji na temat kont usługi Blob Storage znajduje s
 
 Przed utworzeniem konta magazynu musisz mieć subskrypcję platformy Azure, która umożliwia dostęp do jej różnych usług. Możesz rozpocząć pracę z platformą Azure od [utworzenia bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/). Jeśli zdecydujesz się na wykupienie planu subskrypcji, możesz wybrać spośród różnych [opcji zakupu](https://azure.microsoft.com/pricing/purchase-options/). Jeśli jesteś [subskrybentem portalu MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), możesz uzyskać bezpłatne miesięczne środki na korzystanie z usług Azure, m.in. Azure Storage. Informacje dotyczące cennika woluminów znajdują się w temacie [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) (Cennik usługi Azure Storage).
 
-Więcej szczegółowych informacji na temat tworzenia konta magazynu znajduje się w temacie [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) (Tworzenie konta magazynu). Można utworzyć maksymalnie 100 kont magazynu o unikatowej nazwie w ramach jednej subskrypcji. Aby uzyskać szczegółowe informacje na temat limitów konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](../articles/storage/storage-scalability-targets.md).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+Więcej szczegółowych informacji na temat tworzenia konta magazynu znajduje się w temacie [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) (Tworzenie konta magazynu). Można utworzyć maksymalnie 200 kont magazynu o unikatowej nazwie w ramach jednej subskrypcji. Aby uzyskać szczegółowe informacje na temat limitów konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](../articles/storage/storage-scalability-targets.md).
 

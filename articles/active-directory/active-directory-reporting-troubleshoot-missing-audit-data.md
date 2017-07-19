@@ -1,5 +1,4 @@
 ---
-
 title: "Rozwiązywanie problemów: Brak danych w dzienniku aktywności usługi Azure Active Directory | Microsoft Docs"
 description: "Lista raportów dostępnych w ramach usługi Azure Active Directory"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 18af51e95a283a5cd33688484a0d7477eb4b957d
 ms.contentlocale: pl-pl
 ms.lasthandoff: 05/08/2017
-
 
 ---
 

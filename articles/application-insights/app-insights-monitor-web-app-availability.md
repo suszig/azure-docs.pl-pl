@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -245,6 +245,13 @@ W witrynie sieci Web można uruchomić test obciążenia. Podobnie jak w przypad
 Z poziomu bloku Przegląd otwórz pozycję **Ustawienia**, **Testy wydajności**. Podczas tworzenia testu będzie miało miejsce zaproszenie do połączenia się z kontem usługi Visual Studio Team Services lub utworzenia go.
 
 Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzenia.
+
+
+![Test wydajności](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> Aby obserwować wyniki testów wydajności sieci, należy użyć [transmisji strumieniowej na żywo](app-insights-live-stream.md) i [profilera](app-insights-profiler.md).
+>
 
 ## <a name="automation"></a>Automatyzacja
 * Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](app-insights-powershell.md#add-an-availability-test).

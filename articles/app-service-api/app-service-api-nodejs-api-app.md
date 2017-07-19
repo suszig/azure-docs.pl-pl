@@ -20,18 +20,13 @@ ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
 ms.contentlocale: pl-pl
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure" class="xliff"></a>
-
-# Kompilowanie interfejsu API RESTful środowiska Node.js i wdrażanie go w aplikacji interfejsu API na platformie Azure
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Kompilowanie interfejsu API RESTful środowiska Node.js i wdrażanie go w aplikacji interfejsu API na platformie Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 W tym przewodniku szybkiego startu pokazano, jak utworzyć interfejs API REST Node.js platformy [Express](http://expressjs.com/) za pomocą definicji [Swagger](http://swagger.io/) i wdrożyć go jako [aplikację interfejsu API](app-service-api-apps-why-best-platform.md) na platformie Azure. Aplikację tworzy się za pomocą narzędzi wiersza polecenia, następnie konfiguruje zasoby przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i wdraża aplikację za pomocą usługi Git.  Gdy wszystko będzie gotowe, uzyskasz funkcjonalny interfejs API REST działający na platformie Azure.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Git](https://git-scm.com/)
 * [Node.js i NPM](https://nodejs.org/)
@@ -42,9 +37,7 @@ W tym przewodniku szybkiego startu pokazano, jak utworzyć interfejs API REST No
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="prepare-your-environment" class="xliff"></a>
-
-## Przygotowywanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 1. W oknie terminala uruchom następujące polecenie, aby sklonować przykład na maszynę lokalną.
 
@@ -65,9 +58,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
     npm install -g generator-swaggerize
     ```
 
-<a id="generate-nodejs-code" class="xliff"></a>
-
-## Generowanie kodu Node.js 
+## <a name="generate-nodejs-code"></a>Generowanie kodu Node.js 
 
 W tej sekcji samouczka przedstawiono sposób modelowania przepływu pracy programowania, w którym najpierw następuje utworzenie metadanych struktury Swagger, a następnie użycie ich do tworzenia szkieletu (automatycznego generowania) kodu serwera dla interfejsu API. 
 
@@ -89,9 +80,7 @@ Zmień katalog na folder *start*, a następnie uruchom polecenie `yo swaggerize`
    ? Your email: frank@fabrikam.net
    ```
    
-<a id="customize-the-project-code" class="xliff"></a>
-
-## Dostosowywanie kodu projektu
+## <a name="customize-the-project-code"></a>Dostosowywanie kodu projektu
 
 1. Skopiuj folder *lib* do folderu *ContactList* utworzonego przez polecenie `yo swaggerize`, a następnie zmień katalog na *ContactList*.
 
@@ -149,6 +138,9 @@ Zmień katalog na folder *start*, a następnie uruchom polecenie `yo swaggerize`
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -173,9 +165,7 @@ Zmień katalog na folder *start*, a następnie uruchom polecenie `yo swaggerize`
 
     Ten kod wprowadza niewielkie zmiany umożliwiające pracę z usługą Azure App Service i ujawniające interaktywny interfejs internetowy dla Twojego interfejsu API.
 
-<a id="test-the-api-locally" class="xliff"></a>
-
-### Testowanie interfejsu API lokalnie
+### <a name="test-the-api-locally"></a>Testowanie interfejsu API lokalnie
 
 1. Uruchamianie aplikacji Node.js
     ```bash
@@ -239,9 +229,7 @@ W tej sekcji interfejs wiersza polecenia platformy Azure w wersji 2.0 zostanie u
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-<a id="deploy-the-api-with-git" class="xliff"></a>
-
-## Wdrażanie interfejsu API za pomocą usługi Git
+## <a name="deploy-the-api-with-git"></a>Wdrażanie interfejsu API za pomocą usługi Git
 
 Wdróż swój kod w aplikacji interfejsu API, wypychając zatwierdzenia z lokalnego repozytorium Git do usługi Azure App Service.
 
@@ -268,9 +256,7 @@ Wdróż swój kod w aplikacji interfejsu API, wypychając zatwierdzenia z lokaln
 
 5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-<a id="test-the-api--in-azure" class="xliff"></a>
-
-## Testowanie interfejsu API na platformie Azure
+## <a name="test-the-api--in-azure"></a>Testowanie interfejsu API na platformie Azure
 
 1. Otwórz w przeglądarce adres http://nazwa_aplikacji.azurewebsites.net/contacts. Zwrócone zostaną te same dane JSON, co przy wykonywaniu żądania lokalnie we wcześniejszej części tego samouczka.
 
@@ -298,9 +284,7 @@ Wdróż swój kod w aplikacji interfejsu API, wypychając zatwierdzenia z lokaln
 
     Teraz możesz wdrażać aktualizacje do przykładowej aplikacji API na platformie Azure przez proste wypychanie zatwierdzeń do repozytorium Git platformy Azure.
 
-<a id="clean-up" class="xliff"></a>
-
-## Czyszczenie
+## <a name="clean-up"></a>Czyszczenie
 
 Aby wyczyścić wszystkie zasoby utworzone w tym przewodniku szybkiego startu, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure:
 
@@ -308,9 +292,7 @@ Aby wyczyścić wszystkie zasoby utworzone w tym przewodniku szybkiego startu, u
 az group delete --name myResourceGroup
 ```
 
-<a id="next-step" class="xliff"></a>
-
-## Następny krok 
+## <a name="next-step"></a>Następny krok 
 > [!div class="nextstepaction"]
 > [Używanie aplikacji interfejsu API z klientów JavaScript za pomocą mechanizmu CORS](app-service-api-cors-consume-javascript.md)
 

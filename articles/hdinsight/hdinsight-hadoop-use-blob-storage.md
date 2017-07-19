@@ -1,5 +1,5 @@
 ---
-title: "Wykonywanie zapytań dla danych z usługi Azure Storage zgodnej z systemem plików HDFS | Microsoft Docs"
+title: "Wykonywanie zapytań dla danych z usługi Azure Storage zgodnej z systemem plików HDFS — Azure HDInsight | Microsoft Docs"
 description: "Dowiedz się, jak wykonywać zapytania dla danych z usług Azure Storage i Azure Data Lake Store w celu zapisania wyników analiz."
 keywords: blob storage,hdfs,structured data,unstructured data,data lake store,Hadoop input,Hadoop output, hadoop storage, hdfs input,hdfs output,hdfs storage,wasb azure
 services: hdinsight,storage
@@ -15,30 +15,28 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 06/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bc7707f3bbb6639699826550f39876d0096d6c03
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 4a46c7d9a030adb9c0407fda622ccd787212b030
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>Korzystanie z magazynu zgodnego z systemem plików HDFS w połączeniu z platformą Hadoop w usłudze HDInsight
+# <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight
 
 Aby analizować dane w klastrze usługi HDInsight, możesz zapisać dane w usłudze Azure Storage, usłudze Azure Data Lake Store lub obu tych usługach. Obie opcje magazynowania pozwalają bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
 
-Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. W trakcie procesu tworzenia klastra usługi HDInsight jako domyślny system plików można wskazać kontener obiektów blob w usłudze Azure Storage. W przypadku wersji 3.5 usługi HDInsight jako domyślny system plików można wybrać usługę Azure Storage lub Azure Data Lake Store.
+Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. W trakcie procesu tworzenia klastra usługi HDInsight jako domyślny system plików można wskazać kontener obiektów blob w usłudze Azure Storage. Dla wersji 3.5 usługi HDInsight jako domyślny system plików można wybrać usługę Azure Storage lub Azure Data Lake Store — z wyjątkiem kilku przypadków. Aby uzyskać informacje dotyczące możliwości obsługi podczas korzystania z usługi Data Lake Store zarówno jako domyślnego, jak i połączonego magazynu, zobacz artykuł [Availabilities for HDInsight cluster](#availabilities-for-hdinsight-clusters]) (Dostępność dla klastra usługi HDInsight).
 
-Z tego artykułu dowiesz się, jak te dwie opcje magazynowania działają z klastrami usługi HDInsight. Więcej informacji dotyczących tworzenia klastra usługi HDInsight można znaleźć w temacie [Rozpoczynanie pracy z usługą HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-
-## <a name="using-azure-storage-with-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi HDInsight
+W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami usługi HDInsight. Aby dowiedzieć się, jak działa usługa Data Lake Store z klastrami usługi HDInsight, zobacz artykuł [Use Azure Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md) (Korzystanie z usługi Azure Data Lake Store przy użyciu klastrów usługi Azure HDInsight). Więcej informacji dotyczących tworzenia klastra usługi HDInsight można znaleźć w artykule [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów platformy Hadoop w usłudze HDInsight).
 
 Usługa Azure Storage to niezawodne rozwiązanie ogólnego przeznaczenia, które bezproblemowo integruje się z usługą HDInsight. Usługa HDInsight może używać kontenera obiektów blob w usłudze Azure Storage jako domyślnego systemu plików dla klastra. Korzystając z interfejsu rozproszonego systemu plików Hadoop (HDFS), pełny zestaw składników usługi HDInsight może operować bezpośrednio na danych ze strukturą lub bez niej przechowywanych jako obiekty blob.
 
 > [!WARNING]
-> Przy tworzeniu konta usługi Azure Storage dostępnych jest kilka opcji. W poniższej tabeli zawarto informacje na temat opcji obsługiwanych z usługą HDInsight:
+> Podczas tworzenia konta usługi Azure Storage jest dostępnych kilka opcji. W poniższej tabeli zawarto informacje na temat opcji obsługiwanych z usługą HDInsight:
 > 
 > | Typ konta magazynu | Warstwa magazynu | Obsługiwane z usługą HDInsight |
 > | ------- | ------- | ------- |
@@ -47,8 +45,12 @@ Usługa Azure Storage to niezawodne rozwiązanie ogólnego przeznaczenia, które
 > | Konto magazynu obiektów blob | Gorąca | Nie |
 > | &nbsp; | Chłodna | Nie |
 
-### <a name="hdinsight-storage-architecture"></a>Architektura magazynu usługi HDInsight
-Na poniższym diagramie przedstawiono abstrakcyjny widok architektury magazynu usługi HDInsight:
+Używanie domyślnego kontenera obiektów blob do przechowywania danych firmowych nie jest zalecane. Dobrym rozwiązaniem jest usunięcie domyślnego kontenera obiektów blob po każdym użyciu, aby obniżyć koszty magazynowania. Należy pamiętać, że domyślny kontener zawiera dzienniki aplikacji i systemu. Koniecznie pobierz dzienniki przed usunięciem kontenera.
+
+Udostępnianie jednego kontenera obiektów blob dla wielu klastrów nie jest obsługiwane.
+
+## <a name="hdinsight-storage-architecture"></a>Architektura magazynu usługi HDInsight
+Na poniższym diagramie przedstawiono schemat architektury magazynu usługi HDInsight dotyczący korzystania z usługi Azure Storage:
 
 ![Klastry Hadoop używają interfejsu API systemu plików HDFS w celu dostępu do danych strukturalnych i bez struktury oraz przechowywania ich w usłudze Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architektura usługi DHInsight Storage")
 
@@ -78,7 +80,7 @@ Wiele zadań WebHCat, w tym Hive, MapReduce, przesyłanie strumieniowe Hadoop, a
 
 Obiekty blob mogą być używane z danymi ze strukturą i bez niej. Kontenery obiektów blob przechowują dane jako pary klucz/wartość, bez hierarchii katalogów. Jednak wewnątrz nazwy klucza można użyć znaku ukośnika (/), co sprawi, że będzie wyglądała, jakby plik był przechowywany w ramach struktury katalogów. Na przykład klucz obiektu blob może mieć postać *input/log1.txt*. Katalog *input* w rzeczywistości nie istnieje, ale z powodu obecności znaku ukośnika w nazwie klucza, klucz ma wygląd ścieżki do pliku.
 
-### <a id="benefits"></a>Korzyści z usługi Azure Storage
+## <a id="benefits"></a>Korzyści z usługi Azure Storage
 Wynikowy koszt wydajności związany z brakiem łączenia klastrów obliczeniowych i zasobów magazynu jest zmniejszany przez sposób tworzenia klastrów obliczeniowych w pobliżu zasobów konta magazynu w obrębie regionu świadczenia usługi Azure, gdzie szybkie sieci zapewniają bardzo wydajny dostęp węzłów obliczeniowych do danych wewnątrz usługi Azure Storage.
 
 Przechowywanie danych w usłudze Azure Storage zamiast w systemie plików HDFS ma wiele zalet:
@@ -96,14 +98,14 @@ Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, których
 > 
 > 
 
-### <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów blob
+## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów blob
 Aby użyć obiektów blob, należy najpierw utworzyć [konto usługi Azure Storage][azure-storage-create]. W ramach tego procesu należy wskazać region świadczenia usługi Azure, w którym zostanie utworzone konto magazynu. Klaster i konto magazynu muszą być hostowane w tym samym regionie. Baza danych SQL Server na potrzeby magazynu metadanych Hive i baza danych SQL Server na potrzeby magazynu metadanych Oozie również muszą znajdować się w tym samym regionie.
 
 Wszędzie tam, gdzie go umieszczono, każdy utworzony obiekt blob należy do kontenera na koncie usługi Azure Storage. Ten kontener może być istniejącym obiektem blob utworzonym poza usługą HDInsight lub może być kontenerem, który jest tworzony dla klastra usługi HDInsight.
 
-Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historię zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Może to spowodować uszkodzenie historii zadań. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania połączonych kont magazynu, zobacz artykuł [Tworzenie klastrów usługi HDInsight][hdinsight-creation]. Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase faktycznie można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera obiektów blob, używanego przez klaster HBase, który został usunięty.
+Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historia zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Może to spowodować uszkodzenie historii zadań. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania połączonych kont magazynu, zobacz artykuł [Tworzenie klastrów usługi HDInsight][hdinsight-creation]. Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera obiektów blob, używanego przez klaster HBase, który został usunięty.
 
-#### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 Podczas tworzenia klastra usługi HDInsight za pomocą witryny Portal masz do wyboru dwa sposoby podania szczegółów konta magazynu, które przedstawiono poniżej. Możesz także określić, czy chcesz skojarzyć dodatkowe konto magazynu z klastrem, a jeśli tak, możesz wybrać usługę Data Lake Store lub inną usługę Azure Storage Blob jako magazyn dodatkowy.
 
 ![HDInsight, hadoop, tworzenie źródła danych](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
@@ -111,29 +113,8 @@ Podczas tworzenia klastra usługi HDInsight za pomocą witryny Portal masz do wy
 > [!WARNING]
 > Korzystanie z dodatkowego konta magazynu w innej lokalizacji niż klaster usługi HDInsight nie jest obsługiwane.
 
-#### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-Jeśli masz [zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure](../cli-install-nodejs.md), możesz zastosować następujące polecenie do konta magazynu i kontenera.
-
-    azure storage account create <storageaccountname> --type LRS
-
-> [!NOTE]
-> Parametr `--type` wskazuje sposób replikacji konta magazynu. Aby uzyskać więcej informacji, zobacz artykuł [Azure Storage Replication](../storage/storage-redundancy.md) (Replikacja usługi Azure Storage). Nie używaj technologii ZRS, ponieważ nie obsługuje ona stronicowych obiektów blob, plików, tabel ani kolejek.
-> 
-> 
-
-Pojawi się monit o region geograficzny, w którym zostanie utworzone konto magazynu. Należy utworzyć konto magazynu w tym samym regionie, w którym planujesz utworzenie klastra usługi HDInsight.
-
-Po utworzeniu konta magazynu użyj następującego polecenia w celu uzyskania kluczy do konta magazynu:
-
-    azure storage account keys list <storageaccountname>
-
-Aby utworzyć kontener, użyj następującego polecenia:
-
-    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-#### <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
+### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 Po [zainstalowaniu i skonfigurowaniu programu Azure PowerShell][powershell-install] można użyć następujących poleceń w wierszu polecenia programu Azure PowerShell, aby utworzyć konto magazynu i kontener:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -159,7 +140,30 @@ Po [zainstalowaniu i skonfigurowaniu programu Azure PowerShell][powershell-insta
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="address-files-in-azure-storage"></a>Adresowanie plików w usłudze Azure Storage
+### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
+Jeśli masz [zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure](../cli-install-nodejs.md), możesz zastosować następujące polecenie do konta magazynu i kontenera.
+
+    azure storage account create <storageaccountname> --type LRS
+
+> [!NOTE]
+> Parametr `--type` wskazuje sposób replikacji konta magazynu. Aby uzyskać więcej informacji, zobacz artykuł [Azure Storage Replication](../storage/storage-redundancy.md) (Replikacja usługi Azure Storage). Nie używaj technologii ZRS, ponieważ nie obsługuje ona stronicowych obiektów blob, plików, tabel ani kolejek.
+> 
+> 
+
+Pojawi się monit o region geograficzny, w którym zostanie utworzone konto magazynu. Należy utworzyć konto magazynu w tym samym regionie, w którym planujesz utworzenie klastra usługi HDInsight.
+
+Po utworzeniu konta magazynu użyj następującego polecenia w celu uzyskania kluczy do konta magazynu:
+
+    azure storage account keys list <storageaccountname>
+
+Aby utworzyć kontener, użyj następującego polecenia:
+
+    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+## <a name="address-files-in-azure-storage"></a>Adresowanie plików w usłudze Azure Storage
 Schemat identyfikatora URI do uzyskiwania dostępu do plików w usłudze Azure Storage z usługi HDInsight to:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
@@ -189,28 +193,10 @@ Jeśli żadna z nazw &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName
 > 
 > 
 
-### <a name="access-blobs-using-azure-cli"></a>Dostęp do obiektów blob za pomocą interfejsu wiersza polecenia platformy Azure
-Użyj następującego polecenia, aby wyświetlić listę poleceń związanych z obiektami blob:
+## <a name="access-blobs"></a>Dostęp do obiektów blob 
 
-    azure storage blob
 
-**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby przekazać plik**
-
-    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby pobrać plik**
-
-    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby usunąć plik**
-
-    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby wyświetlić listę plików**
-
-    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-### <a name="access-blobs-using-azure-powershell"></a>Dostęp do obiektów blob przy użyciu programu Azure PowerShell
+### <a name="access-blobs-using-azure-powershell"></a> Korzystanie z programu Azure PowerShell
 > [!NOTE]
 > Polecenia w tej sekcji stanowią podstawowy przykład użycia programu PowerShell w celu dostępu do danych przechowywanych w obiektach blob. Obszerniejszy przykład dostosowany do pracy z usługą HDInsight znajdziesz w artykule [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools) (Narzędzia usługi HDInsight).
 > 
@@ -262,6 +248,7 @@ Po podaniu nazwy grupy zasobów i nazwy klastra możesz użyć następującego k
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
+
 #### <a name="delete-files"></a>Usuwanie plików
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
@@ -284,80 +271,36 @@ $clusterName = "<HDInsightClusterName>"
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
+### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+Użyj następującego polecenia, aby wyświetlić listę poleceń związanych z obiektami blob:
 
-### <a name="using-additional-storage-accounts"></a>Używanie dodatkowych kont magazynu
+    azure storage blob
+
+**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby przekazać plik**
+
+    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby pobrać plik**
+
+    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby usunąć plik**
+
+    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby wyświetlić listę plików**
+
+    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+## <a name="use-additional-storage-accounts"></a>Używanie dodatkowych kont magazynu
 
 Podczas tworzenia klastra usługi HDInsight należy wskazać konto usługi Azure Storage, które zostanie powiązane z tym klastrem. Oprócz tego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania kolejnych kont magazynu, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]
 > Korzystanie z dodatkowego konta magazynu w innej lokalizacji niż klaster usługi HDInsight nie jest obsługiwane.
 
-## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Korzystanie z usługi Azure Data Lake Store w połączeniu z klastrami usługi HDInsight
-
-Klastry usługi HDInsight mogą używać usługi Azure Data Lake Store na dwa sposoby:
-
-* Usługa Azure Data Lake Store jako magazyn domyślny
-* Usługa Azure Data Lake Store jako magazyn dodatkowy z usługą Azure Storage Blob jako magazynem domyślnym
-
-> [!NOTE]
-> Usługa Azure Data Lake Store jest dostępna wyłącznie przez zabezpieczony kanał, więc nazwa schematu systemu plików `adls` nie jest używana. Zawsze używaj nazwy `adl`.
-> 
-> 
-
-### <a name="using-azure-data-lake-store-as-default-storage"></a>Korzystanie z usługi Azure Data Lake Store jako magazynu domyślnego
-
-Po wdrożeniu usługi HDInsight z usługą Azure Data Lake Store jako magazynem domyślnym pliki dotyczące klastra zostaną zapisane w usłudze Azure Data Lake Store w następującej lokalizacji:
-
-    adl://mydatalakestore/<cluster_root_path>/
-
-gdzie `<cluster_root_path>` to nazwa folderu utworzonego w usłudze Azure Data Lake Store. Określając ścieżkę główną dla każdego klastra, możesz użyć tego samego konta usługi Azure Data Lake Store dla wielu klastrów. Dlatego jest możliwa następująca konfiguracja:
-
-* Klaster1 może używać ścieżki `adl://mydatalakestore/cluster1storage`
-* Klaster2 może używać ścieżki `adl://mydatalakestore/cluster2storage`
-
-Zwróć uwagę, że oba klastry używają tego samego konta usługi Data Lake Store — **mydatalakestore**. Każdy klaster ma dostęp do własnego głównego systemu plików w usłudze Data Lake Store. W środowisku wdrażania witryny Azure Portal zostanie wyświetlony monit o użycie nazwy folderu, takiej jak **/clusters/\<nazwa_klastra>**, dla ścieżki głównej.
-
-#### <a name="accessing-files-from-the-cluster"></a>Dostęp do plików z klastra
-
-Istnieją różne sposoby dostępu do plików w usłudze Azure Data Lake Store z klastra usługi HDInsight.
-
-* **Przy użyciu w pełni kwalifikowanej nazwy**. W przypadku tej metody należy podać pełną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
-
-        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/<file_path>
-
-* **Przy użyciu skróconego formatu ścieżki**. W przypadku tej metody należy zastąpić ścieżkę do katalogu głównego klastra prefiksem adl:///. W powyższym przykładzie można zastąpić ścieżkę `adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/` prefiksem `adl:///`.
-
-        adl:///<file path>
-
-* **Przy użyciu ścieżki względnej**. W przypadku tej metody należy podać tylko względną ścieżkę do pliku, do którego chcesz uzyskać dostęp. Na przykład jeśli pełna ścieżka do pliku to:
-
-        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/example/data/sample.log
-
-    Dostęp do tego samego pliku sample.log można uzyskać zamiast tego za pomocą tej ścieżki względnej.
-
-        /example/data/sample.log
-
-### <a name="using-azure-data-lake-store-as-additional-storage"></a>Korzystanie z usługi Azure Data Lake Store jako magazynu dodatkowego
-
-Jako dodatkowego magazynu dla klastra można również użyć usługi Data Lake Store. Domyślnym magazynem klastra może wtedy być konto usługi Azure Storage Blob lub Azure Data Lake Store. Jeśli do obsługi danych przechowywanych w usłudze Azure Data Lake Store jako magazynie dodatkowym używasz zadań usługi HDInsight, musisz podać w pełni kwalifikowaną ścieżkę do plików. Na przykład:
-
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
-
-Zwróć uwagę, że teraz w adresie URL nie ma elementu **cluster_root_path**. Przyczyną jest to, że w tym przypadku usługa Data Lake Store nie jest magazynem domyślnym, więc należy tylko podać ścieżkę do plików.
-
-
-### <a name="creating-hdinsight-clusters-with-access-to-data-lake-store"></a>Tworzenie klastrów usługi HDInsight z dostępem do usługi Data Lake Store
-
-Użyj poniższych linków, aby uzyskać szczegółowe instrukcje dotyczące tworzenia klastrów usługi HDInsight z dostępem do usługi Data Lake Store.
-
-* [Korzystanie z portalu](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-* [HDInsight with Data Lake Store as default storage - PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md) (Usługa HDInsight z usługą Data Lake Store jako magazynem domyślnym — PowerShell)
-* [Using PowerShell (with Data Lake Store as additional storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md) (Korzystanie z programu PowerShell z usługą Data Lake Store jako magazynem dodatkowym)
-* [Korzystanie z szablonów platformy Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-
-
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono sposób korzystania z usług Azure Storage i Azure Data Lake Store zgodnych z systemem plików HDFS w połączeniu z usługą HDInsight. Podane tu informacje umożliwiają tworzenie skalowalnych, długoterminowych rozwiązań do pozyskiwania danych archiwalnych i używanie usługi HDInsight w celu efektywnego wykorzystywania informacji przechowywanych w postaci danych ze strukturą i bez niej.
+W tym artykule przedstawiono sposób korzystania z magazynu Azure zgodnego z systemem plików HDFS w połączeniu z usługą HDInsight. Podane tu informacje umożliwiają tworzenie skalowalnych, długoterminowych rozwiązań do pozyskiwania danych archiwalnych i używanie usługi HDInsight w celu efektywnego wykorzystywania informacji przechowywanych w postaci danych ze strukturą i bez niej.
 
 Aby uzyskać więcej informacji, zobacz:
 

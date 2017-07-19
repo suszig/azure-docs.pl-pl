@@ -10,6 +10,8 @@ Utwórz centrum IoT, z którym połączy się symulowana aplikacja urządzenia. 
     ![Blok centrum IoT][2]
    
    1. W polu **Nazwa** wprowadź nazwę centrum IoT. Jeśli **nazwa** jest prawidłowa i dostępna, w polu **Nazwa** widoczny jest zielony znacznik.
+    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+   
    1. Wybierz pozycję [Warstwa cenowa i warstwa skali][lnk-pricing]. W tym samouczku nie jest wymagane użycie określonej warstwy. Do celów tego samouczka użyj bezpłatnej warstwy F1.
    1. W obszarze **Grupa zasobów** utwórz grupę zasobów lub wybierz istniejącą. Więcej informacji można znaleźć w temacie [Using resource groups to manage your Azure resources][lnk-resource-groups] (Używanie grup zasobów do zarządzania zasobami platformy Azure).
    1. W obszarze **Lokalizacja** wybierz lokalizację hostowania centrum IoT. Do celów tego samouczka wybierz najbliższą lokalizację.

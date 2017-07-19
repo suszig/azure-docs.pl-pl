@@ -1,5 +1,4 @@
 ---
-
 title: "Raporty dotyczące logowań w portalu usługi Azure Active Directory | Microsoft Docs"
 description: "Wprowadzenie do raportów dotyczących logowań w portalu Azure Active Directory"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
@@ -37,6 +36,17 @@ Architektura raportowania w usłudze Azure Active Directory obejmuje następują
     - **Użytkownicy oflagowani w związku z ryzykiem** — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. Aby uzyskać więcej informacji, zobacz Użytkownicy oflagowani w związku z ryzykiem.
 
 Ten temat zawiera przegląd działań dotyczących logowania.
+
+## <a name="pre-requisite"></a>Wymagania wstępne
+
+### <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
+* Użytkownicy w roli administratora zabezpieczeń lub czytelnika zabezpieczeń
+* Administratorzy globalni
+* Dowolny użytkownik (inny niż administrator) może uzyskać dostęp do danych na temat własnych logowań 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do informacji dotyczących logowania?
+* Dzierżawca musi mieć skojarzoną licencję usługi Azure AD w wersji Premium, aby wyświetlić pełny raport o wszystkich operacjach logowania
+
 
 ## <a name="signs-in-activities"></a>Działania związane z logowaniem
 

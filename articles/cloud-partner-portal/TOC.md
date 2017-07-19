@@ -33,3 +33,5 @@
 ## [Zarządzanie profilem wydawcy](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Zarządzanie użytkownikami](./cloud-partner-portal-manage-users.md)
 ## [Uzyskiwanie pomocy technicznej](./cloud-partner-portal-support-for-cloud-partner-portal.md)
+# Zasoby
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)

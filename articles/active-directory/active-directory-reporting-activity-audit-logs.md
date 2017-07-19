@@ -1,5 +1,4 @@
 ---
-
 title: "Raporty dotyczące inspekcji w portalu usługi Azure Active Directory | Microsoft Docs"
 description: "Wprowadzenie do raportów dotyczących inspekcji w portalu usługi Azure Active Directory"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące inspekcji w portalu usługi Azure Active Directory 
@@ -38,6 +37,10 @@ Architektura raportowania w usłudze Azure AD obejmuje następujące składniki:
 
 Ten temat zawiera przegląd działań dotyczących inspekcji.
  
+## <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
+* Użytkownicy w roli administratora zabezpieczeń lub czytelnika zabezpieczeń
+* Administratorzy globalni
+* Poszczególni użytkownicy (inni niż administratorzy) mogą wyświetlać dane na temat własnych działań
 
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
@@ -102,10 +105,11 @@ Filtr **Kategoria** umożliwia wybranie jednego z następujących filtrów:
 - Katalog podstawowy
 - Samoobsługowe zarządzanie hasłami
 - Samoobsługowe zarządzanie grupami
-- Aprowizacja kont
-- Automatyczne przenoszenie haseł
+- Aprowizacja kont — automatyczne przerzucanie haseł
 - Zaproszeni użytkownicy
 - Usługa MIM
+- Identity Protection
+- B2C
 
 Filtr **Typ zasobu działania** umożliwia wybranie jednego z następujących filtrów:
 
@@ -124,148 +128,9 @@ Jeśli wybierzesz opcję **Grupa** w pozycji **Typ zasobu działania**, uzyskasz
 - O365
 
 
-
-
 Filtr **Działanie** jest oparty na wybranej kategorii i typie zasobu działania. Możesz wybrać konkretne działanie, które chcesz zobaczyć, lub wybrać wszystkie działania. 
 
-| Kategoria działania| Typ zasobu działania| Działanie |
-| :-- | :-: | :-- |
-| Katalog podstawowy| Grupa| Usuń ustawienia grupy|
-| Katalog podstawowy| Katalog| Zaktualizuj domenę|
-| Katalog podstawowy| Katalog| Usuń partnera z firmy|
-| Katalog podstawowy| Użytkownik| Zaktualizuj rolę|
-| Katalog podstawowy| Użytkownik| Dodaj rolę z szablonu|
-| Katalog podstawowy| Grupa| Dodaj przypisanie roli aplikacji do grupy|
-| Katalog podstawowy| Grupa| Rozpocznij stosowanie licencji opartej na grupie wobec użytkowników|
-| Katalog podstawowy| Aplikacja| Dodaj nazwę główną usługi|
-| Katalog podstawowy| Zasady| Zaktualizuj zasady|
-| Katalog podstawowy| Zasady| Dodaj zasady do nazwy głównej usługi|
-| Katalog podstawowy| Urządzenie| Dodaj zarejestrowanego właściciela do urządzenia|
-| Katalog podstawowy| Urządzenie| Dodaj zarejestrowanych użytkowników do urządzenia|
-| Katalog podstawowy| Urządzenie| Zaktualizuj konfigurację urządzenia|
-| Samoobsługowe zarządzanie hasłami| Użytkownik| Resetuj hasło (samoobsługa)|
-| Samoobsługowe zarządzanie hasłami| Użytkownik| Odblokuj konto użytkownika (samoobsługa)|
-| Samoobsługowe zarządzanie hasłami| Użytkownik| Resetuj hasło (przez administratora)|
-| Samoobsługowe zarządzanie grupami| Grupa| Usuń oczekujące żądanie dołączenia do grupy|
-| Aprowizacja kont| Aplikacja| Przetwórz depozyt|
-| Automatyczne przenoszenie haseł| Aplikacja| Automatyczne przenoszenie haseł|
-| Zaproszeni użytkownicy| Inne| Zaproszenia zbiorcze przetworzone|
-| Katalog podstawowy| Katalog| Usuń zweryfikowaną domenę|
-| Katalog podstawowy| Katalog| Dodaj niezweryfikowaną domenę|
-| Katalog podstawowy| Katalog| Dodaj zweryfikowaną domenę|
-| Katalog podstawowy| Katalog| Ustaw funkcję katalogu w dzierżawie|
-| Katalog podstawowy| Katalog| Ustaw flagę Dirsyncenabled|
-| Katalog podstawowy| Katalog| Utwórz ustawienia firmy|
-| Katalog podstawowy| Katalog| Zaktualizuj ustawienia firmy|
-| Katalog podstawowy| Katalog| Usuń ustawienia firmy|
-| Katalog podstawowy| Katalog| Ustaw lokalizację danych dozwoloną przez firmę|
-| Katalog podstawowy| Katalog| Włącz funkcję międzynarodową firmy|
-| Katalog podstawowy| Użytkownik| Zaktualizuj użytkownika|
-| Katalog podstawowy| Użytkownik| Usuń użytkownika|
-| Katalog podstawowy| Grupa| Usuń element członkowski z grupy|
-| Katalog podstawowy| Grupa| Ustaw licencję grupy|
-| Katalog podstawowy| Grupa| Utwórz ustawienia grupy|
-| Katalog podstawowy| Aplikacja| Zaktualizuj nazwę główną usługi|
-| Katalog podstawowy| Aplikacja| Usuń aplikację|
-| Katalog podstawowy| Aplikacja| Zaktualizuj aplikację|
-| Katalog podstawowy| Aplikacja| Usuń nazwę główną usługi|
-| Katalog podstawowy| Aplikacja| Dodaj poświadczenia nazwy głównej usługi|
-| Katalog podstawowy| Aplikacja| Usuń przypisanie roli aplikacji z nazwy głównej usługi|
-| Katalog podstawowy| Aplikacja| Usuń właściciela z aplikacji|
-| Katalog podstawowy| Urządzenie| Usuń zarejestrowanego właściciela z urządzenia|
-| Samoobsługowe zarządzanie hasłami| Użytkownik| Postęp działania przepływu samoobsługowego resetowania hasła|
-| Aprowizacja kont| Aplikacja| Administracja|
-| Aprowizacja kont| Aplikacja| Operacja katalogu|
-| Usługa MIM| Grupa| Usuń element członkowski|
-| Katalog podstawowy| Zasady| Usuń zasady|
-| Zaproszeni użytkownicy| Użytkownik| Wirusowe tworzenie dzierżawy|
-| Katalog podstawowy| Katalog| Zaktualizuj zewnętrzne wpisy tajne|
-| Katalog podstawowy| Katalog| Ustaw właściwości usługi Rights Management|
-| Katalog podstawowy| Katalog| Zaktualizuj firmę|
-| Katalog podstawowy| Użytkownik| Dodaj użytkownika|
-| Katalog podstawowy| Użytkownik| Konwertuj użytkownika federacyjnego na zarządzanego|
-| Katalog podstawowy| Użytkownik| Utwórz hasło aplikacji dla użytkownika|
-| Katalog podstawowy| Grupa| Dodaj element członkowski do grupy|
-| Katalog podstawowy| Grupa| Dodaj grupę|
-| Katalog podstawowy| Aplikacja| Zgoda na aplikację|
-| Katalog podstawowy| Aplikacja| Dodaj aplikację|
-| Katalog podstawowy| Aplikacja| Dodaj właściciela do nazwy głównej usługi|
-| Katalog podstawowy| Aplikacja| Usuń element Oauth2Permissiongrant|
-| Katalog podstawowy| Zasady| Usuń poświadczenia zasad|
-| Katalog podstawowy| Urządzenie| Usuń konfigurację urządzenia|
-| Samoobsługowe zarządzanie grupami| Grupa| Ustaw właściwości grupy dynamicznej|
-| Samoobsługowe zarządzanie grupami| Grupa| Zaktualizuj zasady zarządzania cyklem życia|
-| Aprowizacja kont| Aplikacja| Akcja reguły synchronizacji|
-| Zaproszeni użytkownicy| Inne| Zaproszenia zbiorcze przekazane|
-| Usługa MIM| Grupa| Dodaj element członkowski|
-| Katalog podstawowy| Użytkownik| Ustaw właściwości licencji|
-| Katalog podstawowy| Użytkownik| Przywróć użytkownika|
-| Katalog podstawowy| Użytkownik| Usuń element członkowski z roli|
-| Katalog podstawowy| Użytkownik| Usuń przypisanie roli aplikacji z użytkownika|
-| Katalog podstawowy| Użytkownik| Usuń element członkowski w zakresie z roli|
-| Katalog podstawowy| Grupa| Zaktualizuj grupę|
-| Katalog podstawowy| Grupa| Dodaj właściciela do grupy|
-| Katalog podstawowy| Grupa| Zakończ stosowanie licencji opartej na grupie wobec użytkowników|
-| Katalog podstawowy| Grupa| Usuń przypisanie roli aplikacji z grupy|
-| Katalog podstawowy| Grupa| Ustaw grupę do zarządzania przez użytkownika|
-| Katalog podstawowy| Aplikacja| Dodaj element Oauth2Permissiongrant|
-| Katalog podstawowy| Aplikacja| Dodaj przypisanie roli aplikacji do nazwy głównej usługi|
-| Katalog podstawowy| Aplikacja| Usuń poświadczenia nazwy głównej usługi|
-| Katalog podstawowy| Zasady| Usuń zasady z nazwy głównej usługi|
-| Katalog podstawowy| Urządzenie| Zaktualizuj urządzenie|
-| Katalog podstawowy| Urządzenie| Dodaj urządzenie|
-| Katalog podstawowy| Urządzenie| Dodaj konfigurację urządzenia|
-| Samoobsługowe zarządzanie hasłami| Użytkownik| Zmień hasło (samoobsługa)|
-| Samoobsługowe zarządzanie hasłami| Użytkownik| Użytkownik zarejestrowany do samoobsługowego resetowania haseł|
-| Samoobsługowe zarządzanie grupami| Grupa| Zatwierdź oczekujące żądanie dołączenia do grupy|
-| Katalog podstawowy| Katalog| Usuń niezweryfikowaną domenę|
-| Katalog podstawowy| Katalog| Zweryfikuj domenę|
-| Katalog podstawowy| Katalog| Ustaw uwierzytelnianie domeny|
-| Katalog podstawowy| Katalog| Ustaw zasady haseł|
-| Katalog podstawowy| Katalog| Dodaj partnera do firmy|
-| Katalog podstawowy| Katalog| Podwyższ poziom firmy do partnera|
-| Katalog podstawowy| Katalog| Ustaw partnerstwo|
-| Katalog podstawowy| Katalog| Ustaw próg przypadkowego usunięcia|
-| Katalog podstawowy| Katalog| Obniż poziom partnera|
-| Zaproszeni użytkownicy| Użytkownik| Zaproś użytkownika zewnętrznego|
-| Aprowizacja kont| Aplikacja| Import|
-| Katalog podstawowy| Aplikacja| Usuń właściciela z nazwy głównej usługi|
-| Katalog podstawowy| Urządzenie| Usuń zarejestrowanych użytkowników z urządzenia|
-| Katalog podstawowy| Katalog| Ustaw informacje o firmie|
-| Katalog podstawowy| Katalog| Określ ustawienia federacyjne w domenie|
-| Katalog podstawowy| Katalog| Utwórz firmę|
-| Katalog podstawowy| Katalog| Przeczyść właściwości usługi Rights Management|
-| Katalog podstawowy| Katalog| Ustaw funkcję Dirsync|
-| Katalog podstawowy| Katalog| Sprawdź pocztę e-mail zweryfikowanej domeny|
-| Katalog podstawowy| Użytkownik| Zmień licencję użytkownika|
-| Katalog podstawowy| Użytkownik| Zmień hasło użytkownika|
-| Katalog podstawowy| Użytkownik| Zresetuj hasło użytkownika|
-| Katalog podstawowy| Użytkownik| Dodaj przypisanie roli aplikacji do użytkownika|
-| Katalog podstawowy| Użytkownik| Dodaj element członkowski do roli|
-| Katalog podstawowy| Użytkownik| Usuń hasło aplikacji dla użytkownika|
-| Katalog podstawowy| Użytkownik| Zaktualizuj poświadczenia użytkownika|
-| Katalog podstawowy| Użytkownik| Ustaw menedżera użytkowników|
-| Katalog podstawowy| Użytkownik| Dodaj element członkowski w zakresie do roli|
-| Katalog podstawowy| Grupa| Usuń grupę|
-| Katalog podstawowy| Grupa| Usuń właściciela z grupy|
-| Katalog podstawowy| Grupa| Zaktualizuj ustawienia grupy|
-| Katalog podstawowy| Aplikacja| Dodaj właściciela do aplikacji|
-| Katalog podstawowy| Aplikacja| Wycofaj zgodę|
-| Katalog podstawowy| Zasady| Dodaj zasady|
-| Katalog podstawowy| Urządzenie| Usuń urządzenie|
-| Samoobsługowe zarządzanie hasłami| Użytkownik| Zablokowano dostęp do samoobsługowego resetowania haseł|
-| Samoobsługowe zarządzanie grupami| Grupa| Zażądaj dołączenia do grupy|
-| Samoobsługowe zarządzanie grupami| Grupa| Utwórz zasady zarządzania cyklem życia|
-| Samoobsługowe zarządzanie grupami| Grupa| Odrzuć oczekujące żądanie dołączenia do grupy|
-| Samoobsługowe zarządzanie grupami| Grupa| Anuluj oczekujące żądanie dołączenia do grupy|
-| Samoobsługowe zarządzanie grupami| Grupa| Odnów grupę|
-| Aprowizacja kont| Aplikacja| Eksportowanie|
-| Aprowizacja kont| Aplikacja| Inne|
-| Zaproszeni użytkownicy| Użytkownik| Zrealizuj zaproszenie zewnętrznego użytkownika|
-| Zaproszeni użytkownicy| Użytkownik| Wirusowe tworzenie użytkownika|
-| Zaproszeni użytkownicy| Użytkownik| Przypisz użytkownika zewnętrznego do aplikacji|
-
-
+Listę wszystkich działań związanych z inspekcją można uzyskać przy użyciu interfejsu API programu Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, gdzie $tenantdomain = nazwa Twojej domeny. Jest ona również przedstawiona w artykule [Zdarzenia raportów inspekcji](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
 ## <a name="audit-logs-shortcuts"></a>Skróty dzienników inspekcji
@@ -274,9 +139,6 @@ Poza usługą **Azure Active Directory** witryna Azure Portal zapewnia dwa dodat
 
 - Użytkownicy i grupy
 - Aplikacje dla przedsiębiorstw
-
-Pełną listę działań raportu z inspekcji można znaleźć na [liście zdarzeń raportu z inspekcji](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
 
 ### <a name="users-and-groups-audit-logs"></a>Dzienniki inspekcji użytkowników i grup
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 7c70129ebf4bacc28400cf68418bf898e4e646d2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -43,7 +44,7 @@ Do wykonania kroków tego samouczka jest potrzebna aktywna subskrypcja platformy
 
 1. Zaloguj się w witrynie azureiotsuite.com przy użyciu poświadczeń konta platformy Azure i kliknij pozycję „**+**”, aby utworzyć rozwiązanie.
 2. Kliknij pozycję **Wybierz** na kafelku **Połączona fabryka**.
-3. W polu **Nazwa rozwiązania** wprowadź nazwę wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego.
+3. W polu **Nazwa rozwiązania** wprowadź nazwę wstępnie skonfigurowanego rozwiązania dla połączonej fabryki.
 4. W polach **Subskrypcja** i **Region** wybierz wartości, których chcesz użyć do aprowizacji rozwiązania.
 5. Kliknij pozycję **Utwórz rozwiązanie**, aby rozpocząć proces aprowizowania. Zwykle trwa on kilka minut.
 
@@ -83,7 +84,7 @@ Pulpit nawigacyjny pozwala zarządzać wdrożonym rozwiązaniem. Jest to hierarc
 
 Pulpit nawigacyjny udostępnia następujące informacje:
 
-* Panel **Lista fabryk**, który przedstawia stan, lokalizację i bieżącą konfigurację produkcji w rozwiązaniu. Przy pierwszym uruchomieniu rozwiązania dostępnych jest kilka symulowanych urządzeń. Symulacja linii produkcyjnej składa się z trzech prawdziwych serwerów OPC UA na każdą linię produkcyjną, które wykonują symulowane zadania i udostępniają dane. 
+* Panel **Lista fabryk**, który przedstawia stan, lokalizację i bieżącą konfigurację produkcji w rozwiązaniu. Przy pierwszym uruchomieniu rozwiązania dostępnych jest kilka symulowanych urządzeń. Symulacja linii produkcyjnej składa się z trzech prawdziwych serwerów OPC UA na każdą linię produkcyjną, które wykonują symulowane zadania i udostępniają dane. Aby uzyskać więcej informacji na temat OPC UA, zobacz [FAQ][lnk-faq].
 * **Mapę** zawierającą lokalizację każdego urządzenia połączonego z rozwiązaniem. Rozwiązanie może korzystać z interfejsu API usługi Mapy Bing do wykreślania informacji na mapie. Jeśli subskrypcja obejmuje interfejs API usługi Mapy Bing w wersji Enterprise, ta funkcja jest używana automatycznie. W przeciwnym razie zobacz [Często zadawane pytania][lnk-faq], aby dowiedzieć się, jak utworzyć dynamiczną mapę.
 * Panel **Alerty**, na którym są wyświetlane alerty generowane, gdy wartość telemetrii lub ogólnej wydajności sprzętu bądź kluczowego wskaźnika wydajności przekroczy określony próg.
 * Panel **Ogólna wydajność sprzętu**, na którym są pokazane wartości ogólnej wydajności sprzętu dla całego przedsiębiorstwa lub przeglądanej fabryki/linii produkcyjnej/stacji. Ta wartość jest agregowana od widoku stacji do poziomu przedsiębiorstwa. Dane ogólnej wydajności sprzętu i jej składowe elementy można dokładniej analizować.
@@ -303,7 +304,7 @@ Teraz, kiedy zostało wdrożone wstępnie skonfigurowane rozwiązanie, które dz
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

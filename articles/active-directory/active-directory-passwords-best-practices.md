@@ -6,20 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 328537b2bfbe15a23a9199bbb3c07851eaa85390
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 5f3900aef2b432527454da72f3ff15e533543758
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="roll-out-password-reset-for-users"></a>Wdrażanie resetowania haseł dla użytkowników
@@ -28,19 +29,20 @@ Większość klientów wykonuje poniższe kroki, aby zapewnić sobie bezproblemo
 
 1. [Włączanie resetowania haseł w katalogu](active-directory-passwords-getting-started.md)
 2. [Konfigurowanie lokalnych uprawnień usługi AD do zapisywania zwrotnego haseł](active-directory-passwords-how-it-works.md#active-directory-permissions)
-3. [Przypisywanie i weryfikowanie wymaganych licencji](active-directory-passwords-licensing.md)
-4. Jeśli chcesz przeprowadzić wdrożenie stopniowe, możesz opcjonalnie ograniczyć możliwość resetowania haseł do grupy użytkowników, aby powoli wdrażać funkcję w miarę upływu czasu. W tym celu zmień ustawienie przełącznika **Funkcja samoobsługowego resetowania hasła jest włączona** z opcji **Wszyscy** na opcję **Grupa** i wybierz grupę zabezpieczeń, dla której ma być włączone resetowanie haseł. Wszyscy członkowie tej grupy muszą mieć przypisaną licencję. Jest to doskonały sposób na włączenie [licencjonowania bazującego na grupach](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-5. Wypełnij minimalny zestaw [danych uwierzytelniania](active-directory-passwords-data.md) zgodnie z używanymi zasadami.
-6. Naucz użytkowników korzystać z samoobsługowego resetowania haseł, wysyłając im instrukcje rejestrowania i resetowania.
+3. [Konfigurowanie zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback) w celu zapisywania haseł z usługi Azure AD z powrotem w katalogu lokalnym
+4. [Przypisywanie i weryfikowanie wymaganych licencji](active-directory-passwords-licensing.md)
+5. Jeśli chcesz przeprowadzić wdrożenie stopniowe, możesz opcjonalnie ograniczyć możliwość resetowania haseł do grupy użytkowników, aby powoli wdrażać funkcję w miarę upływu czasu. W tym celu zmień ustawienie przełącznika **Funkcja samoobsługowego resetowania hasła jest włączona** z opcji **Wszyscy** na opcję **Grupa** i wybierz grupę zabezpieczeń, dla której ma być włączone resetowanie haseł. Wszyscy członkowie tej grupy muszą mieć przypisaną licencję. Jest to doskonały sposób na włączenie [licencjonowania bazującego na grupach](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
+6. Wypełnij minimalny zestaw [danych uwierzytelniania](active-directory-passwords-data.md) zgodnie z używanymi zasadami.
+7. Naucz użytkowników korzystać z samoobsługowego resetowania haseł, wysyłając im instrukcje rejestrowania i resetowania.
     > [!NOTE]
     > Przetestuj samoobsługowe resetowanie haseł na koncie użytkownika. Nie rób tego na koncie administratora, ponieważ firma Microsoft narzuca silne wymagania w zakresie uwierzytelniania dla kont administratorów platformy Azure. Aby uzyskać więcej informacji na temat zasad haseł administratorów, zobacz nasz [szczegółowy artykuł](active-directory-passwords-how-it-works.md).
 
-7. Możesz zdecydować się na wymuszanie rejestracji w dowolnym punkcie i wymagać od użytkowników ponownego potwierdzania ich informacji uwierzytelniających po określonym czasie. Jeśli nie chcesz, aby Twoi użytkownicy musieli się rejestrować, możesz [wdrożyć resetowanie haseł bez wymagania rejestracji użytkowników końcowych](active-directory-passwords-data.md).
-8. Co jakiś czas przeglądaj użytkowników rejestrujących się i korzystających z tej funkcji, wyświetlając [raporty udostępniane przez usługę Azure AD](active-directory-passwords-reporting.md).
+8. Możesz zdecydować się na wymuszanie rejestracji w dowolnym punkcie i wymagać od użytkowników ponownego potwierdzania ich informacji uwierzytelniających po określonym czasie. Jeśli nie chcesz, aby Twoi użytkownicy musieli się rejestrować, możesz [wdrożyć resetowanie haseł bez wymagania rejestracji użytkowników końcowych](active-directory-passwords-data.md).
+9. Co jakiś czas przeglądaj użytkowników rejestrujących się i korzystających z tej funkcji, wyświetlając [raporty udostępniane przez usługę Azure AD](active-directory-passwords-reporting.md).
 
 ## <a name="email-based-rollout"></a>Wdrożenie bazujące na poczcie e-mail
 
-Wielu klientów uważa, że kampania e-mail z prostymi do zastosowania instrukcjami to najłatwiejsza metoda zachęcenia użytkowników do korzystania z samoobsługowego resetowania haseł. Przygotowaliśmy trzy proste wiadomości e-mail, których możesz użyć jako szablonów w swoim wdrożeniu.
+Wielu klientów uważa, że kampania e-mail z prostymi do zastosowania instrukcjami to najłatwiejsza metoda zachęcenia użytkowników do korzystania z samoobsługowego resetowania haseł. [Przygotowaliśmy trzy proste wiadomości e-mail, których możesz użyć jako szablonów w swoim wdrożeniu.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
 * Szablon wiadomości e-mail **Dostępne wkrótce** do zastosowania w tygodniach lub dniach poprzedzających wdrażanie w celu powiadomienia użytkowników o tym, że mają coś zrobić.
 * Szablon wiadomości e-mail **Już dostępne** do zastosowania w dzień uruchomienia, aby zachęcić użytkowników do rejestracji i potwierdzenia swoich danych uwierzytelniania, co pozwoli im skorzystać z samoobsługowego resetowania haseł, gdy będą tego potrzebować.

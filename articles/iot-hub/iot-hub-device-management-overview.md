@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.contentlocale: pl-pl
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -64,7 +65,7 @@ W każdym z tych pięciu etapów istnieje kilka wymagań dotyczących operatora 
     *Dalsze informacje*: [Use direct methods][lnk-c2d-methods] (Używanie metod bezpośrednich), [Invoke a direct method on a device][lnk-methods-devguide] (Wywoływanie metody bezpośredniej względem urządzenia), [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [Planowanie i emitowanie zadań][lnk-jobs], [Planowanie zadań na wielu urządzeniach][lnk-jobs-devguide].
 * **Monitorowanie**: monitorowanie ogólnej kondycji kolekcji urządzeń i stanu trwających operacji w celu ostrzegania operatorów o problemach, które mogą wymagać ich uwagi.  Zastosuj bliźniaczą reprezentacją urządzenia, aby umożliwić urządzeniom raportowanie w czasie rzeczywistym warunków pracy i stanu operacji aktualizacji. Twórz zaawansowane raporty pulpitu nawigacyjnego, które służą do udostępniania najważniejszych w danym momencie problemów przy użyciu zapytań bliźniaczych reprezentacji urządzeń.
   
-    *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [IoT Hub query language for device twins and jobs][lnk-query-language] (Język zapytań usługi IoT Hub dla bliźniaczych reprezentacji urządzeń i zadań).
+    *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [IoT Hub query language for device twins, jobs, and message routing][lnk-query-language] (Język zapytań usługi IoT Hub dla bliźniaczych reprezentacji urządzeń, zadań i routingu wiadomości).
 * **Wycofywanie**: wymiana lub likwidacja urządzeń po awarii albo po zakończeniu cyklu uaktualniania lub okresu istnienia usługi.  Użyj bliźniaczej reprezentacji urządzenia, aby zarządzać informacjami o urządzeniu, jeśli trwa zastępowanie urządzenia fizycznego lub jeśli jest ono archiwizowane w przypadku wycofywania. Za pomocą rejestru tożsamości usługi IoT Hub można bezpiecznie odwołać tożsamości i poświadczenia urządzeń.
   
     *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [Manage device identities][lnk-identity-registry] (Zarządzanie tożsamościami urządzeń).
