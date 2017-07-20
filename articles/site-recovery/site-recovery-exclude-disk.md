@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/06/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="exclude-disks-from-replication"></a>Wykluczanie dysków z replikacji
@@ -51,7 +50,7 @@ Podobnie za pomocą następujących kroków możesz zoptymalizować dysk zawiera
 ## <a name="how-to-exclude-disks-from-replication"></a>Jak wykluczać dyski z replikacji?
 
 ### <a name="vmware-to-azure"></a>Z programu VMware do platformy Azure
-Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-vmware-to-azure.md#enable-replication), aby chronić maszynę wirtualną z portalu usługi Azure Site Recovery. W czwartym kroku przepływu pracy wyklucz dyski z replikacji za pomocą kolumny **DYSK DO REPLIKACJI**. Domyślnie do replikacji są wybierane wszystkie dyski. Usuń zaznaczenie pola wyboru dysków, które chcesz wykluczyć z replikacji, a następnie wykonaj kroki w celu włączenia replikacji.
+Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-vmware-to-azure.md), aby chronić maszynę wirtualną z portalu usługi Azure Site Recovery. W czwartym kroku przepływu pracy wyklucz dyski z replikacji za pomocą kolumny **DYSK DO REPLIKACJI**. Domyślnie do replikacji są wybierane wszystkie dyski. Usuń zaznaczenie pola wyboru dysków, które chcesz wykluczyć z replikacji, a następnie wykonaj kroki w celu włączenia replikacji.
 
 ![Wykluczanie dysków z replikacji i włączanie replikacji na potrzeby powrotu po awarii z programu VMware do platformy Azure](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 
@@ -67,7 +66,7 @@ Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-vmw
 >
 
 ### <a name="hyper-v-to-azure"></a>Z funkcji Hyper-V do platformy Azure
-Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-hyper-v-site-to-azure.md#enable-replication), aby chronić maszynę wirtualną z portalu usługi Azure Site Recovery. W czwartym kroku przepływu pracy wyklucz dyski z replikacji za pomocą kolumny **DYSK DO REPLIKACJI**. Domyślnie do replikacji są wybierane wszystkie dyski. Usuń zaznaczenie pola wyboru dysków, które chcesz wykluczyć z replikacji, a następnie wykonaj kroki w celu włączenia replikacji.
+Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-hyper-v-site-to-azure.md), aby chronić maszynę wirtualną z portalu usługi Azure Site Recovery. W czwartym kroku przepływu pracy wyklucz dyski z replikacji za pomocą kolumny **DYSK DO REPLIKACJI**. Domyślnie do replikacji są wybierane wszystkie dyski. Usuń zaznaczenie pola wyboru dysków, które chcesz wykluczyć z replikacji, a następnie wykonaj kroki w celu włączenia replikacji.
 
 ![Wykluczanie dysków z replikacji i włączanie replikacji na potrzeby powrotu po awarii z funkcji Hyper-V do platformy Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
+ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 669ed9465e4ce4539b8aa642b4dc0eca6bad128a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
@@ -200,8 +199,8 @@ Więcej informacji znajduje się w temacie [Rozszerzenia katalogów](active-dire
 ### <a name="enabling-single-sign-on-sso"></a>Włączanie logowania jednokrotnego
 Konfigurowanie logowania jednokrotnego na użytek synchronizacji haseł lub uwierzytelniania przekazywanego to prosty proces, który trzeba wykonać tylko raz dla każdego lasu synchronizowanego w usłudze Azure AD. Konfiguracja obejmuje następujące dwa kroki:
 
-1.    Utworzenie niezbędnego konta komputera w lokalnej usłudze Active Directory.
-2.    Skonfigurowanie obsługi logowania jednokrotnego w strefie intranetowej na maszynach klienckich.
+1.  Utworzenie niezbędnego konta komputera w lokalnej usłudze Active Directory.
+2.  Skonfigurowanie obsługi logowania jednokrotnego w strefie intranetowej na maszynach klienckich.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Tworzenie konta komputera w usłudze Active Directory
 Dla każdego lasu dodanego za pomocą programu Azure AD Connect trzeba podać poświadczenia administratora domeny, aby konto komputera mogło zostać utworzone w każdym lesie. Poświadczenia są używane tylko w celu utworzenia konta i nie są przechowywane ani używane w kontekście innych operacji. Wystarczy dodać poświadczenia na stronie **Włącz logowanie jednokrotne** kreatora Azure AD Connect, jak pokazano poniżej:
@@ -215,20 +214,20 @@ Dla każdego lasu dodanego za pomocą programu Azure AD Connect trzeba podać po
 Aby klient logował się automatycznie w strefie intranetowej, upewnij się, że dwa adresy URL są częścią strefy intranetowej. Dzięki temu komputer przyłączony do domeny automatycznie wyśle bilet protokołu Kerberos do usługi Azure AD po połączeniu z siecią firmową.
 Na komputerze, na którym są zainstalowane narzędzia do zarządzania zasadami grupy:
 
-1.    Otwórz narzędzia do zarządzania zasadami grupy.
-2.    Poddaj edycji zasady grupy, które zostaną zastosowane do wszystkich użytkowników. Mogą to być na przykład domyślne zasady domeny.
-3.    Przejdź do obszaru **Konfiguracja użytkownika\Szablony administracyjne\Składniki systemu Windows\Internet Explorer\Internetowy panel sterowania\Strona zabezpieczeń** i wybierz pozycję **Lista przypisywanie witryn do stref** (jak na poniższym obrazie).
-4.    Włącz zasady, a następnie wprowadź dwa poniższe elementy w oknie dialogowym.
+1.  Otwórz narzędzia do zarządzania zasadami grupy.
+2.  Poddaj edycji zasady grupy, które zostaną zastosowane do wszystkich użytkowników. Mogą to być na przykład domyślne zasady domeny.
+3.  Przejdź do obszaru **Konfiguracja użytkownika\Szablony administracyjne\Składniki systemu Windows\Internet Explorer\Internetowy panel sterowania\Strona zabezpieczeń** i wybierz pozycję **Lista przypisywanie witryn do stref** (jak na poniższym obrazie).
+4.  Włącz zasady, a następnie wprowadź dwa poniższe elementy w oknie dialogowym.
 
-        Wartość:`https://autologon.microsoftazuread-sso.com`  
-        Dane: 1  
-        Wartość:`https://aadg.windows.net.nsatc.net`  
-        Dane: 1
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
 
-5.    Zawartość okna powinna wyglądać mniej więcej tak:  
+5.  Zawartość okna powinna wyglądać mniej więcej tak:  
 ![Strefy intranetowe](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    Dwa razy kliknij przycisk **OK**.
+6.  Dwa razy kliknij przycisk **OK**.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurowanie federacji przy użyciu usług AD FS
 Konfigurowanie usług AD FS przy użyciu programu Azure AD Connect jest proste — wystarczy kilka kliknięć. Przed przystąpieniem do konfiguracji potrzebne są następujące elementy:

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0bab12648a31b416bd7ceca75f0f83f5da226bad
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Rozwiązania usługi Batch i HPC dla dużych obciążeń obliczeniowych
@@ -93,7 +93,7 @@ W tej sekcji znajdziesz więcej informacji na temat obliczeń, danych, sieci i p
 Usługi obliczeniowe Azure stanowią podstawę rozwiązania do obsługi dużych obliczeń. Różne usługi obliczeniowe zapewniają korzyści w różnych scenariuszach. Na poziomie podstawowym usługi te oferują różne tryby uruchamiania aplikacji w wystąpieniach obliczeniowych opartych na maszynach wirtualnych udostępnianych przez platformę Azure przy użyciu technologii Windows Server Hyper-V. W tych wystąpieniach można uruchamiać standardowe i niestandardowe systemy operacyjne Linux i Windows oraz obsługiwane w nich narzędzia. Platforma Azure umożliwia wybór [rozmiarów wystąpień](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) z różnymi konfiguracjami rdzeni procesora CPU, pamięci, pojemności dysku i innych właściwościach. Zależnie od potrzeb wystąpienia można skalować do tysięcy rdzeni, a następnie skalować w dół, jeśli potrzebnych będzie mniej zasobów.
 
 > [!NOTE]
-> Skorzystaj z [wystąpień platformy Azure intensywnie korzystających z mocy obliczeniowej, takich jak seria H](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), aby zwiększyć wydajność i skalowalność obciążeń HPC. Te wystąpienia obsługują także równoległe aplikacje MPI, które wymagają sieci aplikacji o wysokiej wydajności i małym opóźnieniu. Dostępne są również maszyny wirtualne [serii N](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) z procesorami GPU firmy NVIDIA na potrzeby rozszerzenia zakresu scenariuszy operacji obliczeniowych i wizualizacji na platformie Azure.  
+> Skorzystaj z [wystąpień platformy Azure intensywnie korzystających z mocy obliczeniowej, takich jak seria H](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), aby zwiększyć wydajność i skalowalność obciążeń HPC. Te wystąpienia obsługują także równoległe aplikacje MPI, które wymagają sieci aplikacji o wysokiej wydajności i małym opóźnieniu. Dostępne są również maszyny wirtualne [serii N](../virtual-machines/windows/sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) z procesorami GPU firmy NVIDIA na potrzeby rozszerzenia zakresu scenariuszy operacji obliczeniowych i wizualizacji na platformie Azure.  
 > 
 > 
 

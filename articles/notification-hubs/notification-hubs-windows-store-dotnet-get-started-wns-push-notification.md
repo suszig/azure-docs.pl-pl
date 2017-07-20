@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d59348a0f794b3989fe9b1ce457b2f7a85b3b7a9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9353ad6df121ebd2e92a5d34214c32e852ed60a3
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/05/2017
 
 
 ---
@@ -49,31 +51,31 @@ Aby wysyłać powiadomienia wypychane do aplikacji UWP, należy skojarzyć aplik
 1. Jeśli nie zarejestrowano jeszcze aplikacji, przejdź do [Centrum deweloperów systemu Windows](https://dev.windows.com/overview), zaloguj się przy użyciu konta Microsoft, a następnie kliknij pozycję **Utwórz nową aplikację**.
 2. Wpisz nazwę aplikacji i kliknij pozycję **Rezerwuj nazwę aplikacji**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
    
-       This creates a new Windows Store registration for your app.
+   Spowoduje to utworzenie nowej rejestracji aplikacji w Sklepie Windows.
 3. W programie Visual Studio utwórz nowy projekt aplikacji ze Sklepu w języku Visual C# za pomocą szablonu **Pusta aplikacja** i kliknij pozycję **OK**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
 4. Zaakceptuj wartości domyślne dla wersji platformy docelowej i minimalnej.
 5. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji ze Sklepu Windows i kliknij pozycję **Sklep**, a następnie kliknij pozycję **Skojarz aplikację ze sklepem...**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
 
-       The **Associate Your App with the Windows Store** wizard appears.
+   Zostanie wyświetlony kreator **Kojarzenie aplikacji ze Sklepem Windows**.
 
 1. W kreatorze kliknij pozycję **Zaloguj**, a następnie zaloguj się przy użyciu konta Microsoft.
 2. Kliknij aplikację zarejestrowaną w kroku 2, kliknij przycisk **Dalej**, a następnie kliknij pozycję **Skojarz**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
    
-       This adds the required Windows Store registration information to the application manifest.
+   Spowoduje to dodanie wymaganych informacji dotyczących rejestracji w Sklepie Windows do manifestu aplikacji.
 3. Ponownie na stronie [Centrum deweloperów systemu Windows](http://go.microsoft.com/fwlink/p/?LinkID=266582) dla nowej aplikacji kliknij pozycję **Usługi**, **Powiadomienia wypychane** i **Witryna usług Live** w obszarze **Usługi powiadomień WNS i Microsoft Azure Mobile Apps**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
 4. Na stronie rejestracji aplikacji zanotuj hasło **Klucz tajny aplikacji** oraz **identyfikator zabezpieczeń pakietu (SID)** znajdujący się w ustawieniach platformy **Sklep Windows**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
 
      > [AZURE.WARNING]
     Klucz tajny aplikacji i identyfikator SID pakietu są ważnymi poświadczeniami zabezpieczeń. Nie udostępniaj nikomu tych wartości ani nie rozpowszechniaj ich razem z aplikacją.
@@ -136,7 +138,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą WNS i u
     Gwarantuje to, że identyfikator URI kanału jest rejestrowany w centrum powiadomień przy każdym uruchomieniu aplikacji.
 6. Naciśnij klawisz **F5**, aby uruchomić aplikację. Zostanie wyświetlone podręczne okno dialogowe zawierające klucz rejestracji.
    
-       ![][19]
+     ![][19]
 
 Aplikacja jest teraz gotowa do odbierania wyskakujących powiadomień.
 
@@ -160,7 +162,7 @@ Aby wysłać powiadomienia za pomocą aplikacji konsolowej programu .NET, wykona
 
 1. Kliknij prawym przyciskiem myszy rozwiązanie, wybierz polecenie **Dodaj** i pozycję **Nowy projekt...**, a następnie w obszarze **Visual C#** kliknij pozycję **Windows** i pozycję **Aplikacja konsolowa**, a następnie kliknij przycisk **OK**.
    
-       ![][13]
+     ![][13]
    
     Spowoduje to dodanie nowej aplikacji konsolowej w języku Visual C# do rozwiązania. Można to również zrobić w oddzielnym rozwiązaniu.
 2. W programie Visual Studio kliknij kolejno pozycje **Narzędzia**, **Menedżer pakietów NuGet**, **Konsola menedżera pakietów**.
@@ -198,7 +200,7 @@ Aby wysłać powiadomienia za pomocą aplikacji konsolowej programu .NET, wykona
          Console.ReadLine();
 7. Kliknij prawym przyciskiem myszy projekt aplikacji konsolowej w programie Visual Studio, a następnie kliknij polecenie **Ustaw jako projekt startowy**, aby ustawić go jako projekt startowy. Następnie naciśnij klawisz **F5**, aby uruchomić aplikację.
    
-       ![][14]
+     ![][14]
    
     Otrzymasz wyskakujące powiadomienie na wszystkich zarejestrowanych urządzeniach. Kliknięcie lub naciśnięcie baneru powiadomienia wyskakującego spowoduje załadowanie aplikacji.
 
@@ -225,9 +227,4 @@ Więcej ogólnych informacji o usłudze Notification Hubs zawiera temat [Wskazó
 [wykazu powiadomień wyskakujących]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [wykazu kafelków]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [omówienia znaczków]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
