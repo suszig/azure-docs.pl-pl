@@ -3,7 +3,7 @@ title: "Tworzenie aplikacji platformy uniwersalnej systemu Windows korzystające
 description: "Wykonaj kroki opisane w tym samouczku, aby rozpocząć używanie zapleczy aplikacji mobilnych Azure na potrzeby tworzenia aplikacji platformy uniwersalnej systemu Windows w języku C#, Visual Basic lub JavaScript."
 services: app-service\mobile
 documentationcenter: windows
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 1a031c4858bcbc75ee807ba520e1b22c89471498
+ms.contentlocale: pl-pl
 ms.lasthandoff: 02/16/2017
-
 
 ---
 # <a name="create-a-windows-app"></a>Tworzenie aplikacji systemu Windows
@@ -28,12 +28,12 @@ ms.lasthandoff: 02/16/2017
 W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do aplikacji platformy uniwersalnej systemu Windows. Aby uzyskać więcej informacji, zobacz artykuł [Co to jest usługa Mobile Apps](app-service-mobile-value-prop.md). Poniżej przedstawiono ekrany przechwycone z ukończonej aplikacji:
 
 ![Ukończona aplikacja klasyczna](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
-Uruchamianie na komputerze 
+Uruchamianie na komputerze
 
 ![Ukończona aplikacja na telefon](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)  
 Uruchamianie na telefonie
 
-Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków Aplikacji mobilnych dotyczących aplikacji platformy uniwersalnej systemu Windows. 
+Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków Aplikacji mobilnych dotyczących aplikacji platformy uniwersalnej systemu Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
@@ -43,8 +43,8 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 > [!NOTE]
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/mobile/). W tej lokalizacji możesz od razu utworzyć początkową aplikację mobilną o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
-> 
-> 
+>
+>
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Tworzenie zaplecza nowej Aplikacji mobilnej Azure
 Wykonaj te kroki, aby utworzyć zaplecze nowej Aplikacji mobilnej.
@@ -60,20 +60,20 @@ W ten sposób zainicjowano obsługę zaplecza Aplikacji mobilnej Azure, które m
 Po skonfigurowaniu zaplecza Aplikacji mobilnej można utworzyć nową aplikację klienta lub zmodyfikować istniejącą aplikację w celu nawiązania połączenia z platformą Azure. W tej sekcji można pobrać projekt szablonu aplikacji platformy uniwersalnej systemu Windows zmodyfikowany pod kątem potrzeb nawiązywania połączenia z zapleczem Aplikacji mobilnej.
 
 1. W bloku **Szybki start** dla zaplecza Aplikacji mobilnej kliknij pozycję **Utwórz nową aplikację** > **Pobieranie**, a następnie wyodrębnij skompresowane pliki projektu na komputerze lokalnym.
-   
+
     ![Pobieranie projektu Szybki start systemu Windows](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 2. (Opcjonalnie) Dodaj projekt aplikacji platformy uniwersalnej systemu Windows do tego samego rozwiązania co projekt serwera. Ułatwi to debugowanie oraz testowanie zaplecza i aplikacji w tym samym rozwiązaniu Visual Studio (jeśli chcesz to zrobić). Aby dodać projekt aplikacji platformy uniwersalnej systemu Windows do rozwiązania, musisz korzystać z programu Visual Studio 2015 lub nowszego.
 3. Z aplikacją platformy uniwersalnej systemu Windows jako projektem startowym naciśnij klawisz F5, aby wdrożyć i uruchomić aplikację.
 4. W aplikacji wpisz znaczący tekst, na przykład *Ukończ samouczek* w polu tekstowym **Wstaw czynność do wykonania**, a następnie kliknij pozycję **Zapisz**.
-   
+
     ![Kompletna aplikacja systemu Windows typu Szybki start na komputerze](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
-   
+
     Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure.
 5. (Opcjonalnie) Zatrzymaj aplikację i uruchom ją ponownie na innym urządzeniu lub w emulatorze aplikacji mobilnych.
-   
+
     ![Kompletna aplikacja systemu Windows typu Szybki start na telefonie](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
-   
-    Zauważ, że dane zapisane w poprzednim kroku są ładowane z platformy Azure po uruchomieniu aplikacji platformy uniwersalnej systemu Windows. 
+
+    Zauważ, że dane zapisane w poprzednim kroku są ładowane z platformy Azure po uruchomieniu aplikacji platformy uniwersalnej systemu Windows.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Dodawanie uwierzytelniania do aplikacji](app-service-mobile-windows-store-dotnet-get-started-users.md)  
