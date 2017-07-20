@@ -16,15 +16,13 @@ ms.date: 05/05/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 665f55f79eb6e09bce1b5130efc01c76ccbc9109
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e41c6f544ace374eb1f059c115e585a70265a571
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/06/2017
 
 ---
-<a id="create-a-nodejs-web-app-in-azure" class="xliff"></a>
-
-# Tworzenie aplikacji internetowej Node.js na platformie Azure
+# <a name="create-a-nodejs-web-app-in-azure"></a>Tworzenie aplikacji internetowej Node.js na platformie Azure
 
 Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten samouczek Szybki start przedstawia sposób wdrażania aplikacji Node.js w usłudze Azure Web Apps. Aplikację internetową możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie przykładowego kodu w języku Node.js w aplikacji internetowej.
 
@@ -32,9 +30,7 @@ Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-se
 
 Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux. Po zainstalowaniu wymagań wstępnych wykonanie czynności trwa około pięciu minut.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki Start:
 
@@ -47,9 +43,7 @@ Aby ukończyć ten przewodnik Szybki Start:
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Pobierz przykład
+## <a name="download-the-sample"></a>Pobierz przykład
 
 W oknie terminala uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną.
 
@@ -65,9 +59,7 @@ Przejdź do katalogu, który zawiera przykładowy kod.
 cd nodejs-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
-
-## Lokalne uruchamianie aplikacji
+## <a name="run-the-app-locally"></a>Lokalne uruchamianie aplikacji
 
 Uruchom aplikację lokalnie, otwierając okno terminala i korzystając ze skryptu `npm start` w celu uruchomienia wbudowanego serwera HTTP środowiska Node.js.
 
@@ -135,9 +127,7 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Przechodzenie do aplikacji
+## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
 Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
 
@@ -149,11 +139,9 @@ Przykładowy kod w języku Node.js jest uruchamiany w aplikacji internetowej us�
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację w języku PHP w usłudze App Service.
+**Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację w języku Node.js w usłudze App Service.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## Aktualizowanie i ponowne wdrażanie kodu
+## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
 
 Za pomocą edytora tekstów otwórz plik `index.js` w aplikacji Node.js i wprowadź niewielką zmianę w tekście w wywołaniu `response.end`:
 
@@ -172,9 +160,7 @@ Po zakończeniu wdrożenia przejdź z powrotem do okna przeglądarki otwartego w
 
 ![Zaktualizowana przykładowa aplikacja działająca na platformie Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Zarządzanie nową aplikacją sieci Web platformy Azure
+## <a name="manage-your-new-azure-web-app"></a>Zarządzanie nową aplikacją sieci Web platformy Azure
 
 Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją internetową.
 
@@ -190,9 +176,7 @@ Menu po lewej stronie zawiera różne strony służące do konfigurowania aplika
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Środowisko Node.js z bazą danych MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)

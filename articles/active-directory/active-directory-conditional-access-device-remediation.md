@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.reviewer: jairoc
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 16543c7bb7b6b236dcc24093c9963bc218ca1fa6
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Nie można dostać się tam z tego miejsca na urządzeniu z systemem Windows
@@ -47,7 +47,7 @@ Możesz łatwo sprawdzić, czy dostęp do zasobu jest niemożliwy z powodu nieob
 
 ![Komunikat „Nie można dostać się tam z tego miejsca” dotyczący nieobsługiwanych przeglądarek](./media/active-directory-conditional-access-device-remediation/02.png "Scenariusz")
 
-Jedynym wyjściem jest korzystanie z przeglądarki obsługiwanej przez aplikację na danej platformie sprzętowej. Pełna lista obsługiwanych przeglądarek jest dostępna na stronie [obsługiwanych przeglądarek](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+Jedynym wyjściem jest korzystanie z przeglądarki obsługiwanej przez aplikację na danej platformie sprzętowej. Pełna lista obsługiwanych przeglądarek jest dostępna na stronie [obsługiwanych przeglądarek](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
 
 
 ## <a name="supported-versions-of-windows"></a>Obsługiwane wersje systemu Windows

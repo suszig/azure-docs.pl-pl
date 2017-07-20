@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/7/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: a226bdfeb1e1e70f31b2728db594042578e5f21f
-ms.openlocfilehash: 7ccb76695a6ca0d9f1ff79f05de6a5c071510a43
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Praca z dużymi zestawami skalowania maszyn wirtualnych
@@ -37,8 +38,8 @@ Aby zdecydować, czy aplikacja może w sposób efektywny używać dużych zestaw
 - Duże zestawy skalowania wymagają użycia usługi Azure Managed Disks. Zestawy skalowania, które nie zostaną utworzone za pomocą usługi Managed Disks, wymagają wielu kont magazynu (jednego dla każdych 20 maszyn wirtualnych). Duże zestawy skalowania są przeznaczone do użytku tylko z usługą Managed Disks w celu ograniczenia narzutu związanego z zarządzaniem magazynem oraz uniknięcia ryzyka przekroczenia limitów subskrypcji dla kont magazynu. Jeśli usługa Managed Disks nie jest używana, zestaw skalowania jest ograniczony do 100 maszyn wirtualnych.
 - Zestawy skalowania utworzone na podstawie obrazów portalu Azure Marketplace można skalować w górę do 1000 maszyn wirtualnych.
 - Zestawy skalowania utworzone na podstawie obrazów niestandardowych (samodzielnie utworzone i przekazane obrazy maszyn wirtualnych) można aktualnie skalować w górę do 100 maszyn wirtualnych.
-- Równoważenie obciążenia w warstwie&4; za pomocą usługi Azure Load Balancer nie jest jeszcze obsługiwane dla zestawów skalowania składających się z wielu grup umieszczania. Jeśli konieczne jest użycie usługi Azure Load Balancer, upewnij się, że zestaw skalowania jest skonfigurowany pod kątem używania pojedynczej grupy umieszczania (jest to ustawienie domyślne).
-- Równoważenie obciążenia w warstwie&7; za pomocą usługi Azure Application Gateway jest obsługiwane dla wszystkich zestawów skalowania.
+- Równoważenie obciążenia w warstwie 4 za pomocą usługi Azure Load Balancer nie jest jeszcze obsługiwane dla zestawów skalowania składających się z wielu grup umieszczania. Jeśli konieczne jest użycie usługi Azure Load Balancer, upewnij się, że zestaw skalowania jest skonfigurowany pod kątem używania pojedynczej grupy umieszczania (jest to ustawienie domyślne).
+- Równoważenie obciążenia w warstwie 7 za pomocą usługi Azure Application Gateway jest obsługiwane dla wszystkich zestawów skalowania.
 - Zestaw skalowania jest zdefiniowany z jedną podsiecią — upewnij się, że podsieć ma wystarczająco dużą przestrzeń adresową dla wszystkich wymaganych maszyn wirtualnych. Domyślnie zestaw skalowania w celu poprawy niezawodności i wydajności wdrożenia przeprowadza nadmiarową aprowizację, czyli tworzy dodatkowe maszyny wirtualne w czasie wdrażania lub skalowania w poziomie, za które nie są naliczane opłaty. Przestrzeń adresowa powinna być o 20% większa niż liczba maszyn wirtualnych, do której planowane jest skalowanie.
 - Jeśli planujesz wdrożyć wiele maszyn wirtualnych, konieczne może być zwiększenie limitów przydziału rdzeni obliczeniowych.
 - Domeny błędów i domeny uaktualnień są spójne tylko w ramach grupy umieszczania. Taka architektura nie zmienia ogólnej dostępności zestawu skalowania, ponieważ maszyny wirtualne są równomiernie rozpraszane na różnym sprzęcie fizycznym, ale w celu zagwarantowania, że dwie maszyny wirtualne znajdują się na różnym sprzęcie, upewnij się, że znajdują się one w różnych domenach błędów w tej samej grupie umieszczania. Identyfikatory domeny błędów i grupy umieszczania są wyświetlane w _widoku wystąpienia_ maszyny wirtualnej zestawu skalowania. Widok wystąpienia maszyny wirtualnej zestawu skalowania można otworzyć w [Eksploratorze zasobów Azure](https://resources.azure.com/).
@@ -83,16 +84,7 @@ Pełny przykład szablonu dużego zestawu skalowania znajduje się pod adresem [
 Aby możliwe było skalowanie istniejącego zestawu skalowania maszyn wirtualnych do ponad 100 maszyn wirtualnych, w modelu zestawu skalowania należy zmienić właściwość _singlePlacementGroup_ na wartość _false_. Zmianę tej właściwości można przetestować za pomocą [Eksploratora zasobów Azure](https://resources.azure.com/). Znajdź istniejący zestaw skalowania, wybierz pozycję _Edytuj_ i zmień wartość właściwości _singlePlacementGroup_. Jeśli ta właściwość nie jest widoczna, być może zestaw skalowania jest wyświetlany za pomocą starszej wersji interfejsu API Microsoft.Compute.
 
 >[!NOTE] 
-Zestaw skalowania można zmienić z obsługującego tylko pojedynczą grupę umieszczania (domyślne zachowanie) na obsługujący wiele grup umieszczania, ale nie odwrotnie. W związku z tym przed przeprowadzeniem konwersji zapoznaj się z właściwościami dużych zestawów skalowania. W szczególności upewnij się, że nie jest konieczne używanie równoważenia obciążenia w warstwie&4; za pomocą usługi Azure Load Balancer.
+Zestaw skalowania można zmienić z obsługującego tylko pojedynczą grupę umieszczania (domyślne zachowanie) na obsługujący wiele grup umieszczania, ale nie odwrotnie. W związku z tym przed przeprowadzeniem konwersji zapoznaj się z właściwościami dużych zestawów skalowania. W szczególności upewnij się, że nie jest konieczne używanie równoważenia obciążenia w warstwie 4 za pomocą usługi Azure Load Balancer.
 
-## <a name="additional-notes"></a>Uwagi dodatkowe
-Obsługę dużych zestawów skalowania, zestawów skalowania z dołączonymi dyskami danych oraz usługi Azure Managed Disks dodano w wersji [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) interfejsu API Microsoft.Compute. Można użyć dowolnego zestawu SDK lub narzędzia wiersza polecenia opracowanego przy użyciu tej lub nowszej wersji tego interfejsu API.
-
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: e420d192b6c60aad7523948762ff2762970583ed
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 7303b51a4a107e63e4c6514f7bf8f33a3ba00e39
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---

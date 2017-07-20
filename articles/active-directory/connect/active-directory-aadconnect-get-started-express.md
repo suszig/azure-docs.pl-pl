@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych
@@ -72,10 +73,5 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 | Instalowanie przy użyciu ustawień dostosowanych |
 | Uaktualnianie przy użyciu narzędzia DirSync |
 | Konta używane do instalacji |
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
