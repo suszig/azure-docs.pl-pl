@@ -3,7 +3,7 @@ title: "Wprowadzenie do usługi Azure Mobile Apps dla aplikacji platformy Xamari
 description: "Wykonaj czynności opisane w tym samouczku, aby rozpocząć używanie usługi Azure Mobile Apps do tworzenia aplikacji platformy Xamarin Android."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.contentlocale: pl-pl
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Tworzenie aplikacji platformy Xamarin.Android
@@ -41,8 +41,8 @@ Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących 
 
 > [!NOTE]
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/mobile/).  Możesz od razu utworzyć krótkotrwałą wersję początkową aplikacji mobilnej w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Tworzenie zaplecza Aplikacji mobilnej Azure
 Wykonaj te kroki, aby utworzyć zaplecze aplikacji mobilnej.
@@ -56,19 +56,19 @@ W ten sposób zainicjowano obsługę zaplecza Aplikacji mobilnej Azure, które m
 
 ## <a name="download-and-run-the-xamarinandroid-app"></a>Pobieranie i uruchamianie aplikacji platformy Xamarin.Android
 1. W obszarze **Pobierz i uruchom projekt platformy Xamarin.Android** kliknij przycisk **Pobierz**.
-   
+
       Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
 2. Naciśnij klawisz **F5**, aby skompilować projekt i uruchomić aplikację.
 3. W aplikacji wpisz znaczący tekst, na przykład *Ukończ samouczek*, a następnie kliknij przycisk **Dodaj**.
-   
+
     ![][10]
-   
+
     Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
-   
+
    > [!NOTE]
    > Możesz przejrzeć kod uzyskujący dostęp do zaplecza aplikacji mobilnej w celu wyszukiwania i wstawiania danych. Znajduje się on w pliku C# ToDoActivity.cs.
-   > 
-   > 
+   >
+   >
 
 ## <a name="next-steps"></a>Następne kroki
 * [Dodawanie synchronizacji offline do aplikacji](app-service-mobile-xamarin-android-get-started-offline-data.md)

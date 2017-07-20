@@ -3,7 +3,7 @@ title: "Co to jest usługa Mobile Apps"
 description: "Dowiedz się, jakie korzyści z usługi App Service można osiągać podczas pracy z aplikacjami mobilnymi w przedsiębiorstwie."
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
+author: dhei
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.contentlocale: pl-pl
 ms.lasthandoff: 04/29/2017
-
 
 ---
 # <a name="getting-started"> </a>Czym jest usługa Mobile Apps?
@@ -38,14 +38,14 @@ Funkcja *Mobile Apps* w *Usługa aplikacji Azure* oferuje wysoce skalowalną, gl
 Następujące funkcje są ważnymi elementami tworzenia aplikacji mobilnych z obsługą chmury:
 
 * **Uwierzytelnianie i autoryzacja** — wybieraj z coraz dłuższej listy dostawców tożsamości, obejmującej usługę Azure Active Directory na potrzeby uwierzytelniania w przedsiębiorstwie, a także dostawców sieci społecznościowych, takich jak Facebook, Google, Twitter i konto Microsoft.  Usługa Azure Mobile Apps udostępnia usługę OAuth 2.0 dla każdego dostawcy.  Można również zintegrować zestaw SDK dla dostawcy tożsamości, aby korzystać z funkcji specyficznych dla tego dostawcy.
-  
+
   Dowiedz się więcej na temat naszych [authentication features].
 * **Dostęp do danych** — usługa Azure Mobile Apps oferuje współpracujące z urządzeniami przenośnymi źródło danych OData v3 połączone z usługą SQL Azure lub lokalnym programem SQL Server.  Ta usługa może opierać się na platformie Entity Framework, co pozwoli łatwo zintegrować ją z innymi dostawcami danych NoSQL i SQL, w tym [Azure Table Storage], MongoDB i [DocumentDB], a także dostawcami interfejsów API SaaS, takimi jak Office 365 i Salesforce.com.
 * **Synchronizacja w trybie offline** — nasze zestawy SDK klientów ułatwiają kompilowanie niezawodnych i szybko reagujących aplikacji mobilnych korzystających z zestawu danych w trybie offline, które można automatycznie synchronizować z danymi zaplecza. Uwzględniają one również obsługę rozwiązywania konfliktów.
-  
+
   Dowiedz się więcej na temat naszych [funkcje związane z danymi].
 * **Powiadomienia wypychane** — nasze zestawy SDK klientów są bezproblemowo integrowane z możliwościami rejestracji w usłudze Azure Notification Hubs, co umożliwia wysyłanie powiadomień wypychanych do milionów użytkowników jednocześnie.
-  
+
   Dowiedz się więcej na temat naszych [funkcje powiadomień wypychanych].
 * **Zestawy SDK klientów** — oferujemy kompletny pakiet zestawów SDK klientów, które obsługują tworzenie aplikacji natywnych ([iOS], [Android] i [Windows]), międzyplatformowych ([Xamarin dla systemów iOS i Android], [Xamarin Forms]) i hybrydowych ([Apache Cordova]).  Każdy zestaw SDK klienta jest dostępny z licencją MIT i jest rozwiązaniem typu open source.
 
@@ -53,19 +53,19 @@ Następujące funkcje są ważnymi elementami tworzenia aplikacji mobilnych z ob
 Poniższe funkcje platformy są zazwyczaj przydatne w przypadku witryn produkcyjnych aplikacji mobilnych.
 
 * **Automatyczne skalowanie** — usługa App Service pozwala szybko skalować w górę lub w poziomie, a co za tym idzie — obsługiwać dowolne przychodzące obciążenia klientów. Ręcznie wybierz liczbę i rozmiar maszyn wirtualnych lub skonfiguruj automatyczne skalowanie, aby skalować zaplecze aplikacji mobilnej w oparciu o obciążenie lub harmonogram.
-  
+
   Dowiedz się więcej na temat [automatyczne skalowanie].
 * **Środowiska przejściowe** — usługa App Service może uruchamiać wiele wersji witryny, co umożliwia testowanie A/B, testowanie w środowisku produkcyjnym jako część większego planu metodyki DevOps oraz miejscowe wdrażanie przejściowe nowego zaplecza.
-  
+
   Dowiedz się więcej na temat [środowiska przejściowe].
 * **Ciągłe wdrażanie** — usługę App Service można zintegrować z typowymi systemami SCM, umożliwiając w ten sposób automatyczne wdrażanie nowej wersji zaplecza przez wypchnięcie do gałęzi systemu SCM.
-  
+
   Dowiedz się więcej na temat [opcje wdrożenia].
 * **Praca w sieci wirtualnej** — usługa App Service może nawiązywać połączenia z zasobami lokalnymi przy użyciu sieci wirtualnej, programu ExpressRoute lub połączeń hybrydowych.
-  
+
   Dowiedz się więcej na temat [połączenia hybrydowe], [sieci wirtualnych] i [ExpressRoute].
 * **Środowiska izolowane/specjalne** — usługę App Service można uruchamiać w specjalnym, w pełni izolowanym środowisku, aby bezpiecznie pracować z aplikacjami usługi App Service na dużą skalę.  Jest to idealne rozwiązanie w przypadku obciążeń aplikacji wymagających bardzo dużej skali, izolacji lub bezpiecznego dostępu do sieci.
-  
+
   Dowiedz się więcej na temat [Środowiska usługi App Service].
 
 ## <a name="getting-started"></a>Wprowadzenie
@@ -76,8 +76,8 @@ Aby uzyskać więcej informacji o platformie Azure App Service, zobacz artykuł 
 
 > [!NOTE]
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/mobile/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
-> 
-> 
+>
+>
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
