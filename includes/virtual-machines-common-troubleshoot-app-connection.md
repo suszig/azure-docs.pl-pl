@@ -113,6 +113,10 @@ If you can access the application, ensure that your Internet edge device is allo
 * The outbound application request traffic from your client computer to the Azure virtual machine.
 * The inbound application response traffic from the Azure virtual machine.
 
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Step 4 If you cannot access the application, use IP Verify to check the settings. 
+
+For more information, see [Azure network monitoring overview](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+
 ## <a name="additional-resources"></a>Additional resources
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
