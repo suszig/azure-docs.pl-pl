@@ -1,6 +1,6 @@
 ---
 title: Data transfer tools for Azure Stack storage
-description: Learn about Azure Stack storage data trandfer tools
+description: Learn about Azure Stack storage data transfer tools
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 7/10/2017
 ms.author: xiaofmao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 53933984ba894787407535e436ab2cf66104a9be
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 56d404fa17baa3e9fa345304ad25b6571a5e643e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="data-transfer-tools-for-azure-stack-storage"></a>Data transfer tools for Azure Stack storage
@@ -69,9 +68,9 @@ Azure PowerShell is a module that provides cmdlets for managing services on both
 
 Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md) to learn more.
 
-The current compatible Azure PowerShell module version for Azure Stack is 1.2.9. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+The current compatible Azure PowerShell module version for Azure Stack is 1.2.10. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.9 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.10 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
 
    ```
    # This command gets a specific key for a Storage account, 
