@@ -7,13 +7,18 @@
 ## [Zgodne oprogramowanie innych firm](active-directory-ds-compatible-software.md)
 
 # Rozpoczęcie pracy
-## [Tworzenie grupy administracyjnej](active-directory-ds-getting-started-create-group.md)
-## [Tworzenie lub wybieranie sieci wirtualnej](active-directory-ds-getting-started-vnet.md)
-## [Włączanie usług Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
-## [Aktualizowanie ustawień DNS](active-directory-ds-getting-started-update-dns.md)
-## Włączanie synchronizacji haseł
-### [Dzierżawa tylko w chmurze](active-directory-ds-getting-started-password-sync.md)
-### [Dzierżawa zsynchronizowana](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+## klasyczny portal Azure
+### [Task 1: create the administrator group (Zadanie 1. Tworzenie grupy administratorów)](active-directory-ds-getting-started-create-group.md)
+### [Zadanie 2. Tworzenie lub wybieranie sieci wirtualnej](active-directory-ds-getting-started-vnet.md)
+### [Zadanie 3. Włączanie Usług domenowych Azure AD](active-directory-ds-getting-started-enableaadds.md)
+### [Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej](active-directory-ds-getting-started-update-dns.md)
+### [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
+## Azure Portal (wersja zapoznawcza)
+### [Task 1: configure basic settings (Zadanie 1. Konfigurowanie ustawień podstawowych)](active-directory-ds-getting-started.md)
+### [Task 2: configure network settings (Zadanie 2. Konfigurowanie ustawień sieciowych)](active-directory-ds-getting-started-network.md)
+### [Task 3: configure administrator group and enable Azure AD Domain Services (Zadanie 3. Konfigurowanie grupy administratorów i włączanie usługi Azure AD Domain Services)](active-directory-ds-getting-started-admingroup.md)
+### [Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej](active-directory-ds-getting-started-dns.md)
+### [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
 
 # Instrukcje
 ## Dołączanie do domeny zarządzanej
@@ -23,7 +28,12 @@
 ## Administrowanie domeną zarządzaną
 ### [Administrowanie domeną zarządzaną](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
-### [Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### Konfigurowanie protokołu LDAP dla domeny zarządzanej
+#### [Task 1: obtain a certificate for secure LDAP (Zadanie 1. Uzyskiwanie certyfikatu na potrzeby protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap.md)
+#### [Task 2: export the secure LDAP certificate (Zadanie 2. Eksportowanie certyfikatu protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+#### [Task 3: enable secure LDAP for the managed domain using Azure classic portal (Zadanie 3. Włączanie protokołu Secure LDAP dla domeny zarządzanej przy użyciu klasycznej witryny Azure Portal)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
+#### [Task 3: enable secure LDAP for the managed domain using Azure portal (preview) (Zadanie 3. Włączanie protokołu Secure LDAP dla domeny zarządzanej przy użyciu wersji zapoznawczej witryny Azure Portal)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+
 ### [Tworzenie jednostki organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md)
 ### [Administrowanie zasadami grupy w domenie zarządzanej](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Wybieranie sieci wirtualnej](active-directory-ds-networking.md)
@@ -34,6 +44,8 @@
 ## Rozwiązywanie problemów
 ### [Często zadawane pytania](active-directory-ds-faqs.md)
 ### [Przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md)
+### [Enable the preview Azure portal experience (Włączanie środowiska witryny Azure Portal w wersji zapoznawczej)](active-directory-ds-azure-portal-enable-preview-access.md)
+### [Resolve mismatched tenant errors (Rozwiązywanie błędów dotyczących niezgodnych dzierżaw)](active-directory-ds-mismatched-tenant-error.md)
 
 # Powiązane
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

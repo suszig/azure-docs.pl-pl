@@ -37,13 +37,18 @@
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## File Storage
-### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
+## [File Storage](storage-files-introduction.md)
+### [Portal](storage-file-how-to-use-files-portal.md)
+### [.NET](storage-dotnet-how-to-use-files.md)
+### [PowerShell](storage-file-how-to-use-files-powershell.md)
+### [Windows](storage-file-how-to-use-files-windows.md)
 ### [Linux](storage-how-to-use-files-linux.md)
+### [Mac](storage-file-how-to-use-files-mac.md)  
 ### [Java](storage-java-how-to-use-file-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
-
+### [Tworzenie udziału plików](storage-file-how-to-create-file-share.md)
+### [Często zadawane pytania](storage-files-faq.md)
 ## Disk Storage 
 ### [Tworzenie maszyny wirtualnej przy użyciu usługi Resource Manager i programu PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0](../virtual-machines/linux/quick-create-cli.md)

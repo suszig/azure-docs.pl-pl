@@ -72,13 +72,16 @@
 ### Przykłady
 #### [Tagi](resource-manager-policy-tags.md)
 #### [Konwencje nazewnictwa](resource-manager-policy-naming-convention.md)
+#### [Sieć](resource-manager-policy-network.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Maszyna wirtualna z systemem Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Maszyna wirtualna z systemem Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Korzystanie z aplikacji zarządzanych
-### [Publikowanie aplikacji zarządzanych](managed-application-publishing.md)
-### [Używanie aplikacji zarządzanych](managed-application-consumption.md)
+### [Publish service catalog application (Publikowanie aplikacji w katalogu usług)](managed-application-publishing.md)
+### [Consume service catalog application (Używanie aplikacji w katalogu usług)](managed-application-consumption.md)
+### [Publish marketplace application (Publikowanie aplikacji w witrynie Marketplace)](managed-application-author-marketplace.md)
+### [Consume marketplace application (Używanie aplikacji w witrynie Marketplace)](managed-application-consume-marketplace.md)
 ### [Tworzenie definicji interfejsu użytkownika](managed-application-createuidefinition-overview.md)
 
 ## Inspekcja
@@ -87,6 +90,11 @@
 
 ## Rozwiązywanie problemów
 ### [Typowe błędy związane z wdrażaniem](resource-manager-common-deployment-errors.md)
+### [Understand deployment errors (Informacje o błędach wdrażania)](resource-manager-troubleshoot-tips.md)
+### [RequestDisallowedByPolicy error (Błąd RequestDisallowedByPolicy)](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Błędy wdrożenia maszyny wirtualnej
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Dokumentacja
 ## [Format szablonu](/azure/templates/)

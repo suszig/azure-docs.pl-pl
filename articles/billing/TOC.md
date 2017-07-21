@@ -9,6 +9,8 @@
 ## Monitorowanie użycia i kosztów
 ### [Pobieranie faktur i danych użycia](billing-download-azure-invoice-daily-usage-date.md)
 ### [Opis zawartości rachunku](billing-understand-your-bill.md)
+### [Understand terms on your invoice (Omówienie terminów występujących na fakturze)](billing-understand-your-invoice.md)
+### [Understand terms on your usage (Omówienie terminów występujących w informacjach o użyciu)](billing-understand-your-usage.md)
 ### [Omówienie opłat za usługi zewnętrzne](billing-understand-your-azure-marketplace-charges.md)
 ### [Omówienie limitu wydatków](billing-spending-limit.md)
 ### [Ustawianie alertów dotyczących rozliczeń](billing-set-up-alerts.md)

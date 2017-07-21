@@ -43,8 +43,9 @@
 ### [Instalowanie i konfigurowanie rozwiązania Security as a Service o nazwie Trend Micro Deep](install-trend.md)
 ### [Konfigurowanie zestawu dostępności](configure-availability.md)
 ### [Zmienianie rozmiaru maszyny wirtualnej z systemem Windows utworzonej w klasycznym modelu wdrażania](resize-vm.md)
+### [Maintenance (Konserwacja)](planned-maintenance-schedule.md)
 
-## Zarządzanie
+## Zarządzaj
 ### [Migrowanie z wersji klasycznej do usługi Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 ### [Zarządzanie maszynami wirtualnymi przy użyciu programu Azure PowerShell](manage-psh.md)
 ### [Informacje o agencie i rozszerzeniach maszyny wirtualnej](agents-and-extensions.md)
@@ -55,7 +56,6 @@
 ## Planowanie
 ### [Informacje o obrazach](about-images.md)
 ### [Rozmiary maszyn wirtualnych](../../virtual-machines-windows-sizes.md)
-#### [Informacje o maszynach wirtualnych serii H i intensywnie korzystających z obliczeń maszynach wirtualnych serii A](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Planowana konserwacja maszyn wirtualnych platformy Azure](../../virtual-machines-windows-planned-maintenance.md)
 ### [Wytyczne dotyczące implementacji usług infrastruktury platformy Azure](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [Przesyłanie zadań ze środowiska lokalnego do platformy Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Konfigurowanie środowiska Oracle Data Guard dla platformy Azure](configure-oracle-data-guard.md)
-####[Konfigurowanie środowiska Oracle GoldenGate dla platformy Azure](configure-oracle-goldengate.md)
-####[Różne zagadnienia dotyczące obrazów](oracle-considerations.md)
-####[Lista obrazów maszyn wirtualnych firmy Oracle](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)

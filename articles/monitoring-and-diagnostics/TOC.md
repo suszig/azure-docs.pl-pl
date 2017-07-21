@@ -74,3 +74,4 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Przykłady programu PowerShell](insights-powershell-samples.md)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [Quickstart templates (Szablony szybkiego startu)](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

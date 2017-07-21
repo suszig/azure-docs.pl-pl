@@ -92,7 +92,7 @@
 ### Sposób użycia
 #### [Omówienie](app-insights-usage-overview.md)
 #### [Użytkownicy, sesje, zdarzenia](app-insights-usage-segmentation.md)
-#### [Lejki](app-insights-understand-usage-patterns.md)
+#### [Lejki](usage-funnels.md)
 #### [Przechowywanie](app-insights-usage-retention.md)
 #### [Skoroszyty](app-insights-usage-workbooks.md)
 
@@ -116,6 +116,7 @@
 ## Programowanie
 
 ### [Interfejs API dla niestandardowych zdarzeń i metryk](app-insights-api-custom-events-metrics.md)
+### [Track custom operations in .NET SDK (Śledzenie operacji niestandardowych w zestawie SDK .NET)](application-insights-custom-operations-tracking.md)
 ### [Filtrowanie i wstępne przetwarzanie danych telemetrycznych](app-insights-api-filtering-sampling.md)
 ### [Próbkowanie](app-insights-sampling.md)
 

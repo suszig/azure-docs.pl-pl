@@ -40,6 +40,7 @@
 
 ## Zarządzanie szablonami wielokrotnego użytku
 ### [Dodawanie repozytorium Git dla artefaktów i szablonów](devtest-lab-add-artifact-repo.md)
+### [Use a resource manager template (Używanie szablonu usługi Resource Manager)](devtest-lab-use-resource-manager-template.md)
 ### [Tworzenie niestandardowych artefaktów](devtest-lab-artifact-author.md)
 ### [Zarządzanie formułami](devtest-lab-manage-formulas.md)
 
@@ -65,5 +66,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Cennik](https://azure.microsoft.com/pricing/details/devtest-lab/)
-# Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
