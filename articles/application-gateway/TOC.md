@@ -7,6 +7,7 @@
 ## [Routing adresów URL](application-gateway-url-route-overview.md)
 ## [Wiele witryn](application-gateway-multi-site-overview.md)
 ## [Kompleksowa usługa SSL](application-gateway-backend-ssl.md)
+## [Przekierowania](application-gateway-redirect-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Limity usługi](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Rozpoczęcie pracy
@@ -36,7 +37,9 @@
 ### [Program PowerShell](application-gateway-create-url-route-arm-ps.md)
 ## Konfigurowanie hostingu wielu witryn
 ### [Portal](application-gateway-create-multisite-portal.md)
-### [Program PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+## Konfigurowanie przekierowania
+### [PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Konfigurowanie sond kondycji
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)

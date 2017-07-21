@@ -21,8 +21,6 @@
 #### [Magazyn kolejek i połączone usługi](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Magazyn tabel i połączone usługi](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Konfigurowanie pakietów dla kompilacji ciągłej i wdrażania
-#### [Visual Studio Team Services i Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS i Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurowanie reguł ruchu dla roli](cloud-services-enable-communication-role-instances.md)
 ### [Obsługa zdarzeń cyklu życia usługi w chmurze](cloud-services-role-lifecycle-dotnet.md)

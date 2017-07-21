@@ -87,6 +87,7 @@
 ### Korzystanie z metod bezpośrednich
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-direct-methods.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-direct-methods.md)
+#### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-direct-methods.md)
 ### Wprowadzenie do zarządzania urządzeniami
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-device-management-get-started.md)
@@ -95,6 +96,7 @@
 ### Korzystanie z właściwości bliźniaczych reprezentacji
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
+#### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 ### Aktualizowanie oprogramowania układowego urządzenia za pomocą zadań urządzeń
 #### [Zaplecze środowiska Node/urządzenie środowiska Node](iot-hub-node-node-firmware-update.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-firmware-update.md)
