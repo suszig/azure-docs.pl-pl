@@ -38,6 +38,7 @@
 ##### [Szybki start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Bieżące ograniczenia](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Jak to działa?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Smart Lockout (Inteligentna blokada)](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Często zadawane pytania](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Rozwiązywanie problemów](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Obsługa wielu domen do federowania](active-directory-aadconnect-multiple-domains.md)

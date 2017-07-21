@@ -1,0 +1,144 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentacja usługi Azure Service Fabric
+metadata:
+  title: >-
+    Dokumentacja usługi Azure Service Fabric — samouczki i dokumentacja
+    interfejsu API | Microsoft Docs
+  meta.description: >-
+    Learn how to use Service Fabric middleware platform to package and deploy
+    microservices for cloud-scale applications. Tutorials, API references, and
+    code samples.
+  services: service-fabric
+  author: carolz
+  manager: carolz
+  layout: LandingPage
+  ms.assetid: null
+  ms.service: service-fabric
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: carolz
+abstract:
+  description: >-
+    Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca
+    pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług i kontenerów
+    oraz zarządzanie nimi. Deweloperzy i administratorzy mogą uniknąć złożonych
+    problemów związanych z infrastrukturą i skoncentrować się na implementowaniu
+    wymagających obciążeń o znaczeniu strategicznym, które są skalowalne,
+    niezawodne i łatwe w zarządzaniu. Dowiedz się, jak używać usługi Azure
+    Service Fabric, korzystając z przewodników Szybki start, samouczków i
+    przykładów.
+  aside:
+    image:
+      alt: null
+      height: 140
+      src: >-
+        https://sec.ch9.ms/ch9/cf61/aa41e58e-ec9f-4f7b-982d-40daaaeacf61/IntroAzureServiceFabric_960.jpg
+      width: 250
+    title: 'Wprowadzenie do usługi Service Fabric (3:53)'
+    href: 'https://azure.microsoft.com/en-us/resources/videos/azure-service-fabric/'
+    width: 250
+sections:
+  - title: 5-minutowe przewodniki Szybki start
+    items:
+      - type: paragraph
+        text: >-
+          Dowiedz się, jak wdrożyć pierwszą aplikację usługi Service Fabric w
+          chmurze:
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: >-
+                https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg
+            text: .NET
+            href: >-
+              https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-dotnet
+  - title: Samouczki krok po kroku
+    items:
+      - type: paragraph
+        text: >-
+          Dowiedz się, jak wdrażać i monitorować bezpiecznie aplikacje sieci Web
+          na platformie Azure i zarządzać nimi
+      - type: list
+        style: ordered
+        items:
+          - html: >-
+              <a href="service-fabric-tutorial-create-dotnet-app">Deploy a .NET
+              application (Wdrażanie aplikacji .NET)</a>
+          - html: >-
+              <a href="service-fabric-tutorial-create-cluster-azure-ps">Lift and
+              shift an existing .NET application (Migracja istniejącej aplikacji
+              .NET metodą „lift-and-shift”)</a>
+  - title: Bezpłatne szkolenie wideo firmy PluralSight
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Programowanie przy użyciu platformy .NET
+            href: >-
+              https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+            image:
+              src: >-
+                https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
+              href: >-
+                https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+          - title: Architektura i wzorce chmury
+            href: >-
+              https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+            image:
+              src: >-
+                https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
+              href: >-
+                https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+  - title: Przykłady
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Przykłady skryptów
+            html: >-
+              <p><a href="service-fabric-powershell-samples">Azure
+              PowerShell</a></p>
+          - title: .NET
+            html: >-
+              <p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-getting-started/">Rozpoczęcie
+              pracy</a></p><p><a
+              href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Voting
+              (Głosowanie)</a></p><p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-web-reference-app/">Web
+              reference</a></p><p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-watchdog-service/">Watchdog</a></p>
+          - title: Java
+            html: >-
+              <p><a
+              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-java-getting-started/">Rozpoczęcie
+              pracy</a></p>
+  - title: Dokumentacja
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Wiersz polecenia
+            html: >-
+              <p><a href="/cli/azure/sf">Interfejs wiersza polecenia platformy
+              Azure</a></p><p><a
+              href="/powershell/module/azurerm.servicefabric">PowerShell
+              (Azure)</a></p><p><a
+              href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+          - title: Języki
+            html: >-
+              <p><a href="/java/api/overview/azure/servicefabric">Interfejs API
+              języka Java</a></p><p><a
+              href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
+          - title: REST
+            html: >-
+              <p><a href="/rest/api/servicefabric">Dokumentacja interfejsu API
+              REST</a></p>

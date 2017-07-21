@@ -32,6 +32,7 @@
 ### [Polecenia cmdlet programu PowerShell usługi Batch](batch-powershell-cmdlets-get-started.md)
 ### [Interfejs wiersza polecenia platformy Azure](batch-cli-get-started.md)
 #### [Tworzenie konta usługi Batch](./scripts/batch-cli-sample-create-account.md)
+#### [Run Batch jobs without code (Uruchamianie zadań wsadowych bez kodu)](batch-cli-templates.md)
 #### [Dodawanie aplikacji](./scripts/batch-cli-sample-add-application.md)
 #### [Zarządzanie pulami](./scripts/batch-cli-sample-manage-pool.md)
 #### [Uruchamianie zadań i podzadań](./scripts/batch-cli-sample-run-job.md)

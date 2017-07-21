@@ -1,9 +1,9 @@
 # Omówienie
 ## [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
-## [Wybieranie wersji](active-directory-editions.md)
 ## [Informacje o zarządzaniu tożsamościami na platformie Azure](identity-fundamentals.md)
 ## [Omówienie rozwiązań do obsługi tożsamości na platformie Azure](understand-azure-identity-solutions.md)
 ## [Wybieranie rozwiązania tożsamości hybrydowej](choose-hybrid-identity-solution.md)
+## [Często zadawane pytania](active-directory-faq.md)
 
 # Rozpoczęcie pracy
 ## [Uzyskiwanie dzierżawy usługi Azure AD](active-directory-howto-tenant.md)
@@ -18,22 +18,18 @@
 #### [Migrowanie użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
 #### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
 #### [Przykłady programu PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
-## [Często zadawane pytania](active-directory-faq.md)
 ## [Jak uzyskać pomoc techniczną dla usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Samouczki integracji aplikacji SaaS](active-directory-saas-tutorial-list.md)
-
-
 
 # Instrukcje
 ## Planowanie i projektowanie
 ### [Omówienie architektury usługi Azure AD](active-directory-architecture.md)
-### [Zabezpieczanie zasad poczty e-mail i konfiguracji](secure-email-introduction.md)
-#### [Zalecane zasady](secure-email-recommended-policies.md)
-#### [Wdrażanie zasad i konfiguracji](secure-email-deploy-recommended-policies.md)
-#### [Opisy usług pakietu EMS i usługi Office 365](secure-email-ems-office365-service-descriptions.md)
+### [Recommended security policies and configurations (Zalecane zasady zabezpieczeń i konfiguracje)](secure-email-introduction.md)
+#### [Secure email recommended policies (Zalecane zasady zabezpieczania poczty e-mail)](secure-email-recommended-policies.md)
+##### [Deploy recommended secure email policies (Wdrażanie zalecanych zasad zabezpieczania poczty e-mail)](secure-email-deploy-recommended-policies.md)
+#### [EMS and Office 365 services overview (Omówienie usług EMS i Office 365)](secure-email-ems-office365-service-descriptions.md)
 ### [Wdrażanie rozwiązania tożsamości hybrydowej](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Mapowanie oświadczeń w usłudze Azure Active Directory](active-directory-claims-mapping.md)
-
 #### Określanie wymagań
 ##### [Tożsamość](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Synchronizacja katalogów](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -105,13 +101,16 @@
 ### [Narażeni użytkownicy](active-directory-reporting-security-user-at-risk.md)
 ### [Ryzykowne logowania](active-directory-reporting-security-risky-sign-ins.md)
 ### [Zdarzenia ryzyka](active-directory-reporting-risk-events.md)
-### [Przechowywanie](active-directory-reporting-retention.md)
-### [Czasy oczekiwania](active-directory-reporting-latencies-azure-portal.md)
 ### [Często zadawane pytania](active-directory-reporting-faq.md)
 ### Zadania
 #### [Konfigurowanie nazwanych lokalizacji](active-directory-named-locations.md)
 #### [Znajdowanie raportów aktywności](active-directory-reporting-migration.md)
-#### [Używanie pakietu zawartości usługi Power BI dla usługi Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)  
+#### [Używanie pakietu zawartości usługi Power BI dla usługi Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
+### Dokumentacja
+#### [Przechowywanie](active-directory-reporting-retention.md)
+#### [Czasy oczekiwania](active-directory-reporting-latencies-azure-portal.md)
+#### [Powiadomienia](active-directory-reporting-notifications.md)
+#### [Sign-in activity error codes (Kody błędów działań logowania)](active-directory-reporting-activity-sign-ins-errors.md)
 ### Rozwiązywanie problemów
 #### [Brak danych inspekcji](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Brak danych do pobrania](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -123,23 +122,6 @@
 #### [Przykłady inspekcji](active-directory-reporting-api-audit-samples.md)
 #### [Przykłady logowania](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Używanie certyfikatów](active-directory-reporting-api-with-certificates.md)
-### [Portal klasyczny](active-directory-view-access-usage-reports.md)
-#### [Raportowanie usługi Azure AD](active-directory-reporting-getting-started.md)
-#### [Przewodnik po raportowaniu](active-directory-reporting-guide.md)
-#### [Znane sieci](active-directory-known-networks.md)
-#### [Interfejs API](active-directory-reporting-api-getting-started.md)
-##### [Wymagania wstępne](active-directory-reporting-api-prerequisites.md)
-#### [Inspekcja zdarzeń](active-directory-reporting-audit-events.md)
-#### [Czasy oczekiwania](active-directory-reporting-latencies.md)
-#### [Powiadomienia](active-directory-reporting-notifications.md)
-#### Objaśnienie raportów
-##### [Nieregularne logowanie](active-directory-reporting-irregular-sign-in-activity.md)
-##### [Wiele błędów](active-directory-reporting-sign-ins-after-multiple-failures.md)
-##### [Podejrzane adresy IP](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-##### [Wiele lokalizacji geograficznych](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-##### [Urządzenia, które mogą być zainfekowane](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-##### [Nieznane źródła](active-directory-reporting-sign-ins-from-unknown-sources.md)
-##### [Nieprawidłowe logowanie](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Zarządzanie hasłami](active-directory-passwords-overview.md)
 ### Dokumenty użytkowników
@@ -219,6 +201,7 @@
 #### Przewodniki dotyczące publikowania
 ##### [Pulpit zdalny](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Teams](application-proxy-teams.md)
 #### [Rozwiązywanie problemów](active-directory-application-proxy-troubleshoot.md)
 #### Korzystanie z portalu klasycznego
 ##### [Pobieranie łączników](application-proxy-enable-classic-portal.md)

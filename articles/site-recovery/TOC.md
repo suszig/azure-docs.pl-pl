@@ -122,6 +122,7 @@
 ### [Zarządzanie serwerami przetwarzania skalowanymi w poziomie](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Zarządzanie serwerami vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Usuwanie serwerów i wyłączanie ochrony](site-recovery-manage-registration-and-protection.md)
+### [Delete Recovery Services vault (Usuwanie magazynu usługi Recovery Services)](delete-vault.md)
 
 ## Monitorowanie i rozwiązywanie problemów
 ### [Problemy z replikacją Azure–Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)

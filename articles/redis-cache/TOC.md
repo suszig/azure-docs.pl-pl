@@ -34,6 +34,7 @@
 ###[Dostawca wyjściowej pamięci podręcznej](cache-aspnet-output-cache-provider.md)
 ## Zarządzanie
 ###[Konfigurowanie w portalu](cache-configure.md)
+###[Konfigurowanie replikacji geograficznej](cache-how-to-geo-replication.md)
 ###[Importowanie/eksportowanie danych](cache-how-to-import-export-data.md)
 ###[Ponowne uruchamianie](cache-administration.md#reboot)
 ###[Aktualizacje harmonogramu](cache-administration.md#schedule-updates)

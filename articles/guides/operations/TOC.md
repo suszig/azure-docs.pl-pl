@@ -74,7 +74,7 @@
 
 ### [Azure Blob Storage](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](../../storage/storage-dotnet-how-to-use-files.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
 ### [Jak używać usługi Azure File Storage z systemem Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Rozpoczynanie pracy z usługą Azure Table Storage](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Rozpoczynanie pracy z usługą Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

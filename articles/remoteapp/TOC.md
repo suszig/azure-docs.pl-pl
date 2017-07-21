@@ -25,6 +25,7 @@
 # Instrukcje
 
 ## [Migrowanie danych użytkownika z usługi Azure RemoteApp](remoteapp-migrate.md)
+## [Migrate to MyCloudIT (Migrowanie na platformę MyCloudIT)](remoteapp-migrate-mycloudit.md)
 ## [Migrowanie do usługi Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Tworzenie kolekcji usługi RemoteApp
 ### [Której kolekcji potrzebujesz?](remoteapp-collections.md)

@@ -20,6 +20,7 @@
 ### [Monitorowanie maszyn wirtualnych za pomocą diagnostycznego rozszerzenia maszyny wirtualnej w wersji 2.x](diagnostic-extension-v2.md)
 ### [Wstawianie niestandardowych danych](inject-custom-data.md)
 ### [Resetowanie haseł lub kluczy systemu Linux, naprawianie kluczy SSH i sprawdzanie dysków](reset-access.md)
+### [Maintenance (Konserwacja)](planned-maintenance-schedule.md)
 ### [Tworzenie hosta platformy Docker przy użyciu interfejsu wiersza polecenia](cli-use-docker.md)
 ### [Tworzenie hosta platformy Docker przy użyciu portalu](portal-use-docker.md)
 ### [Jak używać platformy Docker przy użyciu koordynatora Swarm](../../virtual-machines-linux-docker-swarm.md)

@@ -50,6 +50,7 @@
 #### [Indeksy](sql-data-warehouse-tables-index.md)
 #### [Tożsamość](sql-data-warehouse-tables-identity.md)
 #### [Partycje](sql-data-warehouse-tables-partition.md)
+#### [Replicated tables (Zreplikowane tabele)](design-guidance-for-replicated-tables.md)
 #### [Statystyki](sql-data-warehouse-tables-statistics.md)
 #### [Tymczasowe](sql-data-warehouse-tables-temporary.md)
 

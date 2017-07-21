@@ -14,8 +14,9 @@
 ### [Informacje na temat szablonów zestawów dostępności](virtual-machine-scale-sets-mvss-start.md)
 ### [Korzystanie z istniejącej sieci wirtualnej](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Korzystanie z obrazu niestandardowego](virtual-machine-scale-sets-mvss-custom-image.md)
+### [Use guest-based autoscaling with a Linux scale set template (Używanie skalowania automatycznego na podstawie gościa za pomocą szablonu zestawu skalowania systemu Linux)](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
-## Wdrażanie
+## Wdrożenie
 ### [Tworzenie przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)
 ### [Tworzenie przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Tworzenie przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
@@ -32,10 +33,11 @@
 ## Zarządzanie
 ### [Zestaw skalowania systemu Windows korzystający z programu PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Automatyczne skalowanie i zestawy skalowania](virtual-machine-scale-sets-autoscale-overview.md)
+### [Zaawansowane automatyczne skalowanie](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Skalowanie w pionie w zestawie skalowania](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Uaktualnienia dla zestawów skalowania](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Zaawansowane automatyczne skalowanie](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Korzystanie z DSC i zestawy skalowania](virtual-machine-scale-sets-dsc.md)
+### [Networking for scale sets (Sieć dla zestawów skalowania)](virtual-machine-scale-sets-networking.md)
 ### [Konwertowanie szablonu na dyski zarządzane](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Rozwiązywanie problemów

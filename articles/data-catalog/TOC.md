@@ -20,6 +20,8 @@
 ## [Zarządzanie zasobami danych](data-catalog-how-to-manage.md)
 ## [Zapisywanie wyszukiwań i przypinanie zasobów danych](data-catalog-how-to-save-pin.md)
 ## [Konfigurowanie słownika biznesowego](data-catalog-how-to-business-glossary.md)
+## [Secure access to data catalog (Zabezpieczony dostęp do katalogu danych)](data-catalog-how-to-secure-catalog.md)
+## [View related data assets (Wyświetlanie powiązanych zasobów danych)](data-catalog-how-to-view-related-data-assets.md) 
 
 # Dokumentacja
 ## [REST](/rest/api/datacatalog/)

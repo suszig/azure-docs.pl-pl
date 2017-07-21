@@ -14,6 +14,7 @@
 ### [Omówienie optymalizacji](cdn-optimization-overview.md)
 ####[Optymalizacja dużych plików](cdn-large-file-optimization.md)
 ####[Optymalizacja przesyłania strumieniowego multimediów](cdn-media-streaming-optimization.md)
+####[Przyspieszanie witryn dynamicznych](cdn-dynamic-site-acceleration.md)
  
 ## Zarządzaj
 ### [Włączanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
@@ -58,6 +59,9 @@
 
 # Zasoby
 ##  [Dokumentacja aparatu reguł](cdn-rules-engine-reference.md)
+### [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
+### [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
+### [Warunki dopasowań aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
 ## [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -65,6 +69,4 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
-### [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
-### [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
-### [Warunki dopasowań aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
+

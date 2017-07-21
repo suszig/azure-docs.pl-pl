@@ -2,17 +2,20 @@
 
 ## [Co to jest usługa Container Registry?](container-registry-intro.md)
 
-# Wprowadzenie
-## [Tworzenie rejestru w portalu](container-registry-get-started-portal.md)
-## [Tworzenie rejestru przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-registry-get-started-azure-cli.md)
-## [Tworzenie rejestru przy użyciu programu Azure PowerShell](container-registry-get-started-powershell.md)
-## [Wypychanie i ściąganie obrazu](container-registry-get-started-docker-cli.md)
-## [Wyświetlanie repozytoriów](container-registry-repositories.md)
+# Rozpoczęcie pracy
+## [Create a registry - portal (Tworzenie rejestru — portal)](container-registry-get-started-portal.md)
+## [Create a managed registry - portal (Tworzenie rejestru zarządzanego — portal)](container-registry-managed-get-started-portal.md)
+## [Create a registry - CLI (Tworzenie rejestru — interfejs wiersza polecenia)](container-registry-get-started-azure-cli.md)
+## [Create a managed registry - CLI (Tworzenie rejestru zarządzanego — interfejs wiersza polecenia)](container-registry-managed-get-started-azure-cli.md)
+## [Create a registry - PowerShell (Tworzenie rejestru — PowerShell)](container-registry-get-started-powershell.md)
 
 # Instrukcje
 
+## [Wypychanie i ściąganie obrazu](container-registry-get-started-docker-cli.md)
+## [Wyświetlanie repozytoriów](container-registry-repositories.md)
 ## [Tworzenie jednostki usługi](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 ## [Uwierzytelnianie przy użyciu rejestru](container-registry-authentication.md)
+## [Use ACR webhooks (Używanie elementów webhook rekordów ACR)](./container-registry-webhook.md)
 
 # Dokumentacja
 

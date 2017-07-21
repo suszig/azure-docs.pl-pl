@@ -1,4 +1,5 @@
 # [Omówienie](media-services-overview.md)
+## [Scenarios and availability (Scenariusze i dostępność)](scenarios-and-availability.md)
 ## [Pojęcia](media-services-concepts.md)
 
 # Rozpoczęcie pracy
@@ -132,14 +133,13 @@
 ### [Korzystanie z partnerów w celu dostarczania licencji Widevine do usługi Media Services](media-services-licenses-partner-integration.md)
 ### [Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine](media-services-protect-with-drm.md)
 ### [Przesyłanie strumieniowe zawartości chronionej przez moduł HLS z użyciem technologii FairPlay firmy Apple](media-services-protect-hls-with-fairplay.md)
+### [Hybrid design of DRM subsystem (Hybrydowy projekt podsystemu DRM)](hybrid-design-drm-sybsystem.md)
 ### [Szyfrowanie CENC przy użyciu technologii Multi-DRM i kontroli dostępu](media-services-cenc-with-multidrm-access-control.md)
 ### [Korzystanie z rozwiązania Axinom w celu dostarczania licencji Widevine do usługi Media Services](media-services-axinom-integration.md)
 ### [Korzystanie z rozwiązania castLabs w celu dostarczania licencji Widevine do usługi Media Services](media-services-castlabs-integration.md)
-
-### Dostarczanie elementów zawartości
-#### Konfigurowanie zasad dostarczania elementów zawartości
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Konfigurowanie zasad dostarczania elementów zawartości
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Tworzenie kluczy zawartości
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -152,6 +152,7 @@
 ### [Analizowanie multimediów za pomocą portalu](media-services-portal-analyze.md)
 ### [Przetwarzanie za pomocą indeksatora w wersji 2](media-services-process-content-with-indexer2.md)
 ### [Przetwarzanie za pomocą indeksatora](media-services-index-content.md)
+#### [Task preset (Ustawienie wstępne zadania)](indexer-task-preset.md)
 ### [Przetwarzanie za pomocą usługi Hyperlapse](media-services-hyperlapse-content.md)
 ### [Przetwarzanie za pomocą usługi Face Detector](media-services-face-and-emotion-detection.md)
 ### [Przetwarzanie za pomocą usługi Motion Detector](media-services-motion-detection.md)

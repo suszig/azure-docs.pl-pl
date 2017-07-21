@@ -61,6 +61,9 @@
 ### [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [Jednostki SKU bramy (stare)](vpn-gateway-about-skus-legacy.md)
+## Konfigurowanie urządzeń sieci VPN innych firm
+### [Overview & Azure configuration (Omówienie i konfiguracja platformy Azure)](vpn-gateway-3rdparty-device-config-overview.md)
+### [Sample: Cisco ASA device (IKEv2/no BGP) (Przykład: Urządzenie ASA Cisco [IKEv2/bez protokołu BGP])](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## Rozwiązywanie problemów
 ### [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Ustawienia sieci VPN lub urządzenia zapory sugerowane przez społeczność](vpn-gateway-third-party-settings.md)
