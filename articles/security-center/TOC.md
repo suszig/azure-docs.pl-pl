@@ -19,6 +19,7 @@
 
 ## Zapobieganie
 ### [Ustawianie zasad zabezpieczeń](security-center-policies.md)
+### [Just in time access (Dostęp dokładnie na czas)](security-center-just-in-time.md)
 ### [Zalecenia dotyczące implementowania zabezpieczeń](security-center-recommendations.md)
 
 ### [Zalecenia dotyczące aplikacji](security-center-application-recommendations.md)
