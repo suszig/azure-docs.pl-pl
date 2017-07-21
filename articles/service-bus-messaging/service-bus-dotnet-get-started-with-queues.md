@@ -20,16 +20,11 @@ ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: pl-pl
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-service-bus-queues" class="xliff"></a>
-
-# Wprowadzenie do kolejek usługi Service Bus
+# <a name="get-started-with-service-bus-queues"></a>Wprowadzenie do kolejek usługi Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Co zostanie osiągnięte?
+## <a name="what-will-be-accomplished"></a>Co zostanie osiągnięte?
 Ten samouczek obejmuje następujące kroki:
 
 1. Utworzenie przestrzeni nazw usługi Service Bus za pomocą usługi Azure Portal.
@@ -37,50 +32,36 @@ Ten samouczek obejmuje następujące kroki:
 3. Napisanie aplikacji konsolowej służącej do wysyłania komunikatu.
 4. Napisanie aplikacji konsolowej służącej do odbierania komunikatów wysyłanych w poprzednim kroku.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 1. [Program Visual Studio w wersji 2015 lub nowszej](http://www.visualstudio.com). W przykładach znajdujących się w tym samouczku używany jest program Visual Studio 2017.
 2. Subskrypcja platformy Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
 Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już utworzona, przejdź do sekcji [Tworzenie kolejki za pomocą usługi Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
-
-## 2. Tworzenie kolejki za pomocą usługi Azure Portal
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Tworzenie kolejki za pomocą usługi Azure Portal
 Jeśli kolejka usługi Service Bus została już utworzona, przejdź do sekcji [Wysyłanie komunikatów do kolejki](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-<a id="3-send-messages-to-the-queue" class="xliff"></a>
-
-## 3. Wysyłanie komunikatów do kolejki
+## <a name="3-send-messages-to-the-queue"></a>3. Wysyłanie komunikatów do kolejki
 Aby wysyłać komunikaty do kolejki, napiszemy aplikację konsolową w języku C# za pomocą programu Visual Studio.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Tworzenie aplikacji konsolowej
+### <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
 Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Dodawanie pakietu NuGet usługi Service Bus
+### <a name="add-the-service-bus-nuget-package"></a>Dodawanie pakietu NuGet usługi Service Bus
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
 2. Kliknij kartę **Przeglądaj**, wyszukaj ciąg **Microsoft Azure Service Bus**, a następnie wybierz element **WindowsAzure.ServiceBus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
    
     ![Wybieranie pakietu NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
-
-### Pisanie kodu służącego do wysyłania komunikatów do kolejki
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Pisanie kodu służącego do wysyłania komunikatów do kolejki
 1. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
    
     ```csharp
@@ -126,7 +107,6 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
@@ -141,9 +121,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
    
       ![Rozmiar komunikatu][queue-message]
 
-<a id="4-receive-messages-from-the-queue" class="xliff"></a>
-
-## 4. Odbieranie komunikatów z kolejki
+## <a name="4-receive-messages-from-the-queue"></a>4. Odbieranie komunikatów z kolejki
 
 1. Aby odbierać komunikaty wysłane w poprzednim kroku, utwórz nową aplikację konsolową i dodaj odwołanie do pakietu NuGet usługi Service Bus, podobnie jak w przypadku poprzedniej aplikacji nadawcy.
 2. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
@@ -204,9 +182,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
 
 Gratulacje! Utworzono kolejkę, wysłano komunikat i odebrano komunikat.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z naszym [repozytorium GitHub zawierającym przykłady](https://github.com/Azure/azure-service-bus/tree/master/samples), które pokazują niektóre bardziej zaawansowane funkcje obsługi komunikatów usługi Service Bus.
 
