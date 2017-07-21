@@ -76,7 +76,6 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);

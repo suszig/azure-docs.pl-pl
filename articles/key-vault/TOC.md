@@ -17,6 +17,7 @@
 ### Omówienia
 #### [Omówienie środowisk zabezpieczeń](key-vault-ovw-security-worlds.md)
 #### [Omówienie usuwania nietrwałego](key-vault-ovw-soft-delete.md)
+#### [Omówienie kluczy konta magazynu](key-vault-ovw-storage-keys.md)
 #### [Omówienie ograniczania przepływności](key-vault-ovw-throttling.md)
 
 ## Zarządzaj

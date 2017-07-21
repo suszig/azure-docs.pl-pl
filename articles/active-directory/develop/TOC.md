@@ -85,11 +85,11 @@
 ### [Porównanie wersji 1 i wersji 2](active-directory-v2-compare.md)
 ## Wprowadzenie
 ### Aplikacje mobilne i klasyczne
-#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Aplikacje sieci Web
-#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [Serwer sieci Web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [Aplikacja sieci Web platformy NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Przewodniki
