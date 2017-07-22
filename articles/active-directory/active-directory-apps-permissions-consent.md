@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.reviewer: jesakowi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
 ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.contentlocale: pl-pl
+ms.lasthandoff: 12/06/2016
 
 ---
 
@@ -215,10 +217,5 @@ W przypadku aplikacji FabrikamMail wygląda to następująco:
 (Element **ClientId** to identyfikator obiektu nazwy głównej usługi aplikacji FabrikamMail, który właśnie został utworzony, element **PrincipalId** to identyfikator obiektu użytkownika, który wyraził zgodę, element **ResourceId** to identyfikator obiektu nazwy głównej usługi aplikacji Exchange, a element Scope to uprawnienia w aplikacji Exchange, na które wyrażono zgodę).
 
 Jeśli użytkownicy nie mogą wyrazić zgody, zostanie wyświetlony ekran informujący, że uprawnienia są wymagane.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
