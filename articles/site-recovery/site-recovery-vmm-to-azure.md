@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: b53e7f5454cd97f013fdce052f0a990a44958dee
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure przy użyciu usługi Site Recovery w witrynie Azure Portal
@@ -59,7 +59,7 @@ Postępuj zgodnie z instrukcjami w tym artykule, aby wykonać te kroki wdrażani
 **Wymaganie obsługi** | **Szczegóły**
 --- | ---
 **Azure** | Dowiedz się więcej na temat [wymagań platformy Azure](site-recovery-prereq.md#azure-requirements).
-**Serwery lokalne** | [Dowiedz się więcej](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-in-virtual-machine-manager-clouds-to-azure) na temat wymagań dotyczących lokalnego serwera VMM i hostów funkcji Hyper-V.
+**Serwery lokalne** | [Dowiedz się więcej](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure) na temat wymagań dotyczących lokalnego serwera VMM i hostów funkcji Hyper-V.
 **Lokalne maszyny wirtualne funkcji Hyper-V** | Maszyny wirtualne, które mają być replikowane, powinny mieć [obsługiwane systemy operacyjne](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) i spełniać [wymagania wstępne platformy Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **Adresy URL platformy Azure** | Serwer VMM musi mieć dostęp do następujących adresów URL:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Jeśli masz reguły zapory oparte na adresie IP, zadbaj o to, aby reguły zezwalały na komunikację z platformą Azure.<br/></br> Zezwól na użycie [zakresów adresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) oraz portu 443 protokołu HTTPS.<br/></br> Zezwól na użycie zakresów adresów IP dla regionu platformy Azure Twojej subskrypcji oraz regionu Zachodnie stany USA (służy do kontrolowania dostępu i zarządzania tożsamościami).
 
