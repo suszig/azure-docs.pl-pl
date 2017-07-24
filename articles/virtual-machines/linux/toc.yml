@@ -410,6 +410,10 @@
           href: migration-classic-resource-manager-faq.md
     - name: Rozwiązywanie problemów
       items:
+        - name: >-
+            Możliwość obsługi dodawania maszyny wirtualnej platformy Azure do
+            istniejącego zestawu dostępności
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Resetowanie hasła maszyny wirtualnej z systemem Linux
           href: virtual-machines-linux-reset-password.md
         - name: Omówienie ponownego uruchamiania systemu

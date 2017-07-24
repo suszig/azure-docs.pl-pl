@@ -386,6 +386,10 @@
               href: migration-classic-resource-manager-faq.md
     - name: Rozwiązywanie problemów
       items:
+        - name: >-
+            Możliwość obsługi dodawania maszyny wirtualnej platformy Azure do
+            istniejącego zestawu dostępności
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Omówienie ponownego uruchamiania systemu
           href: understand-vm-reboot.md
         - name: Podłączanie pulpitu zdalnego

@@ -29,6 +29,7 @@
 ### [Kreator kopiowania w usłudze Data Factory](data-factory-azure-copy-wizard.md)
 #### [Ładowanie 1 TB w ciągu 15 minut](data-factory-load-sql-data-warehouse.md)
 ### [Przewodnik dotyczący wydajności i dostosowywania](data-factory-copy-activity-performance.md)
+### [Odporność na uszkodzenia](data-factory-copy-activity-fault-tolerance.md)
 ### [Zagadnienia związane z zabezpieczeniami](data-factory-data-movement-security-considerations.md)
 ### Łączniki
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)

@@ -25,6 +25,8 @@
           href: connect-nodejs.md
         - name: Ruby
           href: connect-ruby.md
+        - name: Przejdź
+          href: connect-go.md
 - name: Samouczki
   items:
     - name: 1 — Projektowanie bazy danych
