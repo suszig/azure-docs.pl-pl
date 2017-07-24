@@ -127,6 +127,8 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitorowanie i rozwiązywanie problemów
+### [Wskazówki dotyczące odzyskiwania po awarii](storage-disaster-recovery-guidance.md)
+### [Backup and DR for IAAS disks (Kopie zapasowe i odzyskiwanie po awarii dysków IAAS)](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
 ### [Rozwiązywanie problemów z Eksploratorem magazynu](storage-explorer-troubleshooting.md)
 ### Metryki i rejestrowanie
 #### [Analityka magazynu](storage-analytics.md)
@@ -137,7 +139,6 @@
 #### [We wdrożeniu przy użyciu usługi Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 #### [We wdrożeniu klasycznym](storage-cannot-delete-storage-account-container-vhd.md)
 ### [Rozwiązywanie problemów z usługą File Storage](storage-troubleshoot-file-connection-problems.md)
-### [Wskazówki dotyczące odzyskiwania po awarii](storage-disaster-recovery-guidance.md)
 ## Transfer danych
 ### [Przenoszenie danych do magazynu i poza magazyn](storage-moving-data.md)
 ### [Narzędzie AzCopy w systemie Windows](storage-use-azcopy.md)
