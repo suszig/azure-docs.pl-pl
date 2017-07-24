@@ -6,7 +6,6 @@
 ## [Program Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Interfejs wiersza polecenia platformy Azure 2.0](data-lake-analytics-get-started-cli2.md)
-## [U-SQL Programmability Guide (Podręcznik programowania U-SQL)](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Instrukcje
 
@@ -37,6 +36,7 @@
 ### [Korzystanie z przeglądarki zadań i widoku zadań](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Korzystanie z widoku wykonania na poziomie wierzchołka](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 ### [Local run and local debug in VSCode (Lokalne uruchamianie i debugowanie w programie VSCode)](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [U-SQL Programmability Guide (Podręcznik programowania U-SQL)](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Dokumentacja
 ## [Program PowerShell](/powershell/module/azurerm.datalakeanalytics)

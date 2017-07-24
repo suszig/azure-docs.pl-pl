@@ -3,6 +3,7 @@
 ## [Pojęcia](devtest-lab-concepts.md)
 ## Scenariusze
 ### [Korzystanie z laboratoriów na potrzeby deweloperów](devtest-lab-developer-lab.md)
+### [Use labs for test environments (Korzystanie z laboratoriów na potrzeby środowisk testowych)](devtest-lab-test-env.md)
 ### [Korzystanie z laboratoriów na potrzeby szkolenia](devtest-lab-training-lab.md)
 
 # Rozpoczęcie pracy
