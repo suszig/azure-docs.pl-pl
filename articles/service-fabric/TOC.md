@@ -290,7 +290,8 @@
 ## Monitorowanie i diagnozowanie
 ### [Monitorowanie i diagnozowanie aplikacji](service-fabric-diagnostics-overview.md)
 ### Generowanie zdarzeń
-#### [Generowanie zdarzeń na poziomie infrastruktury](service-fabric-diagnostics-event-generation-infra.md)
+#### [Generate platform level events (Generowanie zdarzeń na poziomie platformy)](service-fabric-diagnostics-event-generation-infra.md)
+##### [Operational channel (Kanał operacyjny)](service-fabric-diagnostics-event-generation-operational.md)
 ##### [Zdarzenia interfejsu Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ##### [Zdarzenia dotyczące elementów Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ##### [Performance metrics (Metryki wydajności)](service-fabric-diagnostics-event-generation-perf.md)

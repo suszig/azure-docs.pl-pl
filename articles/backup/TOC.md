@@ -3,18 +3,40 @@
 ## [Co to jest Azure Backup?](backup-introduction-to-azure-backup.md)
 
 # Rozpoczęcie pracy
+## [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vms-first-look-arm.md)
 ## [Tworzenie kopii zapasowych plików i folderów](backup-try-azure-backup-in-10-mins.md)
-## [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vms-first-look.md)
-## [Ochrona maszyn wirtualnych platformy Azure](backup-azure-vms-first-look-arm.md)
+## [Back up VMware servers (Tworzenie kopii zapasowych serwerów VMware)](backup-azure-backup-server-vmware.md)
 
 # Instrukcje
-## Korzystanie z programu PowerShell
-### [Maszyny wirtualne platformy Azure w witrynie Azure Portal](backup-azure-vms-automation.md)
-### [Maszyny wirtualne platformy Azure w portalu klasycznym](backup-azure-vms-classic-automation.md)
-### [Program DPM w witrynie Azure Portal](backup-dpm-automation.md)
-### [Program DPM w portalu klasycznym](backup-dpm-automation-classic.md)
-### [System Windows Server w witrynie Azure Portal](backup-client-automation.md)
-### [System Windows Server w portalu klasycznym](backup-client-automation-classic.md)
+## Maszyny wirtualne platformy Azure
+### Przygotowywanie maszyny wirtualnej
+#### [Przygotowywanie maszyn wirtualnych wdrożonych przez usługę Resource Manager](backup-azure-arm-vms-prepare.md)
+#### [Przygotowywanie maszyn wirtualnych platformy Azure](backup-azure-vms-prepare.md)
+### Planowanie środowiska
+#### [Planowanie infrastruktury kopii zapasowych maszyn wirtualnych](backup-azure-vms-introduction.md)
+### Tworzenie kopii zapasowej maszyn wirtualnych
+#### [Tworzenie kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services](backup-azure-arm-vms.md)
+#### [Tworzenie kopii zapasowych zaszyfrowanych maszyn wirtualnych](backup-azure-vms-encryption.md)
+#### [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie kopii zapasowych](backup-azure-vms.md)
+### Monitorowanie maszyn wirtualnych i zarządzanie nimi
+#### [Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-manage-vms.md)
+#### [Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-monitor-vms.md)
+#### [Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure i monitorowanie ich w portalu klasycznym](backup-azure-manage-vms-classic.md)
+### Przywracanie danych z maszyn wirtualnych
+#### [Odzyskiwanie plików z kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-restore-files-from-vm.md)
+#### [Przywracanie maszyn wirtualnych wdrożonych przez usługę Resource Manager w witrynie Azure Portal](backup-azure-arm-restore-vms.md)
+#### [Przywracanie zaszyfrowanych maszyn wirtualnych](backup-azure-vms-encryption.md)
+#### [Przywracanie maszyn wirtualnych na platformie Azure](backup-azure-restore-vms.md)
+#### [Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych za pomocą usługi Azure Backup](backup-azure-restore-key-secret.md)
+
+
+## Pliki i foldery systemu Windows
+### [System Windows Server — z zastosowaniem modelu wdrażania przy użyciu usługi Resource Manager](backup-configure-vault.md)
+### [System Windows Server — z zastosowaniem klasycznego modelu wdrażania](backup-configure-vault-classic.md)
+### [Monitorowanie magazynów usługi Recovery Services i zarządzanie nimi](backup-azure-manage-windows-server.md)
+### [Zarządzanie magazynami kopii zapasowych przy użyciu klasycznego modelu wdrażania](backup-azure-manage-windows-server-classic.md)
+### [Odzyskiwanie plików w systemie Windows Server przy użyciu modelu wdrażania używającego usługi Resource Manager](backup-azure-restore-windows-server.md)
+### [Odzyskiwanie plików w systemie Windows Server przy użyciu klasycznego modelu wdrażania](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup Server
 ### [Macierz ochrony usługi Azure Backup Server](backup-mabs-protection-matrix.md)
@@ -30,9 +52,6 @@
 #### [Używanie usługi Azure Backup Server do tworzenia kopii zapasowej farmy programu SharePoint](backup-azure-backup-sharepoint-mabs.md)
 #### [Używanie usługi Azure Backup Server do tworzenia kopii zapasowej bazy danych SQL](backup-azure-sql-mabs.md)
 #### [Ochrona stanu systemu i odzyskiwanie systemu od zera](backup-mabs-system-state-and-bmr.md)
-### Rozwiązywanie problemów
-#### [Rozwiązywanie problemów ze składnikiem Azure Backup Server](backup-azure-mabs-troubleshoot.md)
-
 
 ## Data Protection Manager
 ### [Przygotowywanie obciążeń programu DPM w witrynie Azure Portal](backup-azure-dpm-introduction.md)
@@ -42,48 +61,31 @@
 ### [Tworzenie kopii zapasowych obciążeń programu SQL Server przy użyciu programu DPM](backup-azure-backup-sql.md)
 ### [Tworzenie kopii zapasowych farmy programu SharePoint przy użyciu programu DPM](backup-azure-backup-sharepoint.md)
 
-## Maszyny wirtualne platformy Azure
-### Przygotowywanie maszyny wirtualnej
-#### [Przygotowywanie maszyn wirtualnych platformy Azure](backup-azure-vms-prepare.md)
-#### [Przygotowywanie maszyn wirtualnych wdrożonych przez usługę Resource Manager](backup-azure-arm-vms-prepare.md)
-### Planowanie środowiska
-#### [Planowanie infrastruktury kopii zapasowych maszyn wirtualnych](backup-azure-vms-introduction.md)
-### Tworzenie kopii zapasowej maszyn wirtualnych
-#### [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie kopii zapasowych](backup-azure-vms.md)
-#### [Tworzenie kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services](backup-azure-arm-vms.md)
-#### [Tworzenie kopii zapasowych zaszyfrowanych maszyn wirtualnych](backup-azure-vms-encryption.md)
-### Monitorowanie maszyn wirtualnych i zarządzanie nimi
-#### [Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure i monitorowanie ich w portalu klasycznym](backup-azure-manage-vms-classic.md)
-#### [Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-manage-vms.md)
-#### [Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-monitor-vms.md)
-### Przywracanie danych z maszyn wirtualnych
-#### [Odzyskiwanie plików z kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-restore-files-from-vm.md)
-#### [Przywracanie maszyn wirtualnych na platformie Azure](backup-azure-restore-vms.md)
-#### [Przywracanie maszyn wirtualnych wdrożonych przez usługę Resource Manager w witrynie Azure Portal](backup-azure-arm-restore-vms.md)
-#### [Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych za pomocą usługi Azure Backup](backup-azure-restore-key-secret.md)
-#### [Przywracanie zaszyfrowanych maszyn wirtualnych](backup-azure-vms-encryption.md)
-
 ## Usługa Azure SQL Database
 ### [Konfigurowanie długoterminowego przechowywania kopii zapasowych](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
 ### [Wyświetlanie kopii zapasowych w magazynie usługi Recovery Services](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
 ### [Przywracanie po długoterminowym przechowywaniu kopii zapasowych](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
 ### [Usuwanie długoterminowych kopii zapasowych usługi Azure SQL](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
 
-## Pliki i foldery systemu Windows
-### [System Windows Server — z zastosowaniem klasycznego modelu wdrażania](backup-configure-vault-classic.md)
-### [System Windows Server — z zastosowaniem modelu wdrażania przy użyciu usługi Resource Manager](backup-configure-vault.md)
-### [Zarządzanie magazynami kopii zapasowych przy użyciu klasycznego modelu wdrażania](backup-azure-manage-windows-server-classic.md)
-### [Monitorowanie magazynów usługi Recovery Services i zarządzanie nimi](backup-azure-manage-windows-server.md)
-### [Odzyskiwanie plików w systemie Windows Server przy użyciu modelu wdrażania używającego usługi Resource Manager](backup-azure-restore-windows-server.md)
-### [Odzyskiwanie plików w systemie Windows Server przy użyciu klasycznego modelu wdrażania](backup-azure-restore-windows-server-classic.md)
+## Korzystanie z programu PowerShell
+### [Maszyny wirtualne platformy Azure w witrynie Azure Portal](backup-azure-vms-automation.md)
+### [Maszyny wirtualne platformy Azure w portalu klasycznym](backup-azure-vms-classic-automation.md)
+### [Program DPM w witrynie Azure Portal](backup-dpm-automation.md)
+### [Program DPM w portalu klasycznym](backup-dpm-automation-classic.md)
+### [System Windows Server w witrynie Azure Portal](backup-client-automation.md)
+### [System Windows Server w portalu klasycznym](backup-client-automation-classic.md)
 
-## [Często zadawane pytania](backup-azure-backup-faq.md)
+## Często zadawane pytania
+### [FAQ on Recovery Services vault (Często zadawane pytania dotyczące magazynu usługi Recovery Services)](backup-azure-backup-faq.md)
+### [FAQ on Azure VM backup (Często zadawane pytania dotyczące kopii zapasowych maszyn wirtualnych platformy Azure)](backup-azure-vm-backup-faq.md)
+### [FAQ on file-folder backup using Azure Backup agent (Często zadawane pytania dotyczące tworzenia kopii zapasowej plików i folderów przy użyciu agenta usługi Azure Backup)](backup-azure-file-folder-backup-faq.md)
 
 ## Rozwiązywanie problemów
 ### [Problemy z tworzeniem kopii zapasowej maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-vms-troubleshoot.md)
 ### [Problemy z tworzeniem kopii zapasowej maszyny wirtualnej platformy Azure w portalu klasycznym](backup-azure-vms-troubleshoot-classic.md)
 ### [Niepowodzenie tworzenia kopii zapasowej maszyny wirtualnej platformy Azure: Nie można nawiązać komunikacji z agentem maszyny wirtualnej w celu uzyskania stanu migawki — Upłynął limit czasu zadania podrzędnego migawki maszyny wirtualnej](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Powolne tworzenie kopii zapasowych plików i folderów w usłudze Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
+### [Rozwiązywanie problemów ze składnikiem Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 
 # Pojęcia
 ## [Omówienie magazynów usługi Recovery Services](backup-azure-recovery-services-vault-overview.md)
