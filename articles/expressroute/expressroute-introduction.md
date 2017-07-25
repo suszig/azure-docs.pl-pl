@@ -1,6 +1,6 @@
 ---
-title: "Omówienie usługi ExpressRoute: rozszerzanie sieci lokalnej na platformę Azure przez dedykowane połączenie prywatne | Microsoft Docs"
-description: "W tym opisie technicznym usługi ExpressRoute omówiono sposób działania połączenia usługi ExpressRoute przy rozszerzaniu sieci lokalnej na platformę Azure przez dedykowane połączenie prywatne."
+title: "Omówienie usługi ExpressRoute: rozszerzanie sieci lokalnej na platformę Azure za pośrednictwem połączenia prywatnego | Microsoft Docs"
+description: "W tym opisie technicznym usługi ExpressRoute omówiono sposób działania połączenia usługi ExpressRoute podczas rozszerzania sieci lokalnej na platformę Azure przez połączenie prywatne."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/14/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: a36fce44efb3c32f83f33b19d2bca5ad73782a1b
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aa861e5d2928b208c839ab5a0efa7bfd9ca7c37d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="expressroute-overview"></a>Omówienie usługi ExpressRoute
-Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem specjalnego połączenia prywatnego wspieranego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i Dynamics 365.
+Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i Dynamics 365.
 
 Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji. Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Dzięki temu oferują one większą niezawodność i szybkość oraz mniejsze opóźnienia i lepsze zabezpieczenia niż typowe połączenia przez Internet. Informacje dotyczące łączenia sieci z firmą Microsoft przy użyciu usługi ExpressRoute można znaleźć w temacie [Modele połączeń usługi ExpressRoute](expressroute-connectivity-models.md).
 

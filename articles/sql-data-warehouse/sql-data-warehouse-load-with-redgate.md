@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
 ms.contentlocale: pl-pl
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 07/10/2017
 
 
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/24/2017
 > 
 > 
 
-Ten samouczek pokazuje, w jaki sposób używać usługi [Data Platform Studio (DPS) firmy Redgate](http://www.red-gate.com/products/azure-development/data-platform-studio/), aby przenieść dane z lokalnego programu SQL Server do usługi Azure SQL Data Warehouse. Usługa Data Platform Studio stosuje najbardziej odpowiednie poprawki zgodności i optymalizacje, więc stanowi najszybszy sposób na rozpoczęcie pracy z usługą SQL Data Warehouse.
+W tym samouczku pokazano, w jaki sposób używać usługi [Data Platform Studio (DPS) firmy Redgate](http://www.red-gate.com/products/azure-development/data-platform-studio/), aby przenieść dane z lokalnego programu SQL Server do usługi Azure SQL Data Warehouse. Usługa Data Platform Studio stosuje najbardziej odpowiednie poprawki zgodności i optymalizacje, więc stanowi najszybszy sposób na rozpoczęcie pracy z usługą SQL Data Warehouse.
 
 > [!NOTE]
 > Firma [Redgate](http://www.red-gate.com) to wieloletni partner firmy Microsoft, który dostarcza różne narzędzia programu SQL Server. Ta funkcja w usłudze Data Platform Studio została udostępniona bezpłatnie do użytku komercyjnego i niekomercyjnego.
@@ -44,7 +44,7 @@ Ten samouczek pokazuje, w jaki sposób używać usługi [Data Platform Studio (D
 ### <a name="create-or-identify-resources"></a>Tworzenie lub identyfikowanie zasobów
 Przed rozpoczęciem tego samouczka trzeba mieć następujące zasoby:
 
-* **Lokalna baza danych programu SQL Server**: dane do zaimportowania do usługi SQL Data Warehouse muszą pochodzić z lokalnego programu SQL Server (wersja 2008 R2 lub nowsza). Usługa Data Platform Studio nie może bezpośrednio importować danych z usługi Azure SQL Database ani z plików tekstowych.
+* **lokalna baza danych programu SQL Server**: dane do zaimportowania do usługi SQL Data Warehouse muszą pochodzić z lokalnego programu SQL Server (wersja 2008 R2 lub nowsza). Usługa Data Platform Studio nie może bezpośrednio importować danych z usługi Azure SQL Database ani z plików tekstowych.
 * **Konto usługi Azure Storage**: usługa Data Platform Studio przygotowuje dane w usłudze Azure Blob Storage przed załadowaniem ich do usługi SQL Data Warehouse. Konto magazynu musi używać modelu wdrażania usługi Resource Manager (domyślnie), a nie klasycznego modelu wdrażania. Jeśli nie masz jeszcze konta magazynu, dowiedz się, jak je utworzyć. 
 * **Magazyn danych usługi SQL Data Warehouse**: w tym samouczku znajdują się informacje dotyczące przenoszenia danych z lokalnego programu SQL Server do usługi SQL Data Warehouse, więc magazyn danych musi być w trybie online. Jeśli nie masz jeszcze magazynu danych, dowiedz się, jak utworzyć magazyn danych usługi SQL Data Warehouse.
 

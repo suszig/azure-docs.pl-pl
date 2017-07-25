@@ -2,7 +2,7 @@
 title: "Samouczek usługi Azure Cosmos DB: Tworzenie, wykonywanie zapytań i przechodzenie w konsoli Apache TinkerPops Gremlin | Microsoft Docs"
 description: "Przewodnik Szybki start usługi Azure Cosmos DB opisujący tworzenie wierzchołków, krawędzi i zapytań za pomocą interfejsu API programu Graph w usłudze Azure Cosmos DB."
 services: cosmos-db
-author: AndrewHoh
+author: dennyglee
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -11,18 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 06/10/2017
-ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 44972270a13f5ab5b3aa22557b36e80ae406a4a6
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 82ddc351359318dab82c95d3e3b9b97ba3e3b4a8
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console" class="xliff"></a>
-
-# Azure Cosmos DB: Tworzenie elementów, wykonywanie zapytań i przechodzenie grafu w konsoli Gremlin
+# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Tworzenie elementów, wykonywanie zapytań i przechodzenie grafu w konsoli Gremlin
 
 Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
 
@@ -32,9 +30,7 @@ Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Co
 
 Konsola Gremlin jest oparta na języku Groovy/Java i działa w systemach Linux, Mac i Windows. Możesz ją pobrać z [witryny Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Musisz dysponować subskrypcją platformy Azure, aby utworzyć konto usługi Azure Cosmos DB na potrzeby tego przewodnika Szybki start.
 
@@ -42,33 +38,34 @@ Musisz dysponować subskrypcją platformy Azure, aby utworzyć konto usługi Azu
 
 Należy również zainstalować [konsolę Gremlin](http://tinkerpop.apache.org/). Użyj wersji 3.2.4 lub nowszej.
 
-<a id="create-a-database-account" class="xliff"></a>
-
-## Tworzenie konta bazy danych
+## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-<a id="add-a-graph" class="xliff"></a>
-
-## Dodawanie grafu
+## <a name="add-a-graph"></a>Dodawanie grafu
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Łączenie z usługą aplikacji
-1. Przed uruchomieniem konsoli Gremlin utwórz lub zmodyfikuj plik konfiguracji *remote-secure.yaml* w katalogu *apache-tinkerpop-gremlin-console-3.2.4/conf*.
+1. Przed uruchomieniem konsoli Gremlin utwórz lub zmodyfikuj plik konfiguracji remote-secure.yaml w katalogu apache-tinkerpop-gremlin-console-3.2.4/conf.
 2. Wypełnij ustawienia konfiguracji *host*, *port*, *username*, *password*, *connectionPool* i *serializer*:
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    Hosts|***.graphs.azure.com|Identyfikator URI usługi Graph, który można pobrać z witryny Azure Portal
-    Port|443|Ustawiony numer 443
-    Nazwa użytkownika|*Twoja nazwa użytkownika*|Zasób w postaci `/dbs/<db>/colls/<coll>`.
-    Hasło|*Twój podstawowy klucz główny*|Twój podstawowy klucz główny dla usługi Azure Cosmos DB
-    ConnectionPool|{enableSsl: true}|Ustawienie puli połączeń protokołu SSL
-    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Ustaw na tę wartość
+    hosty|[***.graphs.azure.com]|Zobacz poniższy zrzut ekranu. Jest to wartość identyfikatora URI Gremlin na stronie Przegląd w witrynie Azure Portal w nawiasach kwadratowych z usuniętym fragmentem końcowym :443/.<br><br>Tę wartość można również pobrać z karty Klucze, używając wartości identyfikatora URI po usunięciu ciągu https://, zmianie dokumentów na grafy i usunięciu fragmentu końcowego :443/.
+    port|443|Ustaw wartość 443.
+    nazwa użytkownika|*Twoja nazwa użytkownika*|Zasób w postaci `/dbs/<db>/colls/<coll>`, gdzie `<db>` jest nazwą bazy danych, a `<coll>` oznacza nazwę kolekcji.
+    hasło|*Twój klucz podstawowy*| Zobacz drugi zrzut ekranu poniżej. To jest klucz podstawowy, który można pobrać ze strony Klucze w witrynie Azure Portal, z pola Klucz podstawowy. Aby skopiować wartość, użyj przycisku kopiowania po lewej stronie pola.
+    connectionPool|{enableSsl: true}|Ustawienie puli połączeń protokołu SSL.
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Ustaw tę wartość i usuń wszystkie podziały wiersza `\n` podczas wklejania w wartości.
 
-3. W terminalu uruchom polecenie *bin/gremlin.bat* lub *bin/gremlin.sh*, aby uruchomić [konsolę Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
-4. W terminalu uruchom polecenie *:remote connect tinkerpop.server conf/remote-secure.yaml*, aby nawiązać połączenie z usługą aplikacji.
+    Jako wartość hostów skopiuj wartość **Identyfikator URI Gremlin** ze strony **Przegląd**: ![Wyświetl i skopiuj wartość identyfikatora URI Gremlin ze strony Przegląd w witrynie Azure Portal](./media/create-graph-gremlin-console/gremlin-uri.png)
+
+    Jako wartość hasła skopiuj **Klucz podstawowy** ze strony **Klucze**: ![Wyświetl i skopiuj klucz podstawowy w witrynie Azure Portal, strona Klucze](./media/create-graph-gremlin-console/keys.png)
+
+
+3. W terminalu uruchom `bin/gremlin.bat` lub `bin/gremlin.sh`, aby uruchomić [Konsolę Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
+4. W terminalu uruchom `:remote connect tinkerpop.server conf/remote-secure.yaml` w celu nawiązania połączenia z usługą aplikacji.
 
 Wspaniale! Teraz, po zakończeniu konfigurowania, zacznijmy uruchamianie poleceń konsoli.
 
@@ -78,17 +75,15 @@ Wypróbujmy proste polecenie count(). Wpisz następujący tekst w wierszu polece
 ```
 
 > [!TIP]
-> Widzisz znaki ***:>*** poprzedzające tekst g.V().count()? 
+> Warto zauważyć prefiks `:>` poprzedzający tekst `g.V().count()`. 
 >
 > Jest to część polecenia, które należy wpisać. Jest to ważne, gdy konsola Gremlin jest używana z usługą Azure Cosmos DB.  
 >
-> Pominięcie tego prefiksu :> nakazuje konsoli wykonanie polecenia lokalnie, często względem grafu w pamięci.
-> Użycie tego prefiksu ***:>*** nakazuje konsoli wykonanie polecenia zdalnego, w tym przypadku względem usługi Cosmos DB (emulatora localhost lub wystąpienia > Azure).
+> Pominięcie tego prefiksu `:>` oznacza, że konsola ma wykonać polecenia lokalnie, często względem grafu w pamięci.
+> Użycie tego prefiksu `:>` powoduje wykonanie polecenia zdalnego przez konsolę, w tym przypadku względem usługi Cosmos DB (emulatora localhost lub wystąpienia > Azure).
 
 
-<a id="create-vertices-and-edges" class="xliff"></a>
-
-## Tworzenie wierzchołków i krawędzi
+## <a name="create-vertices-and-edges"></a>Tworzenie wierzchołków i krawędzi
 
 Zacznijmy od dodania wierzchołków dla pięciu osób: *Thomas*, *Mary Kay*, *Robin*, *Ben* i *Jack*.
 
@@ -193,9 +188,7 @@ Dane wyjściowe:
 ==>[id:889c4d3c-549e-4d35-bc21-a3d1bfa11e00,label:knows,type:edge,inVLabel:person,outVLabel:person,inV:40fd641d-546e-412a-abcc-58fe53891aab,outV:3e324073-ccfc-4ae1-8675-d450858ca116]
 ```
 
-<a id="update-a-vertex" class="xliff"></a>
-
-## Aktualizowanie wierzchołka
+## <a name="update-a-vertex"></a>Aktualizowanie wierzchołka
 
 Zaktualizujmy wierzchołek *Thomas*, podając nowy wiek: *45*.
 
@@ -209,9 +202,7 @@ Dane wyjściowe:
 ==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
 ```
 
-<a id="query-your-graph" class="xliff"></a>
-
-## Wykonywanie zapytania względem grafu
+## <a name="query-your-graph"></a>Wykonywanie zapytania względem grafu
 
 Teraz uruchommy różne zapytania względem grafu.
 
@@ -243,9 +234,7 @@ Dane wyjściowe:
 ==>Thomas
 ```
 
-<a id="traverse-your-graph" class="xliff"></a>
-
-## Przechodzenie grafu
+## <a name="traverse-your-graph"></a>Przechodzenie grafu
 
 Przejdźmy graf w celu zwrócenia wszystkich znajomych Thomasa.
 
@@ -275,9 +264,7 @@ Dane wyjściowe:
 ==>[id:a801a0cb-ee85-44ee-a502-271685ef212e,label:person,type:vertex,properties:[firstName:[[id:b9489902-d29a-4673-8c09-c2b3fe7f8b94,value:Ben]],lastName:[[id:e084f933-9a4b-4dbc-8273-f0171265cf1d,value:Miller]]]]
 ```
 
-<a id="drop-a-vertex" class="xliff"></a>
-
-## Usuwanie wierzchołka
+## <a name="drop-a-vertex"></a>Usuwanie wierzchołka
 
 Usuńmy teraz wierzchołek z bazy danych grafu.
 
@@ -287,9 +274,7 @@ Dane wejściowe (usunięcie wierzchołka Jacka):
 :> g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
-<a id="clear-your-graph" class="xliff"></a>
-
-## Czyszczenie grafu
+## <a name="clear-your-graph"></a>Czyszczenie grafu
 
 Na koniec usuńmy z bazy danych wszystkie wierzchołki i krawędzie.
 
@@ -302,24 +287,18 @@ Dane wejściowe:
 
 Gratulacje! Pomyślnie ukończono samouczek interfejsu API programu Graph w usłudze Azure Cosmos DB!
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Przeglądanie umów SLA w witrynie Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start:  
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
 2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start wyjaśniono, jak utworzyć konto usługi Azure Cosmos DB, jak utworzyć graf za pomocą Eksploratora danych oraz jak utworzyć wierzchołki i krawędzie, a także jak przejść graf za pomocą konsoli Gremlin. Teraz możesz tworzyć bardziej złożone zapytania i implementować zaawansowaną logikę przechodzenia grafu za pomocą języka Gremlin. 
 

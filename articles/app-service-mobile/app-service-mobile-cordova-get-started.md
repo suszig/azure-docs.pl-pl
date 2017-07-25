@@ -3,8 +3,8 @@ title: "Tworzenie aplikacji oprogramowania Cordova przy użyciu funkcji Azure Ap
 description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z zapleczy usług mobilnych Azure na potrzeby opracowywania aplikacji dla oprogramowania Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 tags: 
 keywords: cordova,javascript,mobile,client
@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
-ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
-ms.lasthandoff: 12/01/2016
-
+ms.date: 07/07/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 251e36364d0440890dc30dc5267be9f775d95933
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-an-apache-cordova-app"></a>Tworzenie aplikacji oprogramowania Apache Cordova
@@ -34,7 +34,7 @@ Wykonanie kroków tego samouczka jest wymagane w przypadku wszystkich innych sam
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
 
-* Komputer z programem [Visual Studio Community 2015] lub nowszym.
+* Komputer z programem [Visual Studio Community 2017] lub nowszym.
 * [Visual Studio Tools for Apache Cordova].
 * [Aktywne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -74,7 +74,7 @@ Dowiedz się, jak korzystać z zestawów SDK.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Dane w trybie offline]: app-service-mobile-offline-data-sync.md
 [Uwierzytelnianie]: app-service-mobile-auth.md

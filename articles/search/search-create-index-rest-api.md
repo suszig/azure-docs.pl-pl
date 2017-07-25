@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie indeksu usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs"
+title: "Tworzenie indeksu (interfejs API REST — usługa Azure Search) | Microsoft Docs"
 description: "Tworzenie indeksu za pomocą kodu przy użyciu interfejsu API REST protokołu HTTP usługi Azure Search"
 services: search
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
-ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Tworzenie indeksu usługi Azure Search przy użyciu interfejsu API REST
@@ -107,9 +109,4 @@ Gdy ukończysz pracę z indeksem i zechcesz go usunąć, po prostu wyślij żąd
 
 ## <a name="next-steps"></a>Następne kroki
 Po utworzeniu indeksu usługi Azure Search można [przekazać zawartość do indeksu](search-what-is-data-import.md), aby rozpocząć wyszukiwanie danych.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

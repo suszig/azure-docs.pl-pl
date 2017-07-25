@@ -12,35 +12,28 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="set-security-policies-in-azure-security-center" class="xliff"></a>
-
-# Ustawianie zasad zabezpieczeń w usłudze Azure Security Center
+# <a name="set-security-policies-in-azure-security-center"></a>Ustawianie zasad zabezpieczeń w usłudze Azure Security Center
 Ten dokument zawiera informacje i niezbędne instrukcje pomocne podczas konfigurowania zasad zabezpieczeń w usłudze Security Center.
 
 >[!NOTE] 
 >Począwszy od początku czerwca 2017 roku, usługa Security Center będzie używać programu Microsoft Monitoring Agent do gromadzenia i przechowywania danych. Aby dowiedzieć się więcej, zobacz [Migracja platformy usługi Azure Security Center](security-center-platform-migration.md). Informacje przedstawione w tym artykule reprezentują funkcję Security Center po przejściu do programu Microsoft Monitoring Agent.
 >
 
-<a id="what-are-security-policies" class="xliff"></a>
-
-## Czym są zasady zabezpieczeń?
+## <a name="what-are-security-policies"></a>Czym są zasady zabezpieczeń?
 Zasady zabezpieczeń określają zestaw mechanizmów kontrolnych, które są zalecane dla zasobów w określonej subskrypcji. W usłudze Security Center można zdefiniować zasady dla subskrypcji platformy Azure zgodnie z potrzebami zabezpieczeń firmy i typem aplikacji oraz poufnością danych w poszczególnych subskrypcjach.
 
 Na przykład zasoby używane do celów projektowania lub testowania mogą mieć inne wymagania dotyczące zabezpieczeń niż te, które są używane przez aplikacje produkcyjne. Aplikacje z danymi podlegającymi ochronie (takimi jak dane osobowe) mogą wymagać wyższego poziomu zabezpieczeń. Zasady zabezpieczeń włączone w usłudze Azure Security Center regulują zalecenia dotyczące zabezpieczeń i monitorowania, które ułatwiają znalezienie potencjalnych luk i uniknięcie zagrożeń. Przeczytaj artykuł [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md), aby uzyskać więcej informacji na temat sposobu określenia, która opcja jest bardziej odpowiednia dla Ciebie.
 
-<a id="set-security-policies" class="xliff"></a>
-
-## Ustawianie zasad zabezpieczeń
+## <a name="set-security-policies"></a>Ustawianie zasad zabezpieczeń
 Zasady zabezpieczeń można skonfigurować dla każdej subskrypcji. Aby zmodyfikować zasady zabezpieczeń, musisz być właścicielem lub współautorem subskrypcji. Zaloguj się w witrynie Azure Portal i postępuj zgodnie z poniższymi krokami, aby skonfigurować zasady zabezpieczeń w usłudze Security Center:
 
 1. Kliknij kafelek **Zasady** na pulpicie nawigacyjnym usługi Security Center.
@@ -49,7 +42,7 @@ Zasady zabezpieczeń można skonfigurować dla każdej subskrypcji. Aby zmodyfik
     ![Definiowanie zasad](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Zostanie otwarty blok **Zasady zabezpieczeń** dla wybranej subskrypcji z zestawem opcji. Opcje dostępne w tym bloku to:
 
-   * **Zasady zapobiegania**: ta opcja umożliwia konfigurowanie zasad dla subskrypcji lub grupy zasobów.  
+   * **Zasady zapobiegania**: ta opcja umożliwia konfigurowanie zasad dla subskrypcji.  
    * **Powiadomienie e-mail**: ta opcja umożliwia konfigurowanie powiadomienia e-mail, które jest wysyłane po pierwszym wystąpieniu alertu w ciągu dnia i w przypadku alertów o wysokiej ważności. Preferencje poczty e-mail można konfigurować tylko dla zasad dotyczących subskrypcji. Więcej informacji dotyczących sposobu konfigurowania powiadomień e-mail można znaleźć w artykule [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) (Wprowadzanie danych kontaktowych na potrzeby zabezpieczeń w usłudze Azure Security Center).
    * **Warstwa cenowa**: użyj tej opcji, aby uaktualnić wybór warstwy cenowej. Zobacz [cennik usługi Security Center](security-center-pricing.md), aby dowiedzieć się więcej na temat opcji cen.
 4. Upewnij się, że opcja **Zbieraj dane z maszyn wirtualnych** jest włączona (**Wł.**). Ta opcja umożliwia automatyczne zbieranie dzienników dla istniejących i nowych zasobów przy użyciu programu Microsoft Monitoring Agent — ten sam agent jest używany przez pakiet Operations Management Suite i usługę Log Analytics. Dane zbierane z tego agenta będą przechowywane we wszystkich istniejących obszarach roboczych usługi Log Analytics skojarzonych z subskrypcją platformy Azure lub w nowych obszarach roboczych, uwzględniając lokalizację geograficzną maszyny wirtualnej.
@@ -81,9 +74,7 @@ Po skonfigurowaniu wszystkich opcji kliknij przycisk **OK** w bloku **Zasady zab
 >
 >
 
-<a id="see-also" class="xliff"></a>
-
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabezpieczeń Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 
 * [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md). Informacje na temat planowania i zagadnień projektowych podczas wdrażania usługi Azure Security Center.

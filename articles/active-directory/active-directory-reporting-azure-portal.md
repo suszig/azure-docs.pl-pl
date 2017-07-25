@@ -1,7 +1,6 @@
 ---
-
 title: "Raporty usługi Azure Active Directory | Microsoft Docs"
-description: "Lista raportów dostępnych w ramach usługi Azure Active Directory"
+description: "Zawiera ogólne omówienie raportów usługi Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,190 +12,110 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="azure-active-directory-reporting"></a>Raporty w usłudze Azure Active Directory
 
+Dzięki raportom usługi Azure Active Directory możesz uzyskać szczegółowe informacje na temat działania środowiska.  
+Na podstawie udostępnionych danych można:
 
-*Ta dokumentacja jest częścią [Przewodnika po raportach usługi Azure Active Directory](active-directory-reporting-guide.md).*
+- Określać, jak usługi i aplikacje są wykorzystywane przez użytkowników
+- Wykrywać potencjalne zagrożenia wpływające na kondycję środowiska
+- Rozwiązywać problemy uniemożliwiające użytkownikom wykonywanie pracy  
 
-Dzięki raportom w usłudze Azure Active Directory (Azure AD) możesz uzyskać wszystkie informacje, które pomogą ustalić działanie środowiska.
+Architektura raportów opiera się na dwóch głównych filarach:
 
-Istnieją dwa główne obszary raportowania:
+- Raporty dotyczące zabezpieczeń
+- Raporty dotyczące działań
 
-* **Działania związane z logowaniem** — informacje na temat użycia zarządzanych aplikacji i działania użytkownika związane z logowaniem
-* **Dzienniki inspekcji** — informacje o aktywności systemu obejmujące zarządzanie użytkownikami i grupami oraz zarządzane aplikacje i działania dotyczące katalogu
+![Raportowanie](./media/active-directory-reporting-azure-portal/01.png)
 
-W zależności od szukanego zakresu danych dostęp do tych raportów można uzyskać na dwa sposoby: klikając pozycję **Użytkownicy i grupy** lub **Aplikacje dla przedsiębiorstw** na liście usług w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="sign-in-activities"></a>Działania związane z logowaniem
-### <a name="user-sign-in-activities"></a>Działania użytkownika związane z logowaniem
-Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać odpowiedzi na pytania, takie jak:
 
-* Co to jest wzorzec logowania użytkownika?
-* Ilu użytkowników zalogowało się w ciągu tygodnia?
-* Jaki jest stan tych logowań?
+## <a name="security-reports"></a>Raporty dotyczące zabezpieczeń
 
-Punktem wyjścia do tych danych jest wykres logowania użytkownika znajdujący się w sekcji **Przegląd** w obszarze **Użytkownicy i grupy**.
+Raporty dotyczące zabezpieczeń w usłudze Azure Active Directory pomagają chronić tożsamości w organizacji.  
+W usłudze Azure Active Directory istnieją dwa typy raportów dotyczących zabezpieczeń:
 
- ![Raportowanie](./media/active-directory-reporting-azure-portal/05.png "Raportowanie")
+- **Użytkownicy oflagowani w związku z ryzykiem** — [raport zabezpieczeń dotyczący użytkowników oflagowanych w związku z ryzykiem](active-directory-reporting-security-user-at-risk.md) zawiera omówienie kont użytkowników, których zabezpieczenia mogły zostać naruszone.
 
-Wykres logowania użytkownika przedstawia tygodniowe agregacje logowań dla wszystkich użytkowników w danym okresie czasu. Domyślny okres to 30 dni.
+- **Ryzykowne logowania** — [raport zabezpieczeń dotyczący ryzykownych logowań](active-directory-reporting-security-risky-sign-ins.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/02.png "Raportowanie")
+**Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu zabezpieczeń?**  
+Wszystkie wersje usługi Azure Active Directory zapewniają dostęp do raportów użytkowników oflagowanych w związku z ryzykiem oraz ryzykownych logowań.  
+Jednak poziom szczegółowości raportu zależy od wersji: 
 
-Po kliknięciu dnia na wykresie logowania zostanie wyświetlona szczegółowa lista działań związanych z logowaniem.
+- W **usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa** masz już dostęp do listy użytkowników oflagowanych w związku z ryzykiem i ryzykownych logowań. 
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/03.png "Raportowanie")
+- Wersja **Azure Active Directory Premium 1** rozszerza ten model, umożliwiając również badanie niektórych podstawowych zdarzeń związanych z ryzykiem, które uwzględniono w poszczególnych raportach. 
 
-Każdy wiersz na liście działań związanych z logowaniem zapewnia szczegółowe informacje o wybranym logowaniu, takie jak:
+- Wersja **Azure Active Directory Premium 2** oferuje najbardziej szczegółowe informacje na temat zdarzeń związanych z ryzykiem i umożliwia również konfigurowanie zasad zabezpieczeń, które automatycznie reagują na wystąpienie skonfigurowanych poziomów ryzyka.
 
-* Kto się zalogował?
-* Jaka była nazwa główna użytkownika?
-* Do której aplikacji się logowano?
-* Jaki jest adres IP komputera, z którego się logowano?
-* Jaki był stan logowania?
 
-### <a name="usage-of-managed-applications"></a>Użycie zarządzanych aplikacji
-Dzięki widokowi skoncentrowanemu na aplikacji w ramach danych logowania można uzyskać odpowiedzi na pytania, takie jak:
+## <a name="activity-reports"></a>Raporty dotyczące działań
 
-* Kto korzysta z aplikacji?
-* Jakie są 3 najczęściej używane aplikacje w organizacji?
-* Ostatnio została wdrożona aplikacja. W jaki sposób działa?
+W usłudze Azure Active Directory istnieją dwa typy raportów dotyczących działań:
 
-Punktem wyjścia do tych danych są 3 najczęściej używane aplikacje w organizacji uwzględnione w raporcie z ostatnich 30 dni znajdującym się w sekcji **Przegląd** w obszarze **Aplikacje dla przedsiębiorstw**.
+- **Dzienniki inspekcji** — [raport działań dotyczący dzienników inspekcji](active-directory-reporting-activity-audit-logs.md) zapewnia dostęp do historii wszystkich zadań wykonanych w dzierżawie.
 
- ![Raportowanie](./media/active-directory-reporting-azure-portal/06.png "Raportowanie")
+- **Logowania** — przy użyciu [raportu działań dotyczącego logowań](active-directory-reporting-activity-sign-ins.md) można określić, kto wykonał zadania zgłoszone w raporcie dzienników inspekcji.
 
-Wykres użycia aplikacji przedstawia tygodniowe agregacje logowań 3 najczęściej używanych aplikacji w danym czasie. Domyślny okres to 30 dni.
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/78.png "Raportowanie")
 
-Jeśli chcesz, możesz ustawić fokus na konkretnej aplikacji.
+**Raport dzienników inspekcji** dostarcza informacji na temat aktywności systemu pod kątem zgodności.
+Między innymi udostępnione dane pozwalają obsługę typowych scenariuszy, takich jak:
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Raportowanie")
+- Ktoś w mojej dzierżawie uzyskał dostęp do grupy administratorów. Kto udzielił tej osobie prawa dostępu? 
 
-Po kliknięciu dnia na wykresie użycia aplikacji zostanie wyświetlona szczegółowa lista działań związanych z logowaniem.
+- Chcę zobaczyć listę użytkowników, którzy logowali się do określonej aplikacji od momentu jej dołączenia oraz sprawdzić, jak działa aplikacja
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Raportowanie")
+- Chcę wiedzieć, ile operacji resetowania hasła jest wykonywanych w mojej dzierżawie
 
-Opcja **Logowania** umożliwia pełny przegląd zdarzeń logowania do aplikacji.
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/85.png "Raportowanie")
+**Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu dzienników inspekcji?**  
+Raport dzienników inspekcji jest dostępny w przypadku funkcji, do których masz licencje. Jeśli masz licencję określonej funkcji, masz również dostęp do informacji z dotyczącego jej dziennika inspekcji.
 
-Za pomocą selektora kolumny można wybrać pola danych, które mają być wyświetlane.
+Aby uzyskać więcej informacji, zobacz sekcję **Porównanie ogólnie dostępnych funkcji w wersjach Bezpłatna, Podstawowa i Premium** na stronie [funkcji i możliwości usługi Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/column_chooser.png "Raportowanie")
 
-### <a name="filtering-sign-ins"></a>Filtrowanie logowań
-Logowania można filtrować, aby ograniczyć ilość wyświetlanych danych, przy użyciu następujących pól:
 
-* Data i godzina 
-* Główna nazwa użytkownika
-* Nazwa aplikacji
-* Nazwa klienta
-* Stan logowania
+**Raport działań związanych z logowaniem** zawiera odpowiedzi na pytania, takie jak:
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/293.png "Raportowanie")
+- Co to jest wzorzec logowania użytkownika?
+- Ilu użytkowników zalogowało się w ciągu tygodnia?
+- Jaki jest stan tych logowań?
 
-Inną metodą filtrowania wpisów działań związanych z logowaniem jest wyszukiwanie określonych wpisów.
-Ta metoda wyszukiwania umożliwia zestawienie logowań wokół określonych **użytkowników**, **grup** i **aplikacji**.
 
-![Raportowanie](./media/active-directory-reporting-azure-portal/84.png "Raportowanie")
+**Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu działań związanych z logowaniem?**  
+Aby uzyskać dostęp do raportu działań związanych z logowaniem, dzierżawa musi mieć skojarzoną licencję usługi Azure AD w wersji Premium.
 
-## <a name="audit-logs"></a>Dzienniki inspekcji
-Dzienniki inspekcji w usłudze Azure Active Directory dostarczają informacji na temat aktywności systemu pod kątem zgodności.
 
-Istnieją trzy główne kategorie aktywności związanych z inspekcją w witrynie Azure Portal:
+## <a name="programmatic-access"></a>Dostęp programowy
 
-* Użytkownicy i grupy   
-* Aplikacje
-* Katalog   
+Oprócz interfejsu użytkownika funkcja raportowania w usłudze Azure Active Directory zapewnia [dostęp programowy ](active-directory-reporting-api-getting-started-azure-portal.md) do danych raportów. Dane z tych raportów mogą być bardzo przydatne w aplikacjach, takich jak systemy SIEM oraz narzędzia do inspekcji i analizy biznesowej. Interfejsy API raportów usługi Azure AD umożliwiają dostęp programowy do danych za pomocą zestawu interfejsów API opartych na architekturze REST. Te interfejsy API można wywoływać przy użyciu różnych języków i narzędzi do programowania. 
 
-Pełną listę działań raportu z inspekcji można znaleźć na [liście zdarzeń raportu z inspekcji](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
-Punktem wejścia do wszystkich danych inspekcji jest pozycja **Dzienniki inspekcji** znajdująca się w sekcji **Aktywność** usługi **Azure Active Directory**.
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/61.png "Inspekcja")
-
-Dziennik inspekcji zawiera widok listy aktorów (kto), aktywności (co) i celów.
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/345.png "Inspekcja")
-
-Klikając pozycję w widoku listy, można uzyskać więcej szczegółów na jej temat.
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/873.png "Inspekcja")
-
-### <a name="users-and-groups-audit-logs"></a>Dzienniki inspekcji użytkowników i grup
-Za pomocą raportów inspekcji opartych na użytkownikach i grupach można uzyskać odpowiedzi na pytania, takie jak:
-
-* Jakie typy aktualizacji zostały zastosowane przez użytkowników?
-* Ilu użytkowników zostało zmienionych?
-* Ile haseł zostało zmienionych?
-* Jakich zmian dokonał administrator w katalogu?
-* Jakie grupy zostały dodane?
-* Czy istnieją grupy, w których dokonano zmiany członkostwa?
-* Czy właściciele grup zostali zmienieni?
-* Jakie licencje zostały przypisane do grupy lub użytkownika?
-
-Jeśli chcesz przeglądać dane inspekcji dotyczące użytkowników i grup, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** na stronie **Użytkownicy i grupy**.
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/93.png "Inspekcja")
-
-### <a name="application-audit-logs"></a>Dzienniki inspekcji aplikacji
-Za pomocą raportów inspekcji opartych na aplikacjach można uzyskać odpowiedzi na pytania, takie jak:
-
-* Jakie aplikacje zostały dodane lub zaktualizowane?
-* Jakie aplikacje zostały usunięte?
-* Czy usługa w ramach aplikacji została zmieniona?
-* Czy nazwy aplikacji zostały zmienione?
-* Kto udzielił zezwolenia dla aplikacji?
-
-Jeśli chcesz przeglądać dane inspekcji dotyczące aplikacji, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** strony **Aplikacje dla przedsiębiorstw**.
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/134.png "Inspekcja")
-
-### <a name="filtering-audit-logs"></a>Dzienniki inspekcji filtrowania
-Logowania można filtrować, aby ograniczyć ilość wyświetlanych danych, przy użyciu następujących pól:
-
-* Data i godzina
-* Główna nazwa użytkownika aktora
-* Typ działania
-* Działanie
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/356.png "Inspekcja")
-
-Zawartość listy **Typ działania** jest ograniczona do punktu wejścia do tego bloku.  
-Jeśli punktem wejścia jest usługa Azure Active Directory, ta lista zawiera wszystkie możliwe typy działań:
-
-* Aplikacja 
-* Grupa 
-* Użytkownik
-* Urządzenie
-* Katalog
-* Zasady
-* Inne
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/825.png "Inspekcja")
-
-Działania wymienione na liście są podzielone na zakresy według typu działania.
-Jeśli na przykład ustawienie **Typ działania** ma wartość **Grupa**, lista **Działanie** zawiera tylko działania powiązane z grupą.   
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/654.png "Inspekcja")
-
-Inną metodą filtrowania wpisów dziennika inspekcji jest wyszukiwanie określonych wpisów.
-
-![Inspekcja](./media/active-directory-reporting-azure-portal/237.png "Inspekcja")
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz temat [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md) (Przewodnik po raportach usługi Azure Active Directory).
+
+Jeśli chcesz dowiedzieć się więcej o różnych typach raportów w usłudze Azure Active Directory, zobacz:
+
+- [Raport dotyczący użytkowników oflagowanych w związku z ryzykiem](active-directory-reporting-security-user-at-risk.md)
+- [Raport dotyczący ryzykownych logowań](active-directory-reporting-security-risky-sign-ins.md)
+- [Raport dotyczący dzienników inspekcji](active-directory-reporting-activity-audit-logs.md)
+- [Raport dotyczący dzienników logowania](active-directory-reporting-activity-sign-ins.md)
+
+Jeśli chcesz dowiedzieć się więcej na temat uzyskiwania dostępu do danych raportowania przy użyciu interfejsu API raportów, zobacz: 
+
+- [Wprowadzenie do interfejsu API raportów usługi Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
+<!--Image references-->
+[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

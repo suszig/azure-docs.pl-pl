@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -42,7 +42,7 @@ Jeśli aktualnie używasz magazynu tabel Azure, możesz uzyskać następujące k
 | Dystrybucja globalna | Jeden region z jednym opcjonalnym dodatkowym regionem odczytu, co zapewnia wysoką dostępność. Nie można zainicjować trybu failover | [Kompleksowa dystrybucja globalna](distribute-data-globally.md) do ponad 30 regionów, obsługa [automatycznego i ręcznego trybu failover](regional-failover.md) w dowolnym momencie i dowolnym miejscu na świecie |
 | Indeksowanie | Tylko podstawowy indeks PartitionKey i RowKey. Brak dodatkowych indeksów | Automatyczne i kompletne indeksowanie wszystkich właściwości, brak zarządzania indeksem |
 | Zapytanie | Wykonanie zapytania wykorzystuje indeks klucza podstawowego, a w przeciwnym przypadku skanuje. | Zapytania mogą korzystać z automatycznego indeksowania właściwości, co skraca czas odpowiedzi. Mechanizm bazy danych usługi Azure Cosmos DB obsługuje agregację, rozwiązania geoprzestrzenne i sortowanie. |
-| Spójność | Na poziomie „strong” w regionie podstawowym, na poziomie „eventual” w regionie pomocniczym | [pięć dobrze zdefiniowanych poziomów spójności](consistency-levels.md), równoważących dostępność, opóźnienia, przepływność i spójność w zależności od potrzeb aplikacji |
+| Spójność | Na poziomie „strong” w regionie podstawowym, na poziomie „eventual” w regionie pomocniczym | [Pięć dobrze zdefiniowanych poziomów spójności](consistency-levels.md), równoważących dostępność, opóźnienia, przepływność i spójność w zależności od potrzeb aplikacji |
 | Cennik | Optymalizacja pod kątem pamięci  | Optymalizacja pod kątem przepływności |
 | Umowy SLA | Dostępność 99,9% | Dostępność 99,99% w jednym regionie oraz możliwość dodania kolejnych regionów w celu podniesienia dostępności. [Wiodące w branży, kompleksowe umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) dotyczące ogólnej dostępności |
 

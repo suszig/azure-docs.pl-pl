@@ -9,32 +9,26 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/19/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
+ms.date: 07/12/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: c065d692d2a4ac369cb13a70d09b30498e6c9106
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
-<a id="create-an-azure-database-for-postgresql-in-the-azure-portal" class="xliff"></a>
-
-# Tworzenie serwera usługi Azure Database for PostgreSQL w witrynie Azure Portal
+# <a name="create-an-azure-database-for-postgresql-in-the-azure-portal"></a>Tworzenie serwera usługi Azure Database for PostgreSQL w witrynie Azure Portal
 
 Azure Database for PostgreSQL to usługa zarządzana, która umożliwia uruchamianie i skalowanie w chmurze baz danych PostgreSQL o wysokiej dostępności, a także zarządzanie nimi. W tym przewodniku Szybki start przedstawiono, jak utworzyć serwer usługi Azure Database for PostgreSQL za pomocą witryny Azure Portal.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
-
-## Logowanie do witryny Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
-<a id="create-an-azure-database-for-postgresql" class="xliff"></a>
-
-## Tworzenie serwera usługi Azure Database for PostgreSQL
+## <a name="create-an-azure-database-for-postgresql"></a>Tworzenie serwera usługi Azure Database for PostgreSQL
 
 Serwer usługi Azure Database for PostgreSQL jest tworzony ze zdefiniowanym zestawem [zasobów obliczeniowych i przestrzeni dyskowej](./concepts-compute-unit-and-storage.md). Serwer jest tworzony w ramach [grupy zasobów Azure](../azure-resource-manager/resource-group-overview.md).
 
@@ -44,12 +38,12 @@ Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for Pos
  ![Usługa Azure Database for PostgreSQL — tworzenie bazy danych](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.  Wypełnij formularz informacjami o szczegółach nowego serwera w sposób pokazany na wcześniejszej ilustracji, używając następujących informacji:
-    - Nazwa serwera: **mypgserver-20170401** (nazwa serwera jest mapowana na nazwę DNS i dlatego musi być globalnie unikatowa) 
+    - Nazwa serwera: **mypgserver 20170401** (wybierz globalnie unikatową nazwę serwera, ponieważ ta nazwa jest mapowana na nazwę DNS)
     - Subskrypcja: jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której istnieje zasób lub będą za niego naliczane opłaty.
     - Grupa zasobów: **myresourcegroup**
     - Wybrane przez Ciebie login i hasło administratora serwera
-    - Lokalizacja
-    - Wersja PostgreSQL
+    - Lokalizacja: wybierz najbliższą lokalizację.
+    - Wersja PostgreSQL: wybierz najnowszą wersję.
 
   > [!IMPORTANT]
   > Login i hasło administratora serwera określone w tym miejscu będą wymagane do logowania do serwera i jego baz danych w późniejszej części tego przewodnika Szybki start. Zapamiętaj lub zapisz te informacje do wykorzystania w przyszłości.
@@ -67,9 +61,7 @@ Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for Pos
    
   Domyślnie baza danych **postgres** zostanie utworzona na Twoim serwerze. Baza danych [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) to domyślna baza danych przeznaczona do użycia dla użytkowników oraz na potrzeby narzędzi i aplikacji innych firm. 
 
-<a id="configure-a-server-level-firewall-rule" class="xliff"></a>
-
-## Konfigurowanie reguły zapory na poziomie serwera
+## <a name="configure-a-server-level-firewall-rule"></a>Konfigurowanie reguły zapory na poziomie serwera
 
 Usługa Azure Database for PostgreSQL tworzy zaporę na poziomie serwera. Ta zapora uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem i wszelkimi bazami danych na tym serwerze, chyba że zostanie utworzona reguła zapory otwierająca zaporę dla konkretnych adresów IP. 
 
@@ -88,9 +80,7 @@ Usługa Azure Database for PostgreSQL tworzy zaporę na poziomie serwera. Ta zap
   > Serwer Azure PostgreSQL komunikuje się przez port 5432. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 5432 może być zablokowany przez zaporę sieciową. Jeśli zachodzi taka sytuacja, nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 5432.
   >
 
-<a id="get-the-connection-information" class="xliff"></a>
-
-## Pobieranie informacji o połączeniu
+## <a name="get-the-connection-information"></a>Pobieranie informacji o połączeniu
 
 Podczas tworzenia serwera usługi Azure Database for PostgreSQL, domyślnie jest także tworzona baza danych **postgres**. Aby nawiązać połączenie z serwerem bazy danych, musisz podać informacje o hoście i poświadczenia dostępu.
 
@@ -103,9 +93,7 @@ Podczas tworzenia serwera usługi Azure Database for PostgreSQL, domyślnie jest
 
  ![Azure Database for PostgreSQL — dane logowania administratora serwera](./media/quickstart-create-database-portal/6-server-name.png)
 
-<a id="connect-to-postgresql-database-using-psql-in-cloud-shell" class="xliff"></a>
-
-## Nawiązywanie połączenia z bazą danych PostgreSQL w powłoce Cloud Shell za pomocą narzędzia psql
+## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Nawiązywanie połączenia z bazą danych PostgreSQL w powłoce Cloud Shell za pomocą narzędzia psql
 
 Użyj teraz narzędzia wiersza polecenia psql, aby nawiązać połączenie z serwerem usługi Azure Database for PostgreSQL. 
 1. Uruchom powłokę Azure Cloud Shell za pośrednictwem ikony terminala w górnym okienku nawigacji.
@@ -116,12 +104,12 @@ Użyj teraz narzędzia wiersza polecenia psql, aby nawiązać połączenie z ser
 
    ![Azure Database for PostgreSQL — znak zachęty powłoki Azure Shell Bash](./media/quickstart-create-database-portal/8-bash.png)
 
-3. W wierszu polecenia powłoki Cloud Shell nawiąż połączenie z serwerem usługi Azure Database for PostgreSQL za pomocą poleceń psql. Następujący format służy do łączenia z serwerem usługi Azure Database for PostgreSQL przy użyciu narzędzia [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
+3. W wierszu polecenia usługi Cloud Shell nawiąż połączenie z serwerem usługi Azure Database for PostgreSQL, wpisując polecenie psql. Następujący format służy do łączenia z serwerem usługi Azure Database for PostgreSQL przy użyciu narzędzia [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Na przykład poniższe polecenie nawiązuje połączenie z domyślną bazą danych o nazwie **postgres** na Twoim serwerze PostgreSQL **mypgserver-20170401.postgres.database.azure.com** za pomocą poświadczeń dostępu. Po wyświetleniu monitu wprowadź hasło administratora serwera.
+   Na przykład poniższe polecenie nawiązuje połączenie z domyślną bazą danych o nazwie **postgres** na Twoim serwerze PostgreSQL **mypgserver-20170401.postgres.database.azure.com** za pomocą poświadczeń dostępu. Podczas nawiązywania połączenia zawsze używaj portu **5432**. Po wyświetleniu monitu wprowadź hasło administratora serwera. Zgodnie z przykładem używaj spacji między --przełącznikami w poleceniu, ale nie stosuj ich między znakami równości i wartościami parametrów.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
@@ -136,9 +124,7 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-<a id="connect-to-postgresql-database-using-pgadmin" class="xliff"></a>
-
-## Nawiązywanie połączenia z bazą danych PostgreSQL za pomocą narzędzia pgAdmin
+## <a name="connect-to-postgresql-database-using-pgadmin"></a>Nawiązywanie połączenia z bazą danych PostgreSQL za pomocą narzędzia pgAdmin
 
 Aby nawiązać połączenie z serwerem usługi Azure PostgreSQL za pomocą narzędzia z graficznym interfejsem użytkownika _pgAdmin_
 1.  Uruchom aplikację _pgAdmin_ na swoim komputerze klienckim. Aplikację _pgAdmin_ można zainstalować ze strony http://www.pgadmin.org/.
@@ -149,7 +135,7 @@ Aby nawiązać połączenie z serwerem usługi Azure PostgreSQL za pomocą narz�
    ![Narzędzie pgAdmin — Tworzenie — Serwer](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
     - **Host Name/Address** (Nazwa i adres hosta): mypgserver 20170401.postgres.database.azure.com 
         - W pełni kwalifikowana nazwa serwera.
-    - **Port:**  5432
+    - **Port:** 5432
         - Numerem portu używanym przez ten serwer bazy danych jest 5432.
     - **Maintenance Database** (Baza danych konserwacji): postgres 
         - Domyślna nazwa bazy danych wygenerowana przez system.
@@ -168,9 +154,7 @@ Aby nawiązać połączenie z serwerem usługi Azure PostgreSQL za pomocą narz�
  ![Narzędzie pgAdmin — Tworzenie — Baza danych](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Wyczyść wszystkie zasoby utworzone w tym przewodniku Szybki start, usuwając [grupę zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md).
 
 > [!TIP]
@@ -184,9 +168,7 @@ Jeśli chcesz usunąć nowo utworzony serwer:
 2.  Na stronie Przegląd kliknij przycisk Usuń w górnym okienku ![Azure Database for PostgreSQL — usuń serwer](./media/quickstart-create-database-portal/12-delete.png)
 3.  Potwierdź nazwę serwera, który chcesz usunąć, i wyświetl znajdujące się pod nim bazy danych. W polu tekstowym wpisz **mypgserver 20170401**, a następnie kliknij przycisk Usuń.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych przy użyciu funkcji eksportowania i importowania](./howto-migrate-using-export-and-import.md)
 

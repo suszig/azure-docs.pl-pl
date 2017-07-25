@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: ba82a5e25750fc6d9bd047ace3abb087e5dedfb3
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Wprowadzenie do prywatnych rejestrów kontenerów platformy Docker
@@ -40,7 +40,7 @@ Aby uzyskać ogólne informacje o platformie Docker i kontenerach, zobacz:
 Ściąganie obrazów z rejestru kontenerów platformy Azure do różnych celów wdrażania:
 
 * **Skalowalne systemy organizowania** zarządzające konteneryzowanymi aplikacjami w klastrach hostów, włączając w to rozwiązania [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) i [Kubernetes](http://kubernetes.io/docs/).
-* **Usługi platformy Azure** obsługujące kompilowanie i uruchamianie aplikacji na dużą skalę, w tym usługi [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) i inne.
+* **Usługi platformy Azure** obsługujące kompilowanie i uruchamianie aplikacji na dużą skalę, w tym usługi [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) i inne.
 
 Deweloperzy mogą również przeprowadzać wypychanie do rejestru kontenerów w ramach przepływu pracy opracowywania kontenera. Na przykład mogą kierować dane do rejestru kontenerów z poziomu narzędzia integracji ciągłej lub narzędzia do wdrażania, takiego jak usługa [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) lub [Jenkins](https://jenkins.io/).
 
@@ -52,6 +52,8 @@ Deweloperzy mogą również przeprowadzać wypychanie do rejestru kontenerów w 
 * **Rejestr** — utwórz przynajmniej jeden rejestr kontenerów w subskrypcji platformy Azure. Każdy rejestr jest wspierany przez standardowe [konto magazynu](../storage/storage-introduction.md) platformy Azure w tej samej lokalizacji. Utwórz rejestr w tej samej lokalizacji platformy Azure, w której znajdują się wdrożenia, aby korzystać z lokalnego, bliskiego sieciowo magazynu obrazów kontenerów. W pełni kwalifikowana nazwa rejestru ma format `myregistry.azurecr.io`.
 
   Możesz [kontrolować dostęp](container-registry-authentication.md) do rejestru kontenerów za pomocą [nazwy głównej usługi](../active-directory/active-directory-application-objects.md) wspieranej przez usługę Azure Active Directory lub podanego konta administratora. Uruchom standardowe polecenie `docker login` w celu uwierzytelnienia za pomocą rejestru.
+
+* **Rejestr zarządzany** — warstwa, która oferuje dodatkowe możliwości dla rejestrów w ramach trzech jednostek SKU — Podstawowej, Standardowej i Premium. Obrazy w tych jednostkach SKU są przechowywane na kontach magazynu zarządzanych przez usługę Azure Container Registries, co zwiększa niezawodność i umożliwia korzystanie z nowych funkcji. Nowe możliwości obejmują integrację elementów webhook, uwierzytelnianie repozytorium za pomocą usługi Azure Active Directory oraz obsługę funkcji usuwania. Podczas tworzenia rejestrów użytkownicy mogą wybrać rejestry zarządzane lub utworzyć rejestry obsługiwane przez ich własne konta magazynu.
 
 * **Repozytorium** — rejestr zawiera przynajmniej jedno repozytorium stanowiące grupę obrazów kontenerów. Usługa Azure Container Registry obsługuje wielopoziomowe przestrzenie nazw repozytoriów. Ta funkcja pozwala na grupowanie kolekcji obrazów związanych z określoną aplikacją lub kolekcji aplikacji związanych z określonymi zespołami programistycznymi lub operacyjnymi. Na przykład:
 

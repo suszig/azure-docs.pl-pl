@@ -10,20 +10,24 @@ Nie, należy określić wszystkie algorytmy i parametry zarówno dla protokołu 
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Jakie algorytmy i siły klucza są obsługiwane w zasadach niestandardowych?
 W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły klucza konfigurowalne przez klientów. Należy wybrać jedną opcję dla każdego pola.
 
-| **IPsec/IKEv2**  | **Opcje**                                                                 |
-| ---              | ---                                                                         |
-| Szyfrowanie IKEv2 | AES256, AES192, AES128, DES3, DES                                           |
-| Integralność IKEv2  | SHA384, SHA256, SHA1, MD5                                                   |
-| Grupa DH         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, Brak |
-| Szyfrowanie IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Brak    |
-| Integralność IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| Grupa PFS        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, Brak                     |
-| Okres istnienia skojarzeń zabezpieczeń QM*  | Sekundy (liczba całkowita; **min. 300**) i kilobajty (liczba całkowita; **min. 1024**)                                      |
-| Selektor ruchu | UsePolicyBasedTrafficSelectors** ($True/$False; wartość domyślna $False)                             |
-|                  |                                                                             |
+| **IPsec/IKEv2**  | **Opcje**                                                                   |
+| ---              | ---                                                                           |
+| Szyfrowanie IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
+| Integralność IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
+| Grupa DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Brak |
+| Szyfrowanie IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Brak      |
+| Integralność IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| Grupa PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Brak                              |
+| Okres istnienia skojarzeń zabezpieczeń QM   | Sekundy (liczba całkowita; **min. 300**/wartość domyślna 27 000 sekund)<br>KB (liczba całkowita; **min. 1024**/wartość domyślna to 102 400 000 KB)           |
+| Selektor ruchu | UsePolicyBasedTrafficSelectors ($True/$False; wartość domyślna $False)                 |
+|                  |                                                                               |
 
-* (*) Okres istnienia skojarzenia zabezpieczeń trybu głównego protokołu IKEv2 jest ustalony na 28 800 sekund na bramach sieci VPN platformy Azure
-* (**) Zobacz kolejny element FAQ dla „UsePolicyBasedTrafficSelectors”
+> [!IMPORTANT]
+> 1. DHGroup2048 i PFS2048 są takie same jak grupa Diffie’ego-Hellmana**14** w funkcji PFS protokołów IKE i IPsec. Pełną listę mapowań można znaleźć w temacie zobacz sekcję dotyczącą [grup Diffie’ego-Hellmana](#DH).
+> 2. W przypadku algorytmów GCMAES należy określić ten sam algorytm GCMAES i długość klucza na potrzeby integralności i szyfrowania IPsec.
+> 3. Okres istnienia skojarzenia zabezpieczeń trybu głównego protokołu IKEv2 jest ustalony na 28 800 sekund na bramach sieci VPN platformy Azure
+> 4. Okresy istnienia skojarzeń zabezpieczeń QM to parametry opcjonalne. Jeśli żaden nie został określony, są używane wartości domyślne 27 000 sekund (7,5 godz.) i 102 400 000 KB (102 GB).
+> 5. UsePolicyBasedTrafficSelector to parametr opcji połączenia. Zobacz kolejny element często zadawanych pytań dla elementu „UsePolicyBasedTrafficSelectors”
 
 ### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Czy konfiguracja zasad bramy sieci VPN platformy Azure musi być w pełni zgodna z konfiguracją lokalnego urządzenia sieci VPN?
 Konfiguracja lokalnego urządzenia sieci VPN musi być zgodna z następującymi algorytmami (lub je zawierać) oraz z następującymi parametrami określonymi w zasadach protokołu IPsec/IKE platformy Azure (lub je zawierać):
@@ -45,6 +49,21 @@ Po włączeniu **UsePolicyBasedTrafficSelectors** należy się upewnić, że urz
 * 10.2.0.0/16 <====> 172.16.0.0/16
 
 Aby poznać więcej szczegółowych informacji dotyczących używania tej opcji, zobacz artykuł [Connect multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Połączenie wielu lokalnych urządzeń sieci VPN opartych na zasadach).
+
+### <a name ="DH"></a>Które grupy Diffie'ego-Hellmana są obsługiwane?
+W poniższej tabeli przedstawiono listę obsługiwanych grup Diffie'ego-Hellmana dla protokołów IKE (DHGroup) i IPsec (PFSGroup):
+
+| **Grupa Diffie’ego-Hellmana**  | **DHGroup**              | **PFSGroup** | **Długość klucza** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | MODP, 768-bitowy   |
+| 2                         | DHGroup2                 | PFS2         | MODP, 1024-bitowy  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP, 2048-bitowy  |
+| 19                        | ECP256                   | ECP256       | ECP, 256-bitowy    |
+| 20                        | ECP384                   | ECP284       | ECP, 384-bitowy    |
+| 24                        | DHGroup24                | PFS24        | MODP, 2048-bitowy  |
+|                           |                          |              |                |
+
+Więcej informacji można znaleźć w artykułach [RFC3526](https://tools.ietf.org/html/rfc3526) i [RFC5114](https://tools.ietf.org/html/rfc5114).
 
 ### <a name="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways"></a>Czy zasady niestandardowe zastępują domyślne zestawy zasad protokołu IPsec/IKE dla bram sieci VPN platformy Azure?
 Tak, po określeniu zasad niestandardowych dla połączenia brama sieci VPN platformy Azure będzie korzystać tylko z zasad połączenia — zarówno jako inicjator IKE, jak i obiekt odpowiadający IKE.

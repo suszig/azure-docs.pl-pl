@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: accd5c55e7adafd5a387bf420660b808335192e6
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/10/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Tworzenie funkcji wyzwalanej przez element webhook GitHub
@@ -104,5 +104,9 @@ Element webhook został skonfigurowany do wyzwolenia funkcji po dodaniu nowego k
 
 ## <a name="next-steps"></a>Następne kroki
 
-Utworzono funkcję, która jest uruchamiana w momencie otrzymania żądania od elementu webhook GitHub. 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Aby uzyskać więcej informacji na temat wyzwalaczy elementów webhook, zobacz [Powiązania protokołu HTTP i elementów webhook w usłudze Azure Functions](functions-bindings-http-webhook.md).
+Utworzono funkcję, która jest uruchamiana w momencie otrzymania żądania od elementu webhook GitHub.
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Aby uzyskać więcej informacji na temat wyzwalaczy elementów webhook, zobacz temat [Powiązania protokołu HTTP i elementów webhook w usłudze Azure Functions](functions-bindings-http-webhook.md).
+

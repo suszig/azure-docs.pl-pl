@@ -18,10 +18,10 @@ ms.topic: hero-article
 ms.date: 06/20/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: bc43936310c48f4dad54c829c7511cf2ad5f83af
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4076b1e7ab3a70009217a1deff72da4bff0dc871
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -61,7 +61,7 @@ Nie jest potrzebna specjalna konfiguracja.
 
 Nie jest potrzebna specjalna konfiguracja.
 
-## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
+## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera, nazwa bazy danych i informacje logowania.
 
@@ -69,7 +69,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
 3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**.
 
-   ![informacje o połączeniu](./media/sql-database-get-started-portal/server-name.png) 
+   ![informacje o połączeniu](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło. 
 

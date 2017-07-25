@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie pierwszego indeksu usługi Azure Search w portalu | Microsoft Docs"
+title: "Samouczek: Tworzenie pierwszego indeksu usługi Azure Search w portalu | Microsoft Docs"
 description: "W witrynie Azure Portal do wygenerowania indeksu można użyć wstępnie zdefiniowanych danych przykładowych. Dowiedz się więcej o wyszukiwaniu pełnotekstowym, filtrach, aspektach, wyszukiwaniu rozmytym, wyszukiwaniu geograficznym i innych funkcjach."
 services: search
 documentationcenter: 
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 06/26/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>Tworzenie pierwszego indeksu usługi Azure Search w portalu i wykonywanie względem niego zapytań
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Samouczek: Tworzenie pierwszego indeksu usługi Azure Search w portalu
 
 W witrynie Azure Portal rozpocznij pracę od wstępnie zdefiniowanego przykładowego zestawu danych, aby szybko wygenerować indeks za pomocą kreatora **importu danych**. Zapoznaj się z wyszukiwaniem pełnotekstowym, filtrami, aspektami, wyszukiwaniem rozmytym i wyszukiwaniem geograficznym, korzystając z **Eksploratora wyszukiwania**.  
 

@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu zestawu .NET SDK | Microsoft Docs"
+title: "Tworzenie zapytań względem indeksu (interfejs API .NET — usługa Azure Search) | Microsoft Docs"
 description: "Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania."
 services: search
 manager: jhubbard
@@ -13,17 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ffc27db4de5bd699dbd8175930a597fb85947140
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 0185d898f5443cc03135cb1692a54194a82b1e50
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-<a id="query-your-azure-search-index-using-the-net-sdk" class="xliff"></a>
-
-# Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu zestawu .NET SDK
+# <a name="query-your-azure-search-index-using-the-net-sdk"></a>Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu zestawu .NET SDK
 > [!div class="op_single_selector"]
 > * [Omówienie](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -38,9 +35,7 @@ Przed rozpoczęciem pracy z tym przewodnikiem należy [utworzyć indeks usługi 
 
 Należy zwrócić uwagę, że cały przykładowy kod przedstawiony w tym artykule został napisany w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](http://aka.ms/search-dotnet-howto).
 
-<a id="identify-your-azure-search-services-query-api-key" class="xliff"></a>
-
-## Identyfikowanie klucza api-key zapytania usługi Azure Search
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identyfikowanie klucza api-key zapytania usługi Azure Search
 Po utworzeniu indeksu usługi Azure Search wszystko jest już prawie gotowe do wysyłania zapytań przy użyciu zestawu .NET SDK. Najpierw musisz uzyskać jeden z kluczy api-key zapytania, który został wygenerowany dla aprowizowanej usługi wyszukiwania. Zestaw .NET SDK przesyła ten klucz przy każdorazowym wysłaniu żądania do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 1. Aby znaleźć klucze api-key dla usługi, możesz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
@@ -54,9 +49,7 @@ Usługa będzie dysponować *kluczami administratora* i *kluczami zapytań*.
 
 W celu tworzenia zapytań względem indeksu można użyć dowolnego klucza zapytania. Do tworzenia zapytań można również używać kluczy administratora, ale w kodzie aplikacji należy używać klucza zapytania, ponieważ takie podejście jest bardziej zgodne z [zasadą najniższych uprawnień](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-<a id="create-an-instance-of-the-searchindexclient-class" class="xliff"></a>
-
-## Tworzenie wystąpienia klasy SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Tworzenie wystąpienia klasy SearchIndexClient
 Aby wysyłać zapytania przy użyciu zestawu .NET SDK usługi Azure Search, konieczne jest utworzenie wystąpienia klasy `SearchIndexClient`. Ta klasa ma kilka konstruktorów. Ten, który nas interesuje, przyjmuje jako parametry nazwę usługi wyszukiwania, nazwę indeksu i obiekt `SearchCredentials`. `SearchCredentials` opakowuje klucz interfejsu API.
 
 Poniższy kod tworzy nową klasę `SearchIndexClient` dla indeksu „hotels” (utworzonego w ramach instrukcji zawartych w temacie [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md) [Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK]) za pomocą wartości nazwy usługi wyszukiwania i klucza api-key, które są przechowywane w pliku konfiguracji aplikacji (`appsettings.json` w przypadku [przykładowej aplikacji](http://aka.ms/search-dotnet-howto)):
@@ -74,21 +67,15 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 
 `SearchIndexClient` ma właściwość `Documents`. Ta właściwość zawiera wszystkie metody, które są potrzebne do tworzenie zapytań względem indeksów usługi Azure Search.
 
-<a id="query-your-index" class="xliff"></a>
-
-## Tworzenie zapytań względem indeksu
+## <a name="query-your-index"></a>Tworzenie zapytań względem indeksu
 Wyszukiwanie za pomocą zestawu .NET SDK jest równie proste co wywołanie metody `Documents.Search` klasy `SearchIndexClient`. Ta metoda przyjmuje kilka parametrów, łącznie z tekstem wyszukiwania oraz obiektem `SearchParameters`, który może służyć do uściślenia zapytania.
 
-<a id="types-of-queries" class="xliff"></a>
-
-#### Typy zapytań
+#### <a name="types-of-queries"></a>Typy zapytań
 Dwa najczęściej używane [typy zapytań](search-query-overview.md#types-of-queries) to `search` i `filter`. Zapytanie `search` umożliwia wyszukanie jednego lub większej liczby terminów we wszystkich polach *z możliwością wyszukiwania* w indeksie. Zapytanie `filter` ocenia wyrażenie logiczne w odniesieniu do wszystkich pól *z możliwością filtrowania* w indeksie.
 
 Zarówno operacja wyszukiwania, jak i filtrowania są wykonywane przy użyciu metody `Documents.Search`. Zapytanie wyszukiwania może zostać przekazane za pośrednictwem parametru `searchText`, natomiast wyrażenie filtrowania może zostać przekazane za pośrednictwem właściwości `Filter` klasy `SearchParameters`. Aby filtrować bez wyszukiwania, po prostu przekaż wartość `"*"` jako parametr `searchText`. Aby wyszukiwać bez filtrowania, pozostaw nieustawioną właściwość `Filter` lub nie przekazuj jej w wystąpieniu obiektu `SearchParameters`.
 
-<a id="example-queries" class="xliff"></a>
-
-#### Przykładowe zapytania
+#### <a name="example-queries"></a>Przykładowe zapytania
 W poniższym przykładowym kodzie przedstawiono inne sposoby tworzenia zapytań względem indeksu „hotels” zdefiniowanego w ramach instrukcji zawartych w artykule [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#DefineIndex) (Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK). Zwróć uwagę na to, że dokumenty zwrócone w wynikach wyszukiwania są wystąpieniami klasy `Hotel`, która została zdefiniowana w ramach instrukcji zawartych w artykule [Data Import in Azure Search using the .NET SDK](search-import-data-dotnet.md#HotelClass) (Importowanie danych do usługi Azure Search przy użyciu zestawu .NET SDK). W przykładowym kodzie użyto metody `WriteDocuments`, aby przekazać wyniki wyszukiwania do konsoli. Ta metoda została opisana w następnej sekcji.
 
 ```csharp
@@ -145,9 +132,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-<a id="handle-search-results" class="xliff"></a>
-
-## Obsługa wyników wyszukiwania
+## <a name="handle-search-results"></a>Obsługa wyników wyszukiwania
 Metoda `Documents.Search` zwraca obiekt `DocumentSearchResult` zawierający wyniki zapytania. W poprzedniej sekcji użyto metody o nazwie `WriteDocuments` w celu przekazania wyników wyszukiwania do konsoli:
 
 ```csharp

@@ -16,16 +16,14 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-<a id="manage-batch-resources-with-azure-cli" class="xliff"></a>
-
-# Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure 2.0 to nowe środowisko wiersza polecenia platformy Azure do zarządzania jej zasobami. Można go używać w systemach macOS, Linux i Windows. Interfejs wiersza polecenia platformy Azure 2.0 jest zoptymalizowany do zarządzania i administrowania zasobami platformy Azure z wiersza polecenia. Interfejs wiersza polecenia platformy Azure umożliwia zarządzanie kontami usługi Azure Batch i zarządzanie zasobami, na przykład pulami, zadaniami i zadaniami podrzędnymi. Za pomocą interfejsu wiersza polecenia platformy Azure można tworzyć skrypty dla wielu tych samych zadań, które wykonuje się za pomocą interfejsów API usługi Batch, witryny Azure Portal oraz poleceń cmdlet programu PowerShell dla usługi Batch.
 
@@ -33,9 +31,7 @@ Ten artykuł zawiera omówienie korzystania z [interfejsu wiersza polecenia plat
 
 Firma Microsoft zaleca korzystanie z najnowszej wersji interfejsu wiersza polecenia na platformie Azure, czyli wersji 2.0. Aby uzyskać więcej informacji na temat wersji 2.0, zobacz [Interfejs wiersza polecenia platformy Azure 2.0 jest ogólnie dostępny](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 
-<a id="set-up-the-azure-cli" class="xliff"></a>
-
-## Konfigurowanie interfejsu wiersza polecenia platformy Azure
+## <a name="set-up-the-azure-cli"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure
 
 Aby zainstalować interfejs wiersza polecenia platformy Azure, wykonaj czynności opisane w artykule [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
 
@@ -44,9 +40,7 @@ Aby zainstalować interfejs wiersza polecenia platformy Azure, wykonaj czynnośc
 > 
 > 
 
-<a id="command-help" class="xliff"></a>
-
-## Pomoc związana z poleceniami
+## <a name="command-help"></a>Pomoc związana z poleceniami
 
 Możesz wyświetlić tekst pomocy dla każdego polecenia w interfejsie wiersza polecenia platformy Azure, dodając do polecenia opcję `-h`. Pomiń wszelkie inne opcje. Na przykład:
 
@@ -63,18 +57,14 @@ W razie wątpliwości użyj opcji wiersza polecenia `-h`, aby uzyskać pomoc dot
 
 Ponadto w dokumentacji wiersza polecenia platformy Azure można znaleźć szczegółowe informacje o [poleceniach wiersza polecenia platformy Azure dla usługi Batch](https://docs.microsoft.com/cli/azure/batch). 
 
-<a id="log-in-and-authenticate" class="xliff"></a>
-
-## Logowanie i uwierzytelnianie
+## <a name="log-in-and-authenticate"></a>Logowanie i uwierzytelnianie
 
 Aby używać interfejsu wiersza polecenia platformy Azure z usługą Batch, należy się zalogować i uwierzytelnić. Należy w tym celu wykonać dwa proste kroki:
 
 1. **Zaloguj się na platformie Azure.** Zalogowanie się na platformie Azure zapewnia dostęp do poleceń usługi Azure Resource Manager, w tym do poleceń [usługi Batch Management](batch-management-dotnet.md).  
 2. **Zaloguj się na koncie usługi Batch.** Zalogowanie się na koncie usługi Batch zapewnia dostęp do poleceń usługi Batch.   
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-### Zaloguj się do platformy Azure.
+### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 Istnieje kilka różnych sposobów logowania się na platformie Azure. Opisano je szczegółowo w artykule [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
@@ -94,9 +84,7 @@ Polecenie `az login` zwraca token używany do uwierzytelniania, jak to tutaj pok
 
 W przykładach wymienionych w sekcji [Przykładowe skrypty powłoki](#sample-shell-scripts) również pokazano, jak uruchomić sesję interfejsu wiersza polecenia platformy Azure przez zalogowanie się interakcyjne na platformie Azure. Po zalogowaniu się można wywoływać polecenia do pracy z zasobami usługi Batch Management, w tym z kluczami, pakietami aplikacji, przydziałami i kontami usługi Batch.  
 
-<a id="log-in-to-your-batch-account" class="xliff"></a>
-
-### Logowanie się na koncie usługi Batch
+### <a name="log-in-to-your-batch-account"></a>Logowanie się na koncie usługi Batch
 
 Aby za pomocą interfejsu wiersza polecenia platformy Azure zarządzać zasobami usługi Batch, na przykład pulami, zadaniami i zadaniami podrzędnymi, należy zalogować się na koncie usługi Batch i dokonać uwierzytelnienia. Aby zalogować się do usługi Batch, użyj polecenia [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
 
@@ -132,9 +120,7 @@ Dostępne są dwie opcje uwierzytelnienia na koncie usługi Batch:
 
 W przykładach wymienionych w sekcji [Przykładowe skrypty powłoki](#sample-shell-scripts) pokazano, jak zalogować się na koncie usługi Batch za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu zarówno usługi Azure AD, jak i klucza wspólnego.
 
-<a id="sample-shell-scripts" class="xliff"></a>
-
-## Przykładowe skrypty powłoki
+## <a name="sample-shell-scripts"></a>Przykładowe skrypty powłoki
 
 W przykładowych skryptach wymienionych w poniższej tabeli pokazano, jak za pomocą poleceń interfejsu wiersza polecenia platformy Azure z usługami Batch i Batch Management wykonywać typowe zadania. Te przykładowe skrypty obejmują wiele poleceń dostępnych w interfejsie wiersza polecenia platformy Azure dla usługi Batch. 
 
@@ -145,9 +131,7 @@ W przykładowych skryptach wymienionych w poniższej tabeli pokazano, jak za pom
 | [Zarządzanie pulami usługi Batch](./scripts/batch-cli-sample-manage-pool.md) | Ilustruje tworzenie pul, zmienianie ich rozmiarów i zarządzanie nimi. |
 | [Uruchamianie zadań i zadań podrzędnych za pomocą usługi Batch](./scripts/batch-cli-sample-run-job.md) | Ilustruje uruchamianie zadania i dodawanie zadania podrzędnego. |
 
-<a id="json-files-for-resource-creation" class="xliff"></a>
-
-## Pliki JSON do tworzenia zasobów
+## <a name="json-files-for-resource-creation"></a>Pliki JSON do tworzenia zasobów
 
 Podczas tworzenia zasobów usługi Batch, np. puli i zadań, możesz określić plik JSON zawierający konfiguracje nowego zasobu, zamiast przekazywać parametry zasobu w opcjach wiersza polecenia. Na przykład:
 
@@ -166,9 +150,7 @@ Aby uzyskać przykładowy skrypt określający plik JSON, zobacz [Uruchamianie z
 > 
 > 
 
-<a id="efficient-queries-for-batch-resources" class="xliff"></a>
-
-## Wydajne zapytania dotyczące zasobów usługi Batch
+## <a name="efficient-queries-for-batch-resources"></a>Wydajne zapytania dotyczące zasobów usługi Batch
 
 Każdy typ zasobu usługi Batch obsługuje polecenie `list`, które wysyła zapytania do konta usługi Batch i wyświetla listę zasobów tego typu. Przykładowo możesz wyświetlić listę puli na koncie i zadań w ramach zadania:
 
@@ -191,24 +173,21 @@ Aby uzyskać przykładowy skrypt ilustrujący używanie klauzuli OData, zobacz [
 
 Aby uzyskać więcej informacji o wykonywaniu wydajnych zapytań listy przy użyciu klauzul OData, zobacz [Efektywne wysyłanie zapytań do usługi Azure Batch](batch-efficient-list-queries.md).
 
-<a id="troubleshooting-tips" class="xliff"></a>
-
-## Wskazówki dotyczące rozwiązywania problemów
+## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
 Poniższe porady mogą być pomocne w przypadku rozwiązywania problemów związanych z interfejsem wiersza polecenia platformy Azure:
 
 * Użyj polecenia `-h`, aby uzyskać **tekst pomocy** dla dowolnego polecenia interfejsu wiersza polecenia
 * Użyj opcji `-v` i `-vv`, aby wyświetlić **pełne** dane wyjściowe polecenia. Gdy jest dołączona flaga `-vv`, w interfejsie wiersza polecenia platformy Azure wyświetlane są faktyczne żądania i odpowiedzi REST. Te przełączniki są przydatne do wyświetlania pełnych danych wyjściowych błędu.
 * Możesz wyświetlić **dane wyjściowe polecenia w formie pliku JSON** przy użyciu opcji `--json`. Przykładowo polecenie `az batch pool show pool001 --json` wyświetla właściwości puli 001 w formacie JSON. Następnie możesz skopiować i zmodyfikować te dane wyjściowe, aby użyć ich w pliku `--json-file` (zobacz sekcję [Pliki JSON](#json-files) wcześniej w tym artykule).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * [Forum usługi Batch][batch_forum] jest monitorowane przez członków zespołu usługi Batch. Możesz tam zamieszczać pytania w przypadku napotkania problemów lub w sytuacji, w której potrzebujesz pomocy z konkretną operacją.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
 * Aby uzyskać więcej informacji o zasobach usługi Batch, zobacz [Omówienie usługi Azure Batch dla deweloperów](batch-api-basics.md).
-* Zobacz temat [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji w usłudze Azure Batch), aby zobaczyć, jak używać tej funkcji do zarządzania i wdrażania aplikacji wykonywanych w węzłach obliczeniowych usługi Batch.
+* Zobacz temat [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji w usłudze Batch)](batch-application-packages.md), aby dowiedzieć się, jak używać tej funkcji do wdrażania aplikacji wykonywanych w węzłach obliczeniowych usługi Batch i zarządzania nimi.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

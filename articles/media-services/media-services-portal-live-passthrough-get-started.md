@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/10/2017
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu portalu Azure
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Przeprowadzanie transmisji strumieniowej na żywo za pomocą koderów lokalnych przy użyciu witryny Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -41,9 +43,9 @@ Zdecydowanie zaleca się następujące artykuły:
 
 * [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Omówienie transmisji strumieniowej na żywo przy użyciu usługi Azure Media Services](media-services-manage-channels-overview.md)
-* [Transmisja strumieniowa na żywo za pomocą koderów lokalnych, które tworzą strumienie różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md)
+* [Transmisja strumieniowa na żywo za pomocą koderów lokalnych tworzących strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Typowy scenariusz transmisji strumieniowej na żywo
+## <a id="scenario"></a>Typowy scenariusz transmisji strumieniowej na żywo
 W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji do transmisji strumieniowej na żywo używających kanałów skonfigurowanych do dostarczania zawartości w formie przekazywania. W tym samouczku przedstawiono sposób tworzenia kanału do przekazywania zawartości i transmitowania wydarzeń na żywo oraz zarządzania nimi.
 
 >[!NOTE]
@@ -69,7 +71,7 @@ W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji 
 9. Usuń wydarzenie/program (opcjonalnie można również usunąć element zawartości).     
 
 > [!IMPORTANT]
-> W temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych tworzących strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md) opisano założenia i zagadnienia dotyczące transmisji strumieniowej na żywo za pomocą koderów lokalnych i kanałów w formie przekazywania.
+> W temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych tworzących strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md) opisano założenia i zagadnienia dotyczące transmisji strumieniowej na żywo za pomocą koderów lokalnych i kanałów przekazujących.
 > 
 > 
 
@@ -100,7 +102,7 @@ Jeśli chcesz zachować zarchiwizowaną zawartość, ale bez udostępniania jej 
 ### <a name="to-use-the-portal-to-create-a-channel"></a>Aby utworzyć kanał za pomocą portalu
 W tej sekcji przedstawiono, jak użyć opcji **Szybkie tworzenie** do utworzenia kanału przekazującego.
 
-Więcej szczegółowych informacji dotyczących kanałów w formie przekazywania można znaleźć w temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
+Więcej szczegółowych informacji dotyczących kanałów przekazujących można znaleźć w temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych tworzących strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
 2. W oknie **Ustawienia** kliknij przycisk **Transmisja strumieniowa na żywo**. 
@@ -134,7 +136,7 @@ Aby oglądać wydarzenie, kliknij przycisk **Oglądaj** w witrynie Azure Portal 
 Po zatrzymaniu wydarzenia na żywo jest ono automatycznie konwertowane na zawartość na żądanie.
 
 ## <a name="clean-up"></a>Czyszczenie
-Więcej szczegółowych informacji dotyczących kanałów w formie przekazywania można znaleźć w temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
+Więcej szczegółowych informacji dotyczących kanałów przekazujących można znaleźć w temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych tworzących strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
 
 * Kanał można zatrzymać tylko wtedy, jeśli wszystkie wydarzenia/programy na kanale zostały zatrzymane.  Po zatrzymaniu kanału opłaty nie są naliczane. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
 * Kanał można usunąć tylko wtedy, gdy wszystkie wydarzenia na żywo na kanale zostały usunięte.
@@ -153,10 +155,5 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

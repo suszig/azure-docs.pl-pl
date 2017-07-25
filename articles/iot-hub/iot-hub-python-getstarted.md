@@ -1,6 +1,6 @@
 ---
 title: "Rozpoczynanie pracy z usługą Azure IoT Hub (Python) | Microsoft Docs"
-description: "W tym artykule opisano sposób wysyłania komunikatów z symulowanego urządzenia do usługi Azure IoT Hub za pomocą zestawów SDK usługi Azure IoT dla języka Python."
+description: "Dowiedz się, jak wysyłać komunikaty urządzenie-chmura do usługi Azure IoT Hub za pomocą zestawów SDK usługi IoT dla języka Python. Utwórz symulowane aplikacje urządzenia i usługi, aby zarejestrować urządzenie, wysyłać wiadomości i odczytywać wiadomości z usługi IoT Hub."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,12 +13,11 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: f0800b70620106f9ae9d19d63b60b726835e338f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Podłączanie symulowanego urządzenia do usługi IoT Hub za pomocą języka Python
@@ -78,6 +77,8 @@ W tej sekcji znajdują się kroki umożliwiające utworzenie aplikacji konsoli j
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Dodaj następującą funkcję umożliwiającą wydrukowanie niektórych informacji o urządzeniu.
 
     ```python

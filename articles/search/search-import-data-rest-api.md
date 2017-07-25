@@ -1,5 +1,5 @@
 ---
-title: "Przekazywanie danych do usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs"
+title: "Przekazywanie danych (interfejs API REST — usługa Azure Search) | Microsoft Docs"
 description: "Dowiedz się, jak przekazywać dane do indeksu w usłudze Azure Search przy użyciu interfejsu API REST."
 services: search
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -179,9 +181,4 @@ Aby uzyskać więcej informacji na temat akcji dla dokumentów oraz odpowiedzi o
 
 ## <a name="next-steps"></a>Następne kroki
 Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zapytań w celu wyszukania dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

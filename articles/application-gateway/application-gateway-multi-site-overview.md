@@ -14,29 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 722ab9e8a13ee28342bb30f6810fa503b1aa29f2
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="application-gateway-multiple-site-hosting" class="xliff"></a>
-
-# Hostowanie wielu witryn usługi Application Gateway
+# <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
 
 Hostowanie wielu witryn pozwala na skonfigurowanie więcej niż jednej aplikacji sieci Web na tym samym wystąpieniu bramy aplikacji. Ta funkcja umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie maksymalnie 20 witryn sieci Web do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. W poniższym przykładzie usługa Application Gateway obsługuje ruch dla domen contoso.com i fabrikam.com z dwóch pul serwerów zaplecza o nazwach ContosoServerPool i FabrikamServerPool.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
+> [!IMPORTANT]
+> Reguły są przetwarzane w kolejności, w jakiej znajdują się na liście w portalu. Zdecydowanie zaleca się skonfigurowanie odbiorników obejmujących wiele lokacji przed skonfigurowaniem podstawowego odbiornika.  Zapewni to skierowanie ruchu do odpowiedniego zaplecza. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
+
 Żądania dla adresu http://contoso.com są kierowane do puli ContosoServerPool, a dla adresu http://fabrikam.com — do puli FabrikamServerPool.
 
 Podobnie dwie domeny podrzędne tej samej domeny nadrzędnej mogą być hostowane na tym samym wdrożeniu usługi Application Gateway. Przykłady użycia domen podrzędnych mogą obejmować domeny http://blog.contoso.com i http://app.contoso.com hostowane na jednym wdrożeniu usługi Application Gateway.
 
-<a id="host-headers-and-server-name-indication-sni" class="xliff"></a>
-
-## Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
+## <a name="host-headers-and-server-name-indication-sni"></a>Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
 
 Istnieją trzy popularne mechanizmy włączania hostingu wielu witryn w tej samej infrastrukturze.
 
@@ -46,9 +44,7 @@ Istnieją trzy popularne mechanizmy włączania hostingu wielu witryn w tej same
 
 Obecnie usługa Application Gateway pobiera jeden publiczny adres IP, na którym nasłuchuje ruchu. Z tego względu obsługiwanie wielu aplikacji z oddzielnym adresem IP dla każdej z nich nie jest obecnie obsługiwane. Usługa Application Gateway obsługuje hostowanie wielu aplikacji, z których każda nasłuchuje na innym porcie, ale ten scenariusz wymaga, aby aplikacje akceptowały ruch na portach niestandardowych, co często nie jest pożądaną konfiguracją. Usługa Application Gateway bazuje na nagłówkach hosta HTTP 1.1 w celu hostowania więcej niż jednej witryny sieci Web na tym samym publicznym adresie IP i porcie. Witryny hostowane w usłudze Application Gateway mogą także obsługiwać odciążanie protokołu SSL za pomocą rozszerzenia TLS oznaczania nazwy serwera. Ten scenariusz oznacza, że przeglądarka i farma sieci Web zaplecza klienta muszą obsługiwać protokół HTTP/1.1 i rozszerzenie TLS zgodnie ze standardem RFC 6066.
 
-<a id="listener-configuration-element" class="xliff"></a>
-
-## Element konfiguracji odbiornika
+## <a name="listener-configuration-element"></a>Element konfiguracji odbiornika
 
 Istniejący element konfiguracji HTTPListener został ulepszony na potrzeby obsługi elementów oznaczania nazwy hosta i nazwy serwera, co jest używane przez usługę Application Gateway w celu kierowania ruchu do odpowiedniej puli zaplecza. Poniższy przykład kodu jest fragmentem elementu HttpListeners z pliku szablonu.
 
@@ -90,9 +86,7 @@ Istniejący element konfiguracji HTTPListener został ulepszony na potrzeby obs�
 
 Możesz odwiedzić stronę [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) (Szablon usługi Resource Manager z zastosowaniem hostowania wielu witryn), aby zapoznać się z kompleksowym wdrożeniem opartym na szablonie.
 
-<a id="routing-rule" class="xliff"></a>
-
-## Reguła routingu
+## <a name="routing-rule"></a>Reguła routingu
 
 Reguła routingu nie wymaga żadnej zmiany. Nadal należy wybierać podstawową regułę routingu „Basic” w celu powiązania odpowiedniego odbiornika witryny z właściwą pulą adresów zaplecza.
 
@@ -133,9 +127,7 @@ Reguła routingu nie wymaga żadnej zmiany. Nadal należy wybierać podstawową 
 ]
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Po zapoznaniu się z informacjami o hostowaniu wielu witryn przejdź do [tworzenia bramy aplikacji przy użyciu hostowania wielu witryn](application-gateway-create-multisite-azureresourcemanager-powershell.md), aby utworzyć bramę aplikacji z możliwością obsługi więcej niż jednej aplikacji sieci Web.
 

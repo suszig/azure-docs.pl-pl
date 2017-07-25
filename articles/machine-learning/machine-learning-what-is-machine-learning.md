@@ -13,21 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Wprowadzenie do usługi Azure Machine Learning w chmurze
-## <a name="what-is-machine-learning"></a>Co to jest uczenie maszynowe?
-Uczenie maszynowe to metoda przetwarzania danych, która ułatwia komputerom uczenie się na podstawie istniejących danych w celu przewidywania przyszłych zachowań, rezultatów i trendów.  
+# <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Wprowadzenie do usługi Machine Learning w chmurze Azure
 
-Prognozy lub predykcje uzyskiwane z uczenia maszynowego mogą sprawiać, że aplikacje i urządzenia będą bardziej inteligentne. Podczas zakupów w Internecie uczenie maszynowe wspomaga proces rekomendowania innych produktów, które mogą się spodobać kupującemu, na podstawie dotychczasowych zakupów. W przypadku płacenia kartą kredytową uczenie maszynowe porównuje transakcję z bazą danych transakcji i ułatwia wykrycie oszustwa. Gdy robot odkurzający sprząta pomieszczenie, uczenie maszynowe pomaga mu zdecydować, czy praca została wykonana.
+## <a name="what-is-machine-learning"></a>Co to jest uczenie maszynowe?
+Uczenie maszynowe to technika przetwarzania danych, która umożliwia wykorzystanie przez komputery istniejących danych w celu przewidywania przyszłych zachowań, rezultatów i trendów. Za pomocą techniki uczenia maszynowego komputery uczą się bez ich jawnego programowania.
+
+Dzięki prognozom lub przewidywaniom uzyskiwanym za pomocą uczenia maszynowego aplikacje i urządzenia są bardziej inteligentne. Podczas zakupów w Internecie uczenie maszynowe wspomaga proces rekomendowania innych produktów, które mogą się spodobać kupującemu, na podstawie dotychczasowych zakupów. W przypadku płacenia kartą kredytową uczenie maszynowe porównuje transakcję z bazą danych transakcji i ułatwia wykrycie oszustwa. Gdy robot odkurzający sprząta pomieszczenie, uczenie maszynowe pomaga mu zdecydować, czy praca została wykonana.
 
 Krótki przegląd zawiera seria klipów wideo [Przetwarzanie danych dla początkujących](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Nie używając żargonu ani matematyki, seria Przetwarzanie danych dla początkujących przedstawia uczenie maszynowe i prowadzi Cię krok po kroku przez prosty model predykcyjny.
 

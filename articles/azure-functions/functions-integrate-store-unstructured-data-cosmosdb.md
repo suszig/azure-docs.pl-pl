@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/08/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 785bd144805a472ae457f9a3323d512b5cbf055d
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/10/2017
 
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Cosmos DB
@@ -159,9 +159,7 @@ Jeśli dane znajdują się w dokumencie, pomyślnie utworzono funkcję platformy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat usługi Azure Functions, zobacz poniższe tematy:
-
-[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
+Aby uzyskać więcej informacji na temat tworzenia powiązań z bazą danych usługi Cosmos DB, zobacz temat [Powiązania bazy danych usługi Cosmos DB w usłudze Azure Functions](functions-bindings-documentdb.md).
 

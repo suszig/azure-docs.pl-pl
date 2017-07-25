@@ -6,22 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 663041285f7b64a8f38ace91bcb3673f46c1218a
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 23715879b46dd6d56a91fac2908964ea87fe569a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="quick-start-azure-ad-self-service-password-reset"></a>Szybki start: Samoobsługowe resetowanie haseł w usłudze Azure AD
@@ -40,21 +39,21 @@ W tym przewodniku założono, że masz już działającą dzierżawę usługi Az
     * Wszyscy — z funkcji samoobsługowego resetowania haseł mogą korzystać wszyscy użytkownicy z kontami w Twojej dzierżawie usługi Azure AD
 
 3. Na ekranie **„Metody uwierzytelniania”** wybierz:
-    * „Liczba metod wymaganych do zresetowania” — obsługujemy jedną lub dwie metody
-    * „Metody dostępne dla użytkowników” — potrzebujemy co najmniej jednej metody, ale zawsze dobrze jest mieć wybór
+    * Liczba metod wymaganych do zresetowania — obsługujemy jedną lub dwie metody
+    * Metody dostępne dla użytkowników — potrzebujemy co najmniej jednej metody, ale zawsze dobrze jest mieć wybór
         * **Wiadomość e-mail** — wiadomość e-mail z kodem jest wysyłana na adres e-mail uwierzytelniania skonfigurowany przez użytkownika
         * **Telefon komórkowy** — daje możliwość odebrania połączenia lub wiadomości SMS z kodem pod numerem telefonu komórkowego skonfigurowanym przez użytkownika
         * **Telefon biurowy** — na numer telefonu w biurze skonfigurowany przez użytkownika wykonywane jest połączenie w celu przekazania kodu
         * Opcja **Pytania zabezpieczające** wymaga wybrania następujących wartości:
-            * „Liczba pytań wymaganych do zarejestrowania się” — jest to minimum potrzebne do pomyślnej rejestracji, co oznacza, że użytkownik może wybrać więcej pytań, aby utworzyć pulę pytań do wyboru. Tę opcję można ustawić na wartość z zakresu od 3 do 5 i musi ona być co najmniej równa liczbie pytań wymaganych do zresetowania.
-            * „Liczba pytań wymaganych do zresetowania” — tę opcję można ustawić na wartość z zakresu od 3 do 5 pytań, na które musi zostać udzielona poprawna odpowiedź, aby użytkownicy mogli zresetować lub odblokować hasło.
+            * Liczba pytań wymaganych do zarejestrowania się — jest to minimum potrzebne do pomyślnej rejestracji, co oznacza, że użytkownik może wybrać więcej pytań, aby utworzyć pulę pytań do wyboru. Tę opcję można ustawić na wartość z zakresu od 3 do 5 i musi ona być co najmniej równa liczbie pytań wymaganych do zresetowania.
                 * Pytania niestandardowe można dodawać podczas wybierania pytań zabezpieczających, klikając przycisk „Niestandardowe”
+            * Liczba pytań wymaganych do zresetowania — tę opcję można ustawić na wartość z zakresu od 3 do 5 pytań, na które musi zostać udzielona poprawna odpowiedź, aby użytkownicy mogli zresetować lub odblokować hasło.
 
 4. ZALECANE: opcja **„Dostosowanie”** pozwala zmienić link „Skontaktuj się z administratorem” tak, aby wskazywał zdefiniowaną przez Ciebie stronę lub adres e-mail
 
 5. OPCJONALNE: ekran **„Rejestracja”** zawiera następujące opcje dla administratorów:
-    * „Czy wymagać od użytkowników rejestrowania się podczas logowania?”
-    * „Liczba dni, zanim użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania”
+    * Czy wymagać od użytkowników rejestrowania się podczas logowania?
+    * Liczba dni, zanim użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania
 
 6. OPCJONALNE: ekran **„Powiadomienie”** zawiera następujące opcje dla administratorów:
     * Czy powiadamiać użytkowników o resetowaniu hasła?
@@ -67,7 +66,7 @@ W tym przewodniku założono, że masz już działającą dzierżawę usługi Az
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>Konfigurowanie synchronizacji z istniejącym źródłem tożsamości
 
-Aby włączyć synchronizację lokalnych tożsamości z usługą Azure AD, musisz zainstalować i skonfigurować aplikację [Azure AD Connect](./connect/active-directory-aadconnect.md) na serwerze w swojej organizacji. Ta aplikacja zajmuje się synchronizowaniem użytkowników oraz grup w istniejącym źródle tożsamości i domenie usługi Azure AD.
+Aby włączyć synchronizację lokalnych tożsamości z usługą Azure AD, musisz zainstalować i skonfigurować aplikację [Azure AD Connect](./connect/active-directory-aadconnect.md) na serwerze w swojej organizacji. Ta aplikacja zajmuje się synchronizowaniem użytkowników oraz grup w istniejącym źródle tożsamości do dzierżawy usługi Azure AD.
 
 * [Uaktualnienie z programu DirSync lub Azure AD Sync do programu Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych](./connect/active-directory-aadconnect-get-started-express.md)
@@ -75,7 +74,7 @@ Aby włączyć synchronizację lokalnych tożsamości z usługą Azure AD, musis
 
 ## <a name="disabling-self-service-password-reset"></a>Wyłączanie samoobsługowego resetowania haseł
 
-Wyłączanie samoobsługowego resetowania haseł sprowadza się do otwarcia dzierżawy usługi Azure AD, wybrania pozycji **Resetowanie hasła** i **Właściwości**, a następnie wybrania pozycji **Nikt** w sekcji **Funkcja samoobsługowego resetowania hasła jest włączona**
+Wyłączanie samoobsługowego resetowania haseł sprowadza się do otwarcia dzierżawy usługi Azure AD, przejścia do pozycji **Resetowanie hasła > Właściwości** i wybrania pozycji **Nikt** w obszarze **Funkcja samoobsługowego resetowania hasła jest włączona**
 
 ## <a name="next-steps"></a>Następne kroki
 Poniższe linki dają dostęp do dodatkowych informacji dotyczących resetowania haseł za pomocą usługi Azure AD

@@ -1,5 +1,5 @@
 ---
-title: " Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal | Microsoft Docss"
+title: "Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal | Microsoft Docs"
 description: "Ten samouczek przeprowadzi Cię przez kroki tworzenia konta usługi Azure Media Services za pomocą portalu Azure."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 07/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
-ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9ab5368c173f016f44546d6c8acb360598f5f5ab
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal
@@ -40,13 +41,10 @@ Uzyskiwanie dostępu do usługi Media Services wymaga dwóch skojarzonych kont:
 
 * Konto usługi Media Services. Twoje konto umożliwia dostęp do opartej na chmurze usługi Media Services dostępnej na platformie Azure. Na koncie usługi Media Services nie jest przechowywana zawartość multimedialna. Zamiast tego na koncie są przechowywane metadane dotyczące zawartości multimedialnej oraz zadania przetwarzania multimediów. Podczas tworzenia konta można wybrać dostępny region usługi Media Services. Wybrany region określa centrum danych, w którym są przechowywane rekordy metadanych konta użytkownika.
   
-    Dostępne są następujące regiony usługi Media Services (AMS): Europa Północna, Europa Zachodnia, Zachodnie stany USA, Wschodnie stany USA, Azja Południowo-Wschodnia, Azja Wschodnia, Japonia Zachodnia, Japonia Wschodnia. Usługa Media Services nie korzysta z grup koligacji.
-  
-    Usługa AMS jest obecnie również dostępna w następujących centrach danych: Brazylia Południowa, Indie Zachodnie, Indie Południowe i Indie Środkowe. Portalu Azure można teraz używać do tworzenia kont usługi Media Services i wykonywania różnych zadań opisanych tutaj. Jednak w tych centrach danych nie jest obsługiwana funkcja Live Encoding. Ponadto nie wszystkie typy jednostek zarezerwowanych do celów związanych z kodowaniem są dostępne w tych centrach danych.
-  
-  * Brazylia Południowa: dostępne są wyłącznie podstawowe i standardowe jednostki zarezerwowane do celów związanych z kodowaniem.
-  * Indie Zachodnie, Indie Południowe: 
 * Konto usługi Azure Storage. Konta usługi Storage muszą znajdować się w tym samym regionie geograficznym co konto usługi Media Services. Podczas tworzenia konta usługi Media Services można wybrać istniejące konto magazynu w tym samym regionie lub można utworzyć nowe konto magazynu w tym samym regionie. Jeśli usuniesz konto usługi Media Services, obiekty blob na powiązanym koncie magazynu nie zostaną usunięte.
+
+> [!NOTE]
+> Aby uzyskać informacje na temat dostępności funkcji usługi Azure Media Services w różnych regionach, zobacz temat opisujący [dostępność funkcji usługi AMS w centrach danych](scenarios-and-availability.md#a-idavailabilitya-availability-of-media-services-features-across-datacenters).
 
 ## <a name="create-an-ams-account"></a>Tworzenie konta AMS
 W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
@@ -74,35 +72,21 @@ W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
     >[!NOTE]
     >Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
    
-    ![Ustawienia usługi Media Services](./media/media-services-create-account/media-services-settings.png)
-   
-    Do zarządzania kontem AMS (na przykład przekazywania plików wideo, kodowania elementów zawartości, monitorowania postępu zadania) używaj okna **Ustawienia**.
+## <a name="to-manage-your-ams-account"></a>Zarządzanie kontem usługi AMS
 
-## <a name="manage-keys"></a>Zarządzanie kluczami
-Do uzyskania programowego dostępu do konta usługi Media Services będą wymagane nazwa konta i informacje o kluczu podstawowym.
+W celu zarządzania kontem usługi AMS (na przykład programowego łączenia się z interfejsem API usługi AMS, przekazywania plików wideo, kodowania zasobów, konfigurowania ochrony zawartości, monitorowania postępów zadań) wybierz opcję **Ustawienia** po lewej stronie portalu. W obszarze **Ustawienia** przejdź do jednego z dostępnych bloków (na przykład: **Dostęp do interfejsu API**, **Zasoby**, **Zadania**, **Ochrona zawartości**).
 
-1. W portalu Azure wybierz konto. 
-   
-    Po prawej stronie zostanie wyświetlone okno **Ustawienia**. 
-2. W oknie **Ustawienia** wybierz opcję **Klucze**. 
-   
-    W oknie **Zarządzanie kluczami** widoczna jest nazwa konta oraz wyświetlane są klucze podstawowe i pomocnicze. 
-3. Naciśnij przycisk kopiowania, aby skopiować wartości.
-   
-    ![Klucze usługi Media Services](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Następne kroki
+
 Teraz możesz przekazać pliki na konto usługi AMS. Więcej informacji znajduje się na stronie [Przekazywanie plików](media-services-portal-upload-files.md).
+
+Jeśli planujesz uzyskiwać dostęp do interfejsu API usługi AMS programowo, zobacz temat [Dostęp do interfejsu API usługi Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

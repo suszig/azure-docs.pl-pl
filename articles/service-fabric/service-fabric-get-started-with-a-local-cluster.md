@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 07/13/2017
 ms.author: ryanwi;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
-ms.lasthandoff: 04/07/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 359677972c7e1fa3f7435052021ddfae5b1ed85e
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Pierwsze kroki wdrażania i aktualizowania aplikacji w klastrze lokalnym

@@ -1,6 +1,6 @@
 ---
 title: "Rozpoczęcie pracy z usługą Azure IoT Hub (Node) | Microsoft Docs"
-description: "Informacje o sposobie wysyłania komunikatów urządzenie-chmura z urządzenia do usługi Azure IoT Hub za pomocą zestawów SDK usługi Azure IoT dla środowiska Node.js. Polega to na utworzeniu symulowanej aplikacji urządzenia, która będzie wysyłać komunikaty, aplikacji usługi, która umożliwi zarejestrowanie danego urządzenia w rejestrze tożsamości, oraz aplikacji usługi, która będzie odczytywać komunikaty urządzenie-chmura z centrum IoT."
+description: "Dowiedz się, jak wysyłać komunikaty urządzenie-chmura do usługi Azure IoT Hub za pomocą zestawów SDK usługi IoT dla środowiska Node.js. Utwórz symulowane aplikacje urządzenia i usługi, aby zarejestrować urządzenie, wysyłać wiadomości i odczytywać wiadomości z usługi IoT Hub."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b04fe441cf83ed616b0464eec83a6caf3a449532
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 5ce485575416b863d34117807c6dccd96e88eb42
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Podłączanie symulowanego urządzenia do usługi IoT Hub za pomocą środowiska Node
@@ -95,6 +94,8 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node.js, która tworzy 
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Zapisz i zamknij plik **CreateDeviceIdentity.js**.
 8. Aby uruchomić aplikację **createdeviceidentity**, wykonaj następujące polecenie w wierszu polecenia w folderze createdeviceidentity:
    

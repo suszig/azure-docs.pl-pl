@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do usługi Service Fabric i interfejsu wiersza polecenia platformy Azure 2.0"
-description: "Jak używać modułu poleceń usługi Service Fabric w wierszu polecenia platformy Azure 2.0, w tym jak połączyć się z klastrem aplikacji i zarządzać aplikacjami"
+title: "Wprowadzenie do usługi Azure Service Fabric i interfejsu wiersza polecenia platformy Azure 2.0"
+description: "Dowiedz się, jak korzystać z modułu poleceń usługi Azure Service Fabric w interfejsie wiersza polecenia platformy Azure w wersji 2.0. Dowiedz się, jak nawiązać połączenie z klastrem i zarządzać aplikacjami."
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,80 +8,70 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: c5cc6e54acf27456185eeb48858c4d981aa46b4b
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: ee3302b984ca2f5509755dc17b0a5fd06ace0afe
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="service-fabric-and-azure-cli-20" class="xliff"></a>
+# <a name="azure-service-fabric-and-azure-cli-20"></a>Usługa Azure Service Fabric i interfejs wiersza polecenia platformy Azure 2.0
 
-# Usługa Service Fabric i interfejs wiersza polecenia platformy Azure 2.0
+Narzędzie wiersza polecenia platformy Azure w wersji 2.0 zawiera polecenia, które ułatwiają zarządzanie klastrami usługi Azure Service Fabric. Dowiedz się, jak rozpocząć pracę z interfejsem wiersza polecenia platformy Azure i usługą Service Fabric.
 
-Nowy interfejs wiersza polecenia platformy Azure 2.0 obejmuje teraz polecenia umożliwiające zarządzanie klastrami usługi Service Fabric. W tej dokumentacji przedstawiono czynności umożliwiające rozpoczęcie korzystania z interfejsu wiersza polecenia platformy Azure.
+## <a name="install-azure-cli-20"></a>Instalowanie interfejsu wiersza polecenia platformy Azure 2.0
 
-<a id="install-azure-cli-20" class="xliff"></a>
+Polecenia interfejsu wiersza polecenia platformy Azure 2.0 umożliwiają interakcję z klastrami usługi Service Fabric oraz zarządzanie nimi. Aby uzyskać najnowszą wersję interfejsu wiersza polecenia platformy Azure, wykonaj kroki [standardowego procesu instalacji interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-## Instalowanie interfejsu wiersza polecenia platformy Azure 2.0
+Aby uzyskać więcej informacji, zobacz temat [Omówienie interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/overview).
 
-Interfejs wiersza polecenia platformy Azure obejmuje teraz polecenia umożliwiające interakcję z klastrami usługi Service Fabric i zarządzanie nimi. Możesz przeprowadzić [standardowy proces instalacji](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), aby pobrać najnowszy interfejs wiersza polecenia platformy Azure.
+## <a name="azure-cli-syntax"></a>Składnia interfejsu wiersza polecenia platformy Azure
 
-Więcej informacji można znaleźć w [dokumentacji interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/overview)
+W interfejsie wiersza polecenia platformy Azure wszystkie polecenia usługi Service Fabric mają prefiks `az sf`. Aby uzyskać ogólne informacje na temat używanych poleceń, z których możesz korzystać, użyj polecenia `az sf -h`. Aby uzyskać pomoc dotyczącą pojedynczego polecenia, użyj polecenia `az sf <command> -h`.
 
-<a id="cli-syntax" class="xliff"></a>
-
-## Składnia interfejsu wiersza polecenia
-
-Wszystkie polecenia usługi Azure Service Fabric mają prefiks `az sf` w interfejsie wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat dostępnych poleceń, można uruchomić polecenie `az sf -h` w celu uzyskania ogólnych informacji. Można również uruchomić polecenie `az sf <command> -h`, aby uzyskać szczegółową pomoc dotyczącą jednego polecenia.
-
-Polecenia usługi Azure Service Fabric w interfejsie wiersza polecenia są zgodne ze wzorcem nazewnictwa
+Polecenia usługi Service Fabric w interfejsie wiersza polecenia platformy Azure są zgodne z następującym wzorcem nazewnictwa:
 
 ```azurecli
 az sf <object> <action>
 ```
 
-W tym przypadku element `<object>` jest obiektem docelowym elementu `<action>`.
+Element `<object>` jest obiektem docelowym elementu `<action>`.
 
-<a id="selecting-a-cluster" class="xliff"></a>
+## <a name="select-a-cluster"></a>Wybieranie klastra
 
-## Wybieranie klastra
-
-Przed wykonaniem jakiejkolwiek operacji musisz wybrać klaster, z którym chcesz nawiązać połączenie. Aby na przykład nawiązać połączenie z niezabezpieczonym klastrem, zapoznaj się z poniższym fragmentem kodu.
+Przed wykonaniem jakiejkolwiek operacji musisz wybrać klaster, z którym chcesz nawiązać połączenie. Jako przykład zobacz następujący kod. Kod umożliwia nawiązanie połączenia z niezabezpieczonym klastrem.
 
 > [!WARNING]
-> Nie używaj niezabezpieczonych klastrów usługi Service Fabric w przypadku środowisk produkcyjnych
+> Nie używaj niezabezpieczonych klastrów usługi Service Fabric w środowisku produkcyjnym.
 
 ```azurecli
 az sf cluster select --endpoint http://testcluster.com:19080
 ```
 
-Punkt końcowy klastra musi mieć prefiks `http` lub `https` i musi obejmować port bramy HTTP. Ten port i adres jest taki sam jak adres URL narzędzia Service Fabric Explorer.
+Punkt końcowy klastra musi mieć prefiks `http` lub `https`. Musi on zawierać port bramy HTTP. Port i adres są takie same jak adres URL programu Service Fabric Explorer.
 
-W przypadku klastrów zabezpieczonych przy użyciu certyfikatu są obsługiwane niezaszyfrowane pliki `pem` lub `crt` i pliki `key`.
+W przypadku klastrów zabezpieczonych za pomocą certyfikatu można użyć niezaszyfrowanych plików PEM albo plików CRT i KEY. Na przykład:
 
 ```azurecli
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Więcej informacji można znaleźć w [szczegółowym dokumencie dotyczącym łączenia się z zabezpieczonymi klastrami](service-fabric-connect-to-secure-cluster.md).
+Aby uzyskać więcej informacji, zobacz temat [Nawiązywanie połączenia z zabezpieczonym klastrem usługi Azure Service Fabric](service-fabric-connect-to-secure-cluster.md).
 
 > [!NOTE]
-> Wybrane polecenie nie wykonuje żadnych żądań przed zwróceniem wyniku. Aby sprawdzić, czy poprawnie określono klaster, uruchom polecenie, takie jak `az sf cluster health`, i upewnij się, że polecenie nie zwraca żadnych błędów.
+> Przed zwróceniem wartości polecenie `select` nie reaguje na żadne żądania. Aby sprawdzić, czy klaster został określony poprawnie, użyj polecenia, takiego jak `az sf cluster health`. Upewnij się, że polecenie nie zwraca żadnych błędów.
 
-<a id="performing-basic-operations" class="xliff"></a>
+## <a name="basic-operations"></a>Operacje podstawowe
 
-## Wykonywanie podstawowych operacji
+Informacje o połączeniu klastra są utrwalane w wielu sesjach interfejsu wiersza polecenia platformy Azure. Po wybraniu klastra usługi Service Fabric można uruchomić dowolne polecenie usługi Service Fabric w klastrze.
 
-Informacje o połączeniu klastra są utrwalane w różnych sesjach interfejsu wiersza polecenia platformy Azure. Po wybraniu klastra usługi Service Fabric można uruchomić dowolne polecenie usługi Service Fabric.
-
-Aby na przykład uzyskać informacje o kondycji klastra usługi Service Fabric, uruchom następujące polecenie
+Aby na przykład uzyskać informacje o kondycji klastra usługi Service Fabric, uruchom następujące polecenie:
 
 ```azurecli
 az sf cluster health
 ```
 
-Polecenie zwróci następujące dane wyjściowe przy założeniu, że określono dane wyjściowe JSON w konfiguracji interfejsu wiersza polecenia platformy Azure
+Polecenie zwróci następujące dane wyjściowe (przy założeniu, że dane wyjściowe JSON zostały określone w konfiguracji interfejsu wiersza polecenia platformy Azure):
 
 ```json
 {
@@ -106,51 +96,41 @@ Polecenie zwróci następujące dane wyjściowe przy założeniu, że określono
 }
 ```
 
-<a id="tips-and-faq" class="xliff"></a>
+## <a name="tips-and-troubleshooting"></a>Porady i rozwiązywanie problemów
 
-## Porady i często zadawane pytania
+Poniższe informacje mogą być pomocne, jeśli wystąpiły problemy podczas korzystania z poleceń usługi Service Fabric w interfejsie wiersza polecenia platformy Azure.
 
-Poniżej przedstawiono informacje, które mogą być pomocne w razie problemów podczas używania poleceń usługi Service Fabric w interfejsie wiersza polecenia platformy Azure
+### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Konwertowanie certyfikatu z formatu PFX na PEM
 
-<a id="converting-a-certificate-from-pfx-to-pem" class="xliff"></a>
-
-### Konwertowanie certyfikatu z formatu PFX na format PEM
-
-Interfejs wiersza polecenia platformy Azure obsługuje certyfikaty po stronie klienta w postaci plików PEM (rozszerzenie `.pem`). Jeśli korzystasz z plików PFX z systemu Windows, musisz przekonwertować te certyfikaty na format PEM. Aby przekonwertować plik PFX na plik PEM, użyj następującego polecenia:
+Interfejs wiersza polecenia platformy Azure obsługuje certyfikaty po stronie klienta w postaci plików PEM (rozszerzenie pem). Jeśli używasz plików PFX z systemu Windows, musisz konwertować te certyfikaty na format PEM. Aby konwertować plik PFX na plik PEM, użyj następującego polecenia:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-Aby uzyskać szczegółowe informacje, zapoznaj się z [dokumentacją rozwiązania OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html).
+Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą protokołu OpenSSL](https://www.openssl.org/docs/).
 
-<a id="connection-issues" class="xliff"></a>
+### <a name="connection-issues"></a>Problemy z połączeniem
 
-### Problemy z połączeniem
+Niektóre operacje mogą generować następujący komunikat:
 
-Podczas wykonywania operacji może wystąpić następujący błąd:
+`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
 
-> `Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+Sprawdź, czy punkt końcowy określonego klastra jest dostępny i przeprowadza nasłuchiwanie. Sprawdź również, czy interfejs użytkownika programu Service Fabric Explorer jest dostępny na tym hoście i porcie. Aby zaktualizować punkt końcowy, użyj polecenia `az sf cluster select`.
 
-W takim przypadku sprawdź dokładnie, czy określony punkt końcowy klastra jest dostępny i nasłuchuje. Ponadto sprawdź, czy interfejs użytkownika narzędzia Service Fabric Explorer jest dostępny na tym hoście i porcie. Zaktualizuj punkt końcowy przy użyciu polecenia `az sf cluster select`.
+### <a name="detailed-logs"></a>Szczegółowe dzienniki
 
-<a id="getting-detailed-logs" class="xliff"></a>
+Szczegółowe dzienniki często bywają przydatne w przypadku debugowania lub zgłaszania problemu. Interfejs wiersza polecenia platformy Azure zawiera globalną flagę `--debug`, która zwiększa poziom szczegółowości plików dzienników.
 
-### Uzyskiwanie szczegółowych dzienników
+### <a name="command-help-and-syntax"></a>Polecenia — pomoc i składnia
 
-W przypadku debugowania lub zgłaszania problemu warto dołączyć szczegółowe dzienniki. Interfejs wiersza polecenia platformy Azure zawiera globalną flagę `--debug`, która zwiększa poziom szczegółowości dzienników.
-
-<a id="command-help-and-syntax" class="xliff"></a>
-
-### Polecenia — pomoc i składnia
-
-Polecenia usługi Service Fabric korzystają z tej samej konwencji co interfejs wiersza polecenia platformy Azure. Określ flagę `-h`, aby uzyskać pomoc dotyczącą polecenia lub grupy poleceń. Na przykład:
+Polecenia usługi Service Fabric korzystają z tej samej konwencji, co interfejs wiersza polecenia platformy Azure. Aby uzyskać pomoc dotyczącą określonego polecenia lub grupy poleceń, użyj flagi `-h`:
 
 ```azurecli
 az sf application -h
 ```
 
-lub
+Oto inny przykład:
 
 ```azurecli
 az sf application create -h

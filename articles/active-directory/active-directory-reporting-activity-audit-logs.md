@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące inspekcji w portalu usługi Azure Active Directory 
@@ -130,7 +130,7 @@ Jeśli wybierzesz opcję **Grupa** w pozycji **Typ zasobu działania**, uzyskasz
 
 Filtr **Działanie** jest oparty na wybranej kategorii i typie zasobu działania. Możesz wybrać konkretne działanie, które chcesz zobaczyć, lub wybrać wszystkie działania. 
 
-Listę wszystkich działań związanych z inspekcją można uzyskać przy użyciu interfejsu API programu Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, gdzie $tenantdomain = nazwa Twojej domeny. Jest ona również przedstawiona w artykule [Zdarzenia raportów inspekcji](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+Listę wszystkich działań związanych z inspekcją można uzyskać przy użyciu interfejsu API programu Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, gdzie $tenantdomain = nazwa Twojej domeny. Jest ona również przedstawiona w artykule [Zdarzenia raportów inspekcji](active-directory-reporting-audit-events.md).
 
 
 ## <a name="audit-logs-shortcuts"></a>Skróty dzienników inspekcji
@@ -184,6 +184,7 @@ Możesz odfiltrować ten widok, aby wyświetlić tylko **grupy** lub **użytkown
 
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz temat [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md) (Przewodnik po raportach usługi Azure Active Directory).
+
+Omówienie funkcji raportowania można znaleźć w temacie [Raporty w usłudze Azure Active Directory](active-directory-reporting-azure-portal.md).
 
 
