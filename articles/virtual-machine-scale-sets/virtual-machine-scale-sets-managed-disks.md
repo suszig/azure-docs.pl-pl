@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Zestawy skalowania maszyn wirtualnych platformy Azure i dyski zarządzane
 
-[Zestawy skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/) platformy Azure obsługują teraz maszyny wirtualne z dyskami zarządzanymi. Używanie dysków zarządzanych z zestawami skalowania ma między innymi następujące zalety:
+[Zestawy skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/) platformy Azure obsługują maszyny wirtualne z dyskami zarządzanymi. Używanie dysków zarządzanych z zestawami skalowania ma między innymi następujące zalety:
 
 * Nie trzeba już wstępnie tworzyć kont magazynów do przechowywania dysków systemów operacyjnych dla maszyn wirtualnych zestawów skalowania ani zarządzać tymi dyskami.
 
@@ -43,10 +42,6 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 ```
 
 Ewentualnie można poszukać w [repozytorium szablonów z pakietu Azure Quickstart w witrynie GitHub](https://github.com/Azure/azure-quickstart-templates) folderów zawierających element `vmss` w celu wyświetlenia wstępnie utworzonych przykładowych szablonów do wdrażania zestawów skalowania. Aby ustalić, w których szablonach są już używane dyski zarządzane, można skorzystać z [tej listy](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
-
-## <a name="api-versions"></a>Wersje interfejsu API
-
-Zestawy skalowania z dyskami zarządzanymi wymagają interfejsu API Microsoft.Compute w wersji `2016-04-30-preview` lub nowszej. Zestawy skalowania z dyskami niezarządzanymi będą nadal działać jak obecnie, nawet w nowych wersjach interfejsu API, które obsługują dyski zarządzane. Jednak zestawy skalowania z dyskami niezarządzanymi nie udostępniają korzyści związanych z dyskami zarządzanymi, nawet w tych nowszych wersjach interfejsu API.
 
 ## <a name="next-steps"></a>Następne kroki
 

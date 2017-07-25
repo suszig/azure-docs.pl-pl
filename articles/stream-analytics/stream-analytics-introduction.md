@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/16/2017
 ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 421bdfb3132bc8c9f193bcca8d55c9cf9eba1c3b
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 2fda07b8444b196d831e5e9fe7ade3e5017d36f9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -32,7 +31,7 @@ Usługa Azure Stream Analytics jest w pełni zarządzanym aparatem przetwarzania
 
 Za pomocą usługi Stream Analytics można badać duże ilości danych napływających z urządzeń lub procesów, wyodrębniać informacje ze strumienia danych oraz wyszukiwać wzorce, trendy i relacje. W zależności od zawartości danych można wykonywać zadania aplikacji. Na przykład można zgłaszać alerty, rozpoczynać przepływy pracy automatyzacji, przekazywać informacje do narzędzia do raportowania, takiego jak usługa Power BI, lub przechowywać dane na potrzeby późniejszej analizy. 
 
-Przykłady scenariuszy zastosowania analizy przesyłania strumieniowego:
+Przykłady scenariuszy zastosowania usługi Stream Analytics:
 
 * Spersonalizowana analiza giełdowych transakcji handlowych w czasie rzeczywistym i alerty oferowane przez firmy z branży usług finansowych.
 * Wykrywanie oszustw w czasie rzeczywistym w oparciu o badanie danych transakcji. 
@@ -43,13 +42,13 @@ Przykłady scenariuszy zastosowania analizy przesyłania strumieniowego:
 
 ## <a name="how-does-stream-analytics-work"></a>Jak działa usługa Stream Analytics?
 
-Na poniższym diagramie przedstawiono potok analizy przesyłania strumieniowego, przedstawiający sposób, w jaki dane są pozyskiwane, analizowane, a następnie wysyłane w celu prezentacji lub wykonania akcji. 
+Na poniższym diagramie przedstawiono potok analizy usługi Stream Analytics, przedstawiający sposób, w jaki dane są pozyskiwane, analizowane, a następnie wysyłane w celu prezentacji lub wykonania akcji. 
 
 ![Potok usługi Stream Analytics](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
 Analiza przesyłania strumieniowego jest uruchamiana w powiązaniu ze źródłem danych przesyłanych strumieniowo. Dane można pozyskać z urządzenia do platformy Azure przy użyciu Centrum zdarzeń platformy Azure lub usługi IoT Hub. Można również pobrać dane z magazynu danych, na przykład z usługi Azure Blob Storage. 
 
-Aby zbadać strumień, należy utworzyć *zadanie* analizy przesyłania strumieniowego, które określa, skąd pochodzą dane. Zadanie określa również *przekształcenie* &mdash; jak wyszukiwać dane, wzorce lub relacje. Dla tego zadania analiza przesyłania strumieniowego obsługuje język zapytań przypominający SQL, który umożliwia filtrowanie, sortowanie, agregowanie i łączenie danych przesyłanych strumieniowo w określonym czasie.
+Aby zbadać strumień, należy utworzyć *zadanie* usługi Stream Analytics, które określa, skąd pochodzą dane. Zadanie określa również *przekształcenie* &mdash; jak wyszukiwać dane, wzorce lub relacje. Dla tego zadania usługa Stream Analytics obsługuje język zapytań przypominający SQL, który umożliwia filtrowanie, sortowanie, agregowanie i łączenie danych przesyłanych strumieniowo w określonym czasie.
 
 Na koniec zadanie określa miejsce wysłania przekształconych danych. Dzięki temu można kontrolować, co należy zrobić w odpowiedzi na informacje, które zostały przeanalizowane. Na przykład w odpowiedzi na wyniki analizy można:
 
@@ -95,7 +94,7 @@ Jako usługa zarządzana w chmurze usługa Stream Analytics pomaga uniknąć utr
 ## <a name="next-steps"></a>Następne kroki
 
 * Rozpoczynanie pracy przez [eksperymentowanie z danymi wejściowymi i zapytaniami z urządzeń IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
-* Tworzenie [rozwiązania typu end-to-end usługi Stream Analytics](stream-analytics-real-time-fraud-detection.md), które analizuje metadane telefonu, wyszukując fałszywe wywołania.
+* Tworzenie [kompleksowego rozwiązania usługi Stream Analytics](stream-analytics-real-time-fraud-detection.md), które analizuje metadane telefonu, wyszukując fałszywe wywołania.
 * Poznaj przeznaczony dla usługi Stream Analytics język zapytań przypominający SQL oraz unikatowe koncepcje, takie jak [funkcje okna](stream-analytics-window-functions.md).
 * Dowiedz się, jak [skalować zadania usługi Stream Analytics](stream-analytics-scale-jobs.md). 
 * Dowiedz się, jak [integrować usługi Stream Analytics i Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).

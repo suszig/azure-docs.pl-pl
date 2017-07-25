@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/19/2017
 ms.author: kaanan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7fbdecd6fcaa784c5cdeebe46bf1991bfe730017
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 2e35237b0ccc201cb797c4e65e963e42f7a07c4b
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="expressroute-partners-and-peering-locations" class="xliff"></a>
-
-# Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
+# <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
 > [!div class="op_single_selector"]
 > * [Lokalizacje według dostawcy](expressroute-locations.md)
@@ -39,9 +37,7 @@ Usługa ExpressRoute jest obsługiwana we wszystkich regionach i lokalizacjach �
 
 Będziesz mieć dostęp do usług Azure we wszystkich regionach regionu geopolitycznego, jeśli połączysz się przynajmniej z jedną lokalizacją usługi ExpressRoute w tym regionie. 
 
-<a id="azure-regions-to-expressroute-locations-within-a-geopolitical-region" class="xliff"></a>
-
-### Regiony świadczenia usługi Azure i lokalizacje usługi ExpressRoute w regionach geopolitycznych
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Regiony świadczenia usługi Azure i lokalizacje usługi ExpressRoute w regionach geopolitycznych
 Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokalizacji usługi ExpressRoute w regionie geopolitycznym.
 
 | **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
@@ -55,9 +51,7 @@ Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokaliza
 | **Indie** |Indie Zachodnie, Indie Środkowe, Indie Południowe |Madras, Bombaj |
 | **Korea Południowa** |Korea Środkowa, Korea Południowa |Busan, Seul |
 
-<a id="regions-and-geopolitical-boundaries-for-national-clouds" class="xliff"></a>
-
-### Regiony i granice geopolityczne chmur krajowych
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiony i granice geopolityczne chmur krajowych
 W poniższej tabeli zamieszczono informacje o regionach i granicach geopolitycznych chmur krajowych.
 
 | **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
@@ -73,9 +67,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dla każdej lokalizacji. Jeśli chcesz wyświetlić dostawców usług i lokalizacje, w których świadczą usługi, zobacz [Lokalizacje według dostawcy usług](expressroute-locations.md#locations). 
 
 
-<a id="production-azure" class="xliff"></a>
-
-### Środowisko produkcyjne Azure
+### <a name="production-azure"></a>Środowisko produkcyjne Azure
 | **Lokalizacja** | **Dostawcy usług** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions — Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo Group |
@@ -85,7 +77,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Denver** |CoreSite |
-| **Dublin** |Colt, Telecity Group |
+| **Dublin** |Colt, Interxion, Telecity Group |
 | **Hongkong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Londyn** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions — Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse — KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
@@ -96,8 +88,8 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Mumbaj** |Airtel+, Tata Communications |
 | **Nowy Jork** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport (Walia)** |Dane nowej generacji |
-| **Osaka** |Equinix, Internet Initiative Japan Inc. — IIJ, NTT Communications, NTT SmartConnect+, Softbank |
-| **Paryż** |Colt, Interxion, Equinix, Orange+ |
+| **Osaka** |Equinix, Internet Initiative Japan Inc. — IIJ, NTT Communications, NTT SmartConnect, Softbank |
+| **Paryż** |Colt, Interxion, Equinix, Orange |
 | **Miasto Quebec** | Megaport |
 | **San Antonio** |Megaport |
 | **Sao Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Telefonica, UOLDIVEO+ |
@@ -112,13 +104,9 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 
  **+** oznacza wkrótce
 
-<a id="national-cloud-environments" class="xliff"></a>
+### <a name="national-cloud-environments"></a>Krajowe środowiska chmury
 
-### Krajowe środowiska chmury
-
-<a id="us-government-cloud" class="xliff"></a>
-
-### Chmura administracji USA
+### <a name="us-government-cloud"></a>Chmura administracji USA
 | **Lokalizacja** | **Dostawcy usług** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -128,9 +116,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Seattle** | Equinix |
 | **Waszyngton** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-<a id="china" class="xliff"></a>
-
-### Chiny
+### <a name="china"></a>Chiny
 | **Lokalizacja** | **Dostawcy usług** |
 | --- | --- |
 | **Pekin** |China Telecom |
@@ -138,9 +124,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 
 Więcej informacji znajduje się w artykule [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/) (Usługa ExpressRoute w Chinach)
 
-<a id="germany" class="xliff"></a>
-
-### Niemcy
+### <a name="germany"></a>Niemcy
 | **Lokalizacja** | **Dostawcy usług** |
 | --- | --- |
 | **Berlin** |Colt+, e-shelter, Megaport+ |
@@ -167,7 +151,7 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 | **Lokalizacja** | **Exchange** | **Dostawcy połączeń** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet |
-| **Chicago** | Equinix | Windstream |
+| **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | Nianet, QSC AG |
 | **Hongkong** | Equinix | Macroview Telecom |
@@ -181,13 +165,11 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 | **Singapur** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
 | **Slough** | Equinix | HSO|
 | **Sydney** | Megaport | Macquarie Telecom Group|
-| **Tokio** | Equinix | ARTERIA Networks Corporation |
+| **Tokio** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
 | **Toronto** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers, Thinktel, Zirro|
 | **Waszyngton** |Equinix | Altice Business, Gtt Communications Inc, Epsilon, Lightower, Masergy, Windstream |
 
-<a id="expressroute-system-integrators" class="xliff"></a>
-
-## Integratorzy systemu ExpressRoute
+## <a name="expressroute-system-integrators"></a>Integratorzy systemu ExpressRoute
 Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w zależności od skali sieci. Możesz pracować z dowolnymi integratorami systemu wymienionymi w poniższej tabeli, którzy ułatwiają dołączanie do usługi ExpressRoute.
 
 | **Kontynent** | **Integratorzy systemów** |
@@ -197,9 +179,7 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 | **Europa** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **Ameryka Północna** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Ameryka Południowa** |Avanade Inc. |
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
 * Upewnij się, że zostały spełnione wszystkie wymagania wstępne. Zobacz artykuł [ExpressRoute prerequisites](expressroute-prerequisites.md) (Wymagania wstępne usługi ExpressRoute).
 

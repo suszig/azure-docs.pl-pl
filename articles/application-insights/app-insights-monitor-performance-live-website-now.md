@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentowanie aplikacji sieci Web w czasie wykonywania za pomocą usługi Application Insights
@@ -42,10 +41,10 @@ Poniżej przedstawiono podsumowanie tego, co można uzyskać, korzystając z dan
 | [Bardziej szczegółowe wyjątki](app-insights-asp-net-exceptions.md) | |Tak |
 | [Diagnostyka zależności](app-insights-asp-net-dependencies.md) |Na platformie .NET 4.6 +, ale mniej szczegółów |Tak, kompletne szczegóły: kody wyników, tekst polecenia SQL, czasownik HTTP|
 | [Liczniki wydajności sytemu](app-insights-performance-counters.md) |Tak |Tak |
-| [Interfejs API dla telemetrii niestandardowej][api] |Tak | |
-| [Integracja dziennika śledzenia](app-insights-asp-net-trace-logs.md) |Tak | |
-| [Widok strony i dane użytkownika](app-insights-javascript.md) |Tak | |
-| Nie ma potrzeby ponownej kompilacji kodu |Nie | |
+| [Interfejs API dla telemetrii niestandardowej][api] |Tak |Nie |
+| [Integracja dziennika śledzenia](app-insights-asp-net-trace-logs.md) |Tak |Nie |
+| [Widok strony i dane użytkownika](app-insights-javascript.md) |Tak |Nie |
+| Konieczność ponownej kompilacji kodu |Tak | Nie |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorowanie działającej aplikacji sieci Web platformy Azure

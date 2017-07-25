@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/23/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c989ca38e2463f8365b55c509e8b2bcf4572b409
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/05/2017
 
 
 ---
@@ -163,6 +164,15 @@ Teraz, kiedy został utworzony magazyn, należy go skonfigurować do tworzenia k
      >
 
 Agent jest teraz zainstalowany, a maszyna zarejestrowana w magazynie. Wszystko jest gotowe do skonfigurowania kopii zapasowej i zaplanowania jej tworzenia.
+
+## <a name="network-and-connectivity-requirements"></a>Wymagania dotyczące sieci i łączności
+
+Jeśli Twój komputer/serwer proxy ma ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze/serwerze proxy są skonfigurowane w taki sposób, że zezwalają na łączenie się z następującymi adresami URL: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
 
 ## <a name="back-up-your-files-and-folders"></a>Tworzenie kopii zapasowej plików i folderów
 Tworzenie początkowej kopii zapasowej obejmuje dwa kluczowe zadania:

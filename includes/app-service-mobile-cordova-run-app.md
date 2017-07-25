@@ -1,7 +1,8 @@
 
 1. Odwiedź witrynę [Azure Portal].
-2. Kliknij kolejno pozycje **Przeglądaj wszystkie** > **Aplikacje mobilne**, a następnie kliknij nowo utworzone zaplecze.
+2. Kliknij pozycję **App Services** > utworzone zaplecze.
 3. W ustawieniach aplikacji mobilnej kliknij kolejno opcje **Szybki start** > **Cordova**.
+![Witryna Azure Portal z wyróżnioną pozycją Mobile Apps Quickstart][quickstart]
 4. W obszarze **Konfigurowanie aplikacji klienta** wybierz opcję **Utwórz nową aplikację**, a następnie kliknij przycisk **Pobierz**.
 2. Rozpakuj pobrany plik ZIP do katalogu na dysku twardym, przejdź do pliku rozwiązań (sln) i otwórz go za pomocą programu Visual Studio.
 3. W programie Visual Studio wybierz platformę rozwiązania (Android, iOS lub Windows) z listy rozwijanej obok strzałki rozpoczęcia. Wybierz konkretny emulator lub konkretne urządzenie wdrożenia, klikając listę rozwijaną zielonej strzałki. Możesz użyć domyślnej platformy Android i emulatora Ripple. Samouczki bardziej zaawansowane (np. powiadomienia wypychane) będą wymagać wybrania obsługiwanego urządzenia lub emulatora.
@@ -10,13 +11,10 @@
 
 Zaplecze wstawia dane z żądania do tabeli TodoItem bazy danych SQL Database i zwraca do aplikacji mobilnej informacje na temat przechowywanych od niedawna elementów. W aplikacji mobilnej dane te są wyświetlane na liście.
 
-![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
-
 Kroki od 3 do 5 możesz powtórzyć dla innych platform.
 
+<!-- Images. -->
+[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
+
+<!-- URLs -->
 [Azure Portal]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

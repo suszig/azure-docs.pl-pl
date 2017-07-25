@@ -1,9 +1,9 @@
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+Aby kontynuować wprowadzenie do usługi Azure IoT Hub i zapoznać się z innymi scenariuszami IoT, zobacz następujące tematy:
 
-- [Manage cloud device messaging with iothub-explorer](../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md)
-- [Save IoT Hub messages to Azure data storage](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)
-- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md).
-- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md).
-- [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
-- [Device management with iothub-explorer](../articles/iot-hub/iot-hub-device-management-iothub-explorer.md)
-- [Remote monitoring and notifications with Logic Apps](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+- [Zarządzanie przesyłaniem komunikatów między chmurą a urządzeniem za pomocą narzędzia iothub-explorer](../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md)
+- [Zapisywanie komunikatów usługi Azure IoT Hub w magazynie danych platformy Azure](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)
+- [Wizualizowanie danych z czujników w czasie rzeczywistym z centrum IoT Hub za pomocą usługi Power BI](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
+- [Wizualizowanie danych z czujników w czasie rzeczywistym z centrum IoT Hub za pomocą funkcji Web Apps usługi Azure App Service](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
+- [Prognozowanie pogody przy użyciu danych czujników z centrum IoT Hub w usłudze Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
+- [Zarządzanie urządzeniami za pomocą narzędzia iothub-explorer](../articles/iot-hub/iot-hub-device-management-iothub-explorer.md)
+- [Zdalne monitorowanie i powiadomienia za pomocą usługi Logic Apps](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

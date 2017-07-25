@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Korzystanie z kontroli dostępu opartej na rolach do zarządzania dostępem do zasobów subskrypcji platformy Azure
@@ -41,7 +41,7 @@ Z poziomu głównego bloku zasobu, grupy zasobów lub subskrypcji w witrynie [Az
    
     ![Blok użytkowników — dostęp dziedziczony a przypisany (zrzut ekranu)](./media/role-based-access-control-configure/view-access.png)
 
-Należy zauważyć, że w przypadku niektórych użytkowników dostęp został **przypisany**, a w przypadku innych jest **dziedziczony**. Dostęp jest przypisywany specjalnie do grupy zasobów albo dziedziczony z przypisania do subskrypcji nadrzędnej.
+Należy zauważyć, że niektóre role należą do zakresu **tego zasobu**, a inne są **dziedziczone** z innego zakresu. Dostęp jest przypisywany specjalnie do grupy zasobów albo dziedziczony z przypisania do subskrypcji nadrzędnej.
 
 > [!NOTE]
 > Klasyczni administratorzy i współadministratorzy są traktowani jako właściciele subskrypcji w nowym modelu RBAC.
@@ -60,9 +60,10 @@ Dostęp udzielany jest w ramach zasobu, grupy zasobów lub subskrypcji, która j
 Po pomyślnym dodaniu przypisania roli będzie ono wyświetlane w bloku **Użytkownicy**.
 
 ## <a name="remove-access"></a>Usuwanie dostępu
-1. Użyj pól wyboru w bloku Kontrola dostępu, aby wybrać co najmniej jedno przypisanie ról.
+1. Umieść kursor na nazwie przypisania, które chcesz usunąć. Obok nazwy pojawi się pole wyboru.
+2. Użyj pól wyboru, aby wybrać co najmniej jedno przypisanie roli.
 2. Wybierz pozycję **Usuń**.  
-3. Zostanie wyświetlone okno z prośbą o potwierdzenie akcji. Wybierz pozycję **Tak**, aby usunąć przypisania ról.
+3. Wybierz pozycję **Tak**, aby potwierdzić usunięcie.
 
 Przypisań dziedziczonych nie można usunąć. Aby usunąć odziedziczone przypisanie, należy to zrobić w zakresie, w którym je utworzono. W kolumnie **Zakres** obok pola **Dziedziczone** znajduje się link umożliwiający przejście do zasobów, w ramach których ta rola została przypisana. Przejdź do zasobu wskazanego w tym miejscu, aby usunąć przypisanie roli.
 

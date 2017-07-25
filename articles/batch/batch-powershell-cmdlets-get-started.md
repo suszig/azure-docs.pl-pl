@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -201,7 +202,7 @@ Teraz utwórz pulę i określ obiekt odwołania do pakietu jako argument opcji `
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-Więcej informacji dotyczących pakietów aplikacji można znaleźć w temacie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji usługi Azure Batch).
+Więcej informacji dotyczących pakietów aplikacji można znaleźć w temacie [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch)](batch-application-packages.md).
 
 > [!IMPORTANT]
 > Najpierw [połącz konto usługi Azure Storage](#linked-storage-account-autostorage) z kontem usługi Batch, aby użyć pakietów aplikacji.
@@ -238,6 +239,6 @@ Właściwości puli w usłudze Batch zostały zaktualizowane. Jednak aby rzeczyw
 
 ## <a name="next-steps"></a>Następne kroki
 * Szczegóły składni poleceń cmdlet oraz przykłady znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](/powershell/module/azurerm.batch/#batch).
-* Aby uzyskać więcej informacji na temat aplikacji i pakietów aplikacji w usłudze Batch, zobacz [Application deployment with Azure Batch application packages](batch-application-packages.md) (Wdrażanie aplikacji za pomocą pakietów aplikacji usługi Azure Batch).
+* Aby uzyskać więcej informacji dotyczących aplikacji i pakietów aplikacji w usłudze Batch, zobacz temat [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch)](batch-application-packages.md).
 
 

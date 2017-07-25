@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 49f6a49f3f97841e896ff2d497555c42a1ec8e0d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Kompilowanie interfejsu API RESTful środowiska Node.js i wdrażanie go w aplikacji interfejsu API na platformie Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-W tym przewodniku szybkiego startu pokazano, jak utworzyć interfejs API REST Node.js platformy [Express](http://expressjs.com/) za pomocą definicji [Swagger](http://swagger.io/) i wdrożyć go jako [aplikację interfejsu API](app-service-api-apps-why-best-platform.md) na platformie Azure. Aplikację tworzy się za pomocą narzędzi wiersza polecenia, następnie konfiguruje zasoby przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i wdraża aplikację za pomocą usługi Git.  Gdy wszystko będzie gotowe, uzyskasz funkcjonalny interfejs API REST działający na platformie Azure.
+W tym przewodniku szybkiego startu pokazano, jak utworzyć interfejs API REST napisany w języku Node.js platformy [Express](http://expressjs.com/) za pomocą definicji [Swagger](http://swagger.io/) i wdrożyć go jako [aplikację interfejsu API](app-service-api-apps-why-best-platform.md) na platformie Azure. Aplikację tworzy się za pomocą narzędzi wiersza polecenia, następnie konfiguruje zasoby przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i wdraża aplikację za pomocą usługi Git.  Gdy wszystko będzie gotowe, uzyskasz funkcjonalny interfejs API REST działający na platformie Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

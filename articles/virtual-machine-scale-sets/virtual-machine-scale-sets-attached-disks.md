@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Zestawy skalowania maszyn wirtualnych platformy Azure i dołączone dyski danych
@@ -112,7 +112,7 @@ az vmss disk detach -g dsktest -n dskvmss --lun 2
 Podobnie można również usunąć dysk z zestawu skalowania, usuwając wpis z właściwości _dataDisks_ w obszarze _storageProfile_ i stosując tę zmianę. 
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
-Obsługę usługi Azure Managed Disks i dołączonych dysków danych w zestawach skalowania dodano w wersji [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) interfejsu API Microsoft.Compute. Można użyć dowolnego zestawu SDK lub narzędzia wiersza polecenia opracowanego przy użyciu tej lub nowszej wersji tego interfejsu API.
+Obsługa usługi Azure Managed Disks i dołączonych dysków danych w zestawach skalowania jest dostępna w wersji [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) interfejsu API Microsoft.Compute i w nowszych wersjach.
 
 We wstępnej implementacji obsługi dysków dołączonych dla zestawów skalowania nie można dołączać ani odłączać dysków danych w przypadku pojedynczych maszyn wirtualnych należących do zestawu skalowania.
 

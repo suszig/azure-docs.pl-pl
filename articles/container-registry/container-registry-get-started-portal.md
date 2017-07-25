@@ -17,19 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e74c5428f0e31d9d3cf06b85aa8cefde868e9d67
-ms.lasthandoff: 03/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/12/2017
 
 ---
 
 # <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Tworzenie prywatnego rejestru kontenerów platformy Docker za pomocą witryny Azure Portal
-Użyj witryny Azure Portal, aby utworzyć rejestr kontenerów i zarządzać jego ustawieniami. Tworzenie rejestrów kontenerów i zarządzanie nimi jest także możliwe przy użyciu [poleceń interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-registry-get-started-azure-cli.md) lub programowo przy użyciu interfejsu [API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) usługi Container Registry.
+Użyj witryny Azure Portal, aby utworzyć rejestr kontenerów i zarządzać jego ustawieniami. Tworzenie rejestrów kontenerów i zarządzanie nimi jest także możliwe przy użyciu [poleceń interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-registry-get-started-azure-cli.md), programu [Azure PowerShell](container-registry-get-started-powershell.md) lub programowo przy użyciu [interfejsu API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) usługi Container Registry.
 
 Podstawy oraz pojęcia zostały przedstawione w części [omówienie](container-registry-intro.md).
-
-
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 1. W witrynie [Azure Portal](https://portal.azure.com) kliknij pozycję **+ Nowy**.

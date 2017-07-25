@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2017
+ms.date: 07/17/2017
 ms.author: narayan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: bfba85160cd02baa337881653dbe6582d10ba073
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 393557074db2ddbeb53ca20873a33d06874c4dc8
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
@@ -31,30 +30,29 @@ Ruch między maszynami wirtualnymi w wirtualnych sieciach równorzędnych odbywa
 * Możliwość używania zasobów (np. urządzeń sieciowych i bram sieci VPN) jako punktów tranzytowych w wirtualnych sieciach równorzędnych.
 * Możliwość połączenia dwóch sieci wirtualnych utworzonych za pomocą modelu wdrażania przy użyciu usługi Azure Resource Manager lub połączenia jednej sieci wirtualnej utworzonej za pomocą usługi Resource Manager z drugą siecią wirtualną utworzoną za pomocą klasycznego modelu wdrażania. Zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informacje na temat modeli wdrażania platformy Azure), aby dowiedzieć się więcej o różnicach między tymi dwoma modelami wdrażania.
 
-Wymagania i kluczowe aspekty wirtualnych sieci równorzędnych:
+## <a name="requirements-constraints"></a>Wymagania i ograniczenia
 
 * Wirtualne sieci równorzędne muszą znajdować się w tym samym regionie platformy Azure. Sieci wirtualne z różnych regionów platformy Azure można połączyć za pomocą usługi [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
 * Wirtualne sieci równorzędne muszą mieć nienakładające się przestrzenie adresów IP.
 * Nie można dodać ani usunąć przestrzeni adresowych z sieci wirtualnej po połączeniu sieci wirtualnej z inną siecią wirtualną za pomocą komunikacji równorzędnej.
 * Wirtualne sieci równorzędne obejmują dwie sieci wirtualne. Nie istnieje żadna pochodna relacja przechodnia między tymi sieciami. Na przykład: jeśli wirtualna sieć A jest połączona z wirtualną siecią B, a wirtualna sieć B jest połączona z wirtualną siecią C, to sieć A *nie* jest połączona z siecią C.
-* Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi istniejącymi w dwóch różnych subskrypcjach, o ile połączenie zostanie autoryzowane przez uprawnionego użytkownika w obu subskrypcjach, a subskrypcje będą skojarzone z tą samą dzierżawą usługi Active Directory. Do łączenia sieci wirtualnych w ramach subskrypcji skojarzonych z różnymi dzierżawcami usługi Active Directory można użyć usługi [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
-* Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi, jeśli obie sieci zostały utworzone za pomocą modelu wdrażania przy użyciu usługi Resource Manager lub jeśli jedna z nich została utworzona w ten sposób, a druga za pomocą klasycznego modelu wdrażania. Nie można jednak nawiązać komunikacji równorzędnej między dwiema sieciami wirtualnymi utworzonymi za pomocą klasycznego modelu wdrażania. W przypadku nawiązywania komunikacji równorzędnej między sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania obie te sieci muszą istnieć w *tej samej* subskrypcji. Możliwość nawiązywania komunikacji równorzędnej w *różnych* subskrypcjach między sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania istnieje w wersji **zapoznawczej**. Więcej szczegółowych informacji zawiera artykuł [Create a virtual network peering](virtual-network-create-peering.md#different-subscriptions-different-deployment-models) (Tworzenie wirtualnych sieci równorzędnych).
+* Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi istniejącymi w dwóch różnych subskrypcjach, o ile połączenie zostanie autoryzowane przez uprawnionego użytkownika (zobacz [konkretne uprawnienia](create-peering-different-deployment-models-subscriptions.md#permissions)) w obu subskrypcjach, a subskrypcje będą skojarzone z tą samą dzierżawą usługi Azure Active Directory. Do łączenia sieci wirtualnych w ramach subskrypcji skojarzonych z różnymi dzierżawcami usługi Active Directory można użyć usługi [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
+* Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi, jeśli obie sieci zostały utworzone za pomocą modelu wdrażania przy użyciu usługi Resource Manager lub jeśli jedna z nich została utworzona w ten sposób, a druga za pomocą klasycznego modelu wdrażania. Nie można jednak nawiązać komunikacji równorzędnej między dwiema sieciami wirtualnymi utworzonymi za pomocą klasycznego modelu wdrażania. Do połączenia dwóch sieci wirtualnych utworzonych za pomocą klasycznego modelu wdrażania można użyć usługi [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
 * Chociaż komunikacja między maszynami wirtualnymi w wirtualnych sieciach równorzędnych nie ma żadnych dodatkowych ograniczeń co do przepustowości, należy pamiętać, że nadal obowiązuje ograniczenie maksymalnej przepustowości sieci uzależnione od rozmiaru maszyny wirtualnej. Aby dowiedzieć się więcej o maksymalnej przepustowości dla różnych rozmiarów maszyn wirtualnych, przeczytaj artykuły dotyczące rozmiarów maszyn wirtualnych w systemach [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Usługa rozpoznawania wewnętrznych nazw DNS na platformie Azure dla maszyn wirtualnych nie działa w sieciach wirtualnych połączonych za pomocą komunikacji równorzędnej. Maszyny wirtualne mają wewnętrzne nazwy DNS rozpoznawalne tylko w lokalnej sieci wirtualnej. Można jednak skonfigurować maszyny wirtualne połączone z wirtualnymi sieciami równorzędnymi jako serwery DNS dla sieci wirtualnej. Aby uzyskać więcej szczegółowych informacji, zapoznaj się z artykułem [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) (Rozpoznawanie nazw za pomocą własnego serwera DNS).
 
 ![Podstawowe wirtualne sieci równorzędne](./media/virtual-networks-peering-overview/figure01.png)
 
 ## <a name="connectivity"></a>Łączność
-Po połączeniu dwóch sieci wirtualnych za pomocą komunikacji równorzędnej maszyny wirtualne lub role usług w chmurze w sieci wirtualnej mogą łączyć się bezpośrednio z innymi zasobami w sieci wirtualnej połączonej za pomocą komunikacji równorzędnej. Te dwie sieci wirtualne mają pełną łączność na poziomie adresów IP.
+Po połączeniu dwóch sieci wirtualnych za pomocą komunikacji równorzędnej zasoby w dowolnej z tych sieci wirtualnych mogą łączyć się bezpośrednio z innymi zasobami w równorzędnej sieci wirtualnej. Te dwie sieci wirtualne mają pełną łączność na poziomie adresów IP.
 
 Opóźnienie sieciowe podczas komunikacji dwustronnej między dwiema maszynami wirtualnymi w wirtualnych sieciach równorzędnych jest takie samo jak w przypadku komunikacji dwustronnej w lokalnej sieci wirtualnej. Przepływność sieci zależy od przepustowości dozwolonej dla maszyny wirtualnej proporcjonalnie do jej rozmiaru. Nie ma żadnych dodatkowych ograniczeń przepustowości w obrębie komunikacji równorzędnej.
 
-Ruch między maszynami wirtualnymi w wirtualnych sieciach równorzędnych odbywa się bezpośrednio za pomocą infrastruktury zaplecza platformy Azure, a nie przy użyciu bramy.
+Ruch między maszynami wirtualnymi w równorzędnych sieciach wirtualnych odbywa się bezpośrednio za pomocą infrastruktury zaplecza platformy Azure, a nie przy użyciu bramy.
 
 Maszyny wirtualne połączone z siecią wirtualną mogą uzyskiwać dostęp do wewnętrznych punktów końcowych z równoważeniem obciążenia w równorzędnej sieci wirtualnej. Sieciowe grupy zabezpieczeń można stosować w dowolnej sieci wirtualnej, aby w razie potrzeby zablokować dostęp do innych sieci wirtualnych lub podsieci.
 
 Podczas konfigurowania wirtualnych sieci równorzędnych można otwierać i zamykać reguły grupy zabezpieczeń sieci między sieciami wirtualnymi. W przypadku otwarcia pełnej łączności między równorzędnymi sieciami wirtualnymi (jest to opcja domyślna) można zablokować lub odmówić określonego rodzaju dostępu do określonych podsieci lub maszyn wirtualnych. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zapoznaj się z artykułem [Omówienie sieciowych grup zabezpieczeń](virtual-networks-nsg.md).
-
-Usługa rozpoznawania wewnętrznych nazw DNS na platformie Azure dla maszyn wirtualnych nie działa w sieciach wirtualnych połączonych za pomocą komunikacji równorzędnej. Maszyny wirtualne mają wewnętrzne nazwy DNS rozpoznawalne tylko w lokalnej sieci wirtualnej. Można jednak skonfigurować maszyny wirtualne połączone z wirtualnymi sieciami równorzędnymi jako serwery DNS dla sieci wirtualnej. Aby uzyskać więcej szczegółowych informacji, zapoznaj się z artykułem [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) (Rozpoznawanie nazw za pomocą własnego serwera DNS).
 
 ## <a name="service-chaining"></a>Tworzenie łańcuchów usług
 Użytkownicy mogą konfigurować trasy zdefiniowane przez użytkownika prowadzące do maszyn wirtualnych w wirtualnych sieciach równorzędnych jako adresy IP „kolejnego przeskoku”, aby umożliwić tworzenie łańcucha usług. Tworzenie łańcucha usług umożliwia bezpośrednie kierowanie ruchu z jednej sieci wirtualnej do urządzenia wirtualnego w wirtualnej sieci równorzędnej przy użyciu tras zdefiniowanych przez użytkownika.
@@ -87,6 +85,15 @@ Istnieje nominalna opłata za ruch przychodzący i wychodzący w wirtualnych sie
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Ukończ [samouczek dotyczący wirtualnych sieci równorzędnych](virtual-network-create-peering.md)
-* Zapoznaj się ze wszystkimi [ustawieniami wirtualnych sieci równorzędnych oraz sposobami ich zmiany](virtual-network-manage-peering.md).
+* Ukończ samouczek dotyczący równorzędnych sieci wirtualnych. Równorzędne sieci wirtualne tworzy się między sieciami wirtualnymi utworzonymi za pomocą tych samych lub różnych modeli wdrażania istniejących w tej samej lub w różnych subskrypcjach. Ukończ samouczek dla jednego z następujących scenariuszy:
+ 
+    |Model wdrażania platformy Azure  | Subskrypcja  |
+    |---------|---------|
+    |Resource Manager — w obu przypadkach |[Ta sama](virtual-network-create-peering.md)|
+    | |[Różne](create-peering-different-subscriptions.md)|
+    |Jedna sieć — Resource Manager, druga — model klasyczny     |[Ta sama](create-peering-different-deployment-models.md)|
+    | |[Różne](create-peering-different-deployment-models-subscriptions.md)|
+
+* Dowiedz się jak, utworzyć [topologię sieciową typu gwiazda](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 
+* Zapoznaj się ze wszystkimi [ustawieniami równorzędnych sieci wirtualnych oraz sposobami ich zmiany](virtual-network-manage-peering.md)
 

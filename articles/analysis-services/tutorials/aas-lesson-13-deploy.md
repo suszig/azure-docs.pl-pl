@@ -13,27 +13,31 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 8e3e1be572aa66ab46f894a2e5f395d1e6f2ea23
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Lekcja 13. Wdrażanie
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-W tej lekcji skonfigurujemy właściwości wdrożenia, określając serwer usług Analysis Services na platformie Azure lub serwer lokalny SQL Server vNext Analysis Services, a także nazwę modelu. Następnie wdrożymy model dla tego wystąpienia. Po wdrożeniu modelu użytkownicy mogą łączyć się z nim przy użyciu aplikacji klienckiej do raportowania. Aby dowiedzieć się więcej, zobacz artykuł [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Wdrażanie w usługach Azure Analysis Services).  
+W tej lekcji skonfigurujemy właściwości wdrożenia, określając docelowy serwer usług Azure Analysis Services dla wdrożenia oraz nazwę modelu. Następnie wdrożymy model dla tego wystąpienia. Po wdrożeniu modelu użytkownicy mogą łączyć się z nim przy użyciu aplikacji klienckiej do raportowania. Aby dowiedzieć się więcej, zobacz artykuł [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Wdrażanie w usługach Azure Analysis Services).  
   
 Szacowany czas trwania lekcji: **5 minut**  
   
 ## <a name="prerequisites"></a>Wymagania wstępne  
 Ten temat stanowi część samouczka modelowania tabelarycznego, który należy wykonać w podanej kolejności. Przed przystąpieniem do wykonywania zadań w tej lekcji należy ukończyć lekcję poprzednią: [Lekcja 12: Analiza w programie Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
-**Ważne:** jeśli przykładowa baza danych AdventureWorksDW2014 została zainstalowana na lokalnym serwerze SQL i model jest wdrażany na serwerze usług Azure Analysis Services, wymagana jest [lokalna brama danych](../analysis-services-gateway.md).
+> [!IMPORTANT]  
+> Wdrożenie na zdalnym serwerze usług Analysis Services wymaga [uprawnień administratora](../analysis-services-server-admins.md).  
+
+> [!IMPORTANT]  
+> Jeśli przykładowa baza danych AdventureWorksDW2014 została zainstalowana na lokalnym serwerze SQL i model jest wdrażany na serwerze usług Azure Analysis Services, wymagana jest [lokalna brama danych](../analysis-services-gateway.md).
   
 ## <a name="deploy-the-model"></a>Wdrażanie modelu  
   
@@ -42,12 +46,9 @@ Ten temat stanowi część samouczka modelowania tabelarycznego, który należy 
   
 1.  W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt **AW Internet Sales**, a następnie kliknij **Właściwości**.  
   
-2.  W oknie dialogowym **Strony właściwości projektu AW Internet Sales** wprowadź we właściwości **Serwer** w obszarze **Serwer wdrażania** nazwę serwera usług Analysis Services na platformie Azure lub serwera lokalnego.  
+2.  W oknie dialogowym **Strony właściwości projektu AW Internet Sales** wprowadź we właściwości **Serwer** w obszarze **Serwer wdrażania** pełną nazwę serwera.  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
- 
-    > [!IMPORTANT]  
-    > Wdrożenie wystąpienia zdalnej usługi Analysis Services wymaga uprawnień administratora.  
   
 3.  We właściwości **Baza danych** wpisz **Adventure Works Internet Sales**.  
   
@@ -61,7 +62,7 @@ Ten temat stanowi część samouczka modelowania tabelarycznego, który należy 
 
 2.  Kliknij prawym przyciskiem myszy projekt **AW Internet Sales** > **Wdróż**.
 
-    Podczas wdrażania usług Azure Analysis Services może zostać wyświetlona prośba o wprowadzenie konta. Wprowadź swoje konto organizacyjne i hasło, na przykład nancy@adventureworks.com. To konto musi być wpisane w sekcji Administratorzy w wystąpieniu serwera.
+    Podczas wdrażania usług Azure Analysis Services może zostać wyświetlona prośba o wprowadzenie konta. Wprowadź swoje konto organizacyjne i hasło, na przykład nancy@adventureworks.com. To konto musi być wpisane należeć do grupy Administratorzy na serwerze.
   
     Zostanie wyświetlone okno dialogowe Wdrażanie pokazujące stan wdrożenia metadanych i każdej tabeli zawartej w modelu.  
     
@@ -77,9 +78,8 @@ Gratulacje! Tworzenie i wdrażanie pierwszego modelu tabelarycznego usług Analy
   
   
 ## <a name="whats-next"></a>Co dalej?
-*  [Lekcja uzupełniająca — zabezpieczenia dynamiczne](../tutorials/aas-supplemental-lesson-dynamic-security.md)
-
-*  [Lekcja uzupełniająca — wiersze szczegółów](../tutorials/aas-supplemental-lesson-detail-rows.md)
-
-*  [Lekcja uzupełniająca — niewyrównane hierarchie](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+[Łączenie z programem Power BI Desktop](../analysis-services-connect-pbi.md)   
+[Lekcja uzupełniająca — zabezpieczenia dynamiczne](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Lekcja uzupełniająca — wiersze szczegółów](../tutorials/aas-supplemental-lesson-detail-rows.md)   
+[Lekcja uzupełniająca — niewyrównane hierarchie](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
 

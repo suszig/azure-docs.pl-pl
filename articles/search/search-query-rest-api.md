@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST | Microsoft Docs"
+title: "Tworzenie zapytań względem indeksu (interfejs API REST — usługa Azure Search) | Microsoft Docs"
 description: "Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania."
 services: search
 documentationcenter: 
@@ -13,17 +13,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 
-<a id="query-your-azure-search-index-using-the-rest-api" class="xliff"></a>
-
-# Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
 >
 > * [Omówienie](search-query-overview.md)
@@ -37,9 +35,7 @@ W tym artykule opisano sposób tworzenia zapytań względem indeksu przy użyciu
 
 Przed rozpoczęciem pracy z tym przewodnikiem należy [utworzyć indeks usługi Azure Search](search-what-is-an-index.md) i [wypełnić go danymi](search-what-is-data-import.md). Aby uzyskać podstawowe informacje, zobacz [How full text search works in Azure Search (Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Search)](search-lucene-query-architecture.md).
 
-<a id="identify-your-azure-search-services-query-api-key" class="xliff"></a>
-
-## Identyfikowanie klucza api-key zapytania usługi Azure Search
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identyfikowanie klucza api-key zapytania usługi Azure Search
 Głównym składnikiem każdej operacji wyszukiwania wykonywanej przy użyciu interfejsu API REST usługi Azure Search jest *klucz api-key* wygenerowany dla aprowizowanej usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
 1. Aby znaleźć klucze api-key dla usługi, możesz zalogować się w witrynie [Azure Portal](https://portal.azure.com/)
@@ -53,9 +49,7 @@ Usługa dysponuje *kluczami administratora* i *kluczami zapytań*.
 
 W celu tworzenia zapytań względem indeksu można użyć dowolnego klucza zapytania. Do tworzenia zapytań można również używać kluczy administratora, ale w kodzie aplikacji należy używać klucza zapytania, ponieważ takie podejście jest bardziej zgodne z [zasadą najniższych uprawnień](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-<a id="formulate-your-query" class="xliff"></a>
-
-## Formułowanie zapytania
+## <a name="formulate-your-query"></a>Formułowanie zapytania
 Istnieją dwie metody [przeszukiwania indeksu przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Pierwsza z nich polega na wysłaniu żądania HTTP POST, w ramach którego parametry zapytania są definiowane w obiekcie JSON w treści żądania. Druga metoda obejmuje wysłanie żądania HTTP GET, w ramach którego parametry zapytania są definiowane w adresie URL żądania. W przypadku żądania POST limity dotyczące rozmiaru parametrów zapytania są [luźniejsze](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) niż dla żądania GET. Z tego powodu zaleca się używanie żądania POST, o ile nie występują specjalne okoliczności, w których korzystanie z żądania GET jest wygodniejsze.
 
 Zarówno dla żądania POST, jak i GET zawartość adresu URL żądania musi obejmować *nazwę usługi*, *nazwę indeksu* oraz odpowiednią *wersję interfejsu API* (w momencie publikowania tego dokumentu aktualna wersja interfejsu API to `2016-09-01`). W przypadku żądania GET parametry zapytania są określane w *ciągu zapytania* na końcu adresu URL. Format adresu URL został przedstawiony poniżej:
@@ -64,9 +58,7 @@ Zarówno dla żądania POST, jak i GET zawartość adresu URL żądania musi obe
 
 Format dla żądania POST jest taki sam, ale parametry ciągu zapytania zawierają tylko element api-version.
 
-<a id="example-queries" class="xliff"></a>
-
-#### Przykładowe zapytania
+#### <a name="example-queries"></a>Przykładowe zapytania
 Poniżej znajduje się kilka przykładowych zapytań względem indeksu o nazwie „hotels”. Zostały one przedstawione zarówno w formacie GET, jak i POST.
 
 Wyszukaj termin „budget” w całym indeksie i zwróć tylko pole `hotelName`:
@@ -108,14 +100,10 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-<a id="submit-your-http-request" class="xliff"></a>
-
-## Przesyłanie żądania HTTP
+## <a name="submit-your-http-request"></a>Przesyłanie żądania HTTP
 Po sformułowaniu zapytania w ramach adresu URL (w przypadku żądania GET) lub treści (w przypadku żądania POST) żądania HTTP można zdefiniować nagłówki żądania i przesłać zapytanie.
 
-<a id="request-and-request-headers" class="xliff"></a>
-
-#### Żądanie i nagłówki żądania
+#### <a name="request-and-request-headers"></a>Żądanie i nagłówki żądania
 Należy zdefiniować dwa nagłówki dla żądania GET lub trzy nagłówki dla żądania POST:
 
 1. Nagłówek `api-key` musi mieć wartość klucza zapytania określonego w kroku I powyżej. Jako nagłówka `api-key` można również używać klucza administratora, ale zaleca się używanie klucza zapytania, ponieważ umożliwia on przyznanie wyłącznego dostępu tylko do odczytu do indeksów i dokumentów.

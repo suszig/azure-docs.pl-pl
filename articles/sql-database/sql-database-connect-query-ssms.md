@@ -18,10 +18,10 @@ ms.topic: hero-article
 ms.date: 05/26/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 29883e37f1f506f33f44cf02dbf08221274e109d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2835a72fc90d1fd39af73c6907648908e5d9fdeb
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -39,7 +39,7 @@ Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonyc
 
 Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
+## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera, nazwa bazy danych i informacje logowania.
 
@@ -47,7 +47,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
 2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
 3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**.
 
-   ![informacje o połączeniu](./media/sql-database-get-started-portal/server-name.png) 
+   ![informacje o połączeniu](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło. 
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -38,7 +38,7 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-2. Wybierz pozycję **Obliczenia**, wybierz pozycję **Windows Server 2016 Datacenter** i upewnij się, że **Resource Manager** jest wybranym modelem wdrażania. Kliknij przycisk **Utwórz**. 
+2. Wybierz pozycję **Wystąpienia obliczeniowe**, a następnie wybierz pozycję **Windows Server 2016 Datacenter**. 
 
 3. Wprowadź informacje o maszynie wirtualnej. Nazwa użytkownika i hasło wprowadzone w tym miejscu są używane na potrzeby logowania się do maszyny wirtualnej. Po zakończeniu kliknij przycisk **OK**.
 
@@ -48,7 +48,7 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
     ![Zrzut ekranu przedstawiający rozmiary maszyn wirtualnych](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. W bloku ustawień wybierz opcję **Tak** w obszarze **Używanie zarządzanych dysków**, zachowaj ustawienia domyślne dla pozostałych ustawień i kliknij przycisk **OK**.
+5. W bloku ustawień pozostaw ustawienia domyślne i kliknij przycisk **OK**.
 
 6. Na stronie podsumowania kliknij przycisk **OK**, aby rozpocząć wdrażanie maszyny wirtualnej.
 

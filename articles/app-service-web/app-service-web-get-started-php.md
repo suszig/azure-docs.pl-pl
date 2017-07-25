@@ -12,19 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/04/2017
+ms.date: 07/21/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 3c7bbb1342d381b2940a9e1ceb56d905fbc33a74
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 9a53216e326e63bd4fe36c0e5d5d5e85b2098d8c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-<a id="create-a-php-web-app-in-azure" class="xliff"></a>
-
-# Tworzenie aplikacji sieci Web w języku PHP na platformie Azure
+# <a name="create-a-php-web-app-in-azure"></a>Tworzenie aplikacji sieci Web w języku PHP na platformie Azure
 
 Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten samouczek Szybki start przedstawia sposób wdrażania aplikacji PHP w usłudze Azure Web Apps. Aplikację internetową możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie przykładowego kodu w języku PHP w aplikacji internetowej.
 
@@ -32,9 +30,7 @@ Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-se
 
 Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux. Po zainstalowaniu wymagań wstępnych wykonanie czynności trwa około pięciu minut.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki Start:
 
@@ -47,9 +43,7 @@ Aby ukończyć ten przewodnik Szybki Start:
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Pobierz przykład
+## <a name="download-the-sample"></a>Pobierz przykład
 
 W oknie terminala uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną.
 
@@ -65,9 +59,7 @@ Przejdź do katalogu, który zawiera przykładowy kod.
 cd php-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
-
-## Lokalne uruchamianie aplikacji
+## <a name="run-the-app-locally"></a>Lokalne uruchamianie aplikacji
 
 Uruchom aplikację lokalnie, otwierając okno terminala i korzystając z polecenia `php` w celu uruchomienia wbudowanego serwera internetowego środowiska PHP.
 
@@ -77,7 +69,7 @@ php -S localhost:8080
 
 Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem http://localhost:8080.
 
-Na stronie zostanie wyświetlony komunikat **Hello World** z przykładowej aplikacji.
+Na stronie zostanie wyświetlony komunikat **Hello World!** z przykładowej aplikacji.
 
 ![Przykładowa aplikacja działająca w środowisku lokalnym](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
@@ -126,9 +118,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Przechodzenie do aplikacji
+## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
 Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
 
@@ -142,9 +132,7 @@ Przykładowy kod w języku PHP jest uruchamiany w aplikacji internetowej usługi
 
 **Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację w języku PHP w usłudze App Service.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## Aktualizowanie i ponowne wdrażanie kodu
+## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
 
 Za pomocą lokalnego edytora tekstów otwórz plik `index.php` w aplikacji w języku PHP i wprowadź niewielką zmianę w tekście ciągu obok polecenia `echo`:
 
@@ -163,9 +151,7 @@ Po zakończeniu wdrożenia przejdź z powrotem do okna przeglądarki otwartego w
 
 ![Zaktualizowana przykładowa aplikacja działająca na platformie Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Zarządzanie nową aplikacją sieci Web platformy Azure
+## <a name="manage-your-new-azure-web-app"></a>Zarządzanie nową aplikacją sieci Web platformy Azure
 
 Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją internetową.
 
@@ -181,9 +167,7 @@ Menu po lewej stronie zawiera różne strony służące do konfigurowania aplika
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Środowisko PHP z bazą danych MySQL](app-service-web-tutorial-php-mysql.md)
