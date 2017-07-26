@@ -5,7 +5,7 @@
     ![Tworzenie urządzenia StorSimple w chmurze](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. W bloku **Tworzenie urządzenia w chmurze** podaj poniższe informacje.
    
-    ![Tworzenie urządzenia StorSimple w chmurze](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2.png)
+    ![Tworzenie urządzenia StorSimple w chmurze](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Nazwa** — unikatowa nazwa urządzenia w chmurze.
    2. **Model** — wybierz model urządzenia w chmurze. Urządzenie 8010 oferuje 30 TB magazynu Standard Storage, a 8020 ma 64 TB magazynu w usłudze Premium Storage. Wybierz model 8010, aby wdrożyć scenariusze pobierania z kopii zapasowych na poziomie elementów. Wybierz model 8020, aby wdrożyć obciążenia o wysokiej wydajności i małych opóźnieniach lub używać go jako urządzenia dodatkowego do odzyskiwania po awarii.
