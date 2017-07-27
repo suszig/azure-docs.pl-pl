@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 46766e29287ca130e68aa0f027cbb1ded2526af3
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizowanie użycia danych w usłudze Log Analytics
@@ -110,13 +110,15 @@ Wykres *Objętość danych w czasie* przedstawia łączny wolumin wysłanych dan
 
 Wykres *Objętość danych według rozwiązania* przedstawia wolumin danych wysyłanych przez każde rozwiązanie oraz rozwiązania wysyłające większość danych. Wykres u góry przedstawia łączny wolumin danych wysyłanych z upływem czasu przez każde rozwiązanie. Te informacje umożliwiają ustalenie, czy w miarę upływu czasu dane rozwiązanie wysyła więcej, mniej, czy podobną ilość danych. Lista rozwiązań obejmuje 10 rozwiązań wysyłających większość danych. 
 
+Na tych dwóch wykresach są pokazywane wszystkie dane. Niektóre dane podlegają opłatom, a inne nie. W celu skupienia się tylko na płatnych danych zmodyfikuj zapytanie na stronie wyszukiwania, uwzględniając parametr `IsBillable=true`.  
+
 ![wykresy woluminów danych](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
 Spójrz na wykres *Objętość danych w czasie*. Aby wyświetlić rozwiązania i typy danych odpowiedzialne za wysyłanie większości danych dla określonego komputera, kliknij nazwę komputera. Kliknij nazwę pierwszego komputera na liście.
 
 Na poniższym zrzucie ekranu widać, że w przypadku tego komputera większość wysyłanych danych jest typu *Zarządzanie dziennikiem/wydajność*. 
-![wolumin danych na komputerze](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
+![wolumin danych na komputerze](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
 Następnie wróć do pulpitu nawigacyjnego *Użycie* i spójrz na wykres *Objętość danych według rozwiązania*. Aby sprawdzić, które komputery wysyłają większość danych z określonego rozwiązania, kliknij nazwę rozwiązania na liście. Kliknij nazwę pierwszego rozwiązania na liście. 
 
@@ -124,16 +126,31 @@ Na poniższym zrzucie ekranu widać, że najwięcej danych związanych z rozwią
 
 ![wolumin danych dla rozwiązania](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
+Jeśli to konieczne, wykonaj dodatkową analizę w celu zidentyfikowania dużych woluminów w ramach rozwiązania lub typu danych. Przykładowe zapytania:
+
++ Rozwiązanie **zabezpieczające**
+  - `Type=SecurityEvent | measure count() by EventID`
++ Rozwiązanie do **zarządzania dziennikami**
+  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
++ Typ danych **Perf**
+  - `Type=Perf | measure count() by CounterPath`
+  - `Type=Perf | measure count() by CounterName`
++ Typ danych **Event**
+  - `Type=Event | measure count() by EventID`
+  - `Type=Event | measure count() by EventLog, EventLevelName`
++ Typ danych **Syslog**
+  - `Type=Syslog | measure count() by Facility, SeverityLevel`
+  - `Type=Syslog | measure count() by ProcessName`
 
 Wykonaj następujące kroki, aby zmniejszyć wolumin zebranych danych dzienników:
 
 | Źródło dużego woluminu danych | Jak zmniejszyć wolumin danych |
 | -------------------------- | ------------------------- |
-| Zdarzenia zabezpieczeń            | Wybierz [pospolite lub minimalne zdarzenia zabezpieczeń](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Zmień zasady inspekcji zabezpieczeń. Na przykład, wyłącz zdarzenia [inspekcji platformy filtrowania](https://technet.microsoft.com/library/dd772749(WS.10).aspx). |
+| Zdarzenia zabezpieczeń            | Wybierz [pospolite lub minimalne zdarzenia zabezpieczeń](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Zmień zasady inspekcji zabezpieczeń w celu zbierania tylko potrzebnych zdarzeń. W szczególności zastanów się nad koniecznością zbierania następujących zdarzeń: <br> - [inspekcja platformy filtrowania](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [inspekcja rejestru](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [inspekcja systemu plików](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [inspekcja obiektu jądra](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [inspekcja manipulowania dojściem](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [inspekcja magazynu wymiennego](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
 | Liczniki wydajności       | Zmień [konfigurację licznika wydajności](log-analytics-data-sources-performance-counters.md) w następujący sposób: <br> — Zmniejsz częstotliwość gromadzenia <br> — Zmniejsz liczbę liczników wydajności |
 | Dzienniki zdarzeń                 | Zmień [konfigurację dziennika zdarzeń](log-analytics-data-sources-windows-events.md) w następujący sposób: <br> — Zmniejsz liczbę gromadzonych danych dzienników zdarzeń <br> — Zbieraj wyłącznie zdarzenia o wymaganym poziomie. Na przykład nie zbieraj zdarzeń na poziomie *Informacje*. |
 | Dziennik systemu                     | Zmień [konfigurację dziennika systemu](log-analytics-data-sources-syslog.md) w następujący sposób: <br> — Zmniejsz liczbę urządzeń, z których zbierane są dane <br> — Zbieraj wyłącznie zdarzenia o wymaganym poziomie. Na przykład nie zbieraj zdarzeń na poziomie *Informacje* i *Debugowanie*. |
-| Dane rozwiązań z komputerów, które nie wymagają rozwiązania | Użyj funkcji [określania celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md), aby zbierać dane tylko z wymaganych grup komputerów.
+| Dane rozwiązań z komputerów, które nie wymagają rozwiązania | Użyj funkcji [określania celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md), aby zbierać dane tylko z wymaganych grup komputerów. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Sprawdzanie, czy liczba węzłów przekracza oczekiwania
 Jeśli korzystasz z warstwy cenowej *Na węzeł (OMS)*, opłaty są naliczane na podstawie liczby używanych węzłów i rozwiązań. Aby sprawdzić, z ilu węzłów poszczególnych ofert korzystasz, przejdź do sekcji *ofert* pulpitu nawigacyjnego Użycie.
@@ -148,4 +165,9 @@ Użyj funkcji [określania celu rozwiązania](../operations-management-suite/ope
 ## <a name="next-steps"></a>Następne kroki
 * Zobacz temat [Wyszukiwanie w dziennikach w usłudze Log Analytics](log-analytics-log-searches.md), aby dowiedzieć się, jak korzystać z języka wyszukiwania. Możesz użyć zapytań wyszukiwania w celu przeprowadzenia dodatkowej analizy danych użycia.
 * Wykonaj kroki opisane w sekcji dotyczącej [tworzenia reguły alertu](log-analytics-alerts-creating.md#create-an-alert-rule), aby otrzymywać powiadomienia, gdy kryteria wyszukiwania zostaną spełnione.
+* Użyj funkcji [określania celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md), aby zbierać dane tylko z wymaganych grup komputerów
+* Wybierz [pospolite lub minimalne zdarzenia zabezpieczeń](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/).
+* Zmień [konfigurację licznika wydajności](log-analytics-data-sources-performance-counters.md)
+* Zmień [konfigurację dziennika zdarzeń](log-analytics-data-sources-windows-events.md)
+* Zmień [konfigurację dziennika systemu](log-analytics-data-sources-syslog.md)
 

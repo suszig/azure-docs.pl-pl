@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/14/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: aa861e5d2928b208c839ab5a0efa7bfd9ca7c37d
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a998ec92ad58932c5f71e84fbffcd7783cbb459b
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="expressroute-overview"></a>Omówienie usługi ExpressRoute
@@ -113,4 +113,5 @@ Często zadawane pytania dotyczące usługi ExpressRoute można znaleźć na str
   * [Tworzenie obwodu usługi ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Konfigurowanie komunikacji równorzędnej na potrzeby obwodu usługi ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
   * [Łączenie sieci wirtualnej z obwodem usługi ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
+* Poznaj inne kluczowe [możliwości sieciowe](../networking/networking-overview.md) platformy Azure.
 
