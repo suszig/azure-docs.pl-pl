@@ -56,7 +56,7 @@
 ## [Przydziały](event-hubs-quotas.md)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Przykłady kodu](event-hubs-samples.md)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/event-hubs/)

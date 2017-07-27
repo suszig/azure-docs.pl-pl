@@ -66,6 +66,7 @@
 ## Rozwiązywanie problemów
 ### [Wdrożenia maszyn wirtualnych](troubleshoot-deployment-new-vm.md)
 ### [Ponowne uruchamianie maszyny wirtualnej lub zmienianie jej rozmiaru](restart-resize-error-troubleshooting.md)
+### [Dołączanie wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów](troubleshoot-recovery-disks-portal.md)
 
 # Dokumentacja
 ## [PowerShell](/powershell/azure/overview)
@@ -79,7 +80,7 @@
 
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Dostępność regionalna](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

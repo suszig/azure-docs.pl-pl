@@ -33,7 +33,7 @@
 
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Przykład osadzania skryptu JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 ## [Repozytorium Git języka JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Repozytorium Git języka C# w usłudze Power BI](https://github.com/Microsoft/PowerBI-CSharp)

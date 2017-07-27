@@ -54,7 +54,7 @@
 
 # Zasoby
 ## [Forum z opiniami na temat usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Kontakt z nami](active-directory-ds-contact-us.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-ds)

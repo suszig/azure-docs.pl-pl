@@ -222,7 +222,7 @@
 
 # Zasoby
 ## [Społeczność usługi Azure Media Services](media-services-community.md)
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Cennik](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Informacje o wersji](media-services-release-notes.md)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=media-services)

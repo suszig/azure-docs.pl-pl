@@ -67,6 +67,6 @@
 ## [DNS](/azure/dns/)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Cennik](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=load-balancer)

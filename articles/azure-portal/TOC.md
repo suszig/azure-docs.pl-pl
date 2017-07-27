@@ -33,7 +33,7 @@
 ## [Szybki start — przykłady poleceń interfejsu wiersza polecenia usługi Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 

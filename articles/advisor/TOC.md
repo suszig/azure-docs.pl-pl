@@ -21,4 +21,4 @@
 
 # Zasoby
 ## [Azure Advisor — wideo](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)

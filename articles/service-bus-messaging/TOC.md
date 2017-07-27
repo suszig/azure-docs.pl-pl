@@ -66,7 +66,7 @@
 ## [Składnia elementu SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Fora MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Szczegóły cennika](service-bus-pricing-billing.md)

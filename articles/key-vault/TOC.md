@@ -50,7 +50,7 @@
 
 # Zasoby
 ## [Informacje o kluczach, wpisach tajnych i certyfikatach](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Przykłady kodu](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Fora](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)

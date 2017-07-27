@@ -158,7 +158,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)
 ## [Forum sieci](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-network)

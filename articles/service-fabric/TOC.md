@@ -16,7 +16,8 @@
 ### [2- Deploy a .NET app using Docker Compose (2. Wdrażanie aplikacji .NET przy użyciu narzędzia Docker Compose)](service-fabric-host-app-in-a-container.md)
 
 # Przykłady
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Interfejs wiersza polecenia platformy Azure](samples-cli.md)
 # Pojęcia
 ## [Opis mikrousług](service-fabric-overview-microservices.md)
 ## [Duży obraz](service-fabric-content-roadmap.md)

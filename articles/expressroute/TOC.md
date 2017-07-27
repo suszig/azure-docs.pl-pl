@@ -19,12 +19,15 @@
 ## Tworzenie i modyfikowanie obwodu
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
 ## Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej
 ### [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
+### [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
 ## Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 ## Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute
 ### [Witryna Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -60,7 +63,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Analizy przypadków](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Blog na temat sieci](https://azure.microsoft.com/blog/topics/networking/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/expressroute/)

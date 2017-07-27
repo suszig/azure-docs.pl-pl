@@ -89,7 +89,7 @@
 
 # Zasoby
 ## [Forum z opiniami na temat usługi Azure AD B2C](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Często zadawane pytania](active-directory-b2c-faqs.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-b2c)
