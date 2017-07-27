@@ -1,5 +1,6 @@
 # [Omówienie](azure-security.md)
 ## [Bezpieczeństwo sieci](security-network-overview.md)
+## [Database security (Zabezpieczenia bazy danych)](azure-database-security-overview.md)
 ## [Zabezpieczenia magazynu](security-storage-overview.md)
 ## [Bezpieczeństwo obliczeń](security-virtual-machines-overview.md)
 ## [Zarządzanie zabezpieczeniami i monitorowanie ich](security-management-and-monitoring-overview.md)
@@ -12,6 +13,7 @@
 ### [Izolacja w chmurze publicznej](azure-isolation.md)
 ### [Możliwości techniczne zabezpieczeń](azure-security-technical-capabilities.md)
 ### [Nadzór na platformie Azure](governance-in-azure.md)
+### [Szyfrowanie danych w spoczynku](azure-security-encryption-atrest.md)
 
 # Wprowadzenie
 ## [Rozpoczynanie pracy z zabezpieczeniami platformy Azure](azure-security-getting-started.md)
@@ -51,6 +53,7 @@
 ## Usługi PaaS
 ### [Zabezpieczanie wdrożeń typu PaaS](security-paas-deployments.md)
 #### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu języka SQL](security-paas-applications-using-sql.md)
+#### [SQL Database best practices (Najlepsze rozwiązania usługi SQL Database)](azure-database-security-best-practices.md)
 #### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu usług App Services](security-paas-applications-using-app-services.md)
 
 ## Internet rzeczy
@@ -73,7 +76,7 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Program MVP dotyczący zabezpieczeń platformy Azure](azure-security-mvp.md)
 ## [Doradztwo z zakresu cyberbezpieczeństwa](azure-security-cyber-services.md)
 ## [Blog poświęcony zabezpieczeniom i zgodności](http://blogs.msdn.com/b/azuresecurity/)

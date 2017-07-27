@@ -13,7 +13,12 @@
 
 # Wprowadzenie
 ## [Rozpoczynanie pracy z usługą Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Rozpoczynanie pracy z platformą Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Rozpoczynanie pracy z platformą Spark
+### [Tworzenie klastra Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Run queries on a Spark cluster (Uruchamianie zapytań w klastrze Spark)](hdinsight-apache-spark-load-data-run-query.md)
+### [Analyze data using BI tools (Analizowanie danych przy użyciu narzędzi do analizy biznesowej)](hdinsight-apache-spark-use-bi-tools.md)
+### [Zarządzanie zasobami klastra](hdinsight-apache-spark-resource-manager.md)
+### [Zadania debugowania platformy Spark](hdinsight-apache-spark-job-debugging.md)
 ## [Rozpoczynanie pracy z programem R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Rozpoczynanie pracy z bazą danych HBase i językiem NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Rozpoczynanie pracy z systemem Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -59,7 +64,6 @@
 ### [ScaleR i SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Korzystanie z aplikacji Spark do przetwarzania w pamięci
 ### [Za pomocą usługi Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Za pomocą narzędzi usługi BI](hdinsight-apache-spark-use-bi-tools.md)
 ### [Tworzenie aplikacji autonomicznej](hdinsight-apache-spark-create-standalone-application.md)
 ### [Tworzenie aplikacji w środowisku Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Tworzenie aplikacji w środowisku IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -76,8 +80,6 @@
 ### [Korzystanie z lokalnego notesu programu Jupyter](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Zadania zdalne przy użyciu usługi Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Zdalne debugowanie zadań w środowisku IntelliJ przez sieć VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [Zarządzanie zasobami](hdinsight-apache-spark-resource-manager.md)
-### [Śledzenie i debugowanie zadań](hdinsight-apache-spark-job-debugging.md)
 ### [Znane problemy](hdinsight-apache-spark-known-issues.md)
 ## Korzystanie z bazy danych HBase
 ### [Korzystanie z oprogramowania Phoenix i SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -234,7 +236,7 @@
 ### [Monitorowanie klastrów za pomocą interfejsu API systemu Ambari](hdinsight-monitor-use-ambari-api.md)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Uzyskiwanie pomocy na forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
