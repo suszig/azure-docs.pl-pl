@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/18/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 8c9d6c65666b5ffedf058e0a83d4fc41fff80235
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 0c0b567d353fd77f72170a4bf807ec0d2585e357
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
@@ -164,43 +164,155 @@ Wypchnij obraz do rejestru kontenerów:
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="create-and-package-the-containerized-service-in-visual-studio"></a>Tworzenie i pakowanie konteneryzowanej usługi w programie Visual Studio
-Zestaw SDK usługi Service Fabric oraz narzędzia udostępniają szablon usługi ułatwiający wdrażanie kontenera w klastrze usługi Service Fabric.
+## <a name="create-the-containerized-service-in-visual-studio"></a>Tworzenie konteneryzowanej usługi w programie Visual Studio
+Zestaw SDK oraz narzędzia usługi Service Fabric udostępniają szablon usługi ułatwiający utworzenie konteneryzowanej aplikacji.
 
 1. Uruchom program Visual Studio.  Wybierz kolejno pozycje **Plik** > **Nowy** > **Projekt**.
 2. Wybierz pozycję **Aplikacja usługi Service Fabric**, nadaj jej nazwę „MyFirstContainer” i kliknij przycisk **OK**.
 3. Z listy **szablonów usług** wybierz pozycję **Kontener gościa**.
 4. W polu **Nazwa obrazu** wprowadź „myregistry.azurecr.io/samples/helloworldapp”. Jest to obraz wypchnięty do repozytorium kontenerów. 
 5. Nadaj nazwę usłudze i kliknij przycisk **OK**.
-6. Jeśli konteneryzowana usługa wymaga punktu końcowego na potrzeby komunikacji, możesz teraz dodać protokół, port i typ do parametru ```Endpoint``` w pliku ServiceManifest.xml. W tym artykule konteneryzowana usługa nasłuchuje na porcie 80: 
 
-    ```xml
+## <a name="configure-communication"></a>Konfigurowanie komunikacji
+Konteneryzowana usługa wymaga punktu końcowego dla celów komunikacyjnych. Dodaj element `Endpoint` z protokołem, portem i typem do pliku ServiceManifest.xml. Na potrzeby tego artykułu skonteneryzowana usługa nasłuchuje na porcie 8081.  W tym przykładzie jest używany stały port 8081.  Jeśli nie określono portu, zostanie wybrany losowy port z zakresu portów aplikacji.  
+
+```xml
+<Resources>
+  <Endpoints>
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
-    ```
-    Jeśli zostanie określony parametr ```UriScheme```, punkt końcowy kontenera zostanie automatycznie zarejestrowany w usłudze Service Fabric Naming, aby można go było odnaleźć. Pełny przykładowy plik ServiceManifest.xml znajduje się na końcu tego artykułu. 
-7. Skonfiguruj mapowanie portów kontenera typu port do hosta, określając zasady ```PortBinding``` w sekcji ```ContainerHostPolicies``` pliku ApplicationManifest.xml.  W tym artykule wartość portu dla parametru ```ContainerPort``` to 8081 (kontener uwidacznia port 80, jak określono w pliku Dockerfile), a wartością parametru ```EndpointRef``` jest „Guest1TypeEndpoint” (punkt końcowy zdefiniowany w manifeście usługi).  Żądania przychodzące do usługi na porcie 8081 są mapowane na port 80 w kontenerze.  Jeśli kontener wymaga uwierzytelniania w prywatnym repozytorium, dodaj parametr ```RepositoryCredentials```.  Na potrzeby tego artykułu dodaj nazwę konta i hasło dla rejestru kontenerów myregistry.azurecr.io. 
-
-    ```xml
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ```
-
-    Pełny przykładowy plik ApplicationManifest.xml znajduje się na końcu tego artykułu.
-8. Skonfiguruj punkt końcowy połączenia klastra, aby można było opublikować aplikację w klastrze.  Punkt końcowy połączenia klienta można znaleźć w bloku Przegląd klastra w witrynie [Azure Portal](https://portal.azure.com). W Eksploratorze rozwiązań otwórz plik *Cloud.xml* znajdujący się w obszarze **MyFirstContainer**->**PublishProfiles**.  Dodaj nazwę klastra i port połączenia do parametru **ClusterConnectionParameters**.  Na przykład:
-    ```xml
-    <ClusterConnectionParameters ConnectionEndpoint="containercluster.westus2.cloudapp.azure.com:19000" />
-    ```
+  </Endpoints>
+</Resources>
+```
     
-9. Zapisz wszystkie pliki i skompiluj projekt.  
+Definiując punkt końcowy, usługa Service Fabric publikuje punkt końcowy w usłudze Naming.  Inne usługi działające w klastrze mogą rozpoznać ten kontener.  Komunikację między kontenerami można również realizować za pomocą [odwrotnego serwera proxy](service-fabric-reverseproxy.md).  Aby zrealizować komunikację, należy podać port nasłuchujący HTTP odwrotnego serwera proxy i nazwę usług, z którymi chcesz się komunikować, jako zmienne środowiskowe. 
 
-10. Aby spakować aplikację, w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł **MyFirstContainer** i wybierz pozycję **Pakiet**. 
+## <a name="configure-and-set-environment-variables"></a>Konfigurowanie i ustawianie zmiennych środowiskowych
+Zmienne środowiskowe można określić dla każdego pakietu kodu w manifeście usługi. Ta funkcja jest dostępna dla wszystkich usług niezależnie od tego, czy są one wdrażane jako kontenery, procesy, czy pliki wykonywalne gościa. Wartości zmiennych środowiskowych można przesłonić w manifeście aplikacji lub podać je podczas wdrażania jako parametry aplikacji.
+
+Następujący fragment kodu XML manifestu usługi stanowi przykład sposobu określania zmiennych środowiskowych dla pakietu kodu:
+```xml
+<CodePackage Name="Code" Version="1.0.0">
+  ...
+  <EnvironmentVariables>
+    <EnvironmentVariable Name="HttpGatewayPort" Value=""/>    
+  </EnvironmentVariables>
+</CodePackage>
+```
+
+Te zmienne środowiskowe można przesłonić w manifeście aplikacji:
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+  </EnvironmentOverrides>
+  ...
+</ServiceManifestImport>
+```
+
+## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Konfigurowanie mapowania portów kontenera typu port do hosta i odnajdywania między kontenerami
+Skonfiguruj port hosta używany do komunikacji z kontenerem. Powiązanie portu mapuje port, na którym nasłuchuje usługa wewnątrz kontenera, na port na hoście. Dodaj element `PortBinding` w elemencie `ContainerHostPolicies` pliku ApplicationManifest.xml.  W tym artykule wartość portu dla parametru `ContainerPort` to 80 (kontener uwidacznia port 80, jak określono w pliku Dockerfile), a wartością parametru `EndpointRef` jest „Guest1TypeEndpoint” (punkt końcowy zdefiniowany wcześniej w manifeście usługi).  Żądania przychodzące do usługi na porcie 8081 są mapowane na port 80 w kontenerze. 
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## <a name="configure-container-registry-authentication"></a>Konfigurowanie uwierzytelniania rejestru kontenerów
+Skonfiguruj uwierzytelnianie rejestru kontenerów przez dodanie elementu `RepositoryCredentials` do elementu `ContainerHostPolicies` pliku ApplicationManifest.xml. Dodaj nazwę konta i hasło dla rejestru kontenerów myregistry.azurecr.io, dzięki czemu usługa będzie mogła pobrać obraz kontenera z repozytorium.
+
+```xml
+<Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+    </ContainerHostPolicies>
+</Policies>
+```
+
+Zalecamy zaszyfrowanie hasła repozytorium przy użyciu certyfikatu szyfrowania wdrożonego na wszystkich węzłach klastra. Gdy usługa Service Fabric wdroży pakiet usług w klastrze, zaszyfrowany tekst zostanie odszyfrowany za pomocą certyfikatu szyfrowania.  Polecenie cmdlet Invoke-ServiceFabricEncryptText jest używane do utworzenia zaszyfrowanego tekstu dla hasła dodawanego do pliku ApplicationManifest.xml.
+
+Poniższy skrypt tworzy nowy certyfikat z podpisem własnym i eksportuje go do pliku PFX.  Certyfikat jest importowany do istniejącego magazynu kluczy, a następnie wdrażany w klastrze usługi Service Fabric.
+
+```powershell
+# Variables.
+$certpwd = ConvertTo-SecureString -String "Pa$$word321!" -Force -AsPlainText
+$filepath = "C:\MyCertificates\dataenciphermentcert.pfx"
+$subjectname = "dataencipherment"
+$vaultname = "mykeyvault"
+$certificateName = "dataenciphermentcert"
+$groupname="myclustergroup"
+$clustername = "mycluster"
+
+$subscriptionId = "subscription ID"
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+# Create a self signed cert, export to PFX file.
+New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
+| Export-PfxCertificate -FilePath $filepath -Password $certpwd
+
+# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
+$cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+
+# Add the certificate to all the VMs in the cluster.
+Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+```
+Zaszyfruj hasło przy użyciu polecenia cmdlet [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps).
+
+```powershell
+$text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
+Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
+```
+
+Zastąp hasło zaszyfrowanym tekstem zwróconym przez polecenie cmdlet [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) i ustaw właściwość `PasswordEncrypted` na wartość „true”.
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## <a name="configure-isolation-mode"></a>Konfigurowanie trybu izolacji
+System Windows obsługuje dwa tryby izolacji dla kontenerów: tryb procesu oraz tryb funkcji Hyper-V. W trybie izolacji procesu wszystkie kontenery działające na tym samym hoście współdzielą jądro z hostem. W trybie izolacji funkcji Hyper-V jądra są odizolowane dla każdego kontenera funkcji Hyper-V i hosta kontenera. Tryb izolacji można określić w elemencie `ContainerHostPolicies` pliku manifestu aplikacji. Tryby izolacji, które można określić, to `process`, `hyperv` i `default`. Wartością domyślną trybu izolacji jest `process` na hostach z systemem Windows Server i `hyperv` na hostach z systemem Windows 10. Poniższy fragment kodu przedstawia sposób określania trybu izolacji w pliku manifestu aplikacji.
+
+```xml
+<ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+```
+
+## <a name="configure-resource-governance"></a>Konfigurowanie zarządzania zasobami
+[Zarządzanie zasobami](service-fabric-resource-governance.md) ogranicza zasoby, z których kontener może korzystać na hoście. Element `ResourceGovernancePolicy` określany w manifeście aplikacji służy do deklarowania limitów zasobów pakietu kodu usługi. Limity można ustawić dla następujących zasobów: Memory, MemorySwap, CpuShares (CPU — względna waga), MemoryReservationInMB, BlkioWeight (BlockIO — względna waga).  W tym przykładzie pakiet usług Guest1Pkg otrzymuje dostęp do jednego rdzenia w węzłach klastra, w których jest umieszczony.  Limity pamięci są bezwzględne, więc pakiet kodu jest ograniczony do 1024 MB pamięci (i ma rezerwację tej samej ilości ze wstępną gwarancją). Pakiety kodu (kontenery lub procesy) nie mogą przydzielać pamięci ponad ten limit. Podjęcie próby takiego przydzielenia spowoduje wyjątek braku pamięci. Aby wymuszanie limitu zasobów działało, wszystkie pakiety kodu w ramach pakietu usług powinny mieć określone limity pamięci.
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
 
 ## <a name="deploy-the-container-application"></a>Wdrażanie aplikacji kontenera
-Aby opublikować aplikację, w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł **MyFirstContainer** i wybierz pozycję **Publikuj**.
+Zapisz wszystkie zmiany i skompiluj aplikację. Aby opublikować aplikację, w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł **MyFirstContainer** i wybierz pozycję **Publikuj**.
+
+W obszarze **Punkt końcowy połączenia** wprowadź punkt końcowy zarządzania dla klastra.  Na przykład „containercluster.westus2.cloudapp.azure.com:19000”. Punkt końcowy połączenia klienta można znaleźć w bloku Przegląd klastra w witrynie [Azure Portal](https://portal.azure.com).
+
+Kliknij przycisk **Opublikuj**. 
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) to oparte na sieci Web narzędzie do sprawdzania aplikacji i węzłów oraz zarządzania nimi w klastrze usługi Service Fabric. Otwórz przeglądarkę, przejdź do adresu http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ i wykonaj czynności wdrażania aplikacji.  Aplikacja zostanie wdrożona, ale pozostanie w stanie błędu do czasu pobrania obrazu na węzły klastra (co może zająć trochę czasu w zależności od rozmiaru obrazu): ![Błąd][1]
 
@@ -243,12 +355,12 @@ W tym miejscu przedstawiono kompletne manifesty usługi i aplikacji używane w t
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables to your container: -->
-    <!--
+    <!-- Pass environment variables to your container: -->    
     <EnvironmentVariables>
-      <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
+      <EnvironmentVariable Name="BackendServiceName" Value=""/>
     </EnvironmentVariables>
-    -->
+    
   </CodePackage>
 
   <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
@@ -281,12 +393,21 @@ W tym miejscu przedstawiono kompletne manifesty usługi i aplikacji używane w t
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentOverrides CodePackageRef="FrontendService.Code">
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentOverrides>
     <ConfigOverrides />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
         <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
       </ContainerHostPolicies>
+      <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+      <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>

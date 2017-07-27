@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c9aafa13ebdeeb84a35e55e25650f334ddc71af5
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Omówienie usługi Application Gateway
@@ -103,4 +103,6 @@ Aby zapoznać się z często zadawanymi pytaniami dotyczącymi usługi Applicati
 Po zapoznaniu się z informacjami na temat usługi Application Gateway możesz [utworzyć bramę aplikacji](application-gateway-create-gateway-portal.md) albo [utworzyć odciążenie protokołu SSL bramy aplikacji](application-gateway-ssl-arm.md), aby zrównoważyć obciążenie połączeń HTTPS.
 
 Aby dowiedzieć się, jak utworzyć bramę aplikacji przy użyciu routingu zawartości opartego na adresach URL, zobacz [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) (Tworzenie bramy aplikacji przy użyciu routingu opartego na adresach URL).
+
+Aby poznać inne kluczowe możliwości sieciowe platformy Azure, zobacz [Sieci platformy Azure]((../networking/networking-overview.md).
 

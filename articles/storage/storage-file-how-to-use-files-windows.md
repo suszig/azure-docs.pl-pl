@@ -15,33 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 2108495d4e3a223b714fbb6178dad66cc3cd5338
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e911e787cd1e29b2bbeaa648869c50245f2dd9ba
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Instalowanie udziału plików platformy Azure i uzyskiwanie dostępu do udziału w systemie Windows
 [Azure File Storage](storage-dotnet-how-to-use-files.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w systemie Windows i Windows Server. W tym artykule przedstawiono trzy różne sposoby instalowania udziału plików platformy Azure w systemie Windows: za pomocą interfejsu użytkownika Eksploratora plików, programu PowerShell oraz wiersza polecenia. 
 
-Aby móc zainstalować udział plików platformy Azure poza regionem świadczenia usługi Azure, w jakim jest on hostowany, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, system operacyjny musi obsługiwać protokół SMB 3.x. W poniższej tabeli przedstawiono, jakie wersje protokołu SMB znajdują się w najnowszych wersjach systemu Windows:
+Aby móc zainstalować udział plików platformy Azure poza regionem świadczenia usługi Azure, w którym jest on hostowany, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, system operacyjny musi obsługiwać protokół SMB 3.0. 
 
-| Wersja systemu Windows | Wersja protokołu SMB | Obsługuje instalowanie z maszyny wirtualnej platformy Azure | Obsługuje instalowanie z lokalnego miejsca | Minimalna zalecana aktualizacja KB |
-|----|----|----|----|----|
-| Windows 10 w wersji 1703 | SMB 3.1.1 | Tak | Tak | |
-| Windows Server 2016 | SMB 3.1.1 | Tak | Tak | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10 w wersji 1607 | SMB 3.1.1 | Tak | Tak | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10 w wersji 1511 | SMB 3.1.1 | Tak | Tak | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10 w wersji 1507 | SMB 3.1.1 | Tak | Tak | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Tak | Tak | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Tak | Tak | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Tak | Tak | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Tak | Nie | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Tak | Nie | [KB4012215](https://support.microsoft.com/help/4012215) |
+Udział plików platformy Azure można zainstalować na maszynie z systemem Windows w środowisku lokalnym lub na maszynie wirtualnej platformy Azure, w zależności od wersji systemu operacyjnego. W poniższej tabeli przedstawiono 
+
+| Wersja systemu Windows        | Wersja protokołu SMB |Instalacja na maszynie wirtualnej platformy Azure|Instalacja w środowisku lokalnym|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Tak                 | Nie                  |
+| Windows Server 2008 R2 | SMB 2.1     | Tak                 | Nie                  |
+| Windows 8              | SMB 3.0     | Tak                 | Tak                 |
+| Windows Server 2012    | SMB 3.0     | Tak                 | Tak                 |
+| Windows Server 2012 R2 | SMB 3.0     | Tak                 | Tak                 |
+| Windows 10             | SMB 3.0     | Tak                 | Tak                 |
 
 > [!Note]  
-> Zawsze zalecamy pobranie najnowszej aktualizacji KB dla danej wersji systemu Windows. Minimalna zalecana aktualizacja KB powinna zapewnić najświeższy pakiet z poprawkami protokołu SMB przeznaczony dla administratorów IT niechętnie przeprowadzających aktualizacje.
+> Zawsze zalecamy pobranie najnowszej aktualizacji KB dla danej wersji systemu Windows.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Wymagania wstępne dotyczące instalowania udziału plików platformy Azure w systemie Windows 
 * **Nazwa konta magazynu**: Aby zainstalować udział plików platformy Azure, konieczne będzie podanie nazwy konta magazynu.
@@ -144,3 +142,4 @@ Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi 
 ### <a name="reference"></a>Dokumentacja
 * [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Dokumentacja interfejsu API REST usługi plików](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+
