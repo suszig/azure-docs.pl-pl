@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentacja usługi Azure Container Instances
+metadata:
+  title: Dokumentacja usługi Azure Container Instances — samouczki | Microsoft Docs
+  description: 'Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchomienia kontenera na platformie Azure, bez konieczności aprowizowania żadnych maszyn wirtualnych ani korzystania z usługi wyższego poziomu.'
+  services: container-instances
+  author: carolz
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchomienia kontenera na platformie Azure, bez konieczności aprowizowania żadnych maszyn wirtualnych ani korzystania z usługi wyższego poziomu. Jeśli potrzebujesz pełnego rozwiązania do organizowania kontenerów, zobacz <a href="/azure/container-service/kubernetes/">Kubernetes on Azure Container Service documentation (Dokumentacja dotycząca rozwiązania Kubernetes w usłudze Azure Container Service)</a>. Dowiedz się, jak tworzyć wystąpienia kontenera i zarządzać nimi, korzystając z naszych przewodników Szybki start, samouczków i przykładów.'
+sections:
+  - title: 5-minutowe przewodniki Szybki start
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak wdrożyć obrazy kontenera przy użyciu usługi Azure Container Instances.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/container-instances/media/container-instances.png
+            text: Tworzenie wystąpienia kontenera
+            href: /azure/container-instances/container-instances-quickstart
+  - title: Samouczki krok po kroku
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak spakować kod do obrazu kontenera i uruchomić go w wystąpieniu kontenera platformy Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Package an application into a container image (Pakowanie aplikacji do obrazu kontenera)</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Create an Azure Container Registry and upload the container image (Tworzenie usługi Azure Container Registry i przekazywanie obrazu kontenera)</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Deploy the container image to an Azure Container Instance (Wdrażanie obrazu kontenera w wystąpieniu kontenera platformy Azure)</a>

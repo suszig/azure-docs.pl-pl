@@ -17,7 +17,7 @@
 ### Tworzenie kopii zapasowej maszyn wirtualnych
 #### [Tworzenie kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services](backup-azure-arm-vms.md)
 #### [Tworzenie kopii zapasowych zaszyfrowanych maszyn wirtualnych](backup-azure-vms-encryption.md)
-#### [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie kopii zapasowych](backup-azure-vms.md)
+#### [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vms.md)
 ### Monitorowanie maszyn wirtualnych i zarządzanie nimi
 #### [Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-manage-vms.md)
 #### [Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Przygotowywanie obciążeń programu DPM w witrynie Azure Portal](backup-azure-dpm-introduction.md)
 ### [Przygotowywanie obciążeń programu DPM w portalu klasycznym](backup-azure-dpm-introduction-classic.md)
 ### [Tworzenie kopii zapasowych serwera programu Exchange przy użyciu programu System Center DPM](backup-azure-backup-exchange-server.md)
-### [Odzyskiwanie danych w magazynie kopii zapasowych na alternatywnym serwerze programu DPM](backup-azure-alternate-dpm-server.md)
+### [Recover data to an alternate DPM server (Odzyskiwanie danych na inny serwer programu DPM)](backup-azure-alternate-dpm-server.md)
 ### [Tworzenie kopii zapasowych obciążeń programu SQL Server przy użyciu programu DPM](backup-azure-backup-sql.md)
 ### [Tworzenie kopii zapasowych farmy programu SharePoint przy użyciu programu DPM](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Pojęcia
 ## [Omówienie magazynów usługi Recovery Services](backup-azure-recovery-services-vault-overview.md)
 ## [Uaktualnienie magazynu usługi Backup do magazynu usługi Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Usuwanie magazynu usługi Azure Backup](backup-azure-delete-vault.md)
+## [Usuwanie magazynu usługi Recovery Services](backup-azure-delete-vault.md)
 ## [Kontrola dostępu oparta na rolach](backup-rbac-rs-vault.md)
 ## [Zabezpieczenia hybrydowych kopii zapasowych](backup-azure-security-feature.md)
 ## [Konfigurowanie raportów usługi Azure Backup](backup-azure-configure-reports.md)
 ## [Model danych dla raportów usługi Azure Backup](backup-azure-reports-data-model.md)
+## [Log Analytics data model for Azure Backup (Model danych usługi Log Analytics na potrzeby usługi Azure Backup)](backup-azure-log-analytics-data-model.md)
 ## [Konfigurowanie tworzenia kopii zapasowej offline](backup-azure-backup-import-export.md)
 ## [Zastępowanie biblioteki taśm](backup-azure-backup-cloud-as-tape.md)
 ## [Kopie zapasowe maszyn wirtualnych z systemem Linux spójne z aplikacjami](backup-azure-linux-app-consistent.md)

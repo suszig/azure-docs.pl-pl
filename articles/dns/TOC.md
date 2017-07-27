@@ -40,6 +40,7 @@
 ## [Ochrona stref i rekordów DNS](dns-protect-zones-recordsets.md)
 ## [Automatyzowanie operacji systemu DNS przy użyciu zestawu .NET SDK](dns-sdk.md)
 
+## [Integrate Azure DNS with Azure resources (Integrowanie usługi Azure DNS z zasobami platformy Azure)](dns-custom-domain.md)
 ## Rozwiązywanie problemów
 ### [Przewodnik rozwiązywania problemów](dns-troubleshoot.md)
 
@@ -62,7 +63,7 @@
 ## [Aplikacje sieci Web](/azure/app-service-web/)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Żądania funkcji](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)

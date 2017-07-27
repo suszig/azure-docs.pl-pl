@@ -64,6 +64,7 @@
 ## [Wizualizowanie dzienników przepływów przy użyciu narzędzi typu „open source”](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ## [Wizualizowanie wzorców ruchu sieciowego za pomocą narzędzi typu „open source”](network-watcher-using-open-source-tools.md)
 ## [Sprawdzanie zgodności i przeprowadzanie inspekcji w sieci przy użyciu programu PowerShell](network-watcher-nsg-auditing-powershell.md)
+## [Read NSG flow logs (Odczytywanie dzienników przepływu sieciowych grup zabezpieczeń)](network-watcher-read-nsg-flow-logs.md)
 ## [Wykrywanie włamań przy użyciu narzędzi typu „open source”](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analizowanie dzienników usługi Application Gateway w usłudze Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Dokumentacja

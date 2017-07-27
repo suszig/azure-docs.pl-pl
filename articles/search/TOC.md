@@ -31,8 +31,9 @@
 ### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
 ### [Uaktualnianie interfejsu API REST](search-api-migration.md)
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
+### [Handle concurrent updates (Obsługa równoczesnych aktualizacji)](search-howto-concurrency.md)
 
-## Zarządzaj
+## Zarządzanie
 ### Administrowanie usługą Azure Search
 #### [Witryna Azure Portal](search-manage.md)
 #### [PowerShell](search-manage-powershell.md)
@@ -75,7 +76,7 @@
 
 # Zasoby
 ## [Wersje interfejsu API](search-api-versions.md)
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Cennik](https://azure.microsoft.com/pricing/details/search/)
 ## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=search)
