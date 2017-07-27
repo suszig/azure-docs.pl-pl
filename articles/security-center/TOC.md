@@ -72,7 +72,7 @@
 ## [Zabezpieczenia systemu Azure](/azure/security/)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Cennik](security-center-pricing.md)
 ## [Omówienie usługi](https://azure.microsoft.com/services/security-center/)
