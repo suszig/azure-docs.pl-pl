@@ -60,7 +60,7 @@
 
 # Zasoby
 ## [Tworzenie szablonów](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Szablony społeczności](https://azure.microsoft.com/resources/templates/)
 ## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)
 ## [Cennik](https://azure.microsoft.com/pricing)

@@ -141,7 +141,7 @@
 ## [Polecenia cmdlet programu PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [Cennik](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=sql-data-warehouse)

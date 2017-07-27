@@ -27,4 +27,4 @@
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Kontrola dostępu oparta na rolach](../role-based-access-control-what-is.md)
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

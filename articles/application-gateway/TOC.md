@@ -67,7 +67,7 @@
 ## [Moduł równoważenia obciążenia](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Cennik](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=application-gateway)

@@ -12,7 +12,7 @@
 ## [Praca bezserwerowa](../../azure-functions/functions-create-first-azure-function.md)
 ## Mikrousługi
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
-### [Container Service](../../container-service/container-service-deployment.md) 
+### [Container Service](../../container-service/dcos-swarm/container-service-deployment.md) 
 
 # Samouczki
 ## Tworzenie i wdrażanie aplikacji internetowej

@@ -106,6 +106,6 @@
 
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect — Często zadawane pytania](active-directory-aadconnect-faq.md)
 ##[Zakończenie świadczenia usługi DirSync](active-directory-aadconnect-dirsync-deprecated.md)

@@ -27,7 +27,7 @@
 ## [Ustawienia portu](relay-port-settings.md)
 
 # Zasoby
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Przykłady](https://github.com/azure/azure-relay/tree/master/samples)
