@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: ba82a5e25750fc6d9bd047ace3abb087e5dedfb3
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Wprowadzenie do prywatnych rejestrów kontenerów platformy Docker
@@ -72,6 +72,6 @@ Deweloperzy mogą również przeprowadzać wypychanie do rejestru kontenerów w 
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md) (Tworzenie rejestru kontenerów za pomocą witryny Azure Portal)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Tworzenie rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure)
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md) (Wypychanie pierwszego obrazu za pomocą interfejsu wiersza polecenia platformy Docker)
-* Aby skompilować przepływ pracy integracji ciągłej i wdrożenia przy użyciu usług Visual Studio Team Services, Azure Container Service i Azure Container Registry, zobacz [ten samouczek](../container-service/container-service-docker-swarm-setup-ci-cd.md).
+* Aby skompilować przepływ pracy integracji ciągłej i wdrożenia przy użyciu usług Visual Studio Team Services, Azure Container Service i Azure Container Registry, zobacz [ten samouczek](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
 * Jeśli chcesz skonfigurować rejestr prywatny platformy Docker na platformie Azure (bez publicznego punktu końcowego), zobacz [Deploying Your Own Private Docker Registry on Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md) (Wdrażanie rejestru prywatnego platformy Docker na platformie Azure).
 

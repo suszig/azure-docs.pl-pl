@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>Podłączanie urządzenia do usługi IoT Hub za pomocą języka Java
@@ -303,12 +303,8 @@ W tej sekcji opisano tworzenie aplikacji konsolowej Java, która odczytuje komun
     mvn clean package -DskipTests
     ```
 
-<<<<<<< HEAD
 ## <a name="create-a-device-app"></a>Tworzenie aplikacji urządzenia
-=======
-## <a name="create-a-simulated-device-app"></a>Tworzenie aplikacji symulowanego urządzenia
-
->>>>>>> Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej Java, która symuluje urządzenie wysyłające komunikaty z urządzenia do chmury do usługi IoT Hub.
+Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej Java, która symuluje urządzenie wysyłające komunikaty z urządzenia do chmury do usługi IoT Hub.
 
 1. W folderze iot-java-get-started utworzonym w sekcji *Tworzenie tożsamości urządzenia* utwórz projekt narzędzia Maven o nazwie **simulated-device** przy użyciu następującego polecenia w wierszu polecenia. Zwróć uwagę, że jest to jedno długie polecenie:
 
@@ -378,19 +374,10 @@ W tej sekcji opisano tworzenie aplikacji konsolowej Java, która odczytuje komun
       }
     }
     ```
-<<<<<<< HEAD
 9. Dodaj następującą zagnieżdżoną klasę **EventCallback** wewnątrz klasy **App**, aby wyświetlić stan potwierdzenia zwracany przez centrum IoT Hub podczas przetwarzania komunikatu z aplikacji urządzenia. Ta metoda powiadamia również wątek główny w aplikacji o przetworzeniu komunikatu:
    
-    ```
-    private static class EventCallback implements IotHubEventCallback
-    {
-=======
-
-9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
-
     ```java
     private static class EventCallback implements IotHubEventCallback {
->>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -500,11 +487,7 @@ Teraz można przystąpić do uruchomienia aplikacji.
     ![Kafelek Użycie witryny Azure Portal przedstawiający liczbę komunikatów wysłanych do usługi IoT Hub][43]
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku opisano konfigurowanie nowego centrum IoT Hub w witrynie Azure Portal, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum IoT Hub. Tożsamość urządzenia została użyta, aby włączyć w aplikacji urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum IoT Hub. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum IoT Hub. 
-=======
-
-W tym samouczku opisano konfigurowanie nowego centrum IoT Hub w witrynie Azure Portal, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Tożsamość urządzenia została użyta, aby włączyć w aplikacji symulowanego urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum IoT Hub. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum IoT Hub.
->>>>>>> master
+W tym samouczku opisano konfigurowanie nowego centrum IoT Hub w witrynie Azure Portal, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Tożsamość urządzenia została użyta, aby włączyć w aplikacji urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum IoT Hub. Utworzono również aplikację, która wyświetla komunikaty odbierane przez centrum IoT Hub.
 
 Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scenariuszami IoT, zobacz:
 
