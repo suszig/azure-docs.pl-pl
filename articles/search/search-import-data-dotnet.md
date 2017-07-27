@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 7676262b7bca47444aee7b10a131c01e6b697e7b
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Przekazywanie danych do usługi Azure Search przy użyciu zestawu .NET SDK
@@ -34,7 +34,8 @@ W tym artykule opisano, jak używać [zestawu .NET SDK usługi Azure Search](htt
 
 Przed rozpoczęciem pracy z tym przewodnikiem powinien zostać [utworzony indeks usługi Azure Search](search-what-is-an-index.md). W tym artykule przyjęto również, że już wcześniej utworzono obiekt `SearchServiceClient`, jak pokazano w artykule [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient) (Tworzenie indeksu usługi Azure Search przy użyciu zestawu .NET SDK).
 
-Należy zwrócić uwagę, że cały przykładowy kod przedstawiony w tym artykule został napisany w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> Cały przykładowy kod przedstawiony w tym artykule został napisany w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](http://aka.ms/search-dotnet-howto). Można również poczytać o [zestawie SDK platformy .NET dla usługi Azure Search](search-howto-dotnet-sdk.md), aby uzyskać bardziej szczegółowe omówienie przykładowego kodu.
 
 Aby wypchnąć dokumenty do indeksu przy użyciu zestawu .NET SDK, konieczne jest wykonanie następujących czynności:
 
