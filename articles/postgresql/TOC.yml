@@ -104,7 +104,7 @@
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/postgres
     - name: Interfejs API REST
-      href: /rest/api/postgres
+      href: /rest/api/postgresql
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

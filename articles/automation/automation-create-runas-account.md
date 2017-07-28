@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a>
-
-# Aktualizowanie uwierzytelniania konta usługi Automation przy użyciu kont Uruchom jako 
+# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Aktualizowanie uwierzytelniania konta usługi Automation przy użyciu kont Uruchom jako 
 Istniejące konto usługi Automation można zaktualizować w portalu lub przy użyciu programu PowerShell, gdy:
 
 * Użytkownik utworzył konto usługi Automation, ale zrezygnował z tworzenia konta Uruchom jako.
@@ -32,9 +30,7 @@ Istniejące konto usługi Automation można zaktualizować w portalu lub przy u�
 * Użytkownik używa już konta usługi Automation do zarządzania zasobami klasycznymi i chce je zaktualizować, aby używać klasycznego konta Uruchom jako, zamiast tworzenia nowego konta i migrowania do niego elementów runbook i zasobów.   
 * Użytkownik chce utworzyć konto Uruchom jako i klasyczne konto Uruchom jako przy użyciu certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 * Skrypt jest obsługiwany tylko w systemach Windows 10 i Windows Server 2016 z modułami usługi Azure Resource Manager w wersji 3.0.0 lub nowszej. Nie jest obsługiwany przez wcześniejsze wersje systemu Windows.
 * Program Azure PowerShell 1.0 lub nowszy. Informacje o wersji PowerShell 1.0 można znaleźć w temacie [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Jak zainstalować i skonfigurować program Azure PowerShell).
@@ -46,9 +42,7 @@ Aby uzyskać wartości parametrów *SubscriptionID*, *ResourceGroup* i *Automati
 2. W bloku **Wszystkie ustawienia** w obszarze **Ustawienia konta** wybierz pozycję **Właściwości**. 
 3. Zwróć uwagę na wartości w bloku **Właściwości**.<br><br> ![Blok „Właściwości” konta usługi Automation](media/automation-create-runas-account/automation-account-properties.png)  
 
-<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
-
-### Uprawnienia wymagane do aktualizacji konta usługi Automation
+### <a name="required-permissions-to-update-your-automation-account"></a>Uprawnienia wymagane do aktualizacji konta usługi Automation
 Aby zaktualizować konto usługi Automation, musisz mieć następujące określone uprawnienia i uprawnienia wymagane do wykonania zadań opisanych w tym temacie.   
  
 * Twoje konto użytkownika usługi AD musi zostać dodane do roli z uprawnieniami odpowiadającymi roli współautora dla zasobów Microsoft.Automation w sposób opisany w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
@@ -56,9 +50,7 @@ Aby zaktualizować konto usługi Automation, musisz mieć następujące określo
 
 Jeśli nie jesteś członkiem wystąpienia usługi Active Directory subskrypcji, przed dodaniem do roli administratora globalnego/współadministratora subskrypcji, dodamy Cię do usługi Active Directory jako gościa. W tej usłudze zobaczysz ostrzeżenie „Nie masz uprawnień do utworzenia...” w bloku **Dodawanie konta usługi Automation**. Użytkownicy dodani do roli administratora globalnego/współadministratora najpierw mogą zostać usunięci z wystąpienia usługi Active Directory dla subskrypcji i ponownie dodani, aby zostać pełnymi użytkownikami w usłudze Active Directory. Aby zweryfikować tę sytuację, w okienku **Azure Active Directory** w witrynie Azure Portal wybierz kolejno pozycje **Użytkownicy i grupy** i **Wszyscy użytkownicy**, a po wybraniu określonego użytkownika wybierz pozycję **Profil**. Wartość atrybutu **Typ użytkownika** na liście profilów użytkowników nie powinna być równa **Gość**.
 
-<a id="create-run-as-account-from-the-portal" class="xliff"></a>
-
-## Tworzenie konta Uruchom jako w portalu
+## <a name="create-run-as-account-from-the-portal"></a>Tworzenie konta Uruchom jako w portalu
 W tej części wykonaj poniższe kroki, aby zaktualizować konto usługi Azure Automation w witrynie Azure Portal.  Konto Uruchom jako i klasyczne konto Uruchom jako są tworzone pojedynczo. Jeśli nie musisz zarządzać zasobami w klasycznej witrynie Azure Portal, wystarczy utworzyć konto Uruchom jako platformy Azure.  
 
 W trakcie procesu na koncie usługi Automation są tworzone opisane poniżej elementy.
@@ -79,9 +71,7 @@ W trakcie procesu na koncie usługi Automation są tworzone opisane poniżej ele
 3. W zależności od tego, które konto jest wymagane, wybierz pozycję **Konto Uruchom jako platformy Azure** lub **Klasyczne konto Uruchom jako platformy Azure**.  Po wybraniu danej pozycji zostanie wyświetlony blok **Dodawanie konta Uruchom jako platformy Azure** lub **Dodawanie klasycznego konta Uruchom jako platformy Azure**. Po zapoznaniu się z omówieniem kliknij pozycję **Utwórz**, aby kontynuować tworzenie konta Uruchom jako.  
 4. Gdy platforma Azure tworzy konto Uruchom jako, możesz śledzić postęp w obszarze **Powiadomienia** z poziomu menu. Wyświetlany jest transparent informujący o tworzeniu konta.  Ten proces może potrwać kilka minut.  
 
-<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
-
-## Tworzenie konta Uruchom jako przy użyciu skryptu programu PowerShell
+## <a name="create-run-as-account-using-powershell-script"></a>Tworzenie konta Uruchom jako przy użyciu skryptu programu PowerShell
 Ten skrypt programu PowerShell obsługuje następujące konfiguracje:
 
 * Tworzenie konta Uruchom jako przy użyciu certyfikatu z podpisem własnym.
@@ -166,7 +156,7 @@ W zależności od wybranej opcji konfiguracji skrypt tworzy poniższe elementy.
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
-        $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
@@ -307,8 +297,6 @@ Po pomyślnym wykonaniu skryptu pamiętaj o następujących kwestiach:
 * Jeśli zostało utworzone klasyczne konto Uruchom jako z publicznym certyfikatem przedsiębiorstwa (plik CER), użyj tego certyfikatu. Postępuj zgodnie z instrukcjami [przekazywania certyfikatu interfejsu API zarządzania do klasycznej witryny Azure Portal](../azure-api-management-certs.md), a następnie zweryfikuj konfigurację poświadczeń za pomocą zasobów klasycznego wdrożenia, używając [przykładowego kodu do uwierzytelniania za pośrednictwem zasobów klasycznego wdrożenia platformy Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Jeśli klasyczne konto Uruchom jako *nie* zostało utworzone, uwierzytelnij się za pomocą zasobów usługi Resource Manager i zweryfikuj konfigurację poświadczeń, używając [przykładowego kodu do uwierzytelniania za pośrednictwem zasobów usługi Service Management](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Więcej informacji na temat nazw głównych usługi można znaleźć w temacie [Obiekty aplikacji i obiekty nazwę głównej usługi](../active-directory/active-directory-application-objects.md).
 * Aby uzyskać więcej informacji na temat certyfikatów i usług Azure, zobacz [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Omówienie certyfikatów usług Azure Cloud Services).
