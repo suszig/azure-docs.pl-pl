@@ -3,8 +3,8 @@ title: "Ładowanie danych z programu SQL Server do usługi Azure SQL Data Wareho
 description: "Eksportowanie danych z programu SQL Server do plików prostych przy użyciu programu bcpw, importowanie danych do usługi Azure Blob Storage przy użyciu programu AZCopy oraz pozyskiwanie danych do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase."
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
-manager: barbkess
+author: barbkess
+manager: jhubbard
 editor: 
 ms.assetid: 4d42786a-fb28-43c9-9c3b-72d19c0ecc11
 ms.service: sql-data-warehouse
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 21b4cc704e271ac220fd606305f8f97c9b2593bb
+ms.contentlocale: pl-pl
 ms.lasthandoff: 03/21/2017
-
-
 
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-azcopy"></a>Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (AZCopy)
