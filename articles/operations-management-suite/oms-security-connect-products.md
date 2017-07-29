@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: pl-pl
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Łączenie produktów dotyczących zabezpieczeń z rozwiązaniem Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS) 
@@ -90,11 +90,13 @@ Na maszynie agenta zdarzenia muszą być wysyłane z demona dziennika systemu do
     ```
 6. Wpisz poniższe polecenie i przejrzyj wynik, aby upewnić się, że w dzienniku agenta pakietu OMS nie ma żadnych błędów:
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Przeglądanie zebranych zdarzeń zabezpieczeń
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Po zakończeniu konfiguracji funkcja zabezpieczeń w pakiecie OMS zacznie pozyskiwać zdarzenie zabezpieczeń. Aby zwizualizować te zdarzenia, otwórz wyszukiwanie w dzienniku, wpisz polecenie *Type=CommonSecurityLog* w polu wyszukiwania i naciśnij klawisz ENTER. W poniższym przykładzie przedstawiono wynik tego polecenia. W tym przypadku funkcja zabezpieczeń pakietu OMS już pozyskała dzienniki zabezpieczeń od wielu dostawców:
    
