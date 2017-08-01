@@ -1,6 +1,6 @@
 ---
 title: "Nawiązywanie połączeń z usługą Azure Database for PostgreSQL z poziomu języka C# | Microsoft Docs"
-description: "Ten przewodnik Szybki start zawiera przykładowy kod języka C# (.Net), którego można używać do nawiązywania połączeń z danymi usługi Azure Database for PostgreSQL i wykonywania zapytań względem nich."
+description: "Ten przewodnik Szybki start zawiera przykładowy kod języka C# (.NET), którego można używać do nawiązywania połączeń z danymi usługi Azure Database for PostgreSQL i wykonywania zapytań względem nich."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,22 +11,18 @@ ms.custom: mvc
 ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 06/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 87854637471fa15a76ae216cb57c549962810b7b
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 9f393e9ab1b3b6ab7f1ff085d625362d50adc97c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-net-c-to-connect-and-query-data" class="xliff"></a>
-
-# Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka .NET (C#)
+# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka .NET (C#)
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji języka C#. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka C#, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
 - [Tworzenie bazy danych — portal](quickstart-create-server-database-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](quickstart-create-server-database-azure-cli.md)
@@ -36,22 +32,16 @@ Należy również:
 - Zainstalować program [Visual Studio](https://www.visualstudio.com/downloads/)
 - Zainstalować rozwiązanie [Npgsql](http://www.npgsql.org/doc/index.html) 
 
-<a id="install-visual-studio-and-net" class="xliff"></a>
-
-## Instalowanie programu Visual Studio i technologii .NET
+## <a name="install-visual-studio-and-net"></a>Instalowanie programu Visual Studio i technologii .NET
 W krokach w tej sekcji założono, że wiesz już, jak programować za pomocą technologii .NET.
 
-<a id="windows-net-framework-and-net-core" class="xliff"></a>
-
-### **Programy Windows .NET Framework i .NET Core**
+### <a name="windows-net-framework-and-net-core"></a>**Programy Windows .NET Framework i .NET Core**
 Program Visual Studio 2017 Community to wyposażone w pełen zestaw funkcji, rozszerzalne, bezpłatne środowisko IDE do tworzenia nowoczesnych aplikacji przeznaczonych dla systemów Android, iOS, Windows, a także aplikacji baz danych i sieci Web oraz usług w chmurze. Można zainstalować pełny program .NET Framework lub tylko program .NET Core. Fragmenty kodu w tym przewodniku Szybki start działają z oboma tymi programami. Jeśli na maszynie zainstalowano już program Visual Studio, pomiń kilka następnych kroków.
 
 1. Pobierz [Instalator programu Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Uruchom instalatora i postępuj zgodnie z wyświetlanymi monitami, aby ukończyć instalację.
 
-<a id="mac-os" class="xliff"></a>
-
-### **Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 Otwórz terminal i przejdź do katalogu, w którym planujesz utworzyć projekt .NET Core. Wprowadź następujące polecenia, aby zainstalować rozwiązania **brew**, **OpenSSL** i **.NET Core**. 
 
 ```bash
@@ -65,9 +55,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 Zainstaluj program .NET Core w systemie macOS. Pobierz [oficjalnego instalatora](https://go.microsoft.com/fwlink/?linkid=843444). Instalator instaluje narzędzia i ścieżki do nich umieszcza w zmiennej PATH, aby można było uruchomić program dotnet z poziomu konsoli
 
-<a id="linux-ubuntu" class="xliff"></a>
-
-### **Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Otwórz terminal i przejdź do katalogu, w którym planujesz utworzyć projekt .NET Core. Użyj następujących poleceń, aby zainstalować program **.NET Core**.
 
 ```bash
@@ -77,10 +65,8 @@ sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
 
-<a id="install-npgsql-references-into-your-visual-studio-solution" class="xliff"></a>
-
-## Instalowanie odwołań Npgsql do rozwiązania programu Visual Studio
-Aby połączyć się z aplikacją C# do języka PostgreSQL, użyj biblioteki ADO.Net typu open source o nazwie Npgsql. NuGet ułatwia pobieranie odwołań i zarządzanie nimi.
+## <a name="install-npgsql-references-into-your-visual-studio-solution"></a>Instalowanie odwołań Npgsql do rozwiązania programu Visual Studio
+Aby połączyć się z aplikacją C# do języka PostgreSQL, użyj biblioteki ADO.NET typu open source o nazwie Npgsql. NuGet ułatwia pobieranie odwołań i zarządzanie nimi.
 
 1. Utwórz nowe rozwiązanie języka C# lub otwórz istniejące: 
    - W programie Visual Studio utwórz rozwiązanie, klikając menu Plik **Nowy** > **Projekt**.
@@ -92,9 +78,7 @@ Aby połączyć się z aplikacją C# do języka PostgreSQL, użyj biblioteki ADO
    - W obszarze **Konsola menedżera pakietów** wpisz `Install-Package Npgsql`.
    - Polecenie INSTALL powoduje pobranie pliku Npgsql.dll i powiązanych zestawów oraz dodaje je jako zależności w rozwiązaniu.
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Pobieranie informacji o połączeniu
+## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą Azure Database for PostgreSQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
@@ -104,9 +88,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
  ![Azure Database for PostgreSQL — dane logowania administratora serwera](./media/connect-csharp/1-connection-string.png)
 5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
+## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
 Użyj poniższego kodu, aby nawiązać połączenie i załadować dane przy użyciu instrukcji **CREATE TABLE** i **INSERT INTO** języka SQL. Kod używa klasy NpgsqlCommand z metodą [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) w celu ustanowienia połączenia z językiem PostgreSQL. Następnie kod używa metody [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery), aby uruchamiać polecenia bazy danych. 
 
 Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
@@ -137,7 +119,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSL Mode=Prefer; Trust Server Certificate=true",
                     Host,
                     User,
                     DBname,
@@ -183,9 +165,7 @@ namespace Driver
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Odczyt danych
+## <a name="read-data"></a>Odczyt danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL. Kod używa klasy NpgsqlCommand z metodą [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) w celu ustanowienia połączenia z językiem PostgreSQL. Następnie kod używa metody [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) i metody [Executereader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader), aby uruchamiać polecenia bazy danych. W kolejnym kroku kod używa metody [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) w celu przechodzenia do rekordów w wynikach. Następnie kod używa metod [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) i [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) w celu przeanalizowania wartości w rekordzie.
 
 Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
@@ -255,9 +235,7 @@ namespace Driver
 ```
 
 
-<a id="update-data" class="xliff"></a>
-
-## Aktualizowanie danych
+## <a name="update-data"></a>Aktualizowanie danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **UPDATE** języka SQL. Kod używa klasy NpgsqlCommand z metodą [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) w celu ustanowienia połączenia z językiem PostgreSQL. Następnie kod używa metody [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery), aby uruchamiać polecenia bazy danych.
 
 Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
@@ -321,9 +299,7 @@ namespace Driver
 ```
 
 
-<a id="delete-data" class="xliff"></a>
-
-## Usuwanie danych
+## <a name="delete-data"></a>Usuwanie danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **DELETE** języka SQL. 
 
  Kod używa klasy NpgsqlCommand z metodą [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) w celu ustanowienia połączenia z językiem PostgreSQL. Następnie kod używa metody [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), ustawia właściwość CommandText i wywołuje metodę [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery), aby uruchamiać polecenia bazy danych.
@@ -385,9 +361,7 @@ namespace Driver
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych przy użyciu funkcji eksportowania i importowania](./howto-migrate-using-export-and-import.md)
 

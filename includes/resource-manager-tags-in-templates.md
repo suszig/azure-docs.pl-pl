@@ -1,6 +1,6 @@
 Aby oznaczyć zasób podczas wdrażania, do wdrażanego zasobu dodaj element `tags`. Podaj nazwę i wartość tagu.
 
-### <a name="apply-literal-value-to-tag-name"></a>Stosowanie wartości literału do nazwy tagu
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Stosowanie wartości literału do nazwy tagu
 W poniższym przykładzie przedstawiono konto magazynu z dwoma tagami (`Dept` i `Environment`), dla których ustawiono wartości literału:
 
 ```json
@@ -27,7 +27,7 @@ W poniższym przykładzie przedstawiono konto magazynu z dwoma tagami (`Dept` i 
 }
 ```
 
-### <a name="apply-object-to-tag-element"></a>Stosowanie obiektu do elementu tagu
+### <a name="apply-an-object-to-the-tag-element"></a>Stosowanie obiektu do elementu tagu
 Możesz zdefiniować parametr obiektu przechowującego kilka tagów i zastosować ten obiekt do elementu tagu. Każda właściwość obiektu będzie osobnym tagiem dla zasobu. Poniższy przykład zawiera parametr o nazwie `tagValues`, który został zastosowany do elementu tagu.
 
 ```json
@@ -60,7 +60,7 @@ Możesz zdefiniować parametr obiektu przechowującego kilka tagów i zastosowa�
 }
 ```
 
-### <a name="apply-json-string-to-tag-name"></a>Stosowanie ciągu JSON do nazwy tagu
+### <a name="apply-a-json-string-to-the-tag-name"></a>Stosowanie ciągu JSON do nazwy tagu
 
 Aby przechowywać wiele wartości w jednym tagu, zastosuj ciąg JSON reprezentujący te wartości. Cały ciąg JSON jest przechowywany jako jeden tag, który nie może przekraczać 256 znaków. Poniższy przykład zawiera pojedynczy tag o nazwie `CostCenter`, który zawiera kilka wartości z ciągu JSON:  
 
@@ -86,7 +86,3 @@ Aby przechowywać wiele wartości w jednym tagu, zastosuj ciąg JSON reprezentuj
     ]
 }
 ```
-
-<!--HONumber=Feb17_HO1-->
-
-

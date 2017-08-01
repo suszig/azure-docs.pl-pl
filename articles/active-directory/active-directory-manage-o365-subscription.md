@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 02/13/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Zarządzanie katalogiem dla subskrypcji usługi Office 365 na platformie Azure
 W tym artykule opisano sposób zarządzania katalogiem, który został utworzony dla subskrypcji usługi Office 365, przy użyciu klasycznego portalu Azure. Aby zalogować się do klasycznego portalu Azure, musisz być administratorem usługi albo współadministratorem subskrypcji platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, już dziś możesz zarejestrować się w celu uzyskania [bezpłatnej 30-dniowej wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/) i za pomocą tego łącza w ciągu 5 minut wdrożyć swoje pierwsze rozwiązanie w chmurze. Aby zalogować się do usługi Office 365, użyj konta służbowego lub szkolnego.
+
+> [!IMPORTANT]
+> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule.
 
 Po uzyskaniu subskrypcji platformy Azure możesz zalogować się do klasycznego portalu Azure i uzyskać dostęp do usług Azure. Kliknij rozszerzenie usługi Active Directory, aby zarządzać tym samym katalogiem, za pomocą którego uwierzytelniani są użytkownicy usługi Office 365.
 
@@ -41,7 +44,7 @@ Chce zarządzać tożsamościami użytkowników w katalogu firmy Contoso, gdy je
 W takim przypadku dwa katalogi są od siebie niezależne.
 
 ## <a name="to-manage-two-independent-directories"></a>Aby zarządzać dwoma niezależnymi katalogami
-Aby Jan Nowak mógł zarządzać obydwoma katalogami, gdy jest zalogowany na platformie Azure jako msmith@hotmail.com,, musi wykonać następujące czynności:
+Aby Jan Nowak mógł zarządzać obydwoma katalogami, gdy jest zalogowany na platformie Azure jako msmith@hotmail.com, musi wykonać następujące czynności:
 
 > [!NOTE]
 > Te kroki można wykonać tylko wtedy, gdy użytkownik jest zalogowany za pomocą konta Microsoft. Jeśli użytkownik jest zalogowany przy użyciu konta służbowego lub szkolnego, opcja **Użyj istniejącego katalogu** jest niedostępna. Konto służbowe lub szkolne może zostać uwierzytelnione tylko przez jego katalog główny (to znaczy katalog, w którym znajduje się konto służbowe lub szkolne, należący do firmy lub szkoły).
@@ -51,7 +54,7 @@ Aby Jan Nowak mógł zarządzać obydwoma katalogami, gdy jest zalogowany na pla
 1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com) jako msmith@hotmail.com.
 2. Kliknij pozycje **Nowy** > **App Services** > **Active Directory** > **Katalog** > **Utwórz niestandardowy**.
 3. Kliknij opcję Użyj istniejącego katalogu i zaznacz pole wyboru **Chcę się teraz wylogować**.
-4. Zaloguj się do klasycznej witryny Azure Portal jako administrator globalny domeny Contoso.onmicrosoft.com (na przykład msmith@contoso.com)).
+4. Zaloguj się do klasycznej witryny Azure Portal jako administrator globalny domeny Contoso.onmicrosoft.com (na przykład msmith@contoso.com).
 5. Po wyświetleniu monitu **Użyć katalogu Contoso dla platformy Azure?** kliknij pozycję **Kontynuuj**.
 6. Kliknij pozycję **Wyloguj się teraz**.
 7. Zaloguj się do klasycznej witryny Azure Portal jako msmith@hotmail.com. Katalog Contoso i katalog domyślny są wyświetlane w rozszerzeniu usługi Active Directory.
@@ -61,7 +64,7 @@ Po wykonaniu tych kroków użytkownik msmith@hotmail.com jest administratorem gl
 ## <a name="to-administer-resources-as-the-global-admin"></a>Aby administrować zasobami jako administrator globalny
 Teraz załóżmy, że Anna Kowalska musi administrować witrynami sieci Web i zasobami baz danych skojarzonymi z subskrypcją platformy Azure dla użytkownika msmith@hotmail.com. Aby mogła to zrobić, Jan Nowak musi wykonać następujące dodatkowe czynności:
 
-1. Zalogować się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com) przy użyciu konta administratora usługi dla subskrypcji platformy Azure (w tym przykładzie msmith@hotmail.com)).
+1. Zalogować się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com) przy użyciu konta administratora usługi dla subskrypcji platformy Azure (w tym przykładzie msmith@hotmail.com).
 2. Przenieść subskrypcję do katalogu Contoso: kliknąć pozycje **Ustawienia** > **Subskrypcje** > wybrać subskrypcję > **Edytuj katalog** > wybrać pozycję **Contoso (Contoso.com)**. W ramach przeniesienia wszystkie konta służbowe, które nie mają uprawnień współadministratorów subskrypcji, są usuwane.
 3. Dodać Annę Kowalską jako współadministratora subskrypcji: kliknąć pozycje **Ustawienia** > **Administratorzy** > wybrać subskrypcję > **Dodaj** > wpisać **JohnDoe@Contoso.com**.
 

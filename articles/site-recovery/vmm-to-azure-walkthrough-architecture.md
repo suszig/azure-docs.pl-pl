@@ -1,6 +1,6 @@
 ---
-title: "Przegląd architektury replikacji funkcji Hyper-V (bez programu System Center VMM) do platformy Azure za pomocą usługi Azure Site Recovery | Microsoft Docs"
-description: "Ten artykuł zawiera omówienie składników i architektury używanych podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V (bez usługi VMM) do platformy Azure za pomocą usługi Azure Site Recovery."
+title: "Przegląd architektury replikacji funkcji Hyper-V (z programem System Center VMM) do platformy Azure za pomocą usługi Azure Site Recovery | Microsoft Docs"
+description: "Ten artykuł zawiera omówienie składników i architektury używanych podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure za pomocą usługi Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,21 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
 ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
+ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
 ms.contentlocale: pl-pl
 ms.lasthandoff: 07/26/2017
 
 ---
 
 
-# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Krok 1: Przegląd architektury replikacji funkcji Hyper-V na platformie Azure
+# <a name="step-1-review-the-architecture"></a>Krok 1. Przegląd architektury
 
 
-Ten artykuł zawiera opis składników i procesów związanych z replikacją lokalnych maszyn wirtualnych funkcji Hyper-V (niezarządzanych przez program System Center VMM) do platformy Azure za pomocą usługi [Azure Site Recovery](site-recovery-overview.md).
+Ten artykuł zawiera opis składników i procesów związanych z replikacją lokalnych maszyn wirtualnych funkcji Hyper-V w chmurach programu System Center Virtual Machine Manager (VMM) do platformy Azure za pomocą usługi [Azure Site Recovery](site-recovery-overview.md).
 
 Zamieść wszelkie komentarze pod tym artykułem lub na [forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -34,26 +34,29 @@ Zamieść wszelkie komentarze pod tym artykułem lub na [forum usług Azure Reco
 
 ## <a name="architectural-components"></a>Składniki architektury
 
-Podczas replikowania maszyn wirtualnych funkcji Hyper-V do platformy Azure bez użycia usługi VMM zaangażowanych jest wiele składników.
+Podczas replikowania maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure zaangażowanych jest wiele składników.
 
-**Składnik** | **Lokalizacja** | **Szczegóły**
+**Składnik** | **Wymaganie** | **Szczegóły**
 --- | --- | ---
 **Azure** | W przypadku platformy Azure konieczne jest posiadanie konta platformy Microsoft Azure, konta usługi Azure Storage i sieci platformy Azure. | Replikowane dane są przechowywane na koncie magazynu. W przypadku wystąpienia w lokacji lokalnej przejścia w tryb failover maszyny wirtualne platformy Azure są tworzone przy użyciu zreplikowanych danych.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
-**Funkcja Hyper-V** | Hosty i klastry funkcji Hyper-V są zbierane do lokacji funkcji Hyper-V. Dostawca usługi Azure Site Recovery i agent usługi Recovery Services są instalowani na każdym hoście usługi Hyper-V. | Dostawca koordynuje replikację za pomocą usługi Site Recovery przez Internet. Agent usługi Recovery Services obsługuje replikację danych.<br/><br/> Komunikacja zarówno ze strony dostawcy, jak i agenta, jest bezpieczna i szyfrowana. Zreplikowane dane w usłudze Azure Storage również są szyfrowane.
-**Maszyny wirtualne funkcji Hyper-V** | Wymagana jest co najmniej jedna maszyna wirtualna na serwerze hosta funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych.
+**Serwer VMM** | Serwer VMM ma co najmniej jedną chmurę zawierającą hosty funkcji Hyper-V. | Na serwerze programu VMM należy zainstalować dostawcę usługi Site Recovery w celu organizowania replikacji za pomocą usługi Site Recovery i zarejestrować serwer w magazynie usługi Recovery Services.
+**Host funkcji Hyper-V** | Co najmniej jeden host/klaster funkcji Hyper-V zarządzany przez program VMM. |  Należy zainstalować agenta usług Recovery Services na każdym elemencie członkowskim hosta lub klastra.
+**Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna uruchomiona na serwerze hosta funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych.
+**Sieć** |Sieci logiczne i maszyn wirtualnych skonfigurowane na serwerze VMM. Sieć maszyn wirtualnych powinna być połączona z siecią logiczną skojarzoną z chmurą. | Sieci maszyn wirtualnych muszą być mapowane na sieci wirtualne platformy Azure, tak aby maszyny wirtualne platformy Azure znajdowały się w sieci, gdy są tworzone po przejściu do trybu failover.
 
 Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia i wymaganiach dla każdego z tych składników z [macierzy obsługi](site-recovery-support-matrix-to-azure.md).
 
-**Rysunek 1: Replikacja z lokacji funkcji Hyper-V do platformy Azure**
 
-![Składniki](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
+**Rysunek 1: Replikowanie maszyn wirtualnych na hostach funkcji Hyper-V w chmurach programu VMM do platformy Azure**
+
+![Składniki](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## <a name="replication-process"></a>Proces replikacji
 
 **Rysunek 2: Proces replikacji i odzyskiwania w przypadku replikacji funkcji Hyper-V do platformy Azure**
 
-![przepływ pracy](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
+![przepływ pracy](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>Włączanie ochrony
 
@@ -61,7 +64,8 @@ Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia i wymagani
 2. To zadanie sprawdza, czy maszyna spełnia wymagania wstępne, a następnie wywołuje metodę [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), aby skonfigurować replikację za pomocą określonych ustawień.
 3. Zadanie uruchamia replikację początkową, wywołując metodę [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), aby zainicjować pełną replikację maszyny wirtualnej i wysłać dyski wirtualne maszyny wirtualnej na platformę Azure.
 4. To zadanie możesz monitorować na karcie **Zadania**.
- 
+        ![Lista zadań](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Szczegóły zadania Włącz ochronę](media/vmm-to-azure-walkthrough-architecture/image2.png)
+
 ### <a name="replicate-the-initial-data"></a>Replikowanie danych początkowych
 
 1. Po wyzwoleniu replikacji początkowej tworzona jest [migawka maszyny wirtualnej funkcji Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
@@ -74,6 +78,7 @@ Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia i wymagani
 ### <a name="finalize-protection"></a>Finalizowanie ochrony
 
 1. Po zakończeniu replikacji początkowej zadanie **Finalizuj ochronę na maszynie wirtualnej** konfiguruje ustawienia sieciowe i inne ustawienia po replikacji, aby maszyna wirtualna była chroniona.
+    ![Zadanie Finalizuj ochronę](media/vmm-to-azure-walkthrough-architecture/image3.png)
 2. W przypadku przeprowadzania replikacji na platformę Azure może być konieczne dostosowanie ustawień maszyny wirtualnej w taki sposób, aby była gotowa do przejścia w tryb failover. W tym momencie możesz uruchomić testowe przejście w tryb failover w celu sprawdzenia, czy wszystko działa zgodnie z oczekiwaniami.
 
 ### <a name="replicate-the-delta"></a>Replikowanie danych różnicowych
@@ -88,7 +93,7 @@ Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia i wymagani
 2.  Ponowna synchronizacja minimalizuje ilość wysyłanych danych dzięki obliczaniu sum kontrolnych źródłowych i docelowych maszyn wirtualnych oraz wysyłaniu tylko danych różnicowych. Ponowna synchronizacja używa algorytmu dzielenia na fragmenty o stałym bloku. Za jego pomocą pliki źródłowe i docelowe są dzielone na stałe fragmenty. Dla każdego fragmentu są generowane sumy kontrolne, które następnie są porównywane w celu określenia, które bloki ze źródła mają zostać zastosowane do celu.
 3. Po ukończeniu ponownej synchronizacji replikacja różnicowa powinna zostać wznowiona. Domyślnie ponowna synchronizacja jest zaplanowana do automatycznego uruchamiania poza godzinami pracy, ale możliwe jest uruchomienie ponownej synchronizacji maszyny wirtualnej ręcznie. Na przykład możesz wznowić ponowną synchronizację, jeśli wystąpi awaria sieci lub inna awaria. W tym celu wybierz maszynę wirtualną w portalu i wybierz pozycję **Synchronizuj ponownie**.
 
-    ![Ręczna ponowna synchronizacja](./media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Ręczna ponowna synchronizacja](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
 
 ### <a name="retry-logic"></a>Logika ponowień
@@ -115,5 +120,5 @@ Jeśli wystąpi błąd replikacji, może zostać użyty wbudowany mechanizm pona
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do: [Krok 2: Przejrzyj wymagania wstępne dotyczące wdrażania](hyper-v-site-walkthrough-prerequisites.md)
+Przejdź do: [Krok 2: Przejrzyj wymagania wstępne dotyczące wdrażania](vmm-to-azure-walkthrough-prerequisites.md)
 

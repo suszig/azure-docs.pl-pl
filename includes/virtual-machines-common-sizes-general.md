@@ -1,147 +1,147 @@
 
 <!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
 
-- The A-series and Av2-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
+- Maszyny wirtualne z serii A i Av2 można wdrażać na różnych typach sprzętu i procesorach. Rozmiar jest ograniczany w zależności od sprzętu, aby zapewnić spójną wydajność procesora dla uruchomionego wystąpienia niezależnie od sprzętu, na którym jest ono wdrożone. Aby określić sprzęt fizyczny, na którym jest wdrażany dany rozmiar, utwórz zapytanie o sprzęt wirtualny z poziomu maszyny wirtualnej.
 
-- D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+- Maszyny wirtualne serii D są zaprojektowane do uruchamiania aplikacji wymagających większej mocy obliczeniowej i wydajności dysków tymczasowych. Maszyny wirtualne serii D zapewniają szybsze procesory, większą ilość pamięci na rdzeń i dyski półprzewodnikowe (SSD) dla dysków tymczasowych. Szczegółowe informacje zawiera ogłoszenie [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nowe rozmiary maszyn wirtualnych serii D) w blogu platformy Azure.
 
-- Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+- Seria Dv2, kontynuacja oryginalnej serii D, jest wyposażona w procesor CPU o większych możliwościach. Procesor CPU serii Dv2 jest o około 35% szybszy niż procesor CPU serii D. Seria Dv2 jest oparta na procesorze najnowszej generacji Intel Xeon® E5-2673 v3 (Haswell) z zegarem 2,4 GHz, który dzięki technologii Intel Turbo Boost 2.0 może osiągnąć częstotliwość 3,1 GHz. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
 
-- The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see (Sizes for virtual machines)[virtual-machines-size-specs.md] and for VM pricing information, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+- Rozmiary warstwy Podstawowa są przeznaczone głównie dla obciążeń związanych z tworzeniem aplikacji i innych aplikacji, które nie wymagają równoważenia obciążenia, automatycznego skalowania ani maszyn wirtualnych korzystających z dużej ilości pamięci. Aby uzyskać informacje na temat rozmiarów maszyn wirtualnych, które są bardziej odpowiednie dla aplikacji produkcyjnych, zobacz (Rozmiary maszyn wirtualnych) [virtual-machines-size-specs.md]. Aby uzyskać informacje o cenach maszyn wirtualnych, zobacz [Cennik maszyn wirtualnych](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="dsv3-series"></a>Dsv3-series
+## <a name="dsv3-series"></a>Seria Dsv3
 
-ACU: 160-190
+ACU: 160–190
 
-Dsv3-series sizes are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. The Dsv3-series sizes offer a combination of CPU, memory, and local disk for most production workloads.
+Rozmiary serii Dsv3 są oparte na procesorach Intel XEON® E5-2673 v4 (Broadwell) z zegarem 2,3 GHz, które dzięki technologii Intel Turbo Boost 2.0 mogą osiągnąć częstotliwość 3,5 GHz i korzystają z magazynu Premium Storage. Rozmiary serii Dsv3 oferują kombinację procesora, pamięci i dysku lokalnego spełniającą potrzeby większości obciążeń produkcyjnych.
 
 
-| Size             | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
+| Rozmiar             | Procesor wirtualny | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków buforowanych i lokalnych: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_D2s_v3  | 2         | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / moderate                                   |
-| Standard_D4s_v3  | 4         | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
-| Standard_D8s_v3  | 8         | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
-| Standard_D16s_v3 | 16        | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
+| Standardowa_D2s_v3  | 2         | 8           | 16             | 4              | 4000 / 32 (50)                                                       | 3200 / 48                                | 2 / średnia                                   |
+| Standardowa_D4s_v3  | 4         | 16          | 32             | 8              | 8000 / 64 (100)                                                      | 6400 / 96                                | 2 / średnia                                   |
+| Standardowa_D8s_v3  | 8         | 32          | 64             | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / wysoka                                       |
+| Standardowa_D16s_v3 | 16        | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / wysoka                                       |
 
 
-## <a name="dv3-series"></a>Dv3-series
+## <a name="dv3-series"></a>Seria Dv3
 
-ACU: 160-190
+ACU: 160–190
 
-Dv3-series sizes are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. The Dv3-series sizes offer a combination of CPU, memory, and local disk for most production workloads.
+Rozmiary serii Dv3 są oparte na procesorach Intel XEON® E5-2673 v4 (Broadwell) 2,3 GHz i technologią Intel Turbo Boost 2.0, dzięki której mogą osiągnąć częstotliwość 3,5 GHz. Rozmiary serii Dv3 oferują kombinację procesora, pamięci i dysku lokalnego spełniającą potrzeby większości obciążeń produkcyjnych.
 
-Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dsv3 sizes. The pricing and billing meters for Dsv3 sizes are the same as Dv3-series. 
+Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny wirtualne. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów Dsv3. Liczniki cen i rozliczeń dla rozmiarów Dsv3 są takie same jak dla serii Dv3. 
 
 
-| Size             | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
+| Rozmiar             | Procesor wirtualny | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków buforowanych i lokalnych: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_D2_v3  | 2         | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / moderate                                   |
-| Standard_D4_v3  | 4         | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
-| Standard_D8_v3  | 8         | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
-| Standard_D16_v3 | 16        | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
+| Standardowa_D2_v3  | 2         | 8           | 16             | 4              | 4000 / 32 (50)                                                       | 3200 / 48                                | 2 / średnia                                   |
+| Standardowa_D4_v3  | 4         | 16          | 32             | 8              | 8000 / 64 (100)                                                      | 6400 / 96                                | 2 / średnia                                   |
+| Standardowa_D8_v3  | 8         | 32          | 64             | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / wysoka                                       |
+| Standardowa_D16_v3 | 16        | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / wysoka                                       |
 
 
-## <a name="dsv2-series"></a>DSv2-series
+## <a name="dsv2-series"></a>Seria DSv2
 
-ACU: 210-250
+ACU: 210–250
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
+| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków buforowanych i lokalnych: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1_v2 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 48 |2 / 750 |
-| Standard_DS2_v2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 96 |2 / 1500 |
-| Standard_DS3_v2 |4 |14 |28 |8 |16,000 / 128 (172) |12,800 / 192 |4 / 3000 |
-| Standard_DS4_v2 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 384 |8 / 6000 |
-| Standard_DS5_v2 |16 |56 |112 |32 |64,000 / 512 (688) |51,200 / 768 |8 / 6000 - 12000 &#8224;|
+| Standardowa_DS1_v2 |1 |3,5 |7 |2 |4000 / 32 (43) |3200 / 48 |2 / 750 |
+| Standardowa_DS2_v2 |2 |7 |14 |4 |8000 / 64 (86) |6400 / 96 |2 / 1500 |
+| Standardowa_DS3_v2 |4 |14 |28 |8 |16 000 / 128 (172) |12 800 / 192 |4 / 3000 |
+| Standardowa_DS4_v2 |8 |28 |56 |16 |32 000 / 256 (344) |25 600 / 384 |8 / 6000 |
+| Standardowa_DS5_v2 |16 |56 |112 |32 |64 000 / 512 (688) |51 200 / 768 |8 / 6000–12 000 &#8224;|
 
 
 
-## <a name="dv2-series"></a>Dv2-series
+## <a name="dv2-series"></a>Seria Dv2
 
-ACU: 210-250
+ACU: 210–250
 
-| Size              | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
+| Rozmiar              | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maksymalna przepływność dysku lokalnego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 2 / 2x500                         | 2 / 750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / 1500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / 3000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / 6000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / 6000 - 12000 &#8224;          |
+| Standardowa_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 2 / 750                 |
+| Standardowa_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / 1500                     |
+| Standardowa_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / 3000                     |
+| Standardowa_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / 6000                     |
+| Standardowa_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / 6000–12 000 &#8224;          |
 
 
 <br>
 
-## <a name="ds-series"></a>DS-series
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
+## <a name="ds-series"></a>Seria DS
+| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków buforowanych i lokalnych: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |2 / 500 |
-| Standard_DS2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 64 |2 / 1000 |
-| Standard_DS3 |4 |14 |28 |8 |16,000 / 128 (172) |12,800 / 128 |4 / 2000 |
-| Standard_DS4 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
+| Standardowa_DS1 |1 |3,5 |7 |2 |4000 / 32 (43) |3200 / 32 |2 / 500 |
+| Standardowa_DS2 |2 |7 |14 |4 |8000 / 64 (86) |6400 / 64 |2 / 1000 |
+| Standardowa_DS3 |4 |14 |28 |8 |16 000 / 128 (172) |12 800 / 128 |4 / 2000 |
+| Standardowa_DS4 |8 |28 |56 |16 |32 000 / 256 (344) |25 600 / 256 |8 / 4000 |
 
 <br>
-## <a name="d-series"></a>D-series 
+## <a name="d-series"></a>Seria D 
 
 ACU: 160
 
-| Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
+| Rozmiar         | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maksymalna przepływność dysku lokalnego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 2 / 2x500                         | 2 / 500                 |
-| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / 1000                     |
-| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / 2000                     |
-| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / 4000                     |
+| Standardowa_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 2 / 500                 |
+| Standardowa_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / 1000                     |
+| Standardowa_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / 2000                     |
+| Standardowa_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / 4000                     |
 
 <br>
 
 
-## <a name="av2-series"></a>Av2-series
+## <a name="av2-series"></a>Seria Av2
 
 ACU: 100
 
-| Size            | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) | 
+| Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maksymalna przepływność dysku lokalnego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500               | 2 / 250                 |
-| Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
-| Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
-| Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
-| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
-| Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
-| Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
+| Standardowa_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2 x 500               | 2 / 250                 |
+| Standardowa_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4 x 500               | 2 / 500                 |
+| Standardowa_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8 x 500               | 4 / 1000                     |
+| Standardowa_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500             | 8 / 2000                     |
+| Standardowa_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4 x 500               | 2 / 500                 |
+| Standardowa_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8 x 500               | 4 / 1000                     |
+| Standardowa_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500             | 8 / 2000                     |
 
 <br>
 
-## <a name="a-series"></a>A-series
+## <a name="a-series"></a>Seria A
 
-ACU: 50-100
+ACU: 50–100
 
-| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Expected network performance (Mbps)  |
+| Rozmiar | Rdzenie procesora CPU | Pamięć: GiB | Lokalny dysk twardy: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków danych: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0* |1 |0.768 |20 |1 |1x500 |2 / 100 |
-| Standard_A1 |1 |1.75 |70 |2 |2x500 |2 / 500  |
-| Standard_A2 |2 |3.5 |135 |4 |4x500 |2 / 500 |
-| Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
-| Standard_A4 |8 |14 |605 |16 |16x500 |4 / 2000 |
-| Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
-| Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
-| Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
+| Standardowa_A0* |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
+| Standardowa_A1 |1 |1,75 |70 |2 |2 x 500 |2 / 500  |
+| Standardowa_A2 |2 |3,5 |135 |4 |4 x 500 |2 / 500 |
+| Standardowa_A3 |4 |7 |285 |8 |8 x 500 |2 / 1000 |
+| Standardowa_A4 |8 |14 |605 |16 |16 x 500 |4 / 2000 |
+| Standardowa_A5 |2 |14 |135 |4 |4 x 500 |2 / 500 |
+| Standardowa_A6 |4 |28 |285 |8 |8 x 500 |2 / 1000 |
+| Standardowa_A7 |8 |56 |605 |16 |16 x 500 |4 / 2000 |
 <br>
 
-*The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
+*Rozmiar A0 jest nadmiernie subskrybowany na sprzęcie fizycznym. Tylko w przypadku tego konkretnego rozmiaru inne wdrożenia klienta mogą mieć wpływ na wydajność uruchomionego obciążenia. Wydajność względna jest przedstawiona poniżej jako oczekiwana linia bazowa, podlegająca przybliżonej zmienności w granicach 15 procent.
 
-### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4 using CLI and PowerShell
-In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
+### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standardowa_A0–A4 w przypadku używania interfejsu wiersza polecenia i programu PowerShell
+W klasycznym modelu wdrażania niektóre nazwy rozmiarów maszyny wirtualnej są nieco inne w interfejsie wiersza polecenia i programie PowerShell:
 
-* Standard_A0 is ExtraSmall 
-* Standard_A1 is Small
-* Standard_A2 is Medium
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
+* Standardowa_A0 = Bardzo mała 
+* Standardowa_A1 = Mała
+* Standardowa_A2 = Średnia
+* Standardowa_A3 = Duża
+* Standardowa_A4 = Bardzo duża
 
-## <a name="basic-a"></a>Basic A
+## <a name="basic-a"></a>Podstawowa A
 
-|Size – Size\Name |CPU cores|Memory|NICs (Max)|Max temporary disk size |Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
+|Rozmiar — rozmiar\nazwa |Rdzenie procesora CPU|Memory (Pamięć)|Karty sieciowe (maks.)|Maksymalny rozmiar dysku tymczasowego |Maksymalnie z dyski danych 1023 GB każdy)|Maksymalnie z liczba operacji we/wy na sekundę (300 na dysk)|
 |---|---|---|---|---|---|---|
-|A0\Basic_A0|1|768 MB|2| 20 GB|1|1x300|
-|A1\Basic_A1|1|1.75 GB|2| 40 GB |2|2x300|
-|A2\Basic_A2|2|3.5 GB|2| 60 GB|4|4x300|
-|A3\Basic_A3|4|7 GB|2| 120 GB |8|8x300|
-|A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
+|A0\Podstawowa_A0|1|768 MB|2| 20 GB|1|1x300|
+|A1\Podstawowa_A1|1|1,75 GB|2| 40 GB |2|2x300|
+|A2\Podstawowa_A2|2|3,5 GB|2| 60 GB|4|4x300|
+|A3\Podstawowa_A3|4|7 GB|2| 120 GB |8|8x300|
+|A4\Podstawowa_A4|8|14 GB|2| 240 GB |16|16x300|

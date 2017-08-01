@@ -12,24 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Witryna Azure Portal](active-directory-users-create-external-azure-portal.md )
-> * [Klasyczna witryna Azure Portal](active-directory-create-users-external.md)
->
->
 
-W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
+W tym artykule opisano sposób dodawania użytkowników z innych katalogów w usłudze Azure Active Directory lub dodawania użytkowników z firm partnerskich. Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji i użytkowników, którzy mają konta Microsoft, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-create-users.md). 
+
+> [!IMPORTANT]
+> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule. Aby dowiedzieć się, jak dodać użytkowników gości współpracy B2B w centrum administracyjnym usługi Azure AD, zobacz [Czym jest współpraca B2B w usłudze Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
+
+Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
 
 ## <a name="add-a-user"></a>Dodawanie użytkownika
 1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) przy użyciu konta, które jest administratorem globalnym katalogu.

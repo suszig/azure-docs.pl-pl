@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Przewodnik po wstępnie skonfigurowanym rozwiązaniu konserwacji predykcyjnej
 
-## <a name="introduction"></a>Wprowadzenie
-
-Wstępnie skonfigurowane, kompleksowe rozwiązanie konserwacji predykcyjnej, dostępne w Pakiecie IoT, dotyczy scenariusza biznesowego, w którym przewidywany jest moment prawdopodobnego wystąpienia awarii. To wstępnie skonfigurowane rozwiązanie można aktywnie wykorzystać w celu zoptymalizowania konserwacji. Rozwiązanie łączy kluczowe usługi Pakietu IoT Azure, takie jak usługa IoT Hub, analiza strumienia oraz obszar roboczy usługi [Azure Machine Learning][lnk-machine-learning]. Ten obszar roboczy zawiera model oparty na publicznym zestawie przykładowych danych, które umożliwiają prognozowanie pozostałego czasu eksploatacji (RUL, Remaining Useful Life) silnika samolotu. Ponadto w rozwiązaniu w pełni zaimplementowano scenariusz biznesowy IoT jako punkt wyjściowy planowania i wdrażania rozwiązania zgodnego z potrzebami firmy.
+Wstępnie skonfigurowane, kompleksowe rozwiązanie konserwacji predykcyjnej, dotyczy scenariusza biznesowego, w którym przewidywany jest moment prawdopodobnego wystąpienia awarii. To wstępnie skonfigurowane rozwiązanie można aktywnie wykorzystać w celu zoptymalizowania konserwacji. Rozwiązanie łączy kluczowe usługi Pakietu IoT Azure, takie jak usługa IoT Hub, analiza strumienia oraz obszar roboczy usługi [Azure Machine Learning][lnk-machine-learning]. Ten obszar roboczy zawiera model oparty na publicznym zestawie przykładowych danych, które umożliwiają prognozowanie pozostałego czasu eksploatacji (RUL, Remaining Useful Life) silnika samolotu. Ponadto w rozwiązaniu w pełni zaimplementowano scenariusz biznesowy IoT jako punkt wyjściowy planowania i wdrażania rozwiązania zgodnego z potrzebami firmy.
 
 ## <a name="logical-architecture"></a>Architektura logiczna
 
@@ -34,7 +32,7 @@ Poniższy diagram przedstawia składniki logiczne wstępnie skonfigurowanego roz
 
 ![][img-architecture]
 
-Niebieskie elementy oznaczają usługi platformy Azure aprowizowane w regionie wybranym podczas przeprowadzania aprowizacji wstępnie skonfigurowanego rozwiązania. Lista regionów, w których można wdrożyć wstępnie skonfigurowane rozwiązanie, znajduje się na [stronie aprowizacji][lnk-azureiotsuite].
+Niebieskie elementy oznaczają usługi platformy Azure zaprowizowane w regionie, w którym wdrożono wstępnie skonfigurowane rozwiązanie. Lista regionów, w których można wdrożyć wstępnie skonfigurowane rozwiązanie, znajduje się na [stronie aprowizacji][lnk-azureiotsuite].
 
 Zielony element oznacza symulowane urządzenie, które odpowiada silnikowi samolotu. Więcej informacji na temat tych symulowanych urządzeń można znaleźć w poniższej sekcji.
 
@@ -58,13 +56,17 @@ Symulowane urządzenia obsługują w rozwiązaniu następujące polecenia wysył
 Usługa IoT Hub udostępnia potwierdzenia poleceń wysyłanych do urządzeń.
 
 ## <a name="azure-stream-analytics-job"></a>Zadanie usługi Azure Stream Analytics
-**Zadanie Telemetria** przetwarza strumień danych telemetrycznych przychodzących z urządzeń przy użyciu dwóch instrukcji. Pierwsza z nich pobiera wszystkie dane telemetryczne z urządzeń i wysyła je do magazynu obiektów blob. Stamtąd trafiają one do aplikacji sieci Web w celu wizualizacji. Druga instrukcja oblicza średnie wartości z czujników w ramach przesuwającego się okna czasowego o wielkości dwóch minut i wysyła te wartości do **procesora zdarzeń** za pośrednictwem centrum zdarzeń.
+
+**Zadanie Telemetria** przetwarza strumień danych telemetrycznych przychodzących z urządzeń przy użyciu dwóch instrukcji:
+
+* Pierwsza z nich pobiera wszystkie dane telemetryczne z urządzeń i wysyła je do magazynu obiektów blob. Stamtąd trafiają one do aplikacji internetowej w celu wizualizacji.
+* Druga instrukcja oblicza średnie wartości z czujników w ramach przesuwającego się okna czasowego trwającego dwie minuty i wysyła te wartości do **procesora zdarzeń** za pośrednictwem centrum zdarzeń.
 
 ## <a name="event-processor"></a>Procesor zdarzeń
 **Host procesora zdarzeń** jest uruchamiany w zadaniu sieci Web Azure. **Procesor zdarzeń** przyjmuje średnie wartości z czujników dla ukończonego cyklu. Następnie przekazuje te wartości do interfejsu API, który dostarcza je nauczonemu modelowi w celu obliczenia pozostałego czasu eksploatacji silnika. Interfejs API jest udostępniany przez obszar roboczy usługi Machine Learning, który jest aprowizowany w ramach rozwiązania.
 
 ## <a name="machine-learning"></a>Usługa Machine Learning
-Składnik Machine Learning wykorzystuje model opracowany na podstawie danych zebranych z rzeczywistych silników samolotów. Do obszaru roboczego usługi Machine Learning możesz przejść za pomocą kafelka na stronie [azureiotsuite.com][lnk-azureiotsuite] swojego aprowizowanego rozwiązania, gdy jego stan zmieni się na **Gotowe**.
+Składnik Machine Learning wykorzystuje model opracowany na podstawie danych zebranych z rzeczywistych silników samolotów. Do obszaru roboczego usługi Machine Learning możesz przejść z poziomu kafelka na stronie [azureiotsuite.com][lnk-azureiotsuite] zaprowizowanego rozwiązania. Kafelek jest dostępny, gdy rozwiązanie jest w stanie **Gotowe**.
 
 
 ## <a name="next-steps"></a>Następne kroki

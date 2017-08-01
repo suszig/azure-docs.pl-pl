@@ -1,11 +1,11 @@
-You apply tags to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production. Without this tag, you may have difficulty identifying whether a resource is intended for development, test, or production. However, "Environment" and "Production" are just examples. You define the names and values that make the most sense for organizing your subscription.
+Stosowanie tagów do zasobów platformy Azure umożliwia ich logiczne zorganizowanie według kategorii. Każdy tag składa się z nazwy i wartości. Na przykład można zastosować nazwę „Środowisko” i wartość „Produkcyjne” do wszystkich zasobów w środowisku produkcyjnym. Bez tego tagu może być trudno stwierdzić, czy dany zasób jest przeznaczony do użycia w środowisku programistycznym, testowym czy produkcyjnym. Klucz „Środowisko” i wartość „Produkcyjne” to jednak tylko przykłady. Należy definiować nazwy i wartości, które będą najbardziej przydatne do organizowania danej subskrypcji.
 
-After applying tags, you can retrieve all the resources in your subscription with that tag name and value. Tags enable you to retrieve related resources that reside in different resource groups. This approach is helpful when you need to organize resources for billing or management.
+Po zastosowaniu tagów można pobrać wszystkie zasoby w subskrypcji o nazwie i wartości konkretnego tagu. Tagi umożliwiają pobranie powiązanych zasobów, które znajdują się w różnych grupach zasobów. To pomocne rozwiązanie, gdy trzeba zorganizować zasoby w celach rozliczeniowych lub zarządzania.
 
-The following limitations apply to tags:
+Tagi mają następujące ograniczenia:
 
-* Each resource or resource group can have a maximum of 15 tag name/value pairs. This limitation only applies to tags directly applied to the resource group or resource. A resource group can contain many resources that each have 15 tag name/value pairs. 
-* The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, tag name is limited to 128 characters, and tag value is limited to 256 characters.
-* Tags applied to the resource group are not inherited by the resources in that resource group. 
+* Każdy zasób lub grupa zasobów może mieć co najwyżej 15 par nazwa/wartość tagu. To ograniczenie dotyczy tylko tagów stosowanych bezpośrednio do grupy zasobów lub zasobu. Grupa zasobów może zawierać wiele zasobów, z których każdy może mieć 15 par nazwa/wartość tagu. 
+* Nazwa tagu może zawierać maksymalnie 512 znaków, a wartość tagu jest ograniczona do 256 znaków. W przypadku kont magazynu nazwa tagu jest ograniczona do 128 znaków, a wartość tagu jest ograniczona do 256 znaków.
+* Tagi zastosowane do grupy zasobów nie są dziedziczone przez zasoby należące do tej grupy. 
 
-If you have more than 15 values that you need to associate with a resource, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. An example of assigning a JSON string to the tag is shown in this article.
+Jeśli masz więcej niż 15 wartości, które należy skojarzyć z zasobem, użyj ciągu JSON jako wartości tagu. Ciąg JSON może zawierać wiele wartości, które są stosowane do jednej nazwy tagu. W tym artykule przedstawiono przykład przypisywania ciągu JSON do tagu.

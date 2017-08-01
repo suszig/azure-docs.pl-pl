@@ -1,42 +1,42 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
+#### <a name="to-add-a-storsimple-backup-policy"></a>Aby dodać zasady kopii zapasowych danych StorSimple
 
-1. Go to your StorSimple device and click **Backup policy**.
+1. Przejdź do urządzenia StorSimple i kliknij pozycję **Zasady kopii zapasowych**.
 
-2. In the **Backup policy** blade, click **+ Add policy** from the command bar.
+2. W bloku **Zasady kopii zapasowych** kliknij pozycję **+ Dodaj zasady** na pasku poleceń.
    
-    ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+    ![Dodawanie zasad kopii zapasowych](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
 
-3. In the **Create backup policy** blade, do the following steps:
+3. W bloku **Tworzenie zasad kopii zapasowych** wykonaj następujące czynności:
    
-   1. **Select device** is automatically populated based on the device you selected.
+   1. Pole **Wybierz urządzenie** jest automatycznie wypełniane na podstawie wybranego urządzenia.
    
-   2. Specify a backup **Policy name** that contains between 3 and 150 characters.
+   2. Podaj **Nazwę zasad** kopii zapasowych o długości od 3 do 150 znaków. Po utworzeniu zasad nie można zmienić ich nazwy.
        
-   3. To assign volumes to this backup policy, select **Add volumes** and then from the tabular listing of volumes, click the check box(es) to assign one or more volumes to this backup policy.
+   3. Aby przypisać woluminy do tych zasad kopii zapasowych, wybierz pozycję **Dodaj woluminy**, a następnie na tabelarycznej liście woluminów kliknij pola wyboru, aby przypisać woluminy do tych zasad kopii zapasowych.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Dodawanie zasad kopii zapasowych](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
 
-   4. To define a schedule for this backup policy, click **First schedule** and then modify the following parameters:
+   4. Aby zdefiniować harmonogram dla tych zasad kopii zapasowych, kliknij pozycję **Pierwszy harmonogram**, a następnie zmodyfikuj następujące parametry:
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Dodawanie zasad kopii zapasowych](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
 
-       1. For **Snapshot type**, select **Cloud** or **Local**.
+       1. Dla pozycji **Typ migawki** wybierz opcję **Chmura** lub **Lokalna**.
 
-       2. Indicate the frequency of backups (specify a number and then choose **Days** or **Weeks** from the drop-down list.
+       2. Podaj częstotliwość wykonywania kopii zapasowych (określ liczbę, a następnie wybierz z listy rozwijanej pozycję **Dni** lub **Tygodnie**).
 
-       3. Enter a retention schedule.
+       3. Wprowadź harmonogram przechowywania.
 
-       4. Enter a time and date for the backup policy to begin.
+       4. Wprowadź datę i godzinę rozpoczęcia dla zasad kopii zapasowych.
 
-       5. Click **OK** to define the schedule.
+       5. Kliknij przycisk **OK**, aby zdefiniować harmonogram.
 
-   5. Click **Create** to create a backup policy.
+   5. Kliknij przycisk **Utwórz**, aby utworzyć zasady kopii zapasowych.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+       ![Dodawanie zasad kopii zapasowych](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
-   6. You are notified when the backup policy is created. The newly added policy is displayed in the tabular view on the **Backup Policy** blade.
+   6. Otrzymasz powiadomienie o utworzeniu zasad kopii zapasowych. Nowo dodane zasady będą wyświetlane w widoku tabelarycznym w bloku **Zasady kopii zapasowych**.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+       ![Dodawanie zasad kopii zapasowych](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
 

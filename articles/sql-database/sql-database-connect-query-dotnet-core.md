@@ -1,6 +1,6 @@
 ---
-title: "Korzystanie z platformy .NET Core do wykonywania zapytań w bazie danych Azure SQL | Microsoft Docs"
-description: "W tym temacie przedstawiono sposób wykorzystania platformy .NET Core do utworzenia programu, który nawiązuje połączenie z bazą danych SQL Azure i wykonuje zapytania za pomocą instrukcji języka Transact-SQL."
+title: "Korzystanie z platformy .NET Core do wykonywania zapytań w usłudze Azure SQL Database | Microsoft Docs"
+description: "W tym temacie przedstawiono sposób wykorzystania platformy .NET Core do utworzenia programu, który nawiązuje połączenie z bazą danych Azure SQL Database i wykonuje zapytania za pomocą instrukcji języka Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,15 +16,15 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 4b44064f05a24a25c3ac8157e4aa68a8a8d9856a
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 708c2d2f40138572c7e65938da6e863cab089cdf
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Korzystanie z platformy .NET Core (C#) do wykonywania zapytań w bazie danych Azure SQL
+# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Korzystanie z platformy .NET Core (C#) do wykonywania zapytań w bazie danych Azure SQL Database
 
-W tym przewodniku Szybki start pokazano, jak używać platformy [.NET Core](https://www.microsoft.com/net/) w systemach operacyjnych Windows/Linux/macOS w celu utworzenia programu służącego do nawiązywania połączenia z bazą danych Azure SQL, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.
+W tym przewodniku Szybki start pokazano, jak używać platformy [.NET Core](https://www.microsoft.com/net/) w systemach operacyjnych Windows/Linux/macOS w celu utworzenia programu w języku C# służącego do nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

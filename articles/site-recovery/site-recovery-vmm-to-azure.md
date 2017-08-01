@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure przy użyciu usługi Site Recovery w witrynie Azure Portal
@@ -164,6 +164,11 @@ Zainstaluj dostawcę usługi Azure Site Recovery na serwerze programu VMM i zare
 
      ![Internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Zaakceptuj lub zmodyfikuj lokalizację certyfikatu SSL, który jest automatycznie generowany w związku z szyfrowaniem danych. Ten certyfikat jest wykorzystywany, jeśli włączysz szyfrowanie danych dla chmury chronionej przez platformę Azure w portalu usługi Azure Site Recovery. Przechowuj ten certyfikat w bezpiecznym miejscu. Po uruchomieniu trybu failover na platformie Azure certyfikat będzie potrzebny do odszyfrowania danych, jeśli włączono szyfrowanie.
+
+    > [!NOTE]
+    > Zaleca się szyfrowanie danych magazynowanych za pomocą możliwości szyfrowania udostępnianej przez platformę Azure, a nie przy użyciu opcji szyfrowania danych oferowanej przez usługę Azure Site Recovery. Możliwość szyfrowania udostępniana przez platformę Azure może zostać włączona dla magazynu > konta i pomaga osiągnąć lepszą wydajność, ponieważ szyfrowanie i odszyfrowywanie jest obsługiwane przez usługę Azure Storage.
+    > [Dowiedz się więcej o funkcji Szyfrowanie usługi Storage platformy Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. W polu **Nazwa serwera** wprowadź przyjazną nazwę identyfikującą serwer VMM w magazynie. W konfiguracji klastra określ nazwę roli klastra VMM.
 9. Włącz **synchronizację metadanych chmury**, jeśli chcesz synchronizować metadane dla wszystkich chmur na serwerze VMM w magazynie. To działanie ma miejsce tylko raz na każdym serwerze. Jeśli nie chcesz synchronizować wszystkich chmur, możesz nie zaznaczać tego ustawienia i synchronizować poszczególne chmury indywidualnie we właściwościach chmury w konsoli programu VMM. Kliknij przycisk **Zarejestruj**, aby zakończyć proces.
 
@@ -425,6 +430,12 @@ Gdzie:
 * **/Credentials**: jest obowiązkowym parametrem określającym lokalizację pliku klucza rejestracji.  
 * **/FriendlyName**: obowiązkowy parametr dla nazwy serwera hosta funkcji Hyper-V, która będzie wyświetlana w portalu usługi Azure Site Recovery.
 * * **/EncryptionEnabled**: jest opcjonalnym parametrem w przypadku replikacji maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure. Określ, jak chcesz zaszyfrować maszyny wirtualne na platformie Azure (szyfrowanie danych w stanie spoczynku). Upewnij się, że nazwa pliku ma rozszerzenie **pfx**. Szyfrowanie jest domyślnie wyłączone.
+
+    > [!NOTE]
+    > Zaleca się szyfrowanie przechowywanych danych magazynowanych za pomocą możliwości szyfrowania udostępnianej przez platformę Azure, a nie przy użyciu opcji szyfrowania (opcji EncryptionEnabled) udostępnianej przez usługę Azure Site Recovery. Możliwość szyfrowania udostępniana przez platformę Azure może zostać włączona dla konta magazynu i pomaga osiągnąć lepszą wydajność, ponieważ szyfrowanie/odszyfrowywanie jest wykonywane przez usługę Azure  
+    > Storage.
+    > [Dowiedz się więcej o funkcji Szyfrowanie usługi Storage na platformie Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: opcjonalny parametr określający adres serwera proxy.
 * **/proxyport**: opcjonalny parametr określający port serwera proxy.
 * **/proxyUsername**: opcjonalny parametr określający nazwę użytkownika serwera proxy (jeśli serwer proxy wymaga uwierzytelniania).

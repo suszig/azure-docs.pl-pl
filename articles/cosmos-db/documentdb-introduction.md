@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 79156c0b511dafcb43ed91800f01338dbb7ee5f3
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: dba483c21afc46b1b9f0a74ebfb24ed644080e09
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Wprowadzenie do usługi Azure Cosmos DB: interfejs API usługi DocumentDB
@@ -51,7 +50,7 @@ Usługa Azure Cosmos DB, przy użyciu interfejsu API usługi DocumentDB, oferuje
 * **Automatyczne indeksowanie:** domyślnie usługa Azure Cosmos DB automatycznie indeksuje wszystkie dokumenty w bazie danych i nie oczekuje ani nie wymaga żadnego schematu lub tworzenia indeksów pomocniczych. Nie chcesz indeksować wszystkiego? Nie martw się, możesz również [zrezygnować ze ścieżki plików JSON](indexing-policies.md).
 
 ## <a name="data-management"></a>Jak zarządzać danymi przy użyciu interfejsu API usługi DocumentDB?
-Interfejs API usługi DocumentDB pomaga zarządzać danymi JSON za pomocą dobrze zdefiniowanych zasobów bazy danych. Te zasoby są replikowane w celu zapewnienia wysokiej dostępności i unikatowo adresowane przez ich logiczny identyfikator URI. Usługa DocumentDB oferuje prosty model programowania RESTful oparty na protokole HTTP dla wszystkich zasobów. 
+Interfejs API usługi DocumentDB pomaga zarządzać danymi JSON za pomocą dobrze zdefiniowanych zasobów bazy danych. Te zasoby są replikowane w celu zapewnienia wysokiej dostępności i unikatowo adresowane przez ich logiczny identyfikator URI. Interfejs API usługi DocumentDB oferuje prosty model programowania RESTful oparty na protokole HTTP dla wszystkich zasobów. 
 
 
 Konto bazy danych usługi Azure Cosmos DB jest unikatową przestrzenią nazw, która umożliwia dostęp do usługi Azure Cosmos DB. Przed utworzeniem konta bazy danych musisz mieć subskrypcję platformy Azure, która umożliwia dostęp do różnych usług platformy Azure. 
@@ -87,16 +86,16 @@ Za pomocą [emulatora usługi Azure Cosmos DB](local-emulator.md) możesz lokaln
 Poza podstawowymi operacjami tworzenia, odczytu, aktualizacji i usuwania interfejs API usługi DocumentDB udostępnia interfejs zaawansowanych zapytań SQL na potrzeby pobierania dokumentów JSON oraz obsługę po stronie serwera na potrzeby transakcyjnego wykonywania logiki aplikacji JavaScript. Interfejsy wykonywania zapytań i skryptów są dostępne za pośrednictwem bibliotek wszystkich platform, a także interfejsów API REST. 
 
 ### <a name="sql-query"></a>Zapytanie SQL
-Interfejs API usługi DocumentDB obsługuje tworzenie zapytań dla dokumentów za pomocą języka SQL, osadzonego w systemie typów języka JavaScript, oraz wyrażeń z obsługą zapytań relacyjnych, hierarchicznych i przestrzennych. Język zapytań usługi DocumentDB jest prostym, ale zaawansowanym interfejsem do tworzenia zapytań dotyczących dokumentów JSON. Język obsługuje podzbiór gramatyki ANSI SQL i dodaje głęboką integrację obiektów, tablic, konstrukcji obiektów i wywoływania funkcji języka JavaScript. Usługa DocumentDB udostępnia swój model zapytań bez żadnego jawnego schematu lub wskazówek indeksowania od dewelopera.
+Interfejs API usługi DocumentDB obsługuje tworzenie zapytań dla dokumentów za pomocą języka SQL, osadzonego w systemie typów języka JavaScript, oraz wyrażeń z obsługą zapytań relacyjnych, hierarchicznych i przestrzennych. Język zapytań usługi DocumentDB jest prostym, ale zaawansowanym interfejsem do tworzenia zapytań dotyczących dokumentów JSON. Język obsługuje podzbiór gramatyki ANSI SQL i dodaje głęboką integrację obiektów, tablic, konstrukcji obiektów i wywoływania funkcji języka JavaScript. Interfejs API usługi DocumentDB udostępnia swój model zapytań bez żadnego jawnego schematu lub wskazówek indeksowania od dewelopera.
 
 Przy użyciu interfejsu API usługi DocumentDB można rejestrować funkcje zdefiniowane przez użytkownika i odwoływać się do nich jako elementu zapytania SQL, rozszerzając w ten sposób gramatykę na potrzeby obsługi niestandardowej logiki aplikacji. Te funkcje UDF są zapisywane jako programy JavaScript i wykonywane w bazie danych. 
 
-Deweloperom platformy .NET zestaw SDK DocumentDB [dla platformy .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) oferuje również dostawcę zapytań LINQ. 
+Deweloperom platformy .NET [zestaw SDK dla platformy .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) interfejsu API usługi DocumentDB oferuje również dostawcę zapytań LINQ. 
 
 ### <a name="transactions-and-javascript-execution"></a>Transakcje i wykonywanie kodu JavaScript
 Interfejs API usługi DocumentDB umożliwia pisanie logiki aplikacji jako nazwanych programów napisanych w całości w języku JavaScript. Te programy są rejestrowane dla kolekcji i mogą wyzwalać operacje bazy danych na dokumentach w ramach danej kolekcji. Kod JavaScript można zarejestrować do wykonania jako wyzwalacz, procedurę składowaną lub funkcję zdefiniowaną przez użytkownika. Wyzwalacze i procedury składowane mogą tworzyć, odczytywać, aktualizować i usuwać dokumenty, natomiast funkcje zdefiniowane przez użytkownika są wykonywane jako część logiki wykonywania zapytania, bez dostępu do zapisu w kolekcji.
 
-Wykonywanie kodu JavaScript przy użyciu interfejsu API usługi DocumentDB jest modelowane zgodnie z koncepcjami obsługiwanymi przez systemy relacyjnych baz danych, z użyciem języka JavaScript jako nowoczesnego zamiennika języka Transact-SQL. Cała logika JavaScript jest wykonywana w ramach transakcji ACID otoczenia z izolacją migawki. Jeśli w trakcie wykonywania logiki JavaScript zgłosi ona wyjątek, cała transakcja zostaje przerwana.
+Wykonywanie kodu JavaScript w usłudze Cosmos DB jest modelowane zgodnie z koncepcjami obsługiwanymi przez systemy relacyjnych baz danych, z użyciem języka JavaScript jako nowoczesnego zamiennika języka Transact-SQL. Cała logika JavaScript jest wykonywana w ramach transakcji ACID otoczenia z izolacją migawki. Jeśli w trakcie wykonywania logiki JavaScript zgłosi ona wyjątek, cała transakcja zostaje przerwana.
 
 ## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Czy są jakieś kursy online na temat usługi Azure Cosmos DB?
 

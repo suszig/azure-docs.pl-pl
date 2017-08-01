@@ -13,36 +13,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: e0e658fc392bf6a53f777f22a2e0b6e7bd742f97
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Omówienie wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej
 
 [Wstępnie skonfigurowane rozwiązanie][lnk_preconfigured_solutions] *konserwacji predykcyjnej* jest jednym ze wstępnie skonfigurowanych rozwiązań [Pakietu IoT Microsoft Azure][lnk_iot_suite]. To rozwiązanie obejmuje zbieranie danych telemetrycznych z urządzeń w czasie rzeczywistym i model predykcyjny utworzony za pomocą usługi [Azure Machine Learning][lnk-machine-learning].
 
-Pakiet IoT Azure pozwala przedsiębiorstwu szybko i łatwo łączyć się z zasobami i monitorować je oraz analizować dane w czasie rzeczywistym. Dane te są przetwarzane przez wstępnie skonfigurowane rozwiązanie konserwacji predykcyjnej, które przy użyciu rozbudowanych pulpitów nawigacyjnych i zaawansowanych wizualizacji dostarcza nowe informacje analityczne. Pozwalają one zwiększyć wydajność i wygenerować dodatkowe źródła przychodów.
+Pakiet IoT Azure pozwala szybko i łatwo łączyć się z zasobami i monitorować je oraz analizować dane telemetryczne w czasie rzeczywistym w ramach pulpitów nawigacyjnych i wizualizacji. W przypadku rozwiązania konserwacji predykcyjnej pulpity nawigacyjne i wizualizacje dostarczają nowe informacje analityczne, które pozwalają zwiększyć wydajność i wygenerować dodatkowe źródła przychodów.
 
 ## <a name="the-scenario"></a>Scenariusz
-Fabrikam to regionalny przewoźnik lotniczy, ukierunkowany na zapewnienie doskonałej obsługi klientów przy zachowaniu konkurencyjnych cen. Jedną z przyczyn powodujących opóźnienia lotów są kwestie związane z obsługą techniczną samolotów. Dotyczy to w szczególności konserwacji silników. Za wszelką cenę należy zapobiegać awariom silników podczas lotu, dlatego Fabrikam przeprowadza regularne przeglądy sprzętu zgodnie z zaplanowanym programem konserwacji. Jednak występują różnice dotyczące stopnia zużycia silników samolotów. Zdarzają się przypadki wykonania prac konserwacyjnych, które nie były konieczne. Co więcej, pojawiają się problemy, które mogą prowadzić do uziemienia danego samolotu, dopóki nie zostanie przeprowadzona konserwacja. Te problemy powodują kosztowne opóźnienia, zwłaszcza jeśli samolot znajduje się w lokalizacji, w której nie są dostępne części zamienne lub odpowiednio wykwalifikowany personel.
 
-Silniki samolotów linii Fabrikam są wyposażone w czujniki, które monitorują stan silnika podczas lotu. Firma Fabrikam gromadzi dane zebrane z czujników podczas lotu przy użyciu wstępnie skonfigurowanego rozwiązania do konserwacji predykcyjnej. Zbierane przez całe lata dane dotyczące pracy i awarii silników umożliwiły inżynierom danych w firmie Fabrikam opracowanie modelu przewidywania pozostałego czasu eksploatacji silnika samolotu. Udało się określić zależność między danymi pochodzącymi z czterech czujników w silniku a zużyciem silnika, które może prowadzić do wystąpienia awarii. Linie Fabrikam wciąż regularnie przeprowadzają przeglądy w celu zapewnienia bezpieczeństwa, ale dysponują również modelami, które umożliwiają obliczenie pozostałego czasu eksploatacji poszczególnych silników po każdym locie. Model wykorzystuje dane telemetryczne zebrane z silników podczas lotu. Pozwala to przewidywać przyszłe awarie i odpowiednio wcześniej zaplanować prace konserwacyjne i naprawcze.
+Fabrikam to regionalny przewoźnik lotniczy, ukierunkowany na zapewnienie doskonałej obsługi klientów przy zachowaniu konkurencyjnych cen. Jedną z przyczyn powodujących opóźnienia lotów są kwestie związane z obsługą techniczną samolotów. Dotyczy to w szczególności konserwacji silników. Firma Fabrikam musi za wszelką cenę zapobiegać awariom silników podczas lotu, zatem przeprowadza regularne przeglądy sprzętu i tworzy odpowiedni harmonogram konserwacji. Jednak występują różnice dotyczące stopnia zużycia silników samolotów. Zdarzają się przypadki wykonania prac konserwacyjnych, które nie były konieczne. Co więcej, pojawiają się problemy, które mogą prowadzić do uziemienia danego samolotu, dopóki nie zostanie przeprowadzona konserwacja. Te problemy powodują kosztowne opóźnienia, zwłaszcza jeśli samolot znajduje się w lokalizacji, w której nie są dostępne części zamienne lub odpowiednio wykwalifikowany personel.
+
+Silniki samolotów linii Fabrikam są wyposażone w czujniki, które monitorują stan silnika podczas lotu. Firma Fabrikam korzysta z rozwiązania do konserwacji predykcyjnej w celu gromadzenia danych zebranych z czujników podczas lotu. Zbierane przez całe lata dane dotyczące pracy i awarii silników umożliwiły inżynierom danych w firmie Fabrikam opracowanie modelu przewidywania pozostałego czasu eksploatacji silnika samolotu. Model korzysta z zależności między danymi pochodzącymi z czterech czujników w silniku a zużyciem silnika, które może prowadzić do wystąpienia awarii. Linie Fabrikam wciąż regularnie przeprowadzają przeglądy w celu zapewnienia bezpieczeństwa, ale dysponują również modelami, które umożliwiają obliczenie pozostałego czasu eksploatacji poszczególnych silników po każdym locie. Model wykorzystuje dane telemetryczne zebrane z silników podczas lotu. Pozwala to przewidywać przyszłe awarie i odpowiednio wcześniej zaplanować prace konserwacyjne i naprawcze.
 
 > [!NOTE]
 > W modelu rozwiązania wykorzystano dane dotyczące rzeczywistego zużycia silników.
 
-Dzięki możliwości przewidywania terminu wymaganej obsługi technicznej firma Fabrikam może zoptymalizować swoje operacje, aby obniżyć koszty. Współpraca koordynatorów ds. konserwacji z personelem odpowiedzialnym za rozkład lotów ma na celu:
+Dzięki możliwości przewidywania terminu wymaganej obsługi technicznej firma Fabrikam może zoptymalizować swoje operacje, aby obniżyć koszty.
 
-- Opracowanie harmonogramu, który umożliwia przeprowadzanie prac technicznych podczas zaplanowanego postoju samolotu w danej lokalizacji.
-- Zapewnienie, że czas serwisowania samolotu nie spowoduje występowania zakłóceń w rozkładzie.
+Współpraca koordynatorów ds. konserwacji z personelem odpowiedzialnym za rozkład lotów ma na celu:
+
+- Opracowanie harmonogramu, który umożliwia przeprowadzanie prac technicznych podczas postoju samolotu w danej lokalizacji.
+- Zapewnienie, że dostępna jest wystarczająca ilość czasu na serwisowanie samolotu, aby nie spowodować występowania zakłóceń w rozkładzie.
 - Zaplanowanie pracy personelu technicznego tak, aby serwisowanie samolotów odbywało się bez przestojów.
 
-Menedżerowie odpowiedzialni za magazyny podzespołów mają dostęp do planów konserwacji, dzięki czemu mogą zoptymalizować zapasy części zamiennych i proces ich zamawiania. Wszystkie te czynniki umożliwiają firmie Fabrikam zminimalizowanie czasu obsługi naziemnej samolotów i zmniejszenie kosztów operacyjnych przy jednoczesnym zapewnieniu bezpieczeństwa pasażerów i załóg.
+Menedżerowie odpowiedzialni za magazyny podzespołów mają dostęp do planów konserwacji, dzięki czemu mogą zoptymalizować zapasy części zamiennych i proces ich zamawiania.
+
+Te działania umożliwiają firmie Fabrikam zminimalizowanie czasu obsługi naziemnej samolotów i zmniejszenie kosztów operacyjnych przy jednoczesnym zapewnieniu bezpieczeństwa pasażerów i załóg.
 
 Aby dowiedzieć się, jakie funkcje dostępne w [Pakiecie IoT Azure][lnk_iot_suite] umożliwiają klientom wykorzystanie potencjalnych możliwości konserwacji predykcyjnej, zapoznaj się z tą [grafiką informacyjną][lnk_infographic].
 
@@ -50,7 +55,7 @@ Aby dowiedzieć się, jakie funkcje dostępne w [Pakiecie IoT Azure][lnk_iot_sui
 
 Rozwiązanie korzysta z istniejącego modelu usługi Azure Machine Learning dostępnego w postaci szablonu, który pozwala na demonstrację działania funkcji przy użyciu danych telemetrycznych pochodzących z urządzeń i zebranych za pomocą usług Pakietu IoT. Firma Microsoft opracowała [model regresji][lnk_regression_model] silnika samolotu na podstawie publicznie dostępnych danych<sup>\[1\]</sup> oraz szczegółowe wskazówki dotyczące używania tego modelu.
 
-Wstępnie skonfigurowane rozwiązanie Azure IoT do konserwacji predykcyjnej używa modelu regresji utworzonego na podstawie tego szablonu. Model jest wdrożony w ramach subskrypcji platformy Azure i dostępny za pośrednictwem automatycznie generowanego interfejsu API. Rozwiązanie to zawiera podzbiór danych testowych odpowiadających 4 ze 100 silników oraz strumieniom danych z 4 z 21 czujników. Te dane wystarczają do uzyskania dokładnego wyniku za pomocą nauczonego modelu.
+Rozwiązanie Azure IoT do konserwacji predykcyjnej używa modelu regresji utworzonego na podstawie tego szablonu. Model jest wdrożony w ramach subskrypcji platformy Azure i dostępny za pośrednictwem automatycznie generowanego interfejsu API. Rozwiązanie to zawiera podzbiór danych testowych odpowiadających 4 ze 100 silników oraz strumieniom danych z 4 z 21 czujników. Te dane wystarczają do uzyskania dokładnego wyniku za pomocą nauczonego modelu.
 
 *\[1\] A. Saxena and K. Goebel (2008). „Turbofan Engine Degradation Simulation Data Set” (Zestaw danych dotyczących symulacji degradacji silnika turbowentylatorowego), repozytorium danych prognostycznych NASA w Ames (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), ośrodek badawczy NASA w Ames, Moffett Field, Kalifornia*
 
@@ -86,17 +91,19 @@ Czy istnieją jakieś szczegóły dotyczące Twojego rozwiązania, które nie s�
 W tej sekcji opisano interfejs użytkownika rozwiązania.
 
 ### <a name="predictive-maintenance-dashboard"></a>Pulpit nawigacyjny konserwacji predykcyjnej
+
 Na tej stronie aplikacji sieci Web są używane kontrolki JavaScript usługi Power BI (zobacz [repozytorium PowerBI-visuals][lnk-powerbi]), które umożliwiają wizualizację następujących elementów:
 
 * Dane wyjściowe zadań usługi Stream Analytics przechowywane w magazynie obiektów blob.
 * Liczba cykli i pozostały czas eksploatacji silnika.
 
 ### <a name="observing-the-behavior-of-the-cloud-solution"></a>Monitorowanie działania rozwiązania w chmurze
+
 W portalu Azure przejdź do grupy zasobów z nazwą wybranego rozwiązania, aby wyświetlić aprowizowane zasoby.
 
 ![][img-resource-group]
 
-Po przeprowadzeniu aprowizacji wstępnie skonfigurowanego rozwiązania otrzymasz wiadomość e-mail z linkiem do obszaru roboczego usługi Machine Learning. Do obszaru roboczego usługi Machine Learning możesz także przejść za pomocą kafelka na stronie [azureiotsuite.com][lnk-azureiotsuite] swojego aprowizowanego rozwiązania, gdy jego stan zmieni się na **Gotowe**.
+Po przeprowadzeniu aprowizacji wstępnie skonfigurowanego rozwiązania otrzymasz wiadomość e-mail z linkiem do obszaru roboczego usługi Machine Learning. Do obszaru roboczego usługi Machine Learning można także przejść ze strony [azureiotsuite.com][lnk-azureiotsuite] zaprowizowanego rozwiązania. Kafelek jest dostępny na tej stronie, gdy rozwiązanie jest w stanie **Gotowe**.
 
 ![][img-machine-learning]
 
@@ -104,11 +111,11 @@ W portalu rozwiązania możesz zobaczyć, że do aprowizacji przykładu użyto c
 
 ![][img-simulation-stopped]
 
-Aby rozpocząć symulację, kliknij przycisk **Rozpocznij symulację**. Na pulpicie nawigacyjnym zostaną wyświetlone: liczba cykli, historia danych z czujników i pozostały czas eksploatacji wraz z historią.
+Kliknij pozycję **Rozpocznij symulację**, aby uruchomić symulację. Na pulpicie nawigacyjnym zostanie wyświetlona liczba cykli, historia danych z czujników i pozostały czas eksploatacji wraz z historią.
 
 ![][img-simulation-running]
 
-Jeśli wartość pozostałego czasu eksploatacji jest mniejsza niż 160 (arbitralna wartość progowa dla celów demonstracyjnych), w portalu rozwiązania zostanie wyświetlony symbol ostrzeżenia obok pozostałego czasu eksploatacji, a silnik samolotu zostanie wyróżniony żółtym kolorem. Zwróć uwagę na to, jak pozostały czas eksploatacji ma ogólną tendencję zniżkową ze skokami w górę i w dół. Takie zachowanie wynika z dokładności modelu i różnych czasów trwania cykli.
+Jeśli wartość pozostałego czasu eksploatacji jest mniejsza niż 160 (arbitralna wartość progowa dla celów demonstracyjnych), w portalu rozwiązania zostanie wyświetlony symbol ostrzeżenia obok pozostałego czasu eksploatacji. Dodatkowo w portalu rozwiązania silnik samolotu zostanie wyróżniony kolorem żółtym. Zwróć uwagę na to, jak pozostały czas eksploatacji ma ogólną tendencję zniżkową ze skokami w górę i w dół. Takie zachowanie wynika z dokładności modelu i różnych czasów trwania cykli.
 
 ![][img-simulation-warning]
 
@@ -122,7 +129,7 @@ Symulację można zatrzymać w dowolnym momencie, ale kliknięcie przycisku **Ro
 
 Aby dowiedzieć się więcej o obsłudze scenariuszy konserwacji predykcyjnej w Pakiecie IoT Azure, zapoznaj się z dokumentem[Capture value from the Internet of Things][lnk_capture_value] (Korzyści z Internetu rzeczy).
 
-Skorzystaj z [przewodnika][lnk-predictive-walkthrough] po wstępnie skonfigurowanym rozwiązaniu do konserwacji predykcyjnej.
+Skorzystaj z [przewodnika][lnk-predictive-walkthrough] po rozwiązaniu do konserwacji predykcyjnej.
 
 Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skonfigurowanych rozwiązań Pakietu IoT:
 

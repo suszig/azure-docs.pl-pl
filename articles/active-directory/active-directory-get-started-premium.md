@@ -1,6 +1,6 @@
 ---
 title: "Wprowadzenie do usługi Azure Active Directory — wersja Premium"
-description: "Temat opisujący tworzenie konta w usłudze Azure Active Directory — wersja Premium za pośrednictwem witryny sieci Web licencjonowania zbiorowego."
+description: "Opisuje sposób tworzenie konta w usłudze Azure Active Directory — wersja Premium za pośrednictwem witryny internetowej licencjonowania zbiorowego."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 12/07/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Wprowadzenie do usługi Azure Active Directory — wersja Premium
+W tym artykule opisano rozpoczynanie pracy z usługą Azure Active Directory — wersja Premium zakupioną w ramach programu licencjonowania zbiorowego. Jeśli nie znasz jeszcze różnych wersji usługi Azure Active Directory, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).  
+
+> [!IMPORTANT]
+> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule. 
+
 Konto w usłudze Active Directory — wersja Premium można utworzyć na kilka sposobów: 
 
 **Platforma Azure lub usługa Office 365** — jako subskrybent platformy Azure lub usługi Office 365 możesz kupić usługę Active Directory — wersja Premium online. Aby uzyskać szczegółowy opis kroków, zobacz [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Jak kupić usługę Azure Active Directory — wersja Premium: istniejący klienci) lub [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Jak kupić usługę Azure Active Directory — wersja Premium: nowi klienci).  
@@ -29,8 +34,6 @@ Konto w usłudze Active Directory — wersja Premium można utworzyć na kilka s
 **Enterprise Mobility + Security** — Enterprise Mobility + Security (dawniej Enterprise Mobility Suite) to ekonomiczne rozwiązanie dla organizacji korzystających z następujących usług w ramach jednego planu licencjonowania: Active Directory — wersja Premium, Azure Rights Management i Microsoft Intune. Aby uzyskać więcej informacji, zobacz witrynę sieci Web pakietu [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Aby uzyskać bezpłatną 30-dniową wersję próbną, kliknij [tutaj](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 **Licencjonowanie zbiorowe firmy Microsoft** — usługa Azure Active Directory — wersja Premium jest dostępna za pośrednictwem [umowy Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 lub więcej licencji) lub [programu licencjonowania Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5-250 licencji).
-
-W tym temacie opisano rozpoczynanie pracy z usługą Azure Active Directory — wersja Premium zakupioną w ramach programu licencjonowania zbiorowego. Jeśli nie znasz jeszcze różnych wersji usługi Azure Active Directory, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).  
 
 > [!NOTE]
 > Klienci w Chinach mogą używać wersji Premium i Podstawowa usługi Azure Active Directory za pomocą wystąpienia usługi Azure Active Directory dostępnego na całym świecie. Wersje Premium i Podstawowa usługi Azure Active Directory nie są obecnie obsługiwane w usłudze Microsoft Azure świadczonej przez 21Vianet w Chinach. Aby uzyskać więcej informacji, skontaktuj się z nami na [forum usługi Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
