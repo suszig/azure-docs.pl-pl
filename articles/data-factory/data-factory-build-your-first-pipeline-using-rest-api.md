@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 168704acc3ef1fadad2ab17abbc3cc0ddd2f389c
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 197d75a06cce6ffc9111de6351f6a217073423c6
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Samouczek: Tworzenie pierwszej fabryki danych Azure przy użyciu interfejsu API REST usługi Fabryka danych
@@ -107,8 +106,10 @@ W folderze, w którym znajduje się narzędzie curl.exe, utwórz następujące p
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
-            "timeToLive": "00:30:00",
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
@@ -125,7 +126,7 @@ Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie
 
 Pamiętaj o następujących kwestiach:
 
-* Usługa Fabryka danych tworzy klaster usługi HDInsight **oparty na systemie Windows** za pomocą powyższego kodu JSON. Możliwe jest również utworzenie klastra usługi HDInsight **opartego na systemie Linux**. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
+* Usługa Data Factory tworzy klaster usługi HDInsight **oparty na systemie Linux** za pomocą powyższego kodu JSON. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
 * Możesz użyć **własnego klastra usługi HDInsight** zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
 * Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony przy każdym przetwarzaniu wycinka — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania.
 
@@ -236,8 +237,8 @@ Ten kod JSON definiuje zestaw danych o nazwie **AzureBlobOutput**, który reprez
             "name": "RunSampleHiveActivity",
             "linkedServiceName": "HDInsightOnDemandLinkedService"
         }],
-        "start": "2016-07-10T00:00:00Z",
-        "end": "2016-07-11T00:00:00Z",
+        "start": "2017-07-10T00:00:00Z",
+        "end": "2017-07-11T00:00:00Z",
         "isPaused": false
     }
 }

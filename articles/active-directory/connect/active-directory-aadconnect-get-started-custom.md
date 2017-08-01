@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 669ed9465e4ce4539b8aa642b4dc0eca6bad128a
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
@@ -127,10 +127,10 @@ Funkcja dopasowywania w lasach umożliwia określenie, jak użytkownicy z lasów
 | Ustawienie | Opis |
 | --- | --- |
 | [Obsługiwani użytkownicy są reprezentowani jednokrotnie we wszystkich lasach](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Wszyscy użytkownicy są utworzeni jako pojedyncze obiekty w usłudze Azure AD. Obiekty nie są łączone w magazynie metaverse. |
-| [Atrybut poczty](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Ta opcja łączy użytkowników i kontakty, jeśli atrybut poczty ma taką samą wartość w różnych lasach. Tej opcji należy użyć w przypadku, gdy kontakty zostały utworzone przy użyciu usługi GALSync. |
+| [Atrybut poczty](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Ta opcja łączy użytkowników i kontakty, jeśli atrybut poczty ma taką samą wartość w różnych lasach. Tej opcji należy użyć w przypadku, gdy kontakty zostały utworzone przy użyciu usługi GALSync. Jeśli ta opcja zostanie wybrana, obiekty użytkownika, których atrybut poczty nie jest wypełniony, nie będą synchronizowane z usługą Azure AD. |
 | [Atrybuty ObjectSID i msExchangeMasterAccountSID/msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Ta opcja łączy włączonego użytkownika w lesie konta z wyłączonym użytkownikiem w lesie zasobów. W programie Exchange ta konfiguracja jest określana jako połączona skrzynka pocztowa. Ta opcja może być również używana, jeśli używany jest tylko program Lync, a program Exchange nie jest obecny w lesie zasobów. |
 | Atrybuty sAMAccountName i MailNickName |Ta opcja łączy atrybuty w przypadku, gdy oczekiwane jest znalezienie identyfikatora logowania dla użytkownika. |
-| Określony atrybut |Ta opcja umożliwia wybranie własnego atrybutu. **Ograniczenie:** należy pamiętać, aby wybrać atrybut, który znajduje się już w magazynie metaverse. W przypadku wybrania atrybutu niestandardowego (który nie znajduje się w magazynie metaverse) nie można ukończyć działania kreatora. |
+| Określony atrybut |Ta opcja umożliwia wybranie własnego atrybutu. Jeśli ta opcja zostanie wybrana, obiekty użytkownika, których wybrany atrybut nie jest wypełniony, nie będą synchronizowane z usługą Azure AD. **Ograniczenie:** należy pamiętać, aby wybrać atrybut, który znajduje się już w magazynie metaverse. W przypadku wybrania atrybutu niestandardowego (który nie znajduje się w magazynie metaverse) nie można ukończyć działania kreatora. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Wybieranie sposobu identyfikowania użytkowników z usługą Azure AD — zakotwiczenie źródła
 Atrybut sourceAnchor jest niezmienialny w okresie istnienia obiektu użytkownika. Jest kluczem podstawowym łączącym użytkownika lokalnego z użytkownikiem w usłudze Azure AD.

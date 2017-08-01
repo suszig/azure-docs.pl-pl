@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: dac2b51cb48f76a88fc592c0fac50414da641777
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 51f24bf75631206d7480eec8b871dee95726b0a8
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -116,15 +115,17 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
 
     ```JSON
     {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "AzureStorageLinkedService"
+        "name": "HDInsightOnDemandLinkedService",
+        "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+                "version": "3.5",
+                "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
+                "linkedServiceName": "AzureStorageLinkedService"
+            }
         }
-      }
     }
     ```
 
@@ -133,12 +134,12 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
    | Właściwość | Opis |
    |:--- |:--- |
    | ClusterSize |Określa rozmiar klastra usługi HDInsight. |
-   | TimeToLive |Określa czas bezczynności, po którym klaster usługi HDInsight zostanie usunięty. |
-   | linkedServiceName |Określa konto magazynu używane do przechowywania dzienników generowanych w usłudze HDInsight. |
+   | TimeToLive | Określa czas bezczynności, po którym klaster usługi HDInsight zostanie usunięty. |
+   | linkedServiceName | Określa konto magazynu używane do przechowywania dzienników generowanych w usłudze HDInsight. |
 
     Pamiętaj o następujących kwestiach:
 
-   * Usługa Data Factory tworzy klaster usługi HDInsight **oparty na systemie Windows** za pomocą kodu JSON. Możliwe jest również utworzenie klastra usługi HDInsight **opartego na systemie Linux**. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
+   * Usługa Data Factory tworzy klaster usługi HDInsight **oparty na systemie Linux** za pomocą kodu JSON. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
    * Możesz użyć **własnego klastra usługi HDInsight** zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
    * Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony przy każdym przetwarzaniu wycinka — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**). Klaster jest automatycznie usuwany po zakończeniu przetwarzania.
 
@@ -283,8 +284,8 @@ W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsigh
                     "linkedServiceName": "HDInsightOnDemandLinkedService"
                 }
             ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
+            "start": "2017-07-01T00:00:00Z",
+            "end": "2017-07-02T00:00:00Z",
             "isPaused": false
         }
     }
@@ -371,7 +372,7 @@ Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i z
 1. Kliknij kafelek **Monitorowanie i zarządzanie** na stronie głównej fabryki danych.
 
     ![Kafelek Monitorowanie i zarządzanie](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
-2. Powinna zostać wyświetlona **aplikacja Monitorowanie i zarządzanie**. Zmień **godzinę rozpoczęcia** i **godzinę zakończenia** na godzinę rozpoczęcia (04-01-2016 12:00:00) i godzinę zakończenia (2016-04-02 12:00:00) potoku i kliknij przycisk **Zastosuj**.
+2. Powinna zostać wyświetlona **aplikacja Monitorowanie i zarządzanie**. Zmień wartość **Czas rozpoczęcia** i **Czas zakończenia** na czas rozpoczęcia i czas zakończenia potoku, a następnie kliknij przycisk **Zastosuj**.
 
     ![Aplikacja Monitorowanie i zarządzanie](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 3. Wybierz okno działania z listy **okien działania**, aby zobaczyć szczegółowe informacje o nim.

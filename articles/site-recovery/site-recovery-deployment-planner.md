@@ -14,22 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/29/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
-<a id="azure-site-recovery-deployment-planner" class="xliff"></a>
-
-# Planista wdrożenia usługi Azure Site Recovery
+# <a name="azure-site-recovery-deployment-planner"></a>Planista wdrożenia usługi Azure Site Recovery
 Ten artykuł to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
 
-<a id="overview" class="xliff"></a>
-
-## Omówienie
+## <a name="overview"></a>Omówienie
 
 Zanim zaczniesz chronić maszyny wirtualne oprogramowania VMware za pomocą usługi Site Recovery, przydziel odpowiednią przepustowość zgodnie z częstotliwością dziennych zmian danych, aby osiągnąć założony cel punktu odzyskiwania. Pamiętaj o lokalnym wdrożeniu odpowiedniej liczby serwerów konfiguracji i serwerów przetwarzania.
 
@@ -67,9 +62,7 @@ Narzędzie udostępnia następujące szczegóły:
 >Ponieważ obciążenie będzie prawdopodobnie zwiększać się wraz z upływem czasu, wszystkie poprzednie obliczenia narzędzia są wykonywane przy założeniu 30-procentowego współczynnika wzrostu wartości charakterystyk obciążenia i przy użyciu wartości 95. percentyla wszystkich metry profilowania (operacje we/wy odczytu/zapisu na sekundę, współczynnik zmian danych itd.). Oba te elementy (współczynnik wzrostu i obliczenie wartości percentyla) można konfigurować. Więcej informacji na temat współczynnika wzrostu można znaleźć w sekcji „Zagadnienia związane ze współczynnikiem wzrostu”. Więcej informacji na temat wartości percentyla można znaleźć w sekcji „Wartość percentyla użyta w obliczeniach”.
 >
 
-<a id="requirements" class="xliff"></a>
-
-## Wymagania
+## <a name="requirements"></a>Wymagania
 Narzędzie obejmuje dwa główne etapy — profilowanie i generowanie raportu. Jest też dostępny trzeci etap umożliwiający obliczanie tylko przepływności. Wymagania dotyczące serwera, z którego inicjowane jest profilowanie i pomiar przepływności, zostały przedstawione w poniższej tabeli:
 
 | Wymaganie dotyczące serwera | Opis|
@@ -83,9 +76,7 @@ Narzędzie obejmuje dwa główne etapy — profilowanie i generowanie raportu. J
 >Narzędzie może profilować tylko maszyny wirtualne z dyskami VMDK i RDM. Nie pozwala ono profilować maszyn wirtualnych z dyskami iSCSI ani NFS. Usługa Site Recovery obsługuje dyski iSCSI i NFS w przypadku serwerów VMware, ponieważ planista wdrożenia nie znajduje się na gościu i profiluje tylko przy użyciu liczników wydajności programu vCenter, jednak narzędzie nie ma wglądu w te typy dysków.
 >
 
-<a id="download-and-extract-the-public-preview" class="xliff"></a>
-
-## Pobieranie i wyodrębnianie publicznej wersji zapoznawczej
+## <a name="download-and-extract-the-public-preview"></a>Pobieranie i wyodrębnianie publicznej wersji zapoznawczej
 1. Pobierz najnowszą wersję [planisty wdrożenia usługi Site Recovery w ramach publicznej wersji zapoznawczej](https://aka.ms/asr-deployment-planner).  
 Narzędzie jest spakowane w folderze ZIP. Bieżąca wersja narzędzia obsługuje tylko replikację z oprogramowania VMware do platformy Azure.
 
@@ -103,9 +94,7 @@ Folder zawiera wiele plików i podfolderów. Plik wykonywalny nosi nazwę ASRDep
 
     E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
-<a id="capabilities" class="xliff"></a>
-
-## Możliwości
+## <a name="capabilities"></a>Możliwości
 Narzędzie wiersza polecenia (ASRDeploymentPlanner.exe) możesz uruchomić w jednym z trzech następujących trybów:
 
 1. Profilowanie  
@@ -114,17 +103,13 @@ Narzędzie wiersza polecenia (ASRDeploymentPlanner.exe) możesz uruchomić w jed
 
 Najpierw uruchom narzędzie w trybie profilowania, aby zebrać informacje na temat współczynnika zmian danych i operacji we/wy na sekundę maszyny wirtualnej. Następnie uruchom narzędzie w celu wygenerowania raportu, aby uzyskać wymagania dotyczące przepustowości i magazynu.
 
-<a id="profiling" class="xliff"></a>
-
-## Profilowanie
+## <a name="profiling"></a>Profilowanie
 W trybie profilowania narzędzie planisty wdrożenia łączy się z serwerem vCenter/hostem vSphere ESXi w celu zebrania danych wydajności maszyny wirtualnej.
 
 * Profilowanie nie wpływa na wydajność produkcyjnych maszyn wirtualnych, ponieważ nie nawiązujesz z nimi bezpośredniego połączenia. Wszystkie dane wydajności są zbierane z serwera vCenter/hosta vSphere ESXi.
 * Aby upewnić się, że profilowanie ma niewielki wpływ na wydajność serwera, co 15 minut narzędzie przesyła zapytanie na serwer vCenter/do hosta vSphere ESXi. Interwał zapytań nie ma wpływu na dokładność profilowania, ponieważ narzędzie zapisuje dane liczników wydajności z każdej minuty.
 
-<a id="create-a-list-of-vms-to-profile" class="xliff"></a>
-
-### Tworzenie listy maszyn wirtualnych do profilowania
+### <a name="create-a-list-of-vms-to-profile"></a>Tworzenie listy maszyn wirtualnych do profilowania
 Najpierw musisz utworzyć listę maszyn wirtualnych, które chcesz profilować. Wszystkie nazwy maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi można uzyskać za pomocą poniższych poleceń programu VMware vSphere PowerCLI, wykonując kroki poniższej procedury. Alternatywnie można wyświetlić w pliku listę przyjaznych nazw lub adresów IP maszyn wirtualnych, które chcesz profilować ręcznie.
 
 1. Zaloguj się do maszyny wirtualnej z zainstalowanym programem VMware vSphere PowerCLI.
@@ -144,9 +129,7 @@ Zamień wartości &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaqu
 
     ![Lista nazw maszyn wirtualnej w planiście wdrożenia](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
-<a id="start-profiling" class="xliff"></a>
-
-### Rozpoczynanie profilowania
+### <a name="start-profiling"></a>Rozpoczynanie profilowania
 Po utworzeniu listy maszyn wirtualnych do profilowania można uruchomić narzędzie w trybie profilowania. Poniżej przedstawiono listę obowiązkowych i opcjonalnych parametrów narzędzia w trybie profilowania.
 
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
@@ -178,24 +161,18 @@ Konfiguracja maszyn wirtualnych jest przechwytywana raz na początku operacji pr
 
 Polecenie profilowania powoduje wygenerowanie kilku plików w katalogu profilowania. Nie usuwaj żadnych plików, ponieważ wpływa to na proces generowania raportów.
 
-<a id="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure" class="xliff"></a>
-
-#### Przykład 1: profilowanie maszyn wirtualnych przez 30 dni i znajdowanie przepływności między środowiskiem lokalnym i platformą Azure
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Przykład 1: profilowanie maszyn wirtualnych przez 30 dni i znajdowanie przepływności między środowiskiem lokalnym i platformą Azure
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-<a id="example-2-profile-vms-for-15-days" class="xliff"></a>
-
-#### Przykład 2: profilowanie maszyn wirtualnych przez 15 dni
+#### <a name="example-2-profile-vms-for-15-days"></a>Przykład 2: profilowanie maszyn wirtualnych przez 15 dni
 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-<a id="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool" class="xliff"></a>
-
-#### Przykład 3: profilowanie maszyn wirtualnych przez 1 godzinę w celu szybkiego przetestowania narzędzia
+#### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool"></a>Przykład 3: profilowanie maszyn wirtualnych przez 1 godzinę w celu szybkiego przetestowania narzędzia
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  0.04  -User vCenterUser1
 ```
@@ -206,9 +183,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 >* Jeśli przekazano nazwę i klucz konta magazynu, narzędzie mierzy przepływność na ostatnim etapie profilowania. Jeśli narzędzie zostanie zamknięte przed ukończeniem profilowania, przepływność nie zostanie obliczona. Aby znaleźć przepływność przed wygenerowaniem raportu, można uruchomić operację GetThroughput w konsoli wiersza polecenia. W przeciwnym razie wygenerowany raport nie będzie zawierać informacji o przepływności.
 
 
-<a id="generate-a-report" class="xliff"></a>
-
-## Generowanie raportu
+## <a name="generate-a-report"></a>Generowanie raportu
 Narzędzie generuje plik programu Microsoft Excel z włączoną obsługą makr (plik XLSM) jako dane wyjściowe raportu zawierające podsumowanie wszystkich zaleceń dotyczące wdrożenia. Raport nosi nazwę DeploymentPlannerReport_<*unikatowy_identyfikator_numeryczny*>.xlsm i jest umieszczany w wybranym katalogu.
 
 Po zakończeniu profilowania możesz uruchomić narzędzie w trybie generowania raportu. Poniższa tabela zawiera listę obowiązkowych i opcjonalnych parametrów narzędzia uruchamianego w trybie generowania raportu.
@@ -231,53 +206,39 @@ Po zakończeniu profilowania możesz uruchomić narzędzie w trybie generowania 
 | -GrowthFactor | (Opcjonalnie) Współczynnik wzrostu wyrażony jako wartość procentowa. Wartość domyślna to 30 procent. |
 | -UseManagedDisks | (Opcjonalnie) UseManagedDisks — Yes/No. Wartość domyślna to Yes. Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana z uwzględnieniem tego, czy na potrzeby pracy w trybie failover/testu pracy w trybie failover jest używany dysk zarządzany, czy niezarządzany. |
 
-<a id="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive" class="xliff"></a>
-
-#### Przykład 1: generowanie raportu przy użyciu wartości domyślnych, gdy profilowane dane znajdują się na dysku lokalnym
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Przykład 1: generowanie raportu przy użyciu wartości domyślnych, gdy profilowane dane znajdują się na dysku lokalnym
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-<a id="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server" class="xliff"></a>
-
-#### Przykład 2: generowanie raportu, gdy profilowane dane znajdują się na serwerze zdalnym
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Przykład 2: generowanie raportu, gdy profilowane dane znajdują się na serwerze zdalnym
 Użytkownik musi mieć uprawnienia odczytu/zapisu w katalogu zdalnym.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-<a id="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time" class="xliff"></a>
-
-#### Przykład 3: generowanie raportu przy użyciu określonej przepustowości i celu ukończenia replikacji początkowej w określonym czasie
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Przykład 3: generowanie raportu przy użyciu określonej przepustowości i celu ukończenia replikacji początkowej w określonym czasie
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-<a id="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent" class="xliff"></a>
-
-#### Przykład 4: generowanie raportu przy użyciu współczynnika wzrostu 5 procent zamiast domyślnego współczynnika 30 procent
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Przykład 4: generowanie raportu przy użyciu współczynnika wzrostu 5 procent zamiast domyślnego współczynnika 30 procent
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
-<a id="example-5-generate-a-report-with-a-subset-of-profiled-data" class="xliff"></a>
-
-#### Przykład 5: generowanie raportu przy użyciu podzestawu profilowanych danych
+#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Przykład 5: generowanie raportu przy użyciu podzestawu profilowanych danych
 Załóżmy, że masz profilowane dane z 30 dni i chcesz wygenerować raport tylko z 20 dni.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-<a id="example-6-generate-a-report-for-5-minute-rpo" class="xliff"></a>
-
-#### Przykład 6: generowanie raportu w przypadku 5-minutowego celu punktu odzyskiwania
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Przykład 6: generowanie raportu w przypadku 5-minutowego celu punktu odzyskiwania
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-<a id="percentile-value-used-for-the-calculation" class="xliff"></a>
-
-## Wartość percentyla używana do obliczenia
+## <a name="percentile-value-used-for-the-calculation"></a>Wartość percentyla używana do obliczenia
 **Jaka domyślna wartość percentyla metryk wydajności zebranych podczas profilowania jest używana przez narzędzie podczas generowania raportu?**
 
 Domyślnie narzędzie używa wartości 95. percentyla operacji we/wy odczytu i zapisu na sekundę, operacji we/wy zapisu na sekundę i współczynnika zmian danych zebranych podczas profilowania wszystkich maszyn wirtualnych. Dzięki tej metryce masz pewność, że ewentualna szczytowa wartość 100. percentyla, która może wystąpić na maszynach wirtualnych z powodu tymczasowych zdarzeń, nie będzie używana do określania wymagań dotyczących docelowego konta magazynu ani przepustowości źródłowej. Zdarzenie tymczasowe to na przykład uruchamiane raz dziennie zadanie tworzenia kopii zapasowej, działanie polegające na okresowym indeksowaniu bazy danych lub generowaniu raportu analitycznego albo inne podobne, krótkotrwałe zdarzenia występujące w danym momencie czasowym.
@@ -289,9 +250,7 @@ Korzystanie z wartości 95. percentyla oddaje rzeczywistą charakterystykę obci
 <add key="DataChurnPercentile" value="95" />
 ```
 
-<a id="growth-factor-considerations" class="xliff"></a>
-
-## Zagadnienia związane ze współczynnikiem wzrostu
+## <a name="growth-factor-considerations"></a>Zagadnienia związane ze współczynnikiem wzrostu
 **Dlaczego podczas planowania wdrożenia warto wziąć pod uwagę współczynnik wzrostu?**
 
 Uwzględnianie wzrostu w charakterystyce obciążenia jest niezwykle ważne przy zakładaniu potencjalnego wzrostu użycia wraz z upływem czasu. W przypadku zmiany charakterystyki po włączeniu ochrony nie ma możliwości przełączenia do innego konta magazynu w celu zapewnienia ochrony bez wyłączenia i ponownego włączenia ochrony.
@@ -315,9 +274,7 @@ Wygenerowany raport programu Microsoft Excel zawiera następujące informacje:
 
 ![Planista wdrożenia](./media/site-recovery-deployment-planner/dp-report.png)
 
-<a id="get-throughput" class="xliff"></a>
-
-## Uzyskiwanie informacji o przepływności
+## <a name="get-throughput"></a>Uzyskiwanie informacji o przepływności
 
 Aby oszacować przepływność osiągalną dla usługi Site Recovery podczas replikacji między środowiskiem lokalnym i platformą Azure, uruchom narzędzie w trybie uzyskiwania informacji o przepływności (GetThroughput). Narzędzie oblicza przepływność z serwera, na którym uruchomiono to narzędzie. W idealnej sytuacji ten serwer jest oparty na przewodniku dotyczącym zmian rozmiaru serwera konfiguracji. Jeśli wdrożono już lokalnie składniki infrastruktury usługi Site Recovery, uruchom narzędzie na serwerze konfiguracji.
 
@@ -338,9 +295,7 @@ Narzędzie tworzy kilka plików asrvhdfile<#>.vhd (gdzie znak „#” to liczba 
 
 Przepływność jest mierzona w określonym momencie i jest maksymalną przepływnością osiągalną dla usługi Site Recovery podczas replikacji, jeśli wszystkie pozostałe czynniki pozostają bez zmian. Jeśli na przykład aplikacja zacznie używać większej przepustowości w tej samej sieci, rzeczywista przepływność będzie się zmieniać podczas replikacji. Jeśli używasz polecenia GetThroughput na serwerze konfiguracji, narzędzie nie uwzględnia chronionych maszyn wirtualnych ani replikacji w toku. Wynik pomiaru przepływności jest inny, jeśli operacja GetThroughput została uruchomiona przy wysokim współczynniku zmian danych chronionych maszyn wirtualnych. Zalecamy uruchomienie narzędzia w różnych momentach podczas profilowania, aby sprawdzić osiągalne poziomy przepływności w różnym czasie. Raport narzędzia zawiera ostatnio zmierzoną przepływność.
 
-<a id="example" class="xliff"></a>
-
-### Przykład
+### <a name="example"></a>Przykład
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -359,13 +314,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >
 >  4. Zmień ustawienia usługi Site Recovery na serwerze przetwarzania, aby [zwiększyć przepustowość sieci na potrzeby replikacji](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-<a id="recommendations-with-desired-rpo-as-input" class="xliff"></a>
+## <a name="recommendations-with-desired-rpo-as-input"></a>Zalecenia dotyczące danych wejściowych w postaci żądanego celu punktu odzyskiwania
 
-## Zalecenia dotyczące danych wejściowych w postaci żądanego celu punktu odzyskiwania
-
-<a id="profiled-data" class="xliff"></a>
-
-### Profilowane dane
+### <a name="profiled-data"></a>Profilowane dane
 
 ![Widok profilowanych danych w planiście wdrożenia](./media/site-recovery-deployment-planner/profiled-data-period.png)
 
@@ -375,9 +326,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 **Żądany cel punktu odzyskiwania**: cel punktu odzyskiwania dla danego wdrożenia. Domyślnie wymagana przepustowość sieci jest obliczana dla wartości celu punktu odzyskiwania równych 15, 30 i 60 minut. Odpowiednie wartości są aktualizowane w arkuszu zgodnie z wybraną wartością. W przypadku użycia parametru *DesiredRPOinMin* podczas generowania raportu ta wartość jest wyświetlana w obszarze wyniku żądanego celu punktu odzyskiwania.
 
-<a id="profiling-overview" class="xliff"></a>
-
-### Omówienie profilowania
+### <a name="profiling-overview"></a>Omówienie profilowania
 
 ![Wyniki profilowania w planiście wdrożenia](./media/site-recovery-deployment-planner/profiling-overview.png)
 
@@ -389,9 +338,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 **Żądany cel punktu odzyskiwania**: żądany cel punktu odzyskiwania w minutach. Raport jest generowany dla trzech wartości celu punktu odzyskiwania: 15 (ustawienie domyślne), 30 i 60 minut. Zalecenie dotyczące przepustowości w raporcie zmienia się zgodnie z pozycją wybraną z listy rozwijanej żądanego celu punktu odzyskiwania w prawym górnym rogu arkusza. Jeśli raport został wygenerowany przy użyciu parametru *-DesiredRPO* z wartością niestandardową, ta wartość będzie wyświetlana jako domyślna na liście rozwijanej żądanego celu punktu odzyskiwania.
 
-<a id="required-network-bandwidth-mbps" class="xliff"></a>
-
-### Wymagana przepustowość sieci (Mb/s)
+### <a name="required-network-bandwidth-mbps"></a>Wymagana przepustowość sieci (Mb/s)
 
 ![Wymagana przepustowość sieci w planiście wdrożenia](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
 
@@ -415,38 +362,28 @@ Jeśli narzędzie zostało uruchomione na serwerze konfiguracji lub serwerze prz
 
 W przypadku wszystkich wdrożeń usługi Site Recovery w przedsiębiorstwach zalecamy użycie usługi [ExpressRoute](https://aka.ms/expressroute).
 
-<a id="required-storage-accounts" class="xliff"></a>
-
-### Wymagane konta magazynu
+### <a name="required-storage-accounts"></a>Wymagane konta magazynu
 Ten wykres przedstawia łączną liczbę kont magazynu (w warstwach Standardowa i Premium) wymaganych do ochrony wszystkich zgodnych maszyn wirtualnych. Aby dowiedzieć się, którego konta magazynu używać dla poszczególnych maszyn wirtualnych, zobacz sekcję „Rozmieszczenie maszyny wirtualnej względem magazynu”.
 
 ![Wymagane konta magazynu w planiście wdrożenia](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
 
-<a id="required-number-of-azure-cores" class="xliff"></a>
-
-### Wymagana liczba rdzeni platformy Azure
+### <a name="required-number-of-azure-cores"></a>Wymagana liczba rdzeni platformy Azure
 Wynik to łączna liczba rdzeni do skonfigurowania przed rozpoczęciem pracy w trybie failover lub testem pracy w trybie failover dla wszystkich zgodnych maszyn wirtualnych. Jeśli liczba rdzeni w ramach subskrypcji jest zbyt mała, usługa Site Recovery nie może utworzyć maszyn wirtualnych w czasie pracy w trybie failover lub testu pracy w trybie failover.
 
 ![Wymagana liczba rdzeni platformy Azure w planiście wdrożenia](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
 
-<a id="required-on-premises-infrastructure" class="xliff"></a>
-
-### Wymagana infrastruktura lokalna
+### <a name="required-on-premises-infrastructure"></a>Wymagana infrastruktura lokalna
 Ta wartość to łączna liczba serwerów konfiguracji i dodatkowych serwerów przetwarzania do skonfigurowania w celu zapewnienia ochrony wszystkich zgodnych maszyn wirtualnych. W zależności od obsługiwanych [zaleceń dotyczących rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components) narzędzie może zalecić dodatkowe serwery. Zalecenie to opiera się na większej z następujących wartości: dziennego współczynnika zmian lub maksymalnej liczby chronionych maszyn wirtualnych (przy założeniu średnio trzech dysków na maszynę wirtualną) zależnie od tego, który z tych limitów zostanie osiągnięty jako pierwszy na serwerze konfiguracji lub dodatkowym serwerze przetwarzania. Szczegółowe informacje o łącznym dziennym współczynniku zmian oraz łącznej liczbie chronionych dysków znajdują się w sekcji „Dane wejściowe”.
 
 ![Wymagana infrastruktura lokalna w planiście wdrożenia](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
 
-<a id="what-if-analysis" class="xliff"></a>
-
-### Analiza warunkowa
+### <a name="what-if-analysis"></a>Analiza warunkowa
 Ta analiza przedstawia liczbę naruszeń, które mogą wystąpić podczas profilowania w przypadku ustawienia mniejszej przepustowości umożliwiającej osiągnięcie żądanego celu punktu odzyskiwania tylko przez 90 procent czasu. W danym dniu może wystąpić co najmniej jedno naruszenie. Wykres przedstawia szczyt celu punktu odzyskiwania w danym dniu.
 Na podstawie tej analizy można zdecydować, czy liczba naruszeń celu punktu odzyskiwania we wszystkich dniach i szczytowa wartość celu punktu odzyskiwania na dzień jest dopuszczalna przy określonej mniejszej przepustowości. Jeśli tak, można przydzielić mniejszą przepustowość na potrzeby replikacji. W przeciwnym razie przydziel większą przepustowość zgodnie z propozycją, aby osiągnąć żądany cel punktu odzyskiwania przez 100 procent czasu.
 
 ![Analiza warunkowa w planiście wdrożenia](./media/site-recovery-deployment-planner/what-if-analysis.png)
 
-<a id="recommended-vm-batch-size-for-initial-replication" class="xliff"></a>
-
-### Zalecany rozmiar partii maszyn wirtualnych na potrzeby replikacji początkowej
+### <a name="recommended-vm-batch-size-for-initial-replication"></a>Zalecany rozmiar partii maszyn wirtualnych na potrzeby replikacji początkowej
 W tej sekcji zalecamy liczbę maszyn wirtualnych, które mogą być chronione równolegle w celu ukończenia replikacji początkowej w ciągu 72 godzin przy proponowanej wydajności, aby spełniać wymagania celu punktu odzyskiwania przez 100 procent ustawianego czasu. Tę wartość można konfigurować. Aby zmienić ją podczas generowania raportu, użyj parametru *GoalToCompleteIR*.
 
 Wykres w tym miejscu przedstawia zakres wartości przepustowości i obliczony rozmiar partii maszyn wirtualnych umożliwiające ukończenie replikacji początkowej w ciągu 72 godzin na podstawie wykrytego średniego rozmiaru wszystkich zgodnych maszyn wirtualnych.
@@ -455,16 +392,12 @@ W publicznej wersji zapoznawczej raport nie zawiera informacji o tym, które mas
 
 ![Zalecany rozmiar partii zadań maszyny wirtualnej](./media/site-recovery-deployment-planner/recommended-vm-batch-size.png)
 
-<a id="growth-factor-and-percentile-values-used" class="xliff"></a>
-
-### Używane wartości współczynnika wzrostu i percentyla
+### <a name="growth-factor-and-percentile-values-used"></a>Używane wartości współczynnika wzrostu i percentyla
 W tej sekcji w dolnej części arkusza pokazano wartość percentyla używaną przez wszystkie liczniki wydajności profilowanych maszyn wirtualnych (domyślnie jest używany 95. percentyl) i współczynnik wzrostu (wartość domyślna to 30 procent) używany we wszystkich obliczeniach.
 
 ![Używane wartości współczynnika wzrostu i percentyla](./media/site-recovery-deployment-planner/max-iops-and-data-churn-setting.png)
 
-<a id="recommendations-with-available-bandwidth-as-input" class="xliff"></a>
-
-## Zalecenia dotyczące danych wejściowych w postaci dostępnej przepustowości
+## <a name="recommendations-with-available-bandwidth-as-input"></a>Zalecenia dotyczące danych wejściowych w postaci dostępnej przepustowości
 
 ![Zalecenia dotyczące danych wejściowych w postaci dostępnej przepustowości](./media/site-recovery-deployment-planner/profiling-overview-bandwidth-input.png)
 
@@ -472,9 +405,7 @@ Może wystąpić sytuacja, w której nie można ustawić przepustowości większ
 
 ![Osiągalny cel punktu odzyskiwania dla przepustowości wynoszącej 500 Mb/s](./media/site-recovery-deployment-planner/achievable-rpos.png)
 
-<a id="input" class="xliff"></a>
-
-## Dane wejściowe
+## <a name="input"></a>Dane wejściowe
 Arkusz danych wejściowych zawiera omówienie profilowanego środowiska VMware.
 
 ![Omówienie profilowanego środowiska VMware](./media/site-recovery-deployment-planner/Input.png)
@@ -498,9 +429,7 @@ Arkusz danych wejściowych zawiera omówienie profilowanego środowiska VMware.
 **Zaobserwowany dzienny typowy współczynnik zmian danych (GB)**: średni współczynnik zmian danych zaobserwowany we wszystkie dni profilowania. Jest on używany jako dane wejściowe do określania liczby serwerów konfiguracji i dodatkowych serwerów przetwarzania do użycia we wdrożeniu.
 
 
-<a id="vm-storage-placement" class="xliff"></a>
-
-## Rozmieszczenie maszyny wirtualnej względem magazynu
+## <a name="vm-storage-placement"></a>Rozmieszczenie maszyny wirtualnej względem magazynu
 
 ![Rozmieszczenie maszyny wirtualnej względem magazynu](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
@@ -518,9 +447,7 @@ Arkusz danych wejściowych zawiera omówienie profilowanego środowiska VMware.
 
 **Maszyny wirtualne do rozmieszczenia**: lista wszystkich maszyn wirtualnych, które powinny zostać umieszczone na danym koncie magazynu w celu uzyskania optymalnej wydajności i użycia.
 
-<a id="compatible-vms" class="xliff"></a>
-
-## Zgodne maszyny wirtualne
+## <a name="compatible-vms"></a>Zgodne maszyny wirtualne
 ![Arkusz kalkulacyjny programu Excel zawierający zgodne maszyny wirtualne](./media/site-recovery-deployment-planner/compatible-vms.png)
 
 **Nazwa maszyny wirtualnej**: nazwa lub adres IP maszyny wirtualnej używany w pliku VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski (VMDK) dołączone do maszyn wirtualnych. Aby wyróżnić maszyny wirtualne vCenter o zduplikowanych nazwach lub adresach IP, nazwy zawierają nazwę hosta ESXi. Wymieniony host ESXi to host, na którym umieszczono maszynę wirtualną odnaleziono w trakcie okresu profilowania.
@@ -528,7 +455,9 @@ Arkusz danych wejściowych zawiera omówienie profilowanego środowiska VMware.
 **Zgodność maszyny wirtualnej**: wartości to **Tak** i **Tak**\*. Wartość **Tak**\* jest przeznaczona dla wystąpień, w których maszyna wirtualna odpowiada usłudze [Azure Premium Storage](https://aka.ms/premium-storage-workload). Tutaj profilowany dysk o dużym współczynniku zmian lub dużej liczbie operacji we/wy należy do kategorii P20 lub P30, ale z powodu swojego rozmiaru jest mapowany w dół do kategorii P10 lub P20. Decyzja o tym, do którego typu dysku magazynu Premium będzie mapowany dysk, jest podejmowana na podstawie jego rozmiaru na poziomie konta magazynu. Na przykład:
 * Mniej niż 128 GB — P10.
 * 128 GB do 512 GB — P20.
-* 512 GB do 1023 GB — P30.
+* 512 GB do 1024 GB — P30.
+* 1025 GB do 2048 GB — P40.
+* 2049 GB do 4095 GB — P50.
 
 Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii P20 lub P30, ale z powodu rozmiaru jest mapowany w dół do niższego typu magazynu Premium, narzędzie oznacza daną maszynę wirtualną jako **Tak**\*. Narzędzie zaleca również zmianę rozmiaru dysku źródłowego tak, aby mieścił się w zalecanym typie dysku Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
 
@@ -558,9 +487,7 @@ Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii 
 
 **Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
 
-<a id="incompatible-vms" class="xliff"></a>
-
-## Niezgodne maszyny wirtualne
+## <a name="incompatible-vms"></a>Niezgodne maszyny wirtualne
 
 ![Arkusz kalkulacyjny programu Excel zawierający niezgodne maszyny wirtualne](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
@@ -568,7 +495,8 @@ Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii 
 
 **Zgodność maszyny wirtualnej**: wskazuje, dlaczego dana maszyna wirtualna nie jest zgodna na potrzeby użycia z usługą Site Recovery. Niezgodność każdego dysku na podstawie opublikowanych [limitów magazynów](https://aka.ms/azure-storage-scalbility-performance) może wynikać z dowolnej spośród następujących przyczyn:
 
-* Rozmiar dysku jest większy niż 1023 GB. Usługa Azure Storage obecnie nie obsługuje dysków większych niż 1 TB.
+* Rozmiar dysku jest większy niż 4095 GB. Usługa Azure Storage obecnie nie obsługuje dysków danych większych niż 4095 GB.
+* Rozmiar dysku systemu operacyjnego jest większy niż 2048 GB. Usługa Azure Storage obecnie nie obsługuje dysków systemów operacyjnych większych niż 2048 GB.
 * Typ rozruchu to EFI. Obecnie usługa Azure Site Recovery obsługuje tylko maszyny wirtualne o typie rozruchu BIOS.
 
 * Łączny rozmiar maszyny wirtualnej (suma replikacji i testu pracy w trybie failover) przekracza obsługiwany limit rozmiaru konta magazynu (35 TB). Ta niezgodność występuje przeważnie, jeśli wartość charakterystyki wydajności pojedynczego dysku maszyny wirtualnej przekracza maksymalny obsługiwany limit standardowego magazynu platformy Azure lub usługi Site Recovery. Takie wystąpienie powoduje przeniesienie do strefy magazynów Premium Storage. Jednak maksymalny obsługiwany rozmiar konta magazynu Premium Storage jest równy 35 TB i jedna chroniona maszyna wirtualna nie może być chroniona na wielu kontach magazynu. Zauważ również, że przeprowadzenie testu pracy w trybie failover na chronionej maszynie wirtualnej powoduje również uruchomienie go na koncie magazynu z trwającą replikacją. W takiej sytuacji skonfiguruj podwojony rozmiar dysku na potrzeby równoległej kontynuacji replikacji i pomyślnie przeprowadzonego testu pracy w trybie failover.
@@ -598,9 +526,7 @@ Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii 
 **Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
 
 
-<a id="site-recovery-limits" class="xliff"></a>
-
-## Limity usługi Site Recovery
+## <a name="site-recovery-limits"></a>Limity usługi Site Recovery
 
 **Cel magazynu replikacji** | **Średni rozmiar źródłowych operacji we/wy na dysku** |**Średni źródłowy współczynnik zmian danych na dysku** | **Łączny współczynnik zmian danych na dysku dziennie**
 ---|---|---|---
@@ -615,9 +541,7 @@ Są to średnie wartości przy założeniu 30-procentowego nakładania się oper
 
 Limity te są oparte na naszych testach, ale nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji. Rzeczywiste wyniki mogą różnić w zależności od kombinacji operacji we/wy aplikacji. Aby uzyskać najlepsze wyniki nawet po zakończeniu planowania wdrożenia, zawsze zalecamy dokładne przetestowanie aplikacji przy użyciu testu pracy w trybie failover w celu uzyskania prawdziwych informacji o wydajności.
 
-<a id="updating-the-deployment-planner" class="xliff"></a>
-
-## Aktualizowanie planisty wdrożenia
+## <a name="updating-the-deployment-planner"></a>Aktualizowanie planisty wdrożenia
 Aby zaktualizować planistę wdrożenia, wykonaj następujące czynności:
 
 1. Pobierz najnowszą wersję [planisty wdrożenia usługi Azure Site Recovery](https://aka.ms/asr-deployment-planner).
@@ -637,13 +561,18 @@ Aby zaktualizować planistę wdrożenia, wykonaj następujące czynności:
   >Każdy nowy planista wdrożenia jest aktualizacją zbiorczą pliku ZIP. Nie musisz kopiować najnowszych plików do poprzedniego folderu. Można utworzyć nowy folder i użyć go.
 
 
-<a id="version-history" class="xliff"></a>
+## <a name="version-history"></a>Historia wersji
 
-## Historia wersji
+### <a name="131"></a>1.3.1
+Aktualizacja: 19 lipca 2017 r.
 
-<a id="13" class="xliff"></a>
+Dodano następującą nową funkcję:
 
-### 1.3
+* Dodano obsługę dużych dysków (powyżej 1 TB) na potrzeby generowania raportów. Teraz można użyć planisty wdrożenia, aby zaplanować replikację maszyn wirtualnych z dyskami o rozmiarze większym niż 1 TB (maksymalnie 4095 GB).
+Dowiedz się więcej na temat [obsługi dużych dysków w usłudze Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
+
+
+### <a name="13"></a>1.3
 Aktualizacja: 9 maja 2017 r.
 
 Dodano następującą nową funkcję:
@@ -651,9 +580,7 @@ Dodano następującą nową funkcję:
 * Dodano obsługę dysku zarządzanego na potrzeby generowania raportów. Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana na podstawie tego, czy dla pracy w trybie failover/testu pracy w trybie failover wybrano dysk zarządzany.        
 
 
-<a id="12" class="xliff"></a>
-
-### 1.2
+### <a name="12"></a>1.2
 Zaktualizowano: 7 kwietnia 2017 r.
 
 Dodano następujące poprawki:
@@ -665,9 +592,7 @@ Dodano następujące poprawki:
 * Po skonfigurowaniu ustawień regionalnych jako inne niż angielskie generowany był nieprawidłowy raport.
 
 
-<a id="11" class="xliff"></a>
-
-### 1.1
+### <a name="11"></a>1.1
 Aktualizacja: 9 marca 2017 r.
 
 Rozwiązano następujące problemy:
@@ -675,9 +600,7 @@ Rozwiązano następujące problemy:
 * Narzędzie nie może profilować maszyn wirtualnych, jeśli serwer vCenter ma co najmniej dwie maszyny wirtualne o tej samej nazwie lub adresie IP na różnych hostach ESXi.
 * Kopiowanie i wyszukiwanie zostało wyłączone dla arkuszy zgodnych maszyn wirtualnych i niezgodnych maszyn wirtualnych.
 
-<a id="10" class="xliff"></a>
-
-### 1.0
+### <a name="10"></a>1.0
 Aktualizacja: 23 lutego 2017 r.
 
 Planista wdrożenia usługi Azure Site Recovery w publicznej wersji zapoznawczej 1.0 ma następujące znane problemy (które zostaną rozwiązane w przyszłych aktualizacjach):

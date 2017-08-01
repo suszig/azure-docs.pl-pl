@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: d3908e2984889656a70b5295eab19164ad3bfa95
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: eea78b6616248aaf24053081ec99701c187111cc
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Samouczek: tworzenie pierwszej fabryki danych platformy Azure przy użyciu programu Azure PowerShell
@@ -141,15 +140,17 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
 
     ```json
     {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "StorageLinkedService"
+        "name": "HDInsightOnDemandLinkedService",
+        "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+                "version": "3.5",
+                "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
+                "linkedServiceName": "StorageLinkedService"
+            }
         }
-      }
     }
     ```
     Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie kodu:
@@ -162,7 +163,7 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
 
     Pamiętaj o następujących kwestiach:
 
-   * Usługa Data Factory tworzy klaster usługi HDInsight **oparty na systemie Windows** za pomocą kodu JSON. Możliwe jest również utworzenie klastra usługi HDInsight **opartego na systemie Linux**. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
+   * Usługa Data Factory tworzy klaster usługi HDInsight **oparty na systemie Linux** za pomocą kodu JSON. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
    * Możesz użyć **własnego klastra usługi HDInsight** zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
    * Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony przy każdym przetwarzaniu wycinka — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**). Klaster jest automatycznie usuwany po zakończeniu przetwarzania.
 
@@ -303,8 +304,8 @@ W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsigh
                     "linkedServiceName": "HDInsightOnDemandLinkedService"
                 }
             ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
+            "start": "2017-07-01T00:00:00Z",
+            "end": "2017-07-02T00:00:00Z",
             "isPaused": false
         }
     }
@@ -340,7 +341,7 @@ W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co 
 2. Uruchom polecenie **Get-AzureRmDataFactorySlice**, aby uzyskać szczegółowe informacje na temat wszystkich wycinków elementu **EmpSQLTable**, który stanowi tabelę wyjściową potoku.
 
     ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
+    Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
     Zauważ, że określana tutaj właściwość StartDateTime oznacza taki sam czas rozpoczęcia jak określony w potoku JSON. Oto przykładowe dane wyjściowe:
 
@@ -348,8 +349,8 @@ W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co 
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : FirstDataFactoryPSH
     DatasetName       : AzureBlobOutput
-    Start             : 4/1/2016 12:00:00 AM
-    End               : 4/2/2016 12:00:00 AM
+    Start             : 7/1/2017 12:00:00 AM
+    End               : 7/2/2017 12:00:00 AM
     RetryCount        : 0
     State             : InProgress
     SubState          :
@@ -359,7 +360,7 @@ W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co 
 3. Uruchom polecenie **Get-AzureRmDataFactoryRun**, aby uzyskać szczegółowe informacje o uruchomieniach działania dla określonego wycinka.
 
     ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
+    Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
 
     Oto przykładowe dane wyjściowe: 
@@ -372,8 +373,8 @@ W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co 
     ProcessingStartTime : 12/18/2015 4:50:33 AM
     ProcessingEndTime   : 12/31/9999 11:59:59 PM
     PercentComplete     : 0
-    DataSliceStart      : 4/1/2016 12:00:00 AM
-    DataSliceEnd        : 4/2/2016 12:00:00 AM
+    DataSliceStart      : 7/1/2017 12:00:00 AM
+    DataSliceEnd        : 7/2/2017 12:00:00 AM
     Status              : AllocatingResources
     Timestamp           : 12/18/2015 4:50:33 AM
     RetryAttempt        : 0
