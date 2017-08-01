@@ -15,25 +15,21 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 754c381cb242e0bdf7c56bd2a763d46acc80fbda
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="create-a-python-web-app-in-azure" class="xliff"></a>
-
-# Tworzenie aplikacji sieci Web w języku Python na platformie Azure
+# <a name="create-a-python-web-app-in-azure"></a>Tworzenie aplikacji sieci Web w języku Python na platformie Azure
 
 Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten podręcznik Szybki start przeprowadzi Cię przez tworzenie i wdrażanie aplikacji w języku Python w usłudze Azure Web Apps. Możesz utworzyć aplikację internetową przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie przykładowego kodu języka Python w aplikacji internetowej.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux. Po zainstalowaniu wymagań wstępnych wykonanie czynności trwa około pięciu minut.
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 W celu ukończenia tego samouczka:
 
@@ -46,9 +42,7 @@ W celu ukończenia tego samouczka:
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Pobierz przykład
+## <a name="download-the-sample"></a>Pobierz przykład
 
 W oknie terminala uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną.
 
@@ -64,9 +58,13 @@ Przejdź do katalogu, który zawiera przykładowy kod.
 cd Python-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Lokalne uruchamianie aplikacji
 
-## Lokalne uruchamianie aplikacji
+Zainstaluj wymagane pakiety za pomocą polecenia `pip`.
+
+```bash
+pip install -r requirements.txt
+```
 
 Uruchom aplikację lokalnie, otwierając okno terminala i korzystając z polecenia języka `Python` w celu uruchomienia wbudowanego serwera internetowego języka Python.
 
@@ -96,9 +94,7 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 Na platformie Azure została utworzona nowa pusta aplikacja internetowa.
 
-<a id="configure-to-use-python" class="xliff"></a>
-
-## Konfigurowanie do używania środowiska Python
+## <a name="configure-to-use-python"></a>Konfigurowanie do używania środowiska Python
 
 Użyj polecenia [az webapp config set](/cli/azure/webapp/config#set) do skonfigurowania aplikacji internetowej korzystającej z języka Python w wersji `3.4`.
 
@@ -155,9 +151,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Przechodzenie do aplikacji
+## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
 Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
 
@@ -171,9 +165,7 @@ Przykładowy kod w języku Python jest uruchamiany w aplikacji internetowej usł
 
 **Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację w języku Python w usłudze App Service.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## Aktualizowanie i ponowne wdrażanie kodu
+## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
 
 Za pomocą lokalnego edytora tekstów otwórz plik `main.py` w aplikacji w języku Python i wprowadź niewielką zmianę w tekście obok instrukcji `return`:
 
@@ -192,9 +184,7 @@ Po zakończeniu wdrożenia przejdź z powrotem do okna przeglądarki otwartego w
 
 ![Zaktualizowana przykładowa aplikacja działająca na platformie Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Zarządzanie nową aplikacją sieci Web platformy Azure
+## <a name="manage-your-new-azure-web-app"></a>Zarządzanie nową aplikacją sieci Web platformy Azure
 
 Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją internetową.
 
@@ -210,9 +200,7 @@ Menu po lewej stronie zawiera różne strony służące do konfigurowania aplika
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Python z PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)

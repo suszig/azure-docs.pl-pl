@@ -15,11 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 7303b51a4a107e63e4c6514f7bf8f33a3ba00e39
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c67169f296f2f13b9ee87180f126fb1dcf10fbea
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie pierwszej fabryki danych Azure przy użyciu szablonu usługi Azure Resource Manager
@@ -144,9 +143,10 @@ Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFGetStarted
             "properties": {
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
+                    "version": "3.5",
                     "clusterSize": 1,
                     "timeToLive": "00:05:00",
-                    "osType": "windows",
+                    "osType": "Linux",
                     "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
                   }
             }
@@ -247,8 +247,8 @@ Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFGetStarted
                       "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
                 }
                   ],
-                  "start": "2016-10-01T00:00:00Z",
-                  "end": "2016-10-02T00:00:00Z",
+                  "start": "2017-07-01T00:00:00Z",
+                  "end": "2017-07-02T00:00:00Z",
                   "isPaused": false
               }
           }
@@ -421,9 +421,10 @@ Szczegółowe informacje o właściwościach JSON używanych do definiowania po�
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
             "timeToLive": "00:05:00",
-            "osType": "windows",
+            "osType": "Linux",
             "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
         }
     }
@@ -431,7 +432,7 @@ Szczegółowe informacje o właściwościach JSON używanych do definiowania po�
 ```
 Pamiętaj o następujących kwestiach: 
 
-* Usługa Fabryka danych tworzy klaster usługi HDInsight **oparty na systemie Windows** za pomocą powyższego kodu JSON. Możliwe jest również utworzenie klastra usługi HDInsight **opartego na systemie Linux**. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie). 
+* Usługa Data Factory tworzy klaster usługi HDInsight **oparty na systemie Linux** za pomocą powyższego kodu JSON. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie). 
 * Możesz użyć **własnego klastra usługi HDInsight** zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
 * Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania.
   
@@ -554,8 +555,8 @@ Definiuje się potok przekształcający dane za pomocą skryptu Hive uruchamiane
             "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
         }
         ],
-        "start": "2016-10-01T00:00:00Z",
-        "end": "2016-10-02T00:00:00Z",
+        "start": "2017-07-01T00:00:00Z",
+        "end": "2017-07-02T00:00:00Z",
         "isPaused": false
     }
 }

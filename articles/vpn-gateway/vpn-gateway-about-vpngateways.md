@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: c24f7770e4d0721f9c584b80df9eb857442dfa0b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6ab2b4c905d2095e8eec09ccebcb8ebdfa91bb3a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway — informacje
@@ -152,3 +151,4 @@ Aby zapoznać się z często zadawanymi pytaniami dotyczącymi bramy sieci VPN, 
 - Planowanie konfiguracji bramy sieci VPN. Zobacz [Planowanie i projektowanie usługi VPN Gateway](vpn-gateway-plan-design.md).
 - Więcej informacji można znaleźć w temacie [Brama VPN Gateway — często zadawane pytania](vpn-gateway-vpn-faq.md).
 - Wyświetl [limity usług i subskrypcji](../azure-subscription-service-limits.md#networking-limits).
+- Poznaj inne kluczowe [możliwości sieciowe](../networking/networking-overview.md) platformy Azure.
