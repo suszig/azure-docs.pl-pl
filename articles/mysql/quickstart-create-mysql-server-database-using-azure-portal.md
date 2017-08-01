@@ -18,21 +18,15 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="create-an-azure-database-for-mysql-server-using-azure-portal" class="xliff"></a>
-
-# Tworzenie serwera usługi Azure Database for MySQL za pomocą witryny Azure Portal
+# <a name="create-an-azure-database-for-mysql-server-using-azure-portal"></a>Tworzenie serwera usługi Azure Database for MySQL za pomocą witryny Azure Portal
 W tym artykule podano instrukcje pozwalające utworzyć serwer usługi Azure Database for MySQL za pomocą witryny Azure Portal w czasie około pięciu minut. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Zaloguj się do platformy Azure.
+## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 Otwórz ulubioną przeglądarkę internetową i przejdź do witryny [Microsoft Azure Portal](https://portal.azure.com/). Wprowadź swoje poświadczenia, aby zalogować się do portalu. Widok domyślny to pulpit nawigacyjny usług.
 
-<a id="create-azure-database-for-mysql-server" class="xliff"></a>
-
-## Tworzenie serwera usługi Azure Database for MySQL
+## <a name="create-azure-database-for-mysql-server"></a>Tworzenie serwera usługi Azure Database for MySQL
 1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
 2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Bazy danych** wybierz pozycję **Azure Database for MySQL**. Aby znaleźć tę usługę, możesz również wpisać hasło **MySQL** w polu wyszukiwania na stronie Nowy.
@@ -59,9 +53,7 @@ Otwórz ulubioną przeglądarkę internetową i przejdź do witryny [Microsoft A
 
    Następnie kliknij pozycję **Utwórz**. Po około dwóch minutach nowy serwer usługi Azure Database for MySQL będzie działać w chmurze. Aby monitorować proces wdrażania, kliknij przycisk **Powiadomienia** (z ikoną dzwonka) na pasku narzędzi.
 
-<a id="configure-the-firewall" class="xliff"></a>
-
-## Konfigurowanie zapory
+## <a name="configure-the-firewall"></a>Konfigurowanie zapory
 Przed nawiązaniem pierwszego połączenia z usługą Azure Database for MySQL musisz skonfigurować zaporę i dodać publiczny adres IP sieci klienta (lub zakres adresów IP) do listy dozwolonych adresów.
 
 1. Po zakończeniu wdrożenia kliknij pozycję **Wszystkie zasoby** w menu po lewej stronie i wpisz nazwę **myserver4demo**, aby wyszukać nowo utworzony serwer. Kliknij nazwę serwera wyświetlaną w wynikach wyszukiwania. Zostanie otwarta strona Przegląd, która zawiera dodatkowe opcje konfiguracji.
@@ -71,9 +63,7 @@ Przed nawiązaniem pierwszego połączenia z usługą Azure Database for MySQL m
 3. Kliknij pozycję **Dodaj mój adres IP**, aby dodać adres IP komputera lokalnego lub skonfigurować zakres adresów IP. Pamiętaj, aby po utworzeniu reguł kliknąć przycisk **Zapisz**.
   ![Witryna Azure Portal — dodawanie reguły zapory i jej zapisywanie](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Pobieranie informacji o połączeniu
+## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Uzyskaj w pełni kwalifikowaną nazwę domeny Twojego serwera Azure MySQL w witrynie Azure Portal. W pełni kwalifikowana nazwa domeny służy do nawiązywania połączeń z serwerem za pomocą narzędzia wiersza polecenia**mysql.exe**.
 
 1.  W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Wszystkie zasoby** w menu po lewej stronie, a następnie kliknij Twój serwer usługi Azure Database for MySQL.
@@ -81,9 +71,7 @@ Uzyskaj w pełni kwalifikowaną nazwę domeny Twojego serwera Azure MySQL w witr
 2.  Kliknij pozycję **Właściwości**. Zanotuj wartości **NAZWA SERWERA** i **IDENTYFIKATOR LOGOWANIA ADMINISTRATORA SERWERA**.
 W tym przykładzie nazwa serwera to *myserver4demo.mysql.database.azure.com*, a identyfikator logowania administratora serwera to *myadmin@myserver4demo*.
 
-<a id="connect-to-the-server-using-mysqlexe-command-line-tool" class="xliff"></a>
-
-## Nawiązywanie połączenia z serwerem za pomocą narzędzia wiersza polecenia mysql.exe
+## <a name="connect-to-the-server-using-mysqlexe-command-line-tool"></a>Nawiązywanie połączenia z serwerem za pomocą narzędzia wiersza polecenia mysql.exe
 Nawiąż połączenie z serwerem usługi Azure Database for MySQL za pomocą [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html). Narzędzie wiersza polecenia mysql możesz uruchomić w przeglądarce za pomocą usługi Azure Cloud Shell. Możesz też uruchomić je na swojej maszynie, korzystając z zainstalowanych lokalnie narzędzi mysql. Aby uruchomić usługę Azure Cloud Shell, kliknij przycisk `Try It` w bloku kodu w tym artykule lub przejdź do witryny [Azure Portal](https://portal.azure.com) i kliknij ikonę `>_` na pasku narzędzi w prawym górnym rogu. 
 
 1. Aby nawiązać połączenie, wpisz poniższe polecenie:
@@ -115,9 +103,7 @@ status
    SHOW DATABASES;
    ```
 
-<a id="connect-to-the-server-using-the-mysql-workbench-gui-tool" class="xliff"></a>
-
-## Nawiązywanie połączenia z serwerem za pomocą narzędzia z graficznym interfejsem użytkownika MySQL Workbench
+## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Nawiązywanie połączenia z serwerem za pomocą narzędzia z graficznym interfejsem użytkownika MySQL Workbench
 1.  Uruchom aplikację MySQL Workbench na swoim komputerze klienckim. Aplikację MySQL Workbench możesz pobrać i zainstalować [stąd](https://dev.mysql.com/downloads/workbench/).
 
 2.  W oknie dialogowym **Konfigurowanie nowego połączenia** wprowadź poniższe informacje na karcie **Parametry**:
@@ -138,9 +124,7 @@ Kliknij przycisk **Testuj połączenie**, aby sprawdzić, czy wszystkie parametr
 > [!NOTE]
 > Na serwerze domyślnie jest wymuszane używanie protokołu SSL. W związku z tym do pomyślnego nawiązania połączenia jest wymagana dodatkowa konfiguracja. Zobacz [Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL](./howto-configure-ssl.md).  Jeśli chcesz wyłączyć protokół SSL na czas wykonywania instrukcji w tym przewodniku Szybki start, przejdź do witryny Azure Portal, kliknij stronę Zabezpieczenia połączeń i kliknij przycisk przełączania Wymuszaj połączenie SSL.
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Wyczyść wszystkie zasoby utworzone w tym przewodniku Szybki start, usuwając [grupę zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md).
 
 > [!TIP]
@@ -155,9 +139,7 @@ Jeśli chcesz usunąć nowo utworzony serwer:
 3.  Potwierdź nazwę serwera, który chcesz usunąć, i wyświetl znajdujące się pod nim bazy danych. W polu tekstowym wpisz **myserver4demo**, a następnie kliknij przycisk Usuń.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Projektowanie pierwszej bazy danych usługi Azure Database for MySQL](./tutorial-design-database-using-portal.md)

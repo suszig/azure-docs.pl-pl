@@ -22,17 +22,13 @@ ms.contentlocale: pl-pl
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-your-first-java-web-app-in-azure" class="xliff"></a>
-
-# Tworzenie pierwszej aplikacji internetowej w środowisku Java na platformie Azure
+# <a name="create-your-first-java-web-app-in-azure"></a>Tworzenie pierwszej aplikacji internetowej w środowisku Java na platformie Azure
 
 Funkcja [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) usługi [Azure App Service](../app-service/app-service-value-prop-what-is.md) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie. W tym przewodniku Szybki start pokazano, jak wdrożyć aplikację internetową w języku Java przy użyciu środowiska [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
 
 ![„Hello Azure!” — przykładowa aplikacja internetowa](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki Start, zainstaluj:
 
@@ -41,9 +37,7 @@ Aby ukończyć ten przewodnik Szybki Start, zainstaluj:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-dynamic-web-project-in-eclipse" class="xliff"></a>
-
-## Tworzenie dynamicznego projektu internetowego w środowisku Eclipse
+## <a name="create-a-dynamic-web-project-in-eclipse"></a>Tworzenie dynamicznego projektu internetowego w środowisku Eclipse
 
 W środowisku Eclipse wybierz pozycję **File** > **New** > **Dynamic Web Project** (Plik > Nowy > Dynamiczny projekt internetowy).
 
@@ -51,9 +45,7 @@ W oknie dialogowym **New Dynamic Web Project** (Nowy dynamiczny projekt internet
    
 ![Okno dialogowe New Dynamic Web Project (Nowy dynamiczny projekt internetowy)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-<a id="add-a-jsp-page" class="xliff"></a>
-
-### Dodawanie strony JSP
+### <a name="add-a-jsp-page"></a>Dodawanie strony JSP
 
 Jeśli obszar Project Explorer (Eksplorator projektów) nie jest wyświetlany, przywróć go.
 
@@ -81,9 +73,7 @@ W pliku index.jsp zastąp element `<body></body>` następującym kodem:
 
 Zapisz zmiany.
 
-<a id="publish-the-web-app-to-azure" class="xliff"></a>
-
-## Publikowanie aplikacji internetowej na platformie Azure
+## <a name="publish-the-web-app-to-azure"></a>Publikowanie aplikacji internetowej na platformie Azure
 
 W obszarze Project Explorer (Eksplorator projektów) kliknij projekt prawym przyciskiem myszy, a następnie wybierz pozycję **Azure** > **Publish as Azure Web App** (Publikuj jako aplikację internetową platformy Azure).
 
@@ -93,9 +83,7 @@ W oknie dialogowym **Azure Sign In** (Logowanie do platformy Azure) zachowaj opc
 
 Postępuj zgodnie z instrukcjami dotyczącymi logowania.
 
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
-
-### Okno dialogowe Deploy Web App (Wdrażanie aplikacji internetowej)
+### <a name="deploy-web-app-dialog-box"></a>Okno dialogowe Deploy Web App (Wdrażanie aplikacji internetowej)
 
 Po zalogowaniu się na koncie platformy Azure zostanie wyświetlone okno dialogowe **Deploy Web App** (Wdrażanie aplikacji internetowej).
 
@@ -103,9 +91,7 @@ Wybierz pozycję **Utwórz**.
 
 ![Okno dialogowe Deploy Web App (Wdrażanie aplikacji internetowej)](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-<a id="create-app-service-dialog-box" class="xliff"></a>
-
-### Okno dialogowe Create App Service (Tworzenie usługi App Service)
+### <a name="create-app-service-dialog-box"></a>Okno dialogowe Create App Service (Tworzenie usługi App Service)
 
 Zostanie wyświetlone okno dialogowe **Create App Service** (Tworzenie usługi App Service) z wartościami domyślnymi. Liczba **170602185241** wyświetlana na poniższym obrazie będzie inna w Twoim oknie dialogowym.
 
@@ -126,9 +112,7 @@ W oknie dialogowym **Create App Service** (Tworzenie usługi App Service):
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-<a id="resource-group-tab" class="xliff"></a>
-
-### Karta Resource group (Grupa zasobów)
+### <a name="resource-group-tab"></a>Karta Resource group (Grupa zasobów)
 
 Wybierz kartę **Resource group** (Grupa zasobów). Zachowaj domyślnie wygenerowaną wartość dla grupy zasobów.
 
@@ -150,9 +134,7 @@ Za pomocą zestawu narzędzi platformy Azure zostanie utworzona aplikacja intern
 
 ![Okno dialogowe Create App Service Progress (Postęp tworzenia usługi App Service)](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
-
-### Okno dialogowe Deploy Web App (Wdrażanie aplikacji internetowej)
+### <a name="deploy-web-app-dialog-box"></a>Okno dialogowe Deploy Web App (Wdrażanie aplikacji internetowej)
 
 W oknie dialogowym **Deploy Web App** (Wdrażanie aplikacji internetowej) wybierz pozycję **Deploy to root** (Wdróż w katalogu głównym). Jeśli istnieje usługa App Service w lokalizacji *wingtiptoys.azurewebsites.net* i nie wybierzesz wdrożenia w katalogu głównym, to aplikacja internetowa o nazwie **MyFirstJavaOnAzureWebApp** zostanie wdrożona w lokalizacji *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
@@ -170,9 +152,7 @@ Gratulacje! Aplikacja internetowa została pomyślnie wdrożona na platformie Az
 
 ![„Hello Azure!” — przykładowa aplikacja internetowa](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-<a id="update-the-web-app" class="xliff"></a>
-
-## Aktualizowanie aplikacji internetowej
+## <a name="update-the-web-app"></a>Aktualizowanie aplikacji internetowej
 
 Zmień przykładowy kod JSP na inny komunikat.
 
@@ -196,9 +176,7 @@ Wybierz aplikację internetową, a następnie wybierz pozycję **Deploy** (Wdró
 
 Gdy zostanie wyświetlony link **Publishing** (Publikowanie), wybierz go, aby przejść do aplikacji internetowej i wyświetlić zmiany.
 
-<a id="manage-the-web-app" class="xliff"></a>
-
-## Zarządzanie aplikacją internetową
+## <a name="manage-the-web-app"></a>Zarządzanie aplikacją internetową
 
 Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby wyświetlić utworzoną aplikację internetową.
 
@@ -218,9 +196,7 @@ Zostanie wyświetlona strona **Przegląd**. Ta strona udostępnia widok sposobu 
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Mapowanie domeny niestandardowej](app-service-web-tutorial-custom-domain.md)

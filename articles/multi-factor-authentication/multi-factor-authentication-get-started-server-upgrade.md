@@ -22,14 +22,10 @@ ms.lasthandoff: 06/08/2017
 
 
 ---
-<a id="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server" class="xliff"></a>
-
-# Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
+# <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
 Aby uaktualnić agenta PhoneFactor (w wersji 5.x lub starszej) do serwera Azure Multi-Factor Authentication, najpierw odinstaluj agenta PhoneFactor i powiązane z nim składniki. Następnie można zainstalować serwer Multi-Factor Authentication i powiązane z nim składniki.
 
-<a id="uninstall-the-phonefactor-agent" class="xliff"></a>
-
-## Odinstalowywanie agenta PhoneFactor
+## <a name="uninstall-the-phonefactor-agent"></a>Odinstalowywanie agenta PhoneFactor
 
 1. Najpierw należy utworzyć kopię zapasową pliku danych PhoneFactor. Domyślna lokalizacja instalacji to C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
@@ -50,9 +46,7 @@ Aby uaktualnić agenta PhoneFactor (w wersji 5.x lub starszej) do serwera Azure 
 
 5. Odinstaluj agenta PhoneFactor za pośrednictwem modułu Programy i funkcje systemu Windows.
 
-<a id="install-the-multi-factor-authentication-server" class="xliff"></a>
-
-## Instalowanie serwera Multi-Factor Authentication
+## <a name="install-the-multi-factor-authentication-server"></a>Instalowanie serwera Multi-Factor Authentication
 
 Ścieżka instalacji jest pobierana z rejestru z poprzedniej instalacji agenta PhoneFactor, dlatego instalacji należy dokonać w tej samej lokalizacji (np. C:\Program Files\PhoneFactor). Nowe instalacje mają inne domyślne ścieżki instalacji (np. C:\Program Files\Multi-Factor Authentication Server). Plik danych pozostawiony przez poprzedniego agenta PhoneFactor należy uaktualnić podczas instalacji, aby po zainstalowaniu nowego serwera Multi-Factor Authentication określeni wcześniej użytkownicy i ustawienia nadal były dostępne.
 
@@ -82,9 +76,7 @@ Aby uaktualnić agenta PhoneFactor (w wersji 5.x lub starszej) do serwera Azure 
 
   5. Przejdź do lokalizacji instalacji usługi internetowej aplikacji mobilnej (np. C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) i otwórz do edycji plik web.config. Z oryginalnego pliku web.config, który został umieszczony w kopii zapasowej przed uaktualnieniem, skopiuj wartości z sekcji appSettings i applicationSettings do nowego pliku web.config. Jeśli nowa domyślna nazwa katalogu wirtualnego została zachowana podczas instalacji zestawu SDK usługi sieci Web, zmień adres URL w sekcji applicationSettings, aby wskazywał poprawną lokalizację. Jeśli w poprzednim pliku web.config zostały zmienione inne wartości domyślne, zastosuj te same zmiany w nowym pliku web.config.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Zainstaluj portal użytkowników](multi-factor-authentication-get-started-portal.md) dla serwera Azure Multi-Factor Authentication.
 

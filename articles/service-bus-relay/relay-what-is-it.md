@@ -22,9 +22,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="what-is-azure-relay" class="xliff"></a>
-
-# Co to jest usługa Azure Relay?
+# <a name="what-is-azure-relay"></a>Co to jest usługa Azure Relay?
 
 Usługa Azure Relay ułatwia tworzenie hybrydowych aplikacji, umożliwiając bezpieczne uwidacznianie usług znajdujących się w korporacyjnym środowisku sieciowym w chmurze publicznej bez konieczności otwierania połączenia przez zaporę i bez wprowadzania niepożądanych zmian do infrastruktury sieci korporacyjnej. Usługa przekazywania obsługuje wiele różnych protokołów transportowych i standardów usług sieci Web.
 
@@ -50,27 +48,19 @@ Zarówno połączenia hybrydowe, jak i przekaźniki WCF umożliwiają bezpieczne
 | **Otwarty protokół oparty na standardach** | |x |
 | **Wiele modeli programowania RPC** | |x |
 
-<a id="hybrid-connections" class="xliff"></a>
-
-## Połączenia hybrydowe
+## <a name="hybrid-connections"></a>Połączenia hybrydowe
 
 Funkcja [połączeń hybrydowych usługi Azure Relay](relay-hybrid-connections-protocol.md) to bezpieczna, oparta na otwartym protokole ewolucja istniejących funkcji przekazywania, które mogą być zaimplementowane na dowolnej platformie i w dowolnym języku mającym podstawowe możliwości obsługi protokołu WebSocket i jawnie zawierającym interfejs WebSocket API w powszechnie używanych przeglądarkach internetowych. Połączenia hybrydowe są oparte na protokole HTTP i WebSocket.
 
-<a id="wcf-relays" class="xliff"></a>
-
-## Przekaźniki WCF
+## <a name="wcf-relays"></a>Przekaźniki WCF
 
 Przekaźnik WCF działa dla pełnej platformy .NET (NETFX) i WCF. Należy zainicjować połączenie między usługą lokalną i usługą przekaźnika przy użyciu zestawu powiązań „przekaźnika” WCF. W tle powiązania przekaźników są mapowane na nowe elementy powiązania transportu przeznaczone do tworzenia składników kanału WCF, które integrują się w chmurze z usługą Service Bus.
 
-<a id="service-history" class="xliff"></a>
-
-## Historia usługi
+## <a name="service-history"></a>Historia usługi
 
 Połączenia hybrydowe wypierają wcześniejszą funkcję „BizTalk Services”, która została utworzona na podstawie przekaźnika WCF usługi Azure Service Bus. Nowe możliwości połączeń hybrydowych uzupełniają istniejącą funkcję przekaźnika WCF i te dwie możliwości usługi będą istnieć obok siebie w usłudze Azure Relay w najbliższej przyszłości. Korzystają one ze wspólnej bramy, ale pod innymi względami są to różne implementacje.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki:
+## <a name="next-steps"></a>Następne kroki:
 
 * [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)
 * [Tworzenie przestrzeni nazw](relay-create-namespace-portal.md)

@@ -24,17 +24,13 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="getting-started-with-the-azure-multi-factor-authentication-server" class="xliff"></a>
-
-# Wprowadzenie do serwera Azure Multi-Factor Authentication
+# <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Wprowadzenie do serwera Azure Multi-Factor Authentication
 
 <center>![Lokalna usługa MFA](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
 Po podjęciu decyzji o użyciu lokalnego serwera Multi-Factor Authentication można przejść do kolejnych kroków. Ta strona obejmuje nową instalację serwera oraz jego konfigurację z uwzględnieniem lokalnej usługi Active Directory. Jeśli masz już zainstalowany serwer MFA i chcesz go uaktualnić, zobacz [Upgrade to the latest Azure Multi-Factor Authentication Server](multi-factor-authentication-server-upgrade.md) (Uaktualnianie do najnowszej wersji serwera Azure Multi-Factor Authentication). Jeśli szukasz informacji dotyczących instalowania tylko usługi sieci Web, zobacz [Wdrażanie usługi sieci Web aplikacji mobilnej serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
  
-<a id="plan-your-deployment" class="xliff"></a>
-
-## Planowanie wdrożenia
+## <a name="plan-your-deployment"></a>Planowanie wdrożenia
 
 Przed pobraniem serwera Azure Multi-Factor Authentication zastanów się, jakie są wymagania w zakresie obciążenia i wysokiej dostępności. Te informacje pozwolą podjąć decyzję dotyczącą sposobu i miejsca wdrożenia. 
 
@@ -52,9 +48,7 @@ Czy trzeba skonfigurować wiele serwerów w celu zapewnienia wysokiej dostępno�
 
 Jeśli serwer główny Azure MFA przejdzie do trybu offline, serwery podrzędne wciąż mogą przetwarzać żądania weryfikacji dwuetapowej. Jednak nie można wtedy dodawać nowych użytkowników, a istniejący użytkownicy nie mogą aktualizować ustawień, chyba że serwer główny powróci do trybu online lub zostanie podwyższony poziom serwera podrzędnego. 
 
-<a id="prepare-your-environment" class="xliff"></a>
-
-## Przygotowywanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 Upewnij się, że serwer Azure Multi-Factor Authentication spełnia następujące wymagania:
 
@@ -63,9 +57,7 @@ Upewnij się, że serwer Azure Multi-Factor Authentication spełnia następując
 | Sprzęt |<li>200 MB wolnego miejsca na dysku twardym</li><li>Procesor umożliwiający obsługę architektury x32 lub x64</li><li>Co najmniej 1 GB pamięci RAM</li> |
 | Oprogramowanie |<li>System Windows Server 2008 lub nowszy, jeśli na hoście znajduje się system operacyjny serwera</li><li>System Windows 7 lub nowszy, jeśli na hoście znajduje się system operacyjny klienta</li><li>Oprogramowanie Microsoft .NET 4.0 Framework</li><li>Usługi IIS 7.0 lub nowsze w przypadku instalacji portalu użytkowników lub zestawu SDK usługi sieci Web</li> |
 
-<a id="azure-multi-factor-authentication-server-firewall-requirements" class="xliff"></a>
-
-### Wymagania serwera Azure Multi-Factor Authentication dotyczące zapory
+### <a name="azure-multi-factor-authentication-server-firewall-requirements"></a>Wymagania serwera Azure Multi-Factor Authentication dotyczące zapory
 Każdy serwer MFA musi mieć możliwość komunikacji wychodzącej za pośrednictwem portu 443 z następującymi adresami:
 
 * https://pfd.phonefactor.net
@@ -88,17 +80,13 @@ Jeśli nie używasz funkcji potwierdzania zdarzeń i użytkownicy nie korzystaj�
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-<a id="download-the-azure-multi-factor-authentication-server" class="xliff"></a>
-
-## Pobieranie serwera Azure Multi-Factor Authentication
+## <a name="download-the-azure-multi-factor-authentication-server"></a>Pobieranie serwera Azure Multi-Factor Authentication
 Istnieją dwa sposoby na pobranie serwera Azure Multi-Factor Authentication. Oba wymagają użycia witryny Azure Portal. Pierwszy sposób polega na pobraniu serwera bezpośrednio w ramach zarządzania dostawcą usługi Multi-Factor Authentication. Drugi sposób wymaga skorzystania z ustawień usługi. Druga opcja obejmuje skorzystanie z dostawcy usługi Multi-Factor Authentication lub z licencji usługi Azure MFA, usługi Azure AD w wersji Premium lub pakietu Enterprise Mobility Suite.
 
 > [!Important]
 > Te dwie opcje wydają się podobne, ale ważne jest rozróżnienie ich użycia. Jeśli użytkownicy korzystają z licencji dostarczonych z usługą MFA (Azure MFA, Azure AD Premium lub Enterprise Mobility + Security), nie twórz dostawcy usługi Multi-Factor Authentication na potrzeby uzyskania dostępu do pobierania serwera. Zamiast tego należy użyć opcji 2 w celu pobrania serwera ze strony ustawień usługi. 
 
-<a id="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal" class="xliff"></a>
-
-### Opcja 1: pobieranie serwera Azure Multi-Factor Authentication z klasycznej witryny Azure Portal
+### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Opcja 1: pobieranie serwera Azure Multi-Factor Authentication z klasycznej witryny Azure Portal
 
 Użyj tej opcji pobierania, jeśli masz już dostawcę usługi Multi-Factor Authentication, ponieważ usługę MFA opłacono za włączonego użytkownika lub za uwierzytelnianie. 
 
@@ -111,9 +99,7 @@ Użyj tej opcji pobierania, jeśli masz już dostawcę usługi Multi-Factor Auth
    ![Pobieranie](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Zapisz pobrany plik.
 
-<a id="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings" class="xliff"></a>
-
-### Opcja 2: pobieranie serwera Azure Multi-Factor Authentication przy użyciu ustawień usługi
+### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>Opcja 2: pobieranie serwera Azure Multi-Factor Authentication przy użyciu ustawień usługi
 
 Użyj tej opcji pobierania, jeśli masz licencje pakietu Enterprise Mobility Suite, usługi Azure AD w wersji Premium lub pakietu Enterprise Cloud Suite. 
 
@@ -129,9 +115,7 @@ Użyj tej opcji pobierania, jeśli masz licencje pakietu Enterprise Mobility Sui
     ![Pobieranie](./media/multi-factor-authentication-get-started-server/download4.png)
 9. Zapisz pobrany plik.
 
-<a id="install-and-configure-the-azure-multi-factor-authentication-server" class="xliff"></a>
-
-## Instalowanie i konfigurowanie serwera Azure Multi-Factor Authentication
+## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Instalowanie i konfigurowanie serwera Azure Multi-Factor Authentication
 Po pobraniu serwera możesz go zainstalować i skonfigurować.  Sprawdź, czy serwer, na którym zamierzasz go zainstalować, spełnia wymagania podane w sekcji dotyczącej planowania. 
 
 Kroki te pokazują proces instalacji ekspresowej z użyciem kreatora konfiguracji. Jeśli nie widzisz kreatora lub chcesz uruchomić go ponownie, możesz wybrać go z menu **Narzędzia** na serwerze.
@@ -143,9 +127,7 @@ Kroki te pokazują proces instalacji ekspresowej z użyciem kreatora konfiguracj
     ![Chmura](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Na stronie, z której został pobrany serwer, kliknij przycisk **Generuj poświadczenia aktywacji**. Skopiuj uzyskane informacje do serwera Azure MFA, wpisując je w odpowiednich polach, a następnie kliknij przycisk **Aktywuj**.
 
-<a id="import-users-from-active-directory" class="xliff"></a>
-
-## Importowanie użytkowników z usługi Active Directory
+## <a name="import-users-from-active-directory"></a>Importowanie użytkowników z usługi Active Directory
 Po zainstalowaniu i skonfigurowaniu serwera można szybko zaimportować użytkowników do serwera Azure MFA.
 
 1. Na serwerze Azure MFA, w obszarze po lewej stronie, wybierz pozycję **Użytkownicy**.
@@ -154,9 +136,7 @@ Po zainstalowaniu i skonfigurowaniu serwera można szybko zaimportować użytkow
 4. Zaznacz wszystkich użytkowników po prawej stronie, a następnie kliknij przycisk **Importuj**.  Zostanie wyświetlone okno podręczne informujące, że proces został zakończony pomyślnie.  Zamknij okno importu.
    ![Chmura](./media/multi-factor-authentication-get-started-server/import2.png)
 
-<a id="send-users-an-email" class="xliff"></a>
-
-## Wysyłanie wiadomości e-mail do użytkowników
+## <a name="send-users-an-email"></a>Wysyłanie wiadomości e-mail do użytkowników
 Gdy użytkownicy zostaną zaimportowani na serwer MFA, wyślij wiadomość e-mail w celu poinformowania użytkowników o zarejestrowaniu ich na potrzeby weryfikacji dwuetapowej.
 
 Wiadomość e-mail powinna zależeć od konfiguracji użytkowników na potrzeby weryfikacji dwuetapowej. Jeśli na przykład udało się zaimportować numery telefonów z katalogu firmy, wiadomość e-mail powinna zawierać domyślny numer telefonu, aby użytkownicy wiedzieli, czego oczekiwać. Jeśli nie zaimportowano numerów telefonów lub użytkownicy będą korzystać z aplikacji mobilnej, wyślij wiadomość e-mail umożliwiającą im ukończenie rejestracji konta. W wiadomości e-mail podaj hiperlink do portalu użytkownika usługi Azure Multi-Factor Authentication.
@@ -164,9 +144,7 @@ Wiadomość e-mail powinna zależeć od konfiguracji użytkowników na potrzeby 
 Treść wiadomości e-mail różni się też w zależności od metody weryfikacji, która została ustawiona dla użytkownika (połączenie telefoniczne, wiadomość SMS lub aplikacja mobilna).  Jeśli na przykład użytkownik musi podczas uwierzytelniania użyć numeru PIN, w wiadomości e-mail zostanie podany początkowy numer PIN.  Użytkownicy muszą zmienić numer PIN podczas pierwszej weryfikacji.
 
 
-<a id="configure-email-and-email-templates" class="xliff"></a>
-
-### Konfigurowanie wiadomości e-mail i szablonów wiadomości e-mail
+### <a name="configure-email-and-email-templates"></a>Konfigurowanie wiadomości e-mail i szablonów wiadomości e-mail
 Kliknij ikonę poczty e-mail z lewej strony, aby skonfigurować ustawienia wysyłania tych wiadomości e-mail. Na tej stronie można wprowadzić dane SMTP serwera poczty oraz wysyłać wiadomości e-mail przez zaznaczenie pola wyboru **Wyślij wiadomości e-mail do użytkowników**.
 
 ![Ustawienia poczty e-mail](./media/multi-factor-authentication-get-started-server/email1.png)
@@ -175,9 +153,7 @@ Na karcie Zawartość wiadomości e-mail są widoczne szablony wiadomości e-mai
 
 ![Szablony wiadomości e-mail](./media/multi-factor-authentication-get-started-server/email2.png)
 
-<a id="how-the-azure-multi-factor-authentication-server-handles-user-data" class="xliff"></a>
-
-## Sposób obsługi danych użytkowników przez serwer Azure Multi-Factor Authentication
+## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Sposób obsługi danych użytkowników przez serwer Azure Multi-Factor Authentication
 W przypadku lokalnego użycia serwera Multi-Factor Authentication (MFA) dane użytkownika są przechowywane na serwerach lokalnych. Żadne trwałe dane użytkowników nie są przechowywane w chmurze. Gdy użytkownik przeprowadza weryfikację dwuetapową, serwer MFA wysyła dane do usługi Azure MFA w chmurze w celu przeprowadzenia weryfikacji. Podczas przesyłania żądań uwierzytelnienia do usługi w chmurze następujące pola są wysyłane w żądaniu i dziennikach, dzięki czemu są one dostępne w ramach raportów klienta dotyczących uwierzytelniania/użycia. Niektóre pola są opcjonalne i można je włączyć lub wyłączyć na serwerze Multi-Factor Authentication. Na potrzeby przesyłania danych z serwera MFA do usługi MFA w chmurze używany jest protokół SSL/TLS i port wyjściowy 443. Wysyłane mogą być następujące pola:
 
 * Unikatowy identyfikator — nazwa użytkownika lub wewnętrzny identyfikator serwera MFA
@@ -193,9 +169,7 @@ W przypadku lokalnego użycia serwera Multi-Factor Authentication (MFA) dane uż
 
 Oprócz powyższych pól wraz z danymi uwierzytelniania są przechowywane także wyniki weryfikacji (powodzenie/odmowa) oraz przyczyny odmów. Informacje te są potem dostępne w raportach dotyczących uwierzytelniania/użycia.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Instalowanie i konfigurowanie [portalu użytkowników](multi-factor-authentication-get-started-portal.md) dla użytkownika samoobsługi.
 

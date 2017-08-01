@@ -22,9 +22,7 @@ ms.lasthandoff: 06/21/2017
 
 
 ---
-<a id="prepare-your-development-environment" class="xliff"></a>
-
-# Przygotowywanie środowiska projektowego
+# <a name="prepare-your-development-environment"></a>Przygotowywanie środowiska projektowego
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -34,12 +32,8 @@ ms.lasthandoff: 06/21/2017
 
  Aby móc tworzyć i uruchamiać [aplikacje usługi Azure Service Fabric][1] na maszynie deweloperskiej, zainstaluj środowisko uruchomieniowe, zestaw SDK oraz narzędzia. Należy również włączyć wykonywanie skryptów programu Windows PowerShell zawartych w zestawie SDK.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
-<a id="supported-operating-system-versions" class="xliff"></a>
-
-### Obsługiwane wersje systemu operacyjnego
+## <a name="prerequisites"></a>Wymagania wstępne
+### <a name="supported-operating-system-versions"></a>Obsługiwane wersje systemu operacyjnego
 Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu operacyjnego:
 
 * Windows 7
@@ -53,27 +47,19 @@ Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu op
 > 
 > 
 
-<a id="install-the-sdk-and-tools" class="xliff"></a>
-
-## Instalowanie zestawu SDK i narzędzi
-<a id="to-use-visual-studio-2017" class="xliff"></a>
-
-### Używanie programu Visual Studio 2017
+## <a name="install-the-sdk-and-tools"></a>Instalowanie zestawu SDK i narzędzi
+### <a name="to-use-visual-studio-2017"></a>Używanie programu Visual Studio 2017
 Narzędzia Service Fabric Tools są częścią pakietu roboczego projektowania i zarządzania na platformie Azure w programie Visual Studio 2017. Włącz to obciążenie w ramach instalacji programu Visual Studio.
 Ponadto należy zainstalować zestaw SDK usługi Microsoft Azure Service Fabric przy użyciu instalatora platformy sieci Web.
 
 * [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric][core-sdk]
 
-<a id="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later" class="xliff"></a>
-
-### Używanie programu Visual Studio 2015 (wymaga programu Visual Studio 2015 Update 2 lub nowszego)
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Używanie programu Visual Studio 2015 (wymaga programu Visual Studio 2015 Update 2 lub nowszego)
 W przypadku programu Visual Studio 2015 narzędzia Service Fabric są instalowane razem z zestawem SDK przy użyciu instalatora platformy sieci Web:
 
 * [Instalowanie zestawu SDK i narzędzi usługi Microsoft Azure Service Fabric][full-bundle-vs2015]
 
-<a id="sdk-installation-only" class="xliff"></a>
-
-### Instalowanie samego zestawu SDK
+### <a name="sdk-installation-only"></a>Instalowanie samego zestawu SDK
 Jeśli potrzebujesz tylko zestawu SDK, możesz zainstalować ten pakiet:
 * [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric][core-sdk]
 
@@ -91,18 +77,14 @@ Bieżące wersje zapoznawcze:
 
 Listę obsługiwanych wersji można znaleźć na stronie [pomocy technicznej usługi Service Fabric](service-fabric-support.md)
 
-<a id="enable-powershell-script-execution" class="xliff"></a>
-
-## Włączanie wykonywania skryptów programu PowerShell
+## <a name="enable-powershell-script-execution"></a>Włączanie wykonywania skryptów programu PowerShell
 Platforma Service Fabric korzysta ze skryptów programu Windows PowerShell do tworzenia lokalnego klastra projektowego i do wdrażania aplikacji z programu Visual Studio. Domyślnie system Windows blokuje uruchamianie tych skryptów. Aby je włączyć, należy zmienić zasady wykonywania w programie PowerShell. Uruchom program PowerShell jako administrator i wprowadź następujące polecenie:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po skonfigurowaniu środowiska projektowego możesz zacząć kompilować i uruchamiać aplikacje.
 
 * [Tworzenie pierwszej aplikacji platformy Service Fabric w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

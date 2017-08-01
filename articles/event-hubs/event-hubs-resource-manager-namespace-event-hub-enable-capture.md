@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template" class="xliff"></a>
-
-# Tworzenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager
 W tym artykule przedstawiono sposób używania szablonu usługi Azure Resource Manager umożliwiającego utworzenie przestrzeni nazw usługi Event Hubs z jednym wystąpieniem centrum zdarzeń oraz włączenie funkcji przechwytywania w tym centrum zdarzeń. W tym artykule opisano, jak wskazać wdrażane zasoby oraz jak podać parametry realizacji wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager][Authoring Azure Resource Manager templates].
@@ -38,9 +36,7 @@ Aby uzyskać kompletny szablon, zobacz temat [Event hub and enable Capture templ
 > 
 > 
 
-<a id="what-will-you-deploy" class="xliff"></a>
-
-## Co chcesz wdrożyć?
+## <a name="what-will-you-deploy"></a>Co chcesz wdrożyć?
 Ten szablon umożliwia wdrożenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń oraz włączenie [funkcji przechwytywania usługi Event Hubs](event-hubs-capture-overview.md).
 
 [Event Hubs](event-hubs-what-is-event-hubs.md) to usługa służąca do przetwarzania zdarzeń, która dostarcza zdarzenia i dane telemetryczne do platformy Azure w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością. Funkcja przechwytywania usługi Event Hubs pozwala automatycznie dostarczać strumień danych usługi Event Hubs do wybranego wystąpienia usługi Azure Blob Storage w wyznaczonym okresie lub przy określonym interwale rozmiaru.
@@ -49,16 +45,12 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 
 [![Wdrażanie na platformie Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
-<a id="parameters" class="xliff"></a>
-
-## Parametry
+## <a name="parameters"></a>Parametry
 Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcję o nazwie `Parameters` obejmującą wszystkie wartości parametrów. Parametr powinien obejmować wartości, które różnią się w zależności od wdrażanego projektu lub środowiska, w którym odbywa się wdrożenie. Nie należy definiować parametrów dla wartości, które pozostają niezmienione. Każda wartość parametru używana w szablonie definiuje wdrażane zasoby.
 
 Szablon zawiera definicje następujących parametrów.
 
-<a id="eventhubnamespacename" class="xliff"></a>
-
-### eventHubNamespaceName
+### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 Nazwa tworzonej przestrzeni nazw usługi Event Hubs.
 
 ```json
@@ -70,9 +62,7 @@ Nazwa tworzonej przestrzeni nazw usługi Event Hubs.
 }
 ```
 
-<a id="eventhubname" class="xliff"></a>
-
-### eventHubName
+### <a name="eventhubname"></a>eventHubName
 Nazwa centrum zdarzeń utworzonego w przestrzeni nazw usługi Event Hubs.
 
 ```json
@@ -84,9 +74,7 @@ Nazwa centrum zdarzeń utworzonego w przestrzeni nazw usługi Event Hubs.
 }
 ```
 
-<a id="messageretentionindays" class="xliff"></a>
-
-### messageRetentionInDays
+### <a name="messageretentionindays"></a>messageRetentionInDays
 Liczba dni przechowywania komunikatów w centrum zdarzeń. 
 
 ```json
@@ -101,9 +89,7 @@ Liczba dni przechowywania komunikatów w centrum zdarzeń.
  }
 ```
 
-<a id="partitioncount" class="xliff"></a>
-
-### partitionCount
+### <a name="partitioncount"></a>partitionCount
 Liczba partycji w utworzonym centrum zdarzeń.
 
 ```json
@@ -118,9 +104,7 @@ Liczba partycji w utworzonym centrum zdarzeń.
  }
 ```
 
-<a id="captureenabled" class="xliff"></a>
-
-### captureEnabled
+### <a name="captureenabled"></a>captureEnabled
 Włączanie funkcji przechwytywania w centrum zdarzeń.
 
 ```json
@@ -135,9 +119,7 @@ Włączanie funkcji przechwytywania w centrum zdarzeń.
     }
  }
 ```
-<a id="captureencodingformat" class="xliff"></a>
-
-### captureEncodingFormat
+### <a name="captureencodingformat"></a>captureEncodingFormat
 Format kodowania na potrzeby serializowania danych zdarzeń.
 
 ```json
@@ -152,9 +134,7 @@ Format kodowania na potrzeby serializowania danych zdarzeń.
 }
 ```
 
-<a id="capturetime" class="xliff"></a>
-
-### captureTime
+### <a name="capturetime"></a>captureTime
 Przedział czasu, w którym funkcja przechwytywania usługi Event Hubs pobiera dane do usługi Azure Blob Storage.
 
 ```json
@@ -169,9 +149,7 @@ Przedział czasu, w którym funkcja przechwytywania usługi Event Hubs pobiera d
 }
 ```
 
-<a id="capturesize" class="xliff"></a>
-
-### captureSize
+### <a name="capturesize"></a>captureSize
 Interwał rozmiaru, w którym funkcja przechwytywania pobiera dane do usługi Azure Blob Storage.
 
 ```json
@@ -186,9 +164,7 @@ Interwał rozmiaru, w którym funkcja przechwytywania pobiera dane do usługi Az
 }
 ```
 
-<a id="destinationstorageaccountresourceid" class="xliff"></a>
-
-### destinationStorageAccountResourceId
+### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
 Przechwytywanie danych na odpowiednim koncie usługi Storage wymaga identyfikatora zasobu konta usługi Azure Storage.
 
 ```json
@@ -200,9 +176,7 @@ Przechwytywanie danych na odpowiednim koncie usługi Storage wymaga identyfikato
  }
 ```
 
-<a id="blobcontainername" class="xliff"></a>
-
-### blobContainerName
+### <a name="blobcontainername"></a>blobContainerName
 Kontener obiektów blob, w którym będą przechwytywane dane zdarzeń.
 
 ```json
@@ -215,9 +189,7 @@ Kontener obiektów blob, w którym będą przechwytywane dane zdarzeń.
 ```
 
 
-<a id="apiversion" class="xliff"></a>
-
-### apiVersion
+### <a name="apiversion"></a>apiVersion
 Wersja interfejsu API szablonu.
 
 ```json
@@ -230,9 +202,7 @@ Wersja interfejsu API szablonu.
  }
 ```
 
-<a id="resources-to-deploy" class="xliff"></a>
-
-## Zasoby wymagające wdrożenia
+## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
 Tworzy przestrzeń nazw typu **EventHubs** z jednym centrum zdarzeń oraz włącza funkcję przechwytywania.
 
 ```json
@@ -280,29 +250,21 @@ Tworzy przestrzeń nazw typu **EventHubs** z jednym centrum zdarzeń oraz włąc
    ]
 ```
 
-<a id="commands-to-run-deployment" class="xliff"></a>
-
-## Polecenia umożliwiające uruchomienie wdrożenia
+## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-<a id="powershell" class="xliff"></a>
-
-## PowerShell
+## <a name="powershell"></a>PowerShell
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
-<a id="azure-cli" class="xliff"></a>
-
-## Interfejs wiersza polecenia platformy Azure
+## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 ```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Funkcję przechwytywania usługi Event Hubs można również skonfigurować za pośrednictwem witryny [Azure Portal](https://portal.azure.com). Aby uzyskać więcej informacji, zobacz [Enable Event Hubs Capture using the Azure portal (Włączanie funkcji przechwytywania usługi Event Hubs przy użyciu witryny Azure Portal)](event-hubs-capture-enable-through-portal.md).
 

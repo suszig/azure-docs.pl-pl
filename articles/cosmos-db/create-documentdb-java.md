@@ -23,17 +23,13 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
-
-# Azure Cosmos DB: Budowanie aplikacji interfejsu API usługi DocumentDB za pomocą języka Java i witryny Azure Portal
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Budowanie aplikacji interfejsu API usługi DocumentDB za pomocą języka Java i witryny Azure Portal
 
 Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
 
 Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych dokumentów i kolekcji przy użyciu witryny Azure Portal. Następnie za pomocą [interfejsu API usługi DocumentDB języka Java](documentdb-sdk-java.md) zbudujesz i uruchomisz aplikację konsoli.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 * Przed uruchomieniem tego przykładu muszą być spełnione następujące wymagania wstępne:
    * Zestaw JDK 1.7 lub nowszy (uruchom polecenie `apt-get install default-jdk`, jeśli zestaw JDK nie jest zainstalowany)
@@ -41,21 +37,15 @@ Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Co
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-database-account" class="xliff"></a>
-
-## Tworzenie konta bazy danych
+## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="add-a-collection" class="xliff"></a>
-
-## Dodawanie kolekcji
+## <a name="add-a-collection"></a>Dodawanie kolekcji
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Klonowanie przykładowej aplikacji
+## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
 Teraz sklonujemy aplikację interfejsu API usługi DocumentDB z repozytorium github, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
@@ -67,9 +57,7 @@ Teraz sklonujemy aplikację interfejsu API usługi DocumentDB z repozytorium git
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-<a id="review-the-code" class="xliff"></a>
-
-## Przeglądanie kodu
+## <a name="review-the-code"></a>Przeglądanie kodu
 
 Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik `Program.java` i znajdź następujące wiersze kodu tworzące zasoby usługi Azure Cosmos DB. 
 
@@ -138,9 +126,7 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik 
     }
     ```    
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Aktualizowanie parametrów połączenia
+## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji.
 
@@ -156,9 +142,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 4. Następnie skopiuj wartość klucza podstawowego z portalu i zastąp drugi parametr „FILL ME” kluczem z konstruktora DocumentClient w pliku „Program.java”. Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
     
-<a id="run-the-app" class="xliff"></a>
-
-## Uruchomienie aplikacji
+## <a name="run-the-app"></a>Uruchomienie aplikacji
 
 1. Uruchom polecenie `mvn package` w terminalu, aby zainstalować wymagane pakiety języka Java.
 
@@ -166,24 +150,18 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 Teraz można wrócić do Eksploratora danych i zobaczyć, jak się pracuje z nowymi danymi, modyfikuje je i tworzy zapytania o nie. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Przeglądanie umów SLA w witrynie Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start:
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
 2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia kolekcji za pomocą Eksploratora danych i uruchamiania aplikacji. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
 

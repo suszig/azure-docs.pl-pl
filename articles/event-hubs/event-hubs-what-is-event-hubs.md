@@ -22,15 +22,11 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-is-event-hubs" class="xliff"></a>
-
-# Co to jest usługa Event Hubs?
+# <a name="what-is-event-hubs"></a>Co to jest usługa Event Hubs?
 
 Azure Event Hubs to wysoce skalowalna platforma do pobierania zdarzeń i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Dzięki udostępnieniu [możliwości publikowania/subskrybowania](https://msdn.microsoft.com/library/aa560414.aspx) z niskim opóźnieniem i na bardzo dużą skalę usługa Event Hubs służy jako „wjazd” dla danych big data.
 
-<a id="why-use-event-hubs" class="xliff"></a>
-
-## Dlaczego warto korzystać z usługi Event Hubs?
+## <a name="why-use-event-hubs"></a>Dlaczego warto korzystać z usługi Event Hubs?
 
 Możliwości obsługi zdarzeń i telemetrii w usłudze Event Hubs czynią ją szczególnie użyteczną do:
 
@@ -40,9 +36,7 @@ Możliwości obsługi zdarzeń i telemetrii w usłudze Event Hubs czynią ją sz
 
 Usługa Event Hubs umożliwia na przykład śledzenie zachowania w aplikacjach mobilnych, gromadzenie informacji o ruchu z farmy serwerów w Internecie, przechwytywanie zdarzeń w grach na konsole i zbieranie danych telemetrycznych z maszyn przemysłowych, podłączonych pojazdów lub innych urządzeń.
 
-<a id="azure-event-hubs-overview" class="xliff"></a>
-
-## Omówienie usługi Azure Event Hubs
+## <a name="azure-event-hubs-overview"></a>Omówienie usługi Azure Event Hubs
 
 Typową rolą pełnioną przez usługę Event Hubs w architekturze rozwiązań są „drzwi wejściowe” dla potoku zdarzeń. Jest ona często nazywana *systemem zbierania zdarzeń*. System zbierania zdarzeń to składnik lub usługa, która znajduje się między wydawcami zdarzeń, a ich odbiorcami. Jego rolą jest oddzielenie procesu tworzenia strumienia zdarzeń od użycia tych zdarzeń. Tę architekturę przedstawiono na poniższym rysunku:
 
@@ -50,9 +44,7 @@ Typową rolą pełnioną przez usługę Event Hubs w architekturze rozwiązań s
 
 Usługa Event Hubs umożliwia obsługę strumienia komunikatów, ale jej właściwości różnią się od tradycyjnych metod przesyłania komunikatów w przedsiębiorstwie. Możliwości usługi Event Hubs są zbudowane wokół scenariuszy wysokiej przepływności i przetwarzania zdarzeń. Z tego względu działanie usługi Event Hubs różni się od obsługi komunikatów w usłudze [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) — nie są implementowane niektóre funkcje dostępne w przypadku jednostek [obsługi komunikatów usługi Service Bus](/azure/service-bus-messaging/), takie jak tematy.
 
-<a id="event-hubs-features" class="xliff"></a>
-
-## Funkcje usługi Event Hubs
+## <a name="event-hubs-features"></a>Funkcje usługi Event Hubs
 
 Usługa Event Hubs zawiera następujące kluczowe elementy:
 
@@ -66,9 +58,7 @@ Usługa Event Hubs zawiera następujące kluczowe elementy:
 
 Aby uzyskać szczegółowe informacje techniczne na temat tych i innych funkcji usługi Event Hubs, zobacz [Event Hubs features overview (Omówienie funkcji usługi Event Hubs)](event-hubs-features.md). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać szczegółowe informacje o cenach za korzystanie z usługi Event Hubs, zobacz [Usługa Event Hubs — cennik](https://azure.microsoft.com/pricing/details/event-hubs/).
 

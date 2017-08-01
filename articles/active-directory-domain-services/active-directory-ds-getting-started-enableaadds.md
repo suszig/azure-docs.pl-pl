@@ -22,13 +22,9 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Włączanie usług Azure Active Directory Domain Services przy użyciu klasycznej witryny Azure Portal
 
-# Włączanie usług Azure Active Directory Domain Services przy użyciu klasycznej witryny Azure Portal
-
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
-
-## Zadanie 3. Włączanie usług Azure Active Directory Domain Services
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>Zadanie 3. Włączanie usług Azure Active Directory Domain Services
 W tym zadaniu należy włączyć usługi Azure Active Directory Domain Services (Azure AD DS) dla katalogu, wykonując następujące kroki:
 
 1. Przejdź do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
@@ -99,8 +95,6 @@ W tym zadaniu należy włączyć usługi Azure Active Directory Domain Services 
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## Następny krok
+## <a name="next-step"></a>Następny krok
 [Zadanie 4. Aktualizowanie ustawień usługi DNS dla sieci wirtualnej platformy Azure](active-directory-ds-getting-started-update-dns.md)
 

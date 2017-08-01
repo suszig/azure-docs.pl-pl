@@ -22,12 +22,8 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-# Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
-<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-## Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
+# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
 W poprzednich zadaniach konfiguracji pomyślnie włączono usługi Azure Active Directory Domain Services dla katalogu. Następnym krokiem jest zapewnienie komputerom w sieci wirtualnej możliwości łączenia się z tymi usługami i korzystania z nich. W tym artykule zaktualizujesz ustawienia serwera DNS dla sieci wirtualnej, wskazując dwa adresy IP, pod którymi usługi Azure Active Directory Domain Services są dostępne w sieci wirtualnej.
 
 > [!NOTE]
@@ -56,8 +52,6 @@ Wykonaj poniższe kroki, aby zaktualizować ustawienia serwera DNS dla sieci wir
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Zadanie 5. [Włączanie synchronizacji haseł w usługach Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

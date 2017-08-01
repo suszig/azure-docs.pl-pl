@@ -19,9 +19,7 @@ ms.lasthandoff: 06/16/2017
 
 ---
 
-<a id="get-started-with-batch-sdk-for-nodejs" class="xliff"></a>
-
-# Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
+# <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -32,21 +30,15 @@ ms.lasthandoff: 06/16/2017
 
 Poznaj podstawy tworzenia klienta usługi Batch w języku Node.js przy użyciu [zestawu SDK usługi Azure Batch dla środowiska Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). W tym artykule poznamy scenariusz dotyczący aplikacji usługi Batch i sposób jej konfigurowania przy użyciu klienta Node.js.  
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Node.js oraz znasz system Linux. Przyjęto również założenie, że masz skonfigurowane konto platformy Azure z prawami dostępu do tworzenia usług Batch i Storage.
 
 Zalecane jest przeczytanie artykułu [Azure Batch Technical Overview](batch-technical-overview.md) (Omówienie techniczne usługi Azure Batch) przed wykonaniem instrukcji opisanych w tym artykule.
 
-<a id="the-tutorial-scenario" class="xliff"></a>
-
-## Scenariusz samouczka
+## <a name="the-tutorial-scenario"></a>Scenariusz samouczka
 Przyjrzyjmy się scenariuszowi przepływu pracy w usłudze Batch. Prosty skrypt napisany w języku Python pobiera wszystkie pliki csv z kontenera usługi Azure Blob Storage i konwertuje je na format JSON. Aby przetwarzać wiele kontenerów kont magazynów równolegle, można wdrożyć skrypt jako zadanie w ramach usługi Azure Batch.
 
-<a id="azure-batch-architecture" class="xliff"></a>
-
-## Architektura usługi Azure Batch
+## <a name="azure-batch-architecture"></a>Architektura usługi Azure Batch
 Poniższy diagram przedstawia, w jaki sposób można skalować skrypt języka Python za pomocą klienta usługi Azure Batch i środowiska Node.js.
 
 ![Scenariusze dotyczące usługi Azure Batch](./media/batch-nodejs-get-started/BatchScenario.png)
@@ -64,15 +56,11 @@ Klient Node.js wdraża zadanie wsadowe wraz z zadaniem podrzędnym przygotowania
 >
 >
 
-<a id="build-the-application" class="xliff"></a>
-
-## Kompilowanie aplikacji
+## <a name="build-the-application"></a>Kompilowanie aplikacji
 
 Postępuj zgodnie z instrukcjami, aby utworzyć klienta Node.js:
 
-<a id="step-1-install-azure-batch-sdk" class="xliff"></a>
-
-### Krok 1. Instalowanie zestawu SDK usługi Azure Batch
+### <a name="step-1-install-azure-batch-sdk"></a>Krok 1. Instalowanie zestawu SDK usługi Azure Batch
 
 Zestaw SDK usługi Azure Batch dla środowiska Node.js można zainstalować przy użyciu polecenia npm install.
 
@@ -85,9 +73,7 @@ To polecenie instaluje najnowszą wersję zestawu Node SDK usługi Azure Batch.
 >
 >
 
-<a id="step-2-create-an-azure-batch-account" class="xliff"></a>
-
-### Krok 2. Tworzenie konta usługi Azure Batch
+### <a name="step-2-create-an-azure-batch-account"></a>Krok 2. Tworzenie konta usługi Azure Batch
 
 Konto można utworzyć zarówno za pomocą witryny [Azure Portal](batch-account-create-portal.md), jak i wiersza polecenia ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview)).
 
@@ -107,9 +93,7 @@ Każde konto usługi Batch ma odpowiadające mu klucze dostępu. Te klucze są w
 
 Skopiuj i zachowaj klucz, ponieważ będzie potrzebny w kolejnych krokach samouczka.
 
-<a id="step-3-create-an-azure-batch-service-client" class="xliff"></a>
-
-### Krok 3. Tworzenie klienta usługi Azure Batch
+### <a name="step-3-create-an-azure-batch-service-client"></a>Krok 3. Tworzenie klienta usługi Azure Batch
 Poniższy fragment kodu najpierw importuje moduł Node.js usługi Azure Batch, a następnie tworzy klienta usługi Batch. Najpierw należy utworzyć obiekt SharedKeyCredentials za pomocą klucza konta usługi Batch skopiowanego w poprzednim kroku.
 
 ```nodejs
@@ -143,9 +127,7 @@ Przyjrzyj się zrzutowi ekranu:
 
 
 
-<a id="step-4-create-an-azure-batch-pool" class="xliff"></a>
-
-### Krok 4. Tworzenie puli usługi Azure Batch
+### <a name="step-4-create-an-azure-batch-pool"></a>Krok 4. Tworzenie puli usługi Azure Batch
 Pula usługi Azure Batch składa się z wielu maszyn wirtualnych (znanych także jako węzły usługi Batch). Usługa Azure Batch wdraża zadania podrzędne na tych węzłach i zarządza nimi. Dla puli można zdefiniować następujące parametry konfiguracji.
 
 * Typ obrazu maszyny wirtualnej
@@ -280,9 +262,7 @@ Poniżej przedstawiono przykładowy obiekt wyniku zwrócony przez funkcję pool.
 ```
 
 
-<a id="step-4-submit-an-azure-batch-job" class="xliff"></a>
-
-### Krok 4. Przesyłanie zadania usługi Azure Batch
+### <a name="step-4-submit-an-azure-batch-job"></a>Krok 4. Przesyłanie zadania usługi Azure Batch
 Zadanie usługi Azure Batch jest logiczną grupą podobnych zadań podrzędnych. W naszym scenariuszu jest to „Konwertowanie plików csv na format JSON”. Każde przedstawione tutaj zadanie podrzędne może przetwarzać pliki csv zawarte we wszystkich kontenerach usługi Azure Storage.
 
 Dzięki usłudze Azure Batch zadania podrzędne będą wykonywane równolegle i wdrażane w wielu węzłach.
@@ -292,9 +272,7 @@ Dzięki usłudze Azure Batch zadania podrzędne będą wykonywane równolegle i 
 >
 >
 
-<a id="preparation-task" class="xliff"></a>
-
-#### Zadanie podrzędne przygotowania
+#### <a name="preparation-task"></a>Zadanie podrzędne przygotowania
 
 Utworzone węzły maszyny wirtualnej są pustymi węzłami systemu Ubuntu. Często konieczne jest zainstalowanie zestawu programów.
 Zazwyczaj w przypadku węzłów systemu Linux można korzystać ze skryptu powłoki, który instaluje wstępnie wymagane oprogramowanie przed uruchomieniem jakichkolwiek zadań podrzędnych. Jednak może to być dowolny inny programowalny i wykonywalny skrypt.
@@ -341,9 +319,7 @@ Jeśli nie ma konieczności instalowania żadnego wstępnie wymaganego oprogramo
 ```
 
 
-<a id="step-5-submit-azure-batch-tasks-for-a-job" class="xliff"></a>
-
-### Krok 5. Przesyłanie zadań podrzędnych usługi Azure Batch do zadania
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Krok 5. Przesyłanie zadań podrzędnych usługi Azure Batch do zadania
 
 Po utworzeniu zadania konwertującego pliki csv można utworzyć dla niego zadania podrzędne. Przy założeniu, że mamy cztery kontenery, należy utworzyć cztery zadania podrzędne, po jednym dla każdego kontenera.
 
@@ -383,9 +359,7 @@ Kod dodaje wiele zadań podrzędnych do puli. Poszczególne zadania podrzędne s
 
 W witrynie Azure Portal zamieszczono szczegółowe widoki stanów zadań i zadań podrzędnych. Można również skorzystać z listy, aby poznać funkcje w ramach zestawu Azure Node SDK. Szczegółowe informacje znajdują się w dokumentacji, do której prowadzi ten [link](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Przejrzyj artykuł [Overview of Azure Batch features](batch-api-basics.md) (Omówienie funkcji w usłudze Azure Batch), który zalecamy użytkownikom rozpoczynającym korzystanie z tej usługi.
 - Zobacz [Batch Node.js reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) (Dokumentacja języka Node.js dla usługi Batch), aby poznać interfejs API usługi Batch.

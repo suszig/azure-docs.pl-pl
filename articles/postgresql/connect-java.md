@@ -19,14 +19,10 @@ ms.lasthandoff: 06/26/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-java-to-connect-and-query-data" class="xliff"></a>
-
-# Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Java
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Java
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji Java. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka Java, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
 - [Tworzenie bazy danych — portal](quickstart-create-server-database-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia platformy Azure](quickstart-create-server-database-azure-cli.md)
@@ -35,9 +31,7 @@ Należy również:
 - Pobrać [sterownik JDBC programu PostgreSQL](https://jdbc.postgresql.org/download.html) zgodny z używaną wersją języka Java i zestawu Java Development Kit.
 - Uwzględnić plik jar JDBC programu PostgreSQL (na przykład postgresql-42.1.1.jar) w ścieżce klasy aplikacji. Aby uzyskać więcej informacji, zobacz [szczegóły ścieżki klasy](https://jdbc.postgresql.org/documentation/head/classpath.html).
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Pobieranie informacji o połączeniu
+## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą Azure Database for PostgreSQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
@@ -47,9 +41,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
  ![Azure Database for PostgreSQL — dane logowania administratora serwera](./media/connect-java/1-connection-string.png)
 5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
+## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
 Użyj poniższego kodu, aby nawiązać połączenie i załadować dane przy użyciu funkcji z instrukcją **INSERT** języka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) i [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) są używane do nawiązywania połączenia, usuwania i tworzenia tabeli. Obiekt [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) jest używany do tworzenia poleceń insert, z metodami setString() i setInt() do powiązania wartości parametrów. Metoda [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) uruchamia polecenie dla każdego zestawu parametrów. 
 
 Zastąp parametry hosta, bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia własnego serwera i bazy danych.
@@ -149,9 +141,7 @@ public class CreateTableInsertRows {
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Odczyt danych
+## <a name="read-data"></a>Odczyt danych
 Użyj poniższego kodu, aby odczytać dane za pomocą instrukcji **SELECT** języka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) i [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) są używane do nawiązywania połączenia, tworzenia i uruchamiania instrukcji SELECT. Wyniki są przetwarzane przy użyciu obiektu [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html). 
 
 Zastąp parametry hosta, bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia własnego serwera i bazy danych.
@@ -238,9 +228,7 @@ public class ReadTable {
 
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Aktualizowanie danych
+## <a name="update-data"></a>Aktualizowanie danych
 Użyj poniższego kodu, aby zmienić dane za pomocą instrukcji **UPDATE** języka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) i [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) są używane do nawiązywania połączenia, przygotowywania i uruchamiania instrukcji UPDATE. 
 
 Zastąp parametry hosta, bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia własnego serwera i bazy danych.
@@ -320,9 +308,7 @@ public class UpdateTable {
     }
 }
 ```
-<a id="delete-data" class="xliff"></a>
-
-## Usuwanie danych
+## <a name="delete-data"></a>Usuwanie danych
 Użyj poniższego kodu, aby usunąć dane za pomocą instrukcji **DELETE** języka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) i [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) są używane do nawiązywania połączenia, przygotowywania i uruchamiania instrukcji DELETE. 
 
 Zastąp parametry hosta, bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia własnego serwera i bazy danych.
@@ -402,9 +388,7 @@ public class DeleteTable {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych przy użyciu funkcji eksportowania i importowania](./howto-migrate-using-export-and-import.md)
 

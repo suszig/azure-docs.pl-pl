@@ -22,9 +22,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="create-biztalk-services-using-the-azure-portal" class="xliff"></a>
-
-# Tworzenie usługi BizTalk Services przy użyciu portalu Azure
+# <a name="create-biztalk-services-using-the-azure-portal"></a>Tworzenie usługi BizTalk Services przy użyciu portalu Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -33,9 +31,7 @@ ms.lasthandoff: 05/31/2017
 > Do zalogowania się do portalu Azure potrzebne jest konto Azure i subskrypcja platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Zobacz [Bezpłatna wersja próbna platformy Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-<a id="create-a-biztalk-service" class="xliff"></a>
-
-## Tworzenie usługi BizTalk
+## <a name="create-a-biztalk-service"></a>Tworzenie usługi BizTalk
 W zależności od wybranej wersji nie wszystkie ustawienia usługi BizTalk mogą być dostępne.
 
 1. Zaloguj się do [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -119,9 +115,7 @@ Po ukończeniu kreatora usługa Azure BizTalk Services jest utworzona i gotowa d
 
 W zależności od stanu usługi BizTalk niektórych operacji nie można ukończyć. Aby uzyskać listę tych operacji, przejdź do artykułu [BizTalk Services State Chart](biztalk-service-state-chart.md) (Wykres stanu usługi BizTalk Services).
 
-<a id="post-provisioning-steps" class="xliff"></a>
-
-## Kroki po zainicjowaniu obsługi
+## <a name="post-provisioning-steps"></a>Kroki po zainicjowaniu obsługi
 * [Instalacja certyfikatu na komputerze lokalnym](#InstallCert)
 * [Dodanie certyfikatu gotowego do produkcji](#AddCert)
 * [Uzyskanie przestrzeni nazw kontroli dostępu](#ACS)
@@ -165,9 +159,7 @@ Tożsamość usługi kontroli dostępu jest zestawem poświadczeń, który pozwa
 
 Niektóre wskazówki i zalecenia znajdują się w artykule [Managing Your ACS Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx) (Zarządzanie obszarem nazw ACS).
 
-<a id="requirements-explained" class="xliff"></a>
-
-## Wyjaśniono wymagania
+## <a name="requirements-explained"></a>Wyjaśniono wymagania
 Wymagania te nie dotyczą wersji bezpłatnej.
 
 <table border="1">
@@ -251,9 +243,7 @@ Po utworzeniu usługi BizTalk można dodać nowy lub inny certyfikat.
 
 
 
-<a id="hybrid-connections" class="xliff"></a>
-
-## Połączenia hybrydowe
+## <a name="hybrid-connections"></a>Połączenia hybrydowe
 Podczas tworzenia usługi Azure BizTalk Services dostępna jest karta **Połączenia hybrydowe**:
 
 ![Karta Połączenia hybrydowe][HybridConnectionTab]
@@ -262,14 +252,10 @@ Połączenia hybrydowe są używane do łączenia witryny sieci Web Azure lub us
 
  Więcej informacji, m.in. na temat tworzenia połączeń hybrydowych i zarządzania nimi, znajduje się w artykule [Hybrid Connections](integration-hybrid-connection-overview.md) (Połączenia hybrydowe).
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Po utworzeniu usługi BizTalk zapoznaj się z różnymi [usługami BizTalk Services: kartami Pulpit nawigacyjny, Monitor i Skala](biztalk-dashboard-monitor-scale-tabs.md). Usługa BizTalk jest gotowa dla aplikacji. Aby rozpocząć tworzenie aplikacji, przejdź do artykułu [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) (Usługa Azure BizTalk Services).
 
-<a id="see-also" class="xliff"></a>
-
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 * [BizTalk Services: Editions Chart (Usługa BizTalk Services: zestawienie wersji)](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: State Chart (Usługa BizTalk Services: tabela stanów)](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Backup and Restore (Usługa BizTalk Services: tworzenie kopii zapasowej i przywracanie)](biztalk-backup-restore.md)<br/>

@@ -22,9 +22,7 @@ ms.lasthandoff: 06/15/2017
 
 
 ---
-<a id="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery" class="xliff"></a>
-
-# Jak działa replikacja maszyn lokalnych do lokacji dodatkowej w usłudze Site Recovery?
+# <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Jak działa replikacja maszyn lokalnych do lokacji dodatkowej w usłudze Site Recovery?
 
 Ten artykuł zawiera opis składników i procesów związanych z replikacją lokalnych maszyn wirtualnych i serwerów fizycznych do platformy Azure za pomocą usługi [Azure Site Recovery](site-recovery-overview.md).
 
@@ -34,14 +32,10 @@ Oto co możesz replikować do dodatkowej lokacji lokalnej:
 
 Zamieść wszelkie komentarze pod tym artykułem lub na [forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<a id="replicate-hyper-v-vms-to-a-secondary-on-premises-site" class="xliff"></a>
-
-## Replikacja maszyn wirtualnych funkcji Hyper-V do dodatkowej lokacji lokalnej
+## <a name="replicate-hyper-v-vms-to-a-secondary-on-premises-site"></a>Replikacja maszyn wirtualnych funkcji Hyper-V do dodatkowej lokacji lokalnej
 
 
-<a id="architectural-components" class="xliff"></a>
-
-### Składniki architektury
+### <a name="architectural-components"></a>Składniki architektury
 
 Poniżej przedstawiono wymagania dotyczące replikowania maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej.
 
@@ -52,9 +46,7 @@ Poniżej przedstawiono wymagania dotyczące replikowania maszyn wirtualnych funk
 **Serwer funkcji Hyper-V** |  Co najmniej jeden serwer hosta funkcji Hyper-V w głównych i dodatkowych chmurach programu VMM.<br/><br/> Serwery powinny być połączone z Internetem.<br/><br/> Dane są replikowane między głównymi i dodatkowymi serwerami hosta funkcji Hyper-V za pośrednictwem sieci LAN albo sieci VPN korzystającej z protokołu Kerberos lub uwierzytelniania certyfikatu.  
 **Maszyny wirtualne funkcji Hyper-V** | Znajduje się na źródłowym serwerze hosta funkcji Hyper-V. | Źródłowy serwer hosta powinien mieć co najmniej jedną maszynę wirtualną, która ma być replikowana.
 
-<a id="replication-process" class="xliff"></a>
-
-### Proces replikacji
+### <a name="replication-process"></a>Proces replikacji
 
 1. Należy skonfigurować konto platformy Azure.
 2. Należy utworzyć magazyn usługi Replication Services na potrzeby usługi Site Recovery i skonfigurować ustawienia magazynu, w tym następujące elementy:
@@ -70,9 +62,7 @@ Poniżej przedstawiono wymagania dotyczące replikowania maszyn wirtualnych funk
 
 ![Ze środowiska lokalnego do środowiska lokalnego](./media/site-recovery-components/arch-onprem-onprem.png)
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-### Proces pracy w trybie failover i podczas powrotu po awarii
+### <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
 
 1. Planowane lub nieplanowane przejście w tryb [failover](site-recovery-failover.md) można uruchomić między lokacjami lokalnymi. Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych.
 2. W tryb failover można przełączyć pojedynczą maszynę lub można utworzyć [plany odzyskiwania](site-recovery-create-recovery-plans.md), aby zarządzać trybem failover na wielu maszynach.
@@ -84,16 +74,12 @@ Poniżej przedstawiono wymagania dotyczące replikowania maszyn wirtualnych funk
 
 
 
-<a id="replicate-vmware-vmsphysical-servers-to-a-secondary-site" class="xliff"></a>
-
-## Replikacja maszyn wirtualnych VMware/serwerów fizycznych do lokacji dodatkowej
+## <a name="replicate-vmware-vmsphysical-servers-to-a-secondary-site"></a>Replikacja maszyn wirtualnych VMware/serwerów fizycznych do lokacji dodatkowej
 
 Serwery fizyczne lub maszyny wirtualne VMware są replikowane do lokacji dodatkowej przy użyciu programu InMage Scout za pomocą następujących składników infrastruktury:
 
 
-<a id="architectural-components" class="xliff"></a>
-
-### Składniki architektury
+### <a name="architectural-components"></a>Składniki architektury
 
 **Składnik** | **Lokalizacja** | **Szczegóły**
 --- | --- | ---
@@ -106,9 +92,7 @@ Serwery fizyczne lub maszyny wirtualne VMware są replikowane do lokacji dodatko
 **Maszyny wirtualne/serwery fizyczne** |  Program Unified Agent zainstalowany na przeznaczonych do replikowania maszynach wirtualnych programu VMware i serwerach fizycznych. | Agent działa jako dostawca komunikacji między wszystkimi składnikami.
 
 
-<a id="replication-process" class="xliff"></a>
-
-### Proces replikacji
+### <a name="replication-process"></a>Proces replikacji
 
 1. Następnie należy skonfigurować serwery składników w każdej lokacji (konfiguracja, przetwarzanie, główny docelowy) oraz zainstalować program Unified Agent na maszynach, które mają zostać zreplikowane.
 2. Po początkowej replikacji agent na każdej maszynie wysyła zmiany replikacji przyrostowej na serwer przetwarzania.
@@ -119,9 +103,7 @@ Serwery fizyczne lub maszyny wirtualne VMware są replikowane do lokacji dodatko
 ![Z programu VMware do programu VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z [macierzą obsługi](site-recovery-support-matrix-to-sec-site.md)
 

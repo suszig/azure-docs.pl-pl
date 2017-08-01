@@ -22,15 +22,11 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="get-started-with-service-bus-topics" class="xliff"></a>
-
-# Wprowadzenie do tematów usługi Service Bus
+# <a name="get-started-with-service-bus-topics"></a>Wprowadzenie do tematów usługi Service Bus
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Co zostanie osiągnięte?
+## <a name="what-will-be-accomplished"></a>Co zostanie osiągnięte?
 
 Ten samouczek obejmuje następujące kroki:
 
@@ -40,26 +36,20 @@ Ten samouczek obejmuje następujące kroki:
 4. Napisanie aplikacji konsolowej służącej do wysyłania komunikatu do tematu.
 5. Napisanie aplikacji konsolowej służącej do odbierania tego komunikatu z subskrypcji.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 1. [Program Visual Studio w wersji 2015 lub nowszej](http://www.visualstudio.com). W przykładach znajdujących się w tym samouczku używany jest program Visual Studio 2017.
 2. Subskrypcja platformy Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
 
 Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już utworzona, przejdź do sekcji [Tworzenie tematu przy użyciu witryny Azure Portal](#2-create-a-topic-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-topic-using-the-azure-portal" class="xliff"></a>
-
-## 2. Tworzenie tematu przy użyciu witryny Azure Portal
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Tworzenie tematu przy użyciu witryny Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal][azure-portal].
 2. W lewym okienku nawigacji portalu kliknij pozycję **Service Bus** (jeśli pozycja **Service Bus** nie jest widoczna, kliknij pozycję **Więcej usług**).
@@ -74,9 +64,7 @@ Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już 
     ![Wybieranie nowych kolejek][createtopic3]
 6. W dolnej części bloku kliknij pozycję **Utwórz**.
 
-<a id="3-create-a-subscription-to-the-topic" class="xliff"></a>
-
-## 3. Tworzenie subskrypcji tematu
+## <a name="3-create-a-subscription-to-the-topic"></a>3. Tworzenie subskrypcji tematu
 
 1. W okienku zasobów portalu kliknij przestrzeń nazw utworzoną w kroku 1, a następnie kliknij nazwę tematu utworzonego w kroku 2.
 2. W górnej części okienka Przegląd kliknij znak plus obok pozycji **Subskrypcja**, aby dodać subskrypcję do tego tematu.
@@ -85,30 +73,22 @@ Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już 
 
 3. Wprowadź nazwę subskrypcji. Pozostaw inne opcje z wartościami domyślnymi.
 
-<a id="4-send-messages-to-the-topic" class="xliff"></a>
-
-## 4. Wysyłanie komunikatów do tematu
+## <a name="4-send-messages-to-the-topic"></a>4. Wysyłanie komunikatów do tematu
 
 Aby wysyłać komunikaty do tematu, napiszemy aplikację konsolową w języku C# za pomocą programu Visual Studio.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Tworzenie aplikacji konsolowej
+### <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
 Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Dodawanie pakietu NuGet usługi Service Bus
+### <a name="add-the-service-bus-nuget-package"></a>Dodawanie pakietu NuGet usługi Service Bus
 
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
 2. Kliknij kartę **Przeglądaj**, wyszukaj ciąg **Microsoft Azure Service Bus**, a następnie wybierz element **WindowsAzure.ServiceBus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
    
     ![Wybieranie pakietu NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-topic" class="xliff"></a>
-
-### Pisanie kodu służącego do wysyłania komunikatów do tematu
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Pisanie kodu służącego do wysyłania komunikatów do tematu
 
 1. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
    
@@ -170,9 +150,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
    
       ![Rozmiar komunikatu][topic-message]
 
-<a id="5-receive-messages-from-the-subscription" class="xliff"></a>
-
-## 5. Odbieranie komunikatów z subskrypcji
+## <a name="5-receive-messages-from-the-subscription"></a>5. Odbieranie komunikatów z subskrypcji
 
 1. Aby odbierać komunikat (lub komunikaty) wysłane w poprzednim kroku, utwórz nową aplikację konsolową i dodaj odwołanie do pakietu NuGet usługi Service Bus, podobnie jak w przypadku poprzedniej aplikacji nadawcy.
 2. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
@@ -233,9 +211,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
 
 Gratulacje! Zostały utworzone temat i subskrypcja, wysłano komunikat i odebrano ten komunikat.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z naszym [repozytorium GitHub zawierającym przykłady](https://github.com/Azure/azure-service-bus/tree/master/samples), które pokazują niektóre bardziej zaawansowane funkcje obsługi komunikatów usługi Service Bus.
 

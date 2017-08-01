@@ -22,15 +22,11 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="azure-service-bus" class="xliff"></a>
-
-# Azure Service Bus
+# <a name="azure-service-bus"></a>Azure Service Bus
 
 Obojętnie, czy aplikacja lub usługa działa w chmurze, czy lokalnie, często wymaga interakcji z innymi aplikacjami lub usługami. Aby zapewnić szeroko użyteczny sposób obsługi tych interakcji, platforma Microsoft Azure oferuje usługę Service Bus. Ten artykuł przedstawia tę technologię, opisuje, czym ona jest, oraz dlaczego warto z niej korzystać.
 
-<a id="service-bus-fundamentals" class="xliff"></a>
-
-## Podstawy usługi Service Bus
+## <a name="service-bus-fundamentals"></a>Podstawy usługi Service Bus
 
 Różne sytuacje wymagają różnych stylów komunikacji. Czasami najlepszym rozwiązaniem jest umożliwienie aplikacji wysyłania i odbierania komunikatów przy użyciu prostej kolejki. W innych sytuacjach zwykła kolejka nie wystarcza i lepszym rozwiązaniem jest kolejka z mechanizmem publikowania i subskrybowania. W niektórych przypadkach potrzebne jest jedynie połączenie między aplikacjami, a kolejki nie są wymagane. Usługa Service Bus oferuje wszystkie trzy opcje, umożliwiając aplikacjom interakcję na kilka różnych sposobów.
 
@@ -52,9 +48,7 @@ Aby użyć dowolnego z tych obiektów w scenariuszu dotyczącym przekaźnika, ap
 
 Należy pamiętać, że chociaż usługa Service Bus sama działa w chmurze (to znaczy w centrach danych platformy Microsoft Azure), aplikacje z niej korzystające mogą być uruchamiane w dowolnym miejscu. Usługa Service Bus umożliwia na przykład łączenie aplikacji działających na platformie Azure lub aplikacji uruchamianych wewnątrz własnego centrum danych. Umożliwia także łączenie aplikacji działających na platformie Azure lub innej platformie chmurowej z aplikacjami lokalnymi lub z tabletami i telefonami. Istnieje nawet możliwość łącznia się urządzeń gospodarstwa domowego, czujników i innych urządzeń z centralną aplikacją lub między sobą. Usługa Service Bus jest mechanizmem komunikacji w chmurze, który jest dostępny niemal z dowolnego miejsca. Sposób korzystania z usługi Service Bus zależy od tego, co aplikacja ma robić.
 
-<a id="queues" class="xliff"></a>
-
-## Kolejki
+## <a name="queues"></a>Kolejki
 
 Załóżmy, że użytkownik łączy dwie aplikacje przy użyciu kolejki usługi Service Bus. Na Rysunku 2 przedstawiono tę sytuację.
 
@@ -78,9 +72,7 @@ Zauważ, że w tej sytuacji może się zdarzyć, że ten sam komunikat zostanie 
 
 Kolejki są przydatne w kilku sytuacjach. Umożliwiają one aplikacjom komunikowanie się nawet wtedy, gdy nie są uruchomione w tym samym czasie, co jest szczególnie przydatne w przypadku aplikacji wsadowych i aplikacji mobilnych. Kolejka z wieloma odbiornikami zapewnia również automatyczne równoważenie obciążenia, ponieważ wysłane wiadomości są rozkładane między te odbiorniki.
 
-<a id="topics" class="xliff"></a>
-
-## Tematy
+## <a name="topics"></a>Tematy
 
 Pomimo swojej przydatności, kolejki nie zawsze są odpowiednim rozwiązaniem. Czasami lepsze są tematy usługi Service Bus. Rysunek 3 ilustruje tę koncepcję.
 
@@ -96,9 +88,7 @@ Pomimo swojej przydatności, kolejki nie zawsze są odpowiednim rozwiązaniem. C
 
 Podobnie jak w przypadku kolejek, subskrybenci tematu mogą odczytywać komunikaty przy użyciu metody [ReceiveAndDelete lub PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). W przeciwieństwie do kolejek pojedynczy komunikat wysłany do tematu może zostać odebrany w ramach wielu subskrypcji. Takie podejście, często nazywane *publikowaniem i subskrybowaniem* (lub *publikowaniem/subskrypcją*), jest przydatne, gdy wiele aplikacji jest zainteresowanych tymi samymi komunikatami. Dzięki zdefiniowaniu właściwego filtru każdy subskrybent może korzystać tylko z tej części strumienia komunikatów, którą chce wyświetlać.
 
-<a id="relays" class="xliff"></a>
-
-## Przekaźniki
+## <a name="relays"></a>Przekaźniki
 
 Kolejki i tematy zapewniają jednokierunkową asynchroniczną komunikację za pośrednictwem brokera. Ruch przepływa tylko w jednym kierunku i nie ma bezpośredniego połączenia między nadawcami a odbiornikami. Ale co zrobić, jeśli nie potrzebujesz tego połączenia? Załóżmy, że aplikacje muszą zarówno wysyłać, jak i odbierać komunikaty, albo chcesz mieć bezpośrednie połączenie między nimi i nie potrzebujesz brokera do przechowywania komunikatów. Na potrzeby takich scenariuszy usługa Service Bus udostępnia *przekaźniki*, jak pokazano na rysunku 4.
 
@@ -118,15 +108,11 @@ W przeciwieństwie do kolejek i tematów aplikacje nie tworzą jawnie przekaźni
 
 Przekaźniki są odpowiednim rozwiązaniem, gdy potrzebna jest bezpośrednia komunikacja między aplikacjami. Rozważmy na przykład system rezerwacji linii lotniczych uruchomiony w lokalnym centrum danych, który musi być dostępny z kiosków odprawy, urządzeń przenośnych i innych komputerów. Aplikacje działające w tych wszystkich systemach mogą polegać na przekaźnikach usługi Service Bus w chmurze na potrzeby komunikacji wszędzie tam, gdzie mogą być uruchamiane.
 
-<a id="summary" class="xliff"></a>
-
-## Podsumowanie
+## <a name="summary"></a>Podsumowanie
 
 Łączenie aplikacji zawsze było częścią tworzenia kompletnych rozwiązań, a zakres scenariuszy, które wymagają komunikowania się ze sobą aplikacji i usług, ciągle się zwiększa, ponieważ coraz więcej aplikacji i urządzeń ma połączenie z Internetem. Zapewniając technologie chmurowe służące osiągnięciu tego celu za pośrednictwem kolejek, tematów i przekaźników, usługa Service Bus ułatwia zaimplementowanie tej istotnej funkcji i sprawia, że jest ona szerzej dostępna.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, kiedy znasz już podstawy usługi Azure Service Bus, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 

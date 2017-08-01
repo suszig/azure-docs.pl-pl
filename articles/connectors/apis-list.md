@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="connectors-list" class="xliff"></a>
-
-# Lista łączników
+# <a name="connectors-list"></a>Lista łączników
 > [!TIP]
 > [Pełna lista od A do Z](#az) (znajdująca się w tym temacie) zawiera wszystkie dostępne łączniki, których można użyć w usłudze Logic Apps. [Szczegóły łącznika](/connectors/) to lista wszystkich wyzwalaczy i akcji zdefiniowanych w strukturze Swagger, a także wszystkich ograniczeń dla każdego łącznika.
 
@@ -41,9 +39,7 @@ ms.lasthandoff: 06/28/2017
 
 Aby uzyskać szczegółowe informacje dotyczące kosztów, zobacz [Logic Apps — cennik](https://azure.microsoft.com/pricing/details/logic-apps/) i [Model cen](../logic-apps/logic-apps-pricing.md). 
 
-<a id="popular-connectors" class="xliff"></a>
-
-## Popularne łączniki
+## <a name="popular-connectors"></a>Popularne łączniki
 Za pomocą tych łączników tysiące aplikacji w milionach wykonań pomyślnie przetwarzają dane i informacje. W poniższej tabeli wymieniono najbardziej popularne i niektóre z ulubionych łączników naszych użytkowników:
 
 | |  |  |  |
@@ -56,9 +52,7 @@ Za pomocą tych łączników tysiące aplikacji w milionach wykonań pomyślnie 
 |  [![Ikona interfejsu API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Jeśli korzystasz z programu SharePoint i możesz uzyskać korzyści z automatyzacji, zalecamy przyjrzenie się temu łącznikowi. Można go używać z lokalnym programem SharePoint i usługą SharePoint Online. | [![Ikona interfejsu API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Jeden z najczęściej używanych łączników. Umożliwia nawiązywanie połączeń z lokalnym programem SQL Server i usługą Azure SQL Database. | 
 | [![Ikona interfejsu API][Twittericon]<br/>**Twitter**][Twitterdoc] | Pozwala łatwo logować się za pomocą konta w serwisie Twitter i umożliwia uruchamianie przepływu pracy po opublikowaniu nowego tweeta. Następnie można zapisywać te tweety w bazie danych SQL lub na liście programu SharePoint. | | | 
 
-<a id="integration-account-connectors" class="xliff"></a>
-
-## Łączniki konta integracji 
+## <a name="integration-account-connectors"></a>Łączniki konta integracji 
 
 Pakiet integracyjny dla przedsiębiorstw (EIP) zawiera łączniki, które są dobrze znane w społeczności programu BizTalk Server. Po zakupie [konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) uzyskasz także następujące łączniki: 
 
@@ -68,9 +62,7 @@ Pakiet integracyjny dla przedsiębiorstw (EIP) zawiera łączniki, które są do
 [![Ikona interfejsu API][flatfileicon]<br/>**Kodowanie</br> plików prostych**][flatfiledoc] | [![Ikona interfejsu API][flatfiledecodeicon]<br/>**Dekodowanie</br> plików prostych**][flatfiledecodedoc] | [![Ikona interfejsu API][integrationaccounticon]<br/>**Konto<br/>integracji**][integrationaccountdoc] | [![Ikona interfejsu API][xmltransformicon]<br/>**Przekształcanie<br/>kodu XML**][xmltransformdoc] |
 | [![Ikona interfejsu API][x12icon]<br/>**Dekodowanie</br> X12**][x12decode] | [![Ikona interfejsu API][x12icon]<br/>**Kodowanie</br> X12**][x12encode] | [![Ikona interfejsu API][xmlvalidateicon]<br/>**Walidacja<br/>XML**][xmlvalidatedoc] | |
 
-<a id="enterprise-connectors" class="xliff"></a>
-
-## Łączniki dla przedsiębiorstw
+## <a name="enterprise-connectors"></a>Łączniki dla przedsiębiorstw
 
 Nawiązuj połączenie z aplikacjami dla przedsiębiorstw w obrębie aplikacji logiki.
 
@@ -95,9 +87,7 @@ Nawiązuj połączenie z aplikacjami dla przedsiębiorstw w obrębie aplikacji l
 > [!TIP]
 > Aby zacząć korzystać z usługi Azure Logic Apps przed założeniem konta platformy Azure, przejdź do strony umożliwiającej [wypróbowanie usługi Logic Apps](https://tryappservice.azure.com/?appservice=logic). Możesz od razu utworzyć krótkotrwałą wersję początkową aplikacji logiki. Bez kart kredytowych i bez zobowiązań.
 
-<a id="connectors-as-triggers-and-actions" class="xliff"></a>
-
-## Łączniki jako wyzwalacze i akcje
+## <a name="connectors-as-triggers-and-actions"></a>Łączniki jako wyzwalacze i akcje
 
 **Wyzwalacz** rozpoczyna lub uruchamia wystąpienie aplikacji logiki. Niektóre łączniki udostępniają wyzwalacze, które powiadamiają aplikację w przypadku wystąpienia określonych zdarzeń. Na przykład łącznik FTP ma wyzwalacz `OnUpdatedFile` uruchamiający aplikację logiki po zaktualizowaniu pliku. 
 
@@ -117,9 +107,7 @@ Aplikacje logiki mają następujące typy wyzwalaczy:
 > Aby uzyskać więcej szczegółów na temat wyzwalaczy i akcji, zobacz [Przegląd łączników](connectors-overview.md). 
 
 
-<a id="message-manipulation-actions" class="xliff"></a>
-
-## Akcje manipulowania komunikatami
+## <a name="message-manipulation-actions"></a>Akcje manipulowania komunikatami
 
 Aplikacje logiki zawierają wbudowane akcje, które mogą zmieniać dane ładunku i umożliwiają manipulowanie nimi. Wbudowany łącznik **Operacje na danych** zawiera następujące akcje: 
 
@@ -132,17 +120,13 @@ Aplikacje logiki zawierają wbudowane akcje, które mogą zmieniać dane ładunk
 | **Przeanalizuj dane JSON** | Przeanalizuj wartości z obiektu JSON i uzyskaj do nich dostęp w projektancie. Na przykład jeśli usługa Azure Function zwraca ładunek JSON, można go przeanalizować, aby móc później uzyskać dostęp do właściwości JSON w innym kroku. Ta akcja sprawdza również, czy dane JSON są zgodne z określonym schematem w czasie wykonywania. | 
 | **Wybierz** | Wybierz niektóre właściwości tablicy do dalszego przetwarzania. Jeśli korzystasz z akcji „Wyświetl rekordy” względem bazy danych SQL i w wyniku działania tej akcji zostanie zwróconych 15 kolumn, wybierz tylko niektóre z nich do dalszego przetwarzania. Dane wyjściowe są prezentowane w postaci tablicy, która zawiera tylko wybrane właściwości. |
 
-<a id="custom-connectors-and-azure-certification" class="xliff"></a>
-
-## Niestandardowe łączniki i certyfikaty platformy Azure 
+## <a name="custom-connectors-and-azure-certification"></a>Niestandardowe łączniki i certyfikaty platformy Azure 
 
 Aby wywoływać interfejsy API, na których jest uruchomiony niestandardowy kod lub które nie są dostępne jako łączniki, można rozszerzyć platformę usługi Logic Apps, [tworząc aplikacje interfejsu API oparte na protokole REST jako łączniki niestandardowe](../logic-apps/logic-apps-create-api-app.md). 
 
 Jeśli chcesz, aby Twoje niestandardowe aplikacje interfejsu API były publiczne i dostępne do użytku na platformie Azure, prześlij swoje nominacje do [programu certyfikatów platformy Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
-<a id="get-help" class="xliff"></a>
-
-## Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskiwanie pomocy
 
 Aby zadawać pytania, odpowiadać na nie i patrzeć, co robią inni użytkownicy usługi Azure Logic Apps, przejdź do [forum usługi Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
@@ -150,9 +134,7 @@ Aby pomóc w ulepszaniu usługi Azure Logic Apps, przesyłaj pomysły lub głosu
 
 Czy pominęliśmy jakiś temat dotyczący łączników albo jakieś informacje, które uważasz za istotne? Jeśli tak, pomóż nam, uzupełniając istniejące tematy lub pisząc swój własny temat. Nasza dokumentacja jest typu open source i jest hostowana w usłudze GitHub. Zacznij, przechodząc do naszego [repozytorium GitHub](https://github.com/Microsoft/azure-docs). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pierwszej aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Tworzenie niestandardowych interfejsów API dla aplikacji logiki](../logic-apps/logic-apps-create-api-app.md)
 * [Monitorowanie aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md)

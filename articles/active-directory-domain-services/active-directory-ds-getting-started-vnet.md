@@ -22,17 +22,11 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="create-or-select-a-virtual-network-for-azure-active-directory-domain-services" class="xliff"></a>
-
-# Tworzenie lub wybieranie sieci wirtualnej dla usługi Azure Active Directory Domain Services
-<a id="before-you-begin" class="xliff"></a>
-
-## Przed rozpoczęciem
+# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Tworzenie lub wybieranie sieci wirtualnej dla usługi Azure Active Directory Domain Services
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 Zapoznaj się z tematem [Networking considerations for Azure Active Directory Domain Services](active-directory-ds-networking.md) (Zagadnienia dotyczące sieci w usłudze Azure Active Directory Domain Services).
 
-<a id="task-2-create-an-azure-virtual-network" class="xliff"></a>
-
-## Zadanie 2. Tworzenie sieci wirtualnej platformy Azure
+## <a name="task-2-create-an-azure-virtual-network"></a>Zadanie 2. Tworzenie sieci wirtualnej platformy Azure
 Kolejnym zadaniem konfiguracji jest utworzenie sieci wirtualnej platformy Azure oraz podsieci w tej sieci. Usługi Azure Active Directory Domain Services w tej podsieci możesz włączyć w sieci wirtualnej. Jeśli masz istniejącą sieć wirtualną, której chcesz użyć, możesz pominąć ten krok.
 
 > [!NOTE]
@@ -74,8 +68,6 @@ Aby utworzyć sieć wirtualną platformy Azure, w której chcesz włączyć usł
 11. Kliknij przycisk **Zapisz**, aby utworzyć podsieć.
 
 
-<a id="next-step" class="xliff"></a>
-
-## Następny krok
+## <a name="next-step"></a>Następny krok
 [Zadanie 3. Włączanie usług Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md)
 
