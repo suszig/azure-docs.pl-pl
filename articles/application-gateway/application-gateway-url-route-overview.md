@@ -22,9 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="url-path-based-routing-overview" class="xliff"></a>
-
-# Routing oparty na ścieżkach URL — omówienie
+# <a name="url-path-based-routing-overview"></a>Routing oparty na ścieżkach URL — omówienie
 
 Routing oparty na ścieżkach URL umożliwia kierowanie ruchu do pul serwerów zaplecza na podstawie ścieżek URL żądania. 
 
@@ -36,9 +34,7 @@ W poniższym przykładzie usługa Application Gateway obsługuje ruch dla domeny
 
 Żądania dla adresu http://contoso.com/video* są kierowane do puli VideoServerPool, a dla adresu http://contoso.com/images* — ImageServerPool. Pula DefaultServerPool jest wybierana, jeśli żaden z wzorców ścieżki nie pasuje.
     
-<a id="urlpathmap-configuration-element" class="xliff"></a>
-
-## Element konfiguracji UrlPathMap
+## <a name="urlpathmap-configuration-element"></a>Element konfiguracji UrlPathMap
 
 Element urlPathMap jest używany do określania wzorców ścieżki na potrzeby mapowań pul serwerów zaplecza. Poniższy przykład kodu jest fragmentem elementu urlPathMap z pliku szablonu.
 
@@ -76,9 +72,7 @@ Element urlPathMap jest używany do określania wzorców ścieżki na potrzeby m
 
 Aby uzyskać więcej informacji, zobacz [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) (Szablon usługi Resource Manager korzystający z routingu opartego na adresach URL).
 
-<a id="pathbasedrouting-rule" class="xliff"></a>
-
-## Reguła PathBasedRouting
+## <a name="pathbasedrouting-rule"></a>Reguła PathBasedRouting
 
 Reguła RequestRoutingRule typu PathBasedRouting jest używana do powiązania odbiornika z elementem urlPathMap. Wszystkie żądania otrzymane dla tego odbiornika są kierowane zgodnie z zasadami określonymi w elemencie urlPathMap.
 Fragment reguły PathBasedRouting:
@@ -103,9 +97,7 @@ Fragment reguły PathBasedRouting:
 ]
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Po zapoznaniu się z informacjami na temat routingu zawartości opartego na adresach URL skorzystaj z informacji dotyczących [tworzenia bramy aplikacji przy użyciu routingu opartego na adresach URL](application-gateway-create-url-route-portal.md), aby utworzyć bramę aplikacji za pomocą reguł routingu adresów URL.
 

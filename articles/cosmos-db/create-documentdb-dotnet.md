@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal" class="xliff"></a>
-
-# Azure Cosmos DB: Budowanie aplikacji sieci Web interfejsu API usługi DocumentDB za pomocą platformy .NET i witryny Azure Portal
+# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Budowanie aplikacji sieci Web interfejsu API usługi DocumentDB za pomocą platformy .NET i witryny Azure Portal
 
 Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
 
@@ -33,32 +31,24 @@ Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Co
 
 ![Aplikacja z listą zadań do wykonania z przykładowymi danymi](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pobrać program [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) i używać go **bezpłatnie**. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
-<a id="create-a-database-account" class="xliff"></a>
-
-## Tworzenie konta bazy danych
+## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection"></a>
-<a id="add-a-collection" class="xliff"></a>
-
-## Dodawanie kolekcji
+## <a name="add-a-collection"></a>Dodawanie kolekcji
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
-<a id="add-sample-data" class="xliff"></a>
-
-## Dodawanie danych przykładowych
+## <a name="add-sample-data"></a>Dodawanie danych przykładowych
 
 Teraz można dodać dane do nowej kolekcji za pomocą Eksploratora danych.
 
@@ -86,9 +76,7 @@ Teraz można dodać dane do nowej kolekcji za pomocą Eksploratora danych.
  
      Eksplorator danych umożliwia również tworzenie procedur składowanych, funkcji definiowanych przez użytkownika (UDF) i wyzwalaczy w celu wykonania logiki biznesowej po stronie serwera oraz skalowania przepływności. Eksplorator danych udostępnia wszystkie wbudowane programowe procedury dostępu do danych w interfejsach API, ale umożliwia łatwy dostęp do danych za pośrednictwem witryny Azure Portal.
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Klonowanie przykładowej aplikacji
+## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
 Teraz sklonujemy aplikację interfejsu API usługi DocumentDB z repozytorium github, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
@@ -102,9 +90,7 @@ Teraz sklonujemy aplikację interfejsu API usługi DocumentDB z repozytorium git
 
 3. Następnie otwórz plik rozwiązania z listą zadań do wykonania w programie Visual Studio. 
 
-<a id="review-the-code" class="xliff"></a>
-
-## Przeglądanie kodu
+## <a name="review-the-code"></a>Przeglądanie kodu
 
 Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik DocumentDBRepository.cs i zobacz, że następujące wiersze kodu tworzą zasoby usługi Azure Cosmos DB. 
 
@@ -129,9 +115,7 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik 
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Aktualizowanie parametrów połączenia
+## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji.
 
@@ -149,9 +133,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     `<add key="authKey" value="FILLME" />`
     
-<a id="run-the-web-app" class="xliff"></a>
-
-## Uruchamianie aplikacji sieci Web
+## <a name="run-the-web-app"></a>Uruchamianie aplikacji sieci Web
 1. W programie Visual Studio kliknij projekt prawym przyciskiem myszy w **Eksploratorze rozwiązań**, a następnie kliknij polecenie **Zarządzaj pakietami NuGet**. 
 
 2. W polu **Przeglądaj** pakietu NuGet wpisz ciąg *DocumentDB*.
@@ -166,24 +148,18 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 Teraz można wrócić do Eksploratora danych i zobaczyć, jak się pracuje z nowymi danymi, modyfikuje je i tworzy zapytania o nie. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Przeglądanie umów SLA w witrynie Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start:
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
 2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia kolekcji za pomocą Eksploratora danych i uruchamiania aplikacji sieci Web. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
 

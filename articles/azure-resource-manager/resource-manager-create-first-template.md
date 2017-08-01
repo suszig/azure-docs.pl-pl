@@ -22,16 +22,12 @@ ms.lasthandoff: 06/01/2017
 
 ---
 
-<a id="create-your-first-azure-resource-manager-template" class="xliff"></a>
-
-# Tworzenie pierwszego szablonu usługi Azure Resource Manager
+# <a name="create-your-first-azure-resource-manager-template"></a>Tworzenie pierwszego szablonu usługi Azure Resource Manager
 W tym temacie szczegółowo omówiono kroki tworzenia pierwszego szablonu usługi Azure Resource Manager. Szablony usługi Resource Manager są plikami JSON definiującymi zasoby, które należy wdrożyć dla danego rozwiązania. Aby zrozumieć pojęcia związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Usługa Azure Resource Manager — omówienie](resource-group-overview.md). Jeśli masz istniejące zasoby i chcesz uzyskać szablon dla tych zasobów, zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
 
 Aby utworzyć i sprawdzić szablony, potrzebujesz edytora plików JSON. [Visual Studio Code](https://code.visualstudio.com/) to lekki edytor kodu typu open-source dla wielu platform. Obsługuje tworzenie i edytowanie szablonów usługi Resource Manager za pomocą rozszerzenia. W tym temacie założono, że używasz programu VS Code. Jeśli jednak masz inny edytor plików JSON (np. program Visual Studio), możesz użyć tego edytora.
 
-<a id="get-vs-code-and-extension" class="xliff"></a>
-
-## Pobieranie narzędzia VS Code i rozszerzenia
+## <a name="get-vs-code-and-extension"></a>Pobieranie narzędzia VS Code i rozszerzenia
 1. W razie potrzeby zainstaluj narzędzie VS Code ze strony [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
 2. Zainstaluj rozszerzenie [Narzędzia usługi Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools), przechodząc do funkcji szybkiego otwierania (CTRL+P) i uruchamiając: 
@@ -42,9 +38,7 @@ Aby utworzyć i sprawdzić szablony, potrzebujesz edytora plików JSON. [Visual 
 
 3. Uruchom ponownie program VS Code po wyświetleniu monitu, aby włączyć rozszerzenie.
 
-<a id="create-blank-template" class="xliff"></a>
-
-## Tworzenie pustego szablonu
+## <a name="create-blank-template"></a>Tworzenie pustego szablonu
 
 Zacznijmy od pustego szablonu, który obejmuje tylko podstawowe sekcje.
 
@@ -65,9 +59,7 @@ Zacznijmy od pustego szablonu, który obejmuje tylko podstawowe sekcje.
 
 3. Zapisz plik jako **azuredeploy.json**. 
 
-<a id="add-storage-account" class="xliff"></a>
-
-## Dodaj konto magazynu
+## <a name="add-storage-account"></a>Dodaj konto magazynu
 1. Aby zdefiniować konto magazynu do wdrożenia, należy dodać konto magazynu do sekcji **resources** szablonu. Aby znaleźć wartości dostępne dla konta magazynu, zobacz [odwołanie do szablonu kont magazynu](/azure/templates/microsoft.storage/storageaccounts). Skopiuj kod JSON wyświetlany dla konta magazynu. 
 
 3. Wklej kod JSON do sekcji **resources** szablonu, jak pokazano w poniższym przykładzie: 
@@ -114,9 +106,7 @@ Zacznijmy od pustego szablonu, który obejmuje tylko podstawowe sekcje.
   
   Poprzedni przykład zawiera wiele wartości symboli zastępczych i kilka właściwości, których możesz nie potrzebować na swoim koncie magazynu.
 
-<a id="set-values-for-storage-account" class="xliff"></a>
-
-## Ustawianie wartości dla konta magazynu
+## <a name="set-values-for-storage-account"></a>Ustawianie wartości dla konta magazynu
 
 Teraz możesz ustawić wartości konta magazynu. 
 
@@ -183,9 +173,7 @@ Twój szablon wygląda teraz następująco:
 }
 ```
 
-<a id="add-template-function" class="xliff"></a>
-
-## Dodawanie funkcji szablonu
+## <a name="add-template-function"></a>Dodawanie funkcji szablonu
 
 W szablonie używa się funkcji, aby uprościć jego składnię i pobierać wartości, które są dostępne wyłącznie w momencie wdrażania szablonu. Aby uzyskać pełny zestaw funkcji szablonu, zobacz [Funkcje szablonu usługi Azure Resource Manager](resource-group-template-functions.md).
 
@@ -228,9 +216,7 @@ Twój szablon wygląda teraz następująco:
 }
 ```
 
-<a id="add-parameters-and-variables" class="xliff"></a>
-
-## Dodawanie parametrów i zmiennych
+## <a name="add-parameters-and-variables"></a>Dodawanie parametrów i zmiennych
 Pozostały już tylko dwie wartości do ustawienia w tym szablonie — **name** i **sku.name**. W przypadku tych właściwości należy dodać parametry, które umożliwiają konfigurowanie tych wartości podczas wdrożenia. 
 
 Nazwy kont magazynu podlegają kilku ograniczeniom, które utrudniają ich skonfigurowanie. Nazwa musi mieć od 3 do 24 znaków długości, zawierać wyłącznie cyfry i małe litery oraz musi być unikatowa. Zamiast próbowania odgadnięcia unikatowej wartości spełniającej te ograniczenia, możesz użyć funkcji [uniqueString](resource-group-template-functions-string.md#uniquestring), aby wygenerować wartość skrótu. Aby wartość skrótu była znacząca, dodaj prefiks, dzięki któremu zidentyfikujesz ją jako konto magazynu po wdrożeniu. 
@@ -305,9 +291,7 @@ Nazwy kont magazynu podlegają kilku ograniczeniom, które utrudniają ich skonf
 
 4. Zapisz plik.
 
-<a id="final-template" class="xliff"></a>
-
-## Ostateczny szablon
+## <a name="final-template"></a>Ostateczny szablon
 
 Po wykonaniu tych kroków z tego artykułu szablon wygląda teraz następująco:
 
@@ -361,9 +345,7 @@ Po wykonaniu tych kroków z tego artykułu szablon wygląda teraz następująco:
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * Szablon jest gotowy. Możesz rozpocząć wdrażanie szablonu do subskrypcji. Aby wdrożyć szablon, zobacz [Wdrażanie zasobów na platformie Azure](resource-manager-quickstart-deploy.md).
 * Aby uzyskać więcej informacji o strukturze szablonu, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).
 * Aby wyświetlić pełną listę szablonów dla wielu różnych rozwiązań, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/).

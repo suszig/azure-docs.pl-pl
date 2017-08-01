@@ -22,9 +22,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="how-to-use-azure-redis-cache" class="xliff"></a>
-
-# Jak używać usługi Azure Redis Cache
+# <a name="how-to-use-azure-redis-cache"></a>Jak używać usługi Azure Redis Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -48,9 +46,7 @@ W tym przewodniku przedstawiono, jak korzystać z klienta [StackExchange.Redis][
 
 <a name="getting-started-cache-service"></a>
 
-<a id="get-started-with-azure-redis-cache" class="xliff"></a>
-
-## Rozpoczęcie pracy z usługą Azure Redis Cache
+## <a name="get-started-with-azure-redis-cache"></a>Rozpoczęcie pracy z usługą Azure Redis Cache
 Rozpoczęcie pracy z usługą Azure Redis Cache jest proste. Aby rozpocząć, należy aprowizować i skonfigurować pamięć podręczną. Następnie należy skonfigurować klientów pamięci podręcznej, aby mogli uzyskać dostęp do pamięci podręcznej. Po skonfigurowaniu klientów pamięci podręcznej można rozpocząć pracę.
 
 * [Tworzenie pamięci podręcznej][Create the cache]
@@ -58,32 +54,24 @@ Rozpoczęcie pracy z usługą Azure Redis Cache jest proste. Aby rozpocząć, na
 
 <a name="create-cache"></a>
 
-<a id="create-a-cache" class="xliff"></a>
-
-## Tworzenie pamięci podręcznej
+## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-<a id="to-access-your-cache-after-its-created" class="xliff"></a>
-
-### Aby uzyskać dostęp do pamięci podręcznej po jej utworzeniu
+### <a name="to-access-your-cache-after-its-created"></a>Aby uzyskać dostęp do pamięci podręcznej po jej utworzeniu
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Więcej informacji na temat konfigurowania pamięci podręcznej znajduje się w temacie [How to configure Azure Redis Cache](cache-configure.md) (Konfigurowanie usługi Azure Redis Cache).
 
 <a name="NuGet"></a>
 
-<a id="configure-the-cache-clients" class="xliff"></a>
-
-## Konfigurowanie klientów pamięci podręcznej
+## <a name="configure-the-cache-clients"></a>Konfigurowanie klientów pamięci podręcznej
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Po skonfigurowaniu projektu klienta do buforowania będzie można pracować z pamięcią podręczną przy użyciu metod opisanych w poniższych sekcjach.
 
 <a name="working-with-caches"></a>
 
-<a id="working-with-caches" class="xliff"></a>
-
-## Praca z pamięciami podręcznymi
+## <a name="working-with-caches"></a>Praca z pamięciami podręcznymi
 W tej sekcji opisano sposób wykonywania typowych zadań z pamięcią podręczną.
 
 * [Łączenie z pamięcią podręczną][Connect to the cache]
@@ -92,9 +80,7 @@ W tej sekcji opisano sposób wykonywania typowych zadań z pamięcią podręczn�
 
 <a name="connect-to-cache"></a>
 
-<a id="connect-to-the-cache" class="xliff"></a>
-
-## Łączenie z pamięcią podręczną
+## <a name="connect-to-the-cache"></a>Łączenie z pamięcią podręczną
 Aby programowo pracować z pamięcią podręczną, potrzebujesz odwołania do pamięci podręcznej. Dodaj poniższy kod na początku każdego pliku, z którego chcesz użyć klienta StackExchange.Redis, aby uzyskać dostęp do pamięci podręcznej Redis Azure.
 
     using StackExchange.Redis;
@@ -162,9 +148,7 @@ Teraz gdy wiesz, jak połączyć się z wystąpieniem usługi Azure Redis Cache 
 
 <a name="add-object"></a>
 
-<a id="add-and-retrieve-objects-from-the-cache" class="xliff"></a>
-
-## Dodawanie i pobieranie obiektów z pamięci podręcznej
+## <a name="add-and-retrieve-objects-from-the-cache"></a>Dodawanie i pobieranie obiektów z pamięci podręcznej
 Elementy można zapisywać do pamięci podręcznej i pobierać z niej za pomocą metod `StringSet` i `StringGet`.
 
     // If key1 exists, it is overwritten.
@@ -190,9 +174,7 @@ Aby określić wygaśnięcie elementu w pamięci podręcznej, użyj parametru `T
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-<a id="work-with-net-objects-in-the-cache" class="xliff"></a>
-
-## Praca z obiektami platformy .NET w pamięci podręcznej
+## <a name="work-with-net-objects-in-the-cache"></a>Praca z obiektami platformy .NET w pamięci podręcznej
 Usługa Azure Redis Cache może buforować obiekty platformy .NET oraz pierwotne typy danych, ale zanim będzie możliwe buforowanie obiektu platformy .NET, trzeba go serializować. Odpowiedzialność za serializację obiektu .NET spoczywa na deweloperze aplikacji, który ma możliwość wybrania serializatora.
 
 Prostym sposobem na wykonywanie serializacji obiektów jest użycie metod serializacji `JsonConvert` w środowisku [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) oraz serializacja do i z formatu JSON. W poniższym przykładzie pokazano metody get i set używające wystąpienia obiektu `Employee`.
@@ -217,9 +199,7 @@ Prostym sposobem na wykonywanie serializacji obiektów jest użycie metod serial
 
 <a name="next-steps"></a>
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz się więcej na temat usługi Azure Redis Cache.
 
 * Sprawdź dostawców programu ASP.NET dla usługi Azure Redis Cache.

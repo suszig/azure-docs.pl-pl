@@ -23,9 +23,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
-
-# Tworzenie pierwszego wzorca usługi Jenkins na maszynie wirtualnej z systemem Linux (Ubuntu) na platformie Azure
+# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Tworzenie pierwszego wzorca usługi Jenkins na maszynie wirtualnej z systemem Linux (Ubuntu) na platformie Azure
 
 W tym przewodniku Szybki start pokazano, jak zainstalować najnowszą stabilną wersję usługi Jenkins razem z narzędziami i wtyczkami skonfigurowanymi do współdziałania z platformą Azure na maszynie wirtualnej z systemem Linux (Ubuntu 14.04 LTS). Narzędzia te zawierają następujące składniki:
 <ul>
@@ -46,9 +44,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
-
-## Tworzenie maszyny wirtualnej na platformie Azure przez wdrożenie szablonu rozwiązania dla usługi Jenkins
+## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Tworzenie maszyny wirtualnej na platformie Azure przez wdrożenie szablonu rozwiązania dla usługi Jenkins
 
 Szablony Szybki Start platformy Azure umożliwiają szybkie i niezawodne wdrażanie złożonych technologii na platformie Azure.  Usługa Azure Resource Manager pozwala aprowizować aplikacje za pomocą [deklaratywnych szablonów](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). Pojedynczy szablon umożliwia wdrożenie wielu usług wraz z ich zależnościami. Za pomocą tego samego szablonu możesz wdrażać aplikację na każdym etapie jej cyklu życia.
 
@@ -85,17 +81,13 @@ Po pomyślnej weryfikacji kliknij przycisk **OK**, aby pobrać szablon i paramet
 
 Następnie wybierz pozycję **Kup**, aby umożliwić aprowizację wszystkich zasobów.
 
-<a id="setup-ssh-port-forwarding" class="xliff"></a>
-
-## Konfigurowanie przekierowania portów SSH
+## <a name="setup-ssh-port-forwarding"></a>Konfigurowanie przekierowania portów SSH
 
 Domyślnie wystąpienie usługi Jenkins używa protokołu http i nasłuchuje na porcie 8080. Użytkownicy nie powinni przeprowadzać uwierzytelniania za pośrednictwem niezabezpieczonych protokołów.
     
 Skonfigurowanie przekierowania portów umożliwia wyświetlenie interfejsu użytkownika usługi Jenkins na maszynie lokalnej.
 
-<a id="if-you-are-using-windows" class="xliff"></a>
-
-### Jeśli używasz systemu Windows:
+### <a name="if-you-are-using-windows"></a>Jeśli używasz systemu Windows:
 
 Zainstaluj program PuTTY i uruchom to polecenie, jeśli do zabezpieczenia usługi Jenkins jest używane hasło:
 ```
@@ -110,9 +102,7 @@ Jeśli używasz protokołu SSH, uruchom następujące polecenie:
 putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
-
-### Jeśli używasz systemu Linux lub komputera Mac:
+### <a name="if-you-are-using-linux-or-mac"></a>Jeśli używasz systemu Linux lub komputera Mac:
 
 Jeśli do zabezpieczenia wzorca usługi Jenkins jest używane hasło, uruchom następujące polecenie:
 ```
@@ -125,9 +115,7 @@ Jeśli używasz protokołu SSH, uruchom następujące polecenie:
 ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="connect-to-jenkins" class="xliff"></a>
-
-## Nawiązywanie połączenia z usługą Jenkins
+## <a name="connect-to-jenkins"></a>Nawiązywanie połączenia z usługą Jenkins
 Po uruchomieniu tunelu przejdź do adresu http://localhost:8080/ na maszynie lokalnej.
 
 Odblokuj pulpit nawigacyjny usługi Jenkins za pomocą początkowego hasła administratora.
@@ -146,9 +134,7 @@ Wystąpienie usługi Jenkins jest teraz gotowe do użycia. Widok tylko do odczyt
 
 ![Usługa Jenkins jest gotowa do użycia.](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku zostały wykonane następujące czynności:
 

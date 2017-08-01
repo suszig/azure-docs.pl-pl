@@ -22,9 +22,7 @@ ms.contentlocale: pl-pl
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
-# Wprowadzenie do platformy Apache Kafka (wersja zapoznawcza) w usłudze HDInsight
+# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Wprowadzenie do platformy Apache Kafka (wersja zapoznawcza) w usłudze HDInsight
 
 Dowiedz się, jak utworzyć klaster [Apache Kafka](https://kafka.apache.org) w usłudze Azure HDInsight i używać go. Kafka to rozproszona platforma przesyłania strumieniowego typu „open source”, dostępna z usługą HDInsight. Jest ona często używana jako broker komunikatów, ponieważ oferuje funkcje podobne do kolejki komunikatów dotyczących publikowania i subskrybowania.
 
@@ -33,17 +31,13 @@ Dowiedz się, jak utworzyć klaster [Apache Kafka](https://kafka.apache.org) w u
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Zestaw Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) lub równoważny, taki jak OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
 
-<a id="create-a-kafka-cluster" class="xliff"></a>
-
-## Tworzenie klastra platformy Kafka
+## <a name="create-a-kafka-cluster"></a>Tworzenie klastra platformy Kafka
 
 Aby utworzyć klaster platformy Kafka w usłudze HDInsight, wykonaj następujące czynności:
 
@@ -101,9 +95,7 @@ Aby utworzyć klaster platformy Kafka w usłudze HDInsight, wykonaj następując
     > [!NOTE]
     > Tworzenie klastra może potrwać do 20 minut.
 
-<a id="connect-to-the-cluster" class="xliff"></a>
-
-## Łączenie z klastrem
+## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
 Na kliencie nawiąż połączenie z klastrem przy użyciu protokołu SSH:
 
@@ -151,9 +143,7 @@ Poniżej przedstawiono procedurę tworzenia zmiennych środowiskowych z informac
     >
     > Pobierz informacje o hostach dozorcy i brokera krótko przed sprawdzeniem, czy masz prawidłowe informacje.
 
-<a id="create-a-topic" class="xliff"></a>
-
-## Tworzenie tematu
+## <a name="create-a-topic"></a>Tworzenie tematu
 
 Platforma Kafka przechowuje strumienie danych w kategoriach nazywanych *tematami*. Z poziomu połączenia SSH z węzłem głównym klastra utwórz temat za pomocą skryptu dostarczonego z platformą Kafka:
 
@@ -169,9 +159,7 @@ To polecenie umożliwia nawiązanie połączenia z dozorcą przy użyciu informa
 
 To polecenie generuje listę tematów platformy Kafka, która zawiera temat **test**.
 
-<a id="produce-and-consume-records" class="xliff"></a>
-
-## Tworzenie i używanie rekordów
+## <a name="produce-and-consume-records"></a>Tworzenie i używanie rekordów
 
 Platforma Kafka przechowuje *rekordy* w tematach. Rekordy są tworzone przez *producentów* i używane przez *odbiorców*. Producenci pobierają rekordy z *brokerów* platformy Kafka. Każdy węzeł procesu roboczego w klastrze usługi HDInsight jest brokerem platformy Kafka.
 
@@ -195,9 +183,7 @@ Poniżej przedstawiono procedurę zapisywania rekordów w utworzonym wcześniej 
 
 3. Użyj klawiszy __Ctrl+C__, aby zatrzymać odbiorcę.
 
-<a id="producer-and-consumer-api" class="xliff"></a>
-
-## Interfejs API producenta i odbiorcy
+## <a name="producer-and-consumer-api"></a>Interfejs API producenta i odbiorcy
 
 Możesz też programowo tworzyć rekordy i korzystać z nich przy użyciu [interfejsów API platformy Kafka](http://kafka.apache.org/documentation#api). Aby pobrać oraz utworzyć producenta i odbiorcę opartego na języku Java, wykonaj następujące czynności:
 
@@ -246,9 +232,7 @@ Możesz też programowo tworzyć rekordy i korzystać z nich przy użyciu [inter
 
 6. Użyj klawiszy __Ctrl+C__, aby zakończyć działanie odbiorcy.
 
-<a id="multiple-consumers" class="xliff"></a>
-
-### Wielu odbiorców
+### <a name="multiple-consumers"></a>Wielu odbiorców
 
 W przypadku platformy Kafka odbiorcy powinni używać grupy odbiorców (zdefiniowanej przez identyfikator grupy) podczas odczytywania rekordów. Korzystanie z tej samej grupy przez wielu odbiorców umożliwia równoważenie obciążenia podczas przeprowadzania odczytu z tematu. Każdy odbiorca w grupie odbiera część rekordów. Aby zobaczyć, jak działa ten proces, wykonaj następujące czynności:
 
@@ -270,9 +254,7 @@ Użycie przez klientów w tej samej grupie jest obsługiwane przez partycje tema
 
 Rekordy na platformie Kafka są przechowywane w kolejności, w której zostały odebrane na partycji. Aby dostarczać rekordy *na partycji* w określonej kolejności, utwórz grupę odbiorców, w której liczba wystąpień odbiorców jest zgodna z liczbą partycji. Aby dostarczać rekordy *w temacie* w określonej kolejności, utwórz grupę odbiorców z jednym wystąpieniem odbiorcy.
 
-<a id="streaming-api" class="xliff"></a>
-
-## Interfejs API przesyłania strumieniowego
+## <a name="streaming-api"></a>Interfejs API przesyłania strumieniowego
 
 Interfejs API przesyłania strumieniowego został dodany do platformy Kafka w wersji 0.10.0. Wcześniejsze wersje korzystają z platformy Apache Spark lub systemu Storm na potrzeby przetwarzania strumienia.
 
@@ -347,21 +329,15 @@ Interfejs API przesyłania strumieniowego został dodany do platformy Kafka w we
 
 7. Użyj klawiszy __Ctrl+C__, aby zakończyć działanie odbiorcy, a następnie przywróć zadanie przesyłania strumieniowego z tła na pierwszy plan za pomocą polecenia `fg`. Użyj klawiszy __Ctrl+C__, aby zakończyć działanie.
 
-<a id="delete-the-cluster" class="xliff"></a>
-
-## Usuwanie klastra
+## <a name="delete-the-cluster"></a>Usuwanie klastra
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="troubleshoot" class="xliff"></a>
-
-## Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z [wymaganiami dotyczącymi kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym dokumencie przedstawiono podstawowe informacje dotyczące pracy z platformą Apache Kafka w usłudze HDInsight. Dowiedz się więcej o pracy z platformą Kafka, korzystając z następujących zasobów:
 

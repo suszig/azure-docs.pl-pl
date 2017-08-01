@@ -22,34 +22,24 @@ ms.lasthandoff: 05/18/2017
 
 
 ---
-<a id="get-started-with-azure-cloud-services-and-aspnet" class="xliff"></a>
+# <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
 
-# Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
-
-<a id="overview" class="xliff"></a>
-
-## Omówienie
+## <a name="overview"></a>Omówienie
 W tym samouczku wyjaśniono, jak utworzyć wielowarstwową aplikację .NET z frontonem ASP.NET MVC i wdrożyć ją w [usłudze w chmurze Azure](cloud-services-choose-me.md). Aplikacja używa [bazy danych Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [usługi obiektów blob platformy Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) i [usługi kolejek platformy Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). [Projekt programu Visual Studio można pobrać](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) z Galerii kodu MSDN.
 
 W samouczku opisano, jak utworzyć i uruchomić aplikację lokalnie, jak wdrożyć ją na platformie Azure i uruchomić w chmurze oraz jak utworzyć ją od samego początku. Można również rozpocząć od kompilowania aplikacji od początku, a dopiero później przeprowadzić testowanie i wdrażanie.
 
-<a id="contoso-ads-application" class="xliff"></a>
-
-## Aplikacja Contoso Ads
+## <a name="contoso-ads-application"></a>Aplikacja Contoso Ads
 Ta aplikacja to reklamowa tablica ogłoszeń. Aby utworzyć reklamę, użytkownicy muszą wpisać tekst i przesłać obraz. Mogą przeglądać listę reklam z miniaturami obrazów, a także zobaczyć pełny obraz po kliknięciu reklamy w celu wyświetlenia jej szczegółów.
 
 ![Lista reklam](./media/cloud-services-dotnet-get-started/list.png)
 
 Aplikacja korzysta z [przetwarzania kolejkowego](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern), aby przekazać obciążające procesor zadania związane z tworzeniem miniatur do procesu zaplecza.
 
-<a id="alternative-architecture-websites-and-webjobs" class="xliff"></a>
-
-## Architektura alternatywna: witryny sieci Web i zadania WebJob
+## <a name="alternative-architecture-websites-and-webjobs"></a>Architektura alternatywna: witryny sieci Web i zadania WebJob
 Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze Azure. Alternatywą jest uruchomienie frontonu w [witrynie Azure w sieci Web](/services/web-sites/) i używanie funkcji [zadań WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) (obecnie w wersji zapoznawczej) dla zaplecza. Aby zapoznać się z samouczkiem korzystającym z zadań WebJob, zobacz artykuł [Wprowadzenie do zestawu SDK zadań WebJob na platformie Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Informacje o wybieraniu usług najlepiej spełniających potrzeby scenariusza zawiera artykuł [Porównanie usług Azure: Witryny sieci Web, Cloud Services i Virtual Machines](../app-service-web/choose-web-site-cloud-service-vm.md).
 
-<a id="what-youll-learn" class="xliff"></a>
-
-## Zawartość
+## <a name="what-youll-learn"></a>Zawartość
 * Jak umożliwić tworzenie aplikacji platformy Azure na komputerze przez zainstalowanie zestawu Azure SDK.
 * Jak utworzyć projekt usługi w chmurze programu Visual Studio z rolą Proces roboczy i rolą Sieć Web kontrolera ASP.NET MVC.
 * Jak przetestować projekt usługi w chmurze lokalnie za pomocą emulatora magazynu platformy Azure.
@@ -57,9 +47,7 @@ Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze 
 * Jak przekazywać pliki i przechowywać je w usłudze obiektów blob platformy Azure.
 * Jak komunikować się między warstwami przy użyciu usługi kolejek platformy Azure.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 W samouczku przyjęto założenie, że znasz [podstawowe pojęcia dotyczące usług w chmurze Azure](cloud-services-choose-me.md), takie jak terminologia związana z *rolą Sieć Web* i *rolą Proces roboczy*.  Założono również, że wiesz, jak pracować z projektami [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) lub [formularzami sieci Web](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) w programie Visual Studio. Przykładowa aplikacja korzysta z kontrolera MVC, jednak większość treści samouczka odnosi się również do formularzy sieci Web.
 
 Aplikację można uruchomić lokalnie bez subskrypcji platformy Azure, ale będzie ona potrzebna w celu wdrożenia aplikacji w chmurze. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) lub [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -72,9 +60,7 @@ Instrukcje w samouczku dotyczą pracy z jednym z następujących produktów:
 
 Jeśli nie masz żadnego z tych programów, podczas instalowania zestawu Azure SDK program Visual Studio może zostać zainstalowany automatycznie.
 
-<a id="application-architecture" class="xliff"></a>
-
-## Architektura aplikacji
+## <a name="application-architecture"></a>Architektura aplikacji
 Aplikacja przechowuje reklamy w bazie danych SQL oraz tworzy tabele i uzyskuje dostęp do danych za pomocą funkcji Code First platformy Entity Framework. W przypadku każdej reklamy baza danych zawiera dwa adresy URL: jeden do obrazu w pełnym rozmiarze i jeden do miniatury.
 
 ![Tabela reklam](./media/cloud-services-dotnet-get-started/adtable.png)
@@ -85,9 +71,7 @@ Gdy użytkownik przesyła obraz, fronton uruchomiony w roli Sieć Web zapisuje o
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
-<a id="download-and-run-the-completed-solution" class="xliff"></a>
-
-## Pobieranie i uruchamianie gotowego rozwiązania
+## <a name="download-and-run-the-completed-solution"></a>Pobieranie i uruchamianie gotowego rozwiązania
 1. Pobierz i rozpakuj [ukończone rozwiązanie](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
 2. Uruchom program Visual Studio.
 3. Z menu **Plik** wybierz polecenie **Otwórz projekt**, przejdź do lokalizacji pobranego rozwiązania, a następnie otwórz plik rozwiązania.
@@ -120,9 +104,7 @@ Aplikacja działała całkowicie na komputerze lokalnym — bez połączenia z c
 
 W poniższej sekcji skonfigurujesz rozwiązanie do użycia zasobów w chmurze Azure dla kolejek, obiektów blob i bazy danych aplikacji na potrzeby uruchamiania w chmurze. Możesz to zrobić, jeśli chcesz kontynuować uruchamianie lokalnie, ale korzystać z zasobów magazynu i bazy danych w chmurze. Jest to jedynie kwestia ustawienia parametrów połączenia — pokażemy, jak to zrobić.
 
-<a id="deploy-the-application-to-azure" class="xliff"></a>
-
-## Wdrażanie aplikacji na platformie Azure
+## <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 Aby uruchomić aplikację w chmurze, należy wykonać następujące kroki:
 
 * Utworzenie usługi w chmurze platformy Azure.
@@ -132,9 +114,7 @@ Aby uruchomić aplikację w chmurze, należy wykonać następujące kroki:
 * Skonfigurowanie rozwiązania do używania konta magazynu Azure po uruchomieniu na platformie Azure.
 * Wdrożenie projektu do usługi w chmurze platformy Azure.
 
-<a id="create-an-azure-cloud-service" class="xliff"></a>
-
-### Tworzenie usługi w chmurze platformy Azure
+### <a name="create-an-azure-cloud-service"></a>Tworzenie usługi w chmurze platformy Azure
 Usługa w chmurze Azure to środowisko uruchamiania aplikacji.
 
 1. W przeglądarce otwórz witrynę [Azure Portal](https://portal.azure.com).
@@ -154,9 +134,7 @@ Usługa w chmurze Azure to środowisko uruchamiania aplikacji.
 
     ![Nowa usługa w chmurze](./media/cloud-services-dotnet-get-started/newcs.png)
 
-<a id="create-an-azure-sql-database" class="xliff"></a>
-
-### Tworzenie bazy danych SQL Azure
+### <a name="create-an-azure-sql-database"></a>Tworzenie bazy danych SQL Azure
 Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
 
 1. W witrynie [Azure Portal](https://portal.azure.com) kliknij kolejno pozycje **Nowy > Bazy danych > SQL Database**.
@@ -181,9 +159,7 @@ Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
     ![Nowy serwer usługi SQL Database](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Kliknij przycisk **Utwórz**.
 
-<a id="create-an-azure-storage-account" class="xliff"></a>
-
-### Tworzenie konta usługi Azure Storage
+### <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 Konto magazynu platformy Azure udostępnia zasoby służące do przechowywania danych kolejek i obiektów blob w chmurze.
 
 W rzeczywistych aplikacjach przeważnie tworzy się oddzielne konta dla danych aplikacji porównywanych z danymi rejestrowania oraz oddzielne konta dla danych testowych porównywanych z danymi produkcyjnymi. W tym samouczku będzie używane tylko jedno konto.
@@ -210,9 +186,7 @@ W rzeczywistych aplikacjach przeważnie tworzy się oddzielne konta dla danych a
 
     Na ilustracji przedstawiono utworzone konto magazynu z adresem URL `csvccontosoads.core.windows.net`.
 
-<a id="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure" class="xliff"></a>
-
-### Konfigurowanie rozwiązania do używania bazy danych Azure SQL po uruchomieniu na platformie Azure
+### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Konfigurowanie rozwiązania do używania bazy danych Azure SQL po uruchomieniu na platformie Azure
 Zarówno projekt sieci Web, jak i projekt roli Proces roboczy ma własne parametry połączenia bazy danych. Każdy z nich musi wskazywać na bazę danych SQL Azure, gdy aplikacja zostanie uruchomiona na platformie Azure.
 
 Dla roli Sieć Web będziesz używać [przekształcenia pliku Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations), a dla roli Proces roboczy — ustawienia środowiska usługi w chmurze.
@@ -253,9 +227,7 @@ Dla roli Sieć Web będziesz używać [przekształcenia pliku Web.config](http:/
      ![Parametry połączenia bazy danych dla roli Proces roboczy](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 11. Zapisz zmiany.  
 
-<a id="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure" class="xliff"></a>
-
-### Konfigurowanie rozwiązania do używania konta magazynu Azure po uruchomieniu na platformie Azure
+### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Konfigurowanie rozwiązania do używania konta magazynu Azure po uruchomieniu na platformie Azure
 Parametry połączenia konta magazynu platformy Azure dla projektu roli Sieć Web i projektu roli Proces roboczy są przechowywane w ustawieniach środowiska w projekcie usługi w chmurze. Dla każdego projektu istnieje osobny zestaw ustawień, które będą używane po uruchomieniu aplikacji lokalnie lub w chmurze. Ustawienia środowiska chmury będą aktualizowane dla obu projektów: roli Sieć Web i roli Proces roboczy.
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **ContosoAdsWeb** w obszarze **Role** w projekcie **ContosoAdsCloudService**, a następnie kliknij polecenie **Właściwości**.
@@ -309,9 +281,7 @@ A plik *ServiceConfiguration.Cloud.cscfg* zawiera wartości wprowadzone dla tych
 
 Ustawienie `<Instances>` określa liczbę maszyn wirtualnych, na których platforma Azure uruchomi kod roli Proces roboczy. W sekcji [Następne kroki](#next-steps) można znaleźć linki do dalszych informacji na temat skalowania usługi w chmurze w poziomie.
 
-<a id="deploy-the-project-to-azure" class="xliff"></a>
-
-### Wdrażanie projektu na platformie Azure
+### <a name="deploy-the-project-to-azure"></a>Wdrażanie projektu na platformie Azure
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt w chmurze **ContosoAdsCloudService**, a następnie wybierz polecenie **Opublikuj**.
 
    ![Menu Publikowanie](./media/cloud-services-dotnet-get-started/pubmenu.png)
@@ -341,9 +311,7 @@ Ustawienie `<Instances>` określa liczbę maszyn wirtualnych, na których platfo
 >
 >
 
-<a id="create-the-application-from-scratch" class="xliff"></a>
-
-## Tworzenie aplikacji od początku
+## <a name="create-the-application-from-scratch"></a>Tworzenie aplikacji od początku
 Jeśli [ukończona aplikacja](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) nie została jeszcze pobrana, zrób to teraz. Pliki z pobranego projektu będą kopiowane do nowego projektu.
 
 Tworzenie aplikacji Contoso Ads obejmuje następujące czynności:
@@ -356,9 +324,7 @@ Tworzenie aplikacji Contoso Ads obejmuje następujące czynności:
 
 Po utworzeniu rozwiązania można przejrzeć kod unikatowy dla projektów usług w chmurze oraz kolejki i obiekty blob platformy Azure.
 
-<a id="create-a-cloud-service-visual-studio-solution" class="xliff"></a>
-
-### Tworzenie rozwiązania usługi w chmurze w programie Visual Studio
+### <a name="create-a-cloud-service-visual-studio-solution"></a>Tworzenie rozwiązania usługi w chmurze w programie Visual Studio
 1. W programie Visual Studio wybierz pozycję **Nowy projekt** z menu **Plik**.
 2. W lewym okienku okna dialogowego **Nowy projekt** rozwiń węzeł **Visual C#** i wybierz szablony **Chmura**, a następnie wybierz szablon **Usługi w chmurze Azure**.
 3. Nazwij projekt i rozwiązanie ContosoAdsCloudService, a następnie kliknij przycisk **OK**.
@@ -380,9 +346,7 @@ Po utworzeniu rozwiązania można przejrzeć kod unikatowy dla projektów usług
 
     Z projektów ról Sieć Web i Proces roboczy należy odwoływać się do kontekstu platformy Entity Framework oraz modelu danych. Alternatywnie można zdefiniować klasy związane z platformą EF w projekcie roli Sieć Web i odwoływać się do tego projektu z projektu roli Proces roboczy. Jednak w przypadku zastosowania podejścia alternatywnego projekt roli Proces roboczy odwoływałby się do zestawów internetowych, których nie potrzebuje.
 
-<a id="update-and-add-nuget-packages" class="xliff"></a>
-
-### Aktualizowanie i dodawanie pakietów NuGet
+### <a name="update-and-add-nuget-packages"></a>Aktualizowanie i dodawanie pakietów NuGet
 1. Otwórz okno dialogowe **Zarządzanie pakietami NuGet** dla rozwiązania.
 2. W górnej części okna wybierz pozycję **Aktualizacje**.
 3. Wyszukaj pakiet *WindowsAzure.Storage*. Jeśli znajduje się na liście, wybierz go, a następnie wybierz projekty sieci Web i procesu roboczego, w których chcesz go zaktualizować. Kliknij przycisk **Aktualizuj**.
@@ -392,9 +356,7 @@ Po utworzeniu rozwiązania można przejrzeć kod unikatowy dla projektów usług
 5. Znajdź pakiet NuGet *EntityFramework*, a następnie zainstaluj go we wszystkich trzech projektach.
 6. Znajdź pakiet NuGet *Microsoft.WindowsAzure.ConfigurationManager*, a następnie zainstaluj go w projekcie roli Proces roboczy.
 
-<a id="set-project-references" class="xliff"></a>
-
-### Ustawianie odwołań do projektu
+### <a name="set-project-references"></a>Ustawianie odwołań do projektu
 1. W projekcie ContosoAdsWeb ustaw odwołanie do projektu ContosoAdsCommon. Kliknij prawym przyciskiem myszy projekt ContosoAdsWeb, a następnie kliknij pozycje **Odwołania** - **Dodaj odwołania**. W oknie dialogowym **Menedżer odwołań** wybierz pozycję **Rozwiązanie — projekty** w lewym okienku, wybierz pozycję **ContosoAdsCommon**, a następnie kliknij przycisk **OK**.
 2. W projekcie ContosoAdsWorker ustaw odwołanie do projektu ContosoAdsCommon.
 
@@ -403,9 +365,7 @@ Po utworzeniu rozwiązania można przejrzeć kod unikatowy dla projektów usług
 
     Ten zestaw jest używany przez zaplecze na potrzeby konwertowania obrazów na miniatury.
 
-<a id="configure-connection-strings" class="xliff"></a>
-
-### Konfigurowanie parametrów połączenia
+### <a name="configure-connection-strings"></a>Konfigurowanie parametrów połączenia
 W tej sekcji będziesz konfigurować parametry połączenia usługi Azure Storage i danych SQL na potrzeby testowania lokalnego. Podane wcześniej w samouczku instrukcje dotyczące wdrażania wyjaśniają, w jaki sposób należy skonfigurować parametry połączenia aplikacji uruchomionej w chmurze.
 
 1. W projekcie ContosoAdsWeb otwórz plik Web.config aplikacji i wstaw następujący element `connectionStrings` po elemencie `configSections`.
@@ -439,9 +399,7 @@ W tej sekcji będziesz konfigurować parametry połączenia usługi Azure Storag
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
        ```
 
-<a id="add-code-files" class="xliff"></a>
-
-### Dodawanie plików kodu
+### <a name="add-code-files"></a>Dodawanie plików kodu
 W tej sekcji skopiujesz pliki kodu z pobranego rozwiązania do nowego rozwiązania. W poniższych sekcjach zostaną również pokazane i objaśnione części tego kodu.
 
 Aby dodać pliki do projektu lub folderu, kliknij prawym przyciskiem myszy projekt lub folder, a następnie kliknij kolejno pozycje **Dodaj** - **Istniejący element**. Wybierz pliki, a następnie kliknij pozycję **Dodaj**. Jeśli pojawi się pytanie, czy chcesz zastąpić istniejące pliki, kliknij pozycję **Tak**.
@@ -464,9 +422,7 @@ W poniższych sekcjach opisano kod powiązany z pracą z kolejkami, obiektami bl
 * [Wprowadzenie do programów EF 6 i MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Wprowadzenie do programowania asynchronicznego w programie .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-<a id="contosoadscommon---adcs" class="xliff"></a>
-
-### ContosoAdsCommon — Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon — Ad.cs
 Plik Ad.cs definiuje wyliczenia związane z kategoriami reklam i klasą jednostki POCO dla informacji o reklamach.
 
 ```csharp
@@ -510,9 +466,7 @@ public class Ad
 }
 ```
 
-<a id="contosoadscommon---contosoadscontextcs" class="xliff"></a>
-
-### ContosoAdsCommon — ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon — ContosoAdsContext.cs
 Klasa ContosoAdsContext określa, czy klasa Ad jest używana w kolekcji DbSet przechowywanej przez platformę Entity Framework w bazie danych SQL.
 
 ```csharp
@@ -531,9 +485,7 @@ public class ContosoAdsContext : DbContext
 
 Klasa ma dwa konstruktory. Pierwszy z nich jest używany w projekcie sieci Web i określa nazwę parametrów połączenia, które są przechowywane w pliku Web.config. Drugi konstruktor umożliwia przekazywanie rzeczywistych parametrów połączenia używanych przez projekt roli Proces roboczy, ponieważ nie ma on pliku Web.config. Wcześniej przedstawiono lokalizację przechowywania tych parametrów połączenia. Dalej pokażemy, jak kod pobiera parametry połączenia podczas tworzenia wystąpień klasy DbContext.
 
-<a id="contosoadsweb---globalasaxcs" class="xliff"></a>
-
-### ContosoAdsWeb — Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb — Global.asax.cs
 Kod wywoływany z metody `Application_Start` umożliwia tworzenie kontenera obiektów blob *obrazów* i kolejki *obrazów*, jeśli jeszcze nie istnieją. Daje to gwarancję, że za każdym razem w przypadku rozpoczęcia pracy z nowym kontem magazynu lub przy użyciu emulatora magazynu na nowym komputerze wymagana kolejka i kontener obiektów blob zostaną utworzone automatycznie.
 
 Kod uzyskuje dostęp do konta magazynu przy użyciu parametrów połączenia magazynu z pliku *.cscfg*.
@@ -566,14 +518,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-<a id="contosoadsweb---layoutcshtml" class="xliff"></a>
-
-### ContosoAdsWeb — \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb — \_Layout.cshtml
 Plik *_Layout.cshtml* umożliwia ustawienie nazwy aplikacji w nagłówku i stopce oraz utworzenie wpisu menu „Ads”.
 
-<a id="contosoadsweb---viewshomeindexcshtml" class="xliff"></a>
-
-### ContosoAdsWeb — Views\Home\Index.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb — Views\Home\Index.cshtml
 Plik *Views\Home\Index.cshtml* umożliwia wyświetlanie linków kategorii na stronie głównej. Linki przekazują wartość całkowitą typu wyliczeniowego `Category` w zmiennej querystring na stronie indeksu reklam.
 
 ```razor
@@ -583,9 +531,7 @@ Plik *Views\Home\Index.cshtml* umożliwia wyświetlanie linków kategorii na str
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-<a id="contosoadsweb---adcontrollercs" class="xliff"></a>
-
-### ContosoAdsWeb — AdController.cs
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb — AdController.cs
 W pliku *AdController.cs* konstruktor wywołuje metodę `InitializeStorage` w celu utworzenia obiektów biblioteki klienta usługi Azure Storage, które będą dostarczać interfejs API do pracy z kolejkami i obiektami blob.
 
 Następnie kod pobiera odwołanie do kontenera obiektów blob *obrazów*, jak było to widać wcześniej w pliku *Global.asax.cs*. W tym czasie ustawiane są domyślne [zasady ponawiania](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) odpowiednie dla aplikacji sieci Web. Domyślne zasady ponawiania wykładniczego wycofywania mogą powodować zawieszanie aplikacji sieci Web na czas dłuższy niż minuta w przypadku kolejnych prób i wystąpienia błędu przejściowego. Zasady ponawiania określone w tym miejscu powodują oczekiwanie przez trzy sekundy po każdej próbie. Maksymalna liczba prób to trzy.
@@ -682,9 +628,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-<a id="contosoadsweb---viewsadindexcshtml-and-detailscshtml" class="xliff"></a>
-
-### ContosoAdsWeb — Views\Ad\Index.cshtml i Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb — Views\Ad\Index.cshtml i Details.cshtml
 Plik *Index.cshtml* służy do wyświetlania miniatury z innymi danymi reklamy.
 
 ```razor
@@ -697,9 +641,7 @@ Plik *Details.cshtml* służy do wyświetlania obrazu w pełnym rozmiarze.
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-<a id="contosoadsweb---viewsadcreatecshtml-and-editcshtml" class="xliff"></a>
-
-### ContosoAdsWeb — Views\Ad\Create.cshtml i Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb — Views\Ad\Create.cshtml i Edit.cshtml
 Pliki *Create.cshtml* i *Edit.cshtml* określają kodowanie formularzy, które umożliwia kontrolerowi pobieranie obiektu `HttpPostedFileBase`.
 
 ```razor
@@ -712,9 +654,7 @@ Element `<input>` informuje przeglądarkę o konieczności udostępnienia okna d
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-<a id="contosoadsworker---workerrolecs---onstart-method" class="xliff"></a>
-
-### ContosoAdsWorker — WorkerRole.cs — metoda OnStart
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker — WorkerRole.cs — metoda OnStart
 Środowisko roli procesu roboczego platformy Azure wywołuje metodę `OnStart` w klasie `WorkerRole` podczas uruchamiania roli Proces roboczy. Metoda `Run` jest wywoływana po zakończeniu działania metody `OnStart`.
 
 Metoda `OnStart` pobiera parametry połączenia bazy danych z pliku *.cscfg* i przekazuje je do klasy Entity Framework DbContext. Nie trzeba określać dostawcy, ponieważ domyślnie jest wybierany SQLClient.
@@ -726,9 +666,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Następnie metoda pobiera odwołanie do konta magazynu i tworzy kolejkę oraz kontener obiektów blob i kolejki, jeśli nie istnieją. Kod tej czynności działa podobnie do metody `Application_Start` roli Sieć Web.
 
-<a id="contosoadsworker---workerrolecs---run-method" class="xliff"></a>
-
-### ContosoAdsWorker — WorkerRole.cs — metoda Run
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker — WorkerRole.cs — metoda Run
 Metoda `Run` jest wywoływana, gdy zakończy się inicjowanie przy użyciu metody `OnStart`. Metoda wykonuje nieskończoną pętlę, która oczekuje na nowe komunikaty w kolejce i przetwarza je po nadejściu.
 
 ```csharp
@@ -804,37 +742,27 @@ Ten kod odczytuje bazę danych, aby uzyskać adres URL obrazu, konwertuje obraz 
 >
 >
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Rozwiązywanie problemów
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Jeśli coś nie działa podczas wykonywania instrukcji podanych w tym samouczku, zapoznaj się z poniższym opisem niektórych typowych błędów i sposobów ich rozwiązywania.
 
-<a id="serviceruntimeroleenvironmentexception" class="xliff"></a>
-
-### ServiceRuntime.RoleEnvironmentException
+### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
 Obiekt `RoleEnvironment` jest dostarczany przez platformę Azure podczas uruchamiania aplikacji na tej platformie lub podczas uruchamiania lokalnego w emulatorze obliczeń platformy Azure.  Jeśli ten błąd wystąpi podczas pracy w środowisku lokalnym, upewnij się, że projekt ContosoAdsCloudService został ustawiony jako projekt startowy. Powoduje to skonfigurowanie projektu do uruchamiania przy użyciu emulatora obliczeń platformy Azure.
 
 Jednym z celów użycia w aplikacji obiektu Azure RoleEnvironment jest uzyskanie wartości parametrów połączenia, które są przechowywane w pliku *.cscfg*. Ze względu na to inną przyczyną tego wyjątku jest brak parametrów połączenia. Upewnij się, że ustawienie StorageConnectionString zostało utworzone dla konfiguracji w chmurze i lokalnej w projekcie ContosoAdsWeb oraz że dla obydwu konfiguracji utworzono parametry połączenia w projekcie ContosoAdsWorker. W przypadku przeprowadzania wyszukiwania typu **Znajdź wszystkie** dla elementu StorageConnectionString w całym rozwiązaniu powinien on zostać znaleziony 9 razy w 6 plikach.
 
-<a id="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http" class="xliff"></a>
-
-### Nie można zastąpić portu wartością xxx. Nowy port poniżej minimalnej dozwolonej wartości 8080 dla protokołu HTTP
+### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>Nie można zastąpić portu wartością xxx. Nowy port poniżej minimalnej dozwolonej wartości 8080 dla protokołu HTTP
 Spróbuj zmienić numer portu używanego przez projekt sieci Web. Kliknij prawym przyciskiem myszy projekt ContosoAdsWeb, a następnie kliknij pozycję **Właściwości**. Kliknij kartę **Sieć Web**, a następnie zmień numer portu w ustawieniu **Adres URL projektu**.
 
 Kolejny alternatywny sposób rozwiązania tego problemu opisano w poniższej sekcji.
 
-<a id="other-errors-when-running-locally" class="xliff"></a>
-
-### Inne błędy po uruchomieniu w środowisku lokalnym
+### <a name="other-errors-when-running-locally"></a>Inne błędy po uruchomieniu w środowisku lokalnym
 Domyślnie nowe projekty usług w chmurze korzystają z ekspresowej wersji emulatora obliczeń platformy Azure do symulowania środowiska platformy Azure. Jest to uproszczona wersja pełnego emulatora obliczeń. W niektórych warunkach pełna wersja emulatora będzie działać, a wersja ekspresowa nie.  
 
 Aby zmienić projekt tak, aby korzystał z pełnego emulatora, kliknij prawym przyciskiem myszy projekt ContosoAdsCloudService, a następnie kliknij polecenie **Właściwości**. W oknie **Właściwości** kliknij kartę **Sieć Web**, a następnie kliknij przycisk radiowy **Użyj pełnego emulatora**.
 
 Aby można było uruchomić aplikację w pełnym emulatorze, należy otworzyć program Visual Studio z uprawnieniami administratora.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aplikacja Contoso Ads została celowo uproszczona na potrzeby samouczka wprowadzającego. Na przykład: nie implementuje [wstrzykiwania zależności](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ani [wzorców repozytorium i jednostki pracy](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), nie [używa interfejsu do rejestrowania](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), nie używa [migracji Code First platformy EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) do zarządzania zmianami modelu danych ani [opcji elastyczności połączenia platformy EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) do zarządzania błędami sieci itd.
 
 Poniżej przedstawiono niektóre przykładowe aplikacje usług w chmurze, w których zastosowano więcej rzeczywistych rozwiązań dotyczących kodowania. Zostały one uporządkowane w kolejności od mniej do bardziej złożonych:

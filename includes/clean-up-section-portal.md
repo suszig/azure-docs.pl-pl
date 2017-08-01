@@ -1,6 +1,4 @@
-<a id="clean-up-resources" class="xliff"></a>
-
-## Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Jeśli nie będziesz już potrzebować tych zasobów w przyszłości, możesz je usunąć przez usunięcie grupy zasobów.
  

@@ -22,12 +22,8 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="net-on-premisescloud-hybrid-application-using-azure-wcf-relay" class="xliff"></a>
-
-# Tworzenie hybrydowej aplikacji lokalnej/w chmurze platformy .NET przy użyciu przekaźnika WCF platformy Azure
-<a id="introduction" class="xliff"></a>
-
-## Wprowadzenie
+# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Tworzenie hybrydowej aplikacji lokalnej/w chmurze platformy .NET przy użyciu przekaźnika WCF platformy Azure
+## <a name="introduction"></a>Wprowadzenie
 
 Ten artykuł przedstawia sposób tworzenia hybrydowej aplikacji w chmurze przy użyciu platformy Microsoft Azure i programu Visual Studio. W tym samouczku założono, że nie masz wcześniejszego doświadczenia w używaniu platformy Azure. W mniej niż 30 minut utworzysz aplikację korzystającą z wielu zasobów platformy Azure i działającą w chmurze.
 
@@ -38,9 +34,7 @@ Dowiesz się:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="how-azure-relay-helps-with-hybrid-solutions" class="xliff"></a>
-
-## Jak usługa Azure Relay pomaga w tworzeniu rozwiązań hybrydowych
+## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Jak usługa Azure Relay pomaga w tworzeniu rozwiązań hybrydowych
 
 Rozwiązania biznesowe zwykle składają się z kombinacji niestandardowego kodu napisanego w celu spełnienia nowych i unikatowych wymagań biznesowych oraz istniejących funkcjonalności dostarczonych przez już stosowane rozwiązania i systemy.
 
@@ -48,18 +42,14 @@ Architekci rozwiązań zaczynają stosować usługi w chmurze w celu łatwiejsze
 
 Usługa [Azure Relay](https://azure.microsoft.com/services/service-bus/) została zaprojektowana w celu bezpiecznego zapewniania dostępu do istniejących usług sieci Web Windows Communication Foundation (WCF) rozwiązaniom, które znajdują się poza firmą, bez konieczności wprowadzania istotnych zmian w infrastrukturze sieci firmowej. Takie usługi przekazywania wciąż są hostowane wewnątrz istniejącego środowiska, ale delegują one nasłuchiwanie sesji i żądań przychodzących do usługi przekazywania hostowanej w chmurze. Usługa Azure Relay chroni także te usługi przed nieautoryzowanym dostępem przy użyciu uwierzytelniania za pomocą [sygnatury dostępu współdzielonego](../service-bus-messaging/service-bus-sas.md) (SAS, Shared Access Signature).
 
-<a id="solution-scenario" class="xliff"></a>
-
-## Scenariusz rozwiązania
+## <a name="solution-scenario"></a>Scenariusz rozwiązania
 W tym samouczku utworzysz witrynę sieci Web ASP.NET, która umożliwi wyświetlanie listy produktów na stronie spisu produktów.
 
 ![][0]
 
 W samouczku założono, że informacje o produktach znajdują się w istniejącym systemie lokalnym i uzyskujesz dostęp do tego systemu za pomocą usługi Azure Relay. Jest to symulowane przez usługę sieci Web, która działa w prostej aplikacji konsolowej i jest uzupełniana przez zestaw produktów w pamięci. Będziesz w stanie uruchomić tę aplikację konsolową na własnym komputerze i wdrożyć rolę sieci Web na platformie Azure. W ten sposób przekonasz się, że rola sieci Web działająca w centrum danych Azure rzeczywiście wywoła Twój komputer, mimo że prawie na pewno znajduje się on za przynajmniej jedną zaporą i warstwą translatora adresów sieciowych (NAT, network address translation).
 
-<a id="set-up-the-development-environment" class="xliff"></a>
-
-## Konfigurowanie środowiska deweloperskiego
+## <a name="set-up-the-development-environment"></a>Konfigurowanie środowiska deweloperskiego
 
 Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne narzędzia i skonfiguruj swoje środowisko deweloperskie:
 
@@ -69,23 +59,17 @@ Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne na
 4. W **Instalatorze platformy sieci Web** kliknij przycisk **Zainstaluj** i kontynuuj instalację.
 5. Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio.
 
-<a id="create-a-namespace" class="xliff"></a>
-
-## Tworzenie przestrzeni nazw
+## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
 
 Aby rozpocząć korzystanie z funkcji przekazywania na platformie Azure, należy najpierw utworzyć przestrzeń nazw usługi. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów platformy Azure w aplikacji. Postępuj zgodnie z [instrukcjami podanymi w tym miejscu](relay-create-namespace-portal.md), aby utworzyć przestrzeń nazw przekazywania.
 
-<a id="create-an-on-premises-server" class="xliff"></a>
-
-## Tworzenie serwera lokalnego
+## <a name="create-an-on-premises-server"></a>Tworzenie serwera lokalnego
 
 Najpierw utworzysz lokalny (pozorny) system katalogu produktów. Będzie to dość proste. Możesz go traktować jako rzeczywisty lokalny system katalogu produktów z kompletną powierzchnią usług, którą próbujemy zintegrować.
 
 Ten projekt jest aplikacją konsolową programu Visual Studio i używa [pakietu NuGet usługi Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) w celu uwzględnienia bibliotek i ustawień konfiguracji usługi Service Bus.
 
-<a id="create-the-project" class="xliff"></a>
-
-### Tworzenie projektu
+### <a name="create-the-project"></a>Tworzenie projektu
 
 1. Korzystając z uprawnień administratora, uruchom program Microsoft Visual Studio. W tym celu kliknij prawym przyciskiem myszy ikonę programu Visual Studio, a następnie kliknij pozycję **Uruchom jako administrator**.
 2. W menu **Plik** programu Visual Studio kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
@@ -227,15 +211,11 @@ Ten projekt jest aplikacją konsolową programu Visual Studio i używa [pakietu 
     ```
 14. Naciśnij kombinację klawiszy **Ctrl+Shift+B** lub w menu **Kompilacja** kliknij pozycję **Kompiluj rozwiązanie**, aby skompilować aplikację i sprawdzić dokładność pracy wykonanej do tej pory.
 
-<a id="create-an-aspnet-application" class="xliff"></a>
-
-## Tworzenie aplikacji ASP.NET
+## <a name="create-an-aspnet-application"></a>Tworzenie aplikacji ASP.NET
 
 W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać dane pobrane z usługi produktów.
 
-<a id="create-the-project" class="xliff"></a>
-
-### Tworzenie projektu
+### <a name="create-the-project"></a>Tworzenie projektu
 
 1. Upewnij się, że program Visual Studio jest uruchomiony z uprawnieniami administratora.
 2. W menu **Plik** programu Visual Studio kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
@@ -257,9 +237,7 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
 
     ![][17]
 
-<a id="modify-the-web-application" class="xliff"></a>
-
-### Modyfikowanie aplikacji sieci Web
+### <a name="modify-the-web-application"></a>Modyfikowanie aplikacji sieci Web
 
 1. W pliku Product.cs w programie Visual Studio zastąp istniejącą definicję przestrzeni nazw następującym kodem.
 
@@ -340,9 +318,7 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
    ```
 8. Aby sprawdzić dokładność pracy wykonanej do tej pory, naciśnij kombinację klawiszy **Ctrl+Shift+B** w celu skompilowania projektu.
 
-<a id="run-the-app-locally" class="xliff"></a>
-
-### Lokalne uruchamianie aplikacji
+### <a name="run-the-app-locally"></a>Lokalne uruchamianie aplikacji
 
 Uruchom aplikację, aby sprawdzić, czy działa.
 
@@ -352,9 +328,7 @@ Uruchom aplikację, aby sprawdzić, czy działa.
 
    ![][21]
 
-<a id="put-the-pieces-together" class="xliff"></a>
-
-## Składanie fragmentów
+## <a name="put-the-pieces-together"></a>Składanie fragmentów
 
 Następny krok polega na połączeniu lokalnego serwera produktów z aplikacją ASP.NET.
 
@@ -422,9 +396,7 @@ Następny krok polega na połączeniu lokalnego serwera produktów z aplikacją 
 
 14. W oknie dialogowym **Strony właściwości** kliknij przycisk **OK**.
 
-<a id="run-the-project-locally" class="xliff"></a>
-
-## Lokalne uruchamianie projektu
+## <a name="run-the-project-locally"></a>Lokalne uruchamianie projektu
 
 Aby przetestować aplikację lokalnie, w programie Visual Studio naciśnij klawisz **F5**. Serwer lokalny (**ProductsServer**) powinien uruchomić się jako pierwszy, a następnie aplikacja **ProductsPortal** powinna uruchomić się w oknie przeglądarki. Tym razem pojawi się spis produktów zawierający dane pobrane z lokalnego systemu usługi produktów.
 
@@ -434,9 +406,7 @@ Naciśnij przycisk **Odśwież** na stronie **ProductsPortal**. Przy każdym od�
 
 Zamknij obie aplikacje przed przejściem do następnego kroku.
 
-<a id="deploy-the-productsportal-project-to-an-azure-web-app" class="xliff"></a>
-
-## Wdrażanie projektu ProductsPortal w aplikacji sieci Web platformy Azure
+## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Wdrażanie projektu ProductsPortal w aplikacji sieci Web platformy Azure
 
 Następny krok polega na ponownym opublikowaniu frontonu projektu **ProductsPortal** aplikacji internetowej platformy Azure. Wykonaj następujące czynności:
 
@@ -453,9 +423,7 @@ Następny krok polega na ponownym opublikowaniu frontonu projektu **ProductsPort
 
 3. Zamknij okno przeglądarki, aby zatrzymać działającą aplikację.
 
-<a id="set-productsportal-as-web-app" class="xliff"></a>
-
-### Ustawianie projektu ProductsPortal jako aplikacji sieci Web
+### <a name="set-productsportal-as-web-app"></a>Ustawianie projektu ProductsPortal jako aplikacji sieci Web
 
 Przed uruchomieniem aplikacji w chmurze musisz się upewnić, że aplikacja **ProductsPortal** jest uruchamiana z poziomu programu Visual Studio jako aplikacja sieci Web.
 
@@ -468,9 +436,7 @@ Przed uruchomieniem aplikacji w chmurze musisz się upewnić, że aplikacja **Pr
 4. W menu **Plik** programu Visual Studio kliknij polecenie **Zapisz wszystko**.
 5. W menu Kompilacja programu Visual Studio kliknij polecenie **Kompiluj ponownie rozwiązanie**.
 
-<a id="run-the-application" class="xliff"></a>
-
-## Uruchamianie aplikacji
+## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 1. Naciśnij klawisz F5, aby skompilować i uruchomić aplikację. Serwer lokalny (aplikacja konsolowa **ProductsServer**) powinien uruchomić się jako pierwszy, a następnie aplikacja **ProductsPortal** powinna uruchomić się w oknie przeglądarki, jak pokazano na poniższym zrzucie ekranu. Ponownie pojawi się spis produktów zawierający dane pobrane z lokalnego systemu usługi produktów, a dane zostaną wyświetlone w aplikacji sieci Web. Sprawdź adres URL, aby upewnić się, że aplikacja **ProductsPortal** działa w chmurze jako aplikacja sieci Web platformy Azure.
 
@@ -486,9 +452,7 @@ Przed uruchomieniem aplikacji w chmurze musisz się upewnić, że aplikacja **Pr
 
     ![][38]
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat usługi Azure Relay, zobacz następujące zasoby:  
 

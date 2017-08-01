@@ -24,9 +24,7 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-a-windows-virtual-machine-with-the-azure-cli" class="xliff"></a>
-
-# Tworzenie maszyny wirtualnej z systemem Windows za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku zawarto szczegółowe instrukcje korzystania z interfejsu wiersza polecenia platformy Azure w celu wdrożenia maszyny wirtualnej z systemem Windows Server 2016. Po ukończeniu wdrożenia nawiążemy połączenie z serwerem i zainstalujemy usługi IIS.
 
@@ -38,9 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Tworzenie grupy zasobów
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
@@ -50,9 +46,7 @@ Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup*
 az group create --name myResourceGroup --location eastus
 ```
 
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Tworzenie maszyny wirtualnej
+## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). 
 
@@ -81,9 +75,7 @@ Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure
 }
 ```
 
-<a id="open-port-80-for-web-traffic" class="xliff"></a>
-
-## Otwieranie portu 80 na potrzeby ruchu w sieci Web 
+## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
 Domyślnie dozwolone są tylko połączenia RDP z maszynami wirtualnymi z systemem Windows wdrożonymi na platformie Azure. Jeśli ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu. Otwórz odpowiedni port za pomocą polecenia [az vm open-port](/cli/azure/vm#open-port).  
  
@@ -92,9 +84,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
 
-<a id="connect-to-virtual-machine" class="xliff"></a>
-
-## Nawiązywanie połączenia z maszyną wirtualną
+## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
 Użyj następującego polecenia, aby utworzyć sesję usług pulpitu zdalnego z maszyną wirtualną. Zastąp adres IP publicznym adresem IP Twojej maszyny wirtualnej. Po wyświetleniu monitu wprowadź poświadczenia używane podczas tworzenia maszyny wirtualnej.
 
@@ -102,9 +92,7 @@ Użyj następującego polecenia, aby utworzyć sesję usług pulpitu zdalnego z 
 mstsc /v:<Public IP Address>
 ```
 
-<a id="install-iis-using-powershell" class="xliff"></a>
-
-## Instalowanie usług IIS przy użyciu programu PowerShell
+## <a name="install-iis-using-powershell"></a>Instalowanie usług IIS przy użyciu programu PowerShell
 
 Teraz po zalogowaniu do maszyny wirtualnej platformy Azure możesz użyć jednego wiersza w programie PowerShell, aby zainstalować usługi IIS i włączyć lokalną regułę zapory, która zezwala na ruch w sieci Web. Otwórz wiersz polecenia programu PowerShell i uruchom następujące polecenie:
 
@@ -112,17 +100,13 @@ Teraz po zalogowaniu do maszyny wirtualnej platformy Azure możesz użyć jedneg
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-<a id="view-the-iis-welcome-page" class="xliff"></a>
-
-## Wyświetlanie strony powitalnej usług IIS
+## <a name="view-the-iis-welcome-page"></a>Wyświetlanie strony powitalnej usług IIS
 
 Po zainstalowaniu usług IIS i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki usług IIS. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej publicznego adresu IP. 
 
 ![Domyślna witryna usług IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete](/cli/azure/group#delete).
 
@@ -130,9 +114,7 @@ Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą ju�
 az group delete --name myResourceGroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start została wdrożona prosta maszyna wirtualna i reguła sieciowej grupy zabezpieczeń oraz zainstalowano serwer sieci Web. Aby dowiedzieć się więcej o maszynach wirtualnych platformy Azure, przejdź do samouczka dla maszyn wirtualnych z systemem Windows.
 
