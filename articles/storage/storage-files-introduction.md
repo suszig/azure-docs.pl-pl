@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 16fdd3aafef1a50554932a0e7843d347182c9b6a
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bae2e9825bf158bb015ec0affa56f15ce5baa201
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 # <a name="introduction-to-azure-file-storage"></a>Wprowadzenie do usługi Azure File Storage
-Usługa Azure File Storage oferuje udziały plików sieciowych w chmurze przy użyciu zgodnych ze standardami branżowymi protokołów [bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [Samba/Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Udziały plików platformy Azure mogą być instalowane równolegle przez klientów, takich jak wdrożenia lokalne systemu Windows, macOS i Linux, oraz przez usługę Azure Virtual Machines. Konto magazynu ogólnego przeznaczenia zapewnia dostęp do usługi Azure File Storage i innych usług, takich jak Blobs, Azure Virtual Machine Disks i Queues, w ramach jednego konta.
+Usługa Azure File Storage oferuje udziały plików sieciowych w chmurze przy użyciu zgodnych ze standardami branżowymi protokołów [bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Udziały plików platformy Azure mogą być instalowane równolegle przez klientów, takich jak wdrożenia lokalne systemu Windows, macOS i Linux, oraz przez usługę Azure Virtual Machines. Konto magazynu ogólnego przeznaczenia zapewnia dostęp do usługi Azure File Storage i innych usług, takich jak Blobs, Azure Virtual Machine Disks i Queues, w ramach jednego konta.
 
 
 

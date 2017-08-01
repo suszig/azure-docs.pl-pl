@@ -1,19 +1,19 @@
-## <a name="supported-operating-systems-and-drivers"></a>Supported operating systems and drivers
+## <a name="supported-operating-systems-and-drivers"></a>Obsługiwane systemy operacyjne i sterowniki
 
-### <a name="nv-instances---nvidia-grid-drivers"></a>NV instances - NVIDIA GRID drivers
+### <a name="nv-instances---nvidia-grid-drivers"></a>Wystąpienia NV — sterowniki NVIDIA GRID
 
-| OS | Driver |
+| System operacyjny | Sterownik |
 | -------- |------------- |
-| Windows Server 2016 | [369.95](https://go.microsoft.com/fwlink/?linkid=836843) (.zip) |
-| Windows Server 2012 R2 | [369.95](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)  |
+| Windows Server 2016 | [370.12](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [370.12](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
 
-### <a name="nc-instances---nvidia-tesla-drivers"></a>NC instances - NVIDIA Tesla drivers
+### <a name="nc-instances---nvidia-tesla-drivers"></a>Wystąpienia NC — sterowniki NVIDIA Tesla
 
-| OS | Driver |
+| System operacyjny | Sterownik |
 | -------- |------------- |
 | Windows Server 2016 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe) |
 | Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
 
 > [!NOTE]
-> Tesla driver download links are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
+> Linki pobierania sterownika Tesla są aktualne w momencie publikacji. Aby uzyskać najnowsze sterowniki, odwiedź witrynę internetową firmy [NVIDIA](http://www.nvidia.com/).
 >

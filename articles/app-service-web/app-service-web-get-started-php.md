@@ -16,15 +16,15 @@ ms.date: 07/21/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 9a53216e326e63bd4fe36c0e5d5d5e85b2098d8c
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: 7667cf679821cc99d6e8b3ec4aa466067d8a6b32
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Tworzenie aplikacji sieci Web w języku PHP na platformie Azure
 
-Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten samouczek Szybki start przedstawia sposób wdrażania aplikacji PHP w usłudze Azure Web Apps. Aplikację internetową możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie przykładowego kodu w języku PHP w aplikacji internetowej.
+Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten samouczek Szybki start przedstawia sposób wdrażania aplikacji PHP w usłudze Azure Web Apps. Aplikacja internetowa zostanie utworzona przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w usłudze Cloud Shell, a przykład kodu w języku PHP zostanie wdrożony w aplikacji internetowej za pomocą usługi Git.
 
 ![Przykładowa aplikacja działająca na platformie Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -39,23 +39,12 @@ Aby ukończyć ten przewodnik Szybki Start:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="download-the-sample-locally"></a>Pobieranie przykładu na maszynę lokalną
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
-
-## <a name="download-the-sample"></a>Pobierz przykład
-
-W oknie terminala uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną.
+W oknie terminalu uruchom następujące polecenia. Spowoduje to sklonowanie aplikacji przykładowej na maszynę lokalną, a następnie przejście do katalogu zawierającego przykład kodu.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
-```
-
-To okno terminala umożliwia uruchamianie wszystkich poleceń z tego przewodnika Szybki start.
-
-Przejdź do katalogu, który zawiera przykładowy kod.
-
-```bash
 cd php-docs-hello-world
 ```
 
@@ -75,15 +64,15 @@ Na stronie zostanie wyświetlony komunikat **Hello World!** z przykładowej apli
 
 W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć serwer sieci Web.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
 
 ![Pusta strona aplikacji internetowej](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
@@ -118,7 +107,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
+## <a name="browse-to-the-app-locally"></a>Przechodzenie do aplikacji w środowisku lokalnym
 
 Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
 
@@ -132,7 +121,7 @@ Przykładowy kod w języku PHP jest uruchamiany w aplikacji internetowej usługi
 
 **Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację w języku PHP w usłudze App Service.
 
-## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
+## <a name="update-locally-and-redeploy-the-code"></a>Lokalne aktualizowanie i ponowne wdrażanie kodu
 
 Za pomocą lokalnego edytora tekstów otwórz plik `index.php` w aplikacji w języku PHP i wprowadź niewielką zmianę w tekście ciągu obok polecenia `echo`:
 
@@ -159,7 +148,7 @@ W menu po lewej stronie kliknij pozycję **App Services**, a następnie kliknij 
 
 ![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-Zostanie wyświetlona strona Omówienie aplikacji internetowej. Tutaj możesz wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. 
+Zostanie wyświetlona strona Omówienie aplikacji internetowej. Tutaj możesz wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie.
 
 ![Blok usługi App Service w witrynie Azure Portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 

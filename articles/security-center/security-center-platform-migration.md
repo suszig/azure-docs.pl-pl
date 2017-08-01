@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d49f7986e09a90c5c4c49c0d3963d0cd8514713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="azure-security-center-platform-migration" class="xliff"></a>
-
-# Migracja platformy usługi Azure Security Center
+# <a name="azure-security-center-platform-migration"></a>Migracja platformy usługi Azure Security Center
 
 Począwszy od początku czerwca 2017 usługa Azure Security Center wprowadza ważne zmiany dotyczące sposobu zbierania i przechowywania danych zabezpieczeń.  Te zmiany otwierają nowe możliwości, takie jak możliwość łatwego wyszukiwania danych zabezpieczeń i lepszego dopasowania do innych usług zarządzania i monitorowania platformy Azure.
 
@@ -32,17 +29,13 @@ Począwszy od początku czerwca 2017 usługa Azure Security Center wprowadza wa�
 > Migracja platformy nie powinna mieć wpływu na zasoby produkcyjne i nie wymaga żadnej akcji ze strony użytkownika.
 
 
-<a id="whats-happening-during-this-platform-migration" class="xliff"></a>
-
-## Co się stanie podczas tej migracji platformy?
+## <a name="whats-happening-during-this-platform-migration"></a>Co się stanie podczas tej migracji platformy?
 
 Wcześniej usługa Security Center używała programu Azure Monitoring Agent do zbierania danych zabezpieczeń z maszyn wirtualnych. Dane te obejmują informacje o konfiguracjach zabezpieczeń, używane do identyfikowania luk w zabezpieczeniach, oraz zdarzenia zabezpieczeń, używane do wykrywania zagrożeń. Te dane były przechowywane na kontach magazynu na platformie Azure.
 
 Teraz usługa Security Center korzysta z programu Microsoft Monitoring Agent — jest to ten sam agent używany przez pakiet Operations Management Suite i usługę Log Analytics. Dane zbierane z tego agenta są przechowywane w każdym istniejącym [obszarze roboczym](../log-analytics/log-analytics-manage-access.md) usługi *Log Analytics* skojarzonym z subskrypcją platformy Azure lub w nowych obszarach roboczych, uwzględniając lokalizację geograficzną maszyny wirtualnej.
 
-<a id="agent" class="xliff"></a>
-
-## Agent
+## <a name="agent"></a>Agent
 
 W ramach przejścia program Microsoft Monitoring Agent (dla systemu [Windows](../log-analytics/log-analytics-windows-agents.md) lub [Linux](../log-analytics/log-analytics-linux-agents.md)) jest instalowany na wszystkich maszynach wirtualnych platformy Azure, z których obecnie są zbierane dane.  Jeśli na maszynie wirtualnej jest już zainstalowany program Microsoft Monitoring Agent, usługa Security Center korzysta z zainstalowanego agenta.
 
@@ -56,9 +49,7 @@ Program Microsoft Monitoring Agent dla systemu Windows wymaga użycia portu TCP 
 > [!NOTE] 
 > Ponieważ program Microsoft Monitoring Agent może być używany przez inne usługi zarządzania i monitorowania platformy Azure, agent ten nie zostanie odinstalowany automatycznie po wyłączeniu zbierania danych w usłudze Security Center. Można jednak ręcznie odinstalować agenta w razie potrzeby.
 
-<a id="workspace" class="xliff"></a>
-
-## Obszar roboczy
+## <a name="workspace"></a>Obszar roboczy
 
 Zgodnie z wcześniejszym opisem dane zbierane z programu Microsoft Monitoring Agent (w imieniu usługi Security Center) są przechowywane w istniejących obszarach roboczych usługi Log Analytics skojarzonych z subskrypcją platformy Azure lub w nowych obszarach roboczych, uwzględniając lokalizację geograficzną maszyny wirtualnej.
 
@@ -72,16 +63,12 @@ W przypadku obszarów roboczych utworzonych przez usługę Security Center dane 
 > [!NOTE]
 > Dane wcześniej zebrane przez usługę Security Center pozostają na kontach magazynu. Po zakończeniu migracji można usunąć te konta magazynu.
 
-<a id="oms-security-solution" class="xliff"></a>
-
-### Rozwiązanie OMS Security 
+### <a name="oms-security-solution"></a>Rozwiązanie OMS Security 
 
 W przypadku istniejących klientów, którzy nie mają zainstalowanego rozwiązania OMS Security, firma Microsoft zainstaluje je w ich obszarze roboczym, ale tylko dla maszyn wirtualnych platformy Azure. Nie należy odinstalowywać tego rozwiązania, ponieważ nie ma żadnego automatycznego korygowania, jeśli zostanie to zrobione za pomocą konsoli zarządzania usługą OMS.
 
 
-<a id="other-updates" class="xliff"></a>
-
-## Inne aktualizacje
+## <a name="other-updates"></a>Inne aktualizacje
 
 W połączeniu z migracją platform wprowadzamy pewne dodatkowe drobne aktualizacje:
 
@@ -90,5 +77,6 @@ W połączeniu z migracją platform wprowadzamy pewne dodatkowe drobne aktualiza
 - [Ceny](https://azure.microsoft.com/pricing/details/security-center/) będą ustalane proporcjonalnie do liczby godzin (wcześniej do liczby dni), co przyniesie oszczędności niektórym klientom.
 - Zbieranie danych będzie wymagane i automatycznie włączone dla klientów w warstwie cenowej Standardowa.
 - Usługa Azure Security Center rozpocznie odnajdywanie rozwiązań chroniących przed złośliwym kodem, które nie zostały wdrożone za pomocą rozszerzeń platformy Azure. Najpierw dostępne będzie odnajdywanie programów Endpoint Protection i Defender firmy Symantec dla systemu Windows 2016.
+- Zasady zapobiegania i powiadomienia można konfigurować tylko na poziomie *Subskrypcja*, ale cennik nadal można ustawić na poziomie *Grupa zasobów*.
 
 

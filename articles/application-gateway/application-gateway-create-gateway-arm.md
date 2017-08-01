@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Tworzenie, uruchamianie lub usuwanie bramy aplikacji przy użyciu usługi Azure Resource Manager
@@ -171,10 +170,10 @@ W tym przykładzie istnieją dwie pule zaplecza do kierowania ruchu sieciowego n
 
 ### <a name="step-3"></a>Krok 3
 
-Skonfiguruj ustawienia bramy aplikacji **poolsetting01** dla ruchu sieciowego ze zrównoważonym obciążeniem w puli zaplecza. Każda pula zaplecza może mieć własne ustawienia puli zaplecza.  Ustawienia HTTP zaplecza są używane przez reguły do kierowania ruchu do właściwych elementów członkowskich puli zaplecza. Ustawienia HTTP zaplecza określają protokół i port, które są używane podczas wysyłania ruchu do elementów członkowskich puli zaplecza. Sesje bazujące na plikach cookie są też określane przez ustawienia HTTP zaplecza.  Jeśli koligacja sesji bazujących na plikach cookie jest włączona, wysyła ruch do tego samego zaplecza co poprzednie żądania dla każdego pakietu.
+Skonfiguruj ustawienia bramy aplikacji **poolsetting** dla ruchu sieciowego ze zrównoważonym obciążeniem w puli zaplecza. Każda pula zaplecza może mieć własne ustawienia puli zaplecza.  Ustawienia HTTP zaplecza są używane przez reguły do kierowania ruchu do właściwych elementów członkowskich puli zaplecza. Ustawienia HTTP zaplecza określają protokół i port, które są używane podczas wysyłania ruchu do elementów członkowskich puli zaplecza. Sesje bazujące na plikach cookie są też określane przez ustawienia HTTP zaplecza.  Jeśli koligacja sesji bazujących na plikach cookie jest włączona, wysyła ruch do tego samego zaplecza co poprzednie żądania dla każdego pakietu.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Krok 4
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Utwórz regułę routingu modułu równoważenia obciążenia o nazwie **rule01**, określającą zachowanie modułu równoważenia obciążenia. Ustawienia puli zaplecza, odbiornik i pula zaplecza utworzone we wcześniejszych krokach składają się na regułę. Zgodnie ze zdefiniowanymi kryteriami ruch jest kierowany do odpowiedniego zaplecza.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Krok 8

@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 015096a48e5287af6b225f16a38fac328ed28630
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Zarządzanie zasobami usługi Batch za pomocą poleceń cmdlet programu PowerShell
@@ -101,7 +100,7 @@ Do tworzenia zasobów w ramach konta usługi Batch służą takie polecenia cmdl
 Podczas korzystania z wielu tych poleceń cmdlet oprócz przekazywania obiektu BatchContext należy utworzyć lub przekazać obiekty, które zawierają szczegółowe ustawienia zasobów, jak pokazano w poniższym przykładzie. Dodatkowe przykłady zamieszczono w szczegółowych plikach pomocy każdego polecenia cmdlet.
 
 ### <a name="create-a-batch-pool"></a>Tworzenie puli usługi Batch
-Podczas tworzenia lub aktualizowania puli usługi Batch należy wybrać konfigurację usługi w chmurze lub konfigurację maszyny wirtualnej dla systemu operacyjnego węzłów obliczeniowych — zobacz artykuł [Batch feature overview](batch-api-basics.md#pool) (Omówienie funkcji usługi Batch). Wybór określa, czy na węzłach obliczeniowych są stosowane obrazy jednej z [wersji systemów operacyjnych gościa platformy Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases), czy jeden z obsługiwanych obrazów maszyn wirtualnych Linux lub Windows z portalu Azure Marketplace.
+Podczas tworzenia lub aktualizowania puli usługi Batch należy wybrać konfigurację usługi w chmurze lub konfigurację maszyny wirtualnej dla systemu operacyjnego węzłów obliczeniowych — zobacz artykuł [Batch feature overview (Omówienie funkcji usługi Batch)](batch-api-basics.md#pool). Jeśli wybierzesz konfigurację usługi w chmurze, węzły obliczeniowe będą obrazami z jednej z [wersji systemu operacyjnego gościa platformy Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Jeśli wybierzesz konfigurację maszyny wirtualnej, możesz określić jeden z obsługiwanych obrazów maszyn wirtualnych z systemem Linux lub Windows wymienionych w witrynie [Azure Virtual Machines Marketplace][vm_marketplace] lub udostępnić samodzielnie przygotowany obraz niestandardowy.
 
 Po uruchomieniu polecenia **New-AzureBatchPool** należy przekazać ustawienia systemu operacyjnego w obiekcie PSCloudServiceConfiguration lub PSVirtualMachineConfiguration. Na przykład poniższe polecenie cmdlet tworzy nową pulę usługi Batch z małymi węzłami obliczeniowymi w konfiguracji usługi w chmurze i obrazami najnowszej wersji systemu operacyjnego z rodziny 3 (Windows Server 2012). W tym miejscu parametr **CloudServiceConfiguration** określa zmienną *$configuration* jako obiekt PSCloudServiceConfiguration. Parametr **BatchContext** określa uprzednio zdefiniowaną zmienną *$context* jako obiekt BatchAccountContext.
 
@@ -241,4 +240,4 @@ Właściwości puli w usłudze Batch zostały zaktualizowane. Jednak aby rzeczyw
 * Szczegóły składni poleceń cmdlet oraz przykłady znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](/powershell/module/azurerm.batch/#batch).
 * Aby uzyskać więcej informacji dotyczących aplikacji i pakietów aplikacji w usłudze Batch, zobacz temat [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch)](batch-application-packages.md).
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

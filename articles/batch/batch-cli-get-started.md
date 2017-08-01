@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -120,6 +119,10 @@ Dostępne są dwie opcje uwierzytelnienia na koncie usługi Batch:
 
 W przykładach wymienionych w sekcji [Przykładowe skrypty powłoki](#sample-shell-scripts) pokazano, jak zalogować się na koncie usługi Batch za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu zarówno usługi Azure AD, jak i klucza wspólnego.
 
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza)
+
+Interfejsu wiersza polecenia platformy Azure można używać do kompleksowej obsługi zadań usługi Batch bez konieczności pisania kodu. Pliki szablonów usługi Batch obsługują tworzenie pul, zadań i zadań podrzędnych przy użyciu interfejsu wiersza polecenia platformy Azure. Interfejs wiersza polecenia platformy Azure umożliwia także przekazywanie plików wejściowych zadania do konta usługi Azure Storage skojarzonego z kontem usługi Batch oraz pobieranie z niego plików wyjściowych zadania. Więcej informacji można znaleźć w temacie [Use Azure Batch CLI Templates and File Transfer (Preview) (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza))](batch-cli-templates.md).
+
 ## <a name="sample-shell-scripts"></a>Przykładowe skrypty powłoki
 
 W przykładowych skryptach wymienionych w poniższej tabeli pokazano, jak za pomocą poleceń interfejsu wiersza polecenia platformy Azure z usługami Batch i Batch Management wykonywać typowe zadania. Te przykładowe skrypty obejmują wiele poleceń dostępnych w interfejsie wiersza polecenia platformy Azure dla usługi Batch. 
@@ -187,7 +190,7 @@ Poniższe porady mogą być pomocne w przypadku rozwiązywania problemów związ
 
 * Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
 * Aby uzyskać więcej informacji o zasobach usługi Batch, zobacz [Omówienie usługi Azure Batch dla deweloperów](batch-api-basics.md).
-* Zobacz temat [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji w usłudze Batch)](batch-application-packages.md), aby dowiedzieć się, jak używać tej funkcji do wdrażania aplikacji wykonywanych w węzłach obliczeniowych usługi Batch i zarządzania nimi.
+* Aby uzyskać więcej informacji o tworzeniu pul, zadań i zadań podrzędnych przy użyciu szablonów usługi Batch i bez konieczności pisania kodu, zobacz [Use Azure Batch CLI Templates and File Transfer (Preview) (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza))](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

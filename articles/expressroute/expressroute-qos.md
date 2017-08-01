@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/25/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
-
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="expressroute-qos-requirements"></a>Wymagania dotyczące technologii QoS w usłudze ExpressRoute
@@ -35,7 +36,7 @@ Poniższa tabela zawiera listę oznaczeń DSCP używanych przez program Skype dl
 | **Klasa ruchu** | **Obsługa (oznaczanie DSCP)** | **Obciążenia programu Skype dla firm** |
 | --- | --- | --- |
 | **Połączenia głosowe** |EF (46) |Połączenia głosowe Skype/Lync |
-| **Interaktywne** |AF41 (34) |Połączenia wideo |
+| **Interaktywne** |AF41 (34) |Wideo, VBSS |
 | AF21 (18) |Współdzielenie aplikacji | |
 | **Domyślne** |AF11 (10) |Transfer plików |
 | CS0 (0) |Inne | |
@@ -51,10 +52,5 @@ Poniższa tabela zawiera listę oznaczeń DSCP używanych przez program Skype dl
   * [Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](expressroute-howto-circuit-classic.md)
   * [Configure routing (Konfigurowanie routingu)](expressroute-howto-routing-classic.md)
   * [Link a VNet to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

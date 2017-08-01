@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/24/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
-ms.lasthandoff: 02/11/2017
-
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Zarządzanie grupami w usłudze Azure Active Directory
@@ -35,6 +38,9 @@ Jedną z funkcji zarządzania użytkownikami w usłudze Azure Active Directory (
 * Zasobów spoza katalogu, na przykład aplikacji SaaS, usług platformy Azure, witryn programu SharePoint lub zasobów lokalnych
 
 Ponadto właściciel zasobu może także przypisać dostęp do tego zasobu do grupy usługi Azure AD należącej do innej osoby. To przypisanie spowoduje przydzielenie dostępu do zasobu członkom tej grupy. Następnie właściciel grupy może zarządzać członkostwem w grupie. Zatem w praktyce właściciel zasobu przekazuje właścicielowi grupy uprawnienie do przypisywania użytkowników do swojego zasobu.
+
+> [!IMPORTANT]
+> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule. Aby dowiedzieć się, jak zarządzać grupami w centrum administracyjnym usługi Azure AD, zobacz [Create a group and add members in Azure Active Directory (Tworzenie grupy i dodawanie elementów członkowskich w usłudze Azure Active Directory)](active-directory-groups-create-azure-portal.md).
 
 ## <a name="how-do-i-create-a-group"></a>Jak utworzyć grupę?
 W zależności od usług, które subskrybuje Twoja organizacja, możesz utworzyć grupę w jednym z następujących miejsc:

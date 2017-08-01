@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 Zmienna `<username>` oznacza [użytkownika wdrożenia](#configure-a-deployment-user) utworzonego w poprzednim kroku.
 
-Zapisz pokazany identyfikator URI; zostanie on użyty w następnym kroku. 
+Skopiuj pokazany identyfikator URI; zostanie on użyty w następnym kroku.

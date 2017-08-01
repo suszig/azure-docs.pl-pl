@@ -1,20 +1,20 @@
-## <a name="supported-distributions-and-drivers"></a>Supported distributions and drivers
+## <a name="supported-distributions-and-drivers"></a>Obsługiwane dystrybucje i sterowniki
 
 
-### <a name="nv-instances---nvidia-grid-drivers"></a>NV instances - NVIDIA GRID drivers
+### <a name="nv-instances---nvidia-grid-drivers"></a>Wystąpienia NV — sterowniki NVIDIA GRID
 
 
-| Distribution | Driver |
+| Dystrybucja | Sterownik |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS-based 7.3 | NVIDIA GRID 4.2, driver branch R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Oparty na systemie CentOS 7.3 | NVIDIA GRID 4.3, gałąź sterownika R367|
 
-### <a name="nc-instances---nvidia-tesla-drivers"></a>NC instances - NVIDIA Tesla drivers
-| Distribution | Driver |
+### <a name="nc-instances---nvidia-tesla-drivers"></a>Wystąpienia NC — sterowniki NVIDIA Tesla
+| Dystrybucja | Sterownik |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS-based 7.3 | NVIDIA CUDA 8.0, driver branch R375 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> Oparty na systemie CentOS 7.3 | NVIDIA CUDA 8.0, gałąź sterownika R375 |
 
 
 
 > [!WARNING] 
-> Installation of third-party software on Red Hat products can affect the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
+> Instalacja oprogramowania innych firm na produktach systemu Red Hat może wpłynąć na warunki wsparcia systemu Red Hat. Zobacz [artykuł bazy wiedzy systemu Red Hat](https://access.redhat.com/articles/1067).
 >

@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Rozpoczynanie tworzenia rozwiązań za pomocą biblioteki klienta usługi Batch dla platformy .NET
@@ -45,7 +44,7 @@ W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i pr
 * **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Usługa Batch obsługuje obecnie *tylko* typ konta magazynu **Ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
+> Usługa Batch obsługuje obecnie *tylko* typ konta magazynu **ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Podczas tworzenia puli za pomocą funkcji [CreatePool][net_pool_create] należy określić liczbę parametrów, np. liczbę węzłów obliczeniowych, [rozmiar węzłów](../cloud-services/cloud-services-sizes-specs.md) oraz system operacyjny węzłów. W aplikacji *DotNetTutorial* używamy funkcji [CloudServiceConfiguration][net_cloudserviceconfiguration] do określenia systemu Windows Server 2012 R2 z [usług Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). Jednak określając zamiast tego funkcję [VirtualMachineConfiguration][net_virtualmachineconfiguration], można utworzyć pule węzłów przygotowane na podstawie obrazów Marketplace, w tym obrazów systemów Windows i Linux. Więcej informacji można znaleźć w temacie [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizacja węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
+Podczas tworzenia puli za pomocą funkcji [CreatePool][net_pool_create] należy określić liczbę parametrów, np. liczbę węzłów obliczeniowych, [rozmiar węzłów](../cloud-services/cloud-services-sizes-specs.md) oraz system operacyjny węzłów. W aplikacji *DotNetTutorial* używamy funkcji [CloudServiceConfiguration][net_cloudserviceconfiguration] do określenia systemu Windows Server 2012 R2 z [usług Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+Można również tworzyć pule węzłów obliczeniowych, które są maszynami wirtualnymi platformy Azure, wybierając element [VirtualMachineConfiguration][net_virtualmachineconfiguration] dla puli. Pulę węzłów obliczeniowych maszyn wirtualnych można utworzyć na podstawie [obrazów systemu Linux](batch-linux-nodes.md) lub Windows. Źródłem obrazów maszyny wirtualnej może być:
+
+- Witryna [Marketplace usługi Azure Virtual Machines][vm_marketplace], która udostępnia gotowe do użycia obrazy systemów Windows i Linux. 
+- Obraz niestandardowy przygotowywany i udostępniany przez użytkownika. Aby uzyskać szczegółowe informacje o obrazach niestandardowych, zobacz [Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > W usłudze Batch opłaty są naliczane za zasoby obliczeniowe. Aby zminimalizować koszty przed uruchomieniem próbki, można zmniejszyć parametr `targetDedicatedComputeNodes` do 1.
@@ -788,6 +792,7 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Tworzenie kontenerów w usłudze Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Przekazywanie aplikacji podzadań i plików danych wejściowych do kontenerów"

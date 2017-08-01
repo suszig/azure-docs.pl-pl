@@ -12,10 +12,10 @@ ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6ffcf3b38a3d868dfa10ea2e2a9d097441387d4f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 
 Należy również:
 - Pobrać sterownik JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Uwzględnić plik jar JDBC (na przykład example mysql-connector-java-5.1.42-bin.jar) w ścieżce klas aplikacji.
+- Uwzględnić plik jar JDBC (na przykład example mysql-connector-java-5.1.42-bin.jar) w ścieżce klas aplikacji. Jeśli masz z tym problem, zapoznaj się z charakterystyką ścieżki klas w dokumentacji dotyczącej środowisk, takich jak [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) lub [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 - Upewnić się, że zabezpieczenia połączeń usługi Azure Database for MySQL zostały skonfigurowane z otwartą zaporą i ustawieniami protokołu SSL dostosowanymi na potrzeby pomyślnego łączenia aplikacji.
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu

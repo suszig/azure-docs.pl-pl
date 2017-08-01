@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lekcja uzupełniająca — zabezpieczenia dynamiczne
@@ -106,7 +106,7 @@ Tabele FactInternetSales, DimGeography i DimSalesTerritory zawierają tę samą 
     Należy zauważyć, że właściwość Aktywne dla tej relacji ma wartość Fałsz, co oznacza, że jest nieaktywna. Tabela FactInternetSales ma już inną aktywną relację.  
   
 ## <a name="hide-the-employeesecurity-table-from-client-applications"></a>Ukrywanie tabeli EmployeeSecurity w aplikacjach klienckich  
-W tym zadaniu ukryjesz tabelę EmployeeSecurity, aby uniemożliwić jej wyświetlanie na liście pól aplikacji klienckiej. Należy pamiętać, że ukrycie tabeli nie jest równoważne z jej zabezpieczeniem. Użytkownicy mogą nadal wyszukiwać dane w tabeli EmployeeSecurity, jeśli znają odpowiedni sposób. Aby zabezpieczyć dane tabeli EmployeeSecurity, uniemożliwiając użytkownikom wykonywanie zapytań dotyczących zawartych w niej danych, należy zastosować filtr, co jest opisane w późniejszym zadaniu.  
+W tym zadaniu ukryjesz tabelę EmployeeSecurity, aby uniemożliwić jej wyświetlanie na liście pól aplikacji klienckiej. Pamiętaj, że ukrycie tabeli nie jest równoważne z jej zabezpieczeniem. Użytkownicy mogą nadal wyszukiwać dane w tabeli EmployeeSecurity, jeśli znają odpowiedni sposób. Aby zabezpieczyć dane tabeli EmployeeSecurity, uniemożliwiając użytkownikom wykonywanie zapytań dotyczących zawartych w niej danych, należy zastosować filtr, co jest opisane w późniejszym zadaniu.  
   
 #### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>Ukrywanie tabeli EmployeeSecurity w aplikacjach klienckich  
   

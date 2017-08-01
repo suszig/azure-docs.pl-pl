@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: d9d4dcf16954b0cd831e017ecb305d30e3b36dc7
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Wprowadzenie do wstępnie skonfigurowanego rozwiązania połączonej fabryki
@@ -78,7 +77,7 @@ Pulpit nawigacyjny pozwala zarządzać wdrożonym rozwiązaniem. Jest to hierarc
 
     ![Uruchamianie wstępnie skonfigurowanego rozwiązania][img-launch-solution]
 
-1. Domyślnie w portalu rozwiązania jest wyświetlany *pulpit nawigacyjny*. Korzystając z menu po lewej stronie, można przejść do innych obszarów portalu.
+1. Domyślnie w portalu rozwiązania jest wyświetlany *pulpit nawigacyjny*. Korzystając z menu znajdującego się w lewej części strony, można przejść do innych obszarów portalu.
 
     ![Pulpit nawigacyjny wstępnie skonfigurowanego rozwiązania połączonej fabryki][cf-img-menu]
 
@@ -110,21 +109,21 @@ Na panelu *Fabryki* jest wyświetlana lokalizacja geograficzna wszystkich fabryk
 
 ## <a name="view-map"></a>Wyświetlanie mapy
 
-Jeśli Twoja subskrypcja ma dostęp do interfejsu API usługi Mapy Bing, na mapie *Fabryki* są wyświetlane lokalizacje geograficzne i status wszystkich fabryk w rozwiązaniu. Kliknięcie lokalizacji wyświetlanych na mapie umożliwia przejście do szczegółów lokalizacji.
+Jeśli Twoja subskrypcja ma dostęp do interfejsu API usługi Mapy Bing, na mapie *Fabryki* są wyświetlane lokalizacje geograficzne i status wszystkich fabryk w rozwiązaniu. Aby przejść do szczegółów lokalizacji, kliknij lokalizacje wyświetlane na mapie.
 
 ![Mapa we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-map]
 
 ## <a name="view-alerts"></a>Wyświetlanie alertów
 
-Na panelu historycznym **Alert** są wyświetlane alerty wygenerowane z powodu wystąpienia wartości zgłoszonej lub wartości obliczonej ogólnej wydajności sprzętu bądź kluczowego wskaźnika wydajności, która przekroczyła skonfigurowaną wartość progową. Na tym panelu pojawiają się alerty dotyczące każdego poziomu hierarchii: od poziomu stacji do widoku globalnego. Alerty zawierają opis alertu, datę, godzinę, lokalizację i liczbę wystąpień. Korzystając z danych usługi Time Series Insights, można uzyskać wgląd w dane, które spowodowały wystąpienie alertu. Dane usługi Time Series Insights są wizualizowane w alertach, gdy ma to uzasadnienie. Jeśli jesteś administratorem, możesz wykonywać domyślne akcje na alertach, takie jak:
+Na panelu **Alert** są wyświetlane alerty wygenerowane z powodu wystąpienia wartości zgłoszonej lub wartości obliczonej ogólnej wydajności sprzętu bądź kluczowego wskaźnika wydajności, która przekroczyła skonfigurowaną wartość progową. Na tym panelu pojawiają się alerty dotyczące każdego poziomu hierarchii: od poziomu stacji do widoku globalnego. Alerty zawierają opis alertu, datę, godzinę, lokalizację i liczbę wystąpień. Korzystając z danych usługi Time Series Insights, można uzyskać wgląd w dane, które spowodowały wystąpienie alertu. Dane usługi Time Series Insights są wizualizowane w alertach, gdy ma to uzasadnienie. Jeśli jesteś administratorem, możesz wykonywać domyślne akcje na alertach, takie jak:
 
 * Zamknięcie alertu.
 * Potwierdzenie alertu.
 
 Opcjonalnie możesz wykonać bardziej złożone akcje. Na przykład dla węzła OPC UA Ciśnienie zestawu można wykonać następujące akcje:
 
-* Załadowanie strony sieci Web w nowym oknie przeglądarki w celu wyświetlenia dodatkowych informacji.
-* Wywołanie metody OPC UA na urządzeniu w celu wyeliminowania przyczyny alertu.
+* Wyświetlenie dodatkowych informacji na stronie internetowej w nowym oknie przeglądarki.
+* Wyeliminowanie przyczyny alertu za pomocą wywołania metody OPC UA na urządzeniu.
 * Pominięcie dostępności domyślnych akcji.
 
     ![Alerty we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-alerts]
@@ -164,7 +163,7 @@ Rozwiązanie zapewnia dwa kluczowe wskaźniki wydajności: *liczba jednostek na 
 
 1. Aby wyświetlić liczbę jednostek na godzinę lub ilość zużytej energii na dowolnym poziomie hierarchii, przejdź do wymaganego widoku. Liczba jednostek na godzinę i ilość zużytej energii zostaną wyświetlone na panelu.
 
-2. Aby dalej analizować liczbę jednostek na godzinę lub ilość zużytej energii na dowolnym poziomie w danych hierarchii, kliknij miernik liczby wyprodukowanych jednostek lub zużytej energii na panelu **Kluczowe wskaźniki wydajności**. Zostanie wyświetlony panel kontekstowy zawierający wizualizacje usługi Time Series Insights umożliwiające przeglądanie danych z ostatniej godziny, ostatnich 24 godzin i ostatnich 7 dni.
+2. Aby przeprowadzić dalszą analizę liczby jednostek na godzinę lub ilości zużytej energii na dowolnym poziomie w ramach hierarchii, kliknij miernik na panelu **Kluczowe wskaźniki wydajności**. Zostanie wyświetlony panel kontekstowy zawierający wizualizacje usługi Time Series Insights umożliwiające przeglądanie danych z ostatniej godziny, ostatnich 24 godzin i ostatnich 7 dni.
 
 ## <a name="scenario-review"></a>Przegląd scenariusza
 
@@ -172,7 +171,7 @@ W tym scenariuszu na pulpicie nawigacyjnym były monitorowane wartości ogólnej
 
 ## <a name="other-features"></a>Pozostałe funkcje
 
-W poniższych sekcjach opisano niektóre dodatkowe funkcje wstępnie skonfigurowanego rozwiązania połączonej fabryki, które nie zostały opisane w poprzednim scenariuszu.
+W poniższych sekcjach opisano niektóre dodatkowe funkcje rozwiązania połączonej fabryki, które nie zostały opisane w poprzednim scenariuszu.
 
 ## <a name="apply-filters"></a>Stosowanie filtrów
 
@@ -182,7 +181,7 @@ W poniższych sekcjach opisano niektóre dodatkowe funkcje wstępnie skonfigurow
 
     ![Filtry we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-alert-filter]
 
-3. Wybierz wymagany filtr. Jeśli chcesz, możesz również wpisać dowolny tekst w polach filtrów.
+3. Wybierz wymagany filtr. Możesz również wpisać dowolny tekst w polach filtrów.
 
 4. Wybrany filtr zostanie zastosowany. Stan filtru jest również wyświetlany na pulpicie nawigacyjnym za pomocą lejka w tabelach fabryk i alertów.
 
@@ -207,7 +206,7 @@ Podczas wdrażania wstępnie skonfigurowanego rozwiązania następuje automatycz
 
 3. Kliknij przycisk **Połącz**. Zostanie wyświetlone okno dialogowe zabezpieczeń. W tej symulacji można bezpiecznie kliknąć pozycję **Kontynuuj**.
 
-4. Kliknij dowolny węzeł w drzewie serwerów, aby go rozwinąć. Węzły, które publikują dane telemetryczne, mają obok swoich nazw znaczniki.
+4. Aby rozwinąć dowolny węzeł w drzewie serwerów, kliknij go. Węzły, które publikują dane telemetryczne, mają obok swoich nazw znaczniki.
 
     ![Drzewo serwerów we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-server-tree]
 
@@ -223,7 +222,7 @@ Podczas przeglądania *symulowanego serwera OPC UA* można również opublikowa�
 
 3. Wybierz polecenie **Publikuj**.
 
-    ![Publikowanie węzła połączonej fabryki][cf-img-publish-node]
+    ![Publikowanie węzła przez połączoną fabrykę][cf-img-publish-node]
 
 4. Wyświetlony panel kontekstowy informuje, że publikowanie zakończyło się pomyślnie. Węzeł pojawi się w widoku poziomu stacji z umieszczonym obok znacznikiem.
 
@@ -231,7 +230,7 @@ Podczas przeglądania *symulowanego serwera OPC UA* można również opublikowa�
 
 ## <a name="command-and-control"></a>Sterowanie i kontrola
 
-Połączona fabryka umożliwia sterowanie urządzeniami przemysłowymi i kontrolowanie ich bezpośrednio z chmury. Tej funkcji można używać do odpowiadania na alerty generowane przez urządzenie. Można na przykład wysłać polecenie do urządzenia z chmury. Dostępne polecenia można znaleźć w węźle **StationCommands** w drzewie przeglądarki serwerów OPC UA. W tym scenariuszu otwierasz zawór bezpieczeństwa w stacji montażowej linii produkcyjnej w Monachium. Aby móc skorzystać z funkcji sterowania i kontroli, musisz mieć rolę **administratora** we wdrożeniu wstępnie skonfigurowanego rozwiązania.
+Połączona fabryka umożliwia sterowanie urządzeniami przemysłowymi i kontrolowanie ich bezpośrednio z chmury. Tej funkcji można używać do odpowiadania na alerty generowane przez urządzenie. Można na przykład wysłać polecenie do urządzenia z chmury. Dostępne polecenia można znaleźć w węźle **StationCommands** w drzewie przeglądarki serwerów OPC UA. W tym scenariuszu otwierasz zawór bezpieczeństwa na stanowisku montażowym linii produkcyjnej w Monachium. Aby móc skorzystać z funkcji sterowania i kontroli, musisz mieć rolę **administratora** we wdrożeniu wstępnie skonfigurowanego rozwiązania.
 
 1. W drzewie przeglądarki serwerów OPC UA przejdź do węzła **StationCommands**.
 

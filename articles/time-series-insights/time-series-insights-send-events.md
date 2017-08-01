@@ -1,28 +1,28 @@
 ---
 title: "Wysyłanie zdarzeń do środowiska usługi Azure Time Series Insights | Microsoft Docs"
-description: "W tym samouczku omówiono wypychanie zdarzeń do środowiska usługi Time Series Insights."
+description: "Ten samouczek przedstawia kroki wypychania zdarzeń do środowiska usługi Time Series Insights"
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: venkatgct
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="send-events-to-a-time-series-insights-environment-via-event-hub"></a>Wysyłanie zdarzeń do środowiska usługi Time Series Insights za pośrednictwem centrum zdarzeń
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Wysyłanie zdarzeń do środowiska usługi Time Series Insights za pomocą centrum zdarzeń
 
 W tym samouczku wyjaśniono, jak utworzyć i skonfigurować centrum zdarzeń oraz jak uruchomić przykładową aplikację do wypychania zdarzeń. Jeśli masz już centrum zdarzeń, które zawiera zdarzenia w formacie JSON, możesz pominąć ten samouczek i wyświetlić swoje środowisko, korzystając z [wglądu w dane szeregów czasowych](https://insights.timeseries.azure.com).
 
@@ -43,9 +43,9 @@ W tym samouczku wyjaśniono, jak utworzyć i skonfigurować centrum zdarzeń ora
   ![Dodawanie nowej zasady dostępu współdzielonego](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Tworzenie źródła zdarzeń usługi Time Series Insights
-1. Jeśli nie utworzono źródła zdarzeń, postępuj zgodnie z [tymi](time-series-insights-add-event-source.md) instrukcjami, aby je utworzyć.
+1. Jeśli nie utworzono źródła zdarzeń, postępuj zgodnie z [tymi instrukcjami](time-series-insights-add-event-source.md), aby je utworzyć.
 
-2. Wpisz „deviceTimestamp” jako nazwę właściwości sygnatury czasowej — właściwość ta jest używana w przykładzie w języku csharp jako rzeczywista sygnatura czasowa. W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter. Wartości wysyłane do centrum zdarzeń jako dane JSON powinny mieć format __rrrr-MM-ddTGG:mm:ss.FFFFFFFK__. Jeśli w zdarzeniu nie ma tej właściwości, używany jest czas umieszczenia zdarzenia w kolejce w centrum zdarzeń.
+2. Wpisz „deviceTimestamp” jako nazwę właściwości sygnatury czasowej — właściwość ta jest używana w przykładzie w języku csharp jako rzeczywista sygnatura czasowa. W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter. Wartości wysyłane do centrum zdarzeń jako dane JSON muszą mieć format __rrrr-MM-ddTGG:mm:ss.FFFFFFFK__. Jeśli w zdarzeniu nie ma tej właściwości, używany jest czas umieszczenia zdarzenia w kolejce w centrum zdarzeń.
 
   ![Tworzenie źródła zdarzeń](media/send-events/event-source-1.png)
 
