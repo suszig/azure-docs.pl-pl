@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/25/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: d68b641ac934c3930366be3dbf89a86e9611c7b7
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Administrowanie katalogiem usługi Azure AD
@@ -40,7 +40,7 @@ Usługa Azure AD zapewnia podstawowe możliwości zarządzania katalogiem i toż
 * Usługa Microsoft Dynamics CRM Online
 * Microsoft Intune
 
-Otrzymasz katalog usługi Azure AD, gdy utworzysz konto w ramach dowolnej z tych usług w chmurze firmy Microsoft. W razie potrzeby możesz utworzyć dodatkowe katalogi. Na przykład możesz zachować pierwszy katalog jako katalog produkcyjny i utworzyć kolejny na potrzeby testowania lub wdrażania przejściowego.
+Katalog usługi Azure AD uzyskujesz, gdy tworzysz konto w ramach dowolnej z tych usług w chmurze firmy Microsoft. W razie potrzeby możesz utworzyć dodatkowe katalogi. Na przykład możesz zachować pierwszy katalog jako katalog produkcyjny i utworzyć kolejny na potrzeby testowania lub wdrażania przejściowego.
 
 > [!NOTE]
 > Po utworzeniu konta w ramach pierwszej usługi zalecamy użycie tego samego konta administratora skojarzonego z Twoją organizacją podczas rejestrowania się w innych usługach w chmurze firmy Microsoft.
@@ -65,7 +65,7 @@ Jeśli jeszcze nie masz subskrypcji usługi w chmurze firmy Microsoft, użyj lin
 
 * [Microsoft Azure](https://account.windowsazure.com/organization)
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
-* [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
+* [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### <a name="manage-an-azure-provisioned-default-directory"></a>Zarządzanie domyślnym katalogiem aprowizowanym przez platformę Azure
 Obecnie katalog jest tworzony automatycznie podczas tworzenia konta na platformie Azure. Twoja subskrypcja jest z nim kojarzona. Jednak jeśli konto na platformie Azure zostało utworzone przed październikiem 2013 r., katalog nie został automatycznie utworzony. W takim przypadku platforma Azure mogła „uzupełnić” Twoje konto, aprowizując dla niego domyślny katalog. Twoja subskrypcja została następnie skojarzona z domyślnym katalogiem.
