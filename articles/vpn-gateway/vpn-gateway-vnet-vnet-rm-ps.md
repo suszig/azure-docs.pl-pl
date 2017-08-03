@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 4f91921142b9500252c53eee36cb872e324773c5
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 8c42c0046ccaa98c572134042fbbb7e883ef93c3
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu programu PowerShell
@@ -29,10 +29,10 @@ Ten artykuł pokazuje, jak utworzyć połączenie bramy sieci VPN między siecia
 Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager i używania programu PowerShell. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager — witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager — program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager — interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Klasyczny — witryna Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Łączenie różnych modeli wdrażania — witryna Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Łączenie różnych modeli wdrażania — program PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >

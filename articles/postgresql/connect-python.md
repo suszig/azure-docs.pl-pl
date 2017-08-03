@@ -12,10 +12,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 3cd090b02887857a68271f021e3580e05660d1dc
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python
@@ -50,7 +50,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
 
 ## <a name="how-to-run-python-code"></a>Jak uruchomić kod języka Python
 - Za pomocą ulubionego edytora tekstu utwórz nowy plik o nazwie postgres.py i zapisz go w folderze projektu. Skopiuj i wklej przykład kodu pokazany poniżej do pliku tekstowego i zapisz go. Upewnij się, że wybrano kodowanie UTF-8 podczas zapisywania pliku w systemie operacyjnym Windows. 
-- Aby uruchomić kod, uruchom wiersz polecenia lub powłokę bash. Zmień katalog na folder projektu, taki jak `cd postgresql`. Następnie wpisz polecenie python, a po nim nazwę pliku, na przykład `python postgresql.py`.
+- Aby uruchomić kod, uruchom wiersz polecenia lub powłokę bash. Zmień katalog na folder projektu, taki jak `cd postgresql`. Następnie wpisz polecenie python, a po nim nazwę pliku, na przykład `python postgres.py`.
 
 > [!NOTE]
 > W przypadku wersji 3 języka Python może zostać wyświetlony błąd `SyntaxError: Missing parentheses in call to 'print'` podczas uruchamiania poniższych bloków kodu. Jeśli tak się stanie, zastąp każde wywołanie polecenia `print "string"` wywołaniem funkcji, używając nawiasów, na przykład `print("string")`.

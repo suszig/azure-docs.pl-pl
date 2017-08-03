@@ -17,10 +17,10 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 1c2437c6eed641a929a7e25265bfc72dc76a9782
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bbd8a838062795ee03ae02dc5e3fd45d841a6e17
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Rozpoczynanie pracy z przykładem bazy danych Apache HBase w usłudze HDInsight
@@ -117,7 +117,7 @@ W bazie danych HBase (będącej implementacją BigTable) te same dane wyglądaj�
 
 Baza danych HBase obsługuje kilka metod ładowania danych do tabel.  Aby uzyskać więcej informacji, zobacz temat [Ładowanie zbiorcze](http://hbase.apache.org/book.html#arch.bulk.load).
 
-Przykładowy plik danych znajduje się w publicznym kontenerze obiektów blob, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Plik danych ma następującą zawartość:
+Przykładowy plik danych znajduje się w publicznym kontenerze obiektów blob, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Plik danych ma następującą zawartość:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -139,7 +139,7 @@ Opcjonalnie możesz utworzyć plik tekstowy i przesłać go na swoje konto magaz
 1. Z poziomu bezpiecznej powłoki (SSH) uruchom następujące polecenie, aby przekształcić plik danych do postaci StoreFiles i zapisać go w ścieżce względnej określonej przez parametr Dimporttsv.bulk.output.  Jeśli jest otwarta powłoka HBase, użyj polecenia exit, aby z niej wyjść.
 
     ```bash   
-    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
     ```
 
 2. Uruchom następujące polecenie, aby przekazać dane z katalogu /example/data/storeDataFileOutput do tabeli HBase:

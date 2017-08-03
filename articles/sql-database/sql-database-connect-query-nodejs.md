@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 56696c6c85f117449e7fb80b0daca707267d41c1
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Korzystanie z narzędzia Node.js do wykonywania zapytań w bazie danych Azure SQL
@@ -141,7 +141,7 @@ Otwórz wiersz polecenia i utwórz folder o nazwie *sqltest*. Przejdź do utworz
 
 - Dowiedz się więcej o [sterowniku firmy Microsoft środowiska Node.js dla programu SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
 - Dowiedz się, jak [uzyskać połączenie i wykonywać zapytania bazy danych Azure SQL przy użyciu platformy .NET Core](sql-database-connect-query-dotnet-core.md) w systemach operacyjnych Windows/Linux/macOS.  
-- Dowiedz się więcej o [rozpoczynaniu pracy z platformą .NET Core w systemie Windows/Linux/macOS przy użyciu wiersza polecenia](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- Dowiedz się więcej o [rozpoczynaniu pracy z platformą .NET Core w systemie Windows/Linux/macOS przy użyciu wiersza polecenia](/dotnet/core/tutorials/using-with-xplat-cli).
 - Dowiedz się, jak [zaprojektować pierwszą bazę danych Azure SQL przy użyciu narzędzia SSMS](sql-database-design-first-database.md) lub [zaprojektować pierwszą bazę danych Azure SQL przy użyciu platformy .NET](sql-database-design-first-database-csharp.md).
 - Dowiedz się, jak [nawiązywać połączenia i wykonywać zapytania za pomocą programu SSMS](sql-database-connect-query-ssms.md).
 - Dowiedz się, jak [nawiązywać połączenia i tworzyć zapytania przy użyciu narzędzia Visual Studio Code](sql-database-connect-query-vscode.md).
