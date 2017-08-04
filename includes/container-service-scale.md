@@ -32,7 +32,7 @@ Aby zmienić liczbę węzłów agenta, uruchom polecenie `az acs scale` i okreś
 Aby na przykład zmienić liczbę agentów w poprzednim klastrze na 10, wpisz następujące polecenie:
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 Interfejs wiersza polecenia platformy Azure 2.0 zwraca ciąg JSON reprezentujący nową konfigurację usługi kontenera, w tym nową liczbę agentów.

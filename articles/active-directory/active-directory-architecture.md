@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
 ms.contentlocale: pl-pl
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Informacje na temat architektury usługi Azure Active Directory
@@ -31,10 +30,10 @@ Za pomocą usługi Azure AD możesz tworzyć użytkowników i grupy oraz zarząd
 Rozproszona geograficznie architektura usługi Azure AD umożliwia rozbudowane monitorowanie, automatyczne przekierowywanie, korzystanie z trybu failover i odzyskiwanie — pozwala to dostarczyć klientom dostępność i wydajność na poziomie korporacyjnym.
 
 W tym artykule omówione są następujące elementy architektury:
- *    Projekt architektury usługi
- *    Skalowalność 
- *    Ciągła dostępność
- *    Centra danych
+ *  Projekt architektury usługi
+ *  Skalowalność 
+ *  Ciągła dostępność
+ *  Centra danych
 
 ### <a name="service-architecture-design"></a>Projekt architektury usługi
 Najczęstszym sposobem budowania skalowalnego systemu o wysokiej dostępności z dużą ilością danych jest użycie niezależnych bloków konstrukcyjnych lub jednostek skalowania warstwy danych usługi Azure AD. Jednostki skalowania są nazywane *partycjami*. 
@@ -87,7 +86,7 @@ Działania usługi Azure AD względem centrów danych mają następujące cechy:
 
  * Uwierzytelnianie, usługa Graph i inne usługi AD znajdują się za usługą bramy. Brama zarządza równoważeniem obciążenia tych usług. Automatycznie przejdzie ona w tryb failover, jeśli za pomocą transakcyjnych sond kondycji wykryte zostaną serwery w złej kondycji. Na podstawie danych z tych sond kondycji brama dynamicznie kieruje ruchem do centrów danych będących w dobrej kondycji.
  * Na potrzeby operacji *odczytu* katalog posiada repliki pomocnicze i odpowiednie usługi frontonu w ramach konfiguracji aktywne-aktywne działające w wielu centrach danych. W razie awarii całego centrum danych ruch zostanie automatycznie skierowany do innego centrum danych.
- *    Na potrzeby operacji *zapisu* katalog spowoduje przejście w tryb failover repliki podstawowej (głównej) w centrach danych za pośrednictwem planowanych (nowa replika podstawowa jest synchronizowana ze starą repliką podstawową) lub awaryjnych procedur przejścia w tryb failover. Trwałość danych jest zapewniana przez replikowanie każdego zatwierdzenia do co najmniej dwóch centrów danych.
+ *  Na potrzeby operacji *zapisu* katalog spowoduje przejście w tryb failover repliki podstawowej (głównej) w centrach danych za pośrednictwem planowanych (nowa replika podstawowa jest synchronizowana ze starą repliką podstawową) lub awaryjnych procedur przejścia w tryb failover. Trwałość danych jest zapewniana przez replikowanie każdego zatwierdzenia do co najmniej dwóch centrów danych.
 
 **Spójność danych**
 
