@@ -5,8 +5,7 @@
     - name: Informacje o usłudze Azure Cosmos DB
       href: introduction.md
     - name: Klienci usługi DocumentDB — Zapraszamy!
-      href: >-
-        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -138,13 +137,13 @@
               href: documentdb-resources.md
             - name: Zapytania SQL
               href: documentdb-sql-query.md
+            - name: Wydajność zapytań SQL
+              href: documentdb-sql-query-metrics.md
             - name: SQL — informacje i testowanie
               href: 'https://www.documentdb.com/sql/demo'
             - name: Partycjonowanie
               href: documentdb-partition-data.md
-            - name: >-
-                Procedury składowane, wyzwalacze i funkcje definiowane przez
-                użytkownika (UDF)
+            - name: 'Procedury składowane, wyzwalacze i funkcje definiowane przez użytkownika (UDF)'
               href: programming.md
             - name: Testowanie wydajności
               href: performance-testing.md
@@ -197,8 +196,7 @@
                 - name: Stack Overflow
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Filmy wideo
-                  href: >-
-                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Aktualizacje usług
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
                 - name: Portal społeczności
@@ -226,8 +224,7 @@
         - name: Interfejs API tabel
           items:
             - name: Magazyn tabel
-              href: >-
-                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
         - name: Źródło zmian
           href: change-feed.md
         - name: Dane geoprzestrzenne
@@ -276,13 +273,9 @@
           href: ../search/search-howto-index-documentdb.md
         - name: Przenoszenie danych za pomocą usługi Azure Data Factory
           href: ../data-factory/data-factory-azure-documentdb-connector.md
-        - name: >-
-            Analiza danych czasu rzeczywistego przy użyciu usługi Azure Stream
-            Analytics
+        - name: Analiza danych czasu rzeczywistego przy użyciu usługi Azure Stream Analytics
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
-        - name: >-
-            Uzyskiwanie zmienionego rekordu HL7 FHIR przy użyciu usługi Logic
-            Apps
+        - name: Uzyskiwanie zmienionego rekordu HL7 FHIR przy użyciu usługi Logic Apps
           href: change-feed-hl7-fhir-logic-apps.md
         - name: Przetwarzanie danych z czujników w czasie rzeczywistym
           href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
@@ -290,8 +283,12 @@
           href: powerbi-visualize.md
         - name: Wykorzystywanie sterownika ODBC do wizualizacji danych
           href: odbc-driver.md
+        - name: Używanie programu Spring Boot Starter z interfejsami API usługi DocumentDB
+          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Dokumentacja
   items:
+    - name: Przykłady kodu
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: Interfejsy API usługi DocumentDB
       items:
         - name: Java

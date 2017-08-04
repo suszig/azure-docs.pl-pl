@@ -51,3 +51,4 @@
 ### [Błędy rozszerzenia serwera NPS](multi-factor-authentication-nps-errors.md)
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

@@ -179,6 +179,7 @@
 #### [Wykonywanie kopii zapasowej manifestów dysków](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostyka i odzyskiwanie po błędach zadań usługi Import/Export](storage-import-export-diagnostics-and-error-recovery.md)
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Azure Storage Client Tools](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [Eksplorator usługi Storage (wersja zapoznawcza)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Zarządzanie obiektami blob za pomocą Eksploratora usługi Storage (wersja zapoznawcza)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Używanie programu Storage Explorer (wersja zapoznawcza) z usługą Azure File Storage](../vs-azure-tools-storage-explorer-files.md)
+### [Informacje o wersji programu Storage Explorer (wersja zapoznawcza)](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## Pakiety NuGet
 ### [Biblioteka klienta usługi Azure Storage dla programu .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

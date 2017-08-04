@@ -23,8 +23,12 @@
 ### [Żądanie usługi MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [Korzystanie z dziennika inspekcji](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
+# Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Powiązane
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Kontrola dostępu oparta na rolach](../role-based-access-control-what-is.md)
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

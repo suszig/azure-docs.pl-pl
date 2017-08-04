@@ -44,3 +44,4 @@
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Kontakt z pomocą techniczną](../azure-supportability/how-to-create-azure-support-request.md)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

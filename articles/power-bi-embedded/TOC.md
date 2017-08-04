@@ -24,6 +24,7 @@
 ### [Zabezpieczenia na poziomie wierszy w usłudze Power BI Embedded](power-bi-embedded-rls.md)
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
 ## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [Usługa Azure Resource Manager dla platformy .NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Zestaw SDK dla platformy .NET do pobrania](https://www.nuget.org/profiles/powerbi)
@@ -38,5 +39,6 @@
 ## [Repozytorium Git języka JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Repozytorium Git języka C# w usłudze Power BI](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Społeczność użytkowników usługi Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Przykładowa aplikacja](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

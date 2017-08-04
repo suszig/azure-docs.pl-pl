@@ -30,3 +30,4 @@
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Cennik](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

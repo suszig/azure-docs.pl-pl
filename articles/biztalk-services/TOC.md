@@ -26,6 +26,7 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Cennik](https://azure.microsoft.com/pricing/details/biztalk-services/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Informacje o wersji](biztalk-release-notes.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)

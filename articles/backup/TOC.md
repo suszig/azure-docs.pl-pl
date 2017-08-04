@@ -4,7 +4,7 @@
 
 # Rozpoczęcie pracy
 ## [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vms-first-look-arm.md)
-## [Tworzenie kopii zapasowych plików i folderów](backup-try-azure-backup-in-10-mins.md)
+## [Tworzenie kopii zapasowych komputerów z systemem Windows Server lub Windows](backup-try-azure-backup-in-10-mins.md)
 ## [Back up VMware servers (Tworzenie kopii zapasowych serwerów VMware)](backup-azure-backup-server-vmware.md)
 
 # Instrukcje
@@ -27,16 +27,19 @@
 #### [Przywracanie maszyn wirtualnych wdrożonych przez usługę Resource Manager w witrynie Azure Portal](backup-azure-arm-restore-vms.md)
 #### [Przywracanie zaszyfrowanych maszyn wirtualnych](backup-azure-vms-encryption.md)
 #### [Przywracanie maszyn wirtualnych na platformie Azure](backup-azure-restore-vms.md)
-#### [Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych za pomocą usługi Azure Backup](backup-azure-restore-key-secret.md)
+#### [Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych](backup-azure-restore-key-secret.md)
 
 
-## Pliki i foldery systemu Windows
-### [System Windows Server — z zastosowaniem modelu wdrażania przy użyciu usługi Resource Manager](backup-configure-vault.md)
-### [System Windows Server — z zastosowaniem klasycznego modelu wdrażania](backup-configure-vault-classic.md)
+## Windows Server
+### [Tworzenie kopii zapasowych plików i folderów z systemu Windows Server](backup-configure-vault.md)
+### [Tworzenie kopii zapasowej stanu systemu Windows Server](backup-azure-system-state.md)
+### [Odzyskiwanie plików z platformy Azure do systemu Windows Server](backup-azure-restore-windows-server.md)
+### [Przywracanie stanu systemu Windows Server](backup-azure-restore-system-state.md)
 ### [Monitorowanie magazynów usługi Recovery Services i zarządzanie nimi](backup-azure-manage-windows-server.md)
-### [Zarządzanie magazynami kopii zapasowych przy użyciu klasycznego modelu wdrażania](backup-azure-manage-windows-server-classic.md)
-### [Odzyskiwanie plików w systemie Windows Server przy użyciu modelu wdrażania używającego usługi Resource Manager](backup-azure-restore-windows-server.md)
-### [Odzyskiwanie plików w systemie Windows Server przy użyciu klasycznego modelu wdrażania](backup-azure-restore-windows-server-classic.md)
+### Tworzenie i przywracanie kopii zapasowych przy użyciu portalu klasycznego
+#### [System Windows Server — z zastosowaniem klasycznego modelu wdrażania](backup-configure-vault-classic.md)
+#### [Zarządzanie magazynami kopii zapasowych przy użyciu klasycznego modelu wdrażania](backup-azure-manage-windows-server-classic.md)
+#### [Odzyskiwanie plików w systemie Windows Server przy użyciu klasycznego modelu wdrażania](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup Server
 ### [Macierz ochrony usługi Azure Backup Server](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Cennik](https://azure.microsoft.com/pricing/details/backup/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=backup)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=backup)

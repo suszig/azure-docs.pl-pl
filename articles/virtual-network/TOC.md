@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Interfejs wiersza polecenia](virtual-networks-create-vnet-arm-cli.md)
 #### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
-#### Wdrożenie klasyczne
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [Program PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [Interfejs wiersza polecenia](virtual-networks-create-vnet-classic-cli.md)
 
 ### Grupy zabezpieczeń sieci
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [Strefa DMZ z zaporą, routingiem zdefiniowanym przez użytkownika i sieciowymi grupami zabezpieczeń](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Przykładowa aplikacja](virtual-networks-sample-app.md)
 
+### Wdrożenie klasyczne
+#### [Sieć wirtualna](create-virtual-network-classic.md)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [Program PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [Interfejs wiersza polecenia](virtual-networks-create-vnet-classic-cli.md)
+
 ## Konfigurowanie
 ### Maszyny wirtualne
 #### [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [Cannot delete virtual networks (Nie można usunąć sieci wirtualnych)](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [PowerShell (klasyczny)](/powershell/module/azure/)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/network)
@@ -162,4 +165,5 @@
 ## [Blog na temat sieci](http://azure.microsoft.com/blog/topics/networking)
 ## [Forum sieci](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

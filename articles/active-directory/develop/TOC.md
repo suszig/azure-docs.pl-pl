@@ -61,8 +61,9 @@
 ### [Co się stało z moim projektem interfejsu API sieci Web](vs-active-directory-webapi-what-happened.md)
 ## [Usługi ADFS systemu Windows Server](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Biblioteki uwierzytelniania (ADAL)](active-directory-authentication-libraries.md)
-## [Przykłady kodu](active-directory-code-samples.md)
+## [Artykuł z przykładami kodu](active-directory-code-samples.md)
 ## [Słownik](active-directory-dev-glossary.md)
 ## [Protokoły uwierzytelniania](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -107,3 +108,4 @@
 ### [Zakresy](active-directory-v2-scopes.md)
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

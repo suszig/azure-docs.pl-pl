@@ -8,6 +8,7 @@
 ## [Wiele witryn](application-gateway-multi-site-overview.md)
 ## [Kompleksowa usługa SSL](application-gateway-backend-ssl.md)
 ## [Przekierowania](application-gateway-redirect-overview.md)
+## [Obsługa wielu dzierżaw](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Limity usługi](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Rozpoczęcie pracy
@@ -16,7 +17,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Szablon usługi Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (klasyczny)](application-gateway-create-gateway.md)
 ### Użytek wewnętrzny
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -40,6 +42,8 @@
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurowanie przekierowania
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Konfigurowanie aplikacji internetowych jako elementów członkowskich puli zaplecza
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurowanie sond kondycji
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -70,6 +74,7 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Cennik](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

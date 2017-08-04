@@ -74,6 +74,7 @@
 ### [Informacje o wersji](active-directory-b2c-developer-notes-custom.md)
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Słownik
 ### [Typy aplikacji](active-directory-b2c-apps.md)
 ### [Protokoły uwierzytelniania](active-directory-b2c-reference-protocols.md)
@@ -92,6 +93,7 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Często zadawane pytania](active-directory-b2c-faqs.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Pomoc techniczna](active-directory-b2c-support.md)

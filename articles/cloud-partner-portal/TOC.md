@@ -35,3 +35,4 @@
 ## [Uzyskiwanie pomocy technicznej](./cloud-partner-portal-support-for-cloud-partner-portal.md)
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

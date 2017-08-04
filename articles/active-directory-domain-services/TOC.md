@@ -47,6 +47,9 @@
 ### [Enable the preview Azure portal experience (Włączanie środowiska witryny Azure Portal w wersji zapoznawczej)](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolve mismatched tenant errors (Rozwiązywanie błędów dotyczących niezgodnych dzierżaw)](active-directory-ds-mismatched-tenant-error.md)
 
+# Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Powiązane
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Kontakt z nami](active-directory-ds-contact-us.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-ds)

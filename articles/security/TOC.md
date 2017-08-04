@@ -3,6 +3,7 @@
 ## [Database security (Zabezpieczenia bazy danych)](azure-database-security-overview.md)
 ## [Zabezpieczenia magazynu](security-storage-overview.md)
 ## [Bezpieczeństwo obliczeń](security-virtual-machines-overview.md)
+## [Bezpieczeństwo działania](azure-operational-security-overview.md)
 ## [Zarządzanie zabezpieczeniami i monitorowanie ich](security-management-and-monitoring-overview.md)
 ## [Zarządzanie tożsamościami](security-identity-management-overview.md)
 ## [Zabezpieczenia IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
@@ -35,6 +36,8 @@
 ### [Najlepsze rozwiązania dotyczące obciążeń IaaS](azure-security-iaas.md)
 ### [Usługa firmy Microsoft chroniąca przed złośliwym kodem](azure-security-antimalware.md)
 ### [Szyfrowanie dysków dla maszyn wirtualnych IaaS](azure-security-disk-encryption.md)
+#### [Często zadawane pytania o szyfrowanie dysków](azure-security-disk-encryption-faq.md)
+#### [Rozwiązywanie problemów z szyfrowaniem dysków](azure-security-disk-encryption-tsg.md)
 ### [Szyfrowanie maszyny wirtualnej platformy Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Zarządzanie zabezpieczeniami i monitorowanie ich
@@ -53,8 +56,10 @@
 ## Usługi PaaS
 ### [Zabezpieczanie wdrożeń typu PaaS](security-paas-deployments.md)
 #### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu języka SQL](security-paas-applications-using-sql.md)
-#### [SQL Database best practices (Najlepsze rozwiązania usługi SQL Database)](azure-database-security-best-practices.md)
+#### [Najlepsze rozwiązania z zakresu zabezpieczeń usługi SQL Database](azure-database-security-best-practices.md)
+#### [Lista kontrolna zabezpieczeń usługi SQL Database](azure-database-security-checklist.md)
 #### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu usług App Services](security-paas-applications-using-app-services.md)
+####[Lista kontrolna zabezpieczeń działania](azure-operational-security-checklist.md)
 
 ## Internet rzeczy
 ### [Zabezpieczanie wdrożenia IoT](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +84,7 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Program MVP dotyczący zabezpieczeń platformy Azure](azure-security-mvp.md)
 ## [Doradztwo z zakresu cyberbezpieczeństwa](azure-security-cyber-services.md)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Blog poświęcony zabezpieczeniom i zgodności](http://blogs.msdn.com/b/azuresecurity/)
 ## [Kursy Virtual Academy z zakresu zabezpieczeń](security-microsoft-virtual-academy.md)
 ## [Film wideo na temat zabezpieczeń w witrynie Channel 9](security-channel-nine.md)

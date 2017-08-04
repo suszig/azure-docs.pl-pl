@@ -5,3 +5,4 @@
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=compute)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

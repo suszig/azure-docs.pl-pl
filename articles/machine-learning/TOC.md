@@ -173,6 +173,7 @@
 
 # Dokumentacja
 
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [Moduł programu PowerShell ](/powershell/module/azurerm.machinelearning)
 ## [Moduł programu PowerShell (klasyczny)](machine-learning-powershell-module.md)
 ## [Dokumentacja algorytmów i modułu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -215,6 +216,7 @@
 
 ## [Język programowania sieci neuronowych Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

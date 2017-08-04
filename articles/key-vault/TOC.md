@@ -33,6 +33,7 @@
 ### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia 2.0](key-vault-manage-with-cli2.md)
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Interfejs wiersza polecenia platformy Azure 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -55,3 +56,4 @@
 ## [Przykłady kodu](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Fora](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Cennik](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

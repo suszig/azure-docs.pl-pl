@@ -7,10 +7,11 @@
 
 # Rozpoczęcie pracy
 ## [Eksportowanie szablonu](resource-manager-export-template.md)
-## [Tworzenie pierwszego szablonu](resource-manager-create-first-template.md)
+## [Szablon tworzenia i wdrażania](resource-manager-create-first-template.md)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Przykłady
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Wdrażanie szablonu](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [Funkcje tablicy i obiektów](resource-group-template-functions-array.md)
 ### [Funkcje porównania](resource-group-template-functions-comparison.md)
 ### [Funkcje wdrażania](resource-group-template-functions-deployment.md)
+### [Funkcje logiczne](resource-group-template-functions-logical.md)
 ### [Funkcje liczbowe](resource-group-template-functions-numeric.md)
 ### [Funkcje zasobów](resource-group-template-functions-resource.md)
 ### [Funkcje ciągów](resource-group-template-functions-string.md)
@@ -129,6 +131,7 @@
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Ograniczanie żądań](resource-manager-request-limits.md)
