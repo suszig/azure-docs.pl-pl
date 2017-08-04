@@ -24,6 +24,7 @@
 ## [View related data assets (Wyświetlanie powiązanych zasobów danych)](data-catalog-how-to-view-related-data-assets.md) 
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Dokumentacja składni wyszukiwania](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Pojęcia dla deweloperów](data-catalog-developer-concepts.md)
@@ -34,6 +35,7 @@
 ## [Skróty klawiaturowe usługi Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Cennik](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Informacje o wersji](data-catalog-whats-new.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)

@@ -29,9 +29,15 @@
       href: container-instances-multi-container-group.md
     - name: Zarządzanie stanem przy użyciu udziałów plików platformy Azure
       href: container-instances-mounting-azure-files-volume.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure 2.0
+      href: /cli/azure/container
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Dostępność w danym regionie
       href: 'https://azure.microsoft.com/regions/services/'

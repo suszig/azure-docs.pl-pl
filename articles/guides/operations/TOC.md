@@ -101,3 +101,4 @@
 ## [Następne kroki](azure-operations-guide.md#next-steps)
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

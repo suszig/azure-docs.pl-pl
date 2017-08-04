@@ -8,6 +8,7 @@
 ## [Samouczek platformy .NET dla usługi Batch](batch-dotnet-get-started.md)
 ## [Samouczek języka Python dla usługi Batch](batch-python-tutorial.md)
 ## [Samouczek środowiska Node.js dla usługi Batch](batch-nodejs-get-started.md)
+## [Usługa renderowania dla usługi Batch](batch-rendering-service.md)
 # Instrukcje
 ## Programowanie
 ### [Pakiety aplikacji](batch-application-packages.md)
@@ -15,6 +16,7 @@
 ### Uwierzytelnianie w usłudze Azure AD
 #### [Usługa Azure AD z usługą Batch](batch-aad-auth.md)
 #### [Usługa Azure AD z zarządzaniem usługą Batch](batch-aad-auth-management.md)
+### [Maszyny wirtualne intensywnie korzystające z mocy obliczeniowej](batch-pool-compute-intensive-sizes.md)
 ### [Równoczesne zadania w węzłach](batch-parallel-node-tasks.md)
 ### [Wydajne zapytania dotyczące list](batch-efficient-list-queries.md)
 ### [Zadania związane z przygotowywaniem i kończeniem prac](batch-job-prep-release.md)
@@ -36,8 +38,8 @@
 #### [Dodawanie aplikacji](./scripts/batch-cli-sample-add-application.md)
 #### [Zarządzanie pulami](./scripts/batch-cli-sample-manage-pool.md)
 #### [Uruchamianie zadań i podzadań](./scripts/batch-cli-sample-run-job.md)
-
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
@@ -69,6 +71,7 @@
 ## [Przykłady kodu języka C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Cennik](https://azure.microsoft.com/pricing/details/batch/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Przykłady kodu języka Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

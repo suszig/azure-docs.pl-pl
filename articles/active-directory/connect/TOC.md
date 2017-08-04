@@ -38,6 +38,7 @@
 ##### [Szybki start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Bieżące ograniczenia](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Jak to działa?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Uaktualnianie agentów w wersji zapoznawczej](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Smart Lockout (Inteligentna blokada)](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Często zadawane pytania](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Rozwiązywanie problemów](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -82,6 +83,7 @@
 ### [Jak usunąć limit 10 GB dla lokalnej bazy danych](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Synchronizacja tożsamości i odporność na zduplikowane atrybuty](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Wymagane porty i protokoły tożsamości hybrydowej](active-directory-aadconnect-ports.md)
 ## [Funkcje w wersji zapoznawczej](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect — Często zadawane pytania](active-directory-aadconnect-faq.md)
 ##[Zakończenie świadczenia usługi DirSync](active-directory-aadconnect-dirsync-deprecated.md)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
+

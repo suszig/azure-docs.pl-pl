@@ -17,6 +17,7 @@
 ### [Korzystanie z urządzenia fizycznego](iot-hub-get-started-physical.md)
 #### [Urządzenie Raspberry Pi w środowisku Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Urządzenie Raspberry Pi w środowisku C](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [Urządzenie Raspberry Pi w środowisku Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
 #### [Urządzenie Intel Edison w środowisku Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Urządzenie Intel Edison w środowisku C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +85,7 @@
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-twin-getstarted.md)
 ### Korzystanie z metod bezpośrednich
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-direct-methods.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +105,7 @@
 ### Planowanie i emitowanie zadań
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Zarządzanie
 ### Tworzenie centrum IoT 
 #### [Korzystanie z portalu](iot-hub-create-through-portal.md)
@@ -150,6 +153,7 @@
 #### [Host modułu natywnego](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/iot)
 ## [.NET (usługa)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (urządzenia)](/dotnet/api/microsoft.azure.devices.client)
@@ -180,6 +184,7 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Cennik](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Analizy przypadków technicznych](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

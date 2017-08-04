@@ -6,3 +6,5 @@
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=containers'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'

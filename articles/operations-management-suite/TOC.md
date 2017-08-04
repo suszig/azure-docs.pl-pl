@@ -29,6 +29,7 @@
 ### [Ocena złośliwego oprogramowania](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Ocena aktualizacji systemu](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Łączenie produktów zabezpieczeń](oms-security-connect-products.md)
+### [Ocena internetowej linii bazowej](oms-security-web-baseline-assessment.md)
 
 ## Korzystanie z rozwiązań
 ### [Rozwiązania do zarządzania](operations-management-suite-solutions.md)
@@ -77,3 +78,4 @@
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

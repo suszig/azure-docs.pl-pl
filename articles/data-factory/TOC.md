@@ -93,7 +93,8 @@
 ### [Rozwiązywanie problemów z używaniem bramy zarządzania danymi](data-factory-troubleshoot-gateway-issues.md)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/module/azurerm.datafactories)
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
 ## [JSON](data-factory-json-scripting-reference.md)
@@ -104,6 +105,7 @@
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Cennik](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Informacje o wersji bramy zarządzania danymi](data-factory-gateway-release-notes.md)
 ## [Prośba o funkcję](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-factory)

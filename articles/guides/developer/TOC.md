@@ -112,5 +112,6 @@
 # Zasoby
 ## [Regiony platformy Azure](https://azure.microsoft.com/regions/)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Przykłady](https://azure.microsoft.com/resources/samples/)
 ## [Filmy wideo](https://azure.microsoft.com/resources/videos/home/)

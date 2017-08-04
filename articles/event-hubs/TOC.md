@@ -42,6 +42,7 @@
 ### [Tworzenie i wdrażanie centrum zdarzeń przy użyciu szablonu usługi Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -60,6 +61,7 @@
 ## [Przykłady kodu](event-hubs-samples.md)
 ## [Ścieżka szkoleniowa](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Cennik](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

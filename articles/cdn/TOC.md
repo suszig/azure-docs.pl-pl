@@ -52,7 +52,8 @@
 ### [Kompresja plików](cdn-troubleshoot-compression.md)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/module/azurerm.cdn)
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
+## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
@@ -66,6 +67,7 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Cennik](https://azure.microsoft.com/pricing/details/cdn/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cdn)

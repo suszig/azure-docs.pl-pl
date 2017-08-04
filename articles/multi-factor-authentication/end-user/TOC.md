@@ -15,3 +15,4 @@
 ### [Często zadawane pytania](microsoft-authenticator-app-faq.md)
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

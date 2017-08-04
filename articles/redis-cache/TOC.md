@@ -45,8 +45,11 @@
 ## Skalowanie
 ###[Aktualizowanie do innego rozmiaru i innej warstwy](cache-how-to-scale.md)
 ###[Używanie klastra pamięci podręcznej Redis do skalowania w pionie i w poziomie](cache-how-to-premium-clustering.md)
+## Integracja ze środowiskiem Spring Boot
+###[Używanie aplikacji Spring Boot Initializer z usługą Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)

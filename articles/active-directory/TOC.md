@@ -24,10 +24,6 @@
 # Instrukcje
 ## Planowanie i projektowanie
 ### [Omówienie architektury usługi Azure AD](active-directory-architecture.md)
-### [Recommended security policies and configurations (Zalecane zasady zabezpieczeń i konfiguracje)](secure-email-introduction.md)
-#### [Secure email recommended policies (Zalecane zasady zabezpieczania poczty e-mail)](secure-email-recommended-policies.md)
-##### [Deploy recommended secure email policies (Wdrażanie zalecanych zasad zabezpieczania poczty e-mail)](secure-email-deploy-recommended-policies.md)
-#### [EMS and Office 365 services overview (Omówienie usług EMS i Office 365)](secure-email-ems-office365-service-descriptions.md)
 ### [Wdrażanie rozwiązania tożsamości hybrydowej](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Mapowanie oświadczeń w usłudze Azure Active Directory](active-directory-claims-mapping.md)
 #### Określanie wymagań
@@ -167,7 +163,6 @@
 ## Zarządzanie aplikacjami
 ### [Omówienie](active-directory-enable-sso-scenario.md)
 ### [Rozpoczęcie pracy](active-directory-integrating-applications-getting-started.md)
-
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Aktualizowanie ustawień rejestru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Objaśnienie zabezpieczeń i ochrony prywatności](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +173,7 @@
 ##### [Włączanie serwera proxy aplikacji](active-directory-application-proxy-enable.md)
 ##### [Publikowanie aplikacji](application-proxy-publish-azure-portal.md)
 ##### [Niestandardowe domeny](active-directory-application-proxy-custom-domains.md)
-#### [Dostęp z użyciem logowania jednokrotnego](active-directory-appssoaccess-whatis.md)
+#### [Logowanie jednokrotne](application-proxy-sso-overview.md)
 ##### [Logowanie jednokrotne z delegowaniem KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Logowanie jednokrotne z nagłówkami](application-proxy-ping-access.md)
 ##### [Logowanie jednokrotne z przechowywaniem haseł w magazynie](application-proxy-sso-azure-portal.md)
@@ -219,6 +214,7 @@
 
 ### [Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md)
 #### [Dostęp do samoobsługi](active-directory-self-service-application-access.md)
+#### [Dostęp z użyciem logowania jednokrotnego](active-directory-appssoaccess-whatis.md)
 #### [Certyfikaty rejestracji jednokrotnej](active-directory-sso-certs.md)
 #### [Ograniczenia dzierżawy](active-directory-tenant-restrictions.md)
 #### [Aprowizacja użytkowników przy użyciu standardu SCIM](active-directory-scim-provisioning.md)
@@ -370,6 +366,7 @@
 
 
 # Dokumentacja
+## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Polecenia cmdlet programu PowerShell](/powershell/azure/overview)
 ## [Dokumentacja interfejsu API języka Java](/java/api)
 ## [Interfejs API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -387,6 +384,7 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Cennik](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
