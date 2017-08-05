@@ -197,8 +197,8 @@ Dane wyjściowe wyglądają podobnie do tych:
   - domena główna wdrażania, która została skonfigurowana w celu zamapowania zewnętrznego adresu IP Kubernetes dla danych przychodzących (tutaj: `squillace.io`).
 
   Wywołaj polecenie `draft init`. Proces konfiguracji zapyta o wartości wymienione powyżej. Gdy proces uruchomisz po raz pierwszy, będzie on wyglądać podobnie do następującego.
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...
