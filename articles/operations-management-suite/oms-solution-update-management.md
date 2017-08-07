@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="update-management-solution-in-oms"></a>Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
@@ -65,10 +64,10 @@ W dniu i o godzinie określonych we wdrożeniu aktualizacji komputery docelowe w
     > [!NOTE]
     > Agent dla systemu Windows nie może być zarządzany współbieżnie przez program System Center Configuration Manager.  
     >
-* CentOS 6 (x86/x64) i 7 (x64)
-* Red Hat Enterprise 6 (x86/x64) i 7 (x64)
-* SUSE Linux Enterprise Server 11 (x86/x64) i 12 (x64)
-* Ubuntu 12.04 LTS i nowsze x86/x64  
+* CentOS 6 (x86/x64) i 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64) i 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) i 12 (x64)  
+* Ubuntu 12.04 LTS i nowsze x86/x64   
     > [!NOTE]  
     > Aby w przypadku systemu Ubuntu uniknąć stosowania aktualizacji poza oknem obsługi, zmień konfigurację pakietu Unattended-Upgrade tak, aby wyłączyć automatyczne aktualizacje. Aby uzyskać informacje na temat sposobu konfigurowania tego, zobacz [temat poświęcony aktualizacjom automatycznym w podręczniku systemu Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
@@ -79,6 +78,9 @@ W dniu i o godzinie określonych we wdrożeniu aktualizacji komputery docelowe w
     >
 
 Aby uzyskać dodatkowe informacje na temat instalowania agenta usługi OMS dla systemu Linux i pobierania najnowszej wersji, zapoznaj się z tematem [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux) (Agent usługi Operations Management Suite dla systemu Linux).  Aby uzyskać informacje na temat sposobu instalowania agenta usługi OMS dla systemu Windows, przejrzyj temat [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agents.md) (Agent usługi Operations Management Suite dla systemu Windows).  
+
+### <a name="permissions"></a>Uprawnienia
+Aby tworzyć wdrożenia aktualizacji, musisz mieć nadaną rolę współautora zarówno na swoim koncie usługi Automation, jak i w obszarze roboczym usługi Log Analytics.  
 
 ## <a name="solution-components"></a>Składniki rozwiązania
 To rozwiązanie składa się z następujących zasobów, które są dodawane do Twojego konta usługi Automation, i bezpośrednio połączonych agentów lub grupy zarządzania połączonej z programem Operations Manager.
@@ -156,7 +158,7 @@ Po dodaniu do obszaru roboczego OMS rozwiązania do zarządzania aktualizacjami 
 ## <a name="viewing-update-assessments"></a>Wyświetlanie ocen aktualizacji
 Kliknij kafelek **Zarządzanie aktualizacjami**, aby otworzyć pulpit nawigacyjny **Zarządzanie aktualizacjami**.<br><br> ![Pulpit nawigacyjny podsumowujący zarządzanie aktualizacjami](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
-Ten pulpit nawigacyjny zawiera szczegółowy podział stanu aktualizacji według typu systemu operacyjnego i klasyfikacji aktualizacji — krytyczna, bezpieczeństwa lub inna (taka jak aktualizacja definicji). Wybranie kafelka **Wdrożenia aktualizacji** powoduje przekierowanie na stronę Wdrożenia aktualizacji, na której można obejrzeć harmonogramy, aktualnie uruchomione wdrożenia i ukończone wdrożenia albo zaplanować nowe wdrożenie.  
+Ten pulpit nawigacyjny zawiera szczegółowy podział stanu aktualizacji według typu systemu operacyjnego i klasyfikacji aktualizacji — krytyczna, bezpieczeństwa lub inna (taka jak aktualizacja definicji). Wyniki na każdym kafelku tego pulpitu nawigacyjnego odzwierciedlają tylko aktualizacje zatwierdzone do wdrożenia w oparciu o źródło synchronizacji komputerów.   Wybranie kafelka **Wdrożenia aktualizacji** powoduje przekierowanie na stronę Wdrożenia aktualizacji, na której można obejrzeć harmonogramy, aktualnie uruchomione wdrożenia i ukończone wdrożenia albo zaplanować nowe wdrożenie.  
 
 Klikając konkretny kafelek, możesz uruchomić przeszukiwanie dziennika, które zwróci wszystkie rekordy. Możesz też uruchomić zapytanie o określoną kategorię z wcześniej zdefiniowanymi kryteriami, wybierając jedno z zapytań z listy dostępnej w kolumnie **Typowe zapytania dotyczące aktualizacji**.    
 
@@ -310,6 +312,17 @@ Poniższa tabela zawiera przykładowe wyszukiwania w dzienniku dotyczące rekord
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Ta sekcja zawiera informacje ułatwiające rozwiązywanie problemów z rozwiązaniem Zarządzanie aktualizacjami.  
+
+### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Jak mogę rozwiązywać problemy przy dołączaniu?
+Jeśli wystąpią problemy podczas próby dołączenia rozwiązania lub maszyny wirtualnej, sprawdź dziennik zdarzeń **Application and Services Log\Operations Manager** pod kątem zdarzeń mających identyfikator zdarzenia 4502 i komunikat zdarzenia zawierający ciąg **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  W poniższej tabeli wymieniono określone komunikaty o błędach i możliwe rozwiązanie dla każdego z nich.  
+
+| Komunikat | Przyczyna | Rozwiązanie |   
+|----------|----------|----------|  
+| Nie można zarejestrować maszyny na potrzeby zarządzania poprawkami,<br>rejestracja nie powiodła się z powodu wyjątku<br>System.InvalidOperationException: {"Message": "Maszyna jest już<br>zarejestrowana na innym koncie. "} | Maszyna została już dołączona do innego obszaru roboczego na potrzeby zarządzania aktualizacjami | Przeprowadź czyszczenie starych artefaktów, [usuwając grupę hybrydowych elementów runbook](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
+| Nie można zarejestrować maszyny na potrzeby zarządzania poprawkami,<br>rejestracja nie powiodła się z powodu wyjątku<br>System.Net.Http.HttpRequestException: Wystąpił błąd podczas wysyłania żądania. ---><br>System.Net.WebException: Połączenie podstawowe<br>zostało zamknięte: Wystąpił nieoczekiwany błąd<br>przy odbiorze. ---> System.ComponentModel.Win32Exception:<br>Klient i serwer nie mogą nawiązać komunikacji,<br>ponieważ nie mają wspólnego algorytmu | Serwer proxy/brama/zapora blokuje komunikację | [Przejrzyj wymagania dotyczące sieci](../automation/automation-offering-get-started.md#network-planning)|  
+| Nie można zarejestrować maszyny na potrzeby zarządzania poprawkami,<br>rejestracja nie powiodła się z powodu wyjątku<br>Newtonsoft.Json.JsonReaderException: Błąd podczas analizowania wartości nieskończoności dodatniej. | Serwer proxy/brama/zapora blokuje komunikację | [Przejrzyj wymagania dotyczące sieci](../automation/automation-offering-get-started.md#network-planning)| 
+| Certyfikat przedstawiony przez usługę <wsid>.oms.opinsights.azure.com<br>nie został wystawiony przez urząd certyfikacji<br>używany na potrzeby usług firmy Microsoft. Skontaktuj się z<br>administratorem sieci, aby sprawdzić, czy jest używany serwer proxy, który przechwytuje<br>komunikację TLS/SSL. |Serwer proxy/brama/zapora blokuje komunikację | [Przejrzyj wymagania dotyczące sieci](../automation/automation-offering-get-started.md#network-planning)|  
+| Nie można zarejestrować maszyny na potrzeby zarządzania poprawkami,<br>rejestracja nie powiodła się z powodu wyjątku<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Nie można utworzyć certyfikatu z podpisem własnym. ---><br>System.UnauthorizedAccessException: Odmowa dostępu. | Niepowodzenie generowania certyfikatu z podpisem własnym | Sprawdź, czy konto systemowe ma<br>dostęp do odczytu do folderu:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Jak rozwiązywać problemy z wdrożeniami aktualizacji?
 Wyniki elementu runbook odpowiedzialnego za wdrożenie aktualizacji zawartych w zaplanowanym wdrożeniu aktualizacji możesz obejrzeć w bloku Zadania swojego konta usługi Automation, które jest połączone z obszarem roboczym usługi OMS obsługującym to rozwiązanie.  Element runbook **Patch-MicrosoftOMSComputer** to podrzędny element runbook, który jest nakierowany na konkretny komputer zarządzany. Przejrzenie pełnych informacji ze strumienia pozwala uzyskać szczegółowe informacje o tym wdrożeniu.  W danych wyjściowych będzie widać, które wymagane aktualizacje mają zastosowanie, jaki jest ich stan pobierania i instalacji, a także inne informacje.<br><br> ![Stan zadania wdrożenia aktualizacji](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>

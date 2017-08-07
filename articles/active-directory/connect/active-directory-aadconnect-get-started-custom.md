@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
@@ -234,7 +234,7 @@ Konfigurowanie usług AD FS przy użyciu programu Azure AD Connect jest proste �
 
 * Serwer Windows Server 2012 R2 dla serwera federacyjnego z włączonym zarządzaniem zdalnym
 * Serwer Windows Server 2012 R2 dla serwera proxy aplikacji sieci Web z włączonym zarządzaniem zdalnym
-* Certyfikat SSL dla nazwy usługi federacyjnej, która ma być używana (na przykład sts.contoso.com)
+* Certyfikat protokołu SSL dla nazwy usługi federacyjnej, która ma być używana (na przykład sts.contoso.com)
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Wymagania wstępne konfiguracji usług AD FS
 Aby skonfigurować farmę usług AD FS przy użyciu programu Azure AD Connect, należy upewnić się, że na serwerach zdalnych jest włączona usługa WinRM. Ponadto należy zapoznać się z wymaganiami dotyczącymi portów wymienionymi w sekcji [Tabela 3 — program Azure AD Connect i serwery federacyjne/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
@@ -317,6 +317,15 @@ Więcej informacji znajduje się w temacie [Tryb przejściowy](active-directory-
 
 ### <a name="verify-your-federation-configuration"></a>Weryfikowanie konfiguracji federacji
 Po kliknięciu przycisku Weryfikuj program Azure AD Connect sprawdza ustawienia DNS.
+
+**Sprawdzanie łączności z intranetem**
+
+* Rozpoznawanie federacyjnej nazwy FQDN: program Azure AD Connect sprawdza, czy federacyjna nazwa FQDN może zostać rozpoznana przez serwer DNS w celu zapewnienia łączności. Jeśli program Azure AD Connect nie może rozpoznać nazwy FQDN, weryfikacja zakończy się niepowodzeniem. Upewnij się, że rekord DNS jest obecny dla nazwy FQDN usługi federacyjnej, aby można było pomyślnie ukończyć weryfikację.
+* Rekord A systemu DNS: program Azure AD Connect sprawdza, czy istnieje rekord A dla usługi federacyjnej. W przypadku braku rekordu A weryfikacja zakończy się niepowodzeniem. Utwórz rekord A (nie rekord CNAME) dla federacyjnej nazwy FQDN, aby można było pomyślnie ukończyć weryfikację.
+
+**Sprawdzanie łączności z ekstranetem**
+
+* Rozpoznawanie federacyjnej nazwy FQDN: program Azure AD Connect sprawdza, czy federacyjna nazwa FQDN może zostać rozpoznana przez serwer DNS w celu zapewnienia łączności.
 
 ![Zakończ](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

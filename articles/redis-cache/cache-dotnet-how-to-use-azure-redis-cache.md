@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/30/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: db851023c8620bec6583184326029d1a3e99ad88
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3dfc026490093523446650c510dbebdd660e8b6b
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="how-to-use-azure-redis-cache"></a>Jak używać usługi Azure Redis Cache
@@ -169,6 +168,17 @@ Podczas wywoływania metody `StringGet`, jeśli obiekt istnieje, jest zwracany, 
 
         cache.StringSet("key1", value);
     }
+
+Alternatywnie możesz użyć typu `RedisValue`, jak pokazano w poniższym przykładzie. Typ `RedisValue` ma niejawne operatory do pracy z integralnymi typami danych. To rozwiązanie może być użyteczne, jeśli oczekiwaną wartością dla elementu w pamięci podręcznej jest `null`.
+
+
+    RedisValue value = cache.StringGet("key1");
+    if (!value.HasValue)
+    {
+        value = GetValueFromDataSource();
+        cache.StringSet("key1", value);
+    }
+
 
 Aby określić wygaśnięcie elementu w pamięci podręcznej, użyj parametru `TimeSpan` metody `StringSet`.
 

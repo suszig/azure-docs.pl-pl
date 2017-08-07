@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Serwer proxy aplikacji usługi Azure AD pomaga wspierać pracowników zdalnych p
 6. Aby zakończyć działanie kreatora, kliknij znacznik wyboru w dolnej części ekranu. Aplikacja jest teraz zdefiniowana w usłudze Azure AD.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Przypisywanie użytkowników i grup do aplikacji
-Aby użytkownicy mogli uzyskać dostęp do opublikowanej aplikacji, należy ich przypisać pojedynczo lub w grupach. (Pamiętaj, aby sobie także przypisać dostęp). W tym celu każdy użytkownik musi mieć licencję Azure w wersji Podstawowa lub wyższej. Można przypisać licencje pojedynczym użytkownikom lub grupom. Zobacz [Przypisywanie użytkowników do aplikacji](active-directory-applications-guiding-developers-assigning-users.md), aby uzyskać więcej szczegółów. 
+Aby użytkownicy mogli uzyskać dostęp do opublikowanej aplikacji, należy ich przypisać pojedynczo lub w grupach. (Pamiętaj, aby sobie także przypisać dostęp). Każdy przypisany użytkownik musi mieć licencję platformy Azure w warstwie Podstawowa lub wyższej. Można przypisać licencje pojedynczym użytkownikom lub grupom. Aby uzyskać więcej informacji, zobacz [Przypisywanie użytkowników do aplikacji](active-directory-applications-guiding-developers-assigning-users.md). 
 
-W przypadku aplikacji wymagających uwierzytelnienia wstępnego spowoduje to przydzielenie uprawnień do używania aplikacji. W przypadku aplikacji niewymagających uwierzytelnienia wstępnego użytkownicy mogą nadal zostać przypisani do aplikacji, aby była ona wyświetlana na ich liście aplikacji, takiej jak MyApps.
+W przypadku aplikacji wymagających wstępnego uwierzytelnienia przypisanie użytkownika spowoduje przydzielenie uprawnień do używania aplikacji. W przypadku aplikacji niewymagających wstępnego uwierzytelnienia przypisanie użytkownika oznacza, że użytkownik może uzyskiwać dostęp do aplikacji za pomocą panelu dostępu.
 
 1. Po zakończeniu pracy kreatora Dodawanie aplikacji zostanie wyświetlona strona Szybki start aplikacji. Aby zarządzać dostępem do aplikacji, wybierz pozycję **Użytkownicy i grupy**.
    
@@ -90,7 +90,7 @@ Na stronie Konfiguracja można modyfikować opublikowane aplikacje lub konfiguro
 
 Aplikacje opublikowane przy użyciu serwera proxy aplikacji usługi Azure Active Directory są wyświetlane na liście Aplikacje w usłudze Azure AD i można zarządzać nimi z tego poziomu.
 
-Jeśli wyłączysz usługi serwera proxy aplikacji po opublikowaniu aplikacji, aplikacje te nie będą już dostępne spoza sieci prywatnej. Nie powoduje to usunięcia aplikacji.
+Jeśli wyłączysz usługi serwera proxy aplikacji po opublikowaniu aplikacji, aplikacje te nie będą już dostępne spoza sieci prywatnej. Użytkownicy mogą nadal uzyskiwać dostęp do tych aplikacji lokalnie w zwykły sposób.
 
 Aby wyświetlić aplikację i sprawdzić, czy jest dostępna, kliknij dwukrotnie nazwę aplikacji. Jeśli usługa serwera proxy aplikacji jest wyłączona i aplikacja jest niedostępna, w górnej części ekranu zostanie wyświetlone ostrzeżenie.
 

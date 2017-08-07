@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorowanie wydajności aplikacji sieci Web platformy Azure
@@ -31,7 +30,7 @@ Możesz skonfigurować monitorowanie, instrumentując aplikację na jeden z dwó
 * **Czas kompilacji** — możesz zainstalować pakiet w aplikacji podczas programowania. Ta opcja jest bardziej wszechstronna. Oprócz tych samych pakietów standardowych możesz napisać kod w celu dostosowania telemetrii lub wysłania własnych danych telemetrii. Możesz rejestrować określone działania lub zdarzenia zgodnie z semantyką domeny aplikacji. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentacja w czasie wykonywania za pomocą usługi Application Insights
-Jeśli już masz uruchomioną aplikację sieci Web na platformie Azure, otrzymujesz pewne informacje monitorowania: żądania i współczynniki błędów. Dodaj usługę Application Insights, aby uzyskać więcej, na przykład czasy odpowiedzi, monitorowanie wywołań dla zależności, inteligentne wykrywanie i zaawansowany język zapytań analitycznych. 
+Jeśli już masz uruchomioną aplikację sieci Web na platformie Azure, otrzymujesz pewne informacje monitorowania: żądania i współczynniki błędów. Dodaj usługę Application Insights, aby uzyskać więcej informacji, na przykład czasy odpowiedzi, monitorowanie wywołań dla zależności, inteligentne wykrywanie i zaawansowany język zapytań usługi Log Analytics. 
 
 1. **Wybierz usługę Application Insights** w Panelu sterowania platformy Azure dla aplikacji sieci Web.
    
@@ -102,7 +101,7 @@ Usługa Application Insights może zapewnić bardziej szczegółową telemetrię
    
     Możesz [dostosować wyszukiwania](app-insights-diagnostic-search.md).
 
-Aby skorzystać z bardziej zaawansowanego wyszukiwania w ramach telemetrii, użyj [języka zapytań analizy](app-insights-analytics-tour.md).
+Aby skorzystać z bardziej zaawansowanego wyszukiwania w ramach telemetrii, użyj [języka zapytań usługi Log Analytics](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Dalsze funkcje telemetrii
 

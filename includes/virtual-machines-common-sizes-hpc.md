@@ -1,44 +1,44 @@
 <!-- A-series - compute-intensive instances, H-series -->
 
-The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. 
+Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie korzystającymi z mocy obliczeniowej*. Sprzęt, na którym działają te rozmiary maszyn wirtualnych, został zaprojektowany i zoptymalizowany pod kątem aplikacji intensywnie korzystających z mocy obliczeniowej i sieci, w tym aplikacji klastrów obliczeń o wysokiej wydajności, modelowania i symulacji. Maszyny wirtualne serii A8–A11 korzystają z procesorów Intel Xeon E5-2670 o częstotliwości 2,6 GHz, a seria H korzysta z procesorów Intel Xeon E5-2667 v3 o częstotliwości 3,2 GHz. 
 
-Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD based storage. 
+Maszyny wirtualne serii H platformy Azure to następna generacja maszyn wirtualnych o wysokiej wydajności obliczeniowej, które idealnie sprawdzają się w przypadku najwyższych potrzeb obliczeniowych, na przykład w modelowaniu molekularnym i analizach obliczeniowych dynamiki płynów. Te maszyny wirtualne z 8 lub 16 procesorami wirtualnymi vCPU wykorzystują technologię procesora Intel Haswell E5-2667 V3 i wyposażone są w pamięć DDR4 oraz tymczasowy magazyn SSD. 
 
-In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
+Seria H oferuje, obok znacznej mocy procesora CPU, różnorodne opcje dla sieci obsługujących technologię RDMA i niskie opóźnienia, korzystając z sieci InfiniBand o przepustowości FDR wraz z kilkoma konfiguracjami pamięci do obsługi obliczeń wymagających znacznego wykorzystania pamięci.
 
 
 
-## <a name="h-series"></a>H-series
+## <a name="h-series"></a>Seria H
 
-ACU: 290-300
+ACU: 290–300
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16 x 500 |2  |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |4 |
-| Standard_H8m |8 |112 |1000 |16 |16 x 500 |2  |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |4  |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4  |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4 |
+| Standardowa_H8 |8 |56 |1000 |16 |16 x 500 |2  |
+| Standardowa_H16 |16 |112 |2000 |32 |32 x 500 |4 |
+| Standardowa_H8m |8 |112 |1000 |16 |16 x 500 |2  |
+| Standardowa_H16m |16 |224 |2000 |32 |32 x 500 |4  |
+| Standardowa_H16r* |16 |112 |2000 |32 |32 x 500 |4  |
+| Standardowa_H16mr* |16 |224 |2000 |32 |32 x 500 |4 |
 
-*For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
+*W przypadku aplikacji MPI dedykowana sieć zaplecza RDMA jest zapewniana przez sieć FDR InfiniBand, która gwarantuje ultraniskie opóźnienia i wysoką przepustowość.
 
 <br>
 
 
 
-## <a name="a-series---compute-intensive-instances"></a>A-series - compute-intensive instances
+## <a name="a-series---compute-intensive-instances"></a>Seria A — wystąpienia intensywnie korzystające z mocy obliczeniowej
 
 ACU: 225
 
-| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs|
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (HDD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków danych: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2 |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4 |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2  |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4 |
+| Standardowa_A8* |8 |56 |382 |16 |16 x 500 |2 |
+| Standardowa_A9* |16 |112 |382 |16 |16 x 500 |4 |
+| Standardowa_A10 |8 |56 |382 |16 |16 x 500 |2  |
+| Standardowa_A11 |16 |112 |382 |16 |16 x 500 |4 |
 
-*For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
+*W przypadku aplikacji MPI dedykowana sieć zaplecza RDMA jest zapewniana przez sieć FDR InfiniBand, która gwarantuje ultraniskie opóźnienia i wysoką przepustowość.
 
 <br>
 

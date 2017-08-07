@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Przewodnik po wstępnie skonfigurowanym rozwiązaniu połączonej fabryki
@@ -47,6 +46,13 @@ Ten artykuł przeprowadzi Cię przez niektóre kluczowe elementy rozwiązania po
 Poniższy diagram przedstawia składniki logiczne wstępnie skonfigurowanego rozwiązania:
 
 ![Architektura logiczna połączonej fabryki][connected-factory-logical]
+
+## <a name="communication-patterns"></a>Wzorce komunikacji
+
+Rozwiązanie używa [specyfikacji OPC UA Pub/Sub](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) do wysyłania danych telemetrycznych OPC UA do centrum IoT Hub w formacie JSON. W tym celu rozwiązanie używa modułu [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge.
+
+Rozwiązanie zawiera również klienta OPC UA zintegrowanego w aplikacji internetowej, który może nawiązywać połączenia z lokalnymi serwerami OPC UA. Klient używa [zwrotnego serwera proxy](https://wikipedia.org/wiki/Reverse_proxy) i otrzymuje pomoc z centrum IoT Hub, aby nawiązywać połączenie bez potrzeby otwierania portów w lokalnej zaporze. Ten wzorzec komunikacji jest zwany [komunikacją wspieraną przez usługę](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). W tym celu rozwiązanie używa modułu [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge.
+
 
 ## <a name="simulation"></a>Symulacja
 

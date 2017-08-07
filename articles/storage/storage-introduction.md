@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 07/26/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1cab34785d6e4f7751245ebf77b29fa8dc3c685b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 98670b60daca7091e09ce2ab03cf2eaff015070e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
@@ -110,13 +109,19 @@ W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji s
 Konto magazynu może zawierać dowolną liczbę kolejek. Kolejki mogą zawierać dowolną liczbę komunikatów aż do limitu pojemności konta magazynu. Poszczególne wiadomości mogą mieć maksymalnie 64 KB.
 
 ## <a name="file-storage"></a>File Storage
-Magazyn plików Azure oferuje udziały plików w chmurze oparte na protokole SMB, dzięki czemu można zmigrować starsze aplikacje korzystające z udziałów plików na platformę Azure szybko i bez kosztownych modyfikacji oprogramowania. W przypadku usługi Azure File Storage aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure mogą zainstalować udziały plików w chmurze tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba składników aplikacji może następnie równocześnie zainstalować udział Magazynu plików i uzyskiwać do niego dostęp.
+Usługa Azure Files umożliwia konfigurowanie wysoce dostępnych udziałów plików sieciowych, do których można uzyskiwać dostęp przy użyciu standardowego protokołu bloku komunikatów serwera (SMB, Server Message Block). Oznacza to, że wiele maszyn wirtualnych może współdzielić te same pliki z dostępem zarówno do odczytu, jak i do zapisu. Pliki można także odczytywać przy użyciu interfejsu REST lub bibliotek klienckich magazynu.
 
-Ponieważ udział usługi File Storage to standardowy udział plików SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy systemu plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure.
+Jedną z różnic między usługą Azure File Storage i plikami w firmowym udziale plików jest możliwość dostępu do plików z dowolnego miejsca na świecie przy użyciu adresu URL, który wskazuje plik i zawiera token sygnatury dostępu współdzielonego. Tokeny sygnatury dostępu współdzielonego można generować. Umożliwiają one uzyskanie określonego dostępu do prywatnego zasobu przez określony czas.
 
-Podobnie jak inne usługi magazynu platformy Azure, Magazyn plików uwidacznia interfejs API REST na potrzeby uzyskiwania dostępu do danych w udziale. Aplikacje lokalne mogą wywołać interfejs API REST usługi File Storage, aby uzyskać dostęp do danych w udziale plików. W ten sposób przedsiębiorstwo ma możliwość zmigrowania niektórych starszych aplikacji na platformę Azure i kontynuowania korzystania z pozostałych ze swojej organizacji. Należy pamiętać, że instalowanie udziału plików jest możliwe tylko dla aplikacji działających na platformie Azure. Aplikacja lokalna ma dostęp do udziału plików tylko za pomocą interfejsu API REST.
+Udziałów plików można używać w wielu typowych scenariuszach:
 
-Aplikacje rozproszone mogą także używać Magazynu plików do przechowywania i udostępniania przydatnych danych aplikacji oraz narzędzi do programowania i testowania. Na przykład aplikacja może przechowywać pliki konfiguracji i dane diagnostyczne, takie jak dzienniki, metryki i zrzuty awaryjne, w udziale Magazynu plików, dzięki czemu są one dostępne dla wielu maszyn wirtualnych lub ról. Deweloperzy i administratorzy mogą przechowywać narzędzia, które są im niezbędne do kompilacji aplikacji lub zarządzania aplikacją, w udziale Magazynu plików, który jest dostępny dla wszystkich składników, zamiast instalowania ich na każdej maszynie wirtualnej lub w każdym wystąpieniu roli.
+* Wiele aplikacji lokalnych korzysta z udziałów plików. Dzięki temu migracja tych aplikacji współdzielących dane na platformę Azure jest łatwiejsza. Jeśli zainstalujesz udział plików przy użyciu tej samej litery dysku, która jest używana przez aplikację lokalną, część aplikacji uzyskująca dostęp do udziału plików powinna działać bez konieczności wprowadzania zmian lub jedynie z minimalnymi zmianami.
+
+* Pliki konfiguracji można przechowywać w udziale plików i uzyskiwać do nich dostęp z wielu maszyn wirtualnych. W udziale plików można przechowywać narzędzia i programy narzędziowe używane przez wielu deweloperów w grupie, dzięki czemu wszyscy będą mogli je znaleźć oraz będą używać tych samych wersji.
+
+* Dzienniki diagnostyczne, metryki i zrzuty awaryjne to tylko trzy przykłady danych, które można zapisywać w udziale plików i przetwarzać lub analizować później.
+
+Obecnie uwierzytelnianie oparte na usłudze Active Directory i listy kontroli dostępu (ACL, access control list) nie są obsługiwane, ale ich obsługa zostanie dodana w przyszłości. W celu uwierzytelniania dostępu do udziału plików są używane poświadczenia konta magazynu. Oznacza to, że każda osoba z zainstalowanym udziałem będzie miała do niego pełny dostęp do odczytu i zapisu.
 
 ## <a name="access-to-blob-table-queue-and-file-resources"></a>Dostęp do zasobów obiektów blob, tabel, kolejek i plików
 Domyślnie tylko właściciel konta magazynu ma dostęp do zasobów w ramach konta magazynu. Dla bezpieczeństwa danych każde żądanie dotyczące zasobów w ramach Twojego konta musi zostać uwierzytelnione. Uwierzytelnianie jest oparte na modelu klucza wspólnego. Obiekty blob można skonfigurować w taki sposób, aby zapewnić obsługę uwierzytelniania anonimowego.

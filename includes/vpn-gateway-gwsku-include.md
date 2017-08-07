@@ -14,7 +14,7 @@ Z powodu różnic w umowach SLA i zestawach funkcji zaleca się następujące je
 | **Środowisko tworzenia i testowania lub weryfikacja koncepcji**   | Podstawowa                  |
 |                                    |                        |
 
-Jeśli używasz starych jednostek SKU, w trybie produkcyjnym zalecane są jednostki SKU Standard i HighPerformance. Aby uzyskać informacje o starych jednostkach SKU, zobacz artykuł [Gateway SKUs (old)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) (Jednostki SKU bramy (stare)).
+Jeśli używasz starych jednostek SKU, w trybie produkcyjnym zalecane są jednostki SKU Standard i HighPerformance. Aby uzyskać informacje o starych jednostkach SKU, zobacz [Gateway SKUs (legacy SKUs) (Jednostki SKU bramy [starsze jednostki SKU])](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Zestawy funkcji jednostek SKU bramy
 
