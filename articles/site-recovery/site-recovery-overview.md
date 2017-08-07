@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a442d398cf5c54b00dc92ebcbe62597fb3ece30c
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="what-is-site-recovery"></a>Co to jest usługa Site Recovery?
 
 Usługa Azure Site Recovery — Zapraszamy! Ten artykuł zawiera krótkie omówienie usługi.
 
-## <a name="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services"></a>Ciągłość działalności biznesowej i odzyskiwanie po awarii (BCDR, Business continuity and disaster recovery) w usługach Azure Recovery Services
+## <a name="business-continuity-and-disaster-recovery-bcdr-with-azure-recovery-services"></a>Ciągłość działalności biznesowej i odzyskiwanie po awarii (BCDR, Business continuity and disaster recovery) w usługach Azure Recovery Services
 
 Dla organizacji niezbędne jest ustalenie, w jaki sposób zamierza ona zapewnić bezpieczeństwo danych i ciągłość działania aplikacji/obciążeń podczas planowanych i nieplanowanych przestojów.
 

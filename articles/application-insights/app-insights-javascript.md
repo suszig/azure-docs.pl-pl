@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1ae47899443d5552178078a417b7d1ebe91966d2
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/13/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
@@ -197,7 +196,7 @@ Wybierz dowolne zdarzenie, aby wyświetlić więcej szczegółów. Na stronie sz
 > 
 > 
 
-Można także użyć zaawansowanego [języka zapytań analizy](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) do przeszukiwania wyświetleń stron.
+Można także użyć zaawansowanego [języka zapytań usługi Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) do przeszukiwania wyświetleń stron.
 
 ### <a name="page-view-properties"></a>Właściwości wyświetlania stron
 * **Czas trwania wyświetlania stron** 

@@ -1,6 +1,7 @@
 ---
-title: "Kopiowanie przykładowych eksperymentów uczenia maszynowego | Microsoft Docs"
+title: "Kopiowanie przykładowych eksperymentów uczenia maszynowego — Azure | Microsoft Docs"
 description: "Dowiedz się, jak wykorzystać przykładowe eksperymenty uczenia maszynowego do tworzenia nowych eksperymentów za pomocą witryny Cortana Intelligence Gallery i usługi Microsoft Azure Machine Learning."
+keywords: machine learning examples, sample experiment, machine learning sample
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -12,15 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/28/2017
 ms.author: cgronlun;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a6c8ca83e3a4020cb1ea0f1c14299f1aee3bdca5
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="copy-sample-experiments-to-create-new-machine-learning-experiments"></a>Kopiowanie przykładowych eksperymentów w celu tworzenia nowych eksperymentów uczenia maszynowego
+# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Kopiowanie przykładowych eksperymentów w celu tworzenia nowych eksperymentów uczenia maszynowego
 Naucz się, jak zacząć od przykładowych eksperymentów z witryny [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/), zamiast tworzyć eksperymenty uczenia maszynowego od zera. Używając przykładów, możesz zbudować własne rozwiązanie uczenia maszynowego.
 
 W galerii znajdują się przykładowe eksperymenty zespołu Microsoft Azure Machine Learning, a także przykłady udostępnione przez społeczność usługi Machine Learning. Można również zadawać pytania i publikować komentarze dotyczące eksperymentów.
@@ -39,9 +41,9 @@ Na tej stronie możesz zobaczyć eksperymenty z kategorii **Recently added** (Os
 Aby przeglądać wszystkie eksperymenty:
 
 1. Kliknij pozycję **Browse all** (Przeglądaj wszystkie) w górnej części strony.
-2. W obszarze **Refine by** (Uściślij według) w sekcji **Categories** (Kategorie) wybierz pozycję **Experiment** (Eksperyment), aby zobaczyć wszystkie eksperymenty w galerii.
+2. Po lewej stronie w obszarze **Refine by** (Uściślij według) w sekcji **Categories** (Kategorie) wybierz pozycję **Experiment** (Eksperyment), aby zobaczyć wszystkie eksperymenty w galerii.
 3. Eksperymenty spełniające wymagania możesz znaleźć na kilka różnych sposobów:
-   * **Zaznacz filtry po lewej stronie.** Na przykład aby przeglądać eksperymenty, w których jest używany algorytm wykrywania anomalii oparty na analizie PCA, wybierz pozycję **Experiment** (Eksperyment) w obszarze **Categories** (Kategorie), a następnie pozycję **PCA-Based Anomaly Detection** (Wykrywanie anomalii oparte na analizie PCA) w obszarze **Algorithms Used** (Używane algorytmy). (Jeśli nie widzisz tego algorytmu, kliknij pozycję **Show all** (Pokaż wszystkie) u dołu listy).<br></br>
+   * **Zaznacz filtry po lewej stronie.** Na przykład aby przeglądać eksperymenty, w których jest używany algorytm wykrywania anomalii oparty na analizie PCA: przy wybranej pozycji **Experiment** (Eksperyment) w obszarze **Categories** (Kategorie) kliknij przycisk **Show all** (Pokaż wszystko). Następnie w obszarze **Algorithms Used** (Używane algorytmy) wybierz opcję **PCA-Based Anomaly Detection** (Wykrywanie anomalii oparte na PCA). <br></br>
      ![Wybierz filtry](./media/machine-learning-sample-experiments/refine-the-view.png)
    * **Użyj pola wyszukiwania.** Na przykład aby znaleźć eksperymenty zamieszczone przez firmę Microsoft, które są związane z rozpoznawaniem cyfr z użyciem algorytmu SVM dla problemu dwuklasowego, w polu wyszukiwania wprowadź ciąg „digit recognition” (rozpoznawanie cyfr). Następnie zaznacz filtry **Experiment** (Eksperyment), **Microsoft content only** (Tylko zawartość firmy Microsoft) i **Two-Class Support Vector Machine** (SVM dla problemu dwuklasowego):<br></br>
      ![Użyj pola wyszukiwania](./media/machine-learning-sample-experiments/search-for-experiments.png)
@@ -55,21 +57,16 @@ Aby przeglądać wszystkie eksperymenty:
     >
     >
 
-## <a name="use-a-template-in-machine-learning-studio"></a>Korzystanie z szablonu w usłudze Machine Learning Studio
+## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Tworzenie nowego eksperymentu przy użyciu przykładu jako szablonu
 Nowy eksperyment można również utworzyć w usłudze Machine Learning Studio, używając przykładu z galerii jako szablonu.
 
 1. Zaloguj się przy użyciu poświadczeń konta Microsoft do usługi [Studio](https://studio.azureml.net), a następnie kliknij pozycję **New** (Nowy), aby utworzyć eksperyment.
 2. Przejrzyj przykłady i kliknij jeden z nich.
 
-W obszarze roboczym zostanie utworzony nowy eksperyment z użyciem eksperymentu przykładowego jako szablonu.
+W obszarze roboczym programu Machine Learning Studio zostanie utworzony nowy eksperyment z użyciem eksperymentu przykładowego jako szablonu.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Importowanie danych z różnych źródeł](machine-learning-data-science-import-data.md)
 * [Samouczek szybkiego startu dotyczący języka R w usłudze Machine Learning](machine-learning-r-quickstart.md)
 * [Wdrażanie usługi sieci Web Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

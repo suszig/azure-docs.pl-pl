@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
@@ -177,10 +177,14 @@ Zobacz sekcję [Account (Konto)](#account), aby uzyskać informacje na temat ust
 
 Aby używać obrazów niestandardowych w celu aprowizowania pul usługi Virtual Machines, utwórz konto usługi Batch przy użyciu trybu alokacji puli Subskrypcja użytkownika. W tym trybie pule usługi Batch są przydzielane do subskrypcji, w której znajduje się konto. Zobacz sekcję [Account (Konto)](#account), aby uzyskać informacje na temat ustawiania trybu alokacji puli podczas tworzenia konta usługi Batch.
 
-Aby użyć obrazu niestandardowego, musisz go przygotować, korzystając z funkcji uogólniania. Aby uzyskać informacje na temat przygotowywania niestandardowych obrazów systemu Linux na podstawie maszyn wirtualnych Azure Virtual Machines, zobacz [Capture an Azure Linux VM to use as a template (Przechwytywanie maszyny wirtualnej platformy Azure z systemem Linux do użycia jako szablonu)](../virtual-machines/linux/capture-image-nodejs.md). Aby uzyskać informacje na temat przygotowywania niestandardowych obrazów systemu Windows na podstawie maszyn wirtualnych Azure Virtual Machines, zobacz [Create custom VM images with Azure PowerShell (Tworzenie niestandardowych obrazów maszyn wirtualnych przy użyciu programu Azure PowerShell)](../virtual-machines/windows/tutorial-custom-images.md). Podczas przygotowywania obrazu pamiętaj o następujących zagadnieniach:
+Aby użyć obrazu niestandardowego, musisz go przygotować, korzystając z funkcji uogólniania. Aby uzyskać informacje na temat przygotowywania niestandardowych obrazów systemu Linux na podstawie maszyn wirtualnych Azure Virtual Machines, zobacz [Capture an Azure Linux VM to use as a template (Przechwytywanie maszyny wirtualnej platformy Azure z systemem Linux do użycia jako szablonu)](../virtual-machines/linux/capture-image-nodejs.md). Aby uzyskać informacje na temat przygotowywania niestandardowych obrazów systemu Windows na podstawie maszyn wirtualnych Azure Virtual Machines, zobacz [Create custom VM images with Azure PowerShell (Tworzenie niestandardowych obrazów maszyn wirtualnych przy użyciu programu Azure PowerShell)](../virtual-machines/windows/tutorial-custom-images.md). 
 
-- Upewnij się, że podstawowy obraz systemu operacyjnego używany do aprowizowania pul usługi Batch nie ma wstępnie zainstalowanych rozszerzeń platformy Azure, takich jak rozszerzenie skryptu niestandardowego. Jeśli obraz zawiera wstępnie zainstalowane rozszerzenie, platforma Azure może napotkać problemy podczas wdrażania maszyny wirtualnej.
-- Upewnij się, że wybrany podstawowy obraz systemu operacyjnego korzysta z domyślnego dysku tymczasowego, ponieważ agent węzłów usługi Batch oczekuje domyślnego dysku tymczasowego.
+> [!IMPORTANT]
+> Podczas przygotowywania obrazu niestandardowego pamiętaj o następujących zagadnieniach:
+> - Upewnij się, że podstawowy obraz systemu operacyjnego używany do aprowizowania pul usługi Batch nie ma wstępnie zainstalowanych rozszerzeń platformy Azure, takich jak rozszerzenie skryptu niestandardowego. Jeśli obraz zawiera wstępnie zainstalowane rozszerzenie, platforma Azure może napotkać problemy podczas wdrażania maszyny wirtualnej.
+> - Upewnij się, że wybrany podstawowy obraz systemu operacyjnego korzysta z domyślnego dysku tymczasowego, ponieważ agent węzłów usługi Batch oczekuje domyślnego dysku tymczasowego.
+>
+>
 
 Aby utworzyć pulę konfiguracji usługi Virtual Machines przy użyciu niestandardowego obrazu, będziesz potrzebować co najmniej jednego standardowego konta usługi Azure Storage do przechowywania niestandardowych obrazów wirtualnego dysku twardego. Obrazy niestandardowe są przechowywane jako obiekty blob. Aby odwoływać się do obrazów niestandardowych podczas tworzenia puli, określ identyfikatory URI obiektów blob dysku VHD obrazu niestandardowego dla właściwości [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) właściwości [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Dodawanie komunikatów do kolejki usługi Azure Storage przy użyciu funkcji
@@ -35,8 +35,6 @@ W usłudze Azure Functions powiązania danych wejściowych i wyjściowych zapewn
 
 * Zainstaluj program [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
-
 ## <a name="add-binding"></a>Dodawanie powiązania danych wyjściowych
  
 1. Rozwiń aplikację funkcji i funkcję.
@@ -45,7 +43,7 @@ W usłudze Azure Functions powiązania danych wejściowych i wyjściowych zapewn
     
     ![Dodaj powiązanie danych wyjściowych kolejki magazynu do funkcji w witrynie Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Użyj ustawień określonych w tabeli i wybierz przycisk **Zapisz**: 
+3. Użyj ustawień określonych w tabeli: 
 
     ![Dodaj powiązanie danych wyjściowych kolejki magazynu do funkcji w witrynie Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -55,6 +53,8 @@ W usłudze Azure Functions powiązania danych wejściowych i wyjściowych zapewn
     | **Połączenie konta magazynu** | AzureWebJobStorage | Możesz skorzystać z połączenia konta magazynu już używanego przez aplikację funkcji lub utworzyć nowe.  |
     | **Nazwa parametru komunikatu** | outQueueItem | Nazwa parametru powiązania danych wyjściowych. | 
 
+4. Kliknij pozycję **Zapisz**, aby dodać powiązanie.
+ 
 Po zdefiniowaniu powiązania danych wyjściowych musisz zaktualizować kod, tak aby stosować powiązanie do dodawania komunikatów do kolejki.  
 
 ## <a name="update-the-function-code"></a>Aktualizacja kodu funkcji

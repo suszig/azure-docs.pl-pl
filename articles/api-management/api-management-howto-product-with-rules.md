@@ -3,7 +3,7 @@ title: "Ochrona interfejsu API za pomocą usługi Azure API Management | Microso
 description: "Dowiedz się, jak chronić interfejs API za pomocą zasad przydziałów i dławienia (ograniczania liczby wywołań)."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Ochrona interfejsu API za pomocą ograniczania liczby wywołań przy użyciu usługi Azure API Management
@@ -53,7 +54,7 @@ Kliknij przycisk **Dodaj produkt**, aby wyświetlić okno dialogowe **Dodawanie 
 
 W polu **Tytuł** wpisz **Bezpłatna wersja próbna**.
 
-W polu **Opis** wpisz następujący tekst:  **Subskrybenci będą mogli uruchamiać 10 wywołań na minutę, ale nie więcej niż 200 wywołań na tydzień, po czym nastąpi odmowa dostępu.**
+W polu **Opis** wpisz następujący tekst: **Subskrybenci będą mogli uruchamiać 10 wywołań na minutę, ale nie więcej niż 200 wywołań na tydzień, po czym nastąpi odmowa dostępu.**
 
 Produkty w usłudze API Management mogą być chronione lub otwarte. Produkty chronione muszą być subskrybowane przed użyciem. Produkty otwarte mogą być używane bez subskrypcji. Upewnij się, że opcja **Wymagaj subskrypcji** jest zaznaczona, aby utworzyć produkt chroniony, który wymaga subskrypcji. Jest to ustawienie domyślne.
 
@@ -95,7 +96,9 @@ Wybierz interfejs **Echo API**, a następnie kliknij przycisk **Zapisz**.
 ![Dodawanie interfejsu Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Aby skonfigurować zasady ograniczania liczby wywołań oraz przydziałów
-Ograniczenia liczby wywołań i przydziały są konfigurowane w edytorze zasad. Kliknij opcję **Zasady** w menu **API Management** po lewej stronie. Na liście **Produkty** kliknij produkt **Bezpłatna wersja próbna**.
+Ograniczenia liczby wywołań i przydziały są konfigurowane w edytorze zasad. Dwiema zasadami, które dodamy w tym samouczku, są zasady [Ograniczanie liczby wywołań na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [Ustawianie przydziału użycia na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Te zasady muszą być stosowane w zakresie produktu.
+
+Kliknij opcję **Zasady** w menu **API Management** po lewej stronie. Na liście **Produkty** kliknij produkt **Bezpłatna wersja próbna**.
 
 ![Zasady produktu][api-management-product-policy]
 
@@ -103,11 +106,11 @@ Kliknij przycisk **Dodaj zasadę**, aby zaimportować szablon zasad i rozpoczą�
 
 ![Dodawanie zasad][api-management-add-policy]
 
-Aby wstawić zasady, umieść kursor w sekcji **inbound** (ruch przychodzący) lub **outbound** (ruch wychodzący) szablonu zasad. Zasady ograniczania liczby wywołań i przydziałów są zasadami ruchu przychodzącego, więc umieść kursor w elemencie inbound.
+Zasady ograniczania liczby wywołań i przydziałów są zasadami ruchu przychodzącego, więc umieść kursor w elemencie inbound.
 
 ![Edytor zasad][api-management-policy-editor-inbound]
 
-Dwiema zasadami, które dodamy w tym samouczku, są zasady [Ograniczanie liczby wywołań na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [Ustawianie przydziału użycia na subskrypcję](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
+Przewiń listę zasad i znajdź wpis zasad **Ograniczanie liczby wywołań na subskrypcję**.
 
 ![Instrukcje zasad][api-management-limit-policies]
 
@@ -121,7 +124,7 @@ Po umieszczeniu kursora w elemencie zasady **inbound**, kliknij strzałkę obok 
 </rate-limit>
 ```
 
-Zasada **Ograniczanie liczby wywołań na subskrypcję** może być używana na poziomie produktu, a także na poziomach interfejsu API i nazw poszczególnych operacji. W tym samouczku używane są zasady tylko na poziomie produktu, więc usuń elementy **api** i **operation** elementu **rate-limit**, aby pozostał tylko zewnętrzny element **rate-limit**, jak pokazano w poniższym przykładzie.
+Jak widać we fragmencie kodu, zasady umożliwiają ustawienie limitów dla interfejsów API i operacji produktu. W tym samouczku nie będziemy korzystać z tej możliwości, więc usuń elementy **api** i **operation** elementu **rate-limit**, aby pozostał tylko zewnętrzny element **rate-limit**, jak pokazano w poniższym przykładzie.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -135,7 +138,7 @@ W produkcie Bezpłatna wersja próbna maksymalna liczba wywołań to 10 na minut
 </rate-limit>
 ```
 
-Aby skonfigurować zasadę **Ustawianie przydziału użycia na subskrypcję**, umieść kursor bezpośrednio pod nowo dodanym elementem **rate-limit** w elemencie **inbound**, a następnie kliknij strzałkę po lewej stronie zasady **Ustawianie przydziału użycia na subskrypcję**.
+Aby skonfigurować zasady **Ustawianie przydziału użycia na subskrypcję**, umieść kursor bezpośrednio pod nowo dodanym elementem **rate-limit** w elemencie **inbound**, a następnie zlokalizuj i kliknij strzałkę po lewej stronie zasad **Ustawianie przydziału użycia na subskrypcję**.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -145,7 +148,7 @@ Aby skonfigurować zasadę **Ustawianie przydziału użycia na subskrypcję**, u
 </quota>
 ```
 
-Ponieważ ta zasada również ma być stosowana na poziomie produktu, usuń elementy o nazwie **api** i **operation**, jak pokazano w poniższym przykładzie.
+Podobnie jak zasady **Ustawianie przydziału użycia na subskrypcję**, zasady **Ustawianie przydziału użycia na subskrypcję** umożliwia ustawienie limitów dla interfejsów API i operacji w produkcie. W tym samouczku nie będziemy korzystać z tej możliwości, więc usuń elementy **api** i **operation** z elementu **quota**, jak pokazano w poniższym przykładzie.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -166,7 +169,7 @@ W produkcie Bezpłatna wersja próbna przydział wynosi 200 wywołań na tydzie�
 </quota>
 ```
 
-> Interwały zasad są określane w sekundach. Do obliczania interwału liczącego tydzień, należy pomnożyć liczbę dni (7) przez liczbę godzin w ciągu dnia (24) przez liczbę minut w godzinie (60) przez liczbę sekund w ciągu minuty (60): 7 * 24 * 60 * 60 = 604800.
+> Interwały zasad są określane w sekundach. Aby obliczyć interwał dla tygodnia, należy pomnożyć liczbę dni (7) przez liczbę godzin w ciągu dnia (24) przez liczbę minut w godzinie (60) przez liczbę sekund w ciągu minuty (60): 7 * 24 * 60 * 60 = 604800.
 > 
 > 
 
@@ -264,7 +267,7 @@ Kliknij przycisk **Wyślij** szybciej niż pozwala na to zasada ograniczenia lic
 
 ![Wyniki operacji][api-management-http-get-429]
 
- **Zawartość odpowiedzi** wskazuje pozostały czas, zanim ponowna próba zakończy się pomyślnie.
+**Zawartość odpowiedzi** wskazuje pozostały czas, zanim ponowna próba zakończy się pomyślnie.
 
 Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejne wywołania będą kończyć się niepowodzeniem, aż upłynie 60 sekund od pierwszego z 10 pomyślnych wywołań produktu przed przekroczeniem ograniczenia. W tym przykładzie pozostały interwał to 54 sekundy.
 
@@ -323,9 +326,4 @@ Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejn
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -1,0 +1,2 @@
+>[!NOTE]
+> Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań usługi Log Analytics](../articles/log-analytics/log-analytics-log-search-upgrade.md), należy skonwertować następujące zapytania. Możesz użyć [konwertera języka](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter), aby wykonać to tłumaczenie.

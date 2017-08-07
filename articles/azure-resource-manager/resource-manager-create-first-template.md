@@ -6,43 +6,38 @@ documentationcenter:
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/18/2017
+ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
-# <a name="create-your-first-azure-resource-manager-template"></a>Tworzenie pierwszego szablonu usługi Azure Resource Manager
+# <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Tworzenie i wdrażanie pierwszego szablonu usługi Azure Resource Manager
 W tym temacie szczegółowo omówiono kroki tworzenia pierwszego szablonu usługi Azure Resource Manager. Szablony usługi Resource Manager są plikami JSON definiującymi zasoby, które należy wdrożyć dla danego rozwiązania. Aby zrozumieć pojęcia związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Usługa Azure Resource Manager — omówienie](resource-group-overview.md). Jeśli masz istniejące zasoby i chcesz uzyskać szablon dla tych zasobów, zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
 
-Aby utworzyć i sprawdzić szablony, potrzebujesz edytora plików JSON. [Visual Studio Code](https://code.visualstudio.com/) to lekki edytor kodu typu open-source dla wielu platform. Obsługuje tworzenie i edytowanie szablonów usługi Resource Manager za pomocą rozszerzenia. W tym temacie założono, że używasz programu VS Code. Jeśli jednak masz inny edytor plików JSON (np. program Visual Studio), możesz użyć tego edytora.
+Aby utworzyć i sprawdzić szablony, potrzebujesz edytora plików JSON. [Visual Studio Code](https://code.visualstudio.com/) to lekki edytor kodu typu open-source dla wielu platform. Zdecydowanie zalecamy używanie programu Visual Studio Code do tworzenia szablonów usługi Resource Manager. W tym temacie założono, że używasz programu VS Code. Jeśli jednak masz inny edytor plików JSON (np. program Visual Studio), możesz użyć tego edytora.
 
-## <a name="get-vs-code-and-extension"></a>Pobieranie narzędzia VS Code i rozszerzenia
-1. W razie potrzeby zainstaluj narzędzie VS Code ze strony [https://code.visualstudio.com/](https://code.visualstudio.com/).
+## <a name="prerequisites"></a>Wymagania wstępne
 
-2. Zainstaluj rozszerzenie [Narzędzia usługi Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools), przechodząc do funkcji szybkiego otwierania (CTRL+P) i uruchamiając: 
+* Program Visual Studio Code. W razie potrzeby zainstaluj go ze strony [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-   ```
-   ext install msazurermtools.azurerm-vscode-tools
-   ```
+## <a name="create-template"></a>Tworzenie szablonu
 
-3. Uruchom ponownie program VS Code po wyświetleniu monitu, aby włączyć rozszerzenie.
+Zacznijmy od prostego szablonu, który wdraża konto magazynu w Twojej subskrypcji.
 
-## <a name="create-blank-template"></a>Tworzenie pustego szablonu
+1. Wybierz pozycję **Plik** > **Nowy plik**. 
 
-Zacznijmy od pustego szablonu, który obejmuje tylko podstawowe sekcje.
-
-1. Utwórz plik. 
+   ![Nowy plik](./media/resource-manager-create-first-template/new-file.png)
 
 2. Skopiuj i wklej następującą składnię JSON do pliku:
 
@@ -50,248 +45,176 @@ Zacznijmy od pustego szablonu, który obejmuje tylko podstawowe sekcje.
    {
      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
      "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
-     "resources": [  ],
-     "outputs": {  }
-   }
-   ```
-
-3. Zapisz plik jako **azuredeploy.json**. 
-
-## <a name="add-storage-account"></a>Dodaj konto magazynu
-1. Aby zdefiniować konto magazynu do wdrożenia, należy dodać konto magazynu do sekcji **resources** szablonu. Aby znaleźć wartości dostępne dla konta magazynu, zobacz [odwołanie do szablonu kont magazynu](/azure/templates/microsoft.storage/storageaccounts). Skopiuj kod JSON wyświetlany dla konta magazynu. 
-
-3. Wklej kod JSON do sekcji **resources** szablonu, jak pokazano w poniższym przykładzie: 
-
-   ```json
-   {
-     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
+     "parameters": {
+     },
+     "variables": {
+     },
      "resources": [
        {
-         "name": "string",
+         "name": "[concat('storage', uniqueString(resourceGroup().id))]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-12-01",
+         "apiVersion": "2016-01-01",
          "sku": {
-           "name": "string"
+           "name": "Standard_LRS"
          },
-         "kind": "string",
-         "location": "string",
+         "kind": "Storage",
+         "location": "South Central US",
          "tags": {},
-         "properties": {
-           "customDomain": {
-             "name": "string",
-             "useSubDomain": boolean
-           },
-           "encryption": {
-             "services": {
-               "blob": {
-                 "enabled": boolean
-               }
-             },
-             "keySource": "Microsoft.Storage"
-           },
-           "accessTier": "string"
-         }
+         "properties": {}
        }
      ],
      "outputs": {  }
    }
    ```
 
-  Program VS Code może wskazywać, że 2016-12-01 nie jest prawidłową wersją interfejsu API. Jeśli używasz numeru wersji z dokumentacji szablonu, możesz zignorować to ostrzeżenie. To ostrzeżenie jest wyświetlane, gdy schemat nie został zaktualizowany o numer najnowszej wersji od dostawcy zasobów. 
-  
-  Poprzedni przykład zawiera wiele wartości symboli zastępczych i kilka właściwości, których możesz nie potrzebować na swoim koncie magazynu.
+   Nazwy kont magazynu podlegają kilku ograniczeniom, które utrudniają ich skonfigurowanie. Nazwa musi mieć od 3 do 24 znaków długości, zawierać wyłącznie cyfry i małe litery oraz musi być unikatowa. Powyższy szablon używa funkcji [uniqueString](resource-group-template-functions-string.md#uniquestring) do generowania wartości skrótu. Aby nadać więcej znaczenia tej wartości skrótu, dodawany jest prefiks *storage*. 
 
-## <a name="set-values-for-storage-account"></a>Ustawianie wartości dla konta magazynu
+3. Zapisz ten plik pod nazwą **azuredeploy.json** w folderze lokalnym.
 
-Teraz możesz ustawić wartości konta magazynu. 
+   ![Zapisywanie szablonu](./media/resource-manager-create-first-template/save-template.png)
 
-1. Przyjrzyj się ponownie [odwołaniu do szablonu kont magazynu](/azure/templates/microsoft.storage/storageaccounts), do którego skopiowano kod JSON. Istnieje kilka tabel, które opisują właściwości i zapewniają dostępne wartości. 
+## <a name="deploy-template"></a>Wdrażanie szablonu
 
-2. Zauważ, że w elemencie **properties** elementy **customDomain**, **encryption** i **accessTier** są oznaczone jako niewymagane. Wartości te mogą być ważne w danych scenariuszach, ale w celu uproszczenia tego przewodnika usuńmy je.
+Wszystko jest teraz gotowe do wdrożenia tego szablonu. Użyjesz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby utworzyć grupę zasobów. Następnie wdrożysz konto magazynu w tej grupie zasobów.
 
-   ```json
-   "resources": [
-     {
-       "name": "string",
-       "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-12-01",
-       "sku": {
-         "name": "string"
-       },
-       "kind": "string",
-       "location": "string",
-       "tags": {},
-       "properties": {
-       }
-     }
-   ],
+* W przypadku programu PowerShell użyj następujących poleceń z poziomu folderu zawierającego szablon:
+
+   ```powershell
+   Login-AzureRmAccount
+   
+   New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+   New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
-3. Obecnie element **kind** jest ustawiony na wartość symbolu zastępczego („string”). Program VS Code zawiera wiele funkcji, które ułatwiają zrozumienie wartości do wykorzystania w szablonie. Zauważ, że program VS Code wskazuje, że ta wartość jest nieprawidłowa. Jeśli zatrzymasz wskaźnik myszy nad elementem „string”, program VS Code zasugeruje, że prawidłowe wartości dla elementu **kind** to `Storage` lub `BlobStorage`. 
+* W przypadku lokalnej instalacji interfejsu wiersza polecenia platformy Azure użyj następujących poleceń z poziomu folderu zawierającego szablon:
 
-   ![wyświetlanie sugerowanych wartości programu VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ```azurecli
+   az login
 
-   Aby zobaczyć dostępne wartości, usuń znaki między podwójnymi cudzysłowami i naciśnij klawisze **Ctrl+spacja**. Wybierz pozycję **Magazyn** z listy dostępnych opcji.
-  
-   ![wyświetlanie funkcji intellisense](./media/resource-manager-create-first-template/intellisense.png)
-
-   Jeśli nie używasz programu VS Code, zobacz stronę odwołania do szablonu kont magazynu. Zauważ, że opis zawiera listę tych samych prawidłowych wartości. Ustaw element na opcję **Magazyn**.
-
-   ```json
-   "kind": "Storage",
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
 
-Twój szablon wygląda teraz następująco:
+Po zakończeniu wdrażania Twoje konto magazynu będzie istnieć w grupie zasobów.
+
+## <a name="deploy-template-from-cloud-shell"></a>Wdrażanie szablonu za pomocą usługi Cloud Shell
+
+Do uruchamiania poleceń interfejsu wiersza polecenia platformy Azure w celu wdrożenia szablonu możesz użyć usługi [Cloud Shell](../cloud-shell/overview.md). Jednak musisz najpierw załadować swój szablon do udziału plików dla usługi Cloud Shell. Jeśli nie używasz usługi Cloud Shell, zobacz [Overview of Azure Cloud Shell (Omówienie usługi Azure Cloud Shell)](../cloud-shell/overview.md), aby uzyskać informacje o jej konfigurowaniu.
+
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).   
+
+2. Wybierz swoją grupę zasobów usługi Cloud Shell. Wzorzec nazwy to `cloud-shell-storage-<region>`.
+
+   ![Wybieranie grupy zasobów](./media/resource-manager-create-first-template/select-cs-resource-group.png)
+
+3. Wybierz konto magazynu dla usługi Cloud Shell.
+
+   ![Wybieranie konta magazynu](./media/resource-manager-create-first-template/select-storage.png)
+
+4. Wybierz pozycję **Pliki**.
+
+   ![Wybieranie pozycji Pliki](./media/resource-manager-create-first-template/select-files.png)
+
+5. Wybierz udział plików dla usługi Cloud Shell. Wzorzec nazwy to `cs-<user>-<domain>-com-<uniqueGuid>`.
+
+   ![Wybieranie udziału plików](./media/resource-manager-create-first-template/select-file-share.png)
+
+6. Wybierz pozycję **Dodaj katalog**.
+
+   ![Dodawanie katalogu](./media/resource-manager-create-first-template/select-add-directory.png)
+
+7. Nadaj mu nazwę **templates** i wybierz przycisk **OK**.
+
+   ![Nadawanie nazwy katalogowi](./media/resource-manager-create-first-template/name-templates.png)
+
+8. Wybierz swój nowy katalog.
+
+   ![Wybieranie katalogu](./media/resource-manager-create-first-template/select-templates.png)
+
+9. Wybierz pozycję **Przekaż**.
+
+   ![Wybieranie pozycji Przekaż](./media/resource-manager-create-first-template/select-upload.png)
+
+10. Znajdź i przekaż swój szablon.
+
+   ![Przekazywanie pliku](./media/resource-manager-create-first-template/upload-files.png)
+
+11. Otwórz wiersz polecenia.
+
+   ![Otwieranie usługi Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
+
+12. Wprowadź następujące polecenia w usłudze Cloud Shell:
+
+   ```azurecli
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+   ```
+
+Po zakończeniu wdrażania Twoje konto magazynu będzie istnieć w grupie zasobów.
+
+## <a name="customize-the-template"></a>Dostosowywanie szablonu
+
+Szablon działa prawidłowo, ale nie jest elastyczny. Zawsze wdraża magazyn lokalnie nadmiarowy w regionie Południowo-środkowe stany USA. Nazwą jest zawsze *storage*, po której znajduje się wartość skrótu. Aby umożliwić używanie szablonu w różnych scenariuszach, dodaj do niego parametry.
+
+W poniższym przykładzie przedstawiono sekcję parametrów z dwoma parametrami. Pierwszy parametr, `storageSKU`, umożliwia określenie typu nadmiarowości. Ogranicza on wartości, które można przekazać, do wartości, które są prawidłowe dla konta magazynu. Określa też wartość domyślną. Drugi parametr, `storageNamePrefix`, jest ustawiony tak, że zezwala na maksymalnie 11 znaków. Określa on wartość domyślną.
 
 ```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
     }
-  ],
-  "outputs": {  }
-}
-```
-
-## <a name="add-template-function"></a>Dodawanie funkcji szablonu
-
-W szablonie używa się funkcji, aby uprościć jego składnię i pobierać wartości, które są dostępne wyłącznie w momencie wdrażania szablonu. Aby uzyskać pełny zestaw funkcji szablonu, zobacz [Funkcje szablonu usługi Azure Resource Manager](resource-group-template-functions.md).
-
-Aby określić wdrożenie konta magazynu do tej samej lokalizacji, w której znajduje się grupa zasobów, ustaw właściwość **location** na:
-
-```json
-"location": "[resourceGroup().location]",
-```
-
-Ponownie program VS Code zapewni pomoc w postaci sugerowanych dostępnych funkcji. 
-
-![wyświetlanie funkcji](./media/resource-manager-create-first-template/show-functions.png)
-
-Zauważ, że funkcja jest ujęta w nawiasy kwadratowe. Funkcja [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) zwraca obiekt z właściwością o nazwie `location`. Grupa zasobów zawiera wszystkie zasoby dotyczące danego rozwiązania. Możesz zakodować właściwość lokalizacji na wartość taką jak „Środkowe stany USA”, ale będzie konieczna ręczna zmiana szablonu w celu jego ponownego wdrożenia w innej lokalizacji. Użycie funkcji `resourceGroup` ułatwia ponowne wdrażanie tego szablonu w innej grupie zasobów w innej lokalizacji.
-
-Twój szablon wygląda teraz następująco:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
+  },
+  "storageNamePrefix": {
+    "type": "string",
+    "maxLength": 11,
+    "defaultValue": "storage",
+    "metadata": {
+      "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
     }
-  ],
-  "outputs": {  }
-}
+  }
+},
 ```
 
-## <a name="add-parameters-and-variables"></a>Dodawanie parametrów i zmiennych
-Pozostały już tylko dwie wartości do ustawienia w tym szablonie — **name** i **sku.name**. W przypadku tych właściwości należy dodać parametry, które umożliwiają konfigurowanie tych wartości podczas wdrożenia. 
+W sekcji zmiennych dodaj zmienną o nazwie `storageName`. Łączy ona wartość prefiksu z parametrów i wartość skrótu z funkcji [uniqueString](resource-group-template-functions-string.md#uniquestring). Używa ona funkcji [toLower](resource-group-template-functions-string.md#tolower) w celu konwersji wszystkich liter na małe.
 
-Nazwy kont magazynu podlegają kilku ograniczeniom, które utrudniają ich skonfigurowanie. Nazwa musi mieć od 3 do 24 znaków długości, zawierać wyłącznie cyfry i małe litery oraz musi być unikatowa. Zamiast próbowania odgadnięcia unikatowej wartości spełniającej te ograniczenia, możesz użyć funkcji [uniqueString](resource-group-template-functions-string.md#uniquestring), aby wygenerować wartość skrótu. Aby wartość skrótu była znacząca, dodaj prefiks, dzięki któremu zidentyfikujesz ją jako konto magazynu po wdrożeniu. 
+```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
+```
 
-1. Aby przekazać nazwie prefiks spełniający stosowane konwencje nazewnictwa, przejdź do sekcji **parameters** szablonu. Dodaj parametr do szablonu, który akceptuje prefiks dla nazwy konta magazynu:
+Aby użyć tych nowych wartości konta magazynu, zmień definicję zasobu:
 
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     }
-   },
-   ```
+```json
+"resources": [
+  {
+    "name": "[variables('storageName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    "kind": "Storage",
+    "location": "[resourceGroup().location]",
+    "tags": {},
+    "properties": {}
+  }
+],
+```
 
-  Długość prefiksu jest ograniczona do 11 znaków, ponieważ funkcja `uniqueString` zwraca 13 znaków, a nazwa nie może przekraczać 24 znaków. Jeśli nie przekażesz wartości parametru podczas wdrożenia, zostanie użyta wartość domyślna.
+Zauważ, że nazwa konta magazynu jest teraz ustawiona na dodaną przez Ciebie zmienną. Nazwa jednostki SKU ma ustawioną wartość parametru. Lokalizacja jest ustawiona na tę samą lokalizację co grupa zasobów.
 
-2. Przejdź do sekcji **variables** szablonu. Aby skonstruować nazwę z prefiksu i unikatowego ciągu, dodaj następującą zmienną:
-
-   ```json
-   "variables": {
-     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-   },
-   ```
-
-3. W sekcji **resources** ustaw nazwę konta magazynu na tę zmienną.
-
-   ```json
-   "name": "[variables('storageName')]",
-   ```
-
-3. Aby włączyć przekazywanie w innych jednostkach SKU dla konta magazynu, przejdź do sekcji **parameters**. Po parametrze dla prefiksu nazwy magazynu dodaj parametr, który określa dozwolone wartości SKU i wartość domyślną. Możesz znaleźć dozwolone wartości na stronie z odwołaniem do szablonu lub w programie VS Code. W poniższym przykładzie uwzględnia się wszystkie prawidłowe wartości dla jednostki SKU. Niemniej możesz ograniczyć dozwolone wartości tylko do tych typów jednostek SKU, które chcesz wdrażać przy użyciu tego szablonu.
-
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     },
-     "storageSKU": {
-       "type": "string",
-       "allowedValues": [
-         "Standard_LRS",
-         "Standard_ZRS",
-         "Standard_GRS",
-         "Standard_RAGRS",
-         "Premium_LRS"
-       ],
-       "defaultValue": "Standard_LRS",
-       "metadata": {
-         "description": "The type of replication to use for the storage account."
-       }
-     }
-   },
-   ```
-
-3. Zmień właściwość SKU, aby używać wartości z innego parametru:
-
-   ```json
-   "sku": {
-     "name": "[parameters('storageSKU')]"
-   },
-   ```    
-
-4. Zapisz plik.
-
-## <a name="final-template"></a>Ostateczny szablon
+Zapisz plik. 
 
 Po wykonaniu tych kroków z tego artykułu szablon wygląda teraz następująco:
 
@@ -300,14 +223,6 @@ Po wykonaniu tych kroków z tego artykułu szablon wygląda teraz następująco:
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
     "storageSKU": {
       "type": "string",
       "allowedValues": [
@@ -321,32 +236,77 @@ Po wykonaniu tych kroków z tego artykułu szablon wygląda teraz następująco:
       "metadata": {
         "description": "The type of replication to use for the storage account."
       }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
     }
   },
   "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
+      "apiVersion": "2016-01-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },
       "kind": "Storage",
       "location": "[resourceGroup().location]",
       "tags": {},
-      "properties": {
-      }
+      "properties": {}
     }
   ],
   "outputs": {  }
 }
 ```
 
+## <a name="redeploy-template"></a>Ponowne wdrażanie szablonu
+
+Ponownie wdróż szablon z innymi wartościami.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix newstore -storageSKU Standard_RAGRS
+```
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+W przypadku usługi Cloud Shell przekaż zmieniony szablon do udziału plików. Zastąp istniejący plik. Następnie użyj poniższego polecenia:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Gdy nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+Remove-AzureRmResourceGroup -Name examplegroup
+```
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli
+az group delete --name examplegroup
+```
+
 ## <a name="next-steps"></a>Następne kroki
-* Szablon jest gotowy. Możesz rozpocząć wdrażanie szablonu do subskrypcji. Aby wdrożyć szablon, zobacz [Wdrażanie zasobów na platformie Azure](resource-manager-quickstart-deploy.md).
 * Aby uzyskać więcej informacji o strukturze szablonu, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).
+* Aby poznać właściwości konta magazynu, zobacz [dokumentację szablonu kont magazynu](/azure/templates/microsoft.storage/storageaccounts).
 * Aby wyświetlić pełną listę szablonów dla wielu różnych rozwiązań, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/).
 

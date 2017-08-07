@@ -6,19 +6,18 @@ services: application-gateway
 author: georgewallace
 manager: timlt
 editor: tysonn
-ms.assetid: 866e9b5f-0222-4b6a-a95f-77bc3d31d17b
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 5f1713365406764998de505ff62309bab9fa2567
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Tworzenie, uruchamianie lub usuwanie bramy aplikacji przy użyciu usługi Azure Resource Manager
@@ -30,10 +29,7 @@ ms.lasthandoff: 07/25/2017
 > * [Szablon usługi Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
 
-Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi.
-Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn.
-
-Aby uzyskać pełną listę obsługiwanych funkcji, odwiedź stronę [Application Gateway — omówienie](application-gateway-introduction.md)
+Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia tryb failover oraz oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn. Aby uzyskać pełną listę obsługiwanych funkcji, odwiedź stronę [Application Gateway — omówienie](application-gateway-introduction.md).
 
 W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, uruchamianie i usuwanie bramy aplikacji.
 
@@ -51,212 +47,109 @@ W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, ur
 * **Pula serwerów zaplecza:** lista adresów IP, nazw FQDN i kart sieciowych serwerów zaplecza. Jeśli używane są adresy IP, powinny albo należeć do podsieci sieci wirtualnej, albo być publicznymi adresami IP bądź adresami VIP.
 * **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
 * **Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
-* **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).
+* **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu protokołu SSL (w przypadku konfigurowania odciążania protokołu SSL).
 * **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika.
-
-## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
-
-Różnica między klasycznym modelem wdrożenia Azure i usługą Azure Resource Manager polega na kolejności tworzenia bramy aplikacji i elementów, które należy skonfigurować.
-
-W usłudze Resource Manager wszystkie elementy składające się na bramę aplikacji są konfigurowane osobno, a następnie składane w celu utworzenia zasobu bramy aplikacji.
-
-Poniżej znajdują się kroki wymagane do utworzenia bramy aplikacji.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Tworzenie grupy zasobów dla usługi Resource Manager
 
 Upewnij się, że używasz najnowszej wersji programu Azure PowerShell. Więcej informacji znajduje się w artykule [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
 
-### <a name="step-1"></a>Krok 1
+1. Zaloguj się do platformy Azure i wprowadź swoje poświadczenia.
 
-Zaloguj się do platformy Azure.
+  ```powershell
+  Login-AzureRmAccount
+  ```
 
-```powershell
-Login-AzureRmAccount
-```
+2. Sprawdź subskrypcje dostępne na koncie.
 
-Zostanie wyświetlony monit o uwierzytelnienie przy użyciu własnych poświadczeń.
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 
-### <a name="step-2"></a>Krok 2
+3. Wybierz subskrypcję platformy Azure do użycia.
 
-Sprawdź subskrypcje dostępne na koncie.
+  ```powershell
+  Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+  ```
 
-```powershell
-Get-AzureRmSubscription
-```
+4. Utwórz grupę zasobów (ten krok można pominąć, jeśli używasz istniejącej grupy zasobów).
 
-### <a name="step-3"></a>Krok 3
-
-Wybierz subskrypcję platformy Azure do użycia.
-
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
-
-### <a name="step-4"></a>Krok 4
-
-Utwórz grupę zasobów (ten krok można pominąć, jeśli używasz istniejącej grupy zasobów).
-
-```powershell
-New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
-```
+  ```powershell
+  New-AzureRmResourceGroup -Name ContosoRG -Location "West US"
+  ```
 
 Usługa Azure Resource Manager wymaga, aby wszystkie grupy zasobów określały lokalizację. Ta lokalizacja będzie używana jako domyślna lokalizacja dla zasobów w danej grupie zasobów. Upewnij się, że we wszystkich poleceniach służących do tworzenia bramy aplikacji jest używana ta sama grupa zasobów.
 
-W powyższym przykładzie utworzyliśmy grupę zasobów o nazwie **appgw-RG** i lokalizacji **Zachodnie stany USA**.
+W powyższym przykładzie utworzyliśmy grupę zasobów o nazwie **ContosoRG** i lokalizacji **Wschodnie stany USA**.
 
 > [!NOTE]
 > Jeśli musisz skonfigurować niestandardową sondę bramy aplikacji, odwiedź: [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Tworzenie bramy aplikacji z sondami niestandardowymi przy użyciu programu PowerShell). Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat [sond niestandardowych i monitorowania kondycji](application-gateway-probe-overview.md).
 
-## <a name="create-a-virtual-network-and-a-subnet"></a>Tworzenie sieci wirtualnej i podsieci
-
-W poniższym przykładzie pokazano, jak utworzyć sieć wirtualną przy użyciu usługi Resource Manager. W tym przykładzie tworzona jest sieć wirtualna dla usługi Application Gateway. Usługa Application Gateway wymaga własnej podsieci, z tego powodu podsieć tworzona dla usługi Application Gateway jest mniejsza niż przestrzeń adresowa sieci wirtualnej. Użycie mniejszych podsieci pozwala, aby inne zasoby, w tym, ale nie tylko, serwery sieci Web, były skonfigurowane w tej samej sieci wirtualnej.
-
-### <a name="step-1"></a>Krok 1
-
-Przypisz zakres adresów 10.0.0.0/24 do zmiennej podsieci służącej do tworzenia sieci wirtualnej. W tym kroku tworzony jest obiekt konfiguracji podsieci dla usługi Application Gateway, który jest używany w kolejnym przykładzie.
-
-```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-```
-
-### <a name="step-2"></a>Krok 2
-
-Utwórz sieć wirtualną o nazwie **appgwvnet** w grupie zasobów **appgw-rg** dla regionu Zachodnie stany USA przy użyciu prefiksu 10.0.0.0/16 i podsieci 10.0.0.0/24. W tym kroku kończona jest konfiguracja sieci wirtualnej z pojedynczą podsiecią, w której będzie znajdować się usługa Application Gateway.
-
-```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-```
-
-### <a name="step-3"></a>Krok 3
-
-Przypisz zmienną podsieci dla następnych kroków; ta zmienna jest przekazywana do polecenia cmdlet `New-AzureRMApplicationGateway` w przyszłym kroku.
-
-```powershell
-$subnet=$vnet.Subnets[0]
-```
-
-## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
-
-Utwórz zasób publicznego adresu IP **publicIP01** w grupie zasobów **appgw-rg** dla regionu Zachodnie stany USA. Do odbierania żądań zrównoważenia obciążenia usługa Application Gateway może korzystać z publicznego adresu IP, wewnętrznego adresu IP lub obu z nich.  W tym przykładzie używany jest tylko publiczny adres IP. W poniższym przykładzie nie jest konfigurowana nazwa DNS na potrzeby utworzenia publicznego adresu IP.  Usługa Application Gateway nie obsługuje niestandardowych nazw DNS dla publicznych adresów IP.  Jeżeli dla publicznego punktu końcowego wymagana jest nazwa niestandardowa, należy utworzyć rekord CNAME wskazujący automatycznie wygenerowaną nazwę DNS dla publicznego adresu IP.
-
-```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
-```
-
-> [!NOTE]
-> Adres IP jest przypisywany do bramy aplikacji w chwili uruchamiania usługi.
 
 ## <a name="create-the-application-gateway-configuration-objects"></a>Tworzenie obiektów konfiguracji bramy aplikacji
 
 Wszystkie elementy konfiguracji muszą zostać skonfigurowane przed utworzeniem bramy aplikacji. Poniższe kroki umożliwiają utworzenie elementów konfiguracji wymaganych w przypadku zasobu bramy aplikacji.
 
-### <a name="step-1"></a>Krok 1
-
-Utwórz konfigurację adresu IP bramy aplikacji o nazwie **gatewayIP01**. Uruchomiona usługa Application Gateway wybierze adres IP ze skonfigurowanej podsieci i skieruje ruch sieciowy do adresów IP w puli adresów IP zaplecza. Pamiętaj, że każde wystąpienie będzie mieć jeden adres IP.
-
 ```powershell
+# Create a subnet and assign the address space of 10.0.0.0/24
+$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+
+# Create a virtual network with the address space of 10.0.0.0/16 and add the subnet
+$vnet = New-AzureRmVirtualNetwork -Name ContosoVNET -ResourceGroupName ContosoRG -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+
+# Retrieve the newly created subnet
+$subnet=$vnet.Subnets[0]
+
+# Create a public IP address that is used to connect to the application gateway. Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -name publicIP01 -location "East US" -AllocationMethod Dynamic
+
+# Create a gateway IP configuration. The gateway picks up an IP addressfrom the configured subnet and routes network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-```
 
-### <a name="step-2"></a>Krok 2
-
-Skonfiguruj pulę adresów IP zaplecza o nazwie **pool01** za pomocą adresów IP dla puli **pool1**. Te adresy IP są adresami IP zasobów hostujących aplikację sieci Web, która ma być chroniona przez bramę aplikacji. Kondycja tych wszystkich elementów członkowskich zaplecza jest weryfikowana przez sondy (podstawowe lub niestandardowe).  Następnie jest do nich kierowany ruch, gdy nadchodzą żądania do bramy aplikacji. Pule zaplecza mogą być używane przez wiele reguł w ramach bramy aplikacji, co oznacza, że jednej puli zaplecza można używać dla wielu aplikacji sieci Web znajdujących się na tym samym hoście.
-
-```powershell
+# Configure a backend pool with the addresses of your web servers. These backend pool members are all validated to be healthy by probes, whether they are basic probes or custom probes.  Traffic is then routed to them when requests come into the application gateway. Backend pools can be used by multiple rules within the application gateway, which means one backend pool could be used for multiple web applications that reside on the same host.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-```
 
-W tym przykładzie istnieją dwie pule zaplecza do kierowania ruchu sieciowego na podstawie ścieżki adresu URL. Jedna pula odbiera ruch ze ścieżki adresu URL „/video”, a druga pula odbiera ruch ze ścieżki „/image”. Zastąp powyższe adresy IP, aby dodać własne punkty końcowe adresów IP aplikacji.
-
-### <a name="step-3"></a>Krok 3
-
-Skonfiguruj ustawienia bramy aplikacji **poolsetting** dla ruchu sieciowego ze zrównoważonym obciążeniem w puli zaplecza. Każda pula zaplecza może mieć własne ustawienia puli zaplecza.  Ustawienia HTTP zaplecza są używane przez reguły do kierowania ruchu do właściwych elementów członkowskich puli zaplecza. Ustawienia HTTP zaplecza określają protokół i port, które są używane podczas wysyłania ruchu do elementów członkowskich puli zaplecza. Sesje bazujące na plikach cookie są też określane przez ustawienia HTTP zaplecza.  Jeśli koligacja sesji bazujących na plikach cookie jest włączona, wysyła ruch do tego samego zaplecza co poprzednie żądania dla każdego pakietu.
-
-```powershell
+# Configure backend http settings to determine the protocol and port that is used when sending traffic to the backend servers. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity sends traffic to the same backend as previous requests for each packet.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-```
 
-### <a name="step-4"></a>Krok 4
-
-Skonfiguruj port frontonu dla bramy aplikacji. Obiekt konfiguracji portu frontonu jest używany przez odbiornik do definiowania, który port usługi Application Gateway nasłuchuje ruchu na odbiorniku.
-
-```powershell
+# Configure a frontend port that is used to connect to the application gateway through the public IP address
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
-```
 
-### <a name="step-5"></a>Krok 5
-
-Skonfiguruj adres IP frontonu z punktem końcowym publicznego adresu IP. Obiekt konfiguracji adresu IP frontonu jest używany przez odbiornik do powiązywania widocznego z zewnątrz adresu IP z odbiornikiem.
-
-```powershell
+# Configure the frontend IP configuration with the public IP address created earlier.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-```
 
-### <a name="step-6"></a>Krok 6
-
-Skonfiguruj odbiornik. W tym kroku dla odbiornika konfigurowany jest publiczny adres IP i port używane do odbierania przychodzącego ruchu sieciowego. W następującym przykładzie odbiornik konfigurowany jest na podstawie wcześniej określonej konfiguracji adresu IP frontonu, konfiguracji portu frontonu i protokołu (http lub https). W tym przykładzie odbiornik nasłuchuje ruchu HTTP na porcie 80 publicznego adresu IP, który został utworzony wcześniej.
-
-```powershell
+# Configure the listener.  The listener is a combination of the front end IP configuration, protocol, and port and is used to receive incoming network traffic. 
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
-```
 
-### <a name="step-7"></a>Krok 7
-
-Utwórz regułę routingu modułu równoważenia obciążenia o nazwie **rule01**, określającą zachowanie modułu równoważenia obciążenia. Ustawienia puli zaplecza, odbiornik i pula zaplecza utworzone we wcześniejszych krokach składają się na regułę. Zgodnie ze zdefiniowanymi kryteriami ruch jest kierowany do odpowiedniego zaplecza.
-
-```powershell
+# Configure a basic rule that is used to route traffic to the backend servers. The backend pool settings, listener, and backend pool created in the previous steps make up the rule. Based on the criteria defined traffic is routed to the appropriate backend.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-```
 
-### <a name="step-8"></a>Krok 8
-
-Skonfiguruj liczbę wystąpień i rozmiar bramy aplikacji.
-
-```powershell
+# Configure the SKU for the application gateway, this determines the size and whether or not WAF is used.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+
+# Create the application gateway
+$appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-> [!NOTE]
-> Wartość domyślna parametru **InstanceCount** to 2, a wartość maksymalna — 10. Wartość domyślna parametru **GatewaySize** to Medium (Średnia). Możesz wybrać następujące wartości: **Standard_Small**, **Standard_Medium** i **Standard_Large**.
-
-## <a name="create-the-application-gateway"></a>Tworzenie bramy aplikacji
-
-Utwórz bramę aplikacji przy użyciu wszystkich elementów konfiguracji z powyższych kroków. W tym przykładzie brama aplikacji ma nazwę **appgwtest**.
+Po zakończeniu pobierz szczegóły adresów DNS i VIP bramy aplikacji z zasobu publicznego adresu IP dołączonego do bramy aplikacji.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
-```
-
-Pobierz szczegóły adresów DNS i VIP bramy aplikacji z zasobu publicznego adresu IP zasobu dołączonego do bramy aplikacji.
-
-```powershell
-Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName ContosoRG
 ```
 
 ## <a name="delete-the-application-gateway"></a>Usuwanie bramy aplikacji
 
-Aby usunąć bramę aplikacji, wykonaj następujące kroki:
-
-### <a name="step-1"></a>Krok 1
-
-Pobierz obiekt bramy aplikacji i skojarz go ze zmienną `$getgw`.
+W poniższym przykładzie zostaje usunięta brama aplikacji.
 
 ```powershell
-$getgw = Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-```
+# Retrieve the application gateway
+$gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
 
-### <a name="step-2"></a>Krok 2
+# Stops the application gateway
+Stop-AzureRmApplicationGateway -ApplicationGateway $gw
 
-Użyj polecenia `Stop-AzureRmApplicationGateway`, aby zatrzymać bramę aplikacji.
-
-```powershell
-Stop-AzureRmApplicationGateway -ApplicationGateway $getgw
-```
-
-Po zatrzymaniu bramy aplikacji użyj polecenia cmdlet `Remove-AzureRmApplicationGateway`, aby usunąć usługę.
-
-```powershell
-Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
+# Once the application gateway is in a stopped state, use the `Remove-AzureRmApplicationGateway` cmdlet to remove the service.
+Remove-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Force
 ```
 
 > [!NOTE]
@@ -265,22 +158,25 @@ Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -F
 Aby sprawdzić, czy usługa została usunięta, możesz użyć polecenia cmdlet `Get-AzureRmApplicationGateway`. Ten krok nie jest wymagany.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
 ```
 
 ## <a name="get-application-gateway-dns-name"></a>Pobieranie nazwy DNS bramy aplikacji
 
-Po utworzeniu bramy następnym krokiem jest skonfigurowanie frontonu na potrzeby komunikacji. Gdy jest używany publiczny adres IP, brama aplikacji wymaga dynamicznie przypisywanej nazwy DNS, która nie jest przyjazna. Aby upewnić się, że użytkownicy końcowi mogą trafić bramę aplikacji, można użyć rekordu CNAME w celu wskazania publicznego punktu końcowego bramy aplikacji. [Konfigurowanie niestandardowej nazwy domeny dla platformy Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Aby znaleźć dynamicznie utworzoną nazwę DNS, pobierz szczegóły bramy aplikacji i skojarzony adres IP oraz nazwę DNS, używając elementu PublicIPAddress dołączonego do bramy aplikacji. Nazwa DNS bramy aplikacji powinna zostać użyta w celu utworzenia rekordu CNAME, który wskazuje dwóm aplikacjom sieci Web tę nazwę DNS. Korzystanie z rekordów A nie jest zalecane, ponieważ adres VIP może ulec zmianie po ponownym uruchomieniu bramy aplikacji.
+Po utworzeniu bramy następnym krokiem jest skonfigurowanie frontonu na potrzeby komunikacji. Gdy jest używany publiczny adres IP, brama aplikacji wymaga dynamicznie przypisywanej nazwy DNS, która nie jest przyjazna. Aby upewnić się, że użytkownicy końcowi mogą trafić bramę aplikacji, można użyć rekordu CNAME w celu wskazania publicznego punktu końcowego bramy aplikacji. Aby to zrobić, pobierz szczegóły bramy aplikacji i skojarzony adres IP oraz nazwę DNS, używając elementu PublicIPAddress dołączonego do bramy aplikacji. Można to zrobić za pomocą usługi Azure DNS lub innych dostawców usługi DNS, tworząc rekord CNAME, który wskazuje [publiczny adres IP](../dns/dns-custom-domain.md#public-ip-address). Korzystanie z rekordów A nie jest zalecane, ponieważ adres VIP może ulec zmianie po ponownym uruchomieniu bramy aplikacji.
+
+> [!NOTE]
+> Adres IP jest przypisywany do bramy aplikacji w chwili uruchamiania usługi.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
 ```
 
 ```
 Name                     : publicIP01
-ResourceGroupName        : appgw-RG
+ResourceGroupName        : ContosoRG
 Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
+Id                       : /subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/publicIPAddresses/publicIP01
 Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 ResourceGuid             : 00000000-0000-0000-0000-000000000000
 ProvisioningState        : Succeeded
@@ -290,7 +186,7 @@ IpAddress                : xx.xx.xxx.xx
 PublicIpAddressVersion   : IPv4
 IdleTimeoutInMinutes     : 4
 IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
+                                "Id": "/subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/ContosoAppGateway/frontendIP
                             Configurations/frontend1"
                             }
 DnsSettings              : {
@@ -300,10 +196,10 @@ DnsSettings              : {
 
 ## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
 
-Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
+Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujący krok:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgw-RG
+Remove-AzureRmResourceGroup -Name ContosoRG
 ```
 
 ## <a name="next-steps"></a>Następne kroki
@@ -316,5 +212,4 @@ Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz 
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
 

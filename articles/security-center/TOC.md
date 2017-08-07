@@ -75,6 +75,7 @@
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Cennik](security-center-pricing.md)
+## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Omówienie usługi](https://azure.microsoft.com/services/security-center/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=security-center)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
