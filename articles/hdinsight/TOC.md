@@ -94,7 +94,6 @@
 #### [Zapisywanie w usłudze Data Lake Store](hdinsight-storm-write-data-lake-store.md)
 #### [Opracowywanie topologii opartych na języku Java za pomocą narzędzia Maven](hdinsight-storm-develop-java-topology.md)
 #### [Opracowywanie topologii języka C# za pomocą narzędzi usługi Hadoop](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-#### [Rozpoznawanie trendów w serwisie Twitter](hdinsight-storm-twitter-trending.md)
 #### [Przetwarzanie zdarzeń za pomocą topologii języka C#](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Przetwarzanie zdarzeń za pomocą topologii języka Java](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Korzystanie z usługi Power BI z topologią](hdinsight-storm-power-bi-topology.md)
