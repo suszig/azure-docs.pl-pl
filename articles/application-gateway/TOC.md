@@ -27,16 +27,20 @@
 ## Konfigurowanie zapory aplikacji sieci Web
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-web-application-firewall-cli.md)
 ## Dostosowywanie reguł zapory aplikacji sieci Web
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-customize-waf-rules-cli.md)
 ## Konfigurowanie odciążania SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klasyczny)](application-gateway-ssl.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-ssl.md)
 ### [Zasady i połączenie typu end-to-end](application-gateway-end-to-end-ssl-powershell.md)
 ## Konfigurowanie routingu opartego na ścieżkach URL
 ### [Portal](application-gateway-create-url-route-portal.md)
-### [Program PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-create-url-route-cli.md)
 ## Konfigurowanie hostingu wielu witryn
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)

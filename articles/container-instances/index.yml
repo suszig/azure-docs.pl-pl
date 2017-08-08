@@ -37,3 +37,11 @@ sections:
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Package an application into a container image (Pakowanie aplikacji do obrazu kontenera)</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Create an Azure Container Registry and upload the container image (Tworzenie usługi Azure Container Registry i przekazywanie obrazu kontenera)</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Deploy the container image to an Azure Container Instance (Wdrażanie obrazu kontenera w wystąpieniu kontenera platformy Azure)</a>
+  - title: Dokumentacja
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Interfejs wiersza polecenia platformy Azure
+            html: <p><a href="/cli/azure/container">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
