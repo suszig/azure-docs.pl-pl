@@ -2,23 +2,17 @@
 title: "Tworzenie dużych rozwiązań przetwarzania równoległego przy użyciu narzędzi i interfejsów API usługi Azure Batch | Microsoft Docs"
 description: "Informacje na temat narzędzi i interfejsów API przeznaczonych do tworzenia rozwiązań korzystających z usługi Azure Batch."
 services: batch
-documentationcenter: 
 author: tamram
 manager: timlt
-editor: 
-ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
 ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: 1c0f8f3fede88b6e0bace35372a2d54bb53e5182
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c11f0c0a6cdc89449b7aa515319bbe6b6bdf1a4a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -48,7 +42,7 @@ Aplikacje i usługi mogą wykonywać bezpośrednie wywołania interfejsu API RES
 | Interfejs API | Dokumentacja interfejsu API | Do pobrania | Samouczek | Przykłady kodu | Więcej informacji |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[MSDN][batch_rest] |Nie dotyczy |- |- | [Obsługiwane wersje](https://docs.microsoft.com/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Samouczek](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [Informacje o wersji](https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/Client/changelog.md) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Samouczek](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [Informacje o wersji](http://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Samouczek](batch-python-tutorial.md)|[GitHub][api_sample_python] | [Plik Readme](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- | [Plik Readme](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[Plik Readme][api_sample_java] | [Plik Readme](https://github.com/Azure/azure-batch-sdk-for-java)|

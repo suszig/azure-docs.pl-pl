@@ -71,6 +71,9 @@ ACU: 210–250
 <br>
 
 ## <a name="ds-series"></a>Seria DS
+
+ACU: 160
+
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standardowa_DS1 |1 |3,5 |7 |2 |4000 / 32 (43) |3200 / 32 |2 / 500 |
@@ -79,6 +82,7 @@ ACU: 210–250
 | Standardowa_DS4 |8 |28 |56 |16 |32 000 / 256 (344) |25 600 / 256 |8 / 4000 |
 
 <br>
+
 ## <a name="d-series"></a>Seria D 
 
 ACU: 160
