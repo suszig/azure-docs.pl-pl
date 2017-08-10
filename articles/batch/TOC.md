@@ -18,6 +18,8 @@
 #### [Usługa Azure AD z zarządzaniem usługą Batch](batch-aad-auth-management.md)
 ### [Maszyny wirtualne intensywnie korzystające z mocy obliczeniowej](batch-pool-compute-intensive-sizes.md)
 ### [Równoczesne zadania w węzłach](batch-parallel-node-tasks.md)
+### [Liczba zadań według stanu](batch-get-task-counts.md)
+### [Tworzenie puli za pomocą niestandardowego obrazu](batch-custom-images.md)
 ### [Wydajne zapytania dotyczące list](batch-efficient-list-queries.md)
 ### [Zadania związane z przygotowywaniem i kończeniem prac](batch-job-prep-release.md)
 ### [Węzły obliczeniowe z systemem Linux](batch-linux-nodes.md)

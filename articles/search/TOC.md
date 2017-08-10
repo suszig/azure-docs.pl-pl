@@ -28,10 +28,12 @@
 ### [Wzorce projektowe aplikacji wielodostępnych](search-modeling-multitenant-saas-applications.md)
 
 ## Programowanie
+### [Wersje interfejsu API](search-api-versions.md)
 ### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
 ### [Uaktualnianie interfejsu API REST](search-api-migration.md)
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
 ### [Handle concurrent updates (Obsługa równoczesnych aktualizacji)](search-howto-concurrency.md)
+### [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=search)
 
 ## Zarządzanie
 ### Administrowanie usługą Azure Search
@@ -68,31 +70,33 @@
 
 # Dokumentacja
 
-## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (zarządzanie)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (zarządzanie)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (zarządzanie)](/rest/api/searchmanagement)
+## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
 
 # Zasoby
-## [Wersje interfejsu API](search-api-versions.md)
+
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Często zadawane pytania](search-faq-frequently-asked-questions.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/search/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
-## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=search)
 ## Oprogramowanie edukacyjne i samouczki
-## Witryny demonstracyjne
-## Partner i społeczność
-### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [Aplikacja prezentująca listę zadań](http://aka.ms/azjobsdemo)
-### [Aplikacje z pokazem na żywo](https://searchsamples.azurewebsites.net/)
-### [Dane relacyjne modelu](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Kategoryzowanie wielopoziomowe](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Wersja demonstracyjna analizatora wyszukiwania](http://alice.unearth.ai/)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Materiały wideo i samouczki](search-video-demo-tutorial-list.md)
 ### [Wirtualna akademia](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
+## Witryny demonstracyjne
+### [Wersja demonstracyjna analizatora wyszukiwania](http://alice.unearth.ai/)
+### [Aplikacje z pokazem na żywo](https://searchsamples.azurewebsites.net/)
+### [Aplikacja prezentująca listę zadań](http://aka.ms/azjobsdemo)
+## Partner i społeczność
+### [Repozytorium GitHub usługi Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [blog: Dane relacyjne modelu](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
+### [[blog: Kategoryzowanie wielopoziomowe](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+
+
+
