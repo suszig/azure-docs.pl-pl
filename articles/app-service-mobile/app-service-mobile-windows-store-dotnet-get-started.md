@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 1a031c4858bcbc75ee807ba520e1b22c89471498
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 5408e032670dda7f149c442e08f52b02abe23f05
 ms.contentlocale: pl-pl
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="create-a-windows-app"></a>Tworzenie aplikacji systemu Windows
@@ -40,11 +40,6 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 * Aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych aplikacji mobilnych, z których możesz korzystać nawet po zakończeniu okresu ważności wersji próbnej. Aby uzyskać szczegółowe informacje, zobacz temat [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/) (Bezpłatna wersja próbna platformy Azure).
 * Program [Visual Studio Community 2015] lub nowszy.
-
-> [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do strony [Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/mobile/). W tej lokalizacji możesz od razu utworzyć początkową aplikację mobilną o krótkim okresie istnienia w usłudze App Service — bez karty kredytowej i bez zobowiązań.
->
->
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Tworzenie zaplecza nowej Aplikacji mobilnej Azure
 Wykonaj te kroki, aby utworzyć zaplecze nowej Aplikacji mobilnej.
