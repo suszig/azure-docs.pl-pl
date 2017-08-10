@@ -9,6 +9,7 @@
 ## [Uzyskiwanie dzierżawy usługi Azure AD](active-directory-howto-tenant.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Kojarzenie subskrypcji usługi Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Szybki start: samoobsługowe resetowanie haseł](active-directory-passwords-getting-started.md)
 ## Zarządzanie licencjonowaniem usługi Azure AD
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Portal klasyczny](active-directory-licensing-what-is.md)
@@ -18,7 +19,7 @@
 #### [Migrowanie użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
 #### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
 #### [Przykłady programu PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
-## [Jak uzyskać pomoc techniczną dla usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Uzyskiwanie pomocy technicznej dla usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Samouczki integracji aplikacji SaaS](active-directory-saas-tutorial-list.md)
 
 # Instrukcje
@@ -78,6 +79,7 @@
 #### [Migrowanie użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
 #### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
 #### [Przykłady programu PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
+### [Ustawianie wygasania grup usługi Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Wyświetlanie wszystkich grup](active-directory-groups-view-azure-portal.md)
 ### [Włączanie dedykowanych grup](active-directory-accessmanagement-dedicated-groups.md)
 ### [Dodawanie dostępu grupowego do aplikacji SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
 #### [Najlepsze rozwiązania w zakresie haseł](active-directory-secure-passwords.md)
 #### [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
-### [Szybki start: samoobsługowe resetowanie haseł](active-directory-passwords-getting-started.md)
 ### [Licencjonowanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-licensing.md)
 ### [Wdrażanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-best-practices.md)
 ### Administratorzy IT: resetowanie haseł

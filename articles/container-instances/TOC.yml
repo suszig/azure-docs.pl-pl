@@ -23,12 +23,18 @@
   items:
     - name: Relacja z koordynatorami
       href: container-instances-orchestrator-relationship.md
+    - name: Grupy kontenerów
+      href: container-instances-container-groups.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Grupy z wieloma kontenerami
+    - name: Wdrażanie grup z wieloma kontenerami
       href: container-instances-multi-container-group.md
     - name: Zarządzanie stanem przy użyciu udziałów plików platformy Azure
       href: container-instances-mounting-azure-files-volume.md
+    - name: Wdrażanie z usługi Azure Container Registry
+      href: container-instances-using-azure-container-registry.md
+    - name: Rozwiązywanie problemów z wdrożeniami w usłudze Azure Container Instances
+      href: container-instances-troubleshooting.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure 2.0

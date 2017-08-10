@@ -1,13 +1,27 @@
 # Omówienie
 ## [Co to jest Azure Analysis Services?](analysis-services-overview.md)
 ## [Obsługiwane źródła danych](analysis-services-datasource.md)
+## [Uwierzytelnianie i uprawnienia użytkownika](analysis-services-manage-users.md)
+## [Poziom zgodności](analysis-services-compat-level.md)
+## [Wysoka dostępność](analysis-services-bcdr.md)
 
-# Przewodniki Szybki start
-## [Tworzenie serwera — portal](analysis-services-create-server.md)
-## [Wdrażanie modelu — SSDT](analysis-services-deploy.md)
+# Rozpoczynanie pracy
+## [Tworzenie serwera w witrynie Azure Portal](analysis-services-create-server.md)
+## [Tworzenie serwera za pomocą programu PowerShell](analysis-services-create-powershell.md)
+## [Wdrażanie modelu z programu Visual Studio](analysis-services-deploy.md)
+## [Create a model in Azure portal (preview) (Tworzenie modelu w wersji zapoznawczej witryny Azure Portal)](analysis-services-create-model-portal.md)
 
-# Samouczki
-## Tworzenie i wdrażanie modelu
+# Porady 
+## [Zarządzanie serwerem](analysis-services-manage.md)
+## [Zarządzanie użytkownikami bazy danych](analysis-services-database-users.md)
+## [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)
+## [Instalowanie bramy danych lokalnych](analysis-services-gateway.md)
+## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
+## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
+## [Łączenie z programem Excel](analysis-services-connect-excel.md)
+## [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
+## [Tworzenie pliku odc](analysis-services-odc.md)
+## Samouczki
 ### [Samouczek Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lekcja 1. Tworzenie nowego projektu modelu tabelarycznego](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [Lekcja 2. Pobieranie danych](tutorials/aas-lesson-2-get-data.md)
@@ -24,23 +38,7 @@
 ### [Lekcja 13. Wdrażanie](tutorials/aas-lesson-13-deploy.md)
 ### [Lekcja uzupełniająca — wiersze szczegółów](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [Lekcja uzupełniająca — zabezpieczenia dynamiczne](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Lekcja uzupełniająca — niewyrównane hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# Pojęcia
-## [Uwierzytelnianie i uprawnienia użytkownika](analysis-services-manage-users.md)
-## [Wysoka dostępność](analysis-services-bcdr.md)
-
-# Porady 
-## [Create a model in Azure portal (preview) (Tworzenie modelu w wersji zapoznawczej witryny Azure Portal)](analysis-services-create-model-portal.md)
-## [Zarządzanie serwerem](analysis-services-manage.md)
-## [Zarządzanie użytkownikami bazy danych](analysis-services-database-users.md)
-## [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)
-## [Instalowanie bramy danych lokalnych](analysis-services-gateway.md)
-## [Łączenie z programem Excel](analysis-services-connect-excel.md)
-## [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
-## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
-## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
-## [Tworzenie pliku odc](analysis-services-odc.md)
+### [Lekcja uzupełniająca — niewyrównane hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Dokumentacja
 ## [Program PowerShell](analysis-services-powershell.md)
