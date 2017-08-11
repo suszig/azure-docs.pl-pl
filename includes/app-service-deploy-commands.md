@@ -1,8 +1,8 @@
 
-To deploy the resources to Azure, you must be logged in to your Azure account and you must use the Azure Resource Manager module. To learn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, see:
+Aby wdrożyć zasoby na platformie Azure, musisz wcześniej zalogować się na swoje konto Azure i korzystać z modułu Azure Resource Manager. Aby dowiedzieć się, jak używać usługi Azure Resource Manager z programem Azure PowerShell lub interfejsem wiersza polecenia platformy Azure, zobacz:
 
-* [Using Azure PowerShell with Azure Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
-* [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+* [Używanie programu Azure PowerShell z usługą Azure Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
+* [Używanie interfejsu wiersza polecenia platformy Azure dla systemów Mac, Linux i Windows z usługą Azure Resource Management](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
 
-The following examples assume you already have a resource group in your account with the specified name. 
+W następujących przykładach założono, że na swoim koncie masz już grupę zasobów o określonej nazwie. 
 
