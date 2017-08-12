@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/10/2017
 ms.author: subramar
 ms.translationtype: HT
 ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
@@ -63,6 +63,7 @@ Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego pr
 5. Dodaj oficjalny klucz GPG platformy Docker do pęku kluczy APT.
 
     ```bash
+    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
