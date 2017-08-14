@@ -81,8 +81,6 @@
 ### [Tworzenie konta magazynu](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [Używanie programu Azure PowerShell z usługą Azure Storage](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Wytyczne dotyczące infrastruktury magazynu dla systemu Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Wytyczne dotyczące infrastruktury magazynu dla systemu Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage Client Tools](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Dokumentacja interfejsu API REST usługi Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [Korzystanie z sygnatur dostępu współdzielonego](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

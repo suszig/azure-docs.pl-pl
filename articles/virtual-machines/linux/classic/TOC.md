@@ -4,13 +4,13 @@
 ## [Dostępność](configure-availability.md)
 ## [Często zadawane pytania](faq.md)
 
-# [Rozpoczęcie pracy](../opensource-links.md)
+# Wprowadzenie
 ## [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu portalu](createportal.md)
 ## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md)
 ## [Tworzenie kluczy SSH](../mac-create-ssh-keys.md)
 
 # Instrukcje
-## [Obliczanie](../intro-on-azure.md)
+## Wystąpienia obliczeniowe
 ### [Tworzenie niestandardowej maszyny wirtualnej](create-custom.md)
 ### [Przechwytywanie maszyny wirtualnej](capture-image.md)
 ### [Używanie pulpitu zdalnego z maszyną wirtualną z systemem Linux](remote-desktop.md)
