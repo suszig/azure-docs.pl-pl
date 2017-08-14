@@ -1,6 +1,6 @@
 ---
 title: "Nawiązywanie połączeń z usługą Azure Database for PostgreSQL z poziomu środowiska Python | Microsoft Docs"
-description: "Zawiera przykładowy kod języka Python, którego można używać do nawiązywania połączeń z danymi usługi Azure Database for PostgreSQL i wykonywania zapytań względem nich."
+description: "Ten przewodnik Szybki start zawiera przykładowy kod języka Python, za pomocą którego można nawiązywać połączenie z danymi usługi Azure Database for PostgreSQL i wykonywać zapytania względem nich."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python
@@ -49,7 +49,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
 5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
 
 ## <a name="how-to-run-python-code"></a>Jak uruchomić kod języka Python
-- Za pomocą ulubionego edytora tekstu utwórz nowy plik o nazwie postgres.py i zapisz go w folderze projektu. Skopiuj i wklej przykład kodu pokazany poniżej do pliku tekstowego i zapisz go. Upewnij się, że wybrano kodowanie UTF-8 podczas zapisywania pliku w systemie operacyjnym Windows. 
+- Za pomocą ulubionego edytora tekstu utwórz nowy plik o nazwie postgres.py i zapisz go w folderze projektu. Skopiuj przykład kodu pokazany poniżej i wklej go do pliku tekstowego. Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. Następnie zapisz plik. Upewnij się, że wybrano kodowanie UTF-8 podczas zapisywania pliku w systemie operacyjnym Windows. 
 - Aby uruchomić kod, uruchom wiersz polecenia lub powłokę bash. Zmień katalog na folder projektu, taki jak `cd postgresql`. Następnie wpisz polecenie python, a po nim nazwę pliku, na przykład `python postgres.py`.
 
 > [!NOTE]

@@ -11,7 +11,7 @@ Aby umożliwić porównywanie wydajności obliczeniowej (procesora CPU) jednoste
 
 <br>
 
-| Rodzina SKU | ACU |
+| Rodzina SKU | ACU/procesor wirtualny vCPU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1–A4](../articles/virtual-machines/windows/sizes-general.md) |100 |

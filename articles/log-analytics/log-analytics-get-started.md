@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Wprowadzenie do obszaru roboczego usługi Log Analytics
@@ -59,7 +58,12 @@ Następnym krokiem jest utworzenie obszaru roboczego.
 4. Wybierz obszar roboczy, aby wyświetlić jego szczegóły w witrynie Azure Portal.       
     ![szczegóły obszaru roboczego](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3. Dodawanie rozwiązań i ofert rozwiązań
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3. Uaktualnianie obszaru roboczego w związku z nową funkcją przeszukiwania dzienników
+Został wydany nowy język zapytań usługi Log Analytics. Aby go wykorzystać, musisz przekonwertować swój obszar roboczy.  Jeśli region, w którym jest hostowany Twój obszar roboczy, został uaktualniony, zobaczysz fioletowy baner u góry obszaru roboczego z zaproszeniem do konwersji. Uaktualnienie jest całkowicie dobrowolne i nie wpływa na środowisko użytkownika związane z pracą z usługą Log Analytics i wszelkimi innymi dodanymi rozwiązaniami.  
+
+Aby uzyskać więcej informacji oraz poznać korzyści, uwagi i proces uaktualnienia, zobacz [Upgrading Azure Log Analytics to new log search (Uaktualnianie usługi Azure Log Analytics do nowej funkcji przeszukiwania dzienników)](log-analytics-log-search-upgrade.md).  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4. Dodawanie rozwiązań i ofert rozwiązań
 
 Następnie dodaj rozwiązania do zarządzania i ofert rozwiązań. Rozwiązania to zestawy reguł logiki, wizualizacji i gromadzenia danych zawierające metryki dotyczące określonego obszaru problemów. Oferta rozwiązań to pakiet rozwiązań do zarządzania.
 
@@ -95,11 +99,11 @@ Następnie należy utworzyć prostą maszynę wirtualną na platformie Azure. Po
 
 - Postępuj zgodnie z instrukcjami znajdującymi się w artykule [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md) (Łączenie maszyn wirtualnych platformy Azure z usługą Log Analytics), aby połączyć maszynę wirtualną z usługą Log Analytics przy użyciu witryny Azure Portal.
 
-## <a name="5-view-and-act-on-data"></a>5. Wyświetlanie danych i działanie na nich
+## <a name="6-view-and-act-on-data"></a>6. Wyświetlanie danych i działanie na nich
 
 Wcześniej włączone zostało rozwiązanie Activity Log Analytics i oferty rozwiązań Security & Compliance oraz Automation & Control. Następnie można rozpocząć analizę danych zebranych przez te rozwiązania oraz wyników w wyszukiwaniach w dziennikach.
 
-Na początku należy przyjrzeć się danym wyświetlanym w ramach rozwiązań. Następnie należy zapoznać się z wyszukiwaniami w dziennikach. Wyszukiwania w dziennikach umożliwiają łączenie i korelowanie danych dowolnej maszyny z wielu źródeł w danym środowisku. Aby uzyskać więcej informacji, zobacz [Log searches in Log Analytics](log-analytics-log-searches.md) (Wyszukiwania w dziennikach w usłudze Log Analytics). Na koniec należy wykonać działania na danych wyszukanych za pomocą portalu pakietu OMS, który znajduje się poza witryną Azure Portal.
+Na początku należy przyjrzeć się danym wyświetlanym w ramach rozwiązań. Następnie należy zapoznać się z wyszukiwaniami w dziennikach. Wyszukiwania w dziennikach umożliwiają łączenie i korelowanie danych dowolnej maszyny z wielu źródeł w danym środowisku. Aby uzyskać więcej informacji, zobacz [Log searches in Log Analytics (Przeszukiwanie dzienników w usłudze Log Analytics)](log-analytics-log-searches.md) lub, jeśli przekonwertowano obszar roboczy do nowego języka zapytań, zobacz [Understanding log searches in Log Analytics (Informacje o przeszukiwaniu dzienników w usłudze Log Analytics)](log-analytics-log-search-new.md). 
 
 ### <a name="to-view-antimalware-data"></a>Aby wyświetlić dane oprogramowania chroniącego przed złośliwym kodem
 

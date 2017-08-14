@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń
@@ -50,7 +49,7 @@ Reguły sieciowych grup zabezpieczeń obejmują następujące właściwości:
 | --- | --- | --- | --- |
 | **Nazwa** |Nazwa reguły. |Musi być unikatowa w obrębie regionu.<br/>Może zawierać litery, cyfry, podkreślenia, kropki i łączniki.<br/>Musi zaczynać się literą lub cyfrą.<br/>Musi kończyć się literą, cyfrą lub podkreśleniem.<br/>Nie może przekraczać 80 znaków. |Sieciowa grupa zabezpieczeń może zawierać kilka reguł, więc pamiętaj, aby postępować zgodnie z konwencją nazewnictwa, która umożliwia zidentyfikowanie funkcji reguły. |
 | **Protokół** |Protokół odpowiadający regule. |TCP, UDP lub * |Wstawienie znaku * oznacza protokół ICMP (tylko ruch wschód-zachód), a także protokoły UDP i TCP. W ten sposób można zmniejszyć liczbę potrzebnych reguł.<br/>Z drugiej strony użycie znaku * może okazać się rozwiązaniem zbyt ogólnym, dlatego zaleca się używanie znaku * tylko w razie konieczności. |
-| **Zakres portów źródłowych** |Zakres portów źródłowych odpowiadający regule. |Numer pojedynczego portu od 1 do 65535, zakres portów (np. 1–65635) lub * (dla wszystkich portów). |Porty źródłowe mogą być efemeryczne. Jeśli program kliencki nie korzysta z określonego portu, należy w większości przypadków użyć znaku *.<br/>Używaj zakresów portów możliwie często, aby uniknąć konieczności korzystania z wielu reguł.<br/>Wielu portów lub zakresów portów nie można oddzielać przecinkiem. |
+| **Zakres portów źródłowych** |Zakres portów źródłowych odpowiadający regule. |Numer pojedynczego portu od 1 do 65535, zakres portów (np. 1–65535) lub * (dla wszystkich portów). |Porty źródłowe mogą być efemeryczne. Jeśli program kliencki nie korzysta z określonego portu, należy w większości przypadków użyć znaku *.<br/>Używaj zakresów portów możliwie często, aby uniknąć konieczności korzystania z wielu reguł.<br/>Wielu portów lub zakresów portów nie można oddzielać przecinkiem. |
 | **Zakres portów docelowych** |Zakres portów docelowych odpowiadający regule. |Numer pojedynczego portu od 1 do 65535, zakres portów (np. 1–65535) lub \* (dla wszystkich portów). |Używaj zakresów portów możliwie często, aby uniknąć konieczności korzystania z wielu reguł.<br/>Wielu portów lub zakresów portów nie można oddzielać przecinkiem. |
 | **Prefiks adresu źródłowego** |Prefiks adresu źródłowego lub znacznik odpowiadający regule. |Pojedynczy adres IP (np. 10.10.10.10), podsieć IP (np. 192.168.1.0/24), [znacznik domyślny](#default-tags) lub * (dla wszystkich adresów). |Należy rozważyć użycie zakresów, znaczników domyślnych i znaków * w celu zmniejszenia liczby reguł. |
 | **Prefiks adresu docelowego** |Prefiks adresu docelowego lub znacznik odpowiadający regule. | Pojedynczy adres IP (np. 10.10.10.10), podsieć IP (np. 192.168.1.0/24), [znacznik domyślny](#default-tags) lub * (dla wszystkich adresów). |Należy rozważyć użycie zakresów, znaczników domyślnych i znaków * w celu zmniejszenia liczby reguł. |

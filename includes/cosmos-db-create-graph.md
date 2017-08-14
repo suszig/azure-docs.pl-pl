@@ -1,7 +1,7 @@
-Teraz możesz utworzyć kontener grafu i dodać dane do bazy danych przy użyciu Eksploratora danych. 
+Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby utworzyć bazę danych grafów. 
 
-1. W witrynie Azure Portal w menu nawigacyjnym kliknij pozycję **Eksplorator danych**. 
-2. W bloku Eksplorator danych kliknij pozycję **Nowy graf**, a następnie wypełnij stronę, korzystając z poniższych informacji.
+1. W witrynie Azure Portal w menu nawigacyjnym po lewej kliknij pozycję **Eksplorator danych (wersja zapoznawcza)**. 
+2. W bloku **Eksplorator danych (wersja zapoznawcza)** kliknij pozycję **Nowy graf**, a następnie wypełnij stronę, korzystając z poniższych informacji.
 
     ![Eksplorator danych w witrynie Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 

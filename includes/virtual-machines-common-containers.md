@@ -100,13 +100,13 @@ Istnieje kilka popularnych systemów, w ramach których można wdrożyć całe g
 
 Na platformie Docker dostępny jest zestaw narzędzi do tworzenia maszyn wirtualnych ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) oraz narzędzie do zarządzania klastrem kontenera platformy Docker w celu równoważenia obciążenia ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Ponadto [rozszerzenie maszyny wirtualnej Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) domyślnie obsługuje polecenie [`docker-compose`](https://docs.docker.com/compose/), za pomocą którego można wdrożyć skonfigurowane kontenery aplikacji w ramach wielu kontenerów.
 
-Ponadto można wypróbować [system Data Center Operating System (DCOS) firmy Mesosphere](http://docs.mesosphere.com/install/azurecluster/). System DCOS jest oparty na „rozproszonym jądrze systemu” [mesos](http://mesos.apache.org/) typu „open source”, które umożliwia traktowanie centrum danych jako adresowalnej usługi. System DCOS zawiera wbudowane pakiety dla kilku ważnych systemów, takie jak [Spark](http://spark.apache.org/) i [Kafka](http://kafka.apache.org/) (oraz inne), a także wbudowane usługi, takie jak [Marathon](https://mesosphere.github.io/marathon/) (system kontroli kontenera) i [Chronos](https://mesos.github.io/chronos/) (rozproszony program planujący). Rozwiązanie Mesos zostało utworzone między innymi na podstawie doświadczeń firm z branży sieci Web odpowiedzialnych za serwisy Twitter i AirBnb. Można również użyć narzędzia **swarm** jako aparatu aranżacji.
+Ponadto można wypróbować [system Data Center Operating System (DCOS) firmy Mesosphere](http://docs.mesosphere.com). System DCOS jest oparty na „rozproszonym jądrze systemu” [mesos](http://mesos.apache.org/) typu „open source”, które umożliwia traktowanie centrum danych jako adresowalnej usługi. System DCOS zawiera wbudowane pakiety dla kilku ważnych systemów, takie jak [Spark](http://spark.apache.org/) i [Kafka](http://kafka.apache.org/) (oraz inne), a także wbudowane usługi, takie jak [Marathon](https://mesosphere.github.io/marathon/) (system kontroli kontenera) i [Chronos](https://mesos.github.io/chronos/) (rozproszony program planujący). Rozwiązanie Mesos zostało utworzone między innymi na podstawie doświadczeń firm z branży sieci Web odpowiedzialnych za serwisy Twitter i AirBnb. Można również użyć narzędzia **swarm** jako aparatu aranżacji.
 
 Oprócz tego [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) to system typu „open source” służący do zarządzania maszynami wirtualnymi i kontenerami utworzony na podstawie doświadczeń firmy Google. Możliwe jest nawet użycie systemu [kubernetes wraz z platformą Weave w celu zapewnienia obsługi sieci](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) to rozwiązanie „platforma jako usługa” (PaaS) typu „open source”, które ułatwia wdrażanie aplikacji na własnych serwerach i zarządzanie nimi. Rozwiązanie Deis działa w oparciu o platformę Docker i system CoreOS w celu zapewnienia lekkiego rozwiązania PaaS z przepływem pracy wzorowanym na platformie Heroku. Możesz łatwo [utworzyć 3-węzłową grupę maszyn wirtualnych platformy Azure i zainstalować rozwiązanie Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) na platformie Azure, a następnie [zainstalować aplikację Hello World Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.com/) to rozwiązanie „platforma jako usługa” (PaaS) typu „open source”, które ułatwia wdrażanie aplikacji na własnych serwerach i zarządzanie nimi. Rozwiązanie Deis działa w oparciu o platformę Docker i system CoreOS w celu zapewnienia lekkiego rozwiązania PaaS z przepływem pracy wzorowanym na platformie Heroku. Możesz łatwo [utworzyć 3-węzłową grupę maszyn wirtualnych platformy Azure i zainstalować rozwiązanie Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) na platformie Azure, a następnie [zainstalować aplikację Hello World Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-W systemie [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), czyli dystrybucji systemu Linux ze zoptymalizowaną zajmowaną przestrzenią dyskową, obsługą platformy Docker i własnym systemem kontenerów o nazwie [rkt](https://github.com/coreos/rkt), również istnieje narzędzie do zarządzania grupami kontenerów o nazwie [fleet](https://coreos.com/using-coreos/clustering/).
+W systemie [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), czyli dystrybucji systemu Linux ze zoptymalizowaną zajmowaną przestrzenią dyskową, obsługą platformy Docker i własnym systemem kontenerów o nazwie [rkt](https://github.com/coreos/rkt), również istnieje narzędzie do zarządzania grupami kontenerów o nazwie [fleet](https://coreos.com/fleet/docs/latest/).
 
 Ubuntu, inna bardzo popularna dystrybucja systemu Linux, również obsługuje platformę Docker, ale także obsługuje [klastry systemu Linux (typu LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -133,7 +133,7 @@ Linki dotyczące kontenerów systemu Windows:
 
 Linki dotyczące platformy Docker programu Visual Studio:
 
-* [Visual Studio 2015 RC Tools for Docker — wersja zapoznawcza](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
+* [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/visual-studio-tools-for-docker)
 
 Narzędzia platformy Docker:
 
@@ -161,7 +161,7 @@ Dystrybucje systemu Linux i przykłady związane z platformą Azure:
 
 Konfiguracja, zarządzanie klastrami i aranżacja kontenerów:
 
-* [Narzędzie Fleet w systemie CoreOS](https://coreos.com/using-coreos/clustering/)
+* [Narzędzie Fleet w systemie CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
 
   * [Tworzenie 3-węzłowej grupy maszyn wirtualnych platformy Azure, instalowanie rozwiązania Deis i uruchamianie aplikacji Hello World Go](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -171,10 +171,10 @@ Konfiguracja, zarządzanie klastrami i aranżacja kontenerów:
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
 
-  * [System Data Center Operating System (DCOS) firmy Mesosphere](http://beta-docs.mesosphere.com/install/azurecluster/)
-* [Jenkins](https://jenkins-ci.org/) i [Hudson](http://hudson-ci.org/)
+  * [System Data Center Operating System (DCOS) firmy Mesosphere](https://docs.mesosphere.com/1.7/overview/design/azure-container-service/)
+* [Jenkins](https://jenkins.io/) i [Hudson](http://hudson-ci.org/)
 
-  * [Blog: Wtyczka podrzędna rozwiązania Jenkins dla platformy Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+  * [Wtyczka agenta maszyny wirtualnej rozwiązania Jenkins dla platformy Azure](https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin)
   * [Repozytorium GitHub: Wtyczka magazynu rozwiązania Jenkins dla platformy Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
   * [Inna firma: Wtyczka podrzędna rozwiązania Hudson dla platformy Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
   * [Inna firma: Wtyczka magazynu rozwiązania Hudson dla platformy Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)

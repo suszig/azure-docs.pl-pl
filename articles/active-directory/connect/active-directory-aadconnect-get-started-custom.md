@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
@@ -278,6 +278,9 @@ Usługi AD FS wymagają konta usług domeny do uwierzytelniania użytkowników i
 * **Konto użytkownika domeny** — ten typ konta wymaga podawania hasła i regularnego aktualizowania hasła w przypadku jego zmiany lub wygaśnięcia. Tej opcji należy używać tylko, jeśli w domenie, do której należą serwery usług AD FS, nie ma kontrolerów domeny systemu Windows Server 2012.
 
 Jeśli zostało wybrane konto usługi zarządzane przez grupę i funkcja ta nie była nigdy używana w usłudze Active Directory, zostanie wyświetlony monit o poświadczenia administratora przedsiębiorstwa. Poświadczenia te służą do inicjowania magazynu kluczy i włączania funkcji w usłudze Active Directory.
+
+> [!NOTE]
+> Program Azure AD Connect wykonuje sprawdzenie w celu wykrycia, czy usługa AD FS jest już zarejestrowana w domenie jako nazwa SPN.  Usługa AD DS nie zezwala na jednoczesną rejestrację zduplikowanych nazw SPN.  Jeśli zostanie znaleziona zduplikowana nazwa SPN, nie będzie można kontynuować pracy do momentu usunięcia tej nazwy SPN.
 
 ![Konto usług AD FS](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 

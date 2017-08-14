@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?
@@ -127,11 +126,12 @@ Usługa Site Recovery pomaga chronić program Exchange w następujący sposób:
 ## <a name="protect-sap"></a>Ochrona systemu SAP
 Z usługi Site Recovery można korzystać, aby zabezpieczyć wdrożenie SAP w następujący sposób:
 
-* Włącz ochronę całego wdrożenia SAP poprzez replikację różnych warstw wdrożenia do platformy Azure lub lokacji dodatkowej.
+* Włącz ochronę aplikacji produkcyjnych środowiska SAP NetWeaver i nienależących do środowiska NetWeaver uruchomionych lokalnie, replikując składniki do platformy Azure.
+* Włącz ochronę aplikacji produkcyjnych środowiska SAP NetWeaver i nienależących do środowiska NetWeaver uruchomionych na platformie Azure, replikując składniki do innego centrum danych platformy Azure.
 * Skorzystaj z uproszczenia migracji do chmury, używając usługi Site Recovery do migrowania wdrożenia SAP do platformy Azure.
-* Ułatw projektowanie i testowanie wdrożenia SAP poprzez tworzenie na żądanie kopii środowiska przypominającej środowisko produkcyjne, co umożliwia testowanie i debugowanie aplikacji.
+* Uprość uaktualnienia, testowanie i tworzenie prototypów projektu SAP, tworząc na żądanie klony środowiska produkcyjnego na potrzeby testowania aplikacji SAP.
 
-[Dowiedz się więcej](http://aka.ms/asr-sap) o ochronie systemu SAP.
+[Dowiedz się więcej](site-recovery-sap.md) o ochronie systemu SAP.
 
 ## <a name="protect-iis"></a>Ochrona usług IIS
 Z usługi Site Recovery można korzystać, aby zabezpieczyć wdrożenie usług IIS w następujący sposób:
@@ -152,11 +152,11 @@ Aby chronić wdrożenia programów Citrix XenApp i XenDesktop, korzystaj z usłu
 * Włącz ochronę wdrożenia programów Citrix XenApp i XenDesktop przez replikowanie różnych warstw wdrożenia (serwer AD DNS, serwer bazy danych SQL, kontroler dostarczania Citrix, serwer StoreFront, XenApp Master (VDA), serwer licencji Citrix XenApp) do platformy Azure.
 * Skorzystaj z uproszczenia migracji do chmury, używając usługi Site Recovery do migrowania wdrożenia programów Citrix XenApp i XenDesktop do platformy Azure.
 * Ułatw projektowanie i testowanie wdrożenia Citrix XenApp/XenDesktop przez tworzenie na żądanie kopii środowiska przypominającej środowisko produkcyjne, co umożliwia testowanie i debugowanie.
-* To rozwiązanie ma zastosowanie tylko w przypadku pulpitów wirtualnych systemu operacyjnego Windows Server, a nie pulpitów wirtualnych klientów, ponieważ pulpity wirtualne klienta nie są jeszcze obsługiwane w przypadku licencjonowania na platformie Azure. 
+* To rozwiązanie ma zastosowanie tylko w przypadku pulpitów wirtualnych systemu operacyjnego Windows Server, a nie pulpitów wirtualnych klientów, ponieważ pulpity wirtualne klienta nie są jeszcze obsługiwane w przypadku licencjonowania na platformie Azure.
 [Dowiedz się więcej](https://azure.microsoft.com/pricing/licensing-faq/) na temat licencjonowania dla komputerów stacjonarnych klienta/serwera na platformie Azure.
 
-[Dowiedz się więcej](site-recovery-citrix-xenapp-and-xendesktop.md) na temat chronienia wdrożeń programów Citrix XenApp i XenDesktop. Możesz też zapoznać się z [oficjalnym dokumentem firmy Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) poświęconym tym samym zagadnieniom. 
+[Dowiedz się więcej](site-recovery-citrix-xenapp-and-xendesktop.md) na temat chronienia wdrożeń programów Citrix XenApp i XenDesktop. Możesz też zapoznać się z [oficjalnym dokumentem firmy Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) poświęconym tym samym zagadnieniom.
 
 ## <a name="next-steps"></a>Następne kroki
-[Sprawdzanie wymagań wstępnych](site-recovery-prereq.md) 
+[Sprawdzanie wymagań wstępnych](site-recovery-prereq.md)
 
