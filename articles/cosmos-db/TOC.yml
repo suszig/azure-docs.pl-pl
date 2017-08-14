@@ -105,9 +105,6 @@
       href: consistency-levels.md
     - name: Przepływność
       href: request-units.md
-      items:
-        - name: Jednostki żądania na minutę
-          href: request-units-per-minute.md
     - name: Interfejsy API wielomodelowe
       items:
         - name: DocumentDB

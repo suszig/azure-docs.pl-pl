@@ -10,19 +10,19 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Współużytkowanie zasobów między źródłami](cdn-cors.md)
+### [Mapowanie domeny niestandardowej do sieci CDN](cdn-map-content-to-custom-domain.md)
+### [Włączanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
 ## Optymalizowanie zawartości
 ### [Omówienie optymalizacji](cdn-optimization-overview.md)
 ####[Optymalizacja dużych plików](cdn-large-file-optimization.md)
 ####[Optymalizacja przesyłania strumieniowego multimediów](cdn-media-streaming-optimization.md)
 ####[Przyspieszanie witryn dynamicznych](cdn-dynamic-site-acceleration.md)
  
-## Zarządzaj
-### [Włączanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
+## Zarządzanie
 ### [Zarządzanie przy użyciu programu PowerShell](cdn-manage-powershell.md)
 ### Konfigurowanie czasu wygaśnięcia
 #### [Zawartość usług Web Apps/Cloud Services, ASP.NET lub IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Zawartość usługi Storage Blob](cdn-manage-expiration-of-blob-content.md)
-### [Mapowanie domeny niestandardowej do sieci CDN](cdn-map-content-to-custom-domain.md)
 ### [Ograniczanie dostępu według kraju](cdn-restrict-access-by-country.md)
 ### [Poprawianie wydajności poprzez kompresowanie plików](cdn-improve-performance.md)
 ### Buforowanie zawartości według ciągu zapytania
