@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: cbb67ef92386a6288b3317bf77ebb67f15ce7fb2
 ms.contentlocale: pl-pl
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu portalu Azure
@@ -79,6 +79,7 @@ Aby przesłać strumieniowo pliki wideo przy użyciu usługi Azure Media Service
 Po zakończeniu przekazywania na liście w oknie **Elementy zawartości** pojawi się nowy element zawartości. 
 
 ## <a name="encode-assets"></a>Kodowanie elementów zawartości
+
 Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest zapewnianie klientom przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje następujące technologie przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH. Aby przygotować pliki wideo do przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów, należy zakodować źródłowy plik wideo do plików o różnej szybkości transmisji bitów. Do kodowania plików wideo należy używać kodera **Media Encoder Standard**.  
 
 Usługa Media Services udostępnia również funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać pliki MP4 o różnej szybkości transmisji bitów w formatach przesyłania strumieniowego MPEG DASH, HLS i Smooth Streaming bez konieczności ponownego tworzenia pakietów w tych formatach. Dzięki funkcji dynamicznego tworzenia pakietów wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services skompiluje oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
@@ -91,7 +92,7 @@ W tej sekcji opisano kroki, które należy wykonać w celu zakodowania zawartoś
 1. W oknie **Ustawienia** wybierz opcję **Elementy zawartości**.  
 2. W oknie **Elementy zawartości** wybierz element zawartości, który chcesz kodować.
 3. Kliknij przycisk **Koduj**.
-4. W oknie **Kodowanie elementu zawartości** wybierz procesor „Media Encoder Standard” oraz ustawienie wstępne. Na przykład: jeśli wejściowy plik wideo ma rozdzielczość 1920 x 1080 pikseli, można użyć ustawienia wstępnego „Wielokrotna szybkość transmisji bitów H264 1080p”. Aby uzyskać więcej informacji dotyczących ustawień wstępnych, zobacz [ten artykuł](media-services-mes-presets-overview.md) — ważne jest, aby wybrać ustawienie wstępne, które jest najbardziej odpowiednie dla wejściowego pliku wideo. Jeśli wideo jest w niskiej rozdzielczości (640 x 360), nie używaj ustawienia wstępnego „Wielokrotna szybkość transmisji bitów H264 1080p”.
+4. W oknie **Kodowanie elementu zawartości** wybierz procesor „Media Encoder Standard” oraz ustawienie wstępne. Aby uzyskać informacje o ustawieniach wstępnych, zobacz [Automatyczne generowanie drabiny szybkości transmisji bitów](media-services-autogen-bitrate-ladder-with-mes.md) i [Ustawienia wstępne zadań usługi MES](media-services-mes-presets-overview.md). Jeśli zamierzasz kontrolować, które ustawienie wstępne jest używane, pamiętaj, aby wybrać ustawienie wstępne, które jest najbardziej odpowiednie dla danego wejściowego pliku wideo. Na przykład: jeśli wejściowy plik wideo ma rozdzielczość 1920 x 1080 pikseli, można użyć ustawienia wstępnego „Wielokrotna szybkość transmisji bitów H264 1080p”. Jeśli wideo jest w niskiej rozdzielczości (640 x 360), nie używaj ustawienia wstępnego „Wielokrotna szybkość transmisji bitów H264 1080p”.
    
    Aby ułatwić zarządzanie istnieje możliwość edytowania nazwy wyjściowego elementu zawartości oraz nazwy zadania.
    
@@ -155,6 +156,7 @@ Kliknij wybrany plik wideo, a następnie kliknij przycisk **Odtwórz**.
 
 Zagadnienia do rozważenia:
 
+* Aby rozpocząć przesyłanie strumieniowe, uruchom **domyślny** punkt końcowy przesyłania strumieniowego.
 * Zadbaj o to, aby film wideo został opublikowany.
 * Ten **odtwarzacz multimediów** odtwarza z domyślnego punktu końcowego przesyłania strumieniowego. Aby odtworzyć z punktu końcowego przesyłania strumieniowego innego niż domyślny, kliknij, aby skopiować adres URL i użyć innego odtwarzacza (np. [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)).
 

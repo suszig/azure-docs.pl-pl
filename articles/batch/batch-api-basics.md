@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
@@ -98,17 +98,18 @@ Aby zdecydować, którego trybu alokacji pul użyć, rozważ, który najlepiej p
 
 W poniższej tabeli przedstawiono porównanie trybów alokacji puli Usługa Batch i Subskrypcja użytkownika.
 
-| **Tryb alokacji puli:**                 | **Usługa Batch**                                                                                       | **Subskrypcja użytkownika**                                                              |
+| **Tryb alokacji puli**                 | **Usługa Batch**                                                                                       | **Subskrypcja użytkownika**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Lokalizacja przydzielania puli:**               | Subskrypcja zarządzana przez platformę Azure                                                                           | Subskrypcja użytkownika, w której utworzono konto usługi Batch                        |
-| **Obsługiwane konfiguracje:**             | <ul><li>Konfiguracja usługi w chmurze</li><li>Konfiguracja maszyny wirtualnej (Linux i Windows)</li></ul> | <ul><li>Konfiguracja maszyny wirtualnej (Linux i Windows)</li></ul>                |
-| **Obsługiwane obrazy maszyn wirtualnych:**                  | <ul><li>Obrazy z witryny Azure Marketplace</li></ul>                                                              | <ul><li>Obrazy z witryny Azure Marketplace</li><li>Obrazy niestandardowe</li></ul>                   |
-| **Obsługiwane typy węzłów obliczeniowych:**         | <ul><li>Węzły dedykowane</li><li>Węzły o niskim priorytecie</li></ul>                                            | <ul><li>Węzły dedykowane</li></ul>                                                  |
-| **Obsługiwane uwierzytelnianie:**             | <ul><li>Klucz wspólny</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Lokalizacja przydzielania puli**               | Subskrypcja zarządzana przez platformę Azure                                                                           | Subskrypcja użytkownika, w której utworzono konto usługi Batch                        |
+| **Obsługiwane konfiguracje**             | <ul><li>Konfiguracja usługi w chmurze</li><li>Konfiguracja maszyny wirtualnej (Linux i Windows)</li></ul> | <ul><li>Konfiguracja maszyny wirtualnej (Linux i Windows)</li></ul>                |
+| **Obsługiwane obrazy maszyn wirtualnych**                  | <ul><li>Obrazy z witryny Azure Marketplace</li></ul>                                                              | <ul><li>Obrazy z witryny Azure Marketplace</li><li>Obrazy niestandardowe</li></ul>                   |
+| **Obsługiwane typy węzłów obliczeniowych**         | <ul><li>Węzły dedykowane</li><li>Węzły o niskim priorytecie</li></ul>                                            | <ul><li>Węzły dedykowane</li></ul>                                                  |
+| **Obsługiwane uwierzytelnianie**             | <ul><li>Klucz wspólny</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
 | **Magazyn Azure Key Vault jest wymagany**             | Nie                                                                                                      | Tak                                                                                |
-| **Limit przydziału rdzeni:**                           | Ustalany zgodnie z limitem przydziału rdzeni usługi Batch                                                                          | Ustalany zgodnie z limitem przydziału rdzeni subskrypcji                                              |
-| **Obsługa sieci Azure Virtual Network (VNet):** | Pule utworzone za pomocą konfiguracji usługi w chmurze                                                      | Pule utworzone za pomocą konfiguracji maszyny wirtualnej                               |
-| **Obsługiwany model wdrożenia sieci wirtualnej:**      | Sieci wirtualne utworzone przy użyciu klasycznego modelu wdrażania                                                             | Sieci wirtualne utworzone przy użyciu klasycznego modelu wdrażania lub usługi Azure Resource Manager |
+| **Limit przydziału rdzeni**                           | Ustalany zgodnie z limitem przydziału rdzeni usługi Batch                                                                          | Ustalany zgodnie z limitem przydziału rdzeni subskrypcji                                              |
+| **Obsługa sieci Azure Virtual Network (VNet)** | Pule utworzone za pomocą konfiguracji usługi w chmurze                                                      | Pule utworzone za pomocą konfiguracji maszyny wirtualnej                               |
+| **Obsługiwany model wdrożenia sieci wirtualnej**      | Sieci wirtualne utworzone przy użyciu klasycznego modelu wdrażania                                                             | Sieci wirtualne utworzone przy użyciu klasycznego modelu wdrażania lub usługi Azure Resource Manager |
+
 ## <a name="azure-storage-account"></a>Konto usługi Azure Storage
 
 Większość rozwiązań partii usługi Batch używa usługi Azure Storage do przechowywania plików zasobów i plików wyjściowych.  
@@ -171,6 +172,8 @@ Podczas tworzenia puli usługi Batch można określić konfigurację maszyny wir
     * Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services można określić *wersję systemu operacyjnego* (więcej informacji o rolach procesów roboczych można znaleźć w sekcji [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) (Więcej informacji o usługach Cloud Services) w temacie [Compute Hosting Options Provided by Azure](../cloud-services/cloud-services-choose-me.md) (Opcje hostingu obliczeniowego dostępne na platformie Azure)).
     * Tak samo jak w przypadku ról procesów roboczych zaleca się określenie `*` dla *wersji systemu operacyjnego*, aby węzły były uaktualniane automatycznie, a niedawno wydane wersje nie wymagały żadnej pracy. Podstawowym warunkiem wybrania określonej wersji systemu operacyjnego jest upewnienie się, czy została zachowana zgodność aplikacji, przez zezwolenie na testowanie zgodności z poprzednimi wersjami przed zezwoleniem na aktualizację wersji. Po zakończeniu walidacji można zaktualizować *wersję systemu operacyjnego* dla puli i zainstalować nowy obraz systemu operacyjnego — wszystkie uruchomione zadania podrzędne zostaną przerwane i ponownie umieszczone w kolejce.
 
+W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId**w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Aby uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła do ich odwołań obrazu systemu operacyjnego, można wywołać operację [Tworzenie listy obsługiwanych jednostek SKU agenta węzła](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+
 Zobacz sekcję [Account (Konto)](#account), aby uzyskać informacje na temat ustawiania trybu alokacji puli podczas tworzenia konta usługi Batch.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Niestandardowe obrazy dla pul usługi Virtual Machines
@@ -195,8 +198,6 @@ Upewnij się, że konta magazynu spełniają następujące kryteria:
 - Obecnie są obsługiwane tylko standardowe konta magazynu ogólnego przeznaczenia. Usługa Azure Premium Storage będzie obsługiwana w przyszłości.
 - Możesz określić jedno konto magazynu z wieloma niestandardowymi obiektami blob dysku VHD lub wiele kont magazynu, każde z pojedynczym obiektem blob. W celu uzyskania lepszej wydajności zalecamy użycie wielu kont magazynu.
 - Jeden unikatowy obiekt blob obrazu niestandardowego dysku VHD może obsługiwać maksymalnie 40 wystąpień maszyny wirtualnej z systemem Linux lub 20 wystąpień maszyny wirtualnej z systemem Windows. Trzeba utworzyć kopie obiektu blob dysku VHD, aby utworzyć pule z większą liczbą maszyn wirtualnych. Na przykład pula 200 maszyn wirtualnych z systemem Windows wymaga określenia 10 unikatowych obiektów blob dysku VHD we właściwości **osDisk**.
-
-W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId**w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Aby uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła do ich odwołań obrazu systemu operacyjnego, można wywołać operację [Tworzenie listy obsługiwanych jednostek SKU agenta węzła](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
 
 Aby utworzyć pule na podstawie obrazu niestandardowego za pomocą witryny Azure Portal:
 

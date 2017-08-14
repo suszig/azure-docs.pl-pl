@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 08/01/2017
 ms.author: kaanan
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 742621fc71cc45a30628b1a4cb01d5c644766b77
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: d254a72116bbd8b1cbe19269f7c1e0ba98a45e3c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
@@ -95,7 +95,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **Jisc** |Obsługiwane |Obsługiwane |Londyn |
 | **KINX** |Obsługiwane |Obsługiwane |Seul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Obsługiwane | Obsługiwane | Amsterdam | 
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Obsługiwane |Obsługiwane |Amsterdam, Chicago, Dallas, Dolina Krzemowa, Las Vegas+, Londyn, Sao Paulo, Seattle, Singapur, Waszyngton |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Obsługiwane |Obsługiwane |Amsterdam, Chicago, Dallas, Dolina Krzemowa, Las Vegas, Londyn, Sao Paulo, Seattle, Singapur, Waszyngton |
 | **LG CNS** |Obsługiwane |Obsługiwane |Pusan |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Obsługiwane |Obsługiwane |Amsterdam, Chicago, Dallas, Dolina Krzemowa, Hongkong, Las Vegas, Londyn, Los Angeles, Melbourne, Miami, Miasto Quebec, Nowy Jork, San Antonio, Seattle, Singapur, Sydney, Toronto, Waszyngton |
 | **MTN** |Obsługiwane |Obsługiwane |Londyn |
@@ -149,6 +149,7 @@ Więcej informacji znajduje się w artykule [ExpressRoute in China](http://www.w
 | **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Obsługiwane |Nieobsługiwane |Berlin |
 | **Interxion** |Obsługiwane |Nieobsługiwane |Frankfurt |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Obsługiwane  | Nieobsługiwane | Berlin |
+| **T-Systems** |Obsługiwane |Nieobsługiwane |Berlin |
 
 ## <a name="connectivity-through-exchange-providers"></a>Łączność za pośrednictwem dostawców usług Exchange
 

@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji sieci Web
@@ -25,10 +26,13 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 W tym temacie pokazano, jak używać usługi Azure Mobile Engagement, aby zrozumieć Twój sposób użycia aplikacji sieci Web.
 
+> [!NOTE]
+> Usługa Azure Mobile Engagement zostanie wycofana w marcu 2018 r. i jest obecnie dostępna wyłącznie dla dotychczasowych klientów. Aby uzyskać więcej informacji, zobacz [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
 Dla tego samouczka wymagane są następujące elementy:
 
 * Visual Studio 2015 lub dowolny inny edytor
-* [Zestaw SDK sieci Web](http://aka.ms/P7b453) 
+* [Zestaw SDK sieci Web](http://aka.ms/P7b453)
 
 Ten zestaw SDK sieci Web jest w wersji Preview i w tej chwili obsługuje tylko analizę, natomiast nie obsługuje jeszcze wysyłania powiadomień wypychanych w przeglądarce ani w aplikacji. 
 
@@ -40,7 +44,7 @@ Ten zestaw SDK sieci Web jest w wersji Preview i w tej chwili obsługuje tylko a
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji sieci Web
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych.
 
 Utworzymy podstawową aplikację sieci Web w programie Visual Studio, aby zademonstrować integrację, ale kolejne czynności można również wykonać za pomocą dowolnej aplikacji sieci Web utworzonej poza programem Visual Studio. 
@@ -114,10 +118,5 @@ Oto wszystkie metody dostępne obecnie w zestawie SDK sieci Web, których można
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

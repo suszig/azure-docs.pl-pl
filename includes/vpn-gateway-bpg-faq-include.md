@@ -15,6 +15,11 @@ Tak, następujące numery ASN są zarezerwowane przez platformę Azure zarówno 
 
 Tych numerów ASN nie można określać dla lokalnych urządzeń sieci VPN podczas nawiązywania połączenia z bramami sieci VPN platformy Azure.
 
+### <a name="are-there-any-other-asns-that-i-cant-use"></a>Czy istnieją inne numery ASN, których nie mogę używać?
+Tak, następujące numery ASN zostały [zarezerwowane przez organizację IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) i nie można ich skonfigurować w usłudze Azure VPN Gateway:
+
+23456, 64496-64511, 65535–65551 i 429496729
+
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Czy można użyć tego samego numeru ASN zarówno dla lokalnych sieci VPN, jak sieci wirtualnych platformy Azure?
 Nie, należy przypisać różne numery ASN sieciom lokalnym i sieciom wirtualnym platformy Azure, jeśli są łączone za pomocą protokołu BGP. Bramy sieci VPN platformy Azure mają przypisany domyślny numer ASN 65515, niezależnie od tego, czy protokół BGP jest włączony dla łączności między różnymi lokalizacjami firmy. Można zastąpić to ustawienie domyślne, przypisując inny numer ASN podczas tworzenia bramy sieci VPN, lub zmienić numer ASN po utworzeniu bramy. Konieczne będzie przypisanie lokalnych numerów ASN do odpowiednich bram sieci lokalnej platformy Azure.
 

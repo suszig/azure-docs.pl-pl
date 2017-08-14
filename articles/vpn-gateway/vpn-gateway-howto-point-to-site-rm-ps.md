@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 27484932f13a85bef29b7a19b4f06b75722b4c38
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6d9e43640c4f9c9c37e7ce721213755fa3a8c388
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-powershell"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania certyfikatu: PowerShell
@@ -199,7 +199,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="clientconfig"></a>6 — Pobieranie pakietu konfiguracyjnego klienta VPN
 
-Aby nawiązać połączenie z siecią wirtualną przy użyciu połączenia sieci VPN typu punkt-lokacja, na każdym kliencie trzeba zainstalować pakiet do konfiguracji natywnego klienta sieci VPN systemu Windows. Pakiet konfiguracji konfiguruje natywnego klienta sieci VPN systemu Windows przy użyciu ustawień niezbędnych do nawiązania połączenia z siecią wirtualną i, jeśli został określony serwer DNS dla sieci wirtualnej, zawiera adres IP serwera DNS, którego klient będzie używać do rozpoznawania nazw. Jeśli określony serwer DNS zmienisz później, po wygenerowaniu pakietu konfiguracji klienta, pamiętaj, aby wygenerować nowy pakiet konfiguracji klienta do zainstalowania na Twoich komputerach klienckich.
+Aby nawiązać połączenie z siecią wirtualną przy użyciu połączenia sieci VPN typu punkt-lokacja, na każdym kliencie trzeba zainstalować pakiet do konfiguracji natywnego klienta sieci VPN systemu Windows. Pakiet konfiguracji powoduje skonfigurowanie natywnego klienta sieci VPN systemu Windows za pomocą ustawień koniecznych do łączenia się z siecią wirtualną.
 
 Tego samego pakietu konfiguracji klienta VPN można użyć na każdym komputerze klienckim, o ile wersja jest zgodna z architekturą dla klienta. Lista obsługiwanych systemów operacyjnych klienta znajduje się w sekcji [Często zadawane pytania dotyczące połączeń typu punkt-lokacja](#faq) na końcu tego artykułu.
 

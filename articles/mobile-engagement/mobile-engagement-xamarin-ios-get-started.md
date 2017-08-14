@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 9938c3e994acf31244825b1afb347f8c9f90ebe3
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Rozpoczynanie pracy z usługą Azure Mobile Engagement na potrzeby aplikacji platformy Xamarin.iOS
@@ -25,6 +26,9 @@ ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
 
 W tym temacie pokazano, jak za pomocą usługi Azure Mobile Engagement można określić sposób użycia aplikacji oraz wysyłać powiadomienia wypychane do segmentowanych użytkowników aplikacji platformy Xamarin.iOS.
 W tym samouczku zostanie utworzona pusta aplikacja platformy Xamarin.iOS służąca do zbierania danych podstawowych i odbierania powiadomień wypychanych przy użyciu systemu Apple Push Notification System (APNS).
+
+> [!NOTE]
+> Usługa Azure Mobile Engagement zostanie wycofana w marcu 2018 r. i jest obecnie dostępna wyłącznie dla dotychczasowych klientów. Aby uzyskać więcej informacji, zobacz [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 Dla tego samouczka wymagane są następujące elementy:
 
@@ -36,10 +40,10 @@ Dla tego samouczka wymagane są następujące elementy:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
+## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych i wysyłania powiadomień wypychanych.
 
 Aby zademonstrować integrację, utworzona zostanie podstawowa aplikacja za pomocą platformy Xamarin:
@@ -83,7 +87,7 @@ Za pomocą platformy Xamarin Studio zostanie utworzona aplikacja demonstracyjna,
                     };
         EngagementAgent.Init (config);
 
-## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
+## <a id="monitor"></a>Włączanie monitorowania w czasie rzeczywistym
 Aby rozpocząć wysyłanie danych i sprawdzić, czy użytkownicy są aktywni, konieczne jest wysłanie co najmniej jednego ekranu do zaplecza usługi Mobile Engagement.
 
 1. Otwórz plik **ViewController.cs** i dodaj następującą instrukcję using:
@@ -91,10 +95,10 @@ Aby rozpocząć wysyłanie danych i sprawdzić, czy użytkownicy są aktywni, ko
         using Microsoft.Azure.Engagement.Xamarin;
 2. Zastąp klasy, w których klasa `ViewController` dziedziczy z klasy `UIViewController`, klasą `EngagementViewController`. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
+## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 Usługa Mobile Engagement umożliwia wchodzenie w interakcję z użytkownikami i modułem REACH przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
 W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 
@@ -158,9 +162,4 @@ W poniższych sekcjach aplikacja zostanie skonfigurowana do ich odbierania.
 [6]: ./media/mobile-engagement-xamarin-ios-get-started/add-nuget-azme.png
 [7]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-confirm-bundle.png
 [8]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-configure-push.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: dd405eefbd69e1ed2268152017bc1f9992619c5f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started"> </a>Czym jest usługa Mobile Apps?
-Usługa Azure App Service to w pełni zarządzana [platforma jako usługa](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) — oferta dla deweloperów z bogatym zestawem funkcji na potrzeby scenariuszy obejmujących sieć Web, pracę mobilną i dotyczących integracji. Usługa *Mobile Apps* w *Usługa aplikacji Azure* oferuje wysoce skalowalną, globalnie dostępną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych.
+Usługa Azure App Service to w pełni zarządzana [platforma jako usługa](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) — oferta dla deweloperów z bogatym zestawem funkcji na potrzeby scenariuszy obejmujących Internet, pracę mobilną i integrację. Funkcja *Mobile Apps* w *Usługa aplikacji Azure* oferuje wysoce skalowalną, globalnie dostępną platformę tworzenia aplikacji mobilnych dla deweloperów w przedsiębiorstwach i integratorów systemów. Platforma ta oferuje bogaty zestaw funkcji dla deweloperów aplikacji mobilnych.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
@@ -50,7 +50,7 @@ Następujące funkcje są ważnymi elementami tworzenia aplikacji mobilnych z ob
 * **Zestawy SDK klientów** — oferujemy kompletny pakiet zestawów SDK klientów, które obsługują tworzenie aplikacji natywnych ([iOS], [Android] i [Windows]), międzyplatformowych ([Xamarin dla systemów iOS i Android], [Xamarin Forms]) i hybrydowych ([Apache Cordova]).  Każdy zestaw SDK klienta jest dostępny z licencją MIT i jest rozwiązaniem typu open source.
 
 ## <a name="azure-app-service-features"></a>Funkcje usługi App Service.
-Poniższe funkcje platformy są zazwyczaj przydatne w przypadku witryn produkcyjnych aplikacji mobilnych.
+Poniższe funkcje platformy są przydatne w przypadku witryn produkcyjnych aplikacji mobilnych.
 
 * **Automatyczne skalowanie** — usługa App Service pozwala szybko skalować w górę lub w poziomie, a co za tym idzie — obsługiwać dowolne przychodzące obciążenia klientów. Ręcznie wybierz liczbę i rozmiar maszyn wirtualnych lub skonfiguruj automatyczne skalowanie, aby skalować zaplecze aplikacji mobilnej w oparciu o obciążenie lub harmonogram.
 
@@ -64,7 +64,7 @@ Poniższe funkcje platformy są zazwyczaj przydatne w przypadku witryn produkcyj
 * **Praca w sieci wirtualnej** — usługa App Service może nawiązywać połączenia z zasobami lokalnymi przy użyciu sieci wirtualnej, programu ExpressRoute lub połączeń hybrydowych.
 
   Dowiedz się więcej na temat [połączenia hybrydowe], [sieci wirtualnych] i [ExpressRoute].
-* **Środowiska izolowane/specjalne** — usługę App Service można uruchamiać w specjalnym, w pełni izolowanym środowisku, aby bezpiecznie pracować z aplikacjami usługi App Service na dużą skalę.  Jest to idealne rozwiązanie w przypadku obciążeń aplikacji wymagających bardzo dużej skali, izolacji lub bezpiecznego dostępu do sieci.
+* **Środowiska izolowane/specjalne** — usługę App Service można uruchamiać w specjalnym, w pełni izolowanym środowisku, aby bezpiecznie pracować z aplikacjami usługi App Service na dużą skalę.  Jest to idealne rozwiązanie w przypadku obciążeń aplikacji wymagających dużej skali, izolacji lub bezpiecznego dostępu do sieci.
 
   Dowiedz się więcej na temat [Środowiska usługi App Service].
 
@@ -73,11 +73,6 @@ Aby rozpocząć pracę z usługą Mobile Apps, wykonaj kroki samouczka [Wprowadz
 
 Aby uzyskać więcej informacji o usłudze Azure Mobile Apps, zapoznaj się z naszą [mapą nauki].
 Aby uzyskać więcej informacji o platformie Azure App Service, zobacz artykuł [Usługa aplikacji Azure].
-
-> [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/mobile/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
->
->
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

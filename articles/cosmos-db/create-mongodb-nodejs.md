@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 06/19/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: d1b887e68b1040ea9340235cd215028300c14fac
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: a26477d692cc98ed16c195233ade5434cc536a36
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: migracja istniejącej aplikacji sieci Web MongoDB w środowisku Node.js 
@@ -101,6 +101,9 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Parametr `--kind MongoDB` umożliwia tworzenie połączeń klienckich MongoDB.
 
 Po utworzeniu konta usługi Azure Cosmos DB w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących. 
+
+> [!NOTE]
+> W tym przykładzie format JSON jest używany jako format wyjściowy interfejsu wiersza polecenia platformy Azure. Jest to ustawienie domyślne. Aby użyć innego formatu wyjściowego, zobacz [Formaty danych wyjściowych dla poleceń interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
 
 ```json
 {

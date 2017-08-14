@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 6735049b6068d9afe192b6ea4450e970fcf5f7d4
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6b0faf24963c6055ce7c54b9d46b5aa0851f40b2
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania certyfikatu (klasyczna): Azure Portal
@@ -95,7 +95,7 @@ Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją. Zamieszczone zrzuty ekran
 
   ![Kafelek tworzenia sieci wirtualnej](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. Po utworzeniu sieci wirtualnej w obszarze **Stan** na stronie sieci w klasycznej witrynie Azure Portal będzie widoczna wartość **Utworzona**.
-11. Dodaj serwer DNS (opcjonalnie). Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS na potrzeby rozpoznawania nazw. Określony serwer DNS powinien być tym, który może rozpoznawać nazwy dla zasobów w sieci wirtualnej.<br>Aby dodać serwer DNS, otwórz ustawienia dla swojej sieci wirtualnej, kliknij serwery DNS i dodaj adres IP serwera DNS, którego chcesz użyć. Pakiet konfiguracji klienta generowany w późniejszym kroku zawiera adresy IP serwerów DNS określonych w tym ustawieniu. Jeśli w przyszłości okaże się konieczne zaktualizowanie listy serwerów DNS, można wygenerować i zainstalować nowe pakiety konfiguracji klienta sieci VPN odzwierciedlające zaktualizowaną listę.
+11. Dodaj serwer DNS (opcjonalnie). Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS na potrzeby rozpoznawania nazw. Określony adres IP serwera DNS powinien rozpoznawać nazwy zasobów w sieci wirtualnej.<br>Aby dodać serwer DNS, otwórz ustawienia dla swojej sieci wirtualnej, kliknij serwery DNS i dodaj adres IP serwera DNS, którego chcesz użyć.
 
 ### <a name="gateway"></a>Część 2. Tworzenie podsieci bramy i bramy o dynamicznym routingu
 
@@ -161,7 +161,7 @@ Po utworzeniu bramy możesz przekazać plik cer (który zawiera informacje o klu
 
 ## <a name="vpnclientconfig"></a>Sekcja 4 — Konfigurowanie klienta
 
-Aby nawiązać połączenie z siecią wirtualną przy użyciu połączenia sieci VPN typu punkt-lokacja, na każdym kliencie trzeba zainstalować pakiet do konfiguracji natywnego klienta sieci VPN systemu Windows. Pakiet konfiguracji konfiguruje natywnego klienta sieci VPN systemu Windows przy użyciu ustawień niezbędnych do nawiązania połączenia z siecią wirtualną i, jeśli został określony serwer DNS dla sieci wirtualnej, zawiera adres IP serwera DNS, którego klient będzie używać do rozpoznawania nazw. Jeśli określony serwer DNS zmienisz później, po wygenerowaniu pakietu konfiguracji klienta, pamiętaj, aby wygenerować nowy pakiet konfiguracji klienta do zainstalowania na Twoich komputerach klienckich.
+Aby nawiązać połączenie z siecią wirtualną przy użyciu połączenia sieci VPN typu punkt-lokacja, na każdym kliencie trzeba zainstalować pakiet do konfiguracji natywnego klienta sieci VPN systemu Windows. Pakiet konfiguracji powoduje skonfigurowanie natywnego klienta sieci VPN systemu Windows za pomocą ustawień koniecznych do łączenia się z siecią wirtualną.
 
 Tego samego pakietu konfiguracji klienta VPN można użyć na każdym komputerze klienckim, o ile wersja jest zgodna z architekturą dla klienta. Lista obsługiwanych systemów operacyjnych klienta znajduje się w sekcji [Często zadawane pytania dotyczące połączeń typu punkt-lokacja](#faq) na końcu tego artykułu.
 

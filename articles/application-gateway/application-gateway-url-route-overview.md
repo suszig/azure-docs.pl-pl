@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 4b649379ce41a4d6cea93b42fc492fdc0940e689
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="url-path-based-routing-overview"></a>Routing oparty na ścieżkach URL — omówienie
@@ -33,7 +32,10 @@ W poniższym przykładzie usługa Application Gateway obsługuje ruch dla domeny
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Żądania dla adresu http://contoso.com/video* są kierowane do puli VideoServerPool, a dla adresu http://contoso.com/images* — ImageServerPool. Pula DefaultServerPool jest wybierana, jeśli żaden z wzorców ścieżki nie pasuje.
-    
+
+> [!IMPORTANT]
+> Reguły są przetwarzane w kolejności, w jakiej znajdują się na liście w portalu. Zdecydowanie zaleca się skonfigurowanie odbiorników obejmujących wiele lokacji przed skonfigurowaniem podstawowego odbiornika.  Zapewnia to skierowanie ruchu do odpowiedniego zaplecza. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
+
 ## <a name="urlpathmap-configuration-element"></a>Element konfiguracji UrlPathMap
 
 Element urlPathMap jest używany do określania wzorców ścieżki na potrzeby mapowań pul serwerów zaplecza. Poniższy przykład kodu jest fragmentem elementu urlPathMap z pliku szablonu.
@@ -68,7 +70,7 @@ Element urlPathMap jest używany do określania wzorców ścieżki na potrzeby m
 ```
 
 > [!NOTE]
-> PathPattern: to ustawienie to lista wzorców ścieżek, które trzeba dopasować. Każdy wzorzec musi zaczynać się od znaku „/”, a znak gwiazdki „*” jest dozwolony jedynie na końcu po znaku „/”. Ciąg przekazywany do narzędzia dopasowywania ścieżki nie zawiera żadnego tekstu po pierwszym znaku „?” lub „#” i te znaki nie są tu dozwolone.
+> PathPattern: to ustawienie to lista wzorców ścieżek, które trzeba dopasować. Każdy wzorzec musi rozpoczynać się od znaku „/”, a znak gwiazdki „*” jest dozwolony jedynie na końcu po znaku „/”. Ciąg przekazywany do narzędzia dopasowywania ścieżki nie zawiera żadnego tekstu po pierwszym znaku „?” lub „#” i te znaki nie są tu dozwolone.
 
 Aby uzyskać więcej informacji, zobacz [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) (Szablon usługi Resource Manager korzystający z routingu opartego na adresach URL).
 
