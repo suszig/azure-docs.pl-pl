@@ -14,23 +14,23 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
-ms.lasthandoff: 12/07/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: df3bbda15e1245b6068c2b8290d0c96856051f1f
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Rozpoczynanie pracy z usługą Azure Notification Hubs przy użyciu usługi Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
-Powiadomienia wypychane w chmurze Baidu to chińska usługa w chmurze służąca do wysyłania powiadomień wypychanych do urządzeń przenośnych. Ta usługa jest szczególnie przydatna w Chinach, gdzie dostarczanie powiadomień wypychanych do urządzeń z systemem Android jest złożone z powodu istnienia różnych sklepów z aplikacjami i usług powiadomień wypychanych oraz dostępności urządzeń z systemem Android, które zwykle nie są podłączone do usługi GCM (Google Cloud Messaging).
+Powiadomienia wypychane w chmurze Baidu to chińska usługa w chmurze służąca do wysyłania powiadomień wypychanych do urządzeń przenośnych. Ta usługa jest przydatna w Chinach, gdzie dostarczanie powiadomień wypychanych do urządzeń z systemem Android jest złożone z powodu istnienia różnych sklepów z aplikacjami i usług powiadomień wypychanych oraz dostępności urządzeń z systemem Android, które zwykle nie są połączone z usługą GCM (Google Cloud Messaging).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Dla tego samouczka wymagane są następujące elementy:
 
-* Zestaw SDK systemu Android (założono, że używany jest program Eclipse), który można pobrać z <a href="http://go.microsoft.com/fwlink/?LinkId=389797">witryny systemu Android</a>
+* Zestaw Android SDK (założono, że jest używany program Eclipse), który można pobrać z <a href="http://go.microsoft.com/fwlink/?LinkId=389797">witryny systemu Android</a>
 * [Zestaw SDK usługi Mobile Services dla systemu Android]
 * [Zestaw SDK systemu Android dla powiadomień wypychanych w usłudze Baidu]
 
@@ -70,7 +70,7 @@ Po aktywowaniu konta usługi Baidu zaloguj się do [portalu Baidu].
 4. Na następnej stronie kliknij pozycję **注册开发者** (**Zarejestrowani deweloperzy**) w menu w prawym górnym rogu.
    
       ![][8]
-5. Wprowadź imię i nazwisko, opis oraz numer telefonu komórkowego do odebrania weryfikacyjnej wiadomości tekstowej, a następnie kliknij pozycję **送验证码** (**Wyślij kod weryfikacyjny**). Pamiętaj, że w przypadku międzynarodowych numerów telefonów należy dołączyć kod kraju w nawiasie. Na przykład numer dla Stanów Zjednoczonych będzie mieć postać **(1)1234567890**.
+5. Wprowadź imię i nazwisko, opis oraz numer telefonu komórkowego do odebrania weryfikacyjnej wiadomości tekstowej, a następnie kliknij pozycję **送验证码** (**Wyślij kod weryfikacyjny**). W przypadku międzynarodowych numerów telefonów należy dołączyć kod kraju w nawiasie. Na przykład numer dla Stanów Zjednoczonych ma postać **(1)1234567890**.
    
       ![][9]
 6. Otrzymasz wiadomość tekstową zawierającą numer weryfikacyjny, jak przedstawiono w poniższym przykładzie:
@@ -355,13 +355,13 @@ Zostanie wyświetlony komunikat **保存成功！** (**Zapisano pomyślnie!**).
             import com.baidu.android.pushservice.PushManager;
 
 ## <a name="send-notifications-to-your-app"></a>Wysyłanie powiadomień do aplikacji
-Odbieranie powiadomień w aplikacji możesz szybko przetestować, wysyłając powiadomienia w witrynie [Azure Portal](https://portal.azure.com/) za pomocą przycisku **Testuj wysyłanie** w centrum powiadomień, jak pokazano na poniższym zrzucie ekranu.
+Odbieranie powiadomień w aplikacji możesz szybko przetestować, wysyłając powiadomienia w witrynie [Azure Portal](https://portal.azure.com/) za pomocą przycisku **Wyślij** w centrum powiadomień, jak pokazano na następującym zrzucie ekranu:
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
+![](./media/notification-hubs-baidu-get-started/notification-hub-test-send-baidu.png)
 
-Powiadomienia wypychane są zwykle wysyłane za pośrednictwem usługi zaplecza, takiej jak Mobile Services czy ASP.NET, z użyciem zgodnej biblioteki. Powiadomienia można również wysyłać bezpośrednio za pomocą interfejsu API REST, jeśli biblioteka nie jest dostępna w danym zapleczu.
+Powiadomienia wypychane są zwykle wysyłane za pośrednictwem usługi zaplecza, takiej jak Mobile Services czy ASP.NET, z użyciem zgodnej biblioteki. Jeśli biblioteka nie jest dostępna w danym zapleczu, powiadomienia można wysyłać bezpośrednio za pomocą interfejsu API REST.
 
-W tym samouczku dla uproszczenia przedstawiono testowanie aplikacji klienckiej przez wysyłanie powiadomień za pomocą zestawu SDK .NET dla usługi Notification Hubs w aplikacji konsoli, a nie za pomocą usługi zaplecza. Zalecanym następnym krokiem jest zapoznanie się z samouczkiem [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) dotyczącym wysyłania powiadomień przy użyciu zaplecza ASP.NET. Można używać następujących metod wysyłania powiadomień:
+W tym samouczku dla uproszczenia przedstawiono testowanie aplikacji klienckiej przez wysyłanie powiadomień za pomocą zestawu SDK .NET dla usługi Notification Hubs w aplikacji konsolowej, a nie za pomocą usługi zaplecza. Zalecanym następnym krokiem jest zapoznanie się z samouczkiem [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) dotyczącym wysyłania powiadomień przy użyciu zaplecza ASP.NET. Można używać następujących metod wysyłania powiadomień:
 
 * **Interfejs REST**: powiadomienia mogą być obsługiwane na dowolnej platformie zaplecza za pomocą [interfejsu REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Zestaw SDK .NET dla usługi Microsoft Azure Notification Hubs**: w menedżerze pakietów NuGet dla programu Visual Studio uruchom polecenie [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
@@ -379,7 +379,7 @@ W tej sekcji przedstawiono sposób wysyłania powiadomienia za pomocą aplikacji
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Spowoduje to dodanie odwołania do zestawu SDK usługi Azure Notification Hubs z użyciem <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pakietu NuGet Microsoft.Azure.Notification Hubs</a>.
+    Ta instrukcja powoduje dodanie odwołania do zestawu SDK usługi Azure Notification Hubs z użyciem <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pakietu NuGet Microsoft.Azure.Notification Hubs</a>.
    
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 3. Otwórz plik **Program.cs** i dodaj następującą instrukcję using:
@@ -399,7 +399,7 @@ W tej sekcji przedstawiono sposób wysyłania powiadomienia za pomocą aplikacji
          Console.ReadLine();
 
 ## <a name="test-your-app"></a>Testowanie aplikacji
-Aby przetestować tę aplikację przy użyciu rzeczywistego telefonu, podłącz telefon do komputera za pomocą kabla USB. Spowoduje to załadowanie aplikacji do podłączonego telefonu.
+Aby przetestować tę aplikację przy użyciu rzeczywistego telefonu, podłącz telefon do komputera za pomocą kabla USB. To działanie spowoduje załadowanie aplikacji do podłączonego telefonu.
 
 Aby przetestować tę aplikację przy użyciu emulatora, na górnym pasku narzędzi Eclipse kliknij pozycję **Run** (Uruchom), a następnie wybierz aplikację. Spowoduje to uruchomienie emulatora, a następnie załadowanie i uruchomienie aplikacji.
 

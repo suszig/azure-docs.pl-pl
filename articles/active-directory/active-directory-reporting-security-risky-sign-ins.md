@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f66c4c0b7c391b3fc5ee042cc7a6643e46566d3f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Raport dotyczący ryzykownych logowań w portalu usługi Azure Active Directory
@@ -35,6 +35,19 @@ Za pomocą wykrytych zdarzeń o podwyższonym ryzyku obliczane są:
 W witrynie [Azure Portal](https://portal.azure.com) raporty dotyczące zabezpieczeń można znaleźć w bloku **Azure Active Directory** w sekcji **Zabezpieczenia**. 
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu zabezpieczeń?  
+
+Wszystkie wersje usługi Azure Active Directory zapewniają dostęp do raportów ryzykownych logowań.  
+Jednak poziom szczegółowości raportu zależy od wersji: 
+
+- W **usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa** masz już dostęp do listy ryzykownych logowań. 
+
+- Wersja **Azure Active Directory Premium 1** rozszerza ten model, umożliwiając również badanie niektórych podstawowych zdarzeń związanych z ryzykiem, które uwzględniono w poszczególnych raportach. 
+
+- Wersja **Azure Active Directory Premium 2** oferuje najbardziej szczegółowe informacje na temat zdarzeń związanych z ryzykiem i umożliwia również konfigurowanie zasad zabezpieczeń, które automatycznie reagują na wystąpienie skonfigurowanych poziomów ryzyka.
+
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory — wersja Bezpłatna i Podstawowa

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-workspaces"></a>Zarządzanie obszarami roboczymi
@@ -108,7 +107,60 @@ Następujące działania również wymagają uprawnień platformy Azure:
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Zarządzanie dostępem do usługi Log Analytics przy użyciu uprawnień platformy Azure
 Aby udzielić dostępu do obszaru roboczego usługi Log Analytics przy użyciu uprawnień platformy Azure, wykonaj kroki opisane w części [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../active-directory/role-based-access-control-configure.md).
 
-Jeśli masz co najmniej uprawnienie platformy Azure do odczytu w obszarze roboczym usługi Log Analytics, możesz otworzyć portal pakietu OMS, klikając zadanie **Portal OMS** podczas przeglądania obszaru roboczego usługi Log Analytics.
+Platforma Azure ma dwie wbudowane role użytkownika w usłudze Log Analytics:
+- Czytelnik usługi Log Analytics
+- Współautor usługi Log Analytics
+
+Członkowie roli *Czytelnik usługi Log Analytics* mogą wykonywać następujące czynności:
+- Wyświetlanie i wyszukiwanie wszystkich monitorowanych danych 
+- Wyświetlanie ustawień monitorowania, w tym konfiguracji diagnostyki platformy Azure, dla wszystkich zasobów platformy Azure
+
+| Typ    | Uprawnienie | Opis |
+| ------- | ---------- | ----------- |
+| Akcja | `*/read`   | Możliwość wyświetlania wszystkich zasobów i konfiguracji zasobów. Obejmuje wyświetlanie następujących elementów: <br> Stan rozszerzenia maszyny wirtualnej <br> Konfiguracja diagnostyki platformy Azure dla zasobów <br> Wszystkie właściwości i ustawienia wszystkich zasobów |
+| Akcja | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Możliwość wykonywania zapytań przeszukiwania dzienników w wersji 2 |
+| Akcja | `Microsoft.OperationalInsights/workspaces/search/action` | Możliwość wykonywania zapytań przeszukiwania dzienników w wersji 1 |
+| Akcja | `Microsoft.Support/*` | Możliwość otwierania zgłoszeń do pomocy technicznej |
+|Inne | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Zapobiega odczytywaniu klucza obszaru roboczego wymaganego do użycia interfejsu API zbierania danych oraz instalowania agentów |
+
+
+Członkowie roli *Współautor usługi Log Analytics* mogą wykonywać następujące czynności:
+- Odczytywanie wszystkich danych monitorowania 
+- Tworzenie i konfigurowanie kont usługi Automation
+- Dodawanie i usuwanie rozwiązań do zarządzania
+- Odczytywanie kluczy kont magazynu 
+- Konfigurowanie kolekcji dzienników z usługi Azure Storage
+- Edytowanie ustawień monitorowania dla zasobów platformy Azure, w tym:
+  - Dodawanie rozszerzenia do maszyn wirtualnych
+  - Konfigurowanie diagnostyki platformy Azure dla wszystkich zasobów platformy Azure
+
+> [!NOTE] 
+> Możliwości dodania rozszerzenia do maszyny wirtualnej możesz użyć, aby zyskać pełną kontrolę nad maszyną wirtualną.
+
+| Uprawnienie | Opis |
+| ---------- | ----------- |
+| `*/read`     | Możliwość wyświetlania wszystkich zasobów i konfiguracji zasobów. Obejmuje wyświetlanie następujących elementów: <br> Stan rozszerzenia maszyny wirtualnej <br> Konfiguracja diagnostyki platformy Azure dla zasobów <br> Wszystkie właściwości i ustawienia wszystkich zasobów |
+| `Microsoft.Automation/automationAccounts/*` | Możliwość tworzenia i konfigurowania kont usługi Azure Automation, w tym dodawania i edytowania elementów runbook |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Dodawanie, aktualizowanie i usuwanie rozszerzeń maszyn wirtualnych, w tym rozszerzenia Microsoft Monitoring Agent oraz rozszerzenia OMS Agent for Linux |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Wyświetlanie klucza konta magazynu. Wymagane do skonfigurowania usługi Log Analytics w celu odczytu dzienników z kont magazynów platformy Azure |
+| `Microsoft.Insights/alertRules/*` | Dodawanie, aktualizowanie i usuwanie reguł alertu |
+| `Microsoft.Insights/diagnosticSettings/*` | Dodawanie, aktualizowanie i usuwanie ustawień diagnostycznych dla zasobów platformy Azure |
+| `Microsoft.OperationalInsights/*` | Dodawanie, aktualizowanie i usuwanie konfiguracji dla obszarów roboczych usługi Log Analytics |
+| `Microsoft.OperationsManagement/*` | Dodawanie i usuwanie rozwiązań do zarządzania |
+| `Microsoft.Resources/deployments/*` | Tworzenie i usuwanie wdrożeń. Wymagane w celu dodawania i usuwania rozwiązań, obszarów roboczych oraz kont usługi Automation |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Tworzenie i usuwanie wdrożeń. Wymagane w celu dodawania i usuwania rozwiązań, obszarów roboczych oraz kont usługi Automation |
+
+Aby dodawać użytkowników do roli użytkownika i usuwać ich z niej, wymagane jest uprawnienie `Microsoft.Authorization/*/Delete` i `Microsoft.Authorization/*/Write`.
+
+Za pomocą następujących ról możesz udzielić użytkownikom dostępu w różnych zakresach:
+- Subskrypcja — dostęp do wszystkich obszarów roboczych w subskrypcji
+- Grupa zasobów — dostęp do wszystkich obszarów roboczych w grupie zasobów
+- Zasób — dostęp tylko do określonego obszaru roboczego
+
+Za pomocą [ról niestandardowych](../active-directory/role-based-access-control-custom-roles.md) możesz utworzyć role z określonymi, wymaganymi uprawnieniami.
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Role użytkownika platformy Azure oraz role użytkownika portalu usługi Log Analytics
+Jeśli masz co najmniej uprawnienie do odczytu platformy Azure w obszarze roboczym usługi Log Analytics, możesz otworzyć portal usługi Log Analytics, klikając zadanie **Portal OMS** podczas przeglądania obszaru roboczego usługi Log Analytics.
 
 Podczas otwierania portalu usługi Log Analytics przełączasz się do użycia starszych ról użytkownika usługi Log Analytics. Jeśli nie masz przypisania roli w portalu usługi Log Analytics, usługa [sprawdza uprawnienia platformy Azure w obszarze roboczym](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Przypisanie roli w portalu usługi Log Analytics jest określane w następujący sposób:
@@ -195,7 +247,7 @@ Poniżej przedstawiono procedurę usuwania użytkownika z obszaru roboczego. Usu
 4. Wybierz grupę z listy wyników, a następnie kliknij przycisk **Dodaj**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Łączenie istniejącego obszaru roboczego z subskrypcją platformy Azure
-Wszystkie obszary robocze utworzone po 26 września 2016 roku muszą być w czasie tworzenia połączone z subskrypcją platformy Azure. Obszary robocze utworzone wcześniej muszą zostać połączone z obszarem roboczym po następnym zalogowaniu. Jeśli utworzysz obszar roboczy z poziomu witryny Azure Portal lub połączysz obszar roboczy z subskrypcją platformy Azure, usługa Azure Active Directory zostanie połączona jako konto organizacyjne.
+Wszystkie obszary robocze utworzone po 26 września 2016 roku muszą być w czasie tworzenia połączone z subskrypcją platformy Azure. Obszary robocze utworzone wcześniej muszą zostać połączone z obszarem roboczym po zalogowaniu. Jeśli utworzysz obszar roboczy z poziomu witryny Azure Portal lub połączysz obszar roboczy z subskrypcją platformy Azure, usługa Azure Active Directory zostanie połączona jako konto organizacyjne.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Aby połączyć obszar roboczy z subskrypcją platformy Azure w portalu pakietu OMS
 
