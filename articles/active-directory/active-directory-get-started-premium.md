@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do usługi Azure Active Directory — wersja Premium"
-description: "Opisuje sposób tworzenie konta w usłudze Azure Active Directory — wersja Premium za pośrednictwem witryny internetowej licencjonowania zbiorowego."
+title: "Rejestrowanie w usłudze Azure Active Directory — wersja Premium"
+description: "Opisuje sposób rejestrowania w usłudze Azure Active Directory — wersja Premium."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,44 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/24/2017
+ms.date: 08/09/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
+ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/10/2017
 
 ---
-# <a name="getting-started-with-azure-active-directory-premium"></a>Wprowadzenie do usługi Azure Active Directory — wersja Premium
-W tym artykule opisano rozpoczynanie pracy z usługą Azure Active Directory — wersja Premium zakupioną w ramach programu licencjonowania zbiorowego. Jeśli nie znasz jeszcze różnych wersji usługi Azure Active Directory, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).  
+# <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Szybki start: Rejestrowanie w usłudze Azure Active Directory — wersja Premium
+Aby rozpocząć pracę z usługą Azure Active Directory (Azure AD) — wersja Premium, musisz zakupić licencje i skojarzyć je ze swoją subskrypcją platformy Azure. Jeśli tworzysz nową subskrypcję platformy Azure, musisz również aktywować plan licencjonowania i dostęp do usługi Azure AD zgodnie z opisem w poniższych sekcjach. 
 
-> [!IMPORTANT]
-> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule. 
+## <a name="sign-up-for-active-directory-premium"></a>Rejestrowanie w usłudze Active Directory — wersja Premium
+W usłudze Active Directory — wersja Premium można zarejestrować się na kilka sposobów: 
 
-Konto w usłudze Active Directory — wersja Premium można utworzyć na kilka sposobów: 
+### <a name="azure-or-office-365"></a>Platforma Azure lub usługa Office 365 
+Jako subskrybent platformy Azure lub usługi Office 365 możesz kupić usługę Azure Active Directory — wersja Premium online. 
 
-**Platforma Azure lub usługa Office 365** — jako subskrybent platformy Azure lub usługi Office 365 możesz kupić usługę Active Directory — wersja Premium online. Aby uzyskać szczegółowy opis kroków, zobacz [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Jak kupić usługę Azure Active Directory — wersja Premium: istniejący klienci) lub [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Jak kupić usługę Azure Active Directory — wersja Premium: nowi klienci).  
+Aby uzyskać szczegółowy opis kroków, zobacz [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Jak kupić usługę Azure Active Directory — wersja Premium: istniejący klienci) lub [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Jak kupić usługę Azure Active Directory — wersja Premium: nowi klienci).  
 
-**Enterprise Mobility + Security** — Enterprise Mobility + Security (dawniej Enterprise Mobility Suite) to ekonomiczne rozwiązanie dla organizacji korzystających z następujących usług w ramach jednego planu licencjonowania: Active Directory — wersja Premium, Azure Rights Management i Microsoft Intune. Aby uzyskać więcej informacji, zobacz witrynę sieci Web pakietu [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Aby uzyskać bezpłatną 30-dniową wersję próbną, kliknij [tutaj](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+### <a name="enterprise-mobility--security"></a>Enterprise Mobility + Security
+Usługa Enterprise Mobility + Security (EMS) to ekonomiczne rozwiązanie dla organizacji korzystających z następujących usług w ramach jednego planu licencjonowania: Azure Active Directory — wersja Premium, Azure Information Protection i Microsoft Intune. Więcej o usłudze EMS dowiesz się w [witrynie internetowej usługi Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security), a o typach licencji usługi EMS, które można kupić, na stronie [Enterprise Mobility + Security Pricing Options (Opcje cenowe dla usługi Enterprise Mobility + Security)](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).  
 
-**Licencjonowanie zbiorowe firmy Microsoft** — usługa Azure Active Directory — wersja Premium jest dostępna za pośrednictwem [umowy Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 lub więcej licencji) lub [programu licencjonowania Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5-250 licencji).
+Możesz rozpocząć pracę z usługą Azure AD za pomocą licencji usługi EMS przy użyciu jednej z poniższych opcji licencjonowania:
+
+- Wypróbuj usługę EMS w ramach bezpłatnej [subskrypcji wersji próbnej usługi Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
+- Kup [licencje usługi Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
+- Kup [licencje usługi Enterprise Mobility + Security E3](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
+
+### <a name="microsoft-volume-licensing"></a>Licencjonowanie zbiorowe firmy Microsoft
+Usługa Azure Active Directory — wersja Premium jest dostępna na podstawie [umowy Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 lub więcej licencji) lub za pośrednictwem programu [licencji zbiorowej Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5-250 licencji).
+
+Dowiedz się więcej o opcjach zakupu licencjonowania zbiorowego na stronie [Jak kupować w ramach licencjonowania zbiorowego](https://www.microsoft.com/licensing/how-to-buy/how-to-buy.aspx).
 
 > [!NOTE]
 > Klienci w Chinach mogą używać wersji Premium i Podstawowa usługi Azure Active Directory za pomocą wystąpienia usługi Azure Active Directory dostępnego na całym świecie. Wersje Premium i Podstawowa usługi Azure Active Directory nie są obecnie obsługiwane w usłudze Microsoft Azure świadczonej przez 21Vianet w Chinach. Aby uzyskać więcej informacji, skontaktuj się z nami na [forum usługi Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 > 
 > 
 
-## <a name="step-1-sign-up-for-active-directory-premium"></a>Krok 1: Tworzenie konta w usłudze Active Directory — wersja Premium
-Aby utworzyć konto, zobacz [How to purchase through Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) (Jak kupić w ramach licencjonowania zbiorowego).
+Jeśli wcześniej zostały zakupione i aktywowane licencje usługi Azure AD dla tej samej subskrypcji platformy Azure, która była używana w poprzednich krokach, licencje zostaną automatycznie aktywowane w tym samym katalogu. I nie musisz wykonywać czynności opisanych w dalszej części tego artykułu.
 
-## <a name="step-2-activate-your-license-plan"></a>Krok 2: Aktywowanie planu licencjonowania
-Czy to Twój pierwszy zakup planu licencjonowania w ramach programu licencjonowania zbiorowego dla przedsiębiorstw firmy Microsoft?
-W takim przypadku otrzymasz wiadomość e-mail z potwierdzeniem po wykonaniu zakupu.
-Ta wiadomość e-mail będzie potrzebna do aktywowania Twojego pierwszego planu licencjonowania.
-
-W przypadku kolejnych zakupów dla tego katalogu licencje zostaną automatycznie aktywowane w tym samym katalogu.
+## <a name="activate-your-license-plan"></a>Aktywowanie planu licencjonowania
+Czy to Twój pierwszy plan licencjonowania usługi Azure AD kupiony od firmy Microsoft? Jeśli tak, zostanie wygenerowana wiadomość e-mail z potwierdzeniem, która zostanie wysłana do Ciebie po zakończeniu zakupu. Ta wiadomość e-mail będzie potrzebna do aktywowania Twojego pierwszego planu licencjonowania.
 
 **Aby aktywować plan licencjonowania, wykonaj jedną z następujących czynności:**
 
@@ -56,77 +62,42 @@ W przypadku kolejnych zakupów dla tego katalogu licencje zostaną automatycznie
    
     ![Logowanie][1]
 
-    - Jeśli masz istniejącą dzierżawę, kliknij pozycję **Zaloguj**, aby zalogować się przy użyciu istniejącego konta administratora. Musisz zalogować się przy użyciu poświadczeń administratora globalnego z katalogu, w którym zostały aktywowane licencje.
+    - Jeśli masz istniejącą dzierżawę, kliknij pozycję **Zaloguj**, aby zalogować się przy użyciu istniejącego konta administratora. Zaloguj się przy użyciu poświadczeń administratora globalnego z katalogu, w którym muszą zostać aktywowane licencje.
 
-    - Jeśli chcesz utworzyć nową dzierżawę usługi Azure Active Directory do użycia w ramach planu licencjonowania, kliknij pozycję **Utwórz konto**, aby otworzyć okno dialogowe **Tworzenie profilu konta**.
+    - Jeśli chcesz utworzyć nową dzierżawę usługi Azure AD do użycia w ramach planu licencjonowania, kliknij pozycję **Utwórz konto**, aby otworzyć okno dialogowe **Tworzenie profilu konta**.
 
         ![Tworzenie profilu konta][2]
 
-Gdy wszystko będzie gotowe, zostanie wyświetlone następujące okno dialogowe z potwierdzeniem aktywowania planu licencjonowania dla dzierżawy.
+Gdy wszystko będzie gotowe, zostanie wyświetlone następujące okno dialogowe jako potwierdzenie aktywowania planu licencjonowania dla dzierżawy:
 
 ![Potwierdzenie][3]
 
-## <a name="step-3-activate-your-azure-active-directory-access"></a>Krok 3: Aktywowanie dostępu do usługi Azure Active Directory
-Jeśli Twoje doświadczenie obejmuje korzystanie z platformy Microsoft Azure, możesz przejść do [Kroku 4](#step-4-assign-license-to-user-accounts). 
+## <a name="activate-your-azure-active-directory-access"></a>Aktywowanie dostępu do usługi Azure Active Directory
+Jeśli dodajesz nowe licencje usługi Azure AD — wersja Premium do istniejącej subskrypcji, Twój dostęp do usługi Azure AD powinien już być aktywowany. W przeciwnym razie musisz aktywować dostęp do usługi Azure AD po otrzymaniu **powitalnej wiadomości e-mail**.  
 
-Gdy licencje zostaną aprowizowane do Twojego katalogu, zostanie do Ciebie wysłana **powitalna wiadomość e-mail**. Wiadomość e-mail stanowi potwierdzenie, że możesz rozpocząć zarządzanie licencjami i funkcjami usługi Azure Active Directory — wersja Premium lub pakietu Enterprise Mobility Suite. 
+Gdy kupione licencje zostaną aprowizowane w Twoim katalogu, zostanie do Ciebie wysłana **powitalna wiadomość e-mail**. Wiadomość e-mail stanowi potwierdzenie, że możesz rozpocząć zarządzanie licencjami i funkcjami usługi Azure Active Directory — wersja Premium lub pakietu Enterprise Mobility Suite + Security. 
 
-Jeśli spróbujesz aktywować dostęp do usługi Azure Active Directory przed odebraniem powitalnej wiadomości e-mail, otrzymasz następujący komunikat o błędzie. 
+> [!TIP]
+> Nie masz dostępu do usługi Azure AD dla nowej dzierżawy do momentu aktywowania dostępu do katalogu usługi Azure AD przy użyciu powitalnej wiadomości e-mail wysyłanej automatycznie po ukończeniu procesu aprowizacji licencji. 
 
-![Brak dostępu][9]
-
-Spróbuj ponownie za kilka minut, po odebraniu wiadomości e-mail.
-
-Nowi administratorzy w Twojej subskrypcji mogą także aktywować swój dostęp do klasycznego portalu Azure za pomocą tego linku.
-
-**Aby aktywować dostęp do usługi Azure Active Directory, wykonaj następujące kroki:**
+**Aby uaktywnić Twój dostęp do usługi Azure AD, wykonaj następujące kroki:**
 
 1. W Twojej **powitalnej wiadomości e-mail** kliknij pozycję **Zaloguj**. 
    
     ![Powitalna wiadomość e-mail][4]
-2. Gdy logowanie zostanie wykonane pomyślnie, musisz przeprowadzić logowanie za pomocą drugiego składnika w formularzu weryfikacji mobilnej:
+2. Po pomyślnym zalogowaniu się musisz również przejść drugi etap uwierzytelniania przy użyciu urządzenia przenośnego:
    
     ![Weryfikacja mobilna][5]
 
-Aktywacja może potrwać kilka minut. Gdy dostęp zostanie aktywowany, brązowy pasek zniknie i będzie można kliknąć pozycję **Portal**.
+Aktywacja powinna trwać tylko kilka minut, a następnie będziesz mieć dostęp do zarządzania usługą Azure AD. 
 
-![Zaczekaj na skonfigurowanie][6]
+## <a name="next-steps"></a>Następne kroki
+Po zapoznaniu się z tym przewodnikiem szybkiego startu wiesz już, jak zarejestrować się w usłudze Azure AD — wersja Premium i jak aktywować dostęp do usługi Azure Active Directory. 
 
-W takim przypadku dostęp do platformy Azure będzie ograniczony do usługi Azure Active Directory.
+Jeśli masz już subskrypcję platformy Azure, możesz użyć następującego linku, aby rozpocząć okres próbny lub kupić licencje usługi Azure AD — wersja Premium w witrynie Azure Portal.
 
-![Możliwości platformy Azure][7]
-
-Być może masz już dostęp do platformy Azure, ponieważ wcześniej była przez Ciebie używana. Możesz także uaktualnić Twój dostęp do usługi Azure Active Directory do poziomu pełnego dostępu do platformy Azure przez aktywowanie dodatkowych subskrypcji platformy Azure. W takich przypadkach klasyczny portal Azure ma więcej możliwości.
-
-![Możliwości platformy Azure][8]
-
-## <a name="step-4-assign-license-to-user-accounts"></a>Krok 4: Przypisywanie licencji do kont użytkowników
-Przed rozpoczęciem używania zakupionego planu musisz ręcznie przypisać licencje do kont użytkowników w organizacji, tak aby mogli używać różnorodnych funkcji udostępnionych w wersji Premium. Wykonaj następujące kroki, aby przypisać licencje do użytkowników, tak aby mogli używać różnorodnych funkcji usługi Azure Active Directory — wersja Premium.
-
-**Aby przypisać licencje do użytkowników, wykonaj następujące kroki:**
-
-1. Zaloguj się do klasycznego portalu Azure jako administrator katalogu, który chcesz dostosować.
-2. Kliknij pozycję **Usługa Active Directory**, a następnie wybierz katalog, w którym chcesz przypisać licencje.
-3. Wybierz kartę **Licencje**, wybierz pozycję **Usługa Active Directory — wersja Premium** lub **Pakiet Enterprise Mobility Suite**, a następnie kliknij polecenie **Przypisz**.
-   
-    ![Plany licencjonowania][10]
-4. W oknie dialogowym wybierz użytkowników, do których chcesz przypisać licencje, a następnie kliknij ikonę znacznika wyboru, aby zapisać zmiany.
-   
-    ![Przypisywanie licencji][11]
-
-### <a name="license-restrictions"></a>Ograniczenia licencji
-Niektóre plany licencjonowania są podzbiorami lub nadzbiorami innych planów licencjonowania. Zazwyczaj do użytkownika nie można przypisać planu licencjonowania, która już został do niego przypisany. Jeśli masz zamiar przypisać plan licencjonowania, który jest nadzbiorem, musisz najpierw usunąć plan licencjonowania będący podzbiorem.
-
-### <a name="license-requirements"></a>Wymagania licencyjne
-Po przypisaniu licencji do użytkownika możesz określić podstawową lokalizację użytkowania we właściwościach jego konta. Jeśli nie określono lokalizacji użytkowania, lokalizacja dzierżawy zostanie automatycznie przypisana do użytkownika.
-
-![Lokalizacja użytkownika][12]
-
-Dostępność usług i funkcji dla usługi w chmurze firmy Microsoft jest zależna od kraju lub regionu. Usługa, taka jak protokół Voice over Internet Protocol (VoIP), może być dostępna w jednym kraju lub regionie i niedostępna w innym. Funkcje w ramach usługi mogą być ograniczone z przyczyn prawnych w niektórych krajach lub regionach. Aby sprawdzić, czy usługa lub funkcja jest dostępna z ograniczeniami, wyszukaj Twój kraj lub region w witrynie ograniczeń licencji usługi.
-
-## <a name="whats-next"></a>Co dalej
-* [Dodawanie znakowania firmowego do stron logowania i panelu dostępu](active-directory-add-company-branding.md)
-* [Wyświetlanie raportów dostępu i użycia](active-directory-view-access-usage-reports.md)
+> [!div class="nextstepaction"]
+> [Aktywuj licencje usługi Azure AD — wersja Premium](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/TryBuyProductBlade) 
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png
@@ -141,4 +112,3 @@ Dostępność usług i funkcji dla usługi w chmurze firmy Microsoft jest zależ
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
-

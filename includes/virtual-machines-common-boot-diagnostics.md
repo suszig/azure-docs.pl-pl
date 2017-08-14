@@ -1,28 +1,43 @@
+Na platformie Azure jest teraz dostępna obsługa dwóch funkcji debugowania: obsługa danych wyjściowych konsoli i zrzutu ekranu dla modelu wdrażania przy użyciu usługi Azure Virtual Machines Resource Manager. 
 
-Support for two debugging features is now available in Azure: Console Output and Screenshot support for Azure Virtual Machines Resource Manager deployment model. 
+Podczas korzystania z własnego obrazu na platformie Azure, a nawet wykonywania rozruchu jednego z obrazów platformy, może wystąpić wiele przyczyn przejścia maszyny wirtualnej do stanu uniemożliwiającego rozruch. Te funkcje umożliwiają łatwe diagnozowanie i odzyskiwanie maszyn wirtualnych po niepowodzeniach rozruchu.
 
-When bringing your own image to Azure or even booting one of the platform images, there can be many reasons why a Virtual Machine gets into a non-bootable state. These features enable you to easily diagnose and recover your Virtual Machines from boot failures.
+Dla maszyn wirtualnych z systemem Linux można łatwo wyświetlić dane wyjściowe konsoli dziennika za pomocą portalu:
 
-For Linux Virtual Machines, you can easily view the output of your console log from the Portal:
-
-![Azure portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
+![Azure Portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-However, for both Windows and Linux Virtual Machines, Azure also enables you to see a screenshot of the VM from the hypervisor:
+Jednak zarówno dla maszyn wirtualnych z systemem Linux, jak i Windows, platforma Azure umożliwia również wyświetlenie zrzutu ekranu maszyny wirtualnej za pomocą funkcji hypervisor:
 
-![Error](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
+![Błąd](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
-Both of these features are supported for Azure Virtual Machines in all regions. Note, screenshots, and output can take up to 10 minutes to appear in your storage account.
+Obie te funkcje są obsługiwane dla maszyn wirtualnych platformy Azure we wszystkich regionach. Należy pamiętać, że może minąć do 10 minut, zanim zrzuty ekranu i dane wyjściowe pojawią się na koncie magazynu.
 
-## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Enable diagnostics on a new virtual machine
-1. When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
+## <a name="common-boot-errors"></a>Typowe błędy rozruchu
+
+- [0xC000000E](https://support.microsoft.com/help/4010129)
+- [0xC000000F](https://support.microsoft.com/help/4010130)
+- [0xC0000011](https://support.microsoft.com/help/4010134)
+- [0xC0000034](https://support.microsoft.com/help/4010140)
+- [0xC0000098](https://support.microsoft.com/help/4010137)
+- [0xC00000BA](https://support.microsoft.com/help/4010136)
+- [0xC000014C](https://support.microsoft.com/help/4010141)
+- [0xC0000221](https://support.microsoft.com/help/4010132)
+- [0xC0000225](https://support.microsoft.com/help/4010138)
+- [0xC0000359](https://support.microsoft.com/help/4010135)
+- [0xC0000605](https://support.microsoft.com/help/4010131)
+- [Nie znaleziono systemu operacyjnego](https://support.microsoft.com/help/4010142)
+- [Niepowodzenie rozruchu lub błąd INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
+
+## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Włączanie diagnostyki na nowej maszynie wirtualnej
+1. Podczas tworzenia nowej maszyny wirtualnej w portalu w wersji zapoznawczej wybierz pozycję **Azure Resource Manager** z listy rozwijanej modelu wdrażania:
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Configure the Monitoring option to select the storage account where you would like to place these diagnostic files.
+2. Skonfiguruj opcję Monitorowanie, aby wybrać konto magazynu, w którym chcesz umieścić te pliki diagnostyczne.
  
-    ![Create VM](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![Tworzenie maszyny wirtualnej](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
 
-3. If you are deploying from an Azure Resource Manager template, navigate to your Virtual Machine resource and append the diagnostics profile section. Remember to use the “2015-06-15” API version header.
+3. Jeśli wykonujesz wdrożenie z szablonu usługi Azure Resource Manager, przejdź do zasobu maszyny wirtualnej i dołącz sekcję profilu diagnostyki. Pamiętaj, aby użyć nagłówka wersji interfejsu API „2015-06-15”.
 
     ```json
     {
@@ -31,7 +46,7 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
           … 
     ```
 
-4. The diagnostics profile enables you to select the storage account where you want to put these logs.
+4. Profil diagnostyki umożliwia wybranie konta magazynu, na którym chcesz umieścić te dzienniki.
 
     ```json
             "diagnosticsProfile": {
@@ -44,11 +59,11 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
         }
     ```
 
-To deploy a sample Virtual Machine with boot diagnostics enabled, check out our repo here.
+Aby wdrożyć przykładową maszynę wirtualną z włączoną diagnostyką rozruchu, zapoznaj się z naszym repozytorium w tym miejscu.
 
-## <a name="update-an-existing-virtual-machine"></a>Update an existing virtual machine ##
+## <a name="update-an-existing-virtual-machine"></a>Aktualizowanie istniejącej maszyny wirtualnej ##
 
-To enable boot diagnostics through the Portal, you can also update an existing Virtual Machine through the Portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
+Aby włączyć diagnostykę rozruchu za pośrednictwem portalu, można także zaktualizować istniejącą maszynę wirtualną za pośrednictwem portalu. Wybierz opcję Diagnostyka rozruchu i kliknij ikonę Zapisz. Uruchom ponownie maszynę wirtualną, aby zmiany zaczęły obowiązywać.
 
-![Update Existing VM](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+![Aktualizowanie istniejącej maszyny wirtualnej](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
 

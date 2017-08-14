@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 3eb1d4df7ab87ec692716339eb0ecb9df4c58732
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Łączenie się z usługą HDInsight (Hadoop) przy użyciu protokołu SSH
@@ -134,7 +133,34 @@ Jeśli używasz __przyłączonego do domeny klastra usługi HDInsight__, po nawi
 
 Aby uzyskać więcej informacji, zobacz [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md) (Konfigurowanie przyłączonej do domeny usługi HDInsight).
 
-## <a name="connect-to-worker-and-zookeeper-nodes"></a>Łączenie się z węzłami procesu roboczego i węzłami dozorcy
+## <a name="connect-to-nodes"></a>Nawiązywanie połączeń z węzłami
+
+Do węzłów głównych i węzła brzegowego (jeśli taki istnieje) można uzyskiwać dostęp za pośrednictwem Internetu przez porty 22 i 23.
+
+* Podczas nawiązywania połączenia z __węzłami głównymi__ użyj portu __22__, aby łączyć się z podstawowym węzłem głównym, oraz portu __23__, aby łączyć się z pomocniczym węzłem głównym. W pełni kwalifikowana nazwa domeny do zastosowania to `clustername-ssh.azurehdinsight.net`, gdzie `clustername` jest nazwą Twojego klastra.
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
+    ```
+    
+* W przypadku nawiązywania połączenia z __węzłem brzegowym__ użyj portu 22. W pełni kwalifikowana nazwa domeny to `edgenodename.clustername-ssh.azurehdinsight.net`, gdzie `edgenodename` jest nazwą podaną podczas tworzenia węzła brzegowego. `clustername` jest nazwą klastra.
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
+    ```
+
+> [!IMPORTANT]
+> Poprzednie przykłady zakładają, że korzystasz z uwierzytelniania przy użyciu hasła lub że uwierzytelnianie certyfikatu odbywa się automatycznie. Jeśli korzystasz z pary kluczy SSH do uwierzytelniania, a certyfikat nie jest używany automatycznie, skorzystaj z parametru `-i`, aby określić klucz prywatny. Na przykład `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+
+Po nawiązaniu połączenia wiersz polecenia zmieni się, aby wskazać nazwę użytkownika SSH i węzeł, z którym nawiązano połączenie. Na przykład w przypadku połączenia z podstawowym węzłem głównym jako użytkownik `sshuser` wiersz polecenia będzie wyglądać następująco: `sshuser@hn0-clustername:~$`.
+
+### <a name="connect-to-worker-and-zookeeper-nodes"></a>Łączenie się z węzłami procesu roboczego i węzłami dozorcy
 
 Węzły procesu roboczego i węzły dozorcy nie są dostępne bezpośrednio z Internetu. Można uzyskać do nich dostęp z węzłów głównych lub węzłów krawędzi klastra. Poniżej przedstawiono ogólny zarys czynności, które należy wykonać w celu nawiązania połączenia z innymi węzłami:
 
@@ -188,6 +214,33 @@ Jeśli konto SSH jest zabezpieczone przy użyciu __kluczy SSH__, upewnij się, �
     Jeśli klucz prywatny jest przechowywany w innym pliku, zastąp `~/.ssh/id_rsa` ścieżką do pliku.
 
 5. Połącz się z węzłem krawędzi lub węzłami głównymi klastra przy użyciu protokołu SSH. Następnie połącz się z węzłem procesu roboczego lub węzłem dozorcy przy użyciu polecenia SSH. Połączenie zostanie nawiązane przy użyciu przekazanego klucza.
+
+## <a name="copy-files"></a>Kopiowanie plików
+
+Narzędzia `scp` można użyć do kopiowania plików do i z poszczególnych węzłów w klastrze. Na przykład następujące polecenie kopiuje katalog `test.txt` z systemu lokalnego do podstawowego węzła głównego:
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
+```
+
+Ponieważ po znaku `:` nie określono ścieżki, plik zostanie umieszczony w katalogu macierzystym użytkownika `sshuser`.
+
+Poniższy przykład kopiuje plik `test.txt` z katalogu macierzystego użytkownika `sshuser` w podstawowym węźle głównym do systemu lokalnego:
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
+```
+
+> [!IMPORTANT]
+> Narzędzie `scp` może uzyskać dostęp tylko do systemu plików poszczególnych węzłów w klastrze. Nie może zostać użyte w celu uzyskania dostępu do danych w magazynie zgodnym z systemem HDFS dla klastra.
+>
+> Użyj narzędzia `scp`, jeśli musisz przekazać zasób do użycia z sesji SSH. Na przykład przekaż skrypt języka Python, a następnie uruchom go z sesji SSH.
+>
+> Aby uzyskać informacje o bezpośrednim ładowaniu danych do magazynu zgodnego z systemem HDFS, zobacz następujące dokumenty:
+>
+> * [Usługa HDInsight korzystająca z usługi Azure Storage](hdinsight-hadoop-use-blob-storage.md).
+>
+> * [Usługa HDInsight korzystająca z usługi Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
