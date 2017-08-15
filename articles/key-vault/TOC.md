@@ -15,22 +15,24 @@
 ### [Klucze chronione przez moduł HSM](key-vault-hsm-protected-keys.md)
 ### [Migracja do programu .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### Omówienia
-#### [Omówienie środowisk zabezpieczeń](key-vault-ovw-security-worlds.md)
-#### [Omówienie usuwania nietrwałego](key-vault-ovw-soft-delete.md)
-#### [Omówienie kluczy konta magazynu](key-vault-ovw-storage-keys.md)
-#### [Omówienie ograniczania przepływności](key-vault-ovw-throttling.md)
+#### [Środowiska zabezpieczeń](key-vault-ovw-security-worlds.md)
+#### [Usuwanie nietrwałe](key-vault-ovw-soft-delete.md)
+#### [Klucze kont magazynu](key-vault-ovw-storage-keys.md)
+#### [Ograniczanie przepływności](key-vault-ovw-throttling.md)
 
-## Zarządzaj
+## Zarządzanie
 ### [Funkcja rejestrowania usługi Azure Key Vault](key-vault-logging.md)
 ### [Uzyskiwanie dostępu za zaporami](key-vault-access-behind-firewall.md)
-### [Zmiana identyfikatora dzierżawy](key-vault-subscription-move-fix.md)
-### [Używanie grup do udzielania dostępu](key-vault-group-permissions-for-apps.md)
 ### [Dostępność i nadmiarowość](key-vault-disaster-recovery-guidance.md)
+### [Zmiana identyfikatora dzierżawy](key-vault-subscription-move-fix.md)
+### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia 2.0](key-vault-manage-with-cli2.md)
+### [Jak używać usuwania nietrwałego w usłudze Key Vault z interfejsem wiersza polecenia](key-vault-soft-delete-cli.md)
+### [Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell](key-vault-soft-delete-powershell.md)
+### [Używanie grup do udzielania dostępu](key-vault-group-permissions-for-apps.md)
 ### [Zabezpieczanie własnego magazynu kluczy](key-vault-secure-your-key-vault.md)
 
 ## Automatyzacja
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Tworzenie i zarządzanie przy użyciu interfejsu wiersza polecenia 2.0](key-vault-manage-with-cli2.md)
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
