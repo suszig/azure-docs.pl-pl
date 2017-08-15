@@ -11,7 +11,9 @@
 ## Planowanie i projektowanie
 ### [Sieci wirtualne](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Filtrowanie ruchu](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Łączność lokalna](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Połączenia obejmujące wiele lokalizacji — sieć VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Połączenia obejmujące wiele lokalizacji — dedykowane połączenie prywatne](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ##  Pojęcia
 ### [Sieci wirtualne](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Równoważenie obciążenia sieciowego](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -35,21 +37,24 @@
 ### [Serwery prywatne równoważenia obciążenia aplikacji](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Łączenie sieci wirtualnych (ta sama lokalizacja)](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Łączenie sieci wirtualnych (różne lokalizacje)](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## Łączność lokalna
-### [Połączenie z siecią lokalną (dedykowane)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Połączenie z siecią lokalną (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## Połączenia obejmujące wiele lokalizacji
+### [Tworzenie połączenia sieci VPN lokacja-lokacja (IPsec/IKE)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Tworzenie połączenia sieci VPN punkt-lokacja (protokół SSTP z certyfikatami)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Tworzenie dedykowanego połączenia prywatnego (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ## Zarządzanie
 ### [Wyświetlanie topologii sieci](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Zarządzanie przechwytywaniem pakietów](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Ustalanie następnego przeskoku routingu](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Sprawdzanie przepływów adresów IP dla maszyny wirtualnej](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ## Przykładowe skrypty
 ### [Interfejs wiersza polecenia platformy Azure](cli-samples.md)
 ### [PowerShell](powershell-samples.md)
+
 ## Samouczki
 ### [Równoważenie obciążenia maszyn wirtualnych](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Łączenie komputera z siecią wirtualną](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-
 
 # Dokumentacja
 ## [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network)
