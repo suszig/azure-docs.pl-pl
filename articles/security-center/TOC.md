@@ -57,9 +57,10 @@
 ## Wykrywanie i odpowiadanie
 ### [Możliwości w zakresie wykrywania](security-center-detection-capabilities.md)
 ### [Zarządzanie alertami zabezpieczeń](security-center-managing-and-responding-alerts.md)
+### [Typy alertów zabezpieczeń](security-center-alerts-type.md)
+### [Alert validation (Walidacja alertu)](security-center-alert-validation.md)
 ### [Zarządzanie zdarzeniami zabezpieczeń](security-center-incident.md)
 ### [Integracja dzienników platformy Azure](security-center-integrating-alerts-with-log-integration.md)
-### [Typy alertów zabezpieczeń](security-center-alerts-type.md)
 ### [Raport analizy zagrożeń](security-center-threat-report.md)
 
 ## Rozwiązywanie problemów
