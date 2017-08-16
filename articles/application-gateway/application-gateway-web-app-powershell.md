@@ -30,6 +30,9 @@ Brama aplikacji umożliwia korzystanie z aplikacji internetowej platformy Azure 
 W poniższym przykładzie aplikacja internetowa jest dodawana jako element członkowski puli zaplecza do istniejącej bramy aplikacji. Aby aplikacje internetowe działały, wymagane jest udostępnienie przełącznika `-PickHostNamefromBackendHttpSettings` w konfiguracji sondowania oraz `-PickHostNameFromBackendAddress` w ustawieniach HTTP zaplecza.
 
 ```powershell
+# FQDN of the web app
+$webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
+
 # Retrieve an existing application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
 
@@ -46,7 +49,7 @@ $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -Applicatio
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
-Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses mywebapp.azurewebsites.net
+Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -72,7 +75,7 @@ New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName 
 # Creates a web app
 $webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
 
-# Configure GitHub deployment from your GitHub repo and deploy once.
+# Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
