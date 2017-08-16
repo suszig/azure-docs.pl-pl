@@ -3,7 +3,7 @@
 ## [Co to jest usługa Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Zarządzanie urządzeniami — omówienie](iot-hub-device-management-overview.md)
 
-# [Wprowadzenie](iot-hub-get-started.md)
+# [Rozpoczęcie pracy](iot-hub-get-started.md)
 
 ## Konfigurowanie urządzenia
 ### [Symulowanie urządzenia na komputerze](iot-hub-get-started-simulated.md)

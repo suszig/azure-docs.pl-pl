@@ -3,7 +3,7 @@
 ## [Cennik](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Często zadawane pytania](virtual-machines-windows-sql-server-iaas-faq.md)
  
-# Rozpoczęcie pracy
+# Wprowadzenie
 ## [Aprowizowanie maszyny wirtualnej w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
 ## [Aprowizowanie maszyny wirtualnej przy użyciu programu Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
 ## [Łączenie z maszyną wirtualną](virtual-machines-windows-sql-connect.md)

@@ -39,6 +39,7 @@
 ### [Strumieniowe przesyłanie dzienników aktywności do usługi Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Operacje inspekcji w usłudze Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Tworzenie alertów dziennika aktywności przy użyciu usługi Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [Migrate to Activity Log alerts (Migrowanie do alertów dziennika aktywności)](monitoring-migrate-management-alerts.md)
 ## Korzystanie z powiadomień dotyczących usług
 ### [Wyświetlanie powiadomień dotyczących usług](monitoring-service-notifications.md)
 ### [Konfigurowanie alertów dla powiadomień dotyczących usług](monitoring-activity-log-alerts-on-service-notifications.md)
