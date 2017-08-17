@@ -33,6 +33,7 @@
 # Przewodniki
 ## [Rejestracja aplikacji](active-directory-integrating-applications.md)
 ## [Aplikacje z wieloma dzierżawami](active-directory-devhowto-multi-tenant-overview.md)
+## [Dostęp warunkowy](active-directory-conditional-access-developer.md)
 ## OAuth i OpenID Connect
 ### [Protokół OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Przyznawanie kodu autoryzacji OAuth 2.0](active-directory-protocols-oauth-code.md)
@@ -68,7 +69,7 @@
 ## [Protokoły uwierzytelniania](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
-### [Wywołania od usługi do usługi](active-directory-protocols-oauth-service-to-service.md)
+### [Wywołania usługa do usługi](active-directory-protocols-oauth-service-to-service.md)
 ### [Przepływ „w imieniu”](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Obsługiwane typy tokenów i oświadczeń](active-directory-token-and-claims.md)
 ### [Przerzucanie klucza podpisywania](active-directory-signing-key-rollover.md)
@@ -90,7 +91,7 @@
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Aplikacje sieci Web
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
+#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [Serwer sieci Web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [Aplikacja sieci Web platformy NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Przewodniki

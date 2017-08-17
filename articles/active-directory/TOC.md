@@ -9,6 +9,7 @@
 # Rozpoczęcie pracy
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
+## [Configure company branding (Konfigurowanie oznaczenia marką firmy)](customize-branding.md)
 ## [Configure Self-service password reset (Konfigurowanie samoobsługowego resetowania haseł)](active-directory-passwords-getting-started.md)
 ## Zarządzanie licencjonowaniem usługi Azure AD
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Zarządzanie urządzeniami
+### [Wprowadzenie](device-management-introduction.md)
 ### [Rejestrowanie urządzeń](active-directory-device-registration-overview.md)
 #### [Konfigurowanie](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Wdrażanie lokalnie](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### Zarządzanie nazwami domen
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [Portal klasyczny](active-directory-add-manage-domain-names.md)
-### Dostosowywanie strony logowania
-#### [Azure Portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [Specyficzne dla języka](active-directory-branding-localize-azure-portal.md)
-#### [Portal klasyczny](active-directory-add-company-branding.md)
 ### [Administrowanie własnym katalogiem](active-directory-administer.md)
 ### [Wiele katalogów](active-directory-licensing-directory-independence.md)
 ### [Katalogi usługi O365](active-directory-manage-o365-subscription.md)

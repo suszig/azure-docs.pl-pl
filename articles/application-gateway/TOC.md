@@ -7,6 +7,7 @@
 ## [Routing adresów URL](application-gateway-url-route-overview.md)
 ## [Wiele witryn](application-gateway-multi-site-overview.md)
 ## [Kompleksowa usługa SSL](application-gateway-backend-ssl.md)
+## [Zasady SSL](application-gateway-ssl-policy-overview.md)
 ## [Przekierowania](application-gateway-redirect-overview.md)
 ## [Obsługa wielu dzierżaw](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Dostosowywanie reguł zapory aplikacji sieci Web
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
 ### [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-customize-waf-rules-cli.md)
-## Konfigurowanie odciążania SSL
+## Konfigurowanie protokołu SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klasyczny)](application-gateway-ssl.md)
 ### [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-ssl.md)
-### [Zasady i połączenie typu end-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [End to end (Kompleksowa)](application-gateway-end-to-end-ssl-powershell.md)
+### [Zasady SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Konfigurowanie routingu opartego na ścieżkach URL
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

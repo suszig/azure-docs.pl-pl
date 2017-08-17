@@ -133,11 +133,12 @@
 ### Tworzenie usługi kontenera
 #### [Create a Windows container application (Tworzenie aplikacji kontenera systemu Windows)](service-fabric-get-started-containers.md)
 #### [Create a Linux container application (Tworzenie aplikacji kontenera systemu Linux)](service-fabric-get-started-containers-linux.md)
-#### [Wdrażanie kontenera systemu Linux](service-fabric-deploy-container-linux.md)
+#### [Container security (Zabezpieczenia kontenerów)](service-fabric-securing-containers.md)
 #### [Docker Compose (wersja zapoznawcza)](service-fabric-docker-compose.md)
 #### [Nadzór nad zasobami dla kontenerów i usług](service-fabric-resource-governance.md)
 #### [Sterowniki woluminów i rejestrowania](service-fabric-containers-volume-logging-drivers.md)
 #### [Services inside containers (Usługi w kontenerach)](service-fabric-services-inside-containers.md)
+#### [Container networking modes (Tryby sieci kontenera)](service-fabric-networking-modes.md)
 
 ### Tworzenie usługi Reliable Services
 #### [Omówienie](service-fabric-reliable-services-introduction.md)

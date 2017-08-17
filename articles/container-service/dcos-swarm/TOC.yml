@@ -7,6 +7,8 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
+    - name: Docker Swarm (Linux)
+      href: container-service-swarm-walkthrough.md
     - name: Platforma DC/OS w systemie Linux
       href: container-service-dcos-quickstart.md
 - name: Samouczki
@@ -29,7 +31,7 @@
       href: container-service-connect.md
     - name: Skalowanie klastra ACS
       href: container-service-scale.md
-    - name: Zarządzanie przy użyciu platformy DC/OS
+    - name: DC/OS
       items:
         - name: Zarządzanie kontenerem — interfejs użytkownika platformy DC/OS
           href: container-service-mesos-marathon-ui.md
@@ -55,8 +57,10 @@
               href: container-service-monitoring-sysdig.md
             - name: Monitorowanie za pomocą rozwiązania Dynatrace
               href: container-service-monitoring-dynatrace.md
-    - name: Zarządzanie przy użyciu koordynatora Docker Swarm
+    - name: Docker Swarm
       items:
+        - name: Tryb Swarm — Szybki start
+          href: container-service-swarm-mode-walkthrough.md
         - name: Platforma Docker i narzędzie Docker Compose
           href: container-service-docker-swarm.md
         - name: Ciągła integracja/ciągłe dostarczanie z usługami Docker Swarm i VSTS
