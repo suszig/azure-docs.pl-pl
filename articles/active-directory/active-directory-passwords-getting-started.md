@@ -17,10 +17,10 @@ ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Szybki start: Samoobsługowe resetowanie haseł w usłudze Azure AD
@@ -79,13 +79,7 @@ Aby włączyć synchronizację lokalnych tożsamości z usługą Azure AD, musis
 
 Wyłączanie samoobsługowego resetowania haseł sprowadza się do otwarcia dzierżawy usługi Azure AD, przejścia do pozycji **Resetowanie hasła > Właściwości** i wybrania pozycji **Brak** w obszarze **Funkcja samoobsługowego resetowania hasła jest włączona**
 
-## <a name="next-steps"></a>Następne kroki
-
-Po zapoznaniu się z tym przewodnikiem szybkiego startu wiesz już, jak skonfigurować samoobsługowe resetowanie haseł dla swoich użytkowników. Aby przejść do witryny Azure Portal w celu wykonania tych kroków, użyj poniższego linku do portalu.
-
-> [!div class="nextstepaction"]
-> [Włącz samoobsługowe resetowanie haseł](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### <a name="learn-more"></a>Dowiedz się więcej
 Poniższe linki dają dostęp do dodatkowych informacji dotyczących resetowania haseł za pomocą usługi Azure AD
 
 * [**Licencjonowanie**](active-directory-passwords-licensing.md) — Konfigurowanie licencjonowania w usłudze Azure AD
@@ -97,4 +91,12 @@ Poniższe linki dają dostęp do dodatkowych informacji dotyczących resetowania
 * [**Szczegóły techniczne**](active-directory-passwords-how-it-works.md) — Informacje o tym, co dzieje się za kulisami tej funkcji i jak ona działa
 * [**Często zadawane pytania**](active-directory-passwords-faq.md) — Jak? Dlaczego? Co? Gdzie? Kto? Kiedy? — Odpowiedzi na wszystkie nurtujące Cię pytania
 * [**Rozwiązywanie problemów**](active-directory-passwords-troubleshoot.md) — Informacje o tym, jak rozwiązywać typowe problemy z samoobsługowym resetowaniem haseł
+
+## <a name="next-steps"></a>Następne kroki
+
+Po zapoznaniu się z tym przewodnikiem szybkiego startu wiesz już, jak skonfigurować samoobsługowe resetowanie haseł dla swoich użytkowników. Aby przejść do witryny Azure Portal w celu wykonania tych kroków, użyj poniższego linku do portalu.
+
+> [!div class="nextstepaction"]
+> [Włącz samoobsługowe resetowanie haseł](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

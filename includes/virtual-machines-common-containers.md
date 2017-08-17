@@ -92,8 +92,7 @@ Te możliwości są często następnie migrowane do narzędzi, takich jak [Puppe
 Niedawno na platformie Azure został wydany interfejs API REST [usługi Azure Resource Management](../articles/resource-manager-deployment-model.md) oraz zaktualizowano program PowerShell i narzędzia 	interfejsu wiersza polecenia platformy Azure. [Szablony usługi Azure Resource Manager](../articles/resource-group-authoring-templates.md) umożliwiają wdrażanie, modyfikowanie lub ponowne wdrażanie całych topologii aplikacji przy użyciu interfejsu API usługi Azure Resource Manager oraz:
 
 * witryny [Azure Portal za pomocą szablonów](https://github.com/Azure/azure-quickstart-templates) (wskazówka: użyj przycisku „Wdróż na platformie Azure”),
-* [interfejsu wiersza polecenia platformy Azure](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json),
-* [modułów programu Azure PowerShell](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [interfejsu wiersza polecenia platformy Azure](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json),
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Wdrażanie całych grup maszyn wirtualnych platformy Azure i kontenerów oraz zarządzanie nimi
 Istnieje kilka popularnych systemów, w ramach których można wdrożyć całe grupy maszyn wirtualnych i zainstalować platformę Docker (lub inne systemy hosta kontenera systemu Linux) jako grupę możliwą do zautomatyzowania. Bezpośrednie linki znajdują się w poniższej sekcji dotyczącej [kontenerów i narzędzi](#containers-and-vm-technologies). Istnieje kilka systemów, w których można przeprowadzić te operacje w mniejszym lub większym stopniu — na liście nie znajdują się wszystkie z nich. W zależności od potrzeb i posiadanych umiejętności mogą być one przydatne.
@@ -104,7 +103,7 @@ Ponadto można wypróbować [system Data Center Operating System (DCOS) firmy Me
 
 Oprócz tego [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) to system typu „open source” służący do zarządzania maszynami wirtualnymi i kontenerami utworzony na podstawie doświadczeń firmy Google. Możliwe jest nawet użycie systemu [kubernetes wraz z platformą Weave w celu zapewnienia obsługi sieci](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.com/) to rozwiązanie „platforma jako usługa” (PaaS) typu „open source”, które ułatwia wdrażanie aplikacji na własnych serwerach i zarządzanie nimi. Rozwiązanie Deis działa w oparciu o platformę Docker i system CoreOS w celu zapewnienia lekkiego rozwiązania PaaS z przepływem pracy wzorowanym na platformie Heroku. Możesz łatwo [utworzyć 3-węzłową grupę maszyn wirtualnych platformy Azure i zainstalować rozwiązanie Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) na platformie Azure, a następnie [zainstalować aplikację Hello World Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) to rozwiązanie „platforma jako usługa” (PaaS) typu „open source”, które ułatwia wdrażanie aplikacji na własnych serwerach i zarządzanie nimi. Rozwiązanie Deis działa w oparciu o platformę Docker i system CoreOS w celu zapewnienia lekkiego rozwiązania PaaS z przepływem pracy wzorowanym na platformie Heroku.
 
 W systemie [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), czyli dystrybucji systemu Linux ze zoptymalizowaną zajmowaną przestrzenią dyskową, obsługą platformy Docker i własnym systemem kontenerów o nazwie [rkt](https://github.com/coreos/rkt), również istnieje narzędzie do zarządzania grupami kontenerów o nazwie [fleet](https://coreos.com/fleet/docs/latest/).
 
@@ -163,9 +162,6 @@ Konfiguracja, zarządzanie klastrami i aranżacja kontenerów:
 
 * [Narzędzie Fleet w systemie CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [Tworzenie 3-węzłowej grupy maszyn wirtualnych platformy Azure, instalowanie rozwiązania Deis i uruchamianie aplikacji Hello World Go](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Kubernetes
 
   * [Pełny przewodnik po zautomatyzowanym wdrażaniu klastra Kubernetes za pomocą systemu CoreOS i platformy Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)

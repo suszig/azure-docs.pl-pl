@@ -7,7 +7,7 @@ Certyfikaty klienta można wygenerować, posługując się następującymi metod
 - **Certyfikat przedsiębiorstwa:**
 
   - Jeśli używasz rozwiązania z certyfikatem przedsiębiorstwa, wygeneruj certyfikat klienta przy użyciu formatu wartości nazwy pospolitej „name@yourdomain.com”, a nie formatu „nazwa_domeny\nazwa_użytkownika”.
-  - Upewnij się, że certyfikat klienta jest oparty na szablonie certyfikatu „Użytkownik”, którego pierwszym elementem na liście użycia jest „Uwierzytelnienie klienta”, a nie Logowanie karty inteligentnej itp. Certyfikat można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i wyświetlenie pozycji *Szczegóły > Ulepszone użycie klucza*.
+  - Upewnij się, że certyfikat klienta jest oparty na szablonie certyfikatu „Użytkownik”, którego pierwszym elementem na liście użycia jest „Uwierzytelnienie klienta”, a nie Logowanie karty inteligentnej itp. Certyfikat można sprawdzić przez dwukrotne kliknięcie certyfikatu klienta i wyświetlenie pozycji **Szczegóły > Ulepszone użycie klucza**.
 
 - **Certyfikat główny z podpisem własnym:** ważne jest, aby wykonać czynności opisane jednym z poniższych artykułów dotyczących certyfikatu punkt-lokacja. W przeciwnym razie utworzone przez Ciebie certyfikaty klienta nie będą zgodne z połączeniami typu punkt-lokacja i zostanie wyświetlony błąd klientów podczas nawiązywania połączenia. Czynności opisane w następujących artykułach umożliwiają wygenerowanie zgodnego certyfikatu klienta: 
 
