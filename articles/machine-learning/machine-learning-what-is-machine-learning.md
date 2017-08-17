@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
-ms.author: cgronlun;tedway;olgali
+ms.author: cgronlun
 ms.translationtype: HT
 ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c

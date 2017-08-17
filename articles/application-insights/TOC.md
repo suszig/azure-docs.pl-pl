@@ -96,7 +96,7 @@
 #### [Użytkownicy, sesje, zdarzenia](app-insights-usage-segmentation.md)
 #### [Lejki](usage-funnels.md)
 #### [Przechowywanie](app-insights-usage-retention.md)
-#### [Flows (Przepływy)](app-insights-usage-flows.md)
+#### [User Flows (Przepływy użytkowników)](app-insights-usage-flows.md)
 #### [Skoroszyty](app-insights-usage-workbooks.md)
 
 ### Analiza
