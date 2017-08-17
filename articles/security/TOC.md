@@ -5,10 +5,11 @@
 ## [Bezpieczeństwo obliczeń](security-virtual-machines-overview.md)
 ## [Bezpieczeństwo działania](azure-operational-security-overview.md)
 ## [Zarządzanie zabezpieczeniami i monitorowanie ich](security-management-and-monitoring-overview.md)
+## [Service Fabric security (Zabezpieczenia usługi Service Fabric)](azure-service-fabric-security-overview.md)
 ## [Zarządzanie tożsamościami](security-identity-management-overview.md)
 ## [Zabezpieczenia IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Architektura zabezpieczeń](azure-security-architecture-overview.md)
-### [Bezpieczeństwo działania](azure-operational-security.md)
+### [Enabling operational security (Włączanie bezpieczeństwa działania)](azure-operational-security.md)
 ### [Zaawansowane wykrywanie zagrożeń](azure-threat-detection.md)
 ### [Rejestrowanie i przeprowadzanie inspekcji](azure-log-audit.md)
 ### [Izolacja w chmurze publicznej](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Rozwiązywanie problemów z szyfrowaniem dysków](azure-security-disk-encryption-tsg.md)
 ### [Szyfrowanie maszyny wirtualnej platformy Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## Bezpieczeństwo działania
+### [Best practices for operational security (Najlepsze rozwiązania dotyczące bezpieczeństwa działania)](azure-operational-security-best-practices.md)
+
 ## Zarządzanie zabezpieczeniami i monitorowanie ich
 ### [Zarządzanie zabezpieczeniami](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Integrowanie alertów usługi Security Center](security-azure-log-integration-security-center.md)
 #### [Integrowanie dzienników usługi Key Vault przy użyciu usługi Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Często zadawane pytania](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Service Fabric best practices (Najlepsze rozwiązania związane z usługą Service Fabric)](azure-service-fabric-security-best-practices.md)
+### [Service Fabric checklist (Lista kontrolna usługi Service Fabric)](azure-service-fabric-security-checklist.md)
 
 ## Zarządzanie tożsamościami
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń zarządzania tożsamościami](azure-security-identity-management-best-practices.md)

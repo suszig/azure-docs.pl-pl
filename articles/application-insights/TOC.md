@@ -92,9 +92,11 @@
 
 ### Sposób użycia
 #### [Omówienie](app-insights-usage-overview.md)
+#### [Wysyłanie kontekstu użytkownika](app-insights-usage-send-user-context.md)
 #### [Użytkownicy, sesje, zdarzenia](app-insights-usage-segmentation.md)
 #### [Lejki](usage-funnels.md)
 #### [Przechowywanie](app-insights-usage-retention.md)
+#### [Flows (Przepływy)](app-insights-usage-flows.md)
 #### [Skoroszyty](app-insights-usage-workbooks.md)
 
 ### Analiza

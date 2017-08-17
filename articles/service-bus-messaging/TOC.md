@@ -36,7 +36,8 @@
 ### [Kolejki, tematy i subskrypcje](service-bus-queues-topics-subscriptions.md)
 ### [Aplikacje korzystające z kolejek](service-bus-create-queues.md)
 ### [Aplikacje korzystające z tematów/subskrypcji](service-bus-create-topics-subscriptions.md)
-### [Uwierzytelnianie i autoryzacja](service-bus-sas.md)
+### [Uwierzytelnianie i autoryzacja](service-bus-authentication-and-authorization.md)
+#### [Authentication with Shared Access Signatures (Uwierzytelnianie za pomocą sygnatur dostępu współdzielonego)](service-bus-sas.md)
 ### [Partycjonowane kolejki i tematy](service-bus-partitioning.md)
 ### [Kolejki utraconych wiadomości](service-bus-dead-letter-queues.md)
 ### [Przetwarzanie transakcji](service-bus-transactions.md)
@@ -56,8 +57,8 @@
 
 # Dokumentacja
 ## .NET
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
 ## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Wyjątki](service-bus-messaging-exceptions.md)

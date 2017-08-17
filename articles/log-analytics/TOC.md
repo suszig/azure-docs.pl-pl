@@ -46,6 +46,7 @@
 ### [Portale do wyszukiwania w dzienniku](log-analytics-log-search-portals.md)
 #### [Korzystanie z portalu do wyszukiwania w dzienniku](log-analytics-log-search-log-search-portal.md)
 ### [Przechodzenie ze starszego języka](log-analytics-log-search-transition.md)
+### [Flow connector (Łącznik usługi Flow)](log-analytics-flow-tutorial.md)
 
 ## Analizowanie danych
 ### [Pulpity nawigacyjne](log-analytics-dashboards.md)
