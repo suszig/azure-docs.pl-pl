@@ -46,6 +46,7 @@
 ### [Interfejs wiersza polecenia 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Testowanie łączności
+### [Portal](network-watcher-connectivity-portal.md)
 ### [PowerShell](network-watcher-connectivity-powershell.md)
 ### [Interfejs wiersza polecenia 2.0](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)

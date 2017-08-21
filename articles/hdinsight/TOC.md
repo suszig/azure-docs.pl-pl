@@ -199,7 +199,6 @@
 #### [Hadoop memory and performance (Pamięć i wydajność usługi Hadoop)](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Access Hadoop YARN application logs on Linux (Uzyskiwanie dostępu do dzienników aplikacji platformy YARN w usłudze Hadoop w systemie Linux)](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [Enable heap dumps for Hadoop services (Włączanie zrzutów sterty dla usług Hadoop)](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [Analizowanie dzienników usługi HDInsight](hdinsight-debug-jobs.md)
 #### [Understand and resolve WebHCat errors (Informacje na temat błędów usługi WebHCat i rozwiązywania ich)](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Usuwanie błędów związanych z brakiem pamięci za pomocą ustawień technologii Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Debugowanie zadań Tez przy użyciu widoków Ambari](hdinsight-debug-ambari-tez-view.md)

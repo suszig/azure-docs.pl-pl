@@ -4,8 +4,6 @@
   items:
     - name: Informacje o usłudze Azure Cosmos DB
       href: introduction.md
-    - name: Klienci usługi DocumentDB — Zapraszamy!
-      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Przewodniki Szybki start
   expanded: true
   items:

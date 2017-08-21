@@ -76,11 +76,6 @@
       href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Planowana konserwacja
       href: planned-maintenance.md
-      items:
-        - name: Zachowywanie konserwacji
-          href: maintenance-in-place.md
-        - name: Ponowne uruchamianie konserwacji
-          href: impactful-maintenance.md
     - name: Rozmiary maszyn wirtualnych
       items:
         - name: Omówienie rozmiarów maszyn wirtualnych
