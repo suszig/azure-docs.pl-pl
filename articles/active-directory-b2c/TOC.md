@@ -83,6 +83,7 @@
 ## [Włączanie rozliczeń](active-directory-b2c-how-to-enable-billing.md)
 ## [Zarządzanie zagrożeniami](active-directory-b2c-reference-threat-management.md)
 ## [Problemy podczas tworzenia katalogu](active-directory-b2c-support-create-directory.md)
+## [Aplikacja rozszerzeń](active-directory-b2c-reference-extensions-app.md)
 
 # Powiązane
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

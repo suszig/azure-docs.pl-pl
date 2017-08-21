@@ -3,9 +3,10 @@
 ## [Co to jest usługa Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Zespołowe przetwarzanie danych dla celów naukowych
-### [Omówienie](http://aka.ms/datascienceprocess)
-### [Cykl życia](data-science-process-overview.md)
+### [Omówienie](data-science-process-overview.md)
+### [Cykl życia](data-science-process-lifecycle.md)
 ### [Przewodniki](data-science-process-walkthroughs.md)
+### [Z usługą Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Co to jest Studio?](machine-learning-what-is-ml-studio.md)

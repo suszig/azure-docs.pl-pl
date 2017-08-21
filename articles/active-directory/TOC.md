@@ -144,8 +144,14 @@
 
 ## Zarządzanie urządzeniami
 ### [Wprowadzenie](device-management-introduction.md)
-### [Rejestrowanie urządzeń](active-directory-device-registration-overview.md)
-#### [Konfigurowanie](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [Często zadawane pytania](device-management-faq.md)
+### Zadania
+#### [Konfigurowanie urządzeń przyłączonych do hybrydowej usługi Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### Rozwiązywanie problemów
+##### [Urządzenia z systemami Windows 10 i Windows Server 2016 przyłączone do hybrydowej usługi Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
+##### [Starsze urządzenia z systemem Windows przyłączone do hybrydowej usługi Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Rejestrowanie urządzeń
 #### [Wdrażanie lokalnie](active-directory-device-registration-on-premises-setup.md)
 #### [Często zadawane pytania](active-directory-device-registration-faq.md)
 #### Rozwiązywanie problemów

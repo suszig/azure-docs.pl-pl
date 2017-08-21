@@ -54,14 +54,12 @@
 ### [Aplikacja sieci Web z programem Visual Studio](web-app-visual-studio.md)
 ### [Klaster RDMA do uruchamiania aplikacji MPI](rdma-cluster.md)
 ### [Jak używać podrzędnej wtyczki platformy Azure z ciągłą integracją rozwiązania Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Klaster RDMA systemu Windows do uruchamiania aplikacji MPI](hpcpack-cluster.md)
-### [Klaster obliczeń o wysokiej wydajności systemu Windows ze skryptem wdrażania IaaS pakietu HPC Pack](hpcpack-cluster-starccm.md)
-### [Zarządzanie liczbą i dostępnością węzłów obliczeniowych](hpcpack-cluster-powershell-script.md)
-### [Dodawanie węzłów na żądanie](hpcpack-cluster-openfoam.md)
-### [Automatyczne skalowanie zasobów](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Tworzenie klastra dla obciążeń systemu Linux](hpcpack-cluster-powershell-script.md)
+#### [Zarządzanie klastrem z węzłami z systemem Linux](hpcpack-cluster.md)
+#### [Uruchamianie platformy STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Uruchamianie programu OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Uruchamianie programu NAMD](hpcpack-cluster-namd.md)
 
 ## Rozwiązywanie problemów
 ### [Wdrożenia maszyn wirtualnych](troubleshoot-deployment-new-vm.md)
