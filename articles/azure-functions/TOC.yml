@@ -19,6 +19,8 @@
       items:
         - name: Czasomierz
           href: functions-create-scheduled-function.md
+        - name: Ogólny element webhook
+          href: functions-create-generic-webhook-triggered-function.md
         - name: Element webhook GitHub
           href: functions-create-github-webhook-triggered-function.md
         - name: Blob Storage
