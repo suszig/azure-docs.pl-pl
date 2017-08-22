@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Brama sieci VPN — często zadawane pytania
@@ -58,7 +57,7 @@ Konfiguracje **punkt-lokacja** (VPN z protokołem SSTP) umożliwiają połączen
 
 Sieć wirtualną można skonfigurować pod kątem równoległego użycia metod lokacja-lokacja i punkt-lokacja, o ile połączenie lokacja-lokacja zostanie utworzone z użyciem bramy sieci VPN opartej na trasach. Typy bramy sieci VPN oparte na trasach są w klasycznym modelu wdrażania nazywane bramami dynamicznymi.
 
-## <a name="virtual-network-gateways"></a>Bramy sieci wirtualnej
+## <a name="gateways"></a>Bramy sieci wirtualnej
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Czy brama sieci VPN jest bramą sieci wirtualnej?
 
@@ -132,7 +131,7 @@ Brama sieci VPN to zasadniczo wieloadresowe urządzenie, w przypadku którego je
 
 Aby uzyskać więcej informacji, zobacz temat [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md) (Informacje o ustawieniach konfiguracji bramy VPN Gateway).
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>Połączenia typu lokacja-lokacja a urządzenia sieci VPN
+## <a name="s2s"></a>Połączenia typu lokacja-lokacja a urządzenia sieci VPN
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Co należy wziąć pod uwagę przy wyborze urządzenia sieci VPN?
 
@@ -196,7 +195,7 @@ Tak, sieci VPN typu punkt-lokacja (P2S) można używać z bramami sieci VPN łą
 
 Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać więcej informacji, zobacz artykuł [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md) (Konfigurowanie obwodu ExpressRoute i współistniejących połączeń sieci VPN typu lokacja-lokacja).
 
-## <a name="ipsecike-policy"></a>Zasady protokołu IPsec/IKE
+## <a name="ipsecike"></a>Zasady protokołu IPsec/IKE
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -205,7 +204,7 @@ Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać więcej informacji, zoba
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>Połączenia obejmujące wiele lokalizacji a maszyny wirtualne
+## <a name="vms"></a>Połączenia obejmujące wiele lokalizacji a maszyny wirtualne
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>W jaki sposób należy połączyć się z maszyną wirtualną w przypadku, gdy należy ona do sieci wirtualnej, a dysponuję połączeniem obejmującym wiele lokalizacji?
 
@@ -222,7 +221,7 @@ Nie. Przez bramę sieci wirtualnej przechodzi tylko ruch, którego docelowy adre
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>Sieć wirtualna — często zadawane pytania
+## <a name="faq"></a>Sieć wirtualna — często zadawane pytania
 
 Dodatkowe informacje dotyczące sieci wirtualnej można znaleźć w artykule [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md) (Sieć wirtualna — często zadawane pytania).
 

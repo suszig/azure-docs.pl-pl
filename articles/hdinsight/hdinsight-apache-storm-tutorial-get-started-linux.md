@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5121861dc9fa11bbde32c12f3987bb60f2dda057
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Wprowadzenie do platformy Apache Storm w usłudze HDInsight przy użyciu przykładów z projektu Storm Starter
@@ -65,7 +65,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
     * **System operacyjny**: Linux
 
-    * **Wersja**: Storm 1.0.1 (HDI 3.5)
+    * **Wersja**: Storm 1.1.0 (HDI 3.6)
 
     * **Warstwa klastra**: Standardowa
 
@@ -110,7 +110,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
     >
     > Przykład WordCount i inne przykłady z projektu Storm Starter znajdują się już w klastrze w lokalizacji `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-Jeśli chcesz zobaczyć źródło przykładów z projektu Storm Starter, kod możesz znaleźć na stronie [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Ten link dotyczy platformy Storm 1.0.x, która jest dostarczana z usługą HDInsight 3.5. W przypadku innych wersji platformy Storm należy za pomocą przycisku __Branch__ (Gałąź) w górnej części strony wybrać inną wersję platformy Storm.
+Jeśli chcesz zobaczyć źródło przykładów z projektu Storm Starter, kod możesz znaleźć na stronie [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter). Ten link dotyczy platformy Storm 1.1.x, która jest dostarczana z usługą HDInsight 3.6. W przypadku innych wersji platformy Storm należy za pomocą przycisku __Branch__ (Gałąź) w górnej części strony wybrać inną wersję platformy Storm.
 
 ## <a name="monitor-the-topology"></a>Monitorowanie topologii
 

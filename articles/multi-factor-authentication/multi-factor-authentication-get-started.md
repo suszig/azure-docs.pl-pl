@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 6f8ee3449244b12d2c8b5714e6ad893e2f0b10ee
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Wybieranie odpowiedniego rozwiązania usługi Azure Multi-Factor Authentication
@@ -39,7 +39,7 @@ Aby wybrać odpowiednie rozwiązanie weryfikacji dwuetapowej, najpierw należy o
 | Aplikacje SaaS w galerii aplikacji |● |  |
 | Aplikacje sieci Web opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD |● |  |
 | Aplikacje usług IIS, które nie zostały opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD | |● |
-| Dostęp zdalny, np. sieć VPN lub brama usług pulpitu zdalnego | |● |
+| Dostęp zdalny, np. sieć VPN lub brama usług pulpitu zdalnego | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Gdzie znajdują się użytkownicy
 Następnie w zależności od tego, gdzie znajdują się użytkownicy, można określić, jakie rozwiązanie będzie odpowiednie — uwierzytelnianie w chmurze czy uwierzytelnianie lokalne przy użyciu serwera MFA.
@@ -76,13 +76,14 @@ Poniższa tabela zawiera zestawienie funkcji dostępnych w przypadku użycia us�
 | Dostęp warunkowy | ● | ● |
 | Pamięć podręczna |  | ● |
 
-Gdy już udało się ustalić, czy będzie używane uwierzytelnianie wieloskładnikowe w chmurze czy lokalny serwer MFA, można rozpocząć konfigurowanie i używanie usługi Azure Multi-Factor Authentication. **Wybierz ikonę, która odpowiada Twojemu scenariuszowi.**
+## <a name="next-steps"></a>Następne kroki
+
+Gdy już udało się ustalić, czy będzie używane uwierzytelnianie wieloskładnikowe w chmurze czy lokalny serwer MFA, można rozpocząć konfigurowanie i używanie usługi Azure Multi-Factor Authentication. **Wybierz ikonę, która odpowiada Twojemu scenariuszowi**
 
 <center>
 
 
 
 
-[![Chmura](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Weryfikacja](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</center>
+[![Chmura](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Serwer](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </center>
 

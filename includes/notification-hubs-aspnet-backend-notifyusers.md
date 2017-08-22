@@ -7,8 +7,8 @@ W kolejnych sekcjach zostanie utworzone nowe zaplecze interfejsu WebAPI w strukt
 
 W następujących krokach przedstawiono sposób tworzenia nowego zaplecza interfejsu WebAPI w strukturze ASP.NET: 
 
-> [!NOTE]
-> **Ważne**: Jeśli używasz programu Visual Studio 2015 lub starszego, przed rozpoczęciem tego samouczka upewnij się, że masz zainstalowaną najnowszą wersję Menedżera pakietów NuGet. Aby to sprawdzić, uruchom program Visual Studio. W menu **Narzędzia** kliknij polecenie **Rozszerzenia i aktualizacje**. Wyszukaj pozycję **Menedżer pakietów NuGet** dla używanej przez Ciebie wersji programu Visual Studio i sprawdź, czy masz najnowszą wersję. Jeśli nie, odinstaluj, a następnie ponownie zainstaluj Menedżera pakietów NuGet.
+> [!IMPORTANT]
+> Jeśli używasz programu Visual Studio 2015 lub starszego, przed rozpoczęciem tego samouczka upewnij się, że masz zainstalowaną najnowszą wersję Menedżera pakietów NuGet. Aby to sprawdzić, uruchom program Visual Studio. W menu **Narzędzia** kliknij polecenie **Rozszerzenia i aktualizacje**. Wyszukaj pozycję **Menedżer pakietów NuGet** dla używanej przez Ciebie wersji programu Visual Studio i sprawdź, czy masz najnowszą wersję. Jeśli nie, odinstaluj, a następnie ponownie zainstaluj Menedżera pakietów NuGet.
 > 
 > ![][B4]
 > 

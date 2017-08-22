@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 85d89568f5022dafd44ae7f8578e0bebb22d472d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -44,7 +44,7 @@ Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obej
 
 ![Informacje o połączeniach](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Dlaczego łączy się sieci wirtualne?
+### <a name="why"></a>Dlaczego łączy się sieci wirtualne?
 
 Sieci wirtualne można łączyć z następujących powodów:
 
@@ -185,11 +185,11 @@ W przykładach stosujemy następujące wartości:
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>Krok 4 — Tworzenie połączeń
+### <a name="createconnect"></a>Krok 4 — Tworzenie połączeń
 
 Mamy teraz dwie sieci wirtualne z bramami sieci VPN. Następny krok polega na utworzeniu połączeń VPN między bramami sieci wirtualnych. Jeśli użyto powyższych przykładów, bramy sieci wirtualnych znajdują się w różnych grupach zasobów. Gdy bramy znajdują się w różnych grupach zasobów, podczas nawiązywania połączenia należy zidentyfikować i określić identyfikatory zasobów dla każdej bramy. Jeśli sieci wirtualne znajdują się w tej samej grupie zasobów, można użyć [drugiego zestawu instrukcji](#samerg) , ponieważ nie trzeba wtedy określać identyfikatorów zasobów.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>Łączenie sieci wirtualnych, które znajdują się w różnych grupach zasobów
+### <a name="diffrg"></a>Łączenie sieci wirtualnych, które znajdują się w różnych grupach zasobów
 
 1. Pobierz identyfikator zasobu sieci VNet1GW z danych wyjściowych następującego polecenia:
 
@@ -322,7 +322,7 @@ Ten krok należy wykonać w kontekście nowej subskrypcji (Subskrypcja 5). Tę c
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>Krok 8 — Tworzenie połączeń
+### <a name="connections5"></a>Krok 8 — Tworzenie połączeń
 
 Ze względu na to, że bramy należą do różnych subskrypcji, zastosowano rozbicie na dwie sesje interfejsu wiersza polecenia oznaczone jako **[Subskrypcja 1]** i **[Subskrypcja 5]**. Aby przełączać się między subskrypcjami i wyświetlić listę subskrypcji dostępnych na koncie, użyj polecenia „az account list --all”. Następnie użyj polecenia „az account set --subscription <subscriptionID>”, aby przełączyć się na subskrypcję, która ma być używana.
 

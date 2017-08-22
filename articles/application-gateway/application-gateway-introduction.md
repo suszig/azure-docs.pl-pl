@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Omówienie usługi Application Gateway
@@ -42,6 +42,7 @@ Usługa Application Gateway obecnie zapewnia następujące możliwości:
 * **[Routing obejmujący wiele witryn](application-gateway-multi-site-overview.md)** — usługa Application Gateway umożliwia konsolidację maksymalnie 20 witryn sieci Web na jednej bramie aplikacji.
 * **[Obsługa protokołu Websocket](application-gateway-websocket.md)** — kolejną atrakcyjną funkcją usługi Application Gateway jest natywna obsługa protokołu Websocket.
 * **[Monitorowanie kondycji](application-gateway-probe-overview.md)** — usługa Application Gateway zapewnia domyślne monitorowanie kondycji zasobów zaplecza i niestandardowe sondy na potrzeby monitorowania bardziej specyficznych scenariuszy.
+* **[Szyfry i zasady SSL](application-gateway-ssl-policy-overview.md)** — ta funkcja zapewnia możliwość ograniczenia obsługiwanych mechanizmów szyfrowania i wersji protokołu SSL oraz kolejności, w jakiej są przetwarzane.
 * **[Przekierowywanie żądań](application-gateway-redirect-overview.md)**  — ta funkcja umożliwia przekierowywanie żądań HTTP do odbiornika protokołu HTTPS.
 * **[Obsługa wielodostępnego zaplecza](application-gateway-web-app-overview.md)** — usługa Application Gateway obsługuje konfigurowanie wielodostępnych usług zaplecza, takich jak usługa Azure Web Apps i API Gateway, jako elementów członkowskich puli zaplecza. 
 * **[Zaawansowana diagnostyka](application-gateway-diagnostics.md)** — aplikacja Application Gateway oferuje kompletne dzienniki dostępu i diagnostyki. Dzienniki zapory są dostępne dla zasobów usługi Application Gateway z włączoną zaporą aplikacji sieci Web.
@@ -105,5 +106,5 @@ Po zapoznaniu się z informacjami na temat usługi Application Gateway możesz [
 
 Aby dowiedzieć się, jak utworzyć bramę aplikacji przy użyciu routingu zawartości opartego na adresach URL, zobacz [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) (Tworzenie bramy aplikacji przy użyciu routingu opartego na adresach URL).
 
-Aby poznać inne kluczowe możliwości sieciowe platformy Azure, zobacz [Sieci platformy Azure]((../networking/networking-overview.md).
+Aby poznać inne kluczowe możliwości sieciowe platformy Azure, zobacz [Sieci na platformie Azure](../networking/networking-overview.md).
 

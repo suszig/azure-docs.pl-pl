@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 690aa3ddc6ec0889936565ea732cd714734abecb
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0dec0d3744f76a06313928197f3a5229290ba32b
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Tworzenie połączenia typu lokacja-lokacja w witrynie Azure Portal
@@ -118,11 +118,11 @@ Utwórz połączenie sieci VPN typu lokacja-lokacja między bramą sieci wirtual
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="how-to-reset-a-vpn-gateway"></a>Jak zresetować bramę VPN Gateway
+## <a name="reset"></a>Jak zresetować bramę VPN Gateway
 
 Resetowanie bramy Azure VPN Gateway przydaje się w przypadku utraty połączenia sieci VPN obejmującego wiele lokalizacji w jednym lub wielu tunelach VPN typu lokacja-lokacja. W takiej sytuacji urządzenia lokalnej sieci VPN działają prawidłowo, ale nie mogą nawiązać połączenia w ramach tuneli używających protokołu IPsec z bramami sieci VPN Azure. Aby uzyskać instrukcje, zobacz [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md).
 
-## <a name="how-to-change-a-gateway-sku-resize-a-gateway"></a>Jak zmienić jednostkę SKU bramy (zmienić rozmiar bramy)
+## <a name="resize"></a>Jak zmienić jednostkę SKU bramy (zmienić rozmiar bramy)
 
 Aby uzyskać instrukcje dotyczące zmiany jednostki SKU bramy, zobacz [Gateway SKUs (Jednostki SKU bramy)](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 

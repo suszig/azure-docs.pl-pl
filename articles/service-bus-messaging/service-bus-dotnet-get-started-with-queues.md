@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/26/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="get-started-with-service-bus-queues"></a>Wprowadzenie do kolejek usługi Service Bus
@@ -39,7 +39,7 @@ Ten samouczek obejmuje następujące kroki:
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
-Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już utworzona, przejdź do sekcji [Tworzenie kolejki za pomocą usługi Azure Portal](#2-create-a-queue-using-the-azure-portal).
+Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już utworzona, przejdź do sekcji [Tworzenie kolejki za pomocą witryny Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 

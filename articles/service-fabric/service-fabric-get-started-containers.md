@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/18/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 0c0b567d353fd77f72170a4bf807ec0d2585e357
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: e37a8ee4d7eda192caf7a4d3ab0db6e4a08576d8
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -176,7 +176,7 @@ Zestaw SDK oraz narzędzia usługi Service Fabric udostępniają szablon usługi
 5. Nadaj nazwę usłudze i kliknij przycisk **OK**.
 
 ## <a name="configure-communication"></a>Konfigurowanie komunikacji
-Konteneryzowana usługa wymaga punktu końcowego dla celów komunikacyjnych. Dodaj element `Endpoint` z protokołem, portem i typem do pliku ServiceManifest.xml. Na potrzeby tego artykułu skonteneryzowana usługa nasłuchuje na porcie 8081.  W tym przykładzie jest używany stały port 8081.  Jeśli nie określono portu, zostanie wybrany losowy port z zakresu portów aplikacji.  
+Konteneryzowana usługa wymaga punktu końcowego dla celów komunikacyjnych. Dodaj element `Endpoint` z protokołem, portem i typem do pliku ServiceManifest.xml. Na potrzeby tego artykułu konteneryzowana usługa nasłuchuje na porcie 8081.  W tym przykładzie jest używany stały port 8081.  Jeśli nie określono portu, zostanie wybrany losowy port z zakresu portów aplikacji.  
 
 ```xml
 <Resources>
@@ -426,6 +426,46 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
   </DefaultServices>
 </ApplicationManifest>
 ```
+
+## <a name="configure-time-interval-before-container-is-force-terminated"></a>Konfigurowanie interwału czasu wymuszania przerwania działania kontenera
+
+Możesz skonfigurować interwał czasu środowiska uruchomieniowego, po upływie którego kontener ma zostać usunięty po rozpoczęciu usuwania usługi (lub przenoszenia do innego węzła). Skonfigurowanie interwału czasu powoduje wysłanie polecenia `docker stop <time in seconds>` do kontenera.   Aby uzyskać więcej informacji, zobacz [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Interwał czasu oczekiwania jest określony w sekcji `Hosting`. W poniższym fragmencie manifestu klastra pokazano, jak ustawić interwał oczekiwania:
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+          ...
+          }
+        ]
+}
+```
+Domyślny interwał to 10 sekund. Ta konfiguracja jest dynamiczna, dlatego uaktualnienie samej konfiguracji w klastrze powoduje zaktualizowanie limitu czasu. 
+
+
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Konfigurowanie środowiska uruchomieniowego w celu usunięcia nieużywanych obrazów kontenerów
+
+Możesz skonfigurować klaster usługi Service Fabric w celu usuwania nieużywanych obrazów kontenerów z węzła. Ta konfiguracja pozwala na ponowne przechwycenie miejsca na dysku w przypadku zbyt wielu obrazów kontenerów w węźle.  Aby włączyć tę funkcję, zaktualizuj sekcję `Hosting` w manifeście klastra, jak pokazano w poniższym fragmencie kodu: 
+
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+          ...
+          }
+        ]
+} 
+```
+
+Jeśli nie chcesz usuwać pewnych obrazów, określ je przy użyciu parametru `ContainerImagesToSkip`. 
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o uruchamianiu [kontenerów w usłudze Service Fabric](service-fabric-containers-overview.md).
