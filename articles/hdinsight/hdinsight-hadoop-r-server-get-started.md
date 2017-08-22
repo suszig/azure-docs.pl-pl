@@ -13,13 +13,13 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/13/2017
+ms.date: 08/14/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f0ee0d23f28df2824ea41f7c9f7490e1ec62d041
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 14e2a14c74e00709e18a80325fbdd3cbcd71da37
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Wprowadzenie do korzystania z oprogramowania R Server w usłudze HDInsight
@@ -670,6 +670,26 @@ Opcjonalnie możesz wykonać kontrolę diagnostyczną, uruchamiając test diagno
 6. Zamknij połączenie SSH
 
 ![Diagnostyka opernacjonalizacji](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+
+
+>[!NOTE]
+>**Duże opóźnienia podczas używania usługi internetowej na platformie Spark**
+>
+>Jeśli wystąpią duże opóźnienia podczas próby korzystania z usługi internetowej utworzonej za pomocą funkcji mrsdeploy w ramach kontekstu obliczeniowego platformy Spark, może być konieczne dodanie niektórych brakujących folderów. Aplikacja Spark należy do użytkownika o nazwie „*rserve2*” zawsze wtedy, gdy jest wywoływana z usługi internetowej przy użyciu funkcji mrsdeploy. Aby obejść ten problem:
+
+    # Create these required folders for user 'rserve2' in local and hdfs:
+
+    hadoop fs -mkdir /user/RevoShare/rserve2
+    hadoop fs -chmod 777 /user/RevoShare/rserve2
+
+    mkdir /var/RevoShare/rserve2
+    chmod 777 /var/RevoShare/rserve2
+
+
+    # Next, create a new Spark compute context:
+ 
+    rxSparkConnect(reset = TRUE)
+
 
 Na tym etapie konfiguracja opernacjonalizacji jest ukończona. Teraz możesz użyć pakietu „mrsdeploy” w programie RClient, aby nawiązać połączenie z operacjonalizacją w węźle krawędzi i rozpocząć korzystanie z jej funkcji, takich jak [zdalne wykonywanie](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) i [usługi internetowe](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). W zależności od tego, czy klaster został skonfigurowany w sieci wirtualnej, może być konieczne skonfigurowanie tunelowania przekierowania portów za pomocą logowania SSH. W poniższych sekcjach wyjaśniono, jak skonfigurować taki tunel.
 

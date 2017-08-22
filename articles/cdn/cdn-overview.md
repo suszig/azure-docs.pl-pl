@@ -3,7 +3,7 @@ title: "Omówienie usługi Azure CDN | Microsoft Docs"
 description: "Dowiedz się, co to jest usługa Azure Content Delivery Network (CDN) i jak z niej korzystać w celu dostarczania zawartości wysokiej przepustowości przez buforowanie obiektów blob i zawartości statycznej."
 services: cdn
 documentationcenter: 
-author: lichard
+author: smcevoy
 manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
-ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 299e55e095ac323ed0ded7c7844d7cd103174af2
+ms.author: v-semcev
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 0517f35a43e99181075dc5a6836e406c2c06824e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Omówienie usługi Azure Content Delivery Network (CDN)
@@ -51,28 +50,37 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) i [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Zarządzanie za pomocą [interfejsu API REST](https://msdn.microsoft.com/library/mt634456.aspx), [platformy .NET](cdn-app-dev-net.md), [środowiska Node.js](cdn-app-dev-node.md) lub [programu PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Obsługa protokołu HTTPS z punktem końcowym usługi CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Protokół HTTPS domen niestandardowych | |**&#x2713;** |**&#x2713;** |
-| Równoważenie obciążenia |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Ochrona przed atakami [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Podwójny stos protokołów IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Obsługa niestandardowych nazw domen](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Buforowanie ciągu zapytania](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrowanie geograficzne](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Funkcje wydajności i optymalizacje__ |
+| [Przyspieszanie witryn dynamicznych](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| [Optymalizacja przesyłania strumieniowego wideo](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
+| [Optymalizacja dużych plików](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
+| [Globalne równoważenia obciążenia serwera (usługa GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Szybkie przeczyszczanie](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Wstępne ładowanie zasobów](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
-| [Podstawowa analiza](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
+| [Buforowanie ciągu zapytania](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Podwójny stos protokołów IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Obsługa protokołu HTTP/2](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Zabezpieczenia__ |
+| Obsługa protokołu HTTPS z punktem końcowym usługi CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Protokół HTTPS domen niestandardowych | |**&#x2713;** |**&#x2713;** |
+| [Obsługa niestandardowych nazw domen](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Filtrowanie geograficzne](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Uwierzytelnianie przy użyciu tokenów](cdn-token-auth.md)|  |  |**&#x2713;**| 
+| [Ochrona przed atakami DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Analiza i raportowanie__ |
+| [Podstawowa analiza](cdn-analyze-usage-patterns.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Zaawansowane raporty HTTP](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Statystyki w czasie rzeczywistym](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Alerty w czasie rzeczywistym](cdn-real-time-alerts.md) | | |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Łatwość obsługi__ |
+| Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) i [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Zarządzanie za pomocą [interfejsu API REST](https://msdn.microsoft.com/library/mt634456.aspx), [platformy .NET](cdn-app-dev-net.md), [środowiska Node.js](cdn-app-dev-node.md) lub [programu PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Dostosowywalny, oparty na regułach aparat dostarczania zawartości](cdn-rules-engine.md) | | |**&#x2713;** |
 | Ustawienia pamięci podręcznej/nagłówka (przy użyciu [aparatu reguł](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Adres URL przekierowania/ponownego napisania (przy użyciu [aparatu reguł](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Zasady urządzeń przenośnych (przy użyciu [aparatu reguł](cdn-rules-engine.md)) | | |**&#x2713;** |
-| [Uwierzytelnianie przy użyciu tokenów](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
+\* Firma Verizon obsługuje bezpośrednie dostarczanie dużych plików i multimediów za pomocą usługi ogólnego dostarczania w sieci Web.
 
 
 > [!TIP]

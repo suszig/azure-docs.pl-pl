@@ -1,6 +1,6 @@
 ---
-title: "Raport o zabezpieczeniach dotyczący narażonych użytkowników w portalu usługi Azure Active Directory | Microsoft Docs"
-description: "Dowiedz się więcej o raporcie o zabezpieczeniach dotyczącym narażonych użytkowników w portalu usługi Azure Active Directory"
+title: "Raport o zabezpieczeniach dotyczący użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory | Microsoft Docs"
+description: "Dowiedz się więcej o raporcie o zabezpieczeniach dotyczącym użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/01/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bfcaee441c54453677e7747b0bca55a8afc59391
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Raport o zabezpieczeniach dotyczący narażonych użytkowników w portalu usługi Azure Active Directory
+# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Raport o zabezpieczeniach dotyczący użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory
 
 Dzięki raportom o zabezpieczeniach w usłudze Azure Active Directory (Azure AD) możesz uzyskać wgląd w prawdopodobieństwo naruszenia bezpieczeństwa kont użytkowników w środowisku. 
 
@@ -47,13 +47,13 @@ Jednak poziom szczegółowości raportu zależy od wersji:
 
 - Wersja **Azure Active Directory Premium 1** rozszerza ten model, umożliwiając również badanie niektórych podstawowych zdarzeń związanych z ryzykiem, które uwzględniono w poszczególnych raportach. 
 
-- Wersja **Azure Active Directory Premium 2** oferuje najbardziej szczegółowe informacje na temat zdarzeń związanych z ryzykiem i umożliwia również konfigurowanie zasad zabezpieczeń, które automatycznie reagują na wystąpienie skonfigurowanych poziomów ryzyka.
+- Wersja **Azure Active Directory Premium 2** oferuje najbardziej szczegółowe informacje na temat wszystkich zdarzeń o podwyższonym ryzyku i umożliwia konfigurowanie zasad zabezpieczeń, które automatycznie reagują na wystąpienie skonfigurowanych poziomów ryzyka.
 
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory — wersja Bezpłatna i Podstawowa
 
-Raport dotyczący narażonych użytkowników w usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa zapewnia listę kont użytkowników, których bezpieczeństwo mogło zostać naruszone. 
+Raport dotyczący użytkowników oflagowanych w związku z ryzykiem w usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa zapewnia listę kont użytkowników, których bezpieczeństwo mogło zostać naruszone. 
 
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/03.png)
@@ -65,7 +65,7 @@ W przypadku narażonego użytkownika można przejrzeć jego historię logowania 
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory — wersje Premium
 
-Raport dotyczący narażonych użytkowników w usłudze Azure Active Directory w wersjach Premium zawiera następujące elementy:
+Raport dotyczący użytkowników oflagowanych w związku z ryzykiem w usłudze Azure Active Directory w wersjach Premium zawiera następujące elementy:
 
 - [Lista kont użytkowników](active-directory-identityprotection.md#users-flagged-for-risk), których bezpieczeństwo mogło zostać naruszone 
 
@@ -92,8 +92,7 @@ Po wybraniu użytkownika jest dla niego wyświetlany szczegółowy widok raportu
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
-Aby zbadać zdarzenie o podwyższonym ryzyku, wybierz je z listy.  
-Spowoduje to otwarcie bloku **Szczegóły** dla tego zdarzenia o podwyższonym ryzyku. W bloku **Szczegóły** jest opcja [ręcznego zamknięcia zdarzenia o podwyższonym ryzyku](active-directory-identityprotection.md#closing-risk-events-manually) lub ponownego aktywowania ręcznie zamkniętego zdarzenia o podwyższonym ryzyku. 
+Aby zbadać zdarzenia o podwyższonym ryzyku, wybierz zdarzenie z listy w celu otwarcia bloku **Szczegóły** dla tego zdarzenia o podwyższonym ryzyku. W bloku **Szczegóły** jest opcja [ręcznego zamknięcia zdarzenia o podwyższonym ryzyku](active-directory-identityprotection.md#closing-risk-events-manually) lub ponownego aktywowania ręcznie zamkniętego zdarzenia o podwyższonym ryzyku. 
 
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/325.png)

@@ -76,8 +76,9 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node.js, która tworzy 
 6. Dodaj następujący kod, aby utworzyć definicję urządzenia w rejestrze tożsamości w centrum IoT. Ten kod tworzy urządzenie, jeśli identyfikator urządzenia nie istnieje w rejestrze tożsamości. W przeciwnym razie zwraca klucz istniejącego urządzenia:
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);

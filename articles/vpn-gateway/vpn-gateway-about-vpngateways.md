@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: db280ff801c6e501e7ab7890f67d22ae16444491
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway — informacje
@@ -28,7 +28,7 @@ Brama sieci VPN jest typem bramy sieci wirtualnej, który wysyła zaszyfrowany r
 
 Każda sieć wirtualna może mieć tylko jedną bramę sieci VPN, jednak można tworzyć wiele połączeń z tą samą bramą sieci VPN. Przykładem może być konfiguracja połączenia obejmującego wiele lokacji. W przypadku utworzenia wielu połączeń z tą samą bramą sieci VPN wszystkie tunele VPN, łącznie z sieciami VPN typu punkt-lokacja, współużytkują przepustowość dostępną dla bramy.
 
-### <a name="what-is-a-virtual-network-gateway"></a>Co to jest brama sieci wirtualnej?
+### <a name="whatis"></a>Co to jest brama sieci wirtualnej?
 
 Brama sieci wirtualnej składa się z co najmniej dwóch maszyn wirtualnych, które są wdrażane w określonej podsieci o nazwie GatewaySubnet. Maszyny wirtualne, które znajdują się w podsieci GatewaySubnet, są tworzone podczas tworzenia bramy sieci wirtualnej. Maszyny wirtualne bramy sieci wirtualnej są skonfigurowane w taki sposób, aby zawierały tabele routingu oraz specyficzne dla siebie usługi bramy. Nie można bezpośrednio skonfigurować maszyn wirtualnych, które są częścią bramy sieci wirtualnej, i nie należy nigdy wdrażać dodatkowych zasobów w podsieci GatewaySubnet.
 
@@ -38,7 +38,7 @@ Podczas tworzenia bramy sieci wirtualnej przy użyciu typu bramy „Vpn” tworz
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>Konfigurowanie bramy sieci VPN
+## <a name="configuring"></a>Konfigurowanie bramy VPN Gateway
 
 Połączenie bramy sieci VPN bazuje na wielu zasobach konfigurowanych przy użyciu konkretnych ustawień. Większość zasobów można skonfigurować osobno, choć w niektórych przypadkach muszą być one konfigurowane w określonej kolejności.
 
@@ -46,11 +46,11 @@ Połączenie bramy sieci VPN bazuje na wielu zasobach konfigurowanych przy użyc
 
 Ustawienia wybrane dla każdego zasobu mają kluczowe znaczenie dla utworzenia prawidłowego połączenia. Aby uzyskać informacje na temat poszczególnych zasobów i ustawień dla bramy sieci VPN, zobacz [Ustawienia bramy sieci VPN — informacje](vpn-gateway-about-vpn-gateway-settings.md). Ten artykuł zawiera informacje ułatwiające poznanie typów bram, typów sieci VPN, typów połączeń, podsieci bram, bram sieci lokalnych i innych ustawień zasobów, które warto wziąć pod uwagę.
 
-### <a name="deployment-tools"></a>Narzędzia wdrażania
+### <a name="tools"></a>Narzędzia wdrażania
 
 Możesz rozpocząć tworzenie i konfigurowanie zasobów za pomocą jednego narzędzia konfiguracji, takiego jak witryna Azure Portal. Później możesz zdecydować się zmienić narzędzie na inne, np. program PowerShell, w celu skonfigurowania dodatkowych zasobów lub zmodyfikowania istniejących zasobów, jeśli jest to wymagane. Obecnie nie wszystkie zasoby i ustawienia zasobów można skonfigurować w witrynie Azure Portal. Instrukcje w artykułach dotyczących poszczególnych topologii połączeń określają, kiedy potrzebne jest konkretne narzędzie konfiguracji. 
 
-### <a name="deployment-model"></a>Model wdrażania
+### <a name="models"></a>Model wdrażania
 
 Czynności wykonywane podczas konfigurowania bramy sieci VPN zależą od modelu wdrażania użytego w celu utworzenia sieci wirtualnej. Jeśli na przykład sieć wirtualna została utworzona przy użyciu klasycznego modelu wdrożenia, do tworzenia i konfigurowania ustawień bramy sieci VPN należy użyć wskazówek i instrukcji dotyczących klasycznego modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [Omówienie modelu wdrażania przy użyciu usługi Resource Manager oraz wdrażania klasycznego](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -64,7 +64,7 @@ Dostępne są różne konfiguracje połączeń bramy sieci VPN. Należy określi
 
 Przedstawione diagramy i opisy mogą ułatwić wybór topologii połączenia dostosowanej do potrzeb użytkownika. Choć te diagramy przedstawiają podstawowe topologie, możliwe jest utworzenie bardziej złożonych konfiguracji z użyciem tych diagramów jako wskazówek.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Połączenia typu lokacja-lokacja i połączenia obejmujące wiele lokacji (tunel VPN protokołu IPsec/IKE)
+## <a name="s2smulti"></a>Połączenia typu lokacja-lokacja i połączenia obejmujące wiele lokacji (tunel VPN protokołu IPsec/IKE)
 
 ### <a name="S2S"></a>Lokacja-lokacja
 

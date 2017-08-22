@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 9edaa81111d9439bfbad4775e49c3e29454ad31f
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Tworzenie sieci wirtualnej za pomocą połączenia sieci VPN typu lokacja-lokacja przy użyciu programu PowerShell
@@ -40,7 +40,7 @@ Połączenie bramy sieci VPN typu lokacja-lokacja umożliwia łączenie sieci lo
 
 ![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -49,7 +49,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 * Jeśli nie znasz zakresów adresów IP w konfiguracji swojej sieci lokalnej, skontaktuj się z osobą, która może podać Ci te dane. Tworząc tę konfigurację, musisz określić prefiksy zakresu adresów IP, które platforma Azure będzie kierować do Twojej lokalizacji lokalnej. Żadna z podsieci sieci lokalnej nie może się nakładać na podsieci sieci wirtualnej, z którymi chcesz nawiązać połączenie.
 * Zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Polecenia cmdlet programu PowerShell są często aktualizowane. Ich zaktualizowanie jest zazwyczaj konieczne w celu uzyskania najnowszych wersji funkcji. Jeśli nie zaktualizujesz poleceń cmdlet programu PowerShell, mogą wystąpić błędy określonych wartości. Aby uzyskać więcej informacji na temat pobierania i instalowania poleceń cmdlet programu PowerShell, zobacz artykuł [How to install and configure Azure PowerShell (Jak zainstalować i skonfigurować program Azure PowerShell)](/powershell/azure/overview).
 
-### <a name="example-values"></a>Przykładowe wartości
+### <a name="example"></a>Przykładowe wartości
 
 W przykładach w tym artykule są stosowane następujące wartości. Tych wartości możesz użyć do tworzenia środowiska testowego lub odwoływać się do nich, aby lepiej zrozumieć przykłady w niniejszym artykule.
 
@@ -88,7 +88,7 @@ Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją. Podczas tworzenia sieci w
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Aby utworzyć sieć wirtualną i podsieć bramy
+### <a name="vnet"></a>Aby utworzyć sieć wirtualną i podsieć bramy
 
 Ten przykład tworzy sieć wirtualną i podsieć bramy. Jeśli masz już sieć wirtualną, do której potrzebujesz dodać podsieć bramy, zobacz [Aby dodać podsieć bramy do utworzonej wcześniej sieci wirtualnej](#gatewaysubnet).
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: e4ca1e8df8337e578e014cedec68553e6fc56299
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 35b7e0a730d73f646462b9cde3c8bbabac4d7c67
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -321,6 +321,54 @@ W tym miejscu przedstawiono kompletne manifesty usługi i aplikacji używane w t
   </DefaultServices>
 </ApplicationManifest>
 ```
+## <a name="adding-more-services-to-an-existing-application"></a>Dodawanie kolejnych usług do istniejącej aplikacji
+
+Aby dodać kolejną usługę kontenera do aplikacji utworzonej już przy użyciu narzędzia Yeoman, wykonaj następujące czynności:
+
+1. Zmień katalog na katalog główny istniejącej aplikacji.  Na przykład wpisz polecenie `cd ~/YeomanSamples/MyApplication`, jeśli aplikacja `MyApplication` to aplikacja utworzona przez narzędzie Yeoman.
+2. Uruchom polecenie `yo azuresfcontainer:AddService`
+
+<a id="manually"></a>
+
+
+## <a name="configure-time-interval-before-container-is-force-terminated"></a>Konfigurowanie interwału czasu wymuszania przerwania działania kontenera
+
+Możesz skonfigurować interwał czasu środowiska uruchomieniowego, po upływie którego kontener ma zostać usunięty po rozpoczęciu usuwania usługi (lub przenoszenia do innego węzła). Skonfigurowanie interwału czasu powoduje wysłanie polecenia `docker stop <time in seconds>` do kontenera.   Aby uzyskać więcej informacji, zobacz [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Interwał czasu oczekiwania jest określony w sekcji `Hosting`. W poniższym fragmencie manifestu klastra pokazano, jak ustawić interwał oczekiwania:
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+          ...
+          }
+        ]
+}
+```
+Domyślny interwał to 10 sekund. Ta konfiguracja jest dynamiczna, dlatego uaktualnienie samej konfiguracji w klastrze powoduje zaktualizowanie limitu czasu. 
+
+
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Konfigurowanie środowiska uruchomieniowego w celu usunięcia nieużywanych obrazów kontenerów
+
+Możesz skonfigurować klaster usługi Service Fabric w celu usuwania nieużywanych obrazów kontenerów z węzła. Ta konfiguracja pozwala na ponowne przechwycenie miejsca na dysku w przypadku zbyt wielu obrazów kontenerów w węźle.  Aby włączyć tę funkcję, zaktualizuj sekcję `Hosting` w manifeście klastra, jak pokazano w poniższym fragmencie kodu: 
+
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+          ...
+          }
+        ]
+} 
+```
+
+Jeśli nie chcesz usuwać pewnych obrazów, określ je przy użyciu parametru `ContainerImagesToSkip`. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o uruchamianiu [kontenerów w usłudze Service Fabric](service-fabric-containers-overview.md).

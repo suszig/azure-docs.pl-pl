@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 08/010/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e3fa1705e1f4e0805409eee83d5797bee7f6603d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal (model klasyczny)
@@ -64,7 +64,7 @@ W przykładach w tym artykule są stosowane następujące wartości. Tych warto�
 * **GatewaySubnet:** 10.11.255.0/27
 * **Grupa zasobów:** TestRG1
 * **Lokalizacja:** Wschodnie stany USA
-* **Serwer DNS:** 8.8.8.8 (opcjonalnie na potrzeby tego ćwiczenia)
+* **Serwer DNS:** 10.11.0.3 (opcjonalnie na potrzeby tego ćwiczenia)
 * **Nazwa lokacji lokalnej:** Lokacja2
 * **Przestrzeń adresowa klienta:** przestrzeń adresowa znajdująca się w lokacji lokalnej.
 
@@ -79,43 +79,43 @@ Podczas tworzenia sieci wirtualnej na potrzeby połączenia typu lokacja-lokacja
 ### <a name="to-create-a-virtual-network"></a>Aby utworzyć sieć wirtualną
 
 1. W przeglądarce przejdź do witryny [Azure Portal](http://portal.azure.com) i, jeśli to konieczne, zaloguj się przy użyciu konta platformy Azure.
-2. Kliknij pozycję **+**. W polu **Szukaj w witrynie Marketplace** wpisz „Sieć wirtualna”. Znajdź pozycję **Sieć wirtualna** na liście wyników i kliknij, aby otworzyć blok **Sieć wirtualna**.
+2. Kliknij pozycję **+**. W polu **Szukaj w witrynie Marketplace** wpisz „Sieć wirtualna”. Znajdź pozycję **Sieć wirtualna** na liście wyników i kliknij, aby otworzyć stronę **Sieć wirtualna**.
 
-  ![Wyszukiwanie bloku Sieć wirtualna](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. Z listy rozwijanej **Wybierz model wdrożenia** znajdującej się w dolnej części bloku Sieć wirtualna wybierz opcję **Klasyczny**, a następnie kliknij przycisk **Utwórz**.
+  ![Strona wyszukiwania sieci wirtualnej](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
+3. Z listy rozwijanej **Wybierz model wdrożenia** w dolnej części strony Sieć wirtualna wybierz pozycję **Klasyczny**, a następnie kliknij przycisk **Utwórz**.
 
   ![Wybieranie modelu wdrożenia](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. W bloku **Utwórz sieć wirtualną (klasyczną)** skonfiguruj ustawienia sieci wirtualnej. W tym bloku dodaj pierwszą przestrzeń adresową i zakres adresów pojedynczej podsieci. Po zakończeniu tworzenia sieci wirtualnej możesz wrócić i dodać dodatkowe podsieci oraz przestrzenie adresowe.
+4. Na stronie **Utwórz sieć wirtualną (klasyczną)** skonfiguruj ustawienia sieci wirtualnej. Na tej stronie dodaj pierwszą przestrzeń adresową i zakres adresów pojedynczej podsieci. Po zakończeniu tworzenia sieci wirtualnej możesz wrócić i dodać dodatkowe podsieci oraz przestrzenie adresowe.
 
-  ![Tworzenie bloku sieci wirtualnej](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Tworzenie bloku sieci wirtualnej")
+  ![Strona Tworzenie sieci wirtualnej](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Strona Tworzenie sieci wirtualnej")
 5. Sprawdź, czy pole **Subskrypcja** zawiera prawidłową wartość. Subskrypcje można zmieniać, korzystając z listy rozwijanej.
-6. Kliknij przycisk **Grupy zasobów** i wybierz istniejącą grupę zasobów lub utwórz nową, wpisując nazwę nowej grupy zasobów. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Kliknij przycisk **Grupa zasobów** i wybierz istniejącą grupę zasobów lub utwórz nową, wpisując nazwę. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Następnie w polu **Lokalizacja** wybierz ustawienia sieci wirtualnej. Lokalizacja określa miejsce, w którym zostaną umieszczone zasoby wdrażane w tej sieci wirtualnej.
-8. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**, jeśli chcesz, aby Twoją sieć wirtualną można było łatwo znaleźć na pulpicie nawigacyjnym, a następnie kliknij przycisk **Utwórz**.
+8. Jeśli chcesz, aby Twoją sieć wirtualną można było łatwo znaleźć na pulpicie nawigacyjnym, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**. Kliknij przycisk **Utwórz**, aby utworzyć sieć wirtualną.
 
   ![Przypnij do pulpitu nawigacyjnego](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Przypnij do pulpitu nawigacyjnego")
 9. Po kliknięciu przycisku „Utwórz” na pulpicie nawigacyjnym zostanie umieszczony kafelek, który będzie odzwierciedlać postęp Twojej sieci wirtualnej. Wygląd kafelka zmienia się w trakcie tworzenia sieci wirtualnej.
 
   ![Kafelek Tworzenie sieci wirtualnej](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Tworzenie sieci wirtualnej")
 
-Po utworzeniu sieci wirtualnej w obszarze **Stan** na stronie sieci w klasycznej witrynie Azure Portal pojawi się wartość **Utworzona**.
+Po utworzeniu sieci wirtualnej w obszarze **Stan** na stronie sieci w klasycznej witrynie Azure Portal będzie widoczna wartość **Utworzona**.
 
 ## <a name="additionaladdress"></a>2. Dodawanie kolejnej przestrzeni adresowej
 
 Po utworzeniu sieci wirtualnej możesz dodać kolejną przestrzeń adresową. Dodanie kolejnej przestrzeni adresowej nie jest wymagane w przypadku konfiguracji typu lokacja-lokacja, ale jeśli potrzebujesz wielu przestrzeni adresowych, wykonaj następujące kroki:
 
 1. Znajdź sieci wirtualne w portalu.
-2. W bloku Twojej sieci wirtualnej, w sekcji **Ustawienia** kliknij pozycję **Przestrzeń adresowa**.
-3. W bloku Przestrzeń adresowa kliknij pozycję **+Dodaj** i wprowadź dodatkową przestrzeń adresową.
+2. Na stronie Twojej sieci wirtualnej w sekcji **Ustawienia** kliknij pozycję **Przestrzeń adresowa**.
+3. Na stronie Przestrzeń adresowa kliknij pozycję **+Dodaj** i wprowadź dodatkową przestrzeń adresową.
 
 ## <a name="dns"></a>3. Określanie serwera DNS
 
-Ustawienia DNS nie są wymagane w przypadku konfiguracji typu lokacja-lokacja, ale serwer DNS jest konieczny, aby korzystać z rozpoznawania nazw.
+Ustawienia DNS nie są wymagane w przypadku konfiguracji typu lokacja-lokacja, ale serwer DNS jest konieczny, aby korzystać z rozpoznawania nazw. Określenie wartości nie powoduje utworzenia nowego serwera DNS. Określony adres IP serwera DNS powinien być adresem serwera będącego w stanie rozpoznawać nazwy zasobów, z którymi nawiązywane jest połączenie. W ustawieniach przykładowych użyto prywatnego adresu IP. Użyty przez nas adres IP prawdopodobnie nie jest adresem IP Twojego serwera DNS. Pamiętaj, aby użyć własnych wartości.
 
-Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS, aby umożliwić obsługę rozpoznawania nazw. Otwórz ustawienia dla sieci wirtualnej, kliknij pozycję Serwery DNS i dodaj adres IP serwera DNS, który ma być używany do rozpoznawania nazw. To ustawienie nie powoduje jednak utworzenia serwera DNS. W ustawieniach przykładowych używamy publicznego serwera DNS. Zazwyczaj zalecane jest użycie prywatnego serwera DNS. Należy pamiętać o dodaniu serwera DNS, z którym zasoby mogą się komunikować.
+Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS, aby umożliwić obsługę rozpoznawania nazw. Otwórz ustawienia dla sieci wirtualnej, kliknij pozycję Serwery DNS i dodaj adres IP serwera DNS, który ma być używany do rozpoznawania nazw.
 
 1. Znajdź sieci wirtualne w portalu.
-2. W bloku Twojej sieci wirtualnej, w sekcji **Ustawienia** kliknij pozycję **Serwery DNS**.
+2. Na stronie Twojej sieci wirtualnej w sekcji **Ustawienia** kliknij pozycję **Serwery DNS**.
 3. Dodaj serwer DNS.
 4. Aby zapisać ustawienia, kliknij przycisk **Zapisz** znajdujący się u góry strony.
 
@@ -124,11 +124,11 @@ Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS, aby umożliw
 Lokacja lokalna zazwyczaj oznacza lokalizację lokalną. Zawiera ona adres IP urządzenia sieci VPN, z którym będzie tworzone połączenie, oraz zakresy adresów IP, które będą kierowane za pośrednictwem bramy sieci VPN do tego urządzenia sieci VPN.
 
 1. W witrynie portalu przejdź do sieci wirtualnej, dla której chcesz utworzyć bramę.
-2. W bloku **Przegląd** Twojej sieci wirtualnej, w sekcji Połączenia VPN kliknij pozycję **Brama**, aby otworzyć blok **Nowe połączenie VPN**.
+2. Na stronie **Przegląd** Twojej sieci wirtualnej w sekcji Połączenia VPN kliknij pozycję **Brama**, aby otworzyć stronę **Nowe połączenie VPN**.
 
   ![Kliknij, aby skonfigurować ustawienia bramy](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Kliknij, aby skonfigurować ustawienia bramy")
-3. W bloku **Nowe połączenie VPN** wybierz pozycję **Lokacja-lokacja**.
-4. Kliknij pozycję **Lokacja lokalna — Skonfiguruj wymagane ustawienia**, aby otworzyć blok **Lokacja lokalna**. Skonfiguruj ustawienia, a następnie kliknij przycisk **OK**, aby je zapisać.
+3. Na stronie **Nowe połączenie VPN** wybierz pozycję **Lokacja-lokacja**.
+4. Kliknij pozycję **Lokacja lokalna — Skonfiguruj wymagane ustawienia**, aby otworzyć stronę **Lokacja lokalna**. Skonfiguruj ustawienia, a następnie kliknij przycisk **OK**, aby je zapisać.
   - **Nazwa:** Utwórz nazwę lokacji lokalnej, aby ułatwić jej identyfikację.
   - **Adres IP bramy sieci VPN:** Publiczny adres IP urządzenia sieci VPN w sieci lokalnej. Urządzenie sieci VPN wymaga publicznego adresu IPv4. Określ prawidłowy publiczny adres IP dla urządzenia sieci VPN, z którym chcesz się połączyć. Nie może ono znajdować się za translatorem adresów sieciowych i musi być dostępne za pomocą usługi Azure. Jeśli nie znasz adresu IP urządzenia sieci VPN, zawsze możesz podać wartość zastępczą (o ile jest w formacie prawidłowego publicznego adresu IP) i zmienić ją później.
   - **Przestrzeń adresowa klienta:** Podaj listę zakresów adresów IP, które mają być kierowane do sieci lokalnej za pośrednictwem tej bramy. Można dodać wiele zakresów przestrzeni adresów. Upewnij się, że określone w tym miejscu zakresy nie pokrywają się z zakresami innych sieci, z którymi łączy się Twoja sieć wirtualna, ani z zakresami adresów samej sieci wirtualnej.
@@ -139,14 +139,14 @@ Lokacja lokalna zazwyczaj oznacza lokalizację lokalną. Zawiera ona adres IP ur
 
 Musisz utworzyć podsieć dla bramy sieci VPN. Podsieć bramy zawiera adresy IP, z których korzystają usługi bramy sieci VPN.
 
-1. W bloku **Nowe połączenie VPN** zaznacz pole wyboru **Utwórz bramę natychmiast**. Zostanie wyświetlony blok „Opcjonalna konfiguracja bramy”. Jeśli nie zaznaczysz pola wyboru, blok umożliwiający skonfigurowanie podsieci bramy nie zostanie wyświetlony.
+1. Na stronie **Nowe połączenie VPN** zaznacz pole wyboru **Utwórz bramę natychmiast**. Zostanie wyświetlona strona „Opcjonalna konfiguracja bramy”. Jeśli nie zaznaczysz pola wyboru, strona umożliwiająca skonfigurowanie podsieci bramy nie zostanie wyświetlona.
 
   ![Konfiguracja bramy — Podsieć, rozmiar, typ routingu](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Konfiguracja bramy — Podsieć, rozmiar, typ routingu")
-2. Kliknij pozycję **Opcjonalna konfiguracja bramy — Podsieć, rozmiar i typ routingu**, aby otworzyć blok **Konfiguracja bramy**.
-3. W bloku **Konfiguracja bramy** kliknij pozycję **Podsieć — Skonfiguruj wymagane ustawienia**, aby otworzyć blok **Dodawanie podsieci**.
+2. Aby otworzyć stronę **Konfiguracja bramy**, kliknij pozycję **Opcjonalna konfiguracja bramy — Podsieć, rozmiar i typ routingu**.
+3. Na stronie **Konfiguracja bramy** kliknij pozycję **Podsieć — Skonfiguruj wymagane ustawienia**, aby otworzyć stronę **Dodawanie podsieci**.
 
   ![Konfiguracja bramy — Podsieć bramy](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Konfiguracja bramy — Podsieć bramy")
-4. W bloku **Dodawanie podsieci** dodaj podsieć bramy. Rozmiar określanej podsieci bramy zależy od konfiguracji bramy sieci VPN, którą chcesz utworzyć. Chociaż możliwe jest utworzenie podsieci bramy tak małej, jak /29, zaleca się wybranie większej podsieci /27 lub /28, aby zawierała więcej adresów. Zastosowanie większej podsieci bramy daje wystarczającą liczbę adresów IP, aby uwzględnić możliwe przyszłe konfiguracje.
+4. Na stronie **Dodawanie podsieci** dodaj podsieć bramy. Rozmiar określanej podsieci bramy zależy od konfiguracji bramy sieci VPN, którą chcesz utworzyć. Jest możliwe utworzenie małej podsieci bramy (/29), jednak zalecamy użycie rozmiaru /27 lub /28. Spowoduje to utworzenie większej podsieci obejmującej więcej adresów. Zastosowanie większej podsieci bramy daje wystarczającą liczbę adresów IP, aby uwzględnić możliwe przyszłe konfiguracje.
 
   ![Dodawanie podsieci bramy](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Dodawanie podsieci bramy")
 
@@ -157,7 +157,7 @@ Musisz utworzyć podsieć dla bramy sieci VPN. Podsieć bramy zawiera adresy IP,
   ![Wybieranie typu jednostki SKU i sieci VPN](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Wybieranie typu jednostki SKU i sieci VPN")
 2. Wybierz **Typ routingu** dla bramy. Jest on również nazywany typem sieci VPN. Wybranie poprawnego typu bramy jest bardzo ważne, ponieważ nie można konwertować bramy na inny typ. Urządzenie sieci VPN musi być zgodne z wybranym typem routingu. Więcej informacji o typie sieci VPN można znaleźć w artykule [Informacje na temat ustawień usługi VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype). W niektórych artykułach mogą znajdować się odwołania do typów sieci VPN „RouteBased” i „PolicyBased”. Typ „Dynamiczny” odpowiada typowi „RouteBased”, a „Statyczny” — typowi „PolicyBased”.
 3. Kliknij pozycję **OK**, aby zapisać ustawienia.
-4. W bloku **Nowe połączenie VPN** kliknij przycisk **OK** u dołu bloku, aby rozpocząć tworzenie bramy sieci wirtualnej. Może to potrwać do 45 minut.
+4. Na stronie **Nowe połączenie VPN** kliknij przycisk **OK** u dołu strony, aby rozpocząć tworzenie bramy sieci wirtualnej. W zależności od wybranej jednostki SKU tworzenie bramy sieci wirtualnej może potrwać do 45 minut.
 
 ## <a name="vpndevice"></a>7. Konfiguracja urządzenia sieci VPN
 
@@ -202,7 +202,7 @@ Podczas pracy z programem PowerShell w klasycznym modelu wdrażania czasami nazw
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-2. Otwórz plik konfiguracji sieci przy użyciu edytora xml, a następnie sprawdź wartości właściwości „LocalNetworkSite name” i „VirtualNetworkSite name”. Zmodyfikuj przykład tak, aby odzwierciedlał te wartości. W przypadku podawania nazwy, która zawiera spacje, umieść wartość w apostrofach.
+2. Otwórz plik konfiguracji sieci przy użyciu edytora xml, a następnie sprawdź wartości właściwości „LocalNetworkSite name” i „VirtualNetworkSite name”. Zmodyfikuj przykład tak, aby odzwierciedlał odpowiednie wartości. W przypadku podawania nazwy, która zawiera spacje, umieść wartość w apostrofach.
 
 3. Ustaw klucz współużytkowany i utwórz połączenie. Wartość „-SharedKey” jest generowana i określana przez Ciebie. W tym przykładzie użyliśmy wartości „abc123”, ale można (i należy) wygenerować bardziej złożoną wartość. Pamiętaj o tym, że wartość podana w tym miejscu musi być taka sama, jak wartość podana podczas konfigurowania urządzenia sieci VPN.
 
@@ -218,11 +218,11 @@ Wynik po utworzeniu połączenia: **Stan: Powodzenie**.
 
 Jeśli występują problemy z połączeniem, zobacz sekcję **Rozwiązywanie problemów** spisu treści w okienku po lewej stronie.
 
-## <a name="how-to-reset-a-vpn-gateway"></a>Jak zresetować bramę VPN Gateway
+## <a name="reset"></a>Jak zresetować bramę VPN Gateway
 
 Resetowanie bramy Azure VPN Gateway przydaje się w przypadku utraty połączenia sieci VPN obejmującego wiele lokalizacji w jednym lub wielu tunelach VPN typu lokacja-lokacja. W takiej sytuacji urządzenia lokalnej sieci VPN działają prawidłowo, ale nie mogą nawiązać połączenia w ramach tuneli używających protokołu IPsec z bramami sieci VPN Azure. Aby uzyskać instrukcje, zobacz [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md).
 
-## <a name="how-to-change-a-gateway-sku"></a>Jak zmienić jednostkę SKU bramy
+## <a name="changesku"></a>Jak zmienić jednostkę SKU bramy
 
 Aby uzyskać instrukcje zmiany jednostki SKU bramy, zobacz [Resize a gateway SKU (Zmiana rozmiaru jednostki SKU bramy)](vpn-gateway-about-SKUS-legacy.md).
 

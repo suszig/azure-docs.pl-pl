@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: d97dfa3bc14c54e4c7097b5418c5b61e204e7676
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 019c5421dc470b18c9087417b93c241cc5730f77
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Tworzenie sieci wirtualnej z wykorzystaniem połączenia sieci VPN typu lokacja-lokacja przy użyciu interfejsu wiersza polecenia
@@ -48,7 +48,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 * Jeśli nie znasz zakresów adresów IP w konfiguracji swojej sieci lokalnej, skontaktuj się z osobą, która może podać Ci te dane. Tworząc tę konfigurację, musisz określić prefiksy zakresu adresów IP, które platforma Azure będzie kierować do Twojej lokalizacji lokalnej. Żadna z podsieci sieci lokalnej nie może się nakładać na podsieci sieci wirtualnej, z którymi chcesz nawiązać połączenie.
 * Sprawdź, czy masz zainstalowaną najnowszą wersję poleceń interfejsu wiersza polecenia (2.0 lub nowszą). Aby uzyskać informacje o instalowaniu poleceń interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-azure-cli) i [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure 2.0](/cli/azure/get-started-with-azure-cli).
 
-### <a name="example-values"></a>Przykładowe wartości
+### <a name="example"></a>Przykładowe wartości
 
 Następujących wartości możesz użyć do tworzenia środowiska testowego lub odwoływać się do tych wartości, aby lepiej zrozumieć przykłady w niniejszym artykule:
 
@@ -77,7 +77,7 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="2-create-a-resource-group"></a>2. Tworzenie grupy zasobów
+## <a name="rg"></a>2. Tworzenie grupy zasobów
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie „TestRG1” w lokalizacji „eastus”. Jeśli masz już grupę zasobów w regionie, w którym chcesz utworzyć swoją sieć wirtualną, możesz jej użyć zamiast tej.
 
@@ -187,7 +187,7 @@ Jeśli chcesz użyć innej metody, aby sprawdzić swoje połączenie, zobacz [We
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="common-tasks"></a>Typowe zadania
+## <a name="tasks"></a>Typowe zadania
 
 Ta sekcja zawiera typowe polecenia, które są przydatne przy pracy z konfiguracjami lokacja-lokacja. Aby uzyskać pełną listę poleceń sieciowych interfejsu wiersza polecenia, zobacz [Interfejs wiersza polecenia platformy Azure — sieć](/cli/azure/network).
 

@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 600894bffe367ee1412df6a82f668143829688cc
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -50,7 +50,7 @@ Jako dostępna w skali światowej usługa bazy danych Azure Cosmos DB zapewnia n
         * Dodatkowe modele danych będą dostępne wkrótce 
 
 * **Elastycznie skalowana przepływność i przestrzeń dyskowa na żądanie, na całym świecie**
-    * Łatwe skalowanie przepływności bazy danych przy [sekundowych](request-units.md) i [minutowych](request-units-per-minute.md) stopniach szczegółowości i możliwość wprowadzania zmian w dowolnym momencie. 
+    * Łatwe skalowanie przepływności bazy danych z [sekundową](request-units.md) dokładnością i możliwość jej zmiany w dowolnym momencie. 
     * Skalowanie rozmiaru magazynu w sposób [przejrzysty i automatyczny](partition-data.md) w celu obsługi wymagań dotyczących rozmiaru teraz i w każdym innym momencie.
 
 * **Tworzenie szybko reagujących aplikacji o kluczowym znaczeniu**
