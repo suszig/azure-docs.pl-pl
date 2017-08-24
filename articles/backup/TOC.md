@@ -55,6 +55,7 @@
 #### [Używanie usługi Azure Backup Server do tworzenia kopii zapasowej farmy programu SharePoint](backup-azure-backup-sharepoint-mabs.md)
 #### [Używanie usługi Azure Backup Server do tworzenia kopii zapasowej bazy danych SQL](backup-azure-sql-mabs.md)
 #### [Ochrona stanu systemu i odzyskiwanie systemu od zera](backup-mabs-system-state-and-bmr.md)
+### [Recover data from Azure Backup Server (Odzyskiwanie danych z usługi Azure Backup Server)](backup-azure-alternate-dpm-server.md)
 
 ## Data Protection Manager
 ### [Przygotowywanie obciążeń programu DPM w witrynie Azure Portal](backup-azure-dpm-introduction.md)

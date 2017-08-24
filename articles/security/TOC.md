@@ -8,6 +8,7 @@
 ## [Service Fabric security (Zabezpieczenia usługi Service Fabric)](azure-service-fabric-security-overview.md)
 ## [Zarządzanie tożsamościami](security-identity-management-overview.md)
 ## [Zabezpieczenia IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Azure encryption overview (Szyfrowanie na platformie Azure — omówienie)](security-azure-encryption-overview.md)
 ## [Architektura zabezpieczeń](azure-security-architecture-overview.md)
 ### [Enabling operational security (Włączanie bezpieczeństwa działania)](azure-operational-security.md)
 ### [Zaawansowane wykrywanie zagrożeń](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Zabezpieczenia magazynu
 ### [Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych](azure-security-data-encryption-best-practices.md)
-### [Przewodnik po zabezpieczeniach magazynu](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Przewodnik po zabezpieczeniach magazynu](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Bezpieczeństwo obliczeń
 ### [Najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## Usługi PaaS
 ### [Zabezpieczanie wdrożeń typu PaaS](security-paas-deployments.md)
-#### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu języka SQL](security-paas-applications-using-sql.md)
-#### [Najlepsze rozwiązania z zakresu zabezpieczeń usługi SQL Database](azure-database-security-best-practices.md)
-#### [Lista kontrolna zabezpieczeń usługi SQL Database](azure-database-security-checklist.md)
 #### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu usług App Services](security-paas-applications-using-app-services.md)
+#### [Zabezpieczanie aplikacji PaaS (sieci Web i mobilnych) przy użyciu języka SQL](security-paas-applications-using-sql.md)
+##### [Najlepsze rozwiązania z zakresu zabezpieczeń usługi SQL Database](azure-database-security-best-practices.md)
+##### [Lista kontrolna zabezpieczeń usługi SQL Database](azure-database-security-checklist.md)
 ####[Lista kontrolna zabezpieczeń działania](azure-operational-security-checklist.md)
+#### [Securing PaaS web and mobile applications using Azure Storage (Zabezpieczanie internetowych i mobilnych aplikacji PaaS przy użyciu usługi Azure Storage)](security-paas-applications-using-storage.md)
 
 ## Internet rzeczy
 ### [Zabezpieczanie wdrożenia IoT](../iot-suite/iot-suite-security-deployment.md)

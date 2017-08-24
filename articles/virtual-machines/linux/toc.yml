@@ -41,6 +41,14 @@
       href: tutorial-jenkins-github-docker-cicd.md
     - name: 13 — Ciągła integracja/ciągłe dostarczanie za pomocą usługi Team Services
       href: tutorial-build-deploy-jenkins.md
+    - name: 14a — Tworzenie stosu LAMP
+      href: tutorial-lamp-stack.md
+    - name: 14b — Tworzenie stosu LEMP
+      href: tutorial-lemp-stack.md
+    - name: 14c — Tworzenie stosu MEAN
+      href: tutorial-mean-stack.md
+    - name: 15 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
+      href: tutorial-secure-web-server.md
 - name: Przykłady
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -261,6 +269,10 @@
               href: n-series-driver-setup.md
     - name: Zarządzanie magazynem
       items:
+        - name: Dowiedz się więcej o usłudze Managed Disks
+          href: managed-disks-overview.md
+        - name: Często zadawane pytania dotyczące dysków
+          href: faq-for-disks.md
         - name: Dodawanie dysku
           items:
             - name: Interfejs wiersza polecenia platformy Azure
@@ -273,16 +285,18 @@
           href: expand-disks.md
         - name: Tworzenie migawki dysku
           href: snapshot-copy-managed-disk.md
+        - name: Tworzenie kopii zapasowych dysków niezarządzanych
+          href: incremental-snapshots.md
         - name: Konwertowanie do usługi Managed Disks
           href: convert-unmanaged-to-managed-disks.md
-        - name: Często zadawane pytania dotyczące dysków
-          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Konwertowanie dysku między warstwami Standardowa i Premium
           href: convert-disk-storage.md
         - name: Kopiowanie plików do maszyny wirtualnej
           href: copy-files-to-linux-vm-using-scp.md
         - name: Korzystanie z usługi File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
+        - name: Wdrażanie dysków za pomocą szablonu
+          href: using-managed-disks-template-deployments.md
         - name: Optymalizowanie wydajności
           href: optimization.md
           items:

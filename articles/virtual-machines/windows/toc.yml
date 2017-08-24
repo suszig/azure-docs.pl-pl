@@ -39,6 +39,8 @@
       href: tutorial-azure-security.md
     - name: 12 — Ciągła integracja/ciągłe dostarczanie w usłudze Team Services
       href: tutorial-vsts-iis-cicd.md
+    - name: 13 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
+      href: tutorial-secure-web-server.md
 - name: Przykłady
   items:
     - name: PowerShell
@@ -50,7 +52,7 @@
     - name: Regiony i dostępność
       href: regions-and-availability.md
     - name: Magazyn
-      href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: about-disks-and-vhds.md
     - name: Sieć
       href: network-overview.md
     - name: Zestawy skalowania maszyn wirtualnych
@@ -205,6 +207,10 @@
               href: excel-cluster-hpcpack.md
     - name: Zarządzanie magazynem
       items:
+        - name: Dowiedz się więcej o usłudze Managed Disks
+          href: managed-disks-overview.md
+        - name: Często zadawane pytania dotyczące dysków
+          href: faq-for-disks.md
         - name: Dodawanie dysku
           items:
             - name: Azure PowerShell
@@ -217,12 +223,14 @@
           href: expand-os-disk.md
         - name: Tworzenie migawki dysku
           href: snapshot-copy-managed-disk.md
+        - name: Tworzenie kopii zapasowych dysków niezarządzanych
+          href: incremental-snapshots.md
         - name: Konwertowanie dysku między warstwami Standardowa i Premium
           href: convert-disk-storage.md
-        - name: Często zadawane pytania dotyczące dysków
-          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Korzystanie z usługi File Storage
           href: mount-azure-file-storage.md
+        - name: Wdrażanie dysków za pomocą szablonu
+          href: using-managed-disks-template-deployments.md
         - name: Migrowanie do usługi Managed Disks
           href: migrate-to-managed-disks.md
           items:

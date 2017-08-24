@@ -32,6 +32,7 @@
 ### [Problemy dotyczące rejestrowania](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Odrzucona karta](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Problemy dotyczące logowania](billing-cannot-login-subscription.md)
+### [No subscriptions found (Nie odnaleziono żadnych subskrypcji)](billing-no-subscriptions-found.md)
 
 # Dokumentacja
 ## [Przegląd interfejsu API](billing-usage-rate-card-overview.md)

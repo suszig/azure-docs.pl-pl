@@ -1,0 +1,12 @@
+- name: Omówienie
+  items:
+    - name: Wprowadzenie
+      href: ./common/storage-introduction.md
+    - name: 'Wybieranie obiektów blob, plików lub dysków danych'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Obiekty blob
+  href: ./blobs/storage-blobs-introduction.md
+- name: Pliki
+  href: ./files/storage-files-introduction.md
+- name: Kolejki
+  href: ./queues/storage-queues-introduction.md

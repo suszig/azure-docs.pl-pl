@@ -3,10 +3,17 @@
 ## [Co to jest usługa Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Zespołowe przetwarzanie danych dla celów naukowych
-### [Omówienie](data-science-process-overview.md)
-### [Cykl życia](data-science-process-lifecycle.md)
+### [Omówienie](http://aka.ms/datascienceprocess)
+### [Cykl życia](data-science-process-overview.md)
 ### [Przewodniki](data-science-process-walkthroughs.md)
-### [Z usługą Azure ML](http://aka.ms/datascienceprocess)
+####[Spark with PySpark and Scala (Platforma Spark z interfejsem PySpark i środowiskiem Scala)](data-science-process-walkthroughs-spark.md)
+##### [Eksplorowanie danych](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Ocenianie modeli](machine-learning-data-science-spark-model-consumption.md)
+##### [Zaawansowane eksplorowanie danych](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[Hive with HDInsight Hadoop (Technologia Hive w usłudze HDInsight Hadoop)](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[U-SQL with Azure Data Lake (Język U-SQL w usłudze Azure Data Lake)](data-science-process-walkthroughs-azure-data-lake.md)
+####[R, Python and T-SQL with SQL Server (Języki R, Python i T-SQL w programie SQL Server)](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL and Python with SQL DW (Języki T-SQL i Python w magazynie danych SQL)](data-science-process-walkthroughs-sql-data-warehouse.md)
 
 ## Machine Learning Studio
 ### [Co to jest Studio?](machine-learning-what-is-ml-studio.md)
@@ -100,12 +107,6 @@
 ##### [Korzystanie z usługi Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [Korzystanie z maszyny wirtualnej SQL](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Korzystanie z potoku danych](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Przetwarzanie danych za pomocą platformy Spark
-##### [Omówienie](machine-learning-data-science-spark-overview.md)
-##### [Eksplorowanie danych](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Ocenianie modeli](machine-learning-data-science-spark-model-consumption.md)
-##### [Zaawansowane eksplorowanie danych](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Korzystanie z języka Scala i aparatu Spark](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Opracowywanie modeli
 ### Funkcje inżynierskie i funkcje wybierania
@@ -166,11 +167,7 @@
 ### [Przykładowe eksperymenty](machine-learning-sample-experiments.md)
 ### [Przykładowe zestawy danych](machine-learning-use-sample-datasets.md)
 ### [Przykład zmienności klientów](machine-learning-azure-ml-customer-churn-scenario.md)
-### Kompleksowe scenariusze
-#### [Korzystanie z klastrów Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-#### [Korzystanie z usługi Hadoop z 1 TB danych](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [Korzystanie z programu SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-#### [Korzystanie z usługi SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # Dokumentacja
 

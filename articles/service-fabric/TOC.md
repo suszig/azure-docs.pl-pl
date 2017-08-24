@@ -176,11 +176,14 @@
 #### Rozpoczęcie pracy
 ##### [C# w systemie Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java w systemie Linux](service-fabric-reliable-actors-get-started-java.md)
+##### [Java Actor on Linux (Aktor Java w systemie Linux)](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Wysyłanie powiadomień](service-fabric-reliable-actors-events.md)
 #### [Ustawianie czasomierzy i przypomnień](service-fabric-reliable-actors-timers-reminders.md)
 #### [Konfigurowanie dostawcy KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Konfigurowanie ustawień komunikacji](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Konfigurowanie dostawcy ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Migrate old Java Application to support Maven (Migrowanie starej aplikacji Java w celu obsługi narzędzia Maven)](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Konfigurowanie zwrotnego serwera proxy na potrzeby bezpiecznej komunikacji](service-fabric-reverseproxy-configure-secure-communication.md)
 

@@ -33,17 +33,15 @@
   items:
     - name: Zabezpieczanie kontenerów
       href: container-service-security.md
-    - name: Jednostka usługi — usługa Kubernetes
-      href: container-service-kubernetes-service-principal.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Rozwiązanie Kubernetes w systemie Windows — Szybki start
+    - name: Rozwiązanie Kubernetes w systemie Windows
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: Zarządzanie kontenerem — interfejs użytkownika rozwiązania Kubernetes
+    - name: Interfejs internetowy Kubernetes
       href: container-service-kubernetes-ui.md
     - name: Wdrażanie wykresów rozwiązania Helm
       href: container-service-kubernetes-helm.md
-    - name: Ciągła integracja/ciągłe dostarczanie z usługami Kubernetes i Jenkins
+    - name: Jenkins i ACS — Kubernetes
       href: container-service-kubernetes-jenkins.md
     - name: Tworzenie wersji roboczych za pomocą usług ACR i ACS
       href: container-service-draft-up.md
