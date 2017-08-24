@@ -17,9 +17,9 @@
 ### [Tworzenie i wdrażanie aplikacji Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Tworzenie aplikacji sieci Web Node.js za pomocą usługi Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Storage i Visual Studio
-#### [Magazyn obiektów blob i połączone usługi](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Magazyn kolejek i połączone usługi](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Magazyn tabel i połączone usługi](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Magazyn obiektów blob i połączone usługi](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Magazyn kolejek i połączone usługi](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Magazyn tabel i połączone usługi](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Konfigurowanie pakietów dla kompilacji ciągłej i wdrażania
 #### [TFS i Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurowanie reguł ruchu dla roli](cloud-services-enable-communication-role-instances.md)

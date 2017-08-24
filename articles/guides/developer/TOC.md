@@ -64,12 +64,12 @@
 ### [Maszyna wirtualna z systemem Linux na podstawie szablonu](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Maszyna wirtualna z systemem Windows na podstawie szablonu](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Przechowywanie danych
-### [Obiekty blob](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Udziały plików](../../storage/storage-dotnet-how-to-use-files.md)
-### [Pary klucz-wartość](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Obiekty blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Udziały plików](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Pary klucz-wartość](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [Dokumenty JSON](../../documentdb/documentdb-get-started.md)
 ### [Tabele relacyjne](../../sql-database/sql-database-get-started.md)
-### [Kolejki komunikatów](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Kolejki komunikatów](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Skalowanie
 ### [Aplikacje internetowe i mobilne](../../app-service-web/web-sites-scale.md)

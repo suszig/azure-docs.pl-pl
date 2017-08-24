@@ -1,6 +1,6 @@
 # Omówienie
 ## [Informacje o maszynach wirtualnych](../../virtual-machines-windows-about.md)
-## [Dyski i wirtualne dyski twarde](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Dyski i wirtualne dyski twarde](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Sieci wirtualne](../../../virtual-network/virtual-networks-overview.md)
 ## [Często zadawane pytania](faq.md)
 ## [Porównanie maszyn wirtualnych, witryn sieci Web i usług w chmurze](../../../app-service-web/choose-web-site-cloud-service-vm.md)
