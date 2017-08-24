@@ -135,7 +135,8 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
                                System.out.println(resultSet.getString(1) + " "
                                    + resultSet.getString(2));
                            }
-                   }
+                    connection.close();
+                   }                   
            }
            catch (Exception e) {
                    e.printStackTrace();
