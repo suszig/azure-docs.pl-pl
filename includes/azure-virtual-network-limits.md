@@ -1,47 +1,48 @@
-<a name="virtual-networking-limits-classic"></a>Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych przy użyciu klasycznego modelu wdrażania, które przypadają na jedną subskrypcję.
+<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription.
 
-| Zasób | Limit domyślny | Limit maksymalny |
+| Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Sieci wirtualne |50 |100 |
-| Lokalne lokacje sieciowe |20 |kontakt z pomocą techniczną |
-| Serwery DNS na sieć wirtualną |20 |100 |
-| Prywatne adresy IP na sieć wirtualną |4096 |4096 |
-| Równoczesne połączenia TCP w przypadku maszyny wirtualnej lub wystąpienia roli |500 000 |500 000 |
-| Sieciowe grupy zabezpieczeń (NSG) |100 |200 |
-| Reguły sieciowej grupy zabezpieczeń na sieciową grupę zabezpieczeń |200 |400 |
-| Zdefiniowane przez użytkownika tabele tras |100 |200 |
-| Zdefiniowane przez użytkownika trasy na tabelę tras |100 |400 |
-| Publiczne adresy IP (dynamiczne) |5 |kontakt z pomocą techniczną |
-| Zastrzeżone publiczne adresy IP |20 |kontakt z pomocą techniczną |
-| Publiczne adresy VIP na wdrożenie |5 |kontakt z pomocą techniczną |
-| Prywatne adresy VIP (wewnętrzny moduł równoważenia obciążenia) na wdrożenie |1 |1 |
-| Listy kontroli dostępu do punktu końcowego (ACL) |50 |50 |
+| Virtual networks |50 |100 |
+| Local network sites |20 |contact support |
+| DNS Servers per virtual network |20 |100 |
+| Private IP Addresses per virtual network |4096 |4096 |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
+| Network Security Groups (NSG) |100 |200 |
+| NSG rules per NSG |200 |400 |
+| User defined route tables |100 |200 |
+| User defined routes per route table |100 |400 |
+| Public IP addresses (dynamic) |5 |contact support |
+| Reserved public IP addresses |20 |contact support |
+| Public VIP per deployment |5 |contact support |
+| Private VIP (ILB) per deployment |1 |1 |
+| Endpoint Access Control Lists (ACLs) |50 |50 |
 
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Limity dotyczące sieci — Azure Resource Manager
-Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych przy użyciu usługi Azure Resource Manager, które przypadają na region na subskrypcję.
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
 
-| Zasób | Limit domyślny | Limit maksymalny |
+| Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
-| Sieci wirtualne |50 |500 |
-| Podsieci na sieć wirtualną |1000 |kontakt z pomocą techniczną |
-| Serwery DNS na sieć wirtualną |9 |25 |
-| Prywatne adresy IP na sieć wirtualną |4096 |8192 |
-| Prywatne adresy IP na interfejs sieciowy |50 |kontakt z pomocą techniczną |
-| Równoczesne połączenia TCP w przypadku maszyny wirtualnej lub wystąpienia roli |500 000 |500 000 |
-| Interfejsy sieciowe (karta sieciowa) |300 |10 000 |
-| Sieciowe grupy zabezpieczeń (NSG) |100 |400 |
-| Reguły sieciowej grupy zabezpieczeń na sieciową grupę zabezpieczeń |200 |500 |
-| Zdefiniowane przez użytkownika tabele tras |100 |200 |
-| Zdefiniowane przez użytkownika trasy na tabelę tras |100 |400 |
-| Publiczne adresy IP (dynamiczne) |60 |kontakt z pomocą techniczną |
-| Publiczne adresy IP (statyczne) |20 |kontakt z pomocą techniczną |
-| Moduły równoważenia obciążenia (do użytku wewnętrznego i połączone z Internetem) |100 |kontakt z pomocą techniczną |
-| Reguły modułu równoważenia obciążenia na moduł równoważenia obciążenia |150 |150 |
-| Publiczne adresy IP frontonu na moduł równoważenia obciążenia |10 |30 |
-| Prywatne adresy IP frontonu na moduł równoważenia obciążenia |10 |kontakt z pomocą techniczną |
-| Sesje komunikacji równorzędnej sieci wirtualnych na jedną sieć wirtualną |10 |50 |
-| Certyfikaty główne typu punkt-lokacja na bramę VPN Gateway |20 |20 |
-| Konfiguracje pomocniczych adresów IP na sieć wirtualną |1000 |kontakt z pomocą techniczną |
+| Virtual networks |50 |500 |
+| Subnets per virtual network |1,000 |contact support |
+| DNS Servers per virtual network |9 |25 |
+| Private IP Addresses per virtual network |4096 |8192 |
+| Private IP Addresses per network interface |50 |contact support |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
+| Network Interfaces (NIC) |300 |10000 |
+| Network Security Groups (NSG) |100 |400 |
+| NSG rules per NSG |200 |500 |
+| User defined route tables |100 |200 |
+| User defined routes per route table |100 |400 |
+| Public IP addresses (dynamic) |60 |contact support |
+| Public IP addresses (Static) |20 |contact support |
+| Load Balancers (internal and internet facing) |100 |contact support |
+| Load Balancer rules per load balancer |150 |150 |
+| Load Balancer rules per IP configuration |299 |299 |
+| Public front end IP per Load Balancer |10 |30 |
+| Private front end IP per Load Balancer |10 |contact support |
+| VNets peerings per Virtual Network |10 |50 |
+| Point-to-Site Root Certificates per VPN Gateway |20 |20 |
+| Secondary IP configurations per virtual network |1000 |contact support |
 
-Jeśli będzie konieczne zwiększenie limitów domyślnych, [skontaktuj się z pomocą techniczną](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
+[Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

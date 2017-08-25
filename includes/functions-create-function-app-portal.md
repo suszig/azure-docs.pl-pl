@@ -1,15 +1,15 @@
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-1. Kliknij pozycję **Obliczanie** > **Aplikacja funkcji** i wybierz swoją **subskrypcję**. Następnie użyj określonych w tabeli ustawień aplikacji funkcji.
+1. Click **Compute** > **Function App**, select your **Subscription**. Then, use the function app settings as specified in the table.
 
-    ![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
+    ![Create function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-    | Ustawienie      | Sugerowana wartość  | Opis                                        |
+    | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nazwa aplikacji** | Nazwa unikatowa w skali globalnej | Nazwa identyfikująca nową aplikację funkcji. | 
-    | **[Grupa zasobów](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nazwa nowej grupy zasobów, w której ma zostać utworzona aplikacja funkcji. | 
-    | **[Plan hostingu](../articles/azure-functions/functions-scale.md)** |   Plan Zużycie | Plan hostingu określający sposób przydzielania zasobów do aplikacji funkcji. W domyślnym planie (**Plan Zużycie**) zasoby są dodawane dynamicznie zgodnie z wymaganiami funkcji. Opłaty są naliczane tylko wtedy, gdy funkcje są uruchomione.   |
-    | **Lokalizacja** | Europa Zachodnia | Wybierz lokalizację w swojej okolicy lub w pobliżu innych usług, do których Twoje funkcje będą uzyskiwać dostęp. |
-    | **[Konto magazynu](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** |  Nazwa unikatowa w skali globalnej |  Nazwa nowego konta magazynu używanego przez aplikację funkcji. Możesz także użyć istniejącego konta. |
+    | **App name** | Globally unique name | Name that identifies your new function app. | 
+    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. | 
+    | **[Hosting plan](../articles/azure-functions/functions-scale.md)** |   Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. You only pay for the time your functions run.   |
+    | **Location** | West Europe | Choose a location near you or near other services your functions will access. |
+    | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globally unique name |  Name of the new storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account. |
 
-1. Kliknij pozycję **Utwórz**, aby zainicjować obsługę nowej aplikacji funkcji i wdrożyć ją.
+1. Click **Create** to provision and deploy the new function app.

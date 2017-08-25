@@ -1,30 +1,30 @@
-| Zasób | Limit domyślny | Limit maksymalny |
+| Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
-| Maszyny wirtualne na [subskrypcję](../articles/billing-buy-sign-up-azure-subscription.md) |10 000 <sup>1</sup> na region |10 000 na region |
-| Całkowita liczba rdzeni maszyn wirtualnych na [subskrypcję](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> na region | Kontakt z pomocą techniczną |
-| Liczba rdzeni maszyn wirtualnych na serię (Dv2, F itp.) na [subskrypcję](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> na region | Kontakt z pomocą techniczną |
-| [Współadministratorzy](../articles/billing-add-change-azure-subscription-administrator.md) na subskrypcję |Nieograniczona liczba |Nieograniczona liczba |
-| [Konta magazynu](../articles/storage/storage-create-storage-account.md) na subskrypcję |200 |200<sup>2</sup> |
-| [Grupy kontenerów](../articles/azure-resource-manager/resource-group-overview.md) na subskrypcję |800 |800 |
-| [Zestawy dostępności](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) na subskrypcję |2000 na region |2000 na region |
-| Odczyty interfejsu API usługi Resource Manager |15 000 na godzinę |15 000 na godzinę |
-| Zapisy interfejsu API usługi Resource Manager |1200 na godzinę |1200 na godzinę |
-| Rozmiar żądania interfejsu API usługi Resource Manager |4 194 304 bajty |4 194 304 bajty |
-| Tagi na subskrypcję<sup>3</sup> |bez ograniczeń |bez ograniczeń |
-| Obliczenia unikatowych tagów na subskrypcję<sup>3</sup> | 10 000 | 10 000 |
-| [Usługi w chmurze](../articles/cloud-services/cloud-services-choose-me.md) na subskrypcję |Nie dotyczy<sup>4</sup> |Nie dotyczy<sup>4</sup> |
-| [Grupy koligacji](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) na subskrypcję |Nie dotyczy<sup>4</sup> |Nie dotyczy<sup>4</sup> |
+| VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |10,000 <sup>1</sup> per Region |10,000 per Region |
+| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
+| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
+| [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
+| [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
+| [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |800 |800 |
+| [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per Region |2,000 per Region |
+| Resource Manager API Reads |15,000 per hour |15,000 per hour |
+| Resource Manager API Writes |1,200 per hour |1,200 per hour |
+| Resource Manager API request size |4,194,304 bytes |4,194,304 bytes |
+| Tags per subscription<sup>3</sup> |unlimited |unlimited |
+| Unique tag calculations per subscription<sup>3</sup> | 10,000 | 10,000 |
+| [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
+| [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
 
-<sup>1</sup>Domyślne limity zależą od typu kategorii oferty, na przykład „bezpłatna wersja próbna”, „płatność zgodnie z rzeczywistym użyciem” i serii, na przykład Dv2, F, G itd.
+<sup>1</sup>Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, etc.
 
-<sup>2</sup>Obejmuje konta magazynu warstwy Standardowa i Premium. Jeśli potrzebujesz więcej niż 200 kont magazynu, wyślij żądanie za pośrednictwem [Pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/). Zespół usługi Azure Storage przejrzy Twój przypadek biznesowy i może zatwierdzić do 250 kont magazynu.
+<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
 
-<sup>3</sup>Liczba tagów, które można zastosować na subskrypcję, nie jest ograniczona. Liczba tagów na zasób lub grupę zasobów jest ograniczona do 15. Usługa Resource Manager zwraca [listę unikatowych nazw i wartości tagów](/rest/api/resources/tags#Tags_List) w subskrypcji tylko wtedy, gdy liczba tagów wynosi 10 000 lub mniej. Nadal jednak można odnaleźć zasób na podstawie tagu, gdy ich liczba przekracza 10 000.  
+<sup>3</sup>You can apply an unlimited number of tags per subscription. The number of tags per resource or resource group is limited to 15. Resource Manager only returns a [list of unique tag name and values](/rest/api/resources/tags#Tags_List) in the subscription when the number of tags is 10,000 or less. However, you can still find a resource by tag when the number exceeds 10,000.  
 
-<sup>4</sup>Te funkcje nie są już wymagane w przypadku grup zasobów platformy Azure i usługi Azure Resource Manager.
+<sup>4</sup>These features are no longer required with Azure Resource Groups and the Azure Resource Manager.
 
 > [!NOTE]
-> Trzeba podkreślić, że rdzenie maszyny wirtualnej mają regionalny całkowity limit, a także regionalny limit na rozmiar dla serii (Dv2, F, itp.). Te limity są wymuszane oddzielnie.  Rozważmy na przykład subskrypcję z całkowitym limitem rdzeni maszyn wirtualnych dla regionu Wschodnie stany USA wynoszącym 30, limitem rdzeni dla serii A wynoszącym 30 i limitem rdzeni dla serii D wynoszącym 30.  W przypadku tej subskrypcji dozwolone będzie wdrożenie 30 maszyn wirtualnych A1 lub 30 maszyn wirtualnych D1 albo kombinacji obu rodzajów maszyn wirtualnych, pod warunkiem, że liczba rdzeni nie przekroczy 30 (na przykład 10 maszyn wirtualnych A1 i 20 maszyn wirtualnych D1).  
+> It is important to emphasize that virtual machine cores have a regional total limit as well as a regional per size series (Dv2, F, etc.) limit that are separately enforced.  For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30.  This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores (for example, 10 A1 VMs and 20 D1 VMs).  
 > <!-- -->
 > 
 > 

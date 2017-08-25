@@ -1,11 +1,6 @@
-## <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
-Najprościej jest utworzyć pierwsze konto usługi Azure Storage przy użyciu witryny [Azure Portal](https://portal.azure.com). Więcej informacji można znaleźć w temacie [Tworzenie konta magazynu](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
+## <a name="create-an-azure-storage-account"></a>Create an Azure storage account
+The easiest way to create your first Azure storage account is by using the [Azure Portal](https://portal.azure.com). To learn more, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-Można również utworzyć konto usługi Azure Storage przy użyciu programu [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [interfejsu wiersza polecenia Azure](../articles/storage/storage-azure-cli.md) lub [biblioteki klienta dostawcy zasobów magazynowych dla platformy .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+You can also create an Azure storage account by using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
 

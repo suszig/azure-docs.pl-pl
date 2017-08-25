@@ -1,37 +1,32 @@
-## <a name="what-is-azure-file-storage"></a>Co to jest usługa Azure File Storage?
-Usługa File Storage oferuje współużytkowany magazyn dla aplikacji używających standardowego protokołu SMB 2.1 lub SMB 3.0. Usługa Microsoft Azure Virtual Machines i usługi w chmurze mogą udostępniać dane między składnikami aplikacji za pośrednictwem zainstalowanych udziałów i aplikacji lokalnych, które mogą uzyskiwać dostęp do danych plików w udziale za pomocą interfejsu API usługi File Storage.
+## <a name="what-is-azure-file-storage"></a>What is Azure File storage?
+File storage offers shared storage for applications using the standard SMB 2.1 or SMB 3.0 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
 
-Aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure mogą zainstalować udziały usługi File Storage, aby uzyskać dostęp do danych plików tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba maszyn wirtualnych lub ról platformy Azure może następnie równocześnie zainstalować udział usługi File Storage i uzyskiwać do niego dostęp.
+Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
 
-Ponieważ udział usługi File Storage to standardowy udział plików na platformie Azure przy użyciu protokołu SMB, aplikacje działające na platformie Azure mają dostęp do danych w udziale za pośrednictwem interfejsów API we/wy plików. Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Specjaliści IT mogą użyć poleceń cmdlet programu PowerShell do tworzenia i instalowania udziałów magazynu plików oraz do zarządzania nimi w ramach administracji aplikacjami platformy Azure. W tym podręczniku przedstawiono oba przykłady.
+Since a File storage share is a standard file share in Azure using the SMB protocol, applications running in Azure can access data in the share via file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications. This guide will show examples of both.
 
-Najczęstsze zastosowania usługi File Storage to:
+Common uses of File storage include:
 
-* Migracja lokalnych aplikacji korzystających z udziałów plików w celu uruchomienia na maszynach wirtualnych lub w usługach w chmurze platformy Azure, bez kosztownego ponownego zapisu
-* Przechowywanie udostępnionych ustawień aplikacji, na przykład w plikach konfiguracji
-* Przechowywanie danych diagnostycznych, takich jak dzienniki, metryki i zrzuty awaryjne we współdzielonej lokalizacji 
-* Przechowywanie narzędzi i programów potrzebnych do tworzenia maszyn wirtualnych lub usług i administrowania nimi w chmurze platformy Azure
+* Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
+* Storing shared application settings, for example in configuration files
+* Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
+* Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
 
-## <a name="file-storage-concepts"></a>Pojęcia dotyczące usługi File Storage
-Usługa File Storage zawiera następujące składniki:
+## <a name="file-storage-concepts"></a>File storage concepts
+File storage contains the following components:
 
 ![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
-* **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Aby uzyskać szczegółowe informacje na temat pojemności konta magazynu, zobacz temat [Cele dotyczące skalowalności i wydajności usługi Azure Storage](../articles/storage/storage-scalability-targets.md).
-* **Udział:** udział usługi File Storage jest udziałem plików SMB na platformie Azure. 
-  Wszystkie pliki i katalogi muszą być tworzone w udziale nadrzędnym. Konto może zawierać nieograniczoną liczbę udziałów, a udział może obejmować nieograniczoną liczbę plików. Maksymalna całkowita objętość udziału plików to 5 TB.
-* **Katalog:** opcjonalna hierarchia katalogów. 
-* **Plik:** plik w udziale. Plik może mieć maksymalnie 1 TB pojemności.
-* **Format adresu URL:** adresy URL plików mają następujący format:   
+* **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account capacity.
+* **Share:** A File storage share is an SMB file share in Azure. 
+  All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
+* **Directory:** An optional hierarchy of directories. 
+* **File:** A file in the share. A file may be up to 1 TB in size.
+* **URL format:** Files are addressable using the following URL format:   
   https://`<storage
   account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
   
-  Następującego przykładowego adresu URL można użyć do udostępnienia jednego z plików na powyższym diagramie:  
+  The following example URL could be used to address one of the files in the diagram above:  
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
-Szczegółowe informacje o nazewnictwie udziałów, katalogów i plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).

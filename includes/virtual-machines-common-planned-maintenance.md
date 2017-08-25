@@ -1,104 +1,48 @@
+Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
+
+- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
+
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
+
+This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows] (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+
+Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+
+## <a name="in-place-vm-migration"></a>In-place VM migration
+
+When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+
+For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
+
+Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
 
 
-## <a name="memory-preserving-updates"></a>Aktualizacje pozwalające zachować stan pamięci
-W przypadku wielu aktualizacji przeprowadzanych na platformie Microsoft Azure klienci nie odczuwają ich wpływu na uruchomione maszyny wirtualne. Wiele z tych aktualizacji dotyczy składników lub usług, które można zaktualizować bez zakłócania pracy uruchomionego wystąpienia. Niektóre z tych aktualizacji to aktualizacje infrastruktury platformy mające miejsce w systemie operacyjnym hosta, które można zastosować bez konieczności przeprowadzania pełnego ponownego uruchamiania maszyn wirtualnych.
+## <a name="maintenance-requiring-a-reboot"></a>Maintenance requiring a reboot
 
-Te aktualizacje są przeprowadzane za pomocą technologii umożliwiającej migrację na żywo w miejscu — są one również określane jako aktualizacje pozwalające zachować stan pamięci. Podczas aktualizowania maszyna wirtualna jest ustawiana w stan wstrzymania, co pozwala zachować stan pamięci RAM, gdy w podstawowym systemie operacyjnym hosta wprowadzane są niezbędne aktualizacje i poprawki. Maszyna wirtualna jest wznawiana w ciągu 30 sekund od momentu wstrzymania. Po wznowieniu zegar maszyny wirtualnej jest automatycznie synchronizowany.
+When VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
 
-Nie wszystkie aktualizacje można wdrożyć za pomocą tego mechanizmu, ale biorąc pod uwagę krótki czas trwania przerwy, wdrażanie aktualizacji w ten sposób znacznie ogranicza ich wpływ na maszyny wirtualne.
+The **self-service window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
 
-Aktualizacje wielu wystąpień (dla maszyn wirtualnych w zestawie dostępności) są stosowane dla jednej domeny aktualizacji jednocześnie.  
+When you start self-service maintenance, your VM is moved to a node that has already been updated and then powers it back on. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
 
-## <a name="virtual-machine-configurations"></a>Konfiguracje maszyny wirtualnej
-Istnieją dwa rodzaje konfiguracji maszyny wirtualnej: konfiguracja o wielu wystąpieniach i konfiguracja o jednym wystąpieniu. W ramach konfiguracji o wielu wystąpieniach podobne maszyny wirtualne są umieszczane w zestawie dostępności.
+If you start self-service maintenance and there is an error during the process, the operation is stopped, the VM is not updated and it is also removed from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to do self-service maintenance. 
 
-Konfiguracja o wielu wystąpieniach zapewnia nadmiarowość w obrębie maszyn fizycznych, ich zasilania oraz dostępu do sieci, i jest zalecana w celu zapewnienia dostępności aplikacji. Wszystkie maszyny wirtualne w zestawie dostępności powinny mieć takie same znaczenie dla aplikacji.
+When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
 
-Aby uzyskać więcej informacji o konfigurowaniu maszyn wirtualnych na potrzeby wysokiej dostępności, zobacz [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych systemu Windows) lub [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych systemu Linux).
+## <a name="availability-considerations-during-planned-maintenance"></a>Availability Considerations during Planned Maintenance 
 
-Z drugiej strony konfiguracja o jednym wystąpieniu jest używana na potrzeby autonomicznych maszyn wirtualnych, które nie są umieszczane w zestawie dostępności. Te maszyny wirtualne nie kwalifikują się do umowy dotyczącej poziomu usług wymagającej wdrożenia co najmniej dwóch maszyn wirtualnych w tym samym zestawie dostępności.
+If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availabilty of your VMs. 
 
-Więcej informacji na temat umów dotyczących poziomu usług zawierają sekcje Cloud Services i Virtual Machines w temacie [Umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/).
+### <a name="paired-regions"></a>Paired Regions
 
-## <a name="multi-instance-configuration-updates"></a>Aktualizacje konfiguracji o wielu wystąpieniach
-Podczas planowanej konserwacji na platformie Azure najpierw przeprowadzana jest aktualizacja zestawu maszyn wirtualnych hostowanych w ramach konfiguracji o wielu wystąpieniach. Proces aktualizacji powoduje wykonanie ponownego uruchomienia tych maszyn wirtualnych (przestój trwa około 15 minut).
+Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Podczas aktualizacji konfiguracji o wielu wystąpieniach przyjmowane jest założenie, że każda maszyna wirtualna pełni podobną funkcję, jak inne maszyny wirtualne znajdujące się w zestawie dostępności. W takim podejściu maszyny wirtualne są aktualizowane w sposób, który pozwala na zachowanie dostępności przez cały proces.
+### <a name="availability-sets-and-scale-sets"></a>Availability sets and scale sets
 
-Każda maszyna wirtualna w zestawie dostępności ma przypisaną domenę aktualizacji i domenę błędów z odpowiedniej platformy Azure. Każda domena aktualizacji to grupa maszyn wirtualnych, które zostaną ponownie uruchomione w tym samym przedziale czasu. Każda domena błędów to grupa maszyn wirtualnych, które korzystają ze wspólnego źródła zasilania i przełącznika sieciowego.
+When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
 
+Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially. 
 
-Aby uzyskać więcej informacji o domenach aktualizacji i domenach błędów, zobacz [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) (Konfigurowanie wielu maszyn wirtualnych w zestawie dostępności w celu zapewnienia nadmiarowości).
+Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
 
-Aby zapewnić dostępność za pośrednictwem aktualizacji, na platformie Azure wykonywana jest konserwacja za pomocą domeny aktualizacji, która powoduje aktualizowanie jednej domeny jednocześnie. Konserwacja w domenie aktualizacji polega na zamknięciu każdej maszyny wirtualnej w domenie, zastosowaniu aktualizacji na maszynach hosta, a następnie ponownym uruchomieniu maszyn wirtualnych. Po zakończeniu konserwacji w domenie na platformie Azure powtarzany jest ten proces w przypadku następnej domeny aktualizacji — odbywa się to do momentu, gdy wszystkie domeny zostaną zaktualizowane.
-
-Podczas planowanej konserwacji domeny aktualizacji mogą nie być ponownie uruchamiane kolejno, ale w danym momencie tylko jedna domena aktualizacji jest uruchamiana ponownie. Obecnie platforma Azure oferuje powiadomienie z jednotygodniowym wyprzedzeniem o zaplanowanej konserwacji maszyn wirtualnych w ramach konfiguracji o wielu wystąpieniach.
-
-Poniżej znajduje się przykład tego, co może być wyświetlane w Podglądzie zdarzeń systemu Windows po przywróceniu maszyny wirtualnej:
-
-<!--Image reference-->
-![][image2]
-
-
-Podgląd służy do zgłaszania maszyn wirtualnych, które zostały skonfigurowane w ramach konfiguracji o wielu wystąpieniach przy użyciu witryny Azure Portal, usługi Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Na przykład za pomocą witryny Azure Portal można dodać _zestaw dostępności_ do okna dialogowego przeglądania **Maszyny wirtualne (klasyczne)**. Maszyny wirtualne zgłaszające ten sam zestaw dostępności są częścią konfiguracji o wielu wystąpieniach. W poniższym przykładzie konfiguracja o wielu wystąpieniach składa się z maszyn wirtualnych SQLContoso01 i SQLContoso02.
-
-<!--Image reference-->
-  ![Widok Maszyny wirtualne (klasyczne) w witrynie Azure Portal][image4]
-
-## <a name="single-instance-configuration-updates"></a>Aktualizacje konfiguracji o jednym wystąpieniu
-Po zakończeniu aktualizacji konfiguracji o wielu wystąpieniach na platformie Azure wykonywane są aktualizacje konfiguracji o jednym wystąpieniu. Te aktualizacje również powodują ponowne uruchomienie maszyn wirtualnych, które nie są uruchomione w ramach zestawów dostępności.
-
-> [!NOTE]
-> Jeśli w zestawie dostępności jest uruchomione tylko jedno wystąpienie maszyny wirtualnej, platforma Azure traktuje je jako aktualizację konfiguracji o wielu wystąpieniach.
->
-
-Konserwacja w konfiguracji o jednym wystąpieniu polega na zamknięciu każdej maszyny wirtualnej uruchomionej na maszynie hosta, aktualizacji maszyny hosta, a następnie ponownym uruchomieniu maszyn wirtualnych. Do przeprowadzenia konserwacji wymagane jest około 15 minut przestoju. Zdarzenie planowanej konserwacji jest uruchamiane dla wszystkich maszyn wirtualnych w regionie podczas jednego okna obsługi.
-
-
-Zdarzenia planowanej konserwacji mają wpływ na dostępność aplikacji w przypadku konfiguracji o jednym wystąpieniu. Platforma Azure oferuje powiadomienie z jednotygodniowym wyprzedzeniem o zaplanowanej konserwacji maszyn wirtualnych w ramach konfiguracji o jednym wystąpieniu.
-
-## <a name="email-notification"></a>Powiadomienie e-mail
-Tylko w przypadku konfiguracji maszyn wirtualnych o jednym wystąpieniu i konfiguracji o wielu wystąpieniach platforma Azure wysyła alert e-mail dotyczący nadchodzącej planowanej konserwacji (z tygodniowym wyprzedzeniem). Ta wiadomość e-mail jest wysyłana na konta e-mail administratora i współadministratora subskrypcji. Poniżej znajduje się przykładowa wiadomość e-mail tego typu:
-
-<!--Image reference-->
-![][image1]
-
-## <a name="region-pairs"></a>Pary regionów
-
-Podczas wykonywania konserwacji platforma Azure aktualizuje wystąpienia maszyn wirtualnych tylko w jednym obszarze z pary. Na przykład podczas aktualizowania maszyn wirtualnych w regionie Północno-środkowe stany USA platforma Azure nie będzie jednocześnie przeprowadzać aktualizacji żadnych maszyn wirtualnych w regionie Południowo-środkowe stany USA. Takie aktualizacje zostaną zaplanowane na inny termin, co pozwoli na korzystanie z trybu failover lub równoważenie obciążenia między regionami. Inne regiony, takie jak Europa Północna, mogą być jednak w trakcie konserwacji w tym samym czasie, co region Wschodnie stany USA.
-
-W poniższej tabeli znajdują się aktualne pary regionów:
-
-| Region 1 | Region 2 |
-|:--- | ---:|
-| Wschodnie stany USA |Zachodnie stany USA |
-| Wschodnie stany USA 2 |Środkowe stany USA |
-| Środkowo-północne stany USA |Środkowo-południowe stany USA |
-| Środkowo-zachodnie stany USA |Zachodnie stany USA 2 |
-| Kanada Wschodnia |Kanada Środkowa |
-| Brazylia Południowa |Środkowo-południowe stany USA |
-| Administracja USA — Iowa |Administracja USA — Wirginia |
-| US DoD — wschodnie stany |US DoD — środkowe stany |
-| Europa Północna |Europa Zachodnia |
-| Zachodnie Zjednoczone Królestwo |Południowe Zjednoczone Królestwo |
-| Niemcy Środkowe |Niemcy Północno-Wschodnie |
-| Azja Południowo-Wschodnia |Azja Wschodnia |
-| Australia Południowo-Wschodnia |Australia Wschodnia |
-| Indie Środkowe |Indie Południowe |
-| Indie Zachodnie |Indie Południowe |
-| Japonia Wschodnia |Japonia Zachodnia |
-| Korea Środkowa |Korea Południowa |
-| Chiny Wschodnie |Chiny Północne |
-
-
-<!--Anchors-->
-[image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
-[image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
-[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
-
-
-<!--Link references-->
-[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).

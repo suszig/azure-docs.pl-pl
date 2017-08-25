@@ -1,16 +1,16 @@
-* [Scale Azure App Service](../articles/app-service-web/web-sites-scale.md) (Skalowanie usługi Azure App Service)
+* [Scale Azure App Service](../articles/app-service-web/web-sites-scale.md)
   
-  * Informacje na temat nadmiarowości i niezawodności
-  * Aplikacje stanowe a bezstanowe
-    * [Configuring your Stateless app](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) (Konfigurowanie aplikacji bezstanowej)
-* Testowanie obciążenia aplikacji w usłudze App Service   
-* Najlepsze rozwiązania dotyczące skalowania usługi App Service
+  * Understanding Redundancy and Reliability
+  * StateFULL vs StateLESS applications
+    * [Configuring your Stateless app](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+* Load Testing apps in App Service   
+* App Service scaling best practices
   
-  * Wyczerpanie portów i pule połączeń
-  * [Korzystanie z usługi Azure Storage z poziomu aplikacji usługi App Service](../articles/storage/storage-dotnet-how-to-use-blobs.md)
-  * [Korzystanie z usługi Azure CDN z poziomu aplikacji usługi App Service](../articles/cdn/cdn-overview.md)
-  * [Korzystanie z usługi Azure Redis Cache z poziomu aplikacji usługi App Service](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
-* Dystrybucja geograficzna
+  * Port exhaustion and connection pooling
+  * [Leveraging Azure Storage from your App Service app](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
+  * [Leveraging Azure CDN from your App Service app](../articles/cdn/cdn-overview.md)
+  * [Leveraging Azure Redis Cache from your App Service app](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
+* Geo distribution
   
-  * [Leveraging Traffic Manager to achieve global scale](../articles/traffic-manager/traffic-manager-overview.md) (Korzystanie z usługi Traffic Manager w celu osiągnięcia skali globalnej)
+  * [Leveraging Traffic Manager to achive global scale](../articles/traffic-manager/traffic-manager-overview.md)
 
