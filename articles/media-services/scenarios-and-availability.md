@@ -4,7 +4,7 @@ description: "Ten temat zawiera omówienie scenariuszy usługi Microsoft Azure M
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

@@ -4,7 +4,7 @@ description: "W tym samouczku opisano kolejne kroki w procesie tworzenia kanału
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services

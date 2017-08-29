@@ -4,7 +4,7 @@ description: "Konfigurowanie środowiska do programowania z użyciem usługi Azu
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
 ms.service: media-services
