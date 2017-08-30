@@ -46,6 +46,7 @@
 ## [Konfigurowanie tokenów](active-directory-b2c-token-session-sso.md)
 ## [Włączanie usługi MFA](active-directory-b2c-reference-mfa.md)
 ## [Używanie atrybutów niestandardowych](active-directory-b2c-reference-custom-attr.md)
+## [Dostosowywanie hasła](active-directory-b2c-reference-password-complexity.md)
 ## [Dostosowywanie interfejsu użytkownika](active-directory-b2c-reference-ui-customization.md)
 ### [Narzędzie pomocnika na potrzeby dostosowywania](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Dostosowywanie języka](active-directory-b2c-reference-language-customization.md)
@@ -56,9 +57,12 @@
 ## [Zasady niestandardowe](active-directory-b2c-overview-custom.md)
 ## Przewodniki
 ### [Wprowadzenie](active-directory-b2c-get-started-custom.md)
-### Konfigurowanie dostawców OIDC
+### Konfigurowanie dostawców OIDC/OAUTH2
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Konto Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Konfigurowanie dostawców SAML
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrowanie interfejsów API RESTful
 #### [Weryfikowanie danych wejściowych użytkownika](active-directory-b2c-rest-api-validation-custom.md)
@@ -68,11 +72,12 @@
 #### [Atrybuty niestandardowe](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Dostosowywanie interfejsu użytkownika](active-directory-b2c-ui-customization-custom.md)
 #### [Dostosowywanie tokenów](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Dostosowywanie hasła](active-directory-b2c-reference-password-complexity-custom.md)
 ### Rozwiązywanie problemów
 #### [Zbieranie dzienników przy użyciu usługi Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Dokumentacja
 ### [Informacje o wersji](active-directory-b2c-developer-notes-custom.md)
-
+### [Definicja struktury zaufania](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Słownik

@@ -38,6 +38,8 @@
           href: storage-blob-storage-tiers.md
         - name: Projektowanie aplikacji HA przy użyciu magazynu RA-GRS
           href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Reagowanie na zdarzenia
+          href: storage-blob-event-overview.md
         - name: Cele dotyczące skalowalności i wydajności
           href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Lista kontrolna wydajności i skalowalności
@@ -74,6 +76,8 @@
           href: storage-properties-metadata.md
         - name: Korzystanie z emulatora magazynu
           href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Kierowanie zdarzeń do niestandardowego punktu końcowego
+          href: storage-blob-event-quickstart.md
         - name: Domeny niestandardowe
           href: storage-custom-domain-name.md
         - name: Przeszukiwanie magazynu obiektów blob za pomocą usługi Azure Search

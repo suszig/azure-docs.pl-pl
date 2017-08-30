@@ -18,7 +18,7 @@
 # Przykłady
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Interfejs wiersza polecenia platformy Azure](samples-cli.md)
+## [Interfejs wiersza polecenia usługi Service Fabric](samples-cli.md)
 # Pojęcia
 ## [Opis mikrousług](service-fabric-overview-microservices.md)
 ## [Duży obraz](service-fabric-content-roadmap.md)
@@ -113,11 +113,14 @@
 #### [Ograniczanie przepływności](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Przenoszenie usług](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Integrowanie z usługą API Management](service-fabric-api-management-overview.md)
+
 ## Monitorowanie i diagnozowanie
 ### [Omówienie](service-fabric-diagnostics-overview.md)
 ### [Health model (Model kondycji)](service-fabric-health-introduction.md)
 ### [Diagnostyka stanowych usług Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostyka w elementach Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Liczniki wydajności dla komunikacji zdalnej z usługami Reliable Services](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Przewodniki z instrukcjami
 ## Konfigurowanie środowiska projektowego
@@ -126,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Tworzenie aplikacji
+### [Tworzenie pierwszej aplikacji w języku C# w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Tworzenie usługi wykonywalnej gościa
 #### [Host a Node.js application on Windows (Hostowanie aplikacji Node.js w systemie Windows)](quickstart-guest-app.md)
 #### [Wdrażanie aplikacji wykonywalnej gościa](service-fabric-deploy-existing-app.md)
@@ -206,9 +210,7 @@
 ### [Debugowanie usługi Java w programie Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Lokalne monitorowanie i diagnozowanie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Integrowanie z usługą API Management
-### [Omówienie](service-fabric-api-management-overview.md)
-### [Szybki start](service-fabric-api-management-quick-start.md)
+## [Wdrażanie usług API Management i Service Fabric na platformie Azure](service-fabric-api-management-quick-start.md)
 
 ## Migrowanie z usług Cloud Services
 ### [Porównanie usług Cloud Services i Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -221,7 +223,7 @@
 ### Wdrażanie lub usuwanie aplikacji
 #### [Wdrażanie aplikacji w klastrze lokalnym](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Interfejs wiersza polecenia platformy Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Program Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [Interfejsy API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -256,6 +258,7 @@
 #### [Uaktualnienie](service-fabric-cluster-upgrade.md)
 #### [Ustawianie kontroli dostępu](service-fabric-cluster-security-roles.md)
 #### [Konfigurowanie](service-fabric-cluster-fabric-settings.md)
+#### [Otwieranie portu w module równoważenia obciążenia](create-load-balancer-rule.md)
 #### [Zarządzanie certyfikatami klastra](service-fabric-cluster-security-update-certs-azure.md)
 #### [Usuwanie](service-fabric-cluster-delete.md)
 
@@ -275,8 +278,7 @@
 ### [Wizualizacja klastra](service-fabric-visualizing-your-cluster.md)
 ### [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md)
 
-### [Zarządzanie klastrem przy użyciu interfejsu wiersza polecenia XPlat](service-fabric-azure-cli.md)
-### [Zarządzanie klastrem przy użyciu poleceń interfejsu wiersza polecenia platformy Azure 2.0](service-fabric-azure-cli-2-0.md)
+### [Zarządzanie klastrem przy użyciu interfejsu wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
 ### [Stosowanie poprawek do węzłów klastra](service-fabric-patch-orchestration-application.md)
 
 ### Organizowanie zasobów klastra i zarządzanie nimi

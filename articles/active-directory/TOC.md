@@ -44,7 +44,6 @@
 #### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
 #### [Przykłady programu PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
 ### [Dodawanie użytkowników z innych katalogów (portal klasyczny)](active-directory-create-users-external.md)
-### [Usuwanie użytkowników](active-directory-users-delete-user-azure-portal.md)
 ### [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
 ### [Resetowanie hasła](active-directory-users-reset-password-azure-portal.md)
 ### [Zarządzanie informacjami o pracy użytkownika](active-directory-users-work-info-azure-portal.md)
@@ -132,10 +131,14 @@
 
 ## Zarządzanie urządzeniami
 ### [Wprowadzenie](device-management-introduction.md)
+### [Korzystanie z witryny Azure Portal](device-management-azure-portal.md)
 ### [Często zadawane pytania](device-management-faq.md)
 ### Zadania
+#### [Konfigurowanie urządzeń z systemem Windows 10 zarejestrowanych w usłudze Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Konfigurowanie urządzeń przyłączonych do usługi Azure AD](device-management-azuread-joined-devices-setup.md)
 #### [Konfigurowanie urządzeń przyłączonych do hybrydowej usługi Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Wdrażanie lokalnie](active-directory-device-registration-on-premises-setup.md)
+#### [Przyłączanie do usługi Azure AD podczas pierwszego uruchomienia systemu Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Rozwiązywanie problemów
 #### [Urządzenia z systemami Windows 10 i Windows Server 2016 przyłączone do hybrydowej usługi Azure AD](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Starsze urządzenia z systemem Windows przyłączone do hybrydowej usługi Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -297,7 +300,6 @@
 #### [Wprowadzenie](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Najlepsze praktyki](active-directory-conditional-access-best-practices.md)
 #### [Dokumentacja techniczna](active-directory-conditional-access-technical-reference.md)
-#### [Obsługiwane aplikacje](active-directory-conditional-access-supported-apps.md)
 #### [Objaśnienie zasad dotyczących urządzeń](active-directory-conditional-access-device-policies.md)
 #### [Konfigurowanie dostępu do podłączonych aplikacji](active-directory-conditional-access-policy-connected-applications.md)
 #### [Korygowanie](active-directory-conditional-access-device-remediation.md)

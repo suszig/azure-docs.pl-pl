@@ -57,14 +57,11 @@
 ### [Korzystanie z funkcji DataFu z technologią Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Klastry na żądanie](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Przesyłanie zadań Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Korzystanie z programu R Server
-### [Opcje magazynu](hdinsight-hadoop-r-server-storage.md)
-### [Instalowanie programu RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Konteksty wystąpień obliczeniowych](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR i SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Korzystanie z aplikacji Spark do przetwarzania w pamięci
+### Wprowadzenie — deweloper platformy Spark
+#### [Tworzenie aplikacji autonomicznej](hdinsight-apache-spark-create-standalone-application.md)
+#### [Zadania zdalne przy użyciu usługi Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [Za pomocą usługi Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Tworzenie aplikacji autonomicznej](hdinsight-apache-spark-create-standalone-application.md)
 ### [Tworzenie aplikacji w środowisku Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Tworzenie aplikacji w środowisku IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Zdarzenia przesyłania strumieniowego procesu](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [Korzystanie z zewnętrznych pakietów w programie Jupyter przy użyciu funkcji cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Korzystanie z zewnętrznych pakietów w programie Jupyter przy użyciu akcji skryptów](hdinsight-apache-spark-python-package-installation.md)
 ### [Korzystanie z lokalnego notesu programu Jupyter](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Zadania zdalne przy użyciu usługi Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Zdalne debugowanie zadań w środowisku IntelliJ przez sieć VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Znane problemy](hdinsight-apache-spark-known-issues.md)
+## Korzystanie z programu R Server
+### [Opcje magazynu](hdinsight-hadoop-r-server-storage.md)
+### [Instalowanie programu RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Konteksty wystąpień obliczeniowych](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR i SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Korzystanie z bazy danych HBase
 ### [Korzystanie z oprogramowania Phoenix i SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analizowanie tweetów w czasie rzeczywistym](hdinsight-hbase-analyze-twitter-sentiment.md)

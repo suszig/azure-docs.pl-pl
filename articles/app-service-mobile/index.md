@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
-ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 0286d0cab7eb774a13066beb838840892dfeeda5
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="mobile-apps-documentation"></a>Dokumentacja usługi Mobile Apps
@@ -141,7 +143,7 @@ Dowiedz się, jak używać usługi Mobile Apps w usłudze Azure App Service, aby
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do tworzenia aplikacji systemu xamarin.Android</h3>
+                        <h3>Wprowadzenie do tworzenia aplikacji Xamarin.Android</h3>
                     </div>
                 </div>
             </div>
@@ -159,7 +161,7 @@ Dowiedz się, jak używać usługi Mobile Apps w usłudze Azure App Service, aby
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do tworzenia aplikacji systemu xamarin.Forms</h3>
+                        <h3>Wprowadzenie do tworzenia aplikacji Xamarin.Forms</h3>
                     </div>
                 </div>
             </div>
@@ -208,9 +210,4 @@ Dowiedz się, jak używać usługi Mobile Apps w usłudze Azure App Service, aby
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

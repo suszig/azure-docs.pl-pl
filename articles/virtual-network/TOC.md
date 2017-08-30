@@ -140,6 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Testowanie przepływności](virtual-network-bandwidth-testing.md)
 ### [Cannot delete virtual networks (Nie można usunąć sieci wirtualnych)](virtual-network-troubleshoot-cannot-delete-vnet.md)
+### [Problemy z łącznością między maszynami wirtualnymi](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

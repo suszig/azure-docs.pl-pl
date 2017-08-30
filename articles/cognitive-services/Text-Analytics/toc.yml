@@ -1,20 +1,45 @@
-- name: Text Analytics Documentation
+- name: Dokumentacja usługi Text Analytics
   href: ../index.md
-- name: Overview
+- name: Omówienie
   href: overview.md
-- name: Quick Start Guide
-  href: quick-start.md
-- name: Reference
+  items: null
+- name: Przewodniki Szybki start
   items:
-    - name: API Reference content
+    - name: 'C#'
+      href: quick-start.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Rejestrowanie
+      href: text-analytics-howto-signup.md
+    - name: Uzyskiwanie klucza dostępu
+      href: text-analytics-howto-accesskey.md
+    - name: Wywoływanie interfejsu API usługi Text Analytics
+      href: text-analytics-howto-call-api.md
+    - name: Wykrywanie języka
+      href: text-analytics-howto-language-detection.md
+    - name: Analiza tonacji
+      href: text-analytics-howto-sentiment-analysis.md
+    - name: Wyodrębnianie słów kluczowych
+      href: text-analytics-howto-keyword-extraction.md
+- name: Dokumentacja
+  items:
+    - name: Dokumentacja interfejsu API
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
-    - name: Windows SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-Windows'
-    - name: Android SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-Android'
-    - name: .Net Standard SDK
+    - name: Zestaw .Net Standard SDK
       href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet'
-- name: Resources
+- name: Zasoby
   items:
-    - name: Azure Roadmap
+    - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Skontaktuj się z nami
+      href: 'https://azure.microsoft.com/overview/sales-number/'
+    - name: Zawartość zewnętrzna i społeczności
+      href: text-analytics-resource-external-community.md
+    - name: Często zadawane pytania
+      href: text-analytics-resource-faq.md
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

@@ -7,17 +7,17 @@
 ## [Zgodne oprogramowanie innych firm](active-directory-ds-compatible-software.md)
 
 # Rozpoczęcie pracy
-## klasyczny portal Azure
-### [Task 1: create the administrator group (Zadanie 1. Tworzenie grupy administratorów)](active-directory-ds-getting-started-create-group.md)
-### [Zadanie 2. Tworzenie lub wybieranie sieci wirtualnej](active-directory-ds-getting-started-vnet.md)
-### [Zadanie 3. Włączanie Usług domenowych Azure AD](active-directory-ds-getting-started-enableaadds.md)
-### [Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej](active-directory-ds-getting-started-update-dns.md)
-### [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
 ## Azure Portal (wersja zapoznawcza)
 ### [Task 1: configure basic settings (Zadanie 1. Konfigurowanie ustawień podstawowych)](active-directory-ds-getting-started.md)
 ### [Task 2: configure network settings (Zadanie 2. Konfigurowanie ustawień sieciowych)](active-directory-ds-getting-started-network.md)
 ### [Task 3: configure administrator group and enable Azure AD Domain Services (Zadanie 3. Konfigurowanie grupy administratorów i włączanie usługi Azure AD Domain Services)](active-directory-ds-getting-started-admingroup.md)
 ### [Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej](active-directory-ds-getting-started-dns.md)
+### [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
+## Klasyczny portal Azure (przestarzałe)
+### [Task 1: create the administrator group (Zadanie 1. Tworzenie grupy administratorów)](active-directory-ds-getting-started-create-group.md)
+### [Zadanie 2. Tworzenie lub wybieranie sieci wirtualnej](active-directory-ds-getting-started-vnet.md)
+### [Zadanie 3. Włączanie Usług domenowych Azure AD](active-directory-ds-getting-started-enableaadds.md)
+### [Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej](active-directory-ds-getting-started-update-dns.md)
 ### [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
 
 # Instrukcje
