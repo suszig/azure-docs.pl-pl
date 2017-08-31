@@ -32,7 +32,9 @@
 ### [Witryna Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja](expressroute-howto-coexist-resource-manager.md)
-## [Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-powershell.md)
+## Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft
+### [Witryna Azure Portal](how-to-routefilter-portal.md)
+### [PowerShell](how-to-routefilter-powershell.md)
 ## [Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrowanie skojarzonych sieci wirtualnych z wersji klasycznej do usługi Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurowanie routera dla usługi ExpressRoute

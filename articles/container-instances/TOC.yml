@@ -43,6 +43,8 @@
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Szablony — usługa Container Instances
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Dostępność w danym regionie

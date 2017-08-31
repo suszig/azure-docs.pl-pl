@@ -29,6 +29,8 @@
           href: connect-cpp.md
         - name: Przejdź
           href: connect-go.md
+        - name: MySQL Workbench
+          href: connect-workbench.md
 - name: Samouczki
   items:
     - name: 1 — Projektowanie bazy danych

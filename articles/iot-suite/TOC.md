@@ -53,6 +53,7 @@
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Często zadawane pytania](iot-suite-faq.md)
+## [Często zadawane pytania dotyczące połączonej fabryki](iot-suite-faq-cf.md)
 ## [Ścieżka szkoleniowa dla Pakietu IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 

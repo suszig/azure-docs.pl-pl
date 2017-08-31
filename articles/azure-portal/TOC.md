@@ -1,16 +1,21 @@
-# [Omówienie](../azure-portal-overview.md)
+# Omówienie
+## [Informacje o witrynie Azure Portal](../azure-portal-overview.md)
+# Samouczki
+## [Metodyka DevOps w witrynie Azure Portal](tutorial-azureportal-devops.md)
+# Pojęcia
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-# Wprowadzenie
-## [Wdrażanie przy użyciu szablonu usługi Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
-
-# Instrukcje
+## [Skróty klawiaturowe](azure-portal-keyboard-shortcuts.md)
+## [Obsługiwane przeglądarki i urządzenia](../azure-preview-portal-supported-browsers-devices.md)
+# Przewodniki z instrukcjami
 ## Wdrażanie
 ### [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-
+### [Wdrażanie przy użyciu szablonu usługi Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
+### [Tworzenie i udostępnianie pulpitów nawigacyjnych platformy Azure](azure-portal-dashboards.md)
 ## Zarządzanie
-### [Zarządzanie zasobami w portalu w wersji zapoznawczej](../azure-resource-manager/resource-group-portal.md)
+### [Włączanie dużego kontrastu lub zmienianie motywu](azure-portal-change-theme-high-contrast.md)
+### [Zarządzanie zasobami w portalu](../azure-resource-manager/resource-group-portal.md)
 ### [Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md)
+### [Udostępnianie pulpitów nawigacyjnych przy użyciu kontroli dostępu opartej na rolach](azure-portal-dashboard-share-access.md)
 ### [Organizowanie zasobów przy użyciu tagów](../azure-resource-manager/resource-group-using-tags.md)
 ### [Skalowanie zasobów](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Tworzenie nowej jednostki usługi platformy Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)

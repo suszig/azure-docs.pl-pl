@@ -218,10 +218,12 @@
               href: gremlin-support.md
         - name: Interfejs API tabel
           items:
-            - name: Magazyn tabel
-              href: /rest/api/storageservices/Table-Service-Concepts
+            - name: Omówienie usługi Table Storage
+              href: table-storage-overview.md
             - name: Przewodnik projektowania usługi Table Storage
               href: table-storage-design-guide.md
+            - name: Interfejsy API REST usługi Table Storage
+              href: /rest/api/storageservices/Table-Service-Concepts
             - name: Samouczki
               items:
                 - name: .NET

@@ -190,6 +190,7 @@
 #### [Odtwarzacze w technologii Open Source Media Framework firmy Adobe](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Wstawianie reklam po stronie klienta](media-services-inserting-ads-on-client-side.md)
 ### [Licencjonowanie zestawu Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
+### [Odtwarzanie strumienia HLS z szyfrowaniem AES w przeglądarce Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Integracja
 ### [Używanie usługi Azure Functions z usługą Media Services](media-services-dotnet-how-to-use-azure-functions.md)

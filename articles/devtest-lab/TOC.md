@@ -42,8 +42,11 @@
 ## Zarządzanie szablonami wielokrotnego użytku
 ### [Dodawanie repozytorium Git dla artefaktów i szablonów](devtest-lab-add-artifact-repo.md)
 ### [Use a resource manager template (Używanie szablonu usługi Resource Manager)](devtest-lab-use-resource-manager-template.md)
-### [Tworzenie niestandardowych artefaktów](devtest-lab-artifact-author.md)
 ### [Zarządzanie formułami](devtest-lab-manage-formulas.md)
+
+## Zarządzanie artefaktami
+### [Tworzenie niestandardowych artefaktów](devtest-lab-artifact-author.md)
+### [Diagnozowanie błędów artefaktów](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Zarządzanie sieciami wirtualnymi
 ### [Konfigurowanie sieci wirtualnych](devtest-lab-configure-vnet.md)

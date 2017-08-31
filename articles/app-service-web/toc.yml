@@ -117,8 +117,6 @@
               href: app-service-linux-intro.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia
               href: app-service-linux-cli.md
-            - name: Tworzenie aplikacji sieci Web w systemie Linux
-              href: app-service-linux-how-to-create-web-app.md
             - name: Aplikacja sieci Web Ruby w systemie Linux
               href: app-service-linux-ruby-get-started.md
             - name: Aplikacja sieci Web Node.js w systemie Linux

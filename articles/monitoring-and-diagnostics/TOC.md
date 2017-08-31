@@ -64,6 +64,7 @@
 ## [Źródła danych monitorowania](monitoring-data-sources.md)
 ## [Lista obsługiwanych metryk](monitoring-supported-metrics.md)
 ## [Activity Log event schema (Schemat zdarzeń dziennika aktywności)](monitoring-activity-log-schema.md)
+## [Obsługiwane usługi, kategorie i schematy dla dzienników diagnostycznych](monitoring-diagnostic-logs-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)

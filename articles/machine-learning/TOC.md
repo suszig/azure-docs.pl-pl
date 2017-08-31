@@ -3,8 +3,8 @@
 ## [Co to jest usługa Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Zespołowe przetwarzanie danych dla celów naukowych
-### [Omówienie](http://aka.ms/datascienceprocess)
-### [Cykl życia](data-science-process-overview.md)
+### [Omówienie](data-science-process-overview.md)
+### [Cykl życia](data-science-process-lifecycle.md)
 ### [Przewodniki](data-science-process-walkthroughs.md)
 ####[Spark with PySpark and Scala (Platforma Spark z interfejsem PySpark i środowiskiem Scala)](data-science-process-walkthroughs-spark.md)
 ##### [Eksplorowanie danych](machine-learning-data-science-spark-data-exploration-modeling.md)
@@ -14,6 +14,7 @@
 ####[U-SQL with Azure Data Lake (Język U-SQL w usłudze Azure Data Lake)](data-science-process-walkthroughs-azure-data-lake.md)
 ####[R, Python and T-SQL with SQL Server (Języki R, Python i T-SQL w programie SQL Server)](data-science-process-walkthroughs-sql-server.md)
 ####[T-SQL and Python with SQL DW (Języki T-SQL i Python w magazynie danych SQL)](data-science-process-walkthroughs-sql-data-warehouse.md)
+### [Z usługą Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Co to jest Studio?](machine-learning-what-is-ml-studio.md)

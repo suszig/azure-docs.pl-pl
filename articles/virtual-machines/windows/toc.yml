@@ -108,6 +108,10 @@
           href: csharp.md
         - name: 'Korzystanie z szablonu w języku C#'
           href: csharp-template.md
+        - name: Tworzenie maszyny wirtualnej przy użyciu programu Chef
+          href: chef-automation.md
+        - name: Korzystanie z języka Java
+          href: java.md
         - name: Korzystanie z języka Python
           href: python.md
         - name: Korzystanie z szablonu
