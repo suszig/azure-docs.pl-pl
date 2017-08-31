@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Rozpoczynanie tworzenia rozwiązań za pomocą biblioteki klienta usługi Batch dla platformy .NET
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-W tym artykule omawiamy podstawy usługi [Azure Batch][azure_batch] i biblioteki [Batch .NET][net_api] na podstawie przykładowej aplikacji w języku C#. Wyjaśniamy, jak przykładowa aplikacja korzysta z usługi Batch do przetwarzania równoległego obciążenia w chmurze oraz współpracuje z usługą [Azure Storage](../storage/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
+W tym artykule omawiamy podstawy usługi [Azure Batch][azure_batch] i biblioteki [Batch .NET][net_api] na podstawie przykładowej aplikacji w języku C#. Wyjaśniamy, jak przykładowa aplikacja korzysta z usługi Batch do przetwarzania równoległego obciążenia w chmurze oraz współpracuje z usługą [Azure Storage](../storage/common/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
 
 ![Przepływ pracy rozwiązania w usłudze Batch (podstawowy)][11]<br/>
 
@@ -41,10 +41,10 @@ W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i pr
 ### <a name="accounts"></a>Konta
 * **Konto platformy Azure**: jeśli nie masz jeszcze subskrypcji platformy Azure, [utwórz bezpłatne konto platformy Azure][azure_free_account].
 * **Konto usługi Batch**: po uzyskaniu subskrypcji platformy Azure [utwórz konto usługi Azure Batch](batch-account-create-portal.md).
-* **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
+* **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Usługa Batch obsługuje obecnie *tylko* typ konta magazynu **ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
+> Usługa Batch obsługuje obecnie *tylko* typ konta magazynu **ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -128,7 +128,7 @@ Przejdź do góry metody `MainAsync` w pliku `Program.cs` projektu *DotNetTutori
 ![Tworzenie kontenerów w usłudze Azure Storage][1]
 <br/>
 
-Usługa Batch ma wbudowaną funkcję obsługi interakcji z usługą Azure Storage. Kontenery na koncie usługi Storage będą udostępniać pliki potrzebne zadaniom, które będą uruchamiane na koncie usługi Batch. Kontenery zapewniają również miejsce do przechowywania danych wyjściowych wytworzonych przez zadania. Najpierw aplikacja kliencka *DotNetTutorial* tworzy trzy kontenery w usłudze [Azure Blob Storage](../storage/storage-introduction.md):
+Usługa Batch ma wbudowaną funkcję obsługi interakcji z usługą Azure Storage. Kontenery na koncie usługi Storage będą udostępniać pliki potrzebne zadaniom, które będą uruchamiane na koncie usługi Batch. Kontenery zapewniają również miejsce do przechowywania danych wyjściowych wytworzonych przez zadania. Najpierw aplikacja kliencka *DotNetTutorial* tworzy trzy kontenery w usłudze [Azure Blob Storage](../storage/common/storage-introduction.md):
 
 * **aplikacja**: ten kontener będzie przechowywać aplikację uruchomioną przez podzadania oraz wszelkie ich zależności, np. biblioteki dll.
 * **dane wejściowe**: podzadania będą pobierać pliki danych do przetwarzania z kontenera *wejściowego*.
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą używane przez podzadania.
 
 > [!TIP]
-> W temacie [How to use Blob Storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md) (Jak korzystać z usługi Blob Storage w ramach platformy .NET) znajduje się szczegółowe omówienie korzystania z kontenerów i obiektów blob w usłudze Azure Storage. Powinna to być jedna z najważniejszych pozycji do przeczytania po rozpoczęciu pracy z usługą Batch.
+> W temacie [How to use Blob Storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) (Jak korzystać z usługi Blob Storage w ramach platformy .NET) znajduje się szczegółowe omówienie korzystania z kontenerów i obiektów blob w usłudze Azure Storage. Powinna to być jedna z najważniejszych pozycji do przeczytania po rozpoczęciu pracy z usługą Batch.
 >
 >
 
@@ -286,7 +286,7 @@ Sygnatury dostępu współdzielonego to ciągi, które — w przypadku dołącze
 * **Sygnatury dostępu współdzielonego kontenera**: gdy poszczególne podzadania zakończą pracę w węźle obliczeniowym, przekażą pliki wyjściowe do kontenera *wyjściowego* w usłudze Azure Storage. W tym celu funkcja TaskApplication używa sygnatury dostępu współdzielonego kontenera, która zapewnia prawo do zapisu w kontenerze w ramach ścieżki, gdy przekazuje plik. Uzyskiwanie sygnatury dostępu współdzielonego kontenera odbywa się w podobny sposób, jak w przypadku uzyskiwania sygnatury dostępu współdzielonego obiektów blob. W aplikacji DotNetTutorial będzie widać, że metoda pomocnika `GetContainerSasUrl` wywołuje w tym celu metodę [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]. Więcej informacji na temat sposobu, w jaki aplikacja TaskApplication korzysta z sygnatury dostępu współdzielonego kontenera znajduje się w sekcji „Krok 6: monitorowanie podzadań.”
 
 > [!TIP]
-> Aby dowiedzieć się więcej o zapewnieniu bezpiecznego dostępu do danych na koncie usługi Storage, zapoznaj się z dwuczęściową serią dotyczącą sygnatur dostępu współdzielonego: [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Część 1: opis modelu sygnatury dostępu współdzielonego [SAS]) i [Part 2: Create and use a shared access signature (SAS) with the Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md) (Część 2: tworzenie i korzystanie z sygnatury dostępu współdzielonego [SAS] w magazynie Blob Storage).
+> Aby dowiedzieć się więcej o zapewnieniu bezpiecznego dostępu do danych na koncie usługi Storage, zapoznaj się z dwuczęściową serią dotyczącą sygnatur dostępu współdzielonego: [Part 1: Understanding the shared access signature (SAS) model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (Część 1: opis modelu sygnatury dostępu współdzielonego [SAS]) i [Part 2: Create and use a shared access signature (SAS) with the Blob storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) (Część 2: tworzenie i korzystanie z sygnatury dostępu współdzielonego [SAS] w magazynie Blob Storage).
 >
 >
 

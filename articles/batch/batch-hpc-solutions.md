@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Rozwiązania usługi Batch i HPC dla dużych obciążeń obliczeniowych
@@ -106,7 +106,7 @@ Usługi obliczeniowe Azure stanowią podstawę rozwiązania do obsługi dużych 
 ### <a name="storage-services"></a>Usługi Storage
 Rozwiązanie dużych obliczeń działa zazwyczaj na zestawie danych wejściowych i generuje dane w celu uzyskania wyników. Niektóre usługi Azure Storage używane w rozwiązaniach dużych obliczeń:
 
-* [Obiekt blob, tabela i Queue Storage](https://azure.microsoft.com/documentation/services/storage/) — do zarządzania dużymi ilościami danych niestrukturalnych, danych NoSQL oraz komunikatów dla przepływów pracy i komunikacji. Można na przykład użyć magazynu obiektów blob w procesach aplikacji obejmujących duże zestawy danych technicznych lub obrazy wejściowe czy pliki nośników. Kolejek można użyć do komunikacji asynchronicznej w ramach rozwiązania. Zobacz temat [Wprowadzenie do usługi Microsoft Azure Storage](../storage/storage-introduction.md).
+* [Obiekt blob, tabela i Queue Storage](https://azure.microsoft.com/documentation/services/storage/) — do zarządzania dużymi ilościami danych niestrukturalnych, danych NoSQL oraz komunikatów dla przepływów pracy i komunikacji. Można na przykład użyć magazynu obiektów blob w procesach aplikacji obejmujących duże zestawy danych technicznych lub obrazy wejściowe czy pliki nośników. Kolejek można użyć do komunikacji asynchronicznej w ramach rozwiązania. Zobacz temat [Wprowadzenie do usługi Microsoft Azure Storage](../storage/common/storage-introduction.md).
 * [Azure File Storage](https://azure.microsoft.com/services/storage/files/) — udostępnia wspólne pliki i dane na platformie Azure przy użyciu standardowego protokołu SMB, który jest niezbędny do niektórych rozwiązań klastra HPC.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) — zapewnia rozproszony system plików Apache Hadoop na dużą skalę dla chmury, co jest przydatne w przypadku analizy wsadowej, w czasie rzeczywistym i interaktywnej.
 

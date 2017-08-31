@@ -12,14 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Integracja z partnerami w usłudze Azure Security Center
@@ -62,9 +61,9 @@ W zależności od konfiguracji środowiska platformy Azure i zdefiniowanych prze
 
 ## <a name="manage-partner-solutions"></a>Zarządzanie rozwiązaniami partnerskimi
 
-W celu wyświetlenia informacji dotyczących kondycji rozwiązania i wykonywania podstawowych zadań zarządzania po wdrożeniu w bloku **Centrum zabezpieczeń** wybierz kafelek **Rozwiązania partnerskie**. Aby uzyskać więcej informacji na temat zarządzania rozwiązaniami partnerskimi w usłudze Security Center, zobacz artykuł [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center).
+W celu wyświetlenia informacji dotyczących kondycji rozwiązania i wykonywania podstawowych zadań zarządzania po wdrożeniu w bloku **Centrum zabezpieczeń** wybierz opcję **Rozwiązania partnerskie**. Aby uzyskać więcej informacji na temat zarządzania rozwiązaniami partnerskimi w usłudze Security Center, zobacz artykuł [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center).
 
-![Integracja z partnerami](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![Integracja z partnerami](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > Obsługa rozwiązania ochrony punktu końcowego firmy Symantec jest ograniczona do odnajdywania. Nie są dostępne żadne alerty dotyczące kondycji.

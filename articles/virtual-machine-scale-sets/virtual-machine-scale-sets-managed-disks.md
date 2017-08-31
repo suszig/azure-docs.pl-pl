@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Zestawy skalowania maszyn wirtualnych platformy Azure i dyski zarządzane
@@ -45,7 +45,7 @@ Ewentualnie można poszukać w [repozytorium szablonów z pakietu Azure Quicksta
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej ogólnych informacji o dyskach zarządzanych, zobacz [ten artykuł](../storage/storage-managed-disks-overview.md).
+Aby uzyskać więcej ogólnych informacji o dyskach zarządzanych, zobacz [ten artykuł](../virtual-machines/windows/managed-disks-overview.md).
 
 Aby dowiedzieć się, jak przekonwertować szablon usługi Resource Manager w celu zapewnienia obsługi administracyjnej zestawów skalowania z dyskami zarządzanymi, zobacz [ten artykuł](./virtual-machine-scale-sets-convert-template-to-md.md). Te same modyfikacje szablonów usługi Resource Manager mają też zastosowanie w przypadku interfejsu API REST platformy Azure.
 

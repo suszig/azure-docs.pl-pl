@@ -14,7 +14,7 @@ Usługa Blob obejmuje następujące składniki:
 
 ![Architektura obiektów blob](./media/storage-blob-concepts-include/blob1.png)
 
-* **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Konto magazynu może być **kontem magazynu ogólnego przeznaczenia** lub **kontem usługi Blob Storage** służącym do przechowywania obiektów/obiektów blob. Aby uzyskać więcej informacji, zobacz [About Azure storage accounts](../articles/storage/storage-create-storage-account.md) (Informacje o kontach usługi Azure Storage).
+* **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Konto magazynu może być **kontem magazynu ogólnego przeznaczenia** lub **kontem usługi Blob Storage** służącym do przechowywania obiektów/obiektów blob. Aby uzyskać więcej informacji, zobacz [About Azure storage accounts](../articles/storage/common/storage-create-storage-account.md) (Informacje o kontach usługi Azure Storage).
 * **Kontener:** kontener zawiera grupowanie zestawu obiektów blob. Wszystkie obiekty blob muszą być w kontenerze. Konto może zawierać nieograniczoną liczbę kontenerów. Kontener może przechowywać nieograniczoną liczbę obiektów blob. Pamiętaj, że wszystkie litery w nazwie kontenera muszą być małymi literami.
 * **Obiekt blob:** plik dowolnego typu o dowolnym rozmiarze. Usługa Azure Storage udostępnia trzy typy obiektów blob: blokowe, stronicowe i uzupełnialne.
   

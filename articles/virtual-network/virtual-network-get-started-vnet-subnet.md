@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -160,7 +160,7 @@ Mimo że zadanie obejmowało utworzenie jednej sieci wirtualnej i dwóch maszyn 
 
     ![Zawartość grupy zasobów](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Aby dowiedzieć się więcej o maszynach wirtualnych, dyskach i kontach magazynu, zapoznaj się z artykułami [Maszyna wirtualna](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Dysk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Konto magazynu](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) zawierającymi omówienie tych zagadnień. Widoczne są dwie domyślne sieciowe grupy zabezpieczeń automatycznie utworzone przez portal. Widać również, że w portalu zostały utworzone dwa zasoby interfejsów sieciowych (kart sieciowych). Karta sieciowa pozwala maszynie wirtualnej łączyć się z innymi zasobami w sieci wirtualnej. Więcej informacji o kartach sieciowych można znaleźć w artykule [Karty sieciowe](virtual-network-network-interface.md). W portalu utworzono także jeden zasób publicznego adresu IP. Publiczne adresy IP to jedno z ustawień zasobu publicznych adresów IP. Aby dowiedzieć się więcej o publicznych adresach IP, zapoznaj się z artykułem [Adresy IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Aby dowiedzieć się więcej o maszynach wirtualnych, dyskach i kontach magazynu, zapoznaj się z artykułami [Maszyna wirtualna](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Dysk](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Konto magazynu](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) zawierającymi omówienie tych zagadnień. Widoczne są dwie domyślne sieciowe grupy zabezpieczeń automatycznie utworzone przez portal. Widać również, że w portalu zostały utworzone dwa zasoby interfejsów sieciowych (kart sieciowych). Karta sieciowa pozwala maszynie wirtualnej łączyć się z innymi zasobami w sieci wirtualnej. Więcej informacji o kartach sieciowych można znaleźć w artykule [Karty sieciowe](virtual-network-network-interface.md). W portalu utworzono także jeden zasób publicznego adresu IP. Publiczne adresy IP to jedno z ustawień zasobu publicznych adresów IP. Aby dowiedzieć się więcej o publicznych adresach IP, zapoznaj się z artykułem [Adresy IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Łączenie się z maszynami wirtualnymi
 

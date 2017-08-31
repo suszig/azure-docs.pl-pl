@@ -3,7 +3,7 @@ title: "Azure Analysis Services — samouczek Adventure Works | Microsoft Docs"
 description: "Wprowadzenie do samouczka Adventure Works dla usług Azure Analysis Services"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: a613bbe84a3834ab4fb237779248c7ad8d75b563
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 257e0bc442f29bfe6683fb0511deac50d92c1720
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – samouczek Adventure Works
@@ -53,7 +53,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
   
 -   Wystąpienie usług Azure Analysis Services lub serwera SQL Server 2017 Analysis Services umożliwiające wdrożenie modelu. Zarejestruj się, aby uzyskać dostęp do [wersji próbnej usług Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) i [utworzyć serwer](../analysis-services-create-server.md). Możesz też zarejestrować się i pobrać serwer [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
 
--   Serwer SQL Server lub baza danych Azure SQL Database z [przykładową bazą danych AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Ta przykładowa baza danych zawiera dane niezbędne do wykonania tego samouczka. Pobierz [bezpłatne wersje serwera SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Możesz też zarejestrować się i uzyskać bezpłatną [wersję próbną bazy danych Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 
+-   Program SQL Server Data Warehouse lub usługa Azure SQL Data Warehouse z [przykładową bazą danych AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Ta przykładowa baza danych zawiera dane niezbędne do wykonania tego samouczka. Pobierz [bezpłatne wersje serwera SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Możesz też zarejestrować się i uzyskać bezpłatną [wersję próbną bazy danych Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 
 
     **Ważne:** jeśli przykładowa baza danych została zainstalowana na lokalnym serwerze SQL Server i model jest wdrażany na serwerze usług Azure Analysis Services, wymagana jest [lokalna brama danych](../analysis-services-gateway.md).
 
@@ -64,7 +64,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 -   Aplikacja kliencka, na przykład [Power BI Desktop](https://powerbi.microsoft.com/desktop/) lub program Excel. 
 
 ## <a name="scenario"></a>Scenariusz  
-Ten samouczek jest oparty na fikcyjnej firmie Adventure Works Cycles. Adventure Works to duża, międzynarodowa firma produkcyjna zajmująca się wytwarzaniem rowerów metalowych i kompozytowych oraz ich dystrybucją na rynkach w Ameryce Północnej, Europie i Azji. Firma zatrudnia 500 pracowników. Ponadto firma Adventure Works zatrudnia kilka regionalnych zespołów sprzedaży obsługujących poszczególne rynki. Twój projekt polega na utworzeniu modelu tabelarycznego dla użytkowników z działu sprzedaży i marketingu, który będzie służyć do analizowania danych dotyczących sprzedaży internetowej dostępnych w bazie danych AdventureWorksDW.  
+Ten samouczek jest oparty na fikcyjnej firmie Adventure Works Cycles. Adventure Works to duża, międzynarodowa firma produkcyjna zajmująca się wytwarzaniem rowerów, części i akcesoriów oraz ich dystrybucją na rynkach w Ameryce Północnej, Europie i Azji. Firma zatrudnia 500 pracowników. Ponadto firma Adventure Works zatrudnia kilka regionalnych zespołów sprzedaży obsługujących poszczególne rynki. Twój projekt polega na utworzeniu modelu tabelarycznego dla użytkowników z działu sprzedaży i marketingu, który będzie służyć do analizowania danych dotyczących sprzedaży internetowej dostępnych w bazie danych AdventureWorksDW.  
   
 Ukończenie tego samouczka wymaga wykonania szeregu lekcji. Każda lekcja obejmuje zadania do wykonania. Do ukończenia lekcji niezbędne jest wykonanie poszczególnych zadań w odpowiedniej kolejności. Chociaż dana lekcja może obejmować kilka zadań, których wykonanie daje podobne wyniki, to sposób wykonania poszczególnych zadań może się nieco różnić. Ta metoda ma pokazać, że często istnieje więcej niż jeden sposób wykonania zadania, oraz zachęcić Cię do wykorzystania umiejętności nabytych w toku wcześniejszych lekcji i zadań.  
   
@@ -78,19 +78,19 @@ Ten samouczek obejmuje następujące lekcje:
   
 |Lekcja|Szacowany czas trwania|  
 |----------|------------------------------|  
-|[Lekcja 1. Tworzenie nowego projektu modelu tabelarycznego](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)|10 minut|  
-|[Lekcja 2. Pobieranie danych](../tutorials/aas-lesson-2-get-data.md)|10 minut|  
-|[Lekcja 3. Oznaczanie jako tabeli dat](../tutorials/aas-lesson-3-mark-as-date-table.md)|3 minuty|  
-|[Lekcja 4. Tworzenie relacji](../tutorials/aas-lesson-4-create-relationships.md)|10 minut|  
-|[Lekcja 5. Tworzenie kolumn obliczeniowych](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 minut|
-|[Lekcja 6. Tworzenie miar](../tutorials/aas-lesson-6-create-measures.md)|30 minut|  
-|[Lekcja 7. Tworzenie kluczowych wskaźników wydajności](../tutorials/aas-lesson-7-create-key-performance-indicators.md)|15 minut|  
-|[Lekcja 8. Tworzenie perspektyw](../tutorials/aas-lesson-8-create-perspectives.md)|5 minut|  
-|[Lekcja 9. Tworzenie hierarchii](../tutorials/aas-lesson-9-create-hierarchies.md)|20 minut|  
-|[Lekcja 10. Tworzenie partycji](../tutorials/aas-lesson-10-create-partitions.md)|15 minut|  
-|[Lekcja 11. Tworzenie ról](../tutorials/aas-lesson-11-create-roles.md)|15 minut|  
-|[Lekcja 12. Analiza w programie Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minut| 
-|[Lekcja 13. Wdrażanie](../tutorials/aas-lesson-13-deploy.md)|5 minut|  
+|[1. Tworzenie nowego projektu modelu tabelarycznego](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)|10 minut|  
+|[2. Pobieranie danych](../tutorials/aas-lesson-2-get-data.md)|10 minut|  
+|[3. Oznaczanie jako tabeli dat](../tutorials/aas-lesson-3-mark-as-date-table.md)|3 minuty|  
+|[4. Tworzenie relacji](../tutorials/aas-lesson-4-create-relationships.md)|10 minut|  
+|[5. Tworzenie kolumn obliczeniowych](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 minut|
+|[6. Tworzenie miar](../tutorials/aas-lesson-6-create-measures.md)|30 minut|  
+|[7. Tworzenie kluczowych wskaźników wydajności (KPI)](../tutorials/aas-lesson-7-create-key-performance-indicators.md)|15 minut|  
+|[8. Tworzenie perspektyw](../tutorials/aas-lesson-8-create-perspectives.md)|5 minut|  
+|[9. Tworzenie hierarchii](../tutorials/aas-lesson-9-create-hierarchies.md)|20 minut|  
+|[10. Tworzenie partycji](../tutorials/aas-lesson-10-create-partitions.md)|15 minut|  
+|[11. Tworzenie ról](../tutorials/aas-lesson-11-create-roles.md)|15 minut|  
+|[12. Analiza w programie Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minut| 
+|[13. Wdrażanie](../tutorials/aas-lesson-13-deploy.md)|5 minut|  
   
 ## <a name="supplemental-lessons"></a>Lekcje uzupełniające  
 Te lekcje nie są wymagane do ukończenia samouczka, ale mogą pomóc lepiej zrozumieć zaawansowane funkcje tworzenia modelu tabelarycznego.  

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure przy użyciu usługi Site Recovery w witrynie Azure Portal
@@ -81,8 +81,8 @@ Potrzebujesz sieci platformy Azure, z którą będą się łączyć maszyny wirt
 Sieci platformy Azure używanych na potrzeby usługi Site Recovery nie można [przenosić](../azure-resource-manager/resource-group-move-resources.md) w ramach tej samej ani różnych subskrypcji.
 
 ### <a name="set-up-an-azure-storage-account"></a>Konfigurowanie konta usługi Azure Storage
-* Potrzebujesz konta standardowego lub konta Premium usługi Azure Storage do przechowywania danych replikowanych do platformy Azure. [Usługa Premium Storage](../storage/storage-premium-storage.md) jest przeznaczona dla maszyn wirtualnych wymagających spójnej wysokiej wydajności we/wy oraz małych opóźnień w celu hostowania obciążeń intensywnie wykorzystujących operacje we/wy. Jeśli używasz konta Premium do przechowywania replikowanych danych, potrzebujesz też standardowego konta magazynu do przechowywania dzienników replikacji, które przechwytują zachodzące zmiany w danych lokalnych. Konto musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania.
-* W zależności od modelu zasobu, który chcesz wykorzystać dla maszyn wirtualnych Azure w trybie failover, należy skonfigurować konto w [modelu Resource Manager](../storage/storage-create-storage-account.md) lub [modelu klasycznym](../storage/storage-create-storage-account-classic-portal.md).
+* Potrzebujesz konta standardowego lub konta Premium usługi Azure Storage do przechowywania danych replikowanych do platformy Azure. [Usługa Premium Storage](../storage/common/storage-premium-storage.md) jest przeznaczona dla maszyn wirtualnych wymagających spójnej wysokiej wydajności we/wy oraz małych opóźnień w celu hostowania obciążeń intensywnie wykorzystujących operacje we/wy. Jeśli używasz konta Premium do przechowywania replikowanych danych, potrzebujesz też standardowego konta magazynu do przechowywania dzienników replikacji, które przechwytują zachodzące zmiany w danych lokalnych. Konto musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania.
+* W zależności od modelu zasobu, który chcesz wykorzystać dla maszyn wirtualnych Azure w trybie failover, należy skonfigurować konto w [modelu Resource Manager](../storage/common/storage-create-storage-account.md) lub [modelu klasycznym](../storage/common/storage-create-storage-account.md).
 * Zalecamy skonfigurowanie konta przed rozpoczęciem dalszych działań. Jeśli tego nie zrobisz, konfigurację będzie trzeba przeprowadzić podczas wdrażania usługi Site Recovery.
 - Należy pamiętać, że kont magazynu używanych przez usługę Site Recovery nie można [przenosić](../azure-resource-manager/resource-group-move-resources.md) w ramach tej samej lub różnych subskrypcji.
 
@@ -221,7 +221,7 @@ Określ konto magazynu Azure do wykorzystania podczas replikacji i sieć platfor
    ![Magazyn](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * Jeśli chcesz utworzyć konto magazynu przy użyciu modelu klasycznego, należy to zrobić w witrynie Azure Portal. [Dowiedz się więcej](../storage/storage-create-storage-account-classic-portal.md)
+   * Jeśli chcesz utworzyć konto magazynu przy użyciu modelu klasycznego, należy to zrobić w witrynie Azure Portal. [Dowiedz się więcej](../storage/common/storage-create-storage-account.md)
    * Jeśli używasz konta usługi Premium Storage dla replikowanych danych, skonfiguruj dodatkowe, standardowe konto magazynu do przechowywania dzienników replikacji, które przechwytują zachodzące zmiany w danych lokalnych.
 5. Jeśli nie utworzono sieci platformy Azure, a chcesz ją utworzyć przy użyciu usługi Resource Manager, kliknij pozycję **+ Sieć**, aby zrobić to w tym miejscu. W bloku **Utwórz sieć wirtualną** określ nazwę sieciową, zakres adresów, szczegóły podsieci, subskrypcję i lokalizację. Sieć powinna znajdować się w tej samej lokalizacji co magazyn Usług odzyskiwania.
 
@@ -261,7 +261,7 @@ Oto, co się dzieje po rozpoczęciu mapowania sieci:
 3. W obszarze **Częstotliwość kopiowania** określ, jak często mają być replikowane dane przyrostowe po replikacji początkowej (co 30 sekund, 5 lub 15 minut).
 
     > [!NOTE]
-    >  Częstotliwość 30-sekundowa nie jest obsługiwana w przypadku replikowania do usługi Premium Storage. To ograniczenie wynika z liczby migawek na obiekt blob (100) obsługiwanych przez usługę Premium Storage. [Dowiedz się więcej](../storage/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  Częstotliwość 30-sekundowa nie jest obsługiwana w przypadku replikowania do usługi Premium Storage. To ograniczenie wynika z liczby migawek na obiekt blob (100) obsługiwanych przez usługę Premium Storage. [Dowiedz się więcej](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
 
 4. W obszarze **Przechowywanie punktu odzyskiwania** określ w godzinach, jak długie będzie okno przechowywania dla każdego punktu odzyskiwania. Chronione maszyny można odzyskać do dowolnego punktu w tym oknie.
 5. W obszarze **Częstotliwość migawek spójności aplikacji** określ, jak często (1–12 godzin) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami. Funkcja Hyper-V wykorzystuje dwa typy migawek — standardową migawkę, która jest przyrostową migawką całej maszyny wirtualnej oraz migawkę spójności aplikacji, która wykonuje migawkę danych aplikacji wewnątrz maszyny wirtualnej w danym punkcie w czasie. Migawki spójne z aplikacjami używają usługi Volume Shadow Copy (VSS), aby zapewnić, że aplikacje są w spójnym stanie podczas wykonywania migawki. Należy pamiętać, że jeśli migawki spójne z aplikacjami zostaną włączone, będzie to miało wpływ na wydajność aplikacji uruchomionych na źródłowych maszynach wirtualnych. Upewnij się, że ustawiona wartość jest mniejsza od liczby skonfigurowanych dodatkowych punktów odzyskiwania.
@@ -307,7 +307,7 @@ Teraz włącz replikację w następujący sposób:
 3. W obszarze **Cel** wybierz subskrypcję, model wdrożenia po przejściu do trybu failover oraz konto magazynu używane do przechowywania replikowanych danych.
 
     ![Włączanie replikacji](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. Wybierz konto magazynu, którego chcesz użyć. Jeśli chcesz użyć konta magazynu innego niż posiadane, możesz [utworzyć konto](#set-up-an-azure-storage-account). Jeśli używasz konta usługi Premium Storage dla replikowanych danych, musisz skonfigurować dodatkowe, standardowe konto magazynu do przechowywania dzienników replikacji, które przechwytują zachodzące zmiany w danych lokalnych. Aby utworzyć konto magazynu za pomocą modelu usługi Resource Manager, kliknij pozycję **Utwórz nowy**. Jeśli chcesz utworzyć konto magazynu przy użyciu modelu klasycznego, należy to zrobić [w witrynie Azure Portal](../storage/storage-create-storage-account-classic-portal.md). Następnie kliknij przycisk **OK**.
+4. Wybierz konto magazynu, którego chcesz użyć. Jeśli chcesz użyć konta magazynu innego niż posiadane, możesz [utworzyć konto](#set-up-an-azure-storage-account). Jeśli używasz konta usługi Premium Storage dla replikowanych danych, musisz skonfigurować dodatkowe, standardowe konto magazynu do przechowywania dzienników replikacji, które przechwytują zachodzące zmiany w danych lokalnych. Aby utworzyć konto magazynu za pomocą modelu usługi Resource Manager, kliknij pozycję **Utwórz nowy**. Jeśli chcesz utworzyć konto magazynu przy użyciu modelu klasycznego, należy to zrobić [w witrynie Azure Portal](../storage/common/storage-create-storage-account.md). Następnie kliknij przycisk **OK**.
 5. Wybierz sieć platformy Azure i podsieć, z którą nawiążą połączenie maszyny wirtualne platformy Azure, gdy zostaną uruchomione po przejściu do trybu failover. Wybierz opcję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wybranych do ochrony. Wybierz opcję **Konfiguruj później**, aby wybrać sieć platformy Azure dla poszczególnych maszyn. Jeśli chcesz użyć sieci innej niż posiadana, możesz [utworzyć sieć](#set-up-an-azure-network). Aby utworzyć sieć przy użyciu modelu Resource Manager, kliknij pozycję **Utwórz nowe**. Jeśli chcesz utworzyć sieć przy użyciu modelu klasycznego, zrób to [w witrynie Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Wybierz podsieć, jeśli jest to konieczne. Następnie kliknij przycisk **OK**.
 6. W pozycji **Maszyny wirtualne** > **Wybierz maszyny wirtualne** kliknij i zaznacz każdą maszynę, którą chcesz replikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie kliknij przycisk **OK**.
 

@@ -16,27 +16,28 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 179a0d3696c6044ffb5b9e377effa30dda54ba7f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Wprowadzenie do usługi Machine Learning w chmurze Azure
 
 ## <a name="what-is-machine-learning"></a>Co to jest uczenie maszynowe?
-Uczenie maszynowe to technika przetwarzania danych, która umożliwia wykorzystanie przez komputery istniejących danych w celu przewidywania przyszłych zachowań, rezultatów i trendów. Za pomocą techniki uczenia maszynowego komputery uczą się bez ich jawnego programowania.
+Uczenie maszynowe to technika przetwarzania danych, która umożliwia wykorzystanie przez komputery istniejących danych w celu przewidywania przyszłych zachowań, rezultatów i trendów. Za pomocą techniki uczenia maszynowego komputery uczą się bez ich jawnego programowania. 
 
-Dzięki prognozom lub przewidywaniom uzyskiwanym za pomocą uczenia maszynowego aplikacje i urządzenia są bardziej inteligentne. Podczas zakupów w Internecie uczenie maszynowe wspomaga proces rekomendowania innych produktów, które mogą się spodobać kupującemu, na podstawie dotychczasowych zakupów. W przypadku płacenia kartą kredytową uczenie maszynowe porównuje transakcję z bazą danych transakcji i ułatwia wykrycie oszustwa. Gdy robot odkurzający sprząta pomieszczenie, uczenie maszynowe pomaga mu zdecydować, czy praca została wykonana.
+Uczenie maszynowe jest uznawane za podkategorię sztucznej inteligencji. Dzięki prognozom lub przewidywaniom uzyskiwanym za pomocą uczenia maszynowego aplikacje i urządzenia są bardziej inteligentne. Podczas zakupów w Internecie uczenie maszynowe wspomaga proces rekomendowania innych produktów, które mogą się spodobać kupującemu, na podstawie dotychczasowych zakupów. W przypadku płacenia kartą kredytową uczenie maszynowe porównuje transakcję z bazą danych transakcji i ułatwia wykrycie oszustwa. Gdy robot odkurzający sprząta pomieszczenie, uczenie maszynowe pomaga mu zdecydować, czy praca została wykonana.
 
 Krótki przegląd zawiera seria klipów wideo [Przetwarzanie danych dla początkujących](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Nie używając żargonu ani matematyki, seria Przetwarzanie danych dla początkujących przedstawia uczenie maszynowe i prowadzi Cię krok po kroku przez prosty model predykcyjny.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Co to jest usługa Machine Learning w chmurze Microsoft Azure?
+
+![Co to jest uczenie maszynowe? Podstawowy przepływ pracy, który umożliwia operacjonalizację analiz predykcyjnych w usłudze Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
 Usługa Azure Machine Learning to oparta na chmurze usługa analizy predykcyjnej, która pozwala na szybkie tworzenie i wdrażanie modeli predykcyjnych jako rozwiązań analitycznych.
 
 Możesz pracować z poziomu biblioteki gotowych do użycia algorytmów, używać ich do tworzenia modeli na komputerze połączonym z Internetem i szybko wdrażać swoje rozwiązanie predykcyjne. Zacznij od gotowych do użycia przykładów i rozwiązań znajdujących się w witrynie [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
-
-![Co to jest uczenie maszynowe? Podstawowy przepływ pracy, który umożliwia operacjonalizację analiz predykcyjnych w usłudze Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Usługa Azure Machine Learning nie tylko udostępnia narzędzia do modelowania analizy predykcyjnej, ale również zapewnia w pełni zarządzaną usługę, z której można korzystać w celu wdrażania modeli predykcyjnych w postaci gotowych do użycia usług sieci Web.
 

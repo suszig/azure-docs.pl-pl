@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
@@ -172,7 +171,7 @@ W rzeczywistych aplikacjach przeważnie tworzy się oddzielne konta dla danych a
 
 4. Z listy rozwijanej **Replikacja** wybierz wartość **Magazyn lokalnie nadmiarowy**.
 
-    Jeśli na koncie magazynu włączono replikację geograficzną, przechowywana zawartość jest replikowana do pomocniczego centrum danych. Pozwala to na przejście do trybu failover w przypadku wystąpienia poważnej awarii w lokalizacji głównej. Replikacja geograficzna może pociągnąć za sobą dodatkowe koszty. W przypadku kont testowych i projektowych przeważnie nie chcesz płacić za replikację geograficzną. Aby uzyskać więcej informacji, zobacz temat dotyczący [tworzenia i usuwania konta magazynu oraz zarządzania nim](../storage/storage-create-storage-account.md).
+    Jeśli na koncie magazynu włączono replikację geograficzną, przechowywana zawartość jest replikowana do pomocniczego centrum danych. Pozwala to na przejście do trybu failover w przypadku wystąpienia poważnej awarii w lokalizacji głównej. Replikacja geograficzna może pociągnąć za sobą dodatkowe koszty. W przypadku kont testowych i projektowych przeważnie nie chcesz płacić za replikację geograficzną. Aby uzyskać więcej informacji, zobacz temat dotyczący [tworzenia i usuwania konta magazynu oraz zarządzania nim](../storage/common/storage-create-storage-account.md).
 
 5. W obszarze **Grupa zasobów** kliknij opcję **Użyj istniejącej** i wybierz grupę zasobów używaną dla usługi w chmurze.
 6. Z listy rozwijanej **Lokalizacja** wybierz region wybrany wcześniej dla usługi w chmurze.

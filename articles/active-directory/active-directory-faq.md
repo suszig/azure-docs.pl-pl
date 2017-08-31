@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="azure-active-directory-faq"></a>Często zadawane pytania dotyczące usługi Azure Active Directory
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Active Directo
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Uzyskiwanie dostępu do platformy Azure i usługi Azure Active Directory
-**Pytanie: dlaczego otrzymuję błąd „Nie znaleziono żadnych subskrypcji” podczas próby dostępu do usługi Azure AD w klasycznej witrynie Azure Portal (https://manage.windowsazure.com)?**
+**Pytanie: dlaczego otrzymuję błąd „Nie znaleziono żadnych subskrypcji” podczas próby dostępu do usługi Azure AD w klasycznej witrynie Azure Portal?**
 
 **Odpowiedź:** aby uzyskać dostęp do klasycznej witryny Azure Portal, każdy użytkownik musi mieć uprawnienia w ramach subskrypcji platformy Azure. Jeśli korzystasz z płatnej licencji usługi Office 365 lub Azure AD, przejdź do strony [http://aka.ms/accessAAD](http://aka.ms/accessAAD), aby użyć jednorazowej aktywacji. W przeciwnym razie należy aktywować bezpłatne [konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/) lub płatną subskrypcję.
 
@@ -212,5 +212,5 @@ Aby uzyskać więcej informacji, zobacz [Automate User Provisioning and Deprovis
 - - -
 **Pytanie: czy mogę skonfigurować bezpieczne połączenie LDAP z usługą Azure AD?**
 
-**Odpowiedź:** nie.  Usługa Azure AD nie obsługuje protokołu LDAP.
+**Odpowiedź:** nie. Usługa Azure AD nie obsługuje protokołu LDAP.
 

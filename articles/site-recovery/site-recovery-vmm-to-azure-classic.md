@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure
@@ -52,7 +51,7 @@ Oto, czego będziesz potrzebować na platformie Azure.
 | **Wymagania wstępne** | **Szczegóły** |
 | --- | --- |
 | **Konto platformy Azure** |Będziesz potrzebować konta platformy [Microsoft Azure](https://azure.microsoft.com/). Możesz rozpocząć od [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/). [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/site-recovery/) o cenach usługi Site Recovery. |
-| **Magazyn platformy Azure** |Będziesz potrzebować konta magazynu Azure do przechowywania replikowanych danych. Replikowane dane są przechowywane w usłudze Azure Storage, a w przypadku przejścia w tryb failover uruchamiane są maszyny wirtualne platformy Azure. <br/><br/>Potrzebujesz [standardowego konta magazynu geograficznie nadmiarowego](../storage/storage-redundancy.md#geo-redundant-storage). Konto musi znajdować się w tym samym regionie co usługa Site Recovery i musi być skojarzone z tą samą subskrypcją. Replikacja do konta magazynu w warstwie Premium obecnie nie jest obsługiwana i nie powinna być używana.<br/><br/>[Przeczytaj o](../storage/storage-introduction.md) usłudze Azure Storage. |
+| **Magazyn platformy Azure** |Będziesz potrzebować konta magazynu Azure do przechowywania replikowanych danych. Replikowane dane są przechowywane w usłudze Azure Storage, a w przypadku przejścia w tryb failover uruchamiane są maszyny wirtualne platformy Azure. <br/><br/>Potrzebujesz [standardowego konta magazynu geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage). Konto musi znajdować się w tym samym regionie co usługa Site Recovery i musi być skojarzone z tą samą subskrypcją. Replikacja do konta magazynu w warstwie Premium obecnie nie jest obsługiwana i nie powinna być używana.<br/><br/>[Przeczytaj o](../storage/common/storage-introduction.md) usłudze Azure Storage. |
 | **Sieć platformy Azure** |Potrzebujesz sieci wirtualnej platformy Azure, z którą maszyny wirtualne Azure będą nawiązywać połączenie w przypadku przejścia w tryb failover. Sieć wirtualna platformy Azure musi znajdować się w tym samym regionie co magazyn usługi Site Recovery. |
 
 ## <a name="on-premises-prerequisites"></a>Lokalne wymagania wstępne

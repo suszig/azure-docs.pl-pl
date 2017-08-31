@@ -14,16 +14,16 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6b21f38ddd64278db26d7042349470805b799203
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Role Sieć Web i Proces roboczy języka Python z programem Python Tools for Visual Studio
 
-Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy języka Python za pomocą narzędzi [Python Tools for Visual Studio][Python Tools for Visual Studio]. Dowiesz się, jak używać programu Visual Studio do tworzenia i wdrażania podstawowej usługi w chmurze, która używa języka Python.
+Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy języka Python za pomocą narzędzi [Python Tools for Visual Studio][Python Tools for Visual Studio]. Dowiedz się, jak używać programu Visual Studio do tworzenia i wdrażania podstawowej usługi w chmurze, która używa języka Python.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Program Visual Studio w wersji 2013, 2015 lub 2017](https://www.visualstudio.com/)
@@ -36,13 +36,13 @@ Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Co to są role Sieć Web i Proces roboczy języka Python?
-Platforma Azure udostępnia trzy modele obliczeniowe na potrzeby uruchamiania aplikacji: [funkcja Web Apps w usłudze Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] i [Azure Cloud Services][execution model-cloud services]. Wszystkie trzy modele obsługują język Python. Usługi Cloud Services, które obejmują role Sieć Web i Proces roboczy, udostępniają rozwiązanie typu *Platforma jako usługa (Platform as a Service, PaaS)*. W ramach usługi w chmurze rola Sieć Web zapewnia dedykowany serwer sieci Web usług Internet Information Services (IIS), podczas gdy rola Proces roboczy może uruchamiać asynchroniczne, długotrwałe lub ciągłe zadania niezależne od działań użytkownika lub danych wejściowych.
+Platforma Azure udostępnia trzy modele obliczeniowe na potrzeby uruchamiania aplikacji: [funkcja Web Apps w usłudze Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] i [Azure Cloud Services][execution model-cloud services]. Wszystkie trzy modele obsługują język Python. Usługi Cloud Services, które obejmują role Sieć Web i Proces roboczy, udostępniają rozwiązanie typu *Platforma jako usługa (Platform as a Service, PaaS)*. W ramach usługi w chmurze rola internetowa zapewnia dedykowany serwer internetowy usług Internet Information Services (IIS), natomiast rola procesu roboczego może uruchamiać asynchroniczne, długotrwałe lub ciągłe zadania niezależne od działań użytkownika lub danych wejściowych.
 
 Aby uzyskać więcej informacji, zobacz [Co to jest usługa w chmurze?]
 
 > [!NOTE]
 > *Chcesz utworzyć prostą witrynę sieci Web?*
-> Jeśli scenariusz obejmuje tylko prosty fronton witryny sieci Web, rozważ użycie lekkiej funkcji Web Apps w usłudze App Service. Możesz łatwo przeprowadzić uaktualnienie do usługi w chmurze w przypadku rozwoju witryny sieci Web lub zmiany wymagań. W <a href="/develop/python/">Centrum deweloperów języka Python</a> można znaleźć artykuły, które dotyczą funkcji Web Apps w usłudze App Service.
+> Jeśli scenariusz obejmuje tylko prosty fronton witryny internetowej, rozważ użycie lekkiej funkcji Web Apps w usłudze App Service. Możesz łatwo przeprowadzić uaktualnienie do usługi w chmurze w przypadku rozwoju witryny sieci Web lub zmiany wymagań. W <a href="/develop/python/">Centrum deweloperów języka Python</a> można znaleźć artykuły, które dotyczą funkcji Web Apps w usłudze App Service.
 > <br />
 > 
 > 
@@ -56,7 +56,7 @@ W Kreatorze usługi w chmurze platformy Azure można utworzyć nowe role Sieć W
 
 ![Okno dialogowe Usługa w chmurze platformy Azure](./media/cloud-services-python-ptvs/new-service-wizard.png)
 
-Szablon roli Proces roboczy zawiera schematyczny kod służący do nawiązywania połączenia z kontem magazynu Azure lub z usługą Azure Service Bus.
+Szablon roli procesu roboczego zawiera schematyczny kod służący do nawiązywania połączeń z kontem magazynu Azure lub z usługą Azure Service Bus.
 
 ![Rozwiązanie usługi w chmurze](./media/cloud-services-python-ptvs/worker.png)
 
@@ -72,7 +72,7 @@ Usługa w chmurze może zawierać role zaimplementowane w różnych językach.  
 > 
 > 
 
-Główny problem ze skryptami instalacji polega na tym, że nie instalują one języka Python. Najpierw należy zdefiniować dwa [zadania uruchamiania](cloud-services-startup-tasks.md) w pliku [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). Pierwsze zadanie (**PrepPython.ps1**) pobiera i instaluje środowiska uruchomieniowe języka Python. Drugie zadanie (**PipInstaller.ps1**) uruchamia mechanizm pip, aby zainstalować wszystkie zależności.
+Główny problem ze skryptami instalacji polega na tym, że nie instalują one środowiska Python. Najpierw należy zdefiniować dwa [zadania uruchamiania](cloud-services-startup-tasks.md) w pliku [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). Pierwsze zadanie (**PrepPython.ps1**) pobiera i instaluje środowiska uruchomieniowe języka Python. Drugie zadanie (**PipInstaller.ps1**) uruchamia mechanizm pip, aby zainstalować wszystkie zależności.
 
 Poniższe skrypty zostały napisane dla języka Python 3.5. Jeśli chcesz korzystać z wersji 2.x języka Python, ustaw plik zmiennej **PYTHON2** na **on** dla dwóch zadań uruchamiania i zadania środowiska uruchomieniowego: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
@@ -101,7 +101,7 @@ Poniższe skrypty zostały napisane dla języka Python 3.5. Jeśli chcesz korzys
 </Startup>
 ```
 
-Należy dodać zmienne **PYTHON2** i **PYPATH** do zadania uruchamiania procesu roboczego. Zmienna **PYPATH** jest używana tylko wtedy, gdy zmienna **PYTHON2** jest ustawiona na wartość **on**.
+Zmienne **PYTHON2** i **PYPATH** muszą zostać dodane do zadania uruchamiania procesu roboczego. Zmienna **PYPATH** jest używana tylko wtedy, gdy zmienna **PYTHON2** jest ustawiona na wartość **on**.
 
 ```xml
 <Runtime>
@@ -170,7 +170,7 @@ Należy dodać zmienne **PYTHON2** i **PYPATH** do zadania uruchamiania procesu 
 Następnie należy utworzyć pliki **PrepPython.ps1** i **PipInstaller.ps1** w folderze **./bin** roli użytkownika.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Ten skrypt instaluje język Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, zostanie zainstalowany język Python 2.7. W przeciwnym razie zostanie zainstalowany język Python 3.5.
+Ten skrypt instaluje język Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest zainstalowane środowisko Python 2.7. W przeciwnym razie jest zainstalowane środowisko Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -216,7 +216,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Ten skrypt wywołuje kod pip i instaluje wszystkie zależności w pliku **requirements.txt**. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, używany jest język Python 2.7. W przeciwnym razie używany jest język Python 3.5.
+Ten skrypt wywołuje kod pip i instaluje wszystkie zależności w pliku **requirements.txt**. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest używane środowisko Python 2.7. W przeciwnym razie jest używane środowisko Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -251,7 +251,7 @@ if (-not $is_emulated){
 
 Skrypt **Bin\LaunchWorker.ps1** pierwotnie został utworzony w celu wykonywania działań przygotowawczych, ale w praktyce nie działa. Zastąp zawartość tego pliku następującym skryptem.
 
-Ten skrypt wywołuje plik **worker.py** z projektu języka Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, używany jest język Python 2.7. W przeciwnym razie używany jest język Python 3.5.
+Ten skrypt wywołuje plik **worker.py** z projektu języka Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest używane środowisko Python 2.7. W przeciwnym razie jest używane środowisko Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -305,7 +305,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 ## <a name="run-locally"></a>Uruchamianie lokalnie
 Jeśli ustawisz projekt usługi w chmurze jako projekt startowy i naciśniesz klawisz F5, usługa w chmurze zostanie uruchomiona w lokalnym emulatorze platformy Azure.
 
-Mimo że program PTVS obsługuje uruchamianie w emulatorze, debugowanie nie będzie działać (dotyczy to na przykład punktów przerwania).
+Mimo że program PTVS obsługuje uruchamianie w emulatorze, debugowanie nie działa (dotyczy to na przykład punktów przerwania).
 
 Aby debugować role Sieć Web i Proces roboczy, możesz ustawić projekt roli jako projekt startowy i debugować go zamiast ról.  Można również ustawić wiele projektów startowych.  Kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Ustaw projekty startowe**.
 
@@ -320,21 +320,21 @@ Postępuj zgodnie z poleceniami kreatora. Jeśli trzeba, włącz pulpit zdalny. 
 
 Po zakończeniu konfigurowania ustawień kliknij pozycję **Publikuj**.
 
-W oknie danych wyjściowych będzie wyświetlany postęp, a następnie zostanie wyświetlone okno Dziennik aktywności platformy Microsoft Azure.
+W oknie danych wyjściowych jest wyświetlany postęp, a następnie zostanie wyświetlone okno Dziennik aktywności platformy Microsoft Azure.
 
 ![Okno Dziennik aktywności platformy Microsoft Azure](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
-Wdrożenie potrwa kilka minut, a następnie role Sieć Web i/lub Proces roboczy będą działały na platformie Azure!
+Wdrożenie potrwa kilka minut, a następnie rola internetowa i/lub procesu roboczego będą działać na platformie Azure.
 
 ### <a name="investigate-logs"></a>Sprawdzanie dzienników
-Po uruchomieniu maszyny wirtualnej usługi w chmurze i zainstalowaniu języka Python można sprawdzić dzienniki pod kątem komunikatów o błędach. Te dzienniki znajdują się w folderze **C:\Resources\Directory\\{rola}\LogFiles**. Plik **PrepPython.err.txt** będzie zawierał co najmniej jeden błąd, jeśli skrypt próbuje wykryć instalację języka Python, a plik **PipInstaller.err.txt** może zgłaszać błąd nieaktualnej wersji kodu pip.
+Po uruchomieniu maszyny wirtualnej usługi w chmurze i zainstalowaniu języka Python można sprawdzić dzienniki pod kątem komunikatów o błędach. Te dzienniki znajdują się w folderze **C:\Resources\Directory\\{rola}\LogFiles**. Plik **PrepPython.err.txt** zawiera co najmniej jeden błąd zwracany, gdy skrypt próbuje wykryć instalację środowiska Python, a plik **PipInstaller.err.txt** może zgłaszać błąd nieaktualnej wersji kodu pip.
 
 ## <a name="next-steps"></a>Następne kroki
 Bardziej szczegółowe informacje na temat pracy z rolami Sieć Web i Proces roboczy w ramach programu Python Tools for Visual Studio zawiera dokumentacja programu PTVS:
 
 * [Projekty usługi w chmurze][Cloud Service Projects]
 
-Więcej szczegółów dotyczących korzystania z usług Azure na podstawie ról Sieć Web i Proces roboczy, czyli na przykład używanie usługi Azure Storage lub Service Bus, można znaleźć w następujących artykułach.
+Więcej szczegółów dotyczących korzystania z usług Azure na podstawie roli internetowej i roli procesu roboczego, na przykład używania usługi Azure Storage lub Service Bus, można znaleźć w następujących artykułach:
 
 * [Blob Service][Blob Service]
 * [Table Service][Table Service]
@@ -350,9 +350,9 @@ Więcej szczegółów dotyczących korzystania z usług Azure na podstawie ról 
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
-[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
+[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 144f4ea213b8ed0a3530495e185f489155c474c9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Typy adresów IP i metody alokacji na platformie Azure
@@ -36,7 +35,7 @@ Do zasobów platformy Azure można przypisać adresy IP w celu komunikowania si�
 Jeśli znasz klasyczny model wdrażania, sprawdź [różnice w adresowaniu IP między wersją klasyczną i usługą Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
 ## <a name="public-ip-addresses"></a>Publiczne adresy IP
-Publiczne adresy IP umożliwiają zasobom platformy Azure komunikację z Internetem i publicznymi usługami Azure, takimi jak [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) [SQL Database](../sql-database/sql-database-technical-overview.md) i [Azure Storage](../storage/storage-introduction.md).
+Publiczne adresy IP umożliwiają zasobom platformy Azure komunikację z Internetem i publicznymi usługami Azure, takimi jak [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) [SQL Database](../sql-database/sql-database-technical-overview.md) i [Azure Storage](../storage/common/storage-introduction.md).
 
 W usłudze Azure Resource Manager [publiczny adres IP](resource-groups-networking.md#public-ip-address) jest zasobem, który ma własne właściwości. Zasób publicznego adresu IP możesz powiązać z dowolnym z poniższych zasobów:
 

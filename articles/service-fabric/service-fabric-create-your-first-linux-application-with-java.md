@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie aplikacji Java z elementami Reliable Actors usługi Azure Service Fabric w systemie Linux | Microsoft Docs"
+title: "Tworzenie aplikacji Java z interfejsem Reliable Actors usługi Azure Service Fabric w systemie Linux | Microsoft Docs"
 description: "Dowiedz się, jak utworzyć i wdrożyć aplikację Java z elementami Reliable Actors usługi Service Fabric w ciągu pięciu minut."
 services: service-fabric
 documentationcenter: java
@@ -12,34 +12,67 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 08/23/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 254f38a600ea4026120bc411368eeb01310e56b2
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: baf948587ede31fe3d5b4f6f0981269b4cfe4d3d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Tworzenie pierwszej aplikacji Java z elementami Reliable Actors usługi Service Fabric w systemie Linux
+# <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Tworzenie pierwszej aplikacji Java z interfejsem Reliable Actors usługi Service Fabric w systemie Linux
+> [!div class="op_single_selector"]
+> * [C# — Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+> * [Java — Linux](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# — Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+>
+>
 
-Ten przewodnik Szybki start pomaga utworzyć w ciągu kilku minut pierwszą aplikację Java usługi Azure Service Fabric w środowisku deweloperskim systemu Linux.  W wyniku pracy z przewodnikiem zostanie utworzona prosta jednousługowa aplikacja Java uruchamiana w lokalnym klastrze projektowym.  
+Ten przewodnik Szybki start pomaga w ciągu kilku minut utworzyć pierwszą aplikację Java usługi Azure Service Fabric w środowisku projektowym w systemie Linux.  W wyniku pracy z przewodnikiem zostanie utworzona prosta jednousługowa aplikacja Java uruchamiana w lokalnym klastrze projektowym.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed rozpoczęciem zainstaluj zestaw SDK usługi Service Fabric oraz interfejs wiersza polecenia platformy Azure i skonfiguruj klaster projektowy w [środowisku deweloperskim systemu Linux](service-fabric-get-started-linux.md). Jeśli używasz systemu Mac OS X, możesz [skonfigurować środowisko deweloperskie systemu Linux na maszynie wirtualnej za pomocą narzędzia Vagrant](service-fabric-get-started-mac.md).
+Przed rozpoczęciem zainstaluj zestaw SDK usługi Service Fabric oraz interfejs wiersza polecenia usługi Service Fabric i skonfiguruj klaster projektowy w [środowisku projektowym w systemie Linux](service-fabric-get-started-linux.md). Jeśli używasz systemu Mac OS X, możesz [skonfigurować środowisko deweloperskie systemu Linux na maszynie wirtualnej za pomocą narzędzia Vagrant](service-fabric-get-started-mac.md).
 
-Możesz też skonfigurować [interfejs wiersza polecenia platformy Azure 2.0](service-fabric-azure-cli-2-0.md) (zalecane) lub [interfejs wiersza polecenia XPlat](service-fabric-azure-cli.md) na potrzeby wdrażania aplikacji.
+Trzeba również zainstalować [interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md).
+
+### <a name="install-and-set-up-the-generators-for-java"></a>Instalowanie i konfigurowanie generatorów dla języka Java
+Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletu, które ułatwiają tworzenie aplikacji Java usługi Service Fabric z poziomu terminalu przy użyciu generatora szablonów Yeoman. Wykonaj poniższe kroki, aby upewnić się, że generator szablonów Yeoman usługi Service Fabric dla języka Java działa na Twojej maszynie.
+1. Zainstaluj środowisko NodeJs i menedżera NPM na swojej maszynie
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Zainstaluj generator szablonów [narzędzia Yeoman](http://yeoman.io/) na swoim komputerze z poziomu narzędzia NPM
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Zainstaluj generator aplikacji Java Yeo usługi Service Fabric z poziomu menedżera NPM
+
+  ```bash
+  sudo npm install -g generator-azuresfjava
+  ```
 
 ## <a name="create-the-application"></a>Tworzenie aplikacji
-Aplikacja usługi Service Fabric zawiera jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Zestaw SDK usługi Service Fabric dla systemu Linux zawiera generator [Yeoman](http://yeoman.io/), który ułatwia tworzenie pierwszej usługi i dodawanie kolejnych w przyszłości.  Możesz też tworzyć, kompilować i wdrażać aplikacje Java usługi Service Fabric przy użyciu wtyczki dla środowiska Eclipse. Zobacz [Create and deploy your first Java application using Eclipse](service-fabric-get-started-eclipse.md) (Tworzenie i wdrażanie pierwszej aplikacji Java za pomocą środowiska Eclipse). Na potrzeby tego przewodnika Szybki start użyj narzędzia Yeoman, aby utworzyć aplikację z jedną usługą, w której jest przechowywana i pobierana wartość licznika.
+Aplikacja usługi Service Fabric zawiera jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Generator, który został zainstalowany w ostatniej sekcji, ułatwia utworzenie pierwszej usługi i dodawanie kolejnych w przyszłości.  Możesz też tworzyć, kompilować i wdrażać aplikacje Java usługi Service Fabric przy użyciu wtyczki dla środowiska Eclipse. Zobacz [Create and deploy your first Java application using Eclipse](service-fabric-get-started-eclipse.md) (Tworzenie i wdrażanie pierwszej aplikacji Java za pomocą środowiska Eclipse). Na potrzeby tego przewodnika Szybki start użyj narzędzia Yeoman, aby utworzyć aplikację z jedną usługą, w której jest przechowywana i pobierana wartość licznika.
 
 1. Na terminalu wpisz ``yo azuresfjava``.
-2. Nadaj nazwę aplikacji. 
+2. Nadaj nazwę aplikacji.
 3. Wybierz typ pierwszej usługi i nadaj jej nazwę. Na potrzeby tego samouczka wybierz usługę Reliable Actor Service. Aby uzyskać więcej informacji o pozostałych typach usług, zobacz [Service Fabric programming model overview](service-fabric-choose-framework.md) (Omówienie modelu programowania usługi Service Fabric).
    ![Generator Yeoman usługi Service Fabric dla platformy Java][sf-yeoman]
 
 ## <a name="build-the-application"></a>Kompilowanie aplikacji
-Szablony generatora Yeoman usługi Service Fabric obejmują skrypt kompilacji dla narzędzia [Gradle](https://gradle.org/), którego można użyć do skompilowania aplikacji z poziomu terminalu. Aby skompilować aplikację i utworzyć jej pakiet, uruchom następujące polecenie:
+Szablony generatora Yeoman usługi Service Fabric obejmują skrypt kompilacji dla narzędzia [Gradle](https://gradle.org/), którego można użyć do skompilowania aplikacji z poziomu terminalu.
+Zależności aplikacji Java usługi Service Fabric są pobierane z narzędzia Maven. Aby kompilować aplikacje Java usługi Service Fabric i pracować nad nimi, upewnij się, że zainstalowano zestaw JDK i narzędzie Gradle. Jeśli ich jeszcze nie zainstalowano, możesz uruchomić następujące polecenia, aby zainstalować zestaw JDK (openjdk-8-jdk) i narzędzie Gradle:
+
+  ```bash
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+  ```
+
+Aby skompilować aplikację i utworzyć jej pakiet, uruchom następujące polecenie:
 
   ```bash
   cd myapp
@@ -49,12 +82,10 @@ Szablony generatora Yeoman usługi Service Fabric obejmują skrypt kompilacji dl
 ## <a name="deploy-the-application"></a>Wdrażanie aplikacji
 Skompilowaną aplikację można wdrożyć w klastrze lokalnym.
 
-### <a name="using-xplat-cli"></a>Korzystanie z interfejsu wiersza polecenia XPlat
-
 1. Połącz się z lokalnym klastrem usługi Service Fabric.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. Uruchom skrypt instalacji udostępniony w szablonie, aby skopiować pakiet aplikacji do magazynu obrazów klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
@@ -63,9 +94,7 @@ Skompilowaną aplikację można wdrożyć w klastrze lokalnym.
     ./install.sh
     ```
 
-### <a name="using-azure-cli-20"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure 2.0
-
-Wdrażanie skompilowanej aplikacji przebiega tak samo jak w przypadku innych aplikacji usługi Service Fabric. Szczegółowe instrukcje są dostępne w dokumentacji dotyczącej [zarządzania aplikacją usługi Service Fabric za pomocą interfejsu wiersza polecenia platformy Azure](service-fabric-application-lifecycle-azure-cli-2-0.md).
+Wdrażanie skompilowanej aplikacji przebiega tak samo jak w przypadku innych aplikacji usługi Service Fabric. Szczegółowe instrukcje są dostępne w dokumentacji dotyczącej [zarządzania aplikacją usługi Service Fabric za pomocą interfejsu wiersza polecenia usługi Service Fabric](service-fabric-application-lifecycle-sfctl.md).
 
 Parametry tych poleceń można znaleźć w manifestach wygenerowanych w pakiecie aplikacji.
 
@@ -97,17 +126,104 @@ Użyj skryptu odinstalowania udostępnionego w szablonie, aby usunąć wystąpie
 
 W narzędziu Service Fabric Explorer aplikacja i typ aplikacji nie są już wyświetlane w węźle **Aplikacje**.
 
+## <a name="service-fabric-java-libraries-on-maven"></a>Biblioteki Java usługi Service Fabric w narzędziu Maven
+Biblioteki Java usługi Service Fabric są teraz hostowane w narzędziu Maven. Zależności możesz dodać w pliku ``pom.xml`` lub ``build.gradle`` projektów, aby używać bibliotek Java usługi Service Fabric z repozytorium **mavenCentral**.
+
+### <a name="actors"></a>Aktorzy
+
+Obsługa interfejsu Reliable Actors usługi Service Fabric dla Twojej aplikacji.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-actors-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+  }
+  ```
+
+### <a name="services"></a>Usługi
+
+Obsługa usługi bezstanowej usługi Service Fabric dla Twojej aplikacji.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-services-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+  }
+  ```
+
+### <a name="others"></a>Inne
+#### <a name="transport"></a>Transport
+
+Obsługa warstwy transportowej dla aplikacji Java usługi Service Fabric. Nie trzeba jawnie dodawać tej zależności do aplikacji Reliable Actors lub aplikacji usługi, chyba że programujesz w warstwie transportowej.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-transport-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+  }
+  ```
+
+#### <a name="fabric-support"></a>Obsługa usługi Service Fabric
+
+Obsługa na poziomie systemu dla usługi Service Fabric, która komunikuje się z natywnym środowiskiem uruchomieniowym usługi Service Fabric. Nie trzeba jawnie dodawać tej zależności do aplikacji Reliable Actors lub aplikacji usługi. Jest ona automatycznie pobierana z narzędzia Maven, kiedy uwzględnisz pozostałe powyższe zależności.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+  }
+  ```
+
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migrowanie starych aplikacji Java usługi Service Fabric na potrzeby użycia z narzędziem Maven
+Ostatnio przenieśliśmy biblioteki Java usługi Service Fabric z zestawu SDK Java usługi Service Fabric do repozytorium narzędzia Maven. Nowe aplikacje generowane za pomocą narzędzia Yeoman lub środowiska Eclipse będą generować najnowsze, zaktualizowane projekty (mogące działać z narzędziem Maven), ale możesz zaktualizować swoje istniejące bezstanowe aplikacje Java lub aplikacje Java aktora usługi Service Fabric, które wcześniej korzystały z zestawu SDK Java usługi Service Fabric, aby używały zależności języka Java usługi Service Fabric z narzędzia Maven. Wykonaj kroki wymienione [tutaj](service-fabric-migrate-old-javaapp-to-use-maven.md), aby zapewnić działanie Twojej starszej aplikacji z narzędziem Maven.
+
 ## <a name="next-steps"></a>Następne kroki
+
 * [Tworzenie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu środowiska Eclipse](service-fabric-get-started-eclipse.md)
 * [Dowiedz się więcej o usłudze Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interakcja z klastrami usługi Service Fabric przy użyciu interfejsu wiersza polecenia platformy Azure](service-fabric-azure-cli.md)
-* [Rozwiązywanie problemów z wdrażaniem](service-fabric-azure-cli.md#troubleshooting)
+* [Interact with Service Fabric clusters using the Service Fabric CLI (Interakcja z klastrami usługi Service Fabric przy użyciu interfejsu wiersza polecenia usługi Service Fabric)](service-fabric-cli.md)
 * Uzyskaj informacje o [opcjach pomocy technicznej usługi Service Fabric](service-fabric-support.md)
-
-## <a name="related-articles"></a>Pokrewne artykuły:
-
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (Wprowadzenie do usługi Service Fabric i interfejsu wiersza polecenia platformy Azure 2.0)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md) (Wprowadzenie do interfejsu wiersza polecenia XPlat usługi Service Fabric)
+* [Getting started with Service Fabric CLI (Wprowadzenie do interfejsu wiersza polecenia usługi Service Fabric)](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

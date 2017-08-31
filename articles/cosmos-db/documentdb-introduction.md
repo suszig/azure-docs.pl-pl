@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a8854c0f6313238ee846ad1c537d23d8fd20c66f
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Wprowadzenie do usługi Azure Cosmos DB: interfejs API usługi DocumentDB
@@ -48,6 +48,8 @@ Usługa Azure Cosmos DB, przy użyciu interfejsu API usługi DocumentDB, oferuje
 * **Celowa ogólnodostępność**: można szybko rozpocząć pracę, wykorzystując posiadane umiejętności i narzędzia. Programowanie w oparciu o interfejs API usługi DocumentDB jest łatwe, przystępne i nie wymaga wdrażania nowych narzędzi ani niestandardowych rozszerzeń formatu JSON czy języka JavaScript. Możesz uzyskać dostęp do wszystkich funkcji bazy danych, w tym operacji CRUD, zapytań i przetwarzania języka JavaScript przy użyciu prostego interfejsu RESTful protokołu HTTP. Interfejs API usługi DocumentDB wykorzystuje istniejące formaty, języki i standardy, jednocześnie oferując oparte na nich i zapewniające wysoką wartość możliwości bazy danych.
 
 * **Automatyczne indeksowanie:** domyślnie usługa Azure Cosmos DB automatycznie indeksuje wszystkie dokumenty w bazie danych i nie oczekuje ani nie wymaga żadnego schematu lub tworzenia indeksów pomocniczych. Nie chcesz indeksować wszystkiego? Nie martw się, możesz również [zrezygnować ze ścieżki plików JSON](indexing-policies.md).
+
+* **Obsługa kanału informacyjnego zmian:** Kanał informacyjny zmian zapewnia posortowaną listę dokumentów w ramach kolekcji usługi Azure Cosmos DB w kolejności, w której zostały zmodyfikowane. Ten kanał informacyjny może służyć do nasłuchiwania pod kątem modyfikacji danych w celu replikowania danych, wyzwalania wywołań interfejsu API lub wykonywania przetwarzania strumienia względem aktualizacji. Kanał informacyjny zmian jest automatycznie włączany i łatwy w użyciu: [dowiedz się więcej na temat kanału informacyjnego zmian](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
 ## <a name="data-management"></a>Jak zarządzać danymi przy użyciu interfejsu API usługi DocumentDB?
 Interfejs API usługi DocumentDB pomaga zarządzać danymi JSON za pomocą dobrze zdefiniowanych zasobów bazy danych. Te zasoby są replikowane w celu zapewnienia wysokiej dostępności i unikatowo adresowane przez ich logiczny identyfikator URI. Interfejs API usługi DocumentDB oferuje prosty model programowania RESTful oparty na protokole HTTP dla wszystkich zasobów. 

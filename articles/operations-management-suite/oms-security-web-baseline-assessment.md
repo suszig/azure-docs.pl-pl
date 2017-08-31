@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Ocena linii bazowej sieci Web w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
@@ -29,6 +29,9 @@ Ten dokument ułatwia korzystanie z funkcji oceny internetowej linii bazowej roz
 Obecnie rozwiązanie Zabezpieczenia w pakiecie OMS umożliwia ocenę podstawy linii bazowej zabezpieczeń systemów operacyjnych. Skanuje ono ustawienia systemu operacyjnego serwerów co 24 godziny i zapewnia wgląd w ich ustawienia, które mogą potencjalnie powodować zagrożenie. Przeczytaj artykuł [Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline), aby uzyskać więcej informacji na ten temat.
 
 Ocena internetowej linii bazowej ma na celu znalezienie ustawień serwera internetowego, które mogą potencjalnie powodować zagrożenie. Trzy podstawowe źródła konfiguracji linii bazowej sieci Web to konfiguracja platformy .NET, platformy ASP.NET i usług IIS.  Podobnie jak w przypadku oceny linii bazowej systemu operacyjnego rozwiązanie Zabezpieczenia w pakiecie OMS skanuje serwery sieci Web co 24 godziny i zapewnia wgląd w ich stan zabezpieczeń.  W przypadku usługi Internet Information Service (IIS) konfiguracje mogą być w znaczącym stopniu dostosowywane, co pozwala na zastępowanie różnych poziomów witryny i aplikacji. Skaner sprawdza ustawienia na każdym poziomie witryny/aplikacji oraz na domyślnym poziomie głównym. Pomaga to w identyfikacji ustawień, które mogą potencjalnie powodować zagrożenie, i szybkim ich korygowaniu zgodnie z naszymi zaleceniami dotyczącymi tych ustawień.
+
+>[!NOTE] 
+>Identyfikatory typowych konfiguracji i reguły linii bazowych używane przez rozwiązanie OMS Security możesz pobrać z tej [strony](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0).
 
 
 ## <a name="web-security-baseline-assessment"></a>Ocena internetowej linii bazowej zabezpieczeń

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
@@ -34,7 +34,7 @@ Usługi Analysis Services umożliwiają mieszanie i łączenie danych z wielu ź
 Zapoznaj się z [tym wideo](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4), aby dowiedzieć się, jak usługa Azure Analysis Services wpasowuje się w ogólne możliwości analizy biznesowej oferowane przez firmę Microsoft, i jak można skorzystać na przeniesieniu modeli danych do chmury.
 
 ## <a name="built-on-sql-server-analysis-services"></a>Powstałe na bazie usług SQL Server Analysis Services
-Usługi Azure Analysis Services są zgodne z wieloma wspaniałymi funkcjami, które już istnieją w usługach SQL Server Analysis Services Enterprise Edition. Usługi Azure Analysis Services obsługują modele tabelaryczne na [poziomach zgodności](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) 1200 i 1400. Obsługiwane są partycje, zabezpieczenia na poziomie wierszy, relacje dwukierunkowe i przekształcenia. Tryby W pamięci i DirectQuery oznaczają błyskawiczne przetwarzanie zapytań względem ogromnych, złożonych zestawów danych.
+Usługi Azure Analysis Services są zgodne z wieloma wspaniałymi funkcjami, które już istnieją w usługach SQL Server Analysis Services Enterprise Edition. Usługi Azure Analysis Services obsługują modele tabelaryczne na [poziomach zgodności](analysis-services-compat-level.md) 1200 i 1400. Obsługiwane są partycje, zabezpieczenia na poziomie wierszy, relacje dwukierunkowe i przekształcenia. Tryby W pamięci i DirectQuery oznaczają błyskawiczne przetwarzanie zapytań względem ogromnych, złożonych zestawów danych.
 
 Modele tabelaryczne oferują szybkie tworzenie rozwiązań i są wysoce dostosowywalne. Dla deweloperów modele tabelaryczne mają usługę TOM (Tabular Object Model) do opisywania obiektów modeli. Usługa TOM jest dostępna w pakiecie JSON za pośrednictwem języka [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) oraz języka definicji danych AMO w przestrzeni nazw [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Uruchamianie dowolnej aplikacji systemu Windows na dowolnym urządzeniu za pomocą usługi Azure RemoteApp
@@ -88,7 +88,7 @@ Pierwsza część musi zostać wykonana przez Ciebie jako administratora. Nastę
 1. Rozpocznij od opublikowania interfejsu wiersza polecenia (cmd.exe). Na karcie **Publishing** (Publikowanie) wybierz pozycję **cmd**, a następnie kliknij opcje **Publish > Publish program using path** (Publikuj > Publikuj program przy użyciu ścieżki).
 2. Wprowadź nazwę i ścieżkę aplikacji. W tym przypadku należy użyć nazwy „File Explorer” i ścieżki „% SYSTEMDRIVE%\windows\explorer.exe”.
    ![Opublikuj plik cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Teraz należy utworzyć [konto usługi Azure Storage](../storage/storage-create-storage-account.md). Nasze konto nazywa się „accessstorage” (magazyn programu Access) — należy wybrać nazwę znaczącą dla użytkownika. (Parafrazując bohatera filmu „Nieśmiertelny”, może istnieć tylko jedno konto „accessstorage”). ![Nasze konto usługi Azure Storage](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Teraz należy utworzyć [konto usługi Azure Storage](../storage/common/storage-create-storage-account.md). Nasze konto nazywa się „accessstorage” (magazyn programu Access) — należy wybrać nazwę znaczącą dla użytkownika. (Parafrazując bohatera filmu „Nieśmiertelny”, może istnieć tylko jedno konto „accessstorage”). ![Nasze konto usługi Azure Storage](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Teraz wróć do pulpitu nawigacyjnego, aby określić ścieżkę do magazynu (lokalizacji punktu końcowego). Będzie za chwilę potrzebna, dlatego skopiuj ją w poręczne miejsce.
    ![Ścieżka konta magazynu](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Po utworzeniu konta magazynu należy uzyskać podstawowy klucz dostępu. Kliknij pozycję **Manage access keys** (Zarządzaj kluczami dostępu), a następnie skopiuj podstawowy klucz dostępu.

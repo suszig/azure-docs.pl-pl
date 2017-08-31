@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 35b7e0a730d73f646462b9cde3c8bbabac4d7c67
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -33,6 +33,7 @@ Uruchomienie istniejącej aplikacji w kontenerze systemu Linux w klastrze usług
 * Komputer dewelopera z następującym oprogramowaniem:
   * [Zestaw SDK usługi Service Fabric oraz narzędzia](service-fabric-get-started-linux.md).
   * [Docker CE dla systemu Linux](https://docs.docker.com/engine/installation/#prior-releases). 
+  * [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
 
 * Rejestr w usłudze Azure Container Registry — [utwórz rejestr kontenera](../container-registry/container-registry-get-started-portal.md) w subskrypcji platformy Azure. 
 
@@ -201,12 +202,12 @@ gradle
 ```
 
 ## <a name="deploy-the-application"></a>Wdrażanie aplikacji
-Po skompilowaniu aplikację można wdrożyć w klastrze lokalnym za pomocą interfejsu wiersza polecenia platformy Azure.
+Po skompilowaniu aplikację można wdrożyć w klastrze lokalnym za pomocą interfejsu wiersza polecenia usługi Service Fabric.
 
 Połącz się z lokalnym klastrem usługi Service Fabric.
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://localhost:19080
 ```
 
 Użyj skryptu instalacji udostępnionego w szablonie, aby skopiować pakiet aplikacji do magazynu obrazów klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.

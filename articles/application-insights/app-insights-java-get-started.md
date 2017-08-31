@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 29e13b51e094047be07843ad3d865290be32446b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Wprowadzenie do usługi Application Insights w projekcie sieci Web w języku Java
@@ -387,7 +387,7 @@ Uzyskasz wykresy czasów odpowiedzi oraz powiadomienia e-mail w razie wyłączen
 * Zapisywanie [niestandardowych danych telemetrycznych](app-insights-api-custom-events-metrics.md) w celu śledzenia użycia w przeglądarce lub na serwerze.
 * Tworzenie [pulpitów nawigacyjnych](app-insights-dashboards.md) umożliwiających przygotowywanie kluczowych wykresów na potrzeby monitorowania systemu
 * Tworzenie zaawansowanych zapytań dotyczących telemetrii z poziomu aplikacji przy użyciu usługi [Analytics](app-insights-analytics.md)
-* Więcej informacji możesz znaleźć w [Centrum deweloperów języka Java](/develop/java/).
+* Aby uzyskać więcej informacji, odwiedź stronę [Azure dla deweloperów języka Java](/java/azure).
 
 <!--Link references-->
 

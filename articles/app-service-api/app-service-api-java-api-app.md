@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Tworzenie i wdrażanie aplikacji interfejsu API języka Java w usłudze Azure App Service
@@ -278,7 +277,7 @@ Aby poszerzyć wiedzę przyswojoną w tym przykładzie, możesz zapoznać się z
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Zobacz też
-Aby uzyskać więcej informacji o używaniu platformy Azure z językiem Java, zobacz [Azure Java Developer Center].
+Aby uzyskać więcej informacji o używaniu platformy Azure z językiem Java, odwiedź stronę [Azure dla deweloperów języka Java](/java/azure).
 
 <!-- URL List -->
 
@@ -294,7 +293,7 @@ Aby uzyskać więcej informacji o używaniu platformy Azure z językiem Java, zo
 [Microsoft Azure]: https://azure.microsoft.com/
 [Edytora Online programu Swagger]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Storage SDK for Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[Storage SDK for Java]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Edytora programu Swagger]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com

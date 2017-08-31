@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Wprowadzenie do platformy Apache Kafka w usłudze HDInsight (wersja zapoznawcza)
@@ -42,7 +42,7 @@ Platforma Kafka oferuje następujące funkcje:
 
 * Integracja z usługą Azure Managed Disks: usługa Managed Disks zapewnia wyższą skalowalność i przepływność dysków używanych przez maszyny wirtualne w klastrze usługi HDInsight.
 
-    Usługa Managed Disks jest włączana domyślnie dla platformy Kafka w usłudze HDInsight. Liczbę dysków używanych w każdym węźle można skonfigurować podczas tworzenia usługi HDInsight. Aby uzyskać więcej informacji o usłudze Managed Disks, zobacz artykuł [Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+    Usługa Managed Disks jest włączana domyślnie dla platformy Kafka w usłudze HDInsight. Liczbę dysków używanych w każdym węźle można skonfigurować podczas tworzenia usługi HDInsight. Aby uzyskać więcej informacji o usłudze Managed Disks, zobacz artykuł [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Aby uzyskać informacje dotyczące konfigurowania usługi Managed Disks na platformie Kafka w usłudze HDInsight, zobacz artykuł [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Zwiększanie skalowalności platformy Kafka w usłudze HDInsight).
 

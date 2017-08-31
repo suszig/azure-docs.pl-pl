@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Rozpoczynanie pracy z usługą SQL Data Warehouse
@@ -63,8 +62,7 @@ Magazyn danych SQL Data Warehouse to specjalny typ bazy danych zaprojektowany z 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Nowy** > **Bazy danych** > **SQL Data Warehouse**.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Wypełnij szczegóły dotyczące wdrożenia
 
@@ -84,8 +82,7 @@ Magazyn danych SQL Data Warehouse to specjalny typ bazy danych zaprojektowany z 
 
     **Wydajność instrukcji SELECT**: zalecamy pozostawienie standardowej wartości 400 jednostek DWU.
 
-4. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego**
-    ![Przypnij do pulpitu nawigacyjnego](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+4. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** ![Przypnij do pulpitu nawigacyjnego](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Zaczekaj na wdrożenie magazynu danych. Zwykle ten proces trwa kilka minut. W portalu zostanie wyświetlone powiadomienie, gdy magazyn danych będzie gotowy do użycia. 
 
@@ -657,7 +654,7 @@ Po zakończeniu eksplorowania pamiętaj, aby wstrzymać wystąpienie. W środowi
 
 [Migrowanie danych do usługi Azure SQL Data Warehouse][]
 
-[Współbieżność i zarządzanie obciążeniami]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Współbieżność i zarządzanie obciążeniami]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Najlepsze praktyki dotyczące korzystania z usługi Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Monitorowanie zapytań]: sql-data-warehouse-manage-monitor.md
 [10 najlepszych praktyk dotyczących tworzenia relacyjnego magazynu danych w dużej skali]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/

@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Zestawy skalowania maszyn wirtualnych platformy Azure i dołączone dyski danych
@@ -99,10 +99,21 @@ Dysk można również dodać przez dodanie nowego wpisu do właściwości _dataD
     }          
 ]
 ```
+
 Następnie wybierz pozycję _PUT_, aby zastosować zmiany do zestawu skalowania. Ten przykład sprawdzi się w przypadku korzystania z takiego rozmiaru maszyny wirtualnej, który zapewnia obsługę więcej niż dwóch dołączonych dysków danych.
 
 > [!NOTE]
 > Wprowadzenie w definicji zestawu skalowania zmiany, takiej jak dodanie lub usunięcie dysku danych, ma zastosowanie do wszystkich nowo utworzonych maszyn wirtualnych. Jeśli jednak właściwość _upgradePolicy_ jest ustawiona na wartość „Automatic”, zmiana zostaje zastosowana tylko do istniejących maszyn wirtualnych. W przypadku ustawionej wartości „Manual” należy natomiast ręcznie zastosować nowy model do istniejących maszyn wirtualnych. W tym celu można skorzystać z portalu i użyć polecenia _Update-AzureRmVmssInstance_ programu PowerShell bądź polecenia _az vmss update-instances_ interfejsu wiersza polecenia.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Dodawanie wstępnie wypełnionych dysków danych do istniejącego zestawu skalowania 
+> Podczas dodawania dysków do istniejącego modelu zestawu skalowania dysk zawsze zostanie utworzony jako pusty — jest to celowe. Ten scenariusz obejmuje także nowe wystąpienia utworzone przez zestaw skalowania. To zachowanie jest spowodowane obecnością pustego dysku danych w definicji zestawu skalowania. Aby utworzyć wstępnie wypełnione dyski danych dla istniejącego modelu zestawu skalowania, możesz wybrać dowolną z następujących dwóch opcji:
+
+* Skopiowanie danych z maszyny wirtualnej wystąpienia 0 na dyski danych w innych maszynach wirtualnych przy użyciu skryptu niestandardowego.
+* Utworzenie obrazu zarządzanego z dyskiem systemu operacyjnego oraz dyskiem danych (z wymaganymi danymi) i utworzenie nowego zestawu skalowania przy użyciu tego obrazu. W ten sposób każda nowa utworzona maszyna wirtualna będzie miała dysk danych podany w definicji zestawu skalowania. Ponieważ ta definicja będzie odwoływać się do obrazu z dyskiem danych zawierającym dostosowane dane, te zmiany zostaną automatycznie odwzorowane na każdej maszynie wirtualnej w zestawie skalowania.
+
+> Sposób tworzenia obrazu niestandardowego można znaleźć tutaj: [Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](/azure/virtual-machines/windows/capture-image-resource/) 
+
+> Użytkownik musi przechwycić maszynę wirtualną wystąpienia 0 zawierającą wymagane dane, a następnie utworzyć definicję obrazu przy użyciu tego wirtualnego dysku twardego.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Usuwanie dysku danych z zestawu skalowania
 Dysk danych można usunąć z zestawu skalowania maszyn wirtualnych przy użyciu polecenia _az vmss disk detach_ interfejsu wiersza polecenia platformy Azure. Na przykład następujące polecenie usuwa dysk zdefiniowany z numerem LUN 2:

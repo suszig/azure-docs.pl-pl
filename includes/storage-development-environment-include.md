@@ -39,9 +39,9 @@ Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 W przypadku uruchamiania przykładów w tym przewodniku istnieją dwie opcje środowiska:
 
 * Można uruchomić kod dla konta usługi Azure Storage w chmurze. 
-* Można uruchomić kod dla emulatora usługi Azure Storage. Emulator magazynu jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze. Emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Emulator używa dobrze znanego konta i klucza. Więcej informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania)
+* Można uruchomić kod dla emulatora usługi Azure Storage. Emulator magazynu jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze. Emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Emulator używa dobrze znanego konta i klucza. Więcej informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/common/storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania)
 
-Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy klucz dostępu dla konta magazynu z witryny Azure Portal. Aby uzyskać więcej informacji, zobacz temat [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Wyświetlanie i kopiowanie kluczy dostępu kopiowania).
+Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy klucz dostępu dla konta magazynu z witryny Azure Portal. Aby uzyskać więcej informacji, zobacz temat [View and copy storage access keys](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Wyświetlanie i kopiowanie kluczy dostępu kopiowania).
 
 > [!NOTE]
 > Na obiekt docelowy można wybrać emulator magazynu, aby uniknąć ponoszenia kosztów związanych z usługą Azure Storage. Jednak jeśli wybranym obiektem docelowym będzie konto usługi Azure Storage w chmurze, koszty związane z wykonaniem instrukcji w tym samouczku będą niewielkie.
@@ -51,7 +51,7 @@ Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy kluc
 ### <a name="configure-your-storage-connection-string"></a>Konfigurowanie parametrów połączenia magazynu
 Biblioteka klienta usługi Storage platformy Azure dla środowiska .NET obsługuje korzystanie z parametrów połączenia magazynu w celu konfiguracji punktów końcowych i poświadczeń w celu uzyskania dostępu do usług Storage. Najlepiej przechowywać parametry połączenia magazynu w pliku konfiguracji. 
 
-Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz temat [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md) (Konfigurowania parametrów połączenia z usługą Azure Storage).
+Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz temat [Configure a Connection String to Azure Storage](../articles/storage/common/storage-configure-connection-string.md) (Konfigurowania parametrów połączenia z usługą Azure Storage).
 
 > [!NOTE]
 > Klucz konta magazynu jest podobny do hasła głównego konta magazynu. Zawsze chroń klucz konta magazynu. Nie udostępniaj go innym użytkownikom, nie koduj go trwale ani nie zapisuj w zwykłym pliku tekstowym, do którego mają dostęp inne osoby. Wygeneruj ponownie klucz za pośrednictwem witryny Azure Portal, jeśli uważasz, że jego zabezpieczenia mogły zostać naruszone.

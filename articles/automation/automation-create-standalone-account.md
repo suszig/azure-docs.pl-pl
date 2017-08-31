@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 08/18/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 97b863748dd726e19217e360645b8e6189c010b3
-ms.lasthandoff: 04/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 6eadfb0c3f91c1f2c7783d70604b45d5dc9912a3
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -31,15 +32,16 @@ Po utworzeniu konta usługi Automation witryna Azure Portal automatycznie tworzy
 
 Upraszcza to proces i pomaga szybko rozpocząć tworzenie i wdrażanie elementów Runbook dla różnych potrzeb automatyzacji.  
 
+## <a name="permissions-required-to-create-automation-account"></a>Uprawnienia wymagane do utworzenia konta usługi Automation
+Aby utworzyć lub zaktualizować konto usługi Automation, musisz mieć następujące określone uprawnienia i uprawnienia wymagane do wykonania zadań opisanych w tym temacie.   
+ 
+* Przed utworzeniem konta usługi Automation konto użytkownika usługi AD musi zostać dodane do roli z uprawnieniami odpowiadającymi roli właściciela dla zasobów Microsoft.Automation w sposób opisany w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).  
+* Jeśli ustawienie Rejestracje aplikacji ma wartość **Tak**, użytkownicy inni niż administratorzy w dzierżawie usługi Azure AD mogą [rejestrować aplikacje usługi AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Jeśli wartością ustawienia rejestracji aplikacji jest **Nie**, użytkownik wykonujący tę akcję musi być administratorem globalnym w usłudze Azure AD. 
+
+Jeśli nie jesteś członkiem wystąpienia usługi Active Directory subskrypcji, przed dodaniem do roli administratora globalnego/współadministratora subskrypcji, dodamy Cię do usługi Active Directory jako gościa. W tej usłudze zobaczysz ostrzeżenie „Nie masz uprawnień do utworzenia...” w bloku **Dodawanie konta usługi Automation**. Użytkownicy, którzy najpierw zostali dodani do roli administratora globalnego/współadministratora, mogą zostać usunięci z wystąpienia usługi Active Directory dla subskrypcji i ponownie dodani, aby zostać pełnymi użytkownikami w usłudze Active Directory. Aby zweryfikować tę sytuację, w okienku **Azure Active Directory** w witrynie Azure Portal wybierz kolejno pozycje **Użytkownicy i grupy** i **Wszyscy użytkownicy**, a po wybraniu określonego użytkownika wybierz pozycję **Profil**. Wartość atrybutu **Typ użytkownika** na liście profilów użytkowników nie powinna być równa **Gość**.
+
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Tworzenie nowego konta usługi Automation w witrynie Azure Portal
 W tej części wykonaj poniższe kroki, aby utworzyć konto usługi Azure Automation w witrynie Azure Portal.    
-
->[!NOTE]
->Aby utworzyć konto usługi Automation, musisz być członkiem roli Administratorzy usługi lub współadministratorem subskrypcji, która udziela praw dostępu do subskrypcji. Musisz być również użytkownikiem dodanym do domyślnego wystąpienia usługi Active Directory tej subskrypcji. Konto nie musi mieć przypisanej roli uprzywilejowanej.
->
->Jeśli nie jesteś członkiem wystąpienia usługi Active Directory subskrypcji, to przed dodaniem do roli współadministratora subskrypcji, dodamy Cię do usługi Active Directory jako gościa. W tym wystąpieniu zobaczysz ostrzeżenie „Nie masz uprawnień do utworzenia...” w bloku **Dodawanie konta usługi Automation**.
->
->Użytkownicy dodani do roli współadministratora najpierw mogą zostać usunięci z wystąpienia usługi Active Directory dla subskrypcji i ponownie dodani, aby zostali pełnymi użytkownikami w usłudze Active Directory. Aby zweryfikować tę sytuację w okienku **Azure Active Directory** w witrynie Azure Portal wybierz kolejno pozycje **Użytkownicy i grupy** i **Wszyscy użytkownicy**, a po wybraniu określonego użytkownika wybierz pozycję **Profil**. Wartość atrybutu **Typ użytkownika** na liście profilów użytkowników nie powinna być równa **Gość**.
 
 1. Zaloguj się do witryny Azure Portal przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
 2. Kliknij przycisk **Nowy**.<br><br> ![Wybieranie opcji Nowy w witrynie Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
@@ -47,7 +49,7 @@ W tej części wykonaj poniższe kroki, aby utworzyć konto usługi Azure Automa
 3. W bloku Konta automatyzacji kliknij przycisk **Dodaj**.<br><br>![Dodawanie konta usługi Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
    
    > [!NOTE]
-   > Jeśli w bloku **Dodaj konto automatyzacji** widzisz poniższe ostrzeżenie, jest to spowodowane tym, że Twoje konto nie jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.<br><br>![Ostrzeżenie podczas dodawania konta usługi Automation](media/automation-create-standalone-account/create-account-without-perms.png)
+   > Jeśli w bloku **Dodawanie konta usługi Automation** znajduje się poniższe ostrzeżenie, jest to spowodowane tym, że Twoje konto nie jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.<br><br>![Ostrzeżenie podczas dodawania konta usługi Automation](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
    > 
 4. W bloku **Dodaj konto automatyzacji** w polu **Nazwa** wpisz nazwę nowego konta usługi Automation.
@@ -55,10 +57,10 @@ W tej części wykonaj poniższe kroki, aby utworzyć konto usługi Azure Automa
 6. Sprawdź, czy została wybrana wartość **Tak** dla opcji **Utwórz konto Azure Uruchom jako**, a następnie kliknij przycisk **Utwórz**.  
    
    > [!NOTE]
-   > Jeśli wybrano opcję **Nie**, aby nie tworzyć konta Uruchom jako, w bloku **Dodawanie konta usługi Automation** zostanie wyświetlony komunikat ostrzegawczy.  Gdy konto zostanie utworzone w portalu Azure, nie będzie ono miało odpowiedniej tożsamości uwierzytelniania w usłudze katalogowej subskrypcji klasycznej lub subskrypcji usługi Resource Manager i dlatego nie będzie miało dostępu do zasobów w ramach subskrypcji.  Zapobiegnie to sytuacji, w której wszelkie elementy Runbook odwołujące się do tego konta miałyby możliwość uwierzytelniania i wykonywania zadań w odniesieniu do zasobów w tych modelach wdrożenia.
+   > Jeśli wybrano opcję **Nie**, aby nie tworzyć konta Uruchom jako, w bloku **Dodawanie konta usługi Automation** zostanie wyświetlony komunikat ostrzegawczy.  Gdy konto zostanie utworzone w witrynie Azure Portal, nie ma odpowiedniej tożsamości uwierzytelniania w usłudze katalogowej subskrypcji klasycznej lub subskrypcji usługi Resource Manager i dlatego nie ma dostępu do zasobów w ramach subskrypcji.  Zapobiegnie to sytuacji, w której wszelkie elementy Runbook odwołujące się do tego konta miałyby możliwość uwierzytelniania i wykonywania zadań w odniesieniu do zasobów w tych modelach wdrożenia.
    > 
    > ![Ostrzeżenie podczas dodawania konta usługi Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
-   > Gdy nie została utworzona nazwa główna usługi, nie można przypisać roli Współautor.
+   > Jeśli nie została utworzona jednostka usługi, rola Współautor nie zostanie przypisana.
    > 
 
 7. W trakcie tworzenia konta usługi Automation na platformie Azure postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
@@ -86,4 +88,4 @@ Poniższa tabela zawiera podsumowanie zasobów dla klasycznego konta Uruchom jak
 ## <a name="next-steps"></a>Następne kroki
 * Aby dowiedzieć się więcej na temat tworzenia elementów graficznych, zobacz [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Tworzenie elementów graficznych w usłudze Azure Automation).
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
-* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [My first PowerShell workflow runbook (Mój pierwszy element Runbook przepływu pracy programu PowerShell) (automation-first-runbook-textual.md).
+* Aby rozpocząć pracę z elementami runbook przepływu pracy programu PowerShell, zobacz [Mój pierwszy element runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).

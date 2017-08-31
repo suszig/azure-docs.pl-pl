@@ -463,7 +463,7 @@ Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano
 
 ## <a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

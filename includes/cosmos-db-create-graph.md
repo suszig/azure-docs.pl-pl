@@ -11,7 +11,6 @@ Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby 
     Identyfikator grafu|sample-graph|Identyfikator nowego grafu. W przypadku nazw grafów obowiązują takie same wymagania dotyczące znaków, jak dla identyfikatorów baz danych.
     Pojemność magazynu| 10 GB|Pozostaw wartość domyślną. To jest pojemność magazynu bazy danych.
     Przepływność|400 jednostek żądania|Pozostaw wartość domyślną. Później możesz skalować przepływność, aby zmniejszyć opóźnienie.
-    RU/m|Wyłączone|Pozostaw wartość domyślną. 
     Klucz partycji|/userid|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybór odpowiedniego klucza partycji jest ważny w celu utworzenia wydajnego grafu. Więcej informacji zawiera temat [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Projektowanie pod kątem partycjonowania).
 
 3. Po wypełnieniu formularza kliknij przycisk **OK**.

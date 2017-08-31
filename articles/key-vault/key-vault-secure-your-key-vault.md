@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>Zabezpieczanie własnego magazynu kluczy
@@ -197,7 +197,7 @@ Zdefiniowaną rolę niestandardową można przypisać tylko do subskrypcji, w kt
 
 Przypisanie roli niestandardowej dla deweloperów/operatorów w przypadku uprawnienia „wdrażanie/akcja” obejmuje grupę zasobów. Dzięki temu tylko maszyny wirtualne utworzone w grupie zasobów ContosoAppRG uzyskają wpisy tajne (certyfikat SSL i certyfikat uruchamiania). Maszyny wirtualne, które członek zespołu deweloperów/operatorów utworzy w innej grupie zasobów, nie będą mogły pobrać tych wpisów tajnych, nawet jeśli znają identyfikatory URI wpisów tajnych.
 
-W tym przykładzie przedstawiono prosty scenariusz. Rzeczywiste scenariusze mogą być bardziej skomplikowane i wymagać dostosowania uprawnień do magazynu kluczy na podstawie własnych potrzeb. Na przykład w tym przykładzie przyjęto założenie, że zespół ds. zabezpieczeń udostępni odwołania do kluczy i wpisów tajnych (identyfikatory URI i odciski palca), do których zespół deweloperów/operatorów musi odwoływać się w swoich aplikacjach. W związku z tym nie trzeba udzielać deweloperom/operatorom żadnego dostępu do płaszczyzny danych. Należy również zauważyć, że ten przykład koncentruje się na zabezpieczaniu magazynu kluczy. Podobne uwagi dotyczą też zabezpieczania [maszyn wirtualnych](https://azure.microsoft.com/services/virtual-machines/security/), [kont magazynu](../storage/storage-security-guide.md) i innych zasobów platformy Azure.
+W tym przykładzie przedstawiono prosty scenariusz. Rzeczywiste scenariusze mogą być bardziej skomplikowane i wymagać dostosowania uprawnień do magazynu kluczy na podstawie własnych potrzeb. Na przykład w tym przykładzie przyjęto założenie, że zespół ds. zabezpieczeń udostępni odwołania do kluczy i wpisów tajnych (identyfikatory URI i odciski palca), do których zespół deweloperów/operatorów musi odwoływać się w swoich aplikacjach. W związku z tym nie trzeba udzielać deweloperom/operatorom żadnego dostępu do płaszczyzny danych. Należy również zauważyć, że ten przykład koncentruje się na zabezpieczaniu magazynu kluczy. Podobne uwagi dotyczą też zabezpieczania [maszyn wirtualnych](https://azure.microsoft.com/services/virtual-machines/security/), [kont magazynu](../storage/common/storage-security-guide.md) i innych zasobów platformy Azure.
 
 > [!NOTE]
 > Uwaga: W tym przykładzie pokazano, jak dostęp do magazynu kluczy będzie zabezpieczany (blokowany) w środowisku produkcyjnym. Deweloperzy powinni mieć swoją własną subskrypcję lub grupę zasobów, w której mają pełne uprawnienia do zarządzania swoimi magazynami, maszynami wirtualnymi i kontem magazynu, gdzie opracowują aplikacje.

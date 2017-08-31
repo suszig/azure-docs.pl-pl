@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Wprowadzenie do zestawu SDK usługi Batch dla języka Python
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/06/2017
 >
 >
 
-Artykuł zawiera podstawowe informacje dotyczące usługi [Azure Batch][azure_batch] i klienta usługi [Batch dla środowiska Python][py_azure_sdk] w oparciu o omówienie małej aplikacji usługi Batch napisanej w języku Python. Pokazano, jak dwa przykładowe skrypty używają usługi Batch do przetwarzania równoległego obciążenia na maszynach wirtualnych z systemem Linux w chmurze, a także jak wchodzą w interakcję z usługą [Azure Storage](../storage/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
+Artykuł zawiera podstawowe informacje dotyczące usługi [Azure Batch][azure_batch] i klienta usługi [Batch dla środowiska Python][py_azure_sdk] w oparciu o omówienie małej aplikacji usługi Batch napisanej w języku Python. Pokazano, jak dwa przykładowe skrypty używają usługi Batch do przetwarzania równoległego obciążenia na maszynach wirtualnych z systemem Linux w chmurze, a także jak wchodzą w interakcję z usługą [Azure Storage](../storage/common/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
 
 ![Przepływ pracy rozwiązania w usłudze Batch (podstawowy)][11]<br/>
 
@@ -42,7 +41,7 @@ W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Pyth
 ### <a name="accounts"></a>Konta
 * **Konto platformy Azure**: jeśli nie masz jeszcze subskrypcji platformy Azure, [utwórz bezpłatne konto platformy Azure][azure_free_account].
 * **Konto usługi Batch**: po uzyskaniu subskrypcji platformy Azure [utwórz konto usługi Azure Batch](batch-account-create-portal.md).
-* **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
+* **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/common/storage-create-storage-account.md).
 
 ### <a name="code-sample"></a>Przykład kodu
 [Przykład kodu][github_article_samples] z samouczka dotyczącego środowiska Python jest jednym z wielu przykładów kodów znajdujących się w repozytorium [azure-batch-samples][github_samples] w witrynie GitHub. Możesz pobrać wszystkie przykłady, klikając przycisk **Clone or download > Download ZIP** (Sklonuj lub pobierz > Pobierz plik ZIP) na stronie głównej repozytorium lub klikając bezpośredni link pobierania pliku [azure-batch-samples-master.zip][github_samples_zip]. Po wyodrębnieniu zawartości pliku ZIP dwa skrypty do tego samouczka znajdują się w katalogu `article_samples`:
@@ -153,7 +152,7 @@ if __name__ == '__main__':
 ![Tworzenie kontenerów w usłudze Azure Storage][1]
 <br/>
 
-Usługa Batch ma wbudowaną funkcję obsługi interakcji z usługą Azure Storage. Kontenery na koncie usługi Storage będą udostępniać pliki potrzebne zadaniom, które będą uruchamiane na koncie usługi Batch. Kontenery zapewniają również miejsce do przechowywania danych wyjściowych wytworzonych przez zadania. Najpierw skrypt *python_tutorial_client.py* tworzy trzy kontenery w usłudze [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
+Usługa Batch ma wbudowaną funkcję obsługi interakcji z usługą Azure Storage. Kontenery na koncie usługi Storage będą udostępniać pliki potrzebne zadaniom, które będą uruchamiane na koncie usługi Batch. Kontenery zapewniają również miejsce do przechowywania danych wyjściowych wytworzonych przez zadania. Najpierw skrypt *python_tutorial_client.py* tworzy trzy kontenery w usłudze [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage):
 
 * **aplikacja**: ten kontener będzie przechowywać skrypt języka Python uruchamiany przez podzadania *python_tutorial_task.py*.
 * **dane wejściowe**: podzadania będą pobierać pliki danych do przetwarzania z kontenera *dane wejściowe*.
@@ -183,7 +182,7 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą używane przez podzadania.
 
 > [!TIP]
-> Artykuł [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) (Jak korzystać z usługi Azure Blob Storage w środowisku Python) zawiera szczegółowe omówienie pracy z kontenerami i obiektami blob w usłudze Azure Storage. Powinna to być jedna z najważniejszych pozycji do przeczytania po rozpoczęciu pracy z usługą Batch.
+> Artykuł [How to use Azure Blob storage from Python](../storage/blobs/storage-python-how-to-use-blob-storage.md) (Jak korzystać z usługi Azure Blob Storage w środowisku Python) zawiera szczegółowe omówienie pracy z kontenerami i obiektami blob w usłudze Azure Storage. Powinna to być jedna z najważniejszych pozycji do przeczytania po rozpoczęciu pracy z usługą Batch.
 >
 >
 
@@ -277,7 +276,7 @@ Sygnatury dostępu współdzielonego to ciągi, które zapewniają bezpieczny do
 * **Sygnatura dostępu współdzielonego kontenera**: gdy poszczególne podzadania zakończą pracę w węźle obliczeniowym, przekażą pliki wyjściowe do kontenera *dane wyjściowe* w usłudze Azure Storage. W tym celu skrypt *python_tutorial_task.py* korzysta z sygnatury dostępu współdzielonego kontenera, która umożliwia zapis w kontenerze. Funkcja `get_container_sas_token` w skrypcie *python_tutorial_client.py* uzyskuje sygnaturę dostępu współdzielonego kontenera, która jest następnie przekazywana jako argument wiersza polecenia do podzadań. W kroku 5 [Dodawanie podzadań do zadania](#step-5-add-tasks-to-job) omówiono używanie sygnatury dostępu współdzielonego kontenera.
 
 > [!TIP]
-> Aby dowiedzieć się więcej o zapewnieniu bezpiecznego dostępu do danych na koncie usługi Storage, zapoznaj się z dwuczęściową serią dotyczącą sygnatur dostępu współdzielonego: [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Część 1: Opis modelu SAS) i [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md) (Część 2: Tworzenie i korzystanie z modelu SAS za pomocą usługi Blob). 
+> Aby dowiedzieć się więcej o zapewnieniu bezpiecznego dostępu do danych na koncie usługi Storage, zapoznaj się z dwuczęściową serią dotyczącą sygnatur dostępu współdzielonego: [Part 1: Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (Część 1: Opis modelu SAS) i [Part 2: Create and use a SAS with the Blob service](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) (Część 2: Tworzenie i korzystanie z modelu SAS za pomocą usługi Blob). 
 >
 >
 
