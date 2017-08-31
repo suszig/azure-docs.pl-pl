@@ -4,7 +4,7 @@ description: "Poznaj usługę Stream Analytics — zarządzaną usługę, która
 keywords: "analiza jako usługa, usługi zarządzane, przetwarzanie strumienia, stream analytics, co to jest stream analytics"
 services: stream-analytics
 documentationcenter: 
-author: jenniehubbard
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
-ms.author: jhubbard
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -98,6 +98,6 @@ Jako usługa zarządzana w chmurze usługa Stream Analytics pomaga uniknąć utr
 * Poznaj przeznaczony dla usługi Stream Analytics język zapytań przypominający SQL oraz unikatowe koncepcje, takie jak [funkcje okna](stream-analytics-window-functions.md).
 * Dowiedz się, jak [skalować zadania usługi Stream Analytics](stream-analytics-scale-jobs.md). 
 * Dowiedz się, jak [integrować usługi Stream Analytics i Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* Znajdź odpowiedzi na swoje pytania dotyczące usługi Stream Analytics na [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+* Znajdź odpowiedzi na swoje pytania dotyczące usługi Stream Analytics na [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 

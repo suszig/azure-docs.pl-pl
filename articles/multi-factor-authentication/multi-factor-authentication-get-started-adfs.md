@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 28aede545c738137ff04257214e4a3f42792d85c
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 564e98a4b6b9bd8bf9b58f06cee0027bfdf84458
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Wprowadzenie do usługi Azure Multi-Factor Authentication i usług Active Directory Federation Services
@@ -44,7 +43,6 @@ Zastrzeżenia dotyczące haseł aplikacji używanych przez użytkowników federa
 * Nie będzie można lokalnie rejestrować uwierzytelniania haseł aplikacji.
 * Wyłączenie/usunięcie konta przy użyciu narzędzia do synchronizacji katalogów może potrwać do 3 godzin, powodując opóźnienie wyłączenia/usunięcia haseł aplikacji w tożsamości w chmurze.
 
-## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje dotyczące konfigurowania usługi Azure Multi-Factor Authentication lub serwera usługi Azure Multi-Factor Authentication z usługami AD FS, zobacz poniższe artykuły:
 
 * [Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS](multi-factor-authentication-get-started-adfs-cloud.md)

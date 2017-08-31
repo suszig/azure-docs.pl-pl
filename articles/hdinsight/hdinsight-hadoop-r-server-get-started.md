@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 14e2a14c74e00709e18a80325fbdd3cbcd71da37
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Wprowadzenie do korzystania z oprogramowania R Server w usłudze HDInsight
@@ -342,32 +342,37 @@ Pamiętaj, że nowo dodani użytkownicy nie mają uprawnień użytkownika root w
 
 2. Powinny zostać wyświetlone dane wyjściowe podobne do następujących:
     
-    R version 3.2.2 (2015-08-14) — "Fire Safety"  Copyright (C) 2015 The R Foundation for Statistical Computing  Platform: x86_64-pc-linux-gnu (64-bit)
+        R version 3.2.2 (2015-08-14) -- "Fire Safety"
+        Copyright (C) 2015 The R Foundation for Statistical Computing
+        Platform: x86_64-pc-linux-gnu (64-bit)
 
-    Bezpłatne oprogramowanie R jest dostarczane BEZ ŻADNEJ GWARANCJI.
-    Zachęcamy do jego rozpowszechniania pod pewnymi warunkami.
-    Wpisz „license()” lub „licence()”, aby uzyskać szczegółowe informacje o dystrybucji.
+        R is free software and comes with ABSOLUTELY NO WARRANTY.
+        You are welcome to redistribute it under certain conditions.
+        Type 'license()' or 'licence()' for distribution details.
 
     Oprogramowanie obsługuje język naturalny, ale z angielskimi ustawieniami regionalnymi.
 
-    R jest projektem zbiorowym, zrzeszającym wielu uczestników.
-    Aby uzyskać więcej informacji, wpisz „contributors()”. Aby wyświetlić wskazówki dotyczące wskazywania elementów lub pakietów platformy R, wpisz „citation()”.
+        R is a collaborative project with many contributors.
+        Type 'contributors()' for more information and
+        'citation()' on how to cite R or R packages in publications.
 
-    Za pomocą polecenia „demo()” można wyświetlić prezentacje. Polecenie „help()” umożliwia uzyskanie pomocy online. Aby wyświetlić pomoc w przeglądarce z interfejsem HTML, wpisz „help.start()”.
-    Aby zamknąć środowisko R, wpisz „q()”.
+        Type 'demo()' for some demos, 'help()' for on-line help, or
+        'help.start()' for an HTML browser interface to help.
+        Type 'q()' to quit R.
 
-    Oprogramowanie Microsoft R Server w wersji 8.0: rozszerzona dystrybucja pakietów R firmy Microsoft. Copyright (C) 2016 Microsoft Corporation
+        Microsoft R Server version 8.0: an enhanced distribution of R
+        Microsoft packages Copyright (C) 2016 Microsoft Corporation
 
     Aby uzyskać informacje o wersji, wpisz „readme()”.
     >
 
 3. W monicie `>` możesz podać kod R. Oprogramowanie R Server zawiera pakiety, które umożliwiają łatwą współpracę z usługą Hadoop i uruchamianie rozproszonych obliczeń. Na przykład następujące polecenie umożliwia wyświetlenie katalogu głównego domyślnego systemu plików klastra usługi HDInsight:
 
-    rxHadoopListFiles("/")
+        rxHadoopListFiles("/")
 
 4. Dostępne jest także adresowanie w stylu WASB.
 
-    rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Używanie oprogramowania R Server w usłudze HDI ze zdalnego wystąpienia oprogramowania Microsoft R Server lub programu Microsoft R Client
